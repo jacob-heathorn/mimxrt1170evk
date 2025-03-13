@@ -54,7 +54,7 @@ union GPR0 {
 
   GPR0() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
-  static inline volatile GPR0 &Instance() { return *reinterpret_cast<volatile GPR0*>(0x40C0C000); }
+  static inline volatile GPR0 &ref() { return *reinterpret_cast<volatile GPR0*>(0x40C0C000); }
 };
 
 // GPR1 General Purpose Register
@@ -100,7 +100,7 @@ union GPR1 {
 
   GPR1() = delete;
   inline void Reset() volatile { this->value = 0x00000020; }
-  static inline volatile GPR1 &Instance() { return *reinterpret_cast<volatile GPR1*>(0x40C0C004); }
+  static inline volatile GPR1 &ref() { return *reinterpret_cast<volatile GPR1*>(0x40C0C004); }
 };
 
 // GPR2 General Purpose Register
@@ -128,7 +128,7 @@ union GPR2 {
 
   GPR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR2 &Instance() { return *reinterpret_cast<volatile GPR2*>(0x40C0C008); }
+  static inline volatile GPR2 &ref() { return *reinterpret_cast<volatile GPR2*>(0x40C0C008); }
 };
 
 // GPR3 General Purpose Register
@@ -156,7 +156,7 @@ union GPR3 {
 
   GPR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR3 &Instance() { return *reinterpret_cast<volatile GPR3*>(0x40C0C00C); }
+  static inline volatile GPR3 &ref() { return *reinterpret_cast<volatile GPR3*>(0x40C0C00C); }
 };
 
 // GPR4 General Purpose Register
@@ -184,7 +184,7 @@ union GPR4 {
 
   GPR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR4 &Instance() { return *reinterpret_cast<volatile GPR4*>(0x40C0C010); }
+  static inline volatile GPR4 &ref() { return *reinterpret_cast<volatile GPR4*>(0x40C0C010); }
 };
 
 // GPR5 General Purpose Register
@@ -212,7 +212,7 @@ union GPR5 {
 
   GPR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR5 &Instance() { return *reinterpret_cast<volatile GPR5*>(0x40C0C014); }
+  static inline volatile GPR5 &ref() { return *reinterpret_cast<volatile GPR5*>(0x40C0C014); }
 };
 
 // GPR6 General Purpose Register
@@ -240,7 +240,7 @@ union GPR6 {
 
   GPR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR6 &Instance() { return *reinterpret_cast<volatile GPR6*>(0x40C0C018); }
+  static inline volatile GPR6 &ref() { return *reinterpret_cast<volatile GPR6*>(0x40C0C018); }
 };
 
 // GPR7 General Purpose Register
@@ -268,7 +268,7 @@ union GPR7 {
 
   GPR7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR7 &Instance() { return *reinterpret_cast<volatile GPR7*>(0x40C0C01C); }
+  static inline volatile GPR7 &ref() { return *reinterpret_cast<volatile GPR7*>(0x40C0C01C); }
 };
 
 // GPR8 General Purpose Register
@@ -296,7 +296,7 @@ union GPR8 {
 
   GPR8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR8 &Instance() { return *reinterpret_cast<volatile GPR8*>(0x40C0C020); }
+  static inline volatile GPR8 &ref() { return *reinterpret_cast<volatile GPR8*>(0x40C0C020); }
 };
 
 // GPR9 General Purpose Register
@@ -324,7 +324,7 @@ union GPR9 {
 
   GPR9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR9 &Instance() { return *reinterpret_cast<volatile GPR9*>(0x40C0C024); }
+  static inline volatile GPR9 &ref() { return *reinterpret_cast<volatile GPR9*>(0x40C0C024); }
 };
 
 // GPR10 General Purpose Register
@@ -352,7 +352,7 @@ union GPR10 {
 
   GPR10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR10 &Instance() { return *reinterpret_cast<volatile GPR10*>(0x40C0C028); }
+  static inline volatile GPR10 &ref() { return *reinterpret_cast<volatile GPR10*>(0x40C0C028); }
 };
 
 // GPR11 General Purpose Register
@@ -380,7 +380,7 @@ union GPR11 {
 
   GPR11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR11 &Instance() { return *reinterpret_cast<volatile GPR11*>(0x40C0C02C); }
+  static inline volatile GPR11 &ref() { return *reinterpret_cast<volatile GPR11*>(0x40C0C02C); }
 };
 
 // GPR12 General Purpose Register
@@ -408,7 +408,7 @@ union GPR12 {
 
   GPR12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR12 &Instance() { return *reinterpret_cast<volatile GPR12*>(0x40C0C030); }
+  static inline volatile GPR12 &ref() { return *reinterpret_cast<volatile GPR12*>(0x40C0C030); }
 };
 
 // GPR13 General Purpose Register
@@ -436,7 +436,7 @@ union GPR13 {
 
   GPR13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR13 &Instance() { return *reinterpret_cast<volatile GPR13*>(0x40C0C034); }
+  static inline volatile GPR13 &ref() { return *reinterpret_cast<volatile GPR13*>(0x40C0C034); }
 };
 
 // GPR14 General Purpose Register
@@ -464,7 +464,7 @@ union GPR14 {
 
   GPR14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR14 &Instance() { return *reinterpret_cast<volatile GPR14*>(0x40C0C038); }
+  static inline volatile GPR14 &ref() { return *reinterpret_cast<volatile GPR14*>(0x40C0C038); }
 };
 
 // GPR15 General Purpose Register
@@ -492,7 +492,7 @@ union GPR15 {
 
   GPR15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR15 &Instance() { return *reinterpret_cast<volatile GPR15*>(0x40C0C03C); }
+  static inline volatile GPR15 &ref() { return *reinterpret_cast<volatile GPR15*>(0x40C0C03C); }
 };
 
 // GPR16 General Purpose Register
@@ -520,7 +520,7 @@ union GPR16 {
 
   GPR16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR16 &Instance() { return *reinterpret_cast<volatile GPR16*>(0x40C0C040); }
+  static inline volatile GPR16 &ref() { return *reinterpret_cast<volatile GPR16*>(0x40C0C040); }
 };
 
 // GPR17 General Purpose Register
@@ -548,7 +548,7 @@ union GPR17 {
 
   GPR17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR17 &Instance() { return *reinterpret_cast<volatile GPR17*>(0x40C0C044); }
+  static inline volatile GPR17 &ref() { return *reinterpret_cast<volatile GPR17*>(0x40C0C044); }
 };
 
 // GPR18 General Purpose Register
@@ -577,7 +577,7 @@ union GPR18 {
 
   GPR18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR18 &Instance() { return *reinterpret_cast<volatile GPR18*>(0x40C0C048); }
+  static inline volatile GPR18 &ref() { return *reinterpret_cast<volatile GPR18*>(0x40C0C048); }
 };
 
 // GPR19 General Purpose Register
@@ -606,7 +606,7 @@ union GPR19 {
 
   GPR19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR19 &Instance() { return *reinterpret_cast<volatile GPR19*>(0x40C0C04C); }
+  static inline volatile GPR19 &ref() { return *reinterpret_cast<volatile GPR19*>(0x40C0C04C); }
 };
 
 // GPR20 General Purpose Register
@@ -635,7 +635,7 @@ union GPR20 {
 
   GPR20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR20 &Instance() { return *reinterpret_cast<volatile GPR20*>(0x40C0C050); }
+  static inline volatile GPR20 &ref() { return *reinterpret_cast<volatile GPR20*>(0x40C0C050); }
 };
 
 // GPR21 General Purpose Register
@@ -664,7 +664,7 @@ union GPR21 {
 
   GPR21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR21 &Instance() { return *reinterpret_cast<volatile GPR21*>(0x40C0C054); }
+  static inline volatile GPR21 &ref() { return *reinterpret_cast<volatile GPR21*>(0x40C0C054); }
 };
 
 // GPR22 General Purpose Register
@@ -693,7 +693,7 @@ union GPR22 {
 
   GPR22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR22 &Instance() { return *reinterpret_cast<volatile GPR22*>(0x40C0C058); }
+  static inline volatile GPR22 &ref() { return *reinterpret_cast<volatile GPR22*>(0x40C0C058); }
 };
 
 // GPR23 General Purpose Register
@@ -722,7 +722,7 @@ union GPR23 {
 
   GPR23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR23 &Instance() { return *reinterpret_cast<volatile GPR23*>(0x40C0C05C); }
+  static inline volatile GPR23 &ref() { return *reinterpret_cast<volatile GPR23*>(0x40C0C05C); }
 };
 
 // GPR24 General Purpose Register
@@ -751,7 +751,7 @@ union GPR24 {
 
   GPR24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR24 &Instance() { return *reinterpret_cast<volatile GPR24*>(0x40C0C060); }
+  static inline volatile GPR24 &ref() { return *reinterpret_cast<volatile GPR24*>(0x40C0C060); }
 };
 
 // GPR25 General Purpose Register
@@ -790,7 +790,7 @@ union GPR25 {
 
   GPR25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR25 &Instance() { return *reinterpret_cast<volatile GPR25*>(0x40C0C064); }
+  static inline volatile GPR25 &ref() { return *reinterpret_cast<volatile GPR25*>(0x40C0C064); }
 };
 
 // GPR26 General Purpose Register
@@ -837,7 +837,7 @@ union GPR26 {
 
   GPR26() = delete;
   inline void Reset() volatile { this->value = 0x00004000; }
-  static inline volatile GPR26 &Instance() { return *reinterpret_cast<volatile GPR26*>(0x40C0C068); }
+  static inline volatile GPR26 &ref() { return *reinterpret_cast<volatile GPR26*>(0x40C0C068); }
 };
 
 // GPR33 General Purpose Register
@@ -888,7 +888,7 @@ union GPR33 {
 
   GPR33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR33 &Instance() { return *reinterpret_cast<volatile GPR33*>(0x40C0C084); }
+  static inline volatile GPR33 &ref() { return *reinterpret_cast<volatile GPR33*>(0x40C0C084); }
 };
 
 // GPR34 General Purpose Register
@@ -978,7 +978,7 @@ union GPR34 {
 
   GPR34() = delete;
   inline void Reset() volatile { this->value = 0x00000E00; }
-  static inline volatile GPR34 &Instance() { return *reinterpret_cast<volatile GPR34*>(0x40C0C088); }
+  static inline volatile GPR34 &ref() { return *reinterpret_cast<volatile GPR34*>(0x40C0C088); }
 };
 
 // GPR35 General Purpose Register
@@ -1283,7 +1283,7 @@ union GPR35 {
 
   GPR35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR35 &Instance() { return *reinterpret_cast<volatile GPR35*>(0x40C0C08C); }
+  static inline volatile GPR35 &ref() { return *reinterpret_cast<volatile GPR35*>(0x40C0C08C); }
 };
 
 // GPR36 General Purpose Register
@@ -1597,7 +1597,7 @@ union GPR36 {
 
   GPR36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR36 &Instance() { return *reinterpret_cast<volatile GPR36*>(0x40C0C090); }
+  static inline volatile GPR36 &ref() { return *reinterpret_cast<volatile GPR36*>(0x40C0C090); }
 };
 
 // GPR37 General Purpose Register
@@ -1911,7 +1911,7 @@ union GPR37 {
 
   GPR37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR37 &Instance() { return *reinterpret_cast<volatile GPR37*>(0x40C0C094); }
+  static inline volatile GPR37 &ref() { return *reinterpret_cast<volatile GPR37*>(0x40C0C094); }
 };
 
 // GPR38 General Purpose Register
@@ -2225,7 +2225,7 @@ union GPR38 {
 
   GPR38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR38 &Instance() { return *reinterpret_cast<volatile GPR38*>(0x40C0C098); }
+  static inline volatile GPR38 &ref() { return *reinterpret_cast<volatile GPR38*>(0x40C0C098); }
 };
 
 // GPR39 General Purpose Register
@@ -2440,7 +2440,7 @@ union GPR39 {
 
   GPR39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR39 &Instance() { return *reinterpret_cast<volatile GPR39*>(0x40C0C09C); }
+  static inline volatile GPR39 &ref() { return *reinterpret_cast<volatile GPR39*>(0x40C0C09C); }
 };
 
 // GPR40 General Purpose Register
@@ -2519,7 +2519,7 @@ union GPR40 {
 
   GPR40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR40 &Instance() { return *reinterpret_cast<volatile GPR40*>(0x40C0C0A0); }
+  static inline volatile GPR40 &ref() { return *reinterpret_cast<volatile GPR40*>(0x40C0C0A0); }
 };
 
 // GPR41 General Purpose Register
@@ -2572,7 +2572,7 @@ union GPR41 {
 
   GPR41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR41 &Instance() { return *reinterpret_cast<volatile GPR41*>(0x40C0C0A4); }
+  static inline volatile GPR41 &ref() { return *reinterpret_cast<volatile GPR41*>(0x40C0C0A4); }
 };
 
 

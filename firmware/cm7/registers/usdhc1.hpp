@@ -24,7 +24,7 @@ union DS_ADDR {
 
   DS_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DS_ADDR &Instance() { return *reinterpret_cast<volatile DS_ADDR*>(0x40418000); }
+  static inline volatile DS_ADDR &ref() { return *reinterpret_cast<volatile DS_ADDR*>(0x40418000); }
 };
 
 // Block Attributes
@@ -78,7 +78,7 @@ union BLK_ATT {
 
   BLK_ATT() = delete;
   inline void Reset() volatile { this->value = 0x00010000; }
-  static inline volatile BLK_ATT &Instance() { return *reinterpret_cast<volatile BLK_ATT*>(0x40418004); }
+  static inline volatile BLK_ATT &ref() { return *reinterpret_cast<volatile BLK_ATT*>(0x40418004); }
 };
 
 // Command Argument
@@ -95,7 +95,7 @@ union CMD_ARG {
 
   CMD_ARG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMD_ARG &Instance() { return *reinterpret_cast<volatile CMD_ARG*>(0x40418008); }
+  static inline volatile CMD_ARG &ref() { return *reinterpret_cast<volatile CMD_ARG*>(0x40418008); }
 };
 
 // Command Transfer Type
@@ -173,7 +173,7 @@ union CMD_XFR_TYP {
 
   CMD_XFR_TYP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMD_XFR_TYP &Instance() { return *reinterpret_cast<volatile CMD_XFR_TYP*>(0x4041800C); }
+  static inline volatile CMD_XFR_TYP &ref() { return *reinterpret_cast<volatile CMD_XFR_TYP*>(0x4041800C); }
 };
 
 // Command Response0
@@ -190,7 +190,7 @@ union CMD_RSP0 {
 
   CMD_RSP0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMD_RSP0 &Instance() { return *reinterpret_cast<volatile CMD_RSP0*>(0x40418010); }
+  static inline volatile CMD_RSP0 &ref() { return *reinterpret_cast<volatile CMD_RSP0*>(0x40418010); }
 };
 
 // Command Response1
@@ -207,7 +207,7 @@ union CMD_RSP1 {
 
   CMD_RSP1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMD_RSP1 &Instance() { return *reinterpret_cast<volatile CMD_RSP1*>(0x40418014); }
+  static inline volatile CMD_RSP1 &ref() { return *reinterpret_cast<volatile CMD_RSP1*>(0x40418014); }
 };
 
 // Command Response2
@@ -224,7 +224,7 @@ union CMD_RSP2 {
 
   CMD_RSP2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMD_RSP2 &Instance() { return *reinterpret_cast<volatile CMD_RSP2*>(0x40418018); }
+  static inline volatile CMD_RSP2 &ref() { return *reinterpret_cast<volatile CMD_RSP2*>(0x40418018); }
 };
 
 // Command Response3
@@ -241,7 +241,7 @@ union CMD_RSP3 {
 
   CMD_RSP3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMD_RSP3 &Instance() { return *reinterpret_cast<volatile CMD_RSP3*>(0x4041801C); }
+  static inline volatile CMD_RSP3 &ref() { return *reinterpret_cast<volatile CMD_RSP3*>(0x4041801C); }
 };
 
 // Data Buffer Access Port
@@ -258,7 +258,7 @@ union DATA_BUFF_ACC_PORT {
 
   DATA_BUFF_ACC_PORT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATA_BUFF_ACC_PORT &Instance() { return *reinterpret_cast<volatile DATA_BUFF_ACC_PORT*>(0x40418020); }
+  static inline volatile DATA_BUFF_ACC_PORT &ref() { return *reinterpret_cast<volatile DATA_BUFF_ACC_PORT*>(0x40418020); }
 };
 
 // Present State
@@ -470,7 +470,7 @@ union PRES_STATE {
 
   PRES_STATE() = delete;
   inline void Reset() volatile { this->value = 0x00008080; }
-  static inline volatile PRES_STATE &Instance() { return *reinterpret_cast<volatile PRES_STATE*>(0x40418024); }
+  static inline volatile PRES_STATE &ref() { return *reinterpret_cast<volatile PRES_STATE*>(0x40418024); }
 };
 
 // Protocol Control
@@ -638,7 +638,7 @@ union PROT_CTRL {
 
   PROT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x08800020; }
-  static inline volatile PROT_CTRL &Instance() { return *reinterpret_cast<volatile PROT_CTRL*>(0x40418028); }
+  static inline volatile PROT_CTRL &ref() { return *reinterpret_cast<volatile PROT_CTRL*>(0x40418028); }
 };
 
 // System Control
@@ -746,7 +746,7 @@ union SYS_CTRL {
 
   SYS_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x0080800F; }
-  static inline volatile SYS_CTRL &Instance() { return *reinterpret_cast<volatile SYS_CTRL*>(0x4041802C); }
+  static inline volatile SYS_CTRL &ref() { return *reinterpret_cast<volatile SYS_CTRL*>(0x4041802C); }
 };
 
 // Interrupt Status
@@ -962,7 +962,7 @@ union INT_STATUS {
 
   INT_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_STATUS &Instance() { return *reinterpret_cast<volatile INT_STATUS*>(0x40418030); }
+  static inline volatile INT_STATUS &ref() { return *reinterpret_cast<volatile INT_STATUS*>(0x40418030); }
 };
 
 // Interrupt Status Enable
@@ -1194,7 +1194,7 @@ union INT_STATUS_EN {
 
   INT_STATUS_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_STATUS_EN &Instance() { return *reinterpret_cast<volatile INT_STATUS_EN*>(0x40418034); }
+  static inline volatile INT_STATUS_EN &ref() { return *reinterpret_cast<volatile INT_STATUS_EN*>(0x40418034); }
 };
 
 // Interrupt Signal Enable
@@ -1426,7 +1426,7 @@ union INT_SIGNAL_EN {
 
   INT_SIGNAL_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_SIGNAL_EN &Instance() { return *reinterpret_cast<volatile INT_SIGNAL_EN*>(0x40418038); }
+  static inline volatile INT_SIGNAL_EN &ref() { return *reinterpret_cast<volatile INT_SIGNAL_EN*>(0x40418038); }
 };
 
 // Auto CMD12 Error Status
@@ -1524,7 +1524,7 @@ union AUTOCMD12_ERR_STATUS {
 
   AUTOCMD12_ERR_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTOCMD12_ERR_STATUS &Instance() { return *reinterpret_cast<volatile AUTOCMD12_ERR_STATUS*>(0x4041803C); }
+  static inline volatile AUTOCMD12_ERR_STATUS &ref() { return *reinterpret_cast<volatile AUTOCMD12_ERR_STATUS*>(0x4041803C); }
 };
 
 // Host Controller Capabilities
@@ -1643,7 +1643,7 @@ union HOST_CTRL_CAP {
 
   HOST_CTRL_CAP() = delete;
   inline void Reset() volatile { this->value = 0x07F3B407; }
-  static inline volatile HOST_CTRL_CAP &Instance() { return *reinterpret_cast<volatile HOST_CTRL_CAP*>(0x40418040); }
+  static inline volatile HOST_CTRL_CAP &ref() { return *reinterpret_cast<volatile HOST_CTRL_CAP*>(0x40418040); }
 };
 
 // Watermark Level
@@ -1664,7 +1664,7 @@ union WTMK_LVL {
 
   WTMK_LVL() = delete;
   inline void Reset() volatile { this->value = 0x08100810; }
-  static inline volatile WTMK_LVL &Instance() { return *reinterpret_cast<volatile WTMK_LVL*>(0x40418044); }
+  static inline volatile WTMK_LVL &ref() { return *reinterpret_cast<volatile WTMK_LVL*>(0x40418044); }
 };
 
 // Mixer Control
@@ -1779,7 +1779,7 @@ union MIX_CTRL {
 
   MIX_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile MIX_CTRL &Instance() { return *reinterpret_cast<volatile MIX_CTRL*>(0x40418048); }
+  static inline volatile MIX_CTRL &ref() { return *reinterpret_cast<volatile MIX_CTRL*>(0x40418048); }
 };
 
 // Force Event
@@ -1834,7 +1834,7 @@ union FORCE_EVENT {
 
   FORCE_EVENT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FORCE_EVENT &Instance() { return *reinterpret_cast<volatile FORCE_EVENT*>(0x40418050); }
+  static inline volatile FORCE_EVENT &ref() { return *reinterpret_cast<volatile FORCE_EVENT*>(0x40418050); }
 };
 
 // ADMA Error Status
@@ -1872,7 +1872,7 @@ union ADMA_ERR_STATUS {
 
   ADMA_ERR_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ADMA_ERR_STATUS &Instance() { return *reinterpret_cast<volatile ADMA_ERR_STATUS*>(0x40418054); }
+  static inline volatile ADMA_ERR_STATUS &ref() { return *reinterpret_cast<volatile ADMA_ERR_STATUS*>(0x40418054); }
 };
 
 // ADMA System Address
@@ -1890,7 +1890,7 @@ union ADMA_SYS_ADDR {
 
   ADMA_SYS_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ADMA_SYS_ADDR &Instance() { return *reinterpret_cast<volatile ADMA_SYS_ADDR*>(0x40418058); }
+  static inline volatile ADMA_SYS_ADDR &ref() { return *reinterpret_cast<volatile ADMA_SYS_ADDR*>(0x40418058); }
 };
 
 // DLL (Delay Line) Control
@@ -1926,7 +1926,7 @@ union DLL_CTRL {
 
   DLL_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DLL_CTRL &Instance() { return *reinterpret_cast<volatile DLL_CTRL*>(0x40418060); }
+  static inline volatile DLL_CTRL &ref() { return *reinterpret_cast<volatile DLL_CTRL*>(0x40418060); }
 };
 
 // DLL Status
@@ -1950,7 +1950,7 @@ union DLL_STATUS {
 
   DLL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000200; }
-  static inline volatile DLL_STATUS &Instance() { return *reinterpret_cast<volatile DLL_STATUS*>(0x40418064); }
+  static inline volatile DLL_STATUS &ref() { return *reinterpret_cast<volatile DLL_STATUS*>(0x40418064); }
 };
 
 // CLK Tuning Control and Status
@@ -1981,7 +1981,7 @@ union CLK_TUNE_CTRL_STATUS {
 
   CLK_TUNE_CTRL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLK_TUNE_CTRL_STATUS &Instance() { return *reinterpret_cast<volatile CLK_TUNE_CTRL_STATUS*>(0x40418068); }
+  static inline volatile CLK_TUNE_CTRL_STATUS &ref() { return *reinterpret_cast<volatile CLK_TUNE_CTRL_STATUS*>(0x40418068); }
 };
 
 // Strobe DLL control
@@ -2015,7 +2015,7 @@ union STROBE_DLL_CTRL {
 
   STROBE_DLL_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STROBE_DLL_CTRL &Instance() { return *reinterpret_cast<volatile STROBE_DLL_CTRL*>(0x40418070); }
+  static inline volatile STROBE_DLL_CTRL &ref() { return *reinterpret_cast<volatile STROBE_DLL_CTRL*>(0x40418070); }
 };
 
 // Strobe DLL status
@@ -2039,7 +2039,7 @@ union STROBE_DLL_STATUS {
 
   STROBE_DLL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000200; }
-  static inline volatile STROBE_DLL_STATUS &Instance() { return *reinterpret_cast<volatile STROBE_DLL_STATUS*>(0x40418074); }
+  static inline volatile STROBE_DLL_STATUS &ref() { return *reinterpret_cast<volatile STROBE_DLL_STATUS*>(0x40418074); }
 };
 
 // Vendor Specific Register
@@ -2118,7 +2118,7 @@ union VEND_SPEC {
 
   VEND_SPEC() = delete;
   inline void Reset() volatile { this->value = 0x30007809; }
-  static inline volatile VEND_SPEC &Instance() { return *reinterpret_cast<volatile VEND_SPEC*>(0x404180C0); }
+  static inline volatile VEND_SPEC &ref() { return *reinterpret_cast<volatile VEND_SPEC*>(0x404180C0); }
 };
 
 // MMC Boot
@@ -2204,7 +2204,7 @@ union MMC_BOOT {
 
   MMC_BOOT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MMC_BOOT &Instance() { return *reinterpret_cast<volatile MMC_BOOT*>(0x404180C4); }
+  static inline volatile MMC_BOOT &ref() { return *reinterpret_cast<volatile MMC_BOOT*>(0x404180C4); }
 };
 
 // Vendor Specific 2 Register
@@ -2260,7 +2260,7 @@ union VEND_SPEC2 {
 
   VEND_SPEC2() = delete;
   inline void Reset() volatile { this->value = 0x00019006; }
-  static inline volatile VEND_SPEC2 &Instance() { return *reinterpret_cast<volatile VEND_SPEC2*>(0x404180C8); }
+  static inline volatile VEND_SPEC2 &ref() { return *reinterpret_cast<volatile VEND_SPEC2*>(0x404180C8); }
 };
 
 // Tuning Control
@@ -2290,7 +2290,7 @@ union TUNING_CTRL {
 
   TUNING_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00212800; }
-  static inline volatile TUNING_CTRL &Instance() { return *reinterpret_cast<volatile TUNING_CTRL*>(0x404180CC); }
+  static inline volatile TUNING_CTRL &ref() { return *reinterpret_cast<volatile TUNING_CTRL*>(0x404180CC); }
 };
 
 

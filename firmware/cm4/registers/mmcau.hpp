@@ -53,7 +53,7 @@ union CASR {
 
   CASR() = delete;
   inline void Reset() volatile { this->value = 0x20000000; }
-  static inline volatile CASR &Instance() { return *reinterpret_cast<volatile CASR*>(0xE0081000); }
+  static inline volatile CASR &ref() { return *reinterpret_cast<volatile CASR*>(0xE0081000); }
 };
 
 // Accumulator
@@ -70,7 +70,7 @@ union CAA {
 
   CAA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CAA &Instance() { return *reinterpret_cast<volatile CAA*>(0xE0081004); }
+  static inline volatile CAA &ref() { return *reinterpret_cast<volatile CAA*>(0xE0081004); }
 };
 
 // General Purpose Register
@@ -87,7 +87,7 @@ union CA_0 {
 
   CA_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA_0 &Instance() { return *reinterpret_cast<volatile CA_0*>(0xE0081008); }
+  static inline volatile CA_0 &ref() { return *reinterpret_cast<volatile CA_0*>(0xE0081008); }
 };
 // General Purpose Register
 union CA_1 {
@@ -103,7 +103,7 @@ union CA_1 {
 
   CA_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA_1 &Instance() { return *reinterpret_cast<volatile CA_1*>(0xE008100C); }
+  static inline volatile CA_1 &ref() { return *reinterpret_cast<volatile CA_1*>(0xE008100C); }
 };
 // General Purpose Register
 union CA_2 {
@@ -119,7 +119,7 @@ union CA_2 {
 
   CA_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA_2 &Instance() { return *reinterpret_cast<volatile CA_2*>(0xE0081010); }
+  static inline volatile CA_2 &ref() { return *reinterpret_cast<volatile CA_2*>(0xE0081010); }
 };
 // General Purpose Register
 union CA_3 {
@@ -135,7 +135,7 @@ union CA_3 {
 
   CA_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA_3 &Instance() { return *reinterpret_cast<volatile CA_3*>(0xE0081014); }
+  static inline volatile CA_3 &ref() { return *reinterpret_cast<volatile CA_3*>(0xE0081014); }
 };
 // General Purpose Register
 union CA_4 {
@@ -151,7 +151,7 @@ union CA_4 {
 
   CA_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA_4 &Instance() { return *reinterpret_cast<volatile CA_4*>(0xE0081018); }
+  static inline volatile CA_4 &ref() { return *reinterpret_cast<volatile CA_4*>(0xE0081018); }
 };
 // General Purpose Register
 union CA_5 {
@@ -167,7 +167,7 @@ union CA_5 {
 
   CA_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA_5 &Instance() { return *reinterpret_cast<volatile CA_5*>(0xE008101C); }
+  static inline volatile CA_5 &ref() { return *reinterpret_cast<volatile CA_5*>(0xE008101C); }
 };
 // General Purpose Register
 union CA_6 {
@@ -183,7 +183,7 @@ union CA_6 {
 
   CA_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA_6 &Instance() { return *reinterpret_cast<volatile CA_6*>(0xE0081020); }
+  static inline volatile CA_6 &ref() { return *reinterpret_cast<volatile CA_6*>(0xE0081020); }
 };
 // General Purpose Register
 union CA_7 {
@@ -199,7 +199,7 @@ union CA_7 {
 
   CA_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA_7 &Instance() { return *reinterpret_cast<volatile CA_7*>(0xE0081024); }
+  static inline volatile CA_7 &ref() { return *reinterpret_cast<volatile CA_7*>(0xE0081024); }
 };
 // General Purpose Register
 union CA_8 {
@@ -215,7 +215,7 @@ union CA_8 {
 
   CA_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA_8 &Instance() { return *reinterpret_cast<volatile CA_8*>(0xE0081028); }
+  static inline volatile CA_8 &ref() { return *reinterpret_cast<volatile CA_8*>(0xE0081028); }
 };
 
 

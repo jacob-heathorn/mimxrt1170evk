@@ -25,7 +25,7 @@ union GFWR {
 
   GFWR() = delete;
   inline void Reset() volatile { this->value = 0x0000007F; }
-  static inline volatile GFWR &Instance() { return *reinterpret_cast<volatile GFWR*>(0x40C3C9E0); }
+  static inline volatile GFWR &ref() { return *reinterpret_cast<volatile GFWR*>(0x40C3C9E0); }
 };
 
 

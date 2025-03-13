@@ -241,7 +241,7 @@ union MCR {
 
   MCR() = delete;
   inline void Reset() volatile { this->value = 0x5980000F; }
-  static inline volatile MCR &Instance() { return *reinterpret_cast<volatile MCR*>(0x400C8000); }
+  static inline volatile MCR &ref() { return *reinterpret_cast<volatile MCR*>(0x400C8000); }
 };
 
 // Control 1 Register
@@ -377,7 +377,7 @@ union CTRL1 {
 
   CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL1 &Instance() { return *reinterpret_cast<volatile CTRL1*>(0x400C8004); }
+  static inline volatile CTRL1 &ref() { return *reinterpret_cast<volatile CTRL1*>(0x400C8004); }
 };
 
 // Free Running Timer
@@ -395,7 +395,7 @@ union TIMER {
 
   TIMER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMER &Instance() { return *reinterpret_cast<volatile TIMER*>(0x400C8008); }
+  static inline volatile TIMER &ref() { return *reinterpret_cast<volatile TIMER*>(0x400C8008); }
 };
 
 // Rx Mailboxes Global Mask Register
@@ -412,7 +412,7 @@ union RXMGMASK {
 
   RXMGMASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXMGMASK &Instance() { return *reinterpret_cast<volatile RXMGMASK*>(0x400C8010); }
+  static inline volatile RXMGMASK &ref() { return *reinterpret_cast<volatile RXMGMASK*>(0x400C8010); }
 };
 
 // Rx 14 Mask Register
@@ -429,7 +429,7 @@ union RX14MASK {
 
   RX14MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RX14MASK &Instance() { return *reinterpret_cast<volatile RX14MASK*>(0x400C8014); }
+  static inline volatile RX14MASK &ref() { return *reinterpret_cast<volatile RX14MASK*>(0x400C8014); }
 };
 
 // Rx 15 Mask Register
@@ -446,7 +446,7 @@ union RX15MASK {
 
   RX15MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RX15MASK &Instance() { return *reinterpret_cast<volatile RX15MASK*>(0x400C8018); }
+  static inline volatile RX15MASK &ref() { return *reinterpret_cast<volatile RX15MASK*>(0x400C8018); }
 };
 
 // Error Counter
@@ -469,7 +469,7 @@ union ECR {
 
   ECR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECR &Instance() { return *reinterpret_cast<volatile ECR*>(0x400C801C); }
+  static inline volatile ECR &ref() { return *reinterpret_cast<volatile ECR*>(0x400C801C); }
 };
 
 // Error and Status 1 Register
@@ -748,7 +748,7 @@ union ESR1 {
 
   ESR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ESR1 &Instance() { return *reinterpret_cast<volatile ESR1*>(0x400C8020); }
+  static inline volatile ESR1 &ref() { return *reinterpret_cast<volatile ESR1*>(0x400C8020); }
 };
 
 // Interrupt Masks 2 Register
@@ -765,7 +765,7 @@ union IMASK2 {
 
   IMASK2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IMASK2 &Instance() { return *reinterpret_cast<volatile IMASK2*>(0x400C8024); }
+  static inline volatile IMASK2 &ref() { return *reinterpret_cast<volatile IMASK2*>(0x400C8024); }
 };
 
 // Interrupt Masks 1 Register
@@ -782,7 +782,7 @@ union IMASK1 {
 
   IMASK1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IMASK1 &Instance() { return *reinterpret_cast<volatile IMASK1*>(0x400C8028); }
+  static inline volatile IMASK1 &ref() { return *reinterpret_cast<volatile IMASK1*>(0x400C8028); }
 };
 
 // Interrupt Flags 2 Register
@@ -799,7 +799,7 @@ union IFLAG2 {
 
   IFLAG2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IFLAG2 &Instance() { return *reinterpret_cast<volatile IFLAG2*>(0x400C802C); }
+  static inline volatile IFLAG2 &ref() { return *reinterpret_cast<volatile IFLAG2*>(0x400C802C); }
 };
 
 // Interrupt Flags 1 Register
@@ -858,7 +858,7 @@ union IFLAG1 {
 
   IFLAG1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IFLAG1 &Instance() { return *reinterpret_cast<volatile IFLAG1*>(0x400C8030); }
+  static inline volatile IFLAG1 &ref() { return *reinterpret_cast<volatile IFLAG1*>(0x400C8030); }
 };
 
 // Control 2 Register
@@ -989,7 +989,7 @@ union CTRL2 {
 
   CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00800000; }
-  static inline volatile CTRL2 &Instance() { return *reinterpret_cast<volatile CTRL2*>(0x400C8034); }
+  static inline volatile CTRL2 &ref() { return *reinterpret_cast<volatile CTRL2*>(0x400C8034); }
 };
 
 // Error and Status 2 Register
@@ -1029,7 +1029,7 @@ union ESR2 {
 
   ESR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ESR2 &Instance() { return *reinterpret_cast<volatile ESR2*>(0x400C8038); }
+  static inline volatile ESR2 &ref() { return *reinterpret_cast<volatile ESR2*>(0x400C8038); }
 };
 
 // CRC Register
@@ -1050,7 +1050,7 @@ union CRCR {
 
   CRCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CRCR &Instance() { return *reinterpret_cast<volatile CRCR*>(0x400C8044); }
+  static inline volatile CRCR &ref() { return *reinterpret_cast<volatile CRCR*>(0x400C8044); }
 };
 
 // Rx FIFO Global Mask Register
@@ -1067,7 +1067,7 @@ union RXFGMASK {
 
   RXFGMASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXFGMASK &Instance() { return *reinterpret_cast<volatile RXFGMASK*>(0x400C8048); }
+  static inline volatile RXFGMASK &ref() { return *reinterpret_cast<volatile RXFGMASK*>(0x400C8048); }
 };
 
 // Rx FIFO Information Register
@@ -1085,7 +1085,7 @@ union RXFIR {
 
   RXFIR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXFIR &Instance() { return *reinterpret_cast<volatile RXFIR*>(0x400C804C); }
+  static inline volatile RXFIR &ref() { return *reinterpret_cast<volatile RXFIR*>(0x400C804C); }
 };
 
 // CAN Bit Timing Register
@@ -1120,7 +1120,7 @@ union CBT {
 
   CBT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CBT &Instance() { return *reinterpret_cast<volatile CBT*>(0x400C8050); }
+  static inline volatile CBT &ref() { return *reinterpret_cast<volatile CBT*>(0x400C8050); }
 };
 
 // Message Buffer 0 CS Register
@@ -1155,7 +1155,7 @@ union CS0 {
 
   CS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS0 &Instance() { return *reinterpret_cast<volatile CS0*>(0x400C8080); }
+  static inline volatile CS0 &ref() { return *reinterpret_cast<volatile CS0*>(0x400C8080); }
 };
 
 // Message Buffer 0 CS Register
@@ -1190,7 +1190,7 @@ union MB0_16B_CS_L {
 
   MB0_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB0_16B_CS_L*>(0x400C8080); }
+  static inline volatile MB0_16B_CS_L &ref() { return *reinterpret_cast<volatile MB0_16B_CS_L*>(0x400C8080); }
 };
 
 // Message Buffer 0 CS Register
@@ -1225,7 +1225,7 @@ union MB0_32B_CS_L {
 
   MB0_32B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_CS_L &Instance() { return *reinterpret_cast<volatile MB0_32B_CS_L*>(0x400C8080); }
+  static inline volatile MB0_32B_CS_L &ref() { return *reinterpret_cast<volatile MB0_32B_CS_L*>(0x400C8080); }
 };
 
 // Message Buffer 0 CS Register
@@ -1260,7 +1260,7 @@ union MB0_64B_CS_L {
 
   MB0_64B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_CS_L &Instance() { return *reinterpret_cast<volatile MB0_64B_CS_L*>(0x400C8080); }
+  static inline volatile MB0_64B_CS_L &ref() { return *reinterpret_cast<volatile MB0_64B_CS_L*>(0x400C8080); }
 };
 
 // Message Buffer 0 CS Register
@@ -1295,7 +1295,7 @@ union MB0_8B_CS {
 
   MB0_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_8B_CS &Instance() { return *reinterpret_cast<volatile MB0_8B_CS*>(0x400C8080); }
+  static inline volatile MB0_8B_CS &ref() { return *reinterpret_cast<volatile MB0_8B_CS*>(0x400C8080); }
 };
 
 // Message Buffer 0 ID Register
@@ -1316,7 +1316,7 @@ union ID0 {
 
   ID0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID0 &Instance() { return *reinterpret_cast<volatile ID0*>(0x400C8084); }
+  static inline volatile ID0 &ref() { return *reinterpret_cast<volatile ID0*>(0x400C8084); }
 };
 
 // Message Buffer 0 ID Register
@@ -1337,7 +1337,7 @@ union MB0_16B_ID_L {
 
   MB0_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB0_16B_ID_L*>(0x400C8084); }
+  static inline volatile MB0_16B_ID_L &ref() { return *reinterpret_cast<volatile MB0_16B_ID_L*>(0x400C8084); }
 };
 
 // Message Buffer 0 ID Register
@@ -1358,7 +1358,7 @@ union MB0_32B_ID_L {
 
   MB0_32B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_ID_L &Instance() { return *reinterpret_cast<volatile MB0_32B_ID_L*>(0x400C8084); }
+  static inline volatile MB0_32B_ID_L &ref() { return *reinterpret_cast<volatile MB0_32B_ID_L*>(0x400C8084); }
 };
 
 // Message Buffer 0 ID Register
@@ -1379,7 +1379,7 @@ union MB0_64B_ID_L {
 
   MB0_64B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_ID_L &Instance() { return *reinterpret_cast<volatile MB0_64B_ID_L*>(0x400C8084); }
+  static inline volatile MB0_64B_ID_L &ref() { return *reinterpret_cast<volatile MB0_64B_ID_L*>(0x400C8084); }
 };
 
 // Message Buffer 0 ID Register
@@ -1400,7 +1400,7 @@ union MB0_8B_ID {
 
   MB0_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_8B_ID &Instance() { return *reinterpret_cast<volatile MB0_8B_ID*>(0x400C8084); }
+  static inline volatile MB0_8B_ID &ref() { return *reinterpret_cast<volatile MB0_8B_ID*>(0x400C8084); }
 };
 
 // Message Buffer 0 WORD_16B Register
@@ -1423,7 +1423,7 @@ union MB0_16B_WORD0_L {
 
   MB0_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB0_16B_WORD0_L*>(0x400C8088); }
+  static inline volatile MB0_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB0_16B_WORD0_L*>(0x400C8088); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -1446,7 +1446,7 @@ union MB0_32B_WORD0_L {
 
   MB0_32B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD0_L*>(0x400C8088); }
+  static inline volatile MB0_32B_WORD0_L &ref() { return *reinterpret_cast<volatile MB0_32B_WORD0_L*>(0x400C8088); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -1469,7 +1469,7 @@ union MB0_64B_WORD0_L {
 
   MB0_64B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD0_L*>(0x400C8088); }
+  static inline volatile MB0_64B_WORD0_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD0_L*>(0x400C8088); }
 };
 
 // Message Buffer 0 WORD_8B Register
@@ -1492,7 +1492,7 @@ union MB0_8B_WORD0 {
 
   MB0_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB0_8B_WORD0*>(0x400C8088); }
+  static inline volatile MB0_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB0_8B_WORD0*>(0x400C8088); }
 };
 
 // Message Buffer 0 WORD0 Register
@@ -1515,7 +1515,7 @@ union WORD00 {
 
   WORD00() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD00 &Instance() { return *reinterpret_cast<volatile WORD00*>(0x400C8088); }
+  static inline volatile WORD00 &ref() { return *reinterpret_cast<volatile WORD00*>(0x400C8088); }
 };
 
 // Message Buffer 0 WORD_16B Register
@@ -1538,7 +1538,7 @@ union MB0_16B_WORD1_L {
 
   MB0_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB0_16B_WORD1_L*>(0x400C808C); }
+  static inline volatile MB0_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB0_16B_WORD1_L*>(0x400C808C); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -1561,7 +1561,7 @@ union MB0_32B_WORD1_L {
 
   MB0_32B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD1_L*>(0x400C808C); }
+  static inline volatile MB0_32B_WORD1_L &ref() { return *reinterpret_cast<volatile MB0_32B_WORD1_L*>(0x400C808C); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -1584,7 +1584,7 @@ union MB0_64B_WORD1_L {
 
   MB0_64B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD1_L*>(0x400C808C); }
+  static inline volatile MB0_64B_WORD1_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD1_L*>(0x400C808C); }
 };
 
 // Message Buffer 0 WORD_8B Register
@@ -1607,7 +1607,7 @@ union MB0_8B_WORD1 {
 
   MB0_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB0_8B_WORD1*>(0x400C808C); }
+  static inline volatile MB0_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB0_8B_WORD1*>(0x400C808C); }
 };
 
 // Message Buffer 0 WORD1 Register
@@ -1630,7 +1630,7 @@ union WORD10 {
 
   WORD10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD10 &Instance() { return *reinterpret_cast<volatile WORD10*>(0x400C808C); }
+  static inline volatile WORD10 &ref() { return *reinterpret_cast<volatile WORD10*>(0x400C808C); }
 };
 
 // Message Buffer 1 CS Register
@@ -1665,7 +1665,7 @@ union CS1 {
 
   CS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS1 &Instance() { return *reinterpret_cast<volatile CS1*>(0x400C8090); }
+  static inline volatile CS1 &ref() { return *reinterpret_cast<volatile CS1*>(0x400C8090); }
 };
 
 // Message Buffer 0 WORD_16B Register
@@ -1688,7 +1688,7 @@ union MB0_16B_WORD2_L {
 
   MB0_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB0_16B_WORD2_L*>(0x400C8090); }
+  static inline volatile MB0_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB0_16B_WORD2_L*>(0x400C8090); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -1711,7 +1711,7 @@ union MB0_32B_WORD2_L {
 
   MB0_32B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD2_L*>(0x400C8090); }
+  static inline volatile MB0_32B_WORD2_L &ref() { return *reinterpret_cast<volatile MB0_32B_WORD2_L*>(0x400C8090); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -1734,7 +1734,7 @@ union MB0_64B_WORD2_L {
 
   MB0_64B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD2_L*>(0x400C8090); }
+  static inline volatile MB0_64B_WORD2_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD2_L*>(0x400C8090); }
 };
 
 // Message Buffer 1 CS Register
@@ -1769,7 +1769,7 @@ union MB1_8B_CS {
 
   MB1_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_8B_CS &Instance() { return *reinterpret_cast<volatile MB1_8B_CS*>(0x400C8090); }
+  static inline volatile MB1_8B_CS &ref() { return *reinterpret_cast<volatile MB1_8B_CS*>(0x400C8090); }
 };
 
 // Message Buffer 1 ID Register
@@ -1790,7 +1790,7 @@ union ID1 {
 
   ID1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID1 &Instance() { return *reinterpret_cast<volatile ID1*>(0x400C8094); }
+  static inline volatile ID1 &ref() { return *reinterpret_cast<volatile ID1*>(0x400C8094); }
 };
 
 // Message Buffer 0 WORD_16B Register
@@ -1813,7 +1813,7 @@ union MB0_16B_WORD3_L {
 
   MB0_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB0_16B_WORD3_L*>(0x400C8094); }
+  static inline volatile MB0_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB0_16B_WORD3_L*>(0x400C8094); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -1836,7 +1836,7 @@ union MB0_32B_WORD3_L {
 
   MB0_32B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD3_L*>(0x400C8094); }
+  static inline volatile MB0_32B_WORD3_L &ref() { return *reinterpret_cast<volatile MB0_32B_WORD3_L*>(0x400C8094); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -1859,7 +1859,7 @@ union MB0_64B_WORD3_L {
 
   MB0_64B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD3_L*>(0x400C8094); }
+  static inline volatile MB0_64B_WORD3_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD3_L*>(0x400C8094); }
 };
 
 // Message Buffer 1 ID Register
@@ -1880,7 +1880,7 @@ union MB1_8B_ID {
 
   MB1_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_8B_ID &Instance() { return *reinterpret_cast<volatile MB1_8B_ID*>(0x400C8094); }
+  static inline volatile MB1_8B_ID &ref() { return *reinterpret_cast<volatile MB1_8B_ID*>(0x400C8094); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -1903,7 +1903,7 @@ union MB0_32B_WORD4_L {
 
   MB0_32B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD4_L*>(0x400C8098); }
+  static inline volatile MB0_32B_WORD4_L &ref() { return *reinterpret_cast<volatile MB0_32B_WORD4_L*>(0x400C8098); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -1926,7 +1926,7 @@ union MB0_64B_WORD4_L {
 
   MB0_64B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD4_L*>(0x400C8098); }
+  static inline volatile MB0_64B_WORD4_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD4_L*>(0x400C8098); }
 };
 
 // Message Buffer 1 CS Register
@@ -1961,7 +1961,7 @@ union MB1_16B_CS_L {
 
   MB1_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB1_16B_CS_L*>(0x400C8098); }
+  static inline volatile MB1_16B_CS_L &ref() { return *reinterpret_cast<volatile MB1_16B_CS_L*>(0x400C8098); }
 };
 
 // Message Buffer 1 WORD_8B Register
@@ -1984,7 +1984,7 @@ union MB1_8B_WORD0 {
 
   MB1_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB1_8B_WORD0*>(0x400C8098); }
+  static inline volatile MB1_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB1_8B_WORD0*>(0x400C8098); }
 };
 
 // Message Buffer 1 WORD0 Register
@@ -2007,7 +2007,7 @@ union WORD01 {
 
   WORD01() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD01 &Instance() { return *reinterpret_cast<volatile WORD01*>(0x400C8098); }
+  static inline volatile WORD01 &ref() { return *reinterpret_cast<volatile WORD01*>(0x400C8098); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -2030,7 +2030,7 @@ union MB0_32B_WORD5_L {
 
   MB0_32B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD5_L*>(0x400C809C); }
+  static inline volatile MB0_32B_WORD5_L &ref() { return *reinterpret_cast<volatile MB0_32B_WORD5_L*>(0x400C809C); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -2053,7 +2053,7 @@ union MB0_64B_WORD5_L {
 
   MB0_64B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD5_L*>(0x400C809C); }
+  static inline volatile MB0_64B_WORD5_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD5_L*>(0x400C809C); }
 };
 
 // Message Buffer 1 ID Register
@@ -2074,7 +2074,7 @@ union MB1_16B_ID_L {
 
   MB1_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB1_16B_ID_L*>(0x400C809C); }
+  static inline volatile MB1_16B_ID_L &ref() { return *reinterpret_cast<volatile MB1_16B_ID_L*>(0x400C809C); }
 };
 
 // Message Buffer 1 WORD_8B Register
@@ -2097,7 +2097,7 @@ union MB1_8B_WORD1 {
 
   MB1_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB1_8B_WORD1*>(0x400C809C); }
+  static inline volatile MB1_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB1_8B_WORD1*>(0x400C809C); }
 };
 
 // Message Buffer 1 WORD1 Register
@@ -2120,7 +2120,7 @@ union WORD11 {
 
   WORD11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD11 &Instance() { return *reinterpret_cast<volatile WORD11*>(0x400C809C); }
+  static inline volatile WORD11 &ref() { return *reinterpret_cast<volatile WORD11*>(0x400C809C); }
 };
 
 // Message Buffer 2 CS Register
@@ -2155,7 +2155,7 @@ union CS2 {
 
   CS2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS2 &Instance() { return *reinterpret_cast<volatile CS2*>(0x400C80A0); }
+  static inline volatile CS2 &ref() { return *reinterpret_cast<volatile CS2*>(0x400C80A0); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -2178,7 +2178,7 @@ union MB0_32B_WORD6_L {
 
   MB0_32B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD6_L*>(0x400C80A0); }
+  static inline volatile MB0_32B_WORD6_L &ref() { return *reinterpret_cast<volatile MB0_32B_WORD6_L*>(0x400C80A0); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -2201,7 +2201,7 @@ union MB0_64B_WORD6_L {
 
   MB0_64B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD6_L*>(0x400C80A0); }
+  static inline volatile MB0_64B_WORD6_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD6_L*>(0x400C80A0); }
 };
 
 // Message Buffer 1 WORD_16B Register
@@ -2224,7 +2224,7 @@ union MB1_16B_WORD0_L {
 
   MB1_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB1_16B_WORD0_L*>(0x400C80A0); }
+  static inline volatile MB1_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB1_16B_WORD0_L*>(0x400C80A0); }
 };
 
 // Message Buffer 2 CS Register
@@ -2259,7 +2259,7 @@ union MB2_8B_CS {
 
   MB2_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_8B_CS &Instance() { return *reinterpret_cast<volatile MB2_8B_CS*>(0x400C80A0); }
+  static inline volatile MB2_8B_CS &ref() { return *reinterpret_cast<volatile MB2_8B_CS*>(0x400C80A0); }
 };
 
 // Message Buffer 2 ID Register
@@ -2280,7 +2280,7 @@ union ID2 {
 
   ID2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID2 &Instance() { return *reinterpret_cast<volatile ID2*>(0x400C80A4); }
+  static inline volatile ID2 &ref() { return *reinterpret_cast<volatile ID2*>(0x400C80A4); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -2303,7 +2303,7 @@ union MB0_32B_WORD7_L {
 
   MB0_32B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD7_L*>(0x400C80A4); }
+  static inline volatile MB0_32B_WORD7_L &ref() { return *reinterpret_cast<volatile MB0_32B_WORD7_L*>(0x400C80A4); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -2326,7 +2326,7 @@ union MB0_64B_WORD7_L {
 
   MB0_64B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD7_L*>(0x400C80A4); }
+  static inline volatile MB0_64B_WORD7_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD7_L*>(0x400C80A4); }
 };
 
 // Message Buffer 1 WORD_16B Register
@@ -2349,7 +2349,7 @@ union MB1_16B_WORD1_L {
 
   MB1_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB1_16B_WORD1_L*>(0x400C80A4); }
+  static inline volatile MB1_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB1_16B_WORD1_L*>(0x400C80A4); }
 };
 
 // Message Buffer 2 ID Register
@@ -2370,7 +2370,7 @@ union MB2_8B_ID {
 
   MB2_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_8B_ID &Instance() { return *reinterpret_cast<volatile MB2_8B_ID*>(0x400C80A4); }
+  static inline volatile MB2_8B_ID &ref() { return *reinterpret_cast<volatile MB2_8B_ID*>(0x400C80A4); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -2393,7 +2393,7 @@ union MB0_64B_WORD8_L {
 
   MB0_64B_WORD8_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD8_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD8_L*>(0x400C80A8); }
+  static inline volatile MB0_64B_WORD8_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD8_L*>(0x400C80A8); }
 };
 
 // Message Buffer 1 WORD_16B Register
@@ -2416,7 +2416,7 @@ union MB1_16B_WORD2_L {
 
   MB1_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB1_16B_WORD2_L*>(0x400C80A8); }
+  static inline volatile MB1_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB1_16B_WORD2_L*>(0x400C80A8); }
 };
 
 // Message Buffer 1 CS Register
@@ -2451,7 +2451,7 @@ union MB1_32B_CS_L {
 
   MB1_32B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_CS_L &Instance() { return *reinterpret_cast<volatile MB1_32B_CS_L*>(0x400C80A8); }
+  static inline volatile MB1_32B_CS_L &ref() { return *reinterpret_cast<volatile MB1_32B_CS_L*>(0x400C80A8); }
 };
 
 // Message Buffer 2 WORD_8B Register
@@ -2474,7 +2474,7 @@ union MB2_8B_WORD0 {
 
   MB2_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB2_8B_WORD0*>(0x400C80A8); }
+  static inline volatile MB2_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB2_8B_WORD0*>(0x400C80A8); }
 };
 
 // Message Buffer 2 WORD0 Register
@@ -2497,7 +2497,7 @@ union WORD02 {
 
   WORD02() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD02 &Instance() { return *reinterpret_cast<volatile WORD02*>(0x400C80A8); }
+  static inline volatile WORD02 &ref() { return *reinterpret_cast<volatile WORD02*>(0x400C80A8); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -2520,7 +2520,7 @@ union MB0_64B_WORD9_L {
 
   MB0_64B_WORD9_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD9_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD9_L*>(0x400C80AC); }
+  static inline volatile MB0_64B_WORD9_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD9_L*>(0x400C80AC); }
 };
 
 // Message Buffer 1 WORD_16B Register
@@ -2543,7 +2543,7 @@ union MB1_16B_WORD3_L {
 
   MB1_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB1_16B_WORD3_L*>(0x400C80AC); }
+  static inline volatile MB1_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB1_16B_WORD3_L*>(0x400C80AC); }
 };
 
 // Message Buffer 1 ID Register
@@ -2564,7 +2564,7 @@ union MB1_32B_ID_L {
 
   MB1_32B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_ID_L &Instance() { return *reinterpret_cast<volatile MB1_32B_ID_L*>(0x400C80AC); }
+  static inline volatile MB1_32B_ID_L &ref() { return *reinterpret_cast<volatile MB1_32B_ID_L*>(0x400C80AC); }
 };
 
 // Message Buffer 2 WORD_8B Register
@@ -2587,7 +2587,7 @@ union MB2_8B_WORD1 {
 
   MB2_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB2_8B_WORD1*>(0x400C80AC); }
+  static inline volatile MB2_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB2_8B_WORD1*>(0x400C80AC); }
 };
 
 // Message Buffer 2 WORD1 Register
@@ -2610,7 +2610,7 @@ union WORD12 {
 
   WORD12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD12 &Instance() { return *reinterpret_cast<volatile WORD12*>(0x400C80AC); }
+  static inline volatile WORD12 &ref() { return *reinterpret_cast<volatile WORD12*>(0x400C80AC); }
 };
 
 // Message Buffer 3 CS Register
@@ -2645,7 +2645,7 @@ union CS3 {
 
   CS3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS3 &Instance() { return *reinterpret_cast<volatile CS3*>(0x400C80B0); }
+  static inline volatile CS3 &ref() { return *reinterpret_cast<volatile CS3*>(0x400C80B0); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -2668,7 +2668,7 @@ union MB0_64B_WORD10_L {
 
   MB0_64B_WORD10_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD10_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD10_L*>(0x400C80B0); }
+  static inline volatile MB0_64B_WORD10_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD10_L*>(0x400C80B0); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -2691,7 +2691,7 @@ union MB1_32B_WORD0_L {
 
   MB1_32B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD0_L*>(0x400C80B0); }
+  static inline volatile MB1_32B_WORD0_L &ref() { return *reinterpret_cast<volatile MB1_32B_WORD0_L*>(0x400C80B0); }
 };
 
 // Message Buffer 2 CS Register
@@ -2726,7 +2726,7 @@ union MB2_16B_CS_L {
 
   MB2_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB2_16B_CS_L*>(0x400C80B0); }
+  static inline volatile MB2_16B_CS_L &ref() { return *reinterpret_cast<volatile MB2_16B_CS_L*>(0x400C80B0); }
 };
 
 // Message Buffer 3 CS Register
@@ -2761,7 +2761,7 @@ union MB3_8B_CS {
 
   MB3_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_8B_CS &Instance() { return *reinterpret_cast<volatile MB3_8B_CS*>(0x400C80B0); }
+  static inline volatile MB3_8B_CS &ref() { return *reinterpret_cast<volatile MB3_8B_CS*>(0x400C80B0); }
 };
 
 // Message Buffer 3 ID Register
@@ -2782,7 +2782,7 @@ union ID3 {
 
   ID3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID3 &Instance() { return *reinterpret_cast<volatile ID3*>(0x400C80B4); }
+  static inline volatile ID3 &ref() { return *reinterpret_cast<volatile ID3*>(0x400C80B4); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -2805,7 +2805,7 @@ union MB0_64B_WORD11_L {
 
   MB0_64B_WORD11_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD11_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD11_L*>(0x400C80B4); }
+  static inline volatile MB0_64B_WORD11_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD11_L*>(0x400C80B4); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -2828,7 +2828,7 @@ union MB1_32B_WORD1_L {
 
   MB1_32B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD1_L*>(0x400C80B4); }
+  static inline volatile MB1_32B_WORD1_L &ref() { return *reinterpret_cast<volatile MB1_32B_WORD1_L*>(0x400C80B4); }
 };
 
 // Message Buffer 2 ID Register
@@ -2849,7 +2849,7 @@ union MB2_16B_ID_L {
 
   MB2_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB2_16B_ID_L*>(0x400C80B4); }
+  static inline volatile MB2_16B_ID_L &ref() { return *reinterpret_cast<volatile MB2_16B_ID_L*>(0x400C80B4); }
 };
 
 // Message Buffer 3 ID Register
@@ -2870,7 +2870,7 @@ union MB3_8B_ID {
 
   MB3_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_8B_ID &Instance() { return *reinterpret_cast<volatile MB3_8B_ID*>(0x400C80B4); }
+  static inline volatile MB3_8B_ID &ref() { return *reinterpret_cast<volatile MB3_8B_ID*>(0x400C80B4); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -2893,7 +2893,7 @@ union MB0_64B_WORD12_L {
 
   MB0_64B_WORD12_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD12_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD12_L*>(0x400C80B8); }
+  static inline volatile MB0_64B_WORD12_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD12_L*>(0x400C80B8); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -2916,7 +2916,7 @@ union MB1_32B_WORD2_L {
 
   MB1_32B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD2_L*>(0x400C80B8); }
+  static inline volatile MB1_32B_WORD2_L &ref() { return *reinterpret_cast<volatile MB1_32B_WORD2_L*>(0x400C80B8); }
 };
 
 // Message Buffer 2 WORD_16B Register
@@ -2939,7 +2939,7 @@ union MB2_16B_WORD0_L {
 
   MB2_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB2_16B_WORD0_L*>(0x400C80B8); }
+  static inline volatile MB2_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB2_16B_WORD0_L*>(0x400C80B8); }
 };
 
 // Message Buffer 3 WORD_8B Register
@@ -2962,7 +2962,7 @@ union MB3_8B_WORD0 {
 
   MB3_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB3_8B_WORD0*>(0x400C80B8); }
+  static inline volatile MB3_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB3_8B_WORD0*>(0x400C80B8); }
 };
 
 // Message Buffer 3 WORD0 Register
@@ -2985,7 +2985,7 @@ union WORD03 {
 
   WORD03() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD03 &Instance() { return *reinterpret_cast<volatile WORD03*>(0x400C80B8); }
+  static inline volatile WORD03 &ref() { return *reinterpret_cast<volatile WORD03*>(0x400C80B8); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -3008,7 +3008,7 @@ union MB0_64B_WORD13_L {
 
   MB0_64B_WORD13_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD13_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD13_L*>(0x400C80BC); }
+  static inline volatile MB0_64B_WORD13_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD13_L*>(0x400C80BC); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -3031,7 +3031,7 @@ union MB1_32B_WORD3_L {
 
   MB1_32B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD3_L*>(0x400C80BC); }
+  static inline volatile MB1_32B_WORD3_L &ref() { return *reinterpret_cast<volatile MB1_32B_WORD3_L*>(0x400C80BC); }
 };
 
 // Message Buffer 2 WORD_16B Register
@@ -3054,7 +3054,7 @@ union MB2_16B_WORD1_L {
 
   MB2_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB2_16B_WORD1_L*>(0x400C80BC); }
+  static inline volatile MB2_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB2_16B_WORD1_L*>(0x400C80BC); }
 };
 
 // Message Buffer 3 WORD_8B Register
@@ -3077,7 +3077,7 @@ union MB3_8B_WORD1 {
 
   MB3_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB3_8B_WORD1*>(0x400C80BC); }
+  static inline volatile MB3_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB3_8B_WORD1*>(0x400C80BC); }
 };
 
 // Message Buffer 3 WORD1 Register
@@ -3100,7 +3100,7 @@ union WORD13 {
 
   WORD13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD13 &Instance() { return *reinterpret_cast<volatile WORD13*>(0x400C80BC); }
+  static inline volatile WORD13 &ref() { return *reinterpret_cast<volatile WORD13*>(0x400C80BC); }
 };
 
 // Message Buffer 4 CS Register
@@ -3135,7 +3135,7 @@ union CS4 {
 
   CS4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS4 &Instance() { return *reinterpret_cast<volatile CS4*>(0x400C80C0); }
+  static inline volatile CS4 &ref() { return *reinterpret_cast<volatile CS4*>(0x400C80C0); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -3158,7 +3158,7 @@ union MB0_64B_WORD14_L {
 
   MB0_64B_WORD14_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD14_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD14_L*>(0x400C80C0); }
+  static inline volatile MB0_64B_WORD14_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD14_L*>(0x400C80C0); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -3181,7 +3181,7 @@ union MB1_32B_WORD4_L {
 
   MB1_32B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD4_L*>(0x400C80C0); }
+  static inline volatile MB1_32B_WORD4_L &ref() { return *reinterpret_cast<volatile MB1_32B_WORD4_L*>(0x400C80C0); }
 };
 
 // Message Buffer 2 WORD_16B Register
@@ -3204,7 +3204,7 @@ union MB2_16B_WORD2_L {
 
   MB2_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB2_16B_WORD2_L*>(0x400C80C0); }
+  static inline volatile MB2_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB2_16B_WORD2_L*>(0x400C80C0); }
 };
 
 // Message Buffer 4 CS Register
@@ -3239,7 +3239,7 @@ union MB4_8B_CS {
 
   MB4_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_8B_CS &Instance() { return *reinterpret_cast<volatile MB4_8B_CS*>(0x400C80C0); }
+  static inline volatile MB4_8B_CS &ref() { return *reinterpret_cast<volatile MB4_8B_CS*>(0x400C80C0); }
 };
 
 // Message Buffer 4 ID Register
@@ -3260,7 +3260,7 @@ union ID4 {
 
   ID4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID4 &Instance() { return *reinterpret_cast<volatile ID4*>(0x400C80C4); }
+  static inline volatile ID4 &ref() { return *reinterpret_cast<volatile ID4*>(0x400C80C4); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -3283,7 +3283,7 @@ union MB0_64B_WORD15_L {
 
   MB0_64B_WORD15_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD15_L &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD15_L*>(0x400C80C4); }
+  static inline volatile MB0_64B_WORD15_L &ref() { return *reinterpret_cast<volatile MB0_64B_WORD15_L*>(0x400C80C4); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -3306,7 +3306,7 @@ union MB1_32B_WORD5_L {
 
   MB1_32B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD5_L*>(0x400C80C4); }
+  static inline volatile MB1_32B_WORD5_L &ref() { return *reinterpret_cast<volatile MB1_32B_WORD5_L*>(0x400C80C4); }
 };
 
 // Message Buffer 2 WORD_16B Register
@@ -3329,7 +3329,7 @@ union MB2_16B_WORD3_L {
 
   MB2_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB2_16B_WORD3_L*>(0x400C80C4); }
+  static inline volatile MB2_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB2_16B_WORD3_L*>(0x400C80C4); }
 };
 
 // Message Buffer 4 ID Register
@@ -3350,7 +3350,7 @@ union MB4_8B_ID {
 
   MB4_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_8B_ID &Instance() { return *reinterpret_cast<volatile MB4_8B_ID*>(0x400C80C4); }
+  static inline volatile MB4_8B_ID &ref() { return *reinterpret_cast<volatile MB4_8B_ID*>(0x400C80C4); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -3373,7 +3373,7 @@ union MB1_32B_WORD6_L {
 
   MB1_32B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD6_L*>(0x400C80C8); }
+  static inline volatile MB1_32B_WORD6_L &ref() { return *reinterpret_cast<volatile MB1_32B_WORD6_L*>(0x400C80C8); }
 };
 
 // Message Buffer 1 CS Register
@@ -3408,7 +3408,7 @@ union MB1_64B_CS_L {
 
   MB1_64B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_CS_L &Instance() { return *reinterpret_cast<volatile MB1_64B_CS_L*>(0x400C80C8); }
+  static inline volatile MB1_64B_CS_L &ref() { return *reinterpret_cast<volatile MB1_64B_CS_L*>(0x400C80C8); }
 };
 
 // Message Buffer 3 CS Register
@@ -3443,7 +3443,7 @@ union MB3_16B_CS_L {
 
   MB3_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB3_16B_CS_L*>(0x400C80C8); }
+  static inline volatile MB3_16B_CS_L &ref() { return *reinterpret_cast<volatile MB3_16B_CS_L*>(0x400C80C8); }
 };
 
 // Message Buffer 4 WORD_8B Register
@@ -3466,7 +3466,7 @@ union MB4_8B_WORD0 {
 
   MB4_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB4_8B_WORD0*>(0x400C80C8); }
+  static inline volatile MB4_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB4_8B_WORD0*>(0x400C80C8); }
 };
 
 // Message Buffer 4 WORD0 Register
@@ -3489,7 +3489,7 @@ union WORD04 {
 
   WORD04() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD04 &Instance() { return *reinterpret_cast<volatile WORD04*>(0x400C80C8); }
+  static inline volatile WORD04 &ref() { return *reinterpret_cast<volatile WORD04*>(0x400C80C8); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -3512,7 +3512,7 @@ union MB1_32B_WORD7_L {
 
   MB1_32B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD7_L*>(0x400C80CC); }
+  static inline volatile MB1_32B_WORD7_L &ref() { return *reinterpret_cast<volatile MB1_32B_WORD7_L*>(0x400C80CC); }
 };
 
 // Message Buffer 1 ID Register
@@ -3533,7 +3533,7 @@ union MB1_64B_ID_L {
 
   MB1_64B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_ID_L &Instance() { return *reinterpret_cast<volatile MB1_64B_ID_L*>(0x400C80CC); }
+  static inline volatile MB1_64B_ID_L &ref() { return *reinterpret_cast<volatile MB1_64B_ID_L*>(0x400C80CC); }
 };
 
 // Message Buffer 3 ID Register
@@ -3554,7 +3554,7 @@ union MB3_16B_ID_L {
 
   MB3_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB3_16B_ID_L*>(0x400C80CC); }
+  static inline volatile MB3_16B_ID_L &ref() { return *reinterpret_cast<volatile MB3_16B_ID_L*>(0x400C80CC); }
 };
 
 // Message Buffer 4 WORD_8B Register
@@ -3577,7 +3577,7 @@ union MB4_8B_WORD1 {
 
   MB4_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB4_8B_WORD1*>(0x400C80CC); }
+  static inline volatile MB4_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB4_8B_WORD1*>(0x400C80CC); }
 };
 
 // Message Buffer 4 WORD1 Register
@@ -3600,7 +3600,7 @@ union WORD14 {
 
   WORD14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD14 &Instance() { return *reinterpret_cast<volatile WORD14*>(0x400C80CC); }
+  static inline volatile WORD14 &ref() { return *reinterpret_cast<volatile WORD14*>(0x400C80CC); }
 };
 
 // Message Buffer 5 CS Register
@@ -3635,7 +3635,7 @@ union CS5 {
 
   CS5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS5 &Instance() { return *reinterpret_cast<volatile CS5*>(0x400C80D0); }
+  static inline volatile CS5 &ref() { return *reinterpret_cast<volatile CS5*>(0x400C80D0); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -3658,7 +3658,7 @@ union MB1_64B_WORD0_L {
 
   MB1_64B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD0_L*>(0x400C80D0); }
+  static inline volatile MB1_64B_WORD0_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD0_L*>(0x400C80D0); }
 };
 
 // Message Buffer 2 CS Register
@@ -3693,7 +3693,7 @@ union MB2_32B_CS_L {
 
   MB2_32B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_CS_L &Instance() { return *reinterpret_cast<volatile MB2_32B_CS_L*>(0x400C80D0); }
+  static inline volatile MB2_32B_CS_L &ref() { return *reinterpret_cast<volatile MB2_32B_CS_L*>(0x400C80D0); }
 };
 
 // Message Buffer 3 WORD_16B Register
@@ -3716,7 +3716,7 @@ union MB3_16B_WORD0_L {
 
   MB3_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB3_16B_WORD0_L*>(0x400C80D0); }
+  static inline volatile MB3_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB3_16B_WORD0_L*>(0x400C80D0); }
 };
 
 // Message Buffer 5 CS Register
@@ -3751,7 +3751,7 @@ union MB5_8B_CS {
 
   MB5_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_8B_CS &Instance() { return *reinterpret_cast<volatile MB5_8B_CS*>(0x400C80D0); }
+  static inline volatile MB5_8B_CS &ref() { return *reinterpret_cast<volatile MB5_8B_CS*>(0x400C80D0); }
 };
 
 // Message Buffer 5 ID Register
@@ -3772,7 +3772,7 @@ union ID5 {
 
   ID5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID5 &Instance() { return *reinterpret_cast<volatile ID5*>(0x400C80D4); }
+  static inline volatile ID5 &ref() { return *reinterpret_cast<volatile ID5*>(0x400C80D4); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -3795,7 +3795,7 @@ union MB1_64B_WORD1_L {
 
   MB1_64B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD1_L*>(0x400C80D4); }
+  static inline volatile MB1_64B_WORD1_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD1_L*>(0x400C80D4); }
 };
 
 // Message Buffer 2 ID Register
@@ -3816,7 +3816,7 @@ union MB2_32B_ID_L {
 
   MB2_32B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_ID_L &Instance() { return *reinterpret_cast<volatile MB2_32B_ID_L*>(0x400C80D4); }
+  static inline volatile MB2_32B_ID_L &ref() { return *reinterpret_cast<volatile MB2_32B_ID_L*>(0x400C80D4); }
 };
 
 // Message Buffer 3 WORD_16B Register
@@ -3839,7 +3839,7 @@ union MB3_16B_WORD1_L {
 
   MB3_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB3_16B_WORD1_L*>(0x400C80D4); }
+  static inline volatile MB3_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB3_16B_WORD1_L*>(0x400C80D4); }
 };
 
 // Message Buffer 5 ID Register
@@ -3860,7 +3860,7 @@ union MB5_8B_ID {
 
   MB5_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_8B_ID &Instance() { return *reinterpret_cast<volatile MB5_8B_ID*>(0x400C80D4); }
+  static inline volatile MB5_8B_ID &ref() { return *reinterpret_cast<volatile MB5_8B_ID*>(0x400C80D4); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -3883,7 +3883,7 @@ union MB1_64B_WORD2_L {
 
   MB1_64B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD2_L*>(0x400C80D8); }
+  static inline volatile MB1_64B_WORD2_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD2_L*>(0x400C80D8); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -3906,7 +3906,7 @@ union MB2_32B_WORD0_L {
 
   MB2_32B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD0_L*>(0x400C80D8); }
+  static inline volatile MB2_32B_WORD0_L &ref() { return *reinterpret_cast<volatile MB2_32B_WORD0_L*>(0x400C80D8); }
 };
 
 // Message Buffer 3 WORD_16B Register
@@ -3929,7 +3929,7 @@ union MB3_16B_WORD2_L {
 
   MB3_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB3_16B_WORD2_L*>(0x400C80D8); }
+  static inline volatile MB3_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB3_16B_WORD2_L*>(0x400C80D8); }
 };
 
 // Message Buffer 5 WORD_8B Register
@@ -3952,7 +3952,7 @@ union MB5_8B_WORD0 {
 
   MB5_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB5_8B_WORD0*>(0x400C80D8); }
+  static inline volatile MB5_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB5_8B_WORD0*>(0x400C80D8); }
 };
 
 // Message Buffer 5 WORD0 Register
@@ -3975,7 +3975,7 @@ union WORD05 {
 
   WORD05() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD05 &Instance() { return *reinterpret_cast<volatile WORD05*>(0x400C80D8); }
+  static inline volatile WORD05 &ref() { return *reinterpret_cast<volatile WORD05*>(0x400C80D8); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -3998,7 +3998,7 @@ union MB1_64B_WORD3_L {
 
   MB1_64B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD3_L*>(0x400C80DC); }
+  static inline volatile MB1_64B_WORD3_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD3_L*>(0x400C80DC); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -4021,7 +4021,7 @@ union MB2_32B_WORD1_L {
 
   MB2_32B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD1_L*>(0x400C80DC); }
+  static inline volatile MB2_32B_WORD1_L &ref() { return *reinterpret_cast<volatile MB2_32B_WORD1_L*>(0x400C80DC); }
 };
 
 // Message Buffer 3 WORD_16B Register
@@ -4044,7 +4044,7 @@ union MB3_16B_WORD3_L {
 
   MB3_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB3_16B_WORD3_L*>(0x400C80DC); }
+  static inline volatile MB3_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB3_16B_WORD3_L*>(0x400C80DC); }
 };
 
 // Message Buffer 5 WORD_8B Register
@@ -4067,7 +4067,7 @@ union MB5_8B_WORD1 {
 
   MB5_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB5_8B_WORD1*>(0x400C80DC); }
+  static inline volatile MB5_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB5_8B_WORD1*>(0x400C80DC); }
 };
 
 // Message Buffer 5 WORD1 Register
@@ -4090,7 +4090,7 @@ union WORD15 {
 
   WORD15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD15 &Instance() { return *reinterpret_cast<volatile WORD15*>(0x400C80DC); }
+  static inline volatile WORD15 &ref() { return *reinterpret_cast<volatile WORD15*>(0x400C80DC); }
 };
 
 // Message Buffer 6 CS Register
@@ -4125,7 +4125,7 @@ union CS6 {
 
   CS6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS6 &Instance() { return *reinterpret_cast<volatile CS6*>(0x400C80E0); }
+  static inline volatile CS6 &ref() { return *reinterpret_cast<volatile CS6*>(0x400C80E0); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -4148,7 +4148,7 @@ union MB1_64B_WORD4_L {
 
   MB1_64B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD4_L*>(0x400C80E0); }
+  static inline volatile MB1_64B_WORD4_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD4_L*>(0x400C80E0); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -4171,7 +4171,7 @@ union MB2_32B_WORD2_L {
 
   MB2_32B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD2_L*>(0x400C80E0); }
+  static inline volatile MB2_32B_WORD2_L &ref() { return *reinterpret_cast<volatile MB2_32B_WORD2_L*>(0x400C80E0); }
 };
 
 // Message Buffer 4 CS Register
@@ -4206,7 +4206,7 @@ union MB4_16B_CS_L {
 
   MB4_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB4_16B_CS_L*>(0x400C80E0); }
+  static inline volatile MB4_16B_CS_L &ref() { return *reinterpret_cast<volatile MB4_16B_CS_L*>(0x400C80E0); }
 };
 
 // Message Buffer 6 CS Register
@@ -4241,7 +4241,7 @@ union MB6_8B_CS {
 
   MB6_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_8B_CS &Instance() { return *reinterpret_cast<volatile MB6_8B_CS*>(0x400C80E0); }
+  static inline volatile MB6_8B_CS &ref() { return *reinterpret_cast<volatile MB6_8B_CS*>(0x400C80E0); }
 };
 
 // Message Buffer 6 ID Register
@@ -4262,7 +4262,7 @@ union ID6 {
 
   ID6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID6 &Instance() { return *reinterpret_cast<volatile ID6*>(0x400C80E4); }
+  static inline volatile ID6 &ref() { return *reinterpret_cast<volatile ID6*>(0x400C80E4); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -4285,7 +4285,7 @@ union MB1_64B_WORD5_L {
 
   MB1_64B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD5_L*>(0x400C80E4); }
+  static inline volatile MB1_64B_WORD5_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD5_L*>(0x400C80E4); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -4308,7 +4308,7 @@ union MB2_32B_WORD3_L {
 
   MB2_32B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD3_L*>(0x400C80E4); }
+  static inline volatile MB2_32B_WORD3_L &ref() { return *reinterpret_cast<volatile MB2_32B_WORD3_L*>(0x400C80E4); }
 };
 
 // Message Buffer 4 ID Register
@@ -4329,7 +4329,7 @@ union MB4_16B_ID_L {
 
   MB4_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB4_16B_ID_L*>(0x400C80E4); }
+  static inline volatile MB4_16B_ID_L &ref() { return *reinterpret_cast<volatile MB4_16B_ID_L*>(0x400C80E4); }
 };
 
 // Message Buffer 6 ID Register
@@ -4350,7 +4350,7 @@ union MB6_8B_ID {
 
   MB6_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_8B_ID &Instance() { return *reinterpret_cast<volatile MB6_8B_ID*>(0x400C80E4); }
+  static inline volatile MB6_8B_ID &ref() { return *reinterpret_cast<volatile MB6_8B_ID*>(0x400C80E4); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -4373,7 +4373,7 @@ union MB1_64B_WORD6_L {
 
   MB1_64B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD6_L*>(0x400C80E8); }
+  static inline volatile MB1_64B_WORD6_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD6_L*>(0x400C80E8); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -4396,7 +4396,7 @@ union MB2_32B_WORD4_L {
 
   MB2_32B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD4_L*>(0x400C80E8); }
+  static inline volatile MB2_32B_WORD4_L &ref() { return *reinterpret_cast<volatile MB2_32B_WORD4_L*>(0x400C80E8); }
 };
 
 // Message Buffer 4 WORD_16B Register
@@ -4419,7 +4419,7 @@ union MB4_16B_WORD0_L {
 
   MB4_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB4_16B_WORD0_L*>(0x400C80E8); }
+  static inline volatile MB4_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB4_16B_WORD0_L*>(0x400C80E8); }
 };
 
 // Message Buffer 6 WORD_8B Register
@@ -4442,7 +4442,7 @@ union MB6_8B_WORD0 {
 
   MB6_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB6_8B_WORD0*>(0x400C80E8); }
+  static inline volatile MB6_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB6_8B_WORD0*>(0x400C80E8); }
 };
 
 // Message Buffer 6 WORD0 Register
@@ -4465,7 +4465,7 @@ union WORD06 {
 
   WORD06() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD06 &Instance() { return *reinterpret_cast<volatile WORD06*>(0x400C80E8); }
+  static inline volatile WORD06 &ref() { return *reinterpret_cast<volatile WORD06*>(0x400C80E8); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -4488,7 +4488,7 @@ union MB1_64B_WORD7_L {
 
   MB1_64B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD7_L*>(0x400C80EC); }
+  static inline volatile MB1_64B_WORD7_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD7_L*>(0x400C80EC); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -4511,7 +4511,7 @@ union MB2_32B_WORD5_L {
 
   MB2_32B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD5_L*>(0x400C80EC); }
+  static inline volatile MB2_32B_WORD5_L &ref() { return *reinterpret_cast<volatile MB2_32B_WORD5_L*>(0x400C80EC); }
 };
 
 // Message Buffer 4 WORD_16B Register
@@ -4534,7 +4534,7 @@ union MB4_16B_WORD1_L {
 
   MB4_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB4_16B_WORD1_L*>(0x400C80EC); }
+  static inline volatile MB4_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB4_16B_WORD1_L*>(0x400C80EC); }
 };
 
 // Message Buffer 6 WORD_8B Register
@@ -4557,7 +4557,7 @@ union MB6_8B_WORD1 {
 
   MB6_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB6_8B_WORD1*>(0x400C80EC); }
+  static inline volatile MB6_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB6_8B_WORD1*>(0x400C80EC); }
 };
 
 // Message Buffer 6 WORD1 Register
@@ -4580,7 +4580,7 @@ union WORD16 {
 
   WORD16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD16 &Instance() { return *reinterpret_cast<volatile WORD16*>(0x400C80EC); }
+  static inline volatile WORD16 &ref() { return *reinterpret_cast<volatile WORD16*>(0x400C80EC); }
 };
 
 // Message Buffer 7 CS Register
@@ -4615,7 +4615,7 @@ union CS7 {
 
   CS7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS7 &Instance() { return *reinterpret_cast<volatile CS7*>(0x400C80F0); }
+  static inline volatile CS7 &ref() { return *reinterpret_cast<volatile CS7*>(0x400C80F0); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -4638,7 +4638,7 @@ union MB1_64B_WORD8_L {
 
   MB1_64B_WORD8_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD8_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD8_L*>(0x400C80F0); }
+  static inline volatile MB1_64B_WORD8_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD8_L*>(0x400C80F0); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -4661,7 +4661,7 @@ union MB2_32B_WORD6_L {
 
   MB2_32B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD6_L*>(0x400C80F0); }
+  static inline volatile MB2_32B_WORD6_L &ref() { return *reinterpret_cast<volatile MB2_32B_WORD6_L*>(0x400C80F0); }
 };
 
 // Message Buffer 4 WORD_16B Register
@@ -4684,7 +4684,7 @@ union MB4_16B_WORD2_L {
 
   MB4_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB4_16B_WORD2_L*>(0x400C80F0); }
+  static inline volatile MB4_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB4_16B_WORD2_L*>(0x400C80F0); }
 };
 
 // Message Buffer 7 CS Register
@@ -4719,7 +4719,7 @@ union MB7_8B_CS {
 
   MB7_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_8B_CS &Instance() { return *reinterpret_cast<volatile MB7_8B_CS*>(0x400C80F0); }
+  static inline volatile MB7_8B_CS &ref() { return *reinterpret_cast<volatile MB7_8B_CS*>(0x400C80F0); }
 };
 
 // Message Buffer 7 ID Register
@@ -4740,7 +4740,7 @@ union ID7 {
 
   ID7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID7 &Instance() { return *reinterpret_cast<volatile ID7*>(0x400C80F4); }
+  static inline volatile ID7 &ref() { return *reinterpret_cast<volatile ID7*>(0x400C80F4); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -4763,7 +4763,7 @@ union MB1_64B_WORD9_L {
 
   MB1_64B_WORD9_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD9_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD9_L*>(0x400C80F4); }
+  static inline volatile MB1_64B_WORD9_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD9_L*>(0x400C80F4); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -4786,7 +4786,7 @@ union MB2_32B_WORD7_L {
 
   MB2_32B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD7_L*>(0x400C80F4); }
+  static inline volatile MB2_32B_WORD7_L &ref() { return *reinterpret_cast<volatile MB2_32B_WORD7_L*>(0x400C80F4); }
 };
 
 // Message Buffer 4 WORD_16B Register
@@ -4809,7 +4809,7 @@ union MB4_16B_WORD3_L {
 
   MB4_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB4_16B_WORD3_L*>(0x400C80F4); }
+  static inline volatile MB4_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB4_16B_WORD3_L*>(0x400C80F4); }
 };
 
 // Message Buffer 7 ID Register
@@ -4830,7 +4830,7 @@ union MB7_8B_ID {
 
   MB7_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_8B_ID &Instance() { return *reinterpret_cast<volatile MB7_8B_ID*>(0x400C80F4); }
+  static inline volatile MB7_8B_ID &ref() { return *reinterpret_cast<volatile MB7_8B_ID*>(0x400C80F4); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -4853,7 +4853,7 @@ union MB1_64B_WORD10_L {
 
   MB1_64B_WORD10_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD10_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD10_L*>(0x400C80F8); }
+  static inline volatile MB1_64B_WORD10_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD10_L*>(0x400C80F8); }
 };
 
 // Message Buffer 3 CS Register
@@ -4888,7 +4888,7 @@ union MB3_32B_CS_L {
 
   MB3_32B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_CS_L &Instance() { return *reinterpret_cast<volatile MB3_32B_CS_L*>(0x400C80F8); }
+  static inline volatile MB3_32B_CS_L &ref() { return *reinterpret_cast<volatile MB3_32B_CS_L*>(0x400C80F8); }
 };
 
 // Message Buffer 5 CS Register
@@ -4923,7 +4923,7 @@ union MB5_16B_CS_L {
 
   MB5_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB5_16B_CS_L*>(0x400C80F8); }
+  static inline volatile MB5_16B_CS_L &ref() { return *reinterpret_cast<volatile MB5_16B_CS_L*>(0x400C80F8); }
 };
 
 // Message Buffer 7 WORD_8B Register
@@ -4946,7 +4946,7 @@ union MB7_8B_WORD0 {
 
   MB7_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB7_8B_WORD0*>(0x400C80F8); }
+  static inline volatile MB7_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB7_8B_WORD0*>(0x400C80F8); }
 };
 
 // Message Buffer 7 WORD0 Register
@@ -4969,7 +4969,7 @@ union WORD07 {
 
   WORD07() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD07 &Instance() { return *reinterpret_cast<volatile WORD07*>(0x400C80F8); }
+  static inline volatile WORD07 &ref() { return *reinterpret_cast<volatile WORD07*>(0x400C80F8); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -4992,7 +4992,7 @@ union MB1_64B_WORD11_L {
 
   MB1_64B_WORD11_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD11_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD11_L*>(0x400C80FC); }
+  static inline volatile MB1_64B_WORD11_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD11_L*>(0x400C80FC); }
 };
 
 // Message Buffer 3 ID Register
@@ -5013,7 +5013,7 @@ union MB3_32B_ID_L {
 
   MB3_32B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_ID_L &Instance() { return *reinterpret_cast<volatile MB3_32B_ID_L*>(0x400C80FC); }
+  static inline volatile MB3_32B_ID_L &ref() { return *reinterpret_cast<volatile MB3_32B_ID_L*>(0x400C80FC); }
 };
 
 // Message Buffer 5 ID Register
@@ -5034,7 +5034,7 @@ union MB5_16B_ID_L {
 
   MB5_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB5_16B_ID_L*>(0x400C80FC); }
+  static inline volatile MB5_16B_ID_L &ref() { return *reinterpret_cast<volatile MB5_16B_ID_L*>(0x400C80FC); }
 };
 
 // Message Buffer 7 WORD_8B Register
@@ -5057,7 +5057,7 @@ union MB7_8B_WORD1 {
 
   MB7_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB7_8B_WORD1*>(0x400C80FC); }
+  static inline volatile MB7_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB7_8B_WORD1*>(0x400C80FC); }
 };
 
 // Message Buffer 7 WORD1 Register
@@ -5080,7 +5080,7 @@ union WORD17 {
 
   WORD17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD17 &Instance() { return *reinterpret_cast<volatile WORD17*>(0x400C80FC); }
+  static inline volatile WORD17 &ref() { return *reinterpret_cast<volatile WORD17*>(0x400C80FC); }
 };
 
 // Message Buffer 8 CS Register
@@ -5115,7 +5115,7 @@ union CS8 {
 
   CS8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS8 &Instance() { return *reinterpret_cast<volatile CS8*>(0x400C8100); }
+  static inline volatile CS8 &ref() { return *reinterpret_cast<volatile CS8*>(0x400C8100); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -5138,7 +5138,7 @@ union MB1_64B_WORD12_L {
 
   MB1_64B_WORD12_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD12_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD12_L*>(0x400C8100); }
+  static inline volatile MB1_64B_WORD12_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD12_L*>(0x400C8100); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -5161,7 +5161,7 @@ union MB3_32B_WORD0_L {
 
   MB3_32B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD0_L*>(0x400C8100); }
+  static inline volatile MB3_32B_WORD0_L &ref() { return *reinterpret_cast<volatile MB3_32B_WORD0_L*>(0x400C8100); }
 };
 
 // Message Buffer 5 WORD_16B Register
@@ -5184,7 +5184,7 @@ union MB5_16B_WORD0_L {
 
   MB5_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB5_16B_WORD0_L*>(0x400C8100); }
+  static inline volatile MB5_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB5_16B_WORD0_L*>(0x400C8100); }
 };
 
 // Message Buffer 8 CS Register
@@ -5219,7 +5219,7 @@ union MB8_8B_CS {
 
   MB8_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_8B_CS &Instance() { return *reinterpret_cast<volatile MB8_8B_CS*>(0x400C8100); }
+  static inline volatile MB8_8B_CS &ref() { return *reinterpret_cast<volatile MB8_8B_CS*>(0x400C8100); }
 };
 
 // Message Buffer 8 ID Register
@@ -5240,7 +5240,7 @@ union ID8 {
 
   ID8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID8 &Instance() { return *reinterpret_cast<volatile ID8*>(0x400C8104); }
+  static inline volatile ID8 &ref() { return *reinterpret_cast<volatile ID8*>(0x400C8104); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -5263,7 +5263,7 @@ union MB1_64B_WORD13_L {
 
   MB1_64B_WORD13_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD13_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD13_L*>(0x400C8104); }
+  static inline volatile MB1_64B_WORD13_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD13_L*>(0x400C8104); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -5286,7 +5286,7 @@ union MB3_32B_WORD1_L {
 
   MB3_32B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD1_L*>(0x400C8104); }
+  static inline volatile MB3_32B_WORD1_L &ref() { return *reinterpret_cast<volatile MB3_32B_WORD1_L*>(0x400C8104); }
 };
 
 // Message Buffer 5 WORD_16B Register
@@ -5309,7 +5309,7 @@ union MB5_16B_WORD1_L {
 
   MB5_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB5_16B_WORD1_L*>(0x400C8104); }
+  static inline volatile MB5_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB5_16B_WORD1_L*>(0x400C8104); }
 };
 
 // Message Buffer 8 ID Register
@@ -5330,7 +5330,7 @@ union MB8_8B_ID {
 
   MB8_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_8B_ID &Instance() { return *reinterpret_cast<volatile MB8_8B_ID*>(0x400C8104); }
+  static inline volatile MB8_8B_ID &ref() { return *reinterpret_cast<volatile MB8_8B_ID*>(0x400C8104); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -5353,7 +5353,7 @@ union MB1_64B_WORD14_L {
 
   MB1_64B_WORD14_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD14_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD14_L*>(0x400C8108); }
+  static inline volatile MB1_64B_WORD14_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD14_L*>(0x400C8108); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -5376,7 +5376,7 @@ union MB3_32B_WORD2_L {
 
   MB3_32B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD2_L*>(0x400C8108); }
+  static inline volatile MB3_32B_WORD2_L &ref() { return *reinterpret_cast<volatile MB3_32B_WORD2_L*>(0x400C8108); }
 };
 
 // Message Buffer 5 WORD_16B Register
@@ -5399,7 +5399,7 @@ union MB5_16B_WORD2_L {
 
   MB5_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB5_16B_WORD2_L*>(0x400C8108); }
+  static inline volatile MB5_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB5_16B_WORD2_L*>(0x400C8108); }
 };
 
 // Message Buffer 8 WORD_8B Register
@@ -5422,7 +5422,7 @@ union MB8_8B_WORD0 {
 
   MB8_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB8_8B_WORD0*>(0x400C8108); }
+  static inline volatile MB8_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB8_8B_WORD0*>(0x400C8108); }
 };
 
 // Message Buffer 8 WORD0 Register
@@ -5445,7 +5445,7 @@ union WORD08 {
 
   WORD08() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD08 &Instance() { return *reinterpret_cast<volatile WORD08*>(0x400C8108); }
+  static inline volatile WORD08 &ref() { return *reinterpret_cast<volatile WORD08*>(0x400C8108); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -5468,7 +5468,7 @@ union MB1_64B_WORD15_L {
 
   MB1_64B_WORD15_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD15_L &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD15_L*>(0x400C810C); }
+  static inline volatile MB1_64B_WORD15_L &ref() { return *reinterpret_cast<volatile MB1_64B_WORD15_L*>(0x400C810C); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -5491,7 +5491,7 @@ union MB3_32B_WORD3_L {
 
   MB3_32B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD3_L*>(0x400C810C); }
+  static inline volatile MB3_32B_WORD3_L &ref() { return *reinterpret_cast<volatile MB3_32B_WORD3_L*>(0x400C810C); }
 };
 
 // Message Buffer 5 WORD_16B Register
@@ -5514,7 +5514,7 @@ union MB5_16B_WORD3_L {
 
   MB5_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB5_16B_WORD3_L*>(0x400C810C); }
+  static inline volatile MB5_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB5_16B_WORD3_L*>(0x400C810C); }
 };
 
 // Message Buffer 8 WORD_8B Register
@@ -5537,7 +5537,7 @@ union MB8_8B_WORD1 {
 
   MB8_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB8_8B_WORD1*>(0x400C810C); }
+  static inline volatile MB8_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB8_8B_WORD1*>(0x400C810C); }
 };
 
 // Message Buffer 8 WORD1 Register
@@ -5560,7 +5560,7 @@ union WORD18 {
 
   WORD18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD18 &Instance() { return *reinterpret_cast<volatile WORD18*>(0x400C810C); }
+  static inline volatile WORD18 &ref() { return *reinterpret_cast<volatile WORD18*>(0x400C810C); }
 };
 
 // Message Buffer 9 CS Register
@@ -5595,7 +5595,7 @@ union CS9 {
 
   CS9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS9 &Instance() { return *reinterpret_cast<volatile CS9*>(0x400C8110); }
+  static inline volatile CS9 &ref() { return *reinterpret_cast<volatile CS9*>(0x400C8110); }
 };
 
 // Message Buffer 2 CS Register
@@ -5630,7 +5630,7 @@ union MB2_64B_CS_L {
 
   MB2_64B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_CS_L &Instance() { return *reinterpret_cast<volatile MB2_64B_CS_L*>(0x400C8110); }
+  static inline volatile MB2_64B_CS_L &ref() { return *reinterpret_cast<volatile MB2_64B_CS_L*>(0x400C8110); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -5653,7 +5653,7 @@ union MB3_32B_WORD4_L {
 
   MB3_32B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD4_L*>(0x400C8110); }
+  static inline volatile MB3_32B_WORD4_L &ref() { return *reinterpret_cast<volatile MB3_32B_WORD4_L*>(0x400C8110); }
 };
 
 // Message Buffer 6 CS Register
@@ -5688,7 +5688,7 @@ union MB6_16B_CS_L {
 
   MB6_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB6_16B_CS_L*>(0x400C8110); }
+  static inline volatile MB6_16B_CS_L &ref() { return *reinterpret_cast<volatile MB6_16B_CS_L*>(0x400C8110); }
 };
 
 // Message Buffer 9 CS Register
@@ -5723,7 +5723,7 @@ union MB9_8B_CS {
 
   MB9_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_8B_CS &Instance() { return *reinterpret_cast<volatile MB9_8B_CS*>(0x400C8110); }
+  static inline volatile MB9_8B_CS &ref() { return *reinterpret_cast<volatile MB9_8B_CS*>(0x400C8110); }
 };
 
 // Message Buffer 9 ID Register
@@ -5744,7 +5744,7 @@ union ID9 {
 
   ID9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID9 &Instance() { return *reinterpret_cast<volatile ID9*>(0x400C8114); }
+  static inline volatile ID9 &ref() { return *reinterpret_cast<volatile ID9*>(0x400C8114); }
 };
 
 // Message Buffer 2 ID Register
@@ -5765,7 +5765,7 @@ union MB2_64B_ID_L {
 
   MB2_64B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_ID_L &Instance() { return *reinterpret_cast<volatile MB2_64B_ID_L*>(0x400C8114); }
+  static inline volatile MB2_64B_ID_L &ref() { return *reinterpret_cast<volatile MB2_64B_ID_L*>(0x400C8114); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -5788,7 +5788,7 @@ union MB3_32B_WORD5_L {
 
   MB3_32B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD5_L*>(0x400C8114); }
+  static inline volatile MB3_32B_WORD5_L &ref() { return *reinterpret_cast<volatile MB3_32B_WORD5_L*>(0x400C8114); }
 };
 
 // Message Buffer 6 ID Register
@@ -5809,7 +5809,7 @@ union MB6_16B_ID_L {
 
   MB6_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB6_16B_ID_L*>(0x400C8114); }
+  static inline volatile MB6_16B_ID_L &ref() { return *reinterpret_cast<volatile MB6_16B_ID_L*>(0x400C8114); }
 };
 
 // Message Buffer 9 ID Register
@@ -5830,7 +5830,7 @@ union MB9_8B_ID {
 
   MB9_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_8B_ID &Instance() { return *reinterpret_cast<volatile MB9_8B_ID*>(0x400C8114); }
+  static inline volatile MB9_8B_ID &ref() { return *reinterpret_cast<volatile MB9_8B_ID*>(0x400C8114); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -5853,7 +5853,7 @@ union MB2_64B_WORD0_L {
 
   MB2_64B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD0_L*>(0x400C8118); }
+  static inline volatile MB2_64B_WORD0_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD0_L*>(0x400C8118); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -5876,7 +5876,7 @@ union MB3_32B_WORD6_L {
 
   MB3_32B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD6_L*>(0x400C8118); }
+  static inline volatile MB3_32B_WORD6_L &ref() { return *reinterpret_cast<volatile MB3_32B_WORD6_L*>(0x400C8118); }
 };
 
 // Message Buffer 6 WORD_16B Register
@@ -5899,7 +5899,7 @@ union MB6_16B_WORD0_L {
 
   MB6_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB6_16B_WORD0_L*>(0x400C8118); }
+  static inline volatile MB6_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB6_16B_WORD0_L*>(0x400C8118); }
 };
 
 // Message Buffer 9 WORD_8B Register
@@ -5922,7 +5922,7 @@ union MB9_8B_WORD0 {
 
   MB9_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB9_8B_WORD0*>(0x400C8118); }
+  static inline volatile MB9_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB9_8B_WORD0*>(0x400C8118); }
 };
 
 // Message Buffer 9 WORD0 Register
@@ -5945,7 +5945,7 @@ union WORD09 {
 
   WORD09() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD09 &Instance() { return *reinterpret_cast<volatile WORD09*>(0x400C8118); }
+  static inline volatile WORD09 &ref() { return *reinterpret_cast<volatile WORD09*>(0x400C8118); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -5968,7 +5968,7 @@ union MB2_64B_WORD1_L {
 
   MB2_64B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD1_L*>(0x400C811C); }
+  static inline volatile MB2_64B_WORD1_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD1_L*>(0x400C811C); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -5991,7 +5991,7 @@ union MB3_32B_WORD7_L {
 
   MB3_32B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD7_L*>(0x400C811C); }
+  static inline volatile MB3_32B_WORD7_L &ref() { return *reinterpret_cast<volatile MB3_32B_WORD7_L*>(0x400C811C); }
 };
 
 // Message Buffer 6 WORD_16B Register
@@ -6014,7 +6014,7 @@ union MB6_16B_WORD1_L {
 
   MB6_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB6_16B_WORD1_L*>(0x400C811C); }
+  static inline volatile MB6_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB6_16B_WORD1_L*>(0x400C811C); }
 };
 
 // Message Buffer 9 WORD_8B Register
@@ -6037,7 +6037,7 @@ union MB9_8B_WORD1 {
 
   MB9_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB9_8B_WORD1*>(0x400C811C); }
+  static inline volatile MB9_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB9_8B_WORD1*>(0x400C811C); }
 };
 
 // Message Buffer 9 WORD1 Register
@@ -6060,7 +6060,7 @@ union WORD19 {
 
   WORD19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD19 &Instance() { return *reinterpret_cast<volatile WORD19*>(0x400C811C); }
+  static inline volatile WORD19 &ref() { return *reinterpret_cast<volatile WORD19*>(0x400C811C); }
 };
 
 // Message Buffer 10 CS Register
@@ -6095,7 +6095,7 @@ union CS10 {
 
   CS10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS10 &Instance() { return *reinterpret_cast<volatile CS10*>(0x400C8120); }
+  static inline volatile CS10 &ref() { return *reinterpret_cast<volatile CS10*>(0x400C8120); }
 };
 
 // Message Buffer 10 CS Register
@@ -6130,7 +6130,7 @@ union MB10_8B_CS {
 
   MB10_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_8B_CS &Instance() { return *reinterpret_cast<volatile MB10_8B_CS*>(0x400C8120); }
+  static inline volatile MB10_8B_CS &ref() { return *reinterpret_cast<volatile MB10_8B_CS*>(0x400C8120); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -6153,7 +6153,7 @@ union MB2_64B_WORD2_L {
 
   MB2_64B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD2_L*>(0x400C8120); }
+  static inline volatile MB2_64B_WORD2_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD2_L*>(0x400C8120); }
 };
 
 // Message Buffer 4 CS Register
@@ -6188,7 +6188,7 @@ union MB4_32B_CS_L {
 
   MB4_32B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_CS_L &Instance() { return *reinterpret_cast<volatile MB4_32B_CS_L*>(0x400C8120); }
+  static inline volatile MB4_32B_CS_L &ref() { return *reinterpret_cast<volatile MB4_32B_CS_L*>(0x400C8120); }
 };
 
 // Message Buffer 6 WORD_16B Register
@@ -6211,7 +6211,7 @@ union MB6_16B_WORD2_L {
 
   MB6_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB6_16B_WORD2_L*>(0x400C8120); }
+  static inline volatile MB6_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB6_16B_WORD2_L*>(0x400C8120); }
 };
 
 // Message Buffer 10 ID Register
@@ -6232,7 +6232,7 @@ union ID10 {
 
   ID10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID10 &Instance() { return *reinterpret_cast<volatile ID10*>(0x400C8124); }
+  static inline volatile ID10 &ref() { return *reinterpret_cast<volatile ID10*>(0x400C8124); }
 };
 
 // Message Buffer 10 ID Register
@@ -6253,7 +6253,7 @@ union MB10_8B_ID {
 
   MB10_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_8B_ID &Instance() { return *reinterpret_cast<volatile MB10_8B_ID*>(0x400C8124); }
+  static inline volatile MB10_8B_ID &ref() { return *reinterpret_cast<volatile MB10_8B_ID*>(0x400C8124); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -6276,7 +6276,7 @@ union MB2_64B_WORD3_L {
 
   MB2_64B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD3_L*>(0x400C8124); }
+  static inline volatile MB2_64B_WORD3_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD3_L*>(0x400C8124); }
 };
 
 // Message Buffer 4 ID Register
@@ -6297,7 +6297,7 @@ union MB4_32B_ID_L {
 
   MB4_32B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_ID_L &Instance() { return *reinterpret_cast<volatile MB4_32B_ID_L*>(0x400C8124); }
+  static inline volatile MB4_32B_ID_L &ref() { return *reinterpret_cast<volatile MB4_32B_ID_L*>(0x400C8124); }
 };
 
 // Message Buffer 6 WORD_16B Register
@@ -6320,7 +6320,7 @@ union MB6_16B_WORD3_L {
 
   MB6_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB6_16B_WORD3_L*>(0x400C8124); }
+  static inline volatile MB6_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB6_16B_WORD3_L*>(0x400C8124); }
 };
 
 // Message Buffer 10 WORD_8B Register
@@ -6343,7 +6343,7 @@ union MB10_8B_WORD0 {
 
   MB10_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB10_8B_WORD0*>(0x400C8128); }
+  static inline volatile MB10_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB10_8B_WORD0*>(0x400C8128); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -6366,7 +6366,7 @@ union MB2_64B_WORD4_L {
 
   MB2_64B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD4_L*>(0x400C8128); }
+  static inline volatile MB2_64B_WORD4_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD4_L*>(0x400C8128); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -6389,7 +6389,7 @@ union MB4_32B_WORD0_L {
 
   MB4_32B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD0_L*>(0x400C8128); }
+  static inline volatile MB4_32B_WORD0_L &ref() { return *reinterpret_cast<volatile MB4_32B_WORD0_L*>(0x400C8128); }
 };
 
 // Message Buffer 7 CS Register
@@ -6424,7 +6424,7 @@ union MB7_16B_CS_L {
 
   MB7_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB7_16B_CS_L*>(0x400C8128); }
+  static inline volatile MB7_16B_CS_L &ref() { return *reinterpret_cast<volatile MB7_16B_CS_L*>(0x400C8128); }
 };
 
 // Message Buffer 10 WORD0 Register
@@ -6447,7 +6447,7 @@ union WORD010 {
 
   WORD010() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD010 &Instance() { return *reinterpret_cast<volatile WORD010*>(0x400C8128); }
+  static inline volatile WORD010 &ref() { return *reinterpret_cast<volatile WORD010*>(0x400C8128); }
 };
 
 // Message Buffer 10 WORD_8B Register
@@ -6470,7 +6470,7 @@ union MB10_8B_WORD1 {
 
   MB10_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB10_8B_WORD1*>(0x400C812C); }
+  static inline volatile MB10_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB10_8B_WORD1*>(0x400C812C); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -6493,7 +6493,7 @@ union MB2_64B_WORD5_L {
 
   MB2_64B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD5_L*>(0x400C812C); }
+  static inline volatile MB2_64B_WORD5_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD5_L*>(0x400C812C); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -6516,7 +6516,7 @@ union MB4_32B_WORD1_L {
 
   MB4_32B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD1_L*>(0x400C812C); }
+  static inline volatile MB4_32B_WORD1_L &ref() { return *reinterpret_cast<volatile MB4_32B_WORD1_L*>(0x400C812C); }
 };
 
 // Message Buffer 7 ID Register
@@ -6537,7 +6537,7 @@ union MB7_16B_ID_L {
 
   MB7_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB7_16B_ID_L*>(0x400C812C); }
+  static inline volatile MB7_16B_ID_L &ref() { return *reinterpret_cast<volatile MB7_16B_ID_L*>(0x400C812C); }
 };
 
 // Message Buffer 10 WORD1 Register
@@ -6560,7 +6560,7 @@ union WORD110 {
 
   WORD110() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD110 &Instance() { return *reinterpret_cast<volatile WORD110*>(0x400C812C); }
+  static inline volatile WORD110 &ref() { return *reinterpret_cast<volatile WORD110*>(0x400C812C); }
 };
 
 // Message Buffer 11 CS Register
@@ -6595,7 +6595,7 @@ union CS11 {
 
   CS11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS11 &Instance() { return *reinterpret_cast<volatile CS11*>(0x400C8130); }
+  static inline volatile CS11 &ref() { return *reinterpret_cast<volatile CS11*>(0x400C8130); }
 };
 
 // Message Buffer 11 CS Register
@@ -6630,7 +6630,7 @@ union MB11_8B_CS {
 
   MB11_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_8B_CS &Instance() { return *reinterpret_cast<volatile MB11_8B_CS*>(0x400C8130); }
+  static inline volatile MB11_8B_CS &ref() { return *reinterpret_cast<volatile MB11_8B_CS*>(0x400C8130); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -6653,7 +6653,7 @@ union MB2_64B_WORD6_L {
 
   MB2_64B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD6_L*>(0x400C8130); }
+  static inline volatile MB2_64B_WORD6_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD6_L*>(0x400C8130); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -6676,7 +6676,7 @@ union MB4_32B_WORD2_L {
 
   MB4_32B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD2_L*>(0x400C8130); }
+  static inline volatile MB4_32B_WORD2_L &ref() { return *reinterpret_cast<volatile MB4_32B_WORD2_L*>(0x400C8130); }
 };
 
 // Message Buffer 7 WORD_16B Register
@@ -6699,7 +6699,7 @@ union MB7_16B_WORD0_L {
 
   MB7_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB7_16B_WORD0_L*>(0x400C8130); }
+  static inline volatile MB7_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB7_16B_WORD0_L*>(0x400C8130); }
 };
 
 // Message Buffer 11 ID Register
@@ -6720,7 +6720,7 @@ union ID11 {
 
   ID11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID11 &Instance() { return *reinterpret_cast<volatile ID11*>(0x400C8134); }
+  static inline volatile ID11 &ref() { return *reinterpret_cast<volatile ID11*>(0x400C8134); }
 };
 
 // Message Buffer 11 ID Register
@@ -6741,7 +6741,7 @@ union MB11_8B_ID {
 
   MB11_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_8B_ID &Instance() { return *reinterpret_cast<volatile MB11_8B_ID*>(0x400C8134); }
+  static inline volatile MB11_8B_ID &ref() { return *reinterpret_cast<volatile MB11_8B_ID*>(0x400C8134); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -6764,7 +6764,7 @@ union MB2_64B_WORD7_L {
 
   MB2_64B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD7_L*>(0x400C8134); }
+  static inline volatile MB2_64B_WORD7_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD7_L*>(0x400C8134); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -6787,7 +6787,7 @@ union MB4_32B_WORD3_L {
 
   MB4_32B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD3_L*>(0x400C8134); }
+  static inline volatile MB4_32B_WORD3_L &ref() { return *reinterpret_cast<volatile MB4_32B_WORD3_L*>(0x400C8134); }
 };
 
 // Message Buffer 7 WORD_16B Register
@@ -6810,7 +6810,7 @@ union MB7_16B_WORD1_L {
 
   MB7_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB7_16B_WORD1_L*>(0x400C8134); }
+  static inline volatile MB7_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB7_16B_WORD1_L*>(0x400C8134); }
 };
 
 // Message Buffer 11 WORD_8B Register
@@ -6833,7 +6833,7 @@ union MB11_8B_WORD0 {
 
   MB11_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB11_8B_WORD0*>(0x400C8138); }
+  static inline volatile MB11_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB11_8B_WORD0*>(0x400C8138); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -6856,7 +6856,7 @@ union MB2_64B_WORD8_L {
 
   MB2_64B_WORD8_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD8_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD8_L*>(0x400C8138); }
+  static inline volatile MB2_64B_WORD8_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD8_L*>(0x400C8138); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -6879,7 +6879,7 @@ union MB4_32B_WORD4_L {
 
   MB4_32B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD4_L*>(0x400C8138); }
+  static inline volatile MB4_32B_WORD4_L &ref() { return *reinterpret_cast<volatile MB4_32B_WORD4_L*>(0x400C8138); }
 };
 
 // Message Buffer 7 WORD_16B Register
@@ -6902,7 +6902,7 @@ union MB7_16B_WORD2_L {
 
   MB7_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB7_16B_WORD2_L*>(0x400C8138); }
+  static inline volatile MB7_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB7_16B_WORD2_L*>(0x400C8138); }
 };
 
 // Message Buffer 11 WORD0 Register
@@ -6925,7 +6925,7 @@ union WORD011 {
 
   WORD011() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD011 &Instance() { return *reinterpret_cast<volatile WORD011*>(0x400C8138); }
+  static inline volatile WORD011 &ref() { return *reinterpret_cast<volatile WORD011*>(0x400C8138); }
 };
 
 // Message Buffer 11 WORD_8B Register
@@ -6948,7 +6948,7 @@ union MB11_8B_WORD1 {
 
   MB11_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB11_8B_WORD1*>(0x400C813C); }
+  static inline volatile MB11_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB11_8B_WORD1*>(0x400C813C); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -6971,7 +6971,7 @@ union MB2_64B_WORD9_L {
 
   MB2_64B_WORD9_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD9_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD9_L*>(0x400C813C); }
+  static inline volatile MB2_64B_WORD9_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD9_L*>(0x400C813C); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -6994,7 +6994,7 @@ union MB4_32B_WORD5_L {
 
   MB4_32B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD5_L*>(0x400C813C); }
+  static inline volatile MB4_32B_WORD5_L &ref() { return *reinterpret_cast<volatile MB4_32B_WORD5_L*>(0x400C813C); }
 };
 
 // Message Buffer 7 WORD_16B Register
@@ -7017,7 +7017,7 @@ union MB7_16B_WORD3_L {
 
   MB7_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB7_16B_WORD3_L*>(0x400C813C); }
+  static inline volatile MB7_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB7_16B_WORD3_L*>(0x400C813C); }
 };
 
 // Message Buffer 11 WORD1 Register
@@ -7040,7 +7040,7 @@ union WORD111 {
 
   WORD111() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD111 &Instance() { return *reinterpret_cast<volatile WORD111*>(0x400C813C); }
+  static inline volatile WORD111 &ref() { return *reinterpret_cast<volatile WORD111*>(0x400C813C); }
 };
 
 // Message Buffer 12 CS Register
@@ -7075,7 +7075,7 @@ union CS12 {
 
   CS12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS12 &Instance() { return *reinterpret_cast<volatile CS12*>(0x400C8140); }
+  static inline volatile CS12 &ref() { return *reinterpret_cast<volatile CS12*>(0x400C8140); }
 };
 
 // Message Buffer 12 CS Register
@@ -7110,7 +7110,7 @@ union MB12_8B_CS {
 
   MB12_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_8B_CS &Instance() { return *reinterpret_cast<volatile MB12_8B_CS*>(0x400C8140); }
+  static inline volatile MB12_8B_CS &ref() { return *reinterpret_cast<volatile MB12_8B_CS*>(0x400C8140); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -7133,7 +7133,7 @@ union MB2_64B_WORD10_L {
 
   MB2_64B_WORD10_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD10_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD10_L*>(0x400C8140); }
+  static inline volatile MB2_64B_WORD10_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD10_L*>(0x400C8140); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -7156,7 +7156,7 @@ union MB4_32B_WORD6_L {
 
   MB4_32B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD6_L*>(0x400C8140); }
+  static inline volatile MB4_32B_WORD6_L &ref() { return *reinterpret_cast<volatile MB4_32B_WORD6_L*>(0x400C8140); }
 };
 
 // Message Buffer 8 CS Register
@@ -7191,7 +7191,7 @@ union MB8_16B_CS_L {
 
   MB8_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB8_16B_CS_L*>(0x400C8140); }
+  static inline volatile MB8_16B_CS_L &ref() { return *reinterpret_cast<volatile MB8_16B_CS_L*>(0x400C8140); }
 };
 
 // Message Buffer 12 ID Register
@@ -7212,7 +7212,7 @@ union ID12 {
 
   ID12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID12 &Instance() { return *reinterpret_cast<volatile ID12*>(0x400C8144); }
+  static inline volatile ID12 &ref() { return *reinterpret_cast<volatile ID12*>(0x400C8144); }
 };
 
 // Message Buffer 12 ID Register
@@ -7233,7 +7233,7 @@ union MB12_8B_ID {
 
   MB12_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_8B_ID &Instance() { return *reinterpret_cast<volatile MB12_8B_ID*>(0x400C8144); }
+  static inline volatile MB12_8B_ID &ref() { return *reinterpret_cast<volatile MB12_8B_ID*>(0x400C8144); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -7256,7 +7256,7 @@ union MB2_64B_WORD11_L {
 
   MB2_64B_WORD11_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD11_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD11_L*>(0x400C8144); }
+  static inline volatile MB2_64B_WORD11_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD11_L*>(0x400C8144); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -7279,7 +7279,7 @@ union MB4_32B_WORD7_L {
 
   MB4_32B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD7_L*>(0x400C8144); }
+  static inline volatile MB4_32B_WORD7_L &ref() { return *reinterpret_cast<volatile MB4_32B_WORD7_L*>(0x400C8144); }
 };
 
 // Message Buffer 8 ID Register
@@ -7300,7 +7300,7 @@ union MB8_16B_ID_L {
 
   MB8_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB8_16B_ID_L*>(0x400C8144); }
+  static inline volatile MB8_16B_ID_L &ref() { return *reinterpret_cast<volatile MB8_16B_ID_L*>(0x400C8144); }
 };
 
 // Message Buffer 12 WORD_8B Register
@@ -7323,7 +7323,7 @@ union MB12_8B_WORD0 {
 
   MB12_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB12_8B_WORD0*>(0x400C8148); }
+  static inline volatile MB12_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB12_8B_WORD0*>(0x400C8148); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -7346,7 +7346,7 @@ union MB2_64B_WORD12_L {
 
   MB2_64B_WORD12_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD12_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD12_L*>(0x400C8148); }
+  static inline volatile MB2_64B_WORD12_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD12_L*>(0x400C8148); }
 };
 
 // Message Buffer 5 CS Register
@@ -7381,7 +7381,7 @@ union MB5_32B_CS_L {
 
   MB5_32B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_CS_L &Instance() { return *reinterpret_cast<volatile MB5_32B_CS_L*>(0x400C8148); }
+  static inline volatile MB5_32B_CS_L &ref() { return *reinterpret_cast<volatile MB5_32B_CS_L*>(0x400C8148); }
 };
 
 // Message Buffer 8 WORD_16B Register
@@ -7404,7 +7404,7 @@ union MB8_16B_WORD0_L {
 
   MB8_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB8_16B_WORD0_L*>(0x400C8148); }
+  static inline volatile MB8_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB8_16B_WORD0_L*>(0x400C8148); }
 };
 
 // Message Buffer 12 WORD0 Register
@@ -7427,7 +7427,7 @@ union WORD012 {
 
   WORD012() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD012 &Instance() { return *reinterpret_cast<volatile WORD012*>(0x400C8148); }
+  static inline volatile WORD012 &ref() { return *reinterpret_cast<volatile WORD012*>(0x400C8148); }
 };
 
 // Message Buffer 12 WORD_8B Register
@@ -7450,7 +7450,7 @@ union MB12_8B_WORD1 {
 
   MB12_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB12_8B_WORD1*>(0x400C814C); }
+  static inline volatile MB12_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB12_8B_WORD1*>(0x400C814C); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -7473,7 +7473,7 @@ union MB2_64B_WORD13_L {
 
   MB2_64B_WORD13_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD13_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD13_L*>(0x400C814C); }
+  static inline volatile MB2_64B_WORD13_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD13_L*>(0x400C814C); }
 };
 
 // Message Buffer 5 ID Register
@@ -7494,7 +7494,7 @@ union MB5_32B_ID_L {
 
   MB5_32B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_ID_L &Instance() { return *reinterpret_cast<volatile MB5_32B_ID_L*>(0x400C814C); }
+  static inline volatile MB5_32B_ID_L &ref() { return *reinterpret_cast<volatile MB5_32B_ID_L*>(0x400C814C); }
 };
 
 // Message Buffer 8 WORD_16B Register
@@ -7517,7 +7517,7 @@ union MB8_16B_WORD1_L {
 
   MB8_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB8_16B_WORD1_L*>(0x400C814C); }
+  static inline volatile MB8_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB8_16B_WORD1_L*>(0x400C814C); }
 };
 
 // Message Buffer 12 WORD1 Register
@@ -7540,7 +7540,7 @@ union WORD112 {
 
   WORD112() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD112 &Instance() { return *reinterpret_cast<volatile WORD112*>(0x400C814C); }
+  static inline volatile WORD112 &ref() { return *reinterpret_cast<volatile WORD112*>(0x400C814C); }
 };
 
 // Message Buffer 13 CS Register
@@ -7575,7 +7575,7 @@ union CS13 {
 
   CS13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS13 &Instance() { return *reinterpret_cast<volatile CS13*>(0x400C8150); }
+  static inline volatile CS13 &ref() { return *reinterpret_cast<volatile CS13*>(0x400C8150); }
 };
 
 // Message Buffer 13 CS Register
@@ -7610,7 +7610,7 @@ union MB13_8B_CS {
 
   MB13_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_8B_CS &Instance() { return *reinterpret_cast<volatile MB13_8B_CS*>(0x400C8150); }
+  static inline volatile MB13_8B_CS &ref() { return *reinterpret_cast<volatile MB13_8B_CS*>(0x400C8150); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -7633,7 +7633,7 @@ union MB2_64B_WORD14_L {
 
   MB2_64B_WORD14_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD14_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD14_L*>(0x400C8150); }
+  static inline volatile MB2_64B_WORD14_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD14_L*>(0x400C8150); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -7656,7 +7656,7 @@ union MB5_32B_WORD0_L {
 
   MB5_32B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD0_L*>(0x400C8150); }
+  static inline volatile MB5_32B_WORD0_L &ref() { return *reinterpret_cast<volatile MB5_32B_WORD0_L*>(0x400C8150); }
 };
 
 // Message Buffer 8 WORD_16B Register
@@ -7679,7 +7679,7 @@ union MB8_16B_WORD2_L {
 
   MB8_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB8_16B_WORD2_L*>(0x400C8150); }
+  static inline volatile MB8_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB8_16B_WORD2_L*>(0x400C8150); }
 };
 
 // Message Buffer 13 ID Register
@@ -7700,7 +7700,7 @@ union ID13 {
 
   ID13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID13 &Instance() { return *reinterpret_cast<volatile ID13*>(0x400C8154); }
+  static inline volatile ID13 &ref() { return *reinterpret_cast<volatile ID13*>(0x400C8154); }
 };
 
 // Message Buffer 13 ID Register
@@ -7721,7 +7721,7 @@ union MB13_8B_ID {
 
   MB13_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_8B_ID &Instance() { return *reinterpret_cast<volatile MB13_8B_ID*>(0x400C8154); }
+  static inline volatile MB13_8B_ID &ref() { return *reinterpret_cast<volatile MB13_8B_ID*>(0x400C8154); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -7744,7 +7744,7 @@ union MB2_64B_WORD15_L {
 
   MB2_64B_WORD15_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD15_L &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD15_L*>(0x400C8154); }
+  static inline volatile MB2_64B_WORD15_L &ref() { return *reinterpret_cast<volatile MB2_64B_WORD15_L*>(0x400C8154); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -7767,7 +7767,7 @@ union MB5_32B_WORD1_L {
 
   MB5_32B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD1_L*>(0x400C8154); }
+  static inline volatile MB5_32B_WORD1_L &ref() { return *reinterpret_cast<volatile MB5_32B_WORD1_L*>(0x400C8154); }
 };
 
 // Message Buffer 8 WORD_16B Register
@@ -7790,7 +7790,7 @@ union MB8_16B_WORD3_L {
 
   MB8_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB8_16B_WORD3_L*>(0x400C8154); }
+  static inline volatile MB8_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB8_16B_WORD3_L*>(0x400C8154); }
 };
 
 // Message Buffer 13 WORD_8B Register
@@ -7813,7 +7813,7 @@ union MB13_8B_WORD0 {
 
   MB13_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB13_8B_WORD0*>(0x400C8158); }
+  static inline volatile MB13_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB13_8B_WORD0*>(0x400C8158); }
 };
 
 // Message Buffer 3 CS Register
@@ -7848,7 +7848,7 @@ union MB3_64B_CS_L {
 
   MB3_64B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_CS_L &Instance() { return *reinterpret_cast<volatile MB3_64B_CS_L*>(0x400C8158); }
+  static inline volatile MB3_64B_CS_L &ref() { return *reinterpret_cast<volatile MB3_64B_CS_L*>(0x400C8158); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -7871,7 +7871,7 @@ union MB5_32B_WORD2_L {
 
   MB5_32B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD2_L*>(0x400C8158); }
+  static inline volatile MB5_32B_WORD2_L &ref() { return *reinterpret_cast<volatile MB5_32B_WORD2_L*>(0x400C8158); }
 };
 
 // Message Buffer 9 CS Register
@@ -7906,7 +7906,7 @@ union MB9_16B_CS_L {
 
   MB9_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB9_16B_CS_L*>(0x400C8158); }
+  static inline volatile MB9_16B_CS_L &ref() { return *reinterpret_cast<volatile MB9_16B_CS_L*>(0x400C8158); }
 };
 
 // Message Buffer 13 WORD0 Register
@@ -7929,7 +7929,7 @@ union WORD013 {
 
   WORD013() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD013 &Instance() { return *reinterpret_cast<volatile WORD013*>(0x400C8158); }
+  static inline volatile WORD013 &ref() { return *reinterpret_cast<volatile WORD013*>(0x400C8158); }
 };
 
 // Message Buffer 13 WORD_8B Register
@@ -7952,7 +7952,7 @@ union MB13_8B_WORD1 {
 
   MB13_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB13_8B_WORD1*>(0x400C815C); }
+  static inline volatile MB13_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB13_8B_WORD1*>(0x400C815C); }
 };
 
 // Message Buffer 3 ID Register
@@ -7973,7 +7973,7 @@ union MB3_64B_ID_L {
 
   MB3_64B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_ID_L &Instance() { return *reinterpret_cast<volatile MB3_64B_ID_L*>(0x400C815C); }
+  static inline volatile MB3_64B_ID_L &ref() { return *reinterpret_cast<volatile MB3_64B_ID_L*>(0x400C815C); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -7996,7 +7996,7 @@ union MB5_32B_WORD3_L {
 
   MB5_32B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD3_L*>(0x400C815C); }
+  static inline volatile MB5_32B_WORD3_L &ref() { return *reinterpret_cast<volatile MB5_32B_WORD3_L*>(0x400C815C); }
 };
 
 // Message Buffer 9 ID Register
@@ -8017,7 +8017,7 @@ union MB9_16B_ID_L {
 
   MB9_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB9_16B_ID_L*>(0x400C815C); }
+  static inline volatile MB9_16B_ID_L &ref() { return *reinterpret_cast<volatile MB9_16B_ID_L*>(0x400C815C); }
 };
 
 // Message Buffer 13 WORD1 Register
@@ -8040,7 +8040,7 @@ union WORD113 {
 
   WORD113() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD113 &Instance() { return *reinterpret_cast<volatile WORD113*>(0x400C815C); }
+  static inline volatile WORD113 &ref() { return *reinterpret_cast<volatile WORD113*>(0x400C815C); }
 };
 
 // Message Buffer 14 CS Register
@@ -8075,7 +8075,7 @@ union CS14 {
 
   CS14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS14 &Instance() { return *reinterpret_cast<volatile CS14*>(0x400C8160); }
+  static inline volatile CS14 &ref() { return *reinterpret_cast<volatile CS14*>(0x400C8160); }
 };
 
 // Message Buffer 14 CS Register
@@ -8110,7 +8110,7 @@ union MB14_8B_CS {
 
   MB14_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_8B_CS &Instance() { return *reinterpret_cast<volatile MB14_8B_CS*>(0x400C8160); }
+  static inline volatile MB14_8B_CS &ref() { return *reinterpret_cast<volatile MB14_8B_CS*>(0x400C8160); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -8133,7 +8133,7 @@ union MB3_64B_WORD0_L {
 
   MB3_64B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD0_L*>(0x400C8160); }
+  static inline volatile MB3_64B_WORD0_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD0_L*>(0x400C8160); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -8156,7 +8156,7 @@ union MB5_32B_WORD4_L {
 
   MB5_32B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD4_L*>(0x400C8160); }
+  static inline volatile MB5_32B_WORD4_L &ref() { return *reinterpret_cast<volatile MB5_32B_WORD4_L*>(0x400C8160); }
 };
 
 // Message Buffer 9 WORD_16B Register
@@ -8179,7 +8179,7 @@ union MB9_16B_WORD0_L {
 
   MB9_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB9_16B_WORD0_L*>(0x400C8160); }
+  static inline volatile MB9_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB9_16B_WORD0_L*>(0x400C8160); }
 };
 
 // Message Buffer 14 ID Register
@@ -8200,7 +8200,7 @@ union ID14 {
 
   ID14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID14 &Instance() { return *reinterpret_cast<volatile ID14*>(0x400C8164); }
+  static inline volatile ID14 &ref() { return *reinterpret_cast<volatile ID14*>(0x400C8164); }
 };
 
 // Message Buffer 14 ID Register
@@ -8221,7 +8221,7 @@ union MB14_8B_ID {
 
   MB14_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_8B_ID &Instance() { return *reinterpret_cast<volatile MB14_8B_ID*>(0x400C8164); }
+  static inline volatile MB14_8B_ID &ref() { return *reinterpret_cast<volatile MB14_8B_ID*>(0x400C8164); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -8244,7 +8244,7 @@ union MB3_64B_WORD1_L {
 
   MB3_64B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD1_L*>(0x400C8164); }
+  static inline volatile MB3_64B_WORD1_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD1_L*>(0x400C8164); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -8267,7 +8267,7 @@ union MB5_32B_WORD5_L {
 
   MB5_32B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD5_L*>(0x400C8164); }
+  static inline volatile MB5_32B_WORD5_L &ref() { return *reinterpret_cast<volatile MB5_32B_WORD5_L*>(0x400C8164); }
 };
 
 // Message Buffer 9 WORD_16B Register
@@ -8290,7 +8290,7 @@ union MB9_16B_WORD1_L {
 
   MB9_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB9_16B_WORD1_L*>(0x400C8164); }
+  static inline volatile MB9_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB9_16B_WORD1_L*>(0x400C8164); }
 };
 
 // Message Buffer 14 WORD_8B Register
@@ -8313,7 +8313,7 @@ union MB14_8B_WORD0 {
 
   MB14_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB14_8B_WORD0*>(0x400C8168); }
+  static inline volatile MB14_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB14_8B_WORD0*>(0x400C8168); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -8336,7 +8336,7 @@ union MB3_64B_WORD2_L {
 
   MB3_64B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD2_L*>(0x400C8168); }
+  static inline volatile MB3_64B_WORD2_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD2_L*>(0x400C8168); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -8359,7 +8359,7 @@ union MB5_32B_WORD6_L {
 
   MB5_32B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD6_L*>(0x400C8168); }
+  static inline volatile MB5_32B_WORD6_L &ref() { return *reinterpret_cast<volatile MB5_32B_WORD6_L*>(0x400C8168); }
 };
 
 // Message Buffer 9 WORD_16B Register
@@ -8382,7 +8382,7 @@ union MB9_16B_WORD2_L {
 
   MB9_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB9_16B_WORD2_L*>(0x400C8168); }
+  static inline volatile MB9_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB9_16B_WORD2_L*>(0x400C8168); }
 };
 
 // Message Buffer 14 WORD0 Register
@@ -8405,7 +8405,7 @@ union WORD014 {
 
   WORD014() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD014 &Instance() { return *reinterpret_cast<volatile WORD014*>(0x400C8168); }
+  static inline volatile WORD014 &ref() { return *reinterpret_cast<volatile WORD014*>(0x400C8168); }
 };
 
 // Message Buffer 14 WORD_8B Register
@@ -8428,7 +8428,7 @@ union MB14_8B_WORD1 {
 
   MB14_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB14_8B_WORD1*>(0x400C816C); }
+  static inline volatile MB14_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB14_8B_WORD1*>(0x400C816C); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -8451,7 +8451,7 @@ union MB3_64B_WORD3_L {
 
   MB3_64B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD3_L*>(0x400C816C); }
+  static inline volatile MB3_64B_WORD3_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD3_L*>(0x400C816C); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -8474,7 +8474,7 @@ union MB5_32B_WORD7_L {
 
   MB5_32B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD7_L*>(0x400C816C); }
+  static inline volatile MB5_32B_WORD7_L &ref() { return *reinterpret_cast<volatile MB5_32B_WORD7_L*>(0x400C816C); }
 };
 
 // Message Buffer 9 WORD_16B Register
@@ -8497,7 +8497,7 @@ union MB9_16B_WORD3_L {
 
   MB9_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB9_16B_WORD3_L*>(0x400C816C); }
+  static inline volatile MB9_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB9_16B_WORD3_L*>(0x400C816C); }
 };
 
 // Message Buffer 14 WORD1 Register
@@ -8520,7 +8520,7 @@ union WORD114 {
 
   WORD114() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD114 &Instance() { return *reinterpret_cast<volatile WORD114*>(0x400C816C); }
+  static inline volatile WORD114 &ref() { return *reinterpret_cast<volatile WORD114*>(0x400C816C); }
 };
 
 // Message Buffer 15 CS Register
@@ -8555,7 +8555,7 @@ union CS15 {
 
   CS15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS15 &Instance() { return *reinterpret_cast<volatile CS15*>(0x400C8170); }
+  static inline volatile CS15 &ref() { return *reinterpret_cast<volatile CS15*>(0x400C8170); }
 };
 
 // Message Buffer 10 CS Register
@@ -8590,7 +8590,7 @@ union MB10_16B_CS_L {
 
   MB10_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB10_16B_CS_L*>(0x400C8170); }
+  static inline volatile MB10_16B_CS_L &ref() { return *reinterpret_cast<volatile MB10_16B_CS_L*>(0x400C8170); }
 };
 
 // Message Buffer 15 CS Register
@@ -8625,7 +8625,7 @@ union MB15_8B_CS {
 
   MB15_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_8B_CS &Instance() { return *reinterpret_cast<volatile MB15_8B_CS*>(0x400C8170); }
+  static inline volatile MB15_8B_CS &ref() { return *reinterpret_cast<volatile MB15_8B_CS*>(0x400C8170); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -8648,7 +8648,7 @@ union MB3_64B_WORD4_L {
 
   MB3_64B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD4_L*>(0x400C8170); }
+  static inline volatile MB3_64B_WORD4_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD4_L*>(0x400C8170); }
 };
 
 // Message Buffer 6 CS Register
@@ -8683,7 +8683,7 @@ union MB6_32B_CS_L {
 
   MB6_32B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_CS_L &Instance() { return *reinterpret_cast<volatile MB6_32B_CS_L*>(0x400C8170); }
+  static inline volatile MB6_32B_CS_L &ref() { return *reinterpret_cast<volatile MB6_32B_CS_L*>(0x400C8170); }
 };
 
 // Message Buffer 15 ID Register
@@ -8704,7 +8704,7 @@ union ID15 {
 
   ID15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID15 &Instance() { return *reinterpret_cast<volatile ID15*>(0x400C8174); }
+  static inline volatile ID15 &ref() { return *reinterpret_cast<volatile ID15*>(0x400C8174); }
 };
 
 // Message Buffer 10 ID Register
@@ -8725,7 +8725,7 @@ union MB10_16B_ID_L {
 
   MB10_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB10_16B_ID_L*>(0x400C8174); }
+  static inline volatile MB10_16B_ID_L &ref() { return *reinterpret_cast<volatile MB10_16B_ID_L*>(0x400C8174); }
 };
 
 // Message Buffer 15 ID Register
@@ -8746,7 +8746,7 @@ union MB15_8B_ID {
 
   MB15_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_8B_ID &Instance() { return *reinterpret_cast<volatile MB15_8B_ID*>(0x400C8174); }
+  static inline volatile MB15_8B_ID &ref() { return *reinterpret_cast<volatile MB15_8B_ID*>(0x400C8174); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -8769,7 +8769,7 @@ union MB3_64B_WORD5_L {
 
   MB3_64B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD5_L*>(0x400C8174); }
+  static inline volatile MB3_64B_WORD5_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD5_L*>(0x400C8174); }
 };
 
 // Message Buffer 6 ID Register
@@ -8790,7 +8790,7 @@ union MB6_32B_ID_L {
 
   MB6_32B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_ID_L &Instance() { return *reinterpret_cast<volatile MB6_32B_ID_L*>(0x400C8174); }
+  static inline volatile MB6_32B_ID_L &ref() { return *reinterpret_cast<volatile MB6_32B_ID_L*>(0x400C8174); }
 };
 
 // Message Buffer 10 WORD_16B Register
@@ -8813,7 +8813,7 @@ union MB10_16B_WORD0_L {
 
   MB10_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB10_16B_WORD0_L*>(0x400C8178); }
+  static inline volatile MB10_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB10_16B_WORD0_L*>(0x400C8178); }
 };
 
 // Message Buffer 15 WORD_8B Register
@@ -8836,7 +8836,7 @@ union MB15_8B_WORD0 {
 
   MB15_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB15_8B_WORD0*>(0x400C8178); }
+  static inline volatile MB15_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB15_8B_WORD0*>(0x400C8178); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -8859,7 +8859,7 @@ union MB3_64B_WORD6_L {
 
   MB3_64B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD6_L*>(0x400C8178); }
+  static inline volatile MB3_64B_WORD6_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD6_L*>(0x400C8178); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -8882,7 +8882,7 @@ union MB6_32B_WORD0_L {
 
   MB6_32B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD0_L*>(0x400C8178); }
+  static inline volatile MB6_32B_WORD0_L &ref() { return *reinterpret_cast<volatile MB6_32B_WORD0_L*>(0x400C8178); }
 };
 
 // Message Buffer 15 WORD0 Register
@@ -8905,7 +8905,7 @@ union WORD015 {
 
   WORD015() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD015 &Instance() { return *reinterpret_cast<volatile WORD015*>(0x400C8178); }
+  static inline volatile WORD015 &ref() { return *reinterpret_cast<volatile WORD015*>(0x400C8178); }
 };
 
 // Message Buffer 10 WORD_16B Register
@@ -8928,7 +8928,7 @@ union MB10_16B_WORD1_L {
 
   MB10_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB10_16B_WORD1_L*>(0x400C817C); }
+  static inline volatile MB10_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB10_16B_WORD1_L*>(0x400C817C); }
 };
 
 // Message Buffer 15 WORD_8B Register
@@ -8951,7 +8951,7 @@ union MB15_8B_WORD1 {
 
   MB15_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB15_8B_WORD1*>(0x400C817C); }
+  static inline volatile MB15_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB15_8B_WORD1*>(0x400C817C); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -8974,7 +8974,7 @@ union MB3_64B_WORD7_L {
 
   MB3_64B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD7_L*>(0x400C817C); }
+  static inline volatile MB3_64B_WORD7_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD7_L*>(0x400C817C); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -8997,7 +8997,7 @@ union MB6_32B_WORD1_L {
 
   MB6_32B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD1_L*>(0x400C817C); }
+  static inline volatile MB6_32B_WORD1_L &ref() { return *reinterpret_cast<volatile MB6_32B_WORD1_L*>(0x400C817C); }
 };
 
 // Message Buffer 15 WORD1 Register
@@ -9020,7 +9020,7 @@ union WORD115 {
 
   WORD115() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD115 &Instance() { return *reinterpret_cast<volatile WORD115*>(0x400C817C); }
+  static inline volatile WORD115 &ref() { return *reinterpret_cast<volatile WORD115*>(0x400C817C); }
 };
 
 // Message Buffer 16 CS Register
@@ -9055,7 +9055,7 @@ union CS16 {
 
   CS16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS16 &Instance() { return *reinterpret_cast<volatile CS16*>(0x400C8180); }
+  static inline volatile CS16 &ref() { return *reinterpret_cast<volatile CS16*>(0x400C8180); }
 };
 
 // Message Buffer 10 WORD_16B Register
@@ -9078,7 +9078,7 @@ union MB10_16B_WORD2_L {
 
   MB10_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB10_16B_WORD2_L*>(0x400C8180); }
+  static inline volatile MB10_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB10_16B_WORD2_L*>(0x400C8180); }
 };
 
 // Message Buffer 16 CS Register
@@ -9113,7 +9113,7 @@ union MB16_8B_CS {
 
   MB16_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_8B_CS &Instance() { return *reinterpret_cast<volatile MB16_8B_CS*>(0x400C8180); }
+  static inline volatile MB16_8B_CS &ref() { return *reinterpret_cast<volatile MB16_8B_CS*>(0x400C8180); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -9136,7 +9136,7 @@ union MB3_64B_WORD8_L {
 
   MB3_64B_WORD8_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD8_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD8_L*>(0x400C8180); }
+  static inline volatile MB3_64B_WORD8_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD8_L*>(0x400C8180); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -9159,7 +9159,7 @@ union MB6_32B_WORD2_L {
 
   MB6_32B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD2_L*>(0x400C8180); }
+  static inline volatile MB6_32B_WORD2_L &ref() { return *reinterpret_cast<volatile MB6_32B_WORD2_L*>(0x400C8180); }
 };
 
 // Message Buffer 16 ID Register
@@ -9180,7 +9180,7 @@ union ID16 {
 
   ID16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID16 &Instance() { return *reinterpret_cast<volatile ID16*>(0x400C8184); }
+  static inline volatile ID16 &ref() { return *reinterpret_cast<volatile ID16*>(0x400C8184); }
 };
 
 // Message Buffer 10 WORD_16B Register
@@ -9203,7 +9203,7 @@ union MB10_16B_WORD3_L {
 
   MB10_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB10_16B_WORD3_L*>(0x400C8184); }
+  static inline volatile MB10_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB10_16B_WORD3_L*>(0x400C8184); }
 };
 
 // Message Buffer 16 ID Register
@@ -9224,7 +9224,7 @@ union MB16_8B_ID {
 
   MB16_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_8B_ID &Instance() { return *reinterpret_cast<volatile MB16_8B_ID*>(0x400C8184); }
+  static inline volatile MB16_8B_ID &ref() { return *reinterpret_cast<volatile MB16_8B_ID*>(0x400C8184); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -9247,7 +9247,7 @@ union MB3_64B_WORD9_L {
 
   MB3_64B_WORD9_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD9_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD9_L*>(0x400C8184); }
+  static inline volatile MB3_64B_WORD9_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD9_L*>(0x400C8184); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -9270,7 +9270,7 @@ union MB6_32B_WORD3_L {
 
   MB6_32B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD3_L*>(0x400C8184); }
+  static inline volatile MB6_32B_WORD3_L &ref() { return *reinterpret_cast<volatile MB6_32B_WORD3_L*>(0x400C8184); }
 };
 
 // Message Buffer 11 CS Register
@@ -9305,7 +9305,7 @@ union MB11_16B_CS_L {
 
   MB11_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB11_16B_CS_L*>(0x400C8188); }
+  static inline volatile MB11_16B_CS_L &ref() { return *reinterpret_cast<volatile MB11_16B_CS_L*>(0x400C8188); }
 };
 
 // Message Buffer 16 WORD_8B Register
@@ -9328,7 +9328,7 @@ union MB16_8B_WORD0 {
 
   MB16_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB16_8B_WORD0*>(0x400C8188); }
+  static inline volatile MB16_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB16_8B_WORD0*>(0x400C8188); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -9351,7 +9351,7 @@ union MB3_64B_WORD10_L {
 
   MB3_64B_WORD10_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD10_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD10_L*>(0x400C8188); }
+  static inline volatile MB3_64B_WORD10_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD10_L*>(0x400C8188); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -9374,7 +9374,7 @@ union MB6_32B_WORD4_L {
 
   MB6_32B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD4_L*>(0x400C8188); }
+  static inline volatile MB6_32B_WORD4_L &ref() { return *reinterpret_cast<volatile MB6_32B_WORD4_L*>(0x400C8188); }
 };
 
 // Message Buffer 16 WORD0 Register
@@ -9397,7 +9397,7 @@ union WORD016 {
 
   WORD016() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD016 &Instance() { return *reinterpret_cast<volatile WORD016*>(0x400C8188); }
+  static inline volatile WORD016 &ref() { return *reinterpret_cast<volatile WORD016*>(0x400C8188); }
 };
 
 // Message Buffer 11 ID Register
@@ -9418,7 +9418,7 @@ union MB11_16B_ID_L {
 
   MB11_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB11_16B_ID_L*>(0x400C818C); }
+  static inline volatile MB11_16B_ID_L &ref() { return *reinterpret_cast<volatile MB11_16B_ID_L*>(0x400C818C); }
 };
 
 // Message Buffer 16 WORD_8B Register
@@ -9441,7 +9441,7 @@ union MB16_8B_WORD1 {
 
   MB16_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB16_8B_WORD1*>(0x400C818C); }
+  static inline volatile MB16_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB16_8B_WORD1*>(0x400C818C); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -9464,7 +9464,7 @@ union MB3_64B_WORD11_L {
 
   MB3_64B_WORD11_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD11_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD11_L*>(0x400C818C); }
+  static inline volatile MB3_64B_WORD11_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD11_L*>(0x400C818C); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -9487,7 +9487,7 @@ union MB6_32B_WORD5_L {
 
   MB6_32B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD5_L*>(0x400C818C); }
+  static inline volatile MB6_32B_WORD5_L &ref() { return *reinterpret_cast<volatile MB6_32B_WORD5_L*>(0x400C818C); }
 };
 
 // Message Buffer 16 WORD1 Register
@@ -9510,7 +9510,7 @@ union WORD116 {
 
   WORD116() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD116 &Instance() { return *reinterpret_cast<volatile WORD116*>(0x400C818C); }
+  static inline volatile WORD116 &ref() { return *reinterpret_cast<volatile WORD116*>(0x400C818C); }
 };
 
 // Message Buffer 17 CS Register
@@ -9545,7 +9545,7 @@ union CS17 {
 
   CS17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS17 &Instance() { return *reinterpret_cast<volatile CS17*>(0x400C8190); }
+  static inline volatile CS17 &ref() { return *reinterpret_cast<volatile CS17*>(0x400C8190); }
 };
 
 // Message Buffer 11 WORD_16B Register
@@ -9568,7 +9568,7 @@ union MB11_16B_WORD0_L {
 
   MB11_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB11_16B_WORD0_L*>(0x400C8190); }
+  static inline volatile MB11_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB11_16B_WORD0_L*>(0x400C8190); }
 };
 
 // Message Buffer 17 CS Register
@@ -9603,7 +9603,7 @@ union MB17_8B_CS {
 
   MB17_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_8B_CS &Instance() { return *reinterpret_cast<volatile MB17_8B_CS*>(0x400C8190); }
+  static inline volatile MB17_8B_CS &ref() { return *reinterpret_cast<volatile MB17_8B_CS*>(0x400C8190); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -9626,7 +9626,7 @@ union MB3_64B_WORD12_L {
 
   MB3_64B_WORD12_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD12_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD12_L*>(0x400C8190); }
+  static inline volatile MB3_64B_WORD12_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD12_L*>(0x400C8190); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -9649,7 +9649,7 @@ union MB6_32B_WORD6_L {
 
   MB6_32B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD6_L*>(0x400C8190); }
+  static inline volatile MB6_32B_WORD6_L &ref() { return *reinterpret_cast<volatile MB6_32B_WORD6_L*>(0x400C8190); }
 };
 
 // Message Buffer 17 ID Register
@@ -9670,7 +9670,7 @@ union ID17 {
 
   ID17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID17 &Instance() { return *reinterpret_cast<volatile ID17*>(0x400C8194); }
+  static inline volatile ID17 &ref() { return *reinterpret_cast<volatile ID17*>(0x400C8194); }
 };
 
 // Message Buffer 11 WORD_16B Register
@@ -9693,7 +9693,7 @@ union MB11_16B_WORD1_L {
 
   MB11_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB11_16B_WORD1_L*>(0x400C8194); }
+  static inline volatile MB11_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB11_16B_WORD1_L*>(0x400C8194); }
 };
 
 // Message Buffer 17 ID Register
@@ -9714,7 +9714,7 @@ union MB17_8B_ID {
 
   MB17_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_8B_ID &Instance() { return *reinterpret_cast<volatile MB17_8B_ID*>(0x400C8194); }
+  static inline volatile MB17_8B_ID &ref() { return *reinterpret_cast<volatile MB17_8B_ID*>(0x400C8194); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -9737,7 +9737,7 @@ union MB3_64B_WORD13_L {
 
   MB3_64B_WORD13_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD13_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD13_L*>(0x400C8194); }
+  static inline volatile MB3_64B_WORD13_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD13_L*>(0x400C8194); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -9760,7 +9760,7 @@ union MB6_32B_WORD7_L {
 
   MB6_32B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD7_L*>(0x400C8194); }
+  static inline volatile MB6_32B_WORD7_L &ref() { return *reinterpret_cast<volatile MB6_32B_WORD7_L*>(0x400C8194); }
 };
 
 // Message Buffer 11 WORD_16B Register
@@ -9783,7 +9783,7 @@ union MB11_16B_WORD2_L {
 
   MB11_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB11_16B_WORD2_L*>(0x400C8198); }
+  static inline volatile MB11_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB11_16B_WORD2_L*>(0x400C8198); }
 };
 
 // Message Buffer 17 WORD_8B Register
@@ -9806,7 +9806,7 @@ union MB17_8B_WORD0 {
 
   MB17_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB17_8B_WORD0*>(0x400C8198); }
+  static inline volatile MB17_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB17_8B_WORD0*>(0x400C8198); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -9829,7 +9829,7 @@ union MB3_64B_WORD14_L {
 
   MB3_64B_WORD14_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD14_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD14_L*>(0x400C8198); }
+  static inline volatile MB3_64B_WORD14_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD14_L*>(0x400C8198); }
 };
 
 // Message Buffer 7 CS Register
@@ -9864,7 +9864,7 @@ union MB7_32B_CS_L {
 
   MB7_32B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_CS_L &Instance() { return *reinterpret_cast<volatile MB7_32B_CS_L*>(0x400C8198); }
+  static inline volatile MB7_32B_CS_L &ref() { return *reinterpret_cast<volatile MB7_32B_CS_L*>(0x400C8198); }
 };
 
 // Message Buffer 17 WORD0 Register
@@ -9887,7 +9887,7 @@ union WORD017 {
 
   WORD017() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD017 &Instance() { return *reinterpret_cast<volatile WORD017*>(0x400C8198); }
+  static inline volatile WORD017 &ref() { return *reinterpret_cast<volatile WORD017*>(0x400C8198); }
 };
 
 // Message Buffer 11 WORD_16B Register
@@ -9910,7 +9910,7 @@ union MB11_16B_WORD3_L {
 
   MB11_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB11_16B_WORD3_L*>(0x400C819C); }
+  static inline volatile MB11_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB11_16B_WORD3_L*>(0x400C819C); }
 };
 
 // Message Buffer 17 WORD_8B Register
@@ -9933,7 +9933,7 @@ union MB17_8B_WORD1 {
 
   MB17_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB17_8B_WORD1*>(0x400C819C); }
+  static inline volatile MB17_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB17_8B_WORD1*>(0x400C819C); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -9956,7 +9956,7 @@ union MB3_64B_WORD15_L {
 
   MB3_64B_WORD15_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD15_L &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD15_L*>(0x400C819C); }
+  static inline volatile MB3_64B_WORD15_L &ref() { return *reinterpret_cast<volatile MB3_64B_WORD15_L*>(0x400C819C); }
 };
 
 // Message Buffer 7 ID Register
@@ -9977,7 +9977,7 @@ union MB7_32B_ID_L {
 
   MB7_32B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_ID_L &Instance() { return *reinterpret_cast<volatile MB7_32B_ID_L*>(0x400C819C); }
+  static inline volatile MB7_32B_ID_L &ref() { return *reinterpret_cast<volatile MB7_32B_ID_L*>(0x400C819C); }
 };
 
 // Message Buffer 17 WORD1 Register
@@ -10000,7 +10000,7 @@ union WORD117 {
 
   WORD117() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD117 &Instance() { return *reinterpret_cast<volatile WORD117*>(0x400C819C); }
+  static inline volatile WORD117 &ref() { return *reinterpret_cast<volatile WORD117*>(0x400C819C); }
 };
 
 // Message Buffer 18 CS Register
@@ -10035,7 +10035,7 @@ union CS18 {
 
   CS18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS18 &Instance() { return *reinterpret_cast<volatile CS18*>(0x400C81A0); }
+  static inline volatile CS18 &ref() { return *reinterpret_cast<volatile CS18*>(0x400C81A0); }
 };
 
 // Message Buffer 12 CS Register
@@ -10070,7 +10070,7 @@ union MB12_16B_CS_L {
 
   MB12_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB12_16B_CS_L*>(0x400C81A0); }
+  static inline volatile MB12_16B_CS_L &ref() { return *reinterpret_cast<volatile MB12_16B_CS_L*>(0x400C81A0); }
 };
 
 // Message Buffer 18 CS Register
@@ -10105,7 +10105,7 @@ union MB18_8B_CS {
 
   MB18_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_8B_CS &Instance() { return *reinterpret_cast<volatile MB18_8B_CS*>(0x400C81A0); }
+  static inline volatile MB18_8B_CS &ref() { return *reinterpret_cast<volatile MB18_8B_CS*>(0x400C81A0); }
 };
 
 // Message Buffer 4 CS Register
@@ -10140,7 +10140,7 @@ union MB4_64B_CS_L {
 
   MB4_64B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_CS_L &Instance() { return *reinterpret_cast<volatile MB4_64B_CS_L*>(0x400C81A0); }
+  static inline volatile MB4_64B_CS_L &ref() { return *reinterpret_cast<volatile MB4_64B_CS_L*>(0x400C81A0); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -10163,7 +10163,7 @@ union MB7_32B_WORD0_L {
 
   MB7_32B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD0_L*>(0x400C81A0); }
+  static inline volatile MB7_32B_WORD0_L &ref() { return *reinterpret_cast<volatile MB7_32B_WORD0_L*>(0x400C81A0); }
 };
 
 // Message Buffer 18 ID Register
@@ -10184,7 +10184,7 @@ union ID18 {
 
   ID18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID18 &Instance() { return *reinterpret_cast<volatile ID18*>(0x400C81A4); }
+  static inline volatile ID18 &ref() { return *reinterpret_cast<volatile ID18*>(0x400C81A4); }
 };
 
 // Message Buffer 12 ID Register
@@ -10205,7 +10205,7 @@ union MB12_16B_ID_L {
 
   MB12_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB12_16B_ID_L*>(0x400C81A4); }
+  static inline volatile MB12_16B_ID_L &ref() { return *reinterpret_cast<volatile MB12_16B_ID_L*>(0x400C81A4); }
 };
 
 // Message Buffer 18 ID Register
@@ -10226,7 +10226,7 @@ union MB18_8B_ID {
 
   MB18_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_8B_ID &Instance() { return *reinterpret_cast<volatile MB18_8B_ID*>(0x400C81A4); }
+  static inline volatile MB18_8B_ID &ref() { return *reinterpret_cast<volatile MB18_8B_ID*>(0x400C81A4); }
 };
 
 // Message Buffer 4 ID Register
@@ -10247,7 +10247,7 @@ union MB4_64B_ID_L {
 
   MB4_64B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_ID_L &Instance() { return *reinterpret_cast<volatile MB4_64B_ID_L*>(0x400C81A4); }
+  static inline volatile MB4_64B_ID_L &ref() { return *reinterpret_cast<volatile MB4_64B_ID_L*>(0x400C81A4); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -10270,7 +10270,7 @@ union MB7_32B_WORD1_L {
 
   MB7_32B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD1_L*>(0x400C81A4); }
+  static inline volatile MB7_32B_WORD1_L &ref() { return *reinterpret_cast<volatile MB7_32B_WORD1_L*>(0x400C81A4); }
 };
 
 // Message Buffer 12 WORD_16B Register
@@ -10293,7 +10293,7 @@ union MB12_16B_WORD0_L {
 
   MB12_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB12_16B_WORD0_L*>(0x400C81A8); }
+  static inline volatile MB12_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB12_16B_WORD0_L*>(0x400C81A8); }
 };
 
 // Message Buffer 18 WORD_8B Register
@@ -10316,7 +10316,7 @@ union MB18_8B_WORD0 {
 
   MB18_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB18_8B_WORD0*>(0x400C81A8); }
+  static inline volatile MB18_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB18_8B_WORD0*>(0x400C81A8); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -10339,7 +10339,7 @@ union MB4_64B_WORD0_L {
 
   MB4_64B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD0_L*>(0x400C81A8); }
+  static inline volatile MB4_64B_WORD0_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD0_L*>(0x400C81A8); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -10362,7 +10362,7 @@ union MB7_32B_WORD2_L {
 
   MB7_32B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD2_L*>(0x400C81A8); }
+  static inline volatile MB7_32B_WORD2_L &ref() { return *reinterpret_cast<volatile MB7_32B_WORD2_L*>(0x400C81A8); }
 };
 
 // Message Buffer 18 WORD0 Register
@@ -10385,7 +10385,7 @@ union WORD018 {
 
   WORD018() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD018 &Instance() { return *reinterpret_cast<volatile WORD018*>(0x400C81A8); }
+  static inline volatile WORD018 &ref() { return *reinterpret_cast<volatile WORD018*>(0x400C81A8); }
 };
 
 // Message Buffer 12 WORD_16B Register
@@ -10408,7 +10408,7 @@ union MB12_16B_WORD1_L {
 
   MB12_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB12_16B_WORD1_L*>(0x400C81AC); }
+  static inline volatile MB12_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB12_16B_WORD1_L*>(0x400C81AC); }
 };
 
 // Message Buffer 18 WORD_8B Register
@@ -10431,7 +10431,7 @@ union MB18_8B_WORD1 {
 
   MB18_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB18_8B_WORD1*>(0x400C81AC); }
+  static inline volatile MB18_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB18_8B_WORD1*>(0x400C81AC); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -10454,7 +10454,7 @@ union MB4_64B_WORD1_L {
 
   MB4_64B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD1_L*>(0x400C81AC); }
+  static inline volatile MB4_64B_WORD1_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD1_L*>(0x400C81AC); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -10477,7 +10477,7 @@ union MB7_32B_WORD3_L {
 
   MB7_32B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD3_L*>(0x400C81AC); }
+  static inline volatile MB7_32B_WORD3_L &ref() { return *reinterpret_cast<volatile MB7_32B_WORD3_L*>(0x400C81AC); }
 };
 
 // Message Buffer 18 WORD1 Register
@@ -10500,7 +10500,7 @@ union WORD118 {
 
   WORD118() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD118 &Instance() { return *reinterpret_cast<volatile WORD118*>(0x400C81AC); }
+  static inline volatile WORD118 &ref() { return *reinterpret_cast<volatile WORD118*>(0x400C81AC); }
 };
 
 // Message Buffer 19 CS Register
@@ -10535,7 +10535,7 @@ union CS19 {
 
   CS19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS19 &Instance() { return *reinterpret_cast<volatile CS19*>(0x400C81B0); }
+  static inline volatile CS19 &ref() { return *reinterpret_cast<volatile CS19*>(0x400C81B0); }
 };
 
 // Message Buffer 12 WORD_16B Register
@@ -10558,7 +10558,7 @@ union MB12_16B_WORD2_L {
 
   MB12_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB12_16B_WORD2_L*>(0x400C81B0); }
+  static inline volatile MB12_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB12_16B_WORD2_L*>(0x400C81B0); }
 };
 
 // Message Buffer 19 CS Register
@@ -10593,7 +10593,7 @@ union MB19_8B_CS {
 
   MB19_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_8B_CS &Instance() { return *reinterpret_cast<volatile MB19_8B_CS*>(0x400C81B0); }
+  static inline volatile MB19_8B_CS &ref() { return *reinterpret_cast<volatile MB19_8B_CS*>(0x400C81B0); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -10616,7 +10616,7 @@ union MB4_64B_WORD2_L {
 
   MB4_64B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD2_L*>(0x400C81B0); }
+  static inline volatile MB4_64B_WORD2_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD2_L*>(0x400C81B0); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -10639,7 +10639,7 @@ union MB7_32B_WORD4_L {
 
   MB7_32B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD4_L*>(0x400C81B0); }
+  static inline volatile MB7_32B_WORD4_L &ref() { return *reinterpret_cast<volatile MB7_32B_WORD4_L*>(0x400C81B0); }
 };
 
 // Message Buffer 19 ID Register
@@ -10660,7 +10660,7 @@ union ID19 {
 
   ID19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID19 &Instance() { return *reinterpret_cast<volatile ID19*>(0x400C81B4); }
+  static inline volatile ID19 &ref() { return *reinterpret_cast<volatile ID19*>(0x400C81B4); }
 };
 
 // Message Buffer 12 WORD_16B Register
@@ -10683,7 +10683,7 @@ union MB12_16B_WORD3_L {
 
   MB12_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB12_16B_WORD3_L*>(0x400C81B4); }
+  static inline volatile MB12_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB12_16B_WORD3_L*>(0x400C81B4); }
 };
 
 // Message Buffer 19 ID Register
@@ -10704,7 +10704,7 @@ union MB19_8B_ID {
 
   MB19_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_8B_ID &Instance() { return *reinterpret_cast<volatile MB19_8B_ID*>(0x400C81B4); }
+  static inline volatile MB19_8B_ID &ref() { return *reinterpret_cast<volatile MB19_8B_ID*>(0x400C81B4); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -10727,7 +10727,7 @@ union MB4_64B_WORD3_L {
 
   MB4_64B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD3_L*>(0x400C81B4); }
+  static inline volatile MB4_64B_WORD3_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD3_L*>(0x400C81B4); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -10750,7 +10750,7 @@ union MB7_32B_WORD5_L {
 
   MB7_32B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD5_L*>(0x400C81B4); }
+  static inline volatile MB7_32B_WORD5_L &ref() { return *reinterpret_cast<volatile MB7_32B_WORD5_L*>(0x400C81B4); }
 };
 
 // Message Buffer 13 CS Register
@@ -10785,7 +10785,7 @@ union MB13_16B_CS_L {
 
   MB13_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB13_16B_CS_L*>(0x400C81B8); }
+  static inline volatile MB13_16B_CS_L &ref() { return *reinterpret_cast<volatile MB13_16B_CS_L*>(0x400C81B8); }
 };
 
 // Message Buffer 19 WORD_8B Register
@@ -10808,7 +10808,7 @@ union MB19_8B_WORD0 {
 
   MB19_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB19_8B_WORD0*>(0x400C81B8); }
+  static inline volatile MB19_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB19_8B_WORD0*>(0x400C81B8); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -10831,7 +10831,7 @@ union MB4_64B_WORD4_L {
 
   MB4_64B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD4_L*>(0x400C81B8); }
+  static inline volatile MB4_64B_WORD4_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD4_L*>(0x400C81B8); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -10854,7 +10854,7 @@ union MB7_32B_WORD6_L {
 
   MB7_32B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD6_L*>(0x400C81B8); }
+  static inline volatile MB7_32B_WORD6_L &ref() { return *reinterpret_cast<volatile MB7_32B_WORD6_L*>(0x400C81B8); }
 };
 
 // Message Buffer 19 WORD0 Register
@@ -10877,7 +10877,7 @@ union WORD019 {
 
   WORD019() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD019 &Instance() { return *reinterpret_cast<volatile WORD019*>(0x400C81B8); }
+  static inline volatile WORD019 &ref() { return *reinterpret_cast<volatile WORD019*>(0x400C81B8); }
 };
 
 // Message Buffer 13 ID Register
@@ -10898,7 +10898,7 @@ union MB13_16B_ID_L {
 
   MB13_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB13_16B_ID_L*>(0x400C81BC); }
+  static inline volatile MB13_16B_ID_L &ref() { return *reinterpret_cast<volatile MB13_16B_ID_L*>(0x400C81BC); }
 };
 
 // Message Buffer 19 WORD_8B Register
@@ -10921,7 +10921,7 @@ union MB19_8B_WORD1 {
 
   MB19_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB19_8B_WORD1*>(0x400C81BC); }
+  static inline volatile MB19_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB19_8B_WORD1*>(0x400C81BC); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -10944,7 +10944,7 @@ union MB4_64B_WORD5_L {
 
   MB4_64B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD5_L*>(0x400C81BC); }
+  static inline volatile MB4_64B_WORD5_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD5_L*>(0x400C81BC); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -10967,7 +10967,7 @@ union MB7_32B_WORD7_L {
 
   MB7_32B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD7_L*>(0x400C81BC); }
+  static inline volatile MB7_32B_WORD7_L &ref() { return *reinterpret_cast<volatile MB7_32B_WORD7_L*>(0x400C81BC); }
 };
 
 // Message Buffer 19 WORD1 Register
@@ -10990,7 +10990,7 @@ union WORD119 {
 
   WORD119() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD119 &Instance() { return *reinterpret_cast<volatile WORD119*>(0x400C81BC); }
+  static inline volatile WORD119 &ref() { return *reinterpret_cast<volatile WORD119*>(0x400C81BC); }
 };
 
 // Message Buffer 20 CS Register
@@ -11025,7 +11025,7 @@ union CS20 {
 
   CS20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS20 &Instance() { return *reinterpret_cast<volatile CS20*>(0x400C81C0); }
+  static inline volatile CS20 &ref() { return *reinterpret_cast<volatile CS20*>(0x400C81C0); }
 };
 
 // Message Buffer 13 WORD_16B Register
@@ -11048,7 +11048,7 @@ union MB13_16B_WORD0_L {
 
   MB13_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB13_16B_WORD0_L*>(0x400C81C0); }
+  static inline volatile MB13_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB13_16B_WORD0_L*>(0x400C81C0); }
 };
 
 // Message Buffer 20 CS Register
@@ -11083,7 +11083,7 @@ union MB20_8B_CS {
 
   MB20_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_8B_CS &Instance() { return *reinterpret_cast<volatile MB20_8B_CS*>(0x400C81C0); }
+  static inline volatile MB20_8B_CS &ref() { return *reinterpret_cast<volatile MB20_8B_CS*>(0x400C81C0); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -11106,7 +11106,7 @@ union MB4_64B_WORD6_L {
 
   MB4_64B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD6_L*>(0x400C81C0); }
+  static inline volatile MB4_64B_WORD6_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD6_L*>(0x400C81C0); }
 };
 
 // Message Buffer 8 CS Register
@@ -11141,7 +11141,7 @@ union MB8_32B_CS_L {
 
   MB8_32B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_CS_L &Instance() { return *reinterpret_cast<volatile MB8_32B_CS_L*>(0x400C81C0); }
+  static inline volatile MB8_32B_CS_L &ref() { return *reinterpret_cast<volatile MB8_32B_CS_L*>(0x400C81C0); }
 };
 
 // Message Buffer 20 ID Register
@@ -11162,7 +11162,7 @@ union ID20 {
 
   ID20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID20 &Instance() { return *reinterpret_cast<volatile ID20*>(0x400C81C4); }
+  static inline volatile ID20 &ref() { return *reinterpret_cast<volatile ID20*>(0x400C81C4); }
 };
 
 // Message Buffer 13 WORD_16B Register
@@ -11185,7 +11185,7 @@ union MB13_16B_WORD1_L {
 
   MB13_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB13_16B_WORD1_L*>(0x400C81C4); }
+  static inline volatile MB13_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB13_16B_WORD1_L*>(0x400C81C4); }
 };
 
 // Message Buffer 20 ID Register
@@ -11206,7 +11206,7 @@ union MB20_8B_ID {
 
   MB20_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_8B_ID &Instance() { return *reinterpret_cast<volatile MB20_8B_ID*>(0x400C81C4); }
+  static inline volatile MB20_8B_ID &ref() { return *reinterpret_cast<volatile MB20_8B_ID*>(0x400C81C4); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -11229,7 +11229,7 @@ union MB4_64B_WORD7_L {
 
   MB4_64B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD7_L*>(0x400C81C4); }
+  static inline volatile MB4_64B_WORD7_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD7_L*>(0x400C81C4); }
 };
 
 // Message Buffer 8 ID Register
@@ -11250,7 +11250,7 @@ union MB8_32B_ID_L {
 
   MB8_32B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_ID_L &Instance() { return *reinterpret_cast<volatile MB8_32B_ID_L*>(0x400C81C4); }
+  static inline volatile MB8_32B_ID_L &ref() { return *reinterpret_cast<volatile MB8_32B_ID_L*>(0x400C81C4); }
 };
 
 // Message Buffer 13 WORD_16B Register
@@ -11273,7 +11273,7 @@ union MB13_16B_WORD2_L {
 
   MB13_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB13_16B_WORD2_L*>(0x400C81C8); }
+  static inline volatile MB13_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB13_16B_WORD2_L*>(0x400C81C8); }
 };
 
 // Message Buffer 20 WORD_8B Register
@@ -11296,7 +11296,7 @@ union MB20_8B_WORD0 {
 
   MB20_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB20_8B_WORD0*>(0x400C81C8); }
+  static inline volatile MB20_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB20_8B_WORD0*>(0x400C81C8); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -11319,7 +11319,7 @@ union MB4_64B_WORD8_L {
 
   MB4_64B_WORD8_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD8_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD8_L*>(0x400C81C8); }
+  static inline volatile MB4_64B_WORD8_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD8_L*>(0x400C81C8); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -11342,7 +11342,7 @@ union MB8_32B_WORD0_L {
 
   MB8_32B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD0_L*>(0x400C81C8); }
+  static inline volatile MB8_32B_WORD0_L &ref() { return *reinterpret_cast<volatile MB8_32B_WORD0_L*>(0x400C81C8); }
 };
 
 // Message Buffer 20 WORD0 Register
@@ -11365,7 +11365,7 @@ union WORD020 {
 
   WORD020() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD020 &Instance() { return *reinterpret_cast<volatile WORD020*>(0x400C81C8); }
+  static inline volatile WORD020 &ref() { return *reinterpret_cast<volatile WORD020*>(0x400C81C8); }
 };
 
 // Message Buffer 13 WORD_16B Register
@@ -11388,7 +11388,7 @@ union MB13_16B_WORD3_L {
 
   MB13_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB13_16B_WORD3_L*>(0x400C81CC); }
+  static inline volatile MB13_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB13_16B_WORD3_L*>(0x400C81CC); }
 };
 
 // Message Buffer 20 WORD_8B Register
@@ -11411,7 +11411,7 @@ union MB20_8B_WORD1 {
 
   MB20_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB20_8B_WORD1*>(0x400C81CC); }
+  static inline volatile MB20_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB20_8B_WORD1*>(0x400C81CC); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -11434,7 +11434,7 @@ union MB4_64B_WORD9_L {
 
   MB4_64B_WORD9_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD9_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD9_L*>(0x400C81CC); }
+  static inline volatile MB4_64B_WORD9_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD9_L*>(0x400C81CC); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -11457,7 +11457,7 @@ union MB8_32B_WORD1_L {
 
   MB8_32B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD1_L*>(0x400C81CC); }
+  static inline volatile MB8_32B_WORD1_L &ref() { return *reinterpret_cast<volatile MB8_32B_WORD1_L*>(0x400C81CC); }
 };
 
 // Message Buffer 20 WORD1 Register
@@ -11480,7 +11480,7 @@ union WORD120 {
 
   WORD120() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD120 &Instance() { return *reinterpret_cast<volatile WORD120*>(0x400C81CC); }
+  static inline volatile WORD120 &ref() { return *reinterpret_cast<volatile WORD120*>(0x400C81CC); }
 };
 
 // Message Buffer 21 CS Register
@@ -11515,7 +11515,7 @@ union CS21 {
 
   CS21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS21 &Instance() { return *reinterpret_cast<volatile CS21*>(0x400C81D0); }
+  static inline volatile CS21 &ref() { return *reinterpret_cast<volatile CS21*>(0x400C81D0); }
 };
 
 // Message Buffer 14 CS Register
@@ -11550,7 +11550,7 @@ union MB14_16B_CS_L {
 
   MB14_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB14_16B_CS_L*>(0x400C81D0); }
+  static inline volatile MB14_16B_CS_L &ref() { return *reinterpret_cast<volatile MB14_16B_CS_L*>(0x400C81D0); }
 };
 
 // Message Buffer 21 CS Register
@@ -11585,7 +11585,7 @@ union MB21_8B_CS {
 
   MB21_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB21_8B_CS &Instance() { return *reinterpret_cast<volatile MB21_8B_CS*>(0x400C81D0); }
+  static inline volatile MB21_8B_CS &ref() { return *reinterpret_cast<volatile MB21_8B_CS*>(0x400C81D0); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -11608,7 +11608,7 @@ union MB4_64B_WORD10_L {
 
   MB4_64B_WORD10_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD10_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD10_L*>(0x400C81D0); }
+  static inline volatile MB4_64B_WORD10_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD10_L*>(0x400C81D0); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -11631,7 +11631,7 @@ union MB8_32B_WORD2_L {
 
   MB8_32B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD2_L*>(0x400C81D0); }
+  static inline volatile MB8_32B_WORD2_L &ref() { return *reinterpret_cast<volatile MB8_32B_WORD2_L*>(0x400C81D0); }
 };
 
 // Message Buffer 21 ID Register
@@ -11652,7 +11652,7 @@ union ID21 {
 
   ID21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID21 &Instance() { return *reinterpret_cast<volatile ID21*>(0x400C81D4); }
+  static inline volatile ID21 &ref() { return *reinterpret_cast<volatile ID21*>(0x400C81D4); }
 };
 
 // Message Buffer 14 ID Register
@@ -11673,7 +11673,7 @@ union MB14_16B_ID_L {
 
   MB14_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB14_16B_ID_L*>(0x400C81D4); }
+  static inline volatile MB14_16B_ID_L &ref() { return *reinterpret_cast<volatile MB14_16B_ID_L*>(0x400C81D4); }
 };
 
 // Message Buffer 21 ID Register
@@ -11694,7 +11694,7 @@ union MB21_8B_ID {
 
   MB21_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB21_8B_ID &Instance() { return *reinterpret_cast<volatile MB21_8B_ID*>(0x400C81D4); }
+  static inline volatile MB21_8B_ID &ref() { return *reinterpret_cast<volatile MB21_8B_ID*>(0x400C81D4); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -11717,7 +11717,7 @@ union MB4_64B_WORD11_L {
 
   MB4_64B_WORD11_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD11_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD11_L*>(0x400C81D4); }
+  static inline volatile MB4_64B_WORD11_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD11_L*>(0x400C81D4); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -11740,7 +11740,7 @@ union MB8_32B_WORD3_L {
 
   MB8_32B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD3_L*>(0x400C81D4); }
+  static inline volatile MB8_32B_WORD3_L &ref() { return *reinterpret_cast<volatile MB8_32B_WORD3_L*>(0x400C81D4); }
 };
 
 // Message Buffer 14 WORD_16B Register
@@ -11763,7 +11763,7 @@ union MB14_16B_WORD0_L {
 
   MB14_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB14_16B_WORD0_L*>(0x400C81D8); }
+  static inline volatile MB14_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB14_16B_WORD0_L*>(0x400C81D8); }
 };
 
 // Message Buffer 21 WORD_8B Register
@@ -11786,7 +11786,7 @@ union MB21_8B_WORD0 {
 
   MB21_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB21_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB21_8B_WORD0*>(0x400C81D8); }
+  static inline volatile MB21_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB21_8B_WORD0*>(0x400C81D8); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -11809,7 +11809,7 @@ union MB4_64B_WORD12_L {
 
   MB4_64B_WORD12_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD12_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD12_L*>(0x400C81D8); }
+  static inline volatile MB4_64B_WORD12_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD12_L*>(0x400C81D8); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -11832,7 +11832,7 @@ union MB8_32B_WORD4_L {
 
   MB8_32B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD4_L*>(0x400C81D8); }
+  static inline volatile MB8_32B_WORD4_L &ref() { return *reinterpret_cast<volatile MB8_32B_WORD4_L*>(0x400C81D8); }
 };
 
 // Message Buffer 21 WORD0 Register
@@ -11855,7 +11855,7 @@ union WORD021 {
 
   WORD021() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD021 &Instance() { return *reinterpret_cast<volatile WORD021*>(0x400C81D8); }
+  static inline volatile WORD021 &ref() { return *reinterpret_cast<volatile WORD021*>(0x400C81D8); }
 };
 
 // Message Buffer 14 WORD_16B Register
@@ -11878,7 +11878,7 @@ union MB14_16B_WORD1_L {
 
   MB14_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB14_16B_WORD1_L*>(0x400C81DC); }
+  static inline volatile MB14_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB14_16B_WORD1_L*>(0x400C81DC); }
 };
 
 // Message Buffer 21 WORD_8B Register
@@ -11901,7 +11901,7 @@ union MB21_8B_WORD1 {
 
   MB21_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB21_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB21_8B_WORD1*>(0x400C81DC); }
+  static inline volatile MB21_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB21_8B_WORD1*>(0x400C81DC); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -11924,7 +11924,7 @@ union MB4_64B_WORD13_L {
 
   MB4_64B_WORD13_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD13_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD13_L*>(0x400C81DC); }
+  static inline volatile MB4_64B_WORD13_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD13_L*>(0x400C81DC); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -11947,7 +11947,7 @@ union MB8_32B_WORD5_L {
 
   MB8_32B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD5_L*>(0x400C81DC); }
+  static inline volatile MB8_32B_WORD5_L &ref() { return *reinterpret_cast<volatile MB8_32B_WORD5_L*>(0x400C81DC); }
 };
 
 // Message Buffer 21 WORD1 Register
@@ -11970,7 +11970,7 @@ union WORD121 {
 
   WORD121() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD121 &Instance() { return *reinterpret_cast<volatile WORD121*>(0x400C81DC); }
+  static inline volatile WORD121 &ref() { return *reinterpret_cast<volatile WORD121*>(0x400C81DC); }
 };
 
 // Message Buffer 22 CS Register
@@ -12005,7 +12005,7 @@ union CS22 {
 
   CS22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS22 &Instance() { return *reinterpret_cast<volatile CS22*>(0x400C81E0); }
+  static inline volatile CS22 &ref() { return *reinterpret_cast<volatile CS22*>(0x400C81E0); }
 };
 
 // Message Buffer 14 WORD_16B Register
@@ -12028,7 +12028,7 @@ union MB14_16B_WORD2_L {
 
   MB14_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB14_16B_WORD2_L*>(0x400C81E0); }
+  static inline volatile MB14_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB14_16B_WORD2_L*>(0x400C81E0); }
 };
 
 // Message Buffer 22 CS Register
@@ -12063,7 +12063,7 @@ union MB22_8B_CS {
 
   MB22_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB22_8B_CS &Instance() { return *reinterpret_cast<volatile MB22_8B_CS*>(0x400C81E0); }
+  static inline volatile MB22_8B_CS &ref() { return *reinterpret_cast<volatile MB22_8B_CS*>(0x400C81E0); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -12086,7 +12086,7 @@ union MB4_64B_WORD14_L {
 
   MB4_64B_WORD14_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD14_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD14_L*>(0x400C81E0); }
+  static inline volatile MB4_64B_WORD14_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD14_L*>(0x400C81E0); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -12109,7 +12109,7 @@ union MB8_32B_WORD6_L {
 
   MB8_32B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD6_L*>(0x400C81E0); }
+  static inline volatile MB8_32B_WORD6_L &ref() { return *reinterpret_cast<volatile MB8_32B_WORD6_L*>(0x400C81E0); }
 };
 
 // Message Buffer 22 ID Register
@@ -12130,7 +12130,7 @@ union ID22 {
 
   ID22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID22 &Instance() { return *reinterpret_cast<volatile ID22*>(0x400C81E4); }
+  static inline volatile ID22 &ref() { return *reinterpret_cast<volatile ID22*>(0x400C81E4); }
 };
 
 // Message Buffer 14 WORD_16B Register
@@ -12153,7 +12153,7 @@ union MB14_16B_WORD3_L {
 
   MB14_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB14_16B_WORD3_L*>(0x400C81E4); }
+  static inline volatile MB14_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB14_16B_WORD3_L*>(0x400C81E4); }
 };
 
 // Message Buffer 22 ID Register
@@ -12174,7 +12174,7 @@ union MB22_8B_ID {
 
   MB22_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB22_8B_ID &Instance() { return *reinterpret_cast<volatile MB22_8B_ID*>(0x400C81E4); }
+  static inline volatile MB22_8B_ID &ref() { return *reinterpret_cast<volatile MB22_8B_ID*>(0x400C81E4); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -12197,7 +12197,7 @@ union MB4_64B_WORD15_L {
 
   MB4_64B_WORD15_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD15_L &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD15_L*>(0x400C81E4); }
+  static inline volatile MB4_64B_WORD15_L &ref() { return *reinterpret_cast<volatile MB4_64B_WORD15_L*>(0x400C81E4); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -12220,7 +12220,7 @@ union MB8_32B_WORD7_L {
 
   MB8_32B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD7_L*>(0x400C81E4); }
+  static inline volatile MB8_32B_WORD7_L &ref() { return *reinterpret_cast<volatile MB8_32B_WORD7_L*>(0x400C81E4); }
 };
 
 // Message Buffer 15 CS Register
@@ -12255,7 +12255,7 @@ union MB15_16B_CS_L {
 
   MB15_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB15_16B_CS_L*>(0x400C81E8); }
+  static inline volatile MB15_16B_CS_L &ref() { return *reinterpret_cast<volatile MB15_16B_CS_L*>(0x400C81E8); }
 };
 
 // Message Buffer 22 WORD_8B Register
@@ -12278,7 +12278,7 @@ union MB22_8B_WORD0 {
 
   MB22_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB22_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB22_8B_WORD0*>(0x400C81E8); }
+  static inline volatile MB22_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB22_8B_WORD0*>(0x400C81E8); }
 };
 
 // Message Buffer 5 CS Register
@@ -12313,7 +12313,7 @@ union MB5_64B_CS_L {
 
   MB5_64B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_CS_L &Instance() { return *reinterpret_cast<volatile MB5_64B_CS_L*>(0x400C81E8); }
+  static inline volatile MB5_64B_CS_L &ref() { return *reinterpret_cast<volatile MB5_64B_CS_L*>(0x400C81E8); }
 };
 
 // Message Buffer 9 CS Register
@@ -12348,7 +12348,7 @@ union MB9_32B_CS_L {
 
   MB9_32B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_CS_L &Instance() { return *reinterpret_cast<volatile MB9_32B_CS_L*>(0x400C81E8); }
+  static inline volatile MB9_32B_CS_L &ref() { return *reinterpret_cast<volatile MB9_32B_CS_L*>(0x400C81E8); }
 };
 
 // Message Buffer 22 WORD0 Register
@@ -12371,7 +12371,7 @@ union WORD022 {
 
   WORD022() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD022 &Instance() { return *reinterpret_cast<volatile WORD022*>(0x400C81E8); }
+  static inline volatile WORD022 &ref() { return *reinterpret_cast<volatile WORD022*>(0x400C81E8); }
 };
 
 // Message Buffer 15 ID Register
@@ -12392,7 +12392,7 @@ union MB15_16B_ID_L {
 
   MB15_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB15_16B_ID_L*>(0x400C81EC); }
+  static inline volatile MB15_16B_ID_L &ref() { return *reinterpret_cast<volatile MB15_16B_ID_L*>(0x400C81EC); }
 };
 
 // Message Buffer 22 WORD_8B Register
@@ -12415,7 +12415,7 @@ union MB22_8B_WORD1 {
 
   MB22_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB22_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB22_8B_WORD1*>(0x400C81EC); }
+  static inline volatile MB22_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB22_8B_WORD1*>(0x400C81EC); }
 };
 
 // Message Buffer 5 ID Register
@@ -12436,7 +12436,7 @@ union MB5_64B_ID_L {
 
   MB5_64B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_ID_L &Instance() { return *reinterpret_cast<volatile MB5_64B_ID_L*>(0x400C81EC); }
+  static inline volatile MB5_64B_ID_L &ref() { return *reinterpret_cast<volatile MB5_64B_ID_L*>(0x400C81EC); }
 };
 
 // Message Buffer 9 ID Register
@@ -12457,7 +12457,7 @@ union MB9_32B_ID_L {
 
   MB9_32B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_ID_L &Instance() { return *reinterpret_cast<volatile MB9_32B_ID_L*>(0x400C81EC); }
+  static inline volatile MB9_32B_ID_L &ref() { return *reinterpret_cast<volatile MB9_32B_ID_L*>(0x400C81EC); }
 };
 
 // Message Buffer 22 WORD1 Register
@@ -12480,7 +12480,7 @@ union WORD122 {
 
   WORD122() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD122 &Instance() { return *reinterpret_cast<volatile WORD122*>(0x400C81EC); }
+  static inline volatile WORD122 &ref() { return *reinterpret_cast<volatile WORD122*>(0x400C81EC); }
 };
 
 // Message Buffer 23 CS Register
@@ -12515,7 +12515,7 @@ union CS23 {
 
   CS23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS23 &Instance() { return *reinterpret_cast<volatile CS23*>(0x400C81F0); }
+  static inline volatile CS23 &ref() { return *reinterpret_cast<volatile CS23*>(0x400C81F0); }
 };
 
 // Message Buffer 15 WORD_16B Register
@@ -12538,7 +12538,7 @@ union MB15_16B_WORD0_L {
 
   MB15_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB15_16B_WORD0_L*>(0x400C81F0); }
+  static inline volatile MB15_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB15_16B_WORD0_L*>(0x400C81F0); }
 };
 
 // Message Buffer 23 CS Register
@@ -12573,7 +12573,7 @@ union MB23_8B_CS {
 
   MB23_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB23_8B_CS &Instance() { return *reinterpret_cast<volatile MB23_8B_CS*>(0x400C81F0); }
+  static inline volatile MB23_8B_CS &ref() { return *reinterpret_cast<volatile MB23_8B_CS*>(0x400C81F0); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -12596,7 +12596,7 @@ union MB5_64B_WORD0_L {
 
   MB5_64B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD0_L*>(0x400C81F0); }
+  static inline volatile MB5_64B_WORD0_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD0_L*>(0x400C81F0); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -12619,7 +12619,7 @@ union MB9_32B_WORD0_L {
 
   MB9_32B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD0_L*>(0x400C81F0); }
+  static inline volatile MB9_32B_WORD0_L &ref() { return *reinterpret_cast<volatile MB9_32B_WORD0_L*>(0x400C81F0); }
 };
 
 // Message Buffer 23 ID Register
@@ -12640,7 +12640,7 @@ union ID23 {
 
   ID23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID23 &Instance() { return *reinterpret_cast<volatile ID23*>(0x400C81F4); }
+  static inline volatile ID23 &ref() { return *reinterpret_cast<volatile ID23*>(0x400C81F4); }
 };
 
 // Message Buffer 15 WORD_16B Register
@@ -12663,7 +12663,7 @@ union MB15_16B_WORD1_L {
 
   MB15_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB15_16B_WORD1_L*>(0x400C81F4); }
+  static inline volatile MB15_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB15_16B_WORD1_L*>(0x400C81F4); }
 };
 
 // Message Buffer 23 ID Register
@@ -12684,7 +12684,7 @@ union MB23_8B_ID {
 
   MB23_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB23_8B_ID &Instance() { return *reinterpret_cast<volatile MB23_8B_ID*>(0x400C81F4); }
+  static inline volatile MB23_8B_ID &ref() { return *reinterpret_cast<volatile MB23_8B_ID*>(0x400C81F4); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -12707,7 +12707,7 @@ union MB5_64B_WORD1_L {
 
   MB5_64B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD1_L*>(0x400C81F4); }
+  static inline volatile MB5_64B_WORD1_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD1_L*>(0x400C81F4); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -12730,7 +12730,7 @@ union MB9_32B_WORD1_L {
 
   MB9_32B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD1_L*>(0x400C81F4); }
+  static inline volatile MB9_32B_WORD1_L &ref() { return *reinterpret_cast<volatile MB9_32B_WORD1_L*>(0x400C81F4); }
 };
 
 // Message Buffer 15 WORD_16B Register
@@ -12753,7 +12753,7 @@ union MB15_16B_WORD2_L {
 
   MB15_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB15_16B_WORD2_L*>(0x400C81F8); }
+  static inline volatile MB15_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB15_16B_WORD2_L*>(0x400C81F8); }
 };
 
 // Message Buffer 23 WORD_8B Register
@@ -12776,7 +12776,7 @@ union MB23_8B_WORD0 {
 
   MB23_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB23_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB23_8B_WORD0*>(0x400C81F8); }
+  static inline volatile MB23_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB23_8B_WORD0*>(0x400C81F8); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -12799,7 +12799,7 @@ union MB5_64B_WORD2_L {
 
   MB5_64B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD2_L*>(0x400C81F8); }
+  static inline volatile MB5_64B_WORD2_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD2_L*>(0x400C81F8); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -12822,7 +12822,7 @@ union MB9_32B_WORD2_L {
 
   MB9_32B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD2_L*>(0x400C81F8); }
+  static inline volatile MB9_32B_WORD2_L &ref() { return *reinterpret_cast<volatile MB9_32B_WORD2_L*>(0x400C81F8); }
 };
 
 // Message Buffer 23 WORD0 Register
@@ -12845,7 +12845,7 @@ union WORD023 {
 
   WORD023() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD023 &Instance() { return *reinterpret_cast<volatile WORD023*>(0x400C81F8); }
+  static inline volatile WORD023 &ref() { return *reinterpret_cast<volatile WORD023*>(0x400C81F8); }
 };
 
 // Message Buffer 15 WORD_16B Register
@@ -12868,7 +12868,7 @@ union MB15_16B_WORD3_L {
 
   MB15_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB15_16B_WORD3_L*>(0x400C81FC); }
+  static inline volatile MB15_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB15_16B_WORD3_L*>(0x400C81FC); }
 };
 
 // Message Buffer 23 WORD_8B Register
@@ -12891,7 +12891,7 @@ union MB23_8B_WORD1 {
 
   MB23_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB23_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB23_8B_WORD1*>(0x400C81FC); }
+  static inline volatile MB23_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB23_8B_WORD1*>(0x400C81FC); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -12914,7 +12914,7 @@ union MB5_64B_WORD3_L {
 
   MB5_64B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD3_L*>(0x400C81FC); }
+  static inline volatile MB5_64B_WORD3_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD3_L*>(0x400C81FC); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -12937,7 +12937,7 @@ union MB9_32B_WORD3_L {
 
   MB9_32B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD3_L*>(0x400C81FC); }
+  static inline volatile MB9_32B_WORD3_L &ref() { return *reinterpret_cast<volatile MB9_32B_WORD3_L*>(0x400C81FC); }
 };
 
 // Message Buffer 23 WORD1 Register
@@ -12960,7 +12960,7 @@ union WORD123 {
 
   WORD123() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD123 &Instance() { return *reinterpret_cast<volatile WORD123*>(0x400C81FC); }
+  static inline volatile WORD123 &ref() { return *reinterpret_cast<volatile WORD123*>(0x400C81FC); }
 };
 
 // Message Buffer 24 CS Register
@@ -12995,7 +12995,7 @@ union CS24 {
 
   CS24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS24 &Instance() { return *reinterpret_cast<volatile CS24*>(0x400C8200); }
+  static inline volatile CS24 &ref() { return *reinterpret_cast<volatile CS24*>(0x400C8200); }
 };
 
 // Message Buffer 16 CS Register
@@ -13030,7 +13030,7 @@ union MB16_16B_CS_L {
 
   MB16_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB16_16B_CS_L*>(0x400C8200); }
+  static inline volatile MB16_16B_CS_L &ref() { return *reinterpret_cast<volatile MB16_16B_CS_L*>(0x400C8200); }
 };
 
 // Message Buffer 24 CS Register
@@ -13065,7 +13065,7 @@ union MB24_8B_CS {
 
   MB24_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB24_8B_CS &Instance() { return *reinterpret_cast<volatile MB24_8B_CS*>(0x400C8200); }
+  static inline volatile MB24_8B_CS &ref() { return *reinterpret_cast<volatile MB24_8B_CS*>(0x400C8200); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -13088,7 +13088,7 @@ union MB5_64B_WORD4_L {
 
   MB5_64B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD4_L*>(0x400C8200); }
+  static inline volatile MB5_64B_WORD4_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD4_L*>(0x400C8200); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -13111,7 +13111,7 @@ union MB9_32B_WORD4_L {
 
   MB9_32B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD4_L*>(0x400C8200); }
+  static inline volatile MB9_32B_WORD4_L &ref() { return *reinterpret_cast<volatile MB9_32B_WORD4_L*>(0x400C8200); }
 };
 
 // Message Buffer 24 ID Register
@@ -13132,7 +13132,7 @@ union ID24 {
 
   ID24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID24 &Instance() { return *reinterpret_cast<volatile ID24*>(0x400C8204); }
+  static inline volatile ID24 &ref() { return *reinterpret_cast<volatile ID24*>(0x400C8204); }
 };
 
 // Message Buffer 16 ID Register
@@ -13153,7 +13153,7 @@ union MB16_16B_ID_L {
 
   MB16_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB16_16B_ID_L*>(0x400C8204); }
+  static inline volatile MB16_16B_ID_L &ref() { return *reinterpret_cast<volatile MB16_16B_ID_L*>(0x400C8204); }
 };
 
 // Message Buffer 24 ID Register
@@ -13174,7 +13174,7 @@ union MB24_8B_ID {
 
   MB24_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB24_8B_ID &Instance() { return *reinterpret_cast<volatile MB24_8B_ID*>(0x400C8204); }
+  static inline volatile MB24_8B_ID &ref() { return *reinterpret_cast<volatile MB24_8B_ID*>(0x400C8204); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -13197,7 +13197,7 @@ union MB5_64B_WORD5_L {
 
   MB5_64B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD5_L*>(0x400C8204); }
+  static inline volatile MB5_64B_WORD5_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD5_L*>(0x400C8204); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -13220,7 +13220,7 @@ union MB9_32B_WORD5_L {
 
   MB9_32B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD5_L*>(0x400C8204); }
+  static inline volatile MB9_32B_WORD5_L &ref() { return *reinterpret_cast<volatile MB9_32B_WORD5_L*>(0x400C8204); }
 };
 
 // Message Buffer 16 WORD_16B Register
@@ -13243,7 +13243,7 @@ union MB16_16B_WORD0_L {
 
   MB16_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB16_16B_WORD0_L*>(0x400C8208); }
+  static inline volatile MB16_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB16_16B_WORD0_L*>(0x400C8208); }
 };
 
 // Message Buffer 24 WORD_8B Register
@@ -13266,7 +13266,7 @@ union MB24_8B_WORD0 {
 
   MB24_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB24_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB24_8B_WORD0*>(0x400C8208); }
+  static inline volatile MB24_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB24_8B_WORD0*>(0x400C8208); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -13289,7 +13289,7 @@ union MB5_64B_WORD6_L {
 
   MB5_64B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD6_L*>(0x400C8208); }
+  static inline volatile MB5_64B_WORD6_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD6_L*>(0x400C8208); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -13312,7 +13312,7 @@ union MB9_32B_WORD6_L {
 
   MB9_32B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD6_L*>(0x400C8208); }
+  static inline volatile MB9_32B_WORD6_L &ref() { return *reinterpret_cast<volatile MB9_32B_WORD6_L*>(0x400C8208); }
 };
 
 // Message Buffer 24 WORD0 Register
@@ -13335,7 +13335,7 @@ union WORD024 {
 
   WORD024() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD024 &Instance() { return *reinterpret_cast<volatile WORD024*>(0x400C8208); }
+  static inline volatile WORD024 &ref() { return *reinterpret_cast<volatile WORD024*>(0x400C8208); }
 };
 
 // Message Buffer 16 WORD_16B Register
@@ -13358,7 +13358,7 @@ union MB16_16B_WORD1_L {
 
   MB16_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB16_16B_WORD1_L*>(0x400C820C); }
+  static inline volatile MB16_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB16_16B_WORD1_L*>(0x400C820C); }
 };
 
 // Message Buffer 24 WORD_8B Register
@@ -13381,7 +13381,7 @@ union MB24_8B_WORD1 {
 
   MB24_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB24_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB24_8B_WORD1*>(0x400C820C); }
+  static inline volatile MB24_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB24_8B_WORD1*>(0x400C820C); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -13404,7 +13404,7 @@ union MB5_64B_WORD7_L {
 
   MB5_64B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD7_L*>(0x400C820C); }
+  static inline volatile MB5_64B_WORD7_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD7_L*>(0x400C820C); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -13427,7 +13427,7 @@ union MB9_32B_WORD7_L {
 
   MB9_32B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD7_L*>(0x400C820C); }
+  static inline volatile MB9_32B_WORD7_L &ref() { return *reinterpret_cast<volatile MB9_32B_WORD7_L*>(0x400C820C); }
 };
 
 // Message Buffer 24 WORD1 Register
@@ -13450,7 +13450,7 @@ union WORD124 {
 
   WORD124() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD124 &Instance() { return *reinterpret_cast<volatile WORD124*>(0x400C820C); }
+  static inline volatile WORD124 &ref() { return *reinterpret_cast<volatile WORD124*>(0x400C820C); }
 };
 
 // Message Buffer 25 CS Register
@@ -13485,7 +13485,7 @@ union CS25 {
 
   CS25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS25 &Instance() { return *reinterpret_cast<volatile CS25*>(0x400C8210); }
+  static inline volatile CS25 &ref() { return *reinterpret_cast<volatile CS25*>(0x400C8210); }
 };
 
 // Message Buffer 10 CS Register
@@ -13520,7 +13520,7 @@ union MB10_32B_CS_L {
 
   MB10_32B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_CS_L &Instance() { return *reinterpret_cast<volatile MB10_32B_CS_L*>(0x400C8210); }
+  static inline volatile MB10_32B_CS_L &ref() { return *reinterpret_cast<volatile MB10_32B_CS_L*>(0x400C8210); }
 };
 
 // Message Buffer 16 WORD_16B Register
@@ -13543,7 +13543,7 @@ union MB16_16B_WORD2_L {
 
   MB16_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB16_16B_WORD2_L*>(0x400C8210); }
+  static inline volatile MB16_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB16_16B_WORD2_L*>(0x400C8210); }
 };
 
 // Message Buffer 25 CS Register
@@ -13578,7 +13578,7 @@ union MB25_8B_CS {
 
   MB25_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB25_8B_CS &Instance() { return *reinterpret_cast<volatile MB25_8B_CS*>(0x400C8210); }
+  static inline volatile MB25_8B_CS &ref() { return *reinterpret_cast<volatile MB25_8B_CS*>(0x400C8210); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -13601,7 +13601,7 @@ union MB5_64B_WORD8_L {
 
   MB5_64B_WORD8_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD8_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD8_L*>(0x400C8210); }
+  static inline volatile MB5_64B_WORD8_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD8_L*>(0x400C8210); }
 };
 
 // Message Buffer 25 ID Register
@@ -13622,7 +13622,7 @@ union ID25 {
 
   ID25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID25 &Instance() { return *reinterpret_cast<volatile ID25*>(0x400C8214); }
+  static inline volatile ID25 &ref() { return *reinterpret_cast<volatile ID25*>(0x400C8214); }
 };
 
 // Message Buffer 10 ID Register
@@ -13643,7 +13643,7 @@ union MB10_32B_ID_L {
 
   MB10_32B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_ID_L &Instance() { return *reinterpret_cast<volatile MB10_32B_ID_L*>(0x400C8214); }
+  static inline volatile MB10_32B_ID_L &ref() { return *reinterpret_cast<volatile MB10_32B_ID_L*>(0x400C8214); }
 };
 
 // Message Buffer 16 WORD_16B Register
@@ -13666,7 +13666,7 @@ union MB16_16B_WORD3_L {
 
   MB16_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB16_16B_WORD3_L*>(0x400C8214); }
+  static inline volatile MB16_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB16_16B_WORD3_L*>(0x400C8214); }
 };
 
 // Message Buffer 25 ID Register
@@ -13687,7 +13687,7 @@ union MB25_8B_ID {
 
   MB25_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB25_8B_ID &Instance() { return *reinterpret_cast<volatile MB25_8B_ID*>(0x400C8214); }
+  static inline volatile MB25_8B_ID &ref() { return *reinterpret_cast<volatile MB25_8B_ID*>(0x400C8214); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -13710,7 +13710,7 @@ union MB5_64B_WORD9_L {
 
   MB5_64B_WORD9_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD9_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD9_L*>(0x400C8214); }
+  static inline volatile MB5_64B_WORD9_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD9_L*>(0x400C8214); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -13733,7 +13733,7 @@ union MB10_32B_WORD0_L {
 
   MB10_32B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD0_L*>(0x400C8218); }
+  static inline volatile MB10_32B_WORD0_L &ref() { return *reinterpret_cast<volatile MB10_32B_WORD0_L*>(0x400C8218); }
 };
 
 // Message Buffer 17 CS Register
@@ -13768,7 +13768,7 @@ union MB17_16B_CS_L {
 
   MB17_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB17_16B_CS_L*>(0x400C8218); }
+  static inline volatile MB17_16B_CS_L &ref() { return *reinterpret_cast<volatile MB17_16B_CS_L*>(0x400C8218); }
 };
 
 // Message Buffer 25 WORD_8B Register
@@ -13791,7 +13791,7 @@ union MB25_8B_WORD0 {
 
   MB25_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB25_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB25_8B_WORD0*>(0x400C8218); }
+  static inline volatile MB25_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB25_8B_WORD0*>(0x400C8218); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -13814,7 +13814,7 @@ union MB5_64B_WORD10_L {
 
   MB5_64B_WORD10_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD10_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD10_L*>(0x400C8218); }
+  static inline volatile MB5_64B_WORD10_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD10_L*>(0x400C8218); }
 };
 
 // Message Buffer 25 WORD0 Register
@@ -13837,7 +13837,7 @@ union WORD025 {
 
   WORD025() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD025 &Instance() { return *reinterpret_cast<volatile WORD025*>(0x400C8218); }
+  static inline volatile WORD025 &ref() { return *reinterpret_cast<volatile WORD025*>(0x400C8218); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -13860,7 +13860,7 @@ union MB10_32B_WORD1_L {
 
   MB10_32B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD1_L*>(0x400C821C); }
+  static inline volatile MB10_32B_WORD1_L &ref() { return *reinterpret_cast<volatile MB10_32B_WORD1_L*>(0x400C821C); }
 };
 
 // Message Buffer 17 ID Register
@@ -13881,7 +13881,7 @@ union MB17_16B_ID_L {
 
   MB17_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB17_16B_ID_L*>(0x400C821C); }
+  static inline volatile MB17_16B_ID_L &ref() { return *reinterpret_cast<volatile MB17_16B_ID_L*>(0x400C821C); }
 };
 
 // Message Buffer 25 WORD_8B Register
@@ -13904,7 +13904,7 @@ union MB25_8B_WORD1 {
 
   MB25_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB25_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB25_8B_WORD1*>(0x400C821C); }
+  static inline volatile MB25_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB25_8B_WORD1*>(0x400C821C); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -13927,7 +13927,7 @@ union MB5_64B_WORD11_L {
 
   MB5_64B_WORD11_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD11_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD11_L*>(0x400C821C); }
+  static inline volatile MB5_64B_WORD11_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD11_L*>(0x400C821C); }
 };
 
 // Message Buffer 25 WORD1 Register
@@ -13950,7 +13950,7 @@ union WORD125 {
 
   WORD125() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD125 &Instance() { return *reinterpret_cast<volatile WORD125*>(0x400C821C); }
+  static inline volatile WORD125 &ref() { return *reinterpret_cast<volatile WORD125*>(0x400C821C); }
 };
 
 // Message Buffer 26 CS Register
@@ -13985,7 +13985,7 @@ union CS26 {
 
   CS26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS26 &Instance() { return *reinterpret_cast<volatile CS26*>(0x400C8220); }
+  static inline volatile CS26 &ref() { return *reinterpret_cast<volatile CS26*>(0x400C8220); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -14008,7 +14008,7 @@ union MB10_32B_WORD2_L {
 
   MB10_32B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD2_L*>(0x400C8220); }
+  static inline volatile MB10_32B_WORD2_L &ref() { return *reinterpret_cast<volatile MB10_32B_WORD2_L*>(0x400C8220); }
 };
 
 // Message Buffer 17 WORD_16B Register
@@ -14031,7 +14031,7 @@ union MB17_16B_WORD0_L {
 
   MB17_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB17_16B_WORD0_L*>(0x400C8220); }
+  static inline volatile MB17_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB17_16B_WORD0_L*>(0x400C8220); }
 };
 
 // Message Buffer 26 CS Register
@@ -14066,7 +14066,7 @@ union MB26_8B_CS {
 
   MB26_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB26_8B_CS &Instance() { return *reinterpret_cast<volatile MB26_8B_CS*>(0x400C8220); }
+  static inline volatile MB26_8B_CS &ref() { return *reinterpret_cast<volatile MB26_8B_CS*>(0x400C8220); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -14089,7 +14089,7 @@ union MB5_64B_WORD12_L {
 
   MB5_64B_WORD12_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD12_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD12_L*>(0x400C8220); }
+  static inline volatile MB5_64B_WORD12_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD12_L*>(0x400C8220); }
 };
 
 // Message Buffer 26 ID Register
@@ -14110,7 +14110,7 @@ union ID26 {
 
   ID26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID26 &Instance() { return *reinterpret_cast<volatile ID26*>(0x400C8224); }
+  static inline volatile ID26 &ref() { return *reinterpret_cast<volatile ID26*>(0x400C8224); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -14133,7 +14133,7 @@ union MB10_32B_WORD3_L {
 
   MB10_32B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD3_L*>(0x400C8224); }
+  static inline volatile MB10_32B_WORD3_L &ref() { return *reinterpret_cast<volatile MB10_32B_WORD3_L*>(0x400C8224); }
 };
 
 // Message Buffer 17 WORD_16B Register
@@ -14156,7 +14156,7 @@ union MB17_16B_WORD1_L {
 
   MB17_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB17_16B_WORD1_L*>(0x400C8224); }
+  static inline volatile MB17_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB17_16B_WORD1_L*>(0x400C8224); }
 };
 
 // Message Buffer 26 ID Register
@@ -14177,7 +14177,7 @@ union MB26_8B_ID {
 
   MB26_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB26_8B_ID &Instance() { return *reinterpret_cast<volatile MB26_8B_ID*>(0x400C8224); }
+  static inline volatile MB26_8B_ID &ref() { return *reinterpret_cast<volatile MB26_8B_ID*>(0x400C8224); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -14200,7 +14200,7 @@ union MB5_64B_WORD13_L {
 
   MB5_64B_WORD13_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD13_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD13_L*>(0x400C8224); }
+  static inline volatile MB5_64B_WORD13_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD13_L*>(0x400C8224); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -14223,7 +14223,7 @@ union MB10_32B_WORD4_L {
 
   MB10_32B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD4_L*>(0x400C8228); }
+  static inline volatile MB10_32B_WORD4_L &ref() { return *reinterpret_cast<volatile MB10_32B_WORD4_L*>(0x400C8228); }
 };
 
 // Message Buffer 17 WORD_16B Register
@@ -14246,7 +14246,7 @@ union MB17_16B_WORD2_L {
 
   MB17_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB17_16B_WORD2_L*>(0x400C8228); }
+  static inline volatile MB17_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB17_16B_WORD2_L*>(0x400C8228); }
 };
 
 // Message Buffer 26 WORD_8B Register
@@ -14269,7 +14269,7 @@ union MB26_8B_WORD0 {
 
   MB26_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB26_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB26_8B_WORD0*>(0x400C8228); }
+  static inline volatile MB26_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB26_8B_WORD0*>(0x400C8228); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -14292,7 +14292,7 @@ union MB5_64B_WORD14_L {
 
   MB5_64B_WORD14_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD14_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD14_L*>(0x400C8228); }
+  static inline volatile MB5_64B_WORD14_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD14_L*>(0x400C8228); }
 };
 
 // Message Buffer 26 WORD0 Register
@@ -14315,7 +14315,7 @@ union WORD026 {
 
   WORD026() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD026 &Instance() { return *reinterpret_cast<volatile WORD026*>(0x400C8228); }
+  static inline volatile WORD026 &ref() { return *reinterpret_cast<volatile WORD026*>(0x400C8228); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -14338,7 +14338,7 @@ union MB10_32B_WORD5_L {
 
   MB10_32B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD5_L*>(0x400C822C); }
+  static inline volatile MB10_32B_WORD5_L &ref() { return *reinterpret_cast<volatile MB10_32B_WORD5_L*>(0x400C822C); }
 };
 
 // Message Buffer 17 WORD_16B Register
@@ -14361,7 +14361,7 @@ union MB17_16B_WORD3_L {
 
   MB17_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB17_16B_WORD3_L*>(0x400C822C); }
+  static inline volatile MB17_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB17_16B_WORD3_L*>(0x400C822C); }
 };
 
 // Message Buffer 26 WORD_8B Register
@@ -14384,7 +14384,7 @@ union MB26_8B_WORD1 {
 
   MB26_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB26_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB26_8B_WORD1*>(0x400C822C); }
+  static inline volatile MB26_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB26_8B_WORD1*>(0x400C822C); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -14407,7 +14407,7 @@ union MB5_64B_WORD15_L {
 
   MB5_64B_WORD15_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD15_L &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD15_L*>(0x400C822C); }
+  static inline volatile MB5_64B_WORD15_L &ref() { return *reinterpret_cast<volatile MB5_64B_WORD15_L*>(0x400C822C); }
 };
 
 // Message Buffer 26 WORD1 Register
@@ -14430,7 +14430,7 @@ union WORD126 {
 
   WORD126() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD126 &Instance() { return *reinterpret_cast<volatile WORD126*>(0x400C822C); }
+  static inline volatile WORD126 &ref() { return *reinterpret_cast<volatile WORD126*>(0x400C822C); }
 };
 
 // Message Buffer 27 CS Register
@@ -14465,7 +14465,7 @@ union CS27 {
 
   CS27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS27 &Instance() { return *reinterpret_cast<volatile CS27*>(0x400C8230); }
+  static inline volatile CS27 &ref() { return *reinterpret_cast<volatile CS27*>(0x400C8230); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -14488,7 +14488,7 @@ union MB10_32B_WORD6_L {
 
   MB10_32B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD6_L*>(0x400C8230); }
+  static inline volatile MB10_32B_WORD6_L &ref() { return *reinterpret_cast<volatile MB10_32B_WORD6_L*>(0x400C8230); }
 };
 
 // Message Buffer 18 CS Register
@@ -14523,7 +14523,7 @@ union MB18_16B_CS_L {
 
   MB18_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB18_16B_CS_L*>(0x400C8230); }
+  static inline volatile MB18_16B_CS_L &ref() { return *reinterpret_cast<volatile MB18_16B_CS_L*>(0x400C8230); }
 };
 
 // Message Buffer 27 CS Register
@@ -14558,7 +14558,7 @@ union MB27_8B_CS {
 
   MB27_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB27_8B_CS &Instance() { return *reinterpret_cast<volatile MB27_8B_CS*>(0x400C8230); }
+  static inline volatile MB27_8B_CS &ref() { return *reinterpret_cast<volatile MB27_8B_CS*>(0x400C8230); }
 };
 
 // Message Buffer 6 CS Register
@@ -14593,7 +14593,7 @@ union MB6_64B_CS_L {
 
   MB6_64B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_CS_L &Instance() { return *reinterpret_cast<volatile MB6_64B_CS_L*>(0x400C8230); }
+  static inline volatile MB6_64B_CS_L &ref() { return *reinterpret_cast<volatile MB6_64B_CS_L*>(0x400C8230); }
 };
 
 // Message Buffer 27 ID Register
@@ -14614,7 +14614,7 @@ union ID27 {
 
   ID27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID27 &Instance() { return *reinterpret_cast<volatile ID27*>(0x400C8234); }
+  static inline volatile ID27 &ref() { return *reinterpret_cast<volatile ID27*>(0x400C8234); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -14637,7 +14637,7 @@ union MB10_32B_WORD7_L {
 
   MB10_32B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD7_L*>(0x400C8234); }
+  static inline volatile MB10_32B_WORD7_L &ref() { return *reinterpret_cast<volatile MB10_32B_WORD7_L*>(0x400C8234); }
 };
 
 // Message Buffer 18 ID Register
@@ -14658,7 +14658,7 @@ union MB18_16B_ID_L {
 
   MB18_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB18_16B_ID_L*>(0x400C8234); }
+  static inline volatile MB18_16B_ID_L &ref() { return *reinterpret_cast<volatile MB18_16B_ID_L*>(0x400C8234); }
 };
 
 // Message Buffer 27 ID Register
@@ -14679,7 +14679,7 @@ union MB27_8B_ID {
 
   MB27_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB27_8B_ID &Instance() { return *reinterpret_cast<volatile MB27_8B_ID*>(0x400C8234); }
+  static inline volatile MB27_8B_ID &ref() { return *reinterpret_cast<volatile MB27_8B_ID*>(0x400C8234); }
 };
 
 // Message Buffer 6 ID Register
@@ -14700,7 +14700,7 @@ union MB6_64B_ID_L {
 
   MB6_64B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_ID_L &Instance() { return *reinterpret_cast<volatile MB6_64B_ID_L*>(0x400C8234); }
+  static inline volatile MB6_64B_ID_L &ref() { return *reinterpret_cast<volatile MB6_64B_ID_L*>(0x400C8234); }
 };
 
 // Message Buffer 11 CS Register
@@ -14735,7 +14735,7 @@ union MB11_32B_CS_L {
 
   MB11_32B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_CS_L &Instance() { return *reinterpret_cast<volatile MB11_32B_CS_L*>(0x400C8238); }
+  static inline volatile MB11_32B_CS_L &ref() { return *reinterpret_cast<volatile MB11_32B_CS_L*>(0x400C8238); }
 };
 
 // Message Buffer 18 WORD_16B Register
@@ -14758,7 +14758,7 @@ union MB18_16B_WORD0_L {
 
   MB18_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB18_16B_WORD0_L*>(0x400C8238); }
+  static inline volatile MB18_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB18_16B_WORD0_L*>(0x400C8238); }
 };
 
 // Message Buffer 27 WORD_8B Register
@@ -14781,7 +14781,7 @@ union MB27_8B_WORD0 {
 
   MB27_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB27_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB27_8B_WORD0*>(0x400C8238); }
+  static inline volatile MB27_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB27_8B_WORD0*>(0x400C8238); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -14804,7 +14804,7 @@ union MB6_64B_WORD0_L {
 
   MB6_64B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD0_L*>(0x400C8238); }
+  static inline volatile MB6_64B_WORD0_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD0_L*>(0x400C8238); }
 };
 
 // Message Buffer 27 WORD0 Register
@@ -14827,7 +14827,7 @@ union WORD027 {
 
   WORD027() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD027 &Instance() { return *reinterpret_cast<volatile WORD027*>(0x400C8238); }
+  static inline volatile WORD027 &ref() { return *reinterpret_cast<volatile WORD027*>(0x400C8238); }
 };
 
 // Message Buffer 11 ID Register
@@ -14848,7 +14848,7 @@ union MB11_32B_ID_L {
 
   MB11_32B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_ID_L &Instance() { return *reinterpret_cast<volatile MB11_32B_ID_L*>(0x400C823C); }
+  static inline volatile MB11_32B_ID_L &ref() { return *reinterpret_cast<volatile MB11_32B_ID_L*>(0x400C823C); }
 };
 
 // Message Buffer 18 WORD_16B Register
@@ -14871,7 +14871,7 @@ union MB18_16B_WORD1_L {
 
   MB18_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB18_16B_WORD1_L*>(0x400C823C); }
+  static inline volatile MB18_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB18_16B_WORD1_L*>(0x400C823C); }
 };
 
 // Message Buffer 27 WORD_8B Register
@@ -14894,7 +14894,7 @@ union MB27_8B_WORD1 {
 
   MB27_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB27_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB27_8B_WORD1*>(0x400C823C); }
+  static inline volatile MB27_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB27_8B_WORD1*>(0x400C823C); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -14917,7 +14917,7 @@ union MB6_64B_WORD1_L {
 
   MB6_64B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD1_L*>(0x400C823C); }
+  static inline volatile MB6_64B_WORD1_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD1_L*>(0x400C823C); }
 };
 
 // Message Buffer 27 WORD1 Register
@@ -14940,7 +14940,7 @@ union WORD127 {
 
   WORD127() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD127 &Instance() { return *reinterpret_cast<volatile WORD127*>(0x400C823C); }
+  static inline volatile WORD127 &ref() { return *reinterpret_cast<volatile WORD127*>(0x400C823C); }
 };
 
 // Message Buffer 28 CS Register
@@ -14975,7 +14975,7 @@ union CS28 {
 
   CS28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS28 &Instance() { return *reinterpret_cast<volatile CS28*>(0x400C8240); }
+  static inline volatile CS28 &ref() { return *reinterpret_cast<volatile CS28*>(0x400C8240); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -14998,7 +14998,7 @@ union MB11_32B_WORD0_L {
 
   MB11_32B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD0_L*>(0x400C8240); }
+  static inline volatile MB11_32B_WORD0_L &ref() { return *reinterpret_cast<volatile MB11_32B_WORD0_L*>(0x400C8240); }
 };
 
 // Message Buffer 18 WORD_16B Register
@@ -15021,7 +15021,7 @@ union MB18_16B_WORD2_L {
 
   MB18_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB18_16B_WORD2_L*>(0x400C8240); }
+  static inline volatile MB18_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB18_16B_WORD2_L*>(0x400C8240); }
 };
 
 // Message Buffer 28 CS Register
@@ -15056,7 +15056,7 @@ union MB28_8B_CS {
 
   MB28_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB28_8B_CS &Instance() { return *reinterpret_cast<volatile MB28_8B_CS*>(0x400C8240); }
+  static inline volatile MB28_8B_CS &ref() { return *reinterpret_cast<volatile MB28_8B_CS*>(0x400C8240); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -15079,7 +15079,7 @@ union MB6_64B_WORD2_L {
 
   MB6_64B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD2_L*>(0x400C8240); }
+  static inline volatile MB6_64B_WORD2_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD2_L*>(0x400C8240); }
 };
 
 // Message Buffer 28 ID Register
@@ -15100,7 +15100,7 @@ union ID28 {
 
   ID28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID28 &Instance() { return *reinterpret_cast<volatile ID28*>(0x400C8244); }
+  static inline volatile ID28 &ref() { return *reinterpret_cast<volatile ID28*>(0x400C8244); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -15123,7 +15123,7 @@ union MB11_32B_WORD1_L {
 
   MB11_32B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD1_L*>(0x400C8244); }
+  static inline volatile MB11_32B_WORD1_L &ref() { return *reinterpret_cast<volatile MB11_32B_WORD1_L*>(0x400C8244); }
 };
 
 // Message Buffer 18 WORD_16B Register
@@ -15146,7 +15146,7 @@ union MB18_16B_WORD3_L {
 
   MB18_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB18_16B_WORD3_L*>(0x400C8244); }
+  static inline volatile MB18_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB18_16B_WORD3_L*>(0x400C8244); }
 };
 
 // Message Buffer 28 ID Register
@@ -15167,7 +15167,7 @@ union MB28_8B_ID {
 
   MB28_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB28_8B_ID &Instance() { return *reinterpret_cast<volatile MB28_8B_ID*>(0x400C8244); }
+  static inline volatile MB28_8B_ID &ref() { return *reinterpret_cast<volatile MB28_8B_ID*>(0x400C8244); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -15190,7 +15190,7 @@ union MB6_64B_WORD3_L {
 
   MB6_64B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD3_L*>(0x400C8244); }
+  static inline volatile MB6_64B_WORD3_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD3_L*>(0x400C8244); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -15213,7 +15213,7 @@ union MB11_32B_WORD2_L {
 
   MB11_32B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD2_L*>(0x400C8248); }
+  static inline volatile MB11_32B_WORD2_L &ref() { return *reinterpret_cast<volatile MB11_32B_WORD2_L*>(0x400C8248); }
 };
 
 // Message Buffer 19 CS Register
@@ -15248,7 +15248,7 @@ union MB19_16B_CS_L {
 
   MB19_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB19_16B_CS_L*>(0x400C8248); }
+  static inline volatile MB19_16B_CS_L &ref() { return *reinterpret_cast<volatile MB19_16B_CS_L*>(0x400C8248); }
 };
 
 // Message Buffer 28 WORD_8B Register
@@ -15271,7 +15271,7 @@ union MB28_8B_WORD0 {
 
   MB28_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB28_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB28_8B_WORD0*>(0x400C8248); }
+  static inline volatile MB28_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB28_8B_WORD0*>(0x400C8248); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -15294,7 +15294,7 @@ union MB6_64B_WORD4_L {
 
   MB6_64B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD4_L*>(0x400C8248); }
+  static inline volatile MB6_64B_WORD4_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD4_L*>(0x400C8248); }
 };
 
 // Message Buffer 28 WORD0 Register
@@ -15317,7 +15317,7 @@ union WORD028 {
 
   WORD028() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD028 &Instance() { return *reinterpret_cast<volatile WORD028*>(0x400C8248); }
+  static inline volatile WORD028 &ref() { return *reinterpret_cast<volatile WORD028*>(0x400C8248); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -15340,7 +15340,7 @@ union MB11_32B_WORD3_L {
 
   MB11_32B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD3_L*>(0x400C824C); }
+  static inline volatile MB11_32B_WORD3_L &ref() { return *reinterpret_cast<volatile MB11_32B_WORD3_L*>(0x400C824C); }
 };
 
 // Message Buffer 19 ID Register
@@ -15361,7 +15361,7 @@ union MB19_16B_ID_L {
 
   MB19_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB19_16B_ID_L*>(0x400C824C); }
+  static inline volatile MB19_16B_ID_L &ref() { return *reinterpret_cast<volatile MB19_16B_ID_L*>(0x400C824C); }
 };
 
 // Message Buffer 28 WORD_8B Register
@@ -15384,7 +15384,7 @@ union MB28_8B_WORD1 {
 
   MB28_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB28_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB28_8B_WORD1*>(0x400C824C); }
+  static inline volatile MB28_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB28_8B_WORD1*>(0x400C824C); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -15407,7 +15407,7 @@ union MB6_64B_WORD5_L {
 
   MB6_64B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD5_L*>(0x400C824C); }
+  static inline volatile MB6_64B_WORD5_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD5_L*>(0x400C824C); }
 };
 
 // Message Buffer 28 WORD1 Register
@@ -15430,7 +15430,7 @@ union WORD128 {
 
   WORD128() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD128 &Instance() { return *reinterpret_cast<volatile WORD128*>(0x400C824C); }
+  static inline volatile WORD128 &ref() { return *reinterpret_cast<volatile WORD128*>(0x400C824C); }
 };
 
 // Message Buffer 29 CS Register
@@ -15465,7 +15465,7 @@ union CS29 {
 
   CS29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS29 &Instance() { return *reinterpret_cast<volatile CS29*>(0x400C8250); }
+  static inline volatile CS29 &ref() { return *reinterpret_cast<volatile CS29*>(0x400C8250); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -15488,7 +15488,7 @@ union MB11_32B_WORD4_L {
 
   MB11_32B_WORD4_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD4_L &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD4_L*>(0x400C8250); }
+  static inline volatile MB11_32B_WORD4_L &ref() { return *reinterpret_cast<volatile MB11_32B_WORD4_L*>(0x400C8250); }
 };
 
 // Message Buffer 19 WORD_16B Register
@@ -15511,7 +15511,7 @@ union MB19_16B_WORD0_L {
 
   MB19_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB19_16B_WORD0_L*>(0x400C8250); }
+  static inline volatile MB19_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB19_16B_WORD0_L*>(0x400C8250); }
 };
 
 // Message Buffer 29 CS Register
@@ -15546,7 +15546,7 @@ union MB29_8B_CS {
 
   MB29_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB29_8B_CS &Instance() { return *reinterpret_cast<volatile MB29_8B_CS*>(0x400C8250); }
+  static inline volatile MB29_8B_CS &ref() { return *reinterpret_cast<volatile MB29_8B_CS*>(0x400C8250); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -15569,7 +15569,7 @@ union MB6_64B_WORD6_L {
 
   MB6_64B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD6_L*>(0x400C8250); }
+  static inline volatile MB6_64B_WORD6_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD6_L*>(0x400C8250); }
 };
 
 // Message Buffer 29 ID Register
@@ -15590,7 +15590,7 @@ union ID29 {
 
   ID29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID29 &Instance() { return *reinterpret_cast<volatile ID29*>(0x400C8254); }
+  static inline volatile ID29 &ref() { return *reinterpret_cast<volatile ID29*>(0x400C8254); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -15613,7 +15613,7 @@ union MB11_32B_WORD5_L {
 
   MB11_32B_WORD5_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD5_L &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD5_L*>(0x400C8254); }
+  static inline volatile MB11_32B_WORD5_L &ref() { return *reinterpret_cast<volatile MB11_32B_WORD5_L*>(0x400C8254); }
 };
 
 // Message Buffer 19 WORD_16B Register
@@ -15636,7 +15636,7 @@ union MB19_16B_WORD1_L {
 
   MB19_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB19_16B_WORD1_L*>(0x400C8254); }
+  static inline volatile MB19_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB19_16B_WORD1_L*>(0x400C8254); }
 };
 
 // Message Buffer 29 ID Register
@@ -15657,7 +15657,7 @@ union MB29_8B_ID {
 
   MB29_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB29_8B_ID &Instance() { return *reinterpret_cast<volatile MB29_8B_ID*>(0x400C8254); }
+  static inline volatile MB29_8B_ID &ref() { return *reinterpret_cast<volatile MB29_8B_ID*>(0x400C8254); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -15680,7 +15680,7 @@ union MB6_64B_WORD7_L {
 
   MB6_64B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD7_L*>(0x400C8254); }
+  static inline volatile MB6_64B_WORD7_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD7_L*>(0x400C8254); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -15703,7 +15703,7 @@ union MB11_32B_WORD6_L {
 
   MB11_32B_WORD6_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD6_L &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD6_L*>(0x400C8258); }
+  static inline volatile MB11_32B_WORD6_L &ref() { return *reinterpret_cast<volatile MB11_32B_WORD6_L*>(0x400C8258); }
 };
 
 // Message Buffer 19 WORD_16B Register
@@ -15726,7 +15726,7 @@ union MB19_16B_WORD2_L {
 
   MB19_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB19_16B_WORD2_L*>(0x400C8258); }
+  static inline volatile MB19_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB19_16B_WORD2_L*>(0x400C8258); }
 };
 
 // Message Buffer 29 WORD_8B Register
@@ -15749,7 +15749,7 @@ union MB29_8B_WORD0 {
 
   MB29_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB29_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB29_8B_WORD0*>(0x400C8258); }
+  static inline volatile MB29_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB29_8B_WORD0*>(0x400C8258); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -15772,7 +15772,7 @@ union MB6_64B_WORD8_L {
 
   MB6_64B_WORD8_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD8_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD8_L*>(0x400C8258); }
+  static inline volatile MB6_64B_WORD8_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD8_L*>(0x400C8258); }
 };
 
 // Message Buffer 29 WORD0 Register
@@ -15795,7 +15795,7 @@ union WORD029 {
 
   WORD029() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD029 &Instance() { return *reinterpret_cast<volatile WORD029*>(0x400C8258); }
+  static inline volatile WORD029 &ref() { return *reinterpret_cast<volatile WORD029*>(0x400C8258); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -15818,7 +15818,7 @@ union MB11_32B_WORD7_L {
 
   MB11_32B_WORD7_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD7_L &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD7_L*>(0x400C825C); }
+  static inline volatile MB11_32B_WORD7_L &ref() { return *reinterpret_cast<volatile MB11_32B_WORD7_L*>(0x400C825C); }
 };
 
 // Message Buffer 19 WORD_16B Register
@@ -15841,7 +15841,7 @@ union MB19_16B_WORD3_L {
 
   MB19_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB19_16B_WORD3_L*>(0x400C825C); }
+  static inline volatile MB19_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB19_16B_WORD3_L*>(0x400C825C); }
 };
 
 // Message Buffer 29 WORD_8B Register
@@ -15864,7 +15864,7 @@ union MB29_8B_WORD1 {
 
   MB29_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB29_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB29_8B_WORD1*>(0x400C825C); }
+  static inline volatile MB29_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB29_8B_WORD1*>(0x400C825C); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -15887,7 +15887,7 @@ union MB6_64B_WORD9_L {
 
   MB6_64B_WORD9_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD9_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD9_L*>(0x400C825C); }
+  static inline volatile MB6_64B_WORD9_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD9_L*>(0x400C825C); }
 };
 
 // Message Buffer 29 WORD1 Register
@@ -15910,7 +15910,7 @@ union WORD129 {
 
   WORD129() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD129 &Instance() { return *reinterpret_cast<volatile WORD129*>(0x400C825C); }
+  static inline volatile WORD129 &ref() { return *reinterpret_cast<volatile WORD129*>(0x400C825C); }
 };
 
 // Message Buffer 30 CS Register
@@ -15945,7 +15945,7 @@ union CS30 {
 
   CS30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS30 &Instance() { return *reinterpret_cast<volatile CS30*>(0x400C8260); }
+  static inline volatile CS30 &ref() { return *reinterpret_cast<volatile CS30*>(0x400C8260); }
 };
 
 // Message Buffer 20 CS Register
@@ -15980,7 +15980,7 @@ union MB20_16B_CS_L {
 
   MB20_16B_CS_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_16B_CS_L &Instance() { return *reinterpret_cast<volatile MB20_16B_CS_L*>(0x400C8260); }
+  static inline volatile MB20_16B_CS_L &ref() { return *reinterpret_cast<volatile MB20_16B_CS_L*>(0x400C8260); }
 };
 
 // Message Buffer 30 CS Register
@@ -16015,7 +16015,7 @@ union MB30_8B_CS {
 
   MB30_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB30_8B_CS &Instance() { return *reinterpret_cast<volatile MB30_8B_CS*>(0x400C8260); }
+  static inline volatile MB30_8B_CS &ref() { return *reinterpret_cast<volatile MB30_8B_CS*>(0x400C8260); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -16038,7 +16038,7 @@ union MB6_64B_WORD10_L {
 
   MB6_64B_WORD10_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD10_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD10_L*>(0x400C8260); }
+  static inline volatile MB6_64B_WORD10_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD10_L*>(0x400C8260); }
 };
 
 // Message Buffer 30 ID Register
@@ -16059,7 +16059,7 @@ union ID30 {
 
   ID30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID30 &Instance() { return *reinterpret_cast<volatile ID30*>(0x400C8264); }
+  static inline volatile ID30 &ref() { return *reinterpret_cast<volatile ID30*>(0x400C8264); }
 };
 
 // Message Buffer 20 ID Register
@@ -16080,7 +16080,7 @@ union MB20_16B_ID_L {
 
   MB20_16B_ID_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_16B_ID_L &Instance() { return *reinterpret_cast<volatile MB20_16B_ID_L*>(0x400C8264); }
+  static inline volatile MB20_16B_ID_L &ref() { return *reinterpret_cast<volatile MB20_16B_ID_L*>(0x400C8264); }
 };
 
 // Message Buffer 30 ID Register
@@ -16101,7 +16101,7 @@ union MB30_8B_ID {
 
   MB30_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB30_8B_ID &Instance() { return *reinterpret_cast<volatile MB30_8B_ID*>(0x400C8264); }
+  static inline volatile MB30_8B_ID &ref() { return *reinterpret_cast<volatile MB30_8B_ID*>(0x400C8264); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -16124,7 +16124,7 @@ union MB6_64B_WORD11_L {
 
   MB6_64B_WORD11_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD11_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD11_L*>(0x400C8264); }
+  static inline volatile MB6_64B_WORD11_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD11_L*>(0x400C8264); }
 };
 
 // Message Buffer 20 WORD_16B Register
@@ -16147,7 +16147,7 @@ union MB20_16B_WORD0_L {
 
   MB20_16B_WORD0_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_16B_WORD0_L &Instance() { return *reinterpret_cast<volatile MB20_16B_WORD0_L*>(0x400C8268); }
+  static inline volatile MB20_16B_WORD0_L &ref() { return *reinterpret_cast<volatile MB20_16B_WORD0_L*>(0x400C8268); }
 };
 
 // Message Buffer 30 WORD_8B Register
@@ -16170,7 +16170,7 @@ union MB30_8B_WORD0 {
 
   MB30_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB30_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB30_8B_WORD0*>(0x400C8268); }
+  static inline volatile MB30_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB30_8B_WORD0*>(0x400C8268); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -16193,7 +16193,7 @@ union MB6_64B_WORD12_L {
 
   MB6_64B_WORD12_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD12_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD12_L*>(0x400C8268); }
+  static inline volatile MB6_64B_WORD12_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD12_L*>(0x400C8268); }
 };
 
 // Message Buffer 30 WORD0 Register
@@ -16216,7 +16216,7 @@ union WORD030 {
 
   WORD030() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD030 &Instance() { return *reinterpret_cast<volatile WORD030*>(0x400C8268); }
+  static inline volatile WORD030 &ref() { return *reinterpret_cast<volatile WORD030*>(0x400C8268); }
 };
 
 // Message Buffer 20 WORD_16B Register
@@ -16239,7 +16239,7 @@ union MB20_16B_WORD1_L {
 
   MB20_16B_WORD1_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_16B_WORD1_L &Instance() { return *reinterpret_cast<volatile MB20_16B_WORD1_L*>(0x400C826C); }
+  static inline volatile MB20_16B_WORD1_L &ref() { return *reinterpret_cast<volatile MB20_16B_WORD1_L*>(0x400C826C); }
 };
 
 // Message Buffer 30 WORD_8B Register
@@ -16262,7 +16262,7 @@ union MB30_8B_WORD1 {
 
   MB30_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB30_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB30_8B_WORD1*>(0x400C826C); }
+  static inline volatile MB30_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB30_8B_WORD1*>(0x400C826C); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -16285,7 +16285,7 @@ union MB6_64B_WORD13_L {
 
   MB6_64B_WORD13_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD13_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD13_L*>(0x400C826C); }
+  static inline volatile MB6_64B_WORD13_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD13_L*>(0x400C826C); }
 };
 
 // Message Buffer 30 WORD1 Register
@@ -16308,7 +16308,7 @@ union WORD130 {
 
   WORD130() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD130 &Instance() { return *reinterpret_cast<volatile WORD130*>(0x400C826C); }
+  static inline volatile WORD130 &ref() { return *reinterpret_cast<volatile WORD130*>(0x400C826C); }
 };
 
 // Message Buffer 31 CS Register
@@ -16343,7 +16343,7 @@ union CS31 {
 
   CS31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS31 &Instance() { return *reinterpret_cast<volatile CS31*>(0x400C8270); }
+  static inline volatile CS31 &ref() { return *reinterpret_cast<volatile CS31*>(0x400C8270); }
 };
 
 // Message Buffer 20 WORD_16B Register
@@ -16366,7 +16366,7 @@ union MB20_16B_WORD2_L {
 
   MB20_16B_WORD2_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_16B_WORD2_L &Instance() { return *reinterpret_cast<volatile MB20_16B_WORD2_L*>(0x400C8270); }
+  static inline volatile MB20_16B_WORD2_L &ref() { return *reinterpret_cast<volatile MB20_16B_WORD2_L*>(0x400C8270); }
 };
 
 // Message Buffer 31 CS Register
@@ -16401,7 +16401,7 @@ union MB31_8B_CS {
 
   MB31_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB31_8B_CS &Instance() { return *reinterpret_cast<volatile MB31_8B_CS*>(0x400C8270); }
+  static inline volatile MB31_8B_CS &ref() { return *reinterpret_cast<volatile MB31_8B_CS*>(0x400C8270); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -16424,7 +16424,7 @@ union MB6_64B_WORD14_L {
 
   MB6_64B_WORD14_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD14_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD14_L*>(0x400C8270); }
+  static inline volatile MB6_64B_WORD14_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD14_L*>(0x400C8270); }
 };
 
 // Message Buffer 31 ID Register
@@ -16445,7 +16445,7 @@ union ID31 {
 
   ID31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID31 &Instance() { return *reinterpret_cast<volatile ID31*>(0x400C8274); }
+  static inline volatile ID31 &ref() { return *reinterpret_cast<volatile ID31*>(0x400C8274); }
 };
 
 // Message Buffer 20 WORD_16B Register
@@ -16468,7 +16468,7 @@ union MB20_16B_WORD3_L {
 
   MB20_16B_WORD3_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_16B_WORD3_L &Instance() { return *reinterpret_cast<volatile MB20_16B_WORD3_L*>(0x400C8274); }
+  static inline volatile MB20_16B_WORD3_L &ref() { return *reinterpret_cast<volatile MB20_16B_WORD3_L*>(0x400C8274); }
 };
 
 // Message Buffer 31 ID Register
@@ -16489,7 +16489,7 @@ union MB31_8B_ID {
 
   MB31_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB31_8B_ID &Instance() { return *reinterpret_cast<volatile MB31_8B_ID*>(0x400C8274); }
+  static inline volatile MB31_8B_ID &ref() { return *reinterpret_cast<volatile MB31_8B_ID*>(0x400C8274); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -16512,7 +16512,7 @@ union MB6_64B_WORD15_L {
 
   MB6_64B_WORD15_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD15_L &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD15_L*>(0x400C8274); }
+  static inline volatile MB6_64B_WORD15_L &ref() { return *reinterpret_cast<volatile MB6_64B_WORD15_L*>(0x400C8274); }
 };
 
 // Message Buffer 31 WORD_8B Register
@@ -16535,7 +16535,7 @@ union MB31_8B_WORD0 {
 
   MB31_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB31_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB31_8B_WORD0*>(0x400C8278); }
+  static inline volatile MB31_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB31_8B_WORD0*>(0x400C8278); }
 };
 
 // Message Buffer 31 WORD0 Register
@@ -16558,7 +16558,7 @@ union WORD031 {
 
   WORD031() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD031 &Instance() { return *reinterpret_cast<volatile WORD031*>(0x400C8278); }
+  static inline volatile WORD031 &ref() { return *reinterpret_cast<volatile WORD031*>(0x400C8278); }
 };
 
 // Message Buffer 31 WORD_8B Register
@@ -16581,7 +16581,7 @@ union MB31_8B_WORD1 {
 
   MB31_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB31_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB31_8B_WORD1*>(0x400C827C); }
+  static inline volatile MB31_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB31_8B_WORD1*>(0x400C827C); }
 };
 
 // Message Buffer 31 WORD1 Register
@@ -16604,7 +16604,7 @@ union WORD131 {
 
   WORD131() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD131 &Instance() { return *reinterpret_cast<volatile WORD131*>(0x400C827C); }
+  static inline volatile WORD131 &ref() { return *reinterpret_cast<volatile WORD131*>(0x400C827C); }
 };
 
 // Message Buffer 32 CS Register
@@ -16639,7 +16639,7 @@ union CS32 {
 
   CS32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS32 &Instance() { return *reinterpret_cast<volatile CS32*>(0x400C8280); }
+  static inline volatile CS32 &ref() { return *reinterpret_cast<volatile CS32*>(0x400C8280); }
 };
 
 // Message Buffer 0 CS Register
@@ -16674,7 +16674,7 @@ union MB0_16B_CS_H {
 
   MB0_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB0_16B_CS_H*>(0x400C8280); }
+  static inline volatile MB0_16B_CS_H &ref() { return *reinterpret_cast<volatile MB0_16B_CS_H*>(0x400C8280); }
 };
 
 // Message Buffer 0 CS Register
@@ -16709,7 +16709,7 @@ union MB0_32B_CS_H {
 
   MB0_32B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_CS_H &Instance() { return *reinterpret_cast<volatile MB0_32B_CS_H*>(0x400C8280); }
+  static inline volatile MB0_32B_CS_H &ref() { return *reinterpret_cast<volatile MB0_32B_CS_H*>(0x400C8280); }
 };
 
 // Message Buffer 0 CS Register
@@ -16744,7 +16744,7 @@ union MB0_64B_CS_H {
 
   MB0_64B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_CS_H &Instance() { return *reinterpret_cast<volatile MB0_64B_CS_H*>(0x400C8280); }
+  static inline volatile MB0_64B_CS_H &ref() { return *reinterpret_cast<volatile MB0_64B_CS_H*>(0x400C8280); }
 };
 
 // Message Buffer 32 CS Register
@@ -16779,7 +16779,7 @@ union MB32_8B_CS {
 
   MB32_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB32_8B_CS &Instance() { return *reinterpret_cast<volatile MB32_8B_CS*>(0x400C8280); }
+  static inline volatile MB32_8B_CS &ref() { return *reinterpret_cast<volatile MB32_8B_CS*>(0x400C8280); }
 };
 
 // Message Buffer 32 ID Register
@@ -16800,7 +16800,7 @@ union ID32 {
 
   ID32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID32 &Instance() { return *reinterpret_cast<volatile ID32*>(0x400C8284); }
+  static inline volatile ID32 &ref() { return *reinterpret_cast<volatile ID32*>(0x400C8284); }
 };
 
 // Message Buffer 0 ID Register
@@ -16821,7 +16821,7 @@ union MB0_16B_ID_H {
 
   MB0_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB0_16B_ID_H*>(0x400C8284); }
+  static inline volatile MB0_16B_ID_H &ref() { return *reinterpret_cast<volatile MB0_16B_ID_H*>(0x400C8284); }
 };
 
 // Message Buffer 0 ID Register
@@ -16842,7 +16842,7 @@ union MB0_32B_ID_H {
 
   MB0_32B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_ID_H &Instance() { return *reinterpret_cast<volatile MB0_32B_ID_H*>(0x400C8284); }
+  static inline volatile MB0_32B_ID_H &ref() { return *reinterpret_cast<volatile MB0_32B_ID_H*>(0x400C8284); }
 };
 
 // Message Buffer 0 ID Register
@@ -16863,7 +16863,7 @@ union MB0_64B_ID_H {
 
   MB0_64B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_ID_H &Instance() { return *reinterpret_cast<volatile MB0_64B_ID_H*>(0x400C8284); }
+  static inline volatile MB0_64B_ID_H &ref() { return *reinterpret_cast<volatile MB0_64B_ID_H*>(0x400C8284); }
 };
 
 // Message Buffer 32 ID Register
@@ -16884,7 +16884,7 @@ union MB32_8B_ID {
 
   MB32_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB32_8B_ID &Instance() { return *reinterpret_cast<volatile MB32_8B_ID*>(0x400C8284); }
+  static inline volatile MB32_8B_ID &ref() { return *reinterpret_cast<volatile MB32_8B_ID*>(0x400C8284); }
 };
 
 // Message Buffer 0 WORD_16B Register
@@ -16907,7 +16907,7 @@ union MB0_16B_WORD0_H {
 
   MB0_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB0_16B_WORD0_H*>(0x400C8288); }
+  static inline volatile MB0_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB0_16B_WORD0_H*>(0x400C8288); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -16930,7 +16930,7 @@ union MB0_32B_WORD0_H {
 
   MB0_32B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD0_H*>(0x400C8288); }
+  static inline volatile MB0_32B_WORD0_H &ref() { return *reinterpret_cast<volatile MB0_32B_WORD0_H*>(0x400C8288); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -16953,7 +16953,7 @@ union MB0_64B_WORD0_H {
 
   MB0_64B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD0_H*>(0x400C8288); }
+  static inline volatile MB0_64B_WORD0_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD0_H*>(0x400C8288); }
 };
 
 // Message Buffer 32 WORD_8B Register
@@ -16976,7 +16976,7 @@ union MB32_8B_WORD0 {
 
   MB32_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB32_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB32_8B_WORD0*>(0x400C8288); }
+  static inline volatile MB32_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB32_8B_WORD0*>(0x400C8288); }
 };
 
 // Message Buffer 32 WORD0 Register
@@ -16999,7 +16999,7 @@ union WORD032 {
 
   WORD032() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD032 &Instance() { return *reinterpret_cast<volatile WORD032*>(0x400C8288); }
+  static inline volatile WORD032 &ref() { return *reinterpret_cast<volatile WORD032*>(0x400C8288); }
 };
 
 // Message Buffer 0 WORD_16B Register
@@ -17022,7 +17022,7 @@ union MB0_16B_WORD1_H {
 
   MB0_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB0_16B_WORD1_H*>(0x400C828C); }
+  static inline volatile MB0_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB0_16B_WORD1_H*>(0x400C828C); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -17045,7 +17045,7 @@ union MB0_32B_WORD1_H {
 
   MB0_32B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD1_H*>(0x400C828C); }
+  static inline volatile MB0_32B_WORD1_H &ref() { return *reinterpret_cast<volatile MB0_32B_WORD1_H*>(0x400C828C); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -17068,7 +17068,7 @@ union MB0_64B_WORD1_H {
 
   MB0_64B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD1_H*>(0x400C828C); }
+  static inline volatile MB0_64B_WORD1_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD1_H*>(0x400C828C); }
 };
 
 // Message Buffer 32 WORD_8B Register
@@ -17091,7 +17091,7 @@ union MB32_8B_WORD1 {
 
   MB32_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB32_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB32_8B_WORD1*>(0x400C828C); }
+  static inline volatile MB32_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB32_8B_WORD1*>(0x400C828C); }
 };
 
 // Message Buffer 32 WORD1 Register
@@ -17114,7 +17114,7 @@ union WORD132 {
 
   WORD132() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD132 &Instance() { return *reinterpret_cast<volatile WORD132*>(0x400C828C); }
+  static inline volatile WORD132 &ref() { return *reinterpret_cast<volatile WORD132*>(0x400C828C); }
 };
 
 // Message Buffer 33 CS Register
@@ -17149,7 +17149,7 @@ union CS33 {
 
   CS33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS33 &Instance() { return *reinterpret_cast<volatile CS33*>(0x400C8290); }
+  static inline volatile CS33 &ref() { return *reinterpret_cast<volatile CS33*>(0x400C8290); }
 };
 
 // Message Buffer 0 WORD_16B Register
@@ -17172,7 +17172,7 @@ union MB0_16B_WORD2_H {
 
   MB0_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB0_16B_WORD2_H*>(0x400C8290); }
+  static inline volatile MB0_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB0_16B_WORD2_H*>(0x400C8290); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -17195,7 +17195,7 @@ union MB0_32B_WORD2_H {
 
   MB0_32B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD2_H*>(0x400C8290); }
+  static inline volatile MB0_32B_WORD2_H &ref() { return *reinterpret_cast<volatile MB0_32B_WORD2_H*>(0x400C8290); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -17218,7 +17218,7 @@ union MB0_64B_WORD2_H {
 
   MB0_64B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD2_H*>(0x400C8290); }
+  static inline volatile MB0_64B_WORD2_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD2_H*>(0x400C8290); }
 };
 
 // Message Buffer 33 CS Register
@@ -17253,7 +17253,7 @@ union MB33_8B_CS {
 
   MB33_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB33_8B_CS &Instance() { return *reinterpret_cast<volatile MB33_8B_CS*>(0x400C8290); }
+  static inline volatile MB33_8B_CS &ref() { return *reinterpret_cast<volatile MB33_8B_CS*>(0x400C8290); }
 };
 
 // Message Buffer 33 ID Register
@@ -17274,7 +17274,7 @@ union ID33 {
 
   ID33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID33 &Instance() { return *reinterpret_cast<volatile ID33*>(0x400C8294); }
+  static inline volatile ID33 &ref() { return *reinterpret_cast<volatile ID33*>(0x400C8294); }
 };
 
 // Message Buffer 0 WORD_16B Register
@@ -17297,7 +17297,7 @@ union MB0_16B_WORD3_H {
 
   MB0_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB0_16B_WORD3_H*>(0x400C8294); }
+  static inline volatile MB0_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB0_16B_WORD3_H*>(0x400C8294); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -17320,7 +17320,7 @@ union MB0_32B_WORD3_H {
 
   MB0_32B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD3_H*>(0x400C8294); }
+  static inline volatile MB0_32B_WORD3_H &ref() { return *reinterpret_cast<volatile MB0_32B_WORD3_H*>(0x400C8294); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -17343,7 +17343,7 @@ union MB0_64B_WORD3_H {
 
   MB0_64B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD3_H*>(0x400C8294); }
+  static inline volatile MB0_64B_WORD3_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD3_H*>(0x400C8294); }
 };
 
 // Message Buffer 33 ID Register
@@ -17364,7 +17364,7 @@ union MB33_8B_ID {
 
   MB33_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB33_8B_ID &Instance() { return *reinterpret_cast<volatile MB33_8B_ID*>(0x400C8294); }
+  static inline volatile MB33_8B_ID &ref() { return *reinterpret_cast<volatile MB33_8B_ID*>(0x400C8294); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -17387,7 +17387,7 @@ union MB0_32B_WORD4_H {
 
   MB0_32B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD4_H*>(0x400C8298); }
+  static inline volatile MB0_32B_WORD4_H &ref() { return *reinterpret_cast<volatile MB0_32B_WORD4_H*>(0x400C8298); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -17410,7 +17410,7 @@ union MB0_64B_WORD4_H {
 
   MB0_64B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD4_H*>(0x400C8298); }
+  static inline volatile MB0_64B_WORD4_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD4_H*>(0x400C8298); }
 };
 
 // Message Buffer 1 CS Register
@@ -17445,7 +17445,7 @@ union MB1_16B_CS_H {
 
   MB1_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB1_16B_CS_H*>(0x400C8298); }
+  static inline volatile MB1_16B_CS_H &ref() { return *reinterpret_cast<volatile MB1_16B_CS_H*>(0x400C8298); }
 };
 
 // Message Buffer 33 WORD_8B Register
@@ -17468,7 +17468,7 @@ union MB33_8B_WORD0 {
 
   MB33_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB33_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB33_8B_WORD0*>(0x400C8298); }
+  static inline volatile MB33_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB33_8B_WORD0*>(0x400C8298); }
 };
 
 // Message Buffer 33 WORD0 Register
@@ -17491,7 +17491,7 @@ union WORD033 {
 
   WORD033() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD033 &Instance() { return *reinterpret_cast<volatile WORD033*>(0x400C8298); }
+  static inline volatile WORD033 &ref() { return *reinterpret_cast<volatile WORD033*>(0x400C8298); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -17514,7 +17514,7 @@ union MB0_32B_WORD5_H {
 
   MB0_32B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD5_H*>(0x400C829C); }
+  static inline volatile MB0_32B_WORD5_H &ref() { return *reinterpret_cast<volatile MB0_32B_WORD5_H*>(0x400C829C); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -17537,7 +17537,7 @@ union MB0_64B_WORD5_H {
 
   MB0_64B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD5_H*>(0x400C829C); }
+  static inline volatile MB0_64B_WORD5_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD5_H*>(0x400C829C); }
 };
 
 // Message Buffer 1 ID Register
@@ -17558,7 +17558,7 @@ union MB1_16B_ID_H {
 
   MB1_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB1_16B_ID_H*>(0x400C829C); }
+  static inline volatile MB1_16B_ID_H &ref() { return *reinterpret_cast<volatile MB1_16B_ID_H*>(0x400C829C); }
 };
 
 // Message Buffer 33 WORD_8B Register
@@ -17581,7 +17581,7 @@ union MB33_8B_WORD1 {
 
   MB33_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB33_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB33_8B_WORD1*>(0x400C829C); }
+  static inline volatile MB33_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB33_8B_WORD1*>(0x400C829C); }
 };
 
 // Message Buffer 33 WORD1 Register
@@ -17604,7 +17604,7 @@ union WORD133 {
 
   WORD133() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD133 &Instance() { return *reinterpret_cast<volatile WORD133*>(0x400C829C); }
+  static inline volatile WORD133 &ref() { return *reinterpret_cast<volatile WORD133*>(0x400C829C); }
 };
 
 // Message Buffer 34 CS Register
@@ -17639,7 +17639,7 @@ union CS34 {
 
   CS34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS34 &Instance() { return *reinterpret_cast<volatile CS34*>(0x400C82A0); }
+  static inline volatile CS34 &ref() { return *reinterpret_cast<volatile CS34*>(0x400C82A0); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -17662,7 +17662,7 @@ union MB0_32B_WORD6_H {
 
   MB0_32B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD6_H*>(0x400C82A0); }
+  static inline volatile MB0_32B_WORD6_H &ref() { return *reinterpret_cast<volatile MB0_32B_WORD6_H*>(0x400C82A0); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -17685,7 +17685,7 @@ union MB0_64B_WORD6_H {
 
   MB0_64B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD6_H*>(0x400C82A0); }
+  static inline volatile MB0_64B_WORD6_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD6_H*>(0x400C82A0); }
 };
 
 // Message Buffer 1 WORD_16B Register
@@ -17708,7 +17708,7 @@ union MB1_16B_WORD0_H {
 
   MB1_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB1_16B_WORD0_H*>(0x400C82A0); }
+  static inline volatile MB1_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB1_16B_WORD0_H*>(0x400C82A0); }
 };
 
 // Message Buffer 34 CS Register
@@ -17743,7 +17743,7 @@ union MB34_8B_CS {
 
   MB34_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB34_8B_CS &Instance() { return *reinterpret_cast<volatile MB34_8B_CS*>(0x400C82A0); }
+  static inline volatile MB34_8B_CS &ref() { return *reinterpret_cast<volatile MB34_8B_CS*>(0x400C82A0); }
 };
 
 // Message Buffer 34 ID Register
@@ -17764,7 +17764,7 @@ union ID34 {
 
   ID34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID34 &Instance() { return *reinterpret_cast<volatile ID34*>(0x400C82A4); }
+  static inline volatile ID34 &ref() { return *reinterpret_cast<volatile ID34*>(0x400C82A4); }
 };
 
 // Message Buffer 0 WORD_32B Register
@@ -17787,7 +17787,7 @@ union MB0_32B_WORD7_H {
 
   MB0_32B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_32B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB0_32B_WORD7_H*>(0x400C82A4); }
+  static inline volatile MB0_32B_WORD7_H &ref() { return *reinterpret_cast<volatile MB0_32B_WORD7_H*>(0x400C82A4); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -17810,7 +17810,7 @@ union MB0_64B_WORD7_H {
 
   MB0_64B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD7_H*>(0x400C82A4); }
+  static inline volatile MB0_64B_WORD7_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD7_H*>(0x400C82A4); }
 };
 
 // Message Buffer 1 WORD_16B Register
@@ -17833,7 +17833,7 @@ union MB1_16B_WORD1_H {
 
   MB1_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB1_16B_WORD1_H*>(0x400C82A4); }
+  static inline volatile MB1_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB1_16B_WORD1_H*>(0x400C82A4); }
 };
 
 // Message Buffer 34 ID Register
@@ -17854,7 +17854,7 @@ union MB34_8B_ID {
 
   MB34_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB34_8B_ID &Instance() { return *reinterpret_cast<volatile MB34_8B_ID*>(0x400C82A4); }
+  static inline volatile MB34_8B_ID &ref() { return *reinterpret_cast<volatile MB34_8B_ID*>(0x400C82A4); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -17877,7 +17877,7 @@ union MB0_64B_WORD8_H {
 
   MB0_64B_WORD8_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD8_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD8_H*>(0x400C82A8); }
+  static inline volatile MB0_64B_WORD8_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD8_H*>(0x400C82A8); }
 };
 
 // Message Buffer 1 WORD_16B Register
@@ -17900,7 +17900,7 @@ union MB1_16B_WORD2_H {
 
   MB1_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB1_16B_WORD2_H*>(0x400C82A8); }
+  static inline volatile MB1_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB1_16B_WORD2_H*>(0x400C82A8); }
 };
 
 // Message Buffer 1 CS Register
@@ -17935,7 +17935,7 @@ union MB1_32B_CS_H {
 
   MB1_32B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_CS_H &Instance() { return *reinterpret_cast<volatile MB1_32B_CS_H*>(0x400C82A8); }
+  static inline volatile MB1_32B_CS_H &ref() { return *reinterpret_cast<volatile MB1_32B_CS_H*>(0x400C82A8); }
 };
 
 // Message Buffer 34 WORD_8B Register
@@ -17958,7 +17958,7 @@ union MB34_8B_WORD0 {
 
   MB34_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB34_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB34_8B_WORD0*>(0x400C82A8); }
+  static inline volatile MB34_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB34_8B_WORD0*>(0x400C82A8); }
 };
 
 // Message Buffer 34 WORD0 Register
@@ -17981,7 +17981,7 @@ union WORD034 {
 
   WORD034() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD034 &Instance() { return *reinterpret_cast<volatile WORD034*>(0x400C82A8); }
+  static inline volatile WORD034 &ref() { return *reinterpret_cast<volatile WORD034*>(0x400C82A8); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -18004,7 +18004,7 @@ union MB0_64B_WORD9_H {
 
   MB0_64B_WORD9_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD9_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD9_H*>(0x400C82AC); }
+  static inline volatile MB0_64B_WORD9_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD9_H*>(0x400C82AC); }
 };
 
 // Message Buffer 1 WORD_16B Register
@@ -18027,7 +18027,7 @@ union MB1_16B_WORD3_H {
 
   MB1_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB1_16B_WORD3_H*>(0x400C82AC); }
+  static inline volatile MB1_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB1_16B_WORD3_H*>(0x400C82AC); }
 };
 
 // Message Buffer 1 ID Register
@@ -18048,7 +18048,7 @@ union MB1_32B_ID_H {
 
   MB1_32B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_ID_H &Instance() { return *reinterpret_cast<volatile MB1_32B_ID_H*>(0x400C82AC); }
+  static inline volatile MB1_32B_ID_H &ref() { return *reinterpret_cast<volatile MB1_32B_ID_H*>(0x400C82AC); }
 };
 
 // Message Buffer 34 WORD_8B Register
@@ -18071,7 +18071,7 @@ union MB34_8B_WORD1 {
 
   MB34_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB34_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB34_8B_WORD1*>(0x400C82AC); }
+  static inline volatile MB34_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB34_8B_WORD1*>(0x400C82AC); }
 };
 
 // Message Buffer 34 WORD1 Register
@@ -18094,7 +18094,7 @@ union WORD134 {
 
   WORD134() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD134 &Instance() { return *reinterpret_cast<volatile WORD134*>(0x400C82AC); }
+  static inline volatile WORD134 &ref() { return *reinterpret_cast<volatile WORD134*>(0x400C82AC); }
 };
 
 // Message Buffer 35 CS Register
@@ -18129,7 +18129,7 @@ union CS35 {
 
   CS35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS35 &Instance() { return *reinterpret_cast<volatile CS35*>(0x400C82B0); }
+  static inline volatile CS35 &ref() { return *reinterpret_cast<volatile CS35*>(0x400C82B0); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -18152,7 +18152,7 @@ union MB0_64B_WORD10_H {
 
   MB0_64B_WORD10_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD10_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD10_H*>(0x400C82B0); }
+  static inline volatile MB0_64B_WORD10_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD10_H*>(0x400C82B0); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -18175,7 +18175,7 @@ union MB1_32B_WORD0_H {
 
   MB1_32B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD0_H*>(0x400C82B0); }
+  static inline volatile MB1_32B_WORD0_H &ref() { return *reinterpret_cast<volatile MB1_32B_WORD0_H*>(0x400C82B0); }
 };
 
 // Message Buffer 2 CS Register
@@ -18210,7 +18210,7 @@ union MB2_16B_CS_H {
 
   MB2_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB2_16B_CS_H*>(0x400C82B0); }
+  static inline volatile MB2_16B_CS_H &ref() { return *reinterpret_cast<volatile MB2_16B_CS_H*>(0x400C82B0); }
 };
 
 // Message Buffer 35 CS Register
@@ -18245,7 +18245,7 @@ union MB35_8B_CS {
 
   MB35_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB35_8B_CS &Instance() { return *reinterpret_cast<volatile MB35_8B_CS*>(0x400C82B0); }
+  static inline volatile MB35_8B_CS &ref() { return *reinterpret_cast<volatile MB35_8B_CS*>(0x400C82B0); }
 };
 
 // Message Buffer 35 ID Register
@@ -18266,7 +18266,7 @@ union ID35 {
 
   ID35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID35 &Instance() { return *reinterpret_cast<volatile ID35*>(0x400C82B4); }
+  static inline volatile ID35 &ref() { return *reinterpret_cast<volatile ID35*>(0x400C82B4); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -18289,7 +18289,7 @@ union MB0_64B_WORD11_H {
 
   MB0_64B_WORD11_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD11_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD11_H*>(0x400C82B4); }
+  static inline volatile MB0_64B_WORD11_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD11_H*>(0x400C82B4); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -18312,7 +18312,7 @@ union MB1_32B_WORD1_H {
 
   MB1_32B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD1_H*>(0x400C82B4); }
+  static inline volatile MB1_32B_WORD1_H &ref() { return *reinterpret_cast<volatile MB1_32B_WORD1_H*>(0x400C82B4); }
 };
 
 // Message Buffer 2 ID Register
@@ -18333,7 +18333,7 @@ union MB2_16B_ID_H {
 
   MB2_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB2_16B_ID_H*>(0x400C82B4); }
+  static inline volatile MB2_16B_ID_H &ref() { return *reinterpret_cast<volatile MB2_16B_ID_H*>(0x400C82B4); }
 };
 
 // Message Buffer 35 ID Register
@@ -18354,7 +18354,7 @@ union MB35_8B_ID {
 
   MB35_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB35_8B_ID &Instance() { return *reinterpret_cast<volatile MB35_8B_ID*>(0x400C82B4); }
+  static inline volatile MB35_8B_ID &ref() { return *reinterpret_cast<volatile MB35_8B_ID*>(0x400C82B4); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -18377,7 +18377,7 @@ union MB0_64B_WORD12_H {
 
   MB0_64B_WORD12_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD12_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD12_H*>(0x400C82B8); }
+  static inline volatile MB0_64B_WORD12_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD12_H*>(0x400C82B8); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -18400,7 +18400,7 @@ union MB1_32B_WORD2_H {
 
   MB1_32B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD2_H*>(0x400C82B8); }
+  static inline volatile MB1_32B_WORD2_H &ref() { return *reinterpret_cast<volatile MB1_32B_WORD2_H*>(0x400C82B8); }
 };
 
 // Message Buffer 2 WORD_16B Register
@@ -18423,7 +18423,7 @@ union MB2_16B_WORD0_H {
 
   MB2_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB2_16B_WORD0_H*>(0x400C82B8); }
+  static inline volatile MB2_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB2_16B_WORD0_H*>(0x400C82B8); }
 };
 
 // Message Buffer 35 WORD_8B Register
@@ -18446,7 +18446,7 @@ union MB35_8B_WORD0 {
 
   MB35_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB35_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB35_8B_WORD0*>(0x400C82B8); }
+  static inline volatile MB35_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB35_8B_WORD0*>(0x400C82B8); }
 };
 
 // Message Buffer 35 WORD0 Register
@@ -18469,7 +18469,7 @@ union WORD035 {
 
   WORD035() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD035 &Instance() { return *reinterpret_cast<volatile WORD035*>(0x400C82B8); }
+  static inline volatile WORD035 &ref() { return *reinterpret_cast<volatile WORD035*>(0x400C82B8); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -18492,7 +18492,7 @@ union MB0_64B_WORD13_H {
 
   MB0_64B_WORD13_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD13_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD13_H*>(0x400C82BC); }
+  static inline volatile MB0_64B_WORD13_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD13_H*>(0x400C82BC); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -18515,7 +18515,7 @@ union MB1_32B_WORD3_H {
 
   MB1_32B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD3_H*>(0x400C82BC); }
+  static inline volatile MB1_32B_WORD3_H &ref() { return *reinterpret_cast<volatile MB1_32B_WORD3_H*>(0x400C82BC); }
 };
 
 // Message Buffer 2 WORD_16B Register
@@ -18538,7 +18538,7 @@ union MB2_16B_WORD1_H {
 
   MB2_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB2_16B_WORD1_H*>(0x400C82BC); }
+  static inline volatile MB2_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB2_16B_WORD1_H*>(0x400C82BC); }
 };
 
 // Message Buffer 35 WORD_8B Register
@@ -18561,7 +18561,7 @@ union MB35_8B_WORD1 {
 
   MB35_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB35_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB35_8B_WORD1*>(0x400C82BC); }
+  static inline volatile MB35_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB35_8B_WORD1*>(0x400C82BC); }
 };
 
 // Message Buffer 35 WORD1 Register
@@ -18584,7 +18584,7 @@ union WORD135 {
 
   WORD135() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD135 &Instance() { return *reinterpret_cast<volatile WORD135*>(0x400C82BC); }
+  static inline volatile WORD135 &ref() { return *reinterpret_cast<volatile WORD135*>(0x400C82BC); }
 };
 
 // Message Buffer 36 CS Register
@@ -18619,7 +18619,7 @@ union CS36 {
 
   CS36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS36 &Instance() { return *reinterpret_cast<volatile CS36*>(0x400C82C0); }
+  static inline volatile CS36 &ref() { return *reinterpret_cast<volatile CS36*>(0x400C82C0); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -18642,7 +18642,7 @@ union MB0_64B_WORD14_H {
 
   MB0_64B_WORD14_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD14_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD14_H*>(0x400C82C0); }
+  static inline volatile MB0_64B_WORD14_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD14_H*>(0x400C82C0); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -18665,7 +18665,7 @@ union MB1_32B_WORD4_H {
 
   MB1_32B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD4_H*>(0x400C82C0); }
+  static inline volatile MB1_32B_WORD4_H &ref() { return *reinterpret_cast<volatile MB1_32B_WORD4_H*>(0x400C82C0); }
 };
 
 // Message Buffer 2 WORD_16B Register
@@ -18688,7 +18688,7 @@ union MB2_16B_WORD2_H {
 
   MB2_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB2_16B_WORD2_H*>(0x400C82C0); }
+  static inline volatile MB2_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB2_16B_WORD2_H*>(0x400C82C0); }
 };
 
 // Message Buffer 36 CS Register
@@ -18723,7 +18723,7 @@ union MB36_8B_CS {
 
   MB36_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB36_8B_CS &Instance() { return *reinterpret_cast<volatile MB36_8B_CS*>(0x400C82C0); }
+  static inline volatile MB36_8B_CS &ref() { return *reinterpret_cast<volatile MB36_8B_CS*>(0x400C82C0); }
 };
 
 // Message Buffer 36 ID Register
@@ -18744,7 +18744,7 @@ union ID36 {
 
   ID36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID36 &Instance() { return *reinterpret_cast<volatile ID36*>(0x400C82C4); }
+  static inline volatile ID36 &ref() { return *reinterpret_cast<volatile ID36*>(0x400C82C4); }
 };
 
 // Message Buffer 0 WORD_64B Register
@@ -18767,7 +18767,7 @@ union MB0_64B_WORD15_H {
 
   MB0_64B_WORD15_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB0_64B_WORD15_H &Instance() { return *reinterpret_cast<volatile MB0_64B_WORD15_H*>(0x400C82C4); }
+  static inline volatile MB0_64B_WORD15_H &ref() { return *reinterpret_cast<volatile MB0_64B_WORD15_H*>(0x400C82C4); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -18790,7 +18790,7 @@ union MB1_32B_WORD5_H {
 
   MB1_32B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD5_H*>(0x400C82C4); }
+  static inline volatile MB1_32B_WORD5_H &ref() { return *reinterpret_cast<volatile MB1_32B_WORD5_H*>(0x400C82C4); }
 };
 
 // Message Buffer 2 WORD_16B Register
@@ -18813,7 +18813,7 @@ union MB2_16B_WORD3_H {
 
   MB2_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB2_16B_WORD3_H*>(0x400C82C4); }
+  static inline volatile MB2_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB2_16B_WORD3_H*>(0x400C82C4); }
 };
 
 // Message Buffer 36 ID Register
@@ -18834,7 +18834,7 @@ union MB36_8B_ID {
 
   MB36_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB36_8B_ID &Instance() { return *reinterpret_cast<volatile MB36_8B_ID*>(0x400C82C4); }
+  static inline volatile MB36_8B_ID &ref() { return *reinterpret_cast<volatile MB36_8B_ID*>(0x400C82C4); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -18857,7 +18857,7 @@ union MB1_32B_WORD6_H {
 
   MB1_32B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD6_H*>(0x400C82C8); }
+  static inline volatile MB1_32B_WORD6_H &ref() { return *reinterpret_cast<volatile MB1_32B_WORD6_H*>(0x400C82C8); }
 };
 
 // Message Buffer 1 CS Register
@@ -18892,7 +18892,7 @@ union MB1_64B_CS_H {
 
   MB1_64B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_CS_H &Instance() { return *reinterpret_cast<volatile MB1_64B_CS_H*>(0x400C82C8); }
+  static inline volatile MB1_64B_CS_H &ref() { return *reinterpret_cast<volatile MB1_64B_CS_H*>(0x400C82C8); }
 };
 
 // Message Buffer 36 WORD_8B Register
@@ -18915,7 +18915,7 @@ union MB36_8B_WORD0 {
 
   MB36_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB36_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB36_8B_WORD0*>(0x400C82C8); }
+  static inline volatile MB36_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB36_8B_WORD0*>(0x400C82C8); }
 };
 
 // Message Buffer 3 CS Register
@@ -18950,7 +18950,7 @@ union MB3_16B_CS_H {
 
   MB3_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB3_16B_CS_H*>(0x400C82C8); }
+  static inline volatile MB3_16B_CS_H &ref() { return *reinterpret_cast<volatile MB3_16B_CS_H*>(0x400C82C8); }
 };
 
 // Message Buffer 36 WORD0 Register
@@ -18973,7 +18973,7 @@ union WORD036 {
 
   WORD036() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD036 &Instance() { return *reinterpret_cast<volatile WORD036*>(0x400C82C8); }
+  static inline volatile WORD036 &ref() { return *reinterpret_cast<volatile WORD036*>(0x400C82C8); }
 };
 
 // Message Buffer 1 WORD_32B Register
@@ -18996,7 +18996,7 @@ union MB1_32B_WORD7_H {
 
   MB1_32B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_32B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB1_32B_WORD7_H*>(0x400C82CC); }
+  static inline volatile MB1_32B_WORD7_H &ref() { return *reinterpret_cast<volatile MB1_32B_WORD7_H*>(0x400C82CC); }
 };
 
 // Message Buffer 1 ID Register
@@ -19017,7 +19017,7 @@ union MB1_64B_ID_H {
 
   MB1_64B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_ID_H &Instance() { return *reinterpret_cast<volatile MB1_64B_ID_H*>(0x400C82CC); }
+  static inline volatile MB1_64B_ID_H &ref() { return *reinterpret_cast<volatile MB1_64B_ID_H*>(0x400C82CC); }
 };
 
 // Message Buffer 36 WORD_8B Register
@@ -19040,7 +19040,7 @@ union MB36_8B_WORD1 {
 
   MB36_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB36_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB36_8B_WORD1*>(0x400C82CC); }
+  static inline volatile MB36_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB36_8B_WORD1*>(0x400C82CC); }
 };
 
 // Message Buffer 3 ID Register
@@ -19061,7 +19061,7 @@ union MB3_16B_ID_H {
 
   MB3_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB3_16B_ID_H*>(0x400C82CC); }
+  static inline volatile MB3_16B_ID_H &ref() { return *reinterpret_cast<volatile MB3_16B_ID_H*>(0x400C82CC); }
 };
 
 // Message Buffer 36 WORD1 Register
@@ -19084,7 +19084,7 @@ union WORD136 {
 
   WORD136() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD136 &Instance() { return *reinterpret_cast<volatile WORD136*>(0x400C82CC); }
+  static inline volatile WORD136 &ref() { return *reinterpret_cast<volatile WORD136*>(0x400C82CC); }
 };
 
 // Message Buffer 37 CS Register
@@ -19119,7 +19119,7 @@ union CS37 {
 
   CS37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS37 &Instance() { return *reinterpret_cast<volatile CS37*>(0x400C82D0); }
+  static inline volatile CS37 &ref() { return *reinterpret_cast<volatile CS37*>(0x400C82D0); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -19142,7 +19142,7 @@ union MB1_64B_WORD0_H {
 
   MB1_64B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD0_H*>(0x400C82D0); }
+  static inline volatile MB1_64B_WORD0_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD0_H*>(0x400C82D0); }
 };
 
 // Message Buffer 2 CS Register
@@ -19177,7 +19177,7 @@ union MB2_32B_CS_H {
 
   MB2_32B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_CS_H &Instance() { return *reinterpret_cast<volatile MB2_32B_CS_H*>(0x400C82D0); }
+  static inline volatile MB2_32B_CS_H &ref() { return *reinterpret_cast<volatile MB2_32B_CS_H*>(0x400C82D0); }
 };
 
 // Message Buffer 37 CS Register
@@ -19212,7 +19212,7 @@ union MB37_8B_CS {
 
   MB37_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB37_8B_CS &Instance() { return *reinterpret_cast<volatile MB37_8B_CS*>(0x400C82D0); }
+  static inline volatile MB37_8B_CS &ref() { return *reinterpret_cast<volatile MB37_8B_CS*>(0x400C82D0); }
 };
 
 // Message Buffer 3 WORD_16B Register
@@ -19235,7 +19235,7 @@ union MB3_16B_WORD0_H {
 
   MB3_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB3_16B_WORD0_H*>(0x400C82D0); }
+  static inline volatile MB3_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB3_16B_WORD0_H*>(0x400C82D0); }
 };
 
 // Message Buffer 37 ID Register
@@ -19256,7 +19256,7 @@ union ID37 {
 
   ID37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID37 &Instance() { return *reinterpret_cast<volatile ID37*>(0x400C82D4); }
+  static inline volatile ID37 &ref() { return *reinterpret_cast<volatile ID37*>(0x400C82D4); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -19279,7 +19279,7 @@ union MB1_64B_WORD1_H {
 
   MB1_64B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD1_H*>(0x400C82D4); }
+  static inline volatile MB1_64B_WORD1_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD1_H*>(0x400C82D4); }
 };
 
 // Message Buffer 2 ID Register
@@ -19300,7 +19300,7 @@ union MB2_32B_ID_H {
 
   MB2_32B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_ID_H &Instance() { return *reinterpret_cast<volatile MB2_32B_ID_H*>(0x400C82D4); }
+  static inline volatile MB2_32B_ID_H &ref() { return *reinterpret_cast<volatile MB2_32B_ID_H*>(0x400C82D4); }
 };
 
 // Message Buffer 37 ID Register
@@ -19321,7 +19321,7 @@ union MB37_8B_ID {
 
   MB37_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB37_8B_ID &Instance() { return *reinterpret_cast<volatile MB37_8B_ID*>(0x400C82D4); }
+  static inline volatile MB37_8B_ID &ref() { return *reinterpret_cast<volatile MB37_8B_ID*>(0x400C82D4); }
 };
 
 // Message Buffer 3 WORD_16B Register
@@ -19344,7 +19344,7 @@ union MB3_16B_WORD1_H {
 
   MB3_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB3_16B_WORD1_H*>(0x400C82D4); }
+  static inline volatile MB3_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB3_16B_WORD1_H*>(0x400C82D4); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -19367,7 +19367,7 @@ union MB1_64B_WORD2_H {
 
   MB1_64B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD2_H*>(0x400C82D8); }
+  static inline volatile MB1_64B_WORD2_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD2_H*>(0x400C82D8); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -19390,7 +19390,7 @@ union MB2_32B_WORD0_H {
 
   MB2_32B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD0_H*>(0x400C82D8); }
+  static inline volatile MB2_32B_WORD0_H &ref() { return *reinterpret_cast<volatile MB2_32B_WORD0_H*>(0x400C82D8); }
 };
 
 // Message Buffer 37 WORD_8B Register
@@ -19413,7 +19413,7 @@ union MB37_8B_WORD0 {
 
   MB37_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB37_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB37_8B_WORD0*>(0x400C82D8); }
+  static inline volatile MB37_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB37_8B_WORD0*>(0x400C82D8); }
 };
 
 // Message Buffer 3 WORD_16B Register
@@ -19436,7 +19436,7 @@ union MB3_16B_WORD2_H {
 
   MB3_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB3_16B_WORD2_H*>(0x400C82D8); }
+  static inline volatile MB3_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB3_16B_WORD2_H*>(0x400C82D8); }
 };
 
 // Message Buffer 37 WORD0 Register
@@ -19459,7 +19459,7 @@ union WORD037 {
 
   WORD037() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD037 &Instance() { return *reinterpret_cast<volatile WORD037*>(0x400C82D8); }
+  static inline volatile WORD037 &ref() { return *reinterpret_cast<volatile WORD037*>(0x400C82D8); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -19482,7 +19482,7 @@ union MB1_64B_WORD3_H {
 
   MB1_64B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD3_H*>(0x400C82DC); }
+  static inline volatile MB1_64B_WORD3_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD3_H*>(0x400C82DC); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -19505,7 +19505,7 @@ union MB2_32B_WORD1_H {
 
   MB2_32B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD1_H*>(0x400C82DC); }
+  static inline volatile MB2_32B_WORD1_H &ref() { return *reinterpret_cast<volatile MB2_32B_WORD1_H*>(0x400C82DC); }
 };
 
 // Message Buffer 37 WORD_8B Register
@@ -19528,7 +19528,7 @@ union MB37_8B_WORD1 {
 
   MB37_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB37_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB37_8B_WORD1*>(0x400C82DC); }
+  static inline volatile MB37_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB37_8B_WORD1*>(0x400C82DC); }
 };
 
 // Message Buffer 3 WORD_16B Register
@@ -19551,7 +19551,7 @@ union MB3_16B_WORD3_H {
 
   MB3_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB3_16B_WORD3_H*>(0x400C82DC); }
+  static inline volatile MB3_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB3_16B_WORD3_H*>(0x400C82DC); }
 };
 
 // Message Buffer 37 WORD1 Register
@@ -19574,7 +19574,7 @@ union WORD137 {
 
   WORD137() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD137 &Instance() { return *reinterpret_cast<volatile WORD137*>(0x400C82DC); }
+  static inline volatile WORD137 &ref() { return *reinterpret_cast<volatile WORD137*>(0x400C82DC); }
 };
 
 // Message Buffer 38 CS Register
@@ -19609,7 +19609,7 @@ union CS38 {
 
   CS38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS38 &Instance() { return *reinterpret_cast<volatile CS38*>(0x400C82E0); }
+  static inline volatile CS38 &ref() { return *reinterpret_cast<volatile CS38*>(0x400C82E0); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -19632,7 +19632,7 @@ union MB1_64B_WORD4_H {
 
   MB1_64B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD4_H*>(0x400C82E0); }
+  static inline volatile MB1_64B_WORD4_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD4_H*>(0x400C82E0); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -19655,7 +19655,7 @@ union MB2_32B_WORD2_H {
 
   MB2_32B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD2_H*>(0x400C82E0); }
+  static inline volatile MB2_32B_WORD2_H &ref() { return *reinterpret_cast<volatile MB2_32B_WORD2_H*>(0x400C82E0); }
 };
 
 // Message Buffer 38 CS Register
@@ -19690,7 +19690,7 @@ union MB38_8B_CS {
 
   MB38_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB38_8B_CS &Instance() { return *reinterpret_cast<volatile MB38_8B_CS*>(0x400C82E0); }
+  static inline volatile MB38_8B_CS &ref() { return *reinterpret_cast<volatile MB38_8B_CS*>(0x400C82E0); }
 };
 
 // Message Buffer 4 CS Register
@@ -19725,7 +19725,7 @@ union MB4_16B_CS_H {
 
   MB4_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB4_16B_CS_H*>(0x400C82E0); }
+  static inline volatile MB4_16B_CS_H &ref() { return *reinterpret_cast<volatile MB4_16B_CS_H*>(0x400C82E0); }
 };
 
 // Message Buffer 38 ID Register
@@ -19746,7 +19746,7 @@ union ID38 {
 
   ID38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID38 &Instance() { return *reinterpret_cast<volatile ID38*>(0x400C82E4); }
+  static inline volatile ID38 &ref() { return *reinterpret_cast<volatile ID38*>(0x400C82E4); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -19769,7 +19769,7 @@ union MB1_64B_WORD5_H {
 
   MB1_64B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD5_H*>(0x400C82E4); }
+  static inline volatile MB1_64B_WORD5_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD5_H*>(0x400C82E4); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -19792,7 +19792,7 @@ union MB2_32B_WORD3_H {
 
   MB2_32B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD3_H*>(0x400C82E4); }
+  static inline volatile MB2_32B_WORD3_H &ref() { return *reinterpret_cast<volatile MB2_32B_WORD3_H*>(0x400C82E4); }
 };
 
 // Message Buffer 38 ID Register
@@ -19813,7 +19813,7 @@ union MB38_8B_ID {
 
   MB38_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB38_8B_ID &Instance() { return *reinterpret_cast<volatile MB38_8B_ID*>(0x400C82E4); }
+  static inline volatile MB38_8B_ID &ref() { return *reinterpret_cast<volatile MB38_8B_ID*>(0x400C82E4); }
 };
 
 // Message Buffer 4 ID Register
@@ -19834,7 +19834,7 @@ union MB4_16B_ID_H {
 
   MB4_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB4_16B_ID_H*>(0x400C82E4); }
+  static inline volatile MB4_16B_ID_H &ref() { return *reinterpret_cast<volatile MB4_16B_ID_H*>(0x400C82E4); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -19857,7 +19857,7 @@ union MB1_64B_WORD6_H {
 
   MB1_64B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD6_H*>(0x400C82E8); }
+  static inline volatile MB1_64B_WORD6_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD6_H*>(0x400C82E8); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -19880,7 +19880,7 @@ union MB2_32B_WORD4_H {
 
   MB2_32B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD4_H*>(0x400C82E8); }
+  static inline volatile MB2_32B_WORD4_H &ref() { return *reinterpret_cast<volatile MB2_32B_WORD4_H*>(0x400C82E8); }
 };
 
 // Message Buffer 38 WORD_8B Register
@@ -19903,7 +19903,7 @@ union MB38_8B_WORD0 {
 
   MB38_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB38_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB38_8B_WORD0*>(0x400C82E8); }
+  static inline volatile MB38_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB38_8B_WORD0*>(0x400C82E8); }
 };
 
 // Message Buffer 4 WORD_16B Register
@@ -19926,7 +19926,7 @@ union MB4_16B_WORD0_H {
 
   MB4_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB4_16B_WORD0_H*>(0x400C82E8); }
+  static inline volatile MB4_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB4_16B_WORD0_H*>(0x400C82E8); }
 };
 
 // Message Buffer 38 WORD0 Register
@@ -19949,7 +19949,7 @@ union WORD038 {
 
   WORD038() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD038 &Instance() { return *reinterpret_cast<volatile WORD038*>(0x400C82E8); }
+  static inline volatile WORD038 &ref() { return *reinterpret_cast<volatile WORD038*>(0x400C82E8); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -19972,7 +19972,7 @@ union MB1_64B_WORD7_H {
 
   MB1_64B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD7_H*>(0x400C82EC); }
+  static inline volatile MB1_64B_WORD7_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD7_H*>(0x400C82EC); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -19995,7 +19995,7 @@ union MB2_32B_WORD5_H {
 
   MB2_32B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD5_H*>(0x400C82EC); }
+  static inline volatile MB2_32B_WORD5_H &ref() { return *reinterpret_cast<volatile MB2_32B_WORD5_H*>(0x400C82EC); }
 };
 
 // Message Buffer 38 WORD_8B Register
@@ -20018,7 +20018,7 @@ union MB38_8B_WORD1 {
 
   MB38_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB38_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB38_8B_WORD1*>(0x400C82EC); }
+  static inline volatile MB38_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB38_8B_WORD1*>(0x400C82EC); }
 };
 
 // Message Buffer 4 WORD_16B Register
@@ -20041,7 +20041,7 @@ union MB4_16B_WORD1_H {
 
   MB4_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB4_16B_WORD1_H*>(0x400C82EC); }
+  static inline volatile MB4_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB4_16B_WORD1_H*>(0x400C82EC); }
 };
 
 // Message Buffer 38 WORD1 Register
@@ -20064,7 +20064,7 @@ union WORD138 {
 
   WORD138() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD138 &Instance() { return *reinterpret_cast<volatile WORD138*>(0x400C82EC); }
+  static inline volatile WORD138 &ref() { return *reinterpret_cast<volatile WORD138*>(0x400C82EC); }
 };
 
 // Message Buffer 39 CS Register
@@ -20099,7 +20099,7 @@ union CS39 {
 
   CS39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS39 &Instance() { return *reinterpret_cast<volatile CS39*>(0x400C82F0); }
+  static inline volatile CS39 &ref() { return *reinterpret_cast<volatile CS39*>(0x400C82F0); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -20122,7 +20122,7 @@ union MB1_64B_WORD8_H {
 
   MB1_64B_WORD8_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD8_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD8_H*>(0x400C82F0); }
+  static inline volatile MB1_64B_WORD8_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD8_H*>(0x400C82F0); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -20145,7 +20145,7 @@ union MB2_32B_WORD6_H {
 
   MB2_32B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD6_H*>(0x400C82F0); }
+  static inline volatile MB2_32B_WORD6_H &ref() { return *reinterpret_cast<volatile MB2_32B_WORD6_H*>(0x400C82F0); }
 };
 
 // Message Buffer 39 CS Register
@@ -20180,7 +20180,7 @@ union MB39_8B_CS {
 
   MB39_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB39_8B_CS &Instance() { return *reinterpret_cast<volatile MB39_8B_CS*>(0x400C82F0); }
+  static inline volatile MB39_8B_CS &ref() { return *reinterpret_cast<volatile MB39_8B_CS*>(0x400C82F0); }
 };
 
 // Message Buffer 4 WORD_16B Register
@@ -20203,7 +20203,7 @@ union MB4_16B_WORD2_H {
 
   MB4_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB4_16B_WORD2_H*>(0x400C82F0); }
+  static inline volatile MB4_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB4_16B_WORD2_H*>(0x400C82F0); }
 };
 
 // Message Buffer 39 ID Register
@@ -20224,7 +20224,7 @@ union ID39 {
 
   ID39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID39 &Instance() { return *reinterpret_cast<volatile ID39*>(0x400C82F4); }
+  static inline volatile ID39 &ref() { return *reinterpret_cast<volatile ID39*>(0x400C82F4); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -20247,7 +20247,7 @@ union MB1_64B_WORD9_H {
 
   MB1_64B_WORD9_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD9_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD9_H*>(0x400C82F4); }
+  static inline volatile MB1_64B_WORD9_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD9_H*>(0x400C82F4); }
 };
 
 // Message Buffer 2 WORD_32B Register
@@ -20270,7 +20270,7 @@ union MB2_32B_WORD7_H {
 
   MB2_32B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_32B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB2_32B_WORD7_H*>(0x400C82F4); }
+  static inline volatile MB2_32B_WORD7_H &ref() { return *reinterpret_cast<volatile MB2_32B_WORD7_H*>(0x400C82F4); }
 };
 
 // Message Buffer 39 ID Register
@@ -20291,7 +20291,7 @@ union MB39_8B_ID {
 
   MB39_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB39_8B_ID &Instance() { return *reinterpret_cast<volatile MB39_8B_ID*>(0x400C82F4); }
+  static inline volatile MB39_8B_ID &ref() { return *reinterpret_cast<volatile MB39_8B_ID*>(0x400C82F4); }
 };
 
 // Message Buffer 4 WORD_16B Register
@@ -20314,7 +20314,7 @@ union MB4_16B_WORD3_H {
 
   MB4_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB4_16B_WORD3_H*>(0x400C82F4); }
+  static inline volatile MB4_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB4_16B_WORD3_H*>(0x400C82F4); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -20337,7 +20337,7 @@ union MB1_64B_WORD10_H {
 
   MB1_64B_WORD10_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD10_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD10_H*>(0x400C82F8); }
+  static inline volatile MB1_64B_WORD10_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD10_H*>(0x400C82F8); }
 };
 
 // Message Buffer 39 WORD_8B Register
@@ -20360,7 +20360,7 @@ union MB39_8B_WORD0 {
 
   MB39_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB39_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB39_8B_WORD0*>(0x400C82F8); }
+  static inline volatile MB39_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB39_8B_WORD0*>(0x400C82F8); }
 };
 
 // Message Buffer 3 CS Register
@@ -20395,7 +20395,7 @@ union MB3_32B_CS_H {
 
   MB3_32B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_CS_H &Instance() { return *reinterpret_cast<volatile MB3_32B_CS_H*>(0x400C82F8); }
+  static inline volatile MB3_32B_CS_H &ref() { return *reinterpret_cast<volatile MB3_32B_CS_H*>(0x400C82F8); }
 };
 
 // Message Buffer 5 CS Register
@@ -20430,7 +20430,7 @@ union MB5_16B_CS_H {
 
   MB5_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB5_16B_CS_H*>(0x400C82F8); }
+  static inline volatile MB5_16B_CS_H &ref() { return *reinterpret_cast<volatile MB5_16B_CS_H*>(0x400C82F8); }
 };
 
 // Message Buffer 39 WORD0 Register
@@ -20453,7 +20453,7 @@ union WORD039 {
 
   WORD039() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD039 &Instance() { return *reinterpret_cast<volatile WORD039*>(0x400C82F8); }
+  static inline volatile WORD039 &ref() { return *reinterpret_cast<volatile WORD039*>(0x400C82F8); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -20476,7 +20476,7 @@ union MB1_64B_WORD11_H {
 
   MB1_64B_WORD11_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD11_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD11_H*>(0x400C82FC); }
+  static inline volatile MB1_64B_WORD11_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD11_H*>(0x400C82FC); }
 };
 
 // Message Buffer 39 WORD_8B Register
@@ -20499,7 +20499,7 @@ union MB39_8B_WORD1 {
 
   MB39_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB39_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB39_8B_WORD1*>(0x400C82FC); }
+  static inline volatile MB39_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB39_8B_WORD1*>(0x400C82FC); }
 };
 
 // Message Buffer 3 ID Register
@@ -20520,7 +20520,7 @@ union MB3_32B_ID_H {
 
   MB3_32B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_ID_H &Instance() { return *reinterpret_cast<volatile MB3_32B_ID_H*>(0x400C82FC); }
+  static inline volatile MB3_32B_ID_H &ref() { return *reinterpret_cast<volatile MB3_32B_ID_H*>(0x400C82FC); }
 };
 
 // Message Buffer 5 ID Register
@@ -20541,7 +20541,7 @@ union MB5_16B_ID_H {
 
   MB5_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB5_16B_ID_H*>(0x400C82FC); }
+  static inline volatile MB5_16B_ID_H &ref() { return *reinterpret_cast<volatile MB5_16B_ID_H*>(0x400C82FC); }
 };
 
 // Message Buffer 39 WORD1 Register
@@ -20564,7 +20564,7 @@ union WORD139 {
 
   WORD139() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD139 &Instance() { return *reinterpret_cast<volatile WORD139*>(0x400C82FC); }
+  static inline volatile WORD139 &ref() { return *reinterpret_cast<volatile WORD139*>(0x400C82FC); }
 };
 
 // Message Buffer 40 CS Register
@@ -20599,7 +20599,7 @@ union CS40 {
 
   CS40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS40 &Instance() { return *reinterpret_cast<volatile CS40*>(0x400C8300); }
+  static inline volatile CS40 &ref() { return *reinterpret_cast<volatile CS40*>(0x400C8300); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -20622,7 +20622,7 @@ union MB1_64B_WORD12_H {
 
   MB1_64B_WORD12_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD12_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD12_H*>(0x400C8300); }
+  static inline volatile MB1_64B_WORD12_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD12_H*>(0x400C8300); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -20645,7 +20645,7 @@ union MB3_32B_WORD0_H {
 
   MB3_32B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD0_H*>(0x400C8300); }
+  static inline volatile MB3_32B_WORD0_H &ref() { return *reinterpret_cast<volatile MB3_32B_WORD0_H*>(0x400C8300); }
 };
 
 // Message Buffer 40 CS Register
@@ -20680,7 +20680,7 @@ union MB40_8B_CS {
 
   MB40_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB40_8B_CS &Instance() { return *reinterpret_cast<volatile MB40_8B_CS*>(0x400C8300); }
+  static inline volatile MB40_8B_CS &ref() { return *reinterpret_cast<volatile MB40_8B_CS*>(0x400C8300); }
 };
 
 // Message Buffer 5 WORD_16B Register
@@ -20703,7 +20703,7 @@ union MB5_16B_WORD0_H {
 
   MB5_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB5_16B_WORD0_H*>(0x400C8300); }
+  static inline volatile MB5_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB5_16B_WORD0_H*>(0x400C8300); }
 };
 
 // Message Buffer 40 ID Register
@@ -20724,7 +20724,7 @@ union ID40 {
 
   ID40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID40 &Instance() { return *reinterpret_cast<volatile ID40*>(0x400C8304); }
+  static inline volatile ID40 &ref() { return *reinterpret_cast<volatile ID40*>(0x400C8304); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -20747,7 +20747,7 @@ union MB1_64B_WORD13_H {
 
   MB1_64B_WORD13_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD13_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD13_H*>(0x400C8304); }
+  static inline volatile MB1_64B_WORD13_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD13_H*>(0x400C8304); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -20770,7 +20770,7 @@ union MB3_32B_WORD1_H {
 
   MB3_32B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD1_H*>(0x400C8304); }
+  static inline volatile MB3_32B_WORD1_H &ref() { return *reinterpret_cast<volatile MB3_32B_WORD1_H*>(0x400C8304); }
 };
 
 // Message Buffer 40 ID Register
@@ -20791,7 +20791,7 @@ union MB40_8B_ID {
 
   MB40_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB40_8B_ID &Instance() { return *reinterpret_cast<volatile MB40_8B_ID*>(0x400C8304); }
+  static inline volatile MB40_8B_ID &ref() { return *reinterpret_cast<volatile MB40_8B_ID*>(0x400C8304); }
 };
 
 // Message Buffer 5 WORD_16B Register
@@ -20814,7 +20814,7 @@ union MB5_16B_WORD1_H {
 
   MB5_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB5_16B_WORD1_H*>(0x400C8304); }
+  static inline volatile MB5_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB5_16B_WORD1_H*>(0x400C8304); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -20837,7 +20837,7 @@ union MB1_64B_WORD14_H {
 
   MB1_64B_WORD14_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD14_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD14_H*>(0x400C8308); }
+  static inline volatile MB1_64B_WORD14_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD14_H*>(0x400C8308); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -20860,7 +20860,7 @@ union MB3_32B_WORD2_H {
 
   MB3_32B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD2_H*>(0x400C8308); }
+  static inline volatile MB3_32B_WORD2_H &ref() { return *reinterpret_cast<volatile MB3_32B_WORD2_H*>(0x400C8308); }
 };
 
 // Message Buffer 40 WORD_8B Register
@@ -20883,7 +20883,7 @@ union MB40_8B_WORD0 {
 
   MB40_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB40_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB40_8B_WORD0*>(0x400C8308); }
+  static inline volatile MB40_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB40_8B_WORD0*>(0x400C8308); }
 };
 
 // Message Buffer 5 WORD_16B Register
@@ -20906,7 +20906,7 @@ union MB5_16B_WORD2_H {
 
   MB5_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB5_16B_WORD2_H*>(0x400C8308); }
+  static inline volatile MB5_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB5_16B_WORD2_H*>(0x400C8308); }
 };
 
 // Message Buffer 40 WORD0 Register
@@ -20929,7 +20929,7 @@ union WORD040 {
 
   WORD040() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD040 &Instance() { return *reinterpret_cast<volatile WORD040*>(0x400C8308); }
+  static inline volatile WORD040 &ref() { return *reinterpret_cast<volatile WORD040*>(0x400C8308); }
 };
 
 // Message Buffer 1 WORD_64B Register
@@ -20952,7 +20952,7 @@ union MB1_64B_WORD15_H {
 
   MB1_64B_WORD15_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB1_64B_WORD15_H &Instance() { return *reinterpret_cast<volatile MB1_64B_WORD15_H*>(0x400C830C); }
+  static inline volatile MB1_64B_WORD15_H &ref() { return *reinterpret_cast<volatile MB1_64B_WORD15_H*>(0x400C830C); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -20975,7 +20975,7 @@ union MB3_32B_WORD3_H {
 
   MB3_32B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD3_H*>(0x400C830C); }
+  static inline volatile MB3_32B_WORD3_H &ref() { return *reinterpret_cast<volatile MB3_32B_WORD3_H*>(0x400C830C); }
 };
 
 // Message Buffer 40 WORD_8B Register
@@ -20998,7 +20998,7 @@ union MB40_8B_WORD1 {
 
   MB40_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB40_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB40_8B_WORD1*>(0x400C830C); }
+  static inline volatile MB40_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB40_8B_WORD1*>(0x400C830C); }
 };
 
 // Message Buffer 5 WORD_16B Register
@@ -21021,7 +21021,7 @@ union MB5_16B_WORD3_H {
 
   MB5_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB5_16B_WORD3_H*>(0x400C830C); }
+  static inline volatile MB5_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB5_16B_WORD3_H*>(0x400C830C); }
 };
 
 // Message Buffer 40 WORD1 Register
@@ -21044,7 +21044,7 @@ union WORD140 {
 
   WORD140() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD140 &Instance() { return *reinterpret_cast<volatile WORD140*>(0x400C830C); }
+  static inline volatile WORD140 &ref() { return *reinterpret_cast<volatile WORD140*>(0x400C830C); }
 };
 
 // Message Buffer 41 CS Register
@@ -21079,7 +21079,7 @@ union CS41 {
 
   CS41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS41 &Instance() { return *reinterpret_cast<volatile CS41*>(0x400C8310); }
+  static inline volatile CS41 &ref() { return *reinterpret_cast<volatile CS41*>(0x400C8310); }
 };
 
 // Message Buffer 2 CS Register
@@ -21114,7 +21114,7 @@ union MB2_64B_CS_H {
 
   MB2_64B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_CS_H &Instance() { return *reinterpret_cast<volatile MB2_64B_CS_H*>(0x400C8310); }
+  static inline volatile MB2_64B_CS_H &ref() { return *reinterpret_cast<volatile MB2_64B_CS_H*>(0x400C8310); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -21137,7 +21137,7 @@ union MB3_32B_WORD4_H {
 
   MB3_32B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD4_H*>(0x400C8310); }
+  static inline volatile MB3_32B_WORD4_H &ref() { return *reinterpret_cast<volatile MB3_32B_WORD4_H*>(0x400C8310); }
 };
 
 // Message Buffer 41 CS Register
@@ -21172,7 +21172,7 @@ union MB41_8B_CS {
 
   MB41_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB41_8B_CS &Instance() { return *reinterpret_cast<volatile MB41_8B_CS*>(0x400C8310); }
+  static inline volatile MB41_8B_CS &ref() { return *reinterpret_cast<volatile MB41_8B_CS*>(0x400C8310); }
 };
 
 // Message Buffer 6 CS Register
@@ -21207,7 +21207,7 @@ union MB6_16B_CS_H {
 
   MB6_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB6_16B_CS_H*>(0x400C8310); }
+  static inline volatile MB6_16B_CS_H &ref() { return *reinterpret_cast<volatile MB6_16B_CS_H*>(0x400C8310); }
 };
 
 // Message Buffer 41 ID Register
@@ -21228,7 +21228,7 @@ union ID41 {
 
   ID41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID41 &Instance() { return *reinterpret_cast<volatile ID41*>(0x400C8314); }
+  static inline volatile ID41 &ref() { return *reinterpret_cast<volatile ID41*>(0x400C8314); }
 };
 
 // Message Buffer 2 ID Register
@@ -21249,7 +21249,7 @@ union MB2_64B_ID_H {
 
   MB2_64B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_ID_H &Instance() { return *reinterpret_cast<volatile MB2_64B_ID_H*>(0x400C8314); }
+  static inline volatile MB2_64B_ID_H &ref() { return *reinterpret_cast<volatile MB2_64B_ID_H*>(0x400C8314); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -21272,7 +21272,7 @@ union MB3_32B_WORD5_H {
 
   MB3_32B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD5_H*>(0x400C8314); }
+  static inline volatile MB3_32B_WORD5_H &ref() { return *reinterpret_cast<volatile MB3_32B_WORD5_H*>(0x400C8314); }
 };
 
 // Message Buffer 41 ID Register
@@ -21293,7 +21293,7 @@ union MB41_8B_ID {
 
   MB41_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB41_8B_ID &Instance() { return *reinterpret_cast<volatile MB41_8B_ID*>(0x400C8314); }
+  static inline volatile MB41_8B_ID &ref() { return *reinterpret_cast<volatile MB41_8B_ID*>(0x400C8314); }
 };
 
 // Message Buffer 6 ID Register
@@ -21314,7 +21314,7 @@ union MB6_16B_ID_H {
 
   MB6_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB6_16B_ID_H*>(0x400C8314); }
+  static inline volatile MB6_16B_ID_H &ref() { return *reinterpret_cast<volatile MB6_16B_ID_H*>(0x400C8314); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -21337,7 +21337,7 @@ union MB2_64B_WORD0_H {
 
   MB2_64B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD0_H*>(0x400C8318); }
+  static inline volatile MB2_64B_WORD0_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD0_H*>(0x400C8318); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -21360,7 +21360,7 @@ union MB3_32B_WORD6_H {
 
   MB3_32B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD6_H*>(0x400C8318); }
+  static inline volatile MB3_32B_WORD6_H &ref() { return *reinterpret_cast<volatile MB3_32B_WORD6_H*>(0x400C8318); }
 };
 
 // Message Buffer 41 WORD_8B Register
@@ -21383,7 +21383,7 @@ union MB41_8B_WORD0 {
 
   MB41_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB41_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB41_8B_WORD0*>(0x400C8318); }
+  static inline volatile MB41_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB41_8B_WORD0*>(0x400C8318); }
 };
 
 // Message Buffer 6 WORD_16B Register
@@ -21406,7 +21406,7 @@ union MB6_16B_WORD0_H {
 
   MB6_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB6_16B_WORD0_H*>(0x400C8318); }
+  static inline volatile MB6_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB6_16B_WORD0_H*>(0x400C8318); }
 };
 
 // Message Buffer 41 WORD0 Register
@@ -21429,7 +21429,7 @@ union WORD041 {
 
   WORD041() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD041 &Instance() { return *reinterpret_cast<volatile WORD041*>(0x400C8318); }
+  static inline volatile WORD041 &ref() { return *reinterpret_cast<volatile WORD041*>(0x400C8318); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -21452,7 +21452,7 @@ union MB2_64B_WORD1_H {
 
   MB2_64B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD1_H*>(0x400C831C); }
+  static inline volatile MB2_64B_WORD1_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD1_H*>(0x400C831C); }
 };
 
 // Message Buffer 3 WORD_32B Register
@@ -21475,7 +21475,7 @@ union MB3_32B_WORD7_H {
 
   MB3_32B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_32B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB3_32B_WORD7_H*>(0x400C831C); }
+  static inline volatile MB3_32B_WORD7_H &ref() { return *reinterpret_cast<volatile MB3_32B_WORD7_H*>(0x400C831C); }
 };
 
 // Message Buffer 41 WORD_8B Register
@@ -21498,7 +21498,7 @@ union MB41_8B_WORD1 {
 
   MB41_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB41_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB41_8B_WORD1*>(0x400C831C); }
+  static inline volatile MB41_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB41_8B_WORD1*>(0x400C831C); }
 };
 
 // Message Buffer 6 WORD_16B Register
@@ -21521,7 +21521,7 @@ union MB6_16B_WORD1_H {
 
   MB6_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB6_16B_WORD1_H*>(0x400C831C); }
+  static inline volatile MB6_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB6_16B_WORD1_H*>(0x400C831C); }
 };
 
 // Message Buffer 41 WORD1 Register
@@ -21544,7 +21544,7 @@ union WORD141 {
 
   WORD141() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD141 &Instance() { return *reinterpret_cast<volatile WORD141*>(0x400C831C); }
+  static inline volatile WORD141 &ref() { return *reinterpret_cast<volatile WORD141*>(0x400C831C); }
 };
 
 // Message Buffer 42 CS Register
@@ -21579,7 +21579,7 @@ union CS42 {
 
   CS42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS42 &Instance() { return *reinterpret_cast<volatile CS42*>(0x400C8320); }
+  static inline volatile CS42 &ref() { return *reinterpret_cast<volatile CS42*>(0x400C8320); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -21602,7 +21602,7 @@ union MB2_64B_WORD2_H {
 
   MB2_64B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD2_H*>(0x400C8320); }
+  static inline volatile MB2_64B_WORD2_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD2_H*>(0x400C8320); }
 };
 
 // Message Buffer 42 CS Register
@@ -21637,7 +21637,7 @@ union MB42_8B_CS {
 
   MB42_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB42_8B_CS &Instance() { return *reinterpret_cast<volatile MB42_8B_CS*>(0x400C8320); }
+  static inline volatile MB42_8B_CS &ref() { return *reinterpret_cast<volatile MB42_8B_CS*>(0x400C8320); }
 };
 
 // Message Buffer 4 CS Register
@@ -21672,7 +21672,7 @@ union MB4_32B_CS_H {
 
   MB4_32B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_CS_H &Instance() { return *reinterpret_cast<volatile MB4_32B_CS_H*>(0x400C8320); }
+  static inline volatile MB4_32B_CS_H &ref() { return *reinterpret_cast<volatile MB4_32B_CS_H*>(0x400C8320); }
 };
 
 // Message Buffer 6 WORD_16B Register
@@ -21695,7 +21695,7 @@ union MB6_16B_WORD2_H {
 
   MB6_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB6_16B_WORD2_H*>(0x400C8320); }
+  static inline volatile MB6_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB6_16B_WORD2_H*>(0x400C8320); }
 };
 
 // Message Buffer 42 ID Register
@@ -21716,7 +21716,7 @@ union ID42 {
 
   ID42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID42 &Instance() { return *reinterpret_cast<volatile ID42*>(0x400C8324); }
+  static inline volatile ID42 &ref() { return *reinterpret_cast<volatile ID42*>(0x400C8324); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -21739,7 +21739,7 @@ union MB2_64B_WORD3_H {
 
   MB2_64B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD3_H*>(0x400C8324); }
+  static inline volatile MB2_64B_WORD3_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD3_H*>(0x400C8324); }
 };
 
 // Message Buffer 42 ID Register
@@ -21760,7 +21760,7 @@ union MB42_8B_ID {
 
   MB42_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB42_8B_ID &Instance() { return *reinterpret_cast<volatile MB42_8B_ID*>(0x400C8324); }
+  static inline volatile MB42_8B_ID &ref() { return *reinterpret_cast<volatile MB42_8B_ID*>(0x400C8324); }
 };
 
 // Message Buffer 4 ID Register
@@ -21781,7 +21781,7 @@ union MB4_32B_ID_H {
 
   MB4_32B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_ID_H &Instance() { return *reinterpret_cast<volatile MB4_32B_ID_H*>(0x400C8324); }
+  static inline volatile MB4_32B_ID_H &ref() { return *reinterpret_cast<volatile MB4_32B_ID_H*>(0x400C8324); }
 };
 
 // Message Buffer 6 WORD_16B Register
@@ -21804,7 +21804,7 @@ union MB6_16B_WORD3_H {
 
   MB6_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB6_16B_WORD3_H*>(0x400C8324); }
+  static inline volatile MB6_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB6_16B_WORD3_H*>(0x400C8324); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -21827,7 +21827,7 @@ union MB2_64B_WORD4_H {
 
   MB2_64B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD4_H*>(0x400C8328); }
+  static inline volatile MB2_64B_WORD4_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD4_H*>(0x400C8328); }
 };
 
 // Message Buffer 42 WORD_8B Register
@@ -21850,7 +21850,7 @@ union MB42_8B_WORD0 {
 
   MB42_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB42_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB42_8B_WORD0*>(0x400C8328); }
+  static inline volatile MB42_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB42_8B_WORD0*>(0x400C8328); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -21873,7 +21873,7 @@ union MB4_32B_WORD0_H {
 
   MB4_32B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD0_H*>(0x400C8328); }
+  static inline volatile MB4_32B_WORD0_H &ref() { return *reinterpret_cast<volatile MB4_32B_WORD0_H*>(0x400C8328); }
 };
 
 // Message Buffer 7 CS Register
@@ -21908,7 +21908,7 @@ union MB7_16B_CS_H {
 
   MB7_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB7_16B_CS_H*>(0x400C8328); }
+  static inline volatile MB7_16B_CS_H &ref() { return *reinterpret_cast<volatile MB7_16B_CS_H*>(0x400C8328); }
 };
 
 // Message Buffer 42 WORD0 Register
@@ -21931,7 +21931,7 @@ union WORD042 {
 
   WORD042() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD042 &Instance() { return *reinterpret_cast<volatile WORD042*>(0x400C8328); }
+  static inline volatile WORD042 &ref() { return *reinterpret_cast<volatile WORD042*>(0x400C8328); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -21954,7 +21954,7 @@ union MB2_64B_WORD5_H {
 
   MB2_64B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD5_H*>(0x400C832C); }
+  static inline volatile MB2_64B_WORD5_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD5_H*>(0x400C832C); }
 };
 
 // Message Buffer 42 WORD_8B Register
@@ -21977,7 +21977,7 @@ union MB42_8B_WORD1 {
 
   MB42_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB42_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB42_8B_WORD1*>(0x400C832C); }
+  static inline volatile MB42_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB42_8B_WORD1*>(0x400C832C); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -22000,7 +22000,7 @@ union MB4_32B_WORD1_H {
 
   MB4_32B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD1_H*>(0x400C832C); }
+  static inline volatile MB4_32B_WORD1_H &ref() { return *reinterpret_cast<volatile MB4_32B_WORD1_H*>(0x400C832C); }
 };
 
 // Message Buffer 7 ID Register
@@ -22021,7 +22021,7 @@ union MB7_16B_ID_H {
 
   MB7_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB7_16B_ID_H*>(0x400C832C); }
+  static inline volatile MB7_16B_ID_H &ref() { return *reinterpret_cast<volatile MB7_16B_ID_H*>(0x400C832C); }
 };
 
 // Message Buffer 42 WORD1 Register
@@ -22044,7 +22044,7 @@ union WORD142 {
 
   WORD142() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD142 &Instance() { return *reinterpret_cast<volatile WORD142*>(0x400C832C); }
+  static inline volatile WORD142 &ref() { return *reinterpret_cast<volatile WORD142*>(0x400C832C); }
 };
 
 // Message Buffer 43 CS Register
@@ -22079,7 +22079,7 @@ union CS43 {
 
   CS43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS43 &Instance() { return *reinterpret_cast<volatile CS43*>(0x400C8330); }
+  static inline volatile CS43 &ref() { return *reinterpret_cast<volatile CS43*>(0x400C8330); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -22102,7 +22102,7 @@ union MB2_64B_WORD6_H {
 
   MB2_64B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD6_H*>(0x400C8330); }
+  static inline volatile MB2_64B_WORD6_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD6_H*>(0x400C8330); }
 };
 
 // Message Buffer 43 CS Register
@@ -22137,7 +22137,7 @@ union MB43_8B_CS {
 
   MB43_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB43_8B_CS &Instance() { return *reinterpret_cast<volatile MB43_8B_CS*>(0x400C8330); }
+  static inline volatile MB43_8B_CS &ref() { return *reinterpret_cast<volatile MB43_8B_CS*>(0x400C8330); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -22160,7 +22160,7 @@ union MB4_32B_WORD2_H {
 
   MB4_32B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD2_H*>(0x400C8330); }
+  static inline volatile MB4_32B_WORD2_H &ref() { return *reinterpret_cast<volatile MB4_32B_WORD2_H*>(0x400C8330); }
 };
 
 // Message Buffer 7 WORD_16B Register
@@ -22183,7 +22183,7 @@ union MB7_16B_WORD0_H {
 
   MB7_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB7_16B_WORD0_H*>(0x400C8330); }
+  static inline volatile MB7_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB7_16B_WORD0_H*>(0x400C8330); }
 };
 
 // Message Buffer 43 ID Register
@@ -22204,7 +22204,7 @@ union ID43 {
 
   ID43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID43 &Instance() { return *reinterpret_cast<volatile ID43*>(0x400C8334); }
+  static inline volatile ID43 &ref() { return *reinterpret_cast<volatile ID43*>(0x400C8334); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -22227,7 +22227,7 @@ union MB2_64B_WORD7_H {
 
   MB2_64B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD7_H*>(0x400C8334); }
+  static inline volatile MB2_64B_WORD7_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD7_H*>(0x400C8334); }
 };
 
 // Message Buffer 43 ID Register
@@ -22248,7 +22248,7 @@ union MB43_8B_ID {
 
   MB43_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB43_8B_ID &Instance() { return *reinterpret_cast<volatile MB43_8B_ID*>(0x400C8334); }
+  static inline volatile MB43_8B_ID &ref() { return *reinterpret_cast<volatile MB43_8B_ID*>(0x400C8334); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -22271,7 +22271,7 @@ union MB4_32B_WORD3_H {
 
   MB4_32B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD3_H*>(0x400C8334); }
+  static inline volatile MB4_32B_WORD3_H &ref() { return *reinterpret_cast<volatile MB4_32B_WORD3_H*>(0x400C8334); }
 };
 
 // Message Buffer 7 WORD_16B Register
@@ -22294,7 +22294,7 @@ union MB7_16B_WORD1_H {
 
   MB7_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB7_16B_WORD1_H*>(0x400C8334); }
+  static inline volatile MB7_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB7_16B_WORD1_H*>(0x400C8334); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -22317,7 +22317,7 @@ union MB2_64B_WORD8_H {
 
   MB2_64B_WORD8_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD8_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD8_H*>(0x400C8338); }
+  static inline volatile MB2_64B_WORD8_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD8_H*>(0x400C8338); }
 };
 
 // Message Buffer 43 WORD_8B Register
@@ -22340,7 +22340,7 @@ union MB43_8B_WORD0 {
 
   MB43_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB43_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB43_8B_WORD0*>(0x400C8338); }
+  static inline volatile MB43_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB43_8B_WORD0*>(0x400C8338); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -22363,7 +22363,7 @@ union MB4_32B_WORD4_H {
 
   MB4_32B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD4_H*>(0x400C8338); }
+  static inline volatile MB4_32B_WORD4_H &ref() { return *reinterpret_cast<volatile MB4_32B_WORD4_H*>(0x400C8338); }
 };
 
 // Message Buffer 7 WORD_16B Register
@@ -22386,7 +22386,7 @@ union MB7_16B_WORD2_H {
 
   MB7_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB7_16B_WORD2_H*>(0x400C8338); }
+  static inline volatile MB7_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB7_16B_WORD2_H*>(0x400C8338); }
 };
 
 // Message Buffer 43 WORD0 Register
@@ -22409,7 +22409,7 @@ union WORD043 {
 
   WORD043() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD043 &Instance() { return *reinterpret_cast<volatile WORD043*>(0x400C8338); }
+  static inline volatile WORD043 &ref() { return *reinterpret_cast<volatile WORD043*>(0x400C8338); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -22432,7 +22432,7 @@ union MB2_64B_WORD9_H {
 
   MB2_64B_WORD9_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD9_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD9_H*>(0x400C833C); }
+  static inline volatile MB2_64B_WORD9_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD9_H*>(0x400C833C); }
 };
 
 // Message Buffer 43 WORD_8B Register
@@ -22455,7 +22455,7 @@ union MB43_8B_WORD1 {
 
   MB43_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB43_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB43_8B_WORD1*>(0x400C833C); }
+  static inline volatile MB43_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB43_8B_WORD1*>(0x400C833C); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -22478,7 +22478,7 @@ union MB4_32B_WORD5_H {
 
   MB4_32B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD5_H*>(0x400C833C); }
+  static inline volatile MB4_32B_WORD5_H &ref() { return *reinterpret_cast<volatile MB4_32B_WORD5_H*>(0x400C833C); }
 };
 
 // Message Buffer 7 WORD_16B Register
@@ -22501,7 +22501,7 @@ union MB7_16B_WORD3_H {
 
   MB7_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB7_16B_WORD3_H*>(0x400C833C); }
+  static inline volatile MB7_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB7_16B_WORD3_H*>(0x400C833C); }
 };
 
 // Message Buffer 43 WORD1 Register
@@ -22524,7 +22524,7 @@ union WORD143 {
 
   WORD143() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD143 &Instance() { return *reinterpret_cast<volatile WORD143*>(0x400C833C); }
+  static inline volatile WORD143 &ref() { return *reinterpret_cast<volatile WORD143*>(0x400C833C); }
 };
 
 // Message Buffer 44 CS Register
@@ -22559,7 +22559,7 @@ union CS44 {
 
   CS44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS44 &Instance() { return *reinterpret_cast<volatile CS44*>(0x400C8340); }
+  static inline volatile CS44 &ref() { return *reinterpret_cast<volatile CS44*>(0x400C8340); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -22582,7 +22582,7 @@ union MB2_64B_WORD10_H {
 
   MB2_64B_WORD10_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD10_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD10_H*>(0x400C8340); }
+  static inline volatile MB2_64B_WORD10_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD10_H*>(0x400C8340); }
 };
 
 // Message Buffer 44 CS Register
@@ -22617,7 +22617,7 @@ union MB44_8B_CS {
 
   MB44_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB44_8B_CS &Instance() { return *reinterpret_cast<volatile MB44_8B_CS*>(0x400C8340); }
+  static inline volatile MB44_8B_CS &ref() { return *reinterpret_cast<volatile MB44_8B_CS*>(0x400C8340); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -22640,7 +22640,7 @@ union MB4_32B_WORD6_H {
 
   MB4_32B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD6_H*>(0x400C8340); }
+  static inline volatile MB4_32B_WORD6_H &ref() { return *reinterpret_cast<volatile MB4_32B_WORD6_H*>(0x400C8340); }
 };
 
 // Message Buffer 8 CS Register
@@ -22675,7 +22675,7 @@ union MB8_16B_CS_H {
 
   MB8_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB8_16B_CS_H*>(0x400C8340); }
+  static inline volatile MB8_16B_CS_H &ref() { return *reinterpret_cast<volatile MB8_16B_CS_H*>(0x400C8340); }
 };
 
 // Message Buffer 44 ID Register
@@ -22696,7 +22696,7 @@ union ID44 {
 
   ID44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID44 &Instance() { return *reinterpret_cast<volatile ID44*>(0x400C8344); }
+  static inline volatile ID44 &ref() { return *reinterpret_cast<volatile ID44*>(0x400C8344); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -22719,7 +22719,7 @@ union MB2_64B_WORD11_H {
 
   MB2_64B_WORD11_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD11_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD11_H*>(0x400C8344); }
+  static inline volatile MB2_64B_WORD11_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD11_H*>(0x400C8344); }
 };
 
 // Message Buffer 44 ID Register
@@ -22740,7 +22740,7 @@ union MB44_8B_ID {
 
   MB44_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB44_8B_ID &Instance() { return *reinterpret_cast<volatile MB44_8B_ID*>(0x400C8344); }
+  static inline volatile MB44_8B_ID &ref() { return *reinterpret_cast<volatile MB44_8B_ID*>(0x400C8344); }
 };
 
 // Message Buffer 4 WORD_32B Register
@@ -22763,7 +22763,7 @@ union MB4_32B_WORD7_H {
 
   MB4_32B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_32B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB4_32B_WORD7_H*>(0x400C8344); }
+  static inline volatile MB4_32B_WORD7_H &ref() { return *reinterpret_cast<volatile MB4_32B_WORD7_H*>(0x400C8344); }
 };
 
 // Message Buffer 8 ID Register
@@ -22784,7 +22784,7 @@ union MB8_16B_ID_H {
 
   MB8_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB8_16B_ID_H*>(0x400C8344); }
+  static inline volatile MB8_16B_ID_H &ref() { return *reinterpret_cast<volatile MB8_16B_ID_H*>(0x400C8344); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -22807,7 +22807,7 @@ union MB2_64B_WORD12_H {
 
   MB2_64B_WORD12_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD12_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD12_H*>(0x400C8348); }
+  static inline volatile MB2_64B_WORD12_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD12_H*>(0x400C8348); }
 };
 
 // Message Buffer 44 WORD_8B Register
@@ -22830,7 +22830,7 @@ union MB44_8B_WORD0 {
 
   MB44_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB44_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB44_8B_WORD0*>(0x400C8348); }
+  static inline volatile MB44_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB44_8B_WORD0*>(0x400C8348); }
 };
 
 // Message Buffer 5 CS Register
@@ -22865,7 +22865,7 @@ union MB5_32B_CS_H {
 
   MB5_32B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_CS_H &Instance() { return *reinterpret_cast<volatile MB5_32B_CS_H*>(0x400C8348); }
+  static inline volatile MB5_32B_CS_H &ref() { return *reinterpret_cast<volatile MB5_32B_CS_H*>(0x400C8348); }
 };
 
 // Message Buffer 8 WORD_16B Register
@@ -22888,7 +22888,7 @@ union MB8_16B_WORD0_H {
 
   MB8_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB8_16B_WORD0_H*>(0x400C8348); }
+  static inline volatile MB8_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB8_16B_WORD0_H*>(0x400C8348); }
 };
 
 // Message Buffer 44 WORD0 Register
@@ -22911,7 +22911,7 @@ union WORD044 {
 
   WORD044() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD044 &Instance() { return *reinterpret_cast<volatile WORD044*>(0x400C8348); }
+  static inline volatile WORD044 &ref() { return *reinterpret_cast<volatile WORD044*>(0x400C8348); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -22934,7 +22934,7 @@ union MB2_64B_WORD13_H {
 
   MB2_64B_WORD13_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD13_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD13_H*>(0x400C834C); }
+  static inline volatile MB2_64B_WORD13_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD13_H*>(0x400C834C); }
 };
 
 // Message Buffer 44 WORD_8B Register
@@ -22957,7 +22957,7 @@ union MB44_8B_WORD1 {
 
   MB44_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB44_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB44_8B_WORD1*>(0x400C834C); }
+  static inline volatile MB44_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB44_8B_WORD1*>(0x400C834C); }
 };
 
 // Message Buffer 5 ID Register
@@ -22978,7 +22978,7 @@ union MB5_32B_ID_H {
 
   MB5_32B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_ID_H &Instance() { return *reinterpret_cast<volatile MB5_32B_ID_H*>(0x400C834C); }
+  static inline volatile MB5_32B_ID_H &ref() { return *reinterpret_cast<volatile MB5_32B_ID_H*>(0x400C834C); }
 };
 
 // Message Buffer 8 WORD_16B Register
@@ -23001,7 +23001,7 @@ union MB8_16B_WORD1_H {
 
   MB8_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB8_16B_WORD1_H*>(0x400C834C); }
+  static inline volatile MB8_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB8_16B_WORD1_H*>(0x400C834C); }
 };
 
 // Message Buffer 44 WORD1 Register
@@ -23024,7 +23024,7 @@ union WORD144 {
 
   WORD144() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD144 &Instance() { return *reinterpret_cast<volatile WORD144*>(0x400C834C); }
+  static inline volatile WORD144 &ref() { return *reinterpret_cast<volatile WORD144*>(0x400C834C); }
 };
 
 // Message Buffer 45 CS Register
@@ -23059,7 +23059,7 @@ union CS45 {
 
   CS45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS45 &Instance() { return *reinterpret_cast<volatile CS45*>(0x400C8350); }
+  static inline volatile CS45 &ref() { return *reinterpret_cast<volatile CS45*>(0x400C8350); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -23082,7 +23082,7 @@ union MB2_64B_WORD14_H {
 
   MB2_64B_WORD14_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD14_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD14_H*>(0x400C8350); }
+  static inline volatile MB2_64B_WORD14_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD14_H*>(0x400C8350); }
 };
 
 // Message Buffer 45 CS Register
@@ -23117,7 +23117,7 @@ union MB45_8B_CS {
 
   MB45_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB45_8B_CS &Instance() { return *reinterpret_cast<volatile MB45_8B_CS*>(0x400C8350); }
+  static inline volatile MB45_8B_CS &ref() { return *reinterpret_cast<volatile MB45_8B_CS*>(0x400C8350); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -23140,7 +23140,7 @@ union MB5_32B_WORD0_H {
 
   MB5_32B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD0_H*>(0x400C8350); }
+  static inline volatile MB5_32B_WORD0_H &ref() { return *reinterpret_cast<volatile MB5_32B_WORD0_H*>(0x400C8350); }
 };
 
 // Message Buffer 8 WORD_16B Register
@@ -23163,7 +23163,7 @@ union MB8_16B_WORD2_H {
 
   MB8_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB8_16B_WORD2_H*>(0x400C8350); }
+  static inline volatile MB8_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB8_16B_WORD2_H*>(0x400C8350); }
 };
 
 // Message Buffer 45 ID Register
@@ -23184,7 +23184,7 @@ union ID45 {
 
   ID45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID45 &Instance() { return *reinterpret_cast<volatile ID45*>(0x400C8354); }
+  static inline volatile ID45 &ref() { return *reinterpret_cast<volatile ID45*>(0x400C8354); }
 };
 
 // Message Buffer 2 WORD_64B Register
@@ -23207,7 +23207,7 @@ union MB2_64B_WORD15_H {
 
   MB2_64B_WORD15_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB2_64B_WORD15_H &Instance() { return *reinterpret_cast<volatile MB2_64B_WORD15_H*>(0x400C8354); }
+  static inline volatile MB2_64B_WORD15_H &ref() { return *reinterpret_cast<volatile MB2_64B_WORD15_H*>(0x400C8354); }
 };
 
 // Message Buffer 45 ID Register
@@ -23228,7 +23228,7 @@ union MB45_8B_ID {
 
   MB45_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB45_8B_ID &Instance() { return *reinterpret_cast<volatile MB45_8B_ID*>(0x400C8354); }
+  static inline volatile MB45_8B_ID &ref() { return *reinterpret_cast<volatile MB45_8B_ID*>(0x400C8354); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -23251,7 +23251,7 @@ union MB5_32B_WORD1_H {
 
   MB5_32B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD1_H*>(0x400C8354); }
+  static inline volatile MB5_32B_WORD1_H &ref() { return *reinterpret_cast<volatile MB5_32B_WORD1_H*>(0x400C8354); }
 };
 
 // Message Buffer 8 WORD_16B Register
@@ -23274,7 +23274,7 @@ union MB8_16B_WORD3_H {
 
   MB8_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB8_16B_WORD3_H*>(0x400C8354); }
+  static inline volatile MB8_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB8_16B_WORD3_H*>(0x400C8354); }
 };
 
 // Message Buffer 3 CS Register
@@ -23309,7 +23309,7 @@ union MB3_64B_CS_H {
 
   MB3_64B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_CS_H &Instance() { return *reinterpret_cast<volatile MB3_64B_CS_H*>(0x400C8358); }
+  static inline volatile MB3_64B_CS_H &ref() { return *reinterpret_cast<volatile MB3_64B_CS_H*>(0x400C8358); }
 };
 
 // Message Buffer 45 WORD_8B Register
@@ -23332,7 +23332,7 @@ union MB45_8B_WORD0 {
 
   MB45_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB45_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB45_8B_WORD0*>(0x400C8358); }
+  static inline volatile MB45_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB45_8B_WORD0*>(0x400C8358); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -23355,7 +23355,7 @@ union MB5_32B_WORD2_H {
 
   MB5_32B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD2_H*>(0x400C8358); }
+  static inline volatile MB5_32B_WORD2_H &ref() { return *reinterpret_cast<volatile MB5_32B_WORD2_H*>(0x400C8358); }
 };
 
 // Message Buffer 9 CS Register
@@ -23390,7 +23390,7 @@ union MB9_16B_CS_H {
 
   MB9_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB9_16B_CS_H*>(0x400C8358); }
+  static inline volatile MB9_16B_CS_H &ref() { return *reinterpret_cast<volatile MB9_16B_CS_H*>(0x400C8358); }
 };
 
 // Message Buffer 45 WORD0 Register
@@ -23413,7 +23413,7 @@ union WORD045 {
 
   WORD045() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD045 &Instance() { return *reinterpret_cast<volatile WORD045*>(0x400C8358); }
+  static inline volatile WORD045 &ref() { return *reinterpret_cast<volatile WORD045*>(0x400C8358); }
 };
 
 // Message Buffer 3 ID Register
@@ -23434,7 +23434,7 @@ union MB3_64B_ID_H {
 
   MB3_64B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_ID_H &Instance() { return *reinterpret_cast<volatile MB3_64B_ID_H*>(0x400C835C); }
+  static inline volatile MB3_64B_ID_H &ref() { return *reinterpret_cast<volatile MB3_64B_ID_H*>(0x400C835C); }
 };
 
 // Message Buffer 45 WORD_8B Register
@@ -23457,7 +23457,7 @@ union MB45_8B_WORD1 {
 
   MB45_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB45_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB45_8B_WORD1*>(0x400C835C); }
+  static inline volatile MB45_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB45_8B_WORD1*>(0x400C835C); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -23480,7 +23480,7 @@ union MB5_32B_WORD3_H {
 
   MB5_32B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD3_H*>(0x400C835C); }
+  static inline volatile MB5_32B_WORD3_H &ref() { return *reinterpret_cast<volatile MB5_32B_WORD3_H*>(0x400C835C); }
 };
 
 // Message Buffer 9 ID Register
@@ -23501,7 +23501,7 @@ union MB9_16B_ID_H {
 
   MB9_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB9_16B_ID_H*>(0x400C835C); }
+  static inline volatile MB9_16B_ID_H &ref() { return *reinterpret_cast<volatile MB9_16B_ID_H*>(0x400C835C); }
 };
 
 // Message Buffer 45 WORD1 Register
@@ -23524,7 +23524,7 @@ union WORD145 {
 
   WORD145() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD145 &Instance() { return *reinterpret_cast<volatile WORD145*>(0x400C835C); }
+  static inline volatile WORD145 &ref() { return *reinterpret_cast<volatile WORD145*>(0x400C835C); }
 };
 
 // Message Buffer 46 CS Register
@@ -23559,7 +23559,7 @@ union CS46 {
 
   CS46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS46 &Instance() { return *reinterpret_cast<volatile CS46*>(0x400C8360); }
+  static inline volatile CS46 &ref() { return *reinterpret_cast<volatile CS46*>(0x400C8360); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -23582,7 +23582,7 @@ union MB3_64B_WORD0_H {
 
   MB3_64B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD0_H*>(0x400C8360); }
+  static inline volatile MB3_64B_WORD0_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD0_H*>(0x400C8360); }
 };
 
 // Message Buffer 46 CS Register
@@ -23617,7 +23617,7 @@ union MB46_8B_CS {
 
   MB46_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB46_8B_CS &Instance() { return *reinterpret_cast<volatile MB46_8B_CS*>(0x400C8360); }
+  static inline volatile MB46_8B_CS &ref() { return *reinterpret_cast<volatile MB46_8B_CS*>(0x400C8360); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -23640,7 +23640,7 @@ union MB5_32B_WORD4_H {
 
   MB5_32B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD4_H*>(0x400C8360); }
+  static inline volatile MB5_32B_WORD4_H &ref() { return *reinterpret_cast<volatile MB5_32B_WORD4_H*>(0x400C8360); }
 };
 
 // Message Buffer 9 WORD_16B Register
@@ -23663,7 +23663,7 @@ union MB9_16B_WORD0_H {
 
   MB9_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB9_16B_WORD0_H*>(0x400C8360); }
+  static inline volatile MB9_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB9_16B_WORD0_H*>(0x400C8360); }
 };
 
 // Message Buffer 46 ID Register
@@ -23684,7 +23684,7 @@ union ID46 {
 
   ID46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID46 &Instance() { return *reinterpret_cast<volatile ID46*>(0x400C8364); }
+  static inline volatile ID46 &ref() { return *reinterpret_cast<volatile ID46*>(0x400C8364); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -23707,7 +23707,7 @@ union MB3_64B_WORD1_H {
 
   MB3_64B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD1_H*>(0x400C8364); }
+  static inline volatile MB3_64B_WORD1_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD1_H*>(0x400C8364); }
 };
 
 // Message Buffer 46 ID Register
@@ -23728,7 +23728,7 @@ union MB46_8B_ID {
 
   MB46_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB46_8B_ID &Instance() { return *reinterpret_cast<volatile MB46_8B_ID*>(0x400C8364); }
+  static inline volatile MB46_8B_ID &ref() { return *reinterpret_cast<volatile MB46_8B_ID*>(0x400C8364); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -23751,7 +23751,7 @@ union MB5_32B_WORD5_H {
 
   MB5_32B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD5_H*>(0x400C8364); }
+  static inline volatile MB5_32B_WORD5_H &ref() { return *reinterpret_cast<volatile MB5_32B_WORD5_H*>(0x400C8364); }
 };
 
 // Message Buffer 9 WORD_16B Register
@@ -23774,7 +23774,7 @@ union MB9_16B_WORD1_H {
 
   MB9_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB9_16B_WORD1_H*>(0x400C8364); }
+  static inline volatile MB9_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB9_16B_WORD1_H*>(0x400C8364); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -23797,7 +23797,7 @@ union MB3_64B_WORD2_H {
 
   MB3_64B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD2_H*>(0x400C8368); }
+  static inline volatile MB3_64B_WORD2_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD2_H*>(0x400C8368); }
 };
 
 // Message Buffer 46 WORD_8B Register
@@ -23820,7 +23820,7 @@ union MB46_8B_WORD0 {
 
   MB46_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB46_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB46_8B_WORD0*>(0x400C8368); }
+  static inline volatile MB46_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB46_8B_WORD0*>(0x400C8368); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -23843,7 +23843,7 @@ union MB5_32B_WORD6_H {
 
   MB5_32B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD6_H*>(0x400C8368); }
+  static inline volatile MB5_32B_WORD6_H &ref() { return *reinterpret_cast<volatile MB5_32B_WORD6_H*>(0x400C8368); }
 };
 
 // Message Buffer 9 WORD_16B Register
@@ -23866,7 +23866,7 @@ union MB9_16B_WORD2_H {
 
   MB9_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB9_16B_WORD2_H*>(0x400C8368); }
+  static inline volatile MB9_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB9_16B_WORD2_H*>(0x400C8368); }
 };
 
 // Message Buffer 46 WORD0 Register
@@ -23889,7 +23889,7 @@ union WORD046 {
 
   WORD046() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD046 &Instance() { return *reinterpret_cast<volatile WORD046*>(0x400C8368); }
+  static inline volatile WORD046 &ref() { return *reinterpret_cast<volatile WORD046*>(0x400C8368); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -23912,7 +23912,7 @@ union MB3_64B_WORD3_H {
 
   MB3_64B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD3_H*>(0x400C836C); }
+  static inline volatile MB3_64B_WORD3_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD3_H*>(0x400C836C); }
 };
 
 // Message Buffer 46 WORD_8B Register
@@ -23935,7 +23935,7 @@ union MB46_8B_WORD1 {
 
   MB46_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB46_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB46_8B_WORD1*>(0x400C836C); }
+  static inline volatile MB46_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB46_8B_WORD1*>(0x400C836C); }
 };
 
 // Message Buffer 5 WORD_32B Register
@@ -23958,7 +23958,7 @@ union MB5_32B_WORD7_H {
 
   MB5_32B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_32B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB5_32B_WORD7_H*>(0x400C836C); }
+  static inline volatile MB5_32B_WORD7_H &ref() { return *reinterpret_cast<volatile MB5_32B_WORD7_H*>(0x400C836C); }
 };
 
 // Message Buffer 9 WORD_16B Register
@@ -23981,7 +23981,7 @@ union MB9_16B_WORD3_H {
 
   MB9_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB9_16B_WORD3_H*>(0x400C836C); }
+  static inline volatile MB9_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB9_16B_WORD3_H*>(0x400C836C); }
 };
 
 // Message Buffer 46 WORD1 Register
@@ -24004,7 +24004,7 @@ union WORD146 {
 
   WORD146() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD146 &Instance() { return *reinterpret_cast<volatile WORD146*>(0x400C836C); }
+  static inline volatile WORD146 &ref() { return *reinterpret_cast<volatile WORD146*>(0x400C836C); }
 };
 
 // Message Buffer 47 CS Register
@@ -24039,7 +24039,7 @@ union CS47 {
 
   CS47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS47 &Instance() { return *reinterpret_cast<volatile CS47*>(0x400C8370); }
+  static inline volatile CS47 &ref() { return *reinterpret_cast<volatile CS47*>(0x400C8370); }
 };
 
 // Message Buffer 10 CS Register
@@ -24074,7 +24074,7 @@ union MB10_16B_CS_H {
 
   MB10_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB10_16B_CS_H*>(0x400C8370); }
+  static inline volatile MB10_16B_CS_H &ref() { return *reinterpret_cast<volatile MB10_16B_CS_H*>(0x400C8370); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -24097,7 +24097,7 @@ union MB3_64B_WORD4_H {
 
   MB3_64B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD4_H*>(0x400C8370); }
+  static inline volatile MB3_64B_WORD4_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD4_H*>(0x400C8370); }
 };
 
 // Message Buffer 47 CS Register
@@ -24132,7 +24132,7 @@ union MB47_8B_CS {
 
   MB47_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB47_8B_CS &Instance() { return *reinterpret_cast<volatile MB47_8B_CS*>(0x400C8370); }
+  static inline volatile MB47_8B_CS &ref() { return *reinterpret_cast<volatile MB47_8B_CS*>(0x400C8370); }
 };
 
 // Message Buffer 6 CS Register
@@ -24167,7 +24167,7 @@ union MB6_32B_CS_H {
 
   MB6_32B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_CS_H &Instance() { return *reinterpret_cast<volatile MB6_32B_CS_H*>(0x400C8370); }
+  static inline volatile MB6_32B_CS_H &ref() { return *reinterpret_cast<volatile MB6_32B_CS_H*>(0x400C8370); }
 };
 
 // Message Buffer 47 ID Register
@@ -24188,7 +24188,7 @@ union ID47 {
 
   ID47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID47 &Instance() { return *reinterpret_cast<volatile ID47*>(0x400C8374); }
+  static inline volatile ID47 &ref() { return *reinterpret_cast<volatile ID47*>(0x400C8374); }
 };
 
 // Message Buffer 10 ID Register
@@ -24209,7 +24209,7 @@ union MB10_16B_ID_H {
 
   MB10_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB10_16B_ID_H*>(0x400C8374); }
+  static inline volatile MB10_16B_ID_H &ref() { return *reinterpret_cast<volatile MB10_16B_ID_H*>(0x400C8374); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -24232,7 +24232,7 @@ union MB3_64B_WORD5_H {
 
   MB3_64B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD5_H*>(0x400C8374); }
+  static inline volatile MB3_64B_WORD5_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD5_H*>(0x400C8374); }
 };
 
 // Message Buffer 47 ID Register
@@ -24253,7 +24253,7 @@ union MB47_8B_ID {
 
   MB47_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB47_8B_ID &Instance() { return *reinterpret_cast<volatile MB47_8B_ID*>(0x400C8374); }
+  static inline volatile MB47_8B_ID &ref() { return *reinterpret_cast<volatile MB47_8B_ID*>(0x400C8374); }
 };
 
 // Message Buffer 6 ID Register
@@ -24274,7 +24274,7 @@ union MB6_32B_ID_H {
 
   MB6_32B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_ID_H &Instance() { return *reinterpret_cast<volatile MB6_32B_ID_H*>(0x400C8374); }
+  static inline volatile MB6_32B_ID_H &ref() { return *reinterpret_cast<volatile MB6_32B_ID_H*>(0x400C8374); }
 };
 
 // Message Buffer 10 WORD_16B Register
@@ -24297,7 +24297,7 @@ union MB10_16B_WORD0_H {
 
   MB10_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB10_16B_WORD0_H*>(0x400C8378); }
+  static inline volatile MB10_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB10_16B_WORD0_H*>(0x400C8378); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -24320,7 +24320,7 @@ union MB3_64B_WORD6_H {
 
   MB3_64B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD6_H*>(0x400C8378); }
+  static inline volatile MB3_64B_WORD6_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD6_H*>(0x400C8378); }
 };
 
 // Message Buffer 47 WORD_8B Register
@@ -24343,7 +24343,7 @@ union MB47_8B_WORD0 {
 
   MB47_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB47_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB47_8B_WORD0*>(0x400C8378); }
+  static inline volatile MB47_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB47_8B_WORD0*>(0x400C8378); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -24366,7 +24366,7 @@ union MB6_32B_WORD0_H {
 
   MB6_32B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD0_H*>(0x400C8378); }
+  static inline volatile MB6_32B_WORD0_H &ref() { return *reinterpret_cast<volatile MB6_32B_WORD0_H*>(0x400C8378); }
 };
 
 // Message Buffer 47 WORD0 Register
@@ -24389,7 +24389,7 @@ union WORD047 {
 
   WORD047() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD047 &Instance() { return *reinterpret_cast<volatile WORD047*>(0x400C8378); }
+  static inline volatile WORD047 &ref() { return *reinterpret_cast<volatile WORD047*>(0x400C8378); }
 };
 
 // Message Buffer 10 WORD_16B Register
@@ -24412,7 +24412,7 @@ union MB10_16B_WORD1_H {
 
   MB10_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB10_16B_WORD1_H*>(0x400C837C); }
+  static inline volatile MB10_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB10_16B_WORD1_H*>(0x400C837C); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -24435,7 +24435,7 @@ union MB3_64B_WORD7_H {
 
   MB3_64B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD7_H*>(0x400C837C); }
+  static inline volatile MB3_64B_WORD7_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD7_H*>(0x400C837C); }
 };
 
 // Message Buffer 47 WORD_8B Register
@@ -24458,7 +24458,7 @@ union MB47_8B_WORD1 {
 
   MB47_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB47_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB47_8B_WORD1*>(0x400C837C); }
+  static inline volatile MB47_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB47_8B_WORD1*>(0x400C837C); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -24481,7 +24481,7 @@ union MB6_32B_WORD1_H {
 
   MB6_32B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD1_H*>(0x400C837C); }
+  static inline volatile MB6_32B_WORD1_H &ref() { return *reinterpret_cast<volatile MB6_32B_WORD1_H*>(0x400C837C); }
 };
 
 // Message Buffer 47 WORD1 Register
@@ -24504,7 +24504,7 @@ union WORD147 {
 
   WORD147() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD147 &Instance() { return *reinterpret_cast<volatile WORD147*>(0x400C837C); }
+  static inline volatile WORD147 &ref() { return *reinterpret_cast<volatile WORD147*>(0x400C837C); }
 };
 
 // Message Buffer 48 CS Register
@@ -24539,7 +24539,7 @@ union CS48 {
 
   CS48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS48 &Instance() { return *reinterpret_cast<volatile CS48*>(0x400C8380); }
+  static inline volatile CS48 &ref() { return *reinterpret_cast<volatile CS48*>(0x400C8380); }
 };
 
 // Message Buffer 10 WORD_16B Register
@@ -24562,7 +24562,7 @@ union MB10_16B_WORD2_H {
 
   MB10_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB10_16B_WORD2_H*>(0x400C8380); }
+  static inline volatile MB10_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB10_16B_WORD2_H*>(0x400C8380); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -24585,7 +24585,7 @@ union MB3_64B_WORD8_H {
 
   MB3_64B_WORD8_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD8_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD8_H*>(0x400C8380); }
+  static inline volatile MB3_64B_WORD8_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD8_H*>(0x400C8380); }
 };
 
 // Message Buffer 48 CS Register
@@ -24620,7 +24620,7 @@ union MB48_8B_CS {
 
   MB48_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB48_8B_CS &Instance() { return *reinterpret_cast<volatile MB48_8B_CS*>(0x400C8380); }
+  static inline volatile MB48_8B_CS &ref() { return *reinterpret_cast<volatile MB48_8B_CS*>(0x400C8380); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -24643,7 +24643,7 @@ union MB6_32B_WORD2_H {
 
   MB6_32B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD2_H*>(0x400C8380); }
+  static inline volatile MB6_32B_WORD2_H &ref() { return *reinterpret_cast<volatile MB6_32B_WORD2_H*>(0x400C8380); }
 };
 
 // Message Buffer 48 ID Register
@@ -24664,7 +24664,7 @@ union ID48 {
 
   ID48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID48 &Instance() { return *reinterpret_cast<volatile ID48*>(0x400C8384); }
+  static inline volatile ID48 &ref() { return *reinterpret_cast<volatile ID48*>(0x400C8384); }
 };
 
 // Message Buffer 10 WORD_16B Register
@@ -24687,7 +24687,7 @@ union MB10_16B_WORD3_H {
 
   MB10_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB10_16B_WORD3_H*>(0x400C8384); }
+  static inline volatile MB10_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB10_16B_WORD3_H*>(0x400C8384); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -24710,7 +24710,7 @@ union MB3_64B_WORD9_H {
 
   MB3_64B_WORD9_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD9_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD9_H*>(0x400C8384); }
+  static inline volatile MB3_64B_WORD9_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD9_H*>(0x400C8384); }
 };
 
 // Message Buffer 48 ID Register
@@ -24731,7 +24731,7 @@ union MB48_8B_ID {
 
   MB48_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB48_8B_ID &Instance() { return *reinterpret_cast<volatile MB48_8B_ID*>(0x400C8384); }
+  static inline volatile MB48_8B_ID &ref() { return *reinterpret_cast<volatile MB48_8B_ID*>(0x400C8384); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -24754,7 +24754,7 @@ union MB6_32B_WORD3_H {
 
   MB6_32B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD3_H*>(0x400C8384); }
+  static inline volatile MB6_32B_WORD3_H &ref() { return *reinterpret_cast<volatile MB6_32B_WORD3_H*>(0x400C8384); }
 };
 
 // Message Buffer 11 CS Register
@@ -24789,7 +24789,7 @@ union MB11_16B_CS_H {
 
   MB11_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB11_16B_CS_H*>(0x400C8388); }
+  static inline volatile MB11_16B_CS_H &ref() { return *reinterpret_cast<volatile MB11_16B_CS_H*>(0x400C8388); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -24812,7 +24812,7 @@ union MB3_64B_WORD10_H {
 
   MB3_64B_WORD10_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD10_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD10_H*>(0x400C8388); }
+  static inline volatile MB3_64B_WORD10_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD10_H*>(0x400C8388); }
 };
 
 // Message Buffer 48 WORD_8B Register
@@ -24835,7 +24835,7 @@ union MB48_8B_WORD0 {
 
   MB48_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB48_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB48_8B_WORD0*>(0x400C8388); }
+  static inline volatile MB48_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB48_8B_WORD0*>(0x400C8388); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -24858,7 +24858,7 @@ union MB6_32B_WORD4_H {
 
   MB6_32B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD4_H*>(0x400C8388); }
+  static inline volatile MB6_32B_WORD4_H &ref() { return *reinterpret_cast<volatile MB6_32B_WORD4_H*>(0x400C8388); }
 };
 
 // Message Buffer 48 WORD0 Register
@@ -24881,7 +24881,7 @@ union WORD048 {
 
   WORD048() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD048 &Instance() { return *reinterpret_cast<volatile WORD048*>(0x400C8388); }
+  static inline volatile WORD048 &ref() { return *reinterpret_cast<volatile WORD048*>(0x400C8388); }
 };
 
 // Message Buffer 11 ID Register
@@ -24902,7 +24902,7 @@ union MB11_16B_ID_H {
 
   MB11_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB11_16B_ID_H*>(0x400C838C); }
+  static inline volatile MB11_16B_ID_H &ref() { return *reinterpret_cast<volatile MB11_16B_ID_H*>(0x400C838C); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -24925,7 +24925,7 @@ union MB3_64B_WORD11_H {
 
   MB3_64B_WORD11_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD11_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD11_H*>(0x400C838C); }
+  static inline volatile MB3_64B_WORD11_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD11_H*>(0x400C838C); }
 };
 
 // Message Buffer 48 WORD_8B Register
@@ -24948,7 +24948,7 @@ union MB48_8B_WORD1 {
 
   MB48_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB48_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB48_8B_WORD1*>(0x400C838C); }
+  static inline volatile MB48_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB48_8B_WORD1*>(0x400C838C); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -24971,7 +24971,7 @@ union MB6_32B_WORD5_H {
 
   MB6_32B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD5_H*>(0x400C838C); }
+  static inline volatile MB6_32B_WORD5_H &ref() { return *reinterpret_cast<volatile MB6_32B_WORD5_H*>(0x400C838C); }
 };
 
 // Message Buffer 48 WORD1 Register
@@ -24994,7 +24994,7 @@ union WORD148 {
 
   WORD148() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD148 &Instance() { return *reinterpret_cast<volatile WORD148*>(0x400C838C); }
+  static inline volatile WORD148 &ref() { return *reinterpret_cast<volatile WORD148*>(0x400C838C); }
 };
 
 // Message Buffer 49 CS Register
@@ -25029,7 +25029,7 @@ union CS49 {
 
   CS49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS49 &Instance() { return *reinterpret_cast<volatile CS49*>(0x400C8390); }
+  static inline volatile CS49 &ref() { return *reinterpret_cast<volatile CS49*>(0x400C8390); }
 };
 
 // Message Buffer 11 WORD_16B Register
@@ -25052,7 +25052,7 @@ union MB11_16B_WORD0_H {
 
   MB11_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB11_16B_WORD0_H*>(0x400C8390); }
+  static inline volatile MB11_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB11_16B_WORD0_H*>(0x400C8390); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -25075,7 +25075,7 @@ union MB3_64B_WORD12_H {
 
   MB3_64B_WORD12_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD12_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD12_H*>(0x400C8390); }
+  static inline volatile MB3_64B_WORD12_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD12_H*>(0x400C8390); }
 };
 
 // Message Buffer 49 CS Register
@@ -25110,7 +25110,7 @@ union MB49_8B_CS {
 
   MB49_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB49_8B_CS &Instance() { return *reinterpret_cast<volatile MB49_8B_CS*>(0x400C8390); }
+  static inline volatile MB49_8B_CS &ref() { return *reinterpret_cast<volatile MB49_8B_CS*>(0x400C8390); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -25133,7 +25133,7 @@ union MB6_32B_WORD6_H {
 
   MB6_32B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD6_H*>(0x400C8390); }
+  static inline volatile MB6_32B_WORD6_H &ref() { return *reinterpret_cast<volatile MB6_32B_WORD6_H*>(0x400C8390); }
 };
 
 // Message Buffer 49 ID Register
@@ -25154,7 +25154,7 @@ union ID49 {
 
   ID49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID49 &Instance() { return *reinterpret_cast<volatile ID49*>(0x400C8394); }
+  static inline volatile ID49 &ref() { return *reinterpret_cast<volatile ID49*>(0x400C8394); }
 };
 
 // Message Buffer 11 WORD_16B Register
@@ -25177,7 +25177,7 @@ union MB11_16B_WORD1_H {
 
   MB11_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB11_16B_WORD1_H*>(0x400C8394); }
+  static inline volatile MB11_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB11_16B_WORD1_H*>(0x400C8394); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -25200,7 +25200,7 @@ union MB3_64B_WORD13_H {
 
   MB3_64B_WORD13_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD13_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD13_H*>(0x400C8394); }
+  static inline volatile MB3_64B_WORD13_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD13_H*>(0x400C8394); }
 };
 
 // Message Buffer 49 ID Register
@@ -25221,7 +25221,7 @@ union MB49_8B_ID {
 
   MB49_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB49_8B_ID &Instance() { return *reinterpret_cast<volatile MB49_8B_ID*>(0x400C8394); }
+  static inline volatile MB49_8B_ID &ref() { return *reinterpret_cast<volatile MB49_8B_ID*>(0x400C8394); }
 };
 
 // Message Buffer 6 WORD_32B Register
@@ -25244,7 +25244,7 @@ union MB6_32B_WORD7_H {
 
   MB6_32B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_32B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB6_32B_WORD7_H*>(0x400C8394); }
+  static inline volatile MB6_32B_WORD7_H &ref() { return *reinterpret_cast<volatile MB6_32B_WORD7_H*>(0x400C8394); }
 };
 
 // Message Buffer 11 WORD_16B Register
@@ -25267,7 +25267,7 @@ union MB11_16B_WORD2_H {
 
   MB11_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB11_16B_WORD2_H*>(0x400C8398); }
+  static inline volatile MB11_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB11_16B_WORD2_H*>(0x400C8398); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -25290,7 +25290,7 @@ union MB3_64B_WORD14_H {
 
   MB3_64B_WORD14_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD14_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD14_H*>(0x400C8398); }
+  static inline volatile MB3_64B_WORD14_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD14_H*>(0x400C8398); }
 };
 
 // Message Buffer 49 WORD_8B Register
@@ -25313,7 +25313,7 @@ union MB49_8B_WORD0 {
 
   MB49_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB49_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB49_8B_WORD0*>(0x400C8398); }
+  static inline volatile MB49_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB49_8B_WORD0*>(0x400C8398); }
 };
 
 // Message Buffer 7 CS Register
@@ -25348,7 +25348,7 @@ union MB7_32B_CS_H {
 
   MB7_32B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_CS_H &Instance() { return *reinterpret_cast<volatile MB7_32B_CS_H*>(0x400C8398); }
+  static inline volatile MB7_32B_CS_H &ref() { return *reinterpret_cast<volatile MB7_32B_CS_H*>(0x400C8398); }
 };
 
 // Message Buffer 49 WORD0 Register
@@ -25371,7 +25371,7 @@ union WORD049 {
 
   WORD049() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD049 &Instance() { return *reinterpret_cast<volatile WORD049*>(0x400C8398); }
+  static inline volatile WORD049 &ref() { return *reinterpret_cast<volatile WORD049*>(0x400C8398); }
 };
 
 // Message Buffer 11 WORD_16B Register
@@ -25394,7 +25394,7 @@ union MB11_16B_WORD3_H {
 
   MB11_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB11_16B_WORD3_H*>(0x400C839C); }
+  static inline volatile MB11_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB11_16B_WORD3_H*>(0x400C839C); }
 };
 
 // Message Buffer 3 WORD_64B Register
@@ -25417,7 +25417,7 @@ union MB3_64B_WORD15_H {
 
   MB3_64B_WORD15_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB3_64B_WORD15_H &Instance() { return *reinterpret_cast<volatile MB3_64B_WORD15_H*>(0x400C839C); }
+  static inline volatile MB3_64B_WORD15_H &ref() { return *reinterpret_cast<volatile MB3_64B_WORD15_H*>(0x400C839C); }
 };
 
 // Message Buffer 49 WORD_8B Register
@@ -25440,7 +25440,7 @@ union MB49_8B_WORD1 {
 
   MB49_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB49_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB49_8B_WORD1*>(0x400C839C); }
+  static inline volatile MB49_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB49_8B_WORD1*>(0x400C839C); }
 };
 
 // Message Buffer 7 ID Register
@@ -25461,7 +25461,7 @@ union MB7_32B_ID_H {
 
   MB7_32B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_ID_H &Instance() { return *reinterpret_cast<volatile MB7_32B_ID_H*>(0x400C839C); }
+  static inline volatile MB7_32B_ID_H &ref() { return *reinterpret_cast<volatile MB7_32B_ID_H*>(0x400C839C); }
 };
 
 // Message Buffer 49 WORD1 Register
@@ -25484,7 +25484,7 @@ union WORD149 {
 
   WORD149() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD149 &Instance() { return *reinterpret_cast<volatile WORD149*>(0x400C839C); }
+  static inline volatile WORD149 &ref() { return *reinterpret_cast<volatile WORD149*>(0x400C839C); }
 };
 
 // Message Buffer 50 CS Register
@@ -25519,7 +25519,7 @@ union CS50 {
 
   CS50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS50 &Instance() { return *reinterpret_cast<volatile CS50*>(0x400C83A0); }
+  static inline volatile CS50 &ref() { return *reinterpret_cast<volatile CS50*>(0x400C83A0); }
 };
 
 // Message Buffer 12 CS Register
@@ -25554,7 +25554,7 @@ union MB12_16B_CS_H {
 
   MB12_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB12_16B_CS_H*>(0x400C83A0); }
+  static inline volatile MB12_16B_CS_H &ref() { return *reinterpret_cast<volatile MB12_16B_CS_H*>(0x400C83A0); }
 };
 
 // Message Buffer 4 CS Register
@@ -25589,7 +25589,7 @@ union MB4_64B_CS_H {
 
   MB4_64B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_CS_H &Instance() { return *reinterpret_cast<volatile MB4_64B_CS_H*>(0x400C83A0); }
+  static inline volatile MB4_64B_CS_H &ref() { return *reinterpret_cast<volatile MB4_64B_CS_H*>(0x400C83A0); }
 };
 
 // Message Buffer 50 CS Register
@@ -25624,7 +25624,7 @@ union MB50_8B_CS {
 
   MB50_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB50_8B_CS &Instance() { return *reinterpret_cast<volatile MB50_8B_CS*>(0x400C83A0); }
+  static inline volatile MB50_8B_CS &ref() { return *reinterpret_cast<volatile MB50_8B_CS*>(0x400C83A0); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -25647,7 +25647,7 @@ union MB7_32B_WORD0_H {
 
   MB7_32B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD0_H*>(0x400C83A0); }
+  static inline volatile MB7_32B_WORD0_H &ref() { return *reinterpret_cast<volatile MB7_32B_WORD0_H*>(0x400C83A0); }
 };
 
 // Message Buffer 50 ID Register
@@ -25668,7 +25668,7 @@ union ID50 {
 
   ID50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID50 &Instance() { return *reinterpret_cast<volatile ID50*>(0x400C83A4); }
+  static inline volatile ID50 &ref() { return *reinterpret_cast<volatile ID50*>(0x400C83A4); }
 };
 
 // Message Buffer 12 ID Register
@@ -25689,7 +25689,7 @@ union MB12_16B_ID_H {
 
   MB12_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB12_16B_ID_H*>(0x400C83A4); }
+  static inline volatile MB12_16B_ID_H &ref() { return *reinterpret_cast<volatile MB12_16B_ID_H*>(0x400C83A4); }
 };
 
 // Message Buffer 4 ID Register
@@ -25710,7 +25710,7 @@ union MB4_64B_ID_H {
 
   MB4_64B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_ID_H &Instance() { return *reinterpret_cast<volatile MB4_64B_ID_H*>(0x400C83A4); }
+  static inline volatile MB4_64B_ID_H &ref() { return *reinterpret_cast<volatile MB4_64B_ID_H*>(0x400C83A4); }
 };
 
 // Message Buffer 50 ID Register
@@ -25731,7 +25731,7 @@ union MB50_8B_ID {
 
   MB50_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB50_8B_ID &Instance() { return *reinterpret_cast<volatile MB50_8B_ID*>(0x400C83A4); }
+  static inline volatile MB50_8B_ID &ref() { return *reinterpret_cast<volatile MB50_8B_ID*>(0x400C83A4); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -25754,7 +25754,7 @@ union MB7_32B_WORD1_H {
 
   MB7_32B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD1_H*>(0x400C83A4); }
+  static inline volatile MB7_32B_WORD1_H &ref() { return *reinterpret_cast<volatile MB7_32B_WORD1_H*>(0x400C83A4); }
 };
 
 // Message Buffer 12 WORD_16B Register
@@ -25777,7 +25777,7 @@ union MB12_16B_WORD0_H {
 
   MB12_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB12_16B_WORD0_H*>(0x400C83A8); }
+  static inline volatile MB12_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB12_16B_WORD0_H*>(0x400C83A8); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -25800,7 +25800,7 @@ union MB4_64B_WORD0_H {
 
   MB4_64B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD0_H*>(0x400C83A8); }
+  static inline volatile MB4_64B_WORD0_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD0_H*>(0x400C83A8); }
 };
 
 // Message Buffer 50 WORD_8B Register
@@ -25823,7 +25823,7 @@ union MB50_8B_WORD0 {
 
   MB50_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB50_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB50_8B_WORD0*>(0x400C83A8); }
+  static inline volatile MB50_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB50_8B_WORD0*>(0x400C83A8); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -25846,7 +25846,7 @@ union MB7_32B_WORD2_H {
 
   MB7_32B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD2_H*>(0x400C83A8); }
+  static inline volatile MB7_32B_WORD2_H &ref() { return *reinterpret_cast<volatile MB7_32B_WORD2_H*>(0x400C83A8); }
 };
 
 // Message Buffer 50 WORD0 Register
@@ -25869,7 +25869,7 @@ union WORD050 {
 
   WORD050() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD050 &Instance() { return *reinterpret_cast<volatile WORD050*>(0x400C83A8); }
+  static inline volatile WORD050 &ref() { return *reinterpret_cast<volatile WORD050*>(0x400C83A8); }
 };
 
 // Message Buffer 12 WORD_16B Register
@@ -25892,7 +25892,7 @@ union MB12_16B_WORD1_H {
 
   MB12_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB12_16B_WORD1_H*>(0x400C83AC); }
+  static inline volatile MB12_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB12_16B_WORD1_H*>(0x400C83AC); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -25915,7 +25915,7 @@ union MB4_64B_WORD1_H {
 
   MB4_64B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD1_H*>(0x400C83AC); }
+  static inline volatile MB4_64B_WORD1_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD1_H*>(0x400C83AC); }
 };
 
 // Message Buffer 50 WORD_8B Register
@@ -25938,7 +25938,7 @@ union MB50_8B_WORD1 {
 
   MB50_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB50_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB50_8B_WORD1*>(0x400C83AC); }
+  static inline volatile MB50_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB50_8B_WORD1*>(0x400C83AC); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -25961,7 +25961,7 @@ union MB7_32B_WORD3_H {
 
   MB7_32B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD3_H*>(0x400C83AC); }
+  static inline volatile MB7_32B_WORD3_H &ref() { return *reinterpret_cast<volatile MB7_32B_WORD3_H*>(0x400C83AC); }
 };
 
 // Message Buffer 50 WORD1 Register
@@ -25984,7 +25984,7 @@ union WORD150 {
 
   WORD150() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD150 &Instance() { return *reinterpret_cast<volatile WORD150*>(0x400C83AC); }
+  static inline volatile WORD150 &ref() { return *reinterpret_cast<volatile WORD150*>(0x400C83AC); }
 };
 
 // Message Buffer 51 CS Register
@@ -26019,7 +26019,7 @@ union CS51 {
 
   CS51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS51 &Instance() { return *reinterpret_cast<volatile CS51*>(0x400C83B0); }
+  static inline volatile CS51 &ref() { return *reinterpret_cast<volatile CS51*>(0x400C83B0); }
 };
 
 // Message Buffer 12 WORD_16B Register
@@ -26042,7 +26042,7 @@ union MB12_16B_WORD2_H {
 
   MB12_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB12_16B_WORD2_H*>(0x400C83B0); }
+  static inline volatile MB12_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB12_16B_WORD2_H*>(0x400C83B0); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -26065,7 +26065,7 @@ union MB4_64B_WORD2_H {
 
   MB4_64B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD2_H*>(0x400C83B0); }
+  static inline volatile MB4_64B_WORD2_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD2_H*>(0x400C83B0); }
 };
 
 // Message Buffer 51 CS Register
@@ -26100,7 +26100,7 @@ union MB51_8B_CS {
 
   MB51_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB51_8B_CS &Instance() { return *reinterpret_cast<volatile MB51_8B_CS*>(0x400C83B0); }
+  static inline volatile MB51_8B_CS &ref() { return *reinterpret_cast<volatile MB51_8B_CS*>(0x400C83B0); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -26123,7 +26123,7 @@ union MB7_32B_WORD4_H {
 
   MB7_32B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD4_H*>(0x400C83B0); }
+  static inline volatile MB7_32B_WORD4_H &ref() { return *reinterpret_cast<volatile MB7_32B_WORD4_H*>(0x400C83B0); }
 };
 
 // Message Buffer 51 ID Register
@@ -26144,7 +26144,7 @@ union ID51 {
 
   ID51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID51 &Instance() { return *reinterpret_cast<volatile ID51*>(0x400C83B4); }
+  static inline volatile ID51 &ref() { return *reinterpret_cast<volatile ID51*>(0x400C83B4); }
 };
 
 // Message Buffer 12 WORD_16B Register
@@ -26167,7 +26167,7 @@ union MB12_16B_WORD3_H {
 
   MB12_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB12_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB12_16B_WORD3_H*>(0x400C83B4); }
+  static inline volatile MB12_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB12_16B_WORD3_H*>(0x400C83B4); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -26190,7 +26190,7 @@ union MB4_64B_WORD3_H {
 
   MB4_64B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD3_H*>(0x400C83B4); }
+  static inline volatile MB4_64B_WORD3_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD3_H*>(0x400C83B4); }
 };
 
 // Message Buffer 51 ID Register
@@ -26211,7 +26211,7 @@ union MB51_8B_ID {
 
   MB51_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB51_8B_ID &Instance() { return *reinterpret_cast<volatile MB51_8B_ID*>(0x400C83B4); }
+  static inline volatile MB51_8B_ID &ref() { return *reinterpret_cast<volatile MB51_8B_ID*>(0x400C83B4); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -26234,7 +26234,7 @@ union MB7_32B_WORD5_H {
 
   MB7_32B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD5_H*>(0x400C83B4); }
+  static inline volatile MB7_32B_WORD5_H &ref() { return *reinterpret_cast<volatile MB7_32B_WORD5_H*>(0x400C83B4); }
 };
 
 // Message Buffer 13 CS Register
@@ -26269,7 +26269,7 @@ union MB13_16B_CS_H {
 
   MB13_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB13_16B_CS_H*>(0x400C83B8); }
+  static inline volatile MB13_16B_CS_H &ref() { return *reinterpret_cast<volatile MB13_16B_CS_H*>(0x400C83B8); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -26292,7 +26292,7 @@ union MB4_64B_WORD4_H {
 
   MB4_64B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD4_H*>(0x400C83B8); }
+  static inline volatile MB4_64B_WORD4_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD4_H*>(0x400C83B8); }
 };
 
 // Message Buffer 51 WORD_8B Register
@@ -26315,7 +26315,7 @@ union MB51_8B_WORD0 {
 
   MB51_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB51_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB51_8B_WORD0*>(0x400C83B8); }
+  static inline volatile MB51_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB51_8B_WORD0*>(0x400C83B8); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -26338,7 +26338,7 @@ union MB7_32B_WORD6_H {
 
   MB7_32B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD6_H*>(0x400C83B8); }
+  static inline volatile MB7_32B_WORD6_H &ref() { return *reinterpret_cast<volatile MB7_32B_WORD6_H*>(0x400C83B8); }
 };
 
 // Message Buffer 51 WORD0 Register
@@ -26361,7 +26361,7 @@ union WORD051 {
 
   WORD051() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD051 &Instance() { return *reinterpret_cast<volatile WORD051*>(0x400C83B8); }
+  static inline volatile WORD051 &ref() { return *reinterpret_cast<volatile WORD051*>(0x400C83B8); }
 };
 
 // Message Buffer 13 ID Register
@@ -26382,7 +26382,7 @@ union MB13_16B_ID_H {
 
   MB13_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB13_16B_ID_H*>(0x400C83BC); }
+  static inline volatile MB13_16B_ID_H &ref() { return *reinterpret_cast<volatile MB13_16B_ID_H*>(0x400C83BC); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -26405,7 +26405,7 @@ union MB4_64B_WORD5_H {
 
   MB4_64B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD5_H*>(0x400C83BC); }
+  static inline volatile MB4_64B_WORD5_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD5_H*>(0x400C83BC); }
 };
 
 // Message Buffer 51 WORD_8B Register
@@ -26428,7 +26428,7 @@ union MB51_8B_WORD1 {
 
   MB51_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB51_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB51_8B_WORD1*>(0x400C83BC); }
+  static inline volatile MB51_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB51_8B_WORD1*>(0x400C83BC); }
 };
 
 // Message Buffer 7 WORD_32B Register
@@ -26451,7 +26451,7 @@ union MB7_32B_WORD7_H {
 
   MB7_32B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB7_32B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB7_32B_WORD7_H*>(0x400C83BC); }
+  static inline volatile MB7_32B_WORD7_H &ref() { return *reinterpret_cast<volatile MB7_32B_WORD7_H*>(0x400C83BC); }
 };
 
 // Message Buffer 51 WORD1 Register
@@ -26474,7 +26474,7 @@ union WORD151 {
 
   WORD151() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD151 &Instance() { return *reinterpret_cast<volatile WORD151*>(0x400C83BC); }
+  static inline volatile WORD151 &ref() { return *reinterpret_cast<volatile WORD151*>(0x400C83BC); }
 };
 
 // Message Buffer 52 CS Register
@@ -26509,7 +26509,7 @@ union CS52 {
 
   CS52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS52 &Instance() { return *reinterpret_cast<volatile CS52*>(0x400C83C0); }
+  static inline volatile CS52 &ref() { return *reinterpret_cast<volatile CS52*>(0x400C83C0); }
 };
 
 // Message Buffer 13 WORD_16B Register
@@ -26532,7 +26532,7 @@ union MB13_16B_WORD0_H {
 
   MB13_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB13_16B_WORD0_H*>(0x400C83C0); }
+  static inline volatile MB13_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB13_16B_WORD0_H*>(0x400C83C0); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -26555,7 +26555,7 @@ union MB4_64B_WORD6_H {
 
   MB4_64B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD6_H*>(0x400C83C0); }
+  static inline volatile MB4_64B_WORD6_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD6_H*>(0x400C83C0); }
 };
 
 // Message Buffer 52 CS Register
@@ -26590,7 +26590,7 @@ union MB52_8B_CS {
 
   MB52_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB52_8B_CS &Instance() { return *reinterpret_cast<volatile MB52_8B_CS*>(0x400C83C0); }
+  static inline volatile MB52_8B_CS &ref() { return *reinterpret_cast<volatile MB52_8B_CS*>(0x400C83C0); }
 };
 
 // Message Buffer 8 CS Register
@@ -26625,7 +26625,7 @@ union MB8_32B_CS_H {
 
   MB8_32B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_CS_H &Instance() { return *reinterpret_cast<volatile MB8_32B_CS_H*>(0x400C83C0); }
+  static inline volatile MB8_32B_CS_H &ref() { return *reinterpret_cast<volatile MB8_32B_CS_H*>(0x400C83C0); }
 };
 
 // Message Buffer 52 ID Register
@@ -26646,7 +26646,7 @@ union ID52 {
 
   ID52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID52 &Instance() { return *reinterpret_cast<volatile ID52*>(0x400C83C4); }
+  static inline volatile ID52 &ref() { return *reinterpret_cast<volatile ID52*>(0x400C83C4); }
 };
 
 // Message Buffer 13 WORD_16B Register
@@ -26669,7 +26669,7 @@ union MB13_16B_WORD1_H {
 
   MB13_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB13_16B_WORD1_H*>(0x400C83C4); }
+  static inline volatile MB13_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB13_16B_WORD1_H*>(0x400C83C4); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -26692,7 +26692,7 @@ union MB4_64B_WORD7_H {
 
   MB4_64B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD7_H*>(0x400C83C4); }
+  static inline volatile MB4_64B_WORD7_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD7_H*>(0x400C83C4); }
 };
 
 // Message Buffer 52 ID Register
@@ -26713,7 +26713,7 @@ union MB52_8B_ID {
 
   MB52_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB52_8B_ID &Instance() { return *reinterpret_cast<volatile MB52_8B_ID*>(0x400C83C4); }
+  static inline volatile MB52_8B_ID &ref() { return *reinterpret_cast<volatile MB52_8B_ID*>(0x400C83C4); }
 };
 
 // Message Buffer 8 ID Register
@@ -26734,7 +26734,7 @@ union MB8_32B_ID_H {
 
   MB8_32B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_ID_H &Instance() { return *reinterpret_cast<volatile MB8_32B_ID_H*>(0x400C83C4); }
+  static inline volatile MB8_32B_ID_H &ref() { return *reinterpret_cast<volatile MB8_32B_ID_H*>(0x400C83C4); }
 };
 
 // Message Buffer 13 WORD_16B Register
@@ -26757,7 +26757,7 @@ union MB13_16B_WORD2_H {
 
   MB13_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB13_16B_WORD2_H*>(0x400C83C8); }
+  static inline volatile MB13_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB13_16B_WORD2_H*>(0x400C83C8); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -26780,7 +26780,7 @@ union MB4_64B_WORD8_H {
 
   MB4_64B_WORD8_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD8_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD8_H*>(0x400C83C8); }
+  static inline volatile MB4_64B_WORD8_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD8_H*>(0x400C83C8); }
 };
 
 // Message Buffer 52 WORD_8B Register
@@ -26803,7 +26803,7 @@ union MB52_8B_WORD0 {
 
   MB52_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB52_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB52_8B_WORD0*>(0x400C83C8); }
+  static inline volatile MB52_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB52_8B_WORD0*>(0x400C83C8); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -26826,7 +26826,7 @@ union MB8_32B_WORD0_H {
 
   MB8_32B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD0_H*>(0x400C83C8); }
+  static inline volatile MB8_32B_WORD0_H &ref() { return *reinterpret_cast<volatile MB8_32B_WORD0_H*>(0x400C83C8); }
 };
 
 // Message Buffer 52 WORD0 Register
@@ -26849,7 +26849,7 @@ union WORD052 {
 
   WORD052() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD052 &Instance() { return *reinterpret_cast<volatile WORD052*>(0x400C83C8); }
+  static inline volatile WORD052 &ref() { return *reinterpret_cast<volatile WORD052*>(0x400C83C8); }
 };
 
 // Message Buffer 13 WORD_16B Register
@@ -26872,7 +26872,7 @@ union MB13_16B_WORD3_H {
 
   MB13_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB13_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB13_16B_WORD3_H*>(0x400C83CC); }
+  static inline volatile MB13_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB13_16B_WORD3_H*>(0x400C83CC); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -26895,7 +26895,7 @@ union MB4_64B_WORD9_H {
 
   MB4_64B_WORD9_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD9_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD9_H*>(0x400C83CC); }
+  static inline volatile MB4_64B_WORD9_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD9_H*>(0x400C83CC); }
 };
 
 // Message Buffer 52 WORD_8B Register
@@ -26918,7 +26918,7 @@ union MB52_8B_WORD1 {
 
   MB52_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB52_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB52_8B_WORD1*>(0x400C83CC); }
+  static inline volatile MB52_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB52_8B_WORD1*>(0x400C83CC); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -26941,7 +26941,7 @@ union MB8_32B_WORD1_H {
 
   MB8_32B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD1_H*>(0x400C83CC); }
+  static inline volatile MB8_32B_WORD1_H &ref() { return *reinterpret_cast<volatile MB8_32B_WORD1_H*>(0x400C83CC); }
 };
 
 // Message Buffer 52 WORD1 Register
@@ -26964,7 +26964,7 @@ union WORD152 {
 
   WORD152() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD152 &Instance() { return *reinterpret_cast<volatile WORD152*>(0x400C83CC); }
+  static inline volatile WORD152 &ref() { return *reinterpret_cast<volatile WORD152*>(0x400C83CC); }
 };
 
 // Message Buffer 53 CS Register
@@ -26999,7 +26999,7 @@ union CS53 {
 
   CS53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS53 &Instance() { return *reinterpret_cast<volatile CS53*>(0x400C83D0); }
+  static inline volatile CS53 &ref() { return *reinterpret_cast<volatile CS53*>(0x400C83D0); }
 };
 
 // Message Buffer 14 CS Register
@@ -27034,7 +27034,7 @@ union MB14_16B_CS_H {
 
   MB14_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB14_16B_CS_H*>(0x400C83D0); }
+  static inline volatile MB14_16B_CS_H &ref() { return *reinterpret_cast<volatile MB14_16B_CS_H*>(0x400C83D0); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -27057,7 +27057,7 @@ union MB4_64B_WORD10_H {
 
   MB4_64B_WORD10_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD10_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD10_H*>(0x400C83D0); }
+  static inline volatile MB4_64B_WORD10_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD10_H*>(0x400C83D0); }
 };
 
 // Message Buffer 53 CS Register
@@ -27092,7 +27092,7 @@ union MB53_8B_CS {
 
   MB53_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB53_8B_CS &Instance() { return *reinterpret_cast<volatile MB53_8B_CS*>(0x400C83D0); }
+  static inline volatile MB53_8B_CS &ref() { return *reinterpret_cast<volatile MB53_8B_CS*>(0x400C83D0); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -27115,7 +27115,7 @@ union MB8_32B_WORD2_H {
 
   MB8_32B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD2_H*>(0x400C83D0); }
+  static inline volatile MB8_32B_WORD2_H &ref() { return *reinterpret_cast<volatile MB8_32B_WORD2_H*>(0x400C83D0); }
 };
 
 // Message Buffer 53 ID Register
@@ -27136,7 +27136,7 @@ union ID53 {
 
   ID53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID53 &Instance() { return *reinterpret_cast<volatile ID53*>(0x400C83D4); }
+  static inline volatile ID53 &ref() { return *reinterpret_cast<volatile ID53*>(0x400C83D4); }
 };
 
 // Message Buffer 14 ID Register
@@ -27157,7 +27157,7 @@ union MB14_16B_ID_H {
 
   MB14_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB14_16B_ID_H*>(0x400C83D4); }
+  static inline volatile MB14_16B_ID_H &ref() { return *reinterpret_cast<volatile MB14_16B_ID_H*>(0x400C83D4); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -27180,7 +27180,7 @@ union MB4_64B_WORD11_H {
 
   MB4_64B_WORD11_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD11_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD11_H*>(0x400C83D4); }
+  static inline volatile MB4_64B_WORD11_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD11_H*>(0x400C83D4); }
 };
 
 // Message Buffer 53 ID Register
@@ -27201,7 +27201,7 @@ union MB53_8B_ID {
 
   MB53_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB53_8B_ID &Instance() { return *reinterpret_cast<volatile MB53_8B_ID*>(0x400C83D4); }
+  static inline volatile MB53_8B_ID &ref() { return *reinterpret_cast<volatile MB53_8B_ID*>(0x400C83D4); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -27224,7 +27224,7 @@ union MB8_32B_WORD3_H {
 
   MB8_32B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD3_H*>(0x400C83D4); }
+  static inline volatile MB8_32B_WORD3_H &ref() { return *reinterpret_cast<volatile MB8_32B_WORD3_H*>(0x400C83D4); }
 };
 
 // Message Buffer 14 WORD_16B Register
@@ -27247,7 +27247,7 @@ union MB14_16B_WORD0_H {
 
   MB14_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB14_16B_WORD0_H*>(0x400C83D8); }
+  static inline volatile MB14_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB14_16B_WORD0_H*>(0x400C83D8); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -27270,7 +27270,7 @@ union MB4_64B_WORD12_H {
 
   MB4_64B_WORD12_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD12_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD12_H*>(0x400C83D8); }
+  static inline volatile MB4_64B_WORD12_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD12_H*>(0x400C83D8); }
 };
 
 // Message Buffer 53 WORD_8B Register
@@ -27293,7 +27293,7 @@ union MB53_8B_WORD0 {
 
   MB53_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB53_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB53_8B_WORD0*>(0x400C83D8); }
+  static inline volatile MB53_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB53_8B_WORD0*>(0x400C83D8); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -27316,7 +27316,7 @@ union MB8_32B_WORD4_H {
 
   MB8_32B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD4_H*>(0x400C83D8); }
+  static inline volatile MB8_32B_WORD4_H &ref() { return *reinterpret_cast<volatile MB8_32B_WORD4_H*>(0x400C83D8); }
 };
 
 // Message Buffer 53 WORD0 Register
@@ -27339,7 +27339,7 @@ union WORD053 {
 
   WORD053() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD053 &Instance() { return *reinterpret_cast<volatile WORD053*>(0x400C83D8); }
+  static inline volatile WORD053 &ref() { return *reinterpret_cast<volatile WORD053*>(0x400C83D8); }
 };
 
 // Message Buffer 14 WORD_16B Register
@@ -27362,7 +27362,7 @@ union MB14_16B_WORD1_H {
 
   MB14_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB14_16B_WORD1_H*>(0x400C83DC); }
+  static inline volatile MB14_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB14_16B_WORD1_H*>(0x400C83DC); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -27385,7 +27385,7 @@ union MB4_64B_WORD13_H {
 
   MB4_64B_WORD13_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD13_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD13_H*>(0x400C83DC); }
+  static inline volatile MB4_64B_WORD13_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD13_H*>(0x400C83DC); }
 };
 
 // Message Buffer 53 WORD_8B Register
@@ -27408,7 +27408,7 @@ union MB53_8B_WORD1 {
 
   MB53_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB53_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB53_8B_WORD1*>(0x400C83DC); }
+  static inline volatile MB53_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB53_8B_WORD1*>(0x400C83DC); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -27431,7 +27431,7 @@ union MB8_32B_WORD5_H {
 
   MB8_32B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD5_H*>(0x400C83DC); }
+  static inline volatile MB8_32B_WORD5_H &ref() { return *reinterpret_cast<volatile MB8_32B_WORD5_H*>(0x400C83DC); }
 };
 
 // Message Buffer 53 WORD1 Register
@@ -27454,7 +27454,7 @@ union WORD153 {
 
   WORD153() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD153 &Instance() { return *reinterpret_cast<volatile WORD153*>(0x400C83DC); }
+  static inline volatile WORD153 &ref() { return *reinterpret_cast<volatile WORD153*>(0x400C83DC); }
 };
 
 // Message Buffer 54 CS Register
@@ -27489,7 +27489,7 @@ union CS54 {
 
   CS54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS54 &Instance() { return *reinterpret_cast<volatile CS54*>(0x400C83E0); }
+  static inline volatile CS54 &ref() { return *reinterpret_cast<volatile CS54*>(0x400C83E0); }
 };
 
 // Message Buffer 14 WORD_16B Register
@@ -27512,7 +27512,7 @@ union MB14_16B_WORD2_H {
 
   MB14_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB14_16B_WORD2_H*>(0x400C83E0); }
+  static inline volatile MB14_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB14_16B_WORD2_H*>(0x400C83E0); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -27535,7 +27535,7 @@ union MB4_64B_WORD14_H {
 
   MB4_64B_WORD14_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD14_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD14_H*>(0x400C83E0); }
+  static inline volatile MB4_64B_WORD14_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD14_H*>(0x400C83E0); }
 };
 
 // Message Buffer 54 CS Register
@@ -27570,7 +27570,7 @@ union MB54_8B_CS {
 
   MB54_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB54_8B_CS &Instance() { return *reinterpret_cast<volatile MB54_8B_CS*>(0x400C83E0); }
+  static inline volatile MB54_8B_CS &ref() { return *reinterpret_cast<volatile MB54_8B_CS*>(0x400C83E0); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -27593,7 +27593,7 @@ union MB8_32B_WORD6_H {
 
   MB8_32B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD6_H*>(0x400C83E0); }
+  static inline volatile MB8_32B_WORD6_H &ref() { return *reinterpret_cast<volatile MB8_32B_WORD6_H*>(0x400C83E0); }
 };
 
 // Message Buffer 54 ID Register
@@ -27614,7 +27614,7 @@ union ID54 {
 
   ID54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID54 &Instance() { return *reinterpret_cast<volatile ID54*>(0x400C83E4); }
+  static inline volatile ID54 &ref() { return *reinterpret_cast<volatile ID54*>(0x400C83E4); }
 };
 
 // Message Buffer 14 WORD_16B Register
@@ -27637,7 +27637,7 @@ union MB14_16B_WORD3_H {
 
   MB14_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB14_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB14_16B_WORD3_H*>(0x400C83E4); }
+  static inline volatile MB14_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB14_16B_WORD3_H*>(0x400C83E4); }
 };
 
 // Message Buffer 4 WORD_64B Register
@@ -27660,7 +27660,7 @@ union MB4_64B_WORD15_H {
 
   MB4_64B_WORD15_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB4_64B_WORD15_H &Instance() { return *reinterpret_cast<volatile MB4_64B_WORD15_H*>(0x400C83E4); }
+  static inline volatile MB4_64B_WORD15_H &ref() { return *reinterpret_cast<volatile MB4_64B_WORD15_H*>(0x400C83E4); }
 };
 
 // Message Buffer 54 ID Register
@@ -27681,7 +27681,7 @@ union MB54_8B_ID {
 
   MB54_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB54_8B_ID &Instance() { return *reinterpret_cast<volatile MB54_8B_ID*>(0x400C83E4); }
+  static inline volatile MB54_8B_ID &ref() { return *reinterpret_cast<volatile MB54_8B_ID*>(0x400C83E4); }
 };
 
 // Message Buffer 8 WORD_32B Register
@@ -27704,7 +27704,7 @@ union MB8_32B_WORD7_H {
 
   MB8_32B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB8_32B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB8_32B_WORD7_H*>(0x400C83E4); }
+  static inline volatile MB8_32B_WORD7_H &ref() { return *reinterpret_cast<volatile MB8_32B_WORD7_H*>(0x400C83E4); }
 };
 
 // Message Buffer 15 CS Register
@@ -27739,7 +27739,7 @@ union MB15_16B_CS_H {
 
   MB15_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB15_16B_CS_H*>(0x400C83E8); }
+  static inline volatile MB15_16B_CS_H &ref() { return *reinterpret_cast<volatile MB15_16B_CS_H*>(0x400C83E8); }
 };
 
 // Message Buffer 54 WORD_8B Register
@@ -27762,7 +27762,7 @@ union MB54_8B_WORD0 {
 
   MB54_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB54_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB54_8B_WORD0*>(0x400C83E8); }
+  static inline volatile MB54_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB54_8B_WORD0*>(0x400C83E8); }
 };
 
 // Message Buffer 5 CS Register
@@ -27797,7 +27797,7 @@ union MB5_64B_CS_H {
 
   MB5_64B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_CS_H &Instance() { return *reinterpret_cast<volatile MB5_64B_CS_H*>(0x400C83E8); }
+  static inline volatile MB5_64B_CS_H &ref() { return *reinterpret_cast<volatile MB5_64B_CS_H*>(0x400C83E8); }
 };
 
 // Message Buffer 9 CS Register
@@ -27832,7 +27832,7 @@ union MB9_32B_CS_H {
 
   MB9_32B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_CS_H &Instance() { return *reinterpret_cast<volatile MB9_32B_CS_H*>(0x400C83E8); }
+  static inline volatile MB9_32B_CS_H &ref() { return *reinterpret_cast<volatile MB9_32B_CS_H*>(0x400C83E8); }
 };
 
 // Message Buffer 54 WORD0 Register
@@ -27855,7 +27855,7 @@ union WORD054 {
 
   WORD054() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD054 &Instance() { return *reinterpret_cast<volatile WORD054*>(0x400C83E8); }
+  static inline volatile WORD054 &ref() { return *reinterpret_cast<volatile WORD054*>(0x400C83E8); }
 };
 
 // Message Buffer 15 ID Register
@@ -27876,7 +27876,7 @@ union MB15_16B_ID_H {
 
   MB15_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB15_16B_ID_H*>(0x400C83EC); }
+  static inline volatile MB15_16B_ID_H &ref() { return *reinterpret_cast<volatile MB15_16B_ID_H*>(0x400C83EC); }
 };
 
 // Message Buffer 54 WORD_8B Register
@@ -27899,7 +27899,7 @@ union MB54_8B_WORD1 {
 
   MB54_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB54_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB54_8B_WORD1*>(0x400C83EC); }
+  static inline volatile MB54_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB54_8B_WORD1*>(0x400C83EC); }
 };
 
 // Message Buffer 5 ID Register
@@ -27920,7 +27920,7 @@ union MB5_64B_ID_H {
 
   MB5_64B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_ID_H &Instance() { return *reinterpret_cast<volatile MB5_64B_ID_H*>(0x400C83EC); }
+  static inline volatile MB5_64B_ID_H &ref() { return *reinterpret_cast<volatile MB5_64B_ID_H*>(0x400C83EC); }
 };
 
 // Message Buffer 9 ID Register
@@ -27941,7 +27941,7 @@ union MB9_32B_ID_H {
 
   MB9_32B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_ID_H &Instance() { return *reinterpret_cast<volatile MB9_32B_ID_H*>(0x400C83EC); }
+  static inline volatile MB9_32B_ID_H &ref() { return *reinterpret_cast<volatile MB9_32B_ID_H*>(0x400C83EC); }
 };
 
 // Message Buffer 54 WORD1 Register
@@ -27964,7 +27964,7 @@ union WORD154 {
 
   WORD154() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD154 &Instance() { return *reinterpret_cast<volatile WORD154*>(0x400C83EC); }
+  static inline volatile WORD154 &ref() { return *reinterpret_cast<volatile WORD154*>(0x400C83EC); }
 };
 
 // Message Buffer 55 CS Register
@@ -27999,7 +27999,7 @@ union CS55 {
 
   CS55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS55 &Instance() { return *reinterpret_cast<volatile CS55*>(0x400C83F0); }
+  static inline volatile CS55 &ref() { return *reinterpret_cast<volatile CS55*>(0x400C83F0); }
 };
 
 // Message Buffer 15 WORD_16B Register
@@ -28022,7 +28022,7 @@ union MB15_16B_WORD0_H {
 
   MB15_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB15_16B_WORD0_H*>(0x400C83F0); }
+  static inline volatile MB15_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB15_16B_WORD0_H*>(0x400C83F0); }
 };
 
 // Message Buffer 55 CS Register
@@ -28057,7 +28057,7 @@ union MB55_8B_CS {
 
   MB55_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB55_8B_CS &Instance() { return *reinterpret_cast<volatile MB55_8B_CS*>(0x400C83F0); }
+  static inline volatile MB55_8B_CS &ref() { return *reinterpret_cast<volatile MB55_8B_CS*>(0x400C83F0); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -28080,7 +28080,7 @@ union MB5_64B_WORD0_H {
 
   MB5_64B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD0_H*>(0x400C83F0); }
+  static inline volatile MB5_64B_WORD0_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD0_H*>(0x400C83F0); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -28103,7 +28103,7 @@ union MB9_32B_WORD0_H {
 
   MB9_32B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD0_H*>(0x400C83F0); }
+  static inline volatile MB9_32B_WORD0_H &ref() { return *reinterpret_cast<volatile MB9_32B_WORD0_H*>(0x400C83F0); }
 };
 
 // Message Buffer 55 ID Register
@@ -28124,7 +28124,7 @@ union ID55 {
 
   ID55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID55 &Instance() { return *reinterpret_cast<volatile ID55*>(0x400C83F4); }
+  static inline volatile ID55 &ref() { return *reinterpret_cast<volatile ID55*>(0x400C83F4); }
 };
 
 // Message Buffer 15 WORD_16B Register
@@ -28147,7 +28147,7 @@ union MB15_16B_WORD1_H {
 
   MB15_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB15_16B_WORD1_H*>(0x400C83F4); }
+  static inline volatile MB15_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB15_16B_WORD1_H*>(0x400C83F4); }
 };
 
 // Message Buffer 55 ID Register
@@ -28168,7 +28168,7 @@ union MB55_8B_ID {
 
   MB55_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB55_8B_ID &Instance() { return *reinterpret_cast<volatile MB55_8B_ID*>(0x400C83F4); }
+  static inline volatile MB55_8B_ID &ref() { return *reinterpret_cast<volatile MB55_8B_ID*>(0x400C83F4); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -28191,7 +28191,7 @@ union MB5_64B_WORD1_H {
 
   MB5_64B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD1_H*>(0x400C83F4); }
+  static inline volatile MB5_64B_WORD1_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD1_H*>(0x400C83F4); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -28214,7 +28214,7 @@ union MB9_32B_WORD1_H {
 
   MB9_32B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD1_H*>(0x400C83F4); }
+  static inline volatile MB9_32B_WORD1_H &ref() { return *reinterpret_cast<volatile MB9_32B_WORD1_H*>(0x400C83F4); }
 };
 
 // Message Buffer 15 WORD_16B Register
@@ -28237,7 +28237,7 @@ union MB15_16B_WORD2_H {
 
   MB15_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB15_16B_WORD2_H*>(0x400C83F8); }
+  static inline volatile MB15_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB15_16B_WORD2_H*>(0x400C83F8); }
 };
 
 // Message Buffer 55 WORD_8B Register
@@ -28260,7 +28260,7 @@ union MB55_8B_WORD0 {
 
   MB55_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB55_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB55_8B_WORD0*>(0x400C83F8); }
+  static inline volatile MB55_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB55_8B_WORD0*>(0x400C83F8); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -28283,7 +28283,7 @@ union MB5_64B_WORD2_H {
 
   MB5_64B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD2_H*>(0x400C83F8); }
+  static inline volatile MB5_64B_WORD2_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD2_H*>(0x400C83F8); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -28306,7 +28306,7 @@ union MB9_32B_WORD2_H {
 
   MB9_32B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD2_H*>(0x400C83F8); }
+  static inline volatile MB9_32B_WORD2_H &ref() { return *reinterpret_cast<volatile MB9_32B_WORD2_H*>(0x400C83F8); }
 };
 
 // Message Buffer 55 WORD0 Register
@@ -28329,7 +28329,7 @@ union WORD055 {
 
   WORD055() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD055 &Instance() { return *reinterpret_cast<volatile WORD055*>(0x400C83F8); }
+  static inline volatile WORD055 &ref() { return *reinterpret_cast<volatile WORD055*>(0x400C83F8); }
 };
 
 // Message Buffer 15 WORD_16B Register
@@ -28352,7 +28352,7 @@ union MB15_16B_WORD3_H {
 
   MB15_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB15_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB15_16B_WORD3_H*>(0x400C83FC); }
+  static inline volatile MB15_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB15_16B_WORD3_H*>(0x400C83FC); }
 };
 
 // Message Buffer 55 WORD_8B Register
@@ -28375,7 +28375,7 @@ union MB55_8B_WORD1 {
 
   MB55_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB55_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB55_8B_WORD1*>(0x400C83FC); }
+  static inline volatile MB55_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB55_8B_WORD1*>(0x400C83FC); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -28398,7 +28398,7 @@ union MB5_64B_WORD3_H {
 
   MB5_64B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD3_H*>(0x400C83FC); }
+  static inline volatile MB5_64B_WORD3_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD3_H*>(0x400C83FC); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -28421,7 +28421,7 @@ union MB9_32B_WORD3_H {
 
   MB9_32B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD3_H*>(0x400C83FC); }
+  static inline volatile MB9_32B_WORD3_H &ref() { return *reinterpret_cast<volatile MB9_32B_WORD3_H*>(0x400C83FC); }
 };
 
 // Message Buffer 55 WORD1 Register
@@ -28444,7 +28444,7 @@ union WORD155 {
 
   WORD155() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD155 &Instance() { return *reinterpret_cast<volatile WORD155*>(0x400C83FC); }
+  static inline volatile WORD155 &ref() { return *reinterpret_cast<volatile WORD155*>(0x400C83FC); }
 };
 
 // Message Buffer 56 CS Register
@@ -28479,7 +28479,7 @@ union CS56 {
 
   CS56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS56 &Instance() { return *reinterpret_cast<volatile CS56*>(0x400C8400); }
+  static inline volatile CS56 &ref() { return *reinterpret_cast<volatile CS56*>(0x400C8400); }
 };
 
 // Message Buffer 16 CS Register
@@ -28514,7 +28514,7 @@ union MB16_16B_CS_H {
 
   MB16_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB16_16B_CS_H*>(0x400C8400); }
+  static inline volatile MB16_16B_CS_H &ref() { return *reinterpret_cast<volatile MB16_16B_CS_H*>(0x400C8400); }
 };
 
 // Message Buffer 56 CS Register
@@ -28549,7 +28549,7 @@ union MB56_8B_CS {
 
   MB56_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB56_8B_CS &Instance() { return *reinterpret_cast<volatile MB56_8B_CS*>(0x400C8400); }
+  static inline volatile MB56_8B_CS &ref() { return *reinterpret_cast<volatile MB56_8B_CS*>(0x400C8400); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -28572,7 +28572,7 @@ union MB5_64B_WORD4_H {
 
   MB5_64B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD4_H*>(0x400C8400); }
+  static inline volatile MB5_64B_WORD4_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD4_H*>(0x400C8400); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -28595,7 +28595,7 @@ union MB9_32B_WORD4_H {
 
   MB9_32B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD4_H*>(0x400C8400); }
+  static inline volatile MB9_32B_WORD4_H &ref() { return *reinterpret_cast<volatile MB9_32B_WORD4_H*>(0x400C8400); }
 };
 
 // Message Buffer 56 ID Register
@@ -28616,7 +28616,7 @@ union ID56 {
 
   ID56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID56 &Instance() { return *reinterpret_cast<volatile ID56*>(0x400C8404); }
+  static inline volatile ID56 &ref() { return *reinterpret_cast<volatile ID56*>(0x400C8404); }
 };
 
 // Message Buffer 16 ID Register
@@ -28637,7 +28637,7 @@ union MB16_16B_ID_H {
 
   MB16_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB16_16B_ID_H*>(0x400C8404); }
+  static inline volatile MB16_16B_ID_H &ref() { return *reinterpret_cast<volatile MB16_16B_ID_H*>(0x400C8404); }
 };
 
 // Message Buffer 56 ID Register
@@ -28658,7 +28658,7 @@ union MB56_8B_ID {
 
   MB56_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB56_8B_ID &Instance() { return *reinterpret_cast<volatile MB56_8B_ID*>(0x400C8404); }
+  static inline volatile MB56_8B_ID &ref() { return *reinterpret_cast<volatile MB56_8B_ID*>(0x400C8404); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -28681,7 +28681,7 @@ union MB5_64B_WORD5_H {
 
   MB5_64B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD5_H*>(0x400C8404); }
+  static inline volatile MB5_64B_WORD5_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD5_H*>(0x400C8404); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -28704,7 +28704,7 @@ union MB9_32B_WORD5_H {
 
   MB9_32B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD5_H*>(0x400C8404); }
+  static inline volatile MB9_32B_WORD5_H &ref() { return *reinterpret_cast<volatile MB9_32B_WORD5_H*>(0x400C8404); }
 };
 
 // Message Buffer 16 WORD_16B Register
@@ -28727,7 +28727,7 @@ union MB16_16B_WORD0_H {
 
   MB16_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB16_16B_WORD0_H*>(0x400C8408); }
+  static inline volatile MB16_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB16_16B_WORD0_H*>(0x400C8408); }
 };
 
 // Message Buffer 56 WORD_8B Register
@@ -28750,7 +28750,7 @@ union MB56_8B_WORD0 {
 
   MB56_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB56_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB56_8B_WORD0*>(0x400C8408); }
+  static inline volatile MB56_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB56_8B_WORD0*>(0x400C8408); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -28773,7 +28773,7 @@ union MB5_64B_WORD6_H {
 
   MB5_64B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD6_H*>(0x400C8408); }
+  static inline volatile MB5_64B_WORD6_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD6_H*>(0x400C8408); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -28796,7 +28796,7 @@ union MB9_32B_WORD6_H {
 
   MB9_32B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD6_H*>(0x400C8408); }
+  static inline volatile MB9_32B_WORD6_H &ref() { return *reinterpret_cast<volatile MB9_32B_WORD6_H*>(0x400C8408); }
 };
 
 // Message Buffer 56 WORD0 Register
@@ -28819,7 +28819,7 @@ union WORD056 {
 
   WORD056() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD056 &Instance() { return *reinterpret_cast<volatile WORD056*>(0x400C8408); }
+  static inline volatile WORD056 &ref() { return *reinterpret_cast<volatile WORD056*>(0x400C8408); }
 };
 
 // Message Buffer 16 WORD_16B Register
@@ -28842,7 +28842,7 @@ union MB16_16B_WORD1_H {
 
   MB16_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB16_16B_WORD1_H*>(0x400C840C); }
+  static inline volatile MB16_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB16_16B_WORD1_H*>(0x400C840C); }
 };
 
 // Message Buffer 56 WORD_8B Register
@@ -28865,7 +28865,7 @@ union MB56_8B_WORD1 {
 
   MB56_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB56_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB56_8B_WORD1*>(0x400C840C); }
+  static inline volatile MB56_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB56_8B_WORD1*>(0x400C840C); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -28888,7 +28888,7 @@ union MB5_64B_WORD7_H {
 
   MB5_64B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD7_H*>(0x400C840C); }
+  static inline volatile MB5_64B_WORD7_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD7_H*>(0x400C840C); }
 };
 
 // Message Buffer 9 WORD_32B Register
@@ -28911,7 +28911,7 @@ union MB9_32B_WORD7_H {
 
   MB9_32B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB9_32B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB9_32B_WORD7_H*>(0x400C840C); }
+  static inline volatile MB9_32B_WORD7_H &ref() { return *reinterpret_cast<volatile MB9_32B_WORD7_H*>(0x400C840C); }
 };
 
 // Message Buffer 56 WORD1 Register
@@ -28934,7 +28934,7 @@ union WORD156 {
 
   WORD156() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD156 &Instance() { return *reinterpret_cast<volatile WORD156*>(0x400C840C); }
+  static inline volatile WORD156 &ref() { return *reinterpret_cast<volatile WORD156*>(0x400C840C); }
 };
 
 // Message Buffer 57 CS Register
@@ -28969,7 +28969,7 @@ union CS57 {
 
   CS57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS57 &Instance() { return *reinterpret_cast<volatile CS57*>(0x400C8410); }
+  static inline volatile CS57 &ref() { return *reinterpret_cast<volatile CS57*>(0x400C8410); }
 };
 
 // Message Buffer 10 CS Register
@@ -29004,7 +29004,7 @@ union MB10_32B_CS_H {
 
   MB10_32B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_CS_H &Instance() { return *reinterpret_cast<volatile MB10_32B_CS_H*>(0x400C8410); }
+  static inline volatile MB10_32B_CS_H &ref() { return *reinterpret_cast<volatile MB10_32B_CS_H*>(0x400C8410); }
 };
 
 // Message Buffer 16 WORD_16B Register
@@ -29027,7 +29027,7 @@ union MB16_16B_WORD2_H {
 
   MB16_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB16_16B_WORD2_H*>(0x400C8410); }
+  static inline volatile MB16_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB16_16B_WORD2_H*>(0x400C8410); }
 };
 
 // Message Buffer 57 CS Register
@@ -29062,7 +29062,7 @@ union MB57_8B_CS {
 
   MB57_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB57_8B_CS &Instance() { return *reinterpret_cast<volatile MB57_8B_CS*>(0x400C8410); }
+  static inline volatile MB57_8B_CS &ref() { return *reinterpret_cast<volatile MB57_8B_CS*>(0x400C8410); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -29085,7 +29085,7 @@ union MB5_64B_WORD8_H {
 
   MB5_64B_WORD8_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD8_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD8_H*>(0x400C8410); }
+  static inline volatile MB5_64B_WORD8_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD8_H*>(0x400C8410); }
 };
 
 // Message Buffer 57 ID Register
@@ -29106,7 +29106,7 @@ union ID57 {
 
   ID57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID57 &Instance() { return *reinterpret_cast<volatile ID57*>(0x400C8414); }
+  static inline volatile ID57 &ref() { return *reinterpret_cast<volatile ID57*>(0x400C8414); }
 };
 
 // Message Buffer 10 ID Register
@@ -29127,7 +29127,7 @@ union MB10_32B_ID_H {
 
   MB10_32B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_ID_H &Instance() { return *reinterpret_cast<volatile MB10_32B_ID_H*>(0x400C8414); }
+  static inline volatile MB10_32B_ID_H &ref() { return *reinterpret_cast<volatile MB10_32B_ID_H*>(0x400C8414); }
 };
 
 // Message Buffer 16 WORD_16B Register
@@ -29150,7 +29150,7 @@ union MB16_16B_WORD3_H {
 
   MB16_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB16_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB16_16B_WORD3_H*>(0x400C8414); }
+  static inline volatile MB16_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB16_16B_WORD3_H*>(0x400C8414); }
 };
 
 // Message Buffer 57 ID Register
@@ -29171,7 +29171,7 @@ union MB57_8B_ID {
 
   MB57_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB57_8B_ID &Instance() { return *reinterpret_cast<volatile MB57_8B_ID*>(0x400C8414); }
+  static inline volatile MB57_8B_ID &ref() { return *reinterpret_cast<volatile MB57_8B_ID*>(0x400C8414); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -29194,7 +29194,7 @@ union MB5_64B_WORD9_H {
 
   MB5_64B_WORD9_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD9_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD9_H*>(0x400C8414); }
+  static inline volatile MB5_64B_WORD9_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD9_H*>(0x400C8414); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -29217,7 +29217,7 @@ union MB10_32B_WORD0_H {
 
   MB10_32B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD0_H*>(0x400C8418); }
+  static inline volatile MB10_32B_WORD0_H &ref() { return *reinterpret_cast<volatile MB10_32B_WORD0_H*>(0x400C8418); }
 };
 
 // Message Buffer 17 CS Register
@@ -29252,7 +29252,7 @@ union MB17_16B_CS_H {
 
   MB17_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB17_16B_CS_H*>(0x400C8418); }
+  static inline volatile MB17_16B_CS_H &ref() { return *reinterpret_cast<volatile MB17_16B_CS_H*>(0x400C8418); }
 };
 
 // Message Buffer 57 WORD_8B Register
@@ -29275,7 +29275,7 @@ union MB57_8B_WORD0 {
 
   MB57_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB57_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB57_8B_WORD0*>(0x400C8418); }
+  static inline volatile MB57_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB57_8B_WORD0*>(0x400C8418); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -29298,7 +29298,7 @@ union MB5_64B_WORD10_H {
 
   MB5_64B_WORD10_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD10_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD10_H*>(0x400C8418); }
+  static inline volatile MB5_64B_WORD10_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD10_H*>(0x400C8418); }
 };
 
 // Message Buffer 57 WORD0 Register
@@ -29321,7 +29321,7 @@ union WORD057 {
 
   WORD057() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD057 &Instance() { return *reinterpret_cast<volatile WORD057*>(0x400C8418); }
+  static inline volatile WORD057 &ref() { return *reinterpret_cast<volatile WORD057*>(0x400C8418); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -29344,7 +29344,7 @@ union MB10_32B_WORD1_H {
 
   MB10_32B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD1_H*>(0x400C841C); }
+  static inline volatile MB10_32B_WORD1_H &ref() { return *reinterpret_cast<volatile MB10_32B_WORD1_H*>(0x400C841C); }
 };
 
 // Message Buffer 17 ID Register
@@ -29365,7 +29365,7 @@ union MB17_16B_ID_H {
 
   MB17_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB17_16B_ID_H*>(0x400C841C); }
+  static inline volatile MB17_16B_ID_H &ref() { return *reinterpret_cast<volatile MB17_16B_ID_H*>(0x400C841C); }
 };
 
 // Message Buffer 57 WORD_8B Register
@@ -29388,7 +29388,7 @@ union MB57_8B_WORD1 {
 
   MB57_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB57_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB57_8B_WORD1*>(0x400C841C); }
+  static inline volatile MB57_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB57_8B_WORD1*>(0x400C841C); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -29411,7 +29411,7 @@ union MB5_64B_WORD11_H {
 
   MB5_64B_WORD11_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD11_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD11_H*>(0x400C841C); }
+  static inline volatile MB5_64B_WORD11_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD11_H*>(0x400C841C); }
 };
 
 // Message Buffer 57 WORD1 Register
@@ -29434,7 +29434,7 @@ union WORD157 {
 
   WORD157() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD157 &Instance() { return *reinterpret_cast<volatile WORD157*>(0x400C841C); }
+  static inline volatile WORD157 &ref() { return *reinterpret_cast<volatile WORD157*>(0x400C841C); }
 };
 
 // Message Buffer 58 CS Register
@@ -29469,7 +29469,7 @@ union CS58 {
 
   CS58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS58 &Instance() { return *reinterpret_cast<volatile CS58*>(0x400C8420); }
+  static inline volatile CS58 &ref() { return *reinterpret_cast<volatile CS58*>(0x400C8420); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -29492,7 +29492,7 @@ union MB10_32B_WORD2_H {
 
   MB10_32B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD2_H*>(0x400C8420); }
+  static inline volatile MB10_32B_WORD2_H &ref() { return *reinterpret_cast<volatile MB10_32B_WORD2_H*>(0x400C8420); }
 };
 
 // Message Buffer 17 WORD_16B Register
@@ -29515,7 +29515,7 @@ union MB17_16B_WORD0_H {
 
   MB17_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB17_16B_WORD0_H*>(0x400C8420); }
+  static inline volatile MB17_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB17_16B_WORD0_H*>(0x400C8420); }
 };
 
 // Message Buffer 58 CS Register
@@ -29550,7 +29550,7 @@ union MB58_8B_CS {
 
   MB58_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB58_8B_CS &Instance() { return *reinterpret_cast<volatile MB58_8B_CS*>(0x400C8420); }
+  static inline volatile MB58_8B_CS &ref() { return *reinterpret_cast<volatile MB58_8B_CS*>(0x400C8420); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -29573,7 +29573,7 @@ union MB5_64B_WORD12_H {
 
   MB5_64B_WORD12_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD12_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD12_H*>(0x400C8420); }
+  static inline volatile MB5_64B_WORD12_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD12_H*>(0x400C8420); }
 };
 
 // Message Buffer 58 ID Register
@@ -29594,7 +29594,7 @@ union ID58 {
 
   ID58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID58 &Instance() { return *reinterpret_cast<volatile ID58*>(0x400C8424); }
+  static inline volatile ID58 &ref() { return *reinterpret_cast<volatile ID58*>(0x400C8424); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -29617,7 +29617,7 @@ union MB10_32B_WORD3_H {
 
   MB10_32B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD3_H*>(0x400C8424); }
+  static inline volatile MB10_32B_WORD3_H &ref() { return *reinterpret_cast<volatile MB10_32B_WORD3_H*>(0x400C8424); }
 };
 
 // Message Buffer 17 WORD_16B Register
@@ -29640,7 +29640,7 @@ union MB17_16B_WORD1_H {
 
   MB17_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB17_16B_WORD1_H*>(0x400C8424); }
+  static inline volatile MB17_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB17_16B_WORD1_H*>(0x400C8424); }
 };
 
 // Message Buffer 58 ID Register
@@ -29661,7 +29661,7 @@ union MB58_8B_ID {
 
   MB58_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB58_8B_ID &Instance() { return *reinterpret_cast<volatile MB58_8B_ID*>(0x400C8424); }
+  static inline volatile MB58_8B_ID &ref() { return *reinterpret_cast<volatile MB58_8B_ID*>(0x400C8424); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -29684,7 +29684,7 @@ union MB5_64B_WORD13_H {
 
   MB5_64B_WORD13_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD13_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD13_H*>(0x400C8424); }
+  static inline volatile MB5_64B_WORD13_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD13_H*>(0x400C8424); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -29707,7 +29707,7 @@ union MB10_32B_WORD4_H {
 
   MB10_32B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD4_H*>(0x400C8428); }
+  static inline volatile MB10_32B_WORD4_H &ref() { return *reinterpret_cast<volatile MB10_32B_WORD4_H*>(0x400C8428); }
 };
 
 // Message Buffer 17 WORD_16B Register
@@ -29730,7 +29730,7 @@ union MB17_16B_WORD2_H {
 
   MB17_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB17_16B_WORD2_H*>(0x400C8428); }
+  static inline volatile MB17_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB17_16B_WORD2_H*>(0x400C8428); }
 };
 
 // Message Buffer 58 WORD_8B Register
@@ -29753,7 +29753,7 @@ union MB58_8B_WORD0 {
 
   MB58_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB58_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB58_8B_WORD0*>(0x400C8428); }
+  static inline volatile MB58_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB58_8B_WORD0*>(0x400C8428); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -29776,7 +29776,7 @@ union MB5_64B_WORD14_H {
 
   MB5_64B_WORD14_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD14_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD14_H*>(0x400C8428); }
+  static inline volatile MB5_64B_WORD14_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD14_H*>(0x400C8428); }
 };
 
 // Message Buffer 58 WORD0 Register
@@ -29799,7 +29799,7 @@ union WORD058 {
 
   WORD058() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD058 &Instance() { return *reinterpret_cast<volatile WORD058*>(0x400C8428); }
+  static inline volatile WORD058 &ref() { return *reinterpret_cast<volatile WORD058*>(0x400C8428); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -29822,7 +29822,7 @@ union MB10_32B_WORD5_H {
 
   MB10_32B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD5_H*>(0x400C842C); }
+  static inline volatile MB10_32B_WORD5_H &ref() { return *reinterpret_cast<volatile MB10_32B_WORD5_H*>(0x400C842C); }
 };
 
 // Message Buffer 17 WORD_16B Register
@@ -29845,7 +29845,7 @@ union MB17_16B_WORD3_H {
 
   MB17_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB17_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB17_16B_WORD3_H*>(0x400C842C); }
+  static inline volatile MB17_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB17_16B_WORD3_H*>(0x400C842C); }
 };
 
 // Message Buffer 58 WORD_8B Register
@@ -29868,7 +29868,7 @@ union MB58_8B_WORD1 {
 
   MB58_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB58_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB58_8B_WORD1*>(0x400C842C); }
+  static inline volatile MB58_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB58_8B_WORD1*>(0x400C842C); }
 };
 
 // Message Buffer 5 WORD_64B Register
@@ -29891,7 +29891,7 @@ union MB5_64B_WORD15_H {
 
   MB5_64B_WORD15_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB5_64B_WORD15_H &Instance() { return *reinterpret_cast<volatile MB5_64B_WORD15_H*>(0x400C842C); }
+  static inline volatile MB5_64B_WORD15_H &ref() { return *reinterpret_cast<volatile MB5_64B_WORD15_H*>(0x400C842C); }
 };
 
 // Message Buffer 58 WORD1 Register
@@ -29914,7 +29914,7 @@ union WORD158 {
 
   WORD158() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD158 &Instance() { return *reinterpret_cast<volatile WORD158*>(0x400C842C); }
+  static inline volatile WORD158 &ref() { return *reinterpret_cast<volatile WORD158*>(0x400C842C); }
 };
 
 // Message Buffer 59 CS Register
@@ -29949,7 +29949,7 @@ union CS59 {
 
   CS59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS59 &Instance() { return *reinterpret_cast<volatile CS59*>(0x400C8430); }
+  static inline volatile CS59 &ref() { return *reinterpret_cast<volatile CS59*>(0x400C8430); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -29972,7 +29972,7 @@ union MB10_32B_WORD6_H {
 
   MB10_32B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD6_H*>(0x400C8430); }
+  static inline volatile MB10_32B_WORD6_H &ref() { return *reinterpret_cast<volatile MB10_32B_WORD6_H*>(0x400C8430); }
 };
 
 // Message Buffer 18 CS Register
@@ -30007,7 +30007,7 @@ union MB18_16B_CS_H {
 
   MB18_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB18_16B_CS_H*>(0x400C8430); }
+  static inline volatile MB18_16B_CS_H &ref() { return *reinterpret_cast<volatile MB18_16B_CS_H*>(0x400C8430); }
 };
 
 // Message Buffer 59 CS Register
@@ -30042,7 +30042,7 @@ union MB59_8B_CS {
 
   MB59_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB59_8B_CS &Instance() { return *reinterpret_cast<volatile MB59_8B_CS*>(0x400C8430); }
+  static inline volatile MB59_8B_CS &ref() { return *reinterpret_cast<volatile MB59_8B_CS*>(0x400C8430); }
 };
 
 // Message Buffer 6 CS Register
@@ -30077,7 +30077,7 @@ union MB6_64B_CS_H {
 
   MB6_64B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_CS_H &Instance() { return *reinterpret_cast<volatile MB6_64B_CS_H*>(0x400C8430); }
+  static inline volatile MB6_64B_CS_H &ref() { return *reinterpret_cast<volatile MB6_64B_CS_H*>(0x400C8430); }
 };
 
 // Message Buffer 59 ID Register
@@ -30098,7 +30098,7 @@ union ID59 {
 
   ID59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID59 &Instance() { return *reinterpret_cast<volatile ID59*>(0x400C8434); }
+  static inline volatile ID59 &ref() { return *reinterpret_cast<volatile ID59*>(0x400C8434); }
 };
 
 // Message Buffer 10 WORD_32B Register
@@ -30121,7 +30121,7 @@ union MB10_32B_WORD7_H {
 
   MB10_32B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB10_32B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB10_32B_WORD7_H*>(0x400C8434); }
+  static inline volatile MB10_32B_WORD7_H &ref() { return *reinterpret_cast<volatile MB10_32B_WORD7_H*>(0x400C8434); }
 };
 
 // Message Buffer 18 ID Register
@@ -30142,7 +30142,7 @@ union MB18_16B_ID_H {
 
   MB18_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB18_16B_ID_H*>(0x400C8434); }
+  static inline volatile MB18_16B_ID_H &ref() { return *reinterpret_cast<volatile MB18_16B_ID_H*>(0x400C8434); }
 };
 
 // Message Buffer 59 ID Register
@@ -30163,7 +30163,7 @@ union MB59_8B_ID {
 
   MB59_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB59_8B_ID &Instance() { return *reinterpret_cast<volatile MB59_8B_ID*>(0x400C8434); }
+  static inline volatile MB59_8B_ID &ref() { return *reinterpret_cast<volatile MB59_8B_ID*>(0x400C8434); }
 };
 
 // Message Buffer 6 ID Register
@@ -30184,7 +30184,7 @@ union MB6_64B_ID_H {
 
   MB6_64B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_ID_H &Instance() { return *reinterpret_cast<volatile MB6_64B_ID_H*>(0x400C8434); }
+  static inline volatile MB6_64B_ID_H &ref() { return *reinterpret_cast<volatile MB6_64B_ID_H*>(0x400C8434); }
 };
 
 // Message Buffer 11 CS Register
@@ -30219,7 +30219,7 @@ union MB11_32B_CS_H {
 
   MB11_32B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_CS_H &Instance() { return *reinterpret_cast<volatile MB11_32B_CS_H*>(0x400C8438); }
+  static inline volatile MB11_32B_CS_H &ref() { return *reinterpret_cast<volatile MB11_32B_CS_H*>(0x400C8438); }
 };
 
 // Message Buffer 18 WORD_16B Register
@@ -30242,7 +30242,7 @@ union MB18_16B_WORD0_H {
 
   MB18_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB18_16B_WORD0_H*>(0x400C8438); }
+  static inline volatile MB18_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB18_16B_WORD0_H*>(0x400C8438); }
 };
 
 // Message Buffer 59 WORD_8B Register
@@ -30265,7 +30265,7 @@ union MB59_8B_WORD0 {
 
   MB59_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB59_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB59_8B_WORD0*>(0x400C8438); }
+  static inline volatile MB59_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB59_8B_WORD0*>(0x400C8438); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -30288,7 +30288,7 @@ union MB6_64B_WORD0_H {
 
   MB6_64B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD0_H*>(0x400C8438); }
+  static inline volatile MB6_64B_WORD0_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD0_H*>(0x400C8438); }
 };
 
 // Message Buffer 59 WORD0 Register
@@ -30311,7 +30311,7 @@ union WORD059 {
 
   WORD059() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD059 &Instance() { return *reinterpret_cast<volatile WORD059*>(0x400C8438); }
+  static inline volatile WORD059 &ref() { return *reinterpret_cast<volatile WORD059*>(0x400C8438); }
 };
 
 // Message Buffer 11 ID Register
@@ -30332,7 +30332,7 @@ union MB11_32B_ID_H {
 
   MB11_32B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_ID_H &Instance() { return *reinterpret_cast<volatile MB11_32B_ID_H*>(0x400C843C); }
+  static inline volatile MB11_32B_ID_H &ref() { return *reinterpret_cast<volatile MB11_32B_ID_H*>(0x400C843C); }
 };
 
 // Message Buffer 18 WORD_16B Register
@@ -30355,7 +30355,7 @@ union MB18_16B_WORD1_H {
 
   MB18_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB18_16B_WORD1_H*>(0x400C843C); }
+  static inline volatile MB18_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB18_16B_WORD1_H*>(0x400C843C); }
 };
 
 // Message Buffer 59 WORD_8B Register
@@ -30378,7 +30378,7 @@ union MB59_8B_WORD1 {
 
   MB59_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB59_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB59_8B_WORD1*>(0x400C843C); }
+  static inline volatile MB59_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB59_8B_WORD1*>(0x400C843C); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -30401,7 +30401,7 @@ union MB6_64B_WORD1_H {
 
   MB6_64B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD1_H*>(0x400C843C); }
+  static inline volatile MB6_64B_WORD1_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD1_H*>(0x400C843C); }
 };
 
 // Message Buffer 59 WORD1 Register
@@ -30424,7 +30424,7 @@ union WORD159 {
 
   WORD159() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD159 &Instance() { return *reinterpret_cast<volatile WORD159*>(0x400C843C); }
+  static inline volatile WORD159 &ref() { return *reinterpret_cast<volatile WORD159*>(0x400C843C); }
 };
 
 // Message Buffer 60 CS Register
@@ -30459,7 +30459,7 @@ union CS60 {
 
   CS60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS60 &Instance() { return *reinterpret_cast<volatile CS60*>(0x400C8440); }
+  static inline volatile CS60 &ref() { return *reinterpret_cast<volatile CS60*>(0x400C8440); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -30482,7 +30482,7 @@ union MB11_32B_WORD0_H {
 
   MB11_32B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD0_H*>(0x400C8440); }
+  static inline volatile MB11_32B_WORD0_H &ref() { return *reinterpret_cast<volatile MB11_32B_WORD0_H*>(0x400C8440); }
 };
 
 // Message Buffer 18 WORD_16B Register
@@ -30505,7 +30505,7 @@ union MB18_16B_WORD2_H {
 
   MB18_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB18_16B_WORD2_H*>(0x400C8440); }
+  static inline volatile MB18_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB18_16B_WORD2_H*>(0x400C8440); }
 };
 
 // Message Buffer 60 CS Register
@@ -30540,7 +30540,7 @@ union MB60_8B_CS {
 
   MB60_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB60_8B_CS &Instance() { return *reinterpret_cast<volatile MB60_8B_CS*>(0x400C8440); }
+  static inline volatile MB60_8B_CS &ref() { return *reinterpret_cast<volatile MB60_8B_CS*>(0x400C8440); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -30563,7 +30563,7 @@ union MB6_64B_WORD2_H {
 
   MB6_64B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD2_H*>(0x400C8440); }
+  static inline volatile MB6_64B_WORD2_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD2_H*>(0x400C8440); }
 };
 
 // Message Buffer 60 ID Register
@@ -30584,7 +30584,7 @@ union ID60 {
 
   ID60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID60 &Instance() { return *reinterpret_cast<volatile ID60*>(0x400C8444); }
+  static inline volatile ID60 &ref() { return *reinterpret_cast<volatile ID60*>(0x400C8444); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -30607,7 +30607,7 @@ union MB11_32B_WORD1_H {
 
   MB11_32B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD1_H*>(0x400C8444); }
+  static inline volatile MB11_32B_WORD1_H &ref() { return *reinterpret_cast<volatile MB11_32B_WORD1_H*>(0x400C8444); }
 };
 
 // Message Buffer 18 WORD_16B Register
@@ -30630,7 +30630,7 @@ union MB18_16B_WORD3_H {
 
   MB18_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB18_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB18_16B_WORD3_H*>(0x400C8444); }
+  static inline volatile MB18_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB18_16B_WORD3_H*>(0x400C8444); }
 };
 
 // Message Buffer 60 ID Register
@@ -30651,7 +30651,7 @@ union MB60_8B_ID {
 
   MB60_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB60_8B_ID &Instance() { return *reinterpret_cast<volatile MB60_8B_ID*>(0x400C8444); }
+  static inline volatile MB60_8B_ID &ref() { return *reinterpret_cast<volatile MB60_8B_ID*>(0x400C8444); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -30674,7 +30674,7 @@ union MB6_64B_WORD3_H {
 
   MB6_64B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD3_H*>(0x400C8444); }
+  static inline volatile MB6_64B_WORD3_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD3_H*>(0x400C8444); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -30697,7 +30697,7 @@ union MB11_32B_WORD2_H {
 
   MB11_32B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD2_H*>(0x400C8448); }
+  static inline volatile MB11_32B_WORD2_H &ref() { return *reinterpret_cast<volatile MB11_32B_WORD2_H*>(0x400C8448); }
 };
 
 // Message Buffer 19 CS Register
@@ -30732,7 +30732,7 @@ union MB19_16B_CS_H {
 
   MB19_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB19_16B_CS_H*>(0x400C8448); }
+  static inline volatile MB19_16B_CS_H &ref() { return *reinterpret_cast<volatile MB19_16B_CS_H*>(0x400C8448); }
 };
 
 // Message Buffer 60 WORD_8B Register
@@ -30755,7 +30755,7 @@ union MB60_8B_WORD0 {
 
   MB60_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB60_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB60_8B_WORD0*>(0x400C8448); }
+  static inline volatile MB60_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB60_8B_WORD0*>(0x400C8448); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -30778,7 +30778,7 @@ union MB6_64B_WORD4_H {
 
   MB6_64B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD4_H*>(0x400C8448); }
+  static inline volatile MB6_64B_WORD4_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD4_H*>(0x400C8448); }
 };
 
 // Message Buffer 60 WORD0 Register
@@ -30801,7 +30801,7 @@ union WORD060 {
 
   WORD060() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD060 &Instance() { return *reinterpret_cast<volatile WORD060*>(0x400C8448); }
+  static inline volatile WORD060 &ref() { return *reinterpret_cast<volatile WORD060*>(0x400C8448); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -30824,7 +30824,7 @@ union MB11_32B_WORD3_H {
 
   MB11_32B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD3_H*>(0x400C844C); }
+  static inline volatile MB11_32B_WORD3_H &ref() { return *reinterpret_cast<volatile MB11_32B_WORD3_H*>(0x400C844C); }
 };
 
 // Message Buffer 19 ID Register
@@ -30845,7 +30845,7 @@ union MB19_16B_ID_H {
 
   MB19_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB19_16B_ID_H*>(0x400C844C); }
+  static inline volatile MB19_16B_ID_H &ref() { return *reinterpret_cast<volatile MB19_16B_ID_H*>(0x400C844C); }
 };
 
 // Message Buffer 60 WORD_8B Register
@@ -30868,7 +30868,7 @@ union MB60_8B_WORD1 {
 
   MB60_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB60_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB60_8B_WORD1*>(0x400C844C); }
+  static inline volatile MB60_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB60_8B_WORD1*>(0x400C844C); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -30891,7 +30891,7 @@ union MB6_64B_WORD5_H {
 
   MB6_64B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD5_H*>(0x400C844C); }
+  static inline volatile MB6_64B_WORD5_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD5_H*>(0x400C844C); }
 };
 
 // Message Buffer 60 WORD1 Register
@@ -30914,7 +30914,7 @@ union WORD160 {
 
   WORD160() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD160 &Instance() { return *reinterpret_cast<volatile WORD160*>(0x400C844C); }
+  static inline volatile WORD160 &ref() { return *reinterpret_cast<volatile WORD160*>(0x400C844C); }
 };
 
 // Message Buffer 61 CS Register
@@ -30949,7 +30949,7 @@ union CS61 {
 
   CS61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS61 &Instance() { return *reinterpret_cast<volatile CS61*>(0x400C8450); }
+  static inline volatile CS61 &ref() { return *reinterpret_cast<volatile CS61*>(0x400C8450); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -30972,7 +30972,7 @@ union MB11_32B_WORD4_H {
 
   MB11_32B_WORD4_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD4_H &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD4_H*>(0x400C8450); }
+  static inline volatile MB11_32B_WORD4_H &ref() { return *reinterpret_cast<volatile MB11_32B_WORD4_H*>(0x400C8450); }
 };
 
 // Message Buffer 19 WORD_16B Register
@@ -30995,7 +30995,7 @@ union MB19_16B_WORD0_H {
 
   MB19_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB19_16B_WORD0_H*>(0x400C8450); }
+  static inline volatile MB19_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB19_16B_WORD0_H*>(0x400C8450); }
 };
 
 // Message Buffer 61 CS Register
@@ -31030,7 +31030,7 @@ union MB61_8B_CS {
 
   MB61_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB61_8B_CS &Instance() { return *reinterpret_cast<volatile MB61_8B_CS*>(0x400C8450); }
+  static inline volatile MB61_8B_CS &ref() { return *reinterpret_cast<volatile MB61_8B_CS*>(0x400C8450); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -31053,7 +31053,7 @@ union MB6_64B_WORD6_H {
 
   MB6_64B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD6_H*>(0x400C8450); }
+  static inline volatile MB6_64B_WORD6_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD6_H*>(0x400C8450); }
 };
 
 // Message Buffer 61 ID Register
@@ -31074,7 +31074,7 @@ union ID61 {
 
   ID61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID61 &Instance() { return *reinterpret_cast<volatile ID61*>(0x400C8454); }
+  static inline volatile ID61 &ref() { return *reinterpret_cast<volatile ID61*>(0x400C8454); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -31097,7 +31097,7 @@ union MB11_32B_WORD5_H {
 
   MB11_32B_WORD5_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD5_H &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD5_H*>(0x400C8454); }
+  static inline volatile MB11_32B_WORD5_H &ref() { return *reinterpret_cast<volatile MB11_32B_WORD5_H*>(0x400C8454); }
 };
 
 // Message Buffer 19 WORD_16B Register
@@ -31120,7 +31120,7 @@ union MB19_16B_WORD1_H {
 
   MB19_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB19_16B_WORD1_H*>(0x400C8454); }
+  static inline volatile MB19_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB19_16B_WORD1_H*>(0x400C8454); }
 };
 
 // Message Buffer 61 ID Register
@@ -31141,7 +31141,7 @@ union MB61_8B_ID {
 
   MB61_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB61_8B_ID &Instance() { return *reinterpret_cast<volatile MB61_8B_ID*>(0x400C8454); }
+  static inline volatile MB61_8B_ID &ref() { return *reinterpret_cast<volatile MB61_8B_ID*>(0x400C8454); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -31164,7 +31164,7 @@ union MB6_64B_WORD7_H {
 
   MB6_64B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD7_H*>(0x400C8454); }
+  static inline volatile MB6_64B_WORD7_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD7_H*>(0x400C8454); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -31187,7 +31187,7 @@ union MB11_32B_WORD6_H {
 
   MB11_32B_WORD6_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD6_H &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD6_H*>(0x400C8458); }
+  static inline volatile MB11_32B_WORD6_H &ref() { return *reinterpret_cast<volatile MB11_32B_WORD6_H*>(0x400C8458); }
 };
 
 // Message Buffer 19 WORD_16B Register
@@ -31210,7 +31210,7 @@ union MB19_16B_WORD2_H {
 
   MB19_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB19_16B_WORD2_H*>(0x400C8458); }
+  static inline volatile MB19_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB19_16B_WORD2_H*>(0x400C8458); }
 };
 
 // Message Buffer 61 WORD_8B Register
@@ -31233,7 +31233,7 @@ union MB61_8B_WORD0 {
 
   MB61_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB61_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB61_8B_WORD0*>(0x400C8458); }
+  static inline volatile MB61_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB61_8B_WORD0*>(0x400C8458); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -31256,7 +31256,7 @@ union MB6_64B_WORD8_H {
 
   MB6_64B_WORD8_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD8_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD8_H*>(0x400C8458); }
+  static inline volatile MB6_64B_WORD8_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD8_H*>(0x400C8458); }
 };
 
 // Message Buffer 61 WORD0 Register
@@ -31279,7 +31279,7 @@ union WORD061 {
 
   WORD061() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD061 &Instance() { return *reinterpret_cast<volatile WORD061*>(0x400C8458); }
+  static inline volatile WORD061 &ref() { return *reinterpret_cast<volatile WORD061*>(0x400C8458); }
 };
 
 // Message Buffer 11 WORD_32B Register
@@ -31302,7 +31302,7 @@ union MB11_32B_WORD7_H {
 
   MB11_32B_WORD7_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB11_32B_WORD7_H &Instance() { return *reinterpret_cast<volatile MB11_32B_WORD7_H*>(0x400C845C); }
+  static inline volatile MB11_32B_WORD7_H &ref() { return *reinterpret_cast<volatile MB11_32B_WORD7_H*>(0x400C845C); }
 };
 
 // Message Buffer 19 WORD_16B Register
@@ -31325,7 +31325,7 @@ union MB19_16B_WORD3_H {
 
   MB19_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB19_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB19_16B_WORD3_H*>(0x400C845C); }
+  static inline volatile MB19_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB19_16B_WORD3_H*>(0x400C845C); }
 };
 
 // Message Buffer 61 WORD_8B Register
@@ -31348,7 +31348,7 @@ union MB61_8B_WORD1 {
 
   MB61_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB61_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB61_8B_WORD1*>(0x400C845C); }
+  static inline volatile MB61_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB61_8B_WORD1*>(0x400C845C); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -31371,7 +31371,7 @@ union MB6_64B_WORD9_H {
 
   MB6_64B_WORD9_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD9_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD9_H*>(0x400C845C); }
+  static inline volatile MB6_64B_WORD9_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD9_H*>(0x400C845C); }
 };
 
 // Message Buffer 61 WORD1 Register
@@ -31394,7 +31394,7 @@ union WORD161 {
 
   WORD161() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD161 &Instance() { return *reinterpret_cast<volatile WORD161*>(0x400C845C); }
+  static inline volatile WORD161 &ref() { return *reinterpret_cast<volatile WORD161*>(0x400C845C); }
 };
 
 // Message Buffer 62 CS Register
@@ -31429,7 +31429,7 @@ union CS62 {
 
   CS62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS62 &Instance() { return *reinterpret_cast<volatile CS62*>(0x400C8460); }
+  static inline volatile CS62 &ref() { return *reinterpret_cast<volatile CS62*>(0x400C8460); }
 };
 
 // Message Buffer 20 CS Register
@@ -31464,7 +31464,7 @@ union MB20_16B_CS_H {
 
   MB20_16B_CS_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_16B_CS_H &Instance() { return *reinterpret_cast<volatile MB20_16B_CS_H*>(0x400C8460); }
+  static inline volatile MB20_16B_CS_H &ref() { return *reinterpret_cast<volatile MB20_16B_CS_H*>(0x400C8460); }
 };
 
 // Message Buffer 62 CS Register
@@ -31499,7 +31499,7 @@ union MB62_8B_CS {
 
   MB62_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB62_8B_CS &Instance() { return *reinterpret_cast<volatile MB62_8B_CS*>(0x400C8460); }
+  static inline volatile MB62_8B_CS &ref() { return *reinterpret_cast<volatile MB62_8B_CS*>(0x400C8460); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -31522,7 +31522,7 @@ union MB6_64B_WORD10_H {
 
   MB6_64B_WORD10_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD10_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD10_H*>(0x400C8460); }
+  static inline volatile MB6_64B_WORD10_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD10_H*>(0x400C8460); }
 };
 
 // Message Buffer 62 ID Register
@@ -31543,7 +31543,7 @@ union ID62 {
 
   ID62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID62 &Instance() { return *reinterpret_cast<volatile ID62*>(0x400C8464); }
+  static inline volatile ID62 &ref() { return *reinterpret_cast<volatile ID62*>(0x400C8464); }
 };
 
 // Message Buffer 20 ID Register
@@ -31564,7 +31564,7 @@ union MB20_16B_ID_H {
 
   MB20_16B_ID_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_16B_ID_H &Instance() { return *reinterpret_cast<volatile MB20_16B_ID_H*>(0x400C8464); }
+  static inline volatile MB20_16B_ID_H &ref() { return *reinterpret_cast<volatile MB20_16B_ID_H*>(0x400C8464); }
 };
 
 // Message Buffer 62 ID Register
@@ -31585,7 +31585,7 @@ union MB62_8B_ID {
 
   MB62_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB62_8B_ID &Instance() { return *reinterpret_cast<volatile MB62_8B_ID*>(0x400C8464); }
+  static inline volatile MB62_8B_ID &ref() { return *reinterpret_cast<volatile MB62_8B_ID*>(0x400C8464); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -31608,7 +31608,7 @@ union MB6_64B_WORD11_H {
 
   MB6_64B_WORD11_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD11_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD11_H*>(0x400C8464); }
+  static inline volatile MB6_64B_WORD11_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD11_H*>(0x400C8464); }
 };
 
 // Message Buffer 20 WORD_16B Register
@@ -31631,7 +31631,7 @@ union MB20_16B_WORD0_H {
 
   MB20_16B_WORD0_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_16B_WORD0_H &Instance() { return *reinterpret_cast<volatile MB20_16B_WORD0_H*>(0x400C8468); }
+  static inline volatile MB20_16B_WORD0_H &ref() { return *reinterpret_cast<volatile MB20_16B_WORD0_H*>(0x400C8468); }
 };
 
 // Message Buffer 62 WORD_8B Register
@@ -31654,7 +31654,7 @@ union MB62_8B_WORD0 {
 
   MB62_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB62_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB62_8B_WORD0*>(0x400C8468); }
+  static inline volatile MB62_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB62_8B_WORD0*>(0x400C8468); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -31677,7 +31677,7 @@ union MB6_64B_WORD12_H {
 
   MB6_64B_WORD12_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD12_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD12_H*>(0x400C8468); }
+  static inline volatile MB6_64B_WORD12_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD12_H*>(0x400C8468); }
 };
 
 // Message Buffer 62 WORD0 Register
@@ -31700,7 +31700,7 @@ union WORD062 {
 
   WORD062() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD062 &Instance() { return *reinterpret_cast<volatile WORD062*>(0x400C8468); }
+  static inline volatile WORD062 &ref() { return *reinterpret_cast<volatile WORD062*>(0x400C8468); }
 };
 
 // Message Buffer 20 WORD_16B Register
@@ -31723,7 +31723,7 @@ union MB20_16B_WORD1_H {
 
   MB20_16B_WORD1_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_16B_WORD1_H &Instance() { return *reinterpret_cast<volatile MB20_16B_WORD1_H*>(0x400C846C); }
+  static inline volatile MB20_16B_WORD1_H &ref() { return *reinterpret_cast<volatile MB20_16B_WORD1_H*>(0x400C846C); }
 };
 
 // Message Buffer 62 WORD_8B Register
@@ -31746,7 +31746,7 @@ union MB62_8B_WORD1 {
 
   MB62_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB62_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB62_8B_WORD1*>(0x400C846C); }
+  static inline volatile MB62_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB62_8B_WORD1*>(0x400C846C); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -31769,7 +31769,7 @@ union MB6_64B_WORD13_H {
 
   MB6_64B_WORD13_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD13_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD13_H*>(0x400C846C); }
+  static inline volatile MB6_64B_WORD13_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD13_H*>(0x400C846C); }
 };
 
 // Message Buffer 62 WORD1 Register
@@ -31792,7 +31792,7 @@ union WORD162 {
 
   WORD162() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD162 &Instance() { return *reinterpret_cast<volatile WORD162*>(0x400C846C); }
+  static inline volatile WORD162 &ref() { return *reinterpret_cast<volatile WORD162*>(0x400C846C); }
 };
 
 // Message Buffer 63 CS Register
@@ -31827,7 +31827,7 @@ union CS63 {
 
   CS63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CS63 &Instance() { return *reinterpret_cast<volatile CS63*>(0x400C8470); }
+  static inline volatile CS63 &ref() { return *reinterpret_cast<volatile CS63*>(0x400C8470); }
 };
 
 // Message Buffer 20 WORD_16B Register
@@ -31850,7 +31850,7 @@ union MB20_16B_WORD2_H {
 
   MB20_16B_WORD2_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_16B_WORD2_H &Instance() { return *reinterpret_cast<volatile MB20_16B_WORD2_H*>(0x400C8470); }
+  static inline volatile MB20_16B_WORD2_H &ref() { return *reinterpret_cast<volatile MB20_16B_WORD2_H*>(0x400C8470); }
 };
 
 // Message Buffer 63 CS Register
@@ -31885,7 +31885,7 @@ union MB63_8B_CS {
 
   MB63_8B_CS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB63_8B_CS &Instance() { return *reinterpret_cast<volatile MB63_8B_CS*>(0x400C8470); }
+  static inline volatile MB63_8B_CS &ref() { return *reinterpret_cast<volatile MB63_8B_CS*>(0x400C8470); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -31908,7 +31908,7 @@ union MB6_64B_WORD14_H {
 
   MB6_64B_WORD14_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD14_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD14_H*>(0x400C8470); }
+  static inline volatile MB6_64B_WORD14_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD14_H*>(0x400C8470); }
 };
 
 // Message Buffer 63 ID Register
@@ -31929,7 +31929,7 @@ union ID63 {
 
   ID63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ID63 &Instance() { return *reinterpret_cast<volatile ID63*>(0x400C8474); }
+  static inline volatile ID63 &ref() { return *reinterpret_cast<volatile ID63*>(0x400C8474); }
 };
 
 // Message Buffer 20 WORD_16B Register
@@ -31952,7 +31952,7 @@ union MB20_16B_WORD3_H {
 
   MB20_16B_WORD3_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB20_16B_WORD3_H &Instance() { return *reinterpret_cast<volatile MB20_16B_WORD3_H*>(0x400C8474); }
+  static inline volatile MB20_16B_WORD3_H &ref() { return *reinterpret_cast<volatile MB20_16B_WORD3_H*>(0x400C8474); }
 };
 
 // Message Buffer 63 ID Register
@@ -31973,7 +31973,7 @@ union MB63_8B_ID {
 
   MB63_8B_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB63_8B_ID &Instance() { return *reinterpret_cast<volatile MB63_8B_ID*>(0x400C8474); }
+  static inline volatile MB63_8B_ID &ref() { return *reinterpret_cast<volatile MB63_8B_ID*>(0x400C8474); }
 };
 
 // Message Buffer 6 WORD_64B Register
@@ -31996,7 +31996,7 @@ union MB6_64B_WORD15_H {
 
   MB6_64B_WORD15_H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB6_64B_WORD15_H &Instance() { return *reinterpret_cast<volatile MB6_64B_WORD15_H*>(0x400C8474); }
+  static inline volatile MB6_64B_WORD15_H &ref() { return *reinterpret_cast<volatile MB6_64B_WORD15_H*>(0x400C8474); }
 };
 
 // Message Buffer 63 WORD_8B Register
@@ -32019,7 +32019,7 @@ union MB63_8B_WORD0 {
 
   MB63_8B_WORD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB63_8B_WORD0 &Instance() { return *reinterpret_cast<volatile MB63_8B_WORD0*>(0x400C8478); }
+  static inline volatile MB63_8B_WORD0 &ref() { return *reinterpret_cast<volatile MB63_8B_WORD0*>(0x400C8478); }
 };
 
 // Message Buffer 63 WORD0 Register
@@ -32042,7 +32042,7 @@ union WORD063 {
 
   WORD063() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD063 &Instance() { return *reinterpret_cast<volatile WORD063*>(0x400C8478); }
+  static inline volatile WORD063 &ref() { return *reinterpret_cast<volatile WORD063*>(0x400C8478); }
 };
 
 // Message Buffer 63 WORD_8B Register
@@ -32065,7 +32065,7 @@ union MB63_8B_WORD1 {
 
   MB63_8B_WORD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MB63_8B_WORD1 &Instance() { return *reinterpret_cast<volatile MB63_8B_WORD1*>(0x400C847C); }
+  static inline volatile MB63_8B_WORD1 &ref() { return *reinterpret_cast<volatile MB63_8B_WORD1*>(0x400C847C); }
 };
 
 // Message Buffer 63 WORD1 Register
@@ -32088,7 +32088,7 @@ union WORD163 {
 
   WORD163() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WORD163 &Instance() { return *reinterpret_cast<volatile WORD163*>(0x400C847C); }
+  static inline volatile WORD163 &ref() { return *reinterpret_cast<volatile WORD163*>(0x400C847C); }
 };
 
 // Rx Individual Mask Registers
@@ -32105,7 +32105,7 @@ union RXIMR_0 {
 
   RXIMR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_0 &Instance() { return *reinterpret_cast<volatile RXIMR_0*>(0x400C8880); }
+  static inline volatile RXIMR_0 &ref() { return *reinterpret_cast<volatile RXIMR_0*>(0x400C8880); }
 };
 // Rx Individual Mask Registers
 union RXIMR_1 {
@@ -32121,7 +32121,7 @@ union RXIMR_1 {
 
   RXIMR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_1 &Instance() { return *reinterpret_cast<volatile RXIMR_1*>(0x400C8884); }
+  static inline volatile RXIMR_1 &ref() { return *reinterpret_cast<volatile RXIMR_1*>(0x400C8884); }
 };
 // Rx Individual Mask Registers
 union RXIMR_2 {
@@ -32137,7 +32137,7 @@ union RXIMR_2 {
 
   RXIMR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_2 &Instance() { return *reinterpret_cast<volatile RXIMR_2*>(0x400C8888); }
+  static inline volatile RXIMR_2 &ref() { return *reinterpret_cast<volatile RXIMR_2*>(0x400C8888); }
 };
 // Rx Individual Mask Registers
 union RXIMR_3 {
@@ -32153,7 +32153,7 @@ union RXIMR_3 {
 
   RXIMR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_3 &Instance() { return *reinterpret_cast<volatile RXIMR_3*>(0x400C888C); }
+  static inline volatile RXIMR_3 &ref() { return *reinterpret_cast<volatile RXIMR_3*>(0x400C888C); }
 };
 // Rx Individual Mask Registers
 union RXIMR_4 {
@@ -32169,7 +32169,7 @@ union RXIMR_4 {
 
   RXIMR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_4 &Instance() { return *reinterpret_cast<volatile RXIMR_4*>(0x400C8890); }
+  static inline volatile RXIMR_4 &ref() { return *reinterpret_cast<volatile RXIMR_4*>(0x400C8890); }
 };
 // Rx Individual Mask Registers
 union RXIMR_5 {
@@ -32185,7 +32185,7 @@ union RXIMR_5 {
 
   RXIMR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_5 &Instance() { return *reinterpret_cast<volatile RXIMR_5*>(0x400C8894); }
+  static inline volatile RXIMR_5 &ref() { return *reinterpret_cast<volatile RXIMR_5*>(0x400C8894); }
 };
 // Rx Individual Mask Registers
 union RXIMR_6 {
@@ -32201,7 +32201,7 @@ union RXIMR_6 {
 
   RXIMR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_6 &Instance() { return *reinterpret_cast<volatile RXIMR_6*>(0x400C8898); }
+  static inline volatile RXIMR_6 &ref() { return *reinterpret_cast<volatile RXIMR_6*>(0x400C8898); }
 };
 // Rx Individual Mask Registers
 union RXIMR_7 {
@@ -32217,7 +32217,7 @@ union RXIMR_7 {
 
   RXIMR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_7 &Instance() { return *reinterpret_cast<volatile RXIMR_7*>(0x400C889C); }
+  static inline volatile RXIMR_7 &ref() { return *reinterpret_cast<volatile RXIMR_7*>(0x400C889C); }
 };
 // Rx Individual Mask Registers
 union RXIMR_8 {
@@ -32233,7 +32233,7 @@ union RXIMR_8 {
 
   RXIMR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_8 &Instance() { return *reinterpret_cast<volatile RXIMR_8*>(0x400C88A0); }
+  static inline volatile RXIMR_8 &ref() { return *reinterpret_cast<volatile RXIMR_8*>(0x400C88A0); }
 };
 // Rx Individual Mask Registers
 union RXIMR_9 {
@@ -32249,7 +32249,7 @@ union RXIMR_9 {
 
   RXIMR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_9 &Instance() { return *reinterpret_cast<volatile RXIMR_9*>(0x400C88A4); }
+  static inline volatile RXIMR_9 &ref() { return *reinterpret_cast<volatile RXIMR_9*>(0x400C88A4); }
 };
 // Rx Individual Mask Registers
 union RXIMR_10 {
@@ -32265,7 +32265,7 @@ union RXIMR_10 {
 
   RXIMR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_10 &Instance() { return *reinterpret_cast<volatile RXIMR_10*>(0x400C88A8); }
+  static inline volatile RXIMR_10 &ref() { return *reinterpret_cast<volatile RXIMR_10*>(0x400C88A8); }
 };
 // Rx Individual Mask Registers
 union RXIMR_11 {
@@ -32281,7 +32281,7 @@ union RXIMR_11 {
 
   RXIMR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_11 &Instance() { return *reinterpret_cast<volatile RXIMR_11*>(0x400C88AC); }
+  static inline volatile RXIMR_11 &ref() { return *reinterpret_cast<volatile RXIMR_11*>(0x400C88AC); }
 };
 // Rx Individual Mask Registers
 union RXIMR_12 {
@@ -32297,7 +32297,7 @@ union RXIMR_12 {
 
   RXIMR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_12 &Instance() { return *reinterpret_cast<volatile RXIMR_12*>(0x400C88B0); }
+  static inline volatile RXIMR_12 &ref() { return *reinterpret_cast<volatile RXIMR_12*>(0x400C88B0); }
 };
 // Rx Individual Mask Registers
 union RXIMR_13 {
@@ -32313,7 +32313,7 @@ union RXIMR_13 {
 
   RXIMR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_13 &Instance() { return *reinterpret_cast<volatile RXIMR_13*>(0x400C88B4); }
+  static inline volatile RXIMR_13 &ref() { return *reinterpret_cast<volatile RXIMR_13*>(0x400C88B4); }
 };
 // Rx Individual Mask Registers
 union RXIMR_14 {
@@ -32329,7 +32329,7 @@ union RXIMR_14 {
 
   RXIMR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_14 &Instance() { return *reinterpret_cast<volatile RXIMR_14*>(0x400C88B8); }
+  static inline volatile RXIMR_14 &ref() { return *reinterpret_cast<volatile RXIMR_14*>(0x400C88B8); }
 };
 // Rx Individual Mask Registers
 union RXIMR_15 {
@@ -32345,7 +32345,7 @@ union RXIMR_15 {
 
   RXIMR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_15 &Instance() { return *reinterpret_cast<volatile RXIMR_15*>(0x400C88BC); }
+  static inline volatile RXIMR_15 &ref() { return *reinterpret_cast<volatile RXIMR_15*>(0x400C88BC); }
 };
 // Rx Individual Mask Registers
 union RXIMR_16 {
@@ -32361,7 +32361,7 @@ union RXIMR_16 {
 
   RXIMR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_16 &Instance() { return *reinterpret_cast<volatile RXIMR_16*>(0x400C88C0); }
+  static inline volatile RXIMR_16 &ref() { return *reinterpret_cast<volatile RXIMR_16*>(0x400C88C0); }
 };
 // Rx Individual Mask Registers
 union RXIMR_17 {
@@ -32377,7 +32377,7 @@ union RXIMR_17 {
 
   RXIMR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_17 &Instance() { return *reinterpret_cast<volatile RXIMR_17*>(0x400C88C4); }
+  static inline volatile RXIMR_17 &ref() { return *reinterpret_cast<volatile RXIMR_17*>(0x400C88C4); }
 };
 // Rx Individual Mask Registers
 union RXIMR_18 {
@@ -32393,7 +32393,7 @@ union RXIMR_18 {
 
   RXIMR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_18 &Instance() { return *reinterpret_cast<volatile RXIMR_18*>(0x400C88C8); }
+  static inline volatile RXIMR_18 &ref() { return *reinterpret_cast<volatile RXIMR_18*>(0x400C88C8); }
 };
 // Rx Individual Mask Registers
 union RXIMR_19 {
@@ -32409,7 +32409,7 @@ union RXIMR_19 {
 
   RXIMR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_19 &Instance() { return *reinterpret_cast<volatile RXIMR_19*>(0x400C88CC); }
+  static inline volatile RXIMR_19 &ref() { return *reinterpret_cast<volatile RXIMR_19*>(0x400C88CC); }
 };
 // Rx Individual Mask Registers
 union RXIMR_20 {
@@ -32425,7 +32425,7 @@ union RXIMR_20 {
 
   RXIMR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_20 &Instance() { return *reinterpret_cast<volatile RXIMR_20*>(0x400C88D0); }
+  static inline volatile RXIMR_20 &ref() { return *reinterpret_cast<volatile RXIMR_20*>(0x400C88D0); }
 };
 // Rx Individual Mask Registers
 union RXIMR_21 {
@@ -32441,7 +32441,7 @@ union RXIMR_21 {
 
   RXIMR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_21 &Instance() { return *reinterpret_cast<volatile RXIMR_21*>(0x400C88D4); }
+  static inline volatile RXIMR_21 &ref() { return *reinterpret_cast<volatile RXIMR_21*>(0x400C88D4); }
 };
 // Rx Individual Mask Registers
 union RXIMR_22 {
@@ -32457,7 +32457,7 @@ union RXIMR_22 {
 
   RXIMR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_22 &Instance() { return *reinterpret_cast<volatile RXIMR_22*>(0x400C88D8); }
+  static inline volatile RXIMR_22 &ref() { return *reinterpret_cast<volatile RXIMR_22*>(0x400C88D8); }
 };
 // Rx Individual Mask Registers
 union RXIMR_23 {
@@ -32473,7 +32473,7 @@ union RXIMR_23 {
 
   RXIMR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_23 &Instance() { return *reinterpret_cast<volatile RXIMR_23*>(0x400C88DC); }
+  static inline volatile RXIMR_23 &ref() { return *reinterpret_cast<volatile RXIMR_23*>(0x400C88DC); }
 };
 // Rx Individual Mask Registers
 union RXIMR_24 {
@@ -32489,7 +32489,7 @@ union RXIMR_24 {
 
   RXIMR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_24 &Instance() { return *reinterpret_cast<volatile RXIMR_24*>(0x400C88E0); }
+  static inline volatile RXIMR_24 &ref() { return *reinterpret_cast<volatile RXIMR_24*>(0x400C88E0); }
 };
 // Rx Individual Mask Registers
 union RXIMR_25 {
@@ -32505,7 +32505,7 @@ union RXIMR_25 {
 
   RXIMR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_25 &Instance() { return *reinterpret_cast<volatile RXIMR_25*>(0x400C88E4); }
+  static inline volatile RXIMR_25 &ref() { return *reinterpret_cast<volatile RXIMR_25*>(0x400C88E4); }
 };
 // Rx Individual Mask Registers
 union RXIMR_26 {
@@ -32521,7 +32521,7 @@ union RXIMR_26 {
 
   RXIMR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_26 &Instance() { return *reinterpret_cast<volatile RXIMR_26*>(0x400C88E8); }
+  static inline volatile RXIMR_26 &ref() { return *reinterpret_cast<volatile RXIMR_26*>(0x400C88E8); }
 };
 // Rx Individual Mask Registers
 union RXIMR_27 {
@@ -32537,7 +32537,7 @@ union RXIMR_27 {
 
   RXIMR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_27 &Instance() { return *reinterpret_cast<volatile RXIMR_27*>(0x400C88EC); }
+  static inline volatile RXIMR_27 &ref() { return *reinterpret_cast<volatile RXIMR_27*>(0x400C88EC); }
 };
 // Rx Individual Mask Registers
 union RXIMR_28 {
@@ -32553,7 +32553,7 @@ union RXIMR_28 {
 
   RXIMR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_28 &Instance() { return *reinterpret_cast<volatile RXIMR_28*>(0x400C88F0); }
+  static inline volatile RXIMR_28 &ref() { return *reinterpret_cast<volatile RXIMR_28*>(0x400C88F0); }
 };
 // Rx Individual Mask Registers
 union RXIMR_29 {
@@ -32569,7 +32569,7 @@ union RXIMR_29 {
 
   RXIMR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_29 &Instance() { return *reinterpret_cast<volatile RXIMR_29*>(0x400C88F4); }
+  static inline volatile RXIMR_29 &ref() { return *reinterpret_cast<volatile RXIMR_29*>(0x400C88F4); }
 };
 // Rx Individual Mask Registers
 union RXIMR_30 {
@@ -32585,7 +32585,7 @@ union RXIMR_30 {
 
   RXIMR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_30 &Instance() { return *reinterpret_cast<volatile RXIMR_30*>(0x400C88F8); }
+  static inline volatile RXIMR_30 &ref() { return *reinterpret_cast<volatile RXIMR_30*>(0x400C88F8); }
 };
 // Rx Individual Mask Registers
 union RXIMR_31 {
@@ -32601,7 +32601,7 @@ union RXIMR_31 {
 
   RXIMR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_31 &Instance() { return *reinterpret_cast<volatile RXIMR_31*>(0x400C88FC); }
+  static inline volatile RXIMR_31 &ref() { return *reinterpret_cast<volatile RXIMR_31*>(0x400C88FC); }
 };
 // Rx Individual Mask Registers
 union RXIMR_32 {
@@ -32617,7 +32617,7 @@ union RXIMR_32 {
 
   RXIMR_32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_32 &Instance() { return *reinterpret_cast<volatile RXIMR_32*>(0x400C8900); }
+  static inline volatile RXIMR_32 &ref() { return *reinterpret_cast<volatile RXIMR_32*>(0x400C8900); }
 };
 // Rx Individual Mask Registers
 union RXIMR_33 {
@@ -32633,7 +32633,7 @@ union RXIMR_33 {
 
   RXIMR_33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_33 &Instance() { return *reinterpret_cast<volatile RXIMR_33*>(0x400C8904); }
+  static inline volatile RXIMR_33 &ref() { return *reinterpret_cast<volatile RXIMR_33*>(0x400C8904); }
 };
 // Rx Individual Mask Registers
 union RXIMR_34 {
@@ -32649,7 +32649,7 @@ union RXIMR_34 {
 
   RXIMR_34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_34 &Instance() { return *reinterpret_cast<volatile RXIMR_34*>(0x400C8908); }
+  static inline volatile RXIMR_34 &ref() { return *reinterpret_cast<volatile RXIMR_34*>(0x400C8908); }
 };
 // Rx Individual Mask Registers
 union RXIMR_35 {
@@ -32665,7 +32665,7 @@ union RXIMR_35 {
 
   RXIMR_35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_35 &Instance() { return *reinterpret_cast<volatile RXIMR_35*>(0x400C890C); }
+  static inline volatile RXIMR_35 &ref() { return *reinterpret_cast<volatile RXIMR_35*>(0x400C890C); }
 };
 // Rx Individual Mask Registers
 union RXIMR_36 {
@@ -32681,7 +32681,7 @@ union RXIMR_36 {
 
   RXIMR_36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_36 &Instance() { return *reinterpret_cast<volatile RXIMR_36*>(0x400C8910); }
+  static inline volatile RXIMR_36 &ref() { return *reinterpret_cast<volatile RXIMR_36*>(0x400C8910); }
 };
 // Rx Individual Mask Registers
 union RXIMR_37 {
@@ -32697,7 +32697,7 @@ union RXIMR_37 {
 
   RXIMR_37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_37 &Instance() { return *reinterpret_cast<volatile RXIMR_37*>(0x400C8914); }
+  static inline volatile RXIMR_37 &ref() { return *reinterpret_cast<volatile RXIMR_37*>(0x400C8914); }
 };
 // Rx Individual Mask Registers
 union RXIMR_38 {
@@ -32713,7 +32713,7 @@ union RXIMR_38 {
 
   RXIMR_38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_38 &Instance() { return *reinterpret_cast<volatile RXIMR_38*>(0x400C8918); }
+  static inline volatile RXIMR_38 &ref() { return *reinterpret_cast<volatile RXIMR_38*>(0x400C8918); }
 };
 // Rx Individual Mask Registers
 union RXIMR_39 {
@@ -32729,7 +32729,7 @@ union RXIMR_39 {
 
   RXIMR_39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_39 &Instance() { return *reinterpret_cast<volatile RXIMR_39*>(0x400C891C); }
+  static inline volatile RXIMR_39 &ref() { return *reinterpret_cast<volatile RXIMR_39*>(0x400C891C); }
 };
 // Rx Individual Mask Registers
 union RXIMR_40 {
@@ -32745,7 +32745,7 @@ union RXIMR_40 {
 
   RXIMR_40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_40 &Instance() { return *reinterpret_cast<volatile RXIMR_40*>(0x400C8920); }
+  static inline volatile RXIMR_40 &ref() { return *reinterpret_cast<volatile RXIMR_40*>(0x400C8920); }
 };
 // Rx Individual Mask Registers
 union RXIMR_41 {
@@ -32761,7 +32761,7 @@ union RXIMR_41 {
 
   RXIMR_41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_41 &Instance() { return *reinterpret_cast<volatile RXIMR_41*>(0x400C8924); }
+  static inline volatile RXIMR_41 &ref() { return *reinterpret_cast<volatile RXIMR_41*>(0x400C8924); }
 };
 // Rx Individual Mask Registers
 union RXIMR_42 {
@@ -32777,7 +32777,7 @@ union RXIMR_42 {
 
   RXIMR_42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_42 &Instance() { return *reinterpret_cast<volatile RXIMR_42*>(0x400C8928); }
+  static inline volatile RXIMR_42 &ref() { return *reinterpret_cast<volatile RXIMR_42*>(0x400C8928); }
 };
 // Rx Individual Mask Registers
 union RXIMR_43 {
@@ -32793,7 +32793,7 @@ union RXIMR_43 {
 
   RXIMR_43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_43 &Instance() { return *reinterpret_cast<volatile RXIMR_43*>(0x400C892C); }
+  static inline volatile RXIMR_43 &ref() { return *reinterpret_cast<volatile RXIMR_43*>(0x400C892C); }
 };
 // Rx Individual Mask Registers
 union RXIMR_44 {
@@ -32809,7 +32809,7 @@ union RXIMR_44 {
 
   RXIMR_44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_44 &Instance() { return *reinterpret_cast<volatile RXIMR_44*>(0x400C8930); }
+  static inline volatile RXIMR_44 &ref() { return *reinterpret_cast<volatile RXIMR_44*>(0x400C8930); }
 };
 // Rx Individual Mask Registers
 union RXIMR_45 {
@@ -32825,7 +32825,7 @@ union RXIMR_45 {
 
   RXIMR_45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_45 &Instance() { return *reinterpret_cast<volatile RXIMR_45*>(0x400C8934); }
+  static inline volatile RXIMR_45 &ref() { return *reinterpret_cast<volatile RXIMR_45*>(0x400C8934); }
 };
 // Rx Individual Mask Registers
 union RXIMR_46 {
@@ -32841,7 +32841,7 @@ union RXIMR_46 {
 
   RXIMR_46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_46 &Instance() { return *reinterpret_cast<volatile RXIMR_46*>(0x400C8938); }
+  static inline volatile RXIMR_46 &ref() { return *reinterpret_cast<volatile RXIMR_46*>(0x400C8938); }
 };
 // Rx Individual Mask Registers
 union RXIMR_47 {
@@ -32857,7 +32857,7 @@ union RXIMR_47 {
 
   RXIMR_47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_47 &Instance() { return *reinterpret_cast<volatile RXIMR_47*>(0x400C893C); }
+  static inline volatile RXIMR_47 &ref() { return *reinterpret_cast<volatile RXIMR_47*>(0x400C893C); }
 };
 // Rx Individual Mask Registers
 union RXIMR_48 {
@@ -32873,7 +32873,7 @@ union RXIMR_48 {
 
   RXIMR_48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_48 &Instance() { return *reinterpret_cast<volatile RXIMR_48*>(0x400C8940); }
+  static inline volatile RXIMR_48 &ref() { return *reinterpret_cast<volatile RXIMR_48*>(0x400C8940); }
 };
 // Rx Individual Mask Registers
 union RXIMR_49 {
@@ -32889,7 +32889,7 @@ union RXIMR_49 {
 
   RXIMR_49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_49 &Instance() { return *reinterpret_cast<volatile RXIMR_49*>(0x400C8944); }
+  static inline volatile RXIMR_49 &ref() { return *reinterpret_cast<volatile RXIMR_49*>(0x400C8944); }
 };
 // Rx Individual Mask Registers
 union RXIMR_50 {
@@ -32905,7 +32905,7 @@ union RXIMR_50 {
 
   RXIMR_50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_50 &Instance() { return *reinterpret_cast<volatile RXIMR_50*>(0x400C8948); }
+  static inline volatile RXIMR_50 &ref() { return *reinterpret_cast<volatile RXIMR_50*>(0x400C8948); }
 };
 // Rx Individual Mask Registers
 union RXIMR_51 {
@@ -32921,7 +32921,7 @@ union RXIMR_51 {
 
   RXIMR_51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_51 &Instance() { return *reinterpret_cast<volatile RXIMR_51*>(0x400C894C); }
+  static inline volatile RXIMR_51 &ref() { return *reinterpret_cast<volatile RXIMR_51*>(0x400C894C); }
 };
 // Rx Individual Mask Registers
 union RXIMR_52 {
@@ -32937,7 +32937,7 @@ union RXIMR_52 {
 
   RXIMR_52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_52 &Instance() { return *reinterpret_cast<volatile RXIMR_52*>(0x400C8950); }
+  static inline volatile RXIMR_52 &ref() { return *reinterpret_cast<volatile RXIMR_52*>(0x400C8950); }
 };
 // Rx Individual Mask Registers
 union RXIMR_53 {
@@ -32953,7 +32953,7 @@ union RXIMR_53 {
 
   RXIMR_53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_53 &Instance() { return *reinterpret_cast<volatile RXIMR_53*>(0x400C8954); }
+  static inline volatile RXIMR_53 &ref() { return *reinterpret_cast<volatile RXIMR_53*>(0x400C8954); }
 };
 // Rx Individual Mask Registers
 union RXIMR_54 {
@@ -32969,7 +32969,7 @@ union RXIMR_54 {
 
   RXIMR_54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_54 &Instance() { return *reinterpret_cast<volatile RXIMR_54*>(0x400C8958); }
+  static inline volatile RXIMR_54 &ref() { return *reinterpret_cast<volatile RXIMR_54*>(0x400C8958); }
 };
 // Rx Individual Mask Registers
 union RXIMR_55 {
@@ -32985,7 +32985,7 @@ union RXIMR_55 {
 
   RXIMR_55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_55 &Instance() { return *reinterpret_cast<volatile RXIMR_55*>(0x400C895C); }
+  static inline volatile RXIMR_55 &ref() { return *reinterpret_cast<volatile RXIMR_55*>(0x400C895C); }
 };
 // Rx Individual Mask Registers
 union RXIMR_56 {
@@ -33001,7 +33001,7 @@ union RXIMR_56 {
 
   RXIMR_56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_56 &Instance() { return *reinterpret_cast<volatile RXIMR_56*>(0x400C8960); }
+  static inline volatile RXIMR_56 &ref() { return *reinterpret_cast<volatile RXIMR_56*>(0x400C8960); }
 };
 // Rx Individual Mask Registers
 union RXIMR_57 {
@@ -33017,7 +33017,7 @@ union RXIMR_57 {
 
   RXIMR_57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_57 &Instance() { return *reinterpret_cast<volatile RXIMR_57*>(0x400C8964); }
+  static inline volatile RXIMR_57 &ref() { return *reinterpret_cast<volatile RXIMR_57*>(0x400C8964); }
 };
 // Rx Individual Mask Registers
 union RXIMR_58 {
@@ -33033,7 +33033,7 @@ union RXIMR_58 {
 
   RXIMR_58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_58 &Instance() { return *reinterpret_cast<volatile RXIMR_58*>(0x400C8968); }
+  static inline volatile RXIMR_58 &ref() { return *reinterpret_cast<volatile RXIMR_58*>(0x400C8968); }
 };
 // Rx Individual Mask Registers
 union RXIMR_59 {
@@ -33049,7 +33049,7 @@ union RXIMR_59 {
 
   RXIMR_59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_59 &Instance() { return *reinterpret_cast<volatile RXIMR_59*>(0x400C896C); }
+  static inline volatile RXIMR_59 &ref() { return *reinterpret_cast<volatile RXIMR_59*>(0x400C896C); }
 };
 // Rx Individual Mask Registers
 union RXIMR_60 {
@@ -33065,7 +33065,7 @@ union RXIMR_60 {
 
   RXIMR_60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_60 &Instance() { return *reinterpret_cast<volatile RXIMR_60*>(0x400C8970); }
+  static inline volatile RXIMR_60 &ref() { return *reinterpret_cast<volatile RXIMR_60*>(0x400C8970); }
 };
 // Rx Individual Mask Registers
 union RXIMR_61 {
@@ -33081,7 +33081,7 @@ union RXIMR_61 {
 
   RXIMR_61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_61 &Instance() { return *reinterpret_cast<volatile RXIMR_61*>(0x400C8974); }
+  static inline volatile RXIMR_61 &ref() { return *reinterpret_cast<volatile RXIMR_61*>(0x400C8974); }
 };
 // Rx Individual Mask Registers
 union RXIMR_62 {
@@ -33097,7 +33097,7 @@ union RXIMR_62 {
 
   RXIMR_62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_62 &Instance() { return *reinterpret_cast<volatile RXIMR_62*>(0x400C8978); }
+  static inline volatile RXIMR_62 &ref() { return *reinterpret_cast<volatile RXIMR_62*>(0x400C8978); }
 };
 // Rx Individual Mask Registers
 union RXIMR_63 {
@@ -33113,7 +33113,7 @@ union RXIMR_63 {
 
   RXIMR_63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR_63 &Instance() { return *reinterpret_cast<volatile RXIMR_63*>(0x400C897C); }
+  static inline volatile RXIMR_63 &ref() { return *reinterpret_cast<volatile RXIMR_63*>(0x400C897C); }
 };
 
 // Memory Error Control Register
@@ -33232,7 +33232,7 @@ union MECR {
 
   MECR() = delete;
   inline void Reset() volatile { this->value = 0x800C0080; }
-  static inline volatile MECR &Instance() { return *reinterpret_cast<volatile MECR*>(0x400C8AE0); }
+  static inline volatile MECR &ref() { return *reinterpret_cast<volatile MECR*>(0x400C8AE0); }
 };
 
 // Error Injection Address Register
@@ -33252,7 +33252,7 @@ union ERRIAR {
 
   ERRIAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERRIAR &Instance() { return *reinterpret_cast<volatile ERRIAR*>(0x400C8AE4); }
+  static inline volatile ERRIAR &ref() { return *reinterpret_cast<volatile ERRIAR*>(0x400C8AE4); }
 };
 
 // Error Injection Data Pattern Register
@@ -33269,7 +33269,7 @@ union ERRIDPR {
 
   ERRIDPR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERRIDPR &Instance() { return *reinterpret_cast<volatile ERRIDPR*>(0x400C8AE8); }
+  static inline volatile ERRIDPR &ref() { return *reinterpret_cast<volatile ERRIDPR*>(0x400C8AE8); }
 };
 
 // Error Injection Parity Pattern Register
@@ -33296,7 +33296,7 @@ union ERRIPPR {
 
   ERRIPPR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERRIPPR &Instance() { return *reinterpret_cast<volatile ERRIPPR*>(0x400C8AEC); }
+  static inline volatile ERRIPPR &ref() { return *reinterpret_cast<volatile ERRIPPR*>(0x400C8AEC); }
 };
 
 // Error Report Address Register
@@ -33328,7 +33328,7 @@ union RERRAR {
 
   RERRAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RERRAR &Instance() { return *reinterpret_cast<volatile RERRAR*>(0x400C8AF0); }
+  static inline volatile RERRAR &ref() { return *reinterpret_cast<volatile RERRAR*>(0x400C8AF0); }
 };
 
 // Error Report Data Register
@@ -33345,7 +33345,7 @@ union RERRDR {
 
   RERRDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RERRDR &Instance() { return *reinterpret_cast<volatile RERRDR*>(0x400C8AF4); }
+  static inline volatile RERRDR &ref() { return *reinterpret_cast<volatile RERRDR*>(0x400C8AF4); }
 };
 
 // Error Report Syndrome Register
@@ -33412,7 +33412,7 @@ union RERRSYNR {
 
   RERRSYNR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RERRSYNR &Instance() { return *reinterpret_cast<volatile RERRSYNR*>(0x400C8AF8); }
+  static inline volatile RERRSYNR &ref() { return *reinterpret_cast<volatile RERRSYNR*>(0x400C8AF8); }
 };
 
 // Error Status Register
@@ -33491,7 +33491,7 @@ union ERRSR {
 
   ERRSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERRSR &Instance() { return *reinterpret_cast<volatile ERRSR*>(0x400C8AFC); }
+  static inline volatile ERRSR &ref() { return *reinterpret_cast<volatile ERRSR*>(0x400C8AFC); }
 };
 
 // CAN FD Control Register
@@ -33572,7 +33572,7 @@ union FDCTRL {
 
   FDCTRL() = delete;
   inline void Reset() volatile { this->value = 0x80000100; }
-  static inline volatile FDCTRL &Instance() { return *reinterpret_cast<volatile FDCTRL*>(0x400C8C00); }
+  static inline volatile FDCTRL &ref() { return *reinterpret_cast<volatile FDCTRL*>(0x400C8C00); }
 };
 
 // CAN FD Bit Timing Register
@@ -33602,7 +33602,7 @@ union FDCBT {
 
   FDCBT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FDCBT &Instance() { return *reinterpret_cast<volatile FDCBT*>(0x400C8C04); }
+  static inline volatile FDCBT &ref() { return *reinterpret_cast<volatile FDCBT*>(0x400C8C04); }
 };
 
 // CAN FD CRC Register
@@ -33623,7 +33623,7 @@ union FDCRC {
 
   FDCRC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FDCRC &Instance() { return *reinterpret_cast<volatile FDCRC*>(0x400C8C08); }
+  static inline volatile FDCRC &ref() { return *reinterpret_cast<volatile FDCRC*>(0x400C8C08); }
 };
 
 

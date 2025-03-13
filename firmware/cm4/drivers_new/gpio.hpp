@@ -138,8 +138,8 @@ namespace
 {
   void EnableGpioClock()
   {
-    nCCM::LPCG51_DIRECT::Instance().bits.ON = nCCM::LPCG51_DIRECT::eON::eON_1;
-    while (nCCM::LPCG51_STATUS0::Instance().bits.ON != nCCM::LPCG51_STATUS0::eON::eON_1) {}
+    nCCM::LPCG51_DIRECT::ref().bits.ON = nCCM::LPCG51_DIRECT::eON::eON_1;
+    while (nCCM::LPCG51_STATUS0::ref().bits.ON != nCCM::LPCG51_STATUS0::eON::eON_1) {}
   }
 }
 
@@ -154,9 +154,9 @@ void Gpio<GPIO_NUM>::configure(GpioDirection dir, GpioPull pull) {
 
   // Configure direction.
   if (dir == GpioDirection::eOutput) {
-    Registers::Gpio<GPIO_NUM>::IMR::Instance().bits.IMR &= ~(1UL << pin_);
-    Registers::Gpio<GPIO_NUM>::DR::Instance().bits.DR &= ~(1UL << pin_);
-    Registers::Gpio<GPIO_NUM>::GDIR::Instance().bits.GDIR |= (1UL << pin_);
+    Registers::Gpio<GPIO_NUM>::IMR::ref().bits.IMR &= ~(1UL << pin_);
+    Registers::Gpio<GPIO_NUM>::DR::ref().bits.DR &= ~(1UL << pin_);
+    Registers::Gpio<GPIO_NUM>::GDIR::ref().bits.GDIR |= (1UL << pin_);
   } else {
     assert(false);  // TODO: implement eInput
   }
@@ -173,9 +173,9 @@ void Gpio<GPIO_NUM>::configure(GpioDirection dir, GpioPull pull) {
 template <uint32_t GPIO_NUM>
 void Gpio<GPIO_NUM>::write(bool state) {
     if (state == true) {
-       Registers::Gpio<GPIO_NUM>::DR::Instance().bits.DR |= (1 << pin_);
+       Registers::Gpio<GPIO_NUM>::DR::ref().bits.DR |= (1 << pin_);
     } else {
-       Registers::Gpio<GPIO_NUM>::DR::Instance().bits.DR &= ~(1UL << 3);
+       Registers::Gpio<GPIO_NUM>::DR::ref().bits.DR &= ~(1UL << 3);
     }
 }
 
@@ -189,7 +189,7 @@ bool Gpio<GPIO_NUM>::read() {
 // Toggle the state of the GPIO pin.
 template <uint32_t GPIO_NUM>
 void Gpio<GPIO_NUM>::toggle() {
-    Registers::Gpio<GPIO_NUM>::DR_TOGGLE::Instance().bits.DR_TOGGLE ^= (1 << pin_);
+    Registers::Gpio<GPIO_NUM>::DR_TOGGLE::ref().bits.DR_TOGGLE ^= (1 << pin_);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -208,7 +208,7 @@ void Gpio<9>::configurePinMux() {
     switch (pin_)
     {
       case 3:
-        nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance().bits.MUX_MODE =
+        nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::ref().bits.MUX_MODE =
           nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
         break;
       default:

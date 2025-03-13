@@ -132,7 +132,7 @@ union CR {
 
   CR() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
-  static inline volatile CR &Instance() { return *reinterpret_cast<volatile CR*>(0x40070000); }
+  static inline volatile CR &ref() { return *reinterpret_cast<volatile CR*>(0x40070000); }
 };
 
 // Error Status
@@ -271,7 +271,7 @@ union ES {
 
   ES() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ES &Instance() { return *reinterpret_cast<volatile ES*>(0x40070004); }
+  static inline volatile ES &ref() { return *reinterpret_cast<volatile ES*>(0x40070004); }
 };
 
 // Enable Request
@@ -606,7 +606,7 @@ union ERQ {
 
   ERQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERQ &Instance() { return *reinterpret_cast<volatile ERQ*>(0x4007000C); }
+  static inline volatile ERQ &ref() { return *reinterpret_cast<volatile ERQ*>(0x4007000C); }
 };
 
 // Enable Error Interrupt
@@ -941,7 +941,7 @@ union EEI {
 
   EEI() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile EEI &Instance() { return *reinterpret_cast<volatile EEI*>(0x40070014); }
+  static inline volatile EEI &ref() { return *reinterpret_cast<volatile EEI*>(0x40070014); }
 };
 
 // Clear Enable Error Interrupt
@@ -980,7 +980,7 @@ union CEEI {
 
   CEEI() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CEEI &Instance() { return *reinterpret_cast<volatile CEEI*>(0x40070018); }
+  static inline volatile CEEI &ref() { return *reinterpret_cast<volatile CEEI*>(0x40070018); }
 };
 
 // Set Enable Error Interrupt
@@ -1019,7 +1019,7 @@ union SEEI {
 
   SEEI() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEEI &Instance() { return *reinterpret_cast<volatile SEEI*>(0x40070019); }
+  static inline volatile SEEI &ref() { return *reinterpret_cast<volatile SEEI*>(0x40070019); }
 };
 
 // Clear Enable Request
@@ -1058,7 +1058,7 @@ union CERQ {
 
   CERQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CERQ &Instance() { return *reinterpret_cast<volatile CERQ*>(0x4007001A); }
+  static inline volatile CERQ &ref() { return *reinterpret_cast<volatile CERQ*>(0x4007001A); }
 };
 
 // Set Enable Request
@@ -1097,7 +1097,7 @@ union SERQ {
 
   SERQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SERQ &Instance() { return *reinterpret_cast<volatile SERQ*>(0x4007001B); }
+  static inline volatile SERQ &ref() { return *reinterpret_cast<volatile SERQ*>(0x4007001B); }
 };
 
 // Clear DONE Status Bit
@@ -1136,7 +1136,7 @@ union CDNE {
 
   CDNE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CDNE &Instance() { return *reinterpret_cast<volatile CDNE*>(0x4007001C); }
+  static inline volatile CDNE &ref() { return *reinterpret_cast<volatile CDNE*>(0x4007001C); }
 };
 
 // Set START Bit
@@ -1175,7 +1175,7 @@ union SSRT {
 
   SSRT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SSRT &Instance() { return *reinterpret_cast<volatile SSRT*>(0x4007001D); }
+  static inline volatile SSRT &ref() { return *reinterpret_cast<volatile SSRT*>(0x4007001D); }
 };
 
 // Clear Error
@@ -1214,7 +1214,7 @@ union CERR {
 
   CERR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CERR &Instance() { return *reinterpret_cast<volatile CERR*>(0x4007001E); }
+  static inline volatile CERR &ref() { return *reinterpret_cast<volatile CERR*>(0x4007001E); }
 };
 
 // Clear Interrupt Request
@@ -1253,7 +1253,7 @@ union CINT {
 
   CINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CINT &Instance() { return *reinterpret_cast<volatile CINT*>(0x4007001F); }
+  static inline volatile CINT &ref() { return *reinterpret_cast<volatile CINT*>(0x4007001F); }
 };
 
 // Interrupt Request
@@ -1588,7 +1588,7 @@ union INT {
 
   INT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT &Instance() { return *reinterpret_cast<volatile INT*>(0x40070024); }
+  static inline volatile INT &ref() { return *reinterpret_cast<volatile INT*>(0x40070024); }
 };
 
 // Error
@@ -1923,7 +1923,7 @@ union ERR {
 
   ERR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR &Instance() { return *reinterpret_cast<volatile ERR*>(0x4007002C); }
+  static inline volatile ERR &ref() { return *reinterpret_cast<volatile ERR*>(0x4007002C); }
 };
 
 // Hardware Request Status
@@ -2258,7 +2258,7 @@ union HRS {
 
   HRS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HRS &Instance() { return *reinterpret_cast<volatile HRS*>(0x40070034); }
+  static inline volatile HRS &ref() { return *reinterpret_cast<volatile HRS*>(0x40070034); }
 };
 
 // Enable Asynchronous Request in Stop
@@ -2593,7 +2593,7 @@ union EARS {
 
   EARS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile EARS &Instance() { return *reinterpret_cast<volatile EARS*>(0x40070044); }
+  static inline volatile EARS &ref() { return *reinterpret_cast<volatile EARS*>(0x40070044); }
 };
 
 // Channel Priority
@@ -2633,7 +2633,7 @@ union DCHPRI3 {
 
   DCHPRI3() = delete;
   inline void Reset() volatile { this->value = 0x00000003; }
-  static inline volatile DCHPRI3 &Instance() { return *reinterpret_cast<volatile DCHPRI3*>(0x40070100); }
+  static inline volatile DCHPRI3 &ref() { return *reinterpret_cast<volatile DCHPRI3*>(0x40070100); }
 };
 
 // Channel Priority
@@ -2673,7 +2673,7 @@ union DCHPRI2 {
 
   DCHPRI2() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile DCHPRI2 &Instance() { return *reinterpret_cast<volatile DCHPRI2*>(0x40070101); }
+  static inline volatile DCHPRI2 &ref() { return *reinterpret_cast<volatile DCHPRI2*>(0x40070101); }
 };
 
 // Channel Priority
@@ -2713,7 +2713,7 @@ union DCHPRI1 {
 
   DCHPRI1() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile DCHPRI1 &Instance() { return *reinterpret_cast<volatile DCHPRI1*>(0x40070102); }
+  static inline volatile DCHPRI1 &ref() { return *reinterpret_cast<volatile DCHPRI1*>(0x40070102); }
 };
 
 // Channel Priority
@@ -2753,7 +2753,7 @@ union DCHPRI0 {
 
   DCHPRI0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCHPRI0 &Instance() { return *reinterpret_cast<volatile DCHPRI0*>(0x40070103); }
+  static inline volatile DCHPRI0 &ref() { return *reinterpret_cast<volatile DCHPRI0*>(0x40070103); }
 };
 
 // Channel Priority
@@ -2793,7 +2793,7 @@ union DCHPRI7 {
 
   DCHPRI7() = delete;
   inline void Reset() volatile { this->value = 0x00000007; }
-  static inline volatile DCHPRI7 &Instance() { return *reinterpret_cast<volatile DCHPRI7*>(0x40070104); }
+  static inline volatile DCHPRI7 &ref() { return *reinterpret_cast<volatile DCHPRI7*>(0x40070104); }
 };
 
 // Channel Priority
@@ -2833,7 +2833,7 @@ union DCHPRI6 {
 
   DCHPRI6() = delete;
   inline void Reset() volatile { this->value = 0x00000006; }
-  static inline volatile DCHPRI6 &Instance() { return *reinterpret_cast<volatile DCHPRI6*>(0x40070105); }
+  static inline volatile DCHPRI6 &ref() { return *reinterpret_cast<volatile DCHPRI6*>(0x40070105); }
 };
 
 // Channel Priority
@@ -2873,7 +2873,7 @@ union DCHPRI5 {
 
   DCHPRI5() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
-  static inline volatile DCHPRI5 &Instance() { return *reinterpret_cast<volatile DCHPRI5*>(0x40070106); }
+  static inline volatile DCHPRI5 &ref() { return *reinterpret_cast<volatile DCHPRI5*>(0x40070106); }
 };
 
 // Channel Priority
@@ -2913,7 +2913,7 @@ union DCHPRI4 {
 
   DCHPRI4() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile DCHPRI4 &Instance() { return *reinterpret_cast<volatile DCHPRI4*>(0x40070107); }
+  static inline volatile DCHPRI4 &ref() { return *reinterpret_cast<volatile DCHPRI4*>(0x40070107); }
 };
 
 // Channel Priority
@@ -2953,7 +2953,7 @@ union DCHPRI11 {
 
   DCHPRI11() = delete;
   inline void Reset() volatile { this->value = 0x0000000B; }
-  static inline volatile DCHPRI11 &Instance() { return *reinterpret_cast<volatile DCHPRI11*>(0x40070108); }
+  static inline volatile DCHPRI11 &ref() { return *reinterpret_cast<volatile DCHPRI11*>(0x40070108); }
 };
 
 // Channel Priority
@@ -2993,7 +2993,7 @@ union DCHPRI10 {
 
   DCHPRI10() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile DCHPRI10 &Instance() { return *reinterpret_cast<volatile DCHPRI10*>(0x40070109); }
+  static inline volatile DCHPRI10 &ref() { return *reinterpret_cast<volatile DCHPRI10*>(0x40070109); }
 };
 
 // Channel Priority
@@ -3033,7 +3033,7 @@ union DCHPRI9 {
 
   DCHPRI9() = delete;
   inline void Reset() volatile { this->value = 0x00000009; }
-  static inline volatile DCHPRI9 &Instance() { return *reinterpret_cast<volatile DCHPRI9*>(0x4007010A); }
+  static inline volatile DCHPRI9 &ref() { return *reinterpret_cast<volatile DCHPRI9*>(0x4007010A); }
 };
 
 // Channel Priority
@@ -3073,7 +3073,7 @@ union DCHPRI8 {
 
   DCHPRI8() = delete;
   inline void Reset() volatile { this->value = 0x00000008; }
-  static inline volatile DCHPRI8 &Instance() { return *reinterpret_cast<volatile DCHPRI8*>(0x4007010B); }
+  static inline volatile DCHPRI8 &ref() { return *reinterpret_cast<volatile DCHPRI8*>(0x4007010B); }
 };
 
 // Channel Priority
@@ -3113,7 +3113,7 @@ union DCHPRI15 {
 
   DCHPRI15() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile DCHPRI15 &Instance() { return *reinterpret_cast<volatile DCHPRI15*>(0x4007010C); }
+  static inline volatile DCHPRI15 &ref() { return *reinterpret_cast<volatile DCHPRI15*>(0x4007010C); }
 };
 
 // Channel Priority
@@ -3153,7 +3153,7 @@ union DCHPRI14 {
 
   DCHPRI14() = delete;
   inline void Reset() volatile { this->value = 0x0000000E; }
-  static inline volatile DCHPRI14 &Instance() { return *reinterpret_cast<volatile DCHPRI14*>(0x4007010D); }
+  static inline volatile DCHPRI14 &ref() { return *reinterpret_cast<volatile DCHPRI14*>(0x4007010D); }
 };
 
 // Channel Priority
@@ -3193,7 +3193,7 @@ union DCHPRI13 {
 
   DCHPRI13() = delete;
   inline void Reset() volatile { this->value = 0x0000000D; }
-  static inline volatile DCHPRI13 &Instance() { return *reinterpret_cast<volatile DCHPRI13*>(0x4007010E); }
+  static inline volatile DCHPRI13 &ref() { return *reinterpret_cast<volatile DCHPRI13*>(0x4007010E); }
 };
 
 // Channel Priority
@@ -3233,7 +3233,7 @@ union DCHPRI12 {
 
   DCHPRI12() = delete;
   inline void Reset() volatile { this->value = 0x0000000C; }
-  static inline volatile DCHPRI12 &Instance() { return *reinterpret_cast<volatile DCHPRI12*>(0x4007010F); }
+  static inline volatile DCHPRI12 &ref() { return *reinterpret_cast<volatile DCHPRI12*>(0x4007010F); }
 };
 
 // Channel Priority
@@ -3273,7 +3273,7 @@ union DCHPRI19 {
 
   DCHPRI19() = delete;
   inline void Reset() volatile { this->value = 0x00000013; }
-  static inline volatile DCHPRI19 &Instance() { return *reinterpret_cast<volatile DCHPRI19*>(0x40070110); }
+  static inline volatile DCHPRI19 &ref() { return *reinterpret_cast<volatile DCHPRI19*>(0x40070110); }
 };
 
 // Channel Priority
@@ -3313,7 +3313,7 @@ union DCHPRI18 {
 
   DCHPRI18() = delete;
   inline void Reset() volatile { this->value = 0x00000012; }
-  static inline volatile DCHPRI18 &Instance() { return *reinterpret_cast<volatile DCHPRI18*>(0x40070111); }
+  static inline volatile DCHPRI18 &ref() { return *reinterpret_cast<volatile DCHPRI18*>(0x40070111); }
 };
 
 // Channel Priority
@@ -3353,7 +3353,7 @@ union DCHPRI17 {
 
   DCHPRI17() = delete;
   inline void Reset() volatile { this->value = 0x00000011; }
-  static inline volatile DCHPRI17 &Instance() { return *reinterpret_cast<volatile DCHPRI17*>(0x40070112); }
+  static inline volatile DCHPRI17 &ref() { return *reinterpret_cast<volatile DCHPRI17*>(0x40070112); }
 };
 
 // Channel Priority
@@ -3393,7 +3393,7 @@ union DCHPRI16 {
 
   DCHPRI16() = delete;
   inline void Reset() volatile { this->value = 0x00000010; }
-  static inline volatile DCHPRI16 &Instance() { return *reinterpret_cast<volatile DCHPRI16*>(0x40070113); }
+  static inline volatile DCHPRI16 &ref() { return *reinterpret_cast<volatile DCHPRI16*>(0x40070113); }
 };
 
 // Channel Priority
@@ -3433,7 +3433,7 @@ union DCHPRI23 {
 
   DCHPRI23() = delete;
   inline void Reset() volatile { this->value = 0x00000017; }
-  static inline volatile DCHPRI23 &Instance() { return *reinterpret_cast<volatile DCHPRI23*>(0x40070114); }
+  static inline volatile DCHPRI23 &ref() { return *reinterpret_cast<volatile DCHPRI23*>(0x40070114); }
 };
 
 // Channel Priority
@@ -3473,7 +3473,7 @@ union DCHPRI22 {
 
   DCHPRI22() = delete;
   inline void Reset() volatile { this->value = 0x00000016; }
-  static inline volatile DCHPRI22 &Instance() { return *reinterpret_cast<volatile DCHPRI22*>(0x40070115); }
+  static inline volatile DCHPRI22 &ref() { return *reinterpret_cast<volatile DCHPRI22*>(0x40070115); }
 };
 
 // Channel Priority
@@ -3513,7 +3513,7 @@ union DCHPRI21 {
 
   DCHPRI21() = delete;
   inline void Reset() volatile { this->value = 0x00000015; }
-  static inline volatile DCHPRI21 &Instance() { return *reinterpret_cast<volatile DCHPRI21*>(0x40070116); }
+  static inline volatile DCHPRI21 &ref() { return *reinterpret_cast<volatile DCHPRI21*>(0x40070116); }
 };
 
 // Channel Priority
@@ -3553,7 +3553,7 @@ union DCHPRI20 {
 
   DCHPRI20() = delete;
   inline void Reset() volatile { this->value = 0x00000014; }
-  static inline volatile DCHPRI20 &Instance() { return *reinterpret_cast<volatile DCHPRI20*>(0x40070117); }
+  static inline volatile DCHPRI20 &ref() { return *reinterpret_cast<volatile DCHPRI20*>(0x40070117); }
 };
 
 // Channel Priority
@@ -3593,7 +3593,7 @@ union DCHPRI27 {
 
   DCHPRI27() = delete;
   inline void Reset() volatile { this->value = 0x0000001B; }
-  static inline volatile DCHPRI27 &Instance() { return *reinterpret_cast<volatile DCHPRI27*>(0x40070118); }
+  static inline volatile DCHPRI27 &ref() { return *reinterpret_cast<volatile DCHPRI27*>(0x40070118); }
 };
 
 // Channel Priority
@@ -3633,7 +3633,7 @@ union DCHPRI26 {
 
   DCHPRI26() = delete;
   inline void Reset() volatile { this->value = 0x0000001A; }
-  static inline volatile DCHPRI26 &Instance() { return *reinterpret_cast<volatile DCHPRI26*>(0x40070119); }
+  static inline volatile DCHPRI26 &ref() { return *reinterpret_cast<volatile DCHPRI26*>(0x40070119); }
 };
 
 // Channel Priority
@@ -3673,7 +3673,7 @@ union DCHPRI25 {
 
   DCHPRI25() = delete;
   inline void Reset() volatile { this->value = 0x00000019; }
-  static inline volatile DCHPRI25 &Instance() { return *reinterpret_cast<volatile DCHPRI25*>(0x4007011A); }
+  static inline volatile DCHPRI25 &ref() { return *reinterpret_cast<volatile DCHPRI25*>(0x4007011A); }
 };
 
 // Channel Priority
@@ -3713,7 +3713,7 @@ union DCHPRI24 {
 
   DCHPRI24() = delete;
   inline void Reset() volatile { this->value = 0x00000018; }
-  static inline volatile DCHPRI24 &Instance() { return *reinterpret_cast<volatile DCHPRI24*>(0x4007011B); }
+  static inline volatile DCHPRI24 &ref() { return *reinterpret_cast<volatile DCHPRI24*>(0x4007011B); }
 };
 
 // Channel Priority
@@ -3753,7 +3753,7 @@ union DCHPRI31 {
 
   DCHPRI31() = delete;
   inline void Reset() volatile { this->value = 0x0000001F; }
-  static inline volatile DCHPRI31 &Instance() { return *reinterpret_cast<volatile DCHPRI31*>(0x4007011C); }
+  static inline volatile DCHPRI31 &ref() { return *reinterpret_cast<volatile DCHPRI31*>(0x4007011C); }
 };
 
 // Channel Priority
@@ -3793,7 +3793,7 @@ union DCHPRI30 {
 
   DCHPRI30() = delete;
   inline void Reset() volatile { this->value = 0x0000001E; }
-  static inline volatile DCHPRI30 &Instance() { return *reinterpret_cast<volatile DCHPRI30*>(0x4007011D); }
+  static inline volatile DCHPRI30 &ref() { return *reinterpret_cast<volatile DCHPRI30*>(0x4007011D); }
 };
 
 // Channel Priority
@@ -3833,7 +3833,7 @@ union DCHPRI29 {
 
   DCHPRI29() = delete;
   inline void Reset() volatile { this->value = 0x0000001D; }
-  static inline volatile DCHPRI29 &Instance() { return *reinterpret_cast<volatile DCHPRI29*>(0x4007011E); }
+  static inline volatile DCHPRI29 &ref() { return *reinterpret_cast<volatile DCHPRI29*>(0x4007011E); }
 };
 
 // Channel Priority
@@ -3873,7 +3873,7 @@ union DCHPRI28 {
 
   DCHPRI28() = delete;
   inline void Reset() volatile { this->value = 0x0000001C; }
-  static inline volatile DCHPRI28 &Instance() { return *reinterpret_cast<volatile DCHPRI28*>(0x4007011F); }
+  static inline volatile DCHPRI28 &ref() { return *reinterpret_cast<volatile DCHPRI28*>(0x4007011F); }
 };
 
 

@@ -270,7 +270,7 @@ union CSI_CR1 {
 
   CSI_CR1() = delete;
   inline void Reset() volatile { this->value = 0x40000800; }
-  static inline volatile CSI_CR1 &Instance() { return *reinterpret_cast<volatile CSI_CR1*>(0x40800000); }
+  static inline volatile CSI_CR1 &ref() { return *reinterpret_cast<volatile CSI_CR1*>(0x40800000); }
 };
 
 // CSI Control Register 2
@@ -429,7 +429,7 @@ union CSI_CR2 {
 
   CSI_CR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR2 &Instance() { return *reinterpret_cast<volatile CSI_CR2*>(0x40800004); }
+  static inline volatile CSI_CR2 &ref() { return *reinterpret_cast<volatile CSI_CR2*>(0x40800004); }
 };
 
 // CSI Control Register 3
@@ -590,7 +590,7 @@ union CSI_CR3 {
 
   CSI_CR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR3 &Instance() { return *reinterpret_cast<volatile CSI_CR3*>(0x40800008); }
+  static inline volatile CSI_CR3 &ref() { return *reinterpret_cast<volatile CSI_CR3*>(0x40800008); }
 };
 
 // CSI Statistic FIFO Register
@@ -607,7 +607,7 @@ union CSI_STATFIFO {
 
   CSI_STATFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_STATFIFO &Instance() { return *reinterpret_cast<volatile CSI_STATFIFO*>(0x4080000C); }
+  static inline volatile CSI_STATFIFO &ref() { return *reinterpret_cast<volatile CSI_STATFIFO*>(0x4080000C); }
 };
 
 // CSI RX FIFO Register
@@ -624,7 +624,7 @@ union CSI_RFIFO {
 
   CSI_RFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_RFIFO &Instance() { return *reinterpret_cast<volatile CSI_RFIFO*>(0x40800010); }
+  static inline volatile CSI_RFIFO &ref() { return *reinterpret_cast<volatile CSI_RFIFO*>(0x40800010); }
 };
 
 // CSI RX Count Register
@@ -642,7 +642,7 @@ union CSI_RXCNT {
 
   CSI_RXCNT() = delete;
   inline void Reset() volatile { this->value = 0x00009600; }
-  static inline volatile CSI_RXCNT &Instance() { return *reinterpret_cast<volatile CSI_RXCNT*>(0x40800014); }
+  static inline volatile CSI_RXCNT &ref() { return *reinterpret_cast<volatile CSI_RXCNT*>(0x40800014); }
 };
 
 // CSI Status Register
@@ -827,7 +827,7 @@ union CSI_SR {
 
   CSI_SR() = delete;
   inline void Reset() volatile { this->value = 0x80004000; }
-  static inline volatile CSI_SR &Instance() { return *reinterpret_cast<volatile CSI_SR*>(0x40800018); }
+  static inline volatile CSI_SR &ref() { return *reinterpret_cast<volatile CSI_SR*>(0x40800018); }
 };
 
 // CSI DMA Start Address Register - for STATFIFO
@@ -845,7 +845,7 @@ union CSI_DMASA_STATFIFO {
 
   CSI_DMASA_STATFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_DMASA_STATFIFO &Instance() { return *reinterpret_cast<volatile CSI_DMASA_STATFIFO*>(0x40800020); }
+  static inline volatile CSI_DMASA_STATFIFO &ref() { return *reinterpret_cast<volatile CSI_DMASA_STATFIFO*>(0x40800020); }
 };
 
 // CSI DMA Transfer Size Register - for STATFIFO
@@ -862,7 +862,7 @@ union CSI_DMATS_STATFIFO {
 
   CSI_DMATS_STATFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_DMATS_STATFIFO &Instance() { return *reinterpret_cast<volatile CSI_DMATS_STATFIFO*>(0x40800024); }
+  static inline volatile CSI_DMATS_STATFIFO &ref() { return *reinterpret_cast<volatile CSI_DMATS_STATFIFO*>(0x40800024); }
 };
 
 // CSI DMA Start Address Register - for Frame Buffer1
@@ -880,7 +880,7 @@ union CSI_DMASA_FB1 {
 
   CSI_DMASA_FB1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_DMASA_FB1 &Instance() { return *reinterpret_cast<volatile CSI_DMASA_FB1*>(0x40800028); }
+  static inline volatile CSI_DMASA_FB1 &ref() { return *reinterpret_cast<volatile CSI_DMASA_FB1*>(0x40800028); }
 };
 
 // CSI DMA Transfer Size Register - for Frame Buffer2
@@ -898,7 +898,7 @@ union CSI_DMASA_FB2 {
 
   CSI_DMASA_FB2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_DMASA_FB2 &Instance() { return *reinterpret_cast<volatile CSI_DMASA_FB2*>(0x4080002C); }
+  static inline volatile CSI_DMASA_FB2 &ref() { return *reinterpret_cast<volatile CSI_DMASA_FB2*>(0x4080002C); }
 };
 
 // CSI Frame Buffer Parameter Register
@@ -917,7 +917,7 @@ union CSI_FBUF_PARA {
 
   CSI_FBUF_PARA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_FBUF_PARA &Instance() { return *reinterpret_cast<volatile CSI_FBUF_PARA*>(0x40800030); }
+  static inline volatile CSI_FBUF_PARA &ref() { return *reinterpret_cast<volatile CSI_FBUF_PARA*>(0x40800030); }
 };
 
 // CSI Image Parameter Register
@@ -936,7 +936,7 @@ union CSI_IMAG_PARA {
 
   CSI_IMAG_PARA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_IMAG_PARA &Instance() { return *reinterpret_cast<volatile CSI_IMAG_PARA*>(0x40800034); }
+  static inline volatile CSI_IMAG_PARA &ref() { return *reinterpret_cast<volatile CSI_IMAG_PARA*>(0x40800034); }
 };
 
 // CSI Control Register 18
@@ -1092,7 +1092,7 @@ union CSI_CR18 {
 
   CSI_CR18() = delete;
   inline void Reset() volatile { this->value = 0x0002D000; }
-  static inline volatile CSI_CR18 &Instance() { return *reinterpret_cast<volatile CSI_CR18*>(0x40800048); }
+  static inline volatile CSI_CR18 &ref() { return *reinterpret_cast<volatile CSI_CR18*>(0x40800048); }
 };
 
 // CSI Control Register 19
@@ -1110,7 +1110,7 @@ union CSI_CR19 {
 
   CSI_CR19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR19 &Instance() { return *reinterpret_cast<volatile CSI_CR19*>(0x4080004C); }
+  static inline volatile CSI_CR19 &ref() { return *reinterpret_cast<volatile CSI_CR19*>(0x4080004C); }
 };
 
 // CSI Control Register 20
@@ -1196,7 +1196,7 @@ union CSI_CR20 {
 
   CSI_CR20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR20 &Instance() { return *reinterpret_cast<volatile CSI_CR20*>(0x40800050); }
+  static inline volatile CSI_CR20 &ref() { return *reinterpret_cast<volatile CSI_CR20*>(0x40800050); }
 };
 
 // CSI Control Register
@@ -1214,7 +1214,7 @@ union CSI_CR21 {
 
   CSI_CR21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR21 &Instance() { return *reinterpret_cast<volatile CSI_CR21*>(0x40800054); }
+  static inline volatile CSI_CR21 &ref() { return *reinterpret_cast<volatile CSI_CR21*>(0x40800054); }
 };
 // CSI Control Register
 union CSI_CR22 {
@@ -1231,7 +1231,7 @@ union CSI_CR22 {
 
   CSI_CR22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR22 &Instance() { return *reinterpret_cast<volatile CSI_CR22*>(0x40800058); }
+  static inline volatile CSI_CR22 &ref() { return *reinterpret_cast<volatile CSI_CR22*>(0x40800058); }
 };
 // CSI Control Register
 union CSI_CR23 {
@@ -1248,7 +1248,7 @@ union CSI_CR23 {
 
   CSI_CR23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR23 &Instance() { return *reinterpret_cast<volatile CSI_CR23*>(0x4080005C); }
+  static inline volatile CSI_CR23 &ref() { return *reinterpret_cast<volatile CSI_CR23*>(0x4080005C); }
 };
 // CSI Control Register
 union CSI_CR24 {
@@ -1265,7 +1265,7 @@ union CSI_CR24 {
 
   CSI_CR24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR24 &Instance() { return *reinterpret_cast<volatile CSI_CR24*>(0x40800060); }
+  static inline volatile CSI_CR24 &ref() { return *reinterpret_cast<volatile CSI_CR24*>(0x40800060); }
 };
 // CSI Control Register
 union CSI_CR25 {
@@ -1282,7 +1282,7 @@ union CSI_CR25 {
 
   CSI_CR25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR25 &Instance() { return *reinterpret_cast<volatile CSI_CR25*>(0x40800064); }
+  static inline volatile CSI_CR25 &ref() { return *reinterpret_cast<volatile CSI_CR25*>(0x40800064); }
 };
 // CSI Control Register
 union CSI_CR26 {
@@ -1299,7 +1299,7 @@ union CSI_CR26 {
 
   CSI_CR26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR26 &Instance() { return *reinterpret_cast<volatile CSI_CR26*>(0x40800068); }
+  static inline volatile CSI_CR26 &ref() { return *reinterpret_cast<volatile CSI_CR26*>(0x40800068); }
 };
 // CSI Control Register
 union CSI_CR27 {
@@ -1316,7 +1316,7 @@ union CSI_CR27 {
 
   CSI_CR27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR27 &Instance() { return *reinterpret_cast<volatile CSI_CR27*>(0x4080006C); }
+  static inline volatile CSI_CR27 &ref() { return *reinterpret_cast<volatile CSI_CR27*>(0x4080006C); }
 };
 // CSI Control Register
 union CSI_CR28 {
@@ -1333,7 +1333,7 @@ union CSI_CR28 {
 
   CSI_CR28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR28 &Instance() { return *reinterpret_cast<volatile CSI_CR28*>(0x40800070); }
+  static inline volatile CSI_CR28 &ref() { return *reinterpret_cast<volatile CSI_CR28*>(0x40800070); }
 };
 // CSI Control Register
 union CSI_CR29 {
@@ -1350,7 +1350,7 @@ union CSI_CR29 {
 
   CSI_CR29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR29 &Instance() { return *reinterpret_cast<volatile CSI_CR29*>(0x40800074); }
+  static inline volatile CSI_CR29 &ref() { return *reinterpret_cast<volatile CSI_CR29*>(0x40800074); }
 };
 // CSI Control Register
 union CSI_CR30 {
@@ -1367,7 +1367,7 @@ union CSI_CR30 {
 
   CSI_CR30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR30 &Instance() { return *reinterpret_cast<volatile CSI_CR30*>(0x40800078); }
+  static inline volatile CSI_CR30 &ref() { return *reinterpret_cast<volatile CSI_CR30*>(0x40800078); }
 };
 // CSI Control Register
 union CSI_CR31 {
@@ -1384,7 +1384,7 @@ union CSI_CR31 {
 
   CSI_CR31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR31 &Instance() { return *reinterpret_cast<volatile CSI_CR31*>(0x4080007C); }
+  static inline volatile CSI_CR31 &ref() { return *reinterpret_cast<volatile CSI_CR31*>(0x4080007C); }
 };
 // CSI Control Register
 union CSI_CR32 {
@@ -1401,7 +1401,7 @@ union CSI_CR32 {
 
   CSI_CR32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR32 &Instance() { return *reinterpret_cast<volatile CSI_CR32*>(0x40800080); }
+  static inline volatile CSI_CR32 &ref() { return *reinterpret_cast<volatile CSI_CR32*>(0x40800080); }
 };
 // CSI Control Register
 union CSI_CR33 {
@@ -1418,7 +1418,7 @@ union CSI_CR33 {
 
   CSI_CR33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR33 &Instance() { return *reinterpret_cast<volatile CSI_CR33*>(0x40800084); }
+  static inline volatile CSI_CR33 &ref() { return *reinterpret_cast<volatile CSI_CR33*>(0x40800084); }
 };
 // CSI Control Register
 union CSI_CR34 {
@@ -1435,7 +1435,7 @@ union CSI_CR34 {
 
   CSI_CR34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR34 &Instance() { return *reinterpret_cast<volatile CSI_CR34*>(0x40800088); }
+  static inline volatile CSI_CR34 &ref() { return *reinterpret_cast<volatile CSI_CR34*>(0x40800088); }
 };
 // CSI Control Register
 union CSI_CR35 {
@@ -1452,7 +1452,7 @@ union CSI_CR35 {
 
   CSI_CR35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR35 &Instance() { return *reinterpret_cast<volatile CSI_CR35*>(0x4080008C); }
+  static inline volatile CSI_CR35 &ref() { return *reinterpret_cast<volatile CSI_CR35*>(0x4080008C); }
 };
 // CSI Control Register
 union CSI_CR36 {
@@ -1469,7 +1469,7 @@ union CSI_CR36 {
 
   CSI_CR36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR36 &Instance() { return *reinterpret_cast<volatile CSI_CR36*>(0x40800090); }
+  static inline volatile CSI_CR36 &ref() { return *reinterpret_cast<volatile CSI_CR36*>(0x40800090); }
 };
 // CSI Control Register
 union CSI_CR37 {
@@ -1486,7 +1486,7 @@ union CSI_CR37 {
 
   CSI_CR37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR37 &Instance() { return *reinterpret_cast<volatile CSI_CR37*>(0x40800094); }
+  static inline volatile CSI_CR37 &ref() { return *reinterpret_cast<volatile CSI_CR37*>(0x40800094); }
 };
 // CSI Control Register
 union CSI_CR38 {
@@ -1503,7 +1503,7 @@ union CSI_CR38 {
 
   CSI_CR38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR38 &Instance() { return *reinterpret_cast<volatile CSI_CR38*>(0x40800098); }
+  static inline volatile CSI_CR38 &ref() { return *reinterpret_cast<volatile CSI_CR38*>(0x40800098); }
 };
 // CSI Control Register
 union CSI_CR39 {
@@ -1520,7 +1520,7 @@ union CSI_CR39 {
 
   CSI_CR39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR39 &Instance() { return *reinterpret_cast<volatile CSI_CR39*>(0x4080009C); }
+  static inline volatile CSI_CR39 &ref() { return *reinterpret_cast<volatile CSI_CR39*>(0x4080009C); }
 };
 // CSI Control Register
 union CSI_CR40 {
@@ -1537,7 +1537,7 @@ union CSI_CR40 {
 
   CSI_CR40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR40 &Instance() { return *reinterpret_cast<volatile CSI_CR40*>(0x408000A0); }
+  static inline volatile CSI_CR40 &ref() { return *reinterpret_cast<volatile CSI_CR40*>(0x408000A0); }
 };
 // CSI Control Register
 union CSI_CR41 {
@@ -1554,7 +1554,7 @@ union CSI_CR41 {
 
   CSI_CR41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR41 &Instance() { return *reinterpret_cast<volatile CSI_CR41*>(0x408000A4); }
+  static inline volatile CSI_CR41 &ref() { return *reinterpret_cast<volatile CSI_CR41*>(0x408000A4); }
 };
 // CSI Control Register
 union CSI_CR42 {
@@ -1571,7 +1571,7 @@ union CSI_CR42 {
 
   CSI_CR42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR42 &Instance() { return *reinterpret_cast<volatile CSI_CR42*>(0x408000A8); }
+  static inline volatile CSI_CR42 &ref() { return *reinterpret_cast<volatile CSI_CR42*>(0x408000A8); }
 };
 // CSI Control Register
 union CSI_CR43 {
@@ -1588,7 +1588,7 @@ union CSI_CR43 {
 
   CSI_CR43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR43 &Instance() { return *reinterpret_cast<volatile CSI_CR43*>(0x408000AC); }
+  static inline volatile CSI_CR43 &ref() { return *reinterpret_cast<volatile CSI_CR43*>(0x408000AC); }
 };
 // CSI Control Register
 union CSI_CR44 {
@@ -1605,7 +1605,7 @@ union CSI_CR44 {
 
   CSI_CR44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR44 &Instance() { return *reinterpret_cast<volatile CSI_CR44*>(0x408000B0); }
+  static inline volatile CSI_CR44 &ref() { return *reinterpret_cast<volatile CSI_CR44*>(0x408000B0); }
 };
 // CSI Control Register
 union CSI_CR45 {
@@ -1622,7 +1622,7 @@ union CSI_CR45 {
 
   CSI_CR45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR45 &Instance() { return *reinterpret_cast<volatile CSI_CR45*>(0x408000B4); }
+  static inline volatile CSI_CR45 &ref() { return *reinterpret_cast<volatile CSI_CR45*>(0x408000B4); }
 };
 // CSI Control Register
 union CSI_CR46 {
@@ -1639,7 +1639,7 @@ union CSI_CR46 {
 
   CSI_CR46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR46 &Instance() { return *reinterpret_cast<volatile CSI_CR46*>(0x408000B8); }
+  static inline volatile CSI_CR46 &ref() { return *reinterpret_cast<volatile CSI_CR46*>(0x408000B8); }
 };
 // CSI Control Register
 union CSI_CR47 {
@@ -1656,7 +1656,7 @@ union CSI_CR47 {
 
   CSI_CR47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR47 &Instance() { return *reinterpret_cast<volatile CSI_CR47*>(0x408000BC); }
+  static inline volatile CSI_CR47 &ref() { return *reinterpret_cast<volatile CSI_CR47*>(0x408000BC); }
 };
 // CSI Control Register
 union CSI_CR48 {
@@ -1673,7 +1673,7 @@ union CSI_CR48 {
 
   CSI_CR48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR48 &Instance() { return *reinterpret_cast<volatile CSI_CR48*>(0x408000C0); }
+  static inline volatile CSI_CR48 &ref() { return *reinterpret_cast<volatile CSI_CR48*>(0x408000C0); }
 };
 // CSI Control Register
 union CSI_CR49 {
@@ -1690,7 +1690,7 @@ union CSI_CR49 {
 
   CSI_CR49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR49 &Instance() { return *reinterpret_cast<volatile CSI_CR49*>(0x408000C4); }
+  static inline volatile CSI_CR49 &ref() { return *reinterpret_cast<volatile CSI_CR49*>(0x408000C4); }
 };
 // CSI Control Register
 union CSI_CR50 {
@@ -1707,7 +1707,7 @@ union CSI_CR50 {
 
   CSI_CR50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR50 &Instance() { return *reinterpret_cast<volatile CSI_CR50*>(0x408000C8); }
+  static inline volatile CSI_CR50 &ref() { return *reinterpret_cast<volatile CSI_CR50*>(0x408000C8); }
 };
 // CSI Control Register
 union CSI_CR51 {
@@ -1724,7 +1724,7 @@ union CSI_CR51 {
 
   CSI_CR51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR51 &Instance() { return *reinterpret_cast<volatile CSI_CR51*>(0x408000CC); }
+  static inline volatile CSI_CR51 &ref() { return *reinterpret_cast<volatile CSI_CR51*>(0x408000CC); }
 };
 // CSI Control Register
 union CSI_CR52 {
@@ -1741,7 +1741,7 @@ union CSI_CR52 {
 
   CSI_CR52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR52 &Instance() { return *reinterpret_cast<volatile CSI_CR52*>(0x408000D0); }
+  static inline volatile CSI_CR52 &ref() { return *reinterpret_cast<volatile CSI_CR52*>(0x408000D0); }
 };
 // CSI Control Register
 union CSI_CR53 {
@@ -1758,7 +1758,7 @@ union CSI_CR53 {
 
   CSI_CR53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR53 &Instance() { return *reinterpret_cast<volatile CSI_CR53*>(0x408000D4); }
+  static inline volatile CSI_CR53 &ref() { return *reinterpret_cast<volatile CSI_CR53*>(0x408000D4); }
 };
 // CSI Control Register
 union CSI_CR54 {
@@ -1775,7 +1775,7 @@ union CSI_CR54 {
 
   CSI_CR54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR54 &Instance() { return *reinterpret_cast<volatile CSI_CR54*>(0x408000D8); }
+  static inline volatile CSI_CR54 &ref() { return *reinterpret_cast<volatile CSI_CR54*>(0x408000D8); }
 };
 // CSI Control Register
 union CSI_CR55 {
@@ -1792,7 +1792,7 @@ union CSI_CR55 {
 
   CSI_CR55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR55 &Instance() { return *reinterpret_cast<volatile CSI_CR55*>(0x408000DC); }
+  static inline volatile CSI_CR55 &ref() { return *reinterpret_cast<volatile CSI_CR55*>(0x408000DC); }
 };
 // CSI Control Register
 union CSI_CR56 {
@@ -1809,7 +1809,7 @@ union CSI_CR56 {
 
   CSI_CR56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR56 &Instance() { return *reinterpret_cast<volatile CSI_CR56*>(0x408000E0); }
+  static inline volatile CSI_CR56 &ref() { return *reinterpret_cast<volatile CSI_CR56*>(0x408000E0); }
 };
 // CSI Control Register
 union CSI_CR57 {
@@ -1826,7 +1826,7 @@ union CSI_CR57 {
 
   CSI_CR57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR57 &Instance() { return *reinterpret_cast<volatile CSI_CR57*>(0x408000E4); }
+  static inline volatile CSI_CR57 &ref() { return *reinterpret_cast<volatile CSI_CR57*>(0x408000E4); }
 };
 // CSI Control Register
 union CSI_CR58 {
@@ -1843,7 +1843,7 @@ union CSI_CR58 {
 
   CSI_CR58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR58 &Instance() { return *reinterpret_cast<volatile CSI_CR58*>(0x408000E8); }
+  static inline volatile CSI_CR58 &ref() { return *reinterpret_cast<volatile CSI_CR58*>(0x408000E8); }
 };
 // CSI Control Register
 union CSI_CR59 {
@@ -1860,7 +1860,7 @@ union CSI_CR59 {
 
   CSI_CR59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR59 &Instance() { return *reinterpret_cast<volatile CSI_CR59*>(0x408000EC); }
+  static inline volatile CSI_CR59 &ref() { return *reinterpret_cast<volatile CSI_CR59*>(0x408000EC); }
 };
 // CSI Control Register
 union CSI_CR60 {
@@ -1877,7 +1877,7 @@ union CSI_CR60 {
 
   CSI_CR60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR60 &Instance() { return *reinterpret_cast<volatile CSI_CR60*>(0x408000F0); }
+  static inline volatile CSI_CR60 &ref() { return *reinterpret_cast<volatile CSI_CR60*>(0x408000F0); }
 };
 // CSI Control Register
 union CSI_CR61 {
@@ -1894,7 +1894,7 @@ union CSI_CR61 {
 
   CSI_CR61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR61 &Instance() { return *reinterpret_cast<volatile CSI_CR61*>(0x408000F4); }
+  static inline volatile CSI_CR61 &ref() { return *reinterpret_cast<volatile CSI_CR61*>(0x408000F4); }
 };
 // CSI Control Register
 union CSI_CR62 {
@@ -1911,7 +1911,7 @@ union CSI_CR62 {
 
   CSI_CR62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR62 &Instance() { return *reinterpret_cast<volatile CSI_CR62*>(0x408000F8); }
+  static inline volatile CSI_CR62 &ref() { return *reinterpret_cast<volatile CSI_CR62*>(0x408000F8); }
 };
 // CSI Control Register
 union CSI_CR63 {
@@ -1928,7 +1928,7 @@ union CSI_CR63 {
 
   CSI_CR63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR63 &Instance() { return *reinterpret_cast<volatile CSI_CR63*>(0x408000FC); }
+  static inline volatile CSI_CR63 &ref() { return *reinterpret_cast<volatile CSI_CR63*>(0x408000FC); }
 };
 // CSI Control Register
 union CSI_CR64 {
@@ -1945,7 +1945,7 @@ union CSI_CR64 {
 
   CSI_CR64() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR64 &Instance() { return *reinterpret_cast<volatile CSI_CR64*>(0x40800100); }
+  static inline volatile CSI_CR64 &ref() { return *reinterpret_cast<volatile CSI_CR64*>(0x40800100); }
 };
 // CSI Control Register
 union CSI_CR65 {
@@ -1962,7 +1962,7 @@ union CSI_CR65 {
 
   CSI_CR65() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR65 &Instance() { return *reinterpret_cast<volatile CSI_CR65*>(0x40800104); }
+  static inline volatile CSI_CR65 &ref() { return *reinterpret_cast<volatile CSI_CR65*>(0x40800104); }
 };
 // CSI Control Register
 union CSI_CR66 {
@@ -1979,7 +1979,7 @@ union CSI_CR66 {
 
   CSI_CR66() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR66 &Instance() { return *reinterpret_cast<volatile CSI_CR66*>(0x40800108); }
+  static inline volatile CSI_CR66 &ref() { return *reinterpret_cast<volatile CSI_CR66*>(0x40800108); }
 };
 // CSI Control Register
 union CSI_CR67 {
@@ -1996,7 +1996,7 @@ union CSI_CR67 {
 
   CSI_CR67() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR67 &Instance() { return *reinterpret_cast<volatile CSI_CR67*>(0x4080010C); }
+  static inline volatile CSI_CR67 &ref() { return *reinterpret_cast<volatile CSI_CR67*>(0x4080010C); }
 };
 // CSI Control Register
 union CSI_CR68 {
@@ -2013,7 +2013,7 @@ union CSI_CR68 {
 
   CSI_CR68() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR68 &Instance() { return *reinterpret_cast<volatile CSI_CR68*>(0x40800110); }
+  static inline volatile CSI_CR68 &ref() { return *reinterpret_cast<volatile CSI_CR68*>(0x40800110); }
 };
 // CSI Control Register
 union CSI_CR69 {
@@ -2030,7 +2030,7 @@ union CSI_CR69 {
 
   CSI_CR69() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR69 &Instance() { return *reinterpret_cast<volatile CSI_CR69*>(0x40800114); }
+  static inline volatile CSI_CR69 &ref() { return *reinterpret_cast<volatile CSI_CR69*>(0x40800114); }
 };
 // CSI Control Register
 union CSI_CR70 {
@@ -2047,7 +2047,7 @@ union CSI_CR70 {
 
   CSI_CR70() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR70 &Instance() { return *reinterpret_cast<volatile CSI_CR70*>(0x40800118); }
+  static inline volatile CSI_CR70 &ref() { return *reinterpret_cast<volatile CSI_CR70*>(0x40800118); }
 };
 // CSI Control Register
 union CSI_CR71 {
@@ -2064,7 +2064,7 @@ union CSI_CR71 {
 
   CSI_CR71() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR71 &Instance() { return *reinterpret_cast<volatile CSI_CR71*>(0x4080011C); }
+  static inline volatile CSI_CR71 &ref() { return *reinterpret_cast<volatile CSI_CR71*>(0x4080011C); }
 };
 // CSI Control Register
 union CSI_CR72 {
@@ -2081,7 +2081,7 @@ union CSI_CR72 {
 
   CSI_CR72() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR72 &Instance() { return *reinterpret_cast<volatile CSI_CR72*>(0x40800120); }
+  static inline volatile CSI_CR72 &ref() { return *reinterpret_cast<volatile CSI_CR72*>(0x40800120); }
 };
 // CSI Control Register
 union CSI_CR73 {
@@ -2098,7 +2098,7 @@ union CSI_CR73 {
 
   CSI_CR73() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR73 &Instance() { return *reinterpret_cast<volatile CSI_CR73*>(0x40800124); }
+  static inline volatile CSI_CR73 &ref() { return *reinterpret_cast<volatile CSI_CR73*>(0x40800124); }
 };
 // CSI Control Register
 union CSI_CR74 {
@@ -2115,7 +2115,7 @@ union CSI_CR74 {
 
   CSI_CR74() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR74 &Instance() { return *reinterpret_cast<volatile CSI_CR74*>(0x40800128); }
+  static inline volatile CSI_CR74 &ref() { return *reinterpret_cast<volatile CSI_CR74*>(0x40800128); }
 };
 // CSI Control Register
 union CSI_CR75 {
@@ -2132,7 +2132,7 @@ union CSI_CR75 {
 
   CSI_CR75() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR75 &Instance() { return *reinterpret_cast<volatile CSI_CR75*>(0x4080012C); }
+  static inline volatile CSI_CR75 &ref() { return *reinterpret_cast<volatile CSI_CR75*>(0x4080012C); }
 };
 // CSI Control Register
 union CSI_CR76 {
@@ -2149,7 +2149,7 @@ union CSI_CR76 {
 
   CSI_CR76() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR76 &Instance() { return *reinterpret_cast<volatile CSI_CR76*>(0x40800130); }
+  static inline volatile CSI_CR76 &ref() { return *reinterpret_cast<volatile CSI_CR76*>(0x40800130); }
 };
 // CSI Control Register
 union CSI_CR77 {
@@ -2166,7 +2166,7 @@ union CSI_CR77 {
 
   CSI_CR77() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR77 &Instance() { return *reinterpret_cast<volatile CSI_CR77*>(0x40800134); }
+  static inline volatile CSI_CR77 &ref() { return *reinterpret_cast<volatile CSI_CR77*>(0x40800134); }
 };
 // CSI Control Register
 union CSI_CR78 {
@@ -2183,7 +2183,7 @@ union CSI_CR78 {
 
   CSI_CR78() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR78 &Instance() { return *reinterpret_cast<volatile CSI_CR78*>(0x40800138); }
+  static inline volatile CSI_CR78 &ref() { return *reinterpret_cast<volatile CSI_CR78*>(0x40800138); }
 };
 // CSI Control Register
 union CSI_CR79 {
@@ -2200,7 +2200,7 @@ union CSI_CR79 {
 
   CSI_CR79() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR79 &Instance() { return *reinterpret_cast<volatile CSI_CR79*>(0x4080013C); }
+  static inline volatile CSI_CR79 &ref() { return *reinterpret_cast<volatile CSI_CR79*>(0x4080013C); }
 };
 // CSI Control Register
 union CSI_CR80 {
@@ -2217,7 +2217,7 @@ union CSI_CR80 {
 
   CSI_CR80() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR80 &Instance() { return *reinterpret_cast<volatile CSI_CR80*>(0x40800140); }
+  static inline volatile CSI_CR80 &ref() { return *reinterpret_cast<volatile CSI_CR80*>(0x40800140); }
 };
 // CSI Control Register
 union CSI_CR81 {
@@ -2234,7 +2234,7 @@ union CSI_CR81 {
 
   CSI_CR81() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR81 &Instance() { return *reinterpret_cast<volatile CSI_CR81*>(0x40800144); }
+  static inline volatile CSI_CR81 &ref() { return *reinterpret_cast<volatile CSI_CR81*>(0x40800144); }
 };
 // CSI Control Register
 union CSI_CR82 {
@@ -2251,7 +2251,7 @@ union CSI_CR82 {
 
   CSI_CR82() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR82 &Instance() { return *reinterpret_cast<volatile CSI_CR82*>(0x40800148); }
+  static inline volatile CSI_CR82 &ref() { return *reinterpret_cast<volatile CSI_CR82*>(0x40800148); }
 };
 // CSI Control Register
 union CSI_CR83 {
@@ -2268,7 +2268,7 @@ union CSI_CR83 {
 
   CSI_CR83() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR83 &Instance() { return *reinterpret_cast<volatile CSI_CR83*>(0x4080014C); }
+  static inline volatile CSI_CR83 &ref() { return *reinterpret_cast<volatile CSI_CR83*>(0x4080014C); }
 };
 // CSI Control Register
 union CSI_CR84 {
@@ -2285,7 +2285,7 @@ union CSI_CR84 {
 
   CSI_CR84() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR84 &Instance() { return *reinterpret_cast<volatile CSI_CR84*>(0x40800150); }
+  static inline volatile CSI_CR84 &ref() { return *reinterpret_cast<volatile CSI_CR84*>(0x40800150); }
 };
 // CSI Control Register
 union CSI_CR85 {
@@ -2302,7 +2302,7 @@ union CSI_CR85 {
 
   CSI_CR85() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR85 &Instance() { return *reinterpret_cast<volatile CSI_CR85*>(0x40800154); }
+  static inline volatile CSI_CR85 &ref() { return *reinterpret_cast<volatile CSI_CR85*>(0x40800154); }
 };
 // CSI Control Register
 union CSI_CR86 {
@@ -2319,7 +2319,7 @@ union CSI_CR86 {
 
   CSI_CR86() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR86 &Instance() { return *reinterpret_cast<volatile CSI_CR86*>(0x40800158); }
+  static inline volatile CSI_CR86 &ref() { return *reinterpret_cast<volatile CSI_CR86*>(0x40800158); }
 };
 // CSI Control Register
 union CSI_CR87 {
@@ -2336,7 +2336,7 @@ union CSI_CR87 {
 
   CSI_CR87() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR87 &Instance() { return *reinterpret_cast<volatile CSI_CR87*>(0x4080015C); }
+  static inline volatile CSI_CR87 &ref() { return *reinterpret_cast<volatile CSI_CR87*>(0x4080015C); }
 };
 // CSI Control Register
 union CSI_CR88 {
@@ -2353,7 +2353,7 @@ union CSI_CR88 {
 
   CSI_CR88() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR88 &Instance() { return *reinterpret_cast<volatile CSI_CR88*>(0x40800160); }
+  static inline volatile CSI_CR88 &ref() { return *reinterpret_cast<volatile CSI_CR88*>(0x40800160); }
 };
 // CSI Control Register
 union CSI_CR89 {
@@ -2370,7 +2370,7 @@ union CSI_CR89 {
 
   CSI_CR89() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR89 &Instance() { return *reinterpret_cast<volatile CSI_CR89*>(0x40800164); }
+  static inline volatile CSI_CR89 &ref() { return *reinterpret_cast<volatile CSI_CR89*>(0x40800164); }
 };
 // CSI Control Register
 union CSI_CR90 {
@@ -2387,7 +2387,7 @@ union CSI_CR90 {
 
   CSI_CR90() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR90 &Instance() { return *reinterpret_cast<volatile CSI_CR90*>(0x40800168); }
+  static inline volatile CSI_CR90 &ref() { return *reinterpret_cast<volatile CSI_CR90*>(0x40800168); }
 };
 // CSI Control Register
 union CSI_CR91 {
@@ -2404,7 +2404,7 @@ union CSI_CR91 {
 
   CSI_CR91() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR91 &Instance() { return *reinterpret_cast<volatile CSI_CR91*>(0x4080016C); }
+  static inline volatile CSI_CR91 &ref() { return *reinterpret_cast<volatile CSI_CR91*>(0x4080016C); }
 };
 // CSI Control Register
 union CSI_CR92 {
@@ -2421,7 +2421,7 @@ union CSI_CR92 {
 
   CSI_CR92() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR92 &Instance() { return *reinterpret_cast<volatile CSI_CR92*>(0x40800170); }
+  static inline volatile CSI_CR92 &ref() { return *reinterpret_cast<volatile CSI_CR92*>(0x40800170); }
 };
 // CSI Control Register
 union CSI_CR93 {
@@ -2438,7 +2438,7 @@ union CSI_CR93 {
 
   CSI_CR93() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR93 &Instance() { return *reinterpret_cast<volatile CSI_CR93*>(0x40800174); }
+  static inline volatile CSI_CR93 &ref() { return *reinterpret_cast<volatile CSI_CR93*>(0x40800174); }
 };
 // CSI Control Register
 union CSI_CR94 {
@@ -2455,7 +2455,7 @@ union CSI_CR94 {
 
   CSI_CR94() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR94 &Instance() { return *reinterpret_cast<volatile CSI_CR94*>(0x40800178); }
+  static inline volatile CSI_CR94 &ref() { return *reinterpret_cast<volatile CSI_CR94*>(0x40800178); }
 };
 // CSI Control Register
 union CSI_CR95 {
@@ -2472,7 +2472,7 @@ union CSI_CR95 {
 
   CSI_CR95() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR95 &Instance() { return *reinterpret_cast<volatile CSI_CR95*>(0x4080017C); }
+  static inline volatile CSI_CR95 &ref() { return *reinterpret_cast<volatile CSI_CR95*>(0x4080017C); }
 };
 // CSI Control Register
 union CSI_CR96 {
@@ -2489,7 +2489,7 @@ union CSI_CR96 {
 
   CSI_CR96() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR96 &Instance() { return *reinterpret_cast<volatile CSI_CR96*>(0x40800180); }
+  static inline volatile CSI_CR96 &ref() { return *reinterpret_cast<volatile CSI_CR96*>(0x40800180); }
 };
 // CSI Control Register
 union CSI_CR97 {
@@ -2506,7 +2506,7 @@ union CSI_CR97 {
 
   CSI_CR97() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR97 &Instance() { return *reinterpret_cast<volatile CSI_CR97*>(0x40800184); }
+  static inline volatile CSI_CR97 &ref() { return *reinterpret_cast<volatile CSI_CR97*>(0x40800184); }
 };
 // CSI Control Register
 union CSI_CR98 {
@@ -2523,7 +2523,7 @@ union CSI_CR98 {
 
   CSI_CR98() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR98 &Instance() { return *reinterpret_cast<volatile CSI_CR98*>(0x40800188); }
+  static inline volatile CSI_CR98 &ref() { return *reinterpret_cast<volatile CSI_CR98*>(0x40800188); }
 };
 // CSI Control Register
 union CSI_CR99 {
@@ -2540,7 +2540,7 @@ union CSI_CR99 {
 
   CSI_CR99() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR99 &Instance() { return *reinterpret_cast<volatile CSI_CR99*>(0x4080018C); }
+  static inline volatile CSI_CR99 &ref() { return *reinterpret_cast<volatile CSI_CR99*>(0x4080018C); }
 };
 // CSI Control Register
 union CSI_CR100 {
@@ -2557,7 +2557,7 @@ union CSI_CR100 {
 
   CSI_CR100() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR100 &Instance() { return *reinterpret_cast<volatile CSI_CR100*>(0x40800190); }
+  static inline volatile CSI_CR100 &ref() { return *reinterpret_cast<volatile CSI_CR100*>(0x40800190); }
 };
 // CSI Control Register
 union CSI_CR101 {
@@ -2574,7 +2574,7 @@ union CSI_CR101 {
 
   CSI_CR101() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR101 &Instance() { return *reinterpret_cast<volatile CSI_CR101*>(0x40800194); }
+  static inline volatile CSI_CR101 &ref() { return *reinterpret_cast<volatile CSI_CR101*>(0x40800194); }
 };
 // CSI Control Register
 union CSI_CR102 {
@@ -2591,7 +2591,7 @@ union CSI_CR102 {
 
   CSI_CR102() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR102 &Instance() { return *reinterpret_cast<volatile CSI_CR102*>(0x40800198); }
+  static inline volatile CSI_CR102 &ref() { return *reinterpret_cast<volatile CSI_CR102*>(0x40800198); }
 };
 // CSI Control Register
 union CSI_CR103 {
@@ -2608,7 +2608,7 @@ union CSI_CR103 {
 
   CSI_CR103() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR103 &Instance() { return *reinterpret_cast<volatile CSI_CR103*>(0x4080019C); }
+  static inline volatile CSI_CR103 &ref() { return *reinterpret_cast<volatile CSI_CR103*>(0x4080019C); }
 };
 // CSI Control Register
 union CSI_CR104 {
@@ -2625,7 +2625,7 @@ union CSI_CR104 {
 
   CSI_CR104() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR104 &Instance() { return *reinterpret_cast<volatile CSI_CR104*>(0x408001A0); }
+  static inline volatile CSI_CR104 &ref() { return *reinterpret_cast<volatile CSI_CR104*>(0x408001A0); }
 };
 // CSI Control Register
 union CSI_CR105 {
@@ -2642,7 +2642,7 @@ union CSI_CR105 {
 
   CSI_CR105() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR105 &Instance() { return *reinterpret_cast<volatile CSI_CR105*>(0x408001A4); }
+  static inline volatile CSI_CR105 &ref() { return *reinterpret_cast<volatile CSI_CR105*>(0x408001A4); }
 };
 // CSI Control Register
 union CSI_CR106 {
@@ -2659,7 +2659,7 @@ union CSI_CR106 {
 
   CSI_CR106() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR106 &Instance() { return *reinterpret_cast<volatile CSI_CR106*>(0x408001A8); }
+  static inline volatile CSI_CR106 &ref() { return *reinterpret_cast<volatile CSI_CR106*>(0x408001A8); }
 };
 // CSI Control Register
 union CSI_CR107 {
@@ -2676,7 +2676,7 @@ union CSI_CR107 {
 
   CSI_CR107() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR107 &Instance() { return *reinterpret_cast<volatile CSI_CR107*>(0x408001AC); }
+  static inline volatile CSI_CR107 &ref() { return *reinterpret_cast<volatile CSI_CR107*>(0x408001AC); }
 };
 // CSI Control Register
 union CSI_CR108 {
@@ -2693,7 +2693,7 @@ union CSI_CR108 {
 
   CSI_CR108() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR108 &Instance() { return *reinterpret_cast<volatile CSI_CR108*>(0x408001B0); }
+  static inline volatile CSI_CR108 &ref() { return *reinterpret_cast<volatile CSI_CR108*>(0x408001B0); }
 };
 // CSI Control Register
 union CSI_CR109 {
@@ -2710,7 +2710,7 @@ union CSI_CR109 {
 
   CSI_CR109() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR109 &Instance() { return *reinterpret_cast<volatile CSI_CR109*>(0x408001B4); }
+  static inline volatile CSI_CR109 &ref() { return *reinterpret_cast<volatile CSI_CR109*>(0x408001B4); }
 };
 // CSI Control Register
 union CSI_CR110 {
@@ -2727,7 +2727,7 @@ union CSI_CR110 {
 
   CSI_CR110() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR110 &Instance() { return *reinterpret_cast<volatile CSI_CR110*>(0x408001B8); }
+  static inline volatile CSI_CR110 &ref() { return *reinterpret_cast<volatile CSI_CR110*>(0x408001B8); }
 };
 // CSI Control Register
 union CSI_CR111 {
@@ -2744,7 +2744,7 @@ union CSI_CR111 {
 
   CSI_CR111() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR111 &Instance() { return *reinterpret_cast<volatile CSI_CR111*>(0x408001BC); }
+  static inline volatile CSI_CR111 &ref() { return *reinterpret_cast<volatile CSI_CR111*>(0x408001BC); }
 };
 // CSI Control Register
 union CSI_CR112 {
@@ -2761,7 +2761,7 @@ union CSI_CR112 {
 
   CSI_CR112() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR112 &Instance() { return *reinterpret_cast<volatile CSI_CR112*>(0x408001C0); }
+  static inline volatile CSI_CR112 &ref() { return *reinterpret_cast<volatile CSI_CR112*>(0x408001C0); }
 };
 // CSI Control Register
 union CSI_CR113 {
@@ -2778,7 +2778,7 @@ union CSI_CR113 {
 
   CSI_CR113() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR113 &Instance() { return *reinterpret_cast<volatile CSI_CR113*>(0x408001C4); }
+  static inline volatile CSI_CR113 &ref() { return *reinterpret_cast<volatile CSI_CR113*>(0x408001C4); }
 };
 // CSI Control Register
 union CSI_CR114 {
@@ -2795,7 +2795,7 @@ union CSI_CR114 {
 
   CSI_CR114() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR114 &Instance() { return *reinterpret_cast<volatile CSI_CR114*>(0x408001C8); }
+  static inline volatile CSI_CR114 &ref() { return *reinterpret_cast<volatile CSI_CR114*>(0x408001C8); }
 };
 // CSI Control Register
 union CSI_CR115 {
@@ -2812,7 +2812,7 @@ union CSI_CR115 {
 
   CSI_CR115() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR115 &Instance() { return *reinterpret_cast<volatile CSI_CR115*>(0x408001CC); }
+  static inline volatile CSI_CR115 &ref() { return *reinterpret_cast<volatile CSI_CR115*>(0x408001CC); }
 };
 // CSI Control Register
 union CSI_CR116 {
@@ -2829,7 +2829,7 @@ union CSI_CR116 {
 
   CSI_CR116() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR116 &Instance() { return *reinterpret_cast<volatile CSI_CR116*>(0x408001D0); }
+  static inline volatile CSI_CR116 &ref() { return *reinterpret_cast<volatile CSI_CR116*>(0x408001D0); }
 };
 // CSI Control Register
 union CSI_CR117 {
@@ -2846,7 +2846,7 @@ union CSI_CR117 {
 
   CSI_CR117() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR117 &Instance() { return *reinterpret_cast<volatile CSI_CR117*>(0x408001D4); }
+  static inline volatile CSI_CR117 &ref() { return *reinterpret_cast<volatile CSI_CR117*>(0x408001D4); }
 };
 // CSI Control Register
 union CSI_CR118 {
@@ -2863,7 +2863,7 @@ union CSI_CR118 {
 
   CSI_CR118() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR118 &Instance() { return *reinterpret_cast<volatile CSI_CR118*>(0x408001D8); }
+  static inline volatile CSI_CR118 &ref() { return *reinterpret_cast<volatile CSI_CR118*>(0x408001D8); }
 };
 // CSI Control Register
 union CSI_CR119 {
@@ -2880,7 +2880,7 @@ union CSI_CR119 {
 
   CSI_CR119() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR119 &Instance() { return *reinterpret_cast<volatile CSI_CR119*>(0x408001DC); }
+  static inline volatile CSI_CR119 &ref() { return *reinterpret_cast<volatile CSI_CR119*>(0x408001DC); }
 };
 // CSI Control Register
 union CSI_CR120 {
@@ -2897,7 +2897,7 @@ union CSI_CR120 {
 
   CSI_CR120() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR120 &Instance() { return *reinterpret_cast<volatile CSI_CR120*>(0x408001E0); }
+  static inline volatile CSI_CR120 &ref() { return *reinterpret_cast<volatile CSI_CR120*>(0x408001E0); }
 };
 // CSI Control Register
 union CSI_CR121 {
@@ -2914,7 +2914,7 @@ union CSI_CR121 {
 
   CSI_CR121() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR121 &Instance() { return *reinterpret_cast<volatile CSI_CR121*>(0x408001E4); }
+  static inline volatile CSI_CR121 &ref() { return *reinterpret_cast<volatile CSI_CR121*>(0x408001E4); }
 };
 // CSI Control Register
 union CSI_CR122 {
@@ -2931,7 +2931,7 @@ union CSI_CR122 {
 
   CSI_CR122() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR122 &Instance() { return *reinterpret_cast<volatile CSI_CR122*>(0x408001E8); }
+  static inline volatile CSI_CR122 &ref() { return *reinterpret_cast<volatile CSI_CR122*>(0x408001E8); }
 };
 // CSI Control Register
 union CSI_CR123 {
@@ -2948,7 +2948,7 @@ union CSI_CR123 {
 
   CSI_CR123() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR123 &Instance() { return *reinterpret_cast<volatile CSI_CR123*>(0x408001EC); }
+  static inline volatile CSI_CR123 &ref() { return *reinterpret_cast<volatile CSI_CR123*>(0x408001EC); }
 };
 // CSI Control Register
 union CSI_CR124 {
@@ -2965,7 +2965,7 @@ union CSI_CR124 {
 
   CSI_CR124() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR124 &Instance() { return *reinterpret_cast<volatile CSI_CR124*>(0x408001F0); }
+  static inline volatile CSI_CR124 &ref() { return *reinterpret_cast<volatile CSI_CR124*>(0x408001F0); }
 };
 // CSI Control Register
 union CSI_CR125 {
@@ -2982,7 +2982,7 @@ union CSI_CR125 {
 
   CSI_CR125() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR125 &Instance() { return *reinterpret_cast<volatile CSI_CR125*>(0x408001F4); }
+  static inline volatile CSI_CR125 &ref() { return *reinterpret_cast<volatile CSI_CR125*>(0x408001F4); }
 };
 // CSI Control Register
 union CSI_CR126 {
@@ -2999,7 +2999,7 @@ union CSI_CR126 {
 
   CSI_CR126() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR126 &Instance() { return *reinterpret_cast<volatile CSI_CR126*>(0x408001F8); }
+  static inline volatile CSI_CR126 &ref() { return *reinterpret_cast<volatile CSI_CR126*>(0x408001F8); }
 };
 // CSI Control Register
 union CSI_CR127 {
@@ -3016,7 +3016,7 @@ union CSI_CR127 {
 
   CSI_CR127() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR127 &Instance() { return *reinterpret_cast<volatile CSI_CR127*>(0x408001FC); }
+  static inline volatile CSI_CR127 &ref() { return *reinterpret_cast<volatile CSI_CR127*>(0x408001FC); }
 };
 // CSI Control Register
 union CSI_CR128 {
@@ -3033,7 +3033,7 @@ union CSI_CR128 {
 
   CSI_CR128() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR128 &Instance() { return *reinterpret_cast<volatile CSI_CR128*>(0x40800200); }
+  static inline volatile CSI_CR128 &ref() { return *reinterpret_cast<volatile CSI_CR128*>(0x40800200); }
 };
 // CSI Control Register
 union CSI_CR129 {
@@ -3050,7 +3050,7 @@ union CSI_CR129 {
 
   CSI_CR129() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR129 &Instance() { return *reinterpret_cast<volatile CSI_CR129*>(0x40800204); }
+  static inline volatile CSI_CR129 &ref() { return *reinterpret_cast<volatile CSI_CR129*>(0x40800204); }
 };
 // CSI Control Register
 union CSI_CR130 {
@@ -3067,7 +3067,7 @@ union CSI_CR130 {
 
   CSI_CR130() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR130 &Instance() { return *reinterpret_cast<volatile CSI_CR130*>(0x40800208); }
+  static inline volatile CSI_CR130 &ref() { return *reinterpret_cast<volatile CSI_CR130*>(0x40800208); }
 };
 // CSI Control Register
 union CSI_CR131 {
@@ -3084,7 +3084,7 @@ union CSI_CR131 {
 
   CSI_CR131() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR131 &Instance() { return *reinterpret_cast<volatile CSI_CR131*>(0x4080020C); }
+  static inline volatile CSI_CR131 &ref() { return *reinterpret_cast<volatile CSI_CR131*>(0x4080020C); }
 };
 // CSI Control Register
 union CSI_CR132 {
@@ -3101,7 +3101,7 @@ union CSI_CR132 {
 
   CSI_CR132() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR132 &Instance() { return *reinterpret_cast<volatile CSI_CR132*>(0x40800210); }
+  static inline volatile CSI_CR132 &ref() { return *reinterpret_cast<volatile CSI_CR132*>(0x40800210); }
 };
 // CSI Control Register
 union CSI_CR133 {
@@ -3118,7 +3118,7 @@ union CSI_CR133 {
 
   CSI_CR133() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR133 &Instance() { return *reinterpret_cast<volatile CSI_CR133*>(0x40800214); }
+  static inline volatile CSI_CR133 &ref() { return *reinterpret_cast<volatile CSI_CR133*>(0x40800214); }
 };
 // CSI Control Register
 union CSI_CR134 {
@@ -3135,7 +3135,7 @@ union CSI_CR134 {
 
   CSI_CR134() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR134 &Instance() { return *reinterpret_cast<volatile CSI_CR134*>(0x40800218); }
+  static inline volatile CSI_CR134 &ref() { return *reinterpret_cast<volatile CSI_CR134*>(0x40800218); }
 };
 // CSI Control Register
 union CSI_CR135 {
@@ -3152,7 +3152,7 @@ union CSI_CR135 {
 
   CSI_CR135() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR135 &Instance() { return *reinterpret_cast<volatile CSI_CR135*>(0x4080021C); }
+  static inline volatile CSI_CR135 &ref() { return *reinterpret_cast<volatile CSI_CR135*>(0x4080021C); }
 };
 // CSI Control Register
 union CSI_CR136 {
@@ -3169,7 +3169,7 @@ union CSI_CR136 {
 
   CSI_CR136() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR136 &Instance() { return *reinterpret_cast<volatile CSI_CR136*>(0x40800220); }
+  static inline volatile CSI_CR136 &ref() { return *reinterpret_cast<volatile CSI_CR136*>(0x40800220); }
 };
 // CSI Control Register
 union CSI_CR137 {
@@ -3186,7 +3186,7 @@ union CSI_CR137 {
 
   CSI_CR137() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR137 &Instance() { return *reinterpret_cast<volatile CSI_CR137*>(0x40800224); }
+  static inline volatile CSI_CR137 &ref() { return *reinterpret_cast<volatile CSI_CR137*>(0x40800224); }
 };
 // CSI Control Register
 union CSI_CR138 {
@@ -3203,7 +3203,7 @@ union CSI_CR138 {
 
   CSI_CR138() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR138 &Instance() { return *reinterpret_cast<volatile CSI_CR138*>(0x40800228); }
+  static inline volatile CSI_CR138 &ref() { return *reinterpret_cast<volatile CSI_CR138*>(0x40800228); }
 };
 // CSI Control Register
 union CSI_CR139 {
@@ -3220,7 +3220,7 @@ union CSI_CR139 {
 
   CSI_CR139() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR139 &Instance() { return *reinterpret_cast<volatile CSI_CR139*>(0x4080022C); }
+  static inline volatile CSI_CR139 &ref() { return *reinterpret_cast<volatile CSI_CR139*>(0x4080022C); }
 };
 // CSI Control Register
 union CSI_CR140 {
@@ -3237,7 +3237,7 @@ union CSI_CR140 {
 
   CSI_CR140() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR140 &Instance() { return *reinterpret_cast<volatile CSI_CR140*>(0x40800230); }
+  static inline volatile CSI_CR140 &ref() { return *reinterpret_cast<volatile CSI_CR140*>(0x40800230); }
 };
 // CSI Control Register
 union CSI_CR141 {
@@ -3254,7 +3254,7 @@ union CSI_CR141 {
 
   CSI_CR141() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR141 &Instance() { return *reinterpret_cast<volatile CSI_CR141*>(0x40800234); }
+  static inline volatile CSI_CR141 &ref() { return *reinterpret_cast<volatile CSI_CR141*>(0x40800234); }
 };
 // CSI Control Register
 union CSI_CR142 {
@@ -3271,7 +3271,7 @@ union CSI_CR142 {
 
   CSI_CR142() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR142 &Instance() { return *reinterpret_cast<volatile CSI_CR142*>(0x40800238); }
+  static inline volatile CSI_CR142 &ref() { return *reinterpret_cast<volatile CSI_CR142*>(0x40800238); }
 };
 // CSI Control Register
 union CSI_CR143 {
@@ -3288,7 +3288,7 @@ union CSI_CR143 {
 
   CSI_CR143() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR143 &Instance() { return *reinterpret_cast<volatile CSI_CR143*>(0x4080023C); }
+  static inline volatile CSI_CR143 &ref() { return *reinterpret_cast<volatile CSI_CR143*>(0x4080023C); }
 };
 // CSI Control Register
 union CSI_CR144 {
@@ -3305,7 +3305,7 @@ union CSI_CR144 {
 
   CSI_CR144() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR144 &Instance() { return *reinterpret_cast<volatile CSI_CR144*>(0x40800240); }
+  static inline volatile CSI_CR144 &ref() { return *reinterpret_cast<volatile CSI_CR144*>(0x40800240); }
 };
 // CSI Control Register
 union CSI_CR145 {
@@ -3322,7 +3322,7 @@ union CSI_CR145 {
 
   CSI_CR145() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR145 &Instance() { return *reinterpret_cast<volatile CSI_CR145*>(0x40800244); }
+  static inline volatile CSI_CR145 &ref() { return *reinterpret_cast<volatile CSI_CR145*>(0x40800244); }
 };
 // CSI Control Register
 union CSI_CR146 {
@@ -3339,7 +3339,7 @@ union CSI_CR146 {
 
   CSI_CR146() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR146 &Instance() { return *reinterpret_cast<volatile CSI_CR146*>(0x40800248); }
+  static inline volatile CSI_CR146 &ref() { return *reinterpret_cast<volatile CSI_CR146*>(0x40800248); }
 };
 // CSI Control Register
 union CSI_CR147 {
@@ -3356,7 +3356,7 @@ union CSI_CR147 {
 
   CSI_CR147() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR147 &Instance() { return *reinterpret_cast<volatile CSI_CR147*>(0x4080024C); }
+  static inline volatile CSI_CR147 &ref() { return *reinterpret_cast<volatile CSI_CR147*>(0x4080024C); }
 };
 // CSI Control Register
 union CSI_CR148 {
@@ -3373,7 +3373,7 @@ union CSI_CR148 {
 
   CSI_CR148() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR148 &Instance() { return *reinterpret_cast<volatile CSI_CR148*>(0x40800250); }
+  static inline volatile CSI_CR148 &ref() { return *reinterpret_cast<volatile CSI_CR148*>(0x40800250); }
 };
 // CSI Control Register
 union CSI_CR149 {
@@ -3390,7 +3390,7 @@ union CSI_CR149 {
 
   CSI_CR149() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR149 &Instance() { return *reinterpret_cast<volatile CSI_CR149*>(0x40800254); }
+  static inline volatile CSI_CR149 &ref() { return *reinterpret_cast<volatile CSI_CR149*>(0x40800254); }
 };
 // CSI Control Register
 union CSI_CR150 {
@@ -3407,7 +3407,7 @@ union CSI_CR150 {
 
   CSI_CR150() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR150 &Instance() { return *reinterpret_cast<volatile CSI_CR150*>(0x40800258); }
+  static inline volatile CSI_CR150 &ref() { return *reinterpret_cast<volatile CSI_CR150*>(0x40800258); }
 };
 // CSI Control Register
 union CSI_CR151 {
@@ -3424,7 +3424,7 @@ union CSI_CR151 {
 
   CSI_CR151() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR151 &Instance() { return *reinterpret_cast<volatile CSI_CR151*>(0x4080025C); }
+  static inline volatile CSI_CR151 &ref() { return *reinterpret_cast<volatile CSI_CR151*>(0x4080025C); }
 };
 // CSI Control Register
 union CSI_CR152 {
@@ -3441,7 +3441,7 @@ union CSI_CR152 {
 
   CSI_CR152() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR152 &Instance() { return *reinterpret_cast<volatile CSI_CR152*>(0x40800260); }
+  static inline volatile CSI_CR152 &ref() { return *reinterpret_cast<volatile CSI_CR152*>(0x40800260); }
 };
 // CSI Control Register
 union CSI_CR153 {
@@ -3458,7 +3458,7 @@ union CSI_CR153 {
 
   CSI_CR153() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR153 &Instance() { return *reinterpret_cast<volatile CSI_CR153*>(0x40800264); }
+  static inline volatile CSI_CR153 &ref() { return *reinterpret_cast<volatile CSI_CR153*>(0x40800264); }
 };
 // CSI Control Register
 union CSI_CR154 {
@@ -3475,7 +3475,7 @@ union CSI_CR154 {
 
   CSI_CR154() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR154 &Instance() { return *reinterpret_cast<volatile CSI_CR154*>(0x40800268); }
+  static inline volatile CSI_CR154 &ref() { return *reinterpret_cast<volatile CSI_CR154*>(0x40800268); }
 };
 // CSI Control Register
 union CSI_CR155 {
@@ -3492,7 +3492,7 @@ union CSI_CR155 {
 
   CSI_CR155() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR155 &Instance() { return *reinterpret_cast<volatile CSI_CR155*>(0x4080026C); }
+  static inline volatile CSI_CR155 &ref() { return *reinterpret_cast<volatile CSI_CR155*>(0x4080026C); }
 };
 // CSI Control Register
 union CSI_CR156 {
@@ -3509,7 +3509,7 @@ union CSI_CR156 {
 
   CSI_CR156() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR156 &Instance() { return *reinterpret_cast<volatile CSI_CR156*>(0x40800270); }
+  static inline volatile CSI_CR156 &ref() { return *reinterpret_cast<volatile CSI_CR156*>(0x40800270); }
 };
 // CSI Control Register
 union CSI_CR157 {
@@ -3526,7 +3526,7 @@ union CSI_CR157 {
 
   CSI_CR157() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR157 &Instance() { return *reinterpret_cast<volatile CSI_CR157*>(0x40800274); }
+  static inline volatile CSI_CR157 &ref() { return *reinterpret_cast<volatile CSI_CR157*>(0x40800274); }
 };
 // CSI Control Register
 union CSI_CR158 {
@@ -3543,7 +3543,7 @@ union CSI_CR158 {
 
   CSI_CR158() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR158 &Instance() { return *reinterpret_cast<volatile CSI_CR158*>(0x40800278); }
+  static inline volatile CSI_CR158 &ref() { return *reinterpret_cast<volatile CSI_CR158*>(0x40800278); }
 };
 // CSI Control Register
 union CSI_CR159 {
@@ -3560,7 +3560,7 @@ union CSI_CR159 {
 
   CSI_CR159() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR159 &Instance() { return *reinterpret_cast<volatile CSI_CR159*>(0x4080027C); }
+  static inline volatile CSI_CR159 &ref() { return *reinterpret_cast<volatile CSI_CR159*>(0x4080027C); }
 };
 // CSI Control Register
 union CSI_CR160 {
@@ -3577,7 +3577,7 @@ union CSI_CR160 {
 
   CSI_CR160() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR160 &Instance() { return *reinterpret_cast<volatile CSI_CR160*>(0x40800280); }
+  static inline volatile CSI_CR160 &ref() { return *reinterpret_cast<volatile CSI_CR160*>(0x40800280); }
 };
 // CSI Control Register
 union CSI_CR161 {
@@ -3594,7 +3594,7 @@ union CSI_CR161 {
 
   CSI_CR161() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR161 &Instance() { return *reinterpret_cast<volatile CSI_CR161*>(0x40800284); }
+  static inline volatile CSI_CR161 &ref() { return *reinterpret_cast<volatile CSI_CR161*>(0x40800284); }
 };
 // CSI Control Register
 union CSI_CR162 {
@@ -3611,7 +3611,7 @@ union CSI_CR162 {
 
   CSI_CR162() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR162 &Instance() { return *reinterpret_cast<volatile CSI_CR162*>(0x40800288); }
+  static inline volatile CSI_CR162 &ref() { return *reinterpret_cast<volatile CSI_CR162*>(0x40800288); }
 };
 // CSI Control Register
 union CSI_CR163 {
@@ -3628,7 +3628,7 @@ union CSI_CR163 {
 
   CSI_CR163() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR163 &Instance() { return *reinterpret_cast<volatile CSI_CR163*>(0x4080028C); }
+  static inline volatile CSI_CR163 &ref() { return *reinterpret_cast<volatile CSI_CR163*>(0x4080028C); }
 };
 // CSI Control Register
 union CSI_CR164 {
@@ -3645,7 +3645,7 @@ union CSI_CR164 {
 
   CSI_CR164() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR164 &Instance() { return *reinterpret_cast<volatile CSI_CR164*>(0x40800290); }
+  static inline volatile CSI_CR164 &ref() { return *reinterpret_cast<volatile CSI_CR164*>(0x40800290); }
 };
 // CSI Control Register
 union CSI_CR165 {
@@ -3662,7 +3662,7 @@ union CSI_CR165 {
 
   CSI_CR165() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR165 &Instance() { return *reinterpret_cast<volatile CSI_CR165*>(0x40800294); }
+  static inline volatile CSI_CR165 &ref() { return *reinterpret_cast<volatile CSI_CR165*>(0x40800294); }
 };
 // CSI Control Register
 union CSI_CR166 {
@@ -3679,7 +3679,7 @@ union CSI_CR166 {
 
   CSI_CR166() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR166 &Instance() { return *reinterpret_cast<volatile CSI_CR166*>(0x40800298); }
+  static inline volatile CSI_CR166 &ref() { return *reinterpret_cast<volatile CSI_CR166*>(0x40800298); }
 };
 // CSI Control Register
 union CSI_CR167 {
@@ -3696,7 +3696,7 @@ union CSI_CR167 {
 
   CSI_CR167() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR167 &Instance() { return *reinterpret_cast<volatile CSI_CR167*>(0x4080029C); }
+  static inline volatile CSI_CR167 &ref() { return *reinterpret_cast<volatile CSI_CR167*>(0x4080029C); }
 };
 // CSI Control Register
 union CSI_CR168 {
@@ -3713,7 +3713,7 @@ union CSI_CR168 {
 
   CSI_CR168() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR168 &Instance() { return *reinterpret_cast<volatile CSI_CR168*>(0x408002A0); }
+  static inline volatile CSI_CR168 &ref() { return *reinterpret_cast<volatile CSI_CR168*>(0x408002A0); }
 };
 // CSI Control Register
 union CSI_CR169 {
@@ -3730,7 +3730,7 @@ union CSI_CR169 {
 
   CSI_CR169() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR169 &Instance() { return *reinterpret_cast<volatile CSI_CR169*>(0x408002A4); }
+  static inline volatile CSI_CR169 &ref() { return *reinterpret_cast<volatile CSI_CR169*>(0x408002A4); }
 };
 // CSI Control Register
 union CSI_CR170 {
@@ -3747,7 +3747,7 @@ union CSI_CR170 {
 
   CSI_CR170() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR170 &Instance() { return *reinterpret_cast<volatile CSI_CR170*>(0x408002A8); }
+  static inline volatile CSI_CR170 &ref() { return *reinterpret_cast<volatile CSI_CR170*>(0x408002A8); }
 };
 // CSI Control Register
 union CSI_CR171 {
@@ -3764,7 +3764,7 @@ union CSI_CR171 {
 
   CSI_CR171() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR171 &Instance() { return *reinterpret_cast<volatile CSI_CR171*>(0x408002AC); }
+  static inline volatile CSI_CR171 &ref() { return *reinterpret_cast<volatile CSI_CR171*>(0x408002AC); }
 };
 // CSI Control Register
 union CSI_CR172 {
@@ -3781,7 +3781,7 @@ union CSI_CR172 {
 
   CSI_CR172() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR172 &Instance() { return *reinterpret_cast<volatile CSI_CR172*>(0x408002B0); }
+  static inline volatile CSI_CR172 &ref() { return *reinterpret_cast<volatile CSI_CR172*>(0x408002B0); }
 };
 // CSI Control Register
 union CSI_CR173 {
@@ -3798,7 +3798,7 @@ union CSI_CR173 {
 
   CSI_CR173() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR173 &Instance() { return *reinterpret_cast<volatile CSI_CR173*>(0x408002B4); }
+  static inline volatile CSI_CR173 &ref() { return *reinterpret_cast<volatile CSI_CR173*>(0x408002B4); }
 };
 // CSI Control Register
 union CSI_CR174 {
@@ -3815,7 +3815,7 @@ union CSI_CR174 {
 
   CSI_CR174() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR174 &Instance() { return *reinterpret_cast<volatile CSI_CR174*>(0x408002B8); }
+  static inline volatile CSI_CR174 &ref() { return *reinterpret_cast<volatile CSI_CR174*>(0x408002B8); }
 };
 // CSI Control Register
 union CSI_CR175 {
@@ -3832,7 +3832,7 @@ union CSI_CR175 {
 
   CSI_CR175() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR175 &Instance() { return *reinterpret_cast<volatile CSI_CR175*>(0x408002BC); }
+  static inline volatile CSI_CR175 &ref() { return *reinterpret_cast<volatile CSI_CR175*>(0x408002BC); }
 };
 // CSI Control Register
 union CSI_CR176 {
@@ -3849,7 +3849,7 @@ union CSI_CR176 {
 
   CSI_CR176() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR176 &Instance() { return *reinterpret_cast<volatile CSI_CR176*>(0x408002C0); }
+  static inline volatile CSI_CR176 &ref() { return *reinterpret_cast<volatile CSI_CR176*>(0x408002C0); }
 };
 // CSI Control Register
 union CSI_CR177 {
@@ -3866,7 +3866,7 @@ union CSI_CR177 {
 
   CSI_CR177() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR177 &Instance() { return *reinterpret_cast<volatile CSI_CR177*>(0x408002C4); }
+  static inline volatile CSI_CR177 &ref() { return *reinterpret_cast<volatile CSI_CR177*>(0x408002C4); }
 };
 // CSI Control Register
 union CSI_CR178 {
@@ -3883,7 +3883,7 @@ union CSI_CR178 {
 
   CSI_CR178() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR178 &Instance() { return *reinterpret_cast<volatile CSI_CR178*>(0x408002C8); }
+  static inline volatile CSI_CR178 &ref() { return *reinterpret_cast<volatile CSI_CR178*>(0x408002C8); }
 };
 // CSI Control Register
 union CSI_CR179 {
@@ -3900,7 +3900,7 @@ union CSI_CR179 {
 
   CSI_CR179() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR179 &Instance() { return *reinterpret_cast<volatile CSI_CR179*>(0x408002CC); }
+  static inline volatile CSI_CR179 &ref() { return *reinterpret_cast<volatile CSI_CR179*>(0x408002CC); }
 };
 // CSI Control Register
 union CSI_CR180 {
@@ -3917,7 +3917,7 @@ union CSI_CR180 {
 
   CSI_CR180() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR180 &Instance() { return *reinterpret_cast<volatile CSI_CR180*>(0x408002D0); }
+  static inline volatile CSI_CR180 &ref() { return *reinterpret_cast<volatile CSI_CR180*>(0x408002D0); }
 };
 // CSI Control Register
 union CSI_CR181 {
@@ -3934,7 +3934,7 @@ union CSI_CR181 {
 
   CSI_CR181() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR181 &Instance() { return *reinterpret_cast<volatile CSI_CR181*>(0x408002D4); }
+  static inline volatile CSI_CR181 &ref() { return *reinterpret_cast<volatile CSI_CR181*>(0x408002D4); }
 };
 // CSI Control Register
 union CSI_CR182 {
@@ -3951,7 +3951,7 @@ union CSI_CR182 {
 
   CSI_CR182() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR182 &Instance() { return *reinterpret_cast<volatile CSI_CR182*>(0x408002D8); }
+  static inline volatile CSI_CR182 &ref() { return *reinterpret_cast<volatile CSI_CR182*>(0x408002D8); }
 };
 // CSI Control Register
 union CSI_CR183 {
@@ -3968,7 +3968,7 @@ union CSI_CR183 {
 
   CSI_CR183() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR183 &Instance() { return *reinterpret_cast<volatile CSI_CR183*>(0x408002DC); }
+  static inline volatile CSI_CR183 &ref() { return *reinterpret_cast<volatile CSI_CR183*>(0x408002DC); }
 };
 // CSI Control Register
 union CSI_CR184 {
@@ -3985,7 +3985,7 @@ union CSI_CR184 {
 
   CSI_CR184() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR184 &Instance() { return *reinterpret_cast<volatile CSI_CR184*>(0x408002E0); }
+  static inline volatile CSI_CR184 &ref() { return *reinterpret_cast<volatile CSI_CR184*>(0x408002E0); }
 };
 // CSI Control Register
 union CSI_CR185 {
@@ -4002,7 +4002,7 @@ union CSI_CR185 {
 
   CSI_CR185() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR185 &Instance() { return *reinterpret_cast<volatile CSI_CR185*>(0x408002E4); }
+  static inline volatile CSI_CR185 &ref() { return *reinterpret_cast<volatile CSI_CR185*>(0x408002E4); }
 };
 // CSI Control Register
 union CSI_CR186 {
@@ -4019,7 +4019,7 @@ union CSI_CR186 {
 
   CSI_CR186() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR186 &Instance() { return *reinterpret_cast<volatile CSI_CR186*>(0x408002E8); }
+  static inline volatile CSI_CR186 &ref() { return *reinterpret_cast<volatile CSI_CR186*>(0x408002E8); }
 };
 // CSI Control Register
 union CSI_CR187 {
@@ -4036,7 +4036,7 @@ union CSI_CR187 {
 
   CSI_CR187() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR187 &Instance() { return *reinterpret_cast<volatile CSI_CR187*>(0x408002EC); }
+  static inline volatile CSI_CR187 &ref() { return *reinterpret_cast<volatile CSI_CR187*>(0x408002EC); }
 };
 // CSI Control Register
 union CSI_CR188 {
@@ -4053,7 +4053,7 @@ union CSI_CR188 {
 
   CSI_CR188() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR188 &Instance() { return *reinterpret_cast<volatile CSI_CR188*>(0x408002F0); }
+  static inline volatile CSI_CR188 &ref() { return *reinterpret_cast<volatile CSI_CR188*>(0x408002F0); }
 };
 // CSI Control Register
 union CSI_CR189 {
@@ -4070,7 +4070,7 @@ union CSI_CR189 {
 
   CSI_CR189() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR189 &Instance() { return *reinterpret_cast<volatile CSI_CR189*>(0x408002F4); }
+  static inline volatile CSI_CR189 &ref() { return *reinterpret_cast<volatile CSI_CR189*>(0x408002F4); }
 };
 // CSI Control Register
 union CSI_CR190 {
@@ -4087,7 +4087,7 @@ union CSI_CR190 {
 
   CSI_CR190() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR190 &Instance() { return *reinterpret_cast<volatile CSI_CR190*>(0x408002F8); }
+  static inline volatile CSI_CR190 &ref() { return *reinterpret_cast<volatile CSI_CR190*>(0x408002F8); }
 };
 // CSI Control Register
 union CSI_CR191 {
@@ -4104,7 +4104,7 @@ union CSI_CR191 {
 
   CSI_CR191() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR191 &Instance() { return *reinterpret_cast<volatile CSI_CR191*>(0x408002FC); }
+  static inline volatile CSI_CR191 &ref() { return *reinterpret_cast<volatile CSI_CR191*>(0x408002FC); }
 };
 // CSI Control Register
 union CSI_CR192 {
@@ -4121,7 +4121,7 @@ union CSI_CR192 {
 
   CSI_CR192() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR192 &Instance() { return *reinterpret_cast<volatile CSI_CR192*>(0x40800300); }
+  static inline volatile CSI_CR192 &ref() { return *reinterpret_cast<volatile CSI_CR192*>(0x40800300); }
 };
 // CSI Control Register
 union CSI_CR193 {
@@ -4138,7 +4138,7 @@ union CSI_CR193 {
 
   CSI_CR193() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR193 &Instance() { return *reinterpret_cast<volatile CSI_CR193*>(0x40800304); }
+  static inline volatile CSI_CR193 &ref() { return *reinterpret_cast<volatile CSI_CR193*>(0x40800304); }
 };
 // CSI Control Register
 union CSI_CR194 {
@@ -4155,7 +4155,7 @@ union CSI_CR194 {
 
   CSI_CR194() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR194 &Instance() { return *reinterpret_cast<volatile CSI_CR194*>(0x40800308); }
+  static inline volatile CSI_CR194 &ref() { return *reinterpret_cast<volatile CSI_CR194*>(0x40800308); }
 };
 // CSI Control Register
 union CSI_CR195 {
@@ -4172,7 +4172,7 @@ union CSI_CR195 {
 
   CSI_CR195() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR195 &Instance() { return *reinterpret_cast<volatile CSI_CR195*>(0x4080030C); }
+  static inline volatile CSI_CR195 &ref() { return *reinterpret_cast<volatile CSI_CR195*>(0x4080030C); }
 };
 // CSI Control Register
 union CSI_CR196 {
@@ -4189,7 +4189,7 @@ union CSI_CR196 {
 
   CSI_CR196() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR196 &Instance() { return *reinterpret_cast<volatile CSI_CR196*>(0x40800310); }
+  static inline volatile CSI_CR196 &ref() { return *reinterpret_cast<volatile CSI_CR196*>(0x40800310); }
 };
 // CSI Control Register
 union CSI_CR197 {
@@ -4206,7 +4206,7 @@ union CSI_CR197 {
 
   CSI_CR197() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR197 &Instance() { return *reinterpret_cast<volatile CSI_CR197*>(0x40800314); }
+  static inline volatile CSI_CR197 &ref() { return *reinterpret_cast<volatile CSI_CR197*>(0x40800314); }
 };
 // CSI Control Register
 union CSI_CR198 {
@@ -4223,7 +4223,7 @@ union CSI_CR198 {
 
   CSI_CR198() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR198 &Instance() { return *reinterpret_cast<volatile CSI_CR198*>(0x40800318); }
+  static inline volatile CSI_CR198 &ref() { return *reinterpret_cast<volatile CSI_CR198*>(0x40800318); }
 };
 // CSI Control Register
 union CSI_CR199 {
@@ -4240,7 +4240,7 @@ union CSI_CR199 {
 
   CSI_CR199() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR199 &Instance() { return *reinterpret_cast<volatile CSI_CR199*>(0x4080031C); }
+  static inline volatile CSI_CR199 &ref() { return *reinterpret_cast<volatile CSI_CR199*>(0x4080031C); }
 };
 // CSI Control Register
 union CSI_CR200 {
@@ -4257,7 +4257,7 @@ union CSI_CR200 {
 
   CSI_CR200() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR200 &Instance() { return *reinterpret_cast<volatile CSI_CR200*>(0x40800320); }
+  static inline volatile CSI_CR200 &ref() { return *reinterpret_cast<volatile CSI_CR200*>(0x40800320); }
 };
 // CSI Control Register
 union CSI_CR201 {
@@ -4274,7 +4274,7 @@ union CSI_CR201 {
 
   CSI_CR201() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR201 &Instance() { return *reinterpret_cast<volatile CSI_CR201*>(0x40800324); }
+  static inline volatile CSI_CR201 &ref() { return *reinterpret_cast<volatile CSI_CR201*>(0x40800324); }
 };
 // CSI Control Register
 union CSI_CR202 {
@@ -4291,7 +4291,7 @@ union CSI_CR202 {
 
   CSI_CR202() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR202 &Instance() { return *reinterpret_cast<volatile CSI_CR202*>(0x40800328); }
+  static inline volatile CSI_CR202 &ref() { return *reinterpret_cast<volatile CSI_CR202*>(0x40800328); }
 };
 // CSI Control Register
 union CSI_CR203 {
@@ -4308,7 +4308,7 @@ union CSI_CR203 {
 
   CSI_CR203() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR203 &Instance() { return *reinterpret_cast<volatile CSI_CR203*>(0x4080032C); }
+  static inline volatile CSI_CR203 &ref() { return *reinterpret_cast<volatile CSI_CR203*>(0x4080032C); }
 };
 // CSI Control Register
 union CSI_CR204 {
@@ -4325,7 +4325,7 @@ union CSI_CR204 {
 
   CSI_CR204() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR204 &Instance() { return *reinterpret_cast<volatile CSI_CR204*>(0x40800330); }
+  static inline volatile CSI_CR204 &ref() { return *reinterpret_cast<volatile CSI_CR204*>(0x40800330); }
 };
 // CSI Control Register
 union CSI_CR205 {
@@ -4342,7 +4342,7 @@ union CSI_CR205 {
 
   CSI_CR205() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR205 &Instance() { return *reinterpret_cast<volatile CSI_CR205*>(0x40800334); }
+  static inline volatile CSI_CR205 &ref() { return *reinterpret_cast<volatile CSI_CR205*>(0x40800334); }
 };
 // CSI Control Register
 union CSI_CR206 {
@@ -4359,7 +4359,7 @@ union CSI_CR206 {
 
   CSI_CR206() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR206 &Instance() { return *reinterpret_cast<volatile CSI_CR206*>(0x40800338); }
+  static inline volatile CSI_CR206 &ref() { return *reinterpret_cast<volatile CSI_CR206*>(0x40800338); }
 };
 // CSI Control Register
 union CSI_CR207 {
@@ -4376,7 +4376,7 @@ union CSI_CR207 {
 
   CSI_CR207() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR207 &Instance() { return *reinterpret_cast<volatile CSI_CR207*>(0x4080033C); }
+  static inline volatile CSI_CR207 &ref() { return *reinterpret_cast<volatile CSI_CR207*>(0x4080033C); }
 };
 // CSI Control Register
 union CSI_CR208 {
@@ -4393,7 +4393,7 @@ union CSI_CR208 {
 
   CSI_CR208() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR208 &Instance() { return *reinterpret_cast<volatile CSI_CR208*>(0x40800340); }
+  static inline volatile CSI_CR208 &ref() { return *reinterpret_cast<volatile CSI_CR208*>(0x40800340); }
 };
 // CSI Control Register
 union CSI_CR209 {
@@ -4410,7 +4410,7 @@ union CSI_CR209 {
 
   CSI_CR209() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR209 &Instance() { return *reinterpret_cast<volatile CSI_CR209*>(0x40800344); }
+  static inline volatile CSI_CR209 &ref() { return *reinterpret_cast<volatile CSI_CR209*>(0x40800344); }
 };
 // CSI Control Register
 union CSI_CR210 {
@@ -4427,7 +4427,7 @@ union CSI_CR210 {
 
   CSI_CR210() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR210 &Instance() { return *reinterpret_cast<volatile CSI_CR210*>(0x40800348); }
+  static inline volatile CSI_CR210 &ref() { return *reinterpret_cast<volatile CSI_CR210*>(0x40800348); }
 };
 // CSI Control Register
 union CSI_CR211 {
@@ -4444,7 +4444,7 @@ union CSI_CR211 {
 
   CSI_CR211() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR211 &Instance() { return *reinterpret_cast<volatile CSI_CR211*>(0x4080034C); }
+  static inline volatile CSI_CR211 &ref() { return *reinterpret_cast<volatile CSI_CR211*>(0x4080034C); }
 };
 // CSI Control Register
 union CSI_CR212 {
@@ -4461,7 +4461,7 @@ union CSI_CR212 {
 
   CSI_CR212() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR212 &Instance() { return *reinterpret_cast<volatile CSI_CR212*>(0x40800350); }
+  static inline volatile CSI_CR212 &ref() { return *reinterpret_cast<volatile CSI_CR212*>(0x40800350); }
 };
 // CSI Control Register
 union CSI_CR213 {
@@ -4478,7 +4478,7 @@ union CSI_CR213 {
 
   CSI_CR213() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR213 &Instance() { return *reinterpret_cast<volatile CSI_CR213*>(0x40800354); }
+  static inline volatile CSI_CR213 &ref() { return *reinterpret_cast<volatile CSI_CR213*>(0x40800354); }
 };
 // CSI Control Register
 union CSI_CR214 {
@@ -4495,7 +4495,7 @@ union CSI_CR214 {
 
   CSI_CR214() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR214 &Instance() { return *reinterpret_cast<volatile CSI_CR214*>(0x40800358); }
+  static inline volatile CSI_CR214 &ref() { return *reinterpret_cast<volatile CSI_CR214*>(0x40800358); }
 };
 // CSI Control Register
 union CSI_CR215 {
@@ -4512,7 +4512,7 @@ union CSI_CR215 {
 
   CSI_CR215() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR215 &Instance() { return *reinterpret_cast<volatile CSI_CR215*>(0x4080035C); }
+  static inline volatile CSI_CR215 &ref() { return *reinterpret_cast<volatile CSI_CR215*>(0x4080035C); }
 };
 // CSI Control Register
 union CSI_CR216 {
@@ -4529,7 +4529,7 @@ union CSI_CR216 {
 
   CSI_CR216() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR216 &Instance() { return *reinterpret_cast<volatile CSI_CR216*>(0x40800360); }
+  static inline volatile CSI_CR216 &ref() { return *reinterpret_cast<volatile CSI_CR216*>(0x40800360); }
 };
 // CSI Control Register
 union CSI_CR217 {
@@ -4546,7 +4546,7 @@ union CSI_CR217 {
 
   CSI_CR217() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR217 &Instance() { return *reinterpret_cast<volatile CSI_CR217*>(0x40800364); }
+  static inline volatile CSI_CR217 &ref() { return *reinterpret_cast<volatile CSI_CR217*>(0x40800364); }
 };
 // CSI Control Register
 union CSI_CR218 {
@@ -4563,7 +4563,7 @@ union CSI_CR218 {
 
   CSI_CR218() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR218 &Instance() { return *reinterpret_cast<volatile CSI_CR218*>(0x40800368); }
+  static inline volatile CSI_CR218 &ref() { return *reinterpret_cast<volatile CSI_CR218*>(0x40800368); }
 };
 // CSI Control Register
 union CSI_CR219 {
@@ -4580,7 +4580,7 @@ union CSI_CR219 {
 
   CSI_CR219() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR219 &Instance() { return *reinterpret_cast<volatile CSI_CR219*>(0x4080036C); }
+  static inline volatile CSI_CR219 &ref() { return *reinterpret_cast<volatile CSI_CR219*>(0x4080036C); }
 };
 // CSI Control Register
 union CSI_CR220 {
@@ -4597,7 +4597,7 @@ union CSI_CR220 {
 
   CSI_CR220() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR220 &Instance() { return *reinterpret_cast<volatile CSI_CR220*>(0x40800370); }
+  static inline volatile CSI_CR220 &ref() { return *reinterpret_cast<volatile CSI_CR220*>(0x40800370); }
 };
 // CSI Control Register
 union CSI_CR221 {
@@ -4614,7 +4614,7 @@ union CSI_CR221 {
 
   CSI_CR221() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR221 &Instance() { return *reinterpret_cast<volatile CSI_CR221*>(0x40800374); }
+  static inline volatile CSI_CR221 &ref() { return *reinterpret_cast<volatile CSI_CR221*>(0x40800374); }
 };
 // CSI Control Register
 union CSI_CR222 {
@@ -4631,7 +4631,7 @@ union CSI_CR222 {
 
   CSI_CR222() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR222 &Instance() { return *reinterpret_cast<volatile CSI_CR222*>(0x40800378); }
+  static inline volatile CSI_CR222 &ref() { return *reinterpret_cast<volatile CSI_CR222*>(0x40800378); }
 };
 // CSI Control Register
 union CSI_CR223 {
@@ -4648,7 +4648,7 @@ union CSI_CR223 {
 
   CSI_CR223() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR223 &Instance() { return *reinterpret_cast<volatile CSI_CR223*>(0x4080037C); }
+  static inline volatile CSI_CR223 &ref() { return *reinterpret_cast<volatile CSI_CR223*>(0x4080037C); }
 };
 // CSI Control Register
 union CSI_CR224 {
@@ -4665,7 +4665,7 @@ union CSI_CR224 {
 
   CSI_CR224() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR224 &Instance() { return *reinterpret_cast<volatile CSI_CR224*>(0x40800380); }
+  static inline volatile CSI_CR224 &ref() { return *reinterpret_cast<volatile CSI_CR224*>(0x40800380); }
 };
 // CSI Control Register
 union CSI_CR225 {
@@ -4682,7 +4682,7 @@ union CSI_CR225 {
 
   CSI_CR225() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR225 &Instance() { return *reinterpret_cast<volatile CSI_CR225*>(0x40800384); }
+  static inline volatile CSI_CR225 &ref() { return *reinterpret_cast<volatile CSI_CR225*>(0x40800384); }
 };
 // CSI Control Register
 union CSI_CR226 {
@@ -4699,7 +4699,7 @@ union CSI_CR226 {
 
   CSI_CR226() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR226 &Instance() { return *reinterpret_cast<volatile CSI_CR226*>(0x40800388); }
+  static inline volatile CSI_CR226 &ref() { return *reinterpret_cast<volatile CSI_CR226*>(0x40800388); }
 };
 // CSI Control Register
 union CSI_CR227 {
@@ -4716,7 +4716,7 @@ union CSI_CR227 {
 
   CSI_CR227() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR227 &Instance() { return *reinterpret_cast<volatile CSI_CR227*>(0x4080038C); }
+  static inline volatile CSI_CR227 &ref() { return *reinterpret_cast<volatile CSI_CR227*>(0x4080038C); }
 };
 // CSI Control Register
 union CSI_CR228 {
@@ -4733,7 +4733,7 @@ union CSI_CR228 {
 
   CSI_CR228() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR228 &Instance() { return *reinterpret_cast<volatile CSI_CR228*>(0x40800390); }
+  static inline volatile CSI_CR228 &ref() { return *reinterpret_cast<volatile CSI_CR228*>(0x40800390); }
 };
 // CSI Control Register
 union CSI_CR229 {
@@ -4750,7 +4750,7 @@ union CSI_CR229 {
 
   CSI_CR229() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR229 &Instance() { return *reinterpret_cast<volatile CSI_CR229*>(0x40800394); }
+  static inline volatile CSI_CR229 &ref() { return *reinterpret_cast<volatile CSI_CR229*>(0x40800394); }
 };
 // CSI Control Register
 union CSI_CR230 {
@@ -4767,7 +4767,7 @@ union CSI_CR230 {
 
   CSI_CR230() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR230 &Instance() { return *reinterpret_cast<volatile CSI_CR230*>(0x40800398); }
+  static inline volatile CSI_CR230 &ref() { return *reinterpret_cast<volatile CSI_CR230*>(0x40800398); }
 };
 // CSI Control Register
 union CSI_CR231 {
@@ -4784,7 +4784,7 @@ union CSI_CR231 {
 
   CSI_CR231() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR231 &Instance() { return *reinterpret_cast<volatile CSI_CR231*>(0x4080039C); }
+  static inline volatile CSI_CR231 &ref() { return *reinterpret_cast<volatile CSI_CR231*>(0x4080039C); }
 };
 // CSI Control Register
 union CSI_CR232 {
@@ -4801,7 +4801,7 @@ union CSI_CR232 {
 
   CSI_CR232() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR232 &Instance() { return *reinterpret_cast<volatile CSI_CR232*>(0x408003A0); }
+  static inline volatile CSI_CR232 &ref() { return *reinterpret_cast<volatile CSI_CR232*>(0x408003A0); }
 };
 // CSI Control Register
 union CSI_CR233 {
@@ -4818,7 +4818,7 @@ union CSI_CR233 {
 
   CSI_CR233() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR233 &Instance() { return *reinterpret_cast<volatile CSI_CR233*>(0x408003A4); }
+  static inline volatile CSI_CR233 &ref() { return *reinterpret_cast<volatile CSI_CR233*>(0x408003A4); }
 };
 // CSI Control Register
 union CSI_CR234 {
@@ -4835,7 +4835,7 @@ union CSI_CR234 {
 
   CSI_CR234() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR234 &Instance() { return *reinterpret_cast<volatile CSI_CR234*>(0x408003A8); }
+  static inline volatile CSI_CR234 &ref() { return *reinterpret_cast<volatile CSI_CR234*>(0x408003A8); }
 };
 // CSI Control Register
 union CSI_CR235 {
@@ -4852,7 +4852,7 @@ union CSI_CR235 {
 
   CSI_CR235() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR235 &Instance() { return *reinterpret_cast<volatile CSI_CR235*>(0x408003AC); }
+  static inline volatile CSI_CR235 &ref() { return *reinterpret_cast<volatile CSI_CR235*>(0x408003AC); }
 };
 // CSI Control Register
 union CSI_CR236 {
@@ -4869,7 +4869,7 @@ union CSI_CR236 {
 
   CSI_CR236() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR236 &Instance() { return *reinterpret_cast<volatile CSI_CR236*>(0x408003B0); }
+  static inline volatile CSI_CR236 &ref() { return *reinterpret_cast<volatile CSI_CR236*>(0x408003B0); }
 };
 // CSI Control Register
 union CSI_CR237 {
@@ -4886,7 +4886,7 @@ union CSI_CR237 {
 
   CSI_CR237() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR237 &Instance() { return *reinterpret_cast<volatile CSI_CR237*>(0x408003B4); }
+  static inline volatile CSI_CR237 &ref() { return *reinterpret_cast<volatile CSI_CR237*>(0x408003B4); }
 };
 // CSI Control Register
 union CSI_CR238 {
@@ -4903,7 +4903,7 @@ union CSI_CR238 {
 
   CSI_CR238() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR238 &Instance() { return *reinterpret_cast<volatile CSI_CR238*>(0x408003B8); }
+  static inline volatile CSI_CR238 &ref() { return *reinterpret_cast<volatile CSI_CR238*>(0x408003B8); }
 };
 // CSI Control Register
 union CSI_CR239 {
@@ -4920,7 +4920,7 @@ union CSI_CR239 {
 
   CSI_CR239() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR239 &Instance() { return *reinterpret_cast<volatile CSI_CR239*>(0x408003BC); }
+  static inline volatile CSI_CR239 &ref() { return *reinterpret_cast<volatile CSI_CR239*>(0x408003BC); }
 };
 // CSI Control Register
 union CSI_CR240 {
@@ -4937,7 +4937,7 @@ union CSI_CR240 {
 
   CSI_CR240() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR240 &Instance() { return *reinterpret_cast<volatile CSI_CR240*>(0x408003C0); }
+  static inline volatile CSI_CR240 &ref() { return *reinterpret_cast<volatile CSI_CR240*>(0x408003C0); }
 };
 // CSI Control Register
 union CSI_CR241 {
@@ -4954,7 +4954,7 @@ union CSI_CR241 {
 
   CSI_CR241() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR241 &Instance() { return *reinterpret_cast<volatile CSI_CR241*>(0x408003C4); }
+  static inline volatile CSI_CR241 &ref() { return *reinterpret_cast<volatile CSI_CR241*>(0x408003C4); }
 };
 // CSI Control Register
 union CSI_CR242 {
@@ -4971,7 +4971,7 @@ union CSI_CR242 {
 
   CSI_CR242() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR242 &Instance() { return *reinterpret_cast<volatile CSI_CR242*>(0x408003C8); }
+  static inline volatile CSI_CR242 &ref() { return *reinterpret_cast<volatile CSI_CR242*>(0x408003C8); }
 };
 // CSI Control Register
 union CSI_CR243 {
@@ -4988,7 +4988,7 @@ union CSI_CR243 {
 
   CSI_CR243() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR243 &Instance() { return *reinterpret_cast<volatile CSI_CR243*>(0x408003CC); }
+  static inline volatile CSI_CR243 &ref() { return *reinterpret_cast<volatile CSI_CR243*>(0x408003CC); }
 };
 // CSI Control Register
 union CSI_CR244 {
@@ -5005,7 +5005,7 @@ union CSI_CR244 {
 
   CSI_CR244() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR244 &Instance() { return *reinterpret_cast<volatile CSI_CR244*>(0x408003D0); }
+  static inline volatile CSI_CR244 &ref() { return *reinterpret_cast<volatile CSI_CR244*>(0x408003D0); }
 };
 // CSI Control Register
 union CSI_CR245 {
@@ -5022,7 +5022,7 @@ union CSI_CR245 {
 
   CSI_CR245() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR245 &Instance() { return *reinterpret_cast<volatile CSI_CR245*>(0x408003D4); }
+  static inline volatile CSI_CR245 &ref() { return *reinterpret_cast<volatile CSI_CR245*>(0x408003D4); }
 };
 // CSI Control Register
 union CSI_CR246 {
@@ -5039,7 +5039,7 @@ union CSI_CR246 {
 
   CSI_CR246() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR246 &Instance() { return *reinterpret_cast<volatile CSI_CR246*>(0x408003D8); }
+  static inline volatile CSI_CR246 &ref() { return *reinterpret_cast<volatile CSI_CR246*>(0x408003D8); }
 };
 // CSI Control Register
 union CSI_CR247 {
@@ -5056,7 +5056,7 @@ union CSI_CR247 {
 
   CSI_CR247() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR247 &Instance() { return *reinterpret_cast<volatile CSI_CR247*>(0x408003DC); }
+  static inline volatile CSI_CR247 &ref() { return *reinterpret_cast<volatile CSI_CR247*>(0x408003DC); }
 };
 // CSI Control Register
 union CSI_CR248 {
@@ -5073,7 +5073,7 @@ union CSI_CR248 {
 
   CSI_CR248() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR248 &Instance() { return *reinterpret_cast<volatile CSI_CR248*>(0x408003E0); }
+  static inline volatile CSI_CR248 &ref() { return *reinterpret_cast<volatile CSI_CR248*>(0x408003E0); }
 };
 // CSI Control Register
 union CSI_CR249 {
@@ -5090,7 +5090,7 @@ union CSI_CR249 {
 
   CSI_CR249() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR249 &Instance() { return *reinterpret_cast<volatile CSI_CR249*>(0x408003E4); }
+  static inline volatile CSI_CR249 &ref() { return *reinterpret_cast<volatile CSI_CR249*>(0x408003E4); }
 };
 // CSI Control Register
 union CSI_CR250 {
@@ -5107,7 +5107,7 @@ union CSI_CR250 {
 
   CSI_CR250() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR250 &Instance() { return *reinterpret_cast<volatile CSI_CR250*>(0x408003E8); }
+  static inline volatile CSI_CR250 &ref() { return *reinterpret_cast<volatile CSI_CR250*>(0x408003E8); }
 };
 // CSI Control Register
 union CSI_CR251 {
@@ -5124,7 +5124,7 @@ union CSI_CR251 {
 
   CSI_CR251() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR251 &Instance() { return *reinterpret_cast<volatile CSI_CR251*>(0x408003EC); }
+  static inline volatile CSI_CR251 &ref() { return *reinterpret_cast<volatile CSI_CR251*>(0x408003EC); }
 };
 // CSI Control Register
 union CSI_CR252 {
@@ -5141,7 +5141,7 @@ union CSI_CR252 {
 
   CSI_CR252() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR252 &Instance() { return *reinterpret_cast<volatile CSI_CR252*>(0x408003F0); }
+  static inline volatile CSI_CR252 &ref() { return *reinterpret_cast<volatile CSI_CR252*>(0x408003F0); }
 };
 // CSI Control Register
 union CSI_CR253 {
@@ -5158,7 +5158,7 @@ union CSI_CR253 {
 
   CSI_CR253() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR253 &Instance() { return *reinterpret_cast<volatile CSI_CR253*>(0x408003F4); }
+  static inline volatile CSI_CR253 &ref() { return *reinterpret_cast<volatile CSI_CR253*>(0x408003F4); }
 };
 // CSI Control Register
 union CSI_CR254 {
@@ -5175,7 +5175,7 @@ union CSI_CR254 {
 
   CSI_CR254() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR254 &Instance() { return *reinterpret_cast<volatile CSI_CR254*>(0x408003F8); }
+  static inline volatile CSI_CR254 &ref() { return *reinterpret_cast<volatile CSI_CR254*>(0x408003F8); }
 };
 // CSI Control Register
 union CSI_CR255 {
@@ -5192,7 +5192,7 @@ union CSI_CR255 {
 
   CSI_CR255() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR255 &Instance() { return *reinterpret_cast<volatile CSI_CR255*>(0x408003FC); }
+  static inline volatile CSI_CR255 &ref() { return *reinterpret_cast<volatile CSI_CR255*>(0x408003FC); }
 };
 // CSI Control Register
 union CSI_CR256 {
@@ -5209,7 +5209,7 @@ union CSI_CR256 {
 
   CSI_CR256() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR256 &Instance() { return *reinterpret_cast<volatile CSI_CR256*>(0x40800400); }
+  static inline volatile CSI_CR256 &ref() { return *reinterpret_cast<volatile CSI_CR256*>(0x40800400); }
 };
 // CSI Control Register
 union CSI_CR257 {
@@ -5226,7 +5226,7 @@ union CSI_CR257 {
 
   CSI_CR257() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR257 &Instance() { return *reinterpret_cast<volatile CSI_CR257*>(0x40800404); }
+  static inline volatile CSI_CR257 &ref() { return *reinterpret_cast<volatile CSI_CR257*>(0x40800404); }
 };
 // CSI Control Register
 union CSI_CR258 {
@@ -5243,7 +5243,7 @@ union CSI_CR258 {
 
   CSI_CR258() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR258 &Instance() { return *reinterpret_cast<volatile CSI_CR258*>(0x40800408); }
+  static inline volatile CSI_CR258 &ref() { return *reinterpret_cast<volatile CSI_CR258*>(0x40800408); }
 };
 // CSI Control Register
 union CSI_CR259 {
@@ -5260,7 +5260,7 @@ union CSI_CR259 {
 
   CSI_CR259() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR259 &Instance() { return *reinterpret_cast<volatile CSI_CR259*>(0x4080040C); }
+  static inline volatile CSI_CR259 &ref() { return *reinterpret_cast<volatile CSI_CR259*>(0x4080040C); }
 };
 // CSI Control Register
 union CSI_CR260 {
@@ -5277,7 +5277,7 @@ union CSI_CR260 {
 
   CSI_CR260() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR260 &Instance() { return *reinterpret_cast<volatile CSI_CR260*>(0x40800410); }
+  static inline volatile CSI_CR260 &ref() { return *reinterpret_cast<volatile CSI_CR260*>(0x40800410); }
 };
 // CSI Control Register
 union CSI_CR261 {
@@ -5294,7 +5294,7 @@ union CSI_CR261 {
 
   CSI_CR261() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR261 &Instance() { return *reinterpret_cast<volatile CSI_CR261*>(0x40800414); }
+  static inline volatile CSI_CR261 &ref() { return *reinterpret_cast<volatile CSI_CR261*>(0x40800414); }
 };
 // CSI Control Register
 union CSI_CR262 {
@@ -5311,7 +5311,7 @@ union CSI_CR262 {
 
   CSI_CR262() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR262 &Instance() { return *reinterpret_cast<volatile CSI_CR262*>(0x40800418); }
+  static inline volatile CSI_CR262 &ref() { return *reinterpret_cast<volatile CSI_CR262*>(0x40800418); }
 };
 // CSI Control Register
 union CSI_CR263 {
@@ -5328,7 +5328,7 @@ union CSI_CR263 {
 
   CSI_CR263() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR263 &Instance() { return *reinterpret_cast<volatile CSI_CR263*>(0x4080041C); }
+  static inline volatile CSI_CR263 &ref() { return *reinterpret_cast<volatile CSI_CR263*>(0x4080041C); }
 };
 // CSI Control Register
 union CSI_CR264 {
@@ -5345,7 +5345,7 @@ union CSI_CR264 {
 
   CSI_CR264() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR264 &Instance() { return *reinterpret_cast<volatile CSI_CR264*>(0x40800420); }
+  static inline volatile CSI_CR264 &ref() { return *reinterpret_cast<volatile CSI_CR264*>(0x40800420); }
 };
 // CSI Control Register
 union CSI_CR265 {
@@ -5362,7 +5362,7 @@ union CSI_CR265 {
 
   CSI_CR265() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR265 &Instance() { return *reinterpret_cast<volatile CSI_CR265*>(0x40800424); }
+  static inline volatile CSI_CR265 &ref() { return *reinterpret_cast<volatile CSI_CR265*>(0x40800424); }
 };
 // CSI Control Register
 union CSI_CR266 {
@@ -5379,7 +5379,7 @@ union CSI_CR266 {
 
   CSI_CR266() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR266 &Instance() { return *reinterpret_cast<volatile CSI_CR266*>(0x40800428); }
+  static inline volatile CSI_CR266 &ref() { return *reinterpret_cast<volatile CSI_CR266*>(0x40800428); }
 };
 // CSI Control Register
 union CSI_CR267 {
@@ -5396,7 +5396,7 @@ union CSI_CR267 {
 
   CSI_CR267() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR267 &Instance() { return *reinterpret_cast<volatile CSI_CR267*>(0x4080042C); }
+  static inline volatile CSI_CR267 &ref() { return *reinterpret_cast<volatile CSI_CR267*>(0x4080042C); }
 };
 // CSI Control Register
 union CSI_CR268 {
@@ -5413,7 +5413,7 @@ union CSI_CR268 {
 
   CSI_CR268() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR268 &Instance() { return *reinterpret_cast<volatile CSI_CR268*>(0x40800430); }
+  static inline volatile CSI_CR268 &ref() { return *reinterpret_cast<volatile CSI_CR268*>(0x40800430); }
 };
 // CSI Control Register
 union CSI_CR269 {
@@ -5430,7 +5430,7 @@ union CSI_CR269 {
 
   CSI_CR269() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR269 &Instance() { return *reinterpret_cast<volatile CSI_CR269*>(0x40800434); }
+  static inline volatile CSI_CR269 &ref() { return *reinterpret_cast<volatile CSI_CR269*>(0x40800434); }
 };
 // CSI Control Register
 union CSI_CR270 {
@@ -5447,7 +5447,7 @@ union CSI_CR270 {
 
   CSI_CR270() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR270 &Instance() { return *reinterpret_cast<volatile CSI_CR270*>(0x40800438); }
+  static inline volatile CSI_CR270 &ref() { return *reinterpret_cast<volatile CSI_CR270*>(0x40800438); }
 };
 // CSI Control Register
 union CSI_CR271 {
@@ -5464,7 +5464,7 @@ union CSI_CR271 {
 
   CSI_CR271() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR271 &Instance() { return *reinterpret_cast<volatile CSI_CR271*>(0x4080043C); }
+  static inline volatile CSI_CR271 &ref() { return *reinterpret_cast<volatile CSI_CR271*>(0x4080043C); }
 };
 // CSI Control Register
 union CSI_CR272 {
@@ -5481,7 +5481,7 @@ union CSI_CR272 {
 
   CSI_CR272() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR272 &Instance() { return *reinterpret_cast<volatile CSI_CR272*>(0x40800440); }
+  static inline volatile CSI_CR272 &ref() { return *reinterpret_cast<volatile CSI_CR272*>(0x40800440); }
 };
 // CSI Control Register
 union CSI_CR273 {
@@ -5498,7 +5498,7 @@ union CSI_CR273 {
 
   CSI_CR273() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR273 &Instance() { return *reinterpret_cast<volatile CSI_CR273*>(0x40800444); }
+  static inline volatile CSI_CR273 &ref() { return *reinterpret_cast<volatile CSI_CR273*>(0x40800444); }
 };
 // CSI Control Register
 union CSI_CR274 {
@@ -5515,7 +5515,7 @@ union CSI_CR274 {
 
   CSI_CR274() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR274 &Instance() { return *reinterpret_cast<volatile CSI_CR274*>(0x40800448); }
+  static inline volatile CSI_CR274 &ref() { return *reinterpret_cast<volatile CSI_CR274*>(0x40800448); }
 };
 // CSI Control Register
 union CSI_CR275 {
@@ -5532,7 +5532,7 @@ union CSI_CR275 {
 
   CSI_CR275() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR275 &Instance() { return *reinterpret_cast<volatile CSI_CR275*>(0x4080044C); }
+  static inline volatile CSI_CR275 &ref() { return *reinterpret_cast<volatile CSI_CR275*>(0x4080044C); }
 };
 // CSI Control Register
 union CSI_CR276 {
@@ -5549,7 +5549,7 @@ union CSI_CR276 {
 
   CSI_CR276() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSI_CR276 &Instance() { return *reinterpret_cast<volatile CSI_CR276*>(0x40800450); }
+  static inline volatile CSI_CR276 &ref() { return *reinterpret_cast<volatile CSI_CR276*>(0x40800450); }
 };
 
 

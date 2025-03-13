@@ -47,7 +47,7 @@ union DESC_CTRL0_0 {
 
   DESC_CTRL0_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_0 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_0*>(0x40CB8000); }
+  static inline volatile DESC_CTRL0_0 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_0*>(0x40CB8000); }
 };
 
 // Descriptor Control1 0 Register
@@ -152,7 +152,7 @@ union DESC_CTRL1_0 {
 
   DESC_CTRL1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_0 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_0*>(0x40CB8004); }
+  static inline volatile DESC_CTRL1_0 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_0*>(0x40CB8004); }
 };
 
 // Descriptor Address Up 0 Register
@@ -169,7 +169,7 @@ union DESC_ADDR_UP_0 {
 
   DESC_ADDR_UP_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_0 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_0*>(0x40CB8008); }
+  static inline volatile DESC_ADDR_UP_0 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_0*>(0x40CB8008); }
 };
 
 // Descriptor Address Down 0 Register
@@ -186,7 +186,7 @@ union DESC_ADDR_DOWN_0 {
 
   DESC_ADDR_DOWN_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_0 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_0*>(0x40CB800C); }
+  static inline volatile DESC_ADDR_DOWN_0 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_0*>(0x40CB800C); }
 };
 
 // Descriptor Control0 1 Register
@@ -226,7 +226,7 @@ union DESC_CTRL0_1 {
 
   DESC_CTRL0_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_1 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_1*>(0x40CB8020); }
+  static inline volatile DESC_CTRL0_1 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_1*>(0x40CB8020); }
 };
 
 // Descriptor Control1 1 Register
@@ -331,7 +331,7 @@ union DESC_CTRL1_1 {
 
   DESC_CTRL1_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_1 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_1*>(0x40CB8024); }
+  static inline volatile DESC_CTRL1_1 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_1*>(0x40CB8024); }
 };
 
 // Descriptor Address Up 1 Register
@@ -348,7 +348,7 @@ union DESC_ADDR_UP_1 {
 
   DESC_ADDR_UP_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_1 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_1*>(0x40CB8028); }
+  static inline volatile DESC_ADDR_UP_1 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_1*>(0x40CB8028); }
 };
 
 // Descriptor Address Down 1 Register
@@ -365,7 +365,7 @@ union DESC_ADDR_DOWN_1 {
 
   DESC_ADDR_DOWN_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_1 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_1*>(0x40CB802C); }
+  static inline volatile DESC_ADDR_DOWN_1 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_1*>(0x40CB802C); }
 };
 
 // Descriptor Control0 2 Register
@@ -405,7 +405,7 @@ union DESC_CTRL0_2 {
 
   DESC_CTRL0_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_2 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_2*>(0x40CB8040); }
+  static inline volatile DESC_CTRL0_2 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_2*>(0x40CB8040); }
 };
 
 // Descriptor Control1 2 Register
@@ -510,7 +510,7 @@ union DESC_CTRL1_2 {
 
   DESC_CTRL1_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_2 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_2*>(0x40CB8044); }
+  static inline volatile DESC_CTRL1_2 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_2*>(0x40CB8044); }
 };
 
 // Descriptor Address Up 2 Register
@@ -527,7 +527,7 @@ union DESC_ADDR_UP_2 {
 
   DESC_ADDR_UP_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_2 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_2*>(0x40CB8048); }
+  static inline volatile DESC_ADDR_UP_2 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_2*>(0x40CB8048); }
 };
 
 // Descriptor Address Down 2 Register
@@ -544,7 +544,7 @@ union DESC_ADDR_DOWN_2 {
 
   DESC_ADDR_DOWN_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_2 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_2*>(0x40CB804C); }
+  static inline volatile DESC_ADDR_DOWN_2 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_2*>(0x40CB804C); }
 };
 
 // Descriptor Control0 3 Register
@@ -584,7 +584,7 @@ union DESC_CTRL0_3 {
 
   DESC_CTRL0_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_3 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_3*>(0x40CB8060); }
+  static inline volatile DESC_CTRL0_3 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_3*>(0x40CB8060); }
 };
 
 // Descriptor Control1 3 Register
@@ -689,7 +689,7 @@ union DESC_CTRL1_3 {
 
   DESC_CTRL1_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_3 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_3*>(0x40CB8064); }
+  static inline volatile DESC_CTRL1_3 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_3*>(0x40CB8064); }
 };
 
 // Descriptor Address Up 3 Register
@@ -706,7 +706,7 @@ union DESC_ADDR_UP_3 {
 
   DESC_ADDR_UP_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_3 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_3*>(0x40CB8068); }
+  static inline volatile DESC_ADDR_UP_3 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_3*>(0x40CB8068); }
 };
 
 // Descriptor Address Down 3 Register
@@ -723,7 +723,7 @@ union DESC_ADDR_DOWN_3 {
 
   DESC_ADDR_DOWN_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_3 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_3*>(0x40CB806C); }
+  static inline volatile DESC_ADDR_DOWN_3 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_3*>(0x40CB806C); }
 };
 
 // Descriptor Control0 4 Register
@@ -763,7 +763,7 @@ union DESC_CTRL0_4 {
 
   DESC_CTRL0_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_4 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_4*>(0x40CB8080); }
+  static inline volatile DESC_CTRL0_4 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_4*>(0x40CB8080); }
 };
 
 // Descriptor Control1 4 Register
@@ -868,7 +868,7 @@ union DESC_CTRL1_4 {
 
   DESC_CTRL1_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_4 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_4*>(0x40CB8084); }
+  static inline volatile DESC_CTRL1_4 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_4*>(0x40CB8084); }
 };
 
 // Descriptor Address Up 4 Register
@@ -885,7 +885,7 @@ union DESC_ADDR_UP_4 {
 
   DESC_ADDR_UP_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_4 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_4*>(0x40CB8088); }
+  static inline volatile DESC_ADDR_UP_4 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_4*>(0x40CB8088); }
 };
 
 // Descriptor Address Down 4 Register
@@ -902,7 +902,7 @@ union DESC_ADDR_DOWN_4 {
 
   DESC_ADDR_DOWN_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_4 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_4*>(0x40CB808C); }
+  static inline volatile DESC_ADDR_DOWN_4 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_4*>(0x40CB808C); }
 };
 
 // Descriptor Control0 5 Register
@@ -942,7 +942,7 @@ union DESC_CTRL0_5 {
 
   DESC_CTRL0_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_5 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_5*>(0x40CB80A0); }
+  static inline volatile DESC_CTRL0_5 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_5*>(0x40CB80A0); }
 };
 
 // Descriptor Control1 5 Register
@@ -1047,7 +1047,7 @@ union DESC_CTRL1_5 {
 
   DESC_CTRL1_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_5 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_5*>(0x40CB80A4); }
+  static inline volatile DESC_CTRL1_5 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_5*>(0x40CB80A4); }
 };
 
 // Descriptor Address Up 5 Register
@@ -1064,7 +1064,7 @@ union DESC_ADDR_UP_5 {
 
   DESC_ADDR_UP_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_5 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_5*>(0x40CB80A8); }
+  static inline volatile DESC_ADDR_UP_5 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_5*>(0x40CB80A8); }
 };
 
 // Descriptor Address Down 5 Register
@@ -1081,7 +1081,7 @@ union DESC_ADDR_DOWN_5 {
 
   DESC_ADDR_DOWN_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_5 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_5*>(0x40CB80AC); }
+  static inline volatile DESC_ADDR_DOWN_5 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_5*>(0x40CB80AC); }
 };
 
 // Descriptor Control0 6 Register
@@ -1121,7 +1121,7 @@ union DESC_CTRL0_6 {
 
   DESC_CTRL0_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_6 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_6*>(0x40CB80C0); }
+  static inline volatile DESC_CTRL0_6 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_6*>(0x40CB80C0); }
 };
 
 // Descriptor Control1 6 Register
@@ -1226,7 +1226,7 @@ union DESC_CTRL1_6 {
 
   DESC_CTRL1_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_6 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_6*>(0x40CB80C4); }
+  static inline volatile DESC_CTRL1_6 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_6*>(0x40CB80C4); }
 };
 
 // Descriptor Address Up 6 Register
@@ -1243,7 +1243,7 @@ union DESC_ADDR_UP_6 {
 
   DESC_ADDR_UP_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_6 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_6*>(0x40CB80C8); }
+  static inline volatile DESC_ADDR_UP_6 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_6*>(0x40CB80C8); }
 };
 
 // Descriptor Address Down 6 Register
@@ -1260,7 +1260,7 @@ union DESC_ADDR_DOWN_6 {
 
   DESC_ADDR_DOWN_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_6 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_6*>(0x40CB80CC); }
+  static inline volatile DESC_ADDR_DOWN_6 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_6*>(0x40CB80CC); }
 };
 
 // Descriptor Control0 7 Register
@@ -1300,7 +1300,7 @@ union DESC_CTRL0_7 {
 
   DESC_CTRL0_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_7 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_7*>(0x40CB80E0); }
+  static inline volatile DESC_CTRL0_7 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_7*>(0x40CB80E0); }
 };
 
 // Descriptor Control1 7 Register
@@ -1405,7 +1405,7 @@ union DESC_CTRL1_7 {
 
   DESC_CTRL1_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_7 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_7*>(0x40CB80E4); }
+  static inline volatile DESC_CTRL1_7 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_7*>(0x40CB80E4); }
 };
 
 // Descriptor Address Up 7 Register
@@ -1422,7 +1422,7 @@ union DESC_ADDR_UP_7 {
 
   DESC_ADDR_UP_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_7 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_7*>(0x40CB80E8); }
+  static inline volatile DESC_ADDR_UP_7 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_7*>(0x40CB80E8); }
 };
 
 // Descriptor Address Down 7 Register
@@ -1439,7 +1439,7 @@ union DESC_ADDR_DOWN_7 {
 
   DESC_ADDR_DOWN_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_7 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_7*>(0x40CB80EC); }
+  static inline volatile DESC_ADDR_DOWN_7 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_7*>(0x40CB80EC); }
 };
 
 // Descriptor Control0 8 Register
@@ -1479,7 +1479,7 @@ union DESC_CTRL0_8 {
 
   DESC_CTRL0_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_8 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_8*>(0x40CB8100); }
+  static inline volatile DESC_CTRL0_8 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_8*>(0x40CB8100); }
 };
 
 // Descriptor Control1 8 Register
@@ -1584,7 +1584,7 @@ union DESC_CTRL1_8 {
 
   DESC_CTRL1_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_8 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_8*>(0x40CB8104); }
+  static inline volatile DESC_CTRL1_8 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_8*>(0x40CB8104); }
 };
 
 // Descriptor Address Up 8 Register
@@ -1601,7 +1601,7 @@ union DESC_ADDR_UP_8 {
 
   DESC_ADDR_UP_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_8 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_8*>(0x40CB8108); }
+  static inline volatile DESC_ADDR_UP_8 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_8*>(0x40CB8108); }
 };
 
 // Descriptor Address Down 8 Register
@@ -1618,7 +1618,7 @@ union DESC_ADDR_DOWN_8 {
 
   DESC_ADDR_DOWN_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_8 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_8*>(0x40CB810C); }
+  static inline volatile DESC_ADDR_DOWN_8 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_8*>(0x40CB810C); }
 };
 
 // Descriptor Control0 9 Register
@@ -1658,7 +1658,7 @@ union DESC_CTRL0_9 {
 
   DESC_CTRL0_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_9 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_9*>(0x40CB8120); }
+  static inline volatile DESC_CTRL0_9 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_9*>(0x40CB8120); }
 };
 
 // Descriptor Control1 9 Register
@@ -1763,7 +1763,7 @@ union DESC_CTRL1_9 {
 
   DESC_CTRL1_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_9 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_9*>(0x40CB8124); }
+  static inline volatile DESC_CTRL1_9 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_9*>(0x40CB8124); }
 };
 
 // Descriptor Address Up 9 Register
@@ -1780,7 +1780,7 @@ union DESC_ADDR_UP_9 {
 
   DESC_ADDR_UP_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_9 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_9*>(0x40CB8128); }
+  static inline volatile DESC_ADDR_UP_9 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_9*>(0x40CB8128); }
 };
 
 // Descriptor Address Down 9 Register
@@ -1797,7 +1797,7 @@ union DESC_ADDR_DOWN_9 {
 
   DESC_ADDR_DOWN_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_9 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_9*>(0x40CB812C); }
+  static inline volatile DESC_ADDR_DOWN_9 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_9*>(0x40CB812C); }
 };
 
 // Descriptor Control0 10 Register
@@ -1837,7 +1837,7 @@ union DESC_CTRL0_10 {
 
   DESC_CTRL0_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_10 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_10*>(0x40CB8140); }
+  static inline volatile DESC_CTRL0_10 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_10*>(0x40CB8140); }
 };
 
 // Descriptor Control1 10 Register
@@ -1942,7 +1942,7 @@ union DESC_CTRL1_10 {
 
   DESC_CTRL1_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_10 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_10*>(0x40CB8144); }
+  static inline volatile DESC_CTRL1_10 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_10*>(0x40CB8144); }
 };
 
 // Descriptor Address Up 10 Register
@@ -1959,7 +1959,7 @@ union DESC_ADDR_UP_10 {
 
   DESC_ADDR_UP_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_10 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_10*>(0x40CB8148); }
+  static inline volatile DESC_ADDR_UP_10 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_10*>(0x40CB8148); }
 };
 
 // Descriptor Address Down 10 Register
@@ -1976,7 +1976,7 @@ union DESC_ADDR_DOWN_10 {
 
   DESC_ADDR_DOWN_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_10 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_10*>(0x40CB814C); }
+  static inline volatile DESC_ADDR_DOWN_10 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_10*>(0x40CB814C); }
 };
 
 // Descriptor Control0 11 Register
@@ -2016,7 +2016,7 @@ union DESC_CTRL0_11 {
 
   DESC_CTRL0_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_11 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_11*>(0x40CB8160); }
+  static inline volatile DESC_CTRL0_11 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_11*>(0x40CB8160); }
 };
 
 // Descriptor Control1 11 Register
@@ -2121,7 +2121,7 @@ union DESC_CTRL1_11 {
 
   DESC_CTRL1_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_11 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_11*>(0x40CB8164); }
+  static inline volatile DESC_CTRL1_11 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_11*>(0x40CB8164); }
 };
 
 // Descriptor Address Up 11 Register
@@ -2138,7 +2138,7 @@ union DESC_ADDR_UP_11 {
 
   DESC_ADDR_UP_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_11 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_11*>(0x40CB8168); }
+  static inline volatile DESC_ADDR_UP_11 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_11*>(0x40CB8168); }
 };
 
 // Descriptor Address Down 11 Register
@@ -2155,7 +2155,7 @@ union DESC_ADDR_DOWN_11 {
 
   DESC_ADDR_DOWN_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_11 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_11*>(0x40CB816C); }
+  static inline volatile DESC_ADDR_DOWN_11 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_11*>(0x40CB816C); }
 };
 
 // Descriptor Control0 12 Register
@@ -2195,7 +2195,7 @@ union DESC_CTRL0_12 {
 
   DESC_CTRL0_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_12 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_12*>(0x40CB8180); }
+  static inline volatile DESC_CTRL0_12 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_12*>(0x40CB8180); }
 };
 
 // Descriptor Control1 12 Register
@@ -2300,7 +2300,7 @@ union DESC_CTRL1_12 {
 
   DESC_CTRL1_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_12 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_12*>(0x40CB8184); }
+  static inline volatile DESC_CTRL1_12 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_12*>(0x40CB8184); }
 };
 
 // Descriptor Address Up 12 Register
@@ -2317,7 +2317,7 @@ union DESC_ADDR_UP_12 {
 
   DESC_ADDR_UP_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_12 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_12*>(0x40CB8188); }
+  static inline volatile DESC_ADDR_UP_12 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_12*>(0x40CB8188); }
 };
 
 // Descriptor Address Down 12 Register
@@ -2334,7 +2334,7 @@ union DESC_ADDR_DOWN_12 {
 
   DESC_ADDR_DOWN_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_12 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_12*>(0x40CB818C); }
+  static inline volatile DESC_ADDR_DOWN_12 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_12*>(0x40CB818C); }
 };
 
 // Descriptor Control0 13 Register
@@ -2374,7 +2374,7 @@ union DESC_CTRL0_13 {
 
   DESC_CTRL0_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_13 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_13*>(0x40CB81A0); }
+  static inline volatile DESC_CTRL0_13 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_13*>(0x40CB81A0); }
 };
 
 // Descriptor Control1 13 Register
@@ -2479,7 +2479,7 @@ union DESC_CTRL1_13 {
 
   DESC_CTRL1_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_13 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_13*>(0x40CB81A4); }
+  static inline volatile DESC_CTRL1_13 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_13*>(0x40CB81A4); }
 };
 
 // Descriptor Address Up 13 Register
@@ -2496,7 +2496,7 @@ union DESC_ADDR_UP_13 {
 
   DESC_ADDR_UP_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_13 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_13*>(0x40CB81A8); }
+  static inline volatile DESC_ADDR_UP_13 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_13*>(0x40CB81A8); }
 };
 
 // Descriptor Address Down 13 Register
@@ -2513,7 +2513,7 @@ union DESC_ADDR_DOWN_13 {
 
   DESC_ADDR_DOWN_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_13 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_13*>(0x40CB81AC); }
+  static inline volatile DESC_ADDR_DOWN_13 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_13*>(0x40CB81AC); }
 };
 
 // Descriptor Control0 14 Register
@@ -2553,7 +2553,7 @@ union DESC_CTRL0_14 {
 
   DESC_CTRL0_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_14 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_14*>(0x40CB81C0); }
+  static inline volatile DESC_CTRL0_14 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_14*>(0x40CB81C0); }
 };
 
 // Descriptor Control1 14 Register
@@ -2658,7 +2658,7 @@ union DESC_CTRL1_14 {
 
   DESC_CTRL1_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_14 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_14*>(0x40CB81C4); }
+  static inline volatile DESC_CTRL1_14 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_14*>(0x40CB81C4); }
 };
 
 // Descriptor Address Up 14 Register
@@ -2675,7 +2675,7 @@ union DESC_ADDR_UP_14 {
 
   DESC_ADDR_UP_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_14 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_14*>(0x40CB81C8); }
+  static inline volatile DESC_ADDR_UP_14 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_14*>(0x40CB81C8); }
 };
 
 // Descriptor Address Down 14 Register
@@ -2692,7 +2692,7 @@ union DESC_ADDR_DOWN_14 {
 
   DESC_ADDR_DOWN_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_14 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_14*>(0x40CB81CC); }
+  static inline volatile DESC_ADDR_DOWN_14 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_14*>(0x40CB81CC); }
 };
 
 // Descriptor Control0 15 Register
@@ -2732,7 +2732,7 @@ union DESC_CTRL0_15 {
 
   DESC_CTRL0_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_15 &Instance() { return *reinterpret_cast<volatile DESC_CTRL0_15*>(0x40CB81E0); }
+  static inline volatile DESC_CTRL0_15 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_15*>(0x40CB81E0); }
 };
 
 // Descriptor Control1 15 Register
@@ -2837,7 +2837,7 @@ union DESC_CTRL1_15 {
 
   DESC_CTRL1_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_15 &Instance() { return *reinterpret_cast<volatile DESC_CTRL1_15*>(0x40CB81E4); }
+  static inline volatile DESC_CTRL1_15 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_15*>(0x40CB81E4); }
 };
 
 // Descriptor Address Up 15 Register
@@ -2854,7 +2854,7 @@ union DESC_ADDR_UP_15 {
 
   DESC_ADDR_UP_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_15 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_UP_15*>(0x40CB81E8); }
+  static inline volatile DESC_ADDR_UP_15 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_15*>(0x40CB81E8); }
 };
 
 // Descriptor Address Down 15 Register
@@ -2871,7 +2871,7 @@ union DESC_ADDR_DOWN_15 {
 
   DESC_ADDR_DOWN_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_15 &Instance() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_15*>(0x40CB81EC); }
+  static inline volatile DESC_ADDR_DOWN_15 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_15*>(0x40CB81EC); }
 };
 
 // Control Register
@@ -2900,7 +2900,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x40CB8200); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40CB8200); }
 };
 
 // Interrupt Status Register
@@ -2970,7 +2970,7 @@ union INT_STATUS {
 
   INT_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_STATUS &Instance() { return *reinterpret_cast<volatile INT_STATUS*>(0x40CB8204); }
+  static inline volatile INT_STATUS &ref() { return *reinterpret_cast<volatile INT_STATUS*>(0x40CB8204); }
 };
 
 // HP Timeout Register
@@ -2987,7 +2987,7 @@ union HP_TIMEOUT {
 
   HP_TIMEOUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HP_TIMEOUT &Instance() { return *reinterpret_cast<volatile HP_TIMEOUT*>(0x40CB820C); }
+  static inline volatile HP_TIMEOUT &ref() { return *reinterpret_cast<volatile HP_TIMEOUT*>(0x40CB820C); }
 };
 
 // Hardware Request Pending Register
@@ -3006,7 +3006,7 @@ union HW_GROUP_PENDING {
 
   HW_GROUP_PENDING() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HW_GROUP_PENDING &Instance() { return *reinterpret_cast<volatile HW_GROUP_PENDING*>(0x40CB821C); }
+  static inline volatile HW_GROUP_PENDING &ref() { return *reinterpret_cast<volatile HW_GROUP_PENDING*>(0x40CB821C); }
 };
 
 // Software Request Pending Register
@@ -3025,7 +3025,7 @@ union SW_GROUP_PENDING {
 
   SW_GROUP_PENDING() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_GROUP_PENDING &Instance() { return *reinterpret_cast<volatile SW_GROUP_PENDING*>(0x40CB8220); }
+  static inline volatile SW_GROUP_PENDING &ref() { return *reinterpret_cast<volatile SW_GROUP_PENDING*>(0x40CB8220); }
 };
 
 

@@ -24,7 +24,7 @@ union TR0 {
 
   TR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TR0 &Instance() { return *reinterpret_cast<volatile TR0*>(0x40C48000); }
+  static inline volatile TR0 &ref() { return *reinterpret_cast<volatile TR0*>(0x40C48000); }
 };
 
 // Processor A Transmit Register 1
@@ -41,7 +41,7 @@ union TR1 {
 
   TR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TR1 &Instance() { return *reinterpret_cast<volatile TR1*>(0x40C48004); }
+  static inline volatile TR1 &ref() { return *reinterpret_cast<volatile TR1*>(0x40C48004); }
 };
 
 // Processor A Transmit Register 2
@@ -58,7 +58,7 @@ union TR2 {
 
   TR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TR2 &Instance() { return *reinterpret_cast<volatile TR2*>(0x40C48008); }
+  static inline volatile TR2 &ref() { return *reinterpret_cast<volatile TR2*>(0x40C48008); }
 };
 
 // Processor A Transmit Register 3
@@ -75,7 +75,7 @@ union TR3 {
 
   TR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TR3 &Instance() { return *reinterpret_cast<volatile TR3*>(0x40C4800C); }
+  static inline volatile TR3 &ref() { return *reinterpret_cast<volatile TR3*>(0x40C4800C); }
 };
 
 // Processor A Receive Register 0
@@ -92,7 +92,7 @@ union RR0 {
 
   RR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RR0 &Instance() { return *reinterpret_cast<volatile RR0*>(0x40C48010); }
+  static inline volatile RR0 &ref() { return *reinterpret_cast<volatile RR0*>(0x40C48010); }
 };
 
 // Processor A Receive Register 1
@@ -109,7 +109,7 @@ union RR1 {
 
   RR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RR1 &Instance() { return *reinterpret_cast<volatile RR1*>(0x40C48014); }
+  static inline volatile RR1 &ref() { return *reinterpret_cast<volatile RR1*>(0x40C48014); }
 };
 
 // Processor A Receive Register 2
@@ -126,7 +126,7 @@ union RR2 {
 
   RR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RR2 &Instance() { return *reinterpret_cast<volatile RR2*>(0x40C48018); }
+  static inline volatile RR2 &ref() { return *reinterpret_cast<volatile RR2*>(0x40C48018); }
 };
 
 // Processor A Receive Register 3
@@ -143,7 +143,7 @@ union RR3 {
 
   RR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RR3 &Instance() { return *reinterpret_cast<volatile RR3*>(0x40C4801C); }
+  static inline volatile RR3 &ref() { return *reinterpret_cast<volatile RR3*>(0x40C4801C); }
 };
 
 // Processor A Status Register
@@ -231,7 +231,7 @@ union SR {
 
   SR() = delete;
   inline void Reset() volatile { this->value = 0x00F00080; }
-  static inline volatile SR &Instance() { return *reinterpret_cast<volatile SR*>(0x40C48020); }
+  static inline volatile SR &ref() { return *reinterpret_cast<volatile SR*>(0x40C48020); }
 };
 
 // Processor A Control Register
@@ -308,7 +308,7 @@ union CR {
 
   CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CR &Instance() { return *reinterpret_cast<volatile CR*>(0x40C48024); }
+  static inline volatile CR &ref() { return *reinterpret_cast<volatile CR*>(0x40C48024); }
 };
 
 

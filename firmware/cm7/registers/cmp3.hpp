@@ -28,7 +28,7 @@ union VERID {
 
   VERID() = delete;
   inline void Reset() volatile { this->value = 0x01000000; }
-  static inline volatile VERID &Instance() { return *reinterpret_cast<volatile VERID*>(0x401AC000); }
+  static inline volatile VERID &ref() { return *reinterpret_cast<volatile VERID*>(0x401AC000); }
 };
 
 // Parameter Register
@@ -45,7 +45,7 @@ union PARAM {
 
   PARAM() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PARAM &Instance() { return *reinterpret_cast<volatile PARAM*>(0x401AC004); }
+  static inline volatile PARAM &ref() { return *reinterpret_cast<volatile PARAM*>(0x401AC004); }
 };
 
 // CMP Control Register 0
@@ -234,7 +234,7 @@ union C0 {
 
   C0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0 &Instance() { return *reinterpret_cast<volatile C0*>(0x401AC008); }
+  static inline volatile C0 &ref() { return *reinterpret_cast<volatile C0*>(0x401AC008); }
 };
 
 // CMP Control Register 1
@@ -341,7 +341,7 @@ union C1 {
 
   C1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C1 &Instance() { return *reinterpret_cast<volatile C1*>(0x401AC00C); }
+  static inline volatile C1 &ref() { return *reinterpret_cast<volatile C1*>(0x401AC00C); }
 };
 
 // CMP Control Register 2
@@ -430,7 +430,7 @@ union C2 {
 
   C2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C2 &Instance() { return *reinterpret_cast<volatile C2*>(0x401AC010); }
+  static inline volatile C2 &ref() { return *reinterpret_cast<volatile C2*>(0x401AC010); }
 };
 
 // CMP Control Register 3
@@ -559,7 +559,7 @@ union C3 {
 
   C3() = delete;
   inline void Reset() volatile { this->value = 0x11000000; }
-  static inline volatile C3 &Instance() { return *reinterpret_cast<volatile C3*>(0x401AC014); }
+  static inline volatile C3 &ref() { return *reinterpret_cast<volatile C3*>(0x401AC014); }
 };
 
 

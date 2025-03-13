@@ -37,7 +37,7 @@ union SEMA4_Gate0 {
 
   SEMA4_Gate0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate0 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate0*>(0x40CC8000); }
+  static inline volatile SEMA4_Gate0 &ref() { return *reinterpret_cast<volatile SEMA4_Gate0*>(0x40CC8000); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate1 {
@@ -66,7 +66,7 @@ union SEMA4_Gate1 {
 
   SEMA4_Gate1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate1 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate1*>(0x40CC8001); }
+  static inline volatile SEMA4_Gate1 &ref() { return *reinterpret_cast<volatile SEMA4_Gate1*>(0x40CC8001); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate2 {
@@ -95,7 +95,7 @@ union SEMA4_Gate2 {
 
   SEMA4_Gate2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate2 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate2*>(0x40CC8002); }
+  static inline volatile SEMA4_Gate2 &ref() { return *reinterpret_cast<volatile SEMA4_Gate2*>(0x40CC8002); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate3 {
@@ -124,7 +124,7 @@ union SEMA4_Gate3 {
 
   SEMA4_Gate3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate3 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate3*>(0x40CC8003); }
+  static inline volatile SEMA4_Gate3 &ref() { return *reinterpret_cast<volatile SEMA4_Gate3*>(0x40CC8003); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate4 {
@@ -153,7 +153,7 @@ union SEMA4_Gate4 {
 
   SEMA4_Gate4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate4 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate4*>(0x40CC8004); }
+  static inline volatile SEMA4_Gate4 &ref() { return *reinterpret_cast<volatile SEMA4_Gate4*>(0x40CC8004); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate5 {
@@ -182,7 +182,7 @@ union SEMA4_Gate5 {
 
   SEMA4_Gate5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate5 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate5*>(0x40CC8005); }
+  static inline volatile SEMA4_Gate5 &ref() { return *reinterpret_cast<volatile SEMA4_Gate5*>(0x40CC8005); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate6 {
@@ -211,7 +211,7 @@ union SEMA4_Gate6 {
 
   SEMA4_Gate6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate6 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate6*>(0x40CC8006); }
+  static inline volatile SEMA4_Gate6 &ref() { return *reinterpret_cast<volatile SEMA4_Gate6*>(0x40CC8006); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate7 {
@@ -240,7 +240,7 @@ union SEMA4_Gate7 {
 
   SEMA4_Gate7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate7 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate7*>(0x40CC8007); }
+  static inline volatile SEMA4_Gate7 &ref() { return *reinterpret_cast<volatile SEMA4_Gate7*>(0x40CC8007); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate8 {
@@ -269,7 +269,7 @@ union SEMA4_Gate8 {
 
   SEMA4_Gate8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate8 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate8*>(0x40CC8008); }
+  static inline volatile SEMA4_Gate8 &ref() { return *reinterpret_cast<volatile SEMA4_Gate8*>(0x40CC8008); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate9 {
@@ -298,7 +298,7 @@ union SEMA4_Gate9 {
 
   SEMA4_Gate9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate9 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate9*>(0x40CC8009); }
+  static inline volatile SEMA4_Gate9 &ref() { return *reinterpret_cast<volatile SEMA4_Gate9*>(0x40CC8009); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate10 {
@@ -327,7 +327,7 @@ union SEMA4_Gate10 {
 
   SEMA4_Gate10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate10 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate10*>(0x40CC800A); }
+  static inline volatile SEMA4_Gate10 &ref() { return *reinterpret_cast<volatile SEMA4_Gate10*>(0x40CC800A); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate11 {
@@ -356,7 +356,7 @@ union SEMA4_Gate11 {
 
   SEMA4_Gate11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate11 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate11*>(0x40CC800B); }
+  static inline volatile SEMA4_Gate11 &ref() { return *reinterpret_cast<volatile SEMA4_Gate11*>(0x40CC800B); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate12 {
@@ -385,7 +385,7 @@ union SEMA4_Gate12 {
 
   SEMA4_Gate12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate12 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate12*>(0x40CC800C); }
+  static inline volatile SEMA4_Gate12 &ref() { return *reinterpret_cast<volatile SEMA4_Gate12*>(0x40CC800C); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate13 {
@@ -414,7 +414,7 @@ union SEMA4_Gate13 {
 
   SEMA4_Gate13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate13 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate13*>(0x40CC800D); }
+  static inline volatile SEMA4_Gate13 &ref() { return *reinterpret_cast<volatile SEMA4_Gate13*>(0x40CC800D); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate14 {
@@ -443,7 +443,7 @@ union SEMA4_Gate14 {
 
   SEMA4_Gate14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate14 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate14*>(0x40CC800E); }
+  static inline volatile SEMA4_Gate14 &ref() { return *reinterpret_cast<volatile SEMA4_Gate14*>(0x40CC800E); }
 };
 // Semaphores Gate n Register
 union SEMA4_Gate15 {
@@ -472,7 +472,7 @@ union SEMA4_Gate15 {
 
   SEMA4_Gate15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_Gate15 &Instance() { return *reinterpret_cast<volatile SEMA4_Gate15*>(0x40CC800F); }
+  static inline volatile SEMA4_Gate15 &ref() { return *reinterpret_cast<volatile SEMA4_Gate15*>(0x40CC800F); }
 };
 
 // Semaphores Processor n IRQ Notification Enable
@@ -648,7 +648,7 @@ union SEMA4_CP0INE {
 
   SEMA4_CP0INE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_CP0INE &Instance() { return *reinterpret_cast<volatile SEMA4_CP0INE*>(0x40CC8040); }
+  static inline volatile SEMA4_CP0INE &ref() { return *reinterpret_cast<volatile SEMA4_CP0INE*>(0x40CC8040); }
 };
 // Semaphores Processor n IRQ Notification Enable
 union SEMA4_CP1INE {
@@ -823,7 +823,7 @@ union SEMA4_CP1INE {
 
   SEMA4_CP1INE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_CP1INE &Instance() { return *reinterpret_cast<volatile SEMA4_CP1INE*>(0x40CC8048); }
+  static inline volatile SEMA4_CP1INE &ref() { return *reinterpret_cast<volatile SEMA4_CP1INE*>(0x40CC8048); }
 };
 
 // Semaphores Processor n IRQ Notification
@@ -871,7 +871,7 @@ union SEMA4_CP0NTF {
 
   SEMA4_CP0NTF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_CP0NTF &Instance() { return *reinterpret_cast<volatile SEMA4_CP0NTF*>(0x40CC8080); }
+  static inline volatile SEMA4_CP0NTF &ref() { return *reinterpret_cast<volatile SEMA4_CP0NTF*>(0x40CC8080); }
 };
 // Semaphores Processor n IRQ Notification
 union SEMA4_CP1NTF {
@@ -918,7 +918,7 @@ union SEMA4_CP1NTF {
 
   SEMA4_CP1NTF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_CP1NTF &Instance() { return *reinterpret_cast<volatile SEMA4_CP1NTF*>(0x40CC8088); }
+  static inline volatile SEMA4_CP1NTF &ref() { return *reinterpret_cast<volatile SEMA4_CP1NTF*>(0x40CC8088); }
 };
 
 // Semaphores (Secure) Reset Gate n
@@ -938,7 +938,7 @@ union SEMA4_RSTGT {
 
   SEMA4_RSTGT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_RSTGT &Instance() { return *reinterpret_cast<volatile SEMA4_RSTGT*>(0x40CC8100); }
+  static inline volatile SEMA4_RSTGT &ref() { return *reinterpret_cast<volatile SEMA4_RSTGT*>(0x40CC8100); }
 };
 
 // Semaphores (Secure) Reset IRQ Notification
@@ -958,7 +958,7 @@ union SEMA4_RSTNTF {
 
   SEMA4_RSTNTF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEMA4_RSTNTF &Instance() { return *reinterpret_cast<volatile SEMA4_RSTNTF*>(0x40CC8104); }
+  static inline volatile SEMA4_RSTNTF &ref() { return *reinterpret_cast<volatile SEMA4_RSTNTF*>(0x40CC8104); }
 };
 
 

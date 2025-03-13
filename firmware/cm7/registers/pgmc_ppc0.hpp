@@ -38,7 +38,7 @@ union PPC_AUTHEN_CTRL {
 
   PPC_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000F00; }
-  static inline volatile PPC_AUTHEN_CTRL &Instance() { return *reinterpret_cast<volatile PPC_AUTHEN_CTRL*>(0x40C8B004); }
+  static inline volatile PPC_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile PPC_AUTHEN_CTRL*>(0x40C8B004); }
 };
 
 // PPC Mode
@@ -81,7 +81,7 @@ union PPC_MODE {
 
   PPC_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PPC_MODE &Instance() { return *reinterpret_cast<volatile PPC_MODE*>(0x40C8B010); }
+  static inline volatile PPC_MODE &ref() { return *reinterpret_cast<volatile PPC_MODE*>(0x40C8B010); }
 };
 
 // PPC standby CPU mode control
@@ -109,7 +109,7 @@ union PPC_STBY_CM_CTRL {
 
   PPC_STBY_CM_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PPC_STBY_CM_CTRL &Instance() { return *reinterpret_cast<volatile PPC_STBY_CM_CTRL*>(0x40C8B014); }
+  static inline volatile PPC_STBY_CM_CTRL &ref() { return *reinterpret_cast<volatile PPC_STBY_CM_CTRL*>(0x40C8B014); }
 };
 
 // PPC standby Setpoint control
@@ -128,7 +128,7 @@ union PPC_STBY_SP_CTRL {
 
   PPC_STBY_SP_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PPC_STBY_SP_CTRL &Instance() { return *reinterpret_cast<volatile PPC_STBY_SP_CTRL*>(0x40C8B018); }
+  static inline volatile PPC_STBY_SP_CTRL &ref() { return *reinterpret_cast<volatile PPC_STBY_SP_CTRL*>(0x40C8B018); }
 };
 
 

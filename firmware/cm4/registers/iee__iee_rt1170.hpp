@@ -166,7 +166,7 @@ union GCFG {
 
   GCFG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GCFG &Instance() { return *reinterpret_cast<volatile GCFG*>(0x4006C000); }
+  static inline volatile GCFG &ref() { return *reinterpret_cast<volatile GCFG*>(0x4006C000); }
 };
 
 // IEE Status
@@ -203,7 +203,7 @@ union STA {
 
   STA() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile STA &Instance() { return *reinterpret_cast<volatile STA*>(0x4006C004); }
+  static inline volatile STA &ref() { return *reinterpret_cast<volatile STA*>(0x4006C004); }
 };
 
 // IEE Test Mode Register
@@ -272,7 +272,7 @@ union TSTMD {
 
   TSTMD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TSTMD &Instance() { return *reinterpret_cast<volatile TSTMD*>(0x4006C008); }
+  static inline volatile TSTMD &ref() { return *reinterpret_cast<volatile TSTMD*>(0x4006C008); }
 };
 
 // AES Mask Generation Seed
@@ -289,7 +289,7 @@ union DPAMS {
 
   DPAMS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DPAMS &Instance() { return *reinterpret_cast<volatile DPAMS*>(0x4006C00C); }
+  static inline volatile DPAMS &ref() { return *reinterpret_cast<volatile DPAMS*>(0x4006C00C); }
 };
 
 // Performance Counter, AES Slave Latency Threshold Value
@@ -308,7 +308,7 @@ union PC_S_LT {
 
   PC_S_LT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_S_LT &Instance() { return *reinterpret_cast<volatile PC_S_LT*>(0x4006C020); }
+  static inline volatile PC_S_LT &ref() { return *reinterpret_cast<volatile PC_S_LT*>(0x4006C020); }
 };
 
 // Performance Counter, AES Master Latency Threshold
@@ -329,7 +329,7 @@ union PC_M_LT {
 
   PC_M_LT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_M_LT &Instance() { return *reinterpret_cast<volatile PC_M_LT*>(0x4006C024); }
+  static inline volatile PC_M_LT &ref() { return *reinterpret_cast<volatile PC_M_LT*>(0x4006C024); }
 };
 
 // Performance Counter, Number of AES Block Encryptions
@@ -346,7 +346,7 @@ union PC_BLK_ENC {
 
   PC_BLK_ENC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_BLK_ENC &Instance() { return *reinterpret_cast<volatile PC_BLK_ENC*>(0x4006C040); }
+  static inline volatile PC_BLK_ENC &ref() { return *reinterpret_cast<volatile PC_BLK_ENC*>(0x4006C040); }
 };
 
 // Performance Counter, Number of AES Block Decryptions
@@ -363,7 +363,7 @@ union PC_BLK_DEC {
 
   PC_BLK_DEC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_BLK_DEC &Instance() { return *reinterpret_cast<volatile PC_BLK_DEC*>(0x4006C044); }
+  static inline volatile PC_BLK_DEC &ref() { return *reinterpret_cast<volatile PC_BLK_DEC*>(0x4006C044); }
 };
 
 // Performance Counter, Number of AXI Slave Read Transactions
@@ -380,7 +380,7 @@ union PC_SR_TRANS {
 
   PC_SR_TRANS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TRANS &Instance() { return *reinterpret_cast<volatile PC_SR_TRANS*>(0x4006C050); }
+  static inline volatile PC_SR_TRANS &ref() { return *reinterpret_cast<volatile PC_SR_TRANS*>(0x4006C050); }
 };
 
 // Performance Counter, Number of AXI Slave Write Transactions
@@ -397,7 +397,7 @@ union PC_SW_TRANS {
 
   PC_SW_TRANS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TRANS &Instance() { return *reinterpret_cast<volatile PC_SW_TRANS*>(0x4006C054); }
+  static inline volatile PC_SW_TRANS &ref() { return *reinterpret_cast<volatile PC_SW_TRANS*>(0x4006C054); }
 };
 
 // Performance Counter, Number of AXI Master Read Transactions
@@ -414,7 +414,7 @@ union PC_MR_TRANS {
 
   PC_MR_TRANS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MR_TRANS &Instance() { return *reinterpret_cast<volatile PC_MR_TRANS*>(0x4006C058); }
+  static inline volatile PC_MR_TRANS &ref() { return *reinterpret_cast<volatile PC_MR_TRANS*>(0x4006C058); }
 };
 
 // Performance Counter, Number of AXI Master Write Transactions
@@ -431,7 +431,7 @@ union PC_MW_TRANS {
 
   PC_MW_TRANS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MW_TRANS &Instance() { return *reinterpret_cast<volatile PC_MW_TRANS*>(0x4006C05C); }
+  static inline volatile PC_MW_TRANS &ref() { return *reinterpret_cast<volatile PC_MW_TRANS*>(0x4006C05C); }
 };
 
 // Performance Counter, Number of AXI Master Merge Buffer Read Transactions
@@ -448,7 +448,7 @@ union PC_M_MBR {
 
   PC_M_MBR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_M_MBR &Instance() { return *reinterpret_cast<volatile PC_M_MBR*>(0x4006C064); }
+  static inline volatile PC_M_MBR &ref() { return *reinterpret_cast<volatile PC_M_MBR*>(0x4006C064); }
 };
 
 // Performance Counter, Upper Slave Read Transactions Byte Count
@@ -466,7 +466,7 @@ union PC_SR_TBC_U {
 
   PC_SR_TBC_U() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TBC_U &Instance() { return *reinterpret_cast<volatile PC_SR_TBC_U*>(0x4006C070); }
+  static inline volatile PC_SR_TBC_U &ref() { return *reinterpret_cast<volatile PC_SR_TBC_U*>(0x4006C070); }
 };
 
 // Performance Counter, Lower Slave Read Transactions Byte Count
@@ -483,7 +483,7 @@ union PC_SR_TBC_L {
 
   PC_SR_TBC_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TBC_L &Instance() { return *reinterpret_cast<volatile PC_SR_TBC_L*>(0x4006C074); }
+  static inline volatile PC_SR_TBC_L &ref() { return *reinterpret_cast<volatile PC_SR_TBC_L*>(0x4006C074); }
 };
 
 // Performance Counter, Upper Slave Write Transactions Byte Count
@@ -501,7 +501,7 @@ union PC_SW_TBC_U {
 
   PC_SW_TBC_U() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TBC_U &Instance() { return *reinterpret_cast<volatile PC_SW_TBC_U*>(0x4006C078); }
+  static inline volatile PC_SW_TBC_U &ref() { return *reinterpret_cast<volatile PC_SW_TBC_U*>(0x4006C078); }
 };
 
 // Performance Counter, Lower Slave Write Transactions Byte Count
@@ -518,7 +518,7 @@ union PC_SW_TBC_L {
 
   PC_SW_TBC_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TBC_L &Instance() { return *reinterpret_cast<volatile PC_SW_TBC_L*>(0x4006C07C); }
+  static inline volatile PC_SW_TBC_L &ref() { return *reinterpret_cast<volatile PC_SW_TBC_L*>(0x4006C07C); }
 };
 
 // Performance Counter, Upper Master Read Transactions Byte Count
@@ -536,7 +536,7 @@ union PC_MR_TBC_U {
 
   PC_MR_TBC_U() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MR_TBC_U &Instance() { return *reinterpret_cast<volatile PC_MR_TBC_U*>(0x4006C080); }
+  static inline volatile PC_MR_TBC_U &ref() { return *reinterpret_cast<volatile PC_MR_TBC_U*>(0x4006C080); }
 };
 
 // Performance Counter, Lower Master Read Transactions Byte Count
@@ -555,7 +555,7 @@ union PC_MR_TBC_L {
 
   PC_MR_TBC_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MR_TBC_L &Instance() { return *reinterpret_cast<volatile PC_MR_TBC_L*>(0x4006C084); }
+  static inline volatile PC_MR_TBC_L &ref() { return *reinterpret_cast<volatile PC_MR_TBC_L*>(0x4006C084); }
 };
 
 // Performance Counter, Upper Master Write Transactions Byte Count
@@ -573,7 +573,7 @@ union PC_MW_TBC_U {
 
   PC_MW_TBC_U() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MW_TBC_U &Instance() { return *reinterpret_cast<volatile PC_MW_TBC_U*>(0x4006C088); }
+  static inline volatile PC_MW_TBC_U &ref() { return *reinterpret_cast<volatile PC_MW_TBC_U*>(0x4006C088); }
 };
 
 // Performance Counter, Lower Master Write Transactions Byte Count
@@ -592,7 +592,7 @@ union PC_MW_TBC_L {
 
   PC_MW_TBC_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MW_TBC_L &Instance() { return *reinterpret_cast<volatile PC_MW_TBC_L*>(0x4006C08C); }
+  static inline volatile PC_MW_TBC_L &ref() { return *reinterpret_cast<volatile PC_MW_TBC_L*>(0x4006C08C); }
 };
 
 // Performance Counter, Number of AXI Slave Read Transactions with Latency Greater than the
@@ -610,7 +610,7 @@ union PC_SR_TLGTT {
 
   PC_SR_TLGTT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TLGTT &Instance() { return *reinterpret_cast<volatile PC_SR_TLGTT*>(0x4006C090); }
+  static inline volatile PC_SR_TLGTT &ref() { return *reinterpret_cast<volatile PC_SR_TLGTT*>(0x4006C090); }
 };
 
 // Performance Counter, Number of AXI Slave Write Transactions with Latency Greater than the
@@ -628,7 +628,7 @@ union PC_SW_TLGTT {
 
   PC_SW_TLGTT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TLGTT &Instance() { return *reinterpret_cast<volatile PC_SW_TLGTT*>(0x4006C094); }
+  static inline volatile PC_SW_TLGTT &ref() { return *reinterpret_cast<volatile PC_SW_TLGTT*>(0x4006C094); }
 };
 
 // Performance Counter, Number of AXI Master Read Transactions with Latency Greater than the
@@ -646,7 +646,7 @@ union PC_MR_TLGTT {
 
   PC_MR_TLGTT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MR_TLGTT &Instance() { return *reinterpret_cast<volatile PC_MR_TLGTT*>(0x4006C098); }
+  static inline volatile PC_MR_TLGTT &ref() { return *reinterpret_cast<volatile PC_MR_TLGTT*>(0x4006C098); }
 };
 
 // Performance Counter, Number of AXI Master Write Transactions with Latency Greater than the
@@ -664,7 +664,7 @@ union PC_MW_TLGTT {
 
   PC_MW_TLGTT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MW_TLGTT &Instance() { return *reinterpret_cast<volatile PC_MW_TLGTT*>(0x4006C09C); }
+  static inline volatile PC_MW_TLGTT &ref() { return *reinterpret_cast<volatile PC_MW_TLGTT*>(0x4006C09C); }
 };
 
 // Performance Counter, Upper Slave Read Latency Count
@@ -682,7 +682,7 @@ union PC_SR_TLAT_U {
 
   PC_SR_TLAT_U() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TLAT_U &Instance() { return *reinterpret_cast<volatile PC_SR_TLAT_U*>(0x4006C0A0); }
+  static inline volatile PC_SR_TLAT_U &ref() { return *reinterpret_cast<volatile PC_SR_TLAT_U*>(0x4006C0A0); }
 };
 
 // Performance Counter, Lower Slave Read Latency Count
@@ -699,7 +699,7 @@ union PC_SR_TLAT_L {
 
   PC_SR_TLAT_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TLAT_L &Instance() { return *reinterpret_cast<volatile PC_SR_TLAT_L*>(0x4006C0A4); }
+  static inline volatile PC_SR_TLAT_L &ref() { return *reinterpret_cast<volatile PC_SR_TLAT_L*>(0x4006C0A4); }
 };
 
 // Performance Counter, Upper Slave Write Latency Count
@@ -717,7 +717,7 @@ union PC_SW_TLAT_U {
 
   PC_SW_TLAT_U() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TLAT_U &Instance() { return *reinterpret_cast<volatile PC_SW_TLAT_U*>(0x4006C0A8); }
+  static inline volatile PC_SW_TLAT_U &ref() { return *reinterpret_cast<volatile PC_SW_TLAT_U*>(0x4006C0A8); }
 };
 
 // Performance Counter, Lower Slave Write Latency Count
@@ -734,7 +734,7 @@ union PC_SW_TLAT_L {
 
   PC_SW_TLAT_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TLAT_L &Instance() { return *reinterpret_cast<volatile PC_SW_TLAT_L*>(0x4006C0AC); }
+  static inline volatile PC_SW_TLAT_L &ref() { return *reinterpret_cast<volatile PC_SW_TLAT_L*>(0x4006C0AC); }
 };
 
 // Performance Counter, Upper Master Read Latency Count
@@ -752,7 +752,7 @@ union PC_MR_TLAT_U {
 
   PC_MR_TLAT_U() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MR_TLAT_U &Instance() { return *reinterpret_cast<volatile PC_MR_TLAT_U*>(0x4006C0B0); }
+  static inline volatile PC_MR_TLAT_U &ref() { return *reinterpret_cast<volatile PC_MR_TLAT_U*>(0x4006C0B0); }
 };
 
 // Performance Counter, Lower Master Read Latency Count
@@ -769,7 +769,7 @@ union PC_MR_TLAT_L {
 
   PC_MR_TLAT_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MR_TLAT_L &Instance() { return *reinterpret_cast<volatile PC_MR_TLAT_L*>(0x4006C0B4); }
+  static inline volatile PC_MR_TLAT_L &ref() { return *reinterpret_cast<volatile PC_MR_TLAT_L*>(0x4006C0B4); }
 };
 
 // Performance Counter, Upper Master Write Latency Count
@@ -787,7 +787,7 @@ union PC_MW_TLAT_U {
 
   PC_MW_TLAT_U() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MW_TLAT_U &Instance() { return *reinterpret_cast<volatile PC_MW_TLAT_U*>(0x4006C0B8); }
+  static inline volatile PC_MW_TLAT_U &ref() { return *reinterpret_cast<volatile PC_MW_TLAT_U*>(0x4006C0B8); }
 };
 
 // Performance Counter, Lower Master Write Latency Count
@@ -804,7 +804,7 @@ union PC_MW_TLAT_L {
 
   PC_MW_TLAT_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MW_TLAT_L &Instance() { return *reinterpret_cast<volatile PC_MW_TLAT_L*>(0x4006C0BC); }
+  static inline volatile PC_MW_TLAT_L &ref() { return *reinterpret_cast<volatile PC_MW_TLAT_L*>(0x4006C0BC); }
 };
 
 // Performance Counter, Upper Slave Read Total Non-Responding Time
@@ -822,7 +822,7 @@ union PC_SR_TNRT_U {
 
   PC_SR_TNRT_U() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TNRT_U &Instance() { return *reinterpret_cast<volatile PC_SR_TNRT_U*>(0x4006C0C0); }
+  static inline volatile PC_SR_TNRT_U &ref() { return *reinterpret_cast<volatile PC_SR_TNRT_U*>(0x4006C0C0); }
 };
 
 // Performance Counter, Lower Slave Read Total Non-Responding Time
@@ -839,7 +839,7 @@ union PC_SR_TNRT_L {
 
   PC_SR_TNRT_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TNRT_L &Instance() { return *reinterpret_cast<volatile PC_SR_TNRT_L*>(0x4006C0C4); }
+  static inline volatile PC_SR_TNRT_L &ref() { return *reinterpret_cast<volatile PC_SR_TNRT_L*>(0x4006C0C4); }
 };
 
 // Performance Counter, Upper Slave Write Total Non-Responding Time
@@ -857,7 +857,7 @@ union PC_SW_TNRT_U {
 
   PC_SW_TNRT_U() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TNRT_U &Instance() { return *reinterpret_cast<volatile PC_SW_TNRT_U*>(0x4006C0C8); }
+  static inline volatile PC_SW_TNRT_U &ref() { return *reinterpret_cast<volatile PC_SW_TNRT_U*>(0x4006C0C8); }
 };
 
 // Performance Counter, Lower Slave Write Total Non-Responding Time
@@ -874,7 +874,7 @@ union PC_SW_TNRT_L {
 
   PC_SW_TNRT_L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TNRT_L &Instance() { return *reinterpret_cast<volatile PC_SW_TNRT_L*>(0x4006C0CC); }
+  static inline volatile PC_SW_TNRT_L &ref() { return *reinterpret_cast<volatile PC_SW_TNRT_L*>(0x4006C0CC); }
 };
 
 // IEE Version ID Register 1
@@ -895,7 +895,7 @@ union VIDR1 {
 
   VIDR1() = delete;
   inline void Reset() volatile { this->value = 0x00340102; }
-  static inline volatile VIDR1 &Instance() { return *reinterpret_cast<volatile VIDR1*>(0x4006C0F0); }
+  static inline volatile VIDR1 &ref() { return *reinterpret_cast<volatile VIDR1*>(0x4006C0F0); }
 };
 
 // IEE AES Version ID Register
@@ -915,7 +915,7 @@ union AESVID {
 
   AESVID() = delete;
   inline void Reset() volatile { this->value = 0x00000020; }
-  static inline volatile AESVID &Instance() { return *reinterpret_cast<volatile AESVID*>(0x4006C0F8); }
+  static inline volatile AESVID &ref() { return *reinterpret_cast<volatile AESVID*>(0x4006C0F8); }
 };
 
 // IEE AES Test Mode Data Buffer
@@ -932,7 +932,7 @@ union AES_TST_DB_0 {
 
   AES_TST_DB_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_0 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_0*>(0x4006CF00); }
+  static inline volatile AES_TST_DB_0 &ref() { return *reinterpret_cast<volatile AES_TST_DB_0*>(0x4006CF00); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_1 {
@@ -948,7 +948,7 @@ union AES_TST_DB_1 {
 
   AES_TST_DB_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_1 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_1*>(0x4006CF04); }
+  static inline volatile AES_TST_DB_1 &ref() { return *reinterpret_cast<volatile AES_TST_DB_1*>(0x4006CF04); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_2 {
@@ -964,7 +964,7 @@ union AES_TST_DB_2 {
 
   AES_TST_DB_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_2 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_2*>(0x4006CF08); }
+  static inline volatile AES_TST_DB_2 &ref() { return *reinterpret_cast<volatile AES_TST_DB_2*>(0x4006CF08); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_3 {
@@ -980,7 +980,7 @@ union AES_TST_DB_3 {
 
   AES_TST_DB_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_3 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_3*>(0x4006CF0C); }
+  static inline volatile AES_TST_DB_3 &ref() { return *reinterpret_cast<volatile AES_TST_DB_3*>(0x4006CF0C); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_4 {
@@ -996,7 +996,7 @@ union AES_TST_DB_4 {
 
   AES_TST_DB_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_4 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_4*>(0x4006CF10); }
+  static inline volatile AES_TST_DB_4 &ref() { return *reinterpret_cast<volatile AES_TST_DB_4*>(0x4006CF10); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_5 {
@@ -1012,7 +1012,7 @@ union AES_TST_DB_5 {
 
   AES_TST_DB_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_5 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_5*>(0x4006CF14); }
+  static inline volatile AES_TST_DB_5 &ref() { return *reinterpret_cast<volatile AES_TST_DB_5*>(0x4006CF14); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_6 {
@@ -1028,7 +1028,7 @@ union AES_TST_DB_6 {
 
   AES_TST_DB_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_6 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_6*>(0x4006CF18); }
+  static inline volatile AES_TST_DB_6 &ref() { return *reinterpret_cast<volatile AES_TST_DB_6*>(0x4006CF18); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_7 {
@@ -1044,7 +1044,7 @@ union AES_TST_DB_7 {
 
   AES_TST_DB_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_7 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_7*>(0x4006CF1C); }
+  static inline volatile AES_TST_DB_7 &ref() { return *reinterpret_cast<volatile AES_TST_DB_7*>(0x4006CF1C); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_8 {
@@ -1060,7 +1060,7 @@ union AES_TST_DB_8 {
 
   AES_TST_DB_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_8 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_8*>(0x4006CF20); }
+  static inline volatile AES_TST_DB_8 &ref() { return *reinterpret_cast<volatile AES_TST_DB_8*>(0x4006CF20); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_9 {
@@ -1076,7 +1076,7 @@ union AES_TST_DB_9 {
 
   AES_TST_DB_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_9 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_9*>(0x4006CF24); }
+  static inline volatile AES_TST_DB_9 &ref() { return *reinterpret_cast<volatile AES_TST_DB_9*>(0x4006CF24); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_10 {
@@ -1092,7 +1092,7 @@ union AES_TST_DB_10 {
 
   AES_TST_DB_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_10 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_10*>(0x4006CF28); }
+  static inline volatile AES_TST_DB_10 &ref() { return *reinterpret_cast<volatile AES_TST_DB_10*>(0x4006CF28); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_11 {
@@ -1108,7 +1108,7 @@ union AES_TST_DB_11 {
 
   AES_TST_DB_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_11 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_11*>(0x4006CF2C); }
+  static inline volatile AES_TST_DB_11 &ref() { return *reinterpret_cast<volatile AES_TST_DB_11*>(0x4006CF2C); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_12 {
@@ -1124,7 +1124,7 @@ union AES_TST_DB_12 {
 
   AES_TST_DB_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_12 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_12*>(0x4006CF30); }
+  static inline volatile AES_TST_DB_12 &ref() { return *reinterpret_cast<volatile AES_TST_DB_12*>(0x4006CF30); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_13 {
@@ -1140,7 +1140,7 @@ union AES_TST_DB_13 {
 
   AES_TST_DB_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_13 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_13*>(0x4006CF34); }
+  static inline volatile AES_TST_DB_13 &ref() { return *reinterpret_cast<volatile AES_TST_DB_13*>(0x4006CF34); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_14 {
@@ -1156,7 +1156,7 @@ union AES_TST_DB_14 {
 
   AES_TST_DB_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_14 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_14*>(0x4006CF38); }
+  static inline volatile AES_TST_DB_14 &ref() { return *reinterpret_cast<volatile AES_TST_DB_14*>(0x4006CF38); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_15 {
@@ -1172,7 +1172,7 @@ union AES_TST_DB_15 {
 
   AES_TST_DB_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_15 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_15*>(0x4006CF3C); }
+  static inline volatile AES_TST_DB_15 &ref() { return *reinterpret_cast<volatile AES_TST_DB_15*>(0x4006CF3C); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_16 {
@@ -1188,7 +1188,7 @@ union AES_TST_DB_16 {
 
   AES_TST_DB_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_16 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_16*>(0x4006CF40); }
+  static inline volatile AES_TST_DB_16 &ref() { return *reinterpret_cast<volatile AES_TST_DB_16*>(0x4006CF40); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_17 {
@@ -1204,7 +1204,7 @@ union AES_TST_DB_17 {
 
   AES_TST_DB_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_17 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_17*>(0x4006CF44); }
+  static inline volatile AES_TST_DB_17 &ref() { return *reinterpret_cast<volatile AES_TST_DB_17*>(0x4006CF44); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_18 {
@@ -1220,7 +1220,7 @@ union AES_TST_DB_18 {
 
   AES_TST_DB_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_18 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_18*>(0x4006CF48); }
+  static inline volatile AES_TST_DB_18 &ref() { return *reinterpret_cast<volatile AES_TST_DB_18*>(0x4006CF48); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_19 {
@@ -1236,7 +1236,7 @@ union AES_TST_DB_19 {
 
   AES_TST_DB_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_19 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_19*>(0x4006CF4C); }
+  static inline volatile AES_TST_DB_19 &ref() { return *reinterpret_cast<volatile AES_TST_DB_19*>(0x4006CF4C); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_20 {
@@ -1252,7 +1252,7 @@ union AES_TST_DB_20 {
 
   AES_TST_DB_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_20 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_20*>(0x4006CF50); }
+  static inline volatile AES_TST_DB_20 &ref() { return *reinterpret_cast<volatile AES_TST_DB_20*>(0x4006CF50); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_21 {
@@ -1268,7 +1268,7 @@ union AES_TST_DB_21 {
 
   AES_TST_DB_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_21 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_21*>(0x4006CF54); }
+  static inline volatile AES_TST_DB_21 &ref() { return *reinterpret_cast<volatile AES_TST_DB_21*>(0x4006CF54); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_22 {
@@ -1284,7 +1284,7 @@ union AES_TST_DB_22 {
 
   AES_TST_DB_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_22 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_22*>(0x4006CF58); }
+  static inline volatile AES_TST_DB_22 &ref() { return *reinterpret_cast<volatile AES_TST_DB_22*>(0x4006CF58); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_23 {
@@ -1300,7 +1300,7 @@ union AES_TST_DB_23 {
 
   AES_TST_DB_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_23 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_23*>(0x4006CF5C); }
+  static inline volatile AES_TST_DB_23 &ref() { return *reinterpret_cast<volatile AES_TST_DB_23*>(0x4006CF5C); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_24 {
@@ -1316,7 +1316,7 @@ union AES_TST_DB_24 {
 
   AES_TST_DB_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_24 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_24*>(0x4006CF60); }
+  static inline volatile AES_TST_DB_24 &ref() { return *reinterpret_cast<volatile AES_TST_DB_24*>(0x4006CF60); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_25 {
@@ -1332,7 +1332,7 @@ union AES_TST_DB_25 {
 
   AES_TST_DB_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_25 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_25*>(0x4006CF64); }
+  static inline volatile AES_TST_DB_25 &ref() { return *reinterpret_cast<volatile AES_TST_DB_25*>(0x4006CF64); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_26 {
@@ -1348,7 +1348,7 @@ union AES_TST_DB_26 {
 
   AES_TST_DB_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_26 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_26*>(0x4006CF68); }
+  static inline volatile AES_TST_DB_26 &ref() { return *reinterpret_cast<volatile AES_TST_DB_26*>(0x4006CF68); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_27 {
@@ -1364,7 +1364,7 @@ union AES_TST_DB_27 {
 
   AES_TST_DB_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_27 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_27*>(0x4006CF6C); }
+  static inline volatile AES_TST_DB_27 &ref() { return *reinterpret_cast<volatile AES_TST_DB_27*>(0x4006CF6C); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_28 {
@@ -1380,7 +1380,7 @@ union AES_TST_DB_28 {
 
   AES_TST_DB_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_28 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_28*>(0x4006CF70); }
+  static inline volatile AES_TST_DB_28 &ref() { return *reinterpret_cast<volatile AES_TST_DB_28*>(0x4006CF70); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_29 {
@@ -1396,7 +1396,7 @@ union AES_TST_DB_29 {
 
   AES_TST_DB_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_29 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_29*>(0x4006CF74); }
+  static inline volatile AES_TST_DB_29 &ref() { return *reinterpret_cast<volatile AES_TST_DB_29*>(0x4006CF74); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_30 {
@@ -1412,7 +1412,7 @@ union AES_TST_DB_30 {
 
   AES_TST_DB_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_30 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_30*>(0x4006CF78); }
+  static inline volatile AES_TST_DB_30 &ref() { return *reinterpret_cast<volatile AES_TST_DB_30*>(0x4006CF78); }
 };
 // IEE AES Test Mode Data Buffer
 union AES_TST_DB_31 {
@@ -1428,7 +1428,7 @@ union AES_TST_DB_31 {
 
   AES_TST_DB_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_31 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_31*>(0x4006CF7C); }
+  static inline volatile AES_TST_DB_31 &ref() { return *reinterpret_cast<volatile AES_TST_DB_31*>(0x4006CF7C); }
 };
 
 

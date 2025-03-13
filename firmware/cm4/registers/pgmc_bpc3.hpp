@@ -54,7 +54,7 @@ union BPC_AUTHEN_CTRL {
 
   BPC_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000F00; }
-  static inline volatile BPC_AUTHEN_CTRL &Instance() { return *reinterpret_cast<volatile BPC_AUTHEN_CTRL*>(0x40C88604); }
+  static inline volatile BPC_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile BPC_AUTHEN_CTRL*>(0x40C88604); }
 };
 
 // BPC Mode
@@ -97,7 +97,7 @@ union BPC_MODE {
 
   BPC_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BPC_MODE &Instance() { return *reinterpret_cast<volatile BPC_MODE*>(0x40C88610); }
+  static inline volatile BPC_MODE &ref() { return *reinterpret_cast<volatile BPC_MODE*>(0x40C88610); }
 };
 
 // BPC power control
@@ -131,7 +131,7 @@ union BPC_POWER_CTRL {
 
   BPC_POWER_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BPC_POWER_CTRL &Instance() { return *reinterpret_cast<volatile BPC_POWER_CTRL*>(0x40C88614); }
+  static inline volatile BPC_POWER_CTRL &ref() { return *reinterpret_cast<volatile BPC_POWER_CTRL*>(0x40C88614); }
 };
 
 // BPC flag
@@ -149,7 +149,7 @@ union BPC_FLAG {
 
   BPC_FLAG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BPC_FLAG &Instance() { return *reinterpret_cast<volatile BPC_FLAG*>(0x40C8862C); }
+  static inline volatile BPC_FLAG &ref() { return *reinterpret_cast<volatile BPC_FLAG*>(0x40C8862C); }
 };
 
 // BPC SSAR save control
@@ -175,7 +175,7 @@ union BPC_SSAR_SAVE_CTRL {
 
   BPC_SSAR_SAVE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BPC_SSAR_SAVE_CTRL &Instance() { return *reinterpret_cast<volatile BPC_SSAR_SAVE_CTRL*>(0x40C88640); }
+  static inline volatile BPC_SSAR_SAVE_CTRL &ref() { return *reinterpret_cast<volatile BPC_SSAR_SAVE_CTRL*>(0x40C88640); }
 };
 
 // BPC SSAR restore control
@@ -195,7 +195,7 @@ union BPC_SSAR_RESTORE_CTRL {
 
   BPC_SSAR_RESTORE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BPC_SSAR_RESTORE_CTRL &Instance() { return *reinterpret_cast<volatile BPC_SSAR_RESTORE_CTRL*>(0x40C88644); }
+  static inline volatile BPC_SSAR_RESTORE_CTRL &ref() { return *reinterpret_cast<volatile BPC_SSAR_RESTORE_CTRL*>(0x40C88644); }
 };
 
 

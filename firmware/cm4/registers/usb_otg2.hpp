@@ -31,7 +31,7 @@ union ID {
 
   ID() = delete;
   inline void Reset() volatile { this->value = 0xE4A1FA05; }
-  static inline volatile ID &Instance() { return *reinterpret_cast<volatile ID*>(0x4042C000); }
+  static inline volatile ID &ref() { return *reinterpret_cast<volatile ID*>(0x4042C000); }
 };
 
 // Hardware General
@@ -98,7 +98,7 @@ union HWGENERAL {
 
   HWGENERAL() = delete;
   inline void Reset() volatile { this->value = 0x00000015; }
-  static inline volatile HWGENERAL &Instance() { return *reinterpret_cast<volatile HWGENERAL*>(0x4042C004); }
+  static inline volatile HWGENERAL &ref() { return *reinterpret_cast<volatile HWGENERAL*>(0x4042C004); }
 };
 
 // Host Hardware Parameters
@@ -126,7 +126,7 @@ union HWHOST {
 
   HWHOST() = delete;
   inline void Reset() volatile { this->value = 0x10020001; }
-  static inline volatile HWHOST &Instance() { return *reinterpret_cast<volatile HWHOST*>(0x4042C008); }
+  static inline volatile HWHOST &ref() { return *reinterpret_cast<volatile HWHOST*>(0x4042C008); }
 };
 
 // Device Hardware Parameters
@@ -154,7 +154,7 @@ union HWDEVICE {
 
   HWDEVICE() = delete;
   inline void Reset() volatile { this->value = 0x00000011; }
-  static inline volatile HWDEVICE &Instance() { return *reinterpret_cast<volatile HWDEVICE*>(0x4042C00C); }
+  static inline volatile HWDEVICE &ref() { return *reinterpret_cast<volatile HWDEVICE*>(0x4042C00C); }
 };
 
 // TX Buffer Hardware Parameters
@@ -175,7 +175,7 @@ union HWTXBUF {
 
   HWTXBUF() = delete;
   inline void Reset() volatile { this->value = 0x80080B08; }
-  static inline volatile HWTXBUF &Instance() { return *reinterpret_cast<volatile HWTXBUF*>(0x4042C010); }
+  static inline volatile HWTXBUF &ref() { return *reinterpret_cast<volatile HWTXBUF*>(0x4042C010); }
 };
 
 // RX Buffer Hardware Parameters
@@ -195,7 +195,7 @@ union HWRXBUF {
 
   HWRXBUF() = delete;
   inline void Reset() volatile { this->value = 0x00000808; }
-  static inline volatile HWRXBUF &Instance() { return *reinterpret_cast<volatile HWRXBUF*>(0x4042C014); }
+  static inline volatile HWRXBUF &ref() { return *reinterpret_cast<volatile HWRXBUF*>(0x4042C014); }
 };
 
 // General Purpose Timer #0 Load
@@ -213,7 +213,7 @@ union GPTIMER0LD {
 
   GPTIMER0LD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPTIMER0LD &Instance() { return *reinterpret_cast<volatile GPTIMER0LD*>(0x4042C080); }
+  static inline volatile GPTIMER0LD &ref() { return *reinterpret_cast<volatile GPTIMER0LD*>(0x4042C080); }
 };
 
 // General Purpose Timer #0 Controller
@@ -261,7 +261,7 @@ union GPTIMER0CTRL {
 
   GPTIMER0CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPTIMER0CTRL &Instance() { return *reinterpret_cast<volatile GPTIMER0CTRL*>(0x4042C084); }
+  static inline volatile GPTIMER0CTRL &ref() { return *reinterpret_cast<volatile GPTIMER0CTRL*>(0x4042C084); }
 };
 
 // General Purpose Timer #1 Load
@@ -279,7 +279,7 @@ union GPTIMER1LD {
 
   GPTIMER1LD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPTIMER1LD &Instance() { return *reinterpret_cast<volatile GPTIMER1LD*>(0x4042C088); }
+  static inline volatile GPTIMER1LD &ref() { return *reinterpret_cast<volatile GPTIMER1LD*>(0x4042C088); }
 };
 
 // General Purpose Timer #1 Controller
@@ -327,7 +327,7 @@ union GPTIMER1CTRL {
 
   GPTIMER1CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPTIMER1CTRL &Instance() { return *reinterpret_cast<volatile GPTIMER1CTRL*>(0x4042C08C); }
+  static inline volatile GPTIMER1CTRL &ref() { return *reinterpret_cast<volatile GPTIMER1CTRL*>(0x4042C08C); }
 };
 
 // System Bus Config
@@ -363,7 +363,7 @@ union SBUSCFG {
 
   SBUSCFG() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SBUSCFG &Instance() { return *reinterpret_cast<volatile SBUSCFG*>(0x4042C090); }
+  static inline volatile SBUSCFG &ref() { return *reinterpret_cast<volatile SBUSCFG*>(0x4042C090); }
 };
 
 // Capability Registers Length
@@ -381,7 +381,7 @@ union CAPLENGTH {
 
   CAPLENGTH() = delete;
   inline void Reset() volatile { this->value = 0x00000040; }
-  static inline volatile CAPLENGTH &Instance() { return *reinterpret_cast<volatile CAPLENGTH*>(0x4042C100); }
+  static inline volatile CAPLENGTH &ref() { return *reinterpret_cast<volatile CAPLENGTH*>(0x4042C100); }
 };
 
 // Host Controller Interface Version
@@ -399,7 +399,7 @@ union HCIVERSION {
 
   HCIVERSION() = delete;
   inline void Reset() volatile { this->value = 0x00000100; }
-  static inline volatile HCIVERSION &Instance() { return *reinterpret_cast<volatile HCIVERSION*>(0x4042C102); }
+  static inline volatile HCIVERSION &ref() { return *reinterpret_cast<volatile HCIVERSION*>(0x4042C102); }
 };
 
 // Host Controller Structural Parameters
@@ -439,7 +439,7 @@ union HCSPARAMS {
 
   HCSPARAMS() = delete;
   inline void Reset() volatile { this->value = 0x00010011; }
-  static inline volatile HCSPARAMS &Instance() { return *reinterpret_cast<volatile HCSPARAMS*>(0x4042C104); }
+  static inline volatile HCSPARAMS &ref() { return *reinterpret_cast<volatile HCSPARAMS*>(0x4042C104); }
 };
 
 // Host Controller Capability Parameters
@@ -466,7 +466,7 @@ union HCCPARAMS {
 
   HCCPARAMS() = delete;
   inline void Reset() volatile { this->value = 0x00000006; }
-  static inline volatile HCCPARAMS &Instance() { return *reinterpret_cast<volatile HCCPARAMS*>(0x4042C108); }
+  static inline volatile HCCPARAMS &ref() { return *reinterpret_cast<volatile HCCPARAMS*>(0x4042C108); }
 };
 
 // Device Controller Interface Version
@@ -484,7 +484,7 @@ union DCIVERSION {
 
   DCIVERSION() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile DCIVERSION &Instance() { return *reinterpret_cast<volatile DCIVERSION*>(0x4042C120); }
+  static inline volatile DCIVERSION &ref() { return *reinterpret_cast<volatile DCIVERSION*>(0x4042C120); }
 };
 
 // Device Controller Capability Parameters
@@ -507,7 +507,7 @@ union DCCPARAMS {
 
   DCCPARAMS() = delete;
   inline void Reset() volatile { this->value = 0x00000188; }
-  static inline volatile DCCPARAMS &Instance() { return *reinterpret_cast<volatile DCCPARAMS*>(0x4042C124); }
+  static inline volatile DCCPARAMS &ref() { return *reinterpret_cast<volatile DCCPARAMS*>(0x4042C124); }
 };
 
 // USB Command Register
@@ -586,7 +586,7 @@ union USBCMD {
 
   USBCMD() = delete;
   inline void Reset() volatile { this->value = 0x00080000; }
-  static inline volatile USBCMD &Instance() { return *reinterpret_cast<volatile USBCMD*>(0x4042C140); }
+  static inline volatile USBCMD &ref() { return *reinterpret_cast<volatile USBCMD*>(0x4042C140); }
 };
 
 // USB Status Register
@@ -639,7 +639,7 @@ union USBSTS {
 
   USBSTS() = delete;
   inline void Reset() volatile { this->value = 0x00000080; }
-  static inline volatile USBSTS &Instance() { return *reinterpret_cast<volatile USBSTS*>(0x4042C144); }
+  static inline volatile USBSTS &ref() { return *reinterpret_cast<volatile USBSTS*>(0x4042C144); }
 };
 
 // Interrupt Enable Register
@@ -689,7 +689,7 @@ union USBINTR {
 
   USBINTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile USBINTR &Instance() { return *reinterpret_cast<volatile USBINTR*>(0x4042C148); }
+  static inline volatile USBINTR &ref() { return *reinterpret_cast<volatile USBINTR*>(0x4042C148); }
 };
 
 // USB Frame Index
@@ -727,7 +727,7 @@ union FRINDEX {
 
   FRINDEX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FRINDEX &Instance() { return *reinterpret_cast<volatile FRINDEX*>(0x4042C14C); }
+  static inline volatile FRINDEX &ref() { return *reinterpret_cast<volatile FRINDEX*>(0x4042C14C); }
 };
 
 // Device Address
@@ -747,7 +747,7 @@ union DEVICEADDR {
 
   DEVICEADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DEVICEADDR &Instance() { return *reinterpret_cast<volatile DEVICEADDR*>(0x4042C154); }
+  static inline volatile DEVICEADDR &ref() { return *reinterpret_cast<volatile DEVICEADDR*>(0x4042C154); }
 };
 
 // Frame List Base Address
@@ -765,7 +765,7 @@ union PERIODICLISTBASE {
 
   PERIODICLISTBASE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PERIODICLISTBASE &Instance() { return *reinterpret_cast<volatile PERIODICLISTBASE*>(0x4042C154); }
+  static inline volatile PERIODICLISTBASE &ref() { return *reinterpret_cast<volatile PERIODICLISTBASE*>(0x4042C154); }
 };
 
 // Next Asynch. Address
@@ -783,7 +783,7 @@ union ASYNCLISTADDR {
 
   ASYNCLISTADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASYNCLISTADDR &Instance() { return *reinterpret_cast<volatile ASYNCLISTADDR*>(0x4042C158); }
+  static inline volatile ASYNCLISTADDR &ref() { return *reinterpret_cast<volatile ASYNCLISTADDR*>(0x4042C158); }
 };
 
 // Endpoint List Address
@@ -801,7 +801,7 @@ union ENDPTLISTADDR {
 
   ENDPTLISTADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTLISTADDR &Instance() { return *reinterpret_cast<volatile ENDPTLISTADDR*>(0x4042C158); }
+  static inline volatile ENDPTLISTADDR &ref() { return *reinterpret_cast<volatile ENDPTLISTADDR*>(0x4042C158); }
 };
 
 // Programmable Burst Size
@@ -821,7 +821,7 @@ union BURSTSIZE {
 
   BURSTSIZE() = delete;
   inline void Reset() volatile { this->value = 0x00000808; }
-  static inline volatile BURSTSIZE &Instance() { return *reinterpret_cast<volatile BURSTSIZE*>(0x4042C160); }
+  static inline volatile BURSTSIZE &ref() { return *reinterpret_cast<volatile BURSTSIZE*>(0x4042C160); }
 };
 
 // TX FIFO Fill Tuning
@@ -844,7 +844,7 @@ union TXFILLTUNING {
 
   TXFILLTUNING() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TXFILLTUNING &Instance() { return *reinterpret_cast<volatile TXFILLTUNING*>(0x4042C164); }
+  static inline volatile TXFILLTUNING &ref() { return *reinterpret_cast<volatile TXFILLTUNING*>(0x4042C164); }
 };
 
 // Endpoint NAK
@@ -865,7 +865,7 @@ union ENDPTNAK {
 
   ENDPTNAK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTNAK &Instance() { return *reinterpret_cast<volatile ENDPTNAK*>(0x4042C178); }
+  static inline volatile ENDPTNAK &ref() { return *reinterpret_cast<volatile ENDPTNAK*>(0x4042C178); }
 };
 
 // Endpoint NAK Enable
@@ -886,7 +886,7 @@ union ENDPTNAKEN {
 
   ENDPTNAKEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTNAKEN &Instance() { return *reinterpret_cast<volatile ENDPTNAKEN*>(0x4042C17C); }
+  static inline volatile ENDPTNAKEN &ref() { return *reinterpret_cast<volatile ENDPTNAKEN*>(0x4042C17C); }
 };
 
 // Configure Flag Register
@@ -912,7 +912,7 @@ union CONFIGFLAG {
 
   CONFIGFLAG() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile CONFIGFLAG &Instance() { return *reinterpret_cast<volatile CONFIGFLAG*>(0x4042C180); }
+  static inline volatile CONFIGFLAG &ref() { return *reinterpret_cast<volatile CONFIGFLAG*>(0x4042C180); }
 };
 
 // Port Status & Control
@@ -1065,7 +1065,7 @@ union PORTSC1 {
 
   PORTSC1() = delete;
   inline void Reset() volatile { this->value = 0x1C000004; }
-  static inline volatile PORTSC1 &Instance() { return *reinterpret_cast<volatile PORTSC1*>(0x4042C184); }
+  static inline volatile PORTSC1 &ref() { return *reinterpret_cast<volatile PORTSC1*>(0x4042C184); }
 };
 
 // On-The-Go Status & control
@@ -1137,7 +1137,7 @@ union OTGSC {
 
   OTGSC() = delete;
   inline void Reset() volatile { this->value = 0x00202F20; }
-  static inline volatile OTGSC &Instance() { return *reinterpret_cast<volatile OTGSC*>(0x4042C1A4); }
+  static inline volatile OTGSC &ref() { return *reinterpret_cast<volatile OTGSC*>(0x4042C1A4); }
 };
 
 // USB Device Mode
@@ -1187,7 +1187,7 @@ union USBMODE {
 
   USBMODE() = delete;
   inline void Reset() volatile { this->value = 0x00005000; }
-  static inline volatile USBMODE &Instance() { return *reinterpret_cast<volatile USBMODE*>(0x4042C1A8); }
+  static inline volatile USBMODE &ref() { return *reinterpret_cast<volatile USBMODE*>(0x4042C1A8); }
 };
 
 // Endpoint Setup Status
@@ -1205,7 +1205,7 @@ union ENDPTSETUPSTAT {
 
   ENDPTSETUPSTAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTSETUPSTAT &Instance() { return *reinterpret_cast<volatile ENDPTSETUPSTAT*>(0x4042C1AC); }
+  static inline volatile ENDPTSETUPSTAT &ref() { return *reinterpret_cast<volatile ENDPTSETUPSTAT*>(0x4042C1AC); }
 };
 
 // Endpoint Prime
@@ -1226,7 +1226,7 @@ union ENDPTPRIME {
 
   ENDPTPRIME() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTPRIME &Instance() { return *reinterpret_cast<volatile ENDPTPRIME*>(0x4042C1B0); }
+  static inline volatile ENDPTPRIME &ref() { return *reinterpret_cast<volatile ENDPTPRIME*>(0x4042C1B0); }
 };
 
 // Endpoint Flush
@@ -1247,7 +1247,7 @@ union ENDPTFLUSH {
 
   ENDPTFLUSH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTFLUSH &Instance() { return *reinterpret_cast<volatile ENDPTFLUSH*>(0x4042C1B4); }
+  static inline volatile ENDPTFLUSH &ref() { return *reinterpret_cast<volatile ENDPTFLUSH*>(0x4042C1B4); }
 };
 
 // Endpoint Status
@@ -1268,7 +1268,7 @@ union ENDPTSTAT {
 
   ENDPTSTAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTSTAT &Instance() { return *reinterpret_cast<volatile ENDPTSTAT*>(0x4042C1B8); }
+  static inline volatile ENDPTSTAT &ref() { return *reinterpret_cast<volatile ENDPTSTAT*>(0x4042C1B8); }
 };
 
 // Endpoint Complete
@@ -1289,7 +1289,7 @@ union ENDPTCOMPLETE {
 
   ENDPTCOMPLETE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTCOMPLETE &Instance() { return *reinterpret_cast<volatile ENDPTCOMPLETE*>(0x4042C1BC); }
+  static inline volatile ENDPTCOMPLETE &ref() { return *reinterpret_cast<volatile ENDPTCOMPLETE*>(0x4042C1BC); }
 };
 
 // Endpoint Control0
@@ -1322,7 +1322,7 @@ union ENDPTCTRL0 {
 
   ENDPTCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00800080; }
-  static inline volatile ENDPTCTRL0 &Instance() { return *reinterpret_cast<volatile ENDPTCTRL0*>(0x4042C1C0); }
+  static inline volatile ENDPTCTRL0 &ref() { return *reinterpret_cast<volatile ENDPTCTRL0*>(0x4042C1C0); }
 };
 
 // Endpoint Control 1
@@ -1365,7 +1365,7 @@ union ENDPTCTRL1 {
 
   ENDPTCTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTCTRL1 &Instance() { return *reinterpret_cast<volatile ENDPTCTRL1*>(0x4042C1C4); }
+  static inline volatile ENDPTCTRL1 &ref() { return *reinterpret_cast<volatile ENDPTCTRL1*>(0x4042C1C4); }
 };
 
 // Endpoint Control 2
@@ -1408,7 +1408,7 @@ union ENDPTCTRL2 {
 
   ENDPTCTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTCTRL2 &Instance() { return *reinterpret_cast<volatile ENDPTCTRL2*>(0x4042C1C8); }
+  static inline volatile ENDPTCTRL2 &ref() { return *reinterpret_cast<volatile ENDPTCTRL2*>(0x4042C1C8); }
 };
 
 // Endpoint Control 3
@@ -1451,7 +1451,7 @@ union ENDPTCTRL3 {
 
   ENDPTCTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTCTRL3 &Instance() { return *reinterpret_cast<volatile ENDPTCTRL3*>(0x4042C1CC); }
+  static inline volatile ENDPTCTRL3 &ref() { return *reinterpret_cast<volatile ENDPTCTRL3*>(0x4042C1CC); }
 };
 
 // Endpoint Control 4
@@ -1494,7 +1494,7 @@ union ENDPTCTRL4 {
 
   ENDPTCTRL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTCTRL4 &Instance() { return *reinterpret_cast<volatile ENDPTCTRL4*>(0x4042C1D0); }
+  static inline volatile ENDPTCTRL4 &ref() { return *reinterpret_cast<volatile ENDPTCTRL4*>(0x4042C1D0); }
 };
 
 // Endpoint Control 5
@@ -1537,7 +1537,7 @@ union ENDPTCTRL5 {
 
   ENDPTCTRL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTCTRL5 &Instance() { return *reinterpret_cast<volatile ENDPTCTRL5*>(0x4042C1D4); }
+  static inline volatile ENDPTCTRL5 &ref() { return *reinterpret_cast<volatile ENDPTCTRL5*>(0x4042C1D4); }
 };
 
 // Endpoint Control 6
@@ -1580,7 +1580,7 @@ union ENDPTCTRL6 {
 
   ENDPTCTRL6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTCTRL6 &Instance() { return *reinterpret_cast<volatile ENDPTCTRL6*>(0x4042C1D8); }
+  static inline volatile ENDPTCTRL6 &ref() { return *reinterpret_cast<volatile ENDPTCTRL6*>(0x4042C1D8); }
 };
 
 // Endpoint Control 7
@@ -1623,7 +1623,7 @@ union ENDPTCTRL7 {
 
   ENDPTCTRL7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENDPTCTRL7 &Instance() { return *reinterpret_cast<volatile ENDPTCTRL7*>(0x4042C1DC); }
+  static inline volatile ENDPTCTRL7 &ref() { return *reinterpret_cast<volatile ENDPTCTRL7*>(0x4042C1DC); }
 };
 
 

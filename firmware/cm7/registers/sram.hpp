@@ -68,7 +68,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x40C9F000); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40C9F000); }
 };
 
 

@@ -54,7 +54,7 @@ union CM_AUTHEN_CTRL {
 
   CM_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000F00; }
-  static inline volatile CM_AUTHEN_CTRL &Instance() { return *reinterpret_cast<volatile CM_AUTHEN_CTRL*>(0x40C00804); }
+  static inline volatile CM_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile CM_AUTHEN_CTRL*>(0x40C00804); }
 };
 
 // CM Interrupt Control
@@ -107,7 +107,7 @@ union CM_INT_CTRL {
 
   CM_INT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000007; }
-  static inline volatile CM_INT_CTRL &Instance() { return *reinterpret_cast<volatile CM_INT_CTRL*>(0x40C00808); }
+  static inline volatile CM_INT_CTRL &ref() { return *reinterpret_cast<volatile CM_INT_CTRL*>(0x40C00808); }
 };
 
 // Miscellaneous
@@ -148,7 +148,7 @@ union CM_MISC {
 
   CM_MISC() = delete;
   inline void Reset() volatile { this->value = 0x00000006; }
-  static inline volatile CM_MISC &Instance() { return *reinterpret_cast<volatile CM_MISC*>(0x40C0080C); }
+  static inline volatile CM_MISC &ref() { return *reinterpret_cast<volatile CM_MISC*>(0x40C0080C); }
 };
 
 // CPU mode control
@@ -189,7 +189,7 @@ union CM_MODE_CTRL {
 
   CM_MODE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_MODE_CTRL &Instance() { return *reinterpret_cast<volatile CM_MODE_CTRL*>(0x40C00810); }
+  static inline volatile CM_MODE_CTRL &ref() { return *reinterpret_cast<volatile CM_MODE_CTRL*>(0x40C00810); }
 };
 
 // CM CPU mode Status
@@ -233,7 +233,7 @@ union CM_MODE_STAT {
 
   CM_MODE_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_MODE_STAT &Instance() { return *reinterpret_cast<volatile CM_MODE_STAT*>(0x40C00814); }
+  static inline volatile CM_MODE_STAT &ref() { return *reinterpret_cast<volatile CM_MODE_STAT*>(0x40C00814); }
 };
 
 // CM IRQ0~31 wakeup mask
@@ -250,7 +250,7 @@ union CM_IRQ_WAKEUP_MASK_0 {
 
   CM_IRQ_WAKEUP_MASK_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_MASK_0 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_0*>(0x40C00900); }
+  static inline volatile CM_IRQ_WAKEUP_MASK_0 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_0*>(0x40C00900); }
 };
 
 // CM IRQ32~63 wakeup mask
@@ -267,7 +267,7 @@ union CM_IRQ_WAKEUP_MASK_1 {
 
   CM_IRQ_WAKEUP_MASK_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_MASK_1 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_1*>(0x40C00904); }
+  static inline volatile CM_IRQ_WAKEUP_MASK_1 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_1*>(0x40C00904); }
 };
 
 // CM IRQ64~95 wakeup mask
@@ -284,7 +284,7 @@ union CM_IRQ_WAKEUP_MASK_2 {
 
   CM_IRQ_WAKEUP_MASK_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_MASK_2 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_2*>(0x40C00908); }
+  static inline volatile CM_IRQ_WAKEUP_MASK_2 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_2*>(0x40C00908); }
 };
 
 // CM IRQ96~127 wakeup mask
@@ -301,7 +301,7 @@ union CM_IRQ_WAKEUP_MASK_3 {
 
   CM_IRQ_WAKEUP_MASK_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_MASK_3 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_3*>(0x40C0090C); }
+  static inline volatile CM_IRQ_WAKEUP_MASK_3 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_3*>(0x40C0090C); }
 };
 
 // CM IRQ128~159 wakeup mask
@@ -318,7 +318,7 @@ union CM_IRQ_WAKEUP_MASK_4 {
 
   CM_IRQ_WAKEUP_MASK_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_MASK_4 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_4*>(0x40C00910); }
+  static inline volatile CM_IRQ_WAKEUP_MASK_4 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_4*>(0x40C00910); }
 };
 
 // CM IRQ160~191 wakeup mask
@@ -335,7 +335,7 @@ union CM_IRQ_WAKEUP_MASK_5 {
 
   CM_IRQ_WAKEUP_MASK_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_MASK_5 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_5*>(0x40C00914); }
+  static inline volatile CM_IRQ_WAKEUP_MASK_5 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_5*>(0x40C00914); }
 };
 
 // CM IRQ192~223 wakeup mask
@@ -352,7 +352,7 @@ union CM_IRQ_WAKEUP_MASK_6 {
 
   CM_IRQ_WAKEUP_MASK_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_MASK_6 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_6*>(0x40C00918); }
+  static inline volatile CM_IRQ_WAKEUP_MASK_6 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_6*>(0x40C00918); }
 };
 
 // CM IRQ224~255 wakeup mask
@@ -369,7 +369,7 @@ union CM_IRQ_WAKEUP_MASK_7 {
 
   CM_IRQ_WAKEUP_MASK_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_MASK_7 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_7*>(0x40C0091C); }
+  static inline volatile CM_IRQ_WAKEUP_MASK_7 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_7*>(0x40C0091C); }
 };
 
 // CM non-irq wakeup mask
@@ -395,7 +395,7 @@ union CM_NON_IRQ_WAKEUP_MASK {
 
   CM_NON_IRQ_WAKEUP_MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile CM_NON_IRQ_WAKEUP_MASK &Instance() { return *reinterpret_cast<volatile CM_NON_IRQ_WAKEUP_MASK*>(0x40C00940); }
+  static inline volatile CM_NON_IRQ_WAKEUP_MASK &ref() { return *reinterpret_cast<volatile CM_NON_IRQ_WAKEUP_MASK*>(0x40C00940); }
 };
 
 // CM IRQ0~31 wakeup status
@@ -420,7 +420,7 @@ union CM_IRQ_WAKEUP_STAT_0 {
 
   CM_IRQ_WAKEUP_STAT_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_STAT_0 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_0*>(0x40C00950); }
+  static inline volatile CM_IRQ_WAKEUP_STAT_0 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_0*>(0x40C00950); }
 };
 
 // CM IRQ32~63 wakeup status
@@ -445,7 +445,7 @@ union CM_IRQ_WAKEUP_STAT_1 {
 
   CM_IRQ_WAKEUP_STAT_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_STAT_1 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_1*>(0x40C00954); }
+  static inline volatile CM_IRQ_WAKEUP_STAT_1 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_1*>(0x40C00954); }
 };
 
 // CM IRQ64~95 wakeup status
@@ -470,7 +470,7 @@ union CM_IRQ_WAKEUP_STAT_2 {
 
   CM_IRQ_WAKEUP_STAT_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_STAT_2 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_2*>(0x40C00958); }
+  static inline volatile CM_IRQ_WAKEUP_STAT_2 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_2*>(0x40C00958); }
 };
 
 // CM IRQ96~127 wakeup status
@@ -495,7 +495,7 @@ union CM_IRQ_WAKEUP_STAT_3 {
 
   CM_IRQ_WAKEUP_STAT_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_STAT_3 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_3*>(0x40C0095C); }
+  static inline volatile CM_IRQ_WAKEUP_STAT_3 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_3*>(0x40C0095C); }
 };
 
 // CM IRQ128~159 wakeup status
@@ -520,7 +520,7 @@ union CM_IRQ_WAKEUP_STAT_4 {
 
   CM_IRQ_WAKEUP_STAT_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_STAT_4 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_4*>(0x40C00960); }
+  static inline volatile CM_IRQ_WAKEUP_STAT_4 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_4*>(0x40C00960); }
 };
 
 // CM IRQ160~191 wakeup status
@@ -545,7 +545,7 @@ union CM_IRQ_WAKEUP_STAT_5 {
 
   CM_IRQ_WAKEUP_STAT_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_STAT_5 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_5*>(0x40C00964); }
+  static inline volatile CM_IRQ_WAKEUP_STAT_5 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_5*>(0x40C00964); }
 };
 
 // CM IRQ192~223 wakeup status
@@ -570,7 +570,7 @@ union CM_IRQ_WAKEUP_STAT_6 {
 
   CM_IRQ_WAKEUP_STAT_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_STAT_6 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_6*>(0x40C00968); }
+  static inline volatile CM_IRQ_WAKEUP_STAT_6 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_6*>(0x40C00968); }
 };
 
 // CM IRQ224~255 wakeup status
@@ -595,7 +595,7 @@ union CM_IRQ_WAKEUP_STAT_7 {
 
   CM_IRQ_WAKEUP_STAT_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_IRQ_WAKEUP_STAT_7 &Instance() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_7*>(0x40C0096C); }
+  static inline volatile CM_IRQ_WAKEUP_STAT_7 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_7*>(0x40C0096C); }
 };
 
 // CM non-irq wakeup status
@@ -621,7 +621,7 @@ union CM_NON_IRQ_WAKEUP_STAT {
 
   CM_NON_IRQ_WAKEUP_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_NON_IRQ_WAKEUP_STAT &Instance() { return *reinterpret_cast<volatile CM_NON_IRQ_WAKEUP_STAT*>(0x40C00990); }
+  static inline volatile CM_NON_IRQ_WAKEUP_STAT &ref() { return *reinterpret_cast<volatile CM_NON_IRQ_WAKEUP_STAT*>(0x40C00990); }
 };
 
 // CM sleep SSAR control
@@ -656,7 +656,7 @@ union CM_SLEEP_SSAR_CTRL {
 
   CM_SLEEP_SSAR_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile CM_SLEEP_SSAR_CTRL &Instance() { return *reinterpret_cast<volatile CM_SLEEP_SSAR_CTRL*>(0x40C00A00); }
+  static inline volatile CM_SLEEP_SSAR_CTRL &ref() { return *reinterpret_cast<volatile CM_SLEEP_SSAR_CTRL*>(0x40C00A00); }
 };
 
 // CM sleep LPCG control
@@ -691,7 +691,7 @@ union CM_SLEEP_LPCG_CTRL {
 
   CM_SLEEP_LPCG_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile CM_SLEEP_LPCG_CTRL &Instance() { return *reinterpret_cast<volatile CM_SLEEP_LPCG_CTRL*>(0x40C00A08); }
+  static inline volatile CM_SLEEP_LPCG_CTRL &ref() { return *reinterpret_cast<volatile CM_SLEEP_LPCG_CTRL*>(0x40C00A08); }
 };
 
 // CM sleep PLL control
@@ -726,7 +726,7 @@ union CM_SLEEP_PLL_CTRL {
 
   CM_SLEEP_PLL_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile CM_SLEEP_PLL_CTRL &Instance() { return *reinterpret_cast<volatile CM_SLEEP_PLL_CTRL*>(0x40C00A10); }
+  static inline volatile CM_SLEEP_PLL_CTRL &ref() { return *reinterpret_cast<volatile CM_SLEEP_PLL_CTRL*>(0x40C00A10); }
 };
 
 // CM sleep isolation control
@@ -761,7 +761,7 @@ union CM_SLEEP_ISO_CTRL {
 
   CM_SLEEP_ISO_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile CM_SLEEP_ISO_CTRL &Instance() { return *reinterpret_cast<volatile CM_SLEEP_ISO_CTRL*>(0x40C00A18); }
+  static inline volatile CM_SLEEP_ISO_CTRL &ref() { return *reinterpret_cast<volatile CM_SLEEP_ISO_CTRL*>(0x40C00A18); }
 };
 
 // CM sleep reset control
@@ -796,7 +796,7 @@ union CM_SLEEP_RESET_CTRL {
 
   CM_SLEEP_RESET_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile CM_SLEEP_RESET_CTRL &Instance() { return *reinterpret_cast<volatile CM_SLEEP_RESET_CTRL*>(0x40C00A20); }
+  static inline volatile CM_SLEEP_RESET_CTRL &ref() { return *reinterpret_cast<volatile CM_SLEEP_RESET_CTRL*>(0x40C00A20); }
 };
 
 // CM sleep power control
@@ -831,7 +831,7 @@ union CM_SLEEP_POWER_CTRL {
 
   CM_SLEEP_POWER_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile CM_SLEEP_POWER_CTRL &Instance() { return *reinterpret_cast<volatile CM_SLEEP_POWER_CTRL*>(0x40C00A28); }
+  static inline volatile CM_SLEEP_POWER_CTRL &ref() { return *reinterpret_cast<volatile CM_SLEEP_POWER_CTRL*>(0x40C00A28); }
 };
 
 // CM wakeup power control
@@ -866,7 +866,7 @@ union CM_WAKEUP_POWER_CTRL {
 
   CM_WAKEUP_POWER_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile CM_WAKEUP_POWER_CTRL &Instance() { return *reinterpret_cast<volatile CM_WAKEUP_POWER_CTRL*>(0x40C00A90); }
+  static inline volatile CM_WAKEUP_POWER_CTRL &ref() { return *reinterpret_cast<volatile CM_WAKEUP_POWER_CTRL*>(0x40C00A90); }
 };
 
 // CM wakeup reset control
@@ -901,7 +901,7 @@ union CM_WAKEUP_RESET_CTRL {
 
   CM_WAKEUP_RESET_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile CM_WAKEUP_RESET_CTRL &Instance() { return *reinterpret_cast<volatile CM_WAKEUP_RESET_CTRL*>(0x40C00A98); }
+  static inline volatile CM_WAKEUP_RESET_CTRL &ref() { return *reinterpret_cast<volatile CM_WAKEUP_RESET_CTRL*>(0x40C00A98); }
 };
 
 // CM wakeup isolation control
@@ -936,7 +936,7 @@ union CM_WAKEUP_ISO_CTRL {
 
   CM_WAKEUP_ISO_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile CM_WAKEUP_ISO_CTRL &Instance() { return *reinterpret_cast<volatile CM_WAKEUP_ISO_CTRL*>(0x40C00AA0); }
+  static inline volatile CM_WAKEUP_ISO_CTRL &ref() { return *reinterpret_cast<volatile CM_WAKEUP_ISO_CTRL*>(0x40C00AA0); }
 };
 
 // CM wakeup PLL control
@@ -971,7 +971,7 @@ union CM_WAKEUP_PLL_CTRL {
 
   CM_WAKEUP_PLL_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile CM_WAKEUP_PLL_CTRL &Instance() { return *reinterpret_cast<volatile CM_WAKEUP_PLL_CTRL*>(0x40C00AA8); }
+  static inline volatile CM_WAKEUP_PLL_CTRL &ref() { return *reinterpret_cast<volatile CM_WAKEUP_PLL_CTRL*>(0x40C00AA8); }
 };
 
 // CM wakeup LPCG control
@@ -1006,7 +1006,7 @@ union CM_WAKEUP_LPCG_CTRL {
 
   CM_WAKEUP_LPCG_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile CM_WAKEUP_LPCG_CTRL &Instance() { return *reinterpret_cast<volatile CM_WAKEUP_LPCG_CTRL*>(0x40C00AB0); }
+  static inline volatile CM_WAKEUP_LPCG_CTRL &ref() { return *reinterpret_cast<volatile CM_WAKEUP_LPCG_CTRL*>(0x40C00AB0); }
 };
 
 // CM wakeup SSAR control
@@ -1041,7 +1041,7 @@ union CM_WAKEUP_SSAR_CTRL {
 
   CM_WAKEUP_SSAR_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile CM_WAKEUP_SSAR_CTRL &Instance() { return *reinterpret_cast<volatile CM_WAKEUP_SSAR_CTRL*>(0x40C00AB8); }
+  static inline volatile CM_WAKEUP_SSAR_CTRL &ref() { return *reinterpret_cast<volatile CM_WAKEUP_SSAR_CTRL*>(0x40C00AB8); }
 };
 
 // CM Setpoint Control
@@ -1079,7 +1079,7 @@ union CM_SP_CTRL {
 
   CM_SP_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_SP_CTRL &Instance() { return *reinterpret_cast<volatile CM_SP_CTRL*>(0x40C00B00); }
+  static inline volatile CM_SP_CTRL &ref() { return *reinterpret_cast<volatile CM_SP_CTRL*>(0x40C00B00); }
 };
 
 // CM Setpoint Status
@@ -1101,7 +1101,7 @@ union CM_SP_STAT {
 
   CM_SP_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_SP_STAT &Instance() { return *reinterpret_cast<volatile CM_SP_STAT*>(0x40C00B04); }
+  static inline volatile CM_SP_STAT &ref() { return *reinterpret_cast<volatile CM_SP_STAT*>(0x40C00B04); }
 };
 
 // CM Run Mode Setpoint Allowed
@@ -1119,7 +1119,7 @@ union CM_RUN_MODE_MAPPING {
 
   CM_RUN_MODE_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_RUN_MODE_MAPPING &Instance() { return *reinterpret_cast<volatile CM_RUN_MODE_MAPPING*>(0x40C00B10); }
+  static inline volatile CM_RUN_MODE_MAPPING &ref() { return *reinterpret_cast<volatile CM_RUN_MODE_MAPPING*>(0x40C00B10); }
 };
 
 // CM Wait Mode Setpoint Allowed
@@ -1137,7 +1137,7 @@ union CM_WAIT_MODE_MAPPING {
 
   CM_WAIT_MODE_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_WAIT_MODE_MAPPING &Instance() { return *reinterpret_cast<volatile CM_WAIT_MODE_MAPPING*>(0x40C00B14); }
+  static inline volatile CM_WAIT_MODE_MAPPING &ref() { return *reinterpret_cast<volatile CM_WAIT_MODE_MAPPING*>(0x40C00B14); }
 };
 
 // CM Stop Mode Setpoint Allowed
@@ -1155,7 +1155,7 @@ union CM_STOP_MODE_MAPPING {
 
   CM_STOP_MODE_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_STOP_MODE_MAPPING &Instance() { return *reinterpret_cast<volatile CM_STOP_MODE_MAPPING*>(0x40C00B18); }
+  static inline volatile CM_STOP_MODE_MAPPING &ref() { return *reinterpret_cast<volatile CM_STOP_MODE_MAPPING*>(0x40C00B18); }
 };
 
 // CM Suspend Mode Setpoint Allowed
@@ -1173,7 +1173,7 @@ union CM_SUSPEND_MODE_MAPPING {
 
   CM_SUSPEND_MODE_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SUSPEND_MODE_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SUSPEND_MODE_MAPPING*>(0x40C00B1C); }
+  static inline volatile CM_SUSPEND_MODE_MAPPING &ref() { return *reinterpret_cast<volatile CM_SUSPEND_MODE_MAPPING*>(0x40C00B1C); }
 };
 
 // CM Setpoint 0 Mapping
@@ -1191,7 +1191,7 @@ union CM_SP0_MAPPING {
 
   CM_SP0_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP0_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP0_MAPPING*>(0x40C00B20); }
+  static inline volatile CM_SP0_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP0_MAPPING*>(0x40C00B20); }
 };
 
 // CM Setpoint 1 Mapping
@@ -1209,7 +1209,7 @@ union CM_SP1_MAPPING {
 
   CM_SP1_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP1_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP1_MAPPING*>(0x40C00B24); }
+  static inline volatile CM_SP1_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP1_MAPPING*>(0x40C00B24); }
 };
 
 // CM Setpoint 2 Mapping
@@ -1227,7 +1227,7 @@ union CM_SP2_MAPPING {
 
   CM_SP2_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP2_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP2_MAPPING*>(0x40C00B28); }
+  static inline volatile CM_SP2_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP2_MAPPING*>(0x40C00B28); }
 };
 
 // CM Setpoint 3 Mapping
@@ -1245,7 +1245,7 @@ union CM_SP3_MAPPING {
 
   CM_SP3_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP3_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP3_MAPPING*>(0x40C00B2C); }
+  static inline volatile CM_SP3_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP3_MAPPING*>(0x40C00B2C); }
 };
 
 // CM Setpoint 4 Mapping
@@ -1263,7 +1263,7 @@ union CM_SP4_MAPPING {
 
   CM_SP4_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP4_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP4_MAPPING*>(0x40C00B30); }
+  static inline volatile CM_SP4_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP4_MAPPING*>(0x40C00B30); }
 };
 
 // CM Setpoint 5 Mapping
@@ -1281,7 +1281,7 @@ union CM_SP5_MAPPING {
 
   CM_SP5_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP5_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP5_MAPPING*>(0x40C00B34); }
+  static inline volatile CM_SP5_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP5_MAPPING*>(0x40C00B34); }
 };
 
 // CM Setpoint 6 Mapping
@@ -1299,7 +1299,7 @@ union CM_SP6_MAPPING {
 
   CM_SP6_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP6_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP6_MAPPING*>(0x40C00B38); }
+  static inline volatile CM_SP6_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP6_MAPPING*>(0x40C00B38); }
 };
 
 // CM Setpoint 7 Mapping
@@ -1317,7 +1317,7 @@ union CM_SP7_MAPPING {
 
   CM_SP7_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP7_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP7_MAPPING*>(0x40C00B3C); }
+  static inline volatile CM_SP7_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP7_MAPPING*>(0x40C00B3C); }
 };
 
 // CM Setpoint 8 Mapping
@@ -1335,7 +1335,7 @@ union CM_SP8_MAPPING {
 
   CM_SP8_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP8_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP8_MAPPING*>(0x40C00B40); }
+  static inline volatile CM_SP8_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP8_MAPPING*>(0x40C00B40); }
 };
 
 // CM Setpoint 9 Mapping
@@ -1353,7 +1353,7 @@ union CM_SP9_MAPPING {
 
   CM_SP9_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP9_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP9_MAPPING*>(0x40C00B44); }
+  static inline volatile CM_SP9_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP9_MAPPING*>(0x40C00B44); }
 };
 
 // CM Setpoint 10 Mapping
@@ -1371,7 +1371,7 @@ union CM_SP10_MAPPING {
 
   CM_SP10_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP10_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP10_MAPPING*>(0x40C00B48); }
+  static inline volatile CM_SP10_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP10_MAPPING*>(0x40C00B48); }
 };
 
 // CM Setpoint 11 Mapping
@@ -1389,7 +1389,7 @@ union CM_SP11_MAPPING {
 
   CM_SP11_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP11_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP11_MAPPING*>(0x40C00B4C); }
+  static inline volatile CM_SP11_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP11_MAPPING*>(0x40C00B4C); }
 };
 
 // CM Setpoint 12 Mapping
@@ -1407,7 +1407,7 @@ union CM_SP12_MAPPING {
 
   CM_SP12_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP12_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP12_MAPPING*>(0x40C00B50); }
+  static inline volatile CM_SP12_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP12_MAPPING*>(0x40C00B50); }
 };
 
 // CM Setpoint 13 Mapping
@@ -1425,7 +1425,7 @@ union CM_SP13_MAPPING {
 
   CM_SP13_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP13_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP13_MAPPING*>(0x40C00B54); }
+  static inline volatile CM_SP13_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP13_MAPPING*>(0x40C00B54); }
 };
 
 // CM Setpoint 14 Mapping
@@ -1443,7 +1443,7 @@ union CM_SP14_MAPPING {
 
   CM_SP14_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP14_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP14_MAPPING*>(0x40C00B58); }
+  static inline volatile CM_SP14_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP14_MAPPING*>(0x40C00B58); }
 };
 
 // CM Setpoint 15 Mapping
@@ -1461,7 +1461,7 @@ union CM_SP15_MAPPING {
 
   CM_SP15_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CM_SP15_MAPPING &Instance() { return *reinterpret_cast<volatile CM_SP15_MAPPING*>(0x40C00B5C); }
+  static inline volatile CM_SP15_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP15_MAPPING*>(0x40C00B5C); }
 };
 
 // CM standby control
@@ -1488,7 +1488,7 @@ union CM_STBY_CTRL {
 
   CM_STBY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM_STBY_CTRL &Instance() { return *reinterpret_cast<volatile CM_STBY_CTRL*>(0x40C00B80); }
+  static inline volatile CM_STBY_CTRL &ref() { return *reinterpret_cast<volatile CM_STBY_CTRL*>(0x40C00B80); }
 };
 
 

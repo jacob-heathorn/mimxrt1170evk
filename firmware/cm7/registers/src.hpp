@@ -43,7 +43,7 @@ union SCR {
 
   SCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCR &Instance() { return *reinterpret_cast<volatile SCR*>(0x40C04000); }
+  static inline volatile SCR &ref() { return *reinterpret_cast<volatile SCR*>(0x40C04000); }
 };
 
 // SRC Reset Mode Register
@@ -169,7 +169,7 @@ union SRMR {
 
   SRMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRMR &Instance() { return *reinterpret_cast<volatile SRMR*>(0x40C04004); }
+  static inline volatile SRMR &ref() { return *reinterpret_cast<volatile SRMR*>(0x40C04004); }
 };
 
 // SRC Boot Mode Register 1
@@ -192,7 +192,7 @@ union SBMR1 {
 
   SBMR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SBMR1 &Instance() { return *reinterpret_cast<volatile SBMR1*>(0x40C04008); }
+  static inline volatile SBMR1 &ref() { return *reinterpret_cast<volatile SBMR1*>(0x40C04008); }
 };
 
 // SRC Boot Mode Register 2
@@ -216,7 +216,7 @@ union SBMR2 {
 
   SBMR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SBMR2 &Instance() { return *reinterpret_cast<volatile SBMR2*>(0x40C0400C); }
+  static inline volatile SBMR2 &ref() { return *reinterpret_cast<volatile SBMR2*>(0x40C0400C); }
 };
 
 // SRC Reset Status Register
@@ -533,7 +533,7 @@ union SRSR {
 
   SRSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRSR &Instance() { return *reinterpret_cast<volatile SRSR*>(0x40C04010); }
+  static inline volatile SRSR &ref() { return *reinterpret_cast<volatile SRSR*>(0x40C04010); }
 };
 
 // SRC General Purpose Register
@@ -550,7 +550,7 @@ union GPR1 {
 
   GPR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR1 &Instance() { return *reinterpret_cast<volatile GPR1*>(0x40C04014); }
+  static inline volatile GPR1 &ref() { return *reinterpret_cast<volatile GPR1*>(0x40C04014); }
 };
 // SRC General Purpose Register
 union GPR2 {
@@ -566,7 +566,7 @@ union GPR2 {
 
   GPR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR2 &Instance() { return *reinterpret_cast<volatile GPR2*>(0x40C04018); }
+  static inline volatile GPR2 &ref() { return *reinterpret_cast<volatile GPR2*>(0x40C04018); }
 };
 // SRC General Purpose Register
 union GPR3 {
@@ -582,7 +582,7 @@ union GPR3 {
 
   GPR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR3 &Instance() { return *reinterpret_cast<volatile GPR3*>(0x40C0401C); }
+  static inline volatile GPR3 &ref() { return *reinterpret_cast<volatile GPR3*>(0x40C0401C); }
 };
 // SRC General Purpose Register
 union GPR4 {
@@ -598,7 +598,7 @@ union GPR4 {
 
   GPR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR4 &Instance() { return *reinterpret_cast<volatile GPR4*>(0x40C04020); }
+  static inline volatile GPR4 &ref() { return *reinterpret_cast<volatile GPR4*>(0x40C04020); }
 };
 // SRC General Purpose Register
 union GPR5 {
@@ -614,7 +614,7 @@ union GPR5 {
 
   GPR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR5 &Instance() { return *reinterpret_cast<volatile GPR5*>(0x40C04024); }
+  static inline volatile GPR5 &ref() { return *reinterpret_cast<volatile GPR5*>(0x40C04024); }
 };
 // SRC General Purpose Register
 union GPR6 {
@@ -630,7 +630,7 @@ union GPR6 {
 
   GPR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR6 &Instance() { return *reinterpret_cast<volatile GPR6*>(0x40C04028); }
+  static inline volatile GPR6 &ref() { return *reinterpret_cast<volatile GPR6*>(0x40C04028); }
 };
 // SRC General Purpose Register
 union GPR7 {
@@ -646,7 +646,7 @@ union GPR7 {
 
   GPR7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR7 &Instance() { return *reinterpret_cast<volatile GPR7*>(0x40C0402C); }
+  static inline volatile GPR7 &ref() { return *reinterpret_cast<volatile GPR7*>(0x40C0402C); }
 };
 // SRC General Purpose Register
 union GPR8 {
@@ -662,7 +662,7 @@ union GPR8 {
 
   GPR8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR8 &Instance() { return *reinterpret_cast<volatile GPR8*>(0x40C04030); }
+  static inline volatile GPR8 &ref() { return *reinterpret_cast<volatile GPR8*>(0x40C04030); }
 };
 // SRC General Purpose Register
 union GPR9 {
@@ -678,7 +678,7 @@ union GPR9 {
 
   GPR9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR9 &Instance() { return *reinterpret_cast<volatile GPR9*>(0x40C04034); }
+  static inline volatile GPR9 &ref() { return *reinterpret_cast<volatile GPR9*>(0x40C04034); }
 };
 // SRC General Purpose Register
 union GPR10 {
@@ -694,7 +694,7 @@ union GPR10 {
 
   GPR10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR10 &Instance() { return *reinterpret_cast<volatile GPR10*>(0x40C04038); }
+  static inline volatile GPR10 &ref() { return *reinterpret_cast<volatile GPR10*>(0x40C04038); }
 };
 // SRC General Purpose Register
 union GPR11 {
@@ -710,7 +710,7 @@ union GPR11 {
 
   GPR11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR11 &Instance() { return *reinterpret_cast<volatile GPR11*>(0x40C0403C); }
+  static inline volatile GPR11 &ref() { return *reinterpret_cast<volatile GPR11*>(0x40C0403C); }
 };
 // SRC General Purpose Register
 union GPR12 {
@@ -726,7 +726,7 @@ union GPR12 {
 
   GPR12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR12 &Instance() { return *reinterpret_cast<volatile GPR12*>(0x40C04040); }
+  static inline volatile GPR12 &ref() { return *reinterpret_cast<volatile GPR12*>(0x40C04040); }
 };
 // SRC General Purpose Register
 union GPR13 {
@@ -742,7 +742,7 @@ union GPR13 {
 
   GPR13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR13 &Instance() { return *reinterpret_cast<volatile GPR13*>(0x40C04044); }
+  static inline volatile GPR13 &ref() { return *reinterpret_cast<volatile GPR13*>(0x40C04044); }
 };
 // SRC General Purpose Register
 union GPR14 {
@@ -758,7 +758,7 @@ union GPR14 {
 
   GPR14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR14 &Instance() { return *reinterpret_cast<volatile GPR14*>(0x40C04048); }
+  static inline volatile GPR14 &ref() { return *reinterpret_cast<volatile GPR14*>(0x40C04048); }
 };
 // SRC General Purpose Register
 union GPR15 {
@@ -774,7 +774,7 @@ union GPR15 {
 
   GPR15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR15 &Instance() { return *reinterpret_cast<volatile GPR15*>(0x40C0404C); }
+  static inline volatile GPR15 &ref() { return *reinterpret_cast<volatile GPR15*>(0x40C0404C); }
 };
 // SRC General Purpose Register
 union GPR16 {
@@ -790,7 +790,7 @@ union GPR16 {
 
   GPR16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR16 &Instance() { return *reinterpret_cast<volatile GPR16*>(0x40C04050); }
+  static inline volatile GPR16 &ref() { return *reinterpret_cast<volatile GPR16*>(0x40C04050); }
 };
 // SRC General Purpose Register
 union GPR17 {
@@ -806,7 +806,7 @@ union GPR17 {
 
   GPR17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR17 &Instance() { return *reinterpret_cast<volatile GPR17*>(0x40C04054); }
+  static inline volatile GPR17 &ref() { return *reinterpret_cast<volatile GPR17*>(0x40C04054); }
 };
 // SRC General Purpose Register
 union GPR18 {
@@ -822,7 +822,7 @@ union GPR18 {
 
   GPR18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR18 &Instance() { return *reinterpret_cast<volatile GPR18*>(0x40C04058); }
+  static inline volatile GPR18 &ref() { return *reinterpret_cast<volatile GPR18*>(0x40C04058); }
 };
 // SRC General Purpose Register
 union GPR19 {
@@ -838,7 +838,7 @@ union GPR19 {
 
   GPR19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR19 &Instance() { return *reinterpret_cast<volatile GPR19*>(0x40C0405C); }
+  static inline volatile GPR19 &ref() { return *reinterpret_cast<volatile GPR19*>(0x40C0405C); }
 };
 // SRC General Purpose Register
 union GPR20 {
@@ -854,7 +854,7 @@ union GPR20 {
 
   GPR20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR20 &Instance() { return *reinterpret_cast<volatile GPR20*>(0x40C04060); }
+  static inline volatile GPR20 &ref() { return *reinterpret_cast<volatile GPR20*>(0x40C04060); }
 };
 
 // Slice Authentication Register
@@ -909,7 +909,7 @@ union AUTHEN_MEGA {
 
   AUTHEN_MEGA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_MEGA &Instance() { return *reinterpret_cast<volatile AUTHEN_MEGA*>(0x40C04200); }
+  static inline volatile AUTHEN_MEGA &ref() { return *reinterpret_cast<volatile AUTHEN_MEGA*>(0x40C04200); }
 };
 
 // Slice Control Register
@@ -935,7 +935,7 @@ union CTRL_MEGA {
 
   CTRL_MEGA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_MEGA &Instance() { return *reinterpret_cast<volatile CTRL_MEGA*>(0x40C04204); }
+  static inline volatile CTRL_MEGA &ref() { return *reinterpret_cast<volatile CTRL_MEGA*>(0x40C04204); }
 };
 
 // Slice Setpoint Config Register
@@ -1111,7 +1111,7 @@ union SETPOINT_MEGA {
 
   SETPOINT_MEGA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_MEGA &Instance() { return *reinterpret_cast<volatile SETPOINT_MEGA*>(0x40C04208); }
+  static inline volatile SETPOINT_MEGA &ref() { return *reinterpret_cast<volatile SETPOINT_MEGA*>(0x40C04208); }
 };
 
 // Slice Domain Config Register
@@ -1207,7 +1207,7 @@ union DOMAIN_MEGA {
 
   DOMAIN_MEGA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_MEGA &Instance() { return *reinterpret_cast<volatile DOMAIN_MEGA*>(0x40C0420C); }
+  static inline volatile DOMAIN_MEGA &ref() { return *reinterpret_cast<volatile DOMAIN_MEGA*>(0x40C0420C); }
 };
 
 // Slice Status Register
@@ -1254,7 +1254,7 @@ union STAT_MEGA {
 
   STAT_MEGA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_MEGA &Instance() { return *reinterpret_cast<volatile STAT_MEGA*>(0x40C04210); }
+  static inline volatile STAT_MEGA &ref() { return *reinterpret_cast<volatile STAT_MEGA*>(0x40C04210); }
 };
 
 // Slice Authentication Register
@@ -1309,7 +1309,7 @@ union AUTHEN_DISPLAY {
 
   AUTHEN_DISPLAY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_DISPLAY &Instance() { return *reinterpret_cast<volatile AUTHEN_DISPLAY*>(0x40C04220); }
+  static inline volatile AUTHEN_DISPLAY &ref() { return *reinterpret_cast<volatile AUTHEN_DISPLAY*>(0x40C04220); }
 };
 
 // Slice Control Register
@@ -1335,7 +1335,7 @@ union CTRL_DISPLAY {
 
   CTRL_DISPLAY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_DISPLAY &Instance() { return *reinterpret_cast<volatile CTRL_DISPLAY*>(0x40C04224); }
+  static inline volatile CTRL_DISPLAY &ref() { return *reinterpret_cast<volatile CTRL_DISPLAY*>(0x40C04224); }
 };
 
 // Slice Setpoint Config Register
@@ -1511,7 +1511,7 @@ union SETPOINT_DISPLAY {
 
   SETPOINT_DISPLAY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_DISPLAY &Instance() { return *reinterpret_cast<volatile SETPOINT_DISPLAY*>(0x40C04228); }
+  static inline volatile SETPOINT_DISPLAY &ref() { return *reinterpret_cast<volatile SETPOINT_DISPLAY*>(0x40C04228); }
 };
 
 // Slice Domain Config Register
@@ -1607,7 +1607,7 @@ union DOMAIN_DISPLAY {
 
   DOMAIN_DISPLAY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_DISPLAY &Instance() { return *reinterpret_cast<volatile DOMAIN_DISPLAY*>(0x40C0422C); }
+  static inline volatile DOMAIN_DISPLAY &ref() { return *reinterpret_cast<volatile DOMAIN_DISPLAY*>(0x40C0422C); }
 };
 
 // Slice Status Register
@@ -1654,7 +1654,7 @@ union STAT_DISPLAY {
 
   STAT_DISPLAY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_DISPLAY &Instance() { return *reinterpret_cast<volatile STAT_DISPLAY*>(0x40C04230); }
+  static inline volatile STAT_DISPLAY &ref() { return *reinterpret_cast<volatile STAT_DISPLAY*>(0x40C04230); }
 };
 
 // Slice Authentication Register
@@ -1709,7 +1709,7 @@ union AUTHEN_WAKEUP {
 
   AUTHEN_WAKEUP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_WAKEUP &Instance() { return *reinterpret_cast<volatile AUTHEN_WAKEUP*>(0x40C04240); }
+  static inline volatile AUTHEN_WAKEUP &ref() { return *reinterpret_cast<volatile AUTHEN_WAKEUP*>(0x40C04240); }
 };
 
 // Slice Control Register
@@ -1735,7 +1735,7 @@ union CTRL_WAKEUP {
 
   CTRL_WAKEUP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_WAKEUP &Instance() { return *reinterpret_cast<volatile CTRL_WAKEUP*>(0x40C04244); }
+  static inline volatile CTRL_WAKEUP &ref() { return *reinterpret_cast<volatile CTRL_WAKEUP*>(0x40C04244); }
 };
 
 // Slice Setpoint Config Register
@@ -1911,7 +1911,7 @@ union SETPOINT_WAKEUP {
 
   SETPOINT_WAKEUP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_WAKEUP &Instance() { return *reinterpret_cast<volatile SETPOINT_WAKEUP*>(0x40C04248); }
+  static inline volatile SETPOINT_WAKEUP &ref() { return *reinterpret_cast<volatile SETPOINT_WAKEUP*>(0x40C04248); }
 };
 
 // Slice Domain Config Register
@@ -2007,7 +2007,7 @@ union DOMAIN_WAKEUP {
 
   DOMAIN_WAKEUP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_WAKEUP &Instance() { return *reinterpret_cast<volatile DOMAIN_WAKEUP*>(0x40C0424C); }
+  static inline volatile DOMAIN_WAKEUP &ref() { return *reinterpret_cast<volatile DOMAIN_WAKEUP*>(0x40C0424C); }
 };
 
 // Slice Status Register
@@ -2054,7 +2054,7 @@ union STAT_WAKEUP {
 
   STAT_WAKEUP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_WAKEUP &Instance() { return *reinterpret_cast<volatile STAT_WAKEUP*>(0x40C04250); }
+  static inline volatile STAT_WAKEUP &ref() { return *reinterpret_cast<volatile STAT_WAKEUP*>(0x40C04250); }
 };
 
 // Slice Authentication Register
@@ -2109,7 +2109,7 @@ union AUTHEN_M4CORE {
 
   AUTHEN_M4CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_M4CORE &Instance() { return *reinterpret_cast<volatile AUTHEN_M4CORE*>(0x40C04280); }
+  static inline volatile AUTHEN_M4CORE &ref() { return *reinterpret_cast<volatile AUTHEN_M4CORE*>(0x40C04280); }
 };
 
 // Slice Control Register
@@ -2135,7 +2135,7 @@ union CTRL_M4CORE {
 
   CTRL_M4CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_M4CORE &Instance() { return *reinterpret_cast<volatile CTRL_M4CORE*>(0x40C04284); }
+  static inline volatile CTRL_M4CORE &ref() { return *reinterpret_cast<volatile CTRL_M4CORE*>(0x40C04284); }
 };
 
 // Slice Setpoint Config Register
@@ -2311,7 +2311,7 @@ union SETPOINT_M4CORE {
 
   SETPOINT_M4CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_M4CORE &Instance() { return *reinterpret_cast<volatile SETPOINT_M4CORE*>(0x40C04288); }
+  static inline volatile SETPOINT_M4CORE &ref() { return *reinterpret_cast<volatile SETPOINT_M4CORE*>(0x40C04288); }
 };
 
 // Slice Domain Config Register
@@ -2407,7 +2407,7 @@ union DOMAIN_M4CORE {
 
   DOMAIN_M4CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_M4CORE &Instance() { return *reinterpret_cast<volatile DOMAIN_M4CORE*>(0x40C0428C); }
+  static inline volatile DOMAIN_M4CORE &ref() { return *reinterpret_cast<volatile DOMAIN_M4CORE*>(0x40C0428C); }
 };
 
 // Slice Status Register
@@ -2454,7 +2454,7 @@ union STAT_M4CORE {
 
   STAT_M4CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_M4CORE &Instance() { return *reinterpret_cast<volatile STAT_M4CORE*>(0x40C04290); }
+  static inline volatile STAT_M4CORE &ref() { return *reinterpret_cast<volatile STAT_M4CORE*>(0x40C04290); }
 };
 
 // Slice Authentication Register
@@ -2509,7 +2509,7 @@ union AUTHEN_M7CORE {
 
   AUTHEN_M7CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_M7CORE &Instance() { return *reinterpret_cast<volatile AUTHEN_M7CORE*>(0x40C042A0); }
+  static inline volatile AUTHEN_M7CORE &ref() { return *reinterpret_cast<volatile AUTHEN_M7CORE*>(0x40C042A0); }
 };
 
 // Slice Control Register
@@ -2535,7 +2535,7 @@ union CTRL_M7CORE {
 
   CTRL_M7CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_M7CORE &Instance() { return *reinterpret_cast<volatile CTRL_M7CORE*>(0x40C042A4); }
+  static inline volatile CTRL_M7CORE &ref() { return *reinterpret_cast<volatile CTRL_M7CORE*>(0x40C042A4); }
 };
 
 // Slice Setpoint Config Register
@@ -2711,7 +2711,7 @@ union SETPOINT_M7CORE {
 
   SETPOINT_M7CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_M7CORE &Instance() { return *reinterpret_cast<volatile SETPOINT_M7CORE*>(0x40C042A8); }
+  static inline volatile SETPOINT_M7CORE &ref() { return *reinterpret_cast<volatile SETPOINT_M7CORE*>(0x40C042A8); }
 };
 
 // Slice Domain Config Register
@@ -2807,7 +2807,7 @@ union DOMAIN_M7CORE {
 
   DOMAIN_M7CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_M7CORE &Instance() { return *reinterpret_cast<volatile DOMAIN_M7CORE*>(0x40C042AC); }
+  static inline volatile DOMAIN_M7CORE &ref() { return *reinterpret_cast<volatile DOMAIN_M7CORE*>(0x40C042AC); }
 };
 
 // Slice Status Register
@@ -2854,7 +2854,7 @@ union STAT_M7CORE {
 
   STAT_M7CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_M7CORE &Instance() { return *reinterpret_cast<volatile STAT_M7CORE*>(0x40C042B0); }
+  static inline volatile STAT_M7CORE &ref() { return *reinterpret_cast<volatile STAT_M7CORE*>(0x40C042B0); }
 };
 
 // Slice Authentication Register
@@ -2909,7 +2909,7 @@ union AUTHEN_M4DEBUG {
 
   AUTHEN_M4DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_M4DEBUG &Instance() { return *reinterpret_cast<volatile AUTHEN_M4DEBUG*>(0x40C042C0); }
+  static inline volatile AUTHEN_M4DEBUG &ref() { return *reinterpret_cast<volatile AUTHEN_M4DEBUG*>(0x40C042C0); }
 };
 
 // Slice Control Register
@@ -2935,7 +2935,7 @@ union CTRL_M4DEBUG {
 
   CTRL_M4DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_M4DEBUG &Instance() { return *reinterpret_cast<volatile CTRL_M4DEBUG*>(0x40C042C4); }
+  static inline volatile CTRL_M4DEBUG &ref() { return *reinterpret_cast<volatile CTRL_M4DEBUG*>(0x40C042C4); }
 };
 
 // Slice Setpoint Config Register
@@ -3111,7 +3111,7 @@ union SETPOINT_M4DEBUG {
 
   SETPOINT_M4DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_M4DEBUG &Instance() { return *reinterpret_cast<volatile SETPOINT_M4DEBUG*>(0x40C042C8); }
+  static inline volatile SETPOINT_M4DEBUG &ref() { return *reinterpret_cast<volatile SETPOINT_M4DEBUG*>(0x40C042C8); }
 };
 
 // Slice Domain Config Register
@@ -3207,7 +3207,7 @@ union DOMAIN_M4DEBUG {
 
   DOMAIN_M4DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_M4DEBUG &Instance() { return *reinterpret_cast<volatile DOMAIN_M4DEBUG*>(0x40C042CC); }
+  static inline volatile DOMAIN_M4DEBUG &ref() { return *reinterpret_cast<volatile DOMAIN_M4DEBUG*>(0x40C042CC); }
 };
 
 // Slice Status Register
@@ -3254,7 +3254,7 @@ union STAT_M4DEBUG {
 
   STAT_M4DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_M4DEBUG &Instance() { return *reinterpret_cast<volatile STAT_M4DEBUG*>(0x40C042D0); }
+  static inline volatile STAT_M4DEBUG &ref() { return *reinterpret_cast<volatile STAT_M4DEBUG*>(0x40C042D0); }
 };
 
 // Slice Authentication Register
@@ -3309,7 +3309,7 @@ union AUTHEN_M7DEBUG {
 
   AUTHEN_M7DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_M7DEBUG &Instance() { return *reinterpret_cast<volatile AUTHEN_M7DEBUG*>(0x40C042E0); }
+  static inline volatile AUTHEN_M7DEBUG &ref() { return *reinterpret_cast<volatile AUTHEN_M7DEBUG*>(0x40C042E0); }
 };
 
 // Slice Control Register
@@ -3335,7 +3335,7 @@ union CTRL_M7DEBUG {
 
   CTRL_M7DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_M7DEBUG &Instance() { return *reinterpret_cast<volatile CTRL_M7DEBUG*>(0x40C042E4); }
+  static inline volatile CTRL_M7DEBUG &ref() { return *reinterpret_cast<volatile CTRL_M7DEBUG*>(0x40C042E4); }
 };
 
 // Slice Setpoint Config Register
@@ -3511,7 +3511,7 @@ union SETPOINT_M7DEBUG {
 
   SETPOINT_M7DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_M7DEBUG &Instance() { return *reinterpret_cast<volatile SETPOINT_M7DEBUG*>(0x40C042E8); }
+  static inline volatile SETPOINT_M7DEBUG &ref() { return *reinterpret_cast<volatile SETPOINT_M7DEBUG*>(0x40C042E8); }
 };
 
 // Slice Domain Config Register
@@ -3607,7 +3607,7 @@ union DOMAIN_M7DEBUG {
 
   DOMAIN_M7DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_M7DEBUG &Instance() { return *reinterpret_cast<volatile DOMAIN_M7DEBUG*>(0x40C042EC); }
+  static inline volatile DOMAIN_M7DEBUG &ref() { return *reinterpret_cast<volatile DOMAIN_M7DEBUG*>(0x40C042EC); }
 };
 
 // Slice Status Register
@@ -3654,7 +3654,7 @@ union STAT_M7DEBUG {
 
   STAT_M7DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_M7DEBUG &Instance() { return *reinterpret_cast<volatile STAT_M7DEBUG*>(0x40C042F0); }
+  static inline volatile STAT_M7DEBUG &ref() { return *reinterpret_cast<volatile STAT_M7DEBUG*>(0x40C042F0); }
 };
 
 // Slice Authentication Register
@@ -3709,7 +3709,7 @@ union AUTHEN_USBPHY1 {
 
   AUTHEN_USBPHY1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_USBPHY1 &Instance() { return *reinterpret_cast<volatile AUTHEN_USBPHY1*>(0x40C04300); }
+  static inline volatile AUTHEN_USBPHY1 &ref() { return *reinterpret_cast<volatile AUTHEN_USBPHY1*>(0x40C04300); }
 };
 
 // Slice Control Register
@@ -3735,7 +3735,7 @@ union CTRL_USBPHY1 {
 
   CTRL_USBPHY1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_USBPHY1 &Instance() { return *reinterpret_cast<volatile CTRL_USBPHY1*>(0x40C04304); }
+  static inline volatile CTRL_USBPHY1 &ref() { return *reinterpret_cast<volatile CTRL_USBPHY1*>(0x40C04304); }
 };
 
 // Slice Setpoint Config Register
@@ -3911,7 +3911,7 @@ union SETPOINT_USBPHY1 {
 
   SETPOINT_USBPHY1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_USBPHY1 &Instance() { return *reinterpret_cast<volatile SETPOINT_USBPHY1*>(0x40C04308); }
+  static inline volatile SETPOINT_USBPHY1 &ref() { return *reinterpret_cast<volatile SETPOINT_USBPHY1*>(0x40C04308); }
 };
 
 // Slice Domain Config Register
@@ -4007,7 +4007,7 @@ union DOMAIN_USBPHY1 {
 
   DOMAIN_USBPHY1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_USBPHY1 &Instance() { return *reinterpret_cast<volatile DOMAIN_USBPHY1*>(0x40C0430C); }
+  static inline volatile DOMAIN_USBPHY1 &ref() { return *reinterpret_cast<volatile DOMAIN_USBPHY1*>(0x40C0430C); }
 };
 
 // Slice Status Register
@@ -4054,7 +4054,7 @@ union STAT_USBPHY1 {
 
   STAT_USBPHY1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_USBPHY1 &Instance() { return *reinterpret_cast<volatile STAT_USBPHY1*>(0x40C04310); }
+  static inline volatile STAT_USBPHY1 &ref() { return *reinterpret_cast<volatile STAT_USBPHY1*>(0x40C04310); }
 };
 
 // Slice Authentication Register
@@ -4109,7 +4109,7 @@ union AUTHEN_USBPHY2 {
 
   AUTHEN_USBPHY2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_USBPHY2 &Instance() { return *reinterpret_cast<volatile AUTHEN_USBPHY2*>(0x40C04320); }
+  static inline volatile AUTHEN_USBPHY2 &ref() { return *reinterpret_cast<volatile AUTHEN_USBPHY2*>(0x40C04320); }
 };
 
 // Slice Control Register
@@ -4135,7 +4135,7 @@ union CTRL_USBPHY2 {
 
   CTRL_USBPHY2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_USBPHY2 &Instance() { return *reinterpret_cast<volatile CTRL_USBPHY2*>(0x40C04324); }
+  static inline volatile CTRL_USBPHY2 &ref() { return *reinterpret_cast<volatile CTRL_USBPHY2*>(0x40C04324); }
 };
 
 // Slice Setpoint Config Register
@@ -4311,7 +4311,7 @@ union SETPOINT_USBPHY2 {
 
   SETPOINT_USBPHY2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_USBPHY2 &Instance() { return *reinterpret_cast<volatile SETPOINT_USBPHY2*>(0x40C04328); }
+  static inline volatile SETPOINT_USBPHY2 &ref() { return *reinterpret_cast<volatile SETPOINT_USBPHY2*>(0x40C04328); }
 };
 
 // Slice Domain Config Register
@@ -4407,7 +4407,7 @@ union DOMAIN_USBPHY2 {
 
   DOMAIN_USBPHY2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_USBPHY2 &Instance() { return *reinterpret_cast<volatile DOMAIN_USBPHY2*>(0x40C0432C); }
+  static inline volatile DOMAIN_USBPHY2 &ref() { return *reinterpret_cast<volatile DOMAIN_USBPHY2*>(0x40C0432C); }
 };
 
 // Slice Status Register
@@ -4454,7 +4454,7 @@ union STAT_USBPHY2 {
 
   STAT_USBPHY2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_USBPHY2 &Instance() { return *reinterpret_cast<volatile STAT_USBPHY2*>(0x40C04330); }
+  static inline volatile STAT_USBPHY2 &ref() { return *reinterpret_cast<volatile STAT_USBPHY2*>(0x40C04330); }
 };
 
 

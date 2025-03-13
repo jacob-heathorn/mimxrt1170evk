@@ -83,7 +83,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x40808000); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40808000); }
 };
 
 // LCDIFv2 display control Register
@@ -111,7 +111,7 @@ union CTRL_SET {
 
   CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile CTRL_SET &Instance() { return *reinterpret_cast<volatile CTRL_SET*>(0x40808004); }
+  static inline volatile CTRL_SET &ref() { return *reinterpret_cast<volatile CTRL_SET*>(0x40808004); }
 };
 
 // LCDIFv2 display control Register
@@ -139,7 +139,7 @@ union CTRL_CLR {
 
   CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile CTRL_CLR &Instance() { return *reinterpret_cast<volatile CTRL_CLR*>(0x40808008); }
+  static inline volatile CTRL_CLR &ref() { return *reinterpret_cast<volatile CTRL_CLR*>(0x40808008); }
 };
 
 // LCDIFv2 display control Register
@@ -167,7 +167,7 @@ union CTRL_TOG {
 
   CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile CTRL_TOG &Instance() { return *reinterpret_cast<volatile CTRL_TOG*>(0x4080800C); }
+  static inline volatile CTRL_TOG &ref() { return *reinterpret_cast<volatile CTRL_TOG*>(0x4080800C); }
 };
 
 // Display Parameter Register
@@ -231,7 +231,7 @@ union DISP_PARA {
 
   DISP_PARA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DISP_PARA &Instance() { return *reinterpret_cast<volatile DISP_PARA*>(0x40808010); }
+  static inline volatile DISP_PARA &ref() { return *reinterpret_cast<volatile DISP_PARA*>(0x40808010); }
 };
 
 // Display Size Register
@@ -252,7 +252,7 @@ union DISP_SIZE {
 
   DISP_SIZE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DISP_SIZE &Instance() { return *reinterpret_cast<volatile DISP_SIZE*>(0x40808014); }
+  static inline volatile DISP_SIZE &ref() { return *reinterpret_cast<volatile DISP_SIZE*>(0x40808014); }
 };
 
 // Horizontal Sync Parameter Register
@@ -276,7 +276,7 @@ union HSYN_PARA {
 
   HSYN_PARA() = delete;
   inline void Reset() volatile { this->value = 0x00C01803; }
-  static inline volatile HSYN_PARA &Instance() { return *reinterpret_cast<volatile HSYN_PARA*>(0x40808018); }
+  static inline volatile HSYN_PARA &ref() { return *reinterpret_cast<volatile HSYN_PARA*>(0x40808018); }
 };
 
 // Vertical Sync Parameter Register
@@ -300,7 +300,7 @@ union VSYN_PARA {
 
   VSYN_PARA() = delete;
   inline void Reset() volatile { this->value = 0x00C01803; }
-  static inline volatile VSYN_PARA &Instance() { return *reinterpret_cast<volatile VSYN_PARA*>(0x4080801C); }
+  static inline volatile VSYN_PARA &ref() { return *reinterpret_cast<volatile VSYN_PARA*>(0x4080801C); }
 };
 
 // Interrupt Status Register for domain 0
@@ -352,7 +352,7 @@ union INT_STATUS_D0 {
 
   INT_STATUS_D0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_STATUS_D0 &Instance() { return *reinterpret_cast<volatile INT_STATUS_D0*>(0x40808020); }
+  static inline volatile INT_STATUS_D0 &ref() { return *reinterpret_cast<volatile INT_STATUS_D0*>(0x40808020); }
 };
 
 // Interrupt Enable Register for domain 0
@@ -404,7 +404,7 @@ union INT_ENABLE_D0 {
 
   INT_ENABLE_D0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_ENABLE_D0 &Instance() { return *reinterpret_cast<volatile INT_ENABLE_D0*>(0x40808024); }
+  static inline volatile INT_ENABLE_D0 &ref() { return *reinterpret_cast<volatile INT_ENABLE_D0*>(0x40808024); }
 };
 
 // Interrupt Status Register for domain 1
@@ -432,7 +432,7 @@ union INT_STATUS_D1 {
 
   INT_STATUS_D1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_STATUS_D1 &Instance() { return *reinterpret_cast<volatile INT_STATUS_D1*>(0x40808030); }
+  static inline volatile INT_STATUS_D1 &ref() { return *reinterpret_cast<volatile INT_STATUS_D1*>(0x40808030); }
 };
 
 // Interrupt Enable Register for domain 1
@@ -460,7 +460,7 @@ union INT_ENABLE_D1 {
 
   INT_ENABLE_D1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_ENABLE_D1 &Instance() { return *reinterpret_cast<volatile INT_ENABLE_D1*>(0x40808034); }
+  static inline volatile INT_ENABLE_D1 &ref() { return *reinterpret_cast<volatile INT_ENABLE_D1*>(0x40808034); }
 };
 
 // Reserved
@@ -476,7 +476,7 @@ union PDI_PARA {
 
   PDI_PARA() = delete;
   inline void Reset() volatile { this->value = 0x00001000; }
-  static inline volatile PDI_PARA &Instance() { return *reinterpret_cast<volatile PDI_PARA*>(0x40808040); }
+  static inline volatile PDI_PARA &ref() { return *reinterpret_cast<volatile PDI_PARA*>(0x40808040); }
 };
 
 // Control Descriptor Layer 1 Register
@@ -497,7 +497,7 @@ union CTRLDESCL0_1 {
 
   CTRLDESCL0_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL0_1 &Instance() { return *reinterpret_cast<volatile CTRLDESCL0_1*>(0x40808200); }
+  static inline volatile CTRLDESCL0_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL0_1*>(0x40808200); }
 };
 
 // Control Descriptor Layer 2 Register
@@ -518,7 +518,7 @@ union CTRLDESCL0_2 {
 
   CTRLDESCL0_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL0_2 &Instance() { return *reinterpret_cast<volatile CTRLDESCL0_2*>(0x40808204); }
+  static inline volatile CTRLDESCL0_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL0_2*>(0x40808204); }
 };
 
 // Control Descriptor Layer 3 Register
@@ -536,7 +536,7 @@ union CTRLDESCL0_3 {
 
   CTRLDESCL0_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL0_3 &Instance() { return *reinterpret_cast<volatile CTRLDESCL0_3*>(0x40808208); }
+  static inline volatile CTRLDESCL0_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL0_3*>(0x40808208); }
 };
 
 // Control Descriptor Layer 4 Register
@@ -553,7 +553,7 @@ union CTRLDESCL0_4 {
 
   CTRLDESCL0_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL0_4 &Instance() { return *reinterpret_cast<volatile CTRLDESCL0_4*>(0x4080820C); }
+  static inline volatile CTRLDESCL0_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL0_4*>(0x4080820C); }
 };
 
 // Control Descriptor Layer 5 Register
@@ -699,7 +699,7 @@ union CTRLDESCL0_5 {
 
   CTRLDESCL0_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL0_5 &Instance() { return *reinterpret_cast<volatile CTRLDESCL0_5*>(0x40808210); }
+  static inline volatile CTRLDESCL0_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL0_5*>(0x40808210); }
 };
 
 // Control Descriptor Layer 6 Register
@@ -721,7 +721,7 @@ union CTRLDESCL0_6 {
 
   CTRLDESCL0_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL0_6 &Instance() { return *reinterpret_cast<volatile CTRLDESCL0_6*>(0x40808214); }
+  static inline volatile CTRLDESCL0_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL0_6*>(0x40808214); }
 };
 
 // Color Space Conversion Coefficient Register 0
@@ -763,7 +763,7 @@ union CSC0_COEF0 {
 
   CSC0_COEF0() = delete;
   inline void Reset() volatile { this->value = 0x04000000; }
-  static inline volatile CSC0_COEF0 &Instance() { return *reinterpret_cast<volatile CSC0_COEF0*>(0x40808218); }
+  static inline volatile CSC0_COEF0 &ref() { return *reinterpret_cast<volatile CSC0_COEF0*>(0x40808218); }
 };
 
 // Color Space Conversion Coefficient Register 1
@@ -784,7 +784,7 @@ union CSC0_COEF1 {
 
   CSC0_COEF1() = delete;
   inline void Reset() volatile { this->value = 0x01230208; }
-  static inline volatile CSC0_COEF1 &Instance() { return *reinterpret_cast<volatile CSC0_COEF1*>(0x4080821C); }
+  static inline volatile CSC0_COEF1 &ref() { return *reinterpret_cast<volatile CSC0_COEF1*>(0x4080821C); }
 };
 
 // Color Space Conversion Coefficient Register 2
@@ -805,7 +805,7 @@ union CSC0_COEF2 {
 
   CSC0_COEF2() = delete;
   inline void Reset() volatile { this->value = 0x076B079C; }
-  static inline volatile CSC0_COEF2 &Instance() { return *reinterpret_cast<volatile CSC0_COEF2*>(0x40808220); }
+  static inline volatile CSC0_COEF2 &ref() { return *reinterpret_cast<volatile CSC0_COEF2*>(0x40808220); }
 };
 
 // Control Descriptor Layer 1 Register
@@ -826,7 +826,7 @@ union CTRLDESCL1_1 {
 
   CTRLDESCL1_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL1_1 &Instance() { return *reinterpret_cast<volatile CTRLDESCL1_1*>(0x40808240); }
+  static inline volatile CTRLDESCL1_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL1_1*>(0x40808240); }
 };
 
 // Control Descriptor Layer 2 Register
@@ -847,7 +847,7 @@ union CTRLDESCL1_2 {
 
   CTRLDESCL1_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL1_2 &Instance() { return *reinterpret_cast<volatile CTRLDESCL1_2*>(0x40808244); }
+  static inline volatile CTRLDESCL1_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL1_2*>(0x40808244); }
 };
 
 // Control Descriptor Layer 3 Register
@@ -865,7 +865,7 @@ union CTRLDESCL1_3 {
 
   CTRLDESCL1_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL1_3 &Instance() { return *reinterpret_cast<volatile CTRLDESCL1_3*>(0x40808248); }
+  static inline volatile CTRLDESCL1_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL1_3*>(0x40808248); }
 };
 
 // Control Descriptor Layer 4 Register
@@ -882,7 +882,7 @@ union CTRLDESCL1_4 {
 
   CTRLDESCL1_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL1_4 &Instance() { return *reinterpret_cast<volatile CTRLDESCL1_4*>(0x4080824C); }
+  static inline volatile CTRLDESCL1_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL1_4*>(0x4080824C); }
 };
 
 // Control Descriptor Layer 5 Register
@@ -1028,7 +1028,7 @@ union CTRLDESCL1_5 {
 
   CTRLDESCL1_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL1_5 &Instance() { return *reinterpret_cast<volatile CTRLDESCL1_5*>(0x40808250); }
+  static inline volatile CTRLDESCL1_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL1_5*>(0x40808250); }
 };
 
 // Control Descriptor Layer 6 Register
@@ -1050,7 +1050,7 @@ union CTRLDESCL1_6 {
 
   CTRLDESCL1_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL1_6 &Instance() { return *reinterpret_cast<volatile CTRLDESCL1_6*>(0x40808254); }
+  static inline volatile CTRLDESCL1_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL1_6*>(0x40808254); }
 };
 
 // Color Space Conversion Coefficient Register 0
@@ -1092,7 +1092,7 @@ union CSC1_COEF0 {
 
   CSC1_COEF0() = delete;
   inline void Reset() volatile { this->value = 0x04000000; }
-  static inline volatile CSC1_COEF0 &Instance() { return *reinterpret_cast<volatile CSC1_COEF0*>(0x40808258); }
+  static inline volatile CSC1_COEF0 &ref() { return *reinterpret_cast<volatile CSC1_COEF0*>(0x40808258); }
 };
 
 // Color Space Conversion Coefficient Register 1
@@ -1113,7 +1113,7 @@ union CSC1_COEF1 {
 
   CSC1_COEF1() = delete;
   inline void Reset() volatile { this->value = 0x01230208; }
-  static inline volatile CSC1_COEF1 &Instance() { return *reinterpret_cast<volatile CSC1_COEF1*>(0x4080825C); }
+  static inline volatile CSC1_COEF1 &ref() { return *reinterpret_cast<volatile CSC1_COEF1*>(0x4080825C); }
 };
 
 // Color Space Conversion Coefficient Register 2
@@ -1134,7 +1134,7 @@ union CSC1_COEF2 {
 
   CSC1_COEF2() = delete;
   inline void Reset() volatile { this->value = 0x076B079C; }
-  static inline volatile CSC1_COEF2 &Instance() { return *reinterpret_cast<volatile CSC1_COEF2*>(0x40808260); }
+  static inline volatile CSC1_COEF2 &ref() { return *reinterpret_cast<volatile CSC1_COEF2*>(0x40808260); }
 };
 
 // Control Descriptor Layer 1 Register
@@ -1155,7 +1155,7 @@ union CTRLDESCL2_1 {
 
   CTRLDESCL2_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL2_1 &Instance() { return *reinterpret_cast<volatile CTRLDESCL2_1*>(0x40808280); }
+  static inline volatile CTRLDESCL2_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL2_1*>(0x40808280); }
 };
 
 // Control Descriptor Layer 2 Register
@@ -1176,7 +1176,7 @@ union CTRLDESCL2_2 {
 
   CTRLDESCL2_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL2_2 &Instance() { return *reinterpret_cast<volatile CTRLDESCL2_2*>(0x40808284); }
+  static inline volatile CTRLDESCL2_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL2_2*>(0x40808284); }
 };
 
 // Control Descriptor Layer 3 Register
@@ -1194,7 +1194,7 @@ union CTRLDESCL2_3 {
 
   CTRLDESCL2_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL2_3 &Instance() { return *reinterpret_cast<volatile CTRLDESCL2_3*>(0x40808288); }
+  static inline volatile CTRLDESCL2_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL2_3*>(0x40808288); }
 };
 
 // Control Descriptor Layer 4 Register
@@ -1211,7 +1211,7 @@ union CTRLDESCL2_4 {
 
   CTRLDESCL2_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL2_4 &Instance() { return *reinterpret_cast<volatile CTRLDESCL2_4*>(0x4080828C); }
+  static inline volatile CTRLDESCL2_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL2_4*>(0x4080828C); }
 };
 
 // Control Descriptor Layer 5 Register
@@ -1357,7 +1357,7 @@ union CTRLDESCL2_5 {
 
   CTRLDESCL2_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL2_5 &Instance() { return *reinterpret_cast<volatile CTRLDESCL2_5*>(0x40808290); }
+  static inline volatile CTRLDESCL2_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL2_5*>(0x40808290); }
 };
 
 // Control Descriptor Layer 6 Register
@@ -1379,7 +1379,7 @@ union CTRLDESCL2_6 {
 
   CTRLDESCL2_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL2_6 &Instance() { return *reinterpret_cast<volatile CTRLDESCL2_6*>(0x40808294); }
+  static inline volatile CTRLDESCL2_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL2_6*>(0x40808294); }
 };
 
 // Control Descriptor Layer 1 Register
@@ -1400,7 +1400,7 @@ union CTRLDESCL3_1 {
 
   CTRLDESCL3_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL3_1 &Instance() { return *reinterpret_cast<volatile CTRLDESCL3_1*>(0x408082C0); }
+  static inline volatile CTRLDESCL3_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL3_1*>(0x408082C0); }
 };
 
 // Control Descriptor Layer 2 Register
@@ -1421,7 +1421,7 @@ union CTRLDESCL3_2 {
 
   CTRLDESCL3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL3_2 &Instance() { return *reinterpret_cast<volatile CTRLDESCL3_2*>(0x408082C4); }
+  static inline volatile CTRLDESCL3_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL3_2*>(0x408082C4); }
 };
 
 // Control Descriptor Layer 3 Register
@@ -1439,7 +1439,7 @@ union CTRLDESCL3_3 {
 
   CTRLDESCL3_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL3_3 &Instance() { return *reinterpret_cast<volatile CTRLDESCL3_3*>(0x408082C8); }
+  static inline volatile CTRLDESCL3_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL3_3*>(0x408082C8); }
 };
 
 // Control Descriptor Layer 4 Register
@@ -1456,7 +1456,7 @@ union CTRLDESCL3_4 {
 
   CTRLDESCL3_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL3_4 &Instance() { return *reinterpret_cast<volatile CTRLDESCL3_4*>(0x408082CC); }
+  static inline volatile CTRLDESCL3_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL3_4*>(0x408082CC); }
 };
 
 // Control Descriptor Layer 5 Register
@@ -1602,7 +1602,7 @@ union CTRLDESCL3_5 {
 
   CTRLDESCL3_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL3_5 &Instance() { return *reinterpret_cast<volatile CTRLDESCL3_5*>(0x408082D0); }
+  static inline volatile CTRLDESCL3_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL3_5*>(0x408082D0); }
 };
 
 // Control Descriptor Layer 6 Register
@@ -1624,7 +1624,7 @@ union CTRLDESCL3_6 {
 
   CTRLDESCL3_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL3_6 &Instance() { return *reinterpret_cast<volatile CTRLDESCL3_6*>(0x408082D4); }
+  static inline volatile CTRLDESCL3_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL3_6*>(0x408082D4); }
 };
 
 // Control Descriptor Layer 1 Register
@@ -1645,7 +1645,7 @@ union CTRLDESCL4_1 {
 
   CTRLDESCL4_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL4_1 &Instance() { return *reinterpret_cast<volatile CTRLDESCL4_1*>(0x40808300); }
+  static inline volatile CTRLDESCL4_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL4_1*>(0x40808300); }
 };
 
 // Control Descriptor Layer 2 Register
@@ -1666,7 +1666,7 @@ union CTRLDESCL4_2 {
 
   CTRLDESCL4_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL4_2 &Instance() { return *reinterpret_cast<volatile CTRLDESCL4_2*>(0x40808304); }
+  static inline volatile CTRLDESCL4_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL4_2*>(0x40808304); }
 };
 
 // Control Descriptor Layer 3 Register
@@ -1684,7 +1684,7 @@ union CTRLDESCL4_3 {
 
   CTRLDESCL4_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL4_3 &Instance() { return *reinterpret_cast<volatile CTRLDESCL4_3*>(0x40808308); }
+  static inline volatile CTRLDESCL4_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL4_3*>(0x40808308); }
 };
 
 // Control Descriptor Layer 4 Register
@@ -1701,7 +1701,7 @@ union CTRLDESCL4_4 {
 
   CTRLDESCL4_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL4_4 &Instance() { return *reinterpret_cast<volatile CTRLDESCL4_4*>(0x4080830C); }
+  static inline volatile CTRLDESCL4_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL4_4*>(0x4080830C); }
 };
 
 // Control Descriptor Layer 5 Register
@@ -1847,7 +1847,7 @@ union CTRLDESCL4_5 {
 
   CTRLDESCL4_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL4_5 &Instance() { return *reinterpret_cast<volatile CTRLDESCL4_5*>(0x40808310); }
+  static inline volatile CTRLDESCL4_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL4_5*>(0x40808310); }
 };
 
 // Control Descriptor Layer 6 Register
@@ -1869,7 +1869,7 @@ union CTRLDESCL4_6 {
 
   CTRLDESCL4_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL4_6 &Instance() { return *reinterpret_cast<volatile CTRLDESCL4_6*>(0x40808314); }
+  static inline volatile CTRLDESCL4_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL4_6*>(0x40808314); }
 };
 
 // Control Descriptor Layer 1 Register
@@ -1890,7 +1890,7 @@ union CTRLDESCL5_1 {
 
   CTRLDESCL5_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL5_1 &Instance() { return *reinterpret_cast<volatile CTRLDESCL5_1*>(0x40808340); }
+  static inline volatile CTRLDESCL5_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL5_1*>(0x40808340); }
 };
 
 // Control Descriptor Layer 2 Register
@@ -1911,7 +1911,7 @@ union CTRLDESCL5_2 {
 
   CTRLDESCL5_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL5_2 &Instance() { return *reinterpret_cast<volatile CTRLDESCL5_2*>(0x40808344); }
+  static inline volatile CTRLDESCL5_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL5_2*>(0x40808344); }
 };
 
 // Control Descriptor Layer 3 Register
@@ -1929,7 +1929,7 @@ union CTRLDESCL5_3 {
 
   CTRLDESCL5_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL5_3 &Instance() { return *reinterpret_cast<volatile CTRLDESCL5_3*>(0x40808348); }
+  static inline volatile CTRLDESCL5_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL5_3*>(0x40808348); }
 };
 
 // Control Descriptor Layer 4 Register
@@ -1946,7 +1946,7 @@ union CTRLDESCL5_4 {
 
   CTRLDESCL5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL5_4 &Instance() { return *reinterpret_cast<volatile CTRLDESCL5_4*>(0x4080834C); }
+  static inline volatile CTRLDESCL5_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL5_4*>(0x4080834C); }
 };
 
 // Control Descriptor Layer 5 Register
@@ -2092,7 +2092,7 @@ union CTRLDESCL5_5 {
 
   CTRLDESCL5_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL5_5 &Instance() { return *reinterpret_cast<volatile CTRLDESCL5_5*>(0x40808350); }
+  static inline volatile CTRLDESCL5_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL5_5*>(0x40808350); }
 };
 
 // Control Descriptor Layer 6 Register
@@ -2114,7 +2114,7 @@ union CTRLDESCL5_6 {
 
   CTRLDESCL5_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL5_6 &Instance() { return *reinterpret_cast<volatile CTRLDESCL5_6*>(0x40808354); }
+  static inline volatile CTRLDESCL5_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL5_6*>(0x40808354); }
 };
 
 // Control Descriptor Layer 1 Register
@@ -2135,7 +2135,7 @@ union CTRLDESCL6_1 {
 
   CTRLDESCL6_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL6_1 &Instance() { return *reinterpret_cast<volatile CTRLDESCL6_1*>(0x40808380); }
+  static inline volatile CTRLDESCL6_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL6_1*>(0x40808380); }
 };
 
 // Control Descriptor Layer 2 Register
@@ -2156,7 +2156,7 @@ union CTRLDESCL6_2 {
 
   CTRLDESCL6_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL6_2 &Instance() { return *reinterpret_cast<volatile CTRLDESCL6_2*>(0x40808384); }
+  static inline volatile CTRLDESCL6_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL6_2*>(0x40808384); }
 };
 
 // Control Descriptor Layer 3 Register
@@ -2174,7 +2174,7 @@ union CTRLDESCL6_3 {
 
   CTRLDESCL6_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL6_3 &Instance() { return *reinterpret_cast<volatile CTRLDESCL6_3*>(0x40808388); }
+  static inline volatile CTRLDESCL6_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL6_3*>(0x40808388); }
 };
 
 // Control Descriptor Layer 4 Register
@@ -2191,7 +2191,7 @@ union CTRLDESCL6_4 {
 
   CTRLDESCL6_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL6_4 &Instance() { return *reinterpret_cast<volatile CTRLDESCL6_4*>(0x4080838C); }
+  static inline volatile CTRLDESCL6_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL6_4*>(0x4080838C); }
 };
 
 // Control Descriptor Layer 5 Register
@@ -2337,7 +2337,7 @@ union CTRLDESCL6_5 {
 
   CTRLDESCL6_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL6_5 &Instance() { return *reinterpret_cast<volatile CTRLDESCL6_5*>(0x40808390); }
+  static inline volatile CTRLDESCL6_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL6_5*>(0x40808390); }
 };
 
 // Control Descriptor Layer 6 Register
@@ -2359,7 +2359,7 @@ union CTRLDESCL6_6 {
 
   CTRLDESCL6_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL6_6 &Instance() { return *reinterpret_cast<volatile CTRLDESCL6_6*>(0x40808394); }
+  static inline volatile CTRLDESCL6_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL6_6*>(0x40808394); }
 };
 
 // Control Descriptor Layer 1 Register
@@ -2380,7 +2380,7 @@ union CTRLDESCL7_1 {
 
   CTRLDESCL7_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL7_1 &Instance() { return *reinterpret_cast<volatile CTRLDESCL7_1*>(0x408083C0); }
+  static inline volatile CTRLDESCL7_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL7_1*>(0x408083C0); }
 };
 
 // Control Descriptor Layer 2 Register
@@ -2401,7 +2401,7 @@ union CTRLDESCL7_2 {
 
   CTRLDESCL7_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL7_2 &Instance() { return *reinterpret_cast<volatile CTRLDESCL7_2*>(0x408083C4); }
+  static inline volatile CTRLDESCL7_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL7_2*>(0x408083C4); }
 };
 
 // Control Descriptor Layer 3 Register
@@ -2419,7 +2419,7 @@ union CTRLDESCL7_3 {
 
   CTRLDESCL7_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL7_3 &Instance() { return *reinterpret_cast<volatile CTRLDESCL7_3*>(0x408083C8); }
+  static inline volatile CTRLDESCL7_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL7_3*>(0x408083C8); }
 };
 
 // Control Descriptor Layer 4 Register
@@ -2436,7 +2436,7 @@ union CTRLDESCL7_4 {
 
   CTRLDESCL7_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL7_4 &Instance() { return *reinterpret_cast<volatile CTRLDESCL7_4*>(0x408083CC); }
+  static inline volatile CTRLDESCL7_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL7_4*>(0x408083CC); }
 };
 
 // Control Descriptor Layer 5 Register
@@ -2582,7 +2582,7 @@ union CTRLDESCL7_5 {
 
   CTRLDESCL7_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL7_5 &Instance() { return *reinterpret_cast<volatile CTRLDESCL7_5*>(0x408083D0); }
+  static inline volatile CTRLDESCL7_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL7_5*>(0x408083D0); }
 };
 
 // Control Descriptor Layer 6 Register
@@ -2604,7 +2604,7 @@ union CTRLDESCL7_6 {
 
   CTRLDESCL7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL7_6 &Instance() { return *reinterpret_cast<volatile CTRLDESCL7_6*>(0x408083D4); }
+  static inline volatile CTRLDESCL7_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL7_6*>(0x408083D4); }
 };
 
 // LCDIFv2 CLUT load Register
@@ -2625,7 +2625,7 @@ union CLUT_LOAD {
 
   CLUT_LOAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLUT_LOAD &Instance() { return *reinterpret_cast<volatile CLUT_LOAD*>(0x40808400); }
+  static inline volatile CLUT_LOAD &ref() { return *reinterpret_cast<volatile CLUT_LOAD*>(0x40808400); }
 };
 
 

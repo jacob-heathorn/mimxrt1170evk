@@ -26,7 +26,7 @@ union MIF_AUTHEN_CTRL {
 
   MIF_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIF_AUTHEN_CTRL &Instance() { return *reinterpret_cast<volatile MIF_AUTHEN_CTRL*>(0x40C89604); }
+  static inline volatile MIF_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile MIF_AUTHEN_CTRL*>(0x40C89604); }
 };
 
 // MIF MLPL control of SLEEP
@@ -44,7 +44,7 @@ union MIF_MLPL_SLEEP {
 
   MIF_MLPL_SLEEP() = delete;
   inline void Reset() volatile { this->value = 0x0000FF00; }
-  static inline volatile MIF_MLPL_SLEEP &Instance() { return *reinterpret_cast<volatile MIF_MLPL_SLEEP*>(0x40C89610); }
+  static inline volatile MIF_MLPL_SLEEP &ref() { return *reinterpret_cast<volatile MIF_MLPL_SLEEP*>(0x40C89610); }
 };
 
 // MIF MLPL control of IG
@@ -62,7 +62,7 @@ union MIF_MLPL_IG {
 
   MIF_MLPL_IG() = delete;
   inline void Reset() volatile { this->value = 0x00000060; }
-  static inline volatile MIF_MLPL_IG &Instance() { return *reinterpret_cast<volatile MIF_MLPL_IG*>(0x40C89620); }
+  static inline volatile MIF_MLPL_IG &ref() { return *reinterpret_cast<volatile MIF_MLPL_IG*>(0x40C89620); }
 };
 
 // MIF MLPL control of LS
@@ -80,7 +80,7 @@ union MIF_MLPL_LS {
 
   MIF_MLPL_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000010; }
-  static inline volatile MIF_MLPL_LS &Instance() { return *reinterpret_cast<volatile MIF_MLPL_LS*>(0x40C89630); }
+  static inline volatile MIF_MLPL_LS &ref() { return *reinterpret_cast<volatile MIF_MLPL_LS*>(0x40C89630); }
 };
 
 // MIF MLPL control of HS
@@ -98,7 +98,7 @@ union MIF_MLPL_HS {
 
   MIF_MLPL_HS() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile MIF_MLPL_HS &Instance() { return *reinterpret_cast<volatile MIF_MLPL_HS*>(0x40C89640); }
+  static inline volatile MIF_MLPL_HS &ref() { return *reinterpret_cast<volatile MIF_MLPL_HS*>(0x40C89640); }
 };
 
 // MIF MLPL control of STDBY
@@ -116,7 +116,7 @@ union MIF_MLPL_STDBY {
 
   MIF_MLPL_STDBY() = delete;
   inline void Reset() volatile { this->value = 0x00000040; }
-  static inline volatile MIF_MLPL_STDBY &Instance() { return *reinterpret_cast<volatile MIF_MLPL_STDBY*>(0x40C89650); }
+  static inline volatile MIF_MLPL_STDBY &ref() { return *reinterpret_cast<volatile MIF_MLPL_STDBY*>(0x40C89650); }
 };
 
 // MIF MLPL control of array power down
@@ -134,7 +134,7 @@ union MIF_MLPL_ARR_PDN {
 
   MIF_MLPL_ARR_PDN() = delete;
   inline void Reset() volatile { this->value = 0x00000C00; }
-  static inline volatile MIF_MLPL_ARR_PDN &Instance() { return *reinterpret_cast<volatile MIF_MLPL_ARR_PDN*>(0x40C89660); }
+  static inline volatile MIF_MLPL_ARR_PDN &ref() { return *reinterpret_cast<volatile MIF_MLPL_ARR_PDN*>(0x40C89660); }
 };
 
 // MIF MLPL control of peripheral power down
@@ -152,7 +152,7 @@ union MIF_MLPL_PER_PDN {
 
   MIF_MLPL_PER_PDN() = delete;
   inline void Reset() volatile { this->value = 0x00004A00; }
-  static inline volatile MIF_MLPL_PER_PDN &Instance() { return *reinterpret_cast<volatile MIF_MLPL_PER_PDN*>(0x40C89670); }
+  static inline volatile MIF_MLPL_PER_PDN &ref() { return *reinterpret_cast<volatile MIF_MLPL_PER_PDN*>(0x40C89670); }
 };
 
 // MIF MLPL control of INITN
@@ -172,7 +172,7 @@ union MIF_MLPL_INITN {
 
   MIF_MLPL_INITN() = delete;
   inline void Reset() volatile { this->value = 0x000035FF; }
-  static inline volatile MIF_MLPL_INITN &Instance() { return *reinterpret_cast<volatile MIF_MLPL_INITN*>(0x40C89680); }
+  static inline volatile MIF_MLPL_INITN &ref() { return *reinterpret_cast<volatile MIF_MLPL_INITN*>(0x40C89680); }
 };
 
 // MIF MLPL control of isolation enable
@@ -190,7 +190,7 @@ union MIF_MLPL_ISO {
 
   MIF_MLPL_ISO() = delete;
   inline void Reset() volatile { this->value = 0x0000CA00; }
-  static inline volatile MIF_MLPL_ISO &Instance() { return *reinterpret_cast<volatile MIF_MLPL_ISO*>(0x40C896B0); }
+  static inline volatile MIF_MLPL_ISO &ref() { return *reinterpret_cast<volatile MIF_MLPL_ISO*>(0x40C896B0); }
 };
 
 

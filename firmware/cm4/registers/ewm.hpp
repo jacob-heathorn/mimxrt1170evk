@@ -63,7 +63,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x4002C000); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x4002C000); }
 };
 
 // Service Register
@@ -81,7 +81,7 @@ union SERV {
 
   SERV() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SERV &Instance() { return *reinterpret_cast<volatile SERV*>(0x4002C001); }
+  static inline volatile SERV &ref() { return *reinterpret_cast<volatile SERV*>(0x4002C001); }
 };
 
 // Compare Low Register
@@ -99,7 +99,7 @@ union CMPL {
 
   CMPL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMPL &Instance() { return *reinterpret_cast<volatile CMPL*>(0x4002C002); }
+  static inline volatile CMPL &ref() { return *reinterpret_cast<volatile CMPL*>(0x4002C002); }
 };
 
 // Compare High Register
@@ -117,7 +117,7 @@ union CMPH {
 
   CMPH() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile CMPH &Instance() { return *reinterpret_cast<volatile CMPH*>(0x4002C003); }
+  static inline volatile CMPH &ref() { return *reinterpret_cast<volatile CMPH*>(0x4002C003); }
 };
 
 // Clock Control Register
@@ -135,7 +135,7 @@ union CLKCTRL {
 
   CLKCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLKCTRL &Instance() { return *reinterpret_cast<volatile CLKCTRL*>(0x4002C004); }
+  static inline volatile CLKCTRL &ref() { return *reinterpret_cast<volatile CLKCTRL*>(0x4002C004); }
 };
 
 // Clock Prescaler Register
@@ -153,7 +153,7 @@ union CLKPRESCALER {
 
   CLKPRESCALER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLKPRESCALER &Instance() { return *reinterpret_cast<volatile CLKPRESCALER*>(0x4002C005); }
+  static inline volatile CLKPRESCALER &ref() { return *reinterpret_cast<volatile CLKPRESCALER*>(0x4002C005); }
 };
 
 

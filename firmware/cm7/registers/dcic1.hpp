@@ -74,7 +74,7 @@ union DCIC1_DCICC {
 
   DCIC1_DCICC() = delete;
   inline void Reset() volatile { this->value = 0x00000070; }
-  static inline volatile DCIC1_DCICC &Instance() { return *reinterpret_cast<volatile DCIC1_DCICC*>(0x40819000); }
+  static inline volatile DCIC1_DCICC &ref() { return *reinterpret_cast<volatile DCIC1_DCICC*>(0x40819000); }
 };
 
 // DCIC Interrupt Control Register
@@ -132,7 +132,7 @@ union DCIC1_DCICIC {
 
   DCIC1_DCICIC() = delete;
   inline void Reset() volatile { this->value = 0x00000003; }
-  static inline volatile DCIC1_DCICIC &Instance() { return *reinterpret_cast<volatile DCIC1_DCICIC*>(0x40819004); }
+  static inline volatile DCIC1_DCICIC &ref() { return *reinterpret_cast<volatile DCIC1_DCICIC*>(0x40819004); }
 };
 
 // DCIC Status Register
@@ -178,7 +178,7 @@ union DCIC1_DCICS {
 
   DCIC1_DCICS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICS &Instance() { return *reinterpret_cast<volatile DCIC1_DCICS*>(0x40819008); }
+  static inline volatile DCIC1_DCICS &ref() { return *reinterpret_cast<volatile DCIC1_DCICS*>(0x40819008); }
 };
 
 // DCIC ROI Config Register
@@ -219,7 +219,7 @@ union DCIC1_DCICRC1 {
 
   DCIC1_DCICRC1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC1 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC1*>(0x40819010); }
+  static inline volatile DCIC1_DCICRC1 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC1*>(0x40819010); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC2 {
@@ -259,7 +259,7 @@ union DCIC1_DCICRC2 {
 
   DCIC1_DCICRC2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC2 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC2*>(0x40819020); }
+  static inline volatile DCIC1_DCICRC2 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC2*>(0x40819020); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC3 {
@@ -299,7 +299,7 @@ union DCIC1_DCICRC3 {
 
   DCIC1_DCICRC3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC3 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC3*>(0x40819030); }
+  static inline volatile DCIC1_DCICRC3 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC3*>(0x40819030); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC4 {
@@ -339,7 +339,7 @@ union DCIC1_DCICRC4 {
 
   DCIC1_DCICRC4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC4 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC4*>(0x40819040); }
+  static inline volatile DCIC1_DCICRC4 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC4*>(0x40819040); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC5 {
@@ -379,7 +379,7 @@ union DCIC1_DCICRC5 {
 
   DCIC1_DCICRC5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC5 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC5*>(0x40819050); }
+  static inline volatile DCIC1_DCICRC5 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC5*>(0x40819050); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC6 {
@@ -419,7 +419,7 @@ union DCIC1_DCICRC6 {
 
   DCIC1_DCICRC6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC6 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC6*>(0x40819060); }
+  static inline volatile DCIC1_DCICRC6 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC6*>(0x40819060); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC7 {
@@ -459,7 +459,7 @@ union DCIC1_DCICRC7 {
 
   DCIC1_DCICRC7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC7 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC7*>(0x40819070); }
+  static inline volatile DCIC1_DCICRC7 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC7*>(0x40819070); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC8 {
@@ -499,7 +499,7 @@ union DCIC1_DCICRC8 {
 
   DCIC1_DCICRC8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC8 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC8*>(0x40819080); }
+  static inline volatile DCIC1_DCICRC8 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC8*>(0x40819080); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC9 {
@@ -539,7 +539,7 @@ union DCIC1_DCICRC9 {
 
   DCIC1_DCICRC9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC9 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC9*>(0x40819090); }
+  static inline volatile DCIC1_DCICRC9 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC9*>(0x40819090); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC10 {
@@ -579,7 +579,7 @@ union DCIC1_DCICRC10 {
 
   DCIC1_DCICRC10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC10 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC10*>(0x408190A0); }
+  static inline volatile DCIC1_DCICRC10 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC10*>(0x408190A0); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC11 {
@@ -619,7 +619,7 @@ union DCIC1_DCICRC11 {
 
   DCIC1_DCICRC11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC11 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC11*>(0x408190B0); }
+  static inline volatile DCIC1_DCICRC11 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC11*>(0x408190B0); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC12 {
@@ -659,7 +659,7 @@ union DCIC1_DCICRC12 {
 
   DCIC1_DCICRC12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC12 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC12*>(0x408190C0); }
+  static inline volatile DCIC1_DCICRC12 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC12*>(0x408190C0); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC13 {
@@ -699,7 +699,7 @@ union DCIC1_DCICRC13 {
 
   DCIC1_DCICRC13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC13 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC13*>(0x408190D0); }
+  static inline volatile DCIC1_DCICRC13 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC13*>(0x408190D0); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC14 {
@@ -739,7 +739,7 @@ union DCIC1_DCICRC14 {
 
   DCIC1_DCICRC14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC14 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC14*>(0x408190E0); }
+  static inline volatile DCIC1_DCICRC14 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC14*>(0x408190E0); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC15 {
@@ -779,7 +779,7 @@ union DCIC1_DCICRC15 {
 
   DCIC1_DCICRC15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC15 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC15*>(0x408190F0); }
+  static inline volatile DCIC1_DCICRC15 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC15*>(0x408190F0); }
 };
 // DCIC ROI Config Register
 union DCIC1_DCICRC16 {
@@ -819,7 +819,7 @@ union DCIC1_DCICRC16 {
 
   DCIC1_DCICRC16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRC16 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRC16*>(0x40819100); }
+  static inline volatile DCIC1_DCICRC16 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRC16*>(0x40819100); }
 };
 
 // DCIC ROI Size Register
@@ -840,7 +840,7 @@ union DCIC1_DCICRS1 {
 
   DCIC1_DCICRS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS1 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS1*>(0x40819014); }
+  static inline volatile DCIC1_DCICRS1 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS1*>(0x40819014); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS2 {
@@ -860,7 +860,7 @@ union DCIC1_DCICRS2 {
 
   DCIC1_DCICRS2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS2 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS2*>(0x40819024); }
+  static inline volatile DCIC1_DCICRS2 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS2*>(0x40819024); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS3 {
@@ -880,7 +880,7 @@ union DCIC1_DCICRS3 {
 
   DCIC1_DCICRS3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS3 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS3*>(0x40819034); }
+  static inline volatile DCIC1_DCICRS3 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS3*>(0x40819034); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS4 {
@@ -900,7 +900,7 @@ union DCIC1_DCICRS4 {
 
   DCIC1_DCICRS4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS4 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS4*>(0x40819044); }
+  static inline volatile DCIC1_DCICRS4 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS4*>(0x40819044); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS5 {
@@ -920,7 +920,7 @@ union DCIC1_DCICRS5 {
 
   DCIC1_DCICRS5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS5 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS5*>(0x40819054); }
+  static inline volatile DCIC1_DCICRS5 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS5*>(0x40819054); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS6 {
@@ -940,7 +940,7 @@ union DCIC1_DCICRS6 {
 
   DCIC1_DCICRS6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS6 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS6*>(0x40819064); }
+  static inline volatile DCIC1_DCICRS6 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS6*>(0x40819064); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS7 {
@@ -960,7 +960,7 @@ union DCIC1_DCICRS7 {
 
   DCIC1_DCICRS7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS7 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS7*>(0x40819074); }
+  static inline volatile DCIC1_DCICRS7 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS7*>(0x40819074); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS8 {
@@ -980,7 +980,7 @@ union DCIC1_DCICRS8 {
 
   DCIC1_DCICRS8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS8 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS8*>(0x40819084); }
+  static inline volatile DCIC1_DCICRS8 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS8*>(0x40819084); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS9 {
@@ -1000,7 +1000,7 @@ union DCIC1_DCICRS9 {
 
   DCIC1_DCICRS9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS9 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS9*>(0x40819094); }
+  static inline volatile DCIC1_DCICRS9 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS9*>(0x40819094); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS10 {
@@ -1020,7 +1020,7 @@ union DCIC1_DCICRS10 {
 
   DCIC1_DCICRS10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS10 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS10*>(0x408190A4); }
+  static inline volatile DCIC1_DCICRS10 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS10*>(0x408190A4); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS11 {
@@ -1040,7 +1040,7 @@ union DCIC1_DCICRS11 {
 
   DCIC1_DCICRS11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS11 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS11*>(0x408190B4); }
+  static inline volatile DCIC1_DCICRS11 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS11*>(0x408190B4); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS12 {
@@ -1060,7 +1060,7 @@ union DCIC1_DCICRS12 {
 
   DCIC1_DCICRS12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS12 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS12*>(0x408190C4); }
+  static inline volatile DCIC1_DCICRS12 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS12*>(0x408190C4); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS13 {
@@ -1080,7 +1080,7 @@ union DCIC1_DCICRS13 {
 
   DCIC1_DCICRS13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS13 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS13*>(0x408190D4); }
+  static inline volatile DCIC1_DCICRS13 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS13*>(0x408190D4); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS14 {
@@ -1100,7 +1100,7 @@ union DCIC1_DCICRS14 {
 
   DCIC1_DCICRS14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS14 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS14*>(0x408190E4); }
+  static inline volatile DCIC1_DCICRS14 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS14*>(0x408190E4); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS15 {
@@ -1120,7 +1120,7 @@ union DCIC1_DCICRS15 {
 
   DCIC1_DCICRS15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS15 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS15*>(0x408190F4); }
+  static inline volatile DCIC1_DCICRS15 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS15*>(0x408190F4); }
 };
 // DCIC ROI Size Register
 union DCIC1_DCICRS16 {
@@ -1140,7 +1140,7 @@ union DCIC1_DCICRS16 {
 
   DCIC1_DCICRS16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRS16 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRS16*>(0x40819104); }
+  static inline volatile DCIC1_DCICRS16 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRS16*>(0x40819104); }
 };
 
 // DCIC ROI Reference Signature Register
@@ -1157,7 +1157,7 @@ union DCIC1_DCICRRS1 {
 
   DCIC1_DCICRRS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS1 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS1*>(0x40819018); }
+  static inline volatile DCIC1_DCICRRS1 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS1*>(0x40819018); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS2 {
@@ -1173,7 +1173,7 @@ union DCIC1_DCICRRS2 {
 
   DCIC1_DCICRRS2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS2 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS2*>(0x40819028); }
+  static inline volatile DCIC1_DCICRRS2 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS2*>(0x40819028); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS3 {
@@ -1189,7 +1189,7 @@ union DCIC1_DCICRRS3 {
 
   DCIC1_DCICRRS3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS3 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS3*>(0x40819038); }
+  static inline volatile DCIC1_DCICRRS3 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS3*>(0x40819038); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS4 {
@@ -1205,7 +1205,7 @@ union DCIC1_DCICRRS4 {
 
   DCIC1_DCICRRS4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS4 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS4*>(0x40819048); }
+  static inline volatile DCIC1_DCICRRS4 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS4*>(0x40819048); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS5 {
@@ -1221,7 +1221,7 @@ union DCIC1_DCICRRS5 {
 
   DCIC1_DCICRRS5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS5 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS5*>(0x40819058); }
+  static inline volatile DCIC1_DCICRRS5 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS5*>(0x40819058); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS6 {
@@ -1237,7 +1237,7 @@ union DCIC1_DCICRRS6 {
 
   DCIC1_DCICRRS6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS6 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS6*>(0x40819068); }
+  static inline volatile DCIC1_DCICRRS6 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS6*>(0x40819068); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS7 {
@@ -1253,7 +1253,7 @@ union DCIC1_DCICRRS7 {
 
   DCIC1_DCICRRS7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS7 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS7*>(0x40819078); }
+  static inline volatile DCIC1_DCICRRS7 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS7*>(0x40819078); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS8 {
@@ -1269,7 +1269,7 @@ union DCIC1_DCICRRS8 {
 
   DCIC1_DCICRRS8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS8 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS8*>(0x40819088); }
+  static inline volatile DCIC1_DCICRRS8 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS8*>(0x40819088); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS9 {
@@ -1285,7 +1285,7 @@ union DCIC1_DCICRRS9 {
 
   DCIC1_DCICRRS9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS9 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS9*>(0x40819098); }
+  static inline volatile DCIC1_DCICRRS9 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS9*>(0x40819098); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS10 {
@@ -1301,7 +1301,7 @@ union DCIC1_DCICRRS10 {
 
   DCIC1_DCICRRS10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS10 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS10*>(0x408190A8); }
+  static inline volatile DCIC1_DCICRRS10 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS10*>(0x408190A8); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS11 {
@@ -1317,7 +1317,7 @@ union DCIC1_DCICRRS11 {
 
   DCIC1_DCICRRS11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS11 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS11*>(0x408190B8); }
+  static inline volatile DCIC1_DCICRRS11 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS11*>(0x408190B8); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS12 {
@@ -1333,7 +1333,7 @@ union DCIC1_DCICRRS12 {
 
   DCIC1_DCICRRS12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS12 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS12*>(0x408190C8); }
+  static inline volatile DCIC1_DCICRRS12 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS12*>(0x408190C8); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS13 {
@@ -1349,7 +1349,7 @@ union DCIC1_DCICRRS13 {
 
   DCIC1_DCICRRS13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS13 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS13*>(0x408190D8); }
+  static inline volatile DCIC1_DCICRRS13 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS13*>(0x408190D8); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS14 {
@@ -1365,7 +1365,7 @@ union DCIC1_DCICRRS14 {
 
   DCIC1_DCICRRS14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS14 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS14*>(0x408190E8); }
+  static inline volatile DCIC1_DCICRRS14 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS14*>(0x408190E8); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS15 {
@@ -1381,7 +1381,7 @@ union DCIC1_DCICRRS15 {
 
   DCIC1_DCICRRS15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS15 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS15*>(0x408190F8); }
+  static inline volatile DCIC1_DCICRRS15 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS15*>(0x408190F8); }
 };
 // DCIC ROI Reference Signature Register
 union DCIC1_DCICRRS16 {
@@ -1397,7 +1397,7 @@ union DCIC1_DCICRRS16 {
 
   DCIC1_DCICRRS16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRRS16 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRRS16*>(0x40819108); }
+  static inline volatile DCIC1_DCICRRS16 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRRS16*>(0x40819108); }
 };
 
 // DCIC ROI Calculated Signature Register
@@ -1414,7 +1414,7 @@ union DCIC1_DCICRCS1 {
 
   DCIC1_DCICRCS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS1 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS1*>(0x4081901C); }
+  static inline volatile DCIC1_DCICRCS1 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS1*>(0x4081901C); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS2 {
@@ -1430,7 +1430,7 @@ union DCIC1_DCICRCS2 {
 
   DCIC1_DCICRCS2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS2 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS2*>(0x4081902C); }
+  static inline volatile DCIC1_DCICRCS2 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS2*>(0x4081902C); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS3 {
@@ -1446,7 +1446,7 @@ union DCIC1_DCICRCS3 {
 
   DCIC1_DCICRCS3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS3 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS3*>(0x4081903C); }
+  static inline volatile DCIC1_DCICRCS3 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS3*>(0x4081903C); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS4 {
@@ -1462,7 +1462,7 @@ union DCIC1_DCICRCS4 {
 
   DCIC1_DCICRCS4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS4 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS4*>(0x4081904C); }
+  static inline volatile DCIC1_DCICRCS4 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS4*>(0x4081904C); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS5 {
@@ -1478,7 +1478,7 @@ union DCIC1_DCICRCS5 {
 
   DCIC1_DCICRCS5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS5 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS5*>(0x4081905C); }
+  static inline volatile DCIC1_DCICRCS5 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS5*>(0x4081905C); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS6 {
@@ -1494,7 +1494,7 @@ union DCIC1_DCICRCS6 {
 
   DCIC1_DCICRCS6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS6 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS6*>(0x4081906C); }
+  static inline volatile DCIC1_DCICRCS6 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS6*>(0x4081906C); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS7 {
@@ -1510,7 +1510,7 @@ union DCIC1_DCICRCS7 {
 
   DCIC1_DCICRCS7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS7 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS7*>(0x4081907C); }
+  static inline volatile DCIC1_DCICRCS7 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS7*>(0x4081907C); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS8 {
@@ -1526,7 +1526,7 @@ union DCIC1_DCICRCS8 {
 
   DCIC1_DCICRCS8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS8 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS8*>(0x4081908C); }
+  static inline volatile DCIC1_DCICRCS8 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS8*>(0x4081908C); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS9 {
@@ -1542,7 +1542,7 @@ union DCIC1_DCICRCS9 {
 
   DCIC1_DCICRCS9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS9 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS9*>(0x4081909C); }
+  static inline volatile DCIC1_DCICRCS9 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS9*>(0x4081909C); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS10 {
@@ -1558,7 +1558,7 @@ union DCIC1_DCICRCS10 {
 
   DCIC1_DCICRCS10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS10 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS10*>(0x408190AC); }
+  static inline volatile DCIC1_DCICRCS10 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS10*>(0x408190AC); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS11 {
@@ -1574,7 +1574,7 @@ union DCIC1_DCICRCS11 {
 
   DCIC1_DCICRCS11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS11 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS11*>(0x408190BC); }
+  static inline volatile DCIC1_DCICRCS11 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS11*>(0x408190BC); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS12 {
@@ -1590,7 +1590,7 @@ union DCIC1_DCICRCS12 {
 
   DCIC1_DCICRCS12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS12 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS12*>(0x408190CC); }
+  static inline volatile DCIC1_DCICRCS12 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS12*>(0x408190CC); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS13 {
@@ -1606,7 +1606,7 @@ union DCIC1_DCICRCS13 {
 
   DCIC1_DCICRCS13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS13 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS13*>(0x408190DC); }
+  static inline volatile DCIC1_DCICRCS13 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS13*>(0x408190DC); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS14 {
@@ -1622,7 +1622,7 @@ union DCIC1_DCICRCS14 {
 
   DCIC1_DCICRCS14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS14 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS14*>(0x408190EC); }
+  static inline volatile DCIC1_DCICRCS14 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS14*>(0x408190EC); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS15 {
@@ -1638,7 +1638,7 @@ union DCIC1_DCICRCS15 {
 
   DCIC1_DCICRCS15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS15 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS15*>(0x408190FC); }
+  static inline volatile DCIC1_DCICRCS15 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS15*>(0x408190FC); }
 };
 // DCIC ROI Calculated Signature Register
 union DCIC1_DCICRCS16 {
@@ -1654,7 +1654,7 @@ union DCIC1_DCICRCS16 {
 
   DCIC1_DCICRCS16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCIC1_DCICRCS16 &Instance() { return *reinterpret_cast<volatile DCIC1_DCICRCS16*>(0x4081910C); }
+  static inline volatile DCIC1_DCICRCS16 &ref() { return *reinterpret_cast<volatile DCIC1_DCICRCS16*>(0x4081910C); }
 };
 
 

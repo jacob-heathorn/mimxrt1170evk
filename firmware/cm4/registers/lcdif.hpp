@@ -132,7 +132,7 @@ union LCDIF_CTRL {
 
   LCDIF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile LCDIF_CTRL &Instance() { return *reinterpret_cast<volatile LCDIF_CTRL*>(0x40804000); }
+  static inline volatile LCDIF_CTRL &ref() { return *reinterpret_cast<volatile LCDIF_CTRL*>(0x40804000); }
 };
 
 // LCDIF General Control Register
@@ -257,7 +257,7 @@ union LCDIF_CTRL_SET {
 
   LCDIF_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile LCDIF_CTRL_SET &Instance() { return *reinterpret_cast<volatile LCDIF_CTRL_SET*>(0x40804004); }
+  static inline volatile LCDIF_CTRL_SET &ref() { return *reinterpret_cast<volatile LCDIF_CTRL_SET*>(0x40804004); }
 };
 
 // LCDIF General Control Register
@@ -382,7 +382,7 @@ union LCDIF_CTRL_CLR {
 
   LCDIF_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile LCDIF_CTRL_CLR &Instance() { return *reinterpret_cast<volatile LCDIF_CTRL_CLR*>(0x40804008); }
+  static inline volatile LCDIF_CTRL_CLR &ref() { return *reinterpret_cast<volatile LCDIF_CTRL_CLR*>(0x40804008); }
 };
 
 // LCDIF General Control Register
@@ -507,7 +507,7 @@ union LCDIF_CTRL_TOG {
 
   LCDIF_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile LCDIF_CTRL_TOG &Instance() { return *reinterpret_cast<volatile LCDIF_CTRL_TOG*>(0x4080400C); }
+  static inline volatile LCDIF_CTRL_TOG &ref() { return *reinterpret_cast<volatile LCDIF_CTRL_TOG*>(0x4080400C); }
 };
 
 // LCDIF General Control1 Register
@@ -600,7 +600,7 @@ union LCDIF_CTRL1 {
 
   LCDIF_CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x000F0000; }
-  static inline volatile LCDIF_CTRL1 &Instance() { return *reinterpret_cast<volatile LCDIF_CTRL1*>(0x40804010); }
+  static inline volatile LCDIF_CTRL1 &ref() { return *reinterpret_cast<volatile LCDIF_CTRL1*>(0x40804010); }
 };
 
 // LCDIF General Control1 Register
@@ -693,7 +693,7 @@ union LCDIF_CTRL1_SET {
 
   LCDIF_CTRL1_SET() = delete;
   inline void Reset() volatile { this->value = 0x000F0000; }
-  static inline volatile LCDIF_CTRL1_SET &Instance() { return *reinterpret_cast<volatile LCDIF_CTRL1_SET*>(0x40804014); }
+  static inline volatile LCDIF_CTRL1_SET &ref() { return *reinterpret_cast<volatile LCDIF_CTRL1_SET*>(0x40804014); }
 };
 
 // LCDIF General Control1 Register
@@ -786,7 +786,7 @@ union LCDIF_CTRL1_CLR {
 
   LCDIF_CTRL1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x000F0000; }
-  static inline volatile LCDIF_CTRL1_CLR &Instance() { return *reinterpret_cast<volatile LCDIF_CTRL1_CLR*>(0x40804018); }
+  static inline volatile LCDIF_CTRL1_CLR &ref() { return *reinterpret_cast<volatile LCDIF_CTRL1_CLR*>(0x40804018); }
 };
 
 // LCDIF General Control1 Register
@@ -879,7 +879,7 @@ union LCDIF_CTRL1_TOG {
 
   LCDIF_CTRL1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x000F0000; }
-  static inline volatile LCDIF_CTRL1_TOG &Instance() { return *reinterpret_cast<volatile LCDIF_CTRL1_TOG*>(0x4080401C); }
+  static inline volatile LCDIF_CTRL1_TOG &ref() { return *reinterpret_cast<volatile LCDIF_CTRL1_TOG*>(0x4080401C); }
 };
 
 // LCDIF General Control2 Register
@@ -952,7 +952,7 @@ union LCDIF_CTRL2 {
 
   LCDIF_CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00200000; }
-  static inline volatile LCDIF_CTRL2 &Instance() { return *reinterpret_cast<volatile LCDIF_CTRL2*>(0x40804020); }
+  static inline volatile LCDIF_CTRL2 &ref() { return *reinterpret_cast<volatile LCDIF_CTRL2*>(0x40804020); }
 };
 
 // LCDIF General Control2 Register
@@ -1025,7 +1025,7 @@ union LCDIF_CTRL2_SET {
 
   LCDIF_CTRL2_SET() = delete;
   inline void Reset() volatile { this->value = 0x00200000; }
-  static inline volatile LCDIF_CTRL2_SET &Instance() { return *reinterpret_cast<volatile LCDIF_CTRL2_SET*>(0x40804024); }
+  static inline volatile LCDIF_CTRL2_SET &ref() { return *reinterpret_cast<volatile LCDIF_CTRL2_SET*>(0x40804024); }
 };
 
 // LCDIF General Control2 Register
@@ -1098,7 +1098,7 @@ union LCDIF_CTRL2_CLR {
 
   LCDIF_CTRL2_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00200000; }
-  static inline volatile LCDIF_CTRL2_CLR &Instance() { return *reinterpret_cast<volatile LCDIF_CTRL2_CLR*>(0x40804028); }
+  static inline volatile LCDIF_CTRL2_CLR &ref() { return *reinterpret_cast<volatile LCDIF_CTRL2_CLR*>(0x40804028); }
 };
 
 // LCDIF General Control2 Register
@@ -1171,7 +1171,7 @@ union LCDIF_CTRL2_TOG {
 
   LCDIF_CTRL2_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00200000; }
-  static inline volatile LCDIF_CTRL2_TOG &Instance() { return *reinterpret_cast<volatile LCDIF_CTRL2_TOG*>(0x4080402C); }
+  static inline volatile LCDIF_CTRL2_TOG &ref() { return *reinterpret_cast<volatile LCDIF_CTRL2_TOG*>(0x4080402C); }
 };
 
 // LCDIF Horizontal and Vertical Valid Data Count Register
@@ -1190,7 +1190,7 @@ union LCDIF_TRANSFER_COUNT {
 
   LCDIF_TRANSFER_COUNT() = delete;
   inline void Reset() volatile { this->value = 0x00010000; }
-  static inline volatile LCDIF_TRANSFER_COUNT &Instance() { return *reinterpret_cast<volatile LCDIF_TRANSFER_COUNT*>(0x40804030); }
+  static inline volatile LCDIF_TRANSFER_COUNT &ref() { return *reinterpret_cast<volatile LCDIF_TRANSFER_COUNT*>(0x40804030); }
 };
 
 // LCD Interface Current Buffer Address Register
@@ -1207,7 +1207,7 @@ union LCDIF_CUR_BUF {
 
   LCDIF_CUR_BUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_CUR_BUF &Instance() { return *reinterpret_cast<volatile LCDIF_CUR_BUF*>(0x40804040); }
+  static inline volatile LCDIF_CUR_BUF &ref() { return *reinterpret_cast<volatile LCDIF_CUR_BUF*>(0x40804040); }
 };
 
 // LCD Interface Next Buffer Address Register
@@ -1224,7 +1224,7 @@ union LCDIF_NEXT_BUF {
 
   LCDIF_NEXT_BUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_NEXT_BUF &Instance() { return *reinterpret_cast<volatile LCDIF_NEXT_BUF*>(0x40804050); }
+  static inline volatile LCDIF_NEXT_BUF &ref() { return *reinterpret_cast<volatile LCDIF_NEXT_BUF*>(0x40804050); }
 };
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register0
@@ -1271,7 +1271,7 @@ union LCDIF_VDCTRL0 {
 
   LCDIF_VDCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL0 &Instance() { return *reinterpret_cast<volatile LCDIF_VDCTRL0*>(0x40804070); }
+  static inline volatile LCDIF_VDCTRL0 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL0*>(0x40804070); }
 };
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register0
@@ -1318,7 +1318,7 @@ union LCDIF_VDCTRL0_SET {
 
   LCDIF_VDCTRL0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL0_SET &Instance() { return *reinterpret_cast<volatile LCDIF_VDCTRL0_SET*>(0x40804074); }
+  static inline volatile LCDIF_VDCTRL0_SET &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL0_SET*>(0x40804074); }
 };
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register0
@@ -1365,7 +1365,7 @@ union LCDIF_VDCTRL0_CLR {
 
   LCDIF_VDCTRL0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL0_CLR &Instance() { return *reinterpret_cast<volatile LCDIF_VDCTRL0_CLR*>(0x40804078); }
+  static inline volatile LCDIF_VDCTRL0_CLR &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL0_CLR*>(0x40804078); }
 };
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register0
@@ -1412,7 +1412,7 @@ union LCDIF_VDCTRL0_TOG {
 
   LCDIF_VDCTRL0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL0_TOG &Instance() { return *reinterpret_cast<volatile LCDIF_VDCTRL0_TOG*>(0x4080407C); }
+  static inline volatile LCDIF_VDCTRL0_TOG &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL0_TOG*>(0x4080407C); }
 };
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register1
@@ -1429,7 +1429,7 @@ union LCDIF_VDCTRL1 {
 
   LCDIF_VDCTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL1 &Instance() { return *reinterpret_cast<volatile LCDIF_VDCTRL1*>(0x40804080); }
+  static inline volatile LCDIF_VDCTRL1 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL1*>(0x40804080); }
 };
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register2
@@ -1448,7 +1448,7 @@ union LCDIF_VDCTRL2 {
 
   LCDIF_VDCTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL2 &Instance() { return *reinterpret_cast<volatile LCDIF_VDCTRL2*>(0x40804090); }
+  static inline volatile LCDIF_VDCTRL2 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL2*>(0x40804090); }
 };
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register3
@@ -1472,7 +1472,7 @@ union LCDIF_VDCTRL3 {
 
   LCDIF_VDCTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL3 &Instance() { return *reinterpret_cast<volatile LCDIF_VDCTRL3*>(0x408040A0); }
+  static inline volatile LCDIF_VDCTRL3 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL3*>(0x408040A0); }
 };
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register4
@@ -1494,7 +1494,7 @@ union LCDIF_VDCTRL4 {
 
   LCDIF_VDCTRL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL4 &Instance() { return *reinterpret_cast<volatile LCDIF_VDCTRL4*>(0x408040B0); }
+  static inline volatile LCDIF_VDCTRL4 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL4*>(0x408040B0); }
 };
 
 // Bus Master Error Status Register
@@ -1511,7 +1511,7 @@ union LCDIF_BM_ERROR_STAT {
 
   LCDIF_BM_ERROR_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_BM_ERROR_STAT &Instance() { return *reinterpret_cast<volatile LCDIF_BM_ERROR_STAT*>(0x40804190); }
+  static inline volatile LCDIF_BM_ERROR_STAT &ref() { return *reinterpret_cast<volatile LCDIF_BM_ERROR_STAT*>(0x40804190); }
 };
 
 // CRC Status Register
@@ -1528,7 +1528,7 @@ union LCDIF_CRC_STAT {
 
   LCDIF_CRC_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_CRC_STAT &Instance() { return *reinterpret_cast<volatile LCDIF_CRC_STAT*>(0x408041A0); }
+  static inline volatile LCDIF_CRC_STAT &ref() { return *reinterpret_cast<volatile LCDIF_CRC_STAT*>(0x408041A0); }
 };
 
 // LCD Interface Status Register
@@ -1558,7 +1558,7 @@ union LCDIF_STAT {
 
   LCDIF_STAT() = delete;
   inline void Reset() volatile { this->value = 0x95000000; }
-  static inline volatile LCDIF_STAT &Instance() { return *reinterpret_cast<volatile LCDIF_STAT*>(0x408041B0); }
+  static inline volatile LCDIF_STAT &ref() { return *reinterpret_cast<volatile LCDIF_STAT*>(0x408041B0); }
 };
 
 // LCDIF Threshold Register
@@ -1577,7 +1577,7 @@ union LCDIF_THRES {
 
   LCDIF_THRES() = delete;
   inline void Reset() volatile { this->value = 0x0100000F; }
-  static inline volatile LCDIF_THRES &Instance() { return *reinterpret_cast<volatile LCDIF_THRES*>(0x40804200); }
+  static inline volatile LCDIF_THRES &ref() { return *reinterpret_cast<volatile LCDIF_THRES*>(0x40804200); }
 };
 
 // LCDIF Pigeon Mode Control0 Register
@@ -1598,7 +1598,7 @@ union LCDIF_PIGEONCTRL0 {
 
   LCDIF_PIGEONCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0*>(0x40804380); }
+  static inline volatile LCDIF_PIGEONCTRL0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0*>(0x40804380); }
 };
 
 // LCDIF Pigeon Mode Control0 Register
@@ -1619,7 +1619,7 @@ union LCDIF_PIGEONCTRL0_SET {
 
   LCDIF_PIGEONCTRL0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL0_SET &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0_SET*>(0x40804384); }
+  static inline volatile LCDIF_PIGEONCTRL0_SET &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0_SET*>(0x40804384); }
 };
 
 // LCDIF Pigeon Mode Control0 Register
@@ -1640,7 +1640,7 @@ union LCDIF_PIGEONCTRL0_CLR {
 
   LCDIF_PIGEONCTRL0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL0_CLR &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0_CLR*>(0x40804388); }
+  static inline volatile LCDIF_PIGEONCTRL0_CLR &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0_CLR*>(0x40804388); }
 };
 
 // LCDIF Pigeon Mode Control0 Register
@@ -1661,7 +1661,7 @@ union LCDIF_PIGEONCTRL0_TOG {
 
   LCDIF_PIGEONCTRL0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL0_TOG &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0_TOG*>(0x4080438C); }
+  static inline volatile LCDIF_PIGEONCTRL0_TOG &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0_TOG*>(0x4080438C); }
 };
 
 // LCDIF Pigeon Mode Control1 Register
@@ -1682,7 +1682,7 @@ union LCDIF_PIGEONCTRL1 {
 
   LCDIF_PIGEONCTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1*>(0x40804390); }
+  static inline volatile LCDIF_PIGEONCTRL1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1*>(0x40804390); }
 };
 
 // LCDIF Pigeon Mode Control1 Register
@@ -1703,7 +1703,7 @@ union LCDIF_PIGEONCTRL1_SET {
 
   LCDIF_PIGEONCTRL1_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL1_SET &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1_SET*>(0x40804394); }
+  static inline volatile LCDIF_PIGEONCTRL1_SET &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1_SET*>(0x40804394); }
 };
 
 // LCDIF Pigeon Mode Control1 Register
@@ -1724,7 +1724,7 @@ union LCDIF_PIGEONCTRL1_CLR {
 
   LCDIF_PIGEONCTRL1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL1_CLR &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1_CLR*>(0x40804398); }
+  static inline volatile LCDIF_PIGEONCTRL1_CLR &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1_CLR*>(0x40804398); }
 };
 
 // LCDIF Pigeon Mode Control1 Register
@@ -1745,7 +1745,7 @@ union LCDIF_PIGEONCTRL1_TOG {
 
   LCDIF_PIGEONCTRL1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL1_TOG &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1_TOG*>(0x4080439C); }
+  static inline volatile LCDIF_PIGEONCTRL1_TOG &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1_TOG*>(0x4080439C); }
 };
 
 // LCDIF Pigeon Mode Control2 Register
@@ -1765,7 +1765,7 @@ union LCDIF_PIGEONCTRL2 {
 
   LCDIF_PIGEONCTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2*>(0x408043A0); }
+  static inline volatile LCDIF_PIGEONCTRL2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2*>(0x408043A0); }
 };
 
 // LCDIF Pigeon Mode Control2 Register
@@ -1785,7 +1785,7 @@ union LCDIF_PIGEONCTRL2_SET {
 
   LCDIF_PIGEONCTRL2_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL2_SET &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2_SET*>(0x408043A4); }
+  static inline volatile LCDIF_PIGEONCTRL2_SET &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2_SET*>(0x408043A4); }
 };
 
 // LCDIF Pigeon Mode Control2 Register
@@ -1805,7 +1805,7 @@ union LCDIF_PIGEONCTRL2_CLR {
 
   LCDIF_PIGEONCTRL2_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL2_CLR &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2_CLR*>(0x408043A8); }
+  static inline volatile LCDIF_PIGEONCTRL2_CLR &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2_CLR*>(0x408043A8); }
 };
 
 // LCDIF Pigeon Mode Control2 Register
@@ -1825,7 +1825,7 @@ union LCDIF_PIGEONCTRL2_TOG {
 
   LCDIF_PIGEONCTRL2_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL2_TOG &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2_TOG*>(0x408043AC); }
+  static inline volatile LCDIF_PIGEONCTRL2_TOG &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2_TOG*>(0x408043AC); }
 };
 
 // Panel Interface Signal Generator Register
@@ -1914,7 +1914,7 @@ union LCDIF_PIGEON_0_0 {
 
   LCDIF_PIGEON_0_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_0_0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_0_0*>(0x40804800); }
+  static inline volatile LCDIF_PIGEON_0_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_0_0*>(0x40804800); }
 };
 
 // Panel Interface Signal Generator Register
@@ -1945,7 +1945,7 @@ union LCDIF_PIGEON_0_1 {
 
   LCDIF_PIGEON_0_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_0_1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_0_1*>(0x40804810); }
+  static inline volatile LCDIF_PIGEON_0_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_0_1*>(0x40804810); }
 };
 
 // Panel Interface Signal Generator Register
@@ -1983,7 +1983,7 @@ union LCDIF_PIGEON_0_2 {
 
   LCDIF_PIGEON_0_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_0_2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_0_2*>(0x40804820); }
+  static inline volatile LCDIF_PIGEON_0_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_0_2*>(0x40804820); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2072,7 +2072,7 @@ union LCDIF_PIGEON_1_0 {
 
   LCDIF_PIGEON_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_1_0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_1_0*>(0x40804840); }
+  static inline volatile LCDIF_PIGEON_1_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_1_0*>(0x40804840); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2103,7 +2103,7 @@ union LCDIF_PIGEON_1_1 {
 
   LCDIF_PIGEON_1_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_1_1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_1_1*>(0x40804850); }
+  static inline volatile LCDIF_PIGEON_1_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_1_1*>(0x40804850); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2141,7 +2141,7 @@ union LCDIF_PIGEON_1_2 {
 
   LCDIF_PIGEON_1_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_1_2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_1_2*>(0x40804860); }
+  static inline volatile LCDIF_PIGEON_1_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_1_2*>(0x40804860); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2230,7 +2230,7 @@ union LCDIF_PIGEON_2_0 {
 
   LCDIF_PIGEON_2_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_2_0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_2_0*>(0x40804880); }
+  static inline volatile LCDIF_PIGEON_2_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_2_0*>(0x40804880); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2261,7 +2261,7 @@ union LCDIF_PIGEON_2_1 {
 
   LCDIF_PIGEON_2_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_2_1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_2_1*>(0x40804890); }
+  static inline volatile LCDIF_PIGEON_2_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_2_1*>(0x40804890); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2299,7 +2299,7 @@ union LCDIF_PIGEON_2_2 {
 
   LCDIF_PIGEON_2_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_2_2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_2_2*>(0x408048A0); }
+  static inline volatile LCDIF_PIGEON_2_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_2_2*>(0x408048A0); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2388,7 +2388,7 @@ union LCDIF_PIGEON_3_0 {
 
   LCDIF_PIGEON_3_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_3_0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_3_0*>(0x408048C0); }
+  static inline volatile LCDIF_PIGEON_3_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_3_0*>(0x408048C0); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2419,7 +2419,7 @@ union LCDIF_PIGEON_3_1 {
 
   LCDIF_PIGEON_3_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_3_1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_3_1*>(0x408048D0); }
+  static inline volatile LCDIF_PIGEON_3_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_3_1*>(0x408048D0); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2457,7 +2457,7 @@ union LCDIF_PIGEON_3_2 {
 
   LCDIF_PIGEON_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_3_2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_3_2*>(0x408048E0); }
+  static inline volatile LCDIF_PIGEON_3_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_3_2*>(0x408048E0); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2546,7 +2546,7 @@ union LCDIF_PIGEON_4_0 {
 
   LCDIF_PIGEON_4_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_4_0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_4_0*>(0x40804900); }
+  static inline volatile LCDIF_PIGEON_4_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_4_0*>(0x40804900); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2577,7 +2577,7 @@ union LCDIF_PIGEON_4_1 {
 
   LCDIF_PIGEON_4_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_4_1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_4_1*>(0x40804910); }
+  static inline volatile LCDIF_PIGEON_4_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_4_1*>(0x40804910); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2615,7 +2615,7 @@ union LCDIF_PIGEON_4_2 {
 
   LCDIF_PIGEON_4_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_4_2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_4_2*>(0x40804920); }
+  static inline volatile LCDIF_PIGEON_4_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_4_2*>(0x40804920); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2704,7 +2704,7 @@ union LCDIF_PIGEON_5_0 {
 
   LCDIF_PIGEON_5_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_5_0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_5_0*>(0x40804940); }
+  static inline volatile LCDIF_PIGEON_5_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_5_0*>(0x40804940); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2735,7 +2735,7 @@ union LCDIF_PIGEON_5_1 {
 
   LCDIF_PIGEON_5_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_5_1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_5_1*>(0x40804950); }
+  static inline volatile LCDIF_PIGEON_5_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_5_1*>(0x40804950); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2773,7 +2773,7 @@ union LCDIF_PIGEON_5_2 {
 
   LCDIF_PIGEON_5_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_5_2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_5_2*>(0x40804960); }
+  static inline volatile LCDIF_PIGEON_5_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_5_2*>(0x40804960); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2862,7 +2862,7 @@ union LCDIF_PIGEON_6_0 {
 
   LCDIF_PIGEON_6_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_6_0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_6_0*>(0x40804980); }
+  static inline volatile LCDIF_PIGEON_6_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_6_0*>(0x40804980); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2893,7 +2893,7 @@ union LCDIF_PIGEON_6_1 {
 
   LCDIF_PIGEON_6_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_6_1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_6_1*>(0x40804990); }
+  static inline volatile LCDIF_PIGEON_6_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_6_1*>(0x40804990); }
 };
 
 // Panel Interface Signal Generator Register
@@ -2931,7 +2931,7 @@ union LCDIF_PIGEON_6_2 {
 
   LCDIF_PIGEON_6_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_6_2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_6_2*>(0x408049A0); }
+  static inline volatile LCDIF_PIGEON_6_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_6_2*>(0x408049A0); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3020,7 +3020,7 @@ union LCDIF_PIGEON_7_0 {
 
   LCDIF_PIGEON_7_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_7_0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_7_0*>(0x408049C0); }
+  static inline volatile LCDIF_PIGEON_7_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_7_0*>(0x408049C0); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3051,7 +3051,7 @@ union LCDIF_PIGEON_7_1 {
 
   LCDIF_PIGEON_7_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_7_1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_7_1*>(0x408049D0); }
+  static inline volatile LCDIF_PIGEON_7_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_7_1*>(0x408049D0); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3089,7 +3089,7 @@ union LCDIF_PIGEON_7_2 {
 
   LCDIF_PIGEON_7_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_7_2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_7_2*>(0x408049E0); }
+  static inline volatile LCDIF_PIGEON_7_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_7_2*>(0x408049E0); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3178,7 +3178,7 @@ union LCDIF_PIGEON_8_0 {
 
   LCDIF_PIGEON_8_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_8_0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_8_0*>(0x40804A00); }
+  static inline volatile LCDIF_PIGEON_8_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_8_0*>(0x40804A00); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3209,7 +3209,7 @@ union LCDIF_PIGEON_8_1 {
 
   LCDIF_PIGEON_8_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_8_1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_8_1*>(0x40804A10); }
+  static inline volatile LCDIF_PIGEON_8_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_8_1*>(0x40804A10); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3247,7 +3247,7 @@ union LCDIF_PIGEON_8_2 {
 
   LCDIF_PIGEON_8_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_8_2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_8_2*>(0x40804A20); }
+  static inline volatile LCDIF_PIGEON_8_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_8_2*>(0x40804A20); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3336,7 +3336,7 @@ union LCDIF_PIGEON_9_0 {
 
   LCDIF_PIGEON_9_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_9_0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_9_0*>(0x40804A40); }
+  static inline volatile LCDIF_PIGEON_9_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_9_0*>(0x40804A40); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3367,7 +3367,7 @@ union LCDIF_PIGEON_9_1 {
 
   LCDIF_PIGEON_9_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_9_1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_9_1*>(0x40804A50); }
+  static inline volatile LCDIF_PIGEON_9_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_9_1*>(0x40804A50); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3405,7 +3405,7 @@ union LCDIF_PIGEON_9_2 {
 
   LCDIF_PIGEON_9_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_9_2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_9_2*>(0x40804A60); }
+  static inline volatile LCDIF_PIGEON_9_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_9_2*>(0x40804A60); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3494,7 +3494,7 @@ union LCDIF_PIGEON_10_0 {
 
   LCDIF_PIGEON_10_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_10_0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_10_0*>(0x40804A80); }
+  static inline volatile LCDIF_PIGEON_10_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_10_0*>(0x40804A80); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3525,7 +3525,7 @@ union LCDIF_PIGEON_10_1 {
 
   LCDIF_PIGEON_10_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_10_1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_10_1*>(0x40804A90); }
+  static inline volatile LCDIF_PIGEON_10_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_10_1*>(0x40804A90); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3563,7 +3563,7 @@ union LCDIF_PIGEON_10_2 {
 
   LCDIF_PIGEON_10_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_10_2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_10_2*>(0x40804AA0); }
+  static inline volatile LCDIF_PIGEON_10_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_10_2*>(0x40804AA0); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3652,7 +3652,7 @@ union LCDIF_PIGEON_11_0 {
 
   LCDIF_PIGEON_11_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_11_0 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_11_0*>(0x40804AC0); }
+  static inline volatile LCDIF_PIGEON_11_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_11_0*>(0x40804AC0); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3683,7 +3683,7 @@ union LCDIF_PIGEON_11_1 {
 
   LCDIF_PIGEON_11_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_11_1 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_11_1*>(0x40804AD0); }
+  static inline volatile LCDIF_PIGEON_11_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_11_1*>(0x40804AD0); }
 };
 
 // Panel Interface Signal Generator Register
@@ -3721,7 +3721,7 @@ union LCDIF_PIGEON_11_2 {
 
   LCDIF_PIGEON_11_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_11_2 &Instance() { return *reinterpret_cast<volatile LCDIF_PIGEON_11_2*>(0x40804AE0); }
+  static inline volatile LCDIF_PIGEON_11_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_11_2*>(0x40804AE0); }
 };
 
 // Look Up Table Control Register
@@ -3739,7 +3739,7 @@ union LCDIF_LUT_CTRL {
 
   LCDIF_LUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LCDIF_LUT_CTRL &Instance() { return *reinterpret_cast<volatile LCDIF_LUT_CTRL*>(0x40804B00); }
+  static inline volatile LCDIF_LUT_CTRL &ref() { return *reinterpret_cast<volatile LCDIF_LUT_CTRL*>(0x40804B00); }
 };
 
 // Lookup Table 0 Index Register
@@ -3757,7 +3757,7 @@ union LCDIF_LUT0_ADDR {
 
   LCDIF_LUT0_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_LUT0_ADDR &Instance() { return *reinterpret_cast<volatile LCDIF_LUT0_ADDR*>(0x40804B10); }
+  static inline volatile LCDIF_LUT0_ADDR &ref() { return *reinterpret_cast<volatile LCDIF_LUT0_ADDR*>(0x40804B10); }
 };
 
 // Lookup Table 0 Data Register
@@ -3774,7 +3774,7 @@ union LCDIF_LUT0_DATA {
 
   LCDIF_LUT0_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_LUT0_DATA &Instance() { return *reinterpret_cast<volatile LCDIF_LUT0_DATA*>(0x40804B20); }
+  static inline volatile LCDIF_LUT0_DATA &ref() { return *reinterpret_cast<volatile LCDIF_LUT0_DATA*>(0x40804B20); }
 };
 
 // Lookup Table 1 Index Register
@@ -3792,7 +3792,7 @@ union LCDIF_LUT1_ADDR {
 
   LCDIF_LUT1_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_LUT1_ADDR &Instance() { return *reinterpret_cast<volatile LCDIF_LUT1_ADDR*>(0x40804B30); }
+  static inline volatile LCDIF_LUT1_ADDR &ref() { return *reinterpret_cast<volatile LCDIF_LUT1_ADDR*>(0x40804B30); }
 };
 
 // Lookup Table 1 Data Register
@@ -3809,7 +3809,7 @@ union LCDIF_LUT1_DATA {
 
   LCDIF_LUT1_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_LUT1_DATA &Instance() { return *reinterpret_cast<volatile LCDIF_LUT1_DATA*>(0x40804B40); }
+  static inline volatile LCDIF_LUT1_DATA &ref() { return *reinterpret_cast<volatile LCDIF_LUT1_DATA*>(0x40804B40); }
 };
 
 

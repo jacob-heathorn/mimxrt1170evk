@@ -31,7 +31,7 @@ union RDC_VIR {
 
   RDC_VIR() = delete;
   inline void Reset() volatile { this->value = 0x03B800C2; }
-  static inline volatile RDC_VIR &Instance() { return *reinterpret_cast<volatile RDC_VIR*>(0x40C78000); }
+  static inline volatile RDC_VIR &ref() { return *reinterpret_cast<volatile RDC_VIR*>(0x40C78000); }
 };
 
 // Status
@@ -60,7 +60,7 @@ union RDC_STAT {
 
   RDC_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000100; }
-  static inline volatile RDC_STAT &Instance() { return *reinterpret_cast<volatile RDC_STAT*>(0x40C78024); }
+  static inline volatile RDC_STAT &ref() { return *reinterpret_cast<volatile RDC_STAT*>(0x40C78024); }
 };
 
 // Interrupt and Control
@@ -86,7 +86,7 @@ union RDC_INTCTRL {
 
   RDC_INTCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_INTCTRL &Instance() { return *reinterpret_cast<volatile RDC_INTCTRL*>(0x40C78028); }
+  static inline volatile RDC_INTCTRL &ref() { return *reinterpret_cast<volatile RDC_INTCTRL*>(0x40C78028); }
 };
 
 // Interrupt Status
@@ -112,7 +112,7 @@ union RDC_INTSTAT {
 
   RDC_INTSTAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_INTSTAT &Instance() { return *reinterpret_cast<volatile RDC_INTSTAT*>(0x40C7802C); }
+  static inline volatile RDC_INTSTAT &ref() { return *reinterpret_cast<volatile RDC_INTSTAT*>(0x40C7802C); }
 };
 
 // Master Domain Assignment
@@ -148,7 +148,7 @@ union RDC_MDA0 {
 
   RDC_MDA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MDA0 &Instance() { return *reinterpret_cast<volatile RDC_MDA0*>(0x40C78200); }
+  static inline volatile RDC_MDA0 &ref() { return *reinterpret_cast<volatile RDC_MDA0*>(0x40C78200); }
 };
 // Master Domain Assignment
 union RDC_MDA1 {
@@ -183,7 +183,7 @@ union RDC_MDA1 {
 
   RDC_MDA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MDA1 &Instance() { return *reinterpret_cast<volatile RDC_MDA1*>(0x40C78204); }
+  static inline volatile RDC_MDA1 &ref() { return *reinterpret_cast<volatile RDC_MDA1*>(0x40C78204); }
 };
 // Master Domain Assignment
 union RDC_MDA2 {
@@ -218,7 +218,7 @@ union RDC_MDA2 {
 
   RDC_MDA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MDA2 &Instance() { return *reinterpret_cast<volatile RDC_MDA2*>(0x40C78208); }
+  static inline volatile RDC_MDA2 &ref() { return *reinterpret_cast<volatile RDC_MDA2*>(0x40C78208); }
 };
 // Master Domain Assignment
 union RDC_MDA3 {
@@ -253,7 +253,7 @@ union RDC_MDA3 {
 
   RDC_MDA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MDA3 &Instance() { return *reinterpret_cast<volatile RDC_MDA3*>(0x40C7820C); }
+  static inline volatile RDC_MDA3 &ref() { return *reinterpret_cast<volatile RDC_MDA3*>(0x40C7820C); }
 };
 // Master Domain Assignment
 union RDC_MDA4 {
@@ -288,7 +288,7 @@ union RDC_MDA4 {
 
   RDC_MDA4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MDA4 &Instance() { return *reinterpret_cast<volatile RDC_MDA4*>(0x40C78210); }
+  static inline volatile RDC_MDA4 &ref() { return *reinterpret_cast<volatile RDC_MDA4*>(0x40C78210); }
 };
 // Master Domain Assignment
 union RDC_MDA5 {
@@ -323,7 +323,7 @@ union RDC_MDA5 {
 
   RDC_MDA5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MDA5 &Instance() { return *reinterpret_cast<volatile RDC_MDA5*>(0x40C78214); }
+  static inline volatile RDC_MDA5 &ref() { return *reinterpret_cast<volatile RDC_MDA5*>(0x40C78214); }
 };
 // Master Domain Assignment
 union RDC_MDA6 {
@@ -358,7 +358,7 @@ union RDC_MDA6 {
 
   RDC_MDA6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MDA6 &Instance() { return *reinterpret_cast<volatile RDC_MDA6*>(0x40C78218); }
+  static inline volatile RDC_MDA6 &ref() { return *reinterpret_cast<volatile RDC_MDA6*>(0x40C78218); }
 };
 // Master Domain Assignment
 union RDC_MDA7 {
@@ -393,7 +393,7 @@ union RDC_MDA7 {
 
   RDC_MDA7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MDA7 &Instance() { return *reinterpret_cast<volatile RDC_MDA7*>(0x40C7821C); }
+  static inline volatile RDC_MDA7 &ref() { return *reinterpret_cast<volatile RDC_MDA7*>(0x40C7821C); }
 };
 // Master Domain Assignment
 union RDC_MDA8 {
@@ -428,7 +428,7 @@ union RDC_MDA8 {
 
   RDC_MDA8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MDA8 &Instance() { return *reinterpret_cast<volatile RDC_MDA8*>(0x40C78220); }
+  static inline volatile RDC_MDA8 &ref() { return *reinterpret_cast<volatile RDC_MDA8*>(0x40C78220); }
 };
 // Master Domain Assignment
 union RDC_MDA9 {
@@ -463,7 +463,7 @@ union RDC_MDA9 {
 
   RDC_MDA9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MDA9 &Instance() { return *reinterpret_cast<volatile RDC_MDA9*>(0x40C78224); }
+  static inline volatile RDC_MDA9 &ref() { return *reinterpret_cast<volatile RDC_MDA9*>(0x40C78224); }
 };
 // Master Domain Assignment
 union RDC_MDA10 {
@@ -498,7 +498,7 @@ union RDC_MDA10 {
 
   RDC_MDA10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MDA10 &Instance() { return *reinterpret_cast<volatile RDC_MDA10*>(0x40C78228); }
+  static inline volatile RDC_MDA10 &ref() { return *reinterpret_cast<volatile RDC_MDA10*>(0x40C78228); }
 };
 // Master Domain Assignment
 union RDC_MDA11 {
@@ -533,7 +533,7 @@ union RDC_MDA11 {
 
   RDC_MDA11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MDA11 &Instance() { return *reinterpret_cast<volatile RDC_MDA11*>(0x40C7822C); }
+  static inline volatile RDC_MDA11 &ref() { return *reinterpret_cast<volatile RDC_MDA11*>(0x40C7822C); }
 };
 
 // Peripheral Domain Access Permissions
@@ -609,7 +609,7 @@ union RDC_PDAP0 {
 
   RDC_PDAP0() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP0 &Instance() { return *reinterpret_cast<volatile RDC_PDAP0*>(0x40C78400); }
+  static inline volatile RDC_PDAP0 &ref() { return *reinterpret_cast<volatile RDC_PDAP0*>(0x40C78400); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP1 {
@@ -684,7 +684,7 @@ union RDC_PDAP1 {
 
   RDC_PDAP1() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP1 &Instance() { return *reinterpret_cast<volatile RDC_PDAP1*>(0x40C78404); }
+  static inline volatile RDC_PDAP1 &ref() { return *reinterpret_cast<volatile RDC_PDAP1*>(0x40C78404); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP2 {
@@ -759,7 +759,7 @@ union RDC_PDAP2 {
 
   RDC_PDAP2() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP2 &Instance() { return *reinterpret_cast<volatile RDC_PDAP2*>(0x40C78408); }
+  static inline volatile RDC_PDAP2 &ref() { return *reinterpret_cast<volatile RDC_PDAP2*>(0x40C78408); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP3 {
@@ -834,7 +834,7 @@ union RDC_PDAP3 {
 
   RDC_PDAP3() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP3 &Instance() { return *reinterpret_cast<volatile RDC_PDAP3*>(0x40C7840C); }
+  static inline volatile RDC_PDAP3 &ref() { return *reinterpret_cast<volatile RDC_PDAP3*>(0x40C7840C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP4 {
@@ -909,7 +909,7 @@ union RDC_PDAP4 {
 
   RDC_PDAP4() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP4 &Instance() { return *reinterpret_cast<volatile RDC_PDAP4*>(0x40C78410); }
+  static inline volatile RDC_PDAP4 &ref() { return *reinterpret_cast<volatile RDC_PDAP4*>(0x40C78410); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP5 {
@@ -984,7 +984,7 @@ union RDC_PDAP5 {
 
   RDC_PDAP5() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP5 &Instance() { return *reinterpret_cast<volatile RDC_PDAP5*>(0x40C78414); }
+  static inline volatile RDC_PDAP5 &ref() { return *reinterpret_cast<volatile RDC_PDAP5*>(0x40C78414); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP6 {
@@ -1059,7 +1059,7 @@ union RDC_PDAP6 {
 
   RDC_PDAP6() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP6 &Instance() { return *reinterpret_cast<volatile RDC_PDAP6*>(0x40C78418); }
+  static inline volatile RDC_PDAP6 &ref() { return *reinterpret_cast<volatile RDC_PDAP6*>(0x40C78418); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP7 {
@@ -1134,7 +1134,7 @@ union RDC_PDAP7 {
 
   RDC_PDAP7() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP7 &Instance() { return *reinterpret_cast<volatile RDC_PDAP7*>(0x40C7841C); }
+  static inline volatile RDC_PDAP7 &ref() { return *reinterpret_cast<volatile RDC_PDAP7*>(0x40C7841C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP8 {
@@ -1209,7 +1209,7 @@ union RDC_PDAP8 {
 
   RDC_PDAP8() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP8 &Instance() { return *reinterpret_cast<volatile RDC_PDAP8*>(0x40C78420); }
+  static inline volatile RDC_PDAP8 &ref() { return *reinterpret_cast<volatile RDC_PDAP8*>(0x40C78420); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP9 {
@@ -1284,7 +1284,7 @@ union RDC_PDAP9 {
 
   RDC_PDAP9() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP9 &Instance() { return *reinterpret_cast<volatile RDC_PDAP9*>(0x40C78424); }
+  static inline volatile RDC_PDAP9 &ref() { return *reinterpret_cast<volatile RDC_PDAP9*>(0x40C78424); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP10 {
@@ -1359,7 +1359,7 @@ union RDC_PDAP10 {
 
   RDC_PDAP10() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP10 &Instance() { return *reinterpret_cast<volatile RDC_PDAP10*>(0x40C78428); }
+  static inline volatile RDC_PDAP10 &ref() { return *reinterpret_cast<volatile RDC_PDAP10*>(0x40C78428); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP11 {
@@ -1434,7 +1434,7 @@ union RDC_PDAP11 {
 
   RDC_PDAP11() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP11 &Instance() { return *reinterpret_cast<volatile RDC_PDAP11*>(0x40C7842C); }
+  static inline volatile RDC_PDAP11 &ref() { return *reinterpret_cast<volatile RDC_PDAP11*>(0x40C7842C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP12 {
@@ -1509,7 +1509,7 @@ union RDC_PDAP12 {
 
   RDC_PDAP12() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP12 &Instance() { return *reinterpret_cast<volatile RDC_PDAP12*>(0x40C78430); }
+  static inline volatile RDC_PDAP12 &ref() { return *reinterpret_cast<volatile RDC_PDAP12*>(0x40C78430); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP13 {
@@ -1584,7 +1584,7 @@ union RDC_PDAP13 {
 
   RDC_PDAP13() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP13 &Instance() { return *reinterpret_cast<volatile RDC_PDAP13*>(0x40C78434); }
+  static inline volatile RDC_PDAP13 &ref() { return *reinterpret_cast<volatile RDC_PDAP13*>(0x40C78434); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP14 {
@@ -1659,7 +1659,7 @@ union RDC_PDAP14 {
 
   RDC_PDAP14() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP14 &Instance() { return *reinterpret_cast<volatile RDC_PDAP14*>(0x40C78438); }
+  static inline volatile RDC_PDAP14 &ref() { return *reinterpret_cast<volatile RDC_PDAP14*>(0x40C78438); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP15 {
@@ -1734,7 +1734,7 @@ union RDC_PDAP15 {
 
   RDC_PDAP15() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP15 &Instance() { return *reinterpret_cast<volatile RDC_PDAP15*>(0x40C7843C); }
+  static inline volatile RDC_PDAP15 &ref() { return *reinterpret_cast<volatile RDC_PDAP15*>(0x40C7843C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP16 {
@@ -1809,7 +1809,7 @@ union RDC_PDAP16 {
 
   RDC_PDAP16() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP16 &Instance() { return *reinterpret_cast<volatile RDC_PDAP16*>(0x40C78440); }
+  static inline volatile RDC_PDAP16 &ref() { return *reinterpret_cast<volatile RDC_PDAP16*>(0x40C78440); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP17 {
@@ -1884,7 +1884,7 @@ union RDC_PDAP17 {
 
   RDC_PDAP17() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP17 &Instance() { return *reinterpret_cast<volatile RDC_PDAP17*>(0x40C78444); }
+  static inline volatile RDC_PDAP17 &ref() { return *reinterpret_cast<volatile RDC_PDAP17*>(0x40C78444); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP18 {
@@ -1959,7 +1959,7 @@ union RDC_PDAP18 {
 
   RDC_PDAP18() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP18 &Instance() { return *reinterpret_cast<volatile RDC_PDAP18*>(0x40C78448); }
+  static inline volatile RDC_PDAP18 &ref() { return *reinterpret_cast<volatile RDC_PDAP18*>(0x40C78448); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP19 {
@@ -2034,7 +2034,7 @@ union RDC_PDAP19 {
 
   RDC_PDAP19() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP19 &Instance() { return *reinterpret_cast<volatile RDC_PDAP19*>(0x40C7844C); }
+  static inline volatile RDC_PDAP19 &ref() { return *reinterpret_cast<volatile RDC_PDAP19*>(0x40C7844C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP20 {
@@ -2109,7 +2109,7 @@ union RDC_PDAP20 {
 
   RDC_PDAP20() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP20 &Instance() { return *reinterpret_cast<volatile RDC_PDAP20*>(0x40C78450); }
+  static inline volatile RDC_PDAP20 &ref() { return *reinterpret_cast<volatile RDC_PDAP20*>(0x40C78450); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP21 {
@@ -2184,7 +2184,7 @@ union RDC_PDAP21 {
 
   RDC_PDAP21() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP21 &Instance() { return *reinterpret_cast<volatile RDC_PDAP21*>(0x40C78454); }
+  static inline volatile RDC_PDAP21 &ref() { return *reinterpret_cast<volatile RDC_PDAP21*>(0x40C78454); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP22 {
@@ -2259,7 +2259,7 @@ union RDC_PDAP22 {
 
   RDC_PDAP22() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP22 &Instance() { return *reinterpret_cast<volatile RDC_PDAP22*>(0x40C78458); }
+  static inline volatile RDC_PDAP22 &ref() { return *reinterpret_cast<volatile RDC_PDAP22*>(0x40C78458); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP23 {
@@ -2334,7 +2334,7 @@ union RDC_PDAP23 {
 
   RDC_PDAP23() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP23 &Instance() { return *reinterpret_cast<volatile RDC_PDAP23*>(0x40C7845C); }
+  static inline volatile RDC_PDAP23 &ref() { return *reinterpret_cast<volatile RDC_PDAP23*>(0x40C7845C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP24 {
@@ -2409,7 +2409,7 @@ union RDC_PDAP24 {
 
   RDC_PDAP24() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP24 &Instance() { return *reinterpret_cast<volatile RDC_PDAP24*>(0x40C78460); }
+  static inline volatile RDC_PDAP24 &ref() { return *reinterpret_cast<volatile RDC_PDAP24*>(0x40C78460); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP25 {
@@ -2484,7 +2484,7 @@ union RDC_PDAP25 {
 
   RDC_PDAP25() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP25 &Instance() { return *reinterpret_cast<volatile RDC_PDAP25*>(0x40C78464); }
+  static inline volatile RDC_PDAP25 &ref() { return *reinterpret_cast<volatile RDC_PDAP25*>(0x40C78464); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP26 {
@@ -2559,7 +2559,7 @@ union RDC_PDAP26 {
 
   RDC_PDAP26() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP26 &Instance() { return *reinterpret_cast<volatile RDC_PDAP26*>(0x40C78468); }
+  static inline volatile RDC_PDAP26 &ref() { return *reinterpret_cast<volatile RDC_PDAP26*>(0x40C78468); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP27 {
@@ -2634,7 +2634,7 @@ union RDC_PDAP27 {
 
   RDC_PDAP27() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP27 &Instance() { return *reinterpret_cast<volatile RDC_PDAP27*>(0x40C7846C); }
+  static inline volatile RDC_PDAP27 &ref() { return *reinterpret_cast<volatile RDC_PDAP27*>(0x40C7846C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP28 {
@@ -2709,7 +2709,7 @@ union RDC_PDAP28 {
 
   RDC_PDAP28() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP28 &Instance() { return *reinterpret_cast<volatile RDC_PDAP28*>(0x40C78470); }
+  static inline volatile RDC_PDAP28 &ref() { return *reinterpret_cast<volatile RDC_PDAP28*>(0x40C78470); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP29 {
@@ -2784,7 +2784,7 @@ union RDC_PDAP29 {
 
   RDC_PDAP29() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP29 &Instance() { return *reinterpret_cast<volatile RDC_PDAP29*>(0x40C78474); }
+  static inline volatile RDC_PDAP29 &ref() { return *reinterpret_cast<volatile RDC_PDAP29*>(0x40C78474); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP30 {
@@ -2859,7 +2859,7 @@ union RDC_PDAP30 {
 
   RDC_PDAP30() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP30 &Instance() { return *reinterpret_cast<volatile RDC_PDAP30*>(0x40C78478); }
+  static inline volatile RDC_PDAP30 &ref() { return *reinterpret_cast<volatile RDC_PDAP30*>(0x40C78478); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP31 {
@@ -2934,7 +2934,7 @@ union RDC_PDAP31 {
 
   RDC_PDAP31() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP31 &Instance() { return *reinterpret_cast<volatile RDC_PDAP31*>(0x40C7847C); }
+  static inline volatile RDC_PDAP31 &ref() { return *reinterpret_cast<volatile RDC_PDAP31*>(0x40C7847C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP32 {
@@ -3009,7 +3009,7 @@ union RDC_PDAP32 {
 
   RDC_PDAP32() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP32 &Instance() { return *reinterpret_cast<volatile RDC_PDAP32*>(0x40C78480); }
+  static inline volatile RDC_PDAP32 &ref() { return *reinterpret_cast<volatile RDC_PDAP32*>(0x40C78480); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP33 {
@@ -3084,7 +3084,7 @@ union RDC_PDAP33 {
 
   RDC_PDAP33() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP33 &Instance() { return *reinterpret_cast<volatile RDC_PDAP33*>(0x40C78484); }
+  static inline volatile RDC_PDAP33 &ref() { return *reinterpret_cast<volatile RDC_PDAP33*>(0x40C78484); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP34 {
@@ -3159,7 +3159,7 @@ union RDC_PDAP34 {
 
   RDC_PDAP34() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP34 &Instance() { return *reinterpret_cast<volatile RDC_PDAP34*>(0x40C78488); }
+  static inline volatile RDC_PDAP34 &ref() { return *reinterpret_cast<volatile RDC_PDAP34*>(0x40C78488); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP35 {
@@ -3234,7 +3234,7 @@ union RDC_PDAP35 {
 
   RDC_PDAP35() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP35 &Instance() { return *reinterpret_cast<volatile RDC_PDAP35*>(0x40C7848C); }
+  static inline volatile RDC_PDAP35 &ref() { return *reinterpret_cast<volatile RDC_PDAP35*>(0x40C7848C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP36 {
@@ -3309,7 +3309,7 @@ union RDC_PDAP36 {
 
   RDC_PDAP36() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP36 &Instance() { return *reinterpret_cast<volatile RDC_PDAP36*>(0x40C78490); }
+  static inline volatile RDC_PDAP36 &ref() { return *reinterpret_cast<volatile RDC_PDAP36*>(0x40C78490); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP37 {
@@ -3384,7 +3384,7 @@ union RDC_PDAP37 {
 
   RDC_PDAP37() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP37 &Instance() { return *reinterpret_cast<volatile RDC_PDAP37*>(0x40C78494); }
+  static inline volatile RDC_PDAP37 &ref() { return *reinterpret_cast<volatile RDC_PDAP37*>(0x40C78494); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP38 {
@@ -3459,7 +3459,7 @@ union RDC_PDAP38 {
 
   RDC_PDAP38() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP38 &Instance() { return *reinterpret_cast<volatile RDC_PDAP38*>(0x40C78498); }
+  static inline volatile RDC_PDAP38 &ref() { return *reinterpret_cast<volatile RDC_PDAP38*>(0x40C78498); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP39 {
@@ -3534,7 +3534,7 @@ union RDC_PDAP39 {
 
   RDC_PDAP39() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP39 &Instance() { return *reinterpret_cast<volatile RDC_PDAP39*>(0x40C7849C); }
+  static inline volatile RDC_PDAP39 &ref() { return *reinterpret_cast<volatile RDC_PDAP39*>(0x40C7849C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP40 {
@@ -3609,7 +3609,7 @@ union RDC_PDAP40 {
 
   RDC_PDAP40() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP40 &Instance() { return *reinterpret_cast<volatile RDC_PDAP40*>(0x40C784A0); }
+  static inline volatile RDC_PDAP40 &ref() { return *reinterpret_cast<volatile RDC_PDAP40*>(0x40C784A0); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP41 {
@@ -3684,7 +3684,7 @@ union RDC_PDAP41 {
 
   RDC_PDAP41() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP41 &Instance() { return *reinterpret_cast<volatile RDC_PDAP41*>(0x40C784A4); }
+  static inline volatile RDC_PDAP41 &ref() { return *reinterpret_cast<volatile RDC_PDAP41*>(0x40C784A4); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP42 {
@@ -3759,7 +3759,7 @@ union RDC_PDAP42 {
 
   RDC_PDAP42() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP42 &Instance() { return *reinterpret_cast<volatile RDC_PDAP42*>(0x40C784A8); }
+  static inline volatile RDC_PDAP42 &ref() { return *reinterpret_cast<volatile RDC_PDAP42*>(0x40C784A8); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP43 {
@@ -3834,7 +3834,7 @@ union RDC_PDAP43 {
 
   RDC_PDAP43() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP43 &Instance() { return *reinterpret_cast<volatile RDC_PDAP43*>(0x40C784AC); }
+  static inline volatile RDC_PDAP43 &ref() { return *reinterpret_cast<volatile RDC_PDAP43*>(0x40C784AC); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP44 {
@@ -3909,7 +3909,7 @@ union RDC_PDAP44 {
 
   RDC_PDAP44() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP44 &Instance() { return *reinterpret_cast<volatile RDC_PDAP44*>(0x40C784B0); }
+  static inline volatile RDC_PDAP44 &ref() { return *reinterpret_cast<volatile RDC_PDAP44*>(0x40C784B0); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP45 {
@@ -3984,7 +3984,7 @@ union RDC_PDAP45 {
 
   RDC_PDAP45() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP45 &Instance() { return *reinterpret_cast<volatile RDC_PDAP45*>(0x40C784B4); }
+  static inline volatile RDC_PDAP45 &ref() { return *reinterpret_cast<volatile RDC_PDAP45*>(0x40C784B4); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP46 {
@@ -4059,7 +4059,7 @@ union RDC_PDAP46 {
 
   RDC_PDAP46() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP46 &Instance() { return *reinterpret_cast<volatile RDC_PDAP46*>(0x40C784B8); }
+  static inline volatile RDC_PDAP46 &ref() { return *reinterpret_cast<volatile RDC_PDAP46*>(0x40C784B8); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP47 {
@@ -4134,7 +4134,7 @@ union RDC_PDAP47 {
 
   RDC_PDAP47() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP47 &Instance() { return *reinterpret_cast<volatile RDC_PDAP47*>(0x40C784BC); }
+  static inline volatile RDC_PDAP47 &ref() { return *reinterpret_cast<volatile RDC_PDAP47*>(0x40C784BC); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP48 {
@@ -4209,7 +4209,7 @@ union RDC_PDAP48 {
 
   RDC_PDAP48() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP48 &Instance() { return *reinterpret_cast<volatile RDC_PDAP48*>(0x40C784C0); }
+  static inline volatile RDC_PDAP48 &ref() { return *reinterpret_cast<volatile RDC_PDAP48*>(0x40C784C0); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP49 {
@@ -4284,7 +4284,7 @@ union RDC_PDAP49 {
 
   RDC_PDAP49() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP49 &Instance() { return *reinterpret_cast<volatile RDC_PDAP49*>(0x40C784C4); }
+  static inline volatile RDC_PDAP49 &ref() { return *reinterpret_cast<volatile RDC_PDAP49*>(0x40C784C4); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP50 {
@@ -4359,7 +4359,7 @@ union RDC_PDAP50 {
 
   RDC_PDAP50() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP50 &Instance() { return *reinterpret_cast<volatile RDC_PDAP50*>(0x40C784C8); }
+  static inline volatile RDC_PDAP50 &ref() { return *reinterpret_cast<volatile RDC_PDAP50*>(0x40C784C8); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP51 {
@@ -4434,7 +4434,7 @@ union RDC_PDAP51 {
 
   RDC_PDAP51() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP51 &Instance() { return *reinterpret_cast<volatile RDC_PDAP51*>(0x40C784CC); }
+  static inline volatile RDC_PDAP51 &ref() { return *reinterpret_cast<volatile RDC_PDAP51*>(0x40C784CC); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP52 {
@@ -4509,7 +4509,7 @@ union RDC_PDAP52 {
 
   RDC_PDAP52() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP52 &Instance() { return *reinterpret_cast<volatile RDC_PDAP52*>(0x40C784D0); }
+  static inline volatile RDC_PDAP52 &ref() { return *reinterpret_cast<volatile RDC_PDAP52*>(0x40C784D0); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP53 {
@@ -4584,7 +4584,7 @@ union RDC_PDAP53 {
 
   RDC_PDAP53() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP53 &Instance() { return *reinterpret_cast<volatile RDC_PDAP53*>(0x40C784D4); }
+  static inline volatile RDC_PDAP53 &ref() { return *reinterpret_cast<volatile RDC_PDAP53*>(0x40C784D4); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP54 {
@@ -4659,7 +4659,7 @@ union RDC_PDAP54 {
 
   RDC_PDAP54() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP54 &Instance() { return *reinterpret_cast<volatile RDC_PDAP54*>(0x40C784D8); }
+  static inline volatile RDC_PDAP54 &ref() { return *reinterpret_cast<volatile RDC_PDAP54*>(0x40C784D8); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP55 {
@@ -4734,7 +4734,7 @@ union RDC_PDAP55 {
 
   RDC_PDAP55() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP55 &Instance() { return *reinterpret_cast<volatile RDC_PDAP55*>(0x40C784DC); }
+  static inline volatile RDC_PDAP55 &ref() { return *reinterpret_cast<volatile RDC_PDAP55*>(0x40C784DC); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP56 {
@@ -4809,7 +4809,7 @@ union RDC_PDAP56 {
 
   RDC_PDAP56() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP56 &Instance() { return *reinterpret_cast<volatile RDC_PDAP56*>(0x40C784E0); }
+  static inline volatile RDC_PDAP56 &ref() { return *reinterpret_cast<volatile RDC_PDAP56*>(0x40C784E0); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP57 {
@@ -4884,7 +4884,7 @@ union RDC_PDAP57 {
 
   RDC_PDAP57() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP57 &Instance() { return *reinterpret_cast<volatile RDC_PDAP57*>(0x40C784E4); }
+  static inline volatile RDC_PDAP57 &ref() { return *reinterpret_cast<volatile RDC_PDAP57*>(0x40C784E4); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP58 {
@@ -4959,7 +4959,7 @@ union RDC_PDAP58 {
 
   RDC_PDAP58() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP58 &Instance() { return *reinterpret_cast<volatile RDC_PDAP58*>(0x40C784E8); }
+  static inline volatile RDC_PDAP58 &ref() { return *reinterpret_cast<volatile RDC_PDAP58*>(0x40C784E8); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP59 {
@@ -5034,7 +5034,7 @@ union RDC_PDAP59 {
 
   RDC_PDAP59() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP59 &Instance() { return *reinterpret_cast<volatile RDC_PDAP59*>(0x40C784EC); }
+  static inline volatile RDC_PDAP59 &ref() { return *reinterpret_cast<volatile RDC_PDAP59*>(0x40C784EC); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP60 {
@@ -5109,7 +5109,7 @@ union RDC_PDAP60 {
 
   RDC_PDAP60() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP60 &Instance() { return *reinterpret_cast<volatile RDC_PDAP60*>(0x40C784F0); }
+  static inline volatile RDC_PDAP60 &ref() { return *reinterpret_cast<volatile RDC_PDAP60*>(0x40C784F0); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP61 {
@@ -5184,7 +5184,7 @@ union RDC_PDAP61 {
 
   RDC_PDAP61() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP61 &Instance() { return *reinterpret_cast<volatile RDC_PDAP61*>(0x40C784F4); }
+  static inline volatile RDC_PDAP61 &ref() { return *reinterpret_cast<volatile RDC_PDAP61*>(0x40C784F4); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP62 {
@@ -5259,7 +5259,7 @@ union RDC_PDAP62 {
 
   RDC_PDAP62() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP62 &Instance() { return *reinterpret_cast<volatile RDC_PDAP62*>(0x40C784F8); }
+  static inline volatile RDC_PDAP62 &ref() { return *reinterpret_cast<volatile RDC_PDAP62*>(0x40C784F8); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP63 {
@@ -5334,7 +5334,7 @@ union RDC_PDAP63 {
 
   RDC_PDAP63() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP63 &Instance() { return *reinterpret_cast<volatile RDC_PDAP63*>(0x40C784FC); }
+  static inline volatile RDC_PDAP63 &ref() { return *reinterpret_cast<volatile RDC_PDAP63*>(0x40C784FC); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP64 {
@@ -5409,7 +5409,7 @@ union RDC_PDAP64 {
 
   RDC_PDAP64() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP64 &Instance() { return *reinterpret_cast<volatile RDC_PDAP64*>(0x40C78500); }
+  static inline volatile RDC_PDAP64 &ref() { return *reinterpret_cast<volatile RDC_PDAP64*>(0x40C78500); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP65 {
@@ -5484,7 +5484,7 @@ union RDC_PDAP65 {
 
   RDC_PDAP65() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP65 &Instance() { return *reinterpret_cast<volatile RDC_PDAP65*>(0x40C78504); }
+  static inline volatile RDC_PDAP65 &ref() { return *reinterpret_cast<volatile RDC_PDAP65*>(0x40C78504); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP66 {
@@ -5559,7 +5559,7 @@ union RDC_PDAP66 {
 
   RDC_PDAP66() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP66 &Instance() { return *reinterpret_cast<volatile RDC_PDAP66*>(0x40C78508); }
+  static inline volatile RDC_PDAP66 &ref() { return *reinterpret_cast<volatile RDC_PDAP66*>(0x40C78508); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP67 {
@@ -5634,7 +5634,7 @@ union RDC_PDAP67 {
 
   RDC_PDAP67() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP67 &Instance() { return *reinterpret_cast<volatile RDC_PDAP67*>(0x40C7850C); }
+  static inline volatile RDC_PDAP67 &ref() { return *reinterpret_cast<volatile RDC_PDAP67*>(0x40C7850C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP68 {
@@ -5709,7 +5709,7 @@ union RDC_PDAP68 {
 
   RDC_PDAP68() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP68 &Instance() { return *reinterpret_cast<volatile RDC_PDAP68*>(0x40C78510); }
+  static inline volatile RDC_PDAP68 &ref() { return *reinterpret_cast<volatile RDC_PDAP68*>(0x40C78510); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP69 {
@@ -5784,7 +5784,7 @@ union RDC_PDAP69 {
 
   RDC_PDAP69() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP69 &Instance() { return *reinterpret_cast<volatile RDC_PDAP69*>(0x40C78514); }
+  static inline volatile RDC_PDAP69 &ref() { return *reinterpret_cast<volatile RDC_PDAP69*>(0x40C78514); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP70 {
@@ -5859,7 +5859,7 @@ union RDC_PDAP70 {
 
   RDC_PDAP70() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP70 &Instance() { return *reinterpret_cast<volatile RDC_PDAP70*>(0x40C78518); }
+  static inline volatile RDC_PDAP70 &ref() { return *reinterpret_cast<volatile RDC_PDAP70*>(0x40C78518); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP71 {
@@ -5934,7 +5934,7 @@ union RDC_PDAP71 {
 
   RDC_PDAP71() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP71 &Instance() { return *reinterpret_cast<volatile RDC_PDAP71*>(0x40C7851C); }
+  static inline volatile RDC_PDAP71 &ref() { return *reinterpret_cast<volatile RDC_PDAP71*>(0x40C7851C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP72 {
@@ -6009,7 +6009,7 @@ union RDC_PDAP72 {
 
   RDC_PDAP72() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP72 &Instance() { return *reinterpret_cast<volatile RDC_PDAP72*>(0x40C78520); }
+  static inline volatile RDC_PDAP72 &ref() { return *reinterpret_cast<volatile RDC_PDAP72*>(0x40C78520); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP73 {
@@ -6084,7 +6084,7 @@ union RDC_PDAP73 {
 
   RDC_PDAP73() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP73 &Instance() { return *reinterpret_cast<volatile RDC_PDAP73*>(0x40C78524); }
+  static inline volatile RDC_PDAP73 &ref() { return *reinterpret_cast<volatile RDC_PDAP73*>(0x40C78524); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP74 {
@@ -6159,7 +6159,7 @@ union RDC_PDAP74 {
 
   RDC_PDAP74() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP74 &Instance() { return *reinterpret_cast<volatile RDC_PDAP74*>(0x40C78528); }
+  static inline volatile RDC_PDAP74 &ref() { return *reinterpret_cast<volatile RDC_PDAP74*>(0x40C78528); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP75 {
@@ -6234,7 +6234,7 @@ union RDC_PDAP75 {
 
   RDC_PDAP75() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP75 &Instance() { return *reinterpret_cast<volatile RDC_PDAP75*>(0x40C7852C); }
+  static inline volatile RDC_PDAP75 &ref() { return *reinterpret_cast<volatile RDC_PDAP75*>(0x40C7852C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP76 {
@@ -6309,7 +6309,7 @@ union RDC_PDAP76 {
 
   RDC_PDAP76() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP76 &Instance() { return *reinterpret_cast<volatile RDC_PDAP76*>(0x40C78530); }
+  static inline volatile RDC_PDAP76 &ref() { return *reinterpret_cast<volatile RDC_PDAP76*>(0x40C78530); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP77 {
@@ -6384,7 +6384,7 @@ union RDC_PDAP77 {
 
   RDC_PDAP77() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP77 &Instance() { return *reinterpret_cast<volatile RDC_PDAP77*>(0x40C78534); }
+  static inline volatile RDC_PDAP77 &ref() { return *reinterpret_cast<volatile RDC_PDAP77*>(0x40C78534); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP78 {
@@ -6459,7 +6459,7 @@ union RDC_PDAP78 {
 
   RDC_PDAP78() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP78 &Instance() { return *reinterpret_cast<volatile RDC_PDAP78*>(0x40C78538); }
+  static inline volatile RDC_PDAP78 &ref() { return *reinterpret_cast<volatile RDC_PDAP78*>(0x40C78538); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP79 {
@@ -6534,7 +6534,7 @@ union RDC_PDAP79 {
 
   RDC_PDAP79() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP79 &Instance() { return *reinterpret_cast<volatile RDC_PDAP79*>(0x40C7853C); }
+  static inline volatile RDC_PDAP79 &ref() { return *reinterpret_cast<volatile RDC_PDAP79*>(0x40C7853C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP80 {
@@ -6609,7 +6609,7 @@ union RDC_PDAP80 {
 
   RDC_PDAP80() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP80 &Instance() { return *reinterpret_cast<volatile RDC_PDAP80*>(0x40C78540); }
+  static inline volatile RDC_PDAP80 &ref() { return *reinterpret_cast<volatile RDC_PDAP80*>(0x40C78540); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP81 {
@@ -6684,7 +6684,7 @@ union RDC_PDAP81 {
 
   RDC_PDAP81() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP81 &Instance() { return *reinterpret_cast<volatile RDC_PDAP81*>(0x40C78544); }
+  static inline volatile RDC_PDAP81 &ref() { return *reinterpret_cast<volatile RDC_PDAP81*>(0x40C78544); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP82 {
@@ -6759,7 +6759,7 @@ union RDC_PDAP82 {
 
   RDC_PDAP82() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP82 &Instance() { return *reinterpret_cast<volatile RDC_PDAP82*>(0x40C78548); }
+  static inline volatile RDC_PDAP82 &ref() { return *reinterpret_cast<volatile RDC_PDAP82*>(0x40C78548); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP83 {
@@ -6834,7 +6834,7 @@ union RDC_PDAP83 {
 
   RDC_PDAP83() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP83 &Instance() { return *reinterpret_cast<volatile RDC_PDAP83*>(0x40C7854C); }
+  static inline volatile RDC_PDAP83 &ref() { return *reinterpret_cast<volatile RDC_PDAP83*>(0x40C7854C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP84 {
@@ -6909,7 +6909,7 @@ union RDC_PDAP84 {
 
   RDC_PDAP84() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP84 &Instance() { return *reinterpret_cast<volatile RDC_PDAP84*>(0x40C78550); }
+  static inline volatile RDC_PDAP84 &ref() { return *reinterpret_cast<volatile RDC_PDAP84*>(0x40C78550); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP85 {
@@ -6984,7 +6984,7 @@ union RDC_PDAP85 {
 
   RDC_PDAP85() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP85 &Instance() { return *reinterpret_cast<volatile RDC_PDAP85*>(0x40C78554); }
+  static inline volatile RDC_PDAP85 &ref() { return *reinterpret_cast<volatile RDC_PDAP85*>(0x40C78554); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP86 {
@@ -7059,7 +7059,7 @@ union RDC_PDAP86 {
 
   RDC_PDAP86() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP86 &Instance() { return *reinterpret_cast<volatile RDC_PDAP86*>(0x40C78558); }
+  static inline volatile RDC_PDAP86 &ref() { return *reinterpret_cast<volatile RDC_PDAP86*>(0x40C78558); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP87 {
@@ -7134,7 +7134,7 @@ union RDC_PDAP87 {
 
   RDC_PDAP87() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP87 &Instance() { return *reinterpret_cast<volatile RDC_PDAP87*>(0x40C7855C); }
+  static inline volatile RDC_PDAP87 &ref() { return *reinterpret_cast<volatile RDC_PDAP87*>(0x40C7855C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP88 {
@@ -7209,7 +7209,7 @@ union RDC_PDAP88 {
 
   RDC_PDAP88() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP88 &Instance() { return *reinterpret_cast<volatile RDC_PDAP88*>(0x40C78560); }
+  static inline volatile RDC_PDAP88 &ref() { return *reinterpret_cast<volatile RDC_PDAP88*>(0x40C78560); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP89 {
@@ -7284,7 +7284,7 @@ union RDC_PDAP89 {
 
   RDC_PDAP89() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP89 &Instance() { return *reinterpret_cast<volatile RDC_PDAP89*>(0x40C78564); }
+  static inline volatile RDC_PDAP89 &ref() { return *reinterpret_cast<volatile RDC_PDAP89*>(0x40C78564); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP90 {
@@ -7359,7 +7359,7 @@ union RDC_PDAP90 {
 
   RDC_PDAP90() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP90 &Instance() { return *reinterpret_cast<volatile RDC_PDAP90*>(0x40C78568); }
+  static inline volatile RDC_PDAP90 &ref() { return *reinterpret_cast<volatile RDC_PDAP90*>(0x40C78568); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP91 {
@@ -7434,7 +7434,7 @@ union RDC_PDAP91 {
 
   RDC_PDAP91() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP91 &Instance() { return *reinterpret_cast<volatile RDC_PDAP91*>(0x40C7856C); }
+  static inline volatile RDC_PDAP91 &ref() { return *reinterpret_cast<volatile RDC_PDAP91*>(0x40C7856C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP92 {
@@ -7509,7 +7509,7 @@ union RDC_PDAP92 {
 
   RDC_PDAP92() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP92 &Instance() { return *reinterpret_cast<volatile RDC_PDAP92*>(0x40C78570); }
+  static inline volatile RDC_PDAP92 &ref() { return *reinterpret_cast<volatile RDC_PDAP92*>(0x40C78570); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP93 {
@@ -7584,7 +7584,7 @@ union RDC_PDAP93 {
 
   RDC_PDAP93() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP93 &Instance() { return *reinterpret_cast<volatile RDC_PDAP93*>(0x40C78574); }
+  static inline volatile RDC_PDAP93 &ref() { return *reinterpret_cast<volatile RDC_PDAP93*>(0x40C78574); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP94 {
@@ -7659,7 +7659,7 @@ union RDC_PDAP94 {
 
   RDC_PDAP94() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP94 &Instance() { return *reinterpret_cast<volatile RDC_PDAP94*>(0x40C78578); }
+  static inline volatile RDC_PDAP94 &ref() { return *reinterpret_cast<volatile RDC_PDAP94*>(0x40C78578); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP95 {
@@ -7734,7 +7734,7 @@ union RDC_PDAP95 {
 
   RDC_PDAP95() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP95 &Instance() { return *reinterpret_cast<volatile RDC_PDAP95*>(0x40C7857C); }
+  static inline volatile RDC_PDAP95 &ref() { return *reinterpret_cast<volatile RDC_PDAP95*>(0x40C7857C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP96 {
@@ -7809,7 +7809,7 @@ union RDC_PDAP96 {
 
   RDC_PDAP96() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP96 &Instance() { return *reinterpret_cast<volatile RDC_PDAP96*>(0x40C78580); }
+  static inline volatile RDC_PDAP96 &ref() { return *reinterpret_cast<volatile RDC_PDAP96*>(0x40C78580); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP97 {
@@ -7884,7 +7884,7 @@ union RDC_PDAP97 {
 
   RDC_PDAP97() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP97 &Instance() { return *reinterpret_cast<volatile RDC_PDAP97*>(0x40C78584); }
+  static inline volatile RDC_PDAP97 &ref() { return *reinterpret_cast<volatile RDC_PDAP97*>(0x40C78584); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP98 {
@@ -7959,7 +7959,7 @@ union RDC_PDAP98 {
 
   RDC_PDAP98() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP98 &Instance() { return *reinterpret_cast<volatile RDC_PDAP98*>(0x40C78588); }
+  static inline volatile RDC_PDAP98 &ref() { return *reinterpret_cast<volatile RDC_PDAP98*>(0x40C78588); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP99 {
@@ -8034,7 +8034,7 @@ union RDC_PDAP99 {
 
   RDC_PDAP99() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP99 &Instance() { return *reinterpret_cast<volatile RDC_PDAP99*>(0x40C7858C); }
+  static inline volatile RDC_PDAP99 &ref() { return *reinterpret_cast<volatile RDC_PDAP99*>(0x40C7858C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP100 {
@@ -8109,7 +8109,7 @@ union RDC_PDAP100 {
 
   RDC_PDAP100() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP100 &Instance() { return *reinterpret_cast<volatile RDC_PDAP100*>(0x40C78590); }
+  static inline volatile RDC_PDAP100 &ref() { return *reinterpret_cast<volatile RDC_PDAP100*>(0x40C78590); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP101 {
@@ -8184,7 +8184,7 @@ union RDC_PDAP101 {
 
   RDC_PDAP101() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP101 &Instance() { return *reinterpret_cast<volatile RDC_PDAP101*>(0x40C78594); }
+  static inline volatile RDC_PDAP101 &ref() { return *reinterpret_cast<volatile RDC_PDAP101*>(0x40C78594); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP102 {
@@ -8259,7 +8259,7 @@ union RDC_PDAP102 {
 
   RDC_PDAP102() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP102 &Instance() { return *reinterpret_cast<volatile RDC_PDAP102*>(0x40C78598); }
+  static inline volatile RDC_PDAP102 &ref() { return *reinterpret_cast<volatile RDC_PDAP102*>(0x40C78598); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP103 {
@@ -8334,7 +8334,7 @@ union RDC_PDAP103 {
 
   RDC_PDAP103() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP103 &Instance() { return *reinterpret_cast<volatile RDC_PDAP103*>(0x40C7859C); }
+  static inline volatile RDC_PDAP103 &ref() { return *reinterpret_cast<volatile RDC_PDAP103*>(0x40C7859C); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP104 {
@@ -8409,7 +8409,7 @@ union RDC_PDAP104 {
 
   RDC_PDAP104() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP104 &Instance() { return *reinterpret_cast<volatile RDC_PDAP104*>(0x40C785A0); }
+  static inline volatile RDC_PDAP104 &ref() { return *reinterpret_cast<volatile RDC_PDAP104*>(0x40C785A0); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP105 {
@@ -8484,7 +8484,7 @@ union RDC_PDAP105 {
 
   RDC_PDAP105() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP105 &Instance() { return *reinterpret_cast<volatile RDC_PDAP105*>(0x40C785A4); }
+  static inline volatile RDC_PDAP105 &ref() { return *reinterpret_cast<volatile RDC_PDAP105*>(0x40C785A4); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP106 {
@@ -8559,7 +8559,7 @@ union RDC_PDAP106 {
 
   RDC_PDAP106() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP106 &Instance() { return *reinterpret_cast<volatile RDC_PDAP106*>(0x40C785A8); }
+  static inline volatile RDC_PDAP106 &ref() { return *reinterpret_cast<volatile RDC_PDAP106*>(0x40C785A8); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP107 {
@@ -8634,7 +8634,7 @@ union RDC_PDAP107 {
 
   RDC_PDAP107() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP107 &Instance() { return *reinterpret_cast<volatile RDC_PDAP107*>(0x40C785AC); }
+  static inline volatile RDC_PDAP107 &ref() { return *reinterpret_cast<volatile RDC_PDAP107*>(0x40C785AC); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP108 {
@@ -8709,7 +8709,7 @@ union RDC_PDAP108 {
 
   RDC_PDAP108() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP108 &Instance() { return *reinterpret_cast<volatile RDC_PDAP108*>(0x40C785B0); }
+  static inline volatile RDC_PDAP108 &ref() { return *reinterpret_cast<volatile RDC_PDAP108*>(0x40C785B0); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP109 {
@@ -8784,7 +8784,7 @@ union RDC_PDAP109 {
 
   RDC_PDAP109() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP109 &Instance() { return *reinterpret_cast<volatile RDC_PDAP109*>(0x40C785B4); }
+  static inline volatile RDC_PDAP109 &ref() { return *reinterpret_cast<volatile RDC_PDAP109*>(0x40C785B4); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP110 {
@@ -8859,7 +8859,7 @@ union RDC_PDAP110 {
 
   RDC_PDAP110() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP110 &Instance() { return *reinterpret_cast<volatile RDC_PDAP110*>(0x40C785B8); }
+  static inline volatile RDC_PDAP110 &ref() { return *reinterpret_cast<volatile RDC_PDAP110*>(0x40C785B8); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP111 {
@@ -8934,7 +8934,7 @@ union RDC_PDAP111 {
 
   RDC_PDAP111() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP111 &Instance() { return *reinterpret_cast<volatile RDC_PDAP111*>(0x40C785BC); }
+  static inline volatile RDC_PDAP111 &ref() { return *reinterpret_cast<volatile RDC_PDAP111*>(0x40C785BC); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP112 {
@@ -9009,7 +9009,7 @@ union RDC_PDAP112 {
 
   RDC_PDAP112() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP112 &Instance() { return *reinterpret_cast<volatile RDC_PDAP112*>(0x40C785C0); }
+  static inline volatile RDC_PDAP112 &ref() { return *reinterpret_cast<volatile RDC_PDAP112*>(0x40C785C0); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP113 {
@@ -9084,7 +9084,7 @@ union RDC_PDAP113 {
 
   RDC_PDAP113() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP113 &Instance() { return *reinterpret_cast<volatile RDC_PDAP113*>(0x40C785C4); }
+  static inline volatile RDC_PDAP113 &ref() { return *reinterpret_cast<volatile RDC_PDAP113*>(0x40C785C4); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP114 {
@@ -9159,7 +9159,7 @@ union RDC_PDAP114 {
 
   RDC_PDAP114() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP114 &Instance() { return *reinterpret_cast<volatile RDC_PDAP114*>(0x40C785C8); }
+  static inline volatile RDC_PDAP114 &ref() { return *reinterpret_cast<volatile RDC_PDAP114*>(0x40C785C8); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP115 {
@@ -9234,7 +9234,7 @@ union RDC_PDAP115 {
 
   RDC_PDAP115() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP115 &Instance() { return *reinterpret_cast<volatile RDC_PDAP115*>(0x40C785CC); }
+  static inline volatile RDC_PDAP115 &ref() { return *reinterpret_cast<volatile RDC_PDAP115*>(0x40C785CC); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP116 {
@@ -9309,7 +9309,7 @@ union RDC_PDAP116 {
 
   RDC_PDAP116() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP116 &Instance() { return *reinterpret_cast<volatile RDC_PDAP116*>(0x40C785D0); }
+  static inline volatile RDC_PDAP116 &ref() { return *reinterpret_cast<volatile RDC_PDAP116*>(0x40C785D0); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP117 {
@@ -9384,7 +9384,7 @@ union RDC_PDAP117 {
 
   RDC_PDAP117() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP117 &Instance() { return *reinterpret_cast<volatile RDC_PDAP117*>(0x40C785D4); }
+  static inline volatile RDC_PDAP117 &ref() { return *reinterpret_cast<volatile RDC_PDAP117*>(0x40C785D4); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP118 {
@@ -9459,7 +9459,7 @@ union RDC_PDAP118 {
 
   RDC_PDAP118() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP118 &Instance() { return *reinterpret_cast<volatile RDC_PDAP118*>(0x40C785D8); }
+  static inline volatile RDC_PDAP118 &ref() { return *reinterpret_cast<volatile RDC_PDAP118*>(0x40C785D8); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP119 {
@@ -9534,7 +9534,7 @@ union RDC_PDAP119 {
 
   RDC_PDAP119() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP119 &Instance() { return *reinterpret_cast<volatile RDC_PDAP119*>(0x40C785DC); }
+  static inline volatile RDC_PDAP119 &ref() { return *reinterpret_cast<volatile RDC_PDAP119*>(0x40C785DC); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP120 {
@@ -9609,7 +9609,7 @@ union RDC_PDAP120 {
 
   RDC_PDAP120() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP120 &Instance() { return *reinterpret_cast<volatile RDC_PDAP120*>(0x40C785E0); }
+  static inline volatile RDC_PDAP120 &ref() { return *reinterpret_cast<volatile RDC_PDAP120*>(0x40C785E0); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP121 {
@@ -9684,7 +9684,7 @@ union RDC_PDAP121 {
 
   RDC_PDAP121() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP121 &Instance() { return *reinterpret_cast<volatile RDC_PDAP121*>(0x40C785E4); }
+  static inline volatile RDC_PDAP121 &ref() { return *reinterpret_cast<volatile RDC_PDAP121*>(0x40C785E4); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP122 {
@@ -9759,7 +9759,7 @@ union RDC_PDAP122 {
 
   RDC_PDAP122() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP122 &Instance() { return *reinterpret_cast<volatile RDC_PDAP122*>(0x40C785E8); }
+  static inline volatile RDC_PDAP122 &ref() { return *reinterpret_cast<volatile RDC_PDAP122*>(0x40C785E8); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP123 {
@@ -9834,7 +9834,7 @@ union RDC_PDAP123 {
 
   RDC_PDAP123() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP123 &Instance() { return *reinterpret_cast<volatile RDC_PDAP123*>(0x40C785EC); }
+  static inline volatile RDC_PDAP123 &ref() { return *reinterpret_cast<volatile RDC_PDAP123*>(0x40C785EC); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP124 {
@@ -9909,7 +9909,7 @@ union RDC_PDAP124 {
 
   RDC_PDAP124() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP124 &Instance() { return *reinterpret_cast<volatile RDC_PDAP124*>(0x40C785F0); }
+  static inline volatile RDC_PDAP124 &ref() { return *reinterpret_cast<volatile RDC_PDAP124*>(0x40C785F0); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP125 {
@@ -9984,7 +9984,7 @@ union RDC_PDAP125 {
 
   RDC_PDAP125() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP125 &Instance() { return *reinterpret_cast<volatile RDC_PDAP125*>(0x40C785F4); }
+  static inline volatile RDC_PDAP125 &ref() { return *reinterpret_cast<volatile RDC_PDAP125*>(0x40C785F4); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP126 {
@@ -10059,7 +10059,7 @@ union RDC_PDAP126 {
 
   RDC_PDAP126() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP126 &Instance() { return *reinterpret_cast<volatile RDC_PDAP126*>(0x40C785F8); }
+  static inline volatile RDC_PDAP126 &ref() { return *reinterpret_cast<volatile RDC_PDAP126*>(0x40C785F8); }
 };
 // Peripheral Domain Access Permissions
 union RDC_PDAP127 {
@@ -10134,7 +10134,7 @@ union RDC_PDAP127 {
 
   RDC_PDAP127() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile RDC_PDAP127 &Instance() { return *reinterpret_cast<volatile RDC_PDAP127*>(0x40C785FC); }
+  static inline volatile RDC_PDAP127 &ref() { return *reinterpret_cast<volatile RDC_PDAP127*>(0x40C785FC); }
 };
 
 // Memory Region Start Address
@@ -10152,7 +10152,7 @@ union RDC_MRSA0 {
 
   RDC_MRSA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA0 &Instance() { return *reinterpret_cast<volatile RDC_MRSA0*>(0x40C78800); }
+  static inline volatile RDC_MRSA0 &ref() { return *reinterpret_cast<volatile RDC_MRSA0*>(0x40C78800); }
 };
 // Memory Region Start Address
 union RDC_MRSA1 {
@@ -10169,7 +10169,7 @@ union RDC_MRSA1 {
 
   RDC_MRSA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA1 &Instance() { return *reinterpret_cast<volatile RDC_MRSA1*>(0x40C78810); }
+  static inline volatile RDC_MRSA1 &ref() { return *reinterpret_cast<volatile RDC_MRSA1*>(0x40C78810); }
 };
 // Memory Region Start Address
 union RDC_MRSA2 {
@@ -10186,7 +10186,7 @@ union RDC_MRSA2 {
 
   RDC_MRSA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA2 &Instance() { return *reinterpret_cast<volatile RDC_MRSA2*>(0x40C78820); }
+  static inline volatile RDC_MRSA2 &ref() { return *reinterpret_cast<volatile RDC_MRSA2*>(0x40C78820); }
 };
 // Memory Region Start Address
 union RDC_MRSA3 {
@@ -10203,7 +10203,7 @@ union RDC_MRSA3 {
 
   RDC_MRSA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA3 &Instance() { return *reinterpret_cast<volatile RDC_MRSA3*>(0x40C78830); }
+  static inline volatile RDC_MRSA3 &ref() { return *reinterpret_cast<volatile RDC_MRSA3*>(0x40C78830); }
 };
 // Memory Region Start Address
 union RDC_MRSA4 {
@@ -10220,7 +10220,7 @@ union RDC_MRSA4 {
 
   RDC_MRSA4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA4 &Instance() { return *reinterpret_cast<volatile RDC_MRSA4*>(0x40C78840); }
+  static inline volatile RDC_MRSA4 &ref() { return *reinterpret_cast<volatile RDC_MRSA4*>(0x40C78840); }
 };
 // Memory Region Start Address
 union RDC_MRSA5 {
@@ -10237,7 +10237,7 @@ union RDC_MRSA5 {
 
   RDC_MRSA5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA5 &Instance() { return *reinterpret_cast<volatile RDC_MRSA5*>(0x40C78850); }
+  static inline volatile RDC_MRSA5 &ref() { return *reinterpret_cast<volatile RDC_MRSA5*>(0x40C78850); }
 };
 // Memory Region Start Address
 union RDC_MRSA6 {
@@ -10254,7 +10254,7 @@ union RDC_MRSA6 {
 
   RDC_MRSA6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA6 &Instance() { return *reinterpret_cast<volatile RDC_MRSA6*>(0x40C78860); }
+  static inline volatile RDC_MRSA6 &ref() { return *reinterpret_cast<volatile RDC_MRSA6*>(0x40C78860); }
 };
 // Memory Region Start Address
 union RDC_MRSA7 {
@@ -10271,7 +10271,7 @@ union RDC_MRSA7 {
 
   RDC_MRSA7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA7 &Instance() { return *reinterpret_cast<volatile RDC_MRSA7*>(0x40C78870); }
+  static inline volatile RDC_MRSA7 &ref() { return *reinterpret_cast<volatile RDC_MRSA7*>(0x40C78870); }
 };
 // Memory Region Start Address
 union RDC_MRSA8 {
@@ -10288,7 +10288,7 @@ union RDC_MRSA8 {
 
   RDC_MRSA8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA8 &Instance() { return *reinterpret_cast<volatile RDC_MRSA8*>(0x40C78880); }
+  static inline volatile RDC_MRSA8 &ref() { return *reinterpret_cast<volatile RDC_MRSA8*>(0x40C78880); }
 };
 // Memory Region Start Address
 union RDC_MRSA9 {
@@ -10305,7 +10305,7 @@ union RDC_MRSA9 {
 
   RDC_MRSA9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA9 &Instance() { return *reinterpret_cast<volatile RDC_MRSA9*>(0x40C78890); }
+  static inline volatile RDC_MRSA9 &ref() { return *reinterpret_cast<volatile RDC_MRSA9*>(0x40C78890); }
 };
 // Memory Region Start Address
 union RDC_MRSA10 {
@@ -10322,7 +10322,7 @@ union RDC_MRSA10 {
 
   RDC_MRSA10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA10 &Instance() { return *reinterpret_cast<volatile RDC_MRSA10*>(0x40C788A0); }
+  static inline volatile RDC_MRSA10 &ref() { return *reinterpret_cast<volatile RDC_MRSA10*>(0x40C788A0); }
 };
 // Memory Region Start Address
 union RDC_MRSA11 {
@@ -10339,7 +10339,7 @@ union RDC_MRSA11 {
 
   RDC_MRSA11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA11 &Instance() { return *reinterpret_cast<volatile RDC_MRSA11*>(0x40C788B0); }
+  static inline volatile RDC_MRSA11 &ref() { return *reinterpret_cast<volatile RDC_MRSA11*>(0x40C788B0); }
 };
 // Memory Region Start Address
 union RDC_MRSA12 {
@@ -10356,7 +10356,7 @@ union RDC_MRSA12 {
 
   RDC_MRSA12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA12 &Instance() { return *reinterpret_cast<volatile RDC_MRSA12*>(0x40C788C0); }
+  static inline volatile RDC_MRSA12 &ref() { return *reinterpret_cast<volatile RDC_MRSA12*>(0x40C788C0); }
 };
 // Memory Region Start Address
 union RDC_MRSA13 {
@@ -10373,7 +10373,7 @@ union RDC_MRSA13 {
 
   RDC_MRSA13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA13 &Instance() { return *reinterpret_cast<volatile RDC_MRSA13*>(0x40C788D0); }
+  static inline volatile RDC_MRSA13 &ref() { return *reinterpret_cast<volatile RDC_MRSA13*>(0x40C788D0); }
 };
 // Memory Region Start Address
 union RDC_MRSA14 {
@@ -10390,7 +10390,7 @@ union RDC_MRSA14 {
 
   RDC_MRSA14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA14 &Instance() { return *reinterpret_cast<volatile RDC_MRSA14*>(0x40C788E0); }
+  static inline volatile RDC_MRSA14 &ref() { return *reinterpret_cast<volatile RDC_MRSA14*>(0x40C788E0); }
 };
 // Memory Region Start Address
 union RDC_MRSA15 {
@@ -10407,7 +10407,7 @@ union RDC_MRSA15 {
 
   RDC_MRSA15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA15 &Instance() { return *reinterpret_cast<volatile RDC_MRSA15*>(0x40C788F0); }
+  static inline volatile RDC_MRSA15 &ref() { return *reinterpret_cast<volatile RDC_MRSA15*>(0x40C788F0); }
 };
 // Memory Region Start Address
 union RDC_MRSA16 {
@@ -10424,7 +10424,7 @@ union RDC_MRSA16 {
 
   RDC_MRSA16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA16 &Instance() { return *reinterpret_cast<volatile RDC_MRSA16*>(0x40C78900); }
+  static inline volatile RDC_MRSA16 &ref() { return *reinterpret_cast<volatile RDC_MRSA16*>(0x40C78900); }
 };
 // Memory Region Start Address
 union RDC_MRSA17 {
@@ -10441,7 +10441,7 @@ union RDC_MRSA17 {
 
   RDC_MRSA17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA17 &Instance() { return *reinterpret_cast<volatile RDC_MRSA17*>(0x40C78910); }
+  static inline volatile RDC_MRSA17 &ref() { return *reinterpret_cast<volatile RDC_MRSA17*>(0x40C78910); }
 };
 // Memory Region Start Address
 union RDC_MRSA18 {
@@ -10458,7 +10458,7 @@ union RDC_MRSA18 {
 
   RDC_MRSA18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA18 &Instance() { return *reinterpret_cast<volatile RDC_MRSA18*>(0x40C78920); }
+  static inline volatile RDC_MRSA18 &ref() { return *reinterpret_cast<volatile RDC_MRSA18*>(0x40C78920); }
 };
 // Memory Region Start Address
 union RDC_MRSA19 {
@@ -10475,7 +10475,7 @@ union RDC_MRSA19 {
 
   RDC_MRSA19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA19 &Instance() { return *reinterpret_cast<volatile RDC_MRSA19*>(0x40C78930); }
+  static inline volatile RDC_MRSA19 &ref() { return *reinterpret_cast<volatile RDC_MRSA19*>(0x40C78930); }
 };
 // Memory Region Start Address
 union RDC_MRSA20 {
@@ -10492,7 +10492,7 @@ union RDC_MRSA20 {
 
   RDC_MRSA20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA20 &Instance() { return *reinterpret_cast<volatile RDC_MRSA20*>(0x40C78940); }
+  static inline volatile RDC_MRSA20 &ref() { return *reinterpret_cast<volatile RDC_MRSA20*>(0x40C78940); }
 };
 // Memory Region Start Address
 union RDC_MRSA21 {
@@ -10509,7 +10509,7 @@ union RDC_MRSA21 {
 
   RDC_MRSA21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA21 &Instance() { return *reinterpret_cast<volatile RDC_MRSA21*>(0x40C78950); }
+  static inline volatile RDC_MRSA21 &ref() { return *reinterpret_cast<volatile RDC_MRSA21*>(0x40C78950); }
 };
 // Memory Region Start Address
 union RDC_MRSA22 {
@@ -10526,7 +10526,7 @@ union RDC_MRSA22 {
 
   RDC_MRSA22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA22 &Instance() { return *reinterpret_cast<volatile RDC_MRSA22*>(0x40C78960); }
+  static inline volatile RDC_MRSA22 &ref() { return *reinterpret_cast<volatile RDC_MRSA22*>(0x40C78960); }
 };
 // Memory Region Start Address
 union RDC_MRSA23 {
@@ -10543,7 +10543,7 @@ union RDC_MRSA23 {
 
   RDC_MRSA23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA23 &Instance() { return *reinterpret_cast<volatile RDC_MRSA23*>(0x40C78970); }
+  static inline volatile RDC_MRSA23 &ref() { return *reinterpret_cast<volatile RDC_MRSA23*>(0x40C78970); }
 };
 // Memory Region Start Address
 union RDC_MRSA24 {
@@ -10560,7 +10560,7 @@ union RDC_MRSA24 {
 
   RDC_MRSA24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA24 &Instance() { return *reinterpret_cast<volatile RDC_MRSA24*>(0x40C78980); }
+  static inline volatile RDC_MRSA24 &ref() { return *reinterpret_cast<volatile RDC_MRSA24*>(0x40C78980); }
 };
 // Memory Region Start Address
 union RDC_MRSA25 {
@@ -10577,7 +10577,7 @@ union RDC_MRSA25 {
 
   RDC_MRSA25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA25 &Instance() { return *reinterpret_cast<volatile RDC_MRSA25*>(0x40C78990); }
+  static inline volatile RDC_MRSA25 &ref() { return *reinterpret_cast<volatile RDC_MRSA25*>(0x40C78990); }
 };
 // Memory Region Start Address
 union RDC_MRSA26 {
@@ -10594,7 +10594,7 @@ union RDC_MRSA26 {
 
   RDC_MRSA26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA26 &Instance() { return *reinterpret_cast<volatile RDC_MRSA26*>(0x40C789A0); }
+  static inline volatile RDC_MRSA26 &ref() { return *reinterpret_cast<volatile RDC_MRSA26*>(0x40C789A0); }
 };
 // Memory Region Start Address
 union RDC_MRSA27 {
@@ -10611,7 +10611,7 @@ union RDC_MRSA27 {
 
   RDC_MRSA27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA27 &Instance() { return *reinterpret_cast<volatile RDC_MRSA27*>(0x40C789B0); }
+  static inline volatile RDC_MRSA27 &ref() { return *reinterpret_cast<volatile RDC_MRSA27*>(0x40C789B0); }
 };
 // Memory Region Start Address
 union RDC_MRSA28 {
@@ -10628,7 +10628,7 @@ union RDC_MRSA28 {
 
   RDC_MRSA28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA28 &Instance() { return *reinterpret_cast<volatile RDC_MRSA28*>(0x40C789C0); }
+  static inline volatile RDC_MRSA28 &ref() { return *reinterpret_cast<volatile RDC_MRSA28*>(0x40C789C0); }
 };
 // Memory Region Start Address
 union RDC_MRSA29 {
@@ -10645,7 +10645,7 @@ union RDC_MRSA29 {
 
   RDC_MRSA29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA29 &Instance() { return *reinterpret_cast<volatile RDC_MRSA29*>(0x40C789D0); }
+  static inline volatile RDC_MRSA29 &ref() { return *reinterpret_cast<volatile RDC_MRSA29*>(0x40C789D0); }
 };
 // Memory Region Start Address
 union RDC_MRSA30 {
@@ -10662,7 +10662,7 @@ union RDC_MRSA30 {
 
   RDC_MRSA30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA30 &Instance() { return *reinterpret_cast<volatile RDC_MRSA30*>(0x40C789E0); }
+  static inline volatile RDC_MRSA30 &ref() { return *reinterpret_cast<volatile RDC_MRSA30*>(0x40C789E0); }
 };
 // Memory Region Start Address
 union RDC_MRSA31 {
@@ -10679,7 +10679,7 @@ union RDC_MRSA31 {
 
   RDC_MRSA31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA31 &Instance() { return *reinterpret_cast<volatile RDC_MRSA31*>(0x40C789F0); }
+  static inline volatile RDC_MRSA31 &ref() { return *reinterpret_cast<volatile RDC_MRSA31*>(0x40C789F0); }
 };
 // Memory Region Start Address
 union RDC_MRSA32 {
@@ -10696,7 +10696,7 @@ union RDC_MRSA32 {
 
   RDC_MRSA32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA32 &Instance() { return *reinterpret_cast<volatile RDC_MRSA32*>(0x40C78A00); }
+  static inline volatile RDC_MRSA32 &ref() { return *reinterpret_cast<volatile RDC_MRSA32*>(0x40C78A00); }
 };
 // Memory Region Start Address
 union RDC_MRSA33 {
@@ -10713,7 +10713,7 @@ union RDC_MRSA33 {
 
   RDC_MRSA33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA33 &Instance() { return *reinterpret_cast<volatile RDC_MRSA33*>(0x40C78A10); }
+  static inline volatile RDC_MRSA33 &ref() { return *reinterpret_cast<volatile RDC_MRSA33*>(0x40C78A10); }
 };
 // Memory Region Start Address
 union RDC_MRSA34 {
@@ -10730,7 +10730,7 @@ union RDC_MRSA34 {
 
   RDC_MRSA34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA34 &Instance() { return *reinterpret_cast<volatile RDC_MRSA34*>(0x40C78A20); }
+  static inline volatile RDC_MRSA34 &ref() { return *reinterpret_cast<volatile RDC_MRSA34*>(0x40C78A20); }
 };
 // Memory Region Start Address
 union RDC_MRSA35 {
@@ -10747,7 +10747,7 @@ union RDC_MRSA35 {
 
   RDC_MRSA35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA35 &Instance() { return *reinterpret_cast<volatile RDC_MRSA35*>(0x40C78A30); }
+  static inline volatile RDC_MRSA35 &ref() { return *reinterpret_cast<volatile RDC_MRSA35*>(0x40C78A30); }
 };
 // Memory Region Start Address
 union RDC_MRSA36 {
@@ -10764,7 +10764,7 @@ union RDC_MRSA36 {
 
   RDC_MRSA36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA36 &Instance() { return *reinterpret_cast<volatile RDC_MRSA36*>(0x40C78A40); }
+  static inline volatile RDC_MRSA36 &ref() { return *reinterpret_cast<volatile RDC_MRSA36*>(0x40C78A40); }
 };
 // Memory Region Start Address
 union RDC_MRSA37 {
@@ -10781,7 +10781,7 @@ union RDC_MRSA37 {
 
   RDC_MRSA37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA37 &Instance() { return *reinterpret_cast<volatile RDC_MRSA37*>(0x40C78A50); }
+  static inline volatile RDC_MRSA37 &ref() { return *reinterpret_cast<volatile RDC_MRSA37*>(0x40C78A50); }
 };
 // Memory Region Start Address
 union RDC_MRSA38 {
@@ -10798,7 +10798,7 @@ union RDC_MRSA38 {
 
   RDC_MRSA38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA38 &Instance() { return *reinterpret_cast<volatile RDC_MRSA38*>(0x40C78A60); }
+  static inline volatile RDC_MRSA38 &ref() { return *reinterpret_cast<volatile RDC_MRSA38*>(0x40C78A60); }
 };
 // Memory Region Start Address
 union RDC_MRSA39 {
@@ -10815,7 +10815,7 @@ union RDC_MRSA39 {
 
   RDC_MRSA39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA39 &Instance() { return *reinterpret_cast<volatile RDC_MRSA39*>(0x40C78A70); }
+  static inline volatile RDC_MRSA39 &ref() { return *reinterpret_cast<volatile RDC_MRSA39*>(0x40C78A70); }
 };
 // Memory Region Start Address
 union RDC_MRSA40 {
@@ -10832,7 +10832,7 @@ union RDC_MRSA40 {
 
   RDC_MRSA40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA40 &Instance() { return *reinterpret_cast<volatile RDC_MRSA40*>(0x40C78A80); }
+  static inline volatile RDC_MRSA40 &ref() { return *reinterpret_cast<volatile RDC_MRSA40*>(0x40C78A80); }
 };
 // Memory Region Start Address
 union RDC_MRSA41 {
@@ -10849,7 +10849,7 @@ union RDC_MRSA41 {
 
   RDC_MRSA41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA41 &Instance() { return *reinterpret_cast<volatile RDC_MRSA41*>(0x40C78A90); }
+  static inline volatile RDC_MRSA41 &ref() { return *reinterpret_cast<volatile RDC_MRSA41*>(0x40C78A90); }
 };
 // Memory Region Start Address
 union RDC_MRSA42 {
@@ -10866,7 +10866,7 @@ union RDC_MRSA42 {
 
   RDC_MRSA42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA42 &Instance() { return *reinterpret_cast<volatile RDC_MRSA42*>(0x40C78AA0); }
+  static inline volatile RDC_MRSA42 &ref() { return *reinterpret_cast<volatile RDC_MRSA42*>(0x40C78AA0); }
 };
 // Memory Region Start Address
 union RDC_MRSA43 {
@@ -10883,7 +10883,7 @@ union RDC_MRSA43 {
 
   RDC_MRSA43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA43 &Instance() { return *reinterpret_cast<volatile RDC_MRSA43*>(0x40C78AB0); }
+  static inline volatile RDC_MRSA43 &ref() { return *reinterpret_cast<volatile RDC_MRSA43*>(0x40C78AB0); }
 };
 // Memory Region Start Address
 union RDC_MRSA44 {
@@ -10900,7 +10900,7 @@ union RDC_MRSA44 {
 
   RDC_MRSA44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA44 &Instance() { return *reinterpret_cast<volatile RDC_MRSA44*>(0x40C78AC0); }
+  static inline volatile RDC_MRSA44 &ref() { return *reinterpret_cast<volatile RDC_MRSA44*>(0x40C78AC0); }
 };
 // Memory Region Start Address
 union RDC_MRSA45 {
@@ -10917,7 +10917,7 @@ union RDC_MRSA45 {
 
   RDC_MRSA45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA45 &Instance() { return *reinterpret_cast<volatile RDC_MRSA45*>(0x40C78AD0); }
+  static inline volatile RDC_MRSA45 &ref() { return *reinterpret_cast<volatile RDC_MRSA45*>(0x40C78AD0); }
 };
 // Memory Region Start Address
 union RDC_MRSA46 {
@@ -10934,7 +10934,7 @@ union RDC_MRSA46 {
 
   RDC_MRSA46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA46 &Instance() { return *reinterpret_cast<volatile RDC_MRSA46*>(0x40C78AE0); }
+  static inline volatile RDC_MRSA46 &ref() { return *reinterpret_cast<volatile RDC_MRSA46*>(0x40C78AE0); }
 };
 // Memory Region Start Address
 union RDC_MRSA47 {
@@ -10951,7 +10951,7 @@ union RDC_MRSA47 {
 
   RDC_MRSA47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA47 &Instance() { return *reinterpret_cast<volatile RDC_MRSA47*>(0x40C78AF0); }
+  static inline volatile RDC_MRSA47 &ref() { return *reinterpret_cast<volatile RDC_MRSA47*>(0x40C78AF0); }
 };
 // Memory Region Start Address
 union RDC_MRSA48 {
@@ -10968,7 +10968,7 @@ union RDC_MRSA48 {
 
   RDC_MRSA48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA48 &Instance() { return *reinterpret_cast<volatile RDC_MRSA48*>(0x40C78B00); }
+  static inline volatile RDC_MRSA48 &ref() { return *reinterpret_cast<volatile RDC_MRSA48*>(0x40C78B00); }
 };
 // Memory Region Start Address
 union RDC_MRSA49 {
@@ -10985,7 +10985,7 @@ union RDC_MRSA49 {
 
   RDC_MRSA49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA49 &Instance() { return *reinterpret_cast<volatile RDC_MRSA49*>(0x40C78B10); }
+  static inline volatile RDC_MRSA49 &ref() { return *reinterpret_cast<volatile RDC_MRSA49*>(0x40C78B10); }
 };
 // Memory Region Start Address
 union RDC_MRSA50 {
@@ -11002,7 +11002,7 @@ union RDC_MRSA50 {
 
   RDC_MRSA50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA50 &Instance() { return *reinterpret_cast<volatile RDC_MRSA50*>(0x40C78B20); }
+  static inline volatile RDC_MRSA50 &ref() { return *reinterpret_cast<volatile RDC_MRSA50*>(0x40C78B20); }
 };
 // Memory Region Start Address
 union RDC_MRSA51 {
@@ -11019,7 +11019,7 @@ union RDC_MRSA51 {
 
   RDC_MRSA51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA51 &Instance() { return *reinterpret_cast<volatile RDC_MRSA51*>(0x40C78B30); }
+  static inline volatile RDC_MRSA51 &ref() { return *reinterpret_cast<volatile RDC_MRSA51*>(0x40C78B30); }
 };
 // Memory Region Start Address
 union RDC_MRSA52 {
@@ -11036,7 +11036,7 @@ union RDC_MRSA52 {
 
   RDC_MRSA52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA52 &Instance() { return *reinterpret_cast<volatile RDC_MRSA52*>(0x40C78B40); }
+  static inline volatile RDC_MRSA52 &ref() { return *reinterpret_cast<volatile RDC_MRSA52*>(0x40C78B40); }
 };
 // Memory Region Start Address
 union RDC_MRSA53 {
@@ -11053,7 +11053,7 @@ union RDC_MRSA53 {
 
   RDC_MRSA53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA53 &Instance() { return *reinterpret_cast<volatile RDC_MRSA53*>(0x40C78B50); }
+  static inline volatile RDC_MRSA53 &ref() { return *reinterpret_cast<volatile RDC_MRSA53*>(0x40C78B50); }
 };
 // Memory Region Start Address
 union RDC_MRSA54 {
@@ -11070,7 +11070,7 @@ union RDC_MRSA54 {
 
   RDC_MRSA54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA54 &Instance() { return *reinterpret_cast<volatile RDC_MRSA54*>(0x40C78B60); }
+  static inline volatile RDC_MRSA54 &ref() { return *reinterpret_cast<volatile RDC_MRSA54*>(0x40C78B60); }
 };
 // Memory Region Start Address
 union RDC_MRSA55 {
@@ -11087,7 +11087,7 @@ union RDC_MRSA55 {
 
   RDC_MRSA55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA55 &Instance() { return *reinterpret_cast<volatile RDC_MRSA55*>(0x40C78B70); }
+  static inline volatile RDC_MRSA55 &ref() { return *reinterpret_cast<volatile RDC_MRSA55*>(0x40C78B70); }
 };
 // Memory Region Start Address
 union RDC_MRSA56 {
@@ -11104,7 +11104,7 @@ union RDC_MRSA56 {
 
   RDC_MRSA56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA56 &Instance() { return *reinterpret_cast<volatile RDC_MRSA56*>(0x40C78B80); }
+  static inline volatile RDC_MRSA56 &ref() { return *reinterpret_cast<volatile RDC_MRSA56*>(0x40C78B80); }
 };
 // Memory Region Start Address
 union RDC_MRSA57 {
@@ -11121,7 +11121,7 @@ union RDC_MRSA57 {
 
   RDC_MRSA57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA57 &Instance() { return *reinterpret_cast<volatile RDC_MRSA57*>(0x40C78B90); }
+  static inline volatile RDC_MRSA57 &ref() { return *reinterpret_cast<volatile RDC_MRSA57*>(0x40C78B90); }
 };
 // Memory Region Start Address
 union RDC_MRSA58 {
@@ -11138,7 +11138,7 @@ union RDC_MRSA58 {
 
   RDC_MRSA58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRSA58 &Instance() { return *reinterpret_cast<volatile RDC_MRSA58*>(0x40C78BA0); }
+  static inline volatile RDC_MRSA58 &ref() { return *reinterpret_cast<volatile RDC_MRSA58*>(0x40C78BA0); }
 };
 
 // Memory Region End Address
@@ -11156,7 +11156,7 @@ union RDC_MREA0 {
 
   RDC_MREA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA0 &Instance() { return *reinterpret_cast<volatile RDC_MREA0*>(0x40C78804); }
+  static inline volatile RDC_MREA0 &ref() { return *reinterpret_cast<volatile RDC_MREA0*>(0x40C78804); }
 };
 // Memory Region End Address
 union RDC_MREA1 {
@@ -11173,7 +11173,7 @@ union RDC_MREA1 {
 
   RDC_MREA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA1 &Instance() { return *reinterpret_cast<volatile RDC_MREA1*>(0x40C78814); }
+  static inline volatile RDC_MREA1 &ref() { return *reinterpret_cast<volatile RDC_MREA1*>(0x40C78814); }
 };
 // Memory Region End Address
 union RDC_MREA2 {
@@ -11190,7 +11190,7 @@ union RDC_MREA2 {
 
   RDC_MREA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA2 &Instance() { return *reinterpret_cast<volatile RDC_MREA2*>(0x40C78824); }
+  static inline volatile RDC_MREA2 &ref() { return *reinterpret_cast<volatile RDC_MREA2*>(0x40C78824); }
 };
 // Memory Region End Address
 union RDC_MREA3 {
@@ -11207,7 +11207,7 @@ union RDC_MREA3 {
 
   RDC_MREA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA3 &Instance() { return *reinterpret_cast<volatile RDC_MREA3*>(0x40C78834); }
+  static inline volatile RDC_MREA3 &ref() { return *reinterpret_cast<volatile RDC_MREA3*>(0x40C78834); }
 };
 // Memory Region End Address
 union RDC_MREA4 {
@@ -11224,7 +11224,7 @@ union RDC_MREA4 {
 
   RDC_MREA4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA4 &Instance() { return *reinterpret_cast<volatile RDC_MREA4*>(0x40C78844); }
+  static inline volatile RDC_MREA4 &ref() { return *reinterpret_cast<volatile RDC_MREA4*>(0x40C78844); }
 };
 // Memory Region End Address
 union RDC_MREA5 {
@@ -11241,7 +11241,7 @@ union RDC_MREA5 {
 
   RDC_MREA5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA5 &Instance() { return *reinterpret_cast<volatile RDC_MREA5*>(0x40C78854); }
+  static inline volatile RDC_MREA5 &ref() { return *reinterpret_cast<volatile RDC_MREA5*>(0x40C78854); }
 };
 // Memory Region End Address
 union RDC_MREA6 {
@@ -11258,7 +11258,7 @@ union RDC_MREA6 {
 
   RDC_MREA6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA6 &Instance() { return *reinterpret_cast<volatile RDC_MREA6*>(0x40C78864); }
+  static inline volatile RDC_MREA6 &ref() { return *reinterpret_cast<volatile RDC_MREA6*>(0x40C78864); }
 };
 // Memory Region End Address
 union RDC_MREA7 {
@@ -11275,7 +11275,7 @@ union RDC_MREA7 {
 
   RDC_MREA7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA7 &Instance() { return *reinterpret_cast<volatile RDC_MREA7*>(0x40C78874); }
+  static inline volatile RDC_MREA7 &ref() { return *reinterpret_cast<volatile RDC_MREA7*>(0x40C78874); }
 };
 // Memory Region End Address
 union RDC_MREA8 {
@@ -11292,7 +11292,7 @@ union RDC_MREA8 {
 
   RDC_MREA8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA8 &Instance() { return *reinterpret_cast<volatile RDC_MREA8*>(0x40C78884); }
+  static inline volatile RDC_MREA8 &ref() { return *reinterpret_cast<volatile RDC_MREA8*>(0x40C78884); }
 };
 // Memory Region End Address
 union RDC_MREA9 {
@@ -11309,7 +11309,7 @@ union RDC_MREA9 {
 
   RDC_MREA9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA9 &Instance() { return *reinterpret_cast<volatile RDC_MREA9*>(0x40C78894); }
+  static inline volatile RDC_MREA9 &ref() { return *reinterpret_cast<volatile RDC_MREA9*>(0x40C78894); }
 };
 // Memory Region End Address
 union RDC_MREA10 {
@@ -11326,7 +11326,7 @@ union RDC_MREA10 {
 
   RDC_MREA10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA10 &Instance() { return *reinterpret_cast<volatile RDC_MREA10*>(0x40C788A4); }
+  static inline volatile RDC_MREA10 &ref() { return *reinterpret_cast<volatile RDC_MREA10*>(0x40C788A4); }
 };
 // Memory Region End Address
 union RDC_MREA11 {
@@ -11343,7 +11343,7 @@ union RDC_MREA11 {
 
   RDC_MREA11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA11 &Instance() { return *reinterpret_cast<volatile RDC_MREA11*>(0x40C788B4); }
+  static inline volatile RDC_MREA11 &ref() { return *reinterpret_cast<volatile RDC_MREA11*>(0x40C788B4); }
 };
 // Memory Region End Address
 union RDC_MREA12 {
@@ -11360,7 +11360,7 @@ union RDC_MREA12 {
 
   RDC_MREA12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA12 &Instance() { return *reinterpret_cast<volatile RDC_MREA12*>(0x40C788C4); }
+  static inline volatile RDC_MREA12 &ref() { return *reinterpret_cast<volatile RDC_MREA12*>(0x40C788C4); }
 };
 // Memory Region End Address
 union RDC_MREA13 {
@@ -11377,7 +11377,7 @@ union RDC_MREA13 {
 
   RDC_MREA13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA13 &Instance() { return *reinterpret_cast<volatile RDC_MREA13*>(0x40C788D4); }
+  static inline volatile RDC_MREA13 &ref() { return *reinterpret_cast<volatile RDC_MREA13*>(0x40C788D4); }
 };
 // Memory Region End Address
 union RDC_MREA14 {
@@ -11394,7 +11394,7 @@ union RDC_MREA14 {
 
   RDC_MREA14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA14 &Instance() { return *reinterpret_cast<volatile RDC_MREA14*>(0x40C788E4); }
+  static inline volatile RDC_MREA14 &ref() { return *reinterpret_cast<volatile RDC_MREA14*>(0x40C788E4); }
 };
 // Memory Region End Address
 union RDC_MREA15 {
@@ -11411,7 +11411,7 @@ union RDC_MREA15 {
 
   RDC_MREA15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA15 &Instance() { return *reinterpret_cast<volatile RDC_MREA15*>(0x40C788F4); }
+  static inline volatile RDC_MREA15 &ref() { return *reinterpret_cast<volatile RDC_MREA15*>(0x40C788F4); }
 };
 // Memory Region End Address
 union RDC_MREA16 {
@@ -11428,7 +11428,7 @@ union RDC_MREA16 {
 
   RDC_MREA16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA16 &Instance() { return *reinterpret_cast<volatile RDC_MREA16*>(0x40C78904); }
+  static inline volatile RDC_MREA16 &ref() { return *reinterpret_cast<volatile RDC_MREA16*>(0x40C78904); }
 };
 // Memory Region End Address
 union RDC_MREA17 {
@@ -11445,7 +11445,7 @@ union RDC_MREA17 {
 
   RDC_MREA17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA17 &Instance() { return *reinterpret_cast<volatile RDC_MREA17*>(0x40C78914); }
+  static inline volatile RDC_MREA17 &ref() { return *reinterpret_cast<volatile RDC_MREA17*>(0x40C78914); }
 };
 // Memory Region End Address
 union RDC_MREA18 {
@@ -11462,7 +11462,7 @@ union RDC_MREA18 {
 
   RDC_MREA18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA18 &Instance() { return *reinterpret_cast<volatile RDC_MREA18*>(0x40C78924); }
+  static inline volatile RDC_MREA18 &ref() { return *reinterpret_cast<volatile RDC_MREA18*>(0x40C78924); }
 };
 // Memory Region End Address
 union RDC_MREA19 {
@@ -11479,7 +11479,7 @@ union RDC_MREA19 {
 
   RDC_MREA19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA19 &Instance() { return *reinterpret_cast<volatile RDC_MREA19*>(0x40C78934); }
+  static inline volatile RDC_MREA19 &ref() { return *reinterpret_cast<volatile RDC_MREA19*>(0x40C78934); }
 };
 // Memory Region End Address
 union RDC_MREA20 {
@@ -11496,7 +11496,7 @@ union RDC_MREA20 {
 
   RDC_MREA20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA20 &Instance() { return *reinterpret_cast<volatile RDC_MREA20*>(0x40C78944); }
+  static inline volatile RDC_MREA20 &ref() { return *reinterpret_cast<volatile RDC_MREA20*>(0x40C78944); }
 };
 // Memory Region End Address
 union RDC_MREA21 {
@@ -11513,7 +11513,7 @@ union RDC_MREA21 {
 
   RDC_MREA21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA21 &Instance() { return *reinterpret_cast<volatile RDC_MREA21*>(0x40C78954); }
+  static inline volatile RDC_MREA21 &ref() { return *reinterpret_cast<volatile RDC_MREA21*>(0x40C78954); }
 };
 // Memory Region End Address
 union RDC_MREA22 {
@@ -11530,7 +11530,7 @@ union RDC_MREA22 {
 
   RDC_MREA22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA22 &Instance() { return *reinterpret_cast<volatile RDC_MREA22*>(0x40C78964); }
+  static inline volatile RDC_MREA22 &ref() { return *reinterpret_cast<volatile RDC_MREA22*>(0x40C78964); }
 };
 // Memory Region End Address
 union RDC_MREA23 {
@@ -11547,7 +11547,7 @@ union RDC_MREA23 {
 
   RDC_MREA23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA23 &Instance() { return *reinterpret_cast<volatile RDC_MREA23*>(0x40C78974); }
+  static inline volatile RDC_MREA23 &ref() { return *reinterpret_cast<volatile RDC_MREA23*>(0x40C78974); }
 };
 // Memory Region End Address
 union RDC_MREA24 {
@@ -11564,7 +11564,7 @@ union RDC_MREA24 {
 
   RDC_MREA24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA24 &Instance() { return *reinterpret_cast<volatile RDC_MREA24*>(0x40C78984); }
+  static inline volatile RDC_MREA24 &ref() { return *reinterpret_cast<volatile RDC_MREA24*>(0x40C78984); }
 };
 // Memory Region End Address
 union RDC_MREA25 {
@@ -11581,7 +11581,7 @@ union RDC_MREA25 {
 
   RDC_MREA25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA25 &Instance() { return *reinterpret_cast<volatile RDC_MREA25*>(0x40C78994); }
+  static inline volatile RDC_MREA25 &ref() { return *reinterpret_cast<volatile RDC_MREA25*>(0x40C78994); }
 };
 // Memory Region End Address
 union RDC_MREA26 {
@@ -11598,7 +11598,7 @@ union RDC_MREA26 {
 
   RDC_MREA26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA26 &Instance() { return *reinterpret_cast<volatile RDC_MREA26*>(0x40C789A4); }
+  static inline volatile RDC_MREA26 &ref() { return *reinterpret_cast<volatile RDC_MREA26*>(0x40C789A4); }
 };
 // Memory Region End Address
 union RDC_MREA27 {
@@ -11615,7 +11615,7 @@ union RDC_MREA27 {
 
   RDC_MREA27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA27 &Instance() { return *reinterpret_cast<volatile RDC_MREA27*>(0x40C789B4); }
+  static inline volatile RDC_MREA27 &ref() { return *reinterpret_cast<volatile RDC_MREA27*>(0x40C789B4); }
 };
 // Memory Region End Address
 union RDC_MREA28 {
@@ -11632,7 +11632,7 @@ union RDC_MREA28 {
 
   RDC_MREA28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA28 &Instance() { return *reinterpret_cast<volatile RDC_MREA28*>(0x40C789C4); }
+  static inline volatile RDC_MREA28 &ref() { return *reinterpret_cast<volatile RDC_MREA28*>(0x40C789C4); }
 };
 // Memory Region End Address
 union RDC_MREA29 {
@@ -11649,7 +11649,7 @@ union RDC_MREA29 {
 
   RDC_MREA29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA29 &Instance() { return *reinterpret_cast<volatile RDC_MREA29*>(0x40C789D4); }
+  static inline volatile RDC_MREA29 &ref() { return *reinterpret_cast<volatile RDC_MREA29*>(0x40C789D4); }
 };
 // Memory Region End Address
 union RDC_MREA30 {
@@ -11666,7 +11666,7 @@ union RDC_MREA30 {
 
   RDC_MREA30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA30 &Instance() { return *reinterpret_cast<volatile RDC_MREA30*>(0x40C789E4); }
+  static inline volatile RDC_MREA30 &ref() { return *reinterpret_cast<volatile RDC_MREA30*>(0x40C789E4); }
 };
 // Memory Region End Address
 union RDC_MREA31 {
@@ -11683,7 +11683,7 @@ union RDC_MREA31 {
 
   RDC_MREA31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA31 &Instance() { return *reinterpret_cast<volatile RDC_MREA31*>(0x40C789F4); }
+  static inline volatile RDC_MREA31 &ref() { return *reinterpret_cast<volatile RDC_MREA31*>(0x40C789F4); }
 };
 // Memory Region End Address
 union RDC_MREA32 {
@@ -11700,7 +11700,7 @@ union RDC_MREA32 {
 
   RDC_MREA32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA32 &Instance() { return *reinterpret_cast<volatile RDC_MREA32*>(0x40C78A04); }
+  static inline volatile RDC_MREA32 &ref() { return *reinterpret_cast<volatile RDC_MREA32*>(0x40C78A04); }
 };
 // Memory Region End Address
 union RDC_MREA33 {
@@ -11717,7 +11717,7 @@ union RDC_MREA33 {
 
   RDC_MREA33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA33 &Instance() { return *reinterpret_cast<volatile RDC_MREA33*>(0x40C78A14); }
+  static inline volatile RDC_MREA33 &ref() { return *reinterpret_cast<volatile RDC_MREA33*>(0x40C78A14); }
 };
 // Memory Region End Address
 union RDC_MREA34 {
@@ -11734,7 +11734,7 @@ union RDC_MREA34 {
 
   RDC_MREA34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA34 &Instance() { return *reinterpret_cast<volatile RDC_MREA34*>(0x40C78A24); }
+  static inline volatile RDC_MREA34 &ref() { return *reinterpret_cast<volatile RDC_MREA34*>(0x40C78A24); }
 };
 // Memory Region End Address
 union RDC_MREA35 {
@@ -11751,7 +11751,7 @@ union RDC_MREA35 {
 
   RDC_MREA35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA35 &Instance() { return *reinterpret_cast<volatile RDC_MREA35*>(0x40C78A34); }
+  static inline volatile RDC_MREA35 &ref() { return *reinterpret_cast<volatile RDC_MREA35*>(0x40C78A34); }
 };
 // Memory Region End Address
 union RDC_MREA36 {
@@ -11768,7 +11768,7 @@ union RDC_MREA36 {
 
   RDC_MREA36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA36 &Instance() { return *reinterpret_cast<volatile RDC_MREA36*>(0x40C78A44); }
+  static inline volatile RDC_MREA36 &ref() { return *reinterpret_cast<volatile RDC_MREA36*>(0x40C78A44); }
 };
 // Memory Region End Address
 union RDC_MREA37 {
@@ -11785,7 +11785,7 @@ union RDC_MREA37 {
 
   RDC_MREA37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA37 &Instance() { return *reinterpret_cast<volatile RDC_MREA37*>(0x40C78A54); }
+  static inline volatile RDC_MREA37 &ref() { return *reinterpret_cast<volatile RDC_MREA37*>(0x40C78A54); }
 };
 // Memory Region End Address
 union RDC_MREA38 {
@@ -11802,7 +11802,7 @@ union RDC_MREA38 {
 
   RDC_MREA38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA38 &Instance() { return *reinterpret_cast<volatile RDC_MREA38*>(0x40C78A64); }
+  static inline volatile RDC_MREA38 &ref() { return *reinterpret_cast<volatile RDC_MREA38*>(0x40C78A64); }
 };
 // Memory Region End Address
 union RDC_MREA39 {
@@ -11819,7 +11819,7 @@ union RDC_MREA39 {
 
   RDC_MREA39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA39 &Instance() { return *reinterpret_cast<volatile RDC_MREA39*>(0x40C78A74); }
+  static inline volatile RDC_MREA39 &ref() { return *reinterpret_cast<volatile RDC_MREA39*>(0x40C78A74); }
 };
 // Memory Region End Address
 union RDC_MREA40 {
@@ -11836,7 +11836,7 @@ union RDC_MREA40 {
 
   RDC_MREA40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA40 &Instance() { return *reinterpret_cast<volatile RDC_MREA40*>(0x40C78A84); }
+  static inline volatile RDC_MREA40 &ref() { return *reinterpret_cast<volatile RDC_MREA40*>(0x40C78A84); }
 };
 // Memory Region End Address
 union RDC_MREA41 {
@@ -11853,7 +11853,7 @@ union RDC_MREA41 {
 
   RDC_MREA41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA41 &Instance() { return *reinterpret_cast<volatile RDC_MREA41*>(0x40C78A94); }
+  static inline volatile RDC_MREA41 &ref() { return *reinterpret_cast<volatile RDC_MREA41*>(0x40C78A94); }
 };
 // Memory Region End Address
 union RDC_MREA42 {
@@ -11870,7 +11870,7 @@ union RDC_MREA42 {
 
   RDC_MREA42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA42 &Instance() { return *reinterpret_cast<volatile RDC_MREA42*>(0x40C78AA4); }
+  static inline volatile RDC_MREA42 &ref() { return *reinterpret_cast<volatile RDC_MREA42*>(0x40C78AA4); }
 };
 // Memory Region End Address
 union RDC_MREA43 {
@@ -11887,7 +11887,7 @@ union RDC_MREA43 {
 
   RDC_MREA43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA43 &Instance() { return *reinterpret_cast<volatile RDC_MREA43*>(0x40C78AB4); }
+  static inline volatile RDC_MREA43 &ref() { return *reinterpret_cast<volatile RDC_MREA43*>(0x40C78AB4); }
 };
 // Memory Region End Address
 union RDC_MREA44 {
@@ -11904,7 +11904,7 @@ union RDC_MREA44 {
 
   RDC_MREA44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA44 &Instance() { return *reinterpret_cast<volatile RDC_MREA44*>(0x40C78AC4); }
+  static inline volatile RDC_MREA44 &ref() { return *reinterpret_cast<volatile RDC_MREA44*>(0x40C78AC4); }
 };
 // Memory Region End Address
 union RDC_MREA45 {
@@ -11921,7 +11921,7 @@ union RDC_MREA45 {
 
   RDC_MREA45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA45 &Instance() { return *reinterpret_cast<volatile RDC_MREA45*>(0x40C78AD4); }
+  static inline volatile RDC_MREA45 &ref() { return *reinterpret_cast<volatile RDC_MREA45*>(0x40C78AD4); }
 };
 // Memory Region End Address
 union RDC_MREA46 {
@@ -11938,7 +11938,7 @@ union RDC_MREA46 {
 
   RDC_MREA46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA46 &Instance() { return *reinterpret_cast<volatile RDC_MREA46*>(0x40C78AE4); }
+  static inline volatile RDC_MREA46 &ref() { return *reinterpret_cast<volatile RDC_MREA46*>(0x40C78AE4); }
 };
 // Memory Region End Address
 union RDC_MREA47 {
@@ -11955,7 +11955,7 @@ union RDC_MREA47 {
 
   RDC_MREA47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA47 &Instance() { return *reinterpret_cast<volatile RDC_MREA47*>(0x40C78AF4); }
+  static inline volatile RDC_MREA47 &ref() { return *reinterpret_cast<volatile RDC_MREA47*>(0x40C78AF4); }
 };
 // Memory Region End Address
 union RDC_MREA48 {
@@ -11972,7 +11972,7 @@ union RDC_MREA48 {
 
   RDC_MREA48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA48 &Instance() { return *reinterpret_cast<volatile RDC_MREA48*>(0x40C78B04); }
+  static inline volatile RDC_MREA48 &ref() { return *reinterpret_cast<volatile RDC_MREA48*>(0x40C78B04); }
 };
 // Memory Region End Address
 union RDC_MREA49 {
@@ -11989,7 +11989,7 @@ union RDC_MREA49 {
 
   RDC_MREA49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA49 &Instance() { return *reinterpret_cast<volatile RDC_MREA49*>(0x40C78B14); }
+  static inline volatile RDC_MREA49 &ref() { return *reinterpret_cast<volatile RDC_MREA49*>(0x40C78B14); }
 };
 // Memory Region End Address
 union RDC_MREA50 {
@@ -12006,7 +12006,7 @@ union RDC_MREA50 {
 
   RDC_MREA50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA50 &Instance() { return *reinterpret_cast<volatile RDC_MREA50*>(0x40C78B24); }
+  static inline volatile RDC_MREA50 &ref() { return *reinterpret_cast<volatile RDC_MREA50*>(0x40C78B24); }
 };
 // Memory Region End Address
 union RDC_MREA51 {
@@ -12023,7 +12023,7 @@ union RDC_MREA51 {
 
   RDC_MREA51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA51 &Instance() { return *reinterpret_cast<volatile RDC_MREA51*>(0x40C78B34); }
+  static inline volatile RDC_MREA51 &ref() { return *reinterpret_cast<volatile RDC_MREA51*>(0x40C78B34); }
 };
 // Memory Region End Address
 union RDC_MREA52 {
@@ -12040,7 +12040,7 @@ union RDC_MREA52 {
 
   RDC_MREA52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA52 &Instance() { return *reinterpret_cast<volatile RDC_MREA52*>(0x40C78B44); }
+  static inline volatile RDC_MREA52 &ref() { return *reinterpret_cast<volatile RDC_MREA52*>(0x40C78B44); }
 };
 // Memory Region End Address
 union RDC_MREA53 {
@@ -12057,7 +12057,7 @@ union RDC_MREA53 {
 
   RDC_MREA53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA53 &Instance() { return *reinterpret_cast<volatile RDC_MREA53*>(0x40C78B54); }
+  static inline volatile RDC_MREA53 &ref() { return *reinterpret_cast<volatile RDC_MREA53*>(0x40C78B54); }
 };
 // Memory Region End Address
 union RDC_MREA54 {
@@ -12074,7 +12074,7 @@ union RDC_MREA54 {
 
   RDC_MREA54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA54 &Instance() { return *reinterpret_cast<volatile RDC_MREA54*>(0x40C78B64); }
+  static inline volatile RDC_MREA54 &ref() { return *reinterpret_cast<volatile RDC_MREA54*>(0x40C78B64); }
 };
 // Memory Region End Address
 union RDC_MREA55 {
@@ -12091,7 +12091,7 @@ union RDC_MREA55 {
 
   RDC_MREA55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA55 &Instance() { return *reinterpret_cast<volatile RDC_MREA55*>(0x40C78B74); }
+  static inline volatile RDC_MREA55 &ref() { return *reinterpret_cast<volatile RDC_MREA55*>(0x40C78B74); }
 };
 // Memory Region End Address
 union RDC_MREA56 {
@@ -12108,7 +12108,7 @@ union RDC_MREA56 {
 
   RDC_MREA56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA56 &Instance() { return *reinterpret_cast<volatile RDC_MREA56*>(0x40C78B84); }
+  static inline volatile RDC_MREA56 &ref() { return *reinterpret_cast<volatile RDC_MREA56*>(0x40C78B84); }
 };
 // Memory Region End Address
 union RDC_MREA57 {
@@ -12125,7 +12125,7 @@ union RDC_MREA57 {
 
   RDC_MREA57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA57 &Instance() { return *reinterpret_cast<volatile RDC_MREA57*>(0x40C78B94); }
+  static inline volatile RDC_MREA57 &ref() { return *reinterpret_cast<volatile RDC_MREA57*>(0x40C78B94); }
 };
 // Memory Region End Address
 union RDC_MREA58 {
@@ -12142,7 +12142,7 @@ union RDC_MREA58 {
 
   RDC_MREA58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MREA58 &Instance() { return *reinterpret_cast<volatile RDC_MREA58*>(0x40C78BA4); }
+  static inline volatile RDC_MREA58 &ref() { return *reinterpret_cast<volatile RDC_MREA58*>(0x40C78BA4); }
 };
 
 // Memory Region Control
@@ -12218,7 +12218,7 @@ union RDC_MRC0 {
 
   RDC_MRC0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC0 &Instance() { return *reinterpret_cast<volatile RDC_MRC0*>(0x40C78808); }
+  static inline volatile RDC_MRC0 &ref() { return *reinterpret_cast<volatile RDC_MRC0*>(0x40C78808); }
 };
 // Memory Region Control
 union RDC_MRC1 {
@@ -12293,7 +12293,7 @@ union RDC_MRC1 {
 
   RDC_MRC1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC1 &Instance() { return *reinterpret_cast<volatile RDC_MRC1*>(0x40C78818); }
+  static inline volatile RDC_MRC1 &ref() { return *reinterpret_cast<volatile RDC_MRC1*>(0x40C78818); }
 };
 // Memory Region Control
 union RDC_MRC2 {
@@ -12368,7 +12368,7 @@ union RDC_MRC2 {
 
   RDC_MRC2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC2 &Instance() { return *reinterpret_cast<volatile RDC_MRC2*>(0x40C78828); }
+  static inline volatile RDC_MRC2 &ref() { return *reinterpret_cast<volatile RDC_MRC2*>(0x40C78828); }
 };
 // Memory Region Control
 union RDC_MRC3 {
@@ -12443,7 +12443,7 @@ union RDC_MRC3 {
 
   RDC_MRC3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC3 &Instance() { return *reinterpret_cast<volatile RDC_MRC3*>(0x40C78838); }
+  static inline volatile RDC_MRC3 &ref() { return *reinterpret_cast<volatile RDC_MRC3*>(0x40C78838); }
 };
 // Memory Region Control
 union RDC_MRC4 {
@@ -12518,7 +12518,7 @@ union RDC_MRC4 {
 
   RDC_MRC4() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC4 &Instance() { return *reinterpret_cast<volatile RDC_MRC4*>(0x40C78848); }
+  static inline volatile RDC_MRC4 &ref() { return *reinterpret_cast<volatile RDC_MRC4*>(0x40C78848); }
 };
 // Memory Region Control
 union RDC_MRC5 {
@@ -12593,7 +12593,7 @@ union RDC_MRC5 {
 
   RDC_MRC5() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC5 &Instance() { return *reinterpret_cast<volatile RDC_MRC5*>(0x40C78858); }
+  static inline volatile RDC_MRC5 &ref() { return *reinterpret_cast<volatile RDC_MRC5*>(0x40C78858); }
 };
 // Memory Region Control
 union RDC_MRC6 {
@@ -12668,7 +12668,7 @@ union RDC_MRC6 {
 
   RDC_MRC6() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC6 &Instance() { return *reinterpret_cast<volatile RDC_MRC6*>(0x40C78868); }
+  static inline volatile RDC_MRC6 &ref() { return *reinterpret_cast<volatile RDC_MRC6*>(0x40C78868); }
 };
 // Memory Region Control
 union RDC_MRC7 {
@@ -12743,7 +12743,7 @@ union RDC_MRC7 {
 
   RDC_MRC7() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC7 &Instance() { return *reinterpret_cast<volatile RDC_MRC7*>(0x40C78878); }
+  static inline volatile RDC_MRC7 &ref() { return *reinterpret_cast<volatile RDC_MRC7*>(0x40C78878); }
 };
 // Memory Region Control
 union RDC_MRC8 {
@@ -12818,7 +12818,7 @@ union RDC_MRC8 {
 
   RDC_MRC8() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC8 &Instance() { return *reinterpret_cast<volatile RDC_MRC8*>(0x40C78888); }
+  static inline volatile RDC_MRC8 &ref() { return *reinterpret_cast<volatile RDC_MRC8*>(0x40C78888); }
 };
 // Memory Region Control
 union RDC_MRC9 {
@@ -12893,7 +12893,7 @@ union RDC_MRC9 {
 
   RDC_MRC9() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC9 &Instance() { return *reinterpret_cast<volatile RDC_MRC9*>(0x40C78898); }
+  static inline volatile RDC_MRC9 &ref() { return *reinterpret_cast<volatile RDC_MRC9*>(0x40C78898); }
 };
 // Memory Region Control
 union RDC_MRC10 {
@@ -12968,7 +12968,7 @@ union RDC_MRC10 {
 
   RDC_MRC10() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC10 &Instance() { return *reinterpret_cast<volatile RDC_MRC10*>(0x40C788A8); }
+  static inline volatile RDC_MRC10 &ref() { return *reinterpret_cast<volatile RDC_MRC10*>(0x40C788A8); }
 };
 // Memory Region Control
 union RDC_MRC11 {
@@ -13043,7 +13043,7 @@ union RDC_MRC11 {
 
   RDC_MRC11() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC11 &Instance() { return *reinterpret_cast<volatile RDC_MRC11*>(0x40C788B8); }
+  static inline volatile RDC_MRC11 &ref() { return *reinterpret_cast<volatile RDC_MRC11*>(0x40C788B8); }
 };
 // Memory Region Control
 union RDC_MRC12 {
@@ -13118,7 +13118,7 @@ union RDC_MRC12 {
 
   RDC_MRC12() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC12 &Instance() { return *reinterpret_cast<volatile RDC_MRC12*>(0x40C788C8); }
+  static inline volatile RDC_MRC12 &ref() { return *reinterpret_cast<volatile RDC_MRC12*>(0x40C788C8); }
 };
 // Memory Region Control
 union RDC_MRC13 {
@@ -13193,7 +13193,7 @@ union RDC_MRC13 {
 
   RDC_MRC13() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC13 &Instance() { return *reinterpret_cast<volatile RDC_MRC13*>(0x40C788D8); }
+  static inline volatile RDC_MRC13 &ref() { return *reinterpret_cast<volatile RDC_MRC13*>(0x40C788D8); }
 };
 // Memory Region Control
 union RDC_MRC14 {
@@ -13268,7 +13268,7 @@ union RDC_MRC14 {
 
   RDC_MRC14() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC14 &Instance() { return *reinterpret_cast<volatile RDC_MRC14*>(0x40C788E8); }
+  static inline volatile RDC_MRC14 &ref() { return *reinterpret_cast<volatile RDC_MRC14*>(0x40C788E8); }
 };
 // Memory Region Control
 union RDC_MRC15 {
@@ -13343,7 +13343,7 @@ union RDC_MRC15 {
 
   RDC_MRC15() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC15 &Instance() { return *reinterpret_cast<volatile RDC_MRC15*>(0x40C788F8); }
+  static inline volatile RDC_MRC15 &ref() { return *reinterpret_cast<volatile RDC_MRC15*>(0x40C788F8); }
 };
 // Memory Region Control
 union RDC_MRC16 {
@@ -13418,7 +13418,7 @@ union RDC_MRC16 {
 
   RDC_MRC16() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC16 &Instance() { return *reinterpret_cast<volatile RDC_MRC16*>(0x40C78908); }
+  static inline volatile RDC_MRC16 &ref() { return *reinterpret_cast<volatile RDC_MRC16*>(0x40C78908); }
 };
 // Memory Region Control
 union RDC_MRC17 {
@@ -13493,7 +13493,7 @@ union RDC_MRC17 {
 
   RDC_MRC17() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC17 &Instance() { return *reinterpret_cast<volatile RDC_MRC17*>(0x40C78918); }
+  static inline volatile RDC_MRC17 &ref() { return *reinterpret_cast<volatile RDC_MRC17*>(0x40C78918); }
 };
 // Memory Region Control
 union RDC_MRC18 {
@@ -13568,7 +13568,7 @@ union RDC_MRC18 {
 
   RDC_MRC18() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC18 &Instance() { return *reinterpret_cast<volatile RDC_MRC18*>(0x40C78928); }
+  static inline volatile RDC_MRC18 &ref() { return *reinterpret_cast<volatile RDC_MRC18*>(0x40C78928); }
 };
 // Memory Region Control
 union RDC_MRC19 {
@@ -13643,7 +13643,7 @@ union RDC_MRC19 {
 
   RDC_MRC19() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC19 &Instance() { return *reinterpret_cast<volatile RDC_MRC19*>(0x40C78938); }
+  static inline volatile RDC_MRC19 &ref() { return *reinterpret_cast<volatile RDC_MRC19*>(0x40C78938); }
 };
 // Memory Region Control
 union RDC_MRC20 {
@@ -13718,7 +13718,7 @@ union RDC_MRC20 {
 
   RDC_MRC20() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC20 &Instance() { return *reinterpret_cast<volatile RDC_MRC20*>(0x40C78948); }
+  static inline volatile RDC_MRC20 &ref() { return *reinterpret_cast<volatile RDC_MRC20*>(0x40C78948); }
 };
 // Memory Region Control
 union RDC_MRC21 {
@@ -13793,7 +13793,7 @@ union RDC_MRC21 {
 
   RDC_MRC21() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC21 &Instance() { return *reinterpret_cast<volatile RDC_MRC21*>(0x40C78958); }
+  static inline volatile RDC_MRC21 &ref() { return *reinterpret_cast<volatile RDC_MRC21*>(0x40C78958); }
 };
 // Memory Region Control
 union RDC_MRC22 {
@@ -13868,7 +13868,7 @@ union RDC_MRC22 {
 
   RDC_MRC22() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC22 &Instance() { return *reinterpret_cast<volatile RDC_MRC22*>(0x40C78968); }
+  static inline volatile RDC_MRC22 &ref() { return *reinterpret_cast<volatile RDC_MRC22*>(0x40C78968); }
 };
 // Memory Region Control
 union RDC_MRC23 {
@@ -13943,7 +13943,7 @@ union RDC_MRC23 {
 
   RDC_MRC23() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC23 &Instance() { return *reinterpret_cast<volatile RDC_MRC23*>(0x40C78978); }
+  static inline volatile RDC_MRC23 &ref() { return *reinterpret_cast<volatile RDC_MRC23*>(0x40C78978); }
 };
 // Memory Region Control
 union RDC_MRC24 {
@@ -14018,7 +14018,7 @@ union RDC_MRC24 {
 
   RDC_MRC24() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC24 &Instance() { return *reinterpret_cast<volatile RDC_MRC24*>(0x40C78988); }
+  static inline volatile RDC_MRC24 &ref() { return *reinterpret_cast<volatile RDC_MRC24*>(0x40C78988); }
 };
 // Memory Region Control
 union RDC_MRC25 {
@@ -14093,7 +14093,7 @@ union RDC_MRC25 {
 
   RDC_MRC25() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC25 &Instance() { return *reinterpret_cast<volatile RDC_MRC25*>(0x40C78998); }
+  static inline volatile RDC_MRC25 &ref() { return *reinterpret_cast<volatile RDC_MRC25*>(0x40C78998); }
 };
 // Memory Region Control
 union RDC_MRC26 {
@@ -14168,7 +14168,7 @@ union RDC_MRC26 {
 
   RDC_MRC26() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC26 &Instance() { return *reinterpret_cast<volatile RDC_MRC26*>(0x40C789A8); }
+  static inline volatile RDC_MRC26 &ref() { return *reinterpret_cast<volatile RDC_MRC26*>(0x40C789A8); }
 };
 // Memory Region Control
 union RDC_MRC27 {
@@ -14243,7 +14243,7 @@ union RDC_MRC27 {
 
   RDC_MRC27() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC27 &Instance() { return *reinterpret_cast<volatile RDC_MRC27*>(0x40C789B8); }
+  static inline volatile RDC_MRC27 &ref() { return *reinterpret_cast<volatile RDC_MRC27*>(0x40C789B8); }
 };
 // Memory Region Control
 union RDC_MRC28 {
@@ -14318,7 +14318,7 @@ union RDC_MRC28 {
 
   RDC_MRC28() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC28 &Instance() { return *reinterpret_cast<volatile RDC_MRC28*>(0x40C789C8); }
+  static inline volatile RDC_MRC28 &ref() { return *reinterpret_cast<volatile RDC_MRC28*>(0x40C789C8); }
 };
 // Memory Region Control
 union RDC_MRC29 {
@@ -14393,7 +14393,7 @@ union RDC_MRC29 {
 
   RDC_MRC29() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC29 &Instance() { return *reinterpret_cast<volatile RDC_MRC29*>(0x40C789D8); }
+  static inline volatile RDC_MRC29 &ref() { return *reinterpret_cast<volatile RDC_MRC29*>(0x40C789D8); }
 };
 // Memory Region Control
 union RDC_MRC30 {
@@ -14468,7 +14468,7 @@ union RDC_MRC30 {
 
   RDC_MRC30() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC30 &Instance() { return *reinterpret_cast<volatile RDC_MRC30*>(0x40C789E8); }
+  static inline volatile RDC_MRC30 &ref() { return *reinterpret_cast<volatile RDC_MRC30*>(0x40C789E8); }
 };
 // Memory Region Control
 union RDC_MRC31 {
@@ -14543,7 +14543,7 @@ union RDC_MRC31 {
 
   RDC_MRC31() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC31 &Instance() { return *reinterpret_cast<volatile RDC_MRC31*>(0x40C789F8); }
+  static inline volatile RDC_MRC31 &ref() { return *reinterpret_cast<volatile RDC_MRC31*>(0x40C789F8); }
 };
 // Memory Region Control
 union RDC_MRC32 {
@@ -14618,7 +14618,7 @@ union RDC_MRC32 {
 
   RDC_MRC32() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC32 &Instance() { return *reinterpret_cast<volatile RDC_MRC32*>(0x40C78A08); }
+  static inline volatile RDC_MRC32 &ref() { return *reinterpret_cast<volatile RDC_MRC32*>(0x40C78A08); }
 };
 // Memory Region Control
 union RDC_MRC33 {
@@ -14693,7 +14693,7 @@ union RDC_MRC33 {
 
   RDC_MRC33() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC33 &Instance() { return *reinterpret_cast<volatile RDC_MRC33*>(0x40C78A18); }
+  static inline volatile RDC_MRC33 &ref() { return *reinterpret_cast<volatile RDC_MRC33*>(0x40C78A18); }
 };
 // Memory Region Control
 union RDC_MRC34 {
@@ -14768,7 +14768,7 @@ union RDC_MRC34 {
 
   RDC_MRC34() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC34 &Instance() { return *reinterpret_cast<volatile RDC_MRC34*>(0x40C78A28); }
+  static inline volatile RDC_MRC34 &ref() { return *reinterpret_cast<volatile RDC_MRC34*>(0x40C78A28); }
 };
 // Memory Region Control
 union RDC_MRC35 {
@@ -14843,7 +14843,7 @@ union RDC_MRC35 {
 
   RDC_MRC35() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC35 &Instance() { return *reinterpret_cast<volatile RDC_MRC35*>(0x40C78A38); }
+  static inline volatile RDC_MRC35 &ref() { return *reinterpret_cast<volatile RDC_MRC35*>(0x40C78A38); }
 };
 // Memory Region Control
 union RDC_MRC36 {
@@ -14918,7 +14918,7 @@ union RDC_MRC36 {
 
   RDC_MRC36() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC36 &Instance() { return *reinterpret_cast<volatile RDC_MRC36*>(0x40C78A48); }
+  static inline volatile RDC_MRC36 &ref() { return *reinterpret_cast<volatile RDC_MRC36*>(0x40C78A48); }
 };
 // Memory Region Control
 union RDC_MRC37 {
@@ -14993,7 +14993,7 @@ union RDC_MRC37 {
 
   RDC_MRC37() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC37 &Instance() { return *reinterpret_cast<volatile RDC_MRC37*>(0x40C78A58); }
+  static inline volatile RDC_MRC37 &ref() { return *reinterpret_cast<volatile RDC_MRC37*>(0x40C78A58); }
 };
 // Memory Region Control
 union RDC_MRC38 {
@@ -15068,7 +15068,7 @@ union RDC_MRC38 {
 
   RDC_MRC38() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC38 &Instance() { return *reinterpret_cast<volatile RDC_MRC38*>(0x40C78A68); }
+  static inline volatile RDC_MRC38 &ref() { return *reinterpret_cast<volatile RDC_MRC38*>(0x40C78A68); }
 };
 // Memory Region Control
 union RDC_MRC39 {
@@ -15143,7 +15143,7 @@ union RDC_MRC39 {
 
   RDC_MRC39() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC39 &Instance() { return *reinterpret_cast<volatile RDC_MRC39*>(0x40C78A78); }
+  static inline volatile RDC_MRC39 &ref() { return *reinterpret_cast<volatile RDC_MRC39*>(0x40C78A78); }
 };
 // Memory Region Control
 union RDC_MRC40 {
@@ -15218,7 +15218,7 @@ union RDC_MRC40 {
 
   RDC_MRC40() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC40 &Instance() { return *reinterpret_cast<volatile RDC_MRC40*>(0x40C78A88); }
+  static inline volatile RDC_MRC40 &ref() { return *reinterpret_cast<volatile RDC_MRC40*>(0x40C78A88); }
 };
 // Memory Region Control
 union RDC_MRC41 {
@@ -15293,7 +15293,7 @@ union RDC_MRC41 {
 
   RDC_MRC41() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC41 &Instance() { return *reinterpret_cast<volatile RDC_MRC41*>(0x40C78A98); }
+  static inline volatile RDC_MRC41 &ref() { return *reinterpret_cast<volatile RDC_MRC41*>(0x40C78A98); }
 };
 // Memory Region Control
 union RDC_MRC42 {
@@ -15368,7 +15368,7 @@ union RDC_MRC42 {
 
   RDC_MRC42() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC42 &Instance() { return *reinterpret_cast<volatile RDC_MRC42*>(0x40C78AA8); }
+  static inline volatile RDC_MRC42 &ref() { return *reinterpret_cast<volatile RDC_MRC42*>(0x40C78AA8); }
 };
 // Memory Region Control
 union RDC_MRC43 {
@@ -15443,7 +15443,7 @@ union RDC_MRC43 {
 
   RDC_MRC43() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC43 &Instance() { return *reinterpret_cast<volatile RDC_MRC43*>(0x40C78AB8); }
+  static inline volatile RDC_MRC43 &ref() { return *reinterpret_cast<volatile RDC_MRC43*>(0x40C78AB8); }
 };
 // Memory Region Control
 union RDC_MRC44 {
@@ -15518,7 +15518,7 @@ union RDC_MRC44 {
 
   RDC_MRC44() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC44 &Instance() { return *reinterpret_cast<volatile RDC_MRC44*>(0x40C78AC8); }
+  static inline volatile RDC_MRC44 &ref() { return *reinterpret_cast<volatile RDC_MRC44*>(0x40C78AC8); }
 };
 // Memory Region Control
 union RDC_MRC45 {
@@ -15593,7 +15593,7 @@ union RDC_MRC45 {
 
   RDC_MRC45() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC45 &Instance() { return *reinterpret_cast<volatile RDC_MRC45*>(0x40C78AD8); }
+  static inline volatile RDC_MRC45 &ref() { return *reinterpret_cast<volatile RDC_MRC45*>(0x40C78AD8); }
 };
 // Memory Region Control
 union RDC_MRC46 {
@@ -15668,7 +15668,7 @@ union RDC_MRC46 {
 
   RDC_MRC46() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC46 &Instance() { return *reinterpret_cast<volatile RDC_MRC46*>(0x40C78AE8); }
+  static inline volatile RDC_MRC46 &ref() { return *reinterpret_cast<volatile RDC_MRC46*>(0x40C78AE8); }
 };
 // Memory Region Control
 union RDC_MRC47 {
@@ -15743,7 +15743,7 @@ union RDC_MRC47 {
 
   RDC_MRC47() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC47 &Instance() { return *reinterpret_cast<volatile RDC_MRC47*>(0x40C78AF8); }
+  static inline volatile RDC_MRC47 &ref() { return *reinterpret_cast<volatile RDC_MRC47*>(0x40C78AF8); }
 };
 // Memory Region Control
 union RDC_MRC48 {
@@ -15818,7 +15818,7 @@ union RDC_MRC48 {
 
   RDC_MRC48() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC48 &Instance() { return *reinterpret_cast<volatile RDC_MRC48*>(0x40C78B08); }
+  static inline volatile RDC_MRC48 &ref() { return *reinterpret_cast<volatile RDC_MRC48*>(0x40C78B08); }
 };
 // Memory Region Control
 union RDC_MRC49 {
@@ -15893,7 +15893,7 @@ union RDC_MRC49 {
 
   RDC_MRC49() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC49 &Instance() { return *reinterpret_cast<volatile RDC_MRC49*>(0x40C78B18); }
+  static inline volatile RDC_MRC49 &ref() { return *reinterpret_cast<volatile RDC_MRC49*>(0x40C78B18); }
 };
 // Memory Region Control
 union RDC_MRC50 {
@@ -15968,7 +15968,7 @@ union RDC_MRC50 {
 
   RDC_MRC50() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC50 &Instance() { return *reinterpret_cast<volatile RDC_MRC50*>(0x40C78B28); }
+  static inline volatile RDC_MRC50 &ref() { return *reinterpret_cast<volatile RDC_MRC50*>(0x40C78B28); }
 };
 // Memory Region Control
 union RDC_MRC51 {
@@ -16043,7 +16043,7 @@ union RDC_MRC51 {
 
   RDC_MRC51() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC51 &Instance() { return *reinterpret_cast<volatile RDC_MRC51*>(0x40C78B38); }
+  static inline volatile RDC_MRC51 &ref() { return *reinterpret_cast<volatile RDC_MRC51*>(0x40C78B38); }
 };
 // Memory Region Control
 union RDC_MRC52 {
@@ -16118,7 +16118,7 @@ union RDC_MRC52 {
 
   RDC_MRC52() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC52 &Instance() { return *reinterpret_cast<volatile RDC_MRC52*>(0x40C78B48); }
+  static inline volatile RDC_MRC52 &ref() { return *reinterpret_cast<volatile RDC_MRC52*>(0x40C78B48); }
 };
 // Memory Region Control
 union RDC_MRC53 {
@@ -16193,7 +16193,7 @@ union RDC_MRC53 {
 
   RDC_MRC53() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC53 &Instance() { return *reinterpret_cast<volatile RDC_MRC53*>(0x40C78B58); }
+  static inline volatile RDC_MRC53 &ref() { return *reinterpret_cast<volatile RDC_MRC53*>(0x40C78B58); }
 };
 // Memory Region Control
 union RDC_MRC54 {
@@ -16268,7 +16268,7 @@ union RDC_MRC54 {
 
   RDC_MRC54() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC54 &Instance() { return *reinterpret_cast<volatile RDC_MRC54*>(0x40C78B68); }
+  static inline volatile RDC_MRC54 &ref() { return *reinterpret_cast<volatile RDC_MRC54*>(0x40C78B68); }
 };
 // Memory Region Control
 union RDC_MRC55 {
@@ -16343,7 +16343,7 @@ union RDC_MRC55 {
 
   RDC_MRC55() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC55 &Instance() { return *reinterpret_cast<volatile RDC_MRC55*>(0x40C78B78); }
+  static inline volatile RDC_MRC55 &ref() { return *reinterpret_cast<volatile RDC_MRC55*>(0x40C78B78); }
 };
 // Memory Region Control
 union RDC_MRC56 {
@@ -16418,7 +16418,7 @@ union RDC_MRC56 {
 
   RDC_MRC56() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC56 &Instance() { return *reinterpret_cast<volatile RDC_MRC56*>(0x40C78B88); }
+  static inline volatile RDC_MRC56 &ref() { return *reinterpret_cast<volatile RDC_MRC56*>(0x40C78B88); }
 };
 // Memory Region Control
 union RDC_MRC57 {
@@ -16493,7 +16493,7 @@ union RDC_MRC57 {
 
   RDC_MRC57() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC57 &Instance() { return *reinterpret_cast<volatile RDC_MRC57*>(0x40C78B98); }
+  static inline volatile RDC_MRC57 &ref() { return *reinterpret_cast<volatile RDC_MRC57*>(0x40C78B98); }
 };
 // Memory Region Control
 union RDC_MRC58 {
@@ -16568,7 +16568,7 @@ union RDC_MRC58 {
 
   RDC_MRC58() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile RDC_MRC58 &Instance() { return *reinterpret_cast<volatile RDC_MRC58*>(0x40C78BA8); }
+  static inline volatile RDC_MRC58 &ref() { return *reinterpret_cast<volatile RDC_MRC58*>(0x40C78BA8); }
 };
 
 // Memory Region Violation Status
@@ -16598,7 +16598,7 @@ union RDC_MRVS0 {
 
   RDC_MRVS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS0 &Instance() { return *reinterpret_cast<volatile RDC_MRVS0*>(0x40C7880C); }
+  static inline volatile RDC_MRVS0 &ref() { return *reinterpret_cast<volatile RDC_MRVS0*>(0x40C7880C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS1 {
@@ -16627,7 +16627,7 @@ union RDC_MRVS1 {
 
   RDC_MRVS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS1 &Instance() { return *reinterpret_cast<volatile RDC_MRVS1*>(0x40C7881C); }
+  static inline volatile RDC_MRVS1 &ref() { return *reinterpret_cast<volatile RDC_MRVS1*>(0x40C7881C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS2 {
@@ -16656,7 +16656,7 @@ union RDC_MRVS2 {
 
   RDC_MRVS2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS2 &Instance() { return *reinterpret_cast<volatile RDC_MRVS2*>(0x40C7882C); }
+  static inline volatile RDC_MRVS2 &ref() { return *reinterpret_cast<volatile RDC_MRVS2*>(0x40C7882C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS3 {
@@ -16685,7 +16685,7 @@ union RDC_MRVS3 {
 
   RDC_MRVS3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS3 &Instance() { return *reinterpret_cast<volatile RDC_MRVS3*>(0x40C7883C); }
+  static inline volatile RDC_MRVS3 &ref() { return *reinterpret_cast<volatile RDC_MRVS3*>(0x40C7883C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS4 {
@@ -16714,7 +16714,7 @@ union RDC_MRVS4 {
 
   RDC_MRVS4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS4 &Instance() { return *reinterpret_cast<volatile RDC_MRVS4*>(0x40C7884C); }
+  static inline volatile RDC_MRVS4 &ref() { return *reinterpret_cast<volatile RDC_MRVS4*>(0x40C7884C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS5 {
@@ -16743,7 +16743,7 @@ union RDC_MRVS5 {
 
   RDC_MRVS5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS5 &Instance() { return *reinterpret_cast<volatile RDC_MRVS5*>(0x40C7885C); }
+  static inline volatile RDC_MRVS5 &ref() { return *reinterpret_cast<volatile RDC_MRVS5*>(0x40C7885C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS6 {
@@ -16772,7 +16772,7 @@ union RDC_MRVS6 {
 
   RDC_MRVS6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS6 &Instance() { return *reinterpret_cast<volatile RDC_MRVS6*>(0x40C7886C); }
+  static inline volatile RDC_MRVS6 &ref() { return *reinterpret_cast<volatile RDC_MRVS6*>(0x40C7886C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS7 {
@@ -16801,7 +16801,7 @@ union RDC_MRVS7 {
 
   RDC_MRVS7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS7 &Instance() { return *reinterpret_cast<volatile RDC_MRVS7*>(0x40C7887C); }
+  static inline volatile RDC_MRVS7 &ref() { return *reinterpret_cast<volatile RDC_MRVS7*>(0x40C7887C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS8 {
@@ -16830,7 +16830,7 @@ union RDC_MRVS8 {
 
   RDC_MRVS8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS8 &Instance() { return *reinterpret_cast<volatile RDC_MRVS8*>(0x40C7888C); }
+  static inline volatile RDC_MRVS8 &ref() { return *reinterpret_cast<volatile RDC_MRVS8*>(0x40C7888C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS9 {
@@ -16859,7 +16859,7 @@ union RDC_MRVS9 {
 
   RDC_MRVS9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS9 &Instance() { return *reinterpret_cast<volatile RDC_MRVS9*>(0x40C7889C); }
+  static inline volatile RDC_MRVS9 &ref() { return *reinterpret_cast<volatile RDC_MRVS9*>(0x40C7889C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS10 {
@@ -16888,7 +16888,7 @@ union RDC_MRVS10 {
 
   RDC_MRVS10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS10 &Instance() { return *reinterpret_cast<volatile RDC_MRVS10*>(0x40C788AC); }
+  static inline volatile RDC_MRVS10 &ref() { return *reinterpret_cast<volatile RDC_MRVS10*>(0x40C788AC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS11 {
@@ -16917,7 +16917,7 @@ union RDC_MRVS11 {
 
   RDC_MRVS11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS11 &Instance() { return *reinterpret_cast<volatile RDC_MRVS11*>(0x40C788BC); }
+  static inline volatile RDC_MRVS11 &ref() { return *reinterpret_cast<volatile RDC_MRVS11*>(0x40C788BC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS12 {
@@ -16946,7 +16946,7 @@ union RDC_MRVS12 {
 
   RDC_MRVS12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS12 &Instance() { return *reinterpret_cast<volatile RDC_MRVS12*>(0x40C788CC); }
+  static inline volatile RDC_MRVS12 &ref() { return *reinterpret_cast<volatile RDC_MRVS12*>(0x40C788CC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS13 {
@@ -16975,7 +16975,7 @@ union RDC_MRVS13 {
 
   RDC_MRVS13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS13 &Instance() { return *reinterpret_cast<volatile RDC_MRVS13*>(0x40C788DC); }
+  static inline volatile RDC_MRVS13 &ref() { return *reinterpret_cast<volatile RDC_MRVS13*>(0x40C788DC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS14 {
@@ -17004,7 +17004,7 @@ union RDC_MRVS14 {
 
   RDC_MRVS14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS14 &Instance() { return *reinterpret_cast<volatile RDC_MRVS14*>(0x40C788EC); }
+  static inline volatile RDC_MRVS14 &ref() { return *reinterpret_cast<volatile RDC_MRVS14*>(0x40C788EC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS15 {
@@ -17033,7 +17033,7 @@ union RDC_MRVS15 {
 
   RDC_MRVS15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS15 &Instance() { return *reinterpret_cast<volatile RDC_MRVS15*>(0x40C788FC); }
+  static inline volatile RDC_MRVS15 &ref() { return *reinterpret_cast<volatile RDC_MRVS15*>(0x40C788FC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS16 {
@@ -17062,7 +17062,7 @@ union RDC_MRVS16 {
 
   RDC_MRVS16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS16 &Instance() { return *reinterpret_cast<volatile RDC_MRVS16*>(0x40C7890C); }
+  static inline volatile RDC_MRVS16 &ref() { return *reinterpret_cast<volatile RDC_MRVS16*>(0x40C7890C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS17 {
@@ -17091,7 +17091,7 @@ union RDC_MRVS17 {
 
   RDC_MRVS17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS17 &Instance() { return *reinterpret_cast<volatile RDC_MRVS17*>(0x40C7891C); }
+  static inline volatile RDC_MRVS17 &ref() { return *reinterpret_cast<volatile RDC_MRVS17*>(0x40C7891C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS18 {
@@ -17120,7 +17120,7 @@ union RDC_MRVS18 {
 
   RDC_MRVS18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS18 &Instance() { return *reinterpret_cast<volatile RDC_MRVS18*>(0x40C7892C); }
+  static inline volatile RDC_MRVS18 &ref() { return *reinterpret_cast<volatile RDC_MRVS18*>(0x40C7892C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS19 {
@@ -17149,7 +17149,7 @@ union RDC_MRVS19 {
 
   RDC_MRVS19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS19 &Instance() { return *reinterpret_cast<volatile RDC_MRVS19*>(0x40C7893C); }
+  static inline volatile RDC_MRVS19 &ref() { return *reinterpret_cast<volatile RDC_MRVS19*>(0x40C7893C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS20 {
@@ -17178,7 +17178,7 @@ union RDC_MRVS20 {
 
   RDC_MRVS20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS20 &Instance() { return *reinterpret_cast<volatile RDC_MRVS20*>(0x40C7894C); }
+  static inline volatile RDC_MRVS20 &ref() { return *reinterpret_cast<volatile RDC_MRVS20*>(0x40C7894C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS21 {
@@ -17207,7 +17207,7 @@ union RDC_MRVS21 {
 
   RDC_MRVS21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS21 &Instance() { return *reinterpret_cast<volatile RDC_MRVS21*>(0x40C7895C); }
+  static inline volatile RDC_MRVS21 &ref() { return *reinterpret_cast<volatile RDC_MRVS21*>(0x40C7895C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS22 {
@@ -17236,7 +17236,7 @@ union RDC_MRVS22 {
 
   RDC_MRVS22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS22 &Instance() { return *reinterpret_cast<volatile RDC_MRVS22*>(0x40C7896C); }
+  static inline volatile RDC_MRVS22 &ref() { return *reinterpret_cast<volatile RDC_MRVS22*>(0x40C7896C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS23 {
@@ -17265,7 +17265,7 @@ union RDC_MRVS23 {
 
   RDC_MRVS23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS23 &Instance() { return *reinterpret_cast<volatile RDC_MRVS23*>(0x40C7897C); }
+  static inline volatile RDC_MRVS23 &ref() { return *reinterpret_cast<volatile RDC_MRVS23*>(0x40C7897C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS24 {
@@ -17294,7 +17294,7 @@ union RDC_MRVS24 {
 
   RDC_MRVS24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS24 &Instance() { return *reinterpret_cast<volatile RDC_MRVS24*>(0x40C7898C); }
+  static inline volatile RDC_MRVS24 &ref() { return *reinterpret_cast<volatile RDC_MRVS24*>(0x40C7898C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS25 {
@@ -17323,7 +17323,7 @@ union RDC_MRVS25 {
 
   RDC_MRVS25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS25 &Instance() { return *reinterpret_cast<volatile RDC_MRVS25*>(0x40C7899C); }
+  static inline volatile RDC_MRVS25 &ref() { return *reinterpret_cast<volatile RDC_MRVS25*>(0x40C7899C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS26 {
@@ -17352,7 +17352,7 @@ union RDC_MRVS26 {
 
   RDC_MRVS26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS26 &Instance() { return *reinterpret_cast<volatile RDC_MRVS26*>(0x40C789AC); }
+  static inline volatile RDC_MRVS26 &ref() { return *reinterpret_cast<volatile RDC_MRVS26*>(0x40C789AC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS27 {
@@ -17381,7 +17381,7 @@ union RDC_MRVS27 {
 
   RDC_MRVS27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS27 &Instance() { return *reinterpret_cast<volatile RDC_MRVS27*>(0x40C789BC); }
+  static inline volatile RDC_MRVS27 &ref() { return *reinterpret_cast<volatile RDC_MRVS27*>(0x40C789BC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS28 {
@@ -17410,7 +17410,7 @@ union RDC_MRVS28 {
 
   RDC_MRVS28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS28 &Instance() { return *reinterpret_cast<volatile RDC_MRVS28*>(0x40C789CC); }
+  static inline volatile RDC_MRVS28 &ref() { return *reinterpret_cast<volatile RDC_MRVS28*>(0x40C789CC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS29 {
@@ -17439,7 +17439,7 @@ union RDC_MRVS29 {
 
   RDC_MRVS29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS29 &Instance() { return *reinterpret_cast<volatile RDC_MRVS29*>(0x40C789DC); }
+  static inline volatile RDC_MRVS29 &ref() { return *reinterpret_cast<volatile RDC_MRVS29*>(0x40C789DC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS30 {
@@ -17468,7 +17468,7 @@ union RDC_MRVS30 {
 
   RDC_MRVS30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS30 &Instance() { return *reinterpret_cast<volatile RDC_MRVS30*>(0x40C789EC); }
+  static inline volatile RDC_MRVS30 &ref() { return *reinterpret_cast<volatile RDC_MRVS30*>(0x40C789EC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS31 {
@@ -17497,7 +17497,7 @@ union RDC_MRVS31 {
 
   RDC_MRVS31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS31 &Instance() { return *reinterpret_cast<volatile RDC_MRVS31*>(0x40C789FC); }
+  static inline volatile RDC_MRVS31 &ref() { return *reinterpret_cast<volatile RDC_MRVS31*>(0x40C789FC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS32 {
@@ -17526,7 +17526,7 @@ union RDC_MRVS32 {
 
   RDC_MRVS32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS32 &Instance() { return *reinterpret_cast<volatile RDC_MRVS32*>(0x40C78A0C); }
+  static inline volatile RDC_MRVS32 &ref() { return *reinterpret_cast<volatile RDC_MRVS32*>(0x40C78A0C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS33 {
@@ -17555,7 +17555,7 @@ union RDC_MRVS33 {
 
   RDC_MRVS33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS33 &Instance() { return *reinterpret_cast<volatile RDC_MRVS33*>(0x40C78A1C); }
+  static inline volatile RDC_MRVS33 &ref() { return *reinterpret_cast<volatile RDC_MRVS33*>(0x40C78A1C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS34 {
@@ -17584,7 +17584,7 @@ union RDC_MRVS34 {
 
   RDC_MRVS34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS34 &Instance() { return *reinterpret_cast<volatile RDC_MRVS34*>(0x40C78A2C); }
+  static inline volatile RDC_MRVS34 &ref() { return *reinterpret_cast<volatile RDC_MRVS34*>(0x40C78A2C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS35 {
@@ -17613,7 +17613,7 @@ union RDC_MRVS35 {
 
   RDC_MRVS35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS35 &Instance() { return *reinterpret_cast<volatile RDC_MRVS35*>(0x40C78A3C); }
+  static inline volatile RDC_MRVS35 &ref() { return *reinterpret_cast<volatile RDC_MRVS35*>(0x40C78A3C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS36 {
@@ -17642,7 +17642,7 @@ union RDC_MRVS36 {
 
   RDC_MRVS36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS36 &Instance() { return *reinterpret_cast<volatile RDC_MRVS36*>(0x40C78A4C); }
+  static inline volatile RDC_MRVS36 &ref() { return *reinterpret_cast<volatile RDC_MRVS36*>(0x40C78A4C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS37 {
@@ -17671,7 +17671,7 @@ union RDC_MRVS37 {
 
   RDC_MRVS37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS37 &Instance() { return *reinterpret_cast<volatile RDC_MRVS37*>(0x40C78A5C); }
+  static inline volatile RDC_MRVS37 &ref() { return *reinterpret_cast<volatile RDC_MRVS37*>(0x40C78A5C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS38 {
@@ -17700,7 +17700,7 @@ union RDC_MRVS38 {
 
   RDC_MRVS38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS38 &Instance() { return *reinterpret_cast<volatile RDC_MRVS38*>(0x40C78A6C); }
+  static inline volatile RDC_MRVS38 &ref() { return *reinterpret_cast<volatile RDC_MRVS38*>(0x40C78A6C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS39 {
@@ -17729,7 +17729,7 @@ union RDC_MRVS39 {
 
   RDC_MRVS39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS39 &Instance() { return *reinterpret_cast<volatile RDC_MRVS39*>(0x40C78A7C); }
+  static inline volatile RDC_MRVS39 &ref() { return *reinterpret_cast<volatile RDC_MRVS39*>(0x40C78A7C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS40 {
@@ -17758,7 +17758,7 @@ union RDC_MRVS40 {
 
   RDC_MRVS40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS40 &Instance() { return *reinterpret_cast<volatile RDC_MRVS40*>(0x40C78A8C); }
+  static inline volatile RDC_MRVS40 &ref() { return *reinterpret_cast<volatile RDC_MRVS40*>(0x40C78A8C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS41 {
@@ -17787,7 +17787,7 @@ union RDC_MRVS41 {
 
   RDC_MRVS41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS41 &Instance() { return *reinterpret_cast<volatile RDC_MRVS41*>(0x40C78A9C); }
+  static inline volatile RDC_MRVS41 &ref() { return *reinterpret_cast<volatile RDC_MRVS41*>(0x40C78A9C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS42 {
@@ -17816,7 +17816,7 @@ union RDC_MRVS42 {
 
   RDC_MRVS42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS42 &Instance() { return *reinterpret_cast<volatile RDC_MRVS42*>(0x40C78AAC); }
+  static inline volatile RDC_MRVS42 &ref() { return *reinterpret_cast<volatile RDC_MRVS42*>(0x40C78AAC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS43 {
@@ -17845,7 +17845,7 @@ union RDC_MRVS43 {
 
   RDC_MRVS43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS43 &Instance() { return *reinterpret_cast<volatile RDC_MRVS43*>(0x40C78ABC); }
+  static inline volatile RDC_MRVS43 &ref() { return *reinterpret_cast<volatile RDC_MRVS43*>(0x40C78ABC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS44 {
@@ -17874,7 +17874,7 @@ union RDC_MRVS44 {
 
   RDC_MRVS44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS44 &Instance() { return *reinterpret_cast<volatile RDC_MRVS44*>(0x40C78ACC); }
+  static inline volatile RDC_MRVS44 &ref() { return *reinterpret_cast<volatile RDC_MRVS44*>(0x40C78ACC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS45 {
@@ -17903,7 +17903,7 @@ union RDC_MRVS45 {
 
   RDC_MRVS45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS45 &Instance() { return *reinterpret_cast<volatile RDC_MRVS45*>(0x40C78ADC); }
+  static inline volatile RDC_MRVS45 &ref() { return *reinterpret_cast<volatile RDC_MRVS45*>(0x40C78ADC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS46 {
@@ -17932,7 +17932,7 @@ union RDC_MRVS46 {
 
   RDC_MRVS46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS46 &Instance() { return *reinterpret_cast<volatile RDC_MRVS46*>(0x40C78AEC); }
+  static inline volatile RDC_MRVS46 &ref() { return *reinterpret_cast<volatile RDC_MRVS46*>(0x40C78AEC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS47 {
@@ -17961,7 +17961,7 @@ union RDC_MRVS47 {
 
   RDC_MRVS47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS47 &Instance() { return *reinterpret_cast<volatile RDC_MRVS47*>(0x40C78AFC); }
+  static inline volatile RDC_MRVS47 &ref() { return *reinterpret_cast<volatile RDC_MRVS47*>(0x40C78AFC); }
 };
 // Memory Region Violation Status
 union RDC_MRVS48 {
@@ -17990,7 +17990,7 @@ union RDC_MRVS48 {
 
   RDC_MRVS48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS48 &Instance() { return *reinterpret_cast<volatile RDC_MRVS48*>(0x40C78B0C); }
+  static inline volatile RDC_MRVS48 &ref() { return *reinterpret_cast<volatile RDC_MRVS48*>(0x40C78B0C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS49 {
@@ -18019,7 +18019,7 @@ union RDC_MRVS49 {
 
   RDC_MRVS49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS49 &Instance() { return *reinterpret_cast<volatile RDC_MRVS49*>(0x40C78B1C); }
+  static inline volatile RDC_MRVS49 &ref() { return *reinterpret_cast<volatile RDC_MRVS49*>(0x40C78B1C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS50 {
@@ -18048,7 +18048,7 @@ union RDC_MRVS50 {
 
   RDC_MRVS50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS50 &Instance() { return *reinterpret_cast<volatile RDC_MRVS50*>(0x40C78B2C); }
+  static inline volatile RDC_MRVS50 &ref() { return *reinterpret_cast<volatile RDC_MRVS50*>(0x40C78B2C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS51 {
@@ -18077,7 +18077,7 @@ union RDC_MRVS51 {
 
   RDC_MRVS51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS51 &Instance() { return *reinterpret_cast<volatile RDC_MRVS51*>(0x40C78B3C); }
+  static inline volatile RDC_MRVS51 &ref() { return *reinterpret_cast<volatile RDC_MRVS51*>(0x40C78B3C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS52 {
@@ -18106,7 +18106,7 @@ union RDC_MRVS52 {
 
   RDC_MRVS52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS52 &Instance() { return *reinterpret_cast<volatile RDC_MRVS52*>(0x40C78B4C); }
+  static inline volatile RDC_MRVS52 &ref() { return *reinterpret_cast<volatile RDC_MRVS52*>(0x40C78B4C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS53 {
@@ -18135,7 +18135,7 @@ union RDC_MRVS53 {
 
   RDC_MRVS53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS53 &Instance() { return *reinterpret_cast<volatile RDC_MRVS53*>(0x40C78B5C); }
+  static inline volatile RDC_MRVS53 &ref() { return *reinterpret_cast<volatile RDC_MRVS53*>(0x40C78B5C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS54 {
@@ -18164,7 +18164,7 @@ union RDC_MRVS54 {
 
   RDC_MRVS54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS54 &Instance() { return *reinterpret_cast<volatile RDC_MRVS54*>(0x40C78B6C); }
+  static inline volatile RDC_MRVS54 &ref() { return *reinterpret_cast<volatile RDC_MRVS54*>(0x40C78B6C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS55 {
@@ -18193,7 +18193,7 @@ union RDC_MRVS55 {
 
   RDC_MRVS55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS55 &Instance() { return *reinterpret_cast<volatile RDC_MRVS55*>(0x40C78B7C); }
+  static inline volatile RDC_MRVS55 &ref() { return *reinterpret_cast<volatile RDC_MRVS55*>(0x40C78B7C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS56 {
@@ -18222,7 +18222,7 @@ union RDC_MRVS56 {
 
   RDC_MRVS56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS56 &Instance() { return *reinterpret_cast<volatile RDC_MRVS56*>(0x40C78B8C); }
+  static inline volatile RDC_MRVS56 &ref() { return *reinterpret_cast<volatile RDC_MRVS56*>(0x40C78B8C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS57 {
@@ -18251,7 +18251,7 @@ union RDC_MRVS57 {
 
   RDC_MRVS57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS57 &Instance() { return *reinterpret_cast<volatile RDC_MRVS57*>(0x40C78B9C); }
+  static inline volatile RDC_MRVS57 &ref() { return *reinterpret_cast<volatile RDC_MRVS57*>(0x40C78B9C); }
 };
 // Memory Region Violation Status
 union RDC_MRVS58 {
@@ -18280,7 +18280,7 @@ union RDC_MRVS58 {
 
   RDC_MRVS58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDC_MRVS58 &Instance() { return *reinterpret_cast<volatile RDC_MRVS58*>(0x40C78BAC); }
+  static inline volatile RDC_MRVS58 &ref() { return *reinterpret_cast<volatile RDC_MRVS58*>(0x40C78BAC); }
 };
 
 

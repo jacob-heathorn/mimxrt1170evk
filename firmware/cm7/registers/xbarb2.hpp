@@ -28,7 +28,7 @@ union XBARB2_SEL0 {
 
   XBARB2_SEL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARB2_SEL0 &Instance() { return *reinterpret_cast<volatile XBARB2_SEL0*>(0x40040000); }
+  static inline volatile XBARB2_SEL0 &ref() { return *reinterpret_cast<volatile XBARB2_SEL0*>(0x40040000); }
 };
 
 // Crossbar B Select Register 1
@@ -49,7 +49,7 @@ union XBARB2_SEL1 {
 
   XBARB2_SEL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARB2_SEL1 &Instance() { return *reinterpret_cast<volatile XBARB2_SEL1*>(0x40040002); }
+  static inline volatile XBARB2_SEL1 &ref() { return *reinterpret_cast<volatile XBARB2_SEL1*>(0x40040002); }
 };
 
 // Crossbar B Select Register 2
@@ -70,7 +70,7 @@ union XBARB2_SEL2 {
 
   XBARB2_SEL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARB2_SEL2 &Instance() { return *reinterpret_cast<volatile XBARB2_SEL2*>(0x40040004); }
+  static inline volatile XBARB2_SEL2 &ref() { return *reinterpret_cast<volatile XBARB2_SEL2*>(0x40040004); }
 };
 
 // Crossbar B Select Register 3
@@ -91,7 +91,7 @@ union XBARB2_SEL3 {
 
   XBARB2_SEL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARB2_SEL3 &Instance() { return *reinterpret_cast<volatile XBARB2_SEL3*>(0x40040006); }
+  static inline volatile XBARB2_SEL3 &ref() { return *reinterpret_cast<volatile XBARB2_SEL3*>(0x40040006); }
 };
 
 // Crossbar B Select Register 4
@@ -112,7 +112,7 @@ union XBARB2_SEL4 {
 
   XBARB2_SEL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARB2_SEL4 &Instance() { return *reinterpret_cast<volatile XBARB2_SEL4*>(0x40040008); }
+  static inline volatile XBARB2_SEL4 &ref() { return *reinterpret_cast<volatile XBARB2_SEL4*>(0x40040008); }
 };
 
 // Crossbar B Select Register 5
@@ -133,7 +133,7 @@ union XBARB2_SEL5 {
 
   XBARB2_SEL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARB2_SEL5 &Instance() { return *reinterpret_cast<volatile XBARB2_SEL5*>(0x4004000A); }
+  static inline volatile XBARB2_SEL5 &ref() { return *reinterpret_cast<volatile XBARB2_SEL5*>(0x4004000A); }
 };
 
 // Crossbar B Select Register 6
@@ -154,7 +154,7 @@ union XBARB2_SEL6 {
 
   XBARB2_SEL6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARB2_SEL6 &Instance() { return *reinterpret_cast<volatile XBARB2_SEL6*>(0x4004000C); }
+  static inline volatile XBARB2_SEL6 &ref() { return *reinterpret_cast<volatile XBARB2_SEL6*>(0x4004000C); }
 };
 
 // Crossbar B Select Register 7
@@ -175,7 +175,7 @@ union XBARB2_SEL7 {
 
   XBARB2_SEL7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARB2_SEL7 &Instance() { return *reinterpret_cast<volatile XBARB2_SEL7*>(0x4004000E); }
+  static inline volatile XBARB2_SEL7 &ref() { return *reinterpret_cast<volatile XBARB2_SEL7*>(0x4004000E); }
 };
 
 

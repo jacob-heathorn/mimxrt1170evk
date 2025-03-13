@@ -65,7 +65,7 @@ union OSC_48M_CTRL {
 
   OSC_48M_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x017901F2; }
-  static inline volatile OSC_48M_CTRL &Instance() { return *reinterpret_cast<volatile OSC_48M_CTRL*>(0x40C84010); }
+  static inline volatile OSC_48M_CTRL &ref() { return *reinterpret_cast<volatile OSC_48M_CTRL*>(0x40C84010); }
 };
 
 // 24MHz OSC Control Register
@@ -154,7 +154,7 @@ union OSC_24M_CTRL {
 
   OSC_24M_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000080; }
-  static inline volatile OSC_24M_CTRL &Instance() { return *reinterpret_cast<volatile OSC_24M_CTRL*>(0x40C84020); }
+  static inline volatile OSC_24M_CTRL &ref() { return *reinterpret_cast<volatile OSC_24M_CTRL*>(0x40C84020); }
 };
 
 // 400MHz RCOSC Control0 Register
@@ -172,7 +172,7 @@ union OSC_400M_CTRL0 {
 
   OSC_400M_CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OSC_400M_CTRL0 &Instance() { return *reinterpret_cast<volatile OSC_400M_CTRL0*>(0x40C84040); }
+  static inline volatile OSC_400M_CTRL0 &ref() { return *reinterpret_cast<volatile OSC_400M_CTRL0*>(0x40C84040); }
 };
 
 // 400MHz RCOSC Control1 Register
@@ -218,7 +218,7 @@ union OSC_400M_CTRL1 {
 
   OSC_400M_CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile OSC_400M_CTRL1 &Instance() { return *reinterpret_cast<volatile OSC_400M_CTRL1*>(0x40C84050); }
+  static inline volatile OSC_400M_CTRL1 &ref() { return *reinterpret_cast<volatile OSC_400M_CTRL1*>(0x40C84050); }
 };
 
 // 400MHz RCOSC Control2 Register
@@ -257,7 +257,7 @@ union OSC_400M_CTRL2 {
 
   OSC_400M_CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OSC_400M_CTRL2 &Instance() { return *reinterpret_cast<volatile OSC_400M_CTRL2*>(0x40C84060); }
+  static inline volatile OSC_400M_CTRL2 &ref() { return *reinterpret_cast<volatile OSC_400M_CTRL2*>(0x40C84060); }
 };
 
 // 16MHz RCOSC Control Register
@@ -316,7 +316,7 @@ union OSC_16M_CTRL {
 
   OSC_16M_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000007; }
-  static inline volatile OSC_16M_CTRL &Instance() { return *reinterpret_cast<volatile OSC_16M_CTRL*>(0x40C840C0); }
+  static inline volatile OSC_16M_CTRL &ref() { return *reinterpret_cast<volatile OSC_16M_CTRL*>(0x40C840C0); }
 };
 
 

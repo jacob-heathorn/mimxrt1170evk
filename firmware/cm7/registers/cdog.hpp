@@ -123,7 +123,7 @@ union CONTROL {
 
   CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x50092492; }
-  static inline volatile CONTROL &Instance() { return *reinterpret_cast<volatile CONTROL*>(0x41900000); }
+  static inline volatile CONTROL &ref() { return *reinterpret_cast<volatile CONTROL*>(0x41900000); }
 };
 
 // Instruction Timer reload
@@ -140,7 +140,7 @@ union RELOAD {
 
   RELOAD() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile RELOAD &Instance() { return *reinterpret_cast<volatile RELOAD*>(0x41900004); }
+  static inline volatile RELOAD &ref() { return *reinterpret_cast<volatile RELOAD*>(0x41900004); }
 };
 
 // Instruction Timer
@@ -157,7 +157,7 @@ union INSTRUCTION_TIMER {
 
   INSTRUCTION_TIMER() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile INSTRUCTION_TIMER &Instance() { return *reinterpret_cast<volatile INSTRUCTION_TIMER*>(0x41900008); }
+  static inline volatile INSTRUCTION_TIMER &ref() { return *reinterpret_cast<volatile INSTRUCTION_TIMER*>(0x41900008); }
 };
 
 // Secure Counter
@@ -174,7 +174,7 @@ union SECURE_COUNTER {
 
   SECURE_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SECURE_COUNTER &Instance() { return *reinterpret_cast<volatile SECURE_COUNTER*>(0x4190000C); }
+  static inline volatile SECURE_COUNTER &ref() { return *reinterpret_cast<volatile SECURE_COUNTER*>(0x4190000C); }
 };
 
 // Status 1
@@ -198,7 +198,7 @@ union STATUS {
 
   STATUS() = delete;
   inline void Reset() volatile { this->value = 0x50000000; }
-  static inline volatile STATUS &Instance() { return *reinterpret_cast<volatile STATUS*>(0x41900010); }
+  static inline volatile STATUS &ref() { return *reinterpret_cast<volatile STATUS*>(0x41900010); }
 };
 
 // Status 2
@@ -220,7 +220,7 @@ union STATUS2 {
 
   STATUS2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STATUS2 &Instance() { return *reinterpret_cast<volatile STATUS2*>(0x41900014); }
+  static inline volatile STATUS2 &ref() { return *reinterpret_cast<volatile STATUS2*>(0x41900014); }
 };
 
 // Flags
@@ -307,7 +307,7 @@ union FLAGS {
 
   FLAGS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FLAGS &Instance() { return *reinterpret_cast<volatile FLAGS*>(0x41900018); }
+  static inline volatile FLAGS &ref() { return *reinterpret_cast<volatile FLAGS*>(0x41900018); }
 };
 
 // Persistent Data Storage
@@ -324,7 +324,7 @@ union PERSISTENT {
 
   PERSISTENT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PERSISTENT &Instance() { return *reinterpret_cast<volatile PERSISTENT*>(0x4190001C); }
+  static inline volatile PERSISTENT &ref() { return *reinterpret_cast<volatile PERSISTENT*>(0x4190001C); }
 };
 
 // START Command
@@ -341,7 +341,7 @@ union START {
 
   START() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile START &Instance() { return *reinterpret_cast<volatile START*>(0x41900020); }
+  static inline volatile START &ref() { return *reinterpret_cast<volatile START*>(0x41900020); }
 };
 
 // STOP Command
@@ -358,7 +358,7 @@ union STOP {
 
   STOP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STOP &Instance() { return *reinterpret_cast<volatile STOP*>(0x41900024); }
+  static inline volatile STOP &ref() { return *reinterpret_cast<volatile STOP*>(0x41900024); }
 };
 
 // RESTART Command
@@ -375,7 +375,7 @@ union RESTART {
 
   RESTART() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RESTART &Instance() { return *reinterpret_cast<volatile RESTART*>(0x41900028); }
+  static inline volatile RESTART &ref() { return *reinterpret_cast<volatile RESTART*>(0x41900028); }
 };
 
 // ADD Command
@@ -392,7 +392,7 @@ union ADD {
 
   ADD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ADD &Instance() { return *reinterpret_cast<volatile ADD*>(0x4190002C); }
+  static inline volatile ADD &ref() { return *reinterpret_cast<volatile ADD*>(0x4190002C); }
 };
 
 // ADD1 Command
@@ -409,7 +409,7 @@ union ADD1 {
 
   ADD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ADD1 &Instance() { return *reinterpret_cast<volatile ADD1*>(0x41900030); }
+  static inline volatile ADD1 &ref() { return *reinterpret_cast<volatile ADD1*>(0x41900030); }
 };
 
 // ADD16 Command
@@ -426,7 +426,7 @@ union ADD16 {
 
   ADD16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ADD16 &Instance() { return *reinterpret_cast<volatile ADD16*>(0x41900034); }
+  static inline volatile ADD16 &ref() { return *reinterpret_cast<volatile ADD16*>(0x41900034); }
 };
 
 // ADD256 Command
@@ -443,7 +443,7 @@ union ADD256 {
 
   ADD256() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ADD256 &Instance() { return *reinterpret_cast<volatile ADD256*>(0x41900038); }
+  static inline volatile ADD256 &ref() { return *reinterpret_cast<volatile ADD256*>(0x41900038); }
 };
 
 // SUB Command
@@ -460,7 +460,7 @@ union SUB {
 
   SUB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SUB &Instance() { return *reinterpret_cast<volatile SUB*>(0x4190003C); }
+  static inline volatile SUB &ref() { return *reinterpret_cast<volatile SUB*>(0x4190003C); }
 };
 
 // SUB1 Command
@@ -477,7 +477,7 @@ union SUB1 {
 
   SUB1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SUB1 &Instance() { return *reinterpret_cast<volatile SUB1*>(0x41900040); }
+  static inline volatile SUB1 &ref() { return *reinterpret_cast<volatile SUB1*>(0x41900040); }
 };
 
 // SUB16 Command
@@ -494,7 +494,7 @@ union SUB16 {
 
   SUB16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SUB16 &Instance() { return *reinterpret_cast<volatile SUB16*>(0x41900044); }
+  static inline volatile SUB16 &ref() { return *reinterpret_cast<volatile SUB16*>(0x41900044); }
 };
 
 // SUB256 Command
@@ -511,7 +511,7 @@ union SUB256 {
 
   SUB256() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SUB256 &Instance() { return *reinterpret_cast<volatile SUB256*>(0x41900048); }
+  static inline volatile SUB256 &ref() { return *reinterpret_cast<volatile SUB256*>(0x41900048); }
 };
 
 

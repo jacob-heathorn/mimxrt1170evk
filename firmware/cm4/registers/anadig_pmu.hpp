@@ -41,7 +41,7 @@ union PMU_LDO_PLL {
 
   PMU_LDO_PLL() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile PMU_LDO_PLL &Instance() { return *reinterpret_cast<volatile PMU_LDO_PLL*>(0x40C84500); }
+  static inline volatile PMU_LDO_PLL &ref() { return *reinterpret_cast<volatile PMU_LDO_PLL*>(0x40C84500); }
 };
 
 // PMU_BIAS_CTRL_REGISTER
@@ -70,7 +70,7 @@ union PMU_BIAS_CTRL {
 
   PMU_BIAS_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PMU_BIAS_CTRL &Instance() { return *reinterpret_cast<volatile PMU_BIAS_CTRL*>(0x40C84550); }
+  static inline volatile PMU_BIAS_CTRL &ref() { return *reinterpret_cast<volatile PMU_BIAS_CTRL*>(0x40C84550); }
 };
 
 // PMU_BIAS_CTRL2_REGISTER
@@ -175,7 +175,7 @@ union PMU_BIAS_CTRL2 {
 
   PMU_BIAS_CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PMU_BIAS_CTRL2 &Instance() { return *reinterpret_cast<volatile PMU_BIAS_CTRL2*>(0x40C84560); }
+  static inline volatile PMU_BIAS_CTRL2 &ref() { return *reinterpret_cast<volatile PMU_BIAS_CTRL2*>(0x40C84560); }
 };
 
 // PMU_REF_CTRL_REGISTER
@@ -209,7 +209,7 @@ union PMU_REF_CTRL {
 
   PMU_REF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PMU_REF_CTRL &Instance() { return *reinterpret_cast<volatile PMU_REF_CTRL*>(0x40C84570); }
+  static inline volatile PMU_REF_CTRL &ref() { return *reinterpret_cast<volatile PMU_REF_CTRL*>(0x40C84570); }
 };
 
 // PMU_POWER_DETECT_CTRL_REGISTER
@@ -228,7 +228,7 @@ union PMU_POWER_DETECT_CTRL {
 
   PMU_POWER_DETECT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PMU_POWER_DETECT_CTRL &Instance() { return *reinterpret_cast<volatile PMU_POWER_DETECT_CTRL*>(0x40C84580); }
+  static inline volatile PMU_POWER_DETECT_CTRL &ref() { return *reinterpret_cast<volatile PMU_POWER_DETECT_CTRL*>(0x40C84580); }
 };
 
 // LDO_PLL_ENABLE_SP_REGISTER
@@ -404,7 +404,7 @@ union LDO_PLL_ENABLE_SP {
 
   LDO_PLL_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_PLL_ENABLE_SP &Instance() { return *reinterpret_cast<volatile LDO_PLL_ENABLE_SP*>(0x40C84600); }
+  static inline volatile LDO_PLL_ENABLE_SP &ref() { return *reinterpret_cast<volatile LDO_PLL_ENABLE_SP*>(0x40C84600); }
 };
 
 // LDO_LPSR_ANA_ENABLE_SP_REGISTER
@@ -580,7 +580,7 @@ union LDO_LPSR_ANA_ENABLE_SP {
 
   LDO_LPSR_ANA_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_ANA_ENABLE_SP &Instance() { return *reinterpret_cast<volatile LDO_LPSR_ANA_ENABLE_SP*>(0x40C84610); }
+  static inline volatile LDO_LPSR_ANA_ENABLE_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_ENABLE_SP*>(0x40C84610); }
 };
 
 // LDO_LPSR_ANA_LP_MODE_SP_REGISTER
@@ -756,7 +756,7 @@ union LDO_LPSR_ANA_LP_MODE_SP {
 
   LDO_LPSR_ANA_LP_MODE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_ANA_LP_MODE_SP &Instance() { return *reinterpret_cast<volatile LDO_LPSR_ANA_LP_MODE_SP*>(0x40C84620); }
+  static inline volatile LDO_LPSR_ANA_LP_MODE_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_LP_MODE_SP*>(0x40C84620); }
 };
 
 // LDO_LPSR_ANA_TRACKING_EN_SP_REGISTER
@@ -932,7 +932,7 @@ union LDO_LPSR_ANA_TRACKING_EN_SP {
 
   LDO_LPSR_ANA_TRACKING_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_ANA_TRACKING_EN_SP &Instance() { return *reinterpret_cast<volatile LDO_LPSR_ANA_TRACKING_EN_SP*>(0x40C84630); }
+  static inline volatile LDO_LPSR_ANA_TRACKING_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_TRACKING_EN_SP*>(0x40C84630); }
 };
 
 // LDO_LPSR_ANA_BYPASS_EN_SP_REGISTER
@@ -1108,7 +1108,7 @@ union LDO_LPSR_ANA_BYPASS_EN_SP {
 
   LDO_LPSR_ANA_BYPASS_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_ANA_BYPASS_EN_SP &Instance() { return *reinterpret_cast<volatile LDO_LPSR_ANA_BYPASS_EN_SP*>(0x40C84640); }
+  static inline volatile LDO_LPSR_ANA_BYPASS_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_BYPASS_EN_SP*>(0x40C84640); }
 };
 
 // LDO_LPSR_ANA_STBY_EN_SP_REGISTER
@@ -1284,7 +1284,7 @@ union LDO_LPSR_ANA_STBY_EN_SP {
 
   LDO_LPSR_ANA_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_ANA_STBY_EN_SP &Instance() { return *reinterpret_cast<volatile LDO_LPSR_ANA_STBY_EN_SP*>(0x40C84650); }
+  static inline volatile LDO_LPSR_ANA_STBY_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_STBY_EN_SP*>(0x40C84650); }
 };
 
 // LDO_LPSR_DIG_ENABLE_SP_REGISTER
@@ -1460,7 +1460,7 @@ union LDO_LPSR_DIG_ENABLE_SP {
 
   LDO_LPSR_DIG_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_ENABLE_SP &Instance() { return *reinterpret_cast<volatile LDO_LPSR_DIG_ENABLE_SP*>(0x40C84660); }
+  static inline volatile LDO_LPSR_DIG_ENABLE_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_ENABLE_SP*>(0x40C84660); }
 };
 
 // LDO_LPSR_DIG_TRG_SP0_REGISTER
@@ -1483,7 +1483,7 @@ union LDO_LPSR_DIG_TRG_SP0 {
 
   LDO_LPSR_DIG_TRG_SP0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_TRG_SP0 &Instance() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP0*>(0x40C84670); }
+  static inline volatile LDO_LPSR_DIG_TRG_SP0 &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP0*>(0x40C84670); }
 };
 
 // LDO_LPSR_DIG_TRG_SP1_REGISTER
@@ -1506,7 +1506,7 @@ union LDO_LPSR_DIG_TRG_SP1 {
 
   LDO_LPSR_DIG_TRG_SP1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_TRG_SP1 &Instance() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP1*>(0x40C84680); }
+  static inline volatile LDO_LPSR_DIG_TRG_SP1 &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP1*>(0x40C84680); }
 };
 
 // LDO_LPSR_DIG_TRG_SP2_REGISTER
@@ -1529,7 +1529,7 @@ union LDO_LPSR_DIG_TRG_SP2 {
 
   LDO_LPSR_DIG_TRG_SP2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_TRG_SP2 &Instance() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP2*>(0x40C84690); }
+  static inline volatile LDO_LPSR_DIG_TRG_SP2 &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP2*>(0x40C84690); }
 };
 
 // LDO_LPSR_DIG_TRG_SP3_REGISTER
@@ -1552,7 +1552,7 @@ union LDO_LPSR_DIG_TRG_SP3 {
 
   LDO_LPSR_DIG_TRG_SP3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_TRG_SP3 &Instance() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP3*>(0x40C846A0); }
+  static inline volatile LDO_LPSR_DIG_TRG_SP3 &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP3*>(0x40C846A0); }
 };
 
 // LDO_LPSR_DIG_LP_MODE_SP_REGISTER
@@ -1728,7 +1728,7 @@ union LDO_LPSR_DIG_LP_MODE_SP {
 
   LDO_LPSR_DIG_LP_MODE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_LP_MODE_SP &Instance() { return *reinterpret_cast<volatile LDO_LPSR_DIG_LP_MODE_SP*>(0x40C846B0); }
+  static inline volatile LDO_LPSR_DIG_LP_MODE_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_LP_MODE_SP*>(0x40C846B0); }
 };
 
 // LDO_LPSR_DIG_TRACKING_EN_SP_REGISTER
@@ -1904,7 +1904,7 @@ union LDO_LPSR_DIG_TRACKING_EN_SP {
 
   LDO_LPSR_DIG_TRACKING_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_TRACKING_EN_SP &Instance() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRACKING_EN_SP*>(0x40C846C0); }
+  static inline volatile LDO_LPSR_DIG_TRACKING_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRACKING_EN_SP*>(0x40C846C0); }
 };
 
 // LDO_LPSR_DIG_BYPASS_EN_SP_REGISTER
@@ -2080,7 +2080,7 @@ union LDO_LPSR_DIG_BYPASS_EN_SP {
 
   LDO_LPSR_DIG_BYPASS_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_BYPASS_EN_SP &Instance() { return *reinterpret_cast<volatile LDO_LPSR_DIG_BYPASS_EN_SP*>(0x40C846D0); }
+  static inline volatile LDO_LPSR_DIG_BYPASS_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_BYPASS_EN_SP*>(0x40C846D0); }
 };
 
 // LDO_LPSR_DIG_STBY_EN_SP_REGISTER
@@ -2256,7 +2256,7 @@ union LDO_LPSR_DIG_STBY_EN_SP {
 
   LDO_LPSR_DIG_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_STBY_EN_SP &Instance() { return *reinterpret_cast<volatile LDO_LPSR_DIG_STBY_EN_SP*>(0x40C846E0); }
+  static inline volatile LDO_LPSR_DIG_STBY_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_STBY_EN_SP*>(0x40C846E0); }
 };
 
 // BANDGAP_ENABLE_SP_REGISTER
@@ -2432,7 +2432,7 @@ union BANDGAP_ENABLE_SP {
 
   BANDGAP_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BANDGAP_ENABLE_SP &Instance() { return *reinterpret_cast<volatile BANDGAP_ENABLE_SP*>(0x40C846F0); }
+  static inline volatile BANDGAP_ENABLE_SP &ref() { return *reinterpret_cast<volatile BANDGAP_ENABLE_SP*>(0x40C846F0); }
 };
 
 // FBB_M7_ENABLE_SP_REGISTER
@@ -2608,7 +2608,7 @@ union FBB_M7_ENABLE_SP {
 
   FBB_M7_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FBB_M7_ENABLE_SP &Instance() { return *reinterpret_cast<volatile FBB_M7_ENABLE_SP*>(0x40C84700); }
+  static inline volatile FBB_M7_ENABLE_SP &ref() { return *reinterpret_cast<volatile FBB_M7_ENABLE_SP*>(0x40C84700); }
 };
 
 // RBB_SOC_ENABLE_SP_REGISTER
@@ -2784,7 +2784,7 @@ union RBB_SOC_ENABLE_SP {
 
   RBB_SOC_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RBB_SOC_ENABLE_SP &Instance() { return *reinterpret_cast<volatile RBB_SOC_ENABLE_SP*>(0x40C84710); }
+  static inline volatile RBB_SOC_ENABLE_SP &ref() { return *reinterpret_cast<volatile RBB_SOC_ENABLE_SP*>(0x40C84710); }
 };
 
 // RBB_LPSR_ENABLE_SP_REGISTER
@@ -2960,7 +2960,7 @@ union RBB_LPSR_ENABLE_SP {
 
   RBB_LPSR_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RBB_LPSR_ENABLE_SP &Instance() { return *reinterpret_cast<volatile RBB_LPSR_ENABLE_SP*>(0x40C84720); }
+  static inline volatile RBB_LPSR_ENABLE_SP &ref() { return *reinterpret_cast<volatile RBB_LPSR_ENABLE_SP*>(0x40C84720); }
 };
 
 // BANDGAP_STBY_EN_SP_REGISTER
@@ -3136,7 +3136,7 @@ union BANDGAP_STBY_EN_SP {
 
   BANDGAP_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BANDGAP_STBY_EN_SP &Instance() { return *reinterpret_cast<volatile BANDGAP_STBY_EN_SP*>(0x40C84730); }
+  static inline volatile BANDGAP_STBY_EN_SP &ref() { return *reinterpret_cast<volatile BANDGAP_STBY_EN_SP*>(0x40C84730); }
 };
 
 // PLL_LDO_STBY_EN_SP_REGISTER
@@ -3312,7 +3312,7 @@ union PLL_LDO_STBY_EN_SP {
 
   PLL_LDO_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PLL_LDO_STBY_EN_SP &Instance() { return *reinterpret_cast<volatile PLL_LDO_STBY_EN_SP*>(0x40C84740); }
+  static inline volatile PLL_LDO_STBY_EN_SP &ref() { return *reinterpret_cast<volatile PLL_LDO_STBY_EN_SP*>(0x40C84740); }
 };
 
 // FBB_M7_STBY_EN_SP_REGISTER
@@ -3488,7 +3488,7 @@ union FBB_M7_STBY_EN_SP {
 
   FBB_M7_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FBB_M7_STBY_EN_SP &Instance() { return *reinterpret_cast<volatile FBB_M7_STBY_EN_SP*>(0x40C84750); }
+  static inline volatile FBB_M7_STBY_EN_SP &ref() { return *reinterpret_cast<volatile FBB_M7_STBY_EN_SP*>(0x40C84750); }
 };
 
 // RBB_SOC_STBY_EN_SP_REGISTER
@@ -3664,7 +3664,7 @@ union RBB_SOC_STBY_EN_SP {
 
   RBB_SOC_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RBB_SOC_STBY_EN_SP &Instance() { return *reinterpret_cast<volatile RBB_SOC_STBY_EN_SP*>(0x40C84760); }
+  static inline volatile RBB_SOC_STBY_EN_SP &ref() { return *reinterpret_cast<volatile RBB_SOC_STBY_EN_SP*>(0x40C84760); }
 };
 
 // RBB_LPSR_STBY_EN_SP_REGISTER
@@ -3840,7 +3840,7 @@ union RBB_LPSR_STBY_EN_SP {
 
   RBB_LPSR_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RBB_LPSR_STBY_EN_SP &Instance() { return *reinterpret_cast<volatile RBB_LPSR_STBY_EN_SP*>(0x40C84770); }
+  static inline volatile RBB_LPSR_STBY_EN_SP &ref() { return *reinterpret_cast<volatile RBB_LPSR_STBY_EN_SP*>(0x40C84770); }
 };
 
 // FBB_M7_CONFIGURE_REGISTER
@@ -3864,7 +3864,7 @@ union FBB_M7_CONFIGURE {
 
   FBB_M7_CONFIGURE() = delete;
   inline void Reset() volatile { this->value = 0x00002F11; }
-  static inline volatile FBB_M7_CONFIGURE &Instance() { return *reinterpret_cast<volatile FBB_M7_CONFIGURE*>(0x40C84780); }
+  static inline volatile FBB_M7_CONFIGURE &ref() { return *reinterpret_cast<volatile FBB_M7_CONFIGURE*>(0x40C84780); }
 };
 
 // RBB_LPSR_CONFIGURE_REGISTER
@@ -3888,7 +3888,7 @@ union RBB_LPSR_CONFIGURE {
 
   RBB_LPSR_CONFIGURE() = delete;
   inline void Reset() volatile { this->value = 0x00003022; }
-  static inline volatile RBB_LPSR_CONFIGURE &Instance() { return *reinterpret_cast<volatile RBB_LPSR_CONFIGURE*>(0x40C84790); }
+  static inline volatile RBB_LPSR_CONFIGURE &ref() { return *reinterpret_cast<volatile RBB_LPSR_CONFIGURE*>(0x40C84790); }
 };
 
 // RBB_SOC_CONFIGURE_REGISTER
@@ -3912,7 +3912,7 @@ union RBB_SOC_CONFIGURE {
 
   RBB_SOC_CONFIGURE() = delete;
   inline void Reset() volatile { this->value = 0x00000044; }
-  static inline volatile RBB_SOC_CONFIGURE &Instance() { return *reinterpret_cast<volatile RBB_SOC_CONFIGURE*>(0x40C847A0); }
+  static inline volatile RBB_SOC_CONFIGURE &ref() { return *reinterpret_cast<volatile RBB_SOC_CONFIGURE*>(0x40C847A0); }
 };
 
 // REFTOP_OTP_TRIM_VALUE_REGISTER
@@ -3934,7 +3934,7 @@ union REFTOP_OTP_TRIM_VALUE {
 
   REFTOP_OTP_TRIM_VALUE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REFTOP_OTP_TRIM_VALUE &Instance() { return *reinterpret_cast<volatile REFTOP_OTP_TRIM_VALUE*>(0x40C847B0); }
+  static inline volatile REFTOP_OTP_TRIM_VALUE &ref() { return *reinterpret_cast<volatile REFTOP_OTP_TRIM_VALUE*>(0x40C847B0); }
 };
 
 // LPSR_1P8_LDO_OTP_TRIM_VALUE_REGISTER
@@ -3954,7 +3954,7 @@ union LPSR_1P8_LDO_OTP_TRIM_VALUE {
 
   LPSR_1P8_LDO_OTP_TRIM_VALUE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSR_1P8_LDO_OTP_TRIM_VALUE &Instance() { return *reinterpret_cast<volatile LPSR_1P8_LDO_OTP_TRIM_VALUE*>(0x40C847D0); }
+  static inline volatile LPSR_1P8_LDO_OTP_TRIM_VALUE &ref() { return *reinterpret_cast<volatile LPSR_1P8_LDO_OTP_TRIM_VALUE*>(0x40C847D0); }
 };
 
 

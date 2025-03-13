@@ -33,7 +33,7 @@ union PD_TX {
 
   PD_TX() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile PD_TX &Instance() { return *reinterpret_cast<volatile PD_TX*>(0x4080C300); }
+  static inline volatile PD_TX &ref() { return *reinterpret_cast<volatile PD_TX*>(0x4080C300); }
 };
 
 // M_PRG_HS_PREPARE
@@ -51,7 +51,7 @@ union M_PRG_HS_PREPARE {
 
   M_PRG_HS_PREPARE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile M_PRG_HS_PREPARE &Instance() { return *reinterpret_cast<volatile M_PRG_HS_PREPARE*>(0x4080C304); }
+  static inline volatile M_PRG_HS_PREPARE &ref() { return *reinterpret_cast<volatile M_PRG_HS_PREPARE*>(0x4080C304); }
 };
 
 // MC_PRG_HS_PREPARE
@@ -69,7 +69,7 @@ union MC_PRG_HS_PREPARE {
 
   MC_PRG_HS_PREPARE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MC_PRG_HS_PREPARE &Instance() { return *reinterpret_cast<volatile MC_PRG_HS_PREPARE*>(0x4080C308); }
+  static inline volatile MC_PRG_HS_PREPARE &ref() { return *reinterpret_cast<volatile MC_PRG_HS_PREPARE*>(0x4080C308); }
 };
 
 // M_PRG_HS_ZERO
@@ -87,7 +87,7 @@ union M_PRG_HS_ZERO {
 
   M_PRG_HS_ZERO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile M_PRG_HS_ZERO &Instance() { return *reinterpret_cast<volatile M_PRG_HS_ZERO*>(0x4080C30C); }
+  static inline volatile M_PRG_HS_ZERO &ref() { return *reinterpret_cast<volatile M_PRG_HS_ZERO*>(0x4080C30C); }
 };
 
 // MC_PRG_HS_ZERO
@@ -105,7 +105,7 @@ union MC_PRG_HS_ZERO {
 
   MC_PRG_HS_ZERO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MC_PRG_HS_ZERO &Instance() { return *reinterpret_cast<volatile MC_PRG_HS_ZERO*>(0x4080C310); }
+  static inline volatile MC_PRG_HS_ZERO &ref() { return *reinterpret_cast<volatile MC_PRG_HS_ZERO*>(0x4080C310); }
 };
 
 // M_PRG_HS_TRAIL
@@ -123,7 +123,7 @@ union M_PRG_HS_TRAIL {
 
   M_PRG_HS_TRAIL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile M_PRG_HS_TRAIL &Instance() { return *reinterpret_cast<volatile M_PRG_HS_TRAIL*>(0x4080C314); }
+  static inline volatile M_PRG_HS_TRAIL &ref() { return *reinterpret_cast<volatile M_PRG_HS_TRAIL*>(0x4080C314); }
 };
 
 // MC_PRG_HS_TRAIL
@@ -141,7 +141,7 @@ union MC_PRG_HS_TRAIL {
 
   MC_PRG_HS_TRAIL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MC_PRG_HS_TRAIL &Instance() { return *reinterpret_cast<volatile MC_PRG_HS_TRAIL*>(0x4080C318); }
+  static inline volatile MC_PRG_HS_TRAIL &ref() { return *reinterpret_cast<volatile MC_PRG_HS_TRAIL*>(0x4080C318); }
 };
 
 // PD_PLL
@@ -167,7 +167,7 @@ union PD_PLL {
 
   PD_PLL() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile PD_PLL &Instance() { return *reinterpret_cast<volatile PD_PLL*>(0x4080C31C); }
+  static inline volatile PD_PLL &ref() { return *reinterpret_cast<volatile PD_PLL*>(0x4080C31C); }
 };
 
 // TST
@@ -185,7 +185,7 @@ union TST {
 
   TST() = delete;
   inline void Reset() volatile { this->value = 0x00000025; }
-  static inline volatile TST &Instance() { return *reinterpret_cast<volatile TST*>(0x4080C320); }
+  static inline volatile TST &ref() { return *reinterpret_cast<volatile TST*>(0x4080C320); }
 };
 
 // CN
@@ -203,7 +203,7 @@ union CN {
 
   CN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CN &Instance() { return *reinterpret_cast<volatile CN*>(0x4080C324); }
+  static inline volatile CN &ref() { return *reinterpret_cast<volatile CN*>(0x4080C324); }
 };
 
 // CM
@@ -221,7 +221,7 @@ union CM {
 
   CM() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM &Instance() { return *reinterpret_cast<volatile CM*>(0x4080C328); }
+  static inline volatile CM &ref() { return *reinterpret_cast<volatile CM*>(0x4080C328); }
 };
 
 // CO
@@ -251,7 +251,7 @@ union CO {
 
   CO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CO &Instance() { return *reinterpret_cast<volatile CO*>(0x4080C32C); }
+  static inline volatile CO &ref() { return *reinterpret_cast<volatile CO*>(0x4080C32C); }
 };
 
 // LOCK
@@ -277,7 +277,7 @@ union LOCK {
 
   LOCK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LOCK &Instance() { return *reinterpret_cast<volatile LOCK*>(0x4080C330); }
+  static inline volatile LOCK &ref() { return *reinterpret_cast<volatile LOCK*>(0x4080C330); }
 };
 
 // LOCK_BYP
@@ -303,7 +303,7 @@ union LOCK_BYP {
 
   LOCK_BYP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LOCK_BYP &Instance() { return *reinterpret_cast<volatile LOCK_BYP*>(0x4080C334); }
+  static inline volatile LOCK_BYP &ref() { return *reinterpret_cast<volatile LOCK_BYP*>(0x4080C334); }
 };
 
 // TX_RCAL
@@ -333,7 +333,7 @@ union TX_RCAL {
 
   TX_RCAL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TX_RCAL &Instance() { return *reinterpret_cast<volatile TX_RCAL*>(0x4080C338); }
+  static inline volatile TX_RCAL &ref() { return *reinterpret_cast<volatile TX_RCAL*>(0x4080C338); }
 };
 
 // AUTO_PD_EN
@@ -359,7 +359,7 @@ union AUTO_PD_EN {
 
   AUTO_PD_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTO_PD_EN &Instance() { return *reinterpret_cast<volatile AUTO_PD_EN*>(0x4080C33C); }
+  static inline volatile AUTO_PD_EN &ref() { return *reinterpret_cast<volatile AUTO_PD_EN*>(0x4080C33C); }
 };
 
 // RXLPRP
@@ -377,7 +377,7 @@ union RXLPRP {
 
   RXLPRP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXLPRP &Instance() { return *reinterpret_cast<volatile RXLPRP*>(0x4080C340); }
+  static inline volatile RXLPRP &ref() { return *reinterpret_cast<volatile RXLPRP*>(0x4080C340); }
 };
 
 // RXCDRP
@@ -407,7 +407,7 @@ union RXCDRP {
 
   RXCDRP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXCDRP &Instance() { return *reinterpret_cast<volatile RXCDRP*>(0x4080C344); }
+  static inline volatile RXCDRP &ref() { return *reinterpret_cast<volatile RXCDRP*>(0x4080C344); }
 };
 
 

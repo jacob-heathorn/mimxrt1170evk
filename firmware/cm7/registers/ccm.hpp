@@ -38,7 +38,7 @@ union CLOCK_GROUP0_CONTROL {
 
   CLOCK_GROUP0_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_CONTROL &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONTROL*>(0x40CC4000); }
+  static inline volatile CLOCK_GROUP0_CONTROL &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONTROL*>(0x40CC4000); }
 };
 
 // Clock group control
@@ -61,7 +61,7 @@ union CLOCK_GROUP0_CONTROL_SET {
 
   CLOCK_GROUP0_CONTROL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_CONTROL_SET &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONTROL_SET*>(0x40CC4004); }
+  static inline volatile CLOCK_GROUP0_CONTROL_SET &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONTROL_SET*>(0x40CC4004); }
 };
 
 // Clock group control
@@ -84,7 +84,7 @@ union CLOCK_GROUP0_CONTROL_CLR {
 
   CLOCK_GROUP0_CONTROL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_CONTROL_CLR &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONTROL_CLR*>(0x40CC4008); }
+  static inline volatile CLOCK_GROUP0_CONTROL_CLR &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONTROL_CLR*>(0x40CC4008); }
 };
 
 // Clock group control
@@ -107,7 +107,7 @@ union CLOCK_GROUP0_CONTROL_TOG {
 
   CLOCK_GROUP0_CONTROL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_CONTROL_TOG &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONTROL_TOG*>(0x40CC400C); }
+  static inline volatile CLOCK_GROUP0_CONTROL_TOG &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONTROL_TOG*>(0x40CC400C); }
 };
 
 // Clock group working status
@@ -188,7 +188,7 @@ union CLOCK_GROUP0_STATUS0 {
 
   CLOCK_GROUP0_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_STATUS0 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_STATUS0*>(0x40CC4020); }
+  static inline volatile CLOCK_GROUP0_STATUS0 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_STATUS0*>(0x40CC4020); }
 };
 
 // Clock group low power/extend status
@@ -249,7 +249,7 @@ union CLOCK_GROUP0_STATUS1 {
 
   CLOCK_GROUP0_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_STATUS1 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_STATUS1*>(0x40CC4024); }
+  static inline volatile CLOCK_GROUP0_STATUS1 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_STATUS1*>(0x40CC4024); }
 };
 
 // Clock group configuration
@@ -276,7 +276,7 @@ union CLOCK_GROUP0_CONFIG {
 
   CLOCK_GROUP0_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_CONFIG &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONFIG*>(0x40CC402C); }
+  static inline volatile CLOCK_GROUP0_CONFIG &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONFIG*>(0x40CC402C); }
 };
 
 // Clock group access control
@@ -360,7 +360,7 @@ union CLOCK_GROUP0_AUTHEN {
 
   CLOCK_GROUP0_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_AUTHEN &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_AUTHEN*>(0x40CC4030); }
+  static inline volatile CLOCK_GROUP0_AUTHEN &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_AUTHEN*>(0x40CC4030); }
 };
 
 // Clock group access control
@@ -396,7 +396,7 @@ union CLOCK_GROUP0_AUTHEN_SET {
 
   CLOCK_GROUP0_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_AUTHEN_SET &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_AUTHEN_SET*>(0x40CC4034); }
+  static inline volatile CLOCK_GROUP0_AUTHEN_SET &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_AUTHEN_SET*>(0x40CC4034); }
 };
 
 // Clock group access control
@@ -432,7 +432,7 @@ union CLOCK_GROUP0_AUTHEN_CLR {
 
   CLOCK_GROUP0_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_AUTHEN_CLR &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_AUTHEN_CLR*>(0x40CC4038); }
+  static inline volatile CLOCK_GROUP0_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_AUTHEN_CLR*>(0x40CC4038); }
 };
 
 // Clock group access control
@@ -468,7 +468,7 @@ union CLOCK_GROUP0_AUTHEN_TOG {
 
   CLOCK_GROUP0_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_AUTHEN_TOG &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_AUTHEN_TOG*>(0x40CC403C); }
+  static inline volatile CLOCK_GROUP0_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_AUTHEN_TOG*>(0x40CC403C); }
 };
 
 // Setpoint setting
@@ -515,7 +515,7 @@ union CLOCK_GROUP0_SETPOINT0 {
 
   CLOCK_GROUP0_SETPOINT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT0 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT0*>(0x40CC4040); }
+  static inline volatile CLOCK_GROUP0_SETPOINT0 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT0*>(0x40CC4040); }
 };
 
 // Setpoint setting
@@ -562,7 +562,7 @@ union CLOCK_GROUP0_SETPOINT1 {
 
   CLOCK_GROUP0_SETPOINT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT1 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT1*>(0x40CC4044); }
+  static inline volatile CLOCK_GROUP0_SETPOINT1 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT1*>(0x40CC4044); }
 };
 
 // Setpoint setting
@@ -609,7 +609,7 @@ union CLOCK_GROUP0_SETPOINT2 {
 
   CLOCK_GROUP0_SETPOINT2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT2 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT2*>(0x40CC4048); }
+  static inline volatile CLOCK_GROUP0_SETPOINT2 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT2*>(0x40CC4048); }
 };
 
 // Setpoint setting
@@ -656,7 +656,7 @@ union CLOCK_GROUP0_SETPOINT3 {
 
   CLOCK_GROUP0_SETPOINT3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT3 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT3*>(0x40CC404C); }
+  static inline volatile CLOCK_GROUP0_SETPOINT3 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT3*>(0x40CC404C); }
 };
 
 // Setpoint setting
@@ -703,7 +703,7 @@ union CLOCK_GROUP0_SETPOINT4 {
 
   CLOCK_GROUP0_SETPOINT4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT4 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT4*>(0x40CC4050); }
+  static inline volatile CLOCK_GROUP0_SETPOINT4 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT4*>(0x40CC4050); }
 };
 
 // Setpoint setting
@@ -750,7 +750,7 @@ union CLOCK_GROUP0_SETPOINT5 {
 
   CLOCK_GROUP0_SETPOINT5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT5 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT5*>(0x40CC4054); }
+  static inline volatile CLOCK_GROUP0_SETPOINT5 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT5*>(0x40CC4054); }
 };
 
 // Setpoint setting
@@ -797,7 +797,7 @@ union CLOCK_GROUP0_SETPOINT6 {
 
   CLOCK_GROUP0_SETPOINT6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT6 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT6*>(0x40CC4058); }
+  static inline volatile CLOCK_GROUP0_SETPOINT6 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT6*>(0x40CC4058); }
 };
 
 // Setpoint setting
@@ -844,7 +844,7 @@ union CLOCK_GROUP0_SETPOINT7 {
 
   CLOCK_GROUP0_SETPOINT7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT7 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT7*>(0x40CC405C); }
+  static inline volatile CLOCK_GROUP0_SETPOINT7 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT7*>(0x40CC405C); }
 };
 
 // Setpoint setting
@@ -891,7 +891,7 @@ union CLOCK_GROUP0_SETPOINT8 {
 
   CLOCK_GROUP0_SETPOINT8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT8 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT8*>(0x40CC4060); }
+  static inline volatile CLOCK_GROUP0_SETPOINT8 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT8*>(0x40CC4060); }
 };
 
 // Setpoint setting
@@ -938,7 +938,7 @@ union CLOCK_GROUP0_SETPOINT9 {
 
   CLOCK_GROUP0_SETPOINT9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT9 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT9*>(0x40CC4064); }
+  static inline volatile CLOCK_GROUP0_SETPOINT9 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT9*>(0x40CC4064); }
 };
 
 // Setpoint setting
@@ -985,7 +985,7 @@ union CLOCK_GROUP0_SETPOINT10 {
 
   CLOCK_GROUP0_SETPOINT10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT10 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT10*>(0x40CC4068); }
+  static inline volatile CLOCK_GROUP0_SETPOINT10 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT10*>(0x40CC4068); }
 };
 
 // Setpoint setting
@@ -1032,7 +1032,7 @@ union CLOCK_GROUP0_SETPOINT11 {
 
   CLOCK_GROUP0_SETPOINT11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT11 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT11*>(0x40CC406C); }
+  static inline volatile CLOCK_GROUP0_SETPOINT11 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT11*>(0x40CC406C); }
 };
 
 // Setpoint setting
@@ -1079,7 +1079,7 @@ union CLOCK_GROUP0_SETPOINT12 {
 
   CLOCK_GROUP0_SETPOINT12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT12 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT12*>(0x40CC4070); }
+  static inline volatile CLOCK_GROUP0_SETPOINT12 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT12*>(0x40CC4070); }
 };
 
 // Setpoint setting
@@ -1126,7 +1126,7 @@ union CLOCK_GROUP0_SETPOINT13 {
 
   CLOCK_GROUP0_SETPOINT13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT13 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT13*>(0x40CC4074); }
+  static inline volatile CLOCK_GROUP0_SETPOINT13 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT13*>(0x40CC4074); }
 };
 
 // Setpoint setting
@@ -1173,7 +1173,7 @@ union CLOCK_GROUP0_SETPOINT14 {
 
   CLOCK_GROUP0_SETPOINT14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT14 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT14*>(0x40CC4078); }
+  static inline volatile CLOCK_GROUP0_SETPOINT14 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT14*>(0x40CC4078); }
 };
 
 // Setpoint setting
@@ -1220,7 +1220,7 @@ union CLOCK_GROUP0_SETPOINT15 {
 
   CLOCK_GROUP0_SETPOINT15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP0_SETPOINT15 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT15*>(0x40CC407C); }
+  static inline volatile CLOCK_GROUP0_SETPOINT15 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT15*>(0x40CC407C); }
 };
 
 // Clock group control
@@ -1251,7 +1251,7 @@ union CLOCK_GROUP1_CONTROL {
 
   CLOCK_GROUP1_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_CONTROL &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONTROL*>(0x40CC4080); }
+  static inline volatile CLOCK_GROUP1_CONTROL &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONTROL*>(0x40CC4080); }
 };
 
 // Clock group control
@@ -1274,7 +1274,7 @@ union CLOCK_GROUP1_CONTROL_SET {
 
   CLOCK_GROUP1_CONTROL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_CONTROL_SET &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONTROL_SET*>(0x40CC4084); }
+  static inline volatile CLOCK_GROUP1_CONTROL_SET &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONTROL_SET*>(0x40CC4084); }
 };
 
 // Clock group control
@@ -1297,7 +1297,7 @@ union CLOCK_GROUP1_CONTROL_CLR {
 
   CLOCK_GROUP1_CONTROL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_CONTROL_CLR &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONTROL_CLR*>(0x40CC4088); }
+  static inline volatile CLOCK_GROUP1_CONTROL_CLR &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONTROL_CLR*>(0x40CC4088); }
 };
 
 // Clock group control
@@ -1320,7 +1320,7 @@ union CLOCK_GROUP1_CONTROL_TOG {
 
   CLOCK_GROUP1_CONTROL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_CONTROL_TOG &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONTROL_TOG*>(0x40CC408C); }
+  static inline volatile CLOCK_GROUP1_CONTROL_TOG &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONTROL_TOG*>(0x40CC408C); }
 };
 
 // Clock group working status
@@ -1401,7 +1401,7 @@ union CLOCK_GROUP1_STATUS0 {
 
   CLOCK_GROUP1_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_STATUS0 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_STATUS0*>(0x40CC40A0); }
+  static inline volatile CLOCK_GROUP1_STATUS0 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_STATUS0*>(0x40CC40A0); }
 };
 
 // Clock group low power/extend status
@@ -1462,7 +1462,7 @@ union CLOCK_GROUP1_STATUS1 {
 
   CLOCK_GROUP1_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_STATUS1 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_STATUS1*>(0x40CC40A4); }
+  static inline volatile CLOCK_GROUP1_STATUS1 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_STATUS1*>(0x40CC40A4); }
 };
 
 // Clock group configuration
@@ -1489,7 +1489,7 @@ union CLOCK_GROUP1_CONFIG {
 
   CLOCK_GROUP1_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_CONFIG &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONFIG*>(0x40CC40AC); }
+  static inline volatile CLOCK_GROUP1_CONFIG &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONFIG*>(0x40CC40AC); }
 };
 
 // Clock group access control
@@ -1573,7 +1573,7 @@ union CLOCK_GROUP1_AUTHEN {
 
   CLOCK_GROUP1_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_AUTHEN &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_AUTHEN*>(0x40CC40B0); }
+  static inline volatile CLOCK_GROUP1_AUTHEN &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_AUTHEN*>(0x40CC40B0); }
 };
 
 // Clock group access control
@@ -1609,7 +1609,7 @@ union CLOCK_GROUP1_AUTHEN_SET {
 
   CLOCK_GROUP1_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_AUTHEN_SET &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_AUTHEN_SET*>(0x40CC40B4); }
+  static inline volatile CLOCK_GROUP1_AUTHEN_SET &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_AUTHEN_SET*>(0x40CC40B4); }
 };
 
 // Clock group access control
@@ -1645,7 +1645,7 @@ union CLOCK_GROUP1_AUTHEN_CLR {
 
   CLOCK_GROUP1_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_AUTHEN_CLR &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_AUTHEN_CLR*>(0x40CC40B8); }
+  static inline volatile CLOCK_GROUP1_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_AUTHEN_CLR*>(0x40CC40B8); }
 };
 
 // Clock group access control
@@ -1681,7 +1681,7 @@ union CLOCK_GROUP1_AUTHEN_TOG {
 
   CLOCK_GROUP1_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_AUTHEN_TOG &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_AUTHEN_TOG*>(0x40CC40BC); }
+  static inline volatile CLOCK_GROUP1_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_AUTHEN_TOG*>(0x40CC40BC); }
 };
 
 // Setpoint setting
@@ -1728,7 +1728,7 @@ union CLOCK_GROUP1_SETPOINT0 {
 
   CLOCK_GROUP1_SETPOINT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT0 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT0*>(0x40CC40C0); }
+  static inline volatile CLOCK_GROUP1_SETPOINT0 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT0*>(0x40CC40C0); }
 };
 
 // Setpoint setting
@@ -1775,7 +1775,7 @@ union CLOCK_GROUP1_SETPOINT1 {
 
   CLOCK_GROUP1_SETPOINT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT1 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT1*>(0x40CC40C4); }
+  static inline volatile CLOCK_GROUP1_SETPOINT1 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT1*>(0x40CC40C4); }
 };
 
 // Setpoint setting
@@ -1822,7 +1822,7 @@ union CLOCK_GROUP1_SETPOINT2 {
 
   CLOCK_GROUP1_SETPOINT2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT2 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT2*>(0x40CC40C8); }
+  static inline volatile CLOCK_GROUP1_SETPOINT2 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT2*>(0x40CC40C8); }
 };
 
 // Setpoint setting
@@ -1869,7 +1869,7 @@ union CLOCK_GROUP1_SETPOINT3 {
 
   CLOCK_GROUP1_SETPOINT3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT3 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT3*>(0x40CC40CC); }
+  static inline volatile CLOCK_GROUP1_SETPOINT3 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT3*>(0x40CC40CC); }
 };
 
 // Setpoint setting
@@ -1916,7 +1916,7 @@ union CLOCK_GROUP1_SETPOINT4 {
 
   CLOCK_GROUP1_SETPOINT4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT4 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT4*>(0x40CC40D0); }
+  static inline volatile CLOCK_GROUP1_SETPOINT4 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT4*>(0x40CC40D0); }
 };
 
 // Setpoint setting
@@ -1963,7 +1963,7 @@ union CLOCK_GROUP1_SETPOINT5 {
 
   CLOCK_GROUP1_SETPOINT5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT5 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT5*>(0x40CC40D4); }
+  static inline volatile CLOCK_GROUP1_SETPOINT5 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT5*>(0x40CC40D4); }
 };
 
 // Setpoint setting
@@ -2010,7 +2010,7 @@ union CLOCK_GROUP1_SETPOINT6 {
 
   CLOCK_GROUP1_SETPOINT6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT6 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT6*>(0x40CC40D8); }
+  static inline volatile CLOCK_GROUP1_SETPOINT6 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT6*>(0x40CC40D8); }
 };
 
 // Setpoint setting
@@ -2057,7 +2057,7 @@ union CLOCK_GROUP1_SETPOINT7 {
 
   CLOCK_GROUP1_SETPOINT7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT7 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT7*>(0x40CC40DC); }
+  static inline volatile CLOCK_GROUP1_SETPOINT7 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT7*>(0x40CC40DC); }
 };
 
 // Setpoint setting
@@ -2104,7 +2104,7 @@ union CLOCK_GROUP1_SETPOINT8 {
 
   CLOCK_GROUP1_SETPOINT8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT8 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT8*>(0x40CC40E0); }
+  static inline volatile CLOCK_GROUP1_SETPOINT8 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT8*>(0x40CC40E0); }
 };
 
 // Setpoint setting
@@ -2151,7 +2151,7 @@ union CLOCK_GROUP1_SETPOINT9 {
 
   CLOCK_GROUP1_SETPOINT9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT9 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT9*>(0x40CC40E4); }
+  static inline volatile CLOCK_GROUP1_SETPOINT9 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT9*>(0x40CC40E4); }
 };
 
 // Setpoint setting
@@ -2198,7 +2198,7 @@ union CLOCK_GROUP1_SETPOINT10 {
 
   CLOCK_GROUP1_SETPOINT10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT10 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT10*>(0x40CC40E8); }
+  static inline volatile CLOCK_GROUP1_SETPOINT10 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT10*>(0x40CC40E8); }
 };
 
 // Setpoint setting
@@ -2245,7 +2245,7 @@ union CLOCK_GROUP1_SETPOINT11 {
 
   CLOCK_GROUP1_SETPOINT11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT11 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT11*>(0x40CC40EC); }
+  static inline volatile CLOCK_GROUP1_SETPOINT11 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT11*>(0x40CC40EC); }
 };
 
 // Setpoint setting
@@ -2292,7 +2292,7 @@ union CLOCK_GROUP1_SETPOINT12 {
 
   CLOCK_GROUP1_SETPOINT12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT12 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT12*>(0x40CC40F0); }
+  static inline volatile CLOCK_GROUP1_SETPOINT12 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT12*>(0x40CC40F0); }
 };
 
 // Setpoint setting
@@ -2339,7 +2339,7 @@ union CLOCK_GROUP1_SETPOINT13 {
 
   CLOCK_GROUP1_SETPOINT13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT13 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT13*>(0x40CC40F4); }
+  static inline volatile CLOCK_GROUP1_SETPOINT13 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT13*>(0x40CC40F4); }
 };
 
 // Setpoint setting
@@ -2386,7 +2386,7 @@ union CLOCK_GROUP1_SETPOINT14 {
 
   CLOCK_GROUP1_SETPOINT14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT14 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT14*>(0x40CC40F8); }
+  static inline volatile CLOCK_GROUP1_SETPOINT14 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT14*>(0x40CC40F8); }
 };
 
 // Setpoint setting
@@ -2433,7 +2433,7 @@ union CLOCK_GROUP1_SETPOINT15 {
 
   CLOCK_GROUP1_SETPOINT15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLOCK_GROUP1_SETPOINT15 &Instance() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT15*>(0x40CC40FC); }
+  static inline volatile CLOCK_GROUP1_SETPOINT15 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT15*>(0x40CC40FC); }
 };
 
 // General Purpose Register
@@ -2450,7 +2450,7 @@ union GPR_PRIVATE1 {
 
   GPR_PRIVATE1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE1 &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE1*>(0x40CC4C20); }
+  static inline volatile GPR_PRIVATE1 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1*>(0x40CC4C20); }
 };
 
 // General Purpose Register
@@ -2467,7 +2467,7 @@ union GPR_PRIVATE1_SET {
 
   GPR_PRIVATE1_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE1_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE1_SET*>(0x40CC4C24); }
+  static inline volatile GPR_PRIVATE1_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_SET*>(0x40CC4C24); }
 };
 
 // General Purpose Register
@@ -2484,7 +2484,7 @@ union GPR_PRIVATE1_CLR {
 
   GPR_PRIVATE1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE1_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE1_CLR*>(0x40CC4C28); }
+  static inline volatile GPR_PRIVATE1_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_CLR*>(0x40CC4C28); }
 };
 
 // General Purpose Register
@@ -2501,7 +2501,7 @@ union GPR_PRIVATE1_TOG {
 
   GPR_PRIVATE1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE1_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE1_TOG*>(0x40CC4C2C); }
+  static inline volatile GPR_PRIVATE1_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_TOG*>(0x40CC4C2C); }
 };
 
 // GPR access control
@@ -2591,7 +2591,7 @@ union GPR_PRIVATE1_AUTHEN {
 
   GPR_PRIVATE1_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE1_AUTHEN &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE1_AUTHEN*>(0x40CC4C30); }
+  static inline volatile GPR_PRIVATE1_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_AUTHEN*>(0x40CC4C30); }
 };
 
 // GPR access control
@@ -2625,7 +2625,7 @@ union GPR_PRIVATE1_AUTHEN_SET {
 
   GPR_PRIVATE1_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE1_AUTHEN_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE1_AUTHEN_SET*>(0x40CC4C34); }
+  static inline volatile GPR_PRIVATE1_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_AUTHEN_SET*>(0x40CC4C34); }
 };
 
 // GPR access control
@@ -2659,7 +2659,7 @@ union GPR_PRIVATE1_AUTHEN_CLR {
 
   GPR_PRIVATE1_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE1_AUTHEN_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE1_AUTHEN_CLR*>(0x40CC4C38); }
+  static inline volatile GPR_PRIVATE1_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_AUTHEN_CLR*>(0x40CC4C38); }
 };
 
 // GPR access control
@@ -2693,7 +2693,7 @@ union GPR_PRIVATE1_AUTHEN_TOG {
 
   GPR_PRIVATE1_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE1_AUTHEN_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE1_AUTHEN_TOG*>(0x40CC4C3C); }
+  static inline volatile GPR_PRIVATE1_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_AUTHEN_TOG*>(0x40CC4C3C); }
 };
 
 // General Purpose Register
@@ -2710,7 +2710,7 @@ union GPR_PRIVATE2 {
 
   GPR_PRIVATE2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE2 &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE2*>(0x40CC4C40); }
+  static inline volatile GPR_PRIVATE2 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2*>(0x40CC4C40); }
 };
 
 // General Purpose Register
@@ -2727,7 +2727,7 @@ union GPR_PRIVATE2_SET {
 
   GPR_PRIVATE2_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE2_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE2_SET*>(0x40CC4C44); }
+  static inline volatile GPR_PRIVATE2_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_SET*>(0x40CC4C44); }
 };
 
 // General Purpose Register
@@ -2744,7 +2744,7 @@ union GPR_PRIVATE2_CLR {
 
   GPR_PRIVATE2_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE2_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE2_CLR*>(0x40CC4C48); }
+  static inline volatile GPR_PRIVATE2_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_CLR*>(0x40CC4C48); }
 };
 
 // General Purpose Register
@@ -2761,7 +2761,7 @@ union GPR_PRIVATE2_TOG {
 
   GPR_PRIVATE2_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE2_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE2_TOG*>(0x40CC4C4C); }
+  static inline volatile GPR_PRIVATE2_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_TOG*>(0x40CC4C4C); }
 };
 
 // GPR access control
@@ -2851,7 +2851,7 @@ union GPR_PRIVATE2_AUTHEN {
 
   GPR_PRIVATE2_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE2_AUTHEN &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE2_AUTHEN*>(0x40CC4C50); }
+  static inline volatile GPR_PRIVATE2_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_AUTHEN*>(0x40CC4C50); }
 };
 
 // GPR access control
@@ -2885,7 +2885,7 @@ union GPR_PRIVATE2_AUTHEN_SET {
 
   GPR_PRIVATE2_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE2_AUTHEN_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE2_AUTHEN_SET*>(0x40CC4C54); }
+  static inline volatile GPR_PRIVATE2_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_AUTHEN_SET*>(0x40CC4C54); }
 };
 
 // GPR access control
@@ -2919,7 +2919,7 @@ union GPR_PRIVATE2_AUTHEN_CLR {
 
   GPR_PRIVATE2_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE2_AUTHEN_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE2_AUTHEN_CLR*>(0x40CC4C58); }
+  static inline volatile GPR_PRIVATE2_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_AUTHEN_CLR*>(0x40CC4C58); }
 };
 
 // GPR access control
@@ -2953,7 +2953,7 @@ union GPR_PRIVATE2_AUTHEN_TOG {
 
   GPR_PRIVATE2_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE2_AUTHEN_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE2_AUTHEN_TOG*>(0x40CC4C5C); }
+  static inline volatile GPR_PRIVATE2_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_AUTHEN_TOG*>(0x40CC4C5C); }
 };
 
 // General Purpose Register
@@ -2970,7 +2970,7 @@ union GPR_PRIVATE3 {
 
   GPR_PRIVATE3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE3 &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE3*>(0x40CC4C60); }
+  static inline volatile GPR_PRIVATE3 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3*>(0x40CC4C60); }
 };
 
 // General Purpose Register
@@ -2987,7 +2987,7 @@ union GPR_PRIVATE3_SET {
 
   GPR_PRIVATE3_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE3_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE3_SET*>(0x40CC4C64); }
+  static inline volatile GPR_PRIVATE3_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_SET*>(0x40CC4C64); }
 };
 
 // General Purpose Register
@@ -3004,7 +3004,7 @@ union GPR_PRIVATE3_CLR {
 
   GPR_PRIVATE3_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE3_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE3_CLR*>(0x40CC4C68); }
+  static inline volatile GPR_PRIVATE3_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_CLR*>(0x40CC4C68); }
 };
 
 // General Purpose Register
@@ -3021,7 +3021,7 @@ union GPR_PRIVATE3_TOG {
 
   GPR_PRIVATE3_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE3_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE3_TOG*>(0x40CC4C6C); }
+  static inline volatile GPR_PRIVATE3_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_TOG*>(0x40CC4C6C); }
 };
 
 // GPR access control
@@ -3111,7 +3111,7 @@ union GPR_PRIVATE3_AUTHEN {
 
   GPR_PRIVATE3_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE3_AUTHEN &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE3_AUTHEN*>(0x40CC4C70); }
+  static inline volatile GPR_PRIVATE3_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_AUTHEN*>(0x40CC4C70); }
 };
 
 // GPR access control
@@ -3145,7 +3145,7 @@ union GPR_PRIVATE3_AUTHEN_SET {
 
   GPR_PRIVATE3_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE3_AUTHEN_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE3_AUTHEN_SET*>(0x40CC4C74); }
+  static inline volatile GPR_PRIVATE3_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_AUTHEN_SET*>(0x40CC4C74); }
 };
 
 // GPR access control
@@ -3179,7 +3179,7 @@ union GPR_PRIVATE3_AUTHEN_CLR {
 
   GPR_PRIVATE3_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE3_AUTHEN_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE3_AUTHEN_CLR*>(0x40CC4C78); }
+  static inline volatile GPR_PRIVATE3_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_AUTHEN_CLR*>(0x40CC4C78); }
 };
 
 // GPR access control
@@ -3213,7 +3213,7 @@ union GPR_PRIVATE3_AUTHEN_TOG {
 
   GPR_PRIVATE3_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE3_AUTHEN_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE3_AUTHEN_TOG*>(0x40CC4C7C); }
+  static inline volatile GPR_PRIVATE3_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_AUTHEN_TOG*>(0x40CC4C7C); }
 };
 
 // General Purpose Register
@@ -3230,7 +3230,7 @@ union GPR_PRIVATE4 {
 
   GPR_PRIVATE4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE4 &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE4*>(0x40CC4C80); }
+  static inline volatile GPR_PRIVATE4 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4*>(0x40CC4C80); }
 };
 
 // General Purpose Register
@@ -3247,7 +3247,7 @@ union GPR_PRIVATE4_SET {
 
   GPR_PRIVATE4_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE4_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE4_SET*>(0x40CC4C84); }
+  static inline volatile GPR_PRIVATE4_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_SET*>(0x40CC4C84); }
 };
 
 // General Purpose Register
@@ -3264,7 +3264,7 @@ union GPR_PRIVATE4_CLR {
 
   GPR_PRIVATE4_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE4_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE4_CLR*>(0x40CC4C88); }
+  static inline volatile GPR_PRIVATE4_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_CLR*>(0x40CC4C88); }
 };
 
 // General Purpose Register
@@ -3281,7 +3281,7 @@ union GPR_PRIVATE4_TOG {
 
   GPR_PRIVATE4_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE4_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE4_TOG*>(0x40CC4C8C); }
+  static inline volatile GPR_PRIVATE4_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_TOG*>(0x40CC4C8C); }
 };
 
 // GPR access control
@@ -3371,7 +3371,7 @@ union GPR_PRIVATE4_AUTHEN {
 
   GPR_PRIVATE4_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE4_AUTHEN &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE4_AUTHEN*>(0x40CC4C90); }
+  static inline volatile GPR_PRIVATE4_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_AUTHEN*>(0x40CC4C90); }
 };
 
 // GPR access control
@@ -3405,7 +3405,7 @@ union GPR_PRIVATE4_AUTHEN_SET {
 
   GPR_PRIVATE4_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE4_AUTHEN_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE4_AUTHEN_SET*>(0x40CC4C94); }
+  static inline volatile GPR_PRIVATE4_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_AUTHEN_SET*>(0x40CC4C94); }
 };
 
 // GPR access control
@@ -3439,7 +3439,7 @@ union GPR_PRIVATE4_AUTHEN_CLR {
 
   GPR_PRIVATE4_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE4_AUTHEN_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE4_AUTHEN_CLR*>(0x40CC4C98); }
+  static inline volatile GPR_PRIVATE4_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_AUTHEN_CLR*>(0x40CC4C98); }
 };
 
 // GPR access control
@@ -3473,7 +3473,7 @@ union GPR_PRIVATE4_AUTHEN_TOG {
 
   GPR_PRIVATE4_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE4_AUTHEN_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE4_AUTHEN_TOG*>(0x40CC4C9C); }
+  static inline volatile GPR_PRIVATE4_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_AUTHEN_TOG*>(0x40CC4C9C); }
 };
 
 // General Purpose Register
@@ -3490,7 +3490,7 @@ union GPR_PRIVATE5 {
 
   GPR_PRIVATE5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE5 &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE5*>(0x40CC4CA0); }
+  static inline volatile GPR_PRIVATE5 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5*>(0x40CC4CA0); }
 };
 
 // General Purpose Register
@@ -3507,7 +3507,7 @@ union GPR_PRIVATE5_SET {
 
   GPR_PRIVATE5_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE5_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE5_SET*>(0x40CC4CA4); }
+  static inline volatile GPR_PRIVATE5_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_SET*>(0x40CC4CA4); }
 };
 
 // General Purpose Register
@@ -3524,7 +3524,7 @@ union GPR_PRIVATE5_CLR {
 
   GPR_PRIVATE5_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE5_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE5_CLR*>(0x40CC4CA8); }
+  static inline volatile GPR_PRIVATE5_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_CLR*>(0x40CC4CA8); }
 };
 
 // General Purpose Register
@@ -3541,7 +3541,7 @@ union GPR_PRIVATE5_TOG {
 
   GPR_PRIVATE5_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE5_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE5_TOG*>(0x40CC4CAC); }
+  static inline volatile GPR_PRIVATE5_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_TOG*>(0x40CC4CAC); }
 };
 
 // GPR access control
@@ -3631,7 +3631,7 @@ union GPR_PRIVATE5_AUTHEN {
 
   GPR_PRIVATE5_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE5_AUTHEN &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE5_AUTHEN*>(0x40CC4CB0); }
+  static inline volatile GPR_PRIVATE5_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_AUTHEN*>(0x40CC4CB0); }
 };
 
 // GPR access control
@@ -3665,7 +3665,7 @@ union GPR_PRIVATE5_AUTHEN_SET {
 
   GPR_PRIVATE5_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE5_AUTHEN_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE5_AUTHEN_SET*>(0x40CC4CB4); }
+  static inline volatile GPR_PRIVATE5_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_AUTHEN_SET*>(0x40CC4CB4); }
 };
 
 // GPR access control
@@ -3699,7 +3699,7 @@ union GPR_PRIVATE5_AUTHEN_CLR {
 
   GPR_PRIVATE5_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE5_AUTHEN_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE5_AUTHEN_CLR*>(0x40CC4CB8); }
+  static inline volatile GPR_PRIVATE5_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_AUTHEN_CLR*>(0x40CC4CB8); }
 };
 
 // GPR access control
@@ -3733,7 +3733,7 @@ union GPR_PRIVATE5_AUTHEN_TOG {
 
   GPR_PRIVATE5_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE5_AUTHEN_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE5_AUTHEN_TOG*>(0x40CC4CBC); }
+  static inline volatile GPR_PRIVATE5_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_AUTHEN_TOG*>(0x40CC4CBC); }
 };
 
 // General Purpose Register
@@ -3750,7 +3750,7 @@ union GPR_PRIVATE6 {
 
   GPR_PRIVATE6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE6 &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE6*>(0x40CC4CC0); }
+  static inline volatile GPR_PRIVATE6 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6*>(0x40CC4CC0); }
 };
 
 // General Purpose Register
@@ -3767,7 +3767,7 @@ union GPR_PRIVATE6_SET {
 
   GPR_PRIVATE6_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE6_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE6_SET*>(0x40CC4CC4); }
+  static inline volatile GPR_PRIVATE6_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_SET*>(0x40CC4CC4); }
 };
 
 // General Purpose Register
@@ -3784,7 +3784,7 @@ union GPR_PRIVATE6_CLR {
 
   GPR_PRIVATE6_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE6_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE6_CLR*>(0x40CC4CC8); }
+  static inline volatile GPR_PRIVATE6_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_CLR*>(0x40CC4CC8); }
 };
 
 // General Purpose Register
@@ -3801,7 +3801,7 @@ union GPR_PRIVATE6_TOG {
 
   GPR_PRIVATE6_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE6_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE6_TOG*>(0x40CC4CCC); }
+  static inline volatile GPR_PRIVATE6_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_TOG*>(0x40CC4CCC); }
 };
 
 // GPR access control
@@ -3891,7 +3891,7 @@ union GPR_PRIVATE6_AUTHEN {
 
   GPR_PRIVATE6_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE6_AUTHEN &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE6_AUTHEN*>(0x40CC4CD0); }
+  static inline volatile GPR_PRIVATE6_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_AUTHEN*>(0x40CC4CD0); }
 };
 
 // GPR access control
@@ -3925,7 +3925,7 @@ union GPR_PRIVATE6_AUTHEN_SET {
 
   GPR_PRIVATE6_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE6_AUTHEN_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE6_AUTHEN_SET*>(0x40CC4CD4); }
+  static inline volatile GPR_PRIVATE6_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_AUTHEN_SET*>(0x40CC4CD4); }
 };
 
 // GPR access control
@@ -3959,7 +3959,7 @@ union GPR_PRIVATE6_AUTHEN_CLR {
 
   GPR_PRIVATE6_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE6_AUTHEN_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE6_AUTHEN_CLR*>(0x40CC4CD8); }
+  static inline volatile GPR_PRIVATE6_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_AUTHEN_CLR*>(0x40CC4CD8); }
 };
 
 // GPR access control
@@ -3993,7 +3993,7 @@ union GPR_PRIVATE6_AUTHEN_TOG {
 
   GPR_PRIVATE6_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE6_AUTHEN_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE6_AUTHEN_TOG*>(0x40CC4CDC); }
+  static inline volatile GPR_PRIVATE6_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_AUTHEN_TOG*>(0x40CC4CDC); }
 };
 
 // General Purpose Register
@@ -4010,7 +4010,7 @@ union GPR_PRIVATE7 {
 
   GPR_PRIVATE7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE7 &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE7*>(0x40CC4CE0); }
+  static inline volatile GPR_PRIVATE7 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7*>(0x40CC4CE0); }
 };
 
 // General Purpose Register
@@ -4027,7 +4027,7 @@ union GPR_PRIVATE7_SET {
 
   GPR_PRIVATE7_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE7_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE7_SET*>(0x40CC4CE4); }
+  static inline volatile GPR_PRIVATE7_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_SET*>(0x40CC4CE4); }
 };
 
 // General Purpose Register
@@ -4044,7 +4044,7 @@ union GPR_PRIVATE7_CLR {
 
   GPR_PRIVATE7_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE7_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE7_CLR*>(0x40CC4CE8); }
+  static inline volatile GPR_PRIVATE7_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_CLR*>(0x40CC4CE8); }
 };
 
 // General Purpose Register
@@ -4061,7 +4061,7 @@ union GPR_PRIVATE7_TOG {
 
   GPR_PRIVATE7_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE7_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE7_TOG*>(0x40CC4CEC); }
+  static inline volatile GPR_PRIVATE7_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_TOG*>(0x40CC4CEC); }
 };
 
 // GPR access control
@@ -4151,7 +4151,7 @@ union GPR_PRIVATE7_AUTHEN {
 
   GPR_PRIVATE7_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE7_AUTHEN &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE7_AUTHEN*>(0x40CC4CF0); }
+  static inline volatile GPR_PRIVATE7_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_AUTHEN*>(0x40CC4CF0); }
 };
 
 // GPR access control
@@ -4185,7 +4185,7 @@ union GPR_PRIVATE7_AUTHEN_SET {
 
   GPR_PRIVATE7_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE7_AUTHEN_SET &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE7_AUTHEN_SET*>(0x40CC4CF4); }
+  static inline volatile GPR_PRIVATE7_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_AUTHEN_SET*>(0x40CC4CF4); }
 };
 
 // GPR access control
@@ -4219,7 +4219,7 @@ union GPR_PRIVATE7_AUTHEN_CLR {
 
   GPR_PRIVATE7_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE7_AUTHEN_CLR &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE7_AUTHEN_CLR*>(0x40CC4CF8); }
+  static inline volatile GPR_PRIVATE7_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_AUTHEN_CLR*>(0x40CC4CF8); }
 };
 
 // GPR access control
@@ -4253,7 +4253,7 @@ union GPR_PRIVATE7_AUTHEN_TOG {
 
   GPR_PRIVATE7_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_PRIVATE7_AUTHEN_TOG &Instance() { return *reinterpret_cast<volatile GPR_PRIVATE7_AUTHEN_TOG*>(0x40CC4CFC); }
+  static inline volatile GPR_PRIVATE7_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_AUTHEN_TOG*>(0x40CC4CFC); }
 };
 
 // LPCG direct control
@@ -4279,7 +4279,7 @@ union LPCG0_DIRECT {
 
   LPCG0_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG0_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG0_DIRECT*>(0x40CC6000); }
+  static inline volatile LPCG0_DIRECT &ref() { return *reinterpret_cast<volatile LPCG0_DIRECT*>(0x40CC6000); }
 };
 
 // LPCG domain control
@@ -4379,7 +4379,7 @@ union LPCG0_DOMAIN {
 
   LPCG0_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG0_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG0_DOMAIN*>(0x40CC6004); }
+  static inline volatile LPCG0_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG0_DOMAIN*>(0x40CC6004); }
 };
 
 // LPCG working status
@@ -4482,7 +4482,7 @@ union LPCG0_STATUS0 {
 
   LPCG0_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG0_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG0_STATUS0*>(0x40CC6010); }
+  static inline volatile LPCG0_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG0_STATUS0*>(0x40CC6010); }
 };
 
 // LPCG low power status
@@ -4678,7 +4678,7 @@ union LPCG0_STATUS1 {
 
   LPCG0_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG0_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG0_STATUS1*>(0x40CC6014); }
+  static inline volatile LPCG0_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG0_STATUS1*>(0x40CC6014); }
 };
 
 // LPCG configuration
@@ -4705,7 +4705,7 @@ union LPCG0_CONFIG {
 
   LPCG0_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG0_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG0_CONFIG*>(0x40CC6018); }
+  static inline volatile LPCG0_CONFIG &ref() { return *reinterpret_cast<volatile LPCG0_CONFIG*>(0x40CC6018); }
 };
 
 // LPCG access control
@@ -4807,7 +4807,7 @@ union LPCG0_AUTHEN {
 
   LPCG0_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG0_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG0_AUTHEN*>(0x40CC601C); }
+  static inline volatile LPCG0_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG0_AUTHEN*>(0x40CC601C); }
 };
 
 // LPCG direct control
@@ -4833,7 +4833,7 @@ union LPCG1_DIRECT {
 
   LPCG1_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG1_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG1_DIRECT*>(0x40CC6020); }
+  static inline volatile LPCG1_DIRECT &ref() { return *reinterpret_cast<volatile LPCG1_DIRECT*>(0x40CC6020); }
 };
 
 // LPCG domain control
@@ -4933,7 +4933,7 @@ union LPCG1_DOMAIN {
 
   LPCG1_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG1_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG1_DOMAIN*>(0x40CC6024); }
+  static inline volatile LPCG1_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG1_DOMAIN*>(0x40CC6024); }
 };
 
 // LPCG working status
@@ -5036,7 +5036,7 @@ union LPCG1_STATUS0 {
 
   LPCG1_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG1_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG1_STATUS0*>(0x40CC6030); }
+  static inline volatile LPCG1_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG1_STATUS0*>(0x40CC6030); }
 };
 
 // LPCG low power status
@@ -5232,7 +5232,7 @@ union LPCG1_STATUS1 {
 
   LPCG1_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG1_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG1_STATUS1*>(0x40CC6034); }
+  static inline volatile LPCG1_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG1_STATUS1*>(0x40CC6034); }
 };
 
 // LPCG configuration
@@ -5259,7 +5259,7 @@ union LPCG1_CONFIG {
 
   LPCG1_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG1_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG1_CONFIG*>(0x40CC6038); }
+  static inline volatile LPCG1_CONFIG &ref() { return *reinterpret_cast<volatile LPCG1_CONFIG*>(0x40CC6038); }
 };
 
 // LPCG access control
@@ -5361,7 +5361,7 @@ union LPCG1_AUTHEN {
 
   LPCG1_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG1_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG1_AUTHEN*>(0x40CC603C); }
+  static inline volatile LPCG1_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG1_AUTHEN*>(0x40CC603C); }
 };
 
 // LPCG direct control
@@ -5387,7 +5387,7 @@ union LPCG2_DIRECT {
 
   LPCG2_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG2_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG2_DIRECT*>(0x40CC6040); }
+  static inline volatile LPCG2_DIRECT &ref() { return *reinterpret_cast<volatile LPCG2_DIRECT*>(0x40CC6040); }
 };
 
 // LPCG domain control
@@ -5487,7 +5487,7 @@ union LPCG2_DOMAIN {
 
   LPCG2_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG2_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG2_DOMAIN*>(0x40CC6044); }
+  static inline volatile LPCG2_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG2_DOMAIN*>(0x40CC6044); }
 };
 
 // LPCG Setpoint setting
@@ -5506,7 +5506,7 @@ union LPCG2_SETPOINT {
 
   LPCG2_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG2_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG2_SETPOINT*>(0x40CC6048); }
+  static inline volatile LPCG2_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG2_SETPOINT*>(0x40CC6048); }
 };
 
 // LPCG working status
@@ -5609,7 +5609,7 @@ union LPCG2_STATUS0 {
 
   LPCG2_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG2_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG2_STATUS0*>(0x40CC6050); }
+  static inline volatile LPCG2_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG2_STATUS0*>(0x40CC6050); }
 };
 
 // LPCG low power status
@@ -5805,7 +5805,7 @@ union LPCG2_STATUS1 {
 
   LPCG2_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG2_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG2_STATUS1*>(0x40CC6054); }
+  static inline volatile LPCG2_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG2_STATUS1*>(0x40CC6054); }
 };
 
 // LPCG configuration
@@ -5832,7 +5832,7 @@ union LPCG2_CONFIG {
 
   LPCG2_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG2_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG2_CONFIG*>(0x40CC6058); }
+  static inline volatile LPCG2_CONFIG &ref() { return *reinterpret_cast<volatile LPCG2_CONFIG*>(0x40CC6058); }
 };
 
 // LPCG access control
@@ -5934,7 +5934,7 @@ union LPCG2_AUTHEN {
 
   LPCG2_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG2_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG2_AUTHEN*>(0x40CC605C); }
+  static inline volatile LPCG2_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG2_AUTHEN*>(0x40CC605C); }
 };
 
 // LPCG direct control
@@ -5960,7 +5960,7 @@ union LPCG3_DIRECT {
 
   LPCG3_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG3_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG3_DIRECT*>(0x40CC6060); }
+  static inline volatile LPCG3_DIRECT &ref() { return *reinterpret_cast<volatile LPCG3_DIRECT*>(0x40CC6060); }
 };
 
 // LPCG domain control
@@ -6060,7 +6060,7 @@ union LPCG3_DOMAIN {
 
   LPCG3_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG3_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG3_DOMAIN*>(0x40CC6064); }
+  static inline volatile LPCG3_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG3_DOMAIN*>(0x40CC6064); }
 };
 
 // LPCG Setpoint setting
@@ -6079,7 +6079,7 @@ union LPCG3_SETPOINT {
 
   LPCG3_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG3_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG3_SETPOINT*>(0x40CC6068); }
+  static inline volatile LPCG3_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG3_SETPOINT*>(0x40CC6068); }
 };
 
 // LPCG working status
@@ -6182,7 +6182,7 @@ union LPCG3_STATUS0 {
 
   LPCG3_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG3_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG3_STATUS0*>(0x40CC6070); }
+  static inline volatile LPCG3_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG3_STATUS0*>(0x40CC6070); }
 };
 
 // LPCG low power status
@@ -6378,7 +6378,7 @@ union LPCG3_STATUS1 {
 
   LPCG3_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG3_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG3_STATUS1*>(0x40CC6074); }
+  static inline volatile LPCG3_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG3_STATUS1*>(0x40CC6074); }
 };
 
 // LPCG configuration
@@ -6405,7 +6405,7 @@ union LPCG3_CONFIG {
 
   LPCG3_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG3_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG3_CONFIG*>(0x40CC6078); }
+  static inline volatile LPCG3_CONFIG &ref() { return *reinterpret_cast<volatile LPCG3_CONFIG*>(0x40CC6078); }
 };
 
 // LPCG access control
@@ -6507,7 +6507,7 @@ union LPCG3_AUTHEN {
 
   LPCG3_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG3_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG3_AUTHEN*>(0x40CC607C); }
+  static inline volatile LPCG3_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG3_AUTHEN*>(0x40CC607C); }
 };
 
 // LPCG direct control
@@ -6533,7 +6533,7 @@ union LPCG4_DIRECT {
 
   LPCG4_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG4_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG4_DIRECT*>(0x40CC6080); }
+  static inline volatile LPCG4_DIRECT &ref() { return *reinterpret_cast<volatile LPCG4_DIRECT*>(0x40CC6080); }
 };
 
 // LPCG domain control
@@ -6633,7 +6633,7 @@ union LPCG4_DOMAIN {
 
   LPCG4_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG4_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG4_DOMAIN*>(0x40CC6084); }
+  static inline volatile LPCG4_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG4_DOMAIN*>(0x40CC6084); }
 };
 
 // LPCG Setpoint setting
@@ -6652,7 +6652,7 @@ union LPCG4_SETPOINT {
 
   LPCG4_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG4_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG4_SETPOINT*>(0x40CC6088); }
+  static inline volatile LPCG4_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG4_SETPOINT*>(0x40CC6088); }
 };
 
 // LPCG working status
@@ -6755,7 +6755,7 @@ union LPCG4_STATUS0 {
 
   LPCG4_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG4_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG4_STATUS0*>(0x40CC6090); }
+  static inline volatile LPCG4_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG4_STATUS0*>(0x40CC6090); }
 };
 
 // LPCG low power status
@@ -6951,7 +6951,7 @@ union LPCG4_STATUS1 {
 
   LPCG4_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG4_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG4_STATUS1*>(0x40CC6094); }
+  static inline volatile LPCG4_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG4_STATUS1*>(0x40CC6094); }
 };
 
 // LPCG configuration
@@ -6978,7 +6978,7 @@ union LPCG4_CONFIG {
 
   LPCG4_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG4_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG4_CONFIG*>(0x40CC6098); }
+  static inline volatile LPCG4_CONFIG &ref() { return *reinterpret_cast<volatile LPCG4_CONFIG*>(0x40CC6098); }
 };
 
 // LPCG access control
@@ -7080,7 +7080,7 @@ union LPCG4_AUTHEN {
 
   LPCG4_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG4_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG4_AUTHEN*>(0x40CC609C); }
+  static inline volatile LPCG4_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG4_AUTHEN*>(0x40CC609C); }
 };
 
 // LPCG direct control
@@ -7106,7 +7106,7 @@ union LPCG5_DIRECT {
 
   LPCG5_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG5_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG5_DIRECT*>(0x40CC60A0); }
+  static inline volatile LPCG5_DIRECT &ref() { return *reinterpret_cast<volatile LPCG5_DIRECT*>(0x40CC60A0); }
 };
 
 // LPCG domain control
@@ -7206,7 +7206,7 @@ union LPCG5_DOMAIN {
 
   LPCG5_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG5_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG5_DOMAIN*>(0x40CC60A4); }
+  static inline volatile LPCG5_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG5_DOMAIN*>(0x40CC60A4); }
 };
 
 // LPCG Setpoint setting
@@ -7225,7 +7225,7 @@ union LPCG5_SETPOINT {
 
   LPCG5_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG5_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG5_SETPOINT*>(0x40CC60A8); }
+  static inline volatile LPCG5_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG5_SETPOINT*>(0x40CC60A8); }
 };
 
 // LPCG working status
@@ -7328,7 +7328,7 @@ union LPCG5_STATUS0 {
 
   LPCG5_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG5_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG5_STATUS0*>(0x40CC60B0); }
+  static inline volatile LPCG5_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG5_STATUS0*>(0x40CC60B0); }
 };
 
 // LPCG low power status
@@ -7524,7 +7524,7 @@ union LPCG5_STATUS1 {
 
   LPCG5_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG5_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG5_STATUS1*>(0x40CC60B4); }
+  static inline volatile LPCG5_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG5_STATUS1*>(0x40CC60B4); }
 };
 
 // LPCG configuration
@@ -7551,7 +7551,7 @@ union LPCG5_CONFIG {
 
   LPCG5_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG5_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG5_CONFIG*>(0x40CC60B8); }
+  static inline volatile LPCG5_CONFIG &ref() { return *reinterpret_cast<volatile LPCG5_CONFIG*>(0x40CC60B8); }
 };
 
 // LPCG access control
@@ -7653,7 +7653,7 @@ union LPCG5_AUTHEN {
 
   LPCG5_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG5_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG5_AUTHEN*>(0x40CC60BC); }
+  static inline volatile LPCG5_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG5_AUTHEN*>(0x40CC60BC); }
 };
 
 // LPCG direct control
@@ -7679,7 +7679,7 @@ union LPCG6_DIRECT {
 
   LPCG6_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG6_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG6_DIRECT*>(0x40CC60C0); }
+  static inline volatile LPCG6_DIRECT &ref() { return *reinterpret_cast<volatile LPCG6_DIRECT*>(0x40CC60C0); }
 };
 
 // LPCG domain control
@@ -7779,7 +7779,7 @@ union LPCG6_DOMAIN {
 
   LPCG6_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG6_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG6_DOMAIN*>(0x40CC60C4); }
+  static inline volatile LPCG6_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG6_DOMAIN*>(0x40CC60C4); }
 };
 
 // LPCG Setpoint setting
@@ -7798,7 +7798,7 @@ union LPCG6_SETPOINT {
 
   LPCG6_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG6_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG6_SETPOINT*>(0x40CC60C8); }
+  static inline volatile LPCG6_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG6_SETPOINT*>(0x40CC60C8); }
 };
 
 // LPCG working status
@@ -7901,7 +7901,7 @@ union LPCG6_STATUS0 {
 
   LPCG6_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG6_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG6_STATUS0*>(0x40CC60D0); }
+  static inline volatile LPCG6_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG6_STATUS0*>(0x40CC60D0); }
 };
 
 // LPCG low power status
@@ -8097,7 +8097,7 @@ union LPCG6_STATUS1 {
 
   LPCG6_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG6_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG6_STATUS1*>(0x40CC60D4); }
+  static inline volatile LPCG6_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG6_STATUS1*>(0x40CC60D4); }
 };
 
 // LPCG configuration
@@ -8124,7 +8124,7 @@ union LPCG6_CONFIG {
 
   LPCG6_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG6_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG6_CONFIG*>(0x40CC60D8); }
+  static inline volatile LPCG6_CONFIG &ref() { return *reinterpret_cast<volatile LPCG6_CONFIG*>(0x40CC60D8); }
 };
 
 // LPCG access control
@@ -8226,7 +8226,7 @@ union LPCG6_AUTHEN {
 
   LPCG6_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG6_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG6_AUTHEN*>(0x40CC60DC); }
+  static inline volatile LPCG6_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG6_AUTHEN*>(0x40CC60DC); }
 };
 
 // LPCG direct control
@@ -8252,7 +8252,7 @@ union LPCG7_DIRECT {
 
   LPCG7_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG7_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG7_DIRECT*>(0x40CC60E0); }
+  static inline volatile LPCG7_DIRECT &ref() { return *reinterpret_cast<volatile LPCG7_DIRECT*>(0x40CC60E0); }
 };
 
 // LPCG domain control
@@ -8352,7 +8352,7 @@ union LPCG7_DOMAIN {
 
   LPCG7_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG7_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG7_DOMAIN*>(0x40CC60E4); }
+  static inline volatile LPCG7_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG7_DOMAIN*>(0x40CC60E4); }
 };
 
 // LPCG Setpoint setting
@@ -8371,7 +8371,7 @@ union LPCG7_SETPOINT {
 
   LPCG7_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG7_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG7_SETPOINT*>(0x40CC60E8); }
+  static inline volatile LPCG7_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG7_SETPOINT*>(0x40CC60E8); }
 };
 
 // LPCG working status
@@ -8474,7 +8474,7 @@ union LPCG7_STATUS0 {
 
   LPCG7_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG7_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG7_STATUS0*>(0x40CC60F0); }
+  static inline volatile LPCG7_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG7_STATUS0*>(0x40CC60F0); }
 };
 
 // LPCG low power status
@@ -8670,7 +8670,7 @@ union LPCG7_STATUS1 {
 
   LPCG7_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG7_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG7_STATUS1*>(0x40CC60F4); }
+  static inline volatile LPCG7_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG7_STATUS1*>(0x40CC60F4); }
 };
 
 // LPCG configuration
@@ -8697,7 +8697,7 @@ union LPCG7_CONFIG {
 
   LPCG7_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG7_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG7_CONFIG*>(0x40CC60F8); }
+  static inline volatile LPCG7_CONFIG &ref() { return *reinterpret_cast<volatile LPCG7_CONFIG*>(0x40CC60F8); }
 };
 
 // LPCG access control
@@ -8799,7 +8799,7 @@ union LPCG7_AUTHEN {
 
   LPCG7_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG7_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG7_AUTHEN*>(0x40CC60FC); }
+  static inline volatile LPCG7_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG7_AUTHEN*>(0x40CC60FC); }
 };
 
 // LPCG direct control
@@ -8825,7 +8825,7 @@ union LPCG8_DIRECT {
 
   LPCG8_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG8_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG8_DIRECT*>(0x40CC6100); }
+  static inline volatile LPCG8_DIRECT &ref() { return *reinterpret_cast<volatile LPCG8_DIRECT*>(0x40CC6100); }
 };
 
 // LPCG domain control
@@ -8925,7 +8925,7 @@ union LPCG8_DOMAIN {
 
   LPCG8_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG8_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG8_DOMAIN*>(0x40CC6104); }
+  static inline volatile LPCG8_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG8_DOMAIN*>(0x40CC6104); }
 };
 
 // LPCG Setpoint setting
@@ -8944,7 +8944,7 @@ union LPCG8_SETPOINT {
 
   LPCG8_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG8_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG8_SETPOINT*>(0x40CC6108); }
+  static inline volatile LPCG8_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG8_SETPOINT*>(0x40CC6108); }
 };
 
 // LPCG working status
@@ -9047,7 +9047,7 @@ union LPCG8_STATUS0 {
 
   LPCG8_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG8_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG8_STATUS0*>(0x40CC6110); }
+  static inline volatile LPCG8_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG8_STATUS0*>(0x40CC6110); }
 };
 
 // LPCG low power status
@@ -9243,7 +9243,7 @@ union LPCG8_STATUS1 {
 
   LPCG8_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG8_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG8_STATUS1*>(0x40CC6114); }
+  static inline volatile LPCG8_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG8_STATUS1*>(0x40CC6114); }
 };
 
 // LPCG configuration
@@ -9270,7 +9270,7 @@ union LPCG8_CONFIG {
 
   LPCG8_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG8_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG8_CONFIG*>(0x40CC6118); }
+  static inline volatile LPCG8_CONFIG &ref() { return *reinterpret_cast<volatile LPCG8_CONFIG*>(0x40CC6118); }
 };
 
 // LPCG access control
@@ -9372,7 +9372,7 @@ union LPCG8_AUTHEN {
 
   LPCG8_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG8_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG8_AUTHEN*>(0x40CC611C); }
+  static inline volatile LPCG8_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG8_AUTHEN*>(0x40CC611C); }
 };
 
 // LPCG direct control
@@ -9398,7 +9398,7 @@ union LPCG9_DIRECT {
 
   LPCG9_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG9_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG9_DIRECT*>(0x40CC6120); }
+  static inline volatile LPCG9_DIRECT &ref() { return *reinterpret_cast<volatile LPCG9_DIRECT*>(0x40CC6120); }
 };
 
 // LPCG domain control
@@ -9498,7 +9498,7 @@ union LPCG9_DOMAIN {
 
   LPCG9_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG9_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG9_DOMAIN*>(0x40CC6124); }
+  static inline volatile LPCG9_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG9_DOMAIN*>(0x40CC6124); }
 };
 
 // LPCG Setpoint setting
@@ -9517,7 +9517,7 @@ union LPCG9_SETPOINT {
 
   LPCG9_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG9_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG9_SETPOINT*>(0x40CC6128); }
+  static inline volatile LPCG9_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG9_SETPOINT*>(0x40CC6128); }
 };
 
 // LPCG working status
@@ -9620,7 +9620,7 @@ union LPCG9_STATUS0 {
 
   LPCG9_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG9_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG9_STATUS0*>(0x40CC6130); }
+  static inline volatile LPCG9_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG9_STATUS0*>(0x40CC6130); }
 };
 
 // LPCG low power status
@@ -9816,7 +9816,7 @@ union LPCG9_STATUS1 {
 
   LPCG9_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG9_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG9_STATUS1*>(0x40CC6134); }
+  static inline volatile LPCG9_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG9_STATUS1*>(0x40CC6134); }
 };
 
 // LPCG configuration
@@ -9843,7 +9843,7 @@ union LPCG9_CONFIG {
 
   LPCG9_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG9_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG9_CONFIG*>(0x40CC6138); }
+  static inline volatile LPCG9_CONFIG &ref() { return *reinterpret_cast<volatile LPCG9_CONFIG*>(0x40CC6138); }
 };
 
 // LPCG access control
@@ -9945,7 +9945,7 @@ union LPCG9_AUTHEN {
 
   LPCG9_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG9_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG9_AUTHEN*>(0x40CC613C); }
+  static inline volatile LPCG9_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG9_AUTHEN*>(0x40CC613C); }
 };
 
 // LPCG direct control
@@ -9971,7 +9971,7 @@ union LPCG10_DIRECT {
 
   LPCG10_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG10_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG10_DIRECT*>(0x40CC6140); }
+  static inline volatile LPCG10_DIRECT &ref() { return *reinterpret_cast<volatile LPCG10_DIRECT*>(0x40CC6140); }
 };
 
 // LPCG domain control
@@ -10071,7 +10071,7 @@ union LPCG10_DOMAIN {
 
   LPCG10_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG10_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG10_DOMAIN*>(0x40CC6144); }
+  static inline volatile LPCG10_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG10_DOMAIN*>(0x40CC6144); }
 };
 
 // LPCG Setpoint setting
@@ -10090,7 +10090,7 @@ union LPCG10_SETPOINT {
 
   LPCG10_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG10_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG10_SETPOINT*>(0x40CC6148); }
+  static inline volatile LPCG10_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG10_SETPOINT*>(0x40CC6148); }
 };
 
 // LPCG working status
@@ -10193,7 +10193,7 @@ union LPCG10_STATUS0 {
 
   LPCG10_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG10_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG10_STATUS0*>(0x40CC6150); }
+  static inline volatile LPCG10_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG10_STATUS0*>(0x40CC6150); }
 };
 
 // LPCG low power status
@@ -10389,7 +10389,7 @@ union LPCG10_STATUS1 {
 
   LPCG10_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG10_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG10_STATUS1*>(0x40CC6154); }
+  static inline volatile LPCG10_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG10_STATUS1*>(0x40CC6154); }
 };
 
 // LPCG configuration
@@ -10416,7 +10416,7 @@ union LPCG10_CONFIG {
 
   LPCG10_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG10_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG10_CONFIG*>(0x40CC6158); }
+  static inline volatile LPCG10_CONFIG &ref() { return *reinterpret_cast<volatile LPCG10_CONFIG*>(0x40CC6158); }
 };
 
 // LPCG access control
@@ -10518,7 +10518,7 @@ union LPCG10_AUTHEN {
 
   LPCG10_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG10_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG10_AUTHEN*>(0x40CC615C); }
+  static inline volatile LPCG10_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG10_AUTHEN*>(0x40CC615C); }
 };
 
 // LPCG direct control
@@ -10544,7 +10544,7 @@ union LPCG11_DIRECT {
 
   LPCG11_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG11_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG11_DIRECT*>(0x40CC6160); }
+  static inline volatile LPCG11_DIRECT &ref() { return *reinterpret_cast<volatile LPCG11_DIRECT*>(0x40CC6160); }
 };
 
 // LPCG domain control
@@ -10644,7 +10644,7 @@ union LPCG11_DOMAIN {
 
   LPCG11_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG11_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG11_DOMAIN*>(0x40CC6164); }
+  static inline volatile LPCG11_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG11_DOMAIN*>(0x40CC6164); }
 };
 
 // LPCG Setpoint setting
@@ -10663,7 +10663,7 @@ union LPCG11_SETPOINT {
 
   LPCG11_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG11_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG11_SETPOINT*>(0x40CC6168); }
+  static inline volatile LPCG11_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG11_SETPOINT*>(0x40CC6168); }
 };
 
 // LPCG working status
@@ -10766,7 +10766,7 @@ union LPCG11_STATUS0 {
 
   LPCG11_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG11_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG11_STATUS0*>(0x40CC6170); }
+  static inline volatile LPCG11_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG11_STATUS0*>(0x40CC6170); }
 };
 
 // LPCG low power status
@@ -10962,7 +10962,7 @@ union LPCG11_STATUS1 {
 
   LPCG11_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG11_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG11_STATUS1*>(0x40CC6174); }
+  static inline volatile LPCG11_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG11_STATUS1*>(0x40CC6174); }
 };
 
 // LPCG configuration
@@ -10989,7 +10989,7 @@ union LPCG11_CONFIG {
 
   LPCG11_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG11_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG11_CONFIG*>(0x40CC6178); }
+  static inline volatile LPCG11_CONFIG &ref() { return *reinterpret_cast<volatile LPCG11_CONFIG*>(0x40CC6178); }
 };
 
 // LPCG access control
@@ -11091,7 +11091,7 @@ union LPCG11_AUTHEN {
 
   LPCG11_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG11_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG11_AUTHEN*>(0x40CC617C); }
+  static inline volatile LPCG11_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG11_AUTHEN*>(0x40CC617C); }
 };
 
 // LPCG direct control
@@ -11117,7 +11117,7 @@ union LPCG12_DIRECT {
 
   LPCG12_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG12_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG12_DIRECT*>(0x40CC6180); }
+  static inline volatile LPCG12_DIRECT &ref() { return *reinterpret_cast<volatile LPCG12_DIRECT*>(0x40CC6180); }
 };
 
 // LPCG domain control
@@ -11217,7 +11217,7 @@ union LPCG12_DOMAIN {
 
   LPCG12_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG12_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG12_DOMAIN*>(0x40CC6184); }
+  static inline volatile LPCG12_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG12_DOMAIN*>(0x40CC6184); }
 };
 
 // LPCG Setpoint setting
@@ -11236,7 +11236,7 @@ union LPCG12_SETPOINT {
 
   LPCG12_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG12_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG12_SETPOINT*>(0x40CC6188); }
+  static inline volatile LPCG12_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG12_SETPOINT*>(0x40CC6188); }
 };
 
 // LPCG working status
@@ -11339,7 +11339,7 @@ union LPCG12_STATUS0 {
 
   LPCG12_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG12_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG12_STATUS0*>(0x40CC6190); }
+  static inline volatile LPCG12_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG12_STATUS0*>(0x40CC6190); }
 };
 
 // LPCG low power status
@@ -11535,7 +11535,7 @@ union LPCG12_STATUS1 {
 
   LPCG12_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG12_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG12_STATUS1*>(0x40CC6194); }
+  static inline volatile LPCG12_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG12_STATUS1*>(0x40CC6194); }
 };
 
 // LPCG configuration
@@ -11562,7 +11562,7 @@ union LPCG12_CONFIG {
 
   LPCG12_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG12_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG12_CONFIG*>(0x40CC6198); }
+  static inline volatile LPCG12_CONFIG &ref() { return *reinterpret_cast<volatile LPCG12_CONFIG*>(0x40CC6198); }
 };
 
 // LPCG access control
@@ -11664,7 +11664,7 @@ union LPCG12_AUTHEN {
 
   LPCG12_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG12_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG12_AUTHEN*>(0x40CC619C); }
+  static inline volatile LPCG12_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG12_AUTHEN*>(0x40CC619C); }
 };
 
 // LPCG direct control
@@ -11690,7 +11690,7 @@ union LPCG13_DIRECT {
 
   LPCG13_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG13_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG13_DIRECT*>(0x40CC61A0); }
+  static inline volatile LPCG13_DIRECT &ref() { return *reinterpret_cast<volatile LPCG13_DIRECT*>(0x40CC61A0); }
 };
 
 // LPCG domain control
@@ -11790,7 +11790,7 @@ union LPCG13_DOMAIN {
 
   LPCG13_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG13_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG13_DOMAIN*>(0x40CC61A4); }
+  static inline volatile LPCG13_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG13_DOMAIN*>(0x40CC61A4); }
 };
 
 // LPCG working status
@@ -11893,7 +11893,7 @@ union LPCG13_STATUS0 {
 
   LPCG13_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG13_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG13_STATUS0*>(0x40CC61B0); }
+  static inline volatile LPCG13_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG13_STATUS0*>(0x40CC61B0); }
 };
 
 // LPCG low power status
@@ -12089,7 +12089,7 @@ union LPCG13_STATUS1 {
 
   LPCG13_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG13_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG13_STATUS1*>(0x40CC61B4); }
+  static inline volatile LPCG13_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG13_STATUS1*>(0x40CC61B4); }
 };
 
 // LPCG configuration
@@ -12116,7 +12116,7 @@ union LPCG13_CONFIG {
 
   LPCG13_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG13_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG13_CONFIG*>(0x40CC61B8); }
+  static inline volatile LPCG13_CONFIG &ref() { return *reinterpret_cast<volatile LPCG13_CONFIG*>(0x40CC61B8); }
 };
 
 // LPCG access control
@@ -12218,7 +12218,7 @@ union LPCG13_AUTHEN {
 
   LPCG13_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG13_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG13_AUTHEN*>(0x40CC61BC); }
+  static inline volatile LPCG13_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG13_AUTHEN*>(0x40CC61BC); }
 };
 
 // LPCG direct control
@@ -12244,7 +12244,7 @@ union LPCG14_DIRECT {
 
   LPCG14_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG14_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG14_DIRECT*>(0x40CC61C0); }
+  static inline volatile LPCG14_DIRECT &ref() { return *reinterpret_cast<volatile LPCG14_DIRECT*>(0x40CC61C0); }
 };
 
 // LPCG domain control
@@ -12344,7 +12344,7 @@ union LPCG14_DOMAIN {
 
   LPCG14_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG14_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG14_DOMAIN*>(0x40CC61C4); }
+  static inline volatile LPCG14_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG14_DOMAIN*>(0x40CC61C4); }
 };
 
 // LPCG Setpoint setting
@@ -12363,7 +12363,7 @@ union LPCG14_SETPOINT {
 
   LPCG14_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG14_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG14_SETPOINT*>(0x40CC61C8); }
+  static inline volatile LPCG14_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG14_SETPOINT*>(0x40CC61C8); }
 };
 
 // LPCG working status
@@ -12466,7 +12466,7 @@ union LPCG14_STATUS0 {
 
   LPCG14_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG14_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG14_STATUS0*>(0x40CC61D0); }
+  static inline volatile LPCG14_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG14_STATUS0*>(0x40CC61D0); }
 };
 
 // LPCG low power status
@@ -12662,7 +12662,7 @@ union LPCG14_STATUS1 {
 
   LPCG14_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG14_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG14_STATUS1*>(0x40CC61D4); }
+  static inline volatile LPCG14_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG14_STATUS1*>(0x40CC61D4); }
 };
 
 // LPCG configuration
@@ -12689,7 +12689,7 @@ union LPCG14_CONFIG {
 
   LPCG14_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG14_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG14_CONFIG*>(0x40CC61D8); }
+  static inline volatile LPCG14_CONFIG &ref() { return *reinterpret_cast<volatile LPCG14_CONFIG*>(0x40CC61D8); }
 };
 
 // LPCG access control
@@ -12791,7 +12791,7 @@ union LPCG14_AUTHEN {
 
   LPCG14_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG14_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG14_AUTHEN*>(0x40CC61DC); }
+  static inline volatile LPCG14_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG14_AUTHEN*>(0x40CC61DC); }
 };
 
 // LPCG direct control
@@ -12817,7 +12817,7 @@ union LPCG15_DIRECT {
 
   LPCG15_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG15_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG15_DIRECT*>(0x40CC61E0); }
+  static inline volatile LPCG15_DIRECT &ref() { return *reinterpret_cast<volatile LPCG15_DIRECT*>(0x40CC61E0); }
 };
 
 // LPCG domain control
@@ -12917,7 +12917,7 @@ union LPCG15_DOMAIN {
 
   LPCG15_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG15_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG15_DOMAIN*>(0x40CC61E4); }
+  static inline volatile LPCG15_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG15_DOMAIN*>(0x40CC61E4); }
 };
 
 // LPCG Setpoint setting
@@ -12936,7 +12936,7 @@ union LPCG15_SETPOINT {
 
   LPCG15_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG15_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG15_SETPOINT*>(0x40CC61E8); }
+  static inline volatile LPCG15_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG15_SETPOINT*>(0x40CC61E8); }
 };
 
 // LPCG working status
@@ -13039,7 +13039,7 @@ union LPCG15_STATUS0 {
 
   LPCG15_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG15_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG15_STATUS0*>(0x40CC61F0); }
+  static inline volatile LPCG15_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG15_STATUS0*>(0x40CC61F0); }
 };
 
 // LPCG low power status
@@ -13235,7 +13235,7 @@ union LPCG15_STATUS1 {
 
   LPCG15_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG15_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG15_STATUS1*>(0x40CC61F4); }
+  static inline volatile LPCG15_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG15_STATUS1*>(0x40CC61F4); }
 };
 
 // LPCG configuration
@@ -13262,7 +13262,7 @@ union LPCG15_CONFIG {
 
   LPCG15_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG15_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG15_CONFIG*>(0x40CC61F8); }
+  static inline volatile LPCG15_CONFIG &ref() { return *reinterpret_cast<volatile LPCG15_CONFIG*>(0x40CC61F8); }
 };
 
 // LPCG access control
@@ -13364,7 +13364,7 @@ union LPCG15_AUTHEN {
 
   LPCG15_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG15_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG15_AUTHEN*>(0x40CC61FC); }
+  static inline volatile LPCG15_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG15_AUTHEN*>(0x40CC61FC); }
 };
 
 // LPCG direct control
@@ -13390,7 +13390,7 @@ union LPCG16_DIRECT {
 
   LPCG16_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG16_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG16_DIRECT*>(0x40CC6200); }
+  static inline volatile LPCG16_DIRECT &ref() { return *reinterpret_cast<volatile LPCG16_DIRECT*>(0x40CC6200); }
 };
 
 // LPCG domain control
@@ -13490,7 +13490,7 @@ union LPCG16_DOMAIN {
 
   LPCG16_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG16_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG16_DOMAIN*>(0x40CC6204); }
+  static inline volatile LPCG16_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG16_DOMAIN*>(0x40CC6204); }
 };
 
 // LPCG Setpoint setting
@@ -13509,7 +13509,7 @@ union LPCG16_SETPOINT {
 
   LPCG16_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG16_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG16_SETPOINT*>(0x40CC6208); }
+  static inline volatile LPCG16_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG16_SETPOINT*>(0x40CC6208); }
 };
 
 // LPCG working status
@@ -13612,7 +13612,7 @@ union LPCG16_STATUS0 {
 
   LPCG16_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG16_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG16_STATUS0*>(0x40CC6210); }
+  static inline volatile LPCG16_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG16_STATUS0*>(0x40CC6210); }
 };
 
 // LPCG low power status
@@ -13808,7 +13808,7 @@ union LPCG16_STATUS1 {
 
   LPCG16_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG16_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG16_STATUS1*>(0x40CC6214); }
+  static inline volatile LPCG16_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG16_STATUS1*>(0x40CC6214); }
 };
 
 // LPCG configuration
@@ -13835,7 +13835,7 @@ union LPCG16_CONFIG {
 
   LPCG16_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG16_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG16_CONFIG*>(0x40CC6218); }
+  static inline volatile LPCG16_CONFIG &ref() { return *reinterpret_cast<volatile LPCG16_CONFIG*>(0x40CC6218); }
 };
 
 // LPCG access control
@@ -13937,7 +13937,7 @@ union LPCG16_AUTHEN {
 
   LPCG16_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG16_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG16_AUTHEN*>(0x40CC621C); }
+  static inline volatile LPCG16_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG16_AUTHEN*>(0x40CC621C); }
 };
 
 // LPCG direct control
@@ -13963,7 +13963,7 @@ union LPCG17_DIRECT {
 
   LPCG17_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG17_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG17_DIRECT*>(0x40CC6220); }
+  static inline volatile LPCG17_DIRECT &ref() { return *reinterpret_cast<volatile LPCG17_DIRECT*>(0x40CC6220); }
 };
 
 // LPCG domain control
@@ -14063,7 +14063,7 @@ union LPCG17_DOMAIN {
 
   LPCG17_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG17_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG17_DOMAIN*>(0x40CC6224); }
+  static inline volatile LPCG17_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG17_DOMAIN*>(0x40CC6224); }
 };
 
 // LPCG Setpoint setting
@@ -14082,7 +14082,7 @@ union LPCG17_SETPOINT {
 
   LPCG17_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG17_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG17_SETPOINT*>(0x40CC6228); }
+  static inline volatile LPCG17_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG17_SETPOINT*>(0x40CC6228); }
 };
 
 // LPCG working status
@@ -14185,7 +14185,7 @@ union LPCG17_STATUS0 {
 
   LPCG17_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG17_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG17_STATUS0*>(0x40CC6230); }
+  static inline volatile LPCG17_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG17_STATUS0*>(0x40CC6230); }
 };
 
 // LPCG low power status
@@ -14381,7 +14381,7 @@ union LPCG17_STATUS1 {
 
   LPCG17_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG17_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG17_STATUS1*>(0x40CC6234); }
+  static inline volatile LPCG17_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG17_STATUS1*>(0x40CC6234); }
 };
 
 // LPCG configuration
@@ -14408,7 +14408,7 @@ union LPCG17_CONFIG {
 
   LPCG17_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG17_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG17_CONFIG*>(0x40CC6238); }
+  static inline volatile LPCG17_CONFIG &ref() { return *reinterpret_cast<volatile LPCG17_CONFIG*>(0x40CC6238); }
 };
 
 // LPCG access control
@@ -14510,7 +14510,7 @@ union LPCG17_AUTHEN {
 
   LPCG17_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG17_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG17_AUTHEN*>(0x40CC623C); }
+  static inline volatile LPCG17_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG17_AUTHEN*>(0x40CC623C); }
 };
 
 // LPCG direct control
@@ -14536,7 +14536,7 @@ union LPCG18_DIRECT {
 
   LPCG18_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG18_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG18_DIRECT*>(0x40CC6240); }
+  static inline volatile LPCG18_DIRECT &ref() { return *reinterpret_cast<volatile LPCG18_DIRECT*>(0x40CC6240); }
 };
 
 // LPCG domain control
@@ -14636,7 +14636,7 @@ union LPCG18_DOMAIN {
 
   LPCG18_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG18_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG18_DOMAIN*>(0x40CC6244); }
+  static inline volatile LPCG18_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG18_DOMAIN*>(0x40CC6244); }
 };
 
 // LPCG Setpoint setting
@@ -14655,7 +14655,7 @@ union LPCG18_SETPOINT {
 
   LPCG18_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG18_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG18_SETPOINT*>(0x40CC6248); }
+  static inline volatile LPCG18_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG18_SETPOINT*>(0x40CC6248); }
 };
 
 // LPCG working status
@@ -14758,7 +14758,7 @@ union LPCG18_STATUS0 {
 
   LPCG18_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG18_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG18_STATUS0*>(0x40CC6250); }
+  static inline volatile LPCG18_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG18_STATUS0*>(0x40CC6250); }
 };
 
 // LPCG low power status
@@ -14954,7 +14954,7 @@ union LPCG18_STATUS1 {
 
   LPCG18_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG18_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG18_STATUS1*>(0x40CC6254); }
+  static inline volatile LPCG18_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG18_STATUS1*>(0x40CC6254); }
 };
 
 // LPCG configuration
@@ -14981,7 +14981,7 @@ union LPCG18_CONFIG {
 
   LPCG18_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG18_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG18_CONFIG*>(0x40CC6258); }
+  static inline volatile LPCG18_CONFIG &ref() { return *reinterpret_cast<volatile LPCG18_CONFIG*>(0x40CC6258); }
 };
 
 // LPCG access control
@@ -15083,7 +15083,7 @@ union LPCG18_AUTHEN {
 
   LPCG18_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG18_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG18_AUTHEN*>(0x40CC625C); }
+  static inline volatile LPCG18_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG18_AUTHEN*>(0x40CC625C); }
 };
 
 // LPCG direct control
@@ -15109,7 +15109,7 @@ union LPCG19_DIRECT {
 
   LPCG19_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG19_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG19_DIRECT*>(0x40CC6260); }
+  static inline volatile LPCG19_DIRECT &ref() { return *reinterpret_cast<volatile LPCG19_DIRECT*>(0x40CC6260); }
 };
 
 // LPCG domain control
@@ -15209,7 +15209,7 @@ union LPCG19_DOMAIN {
 
   LPCG19_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG19_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG19_DOMAIN*>(0x40CC6264); }
+  static inline volatile LPCG19_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG19_DOMAIN*>(0x40CC6264); }
 };
 
 // LPCG Setpoint setting
@@ -15228,7 +15228,7 @@ union LPCG19_SETPOINT {
 
   LPCG19_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG19_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG19_SETPOINT*>(0x40CC6268); }
+  static inline volatile LPCG19_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG19_SETPOINT*>(0x40CC6268); }
 };
 
 // LPCG working status
@@ -15331,7 +15331,7 @@ union LPCG19_STATUS0 {
 
   LPCG19_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG19_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG19_STATUS0*>(0x40CC6270); }
+  static inline volatile LPCG19_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG19_STATUS0*>(0x40CC6270); }
 };
 
 // LPCG low power status
@@ -15527,7 +15527,7 @@ union LPCG19_STATUS1 {
 
   LPCG19_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG19_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG19_STATUS1*>(0x40CC6274); }
+  static inline volatile LPCG19_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG19_STATUS1*>(0x40CC6274); }
 };
 
 // LPCG configuration
@@ -15554,7 +15554,7 @@ union LPCG19_CONFIG {
 
   LPCG19_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG19_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG19_CONFIG*>(0x40CC6278); }
+  static inline volatile LPCG19_CONFIG &ref() { return *reinterpret_cast<volatile LPCG19_CONFIG*>(0x40CC6278); }
 };
 
 // LPCG access control
@@ -15656,7 +15656,7 @@ union LPCG19_AUTHEN {
 
   LPCG19_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG19_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG19_AUTHEN*>(0x40CC627C); }
+  static inline volatile LPCG19_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG19_AUTHEN*>(0x40CC627C); }
 };
 
 // LPCG direct control
@@ -15682,7 +15682,7 @@ union LPCG20_DIRECT {
 
   LPCG20_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG20_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG20_DIRECT*>(0x40CC6280); }
+  static inline volatile LPCG20_DIRECT &ref() { return *reinterpret_cast<volatile LPCG20_DIRECT*>(0x40CC6280); }
 };
 
 // LPCG domain control
@@ -15782,7 +15782,7 @@ union LPCG20_DOMAIN {
 
   LPCG20_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG20_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG20_DOMAIN*>(0x40CC6284); }
+  static inline volatile LPCG20_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG20_DOMAIN*>(0x40CC6284); }
 };
 
 // LPCG working status
@@ -15885,7 +15885,7 @@ union LPCG20_STATUS0 {
 
   LPCG20_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG20_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG20_STATUS0*>(0x40CC6290); }
+  static inline volatile LPCG20_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG20_STATUS0*>(0x40CC6290); }
 };
 
 // LPCG low power status
@@ -16081,7 +16081,7 @@ union LPCG20_STATUS1 {
 
   LPCG20_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG20_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG20_STATUS1*>(0x40CC6294); }
+  static inline volatile LPCG20_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG20_STATUS1*>(0x40CC6294); }
 };
 
 // LPCG configuration
@@ -16108,7 +16108,7 @@ union LPCG20_CONFIG {
 
   LPCG20_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG20_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG20_CONFIG*>(0x40CC6298); }
+  static inline volatile LPCG20_CONFIG &ref() { return *reinterpret_cast<volatile LPCG20_CONFIG*>(0x40CC6298); }
 };
 
 // LPCG access control
@@ -16210,7 +16210,7 @@ union LPCG20_AUTHEN {
 
   LPCG20_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG20_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG20_AUTHEN*>(0x40CC629C); }
+  static inline volatile LPCG20_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG20_AUTHEN*>(0x40CC629C); }
 };
 
 // LPCG direct control
@@ -16236,7 +16236,7 @@ union LPCG21_DIRECT {
 
   LPCG21_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG21_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG21_DIRECT*>(0x40CC62A0); }
+  static inline volatile LPCG21_DIRECT &ref() { return *reinterpret_cast<volatile LPCG21_DIRECT*>(0x40CC62A0); }
 };
 
 // LPCG domain control
@@ -16336,7 +16336,7 @@ union LPCG21_DOMAIN {
 
   LPCG21_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG21_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG21_DOMAIN*>(0x40CC62A4); }
+  static inline volatile LPCG21_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG21_DOMAIN*>(0x40CC62A4); }
 };
 
 // LPCG working status
@@ -16439,7 +16439,7 @@ union LPCG21_STATUS0 {
 
   LPCG21_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG21_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG21_STATUS0*>(0x40CC62B0); }
+  static inline volatile LPCG21_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG21_STATUS0*>(0x40CC62B0); }
 };
 
 // LPCG low power status
@@ -16635,7 +16635,7 @@ union LPCG21_STATUS1 {
 
   LPCG21_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG21_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG21_STATUS1*>(0x40CC62B4); }
+  static inline volatile LPCG21_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG21_STATUS1*>(0x40CC62B4); }
 };
 
 // LPCG configuration
@@ -16662,7 +16662,7 @@ union LPCG21_CONFIG {
 
   LPCG21_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG21_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG21_CONFIG*>(0x40CC62B8); }
+  static inline volatile LPCG21_CONFIG &ref() { return *reinterpret_cast<volatile LPCG21_CONFIG*>(0x40CC62B8); }
 };
 
 // LPCG access control
@@ -16764,7 +16764,7 @@ union LPCG21_AUTHEN {
 
   LPCG21_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG21_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG21_AUTHEN*>(0x40CC62BC); }
+  static inline volatile LPCG21_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG21_AUTHEN*>(0x40CC62BC); }
 };
 
 // LPCG direct control
@@ -16790,7 +16790,7 @@ union LPCG22_DIRECT {
 
   LPCG22_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG22_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG22_DIRECT*>(0x40CC62C0); }
+  static inline volatile LPCG22_DIRECT &ref() { return *reinterpret_cast<volatile LPCG22_DIRECT*>(0x40CC62C0); }
 };
 
 // LPCG domain control
@@ -16890,7 +16890,7 @@ union LPCG22_DOMAIN {
 
   LPCG22_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG22_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG22_DOMAIN*>(0x40CC62C4); }
+  static inline volatile LPCG22_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG22_DOMAIN*>(0x40CC62C4); }
 };
 
 // LPCG working status
@@ -16993,7 +16993,7 @@ union LPCG22_STATUS0 {
 
   LPCG22_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG22_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG22_STATUS0*>(0x40CC62D0); }
+  static inline volatile LPCG22_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG22_STATUS0*>(0x40CC62D0); }
 };
 
 // LPCG low power status
@@ -17189,7 +17189,7 @@ union LPCG22_STATUS1 {
 
   LPCG22_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG22_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG22_STATUS1*>(0x40CC62D4); }
+  static inline volatile LPCG22_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG22_STATUS1*>(0x40CC62D4); }
 };
 
 // LPCG configuration
@@ -17216,7 +17216,7 @@ union LPCG22_CONFIG {
 
   LPCG22_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG22_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG22_CONFIG*>(0x40CC62D8); }
+  static inline volatile LPCG22_CONFIG &ref() { return *reinterpret_cast<volatile LPCG22_CONFIG*>(0x40CC62D8); }
 };
 
 // LPCG access control
@@ -17318,7 +17318,7 @@ union LPCG22_AUTHEN {
 
   LPCG22_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG22_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG22_AUTHEN*>(0x40CC62DC); }
+  static inline volatile LPCG22_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG22_AUTHEN*>(0x40CC62DC); }
 };
 
 // LPCG direct control
@@ -17344,7 +17344,7 @@ union LPCG23_DIRECT {
 
   LPCG23_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG23_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG23_DIRECT*>(0x40CC62E0); }
+  static inline volatile LPCG23_DIRECT &ref() { return *reinterpret_cast<volatile LPCG23_DIRECT*>(0x40CC62E0); }
 };
 
 // LPCG domain control
@@ -17444,7 +17444,7 @@ union LPCG23_DOMAIN {
 
   LPCG23_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG23_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG23_DOMAIN*>(0x40CC62E4); }
+  static inline volatile LPCG23_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG23_DOMAIN*>(0x40CC62E4); }
 };
 
 // LPCG working status
@@ -17547,7 +17547,7 @@ union LPCG23_STATUS0 {
 
   LPCG23_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG23_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG23_STATUS0*>(0x40CC62F0); }
+  static inline volatile LPCG23_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG23_STATUS0*>(0x40CC62F0); }
 };
 
 // LPCG low power status
@@ -17743,7 +17743,7 @@ union LPCG23_STATUS1 {
 
   LPCG23_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG23_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG23_STATUS1*>(0x40CC62F4); }
+  static inline volatile LPCG23_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG23_STATUS1*>(0x40CC62F4); }
 };
 
 // LPCG configuration
@@ -17770,7 +17770,7 @@ union LPCG23_CONFIG {
 
   LPCG23_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG23_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG23_CONFIG*>(0x40CC62F8); }
+  static inline volatile LPCG23_CONFIG &ref() { return *reinterpret_cast<volatile LPCG23_CONFIG*>(0x40CC62F8); }
 };
 
 // LPCG access control
@@ -17872,7 +17872,7 @@ union LPCG23_AUTHEN {
 
   LPCG23_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG23_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG23_AUTHEN*>(0x40CC62FC); }
+  static inline volatile LPCG23_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG23_AUTHEN*>(0x40CC62FC); }
 };
 
 // LPCG direct control
@@ -17898,7 +17898,7 @@ union LPCG24_DIRECT {
 
   LPCG24_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG24_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG24_DIRECT*>(0x40CC6300); }
+  static inline volatile LPCG24_DIRECT &ref() { return *reinterpret_cast<volatile LPCG24_DIRECT*>(0x40CC6300); }
 };
 
 // LPCG domain control
@@ -17998,7 +17998,7 @@ union LPCG24_DOMAIN {
 
   LPCG24_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG24_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG24_DOMAIN*>(0x40CC6304); }
+  static inline volatile LPCG24_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG24_DOMAIN*>(0x40CC6304); }
 };
 
 // LPCG Setpoint setting
@@ -18017,7 +18017,7 @@ union LPCG24_SETPOINT {
 
   LPCG24_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG24_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG24_SETPOINT*>(0x40CC6308); }
+  static inline volatile LPCG24_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG24_SETPOINT*>(0x40CC6308); }
 };
 
 // LPCG working status
@@ -18120,7 +18120,7 @@ union LPCG24_STATUS0 {
 
   LPCG24_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG24_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG24_STATUS0*>(0x40CC6310); }
+  static inline volatile LPCG24_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG24_STATUS0*>(0x40CC6310); }
 };
 
 // LPCG low power status
@@ -18316,7 +18316,7 @@ union LPCG24_STATUS1 {
 
   LPCG24_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG24_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG24_STATUS1*>(0x40CC6314); }
+  static inline volatile LPCG24_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG24_STATUS1*>(0x40CC6314); }
 };
 
 // LPCG configuration
@@ -18343,7 +18343,7 @@ union LPCG24_CONFIG {
 
   LPCG24_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG24_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG24_CONFIG*>(0x40CC6318); }
+  static inline volatile LPCG24_CONFIG &ref() { return *reinterpret_cast<volatile LPCG24_CONFIG*>(0x40CC6318); }
 };
 
 // LPCG access control
@@ -18445,7 +18445,7 @@ union LPCG24_AUTHEN {
 
   LPCG24_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG24_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG24_AUTHEN*>(0x40CC631C); }
+  static inline volatile LPCG24_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG24_AUTHEN*>(0x40CC631C); }
 };
 
 // LPCG direct control
@@ -18471,7 +18471,7 @@ union LPCG25_DIRECT {
 
   LPCG25_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG25_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG25_DIRECT*>(0x40CC6320); }
+  static inline volatile LPCG25_DIRECT &ref() { return *reinterpret_cast<volatile LPCG25_DIRECT*>(0x40CC6320); }
 };
 
 // LPCG domain control
@@ -18571,7 +18571,7 @@ union LPCG25_DOMAIN {
 
   LPCG25_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG25_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG25_DOMAIN*>(0x40CC6324); }
+  static inline volatile LPCG25_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG25_DOMAIN*>(0x40CC6324); }
 };
 
 // LPCG Setpoint setting
@@ -18590,7 +18590,7 @@ union LPCG25_SETPOINT {
 
   LPCG25_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG25_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG25_SETPOINT*>(0x40CC6328); }
+  static inline volatile LPCG25_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG25_SETPOINT*>(0x40CC6328); }
 };
 
 // LPCG working status
@@ -18693,7 +18693,7 @@ union LPCG25_STATUS0 {
 
   LPCG25_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG25_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG25_STATUS0*>(0x40CC6330); }
+  static inline volatile LPCG25_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG25_STATUS0*>(0x40CC6330); }
 };
 
 // LPCG low power status
@@ -18889,7 +18889,7 @@ union LPCG25_STATUS1 {
 
   LPCG25_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG25_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG25_STATUS1*>(0x40CC6334); }
+  static inline volatile LPCG25_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG25_STATUS1*>(0x40CC6334); }
 };
 
 // LPCG configuration
@@ -18916,7 +18916,7 @@ union LPCG25_CONFIG {
 
   LPCG25_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG25_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG25_CONFIG*>(0x40CC6338); }
+  static inline volatile LPCG25_CONFIG &ref() { return *reinterpret_cast<volatile LPCG25_CONFIG*>(0x40CC6338); }
 };
 
 // LPCG access control
@@ -19018,7 +19018,7 @@ union LPCG25_AUTHEN {
 
   LPCG25_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG25_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG25_AUTHEN*>(0x40CC633C); }
+  static inline volatile LPCG25_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG25_AUTHEN*>(0x40CC633C); }
 };
 
 // LPCG direct control
@@ -19044,7 +19044,7 @@ union LPCG26_DIRECT {
 
   LPCG26_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG26_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG26_DIRECT*>(0x40CC6340); }
+  static inline volatile LPCG26_DIRECT &ref() { return *reinterpret_cast<volatile LPCG26_DIRECT*>(0x40CC6340); }
 };
 
 // LPCG domain control
@@ -19144,7 +19144,7 @@ union LPCG26_DOMAIN {
 
   LPCG26_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG26_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG26_DOMAIN*>(0x40CC6344); }
+  static inline volatile LPCG26_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG26_DOMAIN*>(0x40CC6344); }
 };
 
 // LPCG Setpoint setting
@@ -19163,7 +19163,7 @@ union LPCG26_SETPOINT {
 
   LPCG26_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG26_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG26_SETPOINT*>(0x40CC6348); }
+  static inline volatile LPCG26_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG26_SETPOINT*>(0x40CC6348); }
 };
 
 // LPCG working status
@@ -19266,7 +19266,7 @@ union LPCG26_STATUS0 {
 
   LPCG26_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG26_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG26_STATUS0*>(0x40CC6350); }
+  static inline volatile LPCG26_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG26_STATUS0*>(0x40CC6350); }
 };
 
 // LPCG low power status
@@ -19462,7 +19462,7 @@ union LPCG26_STATUS1 {
 
   LPCG26_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG26_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG26_STATUS1*>(0x40CC6354); }
+  static inline volatile LPCG26_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG26_STATUS1*>(0x40CC6354); }
 };
 
 // LPCG configuration
@@ -19489,7 +19489,7 @@ union LPCG26_CONFIG {
 
   LPCG26_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG26_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG26_CONFIG*>(0x40CC6358); }
+  static inline volatile LPCG26_CONFIG &ref() { return *reinterpret_cast<volatile LPCG26_CONFIG*>(0x40CC6358); }
 };
 
 // LPCG access control
@@ -19591,7 +19591,7 @@ union LPCG26_AUTHEN {
 
   LPCG26_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG26_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG26_AUTHEN*>(0x40CC635C); }
+  static inline volatile LPCG26_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG26_AUTHEN*>(0x40CC635C); }
 };
 
 // LPCG direct control
@@ -19617,7 +19617,7 @@ union LPCG27_DIRECT {
 
   LPCG27_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG27_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG27_DIRECT*>(0x40CC6360); }
+  static inline volatile LPCG27_DIRECT &ref() { return *reinterpret_cast<volatile LPCG27_DIRECT*>(0x40CC6360); }
 };
 
 // LPCG domain control
@@ -19717,7 +19717,7 @@ union LPCG27_DOMAIN {
 
   LPCG27_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG27_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG27_DOMAIN*>(0x40CC6364); }
+  static inline volatile LPCG27_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG27_DOMAIN*>(0x40CC6364); }
 };
 
 // LPCG Setpoint setting
@@ -19736,7 +19736,7 @@ union LPCG27_SETPOINT {
 
   LPCG27_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG27_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG27_SETPOINT*>(0x40CC6368); }
+  static inline volatile LPCG27_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG27_SETPOINT*>(0x40CC6368); }
 };
 
 // LPCG working status
@@ -19839,7 +19839,7 @@ union LPCG27_STATUS0 {
 
   LPCG27_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG27_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG27_STATUS0*>(0x40CC6370); }
+  static inline volatile LPCG27_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG27_STATUS0*>(0x40CC6370); }
 };
 
 // LPCG low power status
@@ -20035,7 +20035,7 @@ union LPCG27_STATUS1 {
 
   LPCG27_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG27_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG27_STATUS1*>(0x40CC6374); }
+  static inline volatile LPCG27_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG27_STATUS1*>(0x40CC6374); }
 };
 
 // LPCG configuration
@@ -20062,7 +20062,7 @@ union LPCG27_CONFIG {
 
   LPCG27_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG27_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG27_CONFIG*>(0x40CC6378); }
+  static inline volatile LPCG27_CONFIG &ref() { return *reinterpret_cast<volatile LPCG27_CONFIG*>(0x40CC6378); }
 };
 
 // LPCG access control
@@ -20164,7 +20164,7 @@ union LPCG27_AUTHEN {
 
   LPCG27_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG27_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG27_AUTHEN*>(0x40CC637C); }
+  static inline volatile LPCG27_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG27_AUTHEN*>(0x40CC637C); }
 };
 
 // LPCG direct control
@@ -20190,7 +20190,7 @@ union LPCG28_DIRECT {
 
   LPCG28_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG28_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG28_DIRECT*>(0x40CC6380); }
+  static inline volatile LPCG28_DIRECT &ref() { return *reinterpret_cast<volatile LPCG28_DIRECT*>(0x40CC6380); }
 };
 
 // LPCG domain control
@@ -20290,7 +20290,7 @@ union LPCG28_DOMAIN {
 
   LPCG28_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG28_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG28_DOMAIN*>(0x40CC6384); }
+  static inline volatile LPCG28_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG28_DOMAIN*>(0x40CC6384); }
 };
 
 // LPCG Setpoint setting
@@ -20309,7 +20309,7 @@ union LPCG28_SETPOINT {
 
   LPCG28_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG28_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG28_SETPOINT*>(0x40CC6388); }
+  static inline volatile LPCG28_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG28_SETPOINT*>(0x40CC6388); }
 };
 
 // LPCG working status
@@ -20412,7 +20412,7 @@ union LPCG28_STATUS0 {
 
   LPCG28_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG28_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG28_STATUS0*>(0x40CC6390); }
+  static inline volatile LPCG28_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG28_STATUS0*>(0x40CC6390); }
 };
 
 // LPCG low power status
@@ -20608,7 +20608,7 @@ union LPCG28_STATUS1 {
 
   LPCG28_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG28_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG28_STATUS1*>(0x40CC6394); }
+  static inline volatile LPCG28_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG28_STATUS1*>(0x40CC6394); }
 };
 
 // LPCG configuration
@@ -20635,7 +20635,7 @@ union LPCG28_CONFIG {
 
   LPCG28_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG28_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG28_CONFIG*>(0x40CC6398); }
+  static inline volatile LPCG28_CONFIG &ref() { return *reinterpret_cast<volatile LPCG28_CONFIG*>(0x40CC6398); }
 };
 
 // LPCG access control
@@ -20737,7 +20737,7 @@ union LPCG28_AUTHEN {
 
   LPCG28_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG28_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG28_AUTHEN*>(0x40CC639C); }
+  static inline volatile LPCG28_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG28_AUTHEN*>(0x40CC639C); }
 };
 
 // LPCG direct control
@@ -20763,7 +20763,7 @@ union LPCG29_DIRECT {
 
   LPCG29_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG29_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG29_DIRECT*>(0x40CC63A0); }
+  static inline volatile LPCG29_DIRECT &ref() { return *reinterpret_cast<volatile LPCG29_DIRECT*>(0x40CC63A0); }
 };
 
 // LPCG domain control
@@ -20863,7 +20863,7 @@ union LPCG29_DOMAIN {
 
   LPCG29_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG29_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG29_DOMAIN*>(0x40CC63A4); }
+  static inline volatile LPCG29_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG29_DOMAIN*>(0x40CC63A4); }
 };
 
 // LPCG Setpoint setting
@@ -20882,7 +20882,7 @@ union LPCG29_SETPOINT {
 
   LPCG29_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG29_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG29_SETPOINT*>(0x40CC63A8); }
+  static inline volatile LPCG29_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG29_SETPOINT*>(0x40CC63A8); }
 };
 
 // LPCG working status
@@ -20985,7 +20985,7 @@ union LPCG29_STATUS0 {
 
   LPCG29_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG29_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG29_STATUS0*>(0x40CC63B0); }
+  static inline volatile LPCG29_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG29_STATUS0*>(0x40CC63B0); }
 };
 
 // LPCG low power status
@@ -21181,7 +21181,7 @@ union LPCG29_STATUS1 {
 
   LPCG29_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG29_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG29_STATUS1*>(0x40CC63B4); }
+  static inline volatile LPCG29_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG29_STATUS1*>(0x40CC63B4); }
 };
 
 // LPCG configuration
@@ -21208,7 +21208,7 @@ union LPCG29_CONFIG {
 
   LPCG29_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG29_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG29_CONFIG*>(0x40CC63B8); }
+  static inline volatile LPCG29_CONFIG &ref() { return *reinterpret_cast<volatile LPCG29_CONFIG*>(0x40CC63B8); }
 };
 
 // LPCG access control
@@ -21310,7 +21310,7 @@ union LPCG29_AUTHEN {
 
   LPCG29_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG29_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG29_AUTHEN*>(0x40CC63BC); }
+  static inline volatile LPCG29_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG29_AUTHEN*>(0x40CC63BC); }
 };
 
 // LPCG direct control
@@ -21336,7 +21336,7 @@ union LPCG30_DIRECT {
 
   LPCG30_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG30_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG30_DIRECT*>(0x40CC63C0); }
+  static inline volatile LPCG30_DIRECT &ref() { return *reinterpret_cast<volatile LPCG30_DIRECT*>(0x40CC63C0); }
 };
 
 // LPCG domain control
@@ -21436,7 +21436,7 @@ union LPCG30_DOMAIN {
 
   LPCG30_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG30_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG30_DOMAIN*>(0x40CC63C4); }
+  static inline volatile LPCG30_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG30_DOMAIN*>(0x40CC63C4); }
 };
 
 // LPCG Setpoint setting
@@ -21455,7 +21455,7 @@ union LPCG30_SETPOINT {
 
   LPCG30_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG30_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG30_SETPOINT*>(0x40CC63C8); }
+  static inline volatile LPCG30_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG30_SETPOINT*>(0x40CC63C8); }
 };
 
 // LPCG working status
@@ -21558,7 +21558,7 @@ union LPCG30_STATUS0 {
 
   LPCG30_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG30_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG30_STATUS0*>(0x40CC63D0); }
+  static inline volatile LPCG30_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG30_STATUS0*>(0x40CC63D0); }
 };
 
 // LPCG low power status
@@ -21754,7 +21754,7 @@ union LPCG30_STATUS1 {
 
   LPCG30_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG30_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG30_STATUS1*>(0x40CC63D4); }
+  static inline volatile LPCG30_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG30_STATUS1*>(0x40CC63D4); }
 };
 
 // LPCG configuration
@@ -21781,7 +21781,7 @@ union LPCG30_CONFIG {
 
   LPCG30_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG30_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG30_CONFIG*>(0x40CC63D8); }
+  static inline volatile LPCG30_CONFIG &ref() { return *reinterpret_cast<volatile LPCG30_CONFIG*>(0x40CC63D8); }
 };
 
 // LPCG access control
@@ -21883,7 +21883,7 @@ union LPCG30_AUTHEN {
 
   LPCG30_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG30_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG30_AUTHEN*>(0x40CC63DC); }
+  static inline volatile LPCG30_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG30_AUTHEN*>(0x40CC63DC); }
 };
 
 // LPCG direct control
@@ -21909,7 +21909,7 @@ union LPCG31_DIRECT {
 
   LPCG31_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG31_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG31_DIRECT*>(0x40CC63E0); }
+  static inline volatile LPCG31_DIRECT &ref() { return *reinterpret_cast<volatile LPCG31_DIRECT*>(0x40CC63E0); }
 };
 
 // LPCG domain control
@@ -22009,7 +22009,7 @@ union LPCG31_DOMAIN {
 
   LPCG31_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG31_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG31_DOMAIN*>(0x40CC63E4); }
+  static inline volatile LPCG31_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG31_DOMAIN*>(0x40CC63E4); }
 };
 
 // LPCG Setpoint setting
@@ -22028,7 +22028,7 @@ union LPCG31_SETPOINT {
 
   LPCG31_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG31_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG31_SETPOINT*>(0x40CC63E8); }
+  static inline volatile LPCG31_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG31_SETPOINT*>(0x40CC63E8); }
 };
 
 // LPCG working status
@@ -22131,7 +22131,7 @@ union LPCG31_STATUS0 {
 
   LPCG31_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG31_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG31_STATUS0*>(0x40CC63F0); }
+  static inline volatile LPCG31_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG31_STATUS0*>(0x40CC63F0); }
 };
 
 // LPCG low power status
@@ -22327,7 +22327,7 @@ union LPCG31_STATUS1 {
 
   LPCG31_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG31_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG31_STATUS1*>(0x40CC63F4); }
+  static inline volatile LPCG31_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG31_STATUS1*>(0x40CC63F4); }
 };
 
 // LPCG configuration
@@ -22354,7 +22354,7 @@ union LPCG31_CONFIG {
 
   LPCG31_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG31_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG31_CONFIG*>(0x40CC63F8); }
+  static inline volatile LPCG31_CONFIG &ref() { return *reinterpret_cast<volatile LPCG31_CONFIG*>(0x40CC63F8); }
 };
 
 // LPCG access control
@@ -22456,7 +22456,7 @@ union LPCG31_AUTHEN {
 
   LPCG31_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG31_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG31_AUTHEN*>(0x40CC63FC); }
+  static inline volatile LPCG31_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG31_AUTHEN*>(0x40CC63FC); }
 };
 
 // LPCG direct control
@@ -22482,7 +22482,7 @@ union LPCG32_DIRECT {
 
   LPCG32_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG32_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG32_DIRECT*>(0x40CC6400); }
+  static inline volatile LPCG32_DIRECT &ref() { return *reinterpret_cast<volatile LPCG32_DIRECT*>(0x40CC6400); }
 };
 
 // LPCG domain control
@@ -22582,7 +22582,7 @@ union LPCG32_DOMAIN {
 
   LPCG32_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG32_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG32_DOMAIN*>(0x40CC6404); }
+  static inline volatile LPCG32_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG32_DOMAIN*>(0x40CC6404); }
 };
 
 // LPCG Setpoint setting
@@ -22601,7 +22601,7 @@ union LPCG32_SETPOINT {
 
   LPCG32_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG32_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG32_SETPOINT*>(0x40CC6408); }
+  static inline volatile LPCG32_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG32_SETPOINT*>(0x40CC6408); }
 };
 
 // LPCG working status
@@ -22704,7 +22704,7 @@ union LPCG32_STATUS0 {
 
   LPCG32_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG32_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG32_STATUS0*>(0x40CC6410); }
+  static inline volatile LPCG32_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG32_STATUS0*>(0x40CC6410); }
 };
 
 // LPCG low power status
@@ -22900,7 +22900,7 @@ union LPCG32_STATUS1 {
 
   LPCG32_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG32_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG32_STATUS1*>(0x40CC6414); }
+  static inline volatile LPCG32_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG32_STATUS1*>(0x40CC6414); }
 };
 
 // LPCG configuration
@@ -22927,7 +22927,7 @@ union LPCG32_CONFIG {
 
   LPCG32_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG32_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG32_CONFIG*>(0x40CC6418); }
+  static inline volatile LPCG32_CONFIG &ref() { return *reinterpret_cast<volatile LPCG32_CONFIG*>(0x40CC6418); }
 };
 
 // LPCG access control
@@ -23029,7 +23029,7 @@ union LPCG32_AUTHEN {
 
   LPCG32_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG32_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG32_AUTHEN*>(0x40CC641C); }
+  static inline volatile LPCG32_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG32_AUTHEN*>(0x40CC641C); }
 };
 
 // LPCG direct control
@@ -23055,7 +23055,7 @@ union LPCG33_DIRECT {
 
   LPCG33_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG33_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG33_DIRECT*>(0x40CC6420); }
+  static inline volatile LPCG33_DIRECT &ref() { return *reinterpret_cast<volatile LPCG33_DIRECT*>(0x40CC6420); }
 };
 
 // LPCG domain control
@@ -23155,7 +23155,7 @@ union LPCG33_DOMAIN {
 
   LPCG33_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG33_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG33_DOMAIN*>(0x40CC6424); }
+  static inline volatile LPCG33_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG33_DOMAIN*>(0x40CC6424); }
 };
 
 // LPCG Setpoint setting
@@ -23174,7 +23174,7 @@ union LPCG33_SETPOINT {
 
   LPCG33_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG33_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG33_SETPOINT*>(0x40CC6428); }
+  static inline volatile LPCG33_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG33_SETPOINT*>(0x40CC6428); }
 };
 
 // LPCG working status
@@ -23277,7 +23277,7 @@ union LPCG33_STATUS0 {
 
   LPCG33_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG33_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG33_STATUS0*>(0x40CC6430); }
+  static inline volatile LPCG33_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG33_STATUS0*>(0x40CC6430); }
 };
 
 // LPCG low power status
@@ -23473,7 +23473,7 @@ union LPCG33_STATUS1 {
 
   LPCG33_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG33_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG33_STATUS1*>(0x40CC6434); }
+  static inline volatile LPCG33_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG33_STATUS1*>(0x40CC6434); }
 };
 
 // LPCG configuration
@@ -23500,7 +23500,7 @@ union LPCG33_CONFIG {
 
   LPCG33_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG33_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG33_CONFIG*>(0x40CC6438); }
+  static inline volatile LPCG33_CONFIG &ref() { return *reinterpret_cast<volatile LPCG33_CONFIG*>(0x40CC6438); }
 };
 
 // LPCG access control
@@ -23602,7 +23602,7 @@ union LPCG33_AUTHEN {
 
   LPCG33_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG33_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG33_AUTHEN*>(0x40CC643C); }
+  static inline volatile LPCG33_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG33_AUTHEN*>(0x40CC643C); }
 };
 
 // LPCG direct control
@@ -23628,7 +23628,7 @@ union LPCG34_DIRECT {
 
   LPCG34_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG34_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG34_DIRECT*>(0x40CC6440); }
+  static inline volatile LPCG34_DIRECT &ref() { return *reinterpret_cast<volatile LPCG34_DIRECT*>(0x40CC6440); }
 };
 
 // LPCG domain control
@@ -23728,7 +23728,7 @@ union LPCG34_DOMAIN {
 
   LPCG34_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG34_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG34_DOMAIN*>(0x40CC6444); }
+  static inline volatile LPCG34_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG34_DOMAIN*>(0x40CC6444); }
 };
 
 // LPCG Setpoint setting
@@ -23747,7 +23747,7 @@ union LPCG34_SETPOINT {
 
   LPCG34_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG34_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG34_SETPOINT*>(0x40CC6448); }
+  static inline volatile LPCG34_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG34_SETPOINT*>(0x40CC6448); }
 };
 
 // LPCG working status
@@ -23850,7 +23850,7 @@ union LPCG34_STATUS0 {
 
   LPCG34_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG34_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG34_STATUS0*>(0x40CC6450); }
+  static inline volatile LPCG34_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG34_STATUS0*>(0x40CC6450); }
 };
 
 // LPCG low power status
@@ -24046,7 +24046,7 @@ union LPCG34_STATUS1 {
 
   LPCG34_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG34_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG34_STATUS1*>(0x40CC6454); }
+  static inline volatile LPCG34_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG34_STATUS1*>(0x40CC6454); }
 };
 
 // LPCG configuration
@@ -24073,7 +24073,7 @@ union LPCG34_CONFIG {
 
   LPCG34_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG34_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG34_CONFIG*>(0x40CC6458); }
+  static inline volatile LPCG34_CONFIG &ref() { return *reinterpret_cast<volatile LPCG34_CONFIG*>(0x40CC6458); }
 };
 
 // LPCG access control
@@ -24175,7 +24175,7 @@ union LPCG34_AUTHEN {
 
   LPCG34_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG34_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG34_AUTHEN*>(0x40CC645C); }
+  static inline volatile LPCG34_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG34_AUTHEN*>(0x40CC645C); }
 };
 
 // LPCG direct control
@@ -24201,7 +24201,7 @@ union LPCG35_DIRECT {
 
   LPCG35_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG35_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG35_DIRECT*>(0x40CC6460); }
+  static inline volatile LPCG35_DIRECT &ref() { return *reinterpret_cast<volatile LPCG35_DIRECT*>(0x40CC6460); }
 };
 
 // LPCG domain control
@@ -24301,7 +24301,7 @@ union LPCG35_DOMAIN {
 
   LPCG35_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG35_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG35_DOMAIN*>(0x40CC6464); }
+  static inline volatile LPCG35_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG35_DOMAIN*>(0x40CC6464); }
 };
 
 // LPCG Setpoint setting
@@ -24320,7 +24320,7 @@ union LPCG35_SETPOINT {
 
   LPCG35_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG35_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG35_SETPOINT*>(0x40CC6468); }
+  static inline volatile LPCG35_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG35_SETPOINT*>(0x40CC6468); }
 };
 
 // LPCG working status
@@ -24423,7 +24423,7 @@ union LPCG35_STATUS0 {
 
   LPCG35_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG35_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG35_STATUS0*>(0x40CC6470); }
+  static inline volatile LPCG35_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG35_STATUS0*>(0x40CC6470); }
 };
 
 // LPCG low power status
@@ -24619,7 +24619,7 @@ union LPCG35_STATUS1 {
 
   LPCG35_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG35_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG35_STATUS1*>(0x40CC6474); }
+  static inline volatile LPCG35_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG35_STATUS1*>(0x40CC6474); }
 };
 
 // LPCG configuration
@@ -24646,7 +24646,7 @@ union LPCG35_CONFIG {
 
   LPCG35_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG35_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG35_CONFIG*>(0x40CC6478); }
+  static inline volatile LPCG35_CONFIG &ref() { return *reinterpret_cast<volatile LPCG35_CONFIG*>(0x40CC6478); }
 };
 
 // LPCG access control
@@ -24748,7 +24748,7 @@ union LPCG35_AUTHEN {
 
   LPCG35_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG35_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG35_AUTHEN*>(0x40CC647C); }
+  static inline volatile LPCG35_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG35_AUTHEN*>(0x40CC647C); }
 };
 
 // LPCG direct control
@@ -24774,7 +24774,7 @@ union LPCG36_DIRECT {
 
   LPCG36_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG36_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG36_DIRECT*>(0x40CC6480); }
+  static inline volatile LPCG36_DIRECT &ref() { return *reinterpret_cast<volatile LPCG36_DIRECT*>(0x40CC6480); }
 };
 
 // LPCG domain control
@@ -24874,7 +24874,7 @@ union LPCG36_DOMAIN {
 
   LPCG36_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG36_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG36_DOMAIN*>(0x40CC6484); }
+  static inline volatile LPCG36_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG36_DOMAIN*>(0x40CC6484); }
 };
 
 // LPCG Setpoint setting
@@ -24893,7 +24893,7 @@ union LPCG36_SETPOINT {
 
   LPCG36_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG36_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG36_SETPOINT*>(0x40CC6488); }
+  static inline volatile LPCG36_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG36_SETPOINT*>(0x40CC6488); }
 };
 
 // LPCG working status
@@ -24996,7 +24996,7 @@ union LPCG36_STATUS0 {
 
   LPCG36_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG36_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG36_STATUS0*>(0x40CC6490); }
+  static inline volatile LPCG36_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG36_STATUS0*>(0x40CC6490); }
 };
 
 // LPCG low power status
@@ -25192,7 +25192,7 @@ union LPCG36_STATUS1 {
 
   LPCG36_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG36_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG36_STATUS1*>(0x40CC6494); }
+  static inline volatile LPCG36_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG36_STATUS1*>(0x40CC6494); }
 };
 
 // LPCG configuration
@@ -25219,7 +25219,7 @@ union LPCG36_CONFIG {
 
   LPCG36_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG36_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG36_CONFIG*>(0x40CC6498); }
+  static inline volatile LPCG36_CONFIG &ref() { return *reinterpret_cast<volatile LPCG36_CONFIG*>(0x40CC6498); }
 };
 
 // LPCG access control
@@ -25321,7 +25321,7 @@ union LPCG36_AUTHEN {
 
   LPCG36_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG36_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG36_AUTHEN*>(0x40CC649C); }
+  static inline volatile LPCG36_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG36_AUTHEN*>(0x40CC649C); }
 };
 
 // LPCG direct control
@@ -25347,7 +25347,7 @@ union LPCG37_DIRECT {
 
   LPCG37_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG37_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG37_DIRECT*>(0x40CC64A0); }
+  static inline volatile LPCG37_DIRECT &ref() { return *reinterpret_cast<volatile LPCG37_DIRECT*>(0x40CC64A0); }
 };
 
 // LPCG domain control
@@ -25447,7 +25447,7 @@ union LPCG37_DOMAIN {
 
   LPCG37_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG37_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG37_DOMAIN*>(0x40CC64A4); }
+  static inline volatile LPCG37_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG37_DOMAIN*>(0x40CC64A4); }
 };
 
 // LPCG Setpoint setting
@@ -25466,7 +25466,7 @@ union LPCG37_SETPOINT {
 
   LPCG37_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG37_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG37_SETPOINT*>(0x40CC64A8); }
+  static inline volatile LPCG37_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG37_SETPOINT*>(0x40CC64A8); }
 };
 
 // LPCG working status
@@ -25569,7 +25569,7 @@ union LPCG37_STATUS0 {
 
   LPCG37_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG37_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG37_STATUS0*>(0x40CC64B0); }
+  static inline volatile LPCG37_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG37_STATUS0*>(0x40CC64B0); }
 };
 
 // LPCG low power status
@@ -25765,7 +25765,7 @@ union LPCG37_STATUS1 {
 
   LPCG37_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG37_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG37_STATUS1*>(0x40CC64B4); }
+  static inline volatile LPCG37_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG37_STATUS1*>(0x40CC64B4); }
 };
 
 // LPCG configuration
@@ -25792,7 +25792,7 @@ union LPCG37_CONFIG {
 
   LPCG37_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG37_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG37_CONFIG*>(0x40CC64B8); }
+  static inline volatile LPCG37_CONFIG &ref() { return *reinterpret_cast<volatile LPCG37_CONFIG*>(0x40CC64B8); }
 };
 
 // LPCG access control
@@ -25894,7 +25894,7 @@ union LPCG37_AUTHEN {
 
   LPCG37_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG37_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG37_AUTHEN*>(0x40CC64BC); }
+  static inline volatile LPCG37_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG37_AUTHEN*>(0x40CC64BC); }
 };
 
 // LPCG direct control
@@ -25920,7 +25920,7 @@ union LPCG38_DIRECT {
 
   LPCG38_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG38_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG38_DIRECT*>(0x40CC64C0); }
+  static inline volatile LPCG38_DIRECT &ref() { return *reinterpret_cast<volatile LPCG38_DIRECT*>(0x40CC64C0); }
 };
 
 // LPCG domain control
@@ -26020,7 +26020,7 @@ union LPCG38_DOMAIN {
 
   LPCG38_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG38_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG38_DOMAIN*>(0x40CC64C4); }
+  static inline volatile LPCG38_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG38_DOMAIN*>(0x40CC64C4); }
 };
 
 // LPCG Setpoint setting
@@ -26039,7 +26039,7 @@ union LPCG38_SETPOINT {
 
   LPCG38_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG38_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG38_SETPOINT*>(0x40CC64C8); }
+  static inline volatile LPCG38_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG38_SETPOINT*>(0x40CC64C8); }
 };
 
 // LPCG working status
@@ -26142,7 +26142,7 @@ union LPCG38_STATUS0 {
 
   LPCG38_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG38_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG38_STATUS0*>(0x40CC64D0); }
+  static inline volatile LPCG38_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG38_STATUS0*>(0x40CC64D0); }
 };
 
 // LPCG low power status
@@ -26338,7 +26338,7 @@ union LPCG38_STATUS1 {
 
   LPCG38_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG38_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG38_STATUS1*>(0x40CC64D4); }
+  static inline volatile LPCG38_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG38_STATUS1*>(0x40CC64D4); }
 };
 
 // LPCG configuration
@@ -26365,7 +26365,7 @@ union LPCG38_CONFIG {
 
   LPCG38_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG38_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG38_CONFIG*>(0x40CC64D8); }
+  static inline volatile LPCG38_CONFIG &ref() { return *reinterpret_cast<volatile LPCG38_CONFIG*>(0x40CC64D8); }
 };
 
 // LPCG access control
@@ -26467,7 +26467,7 @@ union LPCG38_AUTHEN {
 
   LPCG38_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG38_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG38_AUTHEN*>(0x40CC64DC); }
+  static inline volatile LPCG38_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG38_AUTHEN*>(0x40CC64DC); }
 };
 
 // LPCG direct control
@@ -26493,7 +26493,7 @@ union LPCG39_DIRECT {
 
   LPCG39_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG39_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG39_DIRECT*>(0x40CC64E0); }
+  static inline volatile LPCG39_DIRECT &ref() { return *reinterpret_cast<volatile LPCG39_DIRECT*>(0x40CC64E0); }
 };
 
 // LPCG domain control
@@ -26593,7 +26593,7 @@ union LPCG39_DOMAIN {
 
   LPCG39_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG39_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG39_DOMAIN*>(0x40CC64E4); }
+  static inline volatile LPCG39_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG39_DOMAIN*>(0x40CC64E4); }
 };
 
 // LPCG Setpoint setting
@@ -26612,7 +26612,7 @@ union LPCG39_SETPOINT {
 
   LPCG39_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG39_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG39_SETPOINT*>(0x40CC64E8); }
+  static inline volatile LPCG39_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG39_SETPOINT*>(0x40CC64E8); }
 };
 
 // LPCG working status
@@ -26715,7 +26715,7 @@ union LPCG39_STATUS0 {
 
   LPCG39_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG39_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG39_STATUS0*>(0x40CC64F0); }
+  static inline volatile LPCG39_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG39_STATUS0*>(0x40CC64F0); }
 };
 
 // LPCG low power status
@@ -26911,7 +26911,7 @@ union LPCG39_STATUS1 {
 
   LPCG39_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG39_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG39_STATUS1*>(0x40CC64F4); }
+  static inline volatile LPCG39_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG39_STATUS1*>(0x40CC64F4); }
 };
 
 // LPCG configuration
@@ -26938,7 +26938,7 @@ union LPCG39_CONFIG {
 
   LPCG39_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG39_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG39_CONFIG*>(0x40CC64F8); }
+  static inline volatile LPCG39_CONFIG &ref() { return *reinterpret_cast<volatile LPCG39_CONFIG*>(0x40CC64F8); }
 };
 
 // LPCG access control
@@ -27040,7 +27040,7 @@ union LPCG39_AUTHEN {
 
   LPCG39_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG39_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG39_AUTHEN*>(0x40CC64FC); }
+  static inline volatile LPCG39_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG39_AUTHEN*>(0x40CC64FC); }
 };
 
 // LPCG direct control
@@ -27066,7 +27066,7 @@ union LPCG40_DIRECT {
 
   LPCG40_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG40_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG40_DIRECT*>(0x40CC6500); }
+  static inline volatile LPCG40_DIRECT &ref() { return *reinterpret_cast<volatile LPCG40_DIRECT*>(0x40CC6500); }
 };
 
 // LPCG domain control
@@ -27166,7 +27166,7 @@ union LPCG40_DOMAIN {
 
   LPCG40_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG40_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG40_DOMAIN*>(0x40CC6504); }
+  static inline volatile LPCG40_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG40_DOMAIN*>(0x40CC6504); }
 };
 
 // LPCG Setpoint setting
@@ -27185,7 +27185,7 @@ union LPCG40_SETPOINT {
 
   LPCG40_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG40_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG40_SETPOINT*>(0x40CC6508); }
+  static inline volatile LPCG40_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG40_SETPOINT*>(0x40CC6508); }
 };
 
 // LPCG working status
@@ -27288,7 +27288,7 @@ union LPCG40_STATUS0 {
 
   LPCG40_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG40_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG40_STATUS0*>(0x40CC6510); }
+  static inline volatile LPCG40_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG40_STATUS0*>(0x40CC6510); }
 };
 
 // LPCG low power status
@@ -27484,7 +27484,7 @@ union LPCG40_STATUS1 {
 
   LPCG40_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG40_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG40_STATUS1*>(0x40CC6514); }
+  static inline volatile LPCG40_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG40_STATUS1*>(0x40CC6514); }
 };
 
 // LPCG configuration
@@ -27511,7 +27511,7 @@ union LPCG40_CONFIG {
 
   LPCG40_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG40_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG40_CONFIG*>(0x40CC6518); }
+  static inline volatile LPCG40_CONFIG &ref() { return *reinterpret_cast<volatile LPCG40_CONFIG*>(0x40CC6518); }
 };
 
 // LPCG access control
@@ -27613,7 +27613,7 @@ union LPCG40_AUTHEN {
 
   LPCG40_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG40_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG40_AUTHEN*>(0x40CC651C); }
+  static inline volatile LPCG40_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG40_AUTHEN*>(0x40CC651C); }
 };
 
 // LPCG direct control
@@ -27639,7 +27639,7 @@ union LPCG41_DIRECT {
 
   LPCG41_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG41_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG41_DIRECT*>(0x40CC6520); }
+  static inline volatile LPCG41_DIRECT &ref() { return *reinterpret_cast<volatile LPCG41_DIRECT*>(0x40CC6520); }
 };
 
 // LPCG domain control
@@ -27739,7 +27739,7 @@ union LPCG41_DOMAIN {
 
   LPCG41_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG41_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG41_DOMAIN*>(0x40CC6524); }
+  static inline volatile LPCG41_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG41_DOMAIN*>(0x40CC6524); }
 };
 
 // LPCG working status
@@ -27842,7 +27842,7 @@ union LPCG41_STATUS0 {
 
   LPCG41_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG41_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG41_STATUS0*>(0x40CC6530); }
+  static inline volatile LPCG41_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG41_STATUS0*>(0x40CC6530); }
 };
 
 // LPCG low power status
@@ -28038,7 +28038,7 @@ union LPCG41_STATUS1 {
 
   LPCG41_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG41_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG41_STATUS1*>(0x40CC6534); }
+  static inline volatile LPCG41_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG41_STATUS1*>(0x40CC6534); }
 };
 
 // LPCG configuration
@@ -28065,7 +28065,7 @@ union LPCG41_CONFIG {
 
   LPCG41_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG41_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG41_CONFIG*>(0x40CC6538); }
+  static inline volatile LPCG41_CONFIG &ref() { return *reinterpret_cast<volatile LPCG41_CONFIG*>(0x40CC6538); }
 };
 
 // LPCG access control
@@ -28167,7 +28167,7 @@ union LPCG41_AUTHEN {
 
   LPCG41_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG41_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG41_AUTHEN*>(0x40CC653C); }
+  static inline volatile LPCG41_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG41_AUTHEN*>(0x40CC653C); }
 };
 
 // LPCG direct control
@@ -28193,7 +28193,7 @@ union LPCG42_DIRECT {
 
   LPCG42_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG42_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG42_DIRECT*>(0x40CC6540); }
+  static inline volatile LPCG42_DIRECT &ref() { return *reinterpret_cast<volatile LPCG42_DIRECT*>(0x40CC6540); }
 };
 
 // LPCG domain control
@@ -28293,7 +28293,7 @@ union LPCG42_DOMAIN {
 
   LPCG42_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG42_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG42_DOMAIN*>(0x40CC6544); }
+  static inline volatile LPCG42_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG42_DOMAIN*>(0x40CC6544); }
 };
 
 // LPCG working status
@@ -28396,7 +28396,7 @@ union LPCG42_STATUS0 {
 
   LPCG42_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG42_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG42_STATUS0*>(0x40CC6550); }
+  static inline volatile LPCG42_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG42_STATUS0*>(0x40CC6550); }
 };
 
 // LPCG low power status
@@ -28592,7 +28592,7 @@ union LPCG42_STATUS1 {
 
   LPCG42_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG42_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG42_STATUS1*>(0x40CC6554); }
+  static inline volatile LPCG42_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG42_STATUS1*>(0x40CC6554); }
 };
 
 // LPCG configuration
@@ -28619,7 +28619,7 @@ union LPCG42_CONFIG {
 
   LPCG42_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG42_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG42_CONFIG*>(0x40CC6558); }
+  static inline volatile LPCG42_CONFIG &ref() { return *reinterpret_cast<volatile LPCG42_CONFIG*>(0x40CC6558); }
 };
 
 // LPCG access control
@@ -28721,7 +28721,7 @@ union LPCG42_AUTHEN {
 
   LPCG42_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG42_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG42_AUTHEN*>(0x40CC655C); }
+  static inline volatile LPCG42_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG42_AUTHEN*>(0x40CC655C); }
 };
 
 // LPCG direct control
@@ -28747,7 +28747,7 @@ union LPCG43_DIRECT {
 
   LPCG43_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG43_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG43_DIRECT*>(0x40CC6560); }
+  static inline volatile LPCG43_DIRECT &ref() { return *reinterpret_cast<volatile LPCG43_DIRECT*>(0x40CC6560); }
 };
 
 // LPCG domain control
@@ -28847,7 +28847,7 @@ union LPCG43_DOMAIN {
 
   LPCG43_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG43_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG43_DOMAIN*>(0x40CC6564); }
+  static inline volatile LPCG43_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG43_DOMAIN*>(0x40CC6564); }
 };
 
 // LPCG Setpoint setting
@@ -28866,7 +28866,7 @@ union LPCG43_SETPOINT {
 
   LPCG43_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG43_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG43_SETPOINT*>(0x40CC6568); }
+  static inline volatile LPCG43_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG43_SETPOINT*>(0x40CC6568); }
 };
 
 // LPCG working status
@@ -28969,7 +28969,7 @@ union LPCG43_STATUS0 {
 
   LPCG43_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG43_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG43_STATUS0*>(0x40CC6570); }
+  static inline volatile LPCG43_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG43_STATUS0*>(0x40CC6570); }
 };
 
 // LPCG low power status
@@ -29165,7 +29165,7 @@ union LPCG43_STATUS1 {
 
   LPCG43_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG43_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG43_STATUS1*>(0x40CC6574); }
+  static inline volatile LPCG43_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG43_STATUS1*>(0x40CC6574); }
 };
 
 // LPCG configuration
@@ -29192,7 +29192,7 @@ union LPCG43_CONFIG {
 
   LPCG43_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG43_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG43_CONFIG*>(0x40CC6578); }
+  static inline volatile LPCG43_CONFIG &ref() { return *reinterpret_cast<volatile LPCG43_CONFIG*>(0x40CC6578); }
 };
 
 // LPCG access control
@@ -29294,7 +29294,7 @@ union LPCG43_AUTHEN {
 
   LPCG43_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG43_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG43_AUTHEN*>(0x40CC657C); }
+  static inline volatile LPCG43_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG43_AUTHEN*>(0x40CC657C); }
 };
 
 // LPCG direct control
@@ -29320,7 +29320,7 @@ union LPCG44_DIRECT {
 
   LPCG44_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG44_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG44_DIRECT*>(0x40CC6580); }
+  static inline volatile LPCG44_DIRECT &ref() { return *reinterpret_cast<volatile LPCG44_DIRECT*>(0x40CC6580); }
 };
 
 // LPCG domain control
@@ -29420,7 +29420,7 @@ union LPCG44_DOMAIN {
 
   LPCG44_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG44_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG44_DOMAIN*>(0x40CC6584); }
+  static inline volatile LPCG44_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG44_DOMAIN*>(0x40CC6584); }
 };
 
 // LPCG Setpoint setting
@@ -29439,7 +29439,7 @@ union LPCG44_SETPOINT {
 
   LPCG44_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG44_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG44_SETPOINT*>(0x40CC6588); }
+  static inline volatile LPCG44_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG44_SETPOINT*>(0x40CC6588); }
 };
 
 // LPCG working status
@@ -29542,7 +29542,7 @@ union LPCG44_STATUS0 {
 
   LPCG44_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG44_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG44_STATUS0*>(0x40CC6590); }
+  static inline volatile LPCG44_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG44_STATUS0*>(0x40CC6590); }
 };
 
 // LPCG low power status
@@ -29738,7 +29738,7 @@ union LPCG44_STATUS1 {
 
   LPCG44_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG44_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG44_STATUS1*>(0x40CC6594); }
+  static inline volatile LPCG44_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG44_STATUS1*>(0x40CC6594); }
 };
 
 // LPCG configuration
@@ -29765,7 +29765,7 @@ union LPCG44_CONFIG {
 
   LPCG44_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG44_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG44_CONFIG*>(0x40CC6598); }
+  static inline volatile LPCG44_CONFIG &ref() { return *reinterpret_cast<volatile LPCG44_CONFIG*>(0x40CC6598); }
 };
 
 // LPCG access control
@@ -29867,7 +29867,7 @@ union LPCG44_AUTHEN {
 
   LPCG44_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG44_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG44_AUTHEN*>(0x40CC659C); }
+  static inline volatile LPCG44_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG44_AUTHEN*>(0x40CC659C); }
 };
 
 // LPCG direct control
@@ -29893,7 +29893,7 @@ union LPCG45_DIRECT {
 
   LPCG45_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG45_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG45_DIRECT*>(0x40CC65A0); }
+  static inline volatile LPCG45_DIRECT &ref() { return *reinterpret_cast<volatile LPCG45_DIRECT*>(0x40CC65A0); }
 };
 
 // LPCG domain control
@@ -29993,7 +29993,7 @@ union LPCG45_DOMAIN {
 
   LPCG45_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG45_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG45_DOMAIN*>(0x40CC65A4); }
+  static inline volatile LPCG45_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG45_DOMAIN*>(0x40CC65A4); }
 };
 
 // LPCG Setpoint setting
@@ -30012,7 +30012,7 @@ union LPCG45_SETPOINT {
 
   LPCG45_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG45_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG45_SETPOINT*>(0x40CC65A8); }
+  static inline volatile LPCG45_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG45_SETPOINT*>(0x40CC65A8); }
 };
 
 // LPCG working status
@@ -30115,7 +30115,7 @@ union LPCG45_STATUS0 {
 
   LPCG45_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG45_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG45_STATUS0*>(0x40CC65B0); }
+  static inline volatile LPCG45_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG45_STATUS0*>(0x40CC65B0); }
 };
 
 // LPCG low power status
@@ -30311,7 +30311,7 @@ union LPCG45_STATUS1 {
 
   LPCG45_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG45_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG45_STATUS1*>(0x40CC65B4); }
+  static inline volatile LPCG45_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG45_STATUS1*>(0x40CC65B4); }
 };
 
 // LPCG configuration
@@ -30338,7 +30338,7 @@ union LPCG45_CONFIG {
 
   LPCG45_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG45_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG45_CONFIG*>(0x40CC65B8); }
+  static inline volatile LPCG45_CONFIG &ref() { return *reinterpret_cast<volatile LPCG45_CONFIG*>(0x40CC65B8); }
 };
 
 // LPCG access control
@@ -30440,7 +30440,7 @@ union LPCG45_AUTHEN {
 
   LPCG45_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG45_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG45_AUTHEN*>(0x40CC65BC); }
+  static inline volatile LPCG45_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG45_AUTHEN*>(0x40CC65BC); }
 };
 
 // LPCG direct control
@@ -30466,7 +30466,7 @@ union LPCG46_DIRECT {
 
   LPCG46_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG46_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG46_DIRECT*>(0x40CC65C0); }
+  static inline volatile LPCG46_DIRECT &ref() { return *reinterpret_cast<volatile LPCG46_DIRECT*>(0x40CC65C0); }
 };
 
 // LPCG domain control
@@ -30566,7 +30566,7 @@ union LPCG46_DOMAIN {
 
   LPCG46_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG46_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG46_DOMAIN*>(0x40CC65C4); }
+  static inline volatile LPCG46_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG46_DOMAIN*>(0x40CC65C4); }
 };
 
 // LPCG Setpoint setting
@@ -30585,7 +30585,7 @@ union LPCG46_SETPOINT {
 
   LPCG46_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG46_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG46_SETPOINT*>(0x40CC65C8); }
+  static inline volatile LPCG46_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG46_SETPOINT*>(0x40CC65C8); }
 };
 
 // LPCG working status
@@ -30688,7 +30688,7 @@ union LPCG46_STATUS0 {
 
   LPCG46_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG46_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG46_STATUS0*>(0x40CC65D0); }
+  static inline volatile LPCG46_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG46_STATUS0*>(0x40CC65D0); }
 };
 
 // LPCG low power status
@@ -30884,7 +30884,7 @@ union LPCG46_STATUS1 {
 
   LPCG46_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG46_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG46_STATUS1*>(0x40CC65D4); }
+  static inline volatile LPCG46_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG46_STATUS1*>(0x40CC65D4); }
 };
 
 // LPCG configuration
@@ -30911,7 +30911,7 @@ union LPCG46_CONFIG {
 
   LPCG46_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG46_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG46_CONFIG*>(0x40CC65D8); }
+  static inline volatile LPCG46_CONFIG &ref() { return *reinterpret_cast<volatile LPCG46_CONFIG*>(0x40CC65D8); }
 };
 
 // LPCG access control
@@ -31013,7 +31013,7 @@ union LPCG46_AUTHEN {
 
   LPCG46_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG46_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG46_AUTHEN*>(0x40CC65DC); }
+  static inline volatile LPCG46_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG46_AUTHEN*>(0x40CC65DC); }
 };
 
 // LPCG direct control
@@ -31039,7 +31039,7 @@ union LPCG47_DIRECT {
 
   LPCG47_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG47_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG47_DIRECT*>(0x40CC65E0); }
+  static inline volatile LPCG47_DIRECT &ref() { return *reinterpret_cast<volatile LPCG47_DIRECT*>(0x40CC65E0); }
 };
 
 // LPCG domain control
@@ -31139,7 +31139,7 @@ union LPCG47_DOMAIN {
 
   LPCG47_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG47_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG47_DOMAIN*>(0x40CC65E4); }
+  static inline volatile LPCG47_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG47_DOMAIN*>(0x40CC65E4); }
 };
 
 // LPCG Setpoint setting
@@ -31158,7 +31158,7 @@ union LPCG47_SETPOINT {
 
   LPCG47_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG47_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG47_SETPOINT*>(0x40CC65E8); }
+  static inline volatile LPCG47_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG47_SETPOINT*>(0x40CC65E8); }
 };
 
 // LPCG working status
@@ -31261,7 +31261,7 @@ union LPCG47_STATUS0 {
 
   LPCG47_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG47_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG47_STATUS0*>(0x40CC65F0); }
+  static inline volatile LPCG47_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG47_STATUS0*>(0x40CC65F0); }
 };
 
 // LPCG low power status
@@ -31457,7 +31457,7 @@ union LPCG47_STATUS1 {
 
   LPCG47_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG47_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG47_STATUS1*>(0x40CC65F4); }
+  static inline volatile LPCG47_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG47_STATUS1*>(0x40CC65F4); }
 };
 
 // LPCG configuration
@@ -31484,7 +31484,7 @@ union LPCG47_CONFIG {
 
   LPCG47_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG47_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG47_CONFIG*>(0x40CC65F8); }
+  static inline volatile LPCG47_CONFIG &ref() { return *reinterpret_cast<volatile LPCG47_CONFIG*>(0x40CC65F8); }
 };
 
 // LPCG access control
@@ -31586,7 +31586,7 @@ union LPCG47_AUTHEN {
 
   LPCG47_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG47_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG47_AUTHEN*>(0x40CC65FC); }
+  static inline volatile LPCG47_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG47_AUTHEN*>(0x40CC65FC); }
 };
 
 // LPCG direct control
@@ -31612,7 +31612,7 @@ union LPCG48_DIRECT {
 
   LPCG48_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG48_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG48_DIRECT*>(0x40CC6600); }
+  static inline volatile LPCG48_DIRECT &ref() { return *reinterpret_cast<volatile LPCG48_DIRECT*>(0x40CC6600); }
 };
 
 // LPCG domain control
@@ -31712,7 +31712,7 @@ union LPCG48_DOMAIN {
 
   LPCG48_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG48_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG48_DOMAIN*>(0x40CC6604); }
+  static inline volatile LPCG48_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG48_DOMAIN*>(0x40CC6604); }
 };
 
 // LPCG Setpoint setting
@@ -31731,7 +31731,7 @@ union LPCG48_SETPOINT {
 
   LPCG48_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG48_SETPOINT &Instance() { return *reinterpret_cast<volatile LPCG48_SETPOINT*>(0x40CC6608); }
+  static inline volatile LPCG48_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG48_SETPOINT*>(0x40CC6608); }
 };
 
 // LPCG working status
@@ -31834,7 +31834,7 @@ union LPCG48_STATUS0 {
 
   LPCG48_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG48_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG48_STATUS0*>(0x40CC6610); }
+  static inline volatile LPCG48_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG48_STATUS0*>(0x40CC6610); }
 };
 
 // LPCG low power status
@@ -32030,7 +32030,7 @@ union LPCG48_STATUS1 {
 
   LPCG48_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG48_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG48_STATUS1*>(0x40CC6614); }
+  static inline volatile LPCG48_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG48_STATUS1*>(0x40CC6614); }
 };
 
 // LPCG configuration
@@ -32057,7 +32057,7 @@ union LPCG48_CONFIG {
 
   LPCG48_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG48_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG48_CONFIG*>(0x40CC6618); }
+  static inline volatile LPCG48_CONFIG &ref() { return *reinterpret_cast<volatile LPCG48_CONFIG*>(0x40CC6618); }
 };
 
 // LPCG access control
@@ -32159,7 +32159,7 @@ union LPCG48_AUTHEN {
 
   LPCG48_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG48_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG48_AUTHEN*>(0x40CC661C); }
+  static inline volatile LPCG48_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG48_AUTHEN*>(0x40CC661C); }
 };
 
 // LPCG direct control
@@ -32185,7 +32185,7 @@ union LPCG49_DIRECT {
 
   LPCG49_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG49_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG49_DIRECT*>(0x40CC6620); }
+  static inline volatile LPCG49_DIRECT &ref() { return *reinterpret_cast<volatile LPCG49_DIRECT*>(0x40CC6620); }
 };
 
 // LPCG domain control
@@ -32285,7 +32285,7 @@ union LPCG49_DOMAIN {
 
   LPCG49_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG49_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG49_DOMAIN*>(0x40CC6624); }
+  static inline volatile LPCG49_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG49_DOMAIN*>(0x40CC6624); }
 };
 
 // LPCG working status
@@ -32388,7 +32388,7 @@ union LPCG49_STATUS0 {
 
   LPCG49_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG49_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG49_STATUS0*>(0x40CC6630); }
+  static inline volatile LPCG49_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG49_STATUS0*>(0x40CC6630); }
 };
 
 // LPCG low power status
@@ -32584,7 +32584,7 @@ union LPCG49_STATUS1 {
 
   LPCG49_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG49_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG49_STATUS1*>(0x40CC6634); }
+  static inline volatile LPCG49_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG49_STATUS1*>(0x40CC6634); }
 };
 
 // LPCG configuration
@@ -32611,7 +32611,7 @@ union LPCG49_CONFIG {
 
   LPCG49_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG49_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG49_CONFIG*>(0x40CC6638); }
+  static inline volatile LPCG49_CONFIG &ref() { return *reinterpret_cast<volatile LPCG49_CONFIG*>(0x40CC6638); }
 };
 
 // LPCG access control
@@ -32713,7 +32713,7 @@ union LPCG49_AUTHEN {
 
   LPCG49_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG49_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG49_AUTHEN*>(0x40CC663C); }
+  static inline volatile LPCG49_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG49_AUTHEN*>(0x40CC663C); }
 };
 
 // LPCG direct control
@@ -32739,7 +32739,7 @@ union LPCG50_DIRECT {
 
   LPCG50_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG50_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG50_DIRECT*>(0x40CC6640); }
+  static inline volatile LPCG50_DIRECT &ref() { return *reinterpret_cast<volatile LPCG50_DIRECT*>(0x40CC6640); }
 };
 
 // LPCG domain control
@@ -32839,7 +32839,7 @@ union LPCG50_DOMAIN {
 
   LPCG50_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG50_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG50_DOMAIN*>(0x40CC6644); }
+  static inline volatile LPCG50_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG50_DOMAIN*>(0x40CC6644); }
 };
 
 // LPCG working status
@@ -32942,7 +32942,7 @@ union LPCG50_STATUS0 {
 
   LPCG50_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG50_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG50_STATUS0*>(0x40CC6650); }
+  static inline volatile LPCG50_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG50_STATUS0*>(0x40CC6650); }
 };
 
 // LPCG low power status
@@ -33138,7 +33138,7 @@ union LPCG50_STATUS1 {
 
   LPCG50_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG50_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG50_STATUS1*>(0x40CC6654); }
+  static inline volatile LPCG50_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG50_STATUS1*>(0x40CC6654); }
 };
 
 // LPCG configuration
@@ -33165,7 +33165,7 @@ union LPCG50_CONFIG {
 
   LPCG50_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG50_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG50_CONFIG*>(0x40CC6658); }
+  static inline volatile LPCG50_CONFIG &ref() { return *reinterpret_cast<volatile LPCG50_CONFIG*>(0x40CC6658); }
 };
 
 // LPCG access control
@@ -33267,7 +33267,7 @@ union LPCG50_AUTHEN {
 
   LPCG50_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG50_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG50_AUTHEN*>(0x40CC665C); }
+  static inline volatile LPCG50_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG50_AUTHEN*>(0x40CC665C); }
 };
 
 // LPCG direct control
@@ -33293,7 +33293,7 @@ union LPCG51_DIRECT {
 
   LPCG51_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG51_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG51_DIRECT*>(0x40CC6660); }
+  static inline volatile LPCG51_DIRECT &ref() { return *reinterpret_cast<volatile LPCG51_DIRECT*>(0x40CC6660); }
 };
 
 // LPCG domain control
@@ -33393,7 +33393,7 @@ union LPCG51_DOMAIN {
 
   LPCG51_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG51_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG51_DOMAIN*>(0x40CC6664); }
+  static inline volatile LPCG51_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG51_DOMAIN*>(0x40CC6664); }
 };
 
 // LPCG working status
@@ -33496,7 +33496,7 @@ union LPCG51_STATUS0 {
 
   LPCG51_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG51_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG51_STATUS0*>(0x40CC6670); }
+  static inline volatile LPCG51_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG51_STATUS0*>(0x40CC6670); }
 };
 
 // LPCG low power status
@@ -33692,7 +33692,7 @@ union LPCG51_STATUS1 {
 
   LPCG51_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG51_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG51_STATUS1*>(0x40CC6674); }
+  static inline volatile LPCG51_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG51_STATUS1*>(0x40CC6674); }
 };
 
 // LPCG configuration
@@ -33719,7 +33719,7 @@ union LPCG51_CONFIG {
 
   LPCG51_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG51_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG51_CONFIG*>(0x40CC6678); }
+  static inline volatile LPCG51_CONFIG &ref() { return *reinterpret_cast<volatile LPCG51_CONFIG*>(0x40CC6678); }
 };
 
 // LPCG access control
@@ -33821,7 +33821,7 @@ union LPCG51_AUTHEN {
 
   LPCG51_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG51_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG51_AUTHEN*>(0x40CC667C); }
+  static inline volatile LPCG51_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG51_AUTHEN*>(0x40CC667C); }
 };
 
 // LPCG direct control
@@ -33847,7 +33847,7 @@ union LPCG52_DIRECT {
 
   LPCG52_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG52_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG52_DIRECT*>(0x40CC6680); }
+  static inline volatile LPCG52_DIRECT &ref() { return *reinterpret_cast<volatile LPCG52_DIRECT*>(0x40CC6680); }
 };
 
 // LPCG domain control
@@ -33947,7 +33947,7 @@ union LPCG52_DOMAIN {
 
   LPCG52_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG52_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG52_DOMAIN*>(0x40CC6684); }
+  static inline volatile LPCG52_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG52_DOMAIN*>(0x40CC6684); }
 };
 
 // LPCG working status
@@ -34050,7 +34050,7 @@ union LPCG52_STATUS0 {
 
   LPCG52_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG52_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG52_STATUS0*>(0x40CC6690); }
+  static inline volatile LPCG52_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG52_STATUS0*>(0x40CC6690); }
 };
 
 // LPCG low power status
@@ -34246,7 +34246,7 @@ union LPCG52_STATUS1 {
 
   LPCG52_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG52_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG52_STATUS1*>(0x40CC6694); }
+  static inline volatile LPCG52_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG52_STATUS1*>(0x40CC6694); }
 };
 
 // LPCG configuration
@@ -34273,7 +34273,7 @@ union LPCG52_CONFIG {
 
   LPCG52_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG52_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG52_CONFIG*>(0x40CC6698); }
+  static inline volatile LPCG52_CONFIG &ref() { return *reinterpret_cast<volatile LPCG52_CONFIG*>(0x40CC6698); }
 };
 
 // LPCG access control
@@ -34375,7 +34375,7 @@ union LPCG52_AUTHEN {
 
   LPCG52_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG52_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG52_AUTHEN*>(0x40CC669C); }
+  static inline volatile LPCG52_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG52_AUTHEN*>(0x40CC669C); }
 };
 
 // LPCG direct control
@@ -34401,7 +34401,7 @@ union LPCG53_DIRECT {
 
   LPCG53_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG53_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG53_DIRECT*>(0x40CC66A0); }
+  static inline volatile LPCG53_DIRECT &ref() { return *reinterpret_cast<volatile LPCG53_DIRECT*>(0x40CC66A0); }
 };
 
 // LPCG domain control
@@ -34501,7 +34501,7 @@ union LPCG53_DOMAIN {
 
   LPCG53_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG53_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG53_DOMAIN*>(0x40CC66A4); }
+  static inline volatile LPCG53_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG53_DOMAIN*>(0x40CC66A4); }
 };
 
 // LPCG working status
@@ -34604,7 +34604,7 @@ union LPCG53_STATUS0 {
 
   LPCG53_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG53_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG53_STATUS0*>(0x40CC66B0); }
+  static inline volatile LPCG53_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG53_STATUS0*>(0x40CC66B0); }
 };
 
 // LPCG low power status
@@ -34800,7 +34800,7 @@ union LPCG53_STATUS1 {
 
   LPCG53_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG53_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG53_STATUS1*>(0x40CC66B4); }
+  static inline volatile LPCG53_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG53_STATUS1*>(0x40CC66B4); }
 };
 
 // LPCG configuration
@@ -34827,7 +34827,7 @@ union LPCG53_CONFIG {
 
   LPCG53_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG53_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG53_CONFIG*>(0x40CC66B8); }
+  static inline volatile LPCG53_CONFIG &ref() { return *reinterpret_cast<volatile LPCG53_CONFIG*>(0x40CC66B8); }
 };
 
 // LPCG access control
@@ -34929,7 +34929,7 @@ union LPCG53_AUTHEN {
 
   LPCG53_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG53_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG53_AUTHEN*>(0x40CC66BC); }
+  static inline volatile LPCG53_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG53_AUTHEN*>(0x40CC66BC); }
 };
 
 // LPCG direct control
@@ -34955,7 +34955,7 @@ union LPCG54_DIRECT {
 
   LPCG54_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG54_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG54_DIRECT*>(0x40CC66C0); }
+  static inline volatile LPCG54_DIRECT &ref() { return *reinterpret_cast<volatile LPCG54_DIRECT*>(0x40CC66C0); }
 };
 
 // LPCG domain control
@@ -35055,7 +35055,7 @@ union LPCG54_DOMAIN {
 
   LPCG54_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG54_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG54_DOMAIN*>(0x40CC66C4); }
+  static inline volatile LPCG54_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG54_DOMAIN*>(0x40CC66C4); }
 };
 
 // LPCG working status
@@ -35158,7 +35158,7 @@ union LPCG54_STATUS0 {
 
   LPCG54_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG54_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG54_STATUS0*>(0x40CC66D0); }
+  static inline volatile LPCG54_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG54_STATUS0*>(0x40CC66D0); }
 };
 
 // LPCG low power status
@@ -35354,7 +35354,7 @@ union LPCG54_STATUS1 {
 
   LPCG54_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG54_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG54_STATUS1*>(0x40CC66D4); }
+  static inline volatile LPCG54_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG54_STATUS1*>(0x40CC66D4); }
 };
 
 // LPCG configuration
@@ -35381,7 +35381,7 @@ union LPCG54_CONFIG {
 
   LPCG54_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG54_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG54_CONFIG*>(0x40CC66D8); }
+  static inline volatile LPCG54_CONFIG &ref() { return *reinterpret_cast<volatile LPCG54_CONFIG*>(0x40CC66D8); }
 };
 
 // LPCG access control
@@ -35483,7 +35483,7 @@ union LPCG54_AUTHEN {
 
   LPCG54_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG54_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG54_AUTHEN*>(0x40CC66DC); }
+  static inline volatile LPCG54_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG54_AUTHEN*>(0x40CC66DC); }
 };
 
 // LPCG direct control
@@ -35509,7 +35509,7 @@ union LPCG55_DIRECT {
 
   LPCG55_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG55_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG55_DIRECT*>(0x40CC66E0); }
+  static inline volatile LPCG55_DIRECT &ref() { return *reinterpret_cast<volatile LPCG55_DIRECT*>(0x40CC66E0); }
 };
 
 // LPCG domain control
@@ -35609,7 +35609,7 @@ union LPCG55_DOMAIN {
 
   LPCG55_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG55_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG55_DOMAIN*>(0x40CC66E4); }
+  static inline volatile LPCG55_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG55_DOMAIN*>(0x40CC66E4); }
 };
 
 // LPCG working status
@@ -35712,7 +35712,7 @@ union LPCG55_STATUS0 {
 
   LPCG55_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG55_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG55_STATUS0*>(0x40CC66F0); }
+  static inline volatile LPCG55_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG55_STATUS0*>(0x40CC66F0); }
 };
 
 // LPCG low power status
@@ -35908,7 +35908,7 @@ union LPCG55_STATUS1 {
 
   LPCG55_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG55_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG55_STATUS1*>(0x40CC66F4); }
+  static inline volatile LPCG55_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG55_STATUS1*>(0x40CC66F4); }
 };
 
 // LPCG configuration
@@ -35935,7 +35935,7 @@ union LPCG55_CONFIG {
 
   LPCG55_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG55_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG55_CONFIG*>(0x40CC66F8); }
+  static inline volatile LPCG55_CONFIG &ref() { return *reinterpret_cast<volatile LPCG55_CONFIG*>(0x40CC66F8); }
 };
 
 // LPCG access control
@@ -36037,7 +36037,7 @@ union LPCG55_AUTHEN {
 
   LPCG55_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG55_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG55_AUTHEN*>(0x40CC66FC); }
+  static inline volatile LPCG55_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG55_AUTHEN*>(0x40CC66FC); }
 };
 
 // LPCG direct control
@@ -36063,7 +36063,7 @@ union LPCG56_DIRECT {
 
   LPCG56_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG56_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG56_DIRECT*>(0x40CC6700); }
+  static inline volatile LPCG56_DIRECT &ref() { return *reinterpret_cast<volatile LPCG56_DIRECT*>(0x40CC6700); }
 };
 
 // LPCG domain control
@@ -36163,7 +36163,7 @@ union LPCG56_DOMAIN {
 
   LPCG56_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG56_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG56_DOMAIN*>(0x40CC6704); }
+  static inline volatile LPCG56_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG56_DOMAIN*>(0x40CC6704); }
 };
 
 // LPCG working status
@@ -36266,7 +36266,7 @@ union LPCG56_STATUS0 {
 
   LPCG56_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG56_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG56_STATUS0*>(0x40CC6710); }
+  static inline volatile LPCG56_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG56_STATUS0*>(0x40CC6710); }
 };
 
 // LPCG low power status
@@ -36462,7 +36462,7 @@ union LPCG56_STATUS1 {
 
   LPCG56_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG56_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG56_STATUS1*>(0x40CC6714); }
+  static inline volatile LPCG56_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG56_STATUS1*>(0x40CC6714); }
 };
 
 // LPCG configuration
@@ -36489,7 +36489,7 @@ union LPCG56_CONFIG {
 
   LPCG56_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG56_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG56_CONFIG*>(0x40CC6718); }
+  static inline volatile LPCG56_CONFIG &ref() { return *reinterpret_cast<volatile LPCG56_CONFIG*>(0x40CC6718); }
 };
 
 // LPCG access control
@@ -36591,7 +36591,7 @@ union LPCG56_AUTHEN {
 
   LPCG56_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG56_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG56_AUTHEN*>(0x40CC671C); }
+  static inline volatile LPCG56_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG56_AUTHEN*>(0x40CC671C); }
 };
 
 // LPCG direct control
@@ -36617,7 +36617,7 @@ union LPCG57_DIRECT {
 
   LPCG57_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG57_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG57_DIRECT*>(0x40CC6720); }
+  static inline volatile LPCG57_DIRECT &ref() { return *reinterpret_cast<volatile LPCG57_DIRECT*>(0x40CC6720); }
 };
 
 // LPCG domain control
@@ -36717,7 +36717,7 @@ union LPCG57_DOMAIN {
 
   LPCG57_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG57_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG57_DOMAIN*>(0x40CC6724); }
+  static inline volatile LPCG57_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG57_DOMAIN*>(0x40CC6724); }
 };
 
 // LPCG working status
@@ -36820,7 +36820,7 @@ union LPCG57_STATUS0 {
 
   LPCG57_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG57_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG57_STATUS0*>(0x40CC6730); }
+  static inline volatile LPCG57_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG57_STATUS0*>(0x40CC6730); }
 };
 
 // LPCG low power status
@@ -37016,7 +37016,7 @@ union LPCG57_STATUS1 {
 
   LPCG57_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG57_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG57_STATUS1*>(0x40CC6734); }
+  static inline volatile LPCG57_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG57_STATUS1*>(0x40CC6734); }
 };
 
 // LPCG configuration
@@ -37043,7 +37043,7 @@ union LPCG57_CONFIG {
 
   LPCG57_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG57_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG57_CONFIG*>(0x40CC6738); }
+  static inline volatile LPCG57_CONFIG &ref() { return *reinterpret_cast<volatile LPCG57_CONFIG*>(0x40CC6738); }
 };
 
 // LPCG access control
@@ -37145,7 +37145,7 @@ union LPCG57_AUTHEN {
 
   LPCG57_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG57_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG57_AUTHEN*>(0x40CC673C); }
+  static inline volatile LPCG57_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG57_AUTHEN*>(0x40CC673C); }
 };
 
 // LPCG direct control
@@ -37171,7 +37171,7 @@ union LPCG58_DIRECT {
 
   LPCG58_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG58_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG58_DIRECT*>(0x40CC6740); }
+  static inline volatile LPCG58_DIRECT &ref() { return *reinterpret_cast<volatile LPCG58_DIRECT*>(0x40CC6740); }
 };
 
 // LPCG domain control
@@ -37271,7 +37271,7 @@ union LPCG58_DOMAIN {
 
   LPCG58_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG58_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG58_DOMAIN*>(0x40CC6744); }
+  static inline volatile LPCG58_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG58_DOMAIN*>(0x40CC6744); }
 };
 
 // LPCG working status
@@ -37374,7 +37374,7 @@ union LPCG58_STATUS0 {
 
   LPCG58_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG58_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG58_STATUS0*>(0x40CC6750); }
+  static inline volatile LPCG58_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG58_STATUS0*>(0x40CC6750); }
 };
 
 // LPCG low power status
@@ -37570,7 +37570,7 @@ union LPCG58_STATUS1 {
 
   LPCG58_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG58_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG58_STATUS1*>(0x40CC6754); }
+  static inline volatile LPCG58_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG58_STATUS1*>(0x40CC6754); }
 };
 
 // LPCG configuration
@@ -37597,7 +37597,7 @@ union LPCG58_CONFIG {
 
   LPCG58_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG58_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG58_CONFIG*>(0x40CC6758); }
+  static inline volatile LPCG58_CONFIG &ref() { return *reinterpret_cast<volatile LPCG58_CONFIG*>(0x40CC6758); }
 };
 
 // LPCG access control
@@ -37699,7 +37699,7 @@ union LPCG58_AUTHEN {
 
   LPCG58_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG58_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG58_AUTHEN*>(0x40CC675C); }
+  static inline volatile LPCG58_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG58_AUTHEN*>(0x40CC675C); }
 };
 
 // LPCG direct control
@@ -37725,7 +37725,7 @@ union LPCG59_DIRECT {
 
   LPCG59_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG59_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG59_DIRECT*>(0x40CC6760); }
+  static inline volatile LPCG59_DIRECT &ref() { return *reinterpret_cast<volatile LPCG59_DIRECT*>(0x40CC6760); }
 };
 
 // LPCG domain control
@@ -37825,7 +37825,7 @@ union LPCG59_DOMAIN {
 
   LPCG59_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG59_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG59_DOMAIN*>(0x40CC6764); }
+  static inline volatile LPCG59_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG59_DOMAIN*>(0x40CC6764); }
 };
 
 // LPCG working status
@@ -37928,7 +37928,7 @@ union LPCG59_STATUS0 {
 
   LPCG59_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG59_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG59_STATUS0*>(0x40CC6770); }
+  static inline volatile LPCG59_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG59_STATUS0*>(0x40CC6770); }
 };
 
 // LPCG low power status
@@ -38124,7 +38124,7 @@ union LPCG59_STATUS1 {
 
   LPCG59_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG59_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG59_STATUS1*>(0x40CC6774); }
+  static inline volatile LPCG59_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG59_STATUS1*>(0x40CC6774); }
 };
 
 // LPCG configuration
@@ -38151,7 +38151,7 @@ union LPCG59_CONFIG {
 
   LPCG59_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG59_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG59_CONFIG*>(0x40CC6778); }
+  static inline volatile LPCG59_CONFIG &ref() { return *reinterpret_cast<volatile LPCG59_CONFIG*>(0x40CC6778); }
 };
 
 // LPCG access control
@@ -38253,7 +38253,7 @@ union LPCG59_AUTHEN {
 
   LPCG59_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG59_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG59_AUTHEN*>(0x40CC677C); }
+  static inline volatile LPCG59_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG59_AUTHEN*>(0x40CC677C); }
 };
 
 // LPCG direct control
@@ -38279,7 +38279,7 @@ union LPCG60_DIRECT {
 
   LPCG60_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG60_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG60_DIRECT*>(0x40CC6780); }
+  static inline volatile LPCG60_DIRECT &ref() { return *reinterpret_cast<volatile LPCG60_DIRECT*>(0x40CC6780); }
 };
 
 // LPCG domain control
@@ -38379,7 +38379,7 @@ union LPCG60_DOMAIN {
 
   LPCG60_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG60_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG60_DOMAIN*>(0x40CC6784); }
+  static inline volatile LPCG60_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG60_DOMAIN*>(0x40CC6784); }
 };
 
 // LPCG working status
@@ -38482,7 +38482,7 @@ union LPCG60_STATUS0 {
 
   LPCG60_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG60_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG60_STATUS0*>(0x40CC6790); }
+  static inline volatile LPCG60_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG60_STATUS0*>(0x40CC6790); }
 };
 
 // LPCG low power status
@@ -38678,7 +38678,7 @@ union LPCG60_STATUS1 {
 
   LPCG60_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG60_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG60_STATUS1*>(0x40CC6794); }
+  static inline volatile LPCG60_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG60_STATUS1*>(0x40CC6794); }
 };
 
 // LPCG configuration
@@ -38705,7 +38705,7 @@ union LPCG60_CONFIG {
 
   LPCG60_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG60_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG60_CONFIG*>(0x40CC6798); }
+  static inline volatile LPCG60_CONFIG &ref() { return *reinterpret_cast<volatile LPCG60_CONFIG*>(0x40CC6798); }
 };
 
 // LPCG access control
@@ -38807,7 +38807,7 @@ union LPCG60_AUTHEN {
 
   LPCG60_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG60_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG60_AUTHEN*>(0x40CC679C); }
+  static inline volatile LPCG60_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG60_AUTHEN*>(0x40CC679C); }
 };
 
 // LPCG direct control
@@ -38833,7 +38833,7 @@ union LPCG61_DIRECT {
 
   LPCG61_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG61_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG61_DIRECT*>(0x40CC67A0); }
+  static inline volatile LPCG61_DIRECT &ref() { return *reinterpret_cast<volatile LPCG61_DIRECT*>(0x40CC67A0); }
 };
 
 // LPCG domain control
@@ -38933,7 +38933,7 @@ union LPCG61_DOMAIN {
 
   LPCG61_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG61_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG61_DOMAIN*>(0x40CC67A4); }
+  static inline volatile LPCG61_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG61_DOMAIN*>(0x40CC67A4); }
 };
 
 // LPCG working status
@@ -39036,7 +39036,7 @@ union LPCG61_STATUS0 {
 
   LPCG61_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG61_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG61_STATUS0*>(0x40CC67B0); }
+  static inline volatile LPCG61_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG61_STATUS0*>(0x40CC67B0); }
 };
 
 // LPCG low power status
@@ -39232,7 +39232,7 @@ union LPCG61_STATUS1 {
 
   LPCG61_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG61_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG61_STATUS1*>(0x40CC67B4); }
+  static inline volatile LPCG61_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG61_STATUS1*>(0x40CC67B4); }
 };
 
 // LPCG configuration
@@ -39259,7 +39259,7 @@ union LPCG61_CONFIG {
 
   LPCG61_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG61_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG61_CONFIG*>(0x40CC67B8); }
+  static inline volatile LPCG61_CONFIG &ref() { return *reinterpret_cast<volatile LPCG61_CONFIG*>(0x40CC67B8); }
 };
 
 // LPCG access control
@@ -39361,7 +39361,7 @@ union LPCG61_AUTHEN {
 
   LPCG61_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG61_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG61_AUTHEN*>(0x40CC67BC); }
+  static inline volatile LPCG61_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG61_AUTHEN*>(0x40CC67BC); }
 };
 
 // LPCG direct control
@@ -39387,7 +39387,7 @@ union LPCG62_DIRECT {
 
   LPCG62_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG62_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG62_DIRECT*>(0x40CC67C0); }
+  static inline volatile LPCG62_DIRECT &ref() { return *reinterpret_cast<volatile LPCG62_DIRECT*>(0x40CC67C0); }
 };
 
 // LPCG domain control
@@ -39487,7 +39487,7 @@ union LPCG62_DOMAIN {
 
   LPCG62_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG62_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG62_DOMAIN*>(0x40CC67C4); }
+  static inline volatile LPCG62_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG62_DOMAIN*>(0x40CC67C4); }
 };
 
 // LPCG working status
@@ -39590,7 +39590,7 @@ union LPCG62_STATUS0 {
 
   LPCG62_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG62_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG62_STATUS0*>(0x40CC67D0); }
+  static inline volatile LPCG62_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG62_STATUS0*>(0x40CC67D0); }
 };
 
 // LPCG low power status
@@ -39786,7 +39786,7 @@ union LPCG62_STATUS1 {
 
   LPCG62_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG62_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG62_STATUS1*>(0x40CC67D4); }
+  static inline volatile LPCG62_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG62_STATUS1*>(0x40CC67D4); }
 };
 
 // LPCG configuration
@@ -39813,7 +39813,7 @@ union LPCG62_CONFIG {
 
   LPCG62_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG62_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG62_CONFIG*>(0x40CC67D8); }
+  static inline volatile LPCG62_CONFIG &ref() { return *reinterpret_cast<volatile LPCG62_CONFIG*>(0x40CC67D8); }
 };
 
 // LPCG access control
@@ -39915,7 +39915,7 @@ union LPCG62_AUTHEN {
 
   LPCG62_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG62_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG62_AUTHEN*>(0x40CC67DC); }
+  static inline volatile LPCG62_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG62_AUTHEN*>(0x40CC67DC); }
 };
 
 // LPCG direct control
@@ -39941,7 +39941,7 @@ union LPCG63_DIRECT {
 
   LPCG63_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG63_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG63_DIRECT*>(0x40CC67E0); }
+  static inline volatile LPCG63_DIRECT &ref() { return *reinterpret_cast<volatile LPCG63_DIRECT*>(0x40CC67E0); }
 };
 
 // LPCG domain control
@@ -40041,7 +40041,7 @@ union LPCG63_DOMAIN {
 
   LPCG63_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG63_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG63_DOMAIN*>(0x40CC67E4); }
+  static inline volatile LPCG63_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG63_DOMAIN*>(0x40CC67E4); }
 };
 
 // LPCG working status
@@ -40144,7 +40144,7 @@ union LPCG63_STATUS0 {
 
   LPCG63_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG63_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG63_STATUS0*>(0x40CC67F0); }
+  static inline volatile LPCG63_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG63_STATUS0*>(0x40CC67F0); }
 };
 
 // LPCG low power status
@@ -40340,7 +40340,7 @@ union LPCG63_STATUS1 {
 
   LPCG63_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG63_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG63_STATUS1*>(0x40CC67F4); }
+  static inline volatile LPCG63_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG63_STATUS1*>(0x40CC67F4); }
 };
 
 // LPCG configuration
@@ -40367,7 +40367,7 @@ union LPCG63_CONFIG {
 
   LPCG63_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG63_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG63_CONFIG*>(0x40CC67F8); }
+  static inline volatile LPCG63_CONFIG &ref() { return *reinterpret_cast<volatile LPCG63_CONFIG*>(0x40CC67F8); }
 };
 
 // LPCG access control
@@ -40469,7 +40469,7 @@ union LPCG63_AUTHEN {
 
   LPCG63_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG63_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG63_AUTHEN*>(0x40CC67FC); }
+  static inline volatile LPCG63_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG63_AUTHEN*>(0x40CC67FC); }
 };
 
 // LPCG direct control
@@ -40495,7 +40495,7 @@ union LPCG64_DIRECT {
 
   LPCG64_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG64_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG64_DIRECT*>(0x40CC6800); }
+  static inline volatile LPCG64_DIRECT &ref() { return *reinterpret_cast<volatile LPCG64_DIRECT*>(0x40CC6800); }
 };
 
 // LPCG domain control
@@ -40595,7 +40595,7 @@ union LPCG64_DOMAIN {
 
   LPCG64_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG64_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG64_DOMAIN*>(0x40CC6804); }
+  static inline volatile LPCG64_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG64_DOMAIN*>(0x40CC6804); }
 };
 
 // LPCG working status
@@ -40698,7 +40698,7 @@ union LPCG64_STATUS0 {
 
   LPCG64_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG64_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG64_STATUS0*>(0x40CC6810); }
+  static inline volatile LPCG64_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG64_STATUS0*>(0x40CC6810); }
 };
 
 // LPCG low power status
@@ -40894,7 +40894,7 @@ union LPCG64_STATUS1 {
 
   LPCG64_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG64_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG64_STATUS1*>(0x40CC6814); }
+  static inline volatile LPCG64_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG64_STATUS1*>(0x40CC6814); }
 };
 
 // LPCG configuration
@@ -40921,7 +40921,7 @@ union LPCG64_CONFIG {
 
   LPCG64_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG64_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG64_CONFIG*>(0x40CC6818); }
+  static inline volatile LPCG64_CONFIG &ref() { return *reinterpret_cast<volatile LPCG64_CONFIG*>(0x40CC6818); }
 };
 
 // LPCG access control
@@ -41023,7 +41023,7 @@ union LPCG64_AUTHEN {
 
   LPCG64_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG64_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG64_AUTHEN*>(0x40CC681C); }
+  static inline volatile LPCG64_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG64_AUTHEN*>(0x40CC681C); }
 };
 
 // LPCG direct control
@@ -41049,7 +41049,7 @@ union LPCG65_DIRECT {
 
   LPCG65_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG65_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG65_DIRECT*>(0x40CC6820); }
+  static inline volatile LPCG65_DIRECT &ref() { return *reinterpret_cast<volatile LPCG65_DIRECT*>(0x40CC6820); }
 };
 
 // LPCG domain control
@@ -41149,7 +41149,7 @@ union LPCG65_DOMAIN {
 
   LPCG65_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG65_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG65_DOMAIN*>(0x40CC6824); }
+  static inline volatile LPCG65_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG65_DOMAIN*>(0x40CC6824); }
 };
 
 // LPCG working status
@@ -41252,7 +41252,7 @@ union LPCG65_STATUS0 {
 
   LPCG65_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG65_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG65_STATUS0*>(0x40CC6830); }
+  static inline volatile LPCG65_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG65_STATUS0*>(0x40CC6830); }
 };
 
 // LPCG low power status
@@ -41448,7 +41448,7 @@ union LPCG65_STATUS1 {
 
   LPCG65_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG65_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG65_STATUS1*>(0x40CC6834); }
+  static inline volatile LPCG65_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG65_STATUS1*>(0x40CC6834); }
 };
 
 // LPCG configuration
@@ -41475,7 +41475,7 @@ union LPCG65_CONFIG {
 
   LPCG65_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG65_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG65_CONFIG*>(0x40CC6838); }
+  static inline volatile LPCG65_CONFIG &ref() { return *reinterpret_cast<volatile LPCG65_CONFIG*>(0x40CC6838); }
 };
 
 // LPCG access control
@@ -41577,7 +41577,7 @@ union LPCG65_AUTHEN {
 
   LPCG65_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG65_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG65_AUTHEN*>(0x40CC683C); }
+  static inline volatile LPCG65_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG65_AUTHEN*>(0x40CC683C); }
 };
 
 // LPCG direct control
@@ -41603,7 +41603,7 @@ union LPCG66_DIRECT {
 
   LPCG66_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG66_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG66_DIRECT*>(0x40CC6840); }
+  static inline volatile LPCG66_DIRECT &ref() { return *reinterpret_cast<volatile LPCG66_DIRECT*>(0x40CC6840); }
 };
 
 // LPCG domain control
@@ -41703,7 +41703,7 @@ union LPCG66_DOMAIN {
 
   LPCG66_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG66_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG66_DOMAIN*>(0x40CC6844); }
+  static inline volatile LPCG66_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG66_DOMAIN*>(0x40CC6844); }
 };
 
 // LPCG working status
@@ -41806,7 +41806,7 @@ union LPCG66_STATUS0 {
 
   LPCG66_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG66_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG66_STATUS0*>(0x40CC6850); }
+  static inline volatile LPCG66_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG66_STATUS0*>(0x40CC6850); }
 };
 
 // LPCG low power status
@@ -42002,7 +42002,7 @@ union LPCG66_STATUS1 {
 
   LPCG66_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG66_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG66_STATUS1*>(0x40CC6854); }
+  static inline volatile LPCG66_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG66_STATUS1*>(0x40CC6854); }
 };
 
 // LPCG configuration
@@ -42029,7 +42029,7 @@ union LPCG66_CONFIG {
 
   LPCG66_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG66_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG66_CONFIG*>(0x40CC6858); }
+  static inline volatile LPCG66_CONFIG &ref() { return *reinterpret_cast<volatile LPCG66_CONFIG*>(0x40CC6858); }
 };
 
 // LPCG access control
@@ -42131,7 +42131,7 @@ union LPCG66_AUTHEN {
 
   LPCG66_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG66_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG66_AUTHEN*>(0x40CC685C); }
+  static inline volatile LPCG66_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG66_AUTHEN*>(0x40CC685C); }
 };
 
 // LPCG direct control
@@ -42157,7 +42157,7 @@ union LPCG67_DIRECT {
 
   LPCG67_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG67_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG67_DIRECT*>(0x40CC6860); }
+  static inline volatile LPCG67_DIRECT &ref() { return *reinterpret_cast<volatile LPCG67_DIRECT*>(0x40CC6860); }
 };
 
 // LPCG domain control
@@ -42257,7 +42257,7 @@ union LPCG67_DOMAIN {
 
   LPCG67_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG67_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG67_DOMAIN*>(0x40CC6864); }
+  static inline volatile LPCG67_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG67_DOMAIN*>(0x40CC6864); }
 };
 
 // LPCG working status
@@ -42360,7 +42360,7 @@ union LPCG67_STATUS0 {
 
   LPCG67_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG67_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG67_STATUS0*>(0x40CC6870); }
+  static inline volatile LPCG67_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG67_STATUS0*>(0x40CC6870); }
 };
 
 // LPCG low power status
@@ -42556,7 +42556,7 @@ union LPCG67_STATUS1 {
 
   LPCG67_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG67_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG67_STATUS1*>(0x40CC6874); }
+  static inline volatile LPCG67_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG67_STATUS1*>(0x40CC6874); }
 };
 
 // LPCG configuration
@@ -42583,7 +42583,7 @@ union LPCG67_CONFIG {
 
   LPCG67_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG67_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG67_CONFIG*>(0x40CC6878); }
+  static inline volatile LPCG67_CONFIG &ref() { return *reinterpret_cast<volatile LPCG67_CONFIG*>(0x40CC6878); }
 };
 
 // LPCG access control
@@ -42685,7 +42685,7 @@ union LPCG67_AUTHEN {
 
   LPCG67_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG67_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG67_AUTHEN*>(0x40CC687C); }
+  static inline volatile LPCG67_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG67_AUTHEN*>(0x40CC687C); }
 };
 
 // LPCG direct control
@@ -42711,7 +42711,7 @@ union LPCG68_DIRECT {
 
   LPCG68_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG68_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG68_DIRECT*>(0x40CC6880); }
+  static inline volatile LPCG68_DIRECT &ref() { return *reinterpret_cast<volatile LPCG68_DIRECT*>(0x40CC6880); }
 };
 
 // LPCG domain control
@@ -42811,7 +42811,7 @@ union LPCG68_DOMAIN {
 
   LPCG68_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG68_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG68_DOMAIN*>(0x40CC6884); }
+  static inline volatile LPCG68_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG68_DOMAIN*>(0x40CC6884); }
 };
 
 // LPCG working status
@@ -42914,7 +42914,7 @@ union LPCG68_STATUS0 {
 
   LPCG68_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG68_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG68_STATUS0*>(0x40CC6890); }
+  static inline volatile LPCG68_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG68_STATUS0*>(0x40CC6890); }
 };
 
 // LPCG low power status
@@ -43110,7 +43110,7 @@ union LPCG68_STATUS1 {
 
   LPCG68_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG68_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG68_STATUS1*>(0x40CC6894); }
+  static inline volatile LPCG68_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG68_STATUS1*>(0x40CC6894); }
 };
 
 // LPCG configuration
@@ -43137,7 +43137,7 @@ union LPCG68_CONFIG {
 
   LPCG68_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG68_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG68_CONFIG*>(0x40CC6898); }
+  static inline volatile LPCG68_CONFIG &ref() { return *reinterpret_cast<volatile LPCG68_CONFIG*>(0x40CC6898); }
 };
 
 // LPCG access control
@@ -43239,7 +43239,7 @@ union LPCG68_AUTHEN {
 
   LPCG68_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG68_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG68_AUTHEN*>(0x40CC689C); }
+  static inline volatile LPCG68_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG68_AUTHEN*>(0x40CC689C); }
 };
 
 // LPCG direct control
@@ -43265,7 +43265,7 @@ union LPCG69_DIRECT {
 
   LPCG69_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG69_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG69_DIRECT*>(0x40CC68A0); }
+  static inline volatile LPCG69_DIRECT &ref() { return *reinterpret_cast<volatile LPCG69_DIRECT*>(0x40CC68A0); }
 };
 
 // LPCG domain control
@@ -43365,7 +43365,7 @@ union LPCG69_DOMAIN {
 
   LPCG69_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG69_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG69_DOMAIN*>(0x40CC68A4); }
+  static inline volatile LPCG69_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG69_DOMAIN*>(0x40CC68A4); }
 };
 
 // LPCG working status
@@ -43468,7 +43468,7 @@ union LPCG69_STATUS0 {
 
   LPCG69_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG69_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG69_STATUS0*>(0x40CC68B0); }
+  static inline volatile LPCG69_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG69_STATUS0*>(0x40CC68B0); }
 };
 
 // LPCG low power status
@@ -43664,7 +43664,7 @@ union LPCG69_STATUS1 {
 
   LPCG69_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG69_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG69_STATUS1*>(0x40CC68B4); }
+  static inline volatile LPCG69_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG69_STATUS1*>(0x40CC68B4); }
 };
 
 // LPCG configuration
@@ -43691,7 +43691,7 @@ union LPCG69_CONFIG {
 
   LPCG69_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG69_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG69_CONFIG*>(0x40CC68B8); }
+  static inline volatile LPCG69_CONFIG &ref() { return *reinterpret_cast<volatile LPCG69_CONFIG*>(0x40CC68B8); }
 };
 
 // LPCG access control
@@ -43793,7 +43793,7 @@ union LPCG69_AUTHEN {
 
   LPCG69_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG69_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG69_AUTHEN*>(0x40CC68BC); }
+  static inline volatile LPCG69_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG69_AUTHEN*>(0x40CC68BC); }
 };
 
 // LPCG direct control
@@ -43819,7 +43819,7 @@ union LPCG70_DIRECT {
 
   LPCG70_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG70_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG70_DIRECT*>(0x40CC68C0); }
+  static inline volatile LPCG70_DIRECT &ref() { return *reinterpret_cast<volatile LPCG70_DIRECT*>(0x40CC68C0); }
 };
 
 // LPCG domain control
@@ -43919,7 +43919,7 @@ union LPCG70_DOMAIN {
 
   LPCG70_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG70_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG70_DOMAIN*>(0x40CC68C4); }
+  static inline volatile LPCG70_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG70_DOMAIN*>(0x40CC68C4); }
 };
 
 // LPCG working status
@@ -44022,7 +44022,7 @@ union LPCG70_STATUS0 {
 
   LPCG70_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG70_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG70_STATUS0*>(0x40CC68D0); }
+  static inline volatile LPCG70_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG70_STATUS0*>(0x40CC68D0); }
 };
 
 // LPCG low power status
@@ -44218,7 +44218,7 @@ union LPCG70_STATUS1 {
 
   LPCG70_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG70_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG70_STATUS1*>(0x40CC68D4); }
+  static inline volatile LPCG70_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG70_STATUS1*>(0x40CC68D4); }
 };
 
 // LPCG configuration
@@ -44245,7 +44245,7 @@ union LPCG70_CONFIG {
 
   LPCG70_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG70_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG70_CONFIG*>(0x40CC68D8); }
+  static inline volatile LPCG70_CONFIG &ref() { return *reinterpret_cast<volatile LPCG70_CONFIG*>(0x40CC68D8); }
 };
 
 // LPCG access control
@@ -44347,7 +44347,7 @@ union LPCG70_AUTHEN {
 
   LPCG70_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG70_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG70_AUTHEN*>(0x40CC68DC); }
+  static inline volatile LPCG70_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG70_AUTHEN*>(0x40CC68DC); }
 };
 
 // LPCG direct control
@@ -44373,7 +44373,7 @@ union LPCG71_DIRECT {
 
   LPCG71_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG71_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG71_DIRECT*>(0x40CC68E0); }
+  static inline volatile LPCG71_DIRECT &ref() { return *reinterpret_cast<volatile LPCG71_DIRECT*>(0x40CC68E0); }
 };
 
 // LPCG domain control
@@ -44473,7 +44473,7 @@ union LPCG71_DOMAIN {
 
   LPCG71_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG71_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG71_DOMAIN*>(0x40CC68E4); }
+  static inline volatile LPCG71_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG71_DOMAIN*>(0x40CC68E4); }
 };
 
 // LPCG working status
@@ -44576,7 +44576,7 @@ union LPCG71_STATUS0 {
 
   LPCG71_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG71_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG71_STATUS0*>(0x40CC68F0); }
+  static inline volatile LPCG71_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG71_STATUS0*>(0x40CC68F0); }
 };
 
 // LPCG low power status
@@ -44772,7 +44772,7 @@ union LPCG71_STATUS1 {
 
   LPCG71_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG71_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG71_STATUS1*>(0x40CC68F4); }
+  static inline volatile LPCG71_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG71_STATUS1*>(0x40CC68F4); }
 };
 
 // LPCG configuration
@@ -44799,7 +44799,7 @@ union LPCG71_CONFIG {
 
   LPCG71_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG71_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG71_CONFIG*>(0x40CC68F8); }
+  static inline volatile LPCG71_CONFIG &ref() { return *reinterpret_cast<volatile LPCG71_CONFIG*>(0x40CC68F8); }
 };
 
 // LPCG access control
@@ -44901,7 +44901,7 @@ union LPCG71_AUTHEN {
 
   LPCG71_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG71_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG71_AUTHEN*>(0x40CC68FC); }
+  static inline volatile LPCG71_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG71_AUTHEN*>(0x40CC68FC); }
 };
 
 // LPCG direct control
@@ -44927,7 +44927,7 @@ union LPCG72_DIRECT {
 
   LPCG72_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG72_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG72_DIRECT*>(0x40CC6900); }
+  static inline volatile LPCG72_DIRECT &ref() { return *reinterpret_cast<volatile LPCG72_DIRECT*>(0x40CC6900); }
 };
 
 // LPCG domain control
@@ -45027,7 +45027,7 @@ union LPCG72_DOMAIN {
 
   LPCG72_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG72_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG72_DOMAIN*>(0x40CC6904); }
+  static inline volatile LPCG72_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG72_DOMAIN*>(0x40CC6904); }
 };
 
 // LPCG working status
@@ -45130,7 +45130,7 @@ union LPCG72_STATUS0 {
 
   LPCG72_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG72_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG72_STATUS0*>(0x40CC6910); }
+  static inline volatile LPCG72_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG72_STATUS0*>(0x40CC6910); }
 };
 
 // LPCG low power status
@@ -45326,7 +45326,7 @@ union LPCG72_STATUS1 {
 
   LPCG72_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG72_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG72_STATUS1*>(0x40CC6914); }
+  static inline volatile LPCG72_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG72_STATUS1*>(0x40CC6914); }
 };
 
 // LPCG configuration
@@ -45353,7 +45353,7 @@ union LPCG72_CONFIG {
 
   LPCG72_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG72_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG72_CONFIG*>(0x40CC6918); }
+  static inline volatile LPCG72_CONFIG &ref() { return *reinterpret_cast<volatile LPCG72_CONFIG*>(0x40CC6918); }
 };
 
 // LPCG access control
@@ -45455,7 +45455,7 @@ union LPCG72_AUTHEN {
 
   LPCG72_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG72_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG72_AUTHEN*>(0x40CC691C); }
+  static inline volatile LPCG72_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG72_AUTHEN*>(0x40CC691C); }
 };
 
 // LPCG direct control
@@ -45481,7 +45481,7 @@ union LPCG73_DIRECT {
 
   LPCG73_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG73_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG73_DIRECT*>(0x40CC6920); }
+  static inline volatile LPCG73_DIRECT &ref() { return *reinterpret_cast<volatile LPCG73_DIRECT*>(0x40CC6920); }
 };
 
 // LPCG domain control
@@ -45581,7 +45581,7 @@ union LPCG73_DOMAIN {
 
   LPCG73_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG73_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG73_DOMAIN*>(0x40CC6924); }
+  static inline volatile LPCG73_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG73_DOMAIN*>(0x40CC6924); }
 };
 
 // LPCG working status
@@ -45684,7 +45684,7 @@ union LPCG73_STATUS0 {
 
   LPCG73_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG73_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG73_STATUS0*>(0x40CC6930); }
+  static inline volatile LPCG73_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG73_STATUS0*>(0x40CC6930); }
 };
 
 // LPCG low power status
@@ -45880,7 +45880,7 @@ union LPCG73_STATUS1 {
 
   LPCG73_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG73_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG73_STATUS1*>(0x40CC6934); }
+  static inline volatile LPCG73_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG73_STATUS1*>(0x40CC6934); }
 };
 
 // LPCG configuration
@@ -45907,7 +45907,7 @@ union LPCG73_CONFIG {
 
   LPCG73_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG73_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG73_CONFIG*>(0x40CC6938); }
+  static inline volatile LPCG73_CONFIG &ref() { return *reinterpret_cast<volatile LPCG73_CONFIG*>(0x40CC6938); }
 };
 
 // LPCG access control
@@ -46009,7 +46009,7 @@ union LPCG73_AUTHEN {
 
   LPCG73_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG73_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG73_AUTHEN*>(0x40CC693C); }
+  static inline volatile LPCG73_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG73_AUTHEN*>(0x40CC693C); }
 };
 
 // LPCG direct control
@@ -46035,7 +46035,7 @@ union LPCG74_DIRECT {
 
   LPCG74_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG74_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG74_DIRECT*>(0x40CC6940); }
+  static inline volatile LPCG74_DIRECT &ref() { return *reinterpret_cast<volatile LPCG74_DIRECT*>(0x40CC6940); }
 };
 
 // LPCG domain control
@@ -46135,7 +46135,7 @@ union LPCG74_DOMAIN {
 
   LPCG74_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG74_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG74_DOMAIN*>(0x40CC6944); }
+  static inline volatile LPCG74_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG74_DOMAIN*>(0x40CC6944); }
 };
 
 // LPCG working status
@@ -46238,7 +46238,7 @@ union LPCG74_STATUS0 {
 
   LPCG74_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG74_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG74_STATUS0*>(0x40CC6950); }
+  static inline volatile LPCG74_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG74_STATUS0*>(0x40CC6950); }
 };
 
 // LPCG low power status
@@ -46434,7 +46434,7 @@ union LPCG74_STATUS1 {
 
   LPCG74_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG74_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG74_STATUS1*>(0x40CC6954); }
+  static inline volatile LPCG74_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG74_STATUS1*>(0x40CC6954); }
 };
 
 // LPCG configuration
@@ -46461,7 +46461,7 @@ union LPCG74_CONFIG {
 
   LPCG74_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG74_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG74_CONFIG*>(0x40CC6958); }
+  static inline volatile LPCG74_CONFIG &ref() { return *reinterpret_cast<volatile LPCG74_CONFIG*>(0x40CC6958); }
 };
 
 // LPCG access control
@@ -46563,7 +46563,7 @@ union LPCG74_AUTHEN {
 
   LPCG74_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG74_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG74_AUTHEN*>(0x40CC695C); }
+  static inline volatile LPCG74_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG74_AUTHEN*>(0x40CC695C); }
 };
 
 // LPCG direct control
@@ -46589,7 +46589,7 @@ union LPCG75_DIRECT {
 
   LPCG75_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG75_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG75_DIRECT*>(0x40CC6960); }
+  static inline volatile LPCG75_DIRECT &ref() { return *reinterpret_cast<volatile LPCG75_DIRECT*>(0x40CC6960); }
 };
 
 // LPCG domain control
@@ -46689,7 +46689,7 @@ union LPCG75_DOMAIN {
 
   LPCG75_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG75_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG75_DOMAIN*>(0x40CC6964); }
+  static inline volatile LPCG75_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG75_DOMAIN*>(0x40CC6964); }
 };
 
 // LPCG working status
@@ -46792,7 +46792,7 @@ union LPCG75_STATUS0 {
 
   LPCG75_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG75_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG75_STATUS0*>(0x40CC6970); }
+  static inline volatile LPCG75_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG75_STATUS0*>(0x40CC6970); }
 };
 
 // LPCG low power status
@@ -46988,7 +46988,7 @@ union LPCG75_STATUS1 {
 
   LPCG75_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG75_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG75_STATUS1*>(0x40CC6974); }
+  static inline volatile LPCG75_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG75_STATUS1*>(0x40CC6974); }
 };
 
 // LPCG configuration
@@ -47015,7 +47015,7 @@ union LPCG75_CONFIG {
 
   LPCG75_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG75_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG75_CONFIG*>(0x40CC6978); }
+  static inline volatile LPCG75_CONFIG &ref() { return *reinterpret_cast<volatile LPCG75_CONFIG*>(0x40CC6978); }
 };
 
 // LPCG access control
@@ -47117,7 +47117,7 @@ union LPCG75_AUTHEN {
 
   LPCG75_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG75_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG75_AUTHEN*>(0x40CC697C); }
+  static inline volatile LPCG75_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG75_AUTHEN*>(0x40CC697C); }
 };
 
 // LPCG direct control
@@ -47143,7 +47143,7 @@ union LPCG76_DIRECT {
 
   LPCG76_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG76_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG76_DIRECT*>(0x40CC6980); }
+  static inline volatile LPCG76_DIRECT &ref() { return *reinterpret_cast<volatile LPCG76_DIRECT*>(0x40CC6980); }
 };
 
 // LPCG domain control
@@ -47243,7 +47243,7 @@ union LPCG76_DOMAIN {
 
   LPCG76_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG76_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG76_DOMAIN*>(0x40CC6984); }
+  static inline volatile LPCG76_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG76_DOMAIN*>(0x40CC6984); }
 };
 
 // LPCG working status
@@ -47346,7 +47346,7 @@ union LPCG76_STATUS0 {
 
   LPCG76_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG76_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG76_STATUS0*>(0x40CC6990); }
+  static inline volatile LPCG76_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG76_STATUS0*>(0x40CC6990); }
 };
 
 // LPCG low power status
@@ -47542,7 +47542,7 @@ union LPCG76_STATUS1 {
 
   LPCG76_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG76_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG76_STATUS1*>(0x40CC6994); }
+  static inline volatile LPCG76_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG76_STATUS1*>(0x40CC6994); }
 };
 
 // LPCG configuration
@@ -47569,7 +47569,7 @@ union LPCG76_CONFIG {
 
   LPCG76_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG76_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG76_CONFIG*>(0x40CC6998); }
+  static inline volatile LPCG76_CONFIG &ref() { return *reinterpret_cast<volatile LPCG76_CONFIG*>(0x40CC6998); }
 };
 
 // LPCG access control
@@ -47671,7 +47671,7 @@ union LPCG76_AUTHEN {
 
   LPCG76_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG76_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG76_AUTHEN*>(0x40CC699C); }
+  static inline volatile LPCG76_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG76_AUTHEN*>(0x40CC699C); }
 };
 
 // LPCG direct control
@@ -47697,7 +47697,7 @@ union LPCG77_DIRECT {
 
   LPCG77_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG77_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG77_DIRECT*>(0x40CC69A0); }
+  static inline volatile LPCG77_DIRECT &ref() { return *reinterpret_cast<volatile LPCG77_DIRECT*>(0x40CC69A0); }
 };
 
 // LPCG domain control
@@ -47797,7 +47797,7 @@ union LPCG77_DOMAIN {
 
   LPCG77_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG77_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG77_DOMAIN*>(0x40CC69A4); }
+  static inline volatile LPCG77_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG77_DOMAIN*>(0x40CC69A4); }
 };
 
 // LPCG working status
@@ -47900,7 +47900,7 @@ union LPCG77_STATUS0 {
 
   LPCG77_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG77_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG77_STATUS0*>(0x40CC69B0); }
+  static inline volatile LPCG77_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG77_STATUS0*>(0x40CC69B0); }
 };
 
 // LPCG low power status
@@ -48096,7 +48096,7 @@ union LPCG77_STATUS1 {
 
   LPCG77_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG77_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG77_STATUS1*>(0x40CC69B4); }
+  static inline volatile LPCG77_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG77_STATUS1*>(0x40CC69B4); }
 };
 
 // LPCG configuration
@@ -48123,7 +48123,7 @@ union LPCG77_CONFIG {
 
   LPCG77_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG77_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG77_CONFIG*>(0x40CC69B8); }
+  static inline volatile LPCG77_CONFIG &ref() { return *reinterpret_cast<volatile LPCG77_CONFIG*>(0x40CC69B8); }
 };
 
 // LPCG access control
@@ -48225,7 +48225,7 @@ union LPCG77_AUTHEN {
 
   LPCG77_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG77_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG77_AUTHEN*>(0x40CC69BC); }
+  static inline volatile LPCG77_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG77_AUTHEN*>(0x40CC69BC); }
 };
 
 // LPCG direct control
@@ -48251,7 +48251,7 @@ union LPCG78_DIRECT {
 
   LPCG78_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG78_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG78_DIRECT*>(0x40CC69C0); }
+  static inline volatile LPCG78_DIRECT &ref() { return *reinterpret_cast<volatile LPCG78_DIRECT*>(0x40CC69C0); }
 };
 
 // LPCG domain control
@@ -48351,7 +48351,7 @@ union LPCG78_DOMAIN {
 
   LPCG78_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG78_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG78_DOMAIN*>(0x40CC69C4); }
+  static inline volatile LPCG78_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG78_DOMAIN*>(0x40CC69C4); }
 };
 
 // LPCG working status
@@ -48454,7 +48454,7 @@ union LPCG78_STATUS0 {
 
   LPCG78_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG78_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG78_STATUS0*>(0x40CC69D0); }
+  static inline volatile LPCG78_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG78_STATUS0*>(0x40CC69D0); }
 };
 
 // LPCG low power status
@@ -48650,7 +48650,7 @@ union LPCG78_STATUS1 {
 
   LPCG78_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG78_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG78_STATUS1*>(0x40CC69D4); }
+  static inline volatile LPCG78_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG78_STATUS1*>(0x40CC69D4); }
 };
 
 // LPCG configuration
@@ -48677,7 +48677,7 @@ union LPCG78_CONFIG {
 
   LPCG78_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG78_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG78_CONFIG*>(0x40CC69D8); }
+  static inline volatile LPCG78_CONFIG &ref() { return *reinterpret_cast<volatile LPCG78_CONFIG*>(0x40CC69D8); }
 };
 
 // LPCG access control
@@ -48779,7 +48779,7 @@ union LPCG78_AUTHEN {
 
   LPCG78_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG78_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG78_AUTHEN*>(0x40CC69DC); }
+  static inline volatile LPCG78_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG78_AUTHEN*>(0x40CC69DC); }
 };
 
 // LPCG direct control
@@ -48805,7 +48805,7 @@ union LPCG79_DIRECT {
 
   LPCG79_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG79_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG79_DIRECT*>(0x40CC69E0); }
+  static inline volatile LPCG79_DIRECT &ref() { return *reinterpret_cast<volatile LPCG79_DIRECT*>(0x40CC69E0); }
 };
 
 // LPCG domain control
@@ -48905,7 +48905,7 @@ union LPCG79_DOMAIN {
 
   LPCG79_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG79_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG79_DOMAIN*>(0x40CC69E4); }
+  static inline volatile LPCG79_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG79_DOMAIN*>(0x40CC69E4); }
 };
 
 // LPCG working status
@@ -49008,7 +49008,7 @@ union LPCG79_STATUS0 {
 
   LPCG79_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG79_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG79_STATUS0*>(0x40CC69F0); }
+  static inline volatile LPCG79_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG79_STATUS0*>(0x40CC69F0); }
 };
 
 // LPCG low power status
@@ -49204,7 +49204,7 @@ union LPCG79_STATUS1 {
 
   LPCG79_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG79_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG79_STATUS1*>(0x40CC69F4); }
+  static inline volatile LPCG79_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG79_STATUS1*>(0x40CC69F4); }
 };
 
 // LPCG configuration
@@ -49231,7 +49231,7 @@ union LPCG79_CONFIG {
 
   LPCG79_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG79_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG79_CONFIG*>(0x40CC69F8); }
+  static inline volatile LPCG79_CONFIG &ref() { return *reinterpret_cast<volatile LPCG79_CONFIG*>(0x40CC69F8); }
 };
 
 // LPCG access control
@@ -49333,7 +49333,7 @@ union LPCG79_AUTHEN {
 
   LPCG79_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG79_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG79_AUTHEN*>(0x40CC69FC); }
+  static inline volatile LPCG79_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG79_AUTHEN*>(0x40CC69FC); }
 };
 
 // LPCG direct control
@@ -49359,7 +49359,7 @@ union LPCG80_DIRECT {
 
   LPCG80_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG80_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG80_DIRECT*>(0x40CC6A00); }
+  static inline volatile LPCG80_DIRECT &ref() { return *reinterpret_cast<volatile LPCG80_DIRECT*>(0x40CC6A00); }
 };
 
 // LPCG domain control
@@ -49459,7 +49459,7 @@ union LPCG80_DOMAIN {
 
   LPCG80_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG80_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG80_DOMAIN*>(0x40CC6A04); }
+  static inline volatile LPCG80_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG80_DOMAIN*>(0x40CC6A04); }
 };
 
 // LPCG working status
@@ -49562,7 +49562,7 @@ union LPCG80_STATUS0 {
 
   LPCG80_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG80_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG80_STATUS0*>(0x40CC6A10); }
+  static inline volatile LPCG80_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG80_STATUS0*>(0x40CC6A10); }
 };
 
 // LPCG low power status
@@ -49758,7 +49758,7 @@ union LPCG80_STATUS1 {
 
   LPCG80_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG80_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG80_STATUS1*>(0x40CC6A14); }
+  static inline volatile LPCG80_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG80_STATUS1*>(0x40CC6A14); }
 };
 
 // LPCG configuration
@@ -49785,7 +49785,7 @@ union LPCG80_CONFIG {
 
   LPCG80_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG80_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG80_CONFIG*>(0x40CC6A18); }
+  static inline volatile LPCG80_CONFIG &ref() { return *reinterpret_cast<volatile LPCG80_CONFIG*>(0x40CC6A18); }
 };
 
 // LPCG access control
@@ -49887,7 +49887,7 @@ union LPCG80_AUTHEN {
 
   LPCG80_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG80_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG80_AUTHEN*>(0x40CC6A1C); }
+  static inline volatile LPCG80_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG80_AUTHEN*>(0x40CC6A1C); }
 };
 
 // LPCG direct control
@@ -49913,7 +49913,7 @@ union LPCG81_DIRECT {
 
   LPCG81_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG81_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG81_DIRECT*>(0x40CC6A20); }
+  static inline volatile LPCG81_DIRECT &ref() { return *reinterpret_cast<volatile LPCG81_DIRECT*>(0x40CC6A20); }
 };
 
 // LPCG domain control
@@ -50013,7 +50013,7 @@ union LPCG81_DOMAIN {
 
   LPCG81_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG81_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG81_DOMAIN*>(0x40CC6A24); }
+  static inline volatile LPCG81_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG81_DOMAIN*>(0x40CC6A24); }
 };
 
 // LPCG working status
@@ -50116,7 +50116,7 @@ union LPCG81_STATUS0 {
 
   LPCG81_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG81_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG81_STATUS0*>(0x40CC6A30); }
+  static inline volatile LPCG81_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG81_STATUS0*>(0x40CC6A30); }
 };
 
 // LPCG low power status
@@ -50312,7 +50312,7 @@ union LPCG81_STATUS1 {
 
   LPCG81_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG81_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG81_STATUS1*>(0x40CC6A34); }
+  static inline volatile LPCG81_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG81_STATUS1*>(0x40CC6A34); }
 };
 
 // LPCG configuration
@@ -50339,7 +50339,7 @@ union LPCG81_CONFIG {
 
   LPCG81_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG81_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG81_CONFIG*>(0x40CC6A38); }
+  static inline volatile LPCG81_CONFIG &ref() { return *reinterpret_cast<volatile LPCG81_CONFIG*>(0x40CC6A38); }
 };
 
 // LPCG access control
@@ -50441,7 +50441,7 @@ union LPCG81_AUTHEN {
 
   LPCG81_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG81_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG81_AUTHEN*>(0x40CC6A3C); }
+  static inline volatile LPCG81_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG81_AUTHEN*>(0x40CC6A3C); }
 };
 
 // LPCG direct control
@@ -50467,7 +50467,7 @@ union LPCG82_DIRECT {
 
   LPCG82_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG82_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG82_DIRECT*>(0x40CC6A40); }
+  static inline volatile LPCG82_DIRECT &ref() { return *reinterpret_cast<volatile LPCG82_DIRECT*>(0x40CC6A40); }
 };
 
 // LPCG domain control
@@ -50567,7 +50567,7 @@ union LPCG82_DOMAIN {
 
   LPCG82_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG82_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG82_DOMAIN*>(0x40CC6A44); }
+  static inline volatile LPCG82_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG82_DOMAIN*>(0x40CC6A44); }
 };
 
 // LPCG working status
@@ -50670,7 +50670,7 @@ union LPCG82_STATUS0 {
 
   LPCG82_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG82_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG82_STATUS0*>(0x40CC6A50); }
+  static inline volatile LPCG82_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG82_STATUS0*>(0x40CC6A50); }
 };
 
 // LPCG low power status
@@ -50866,7 +50866,7 @@ union LPCG82_STATUS1 {
 
   LPCG82_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG82_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG82_STATUS1*>(0x40CC6A54); }
+  static inline volatile LPCG82_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG82_STATUS1*>(0x40CC6A54); }
 };
 
 // LPCG configuration
@@ -50893,7 +50893,7 @@ union LPCG82_CONFIG {
 
   LPCG82_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG82_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG82_CONFIG*>(0x40CC6A58); }
+  static inline volatile LPCG82_CONFIG &ref() { return *reinterpret_cast<volatile LPCG82_CONFIG*>(0x40CC6A58); }
 };
 
 // LPCG access control
@@ -50995,7 +50995,7 @@ union LPCG82_AUTHEN {
 
   LPCG82_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG82_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG82_AUTHEN*>(0x40CC6A5C); }
+  static inline volatile LPCG82_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG82_AUTHEN*>(0x40CC6A5C); }
 };
 
 // LPCG direct control
@@ -51021,7 +51021,7 @@ union LPCG83_DIRECT {
 
   LPCG83_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG83_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG83_DIRECT*>(0x40CC6A60); }
+  static inline volatile LPCG83_DIRECT &ref() { return *reinterpret_cast<volatile LPCG83_DIRECT*>(0x40CC6A60); }
 };
 
 // LPCG domain control
@@ -51121,7 +51121,7 @@ union LPCG83_DOMAIN {
 
   LPCG83_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG83_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG83_DOMAIN*>(0x40CC6A64); }
+  static inline volatile LPCG83_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG83_DOMAIN*>(0x40CC6A64); }
 };
 
 // LPCG working status
@@ -51224,7 +51224,7 @@ union LPCG83_STATUS0 {
 
   LPCG83_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG83_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG83_STATUS0*>(0x40CC6A70); }
+  static inline volatile LPCG83_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG83_STATUS0*>(0x40CC6A70); }
 };
 
 // LPCG low power status
@@ -51420,7 +51420,7 @@ union LPCG83_STATUS1 {
 
   LPCG83_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG83_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG83_STATUS1*>(0x40CC6A74); }
+  static inline volatile LPCG83_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG83_STATUS1*>(0x40CC6A74); }
 };
 
 // LPCG configuration
@@ -51447,7 +51447,7 @@ union LPCG83_CONFIG {
 
   LPCG83_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG83_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG83_CONFIG*>(0x40CC6A78); }
+  static inline volatile LPCG83_CONFIG &ref() { return *reinterpret_cast<volatile LPCG83_CONFIG*>(0x40CC6A78); }
 };
 
 // LPCG access control
@@ -51549,7 +51549,7 @@ union LPCG83_AUTHEN {
 
   LPCG83_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG83_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG83_AUTHEN*>(0x40CC6A7C); }
+  static inline volatile LPCG83_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG83_AUTHEN*>(0x40CC6A7C); }
 };
 
 // LPCG direct control
@@ -51575,7 +51575,7 @@ union LPCG84_DIRECT {
 
   LPCG84_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG84_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG84_DIRECT*>(0x40CC6A80); }
+  static inline volatile LPCG84_DIRECT &ref() { return *reinterpret_cast<volatile LPCG84_DIRECT*>(0x40CC6A80); }
 };
 
 // LPCG domain control
@@ -51675,7 +51675,7 @@ union LPCG84_DOMAIN {
 
   LPCG84_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG84_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG84_DOMAIN*>(0x40CC6A84); }
+  static inline volatile LPCG84_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG84_DOMAIN*>(0x40CC6A84); }
 };
 
 // LPCG working status
@@ -51778,7 +51778,7 @@ union LPCG84_STATUS0 {
 
   LPCG84_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG84_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG84_STATUS0*>(0x40CC6A90); }
+  static inline volatile LPCG84_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG84_STATUS0*>(0x40CC6A90); }
 };
 
 // LPCG low power status
@@ -51974,7 +51974,7 @@ union LPCG84_STATUS1 {
 
   LPCG84_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG84_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG84_STATUS1*>(0x40CC6A94); }
+  static inline volatile LPCG84_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG84_STATUS1*>(0x40CC6A94); }
 };
 
 // LPCG configuration
@@ -52001,7 +52001,7 @@ union LPCG84_CONFIG {
 
   LPCG84_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG84_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG84_CONFIG*>(0x40CC6A98); }
+  static inline volatile LPCG84_CONFIG &ref() { return *reinterpret_cast<volatile LPCG84_CONFIG*>(0x40CC6A98); }
 };
 
 // LPCG access control
@@ -52103,7 +52103,7 @@ union LPCG84_AUTHEN {
 
   LPCG84_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG84_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG84_AUTHEN*>(0x40CC6A9C); }
+  static inline volatile LPCG84_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG84_AUTHEN*>(0x40CC6A9C); }
 };
 
 // LPCG direct control
@@ -52129,7 +52129,7 @@ union LPCG85_DIRECT {
 
   LPCG85_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG85_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG85_DIRECT*>(0x40CC6AA0); }
+  static inline volatile LPCG85_DIRECT &ref() { return *reinterpret_cast<volatile LPCG85_DIRECT*>(0x40CC6AA0); }
 };
 
 // LPCG domain control
@@ -52229,7 +52229,7 @@ union LPCG85_DOMAIN {
 
   LPCG85_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG85_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG85_DOMAIN*>(0x40CC6AA4); }
+  static inline volatile LPCG85_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG85_DOMAIN*>(0x40CC6AA4); }
 };
 
 // LPCG working status
@@ -52332,7 +52332,7 @@ union LPCG85_STATUS0 {
 
   LPCG85_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG85_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG85_STATUS0*>(0x40CC6AB0); }
+  static inline volatile LPCG85_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG85_STATUS0*>(0x40CC6AB0); }
 };
 
 // LPCG low power status
@@ -52528,7 +52528,7 @@ union LPCG85_STATUS1 {
 
   LPCG85_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG85_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG85_STATUS1*>(0x40CC6AB4); }
+  static inline volatile LPCG85_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG85_STATUS1*>(0x40CC6AB4); }
 };
 
 // LPCG configuration
@@ -52555,7 +52555,7 @@ union LPCG85_CONFIG {
 
   LPCG85_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG85_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG85_CONFIG*>(0x40CC6AB8); }
+  static inline volatile LPCG85_CONFIG &ref() { return *reinterpret_cast<volatile LPCG85_CONFIG*>(0x40CC6AB8); }
 };
 
 // LPCG access control
@@ -52657,7 +52657,7 @@ union LPCG85_AUTHEN {
 
   LPCG85_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG85_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG85_AUTHEN*>(0x40CC6ABC); }
+  static inline volatile LPCG85_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG85_AUTHEN*>(0x40CC6ABC); }
 };
 
 // LPCG direct control
@@ -52683,7 +52683,7 @@ union LPCG86_DIRECT {
 
   LPCG86_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG86_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG86_DIRECT*>(0x40CC6AC0); }
+  static inline volatile LPCG86_DIRECT &ref() { return *reinterpret_cast<volatile LPCG86_DIRECT*>(0x40CC6AC0); }
 };
 
 // LPCG domain control
@@ -52783,7 +52783,7 @@ union LPCG86_DOMAIN {
 
   LPCG86_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG86_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG86_DOMAIN*>(0x40CC6AC4); }
+  static inline volatile LPCG86_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG86_DOMAIN*>(0x40CC6AC4); }
 };
 
 // LPCG working status
@@ -52886,7 +52886,7 @@ union LPCG86_STATUS0 {
 
   LPCG86_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG86_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG86_STATUS0*>(0x40CC6AD0); }
+  static inline volatile LPCG86_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG86_STATUS0*>(0x40CC6AD0); }
 };
 
 // LPCG low power status
@@ -53082,7 +53082,7 @@ union LPCG86_STATUS1 {
 
   LPCG86_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG86_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG86_STATUS1*>(0x40CC6AD4); }
+  static inline volatile LPCG86_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG86_STATUS1*>(0x40CC6AD4); }
 };
 
 // LPCG configuration
@@ -53109,7 +53109,7 @@ union LPCG86_CONFIG {
 
   LPCG86_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG86_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG86_CONFIG*>(0x40CC6AD8); }
+  static inline volatile LPCG86_CONFIG &ref() { return *reinterpret_cast<volatile LPCG86_CONFIG*>(0x40CC6AD8); }
 };
 
 // LPCG access control
@@ -53211,7 +53211,7 @@ union LPCG86_AUTHEN {
 
   LPCG86_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG86_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG86_AUTHEN*>(0x40CC6ADC); }
+  static inline volatile LPCG86_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG86_AUTHEN*>(0x40CC6ADC); }
 };
 
 // LPCG direct control
@@ -53237,7 +53237,7 @@ union LPCG87_DIRECT {
 
   LPCG87_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG87_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG87_DIRECT*>(0x40CC6AE0); }
+  static inline volatile LPCG87_DIRECT &ref() { return *reinterpret_cast<volatile LPCG87_DIRECT*>(0x40CC6AE0); }
 };
 
 // LPCG domain control
@@ -53337,7 +53337,7 @@ union LPCG87_DOMAIN {
 
   LPCG87_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG87_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG87_DOMAIN*>(0x40CC6AE4); }
+  static inline volatile LPCG87_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG87_DOMAIN*>(0x40CC6AE4); }
 };
 
 // LPCG working status
@@ -53440,7 +53440,7 @@ union LPCG87_STATUS0 {
 
   LPCG87_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG87_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG87_STATUS0*>(0x40CC6AF0); }
+  static inline volatile LPCG87_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG87_STATUS0*>(0x40CC6AF0); }
 };
 
 // LPCG low power status
@@ -53636,7 +53636,7 @@ union LPCG87_STATUS1 {
 
   LPCG87_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG87_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG87_STATUS1*>(0x40CC6AF4); }
+  static inline volatile LPCG87_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG87_STATUS1*>(0x40CC6AF4); }
 };
 
 // LPCG configuration
@@ -53663,7 +53663,7 @@ union LPCG87_CONFIG {
 
   LPCG87_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG87_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG87_CONFIG*>(0x40CC6AF8); }
+  static inline volatile LPCG87_CONFIG &ref() { return *reinterpret_cast<volatile LPCG87_CONFIG*>(0x40CC6AF8); }
 };
 
 // LPCG access control
@@ -53765,7 +53765,7 @@ union LPCG87_AUTHEN {
 
   LPCG87_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG87_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG87_AUTHEN*>(0x40CC6AFC); }
+  static inline volatile LPCG87_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG87_AUTHEN*>(0x40CC6AFC); }
 };
 
 // LPCG direct control
@@ -53791,7 +53791,7 @@ union LPCG88_DIRECT {
 
   LPCG88_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG88_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG88_DIRECT*>(0x40CC6B00); }
+  static inline volatile LPCG88_DIRECT &ref() { return *reinterpret_cast<volatile LPCG88_DIRECT*>(0x40CC6B00); }
 };
 
 // LPCG domain control
@@ -53891,7 +53891,7 @@ union LPCG88_DOMAIN {
 
   LPCG88_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG88_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG88_DOMAIN*>(0x40CC6B04); }
+  static inline volatile LPCG88_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG88_DOMAIN*>(0x40CC6B04); }
 };
 
 // LPCG working status
@@ -53994,7 +53994,7 @@ union LPCG88_STATUS0 {
 
   LPCG88_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG88_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG88_STATUS0*>(0x40CC6B10); }
+  static inline volatile LPCG88_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG88_STATUS0*>(0x40CC6B10); }
 };
 
 // LPCG low power status
@@ -54190,7 +54190,7 @@ union LPCG88_STATUS1 {
 
   LPCG88_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG88_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG88_STATUS1*>(0x40CC6B14); }
+  static inline volatile LPCG88_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG88_STATUS1*>(0x40CC6B14); }
 };
 
 // LPCG configuration
@@ -54217,7 +54217,7 @@ union LPCG88_CONFIG {
 
   LPCG88_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG88_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG88_CONFIG*>(0x40CC6B18); }
+  static inline volatile LPCG88_CONFIG &ref() { return *reinterpret_cast<volatile LPCG88_CONFIG*>(0x40CC6B18); }
 };
 
 // LPCG access control
@@ -54319,7 +54319,7 @@ union LPCG88_AUTHEN {
 
   LPCG88_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG88_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG88_AUTHEN*>(0x40CC6B1C); }
+  static inline volatile LPCG88_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG88_AUTHEN*>(0x40CC6B1C); }
 };
 
 // LPCG direct control
@@ -54345,7 +54345,7 @@ union LPCG89_DIRECT {
 
   LPCG89_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG89_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG89_DIRECT*>(0x40CC6B20); }
+  static inline volatile LPCG89_DIRECT &ref() { return *reinterpret_cast<volatile LPCG89_DIRECT*>(0x40CC6B20); }
 };
 
 // LPCG domain control
@@ -54445,7 +54445,7 @@ union LPCG89_DOMAIN {
 
   LPCG89_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG89_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG89_DOMAIN*>(0x40CC6B24); }
+  static inline volatile LPCG89_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG89_DOMAIN*>(0x40CC6B24); }
 };
 
 // LPCG working status
@@ -54548,7 +54548,7 @@ union LPCG89_STATUS0 {
 
   LPCG89_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG89_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG89_STATUS0*>(0x40CC6B30); }
+  static inline volatile LPCG89_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG89_STATUS0*>(0x40CC6B30); }
 };
 
 // LPCG low power status
@@ -54744,7 +54744,7 @@ union LPCG89_STATUS1 {
 
   LPCG89_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG89_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG89_STATUS1*>(0x40CC6B34); }
+  static inline volatile LPCG89_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG89_STATUS1*>(0x40CC6B34); }
 };
 
 // LPCG configuration
@@ -54771,7 +54771,7 @@ union LPCG89_CONFIG {
 
   LPCG89_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG89_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG89_CONFIG*>(0x40CC6B38); }
+  static inline volatile LPCG89_CONFIG &ref() { return *reinterpret_cast<volatile LPCG89_CONFIG*>(0x40CC6B38); }
 };
 
 // LPCG access control
@@ -54873,7 +54873,7 @@ union LPCG89_AUTHEN {
 
   LPCG89_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG89_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG89_AUTHEN*>(0x40CC6B3C); }
+  static inline volatile LPCG89_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG89_AUTHEN*>(0x40CC6B3C); }
 };
 
 // LPCG direct control
@@ -54899,7 +54899,7 @@ union LPCG90_DIRECT {
 
   LPCG90_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG90_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG90_DIRECT*>(0x40CC6B40); }
+  static inline volatile LPCG90_DIRECT &ref() { return *reinterpret_cast<volatile LPCG90_DIRECT*>(0x40CC6B40); }
 };
 
 // LPCG domain control
@@ -54999,7 +54999,7 @@ union LPCG90_DOMAIN {
 
   LPCG90_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG90_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG90_DOMAIN*>(0x40CC6B44); }
+  static inline volatile LPCG90_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG90_DOMAIN*>(0x40CC6B44); }
 };
 
 // LPCG working status
@@ -55102,7 +55102,7 @@ union LPCG90_STATUS0 {
 
   LPCG90_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG90_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG90_STATUS0*>(0x40CC6B50); }
+  static inline volatile LPCG90_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG90_STATUS0*>(0x40CC6B50); }
 };
 
 // LPCG low power status
@@ -55298,7 +55298,7 @@ union LPCG90_STATUS1 {
 
   LPCG90_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG90_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG90_STATUS1*>(0x40CC6B54); }
+  static inline volatile LPCG90_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG90_STATUS1*>(0x40CC6B54); }
 };
 
 // LPCG configuration
@@ -55325,7 +55325,7 @@ union LPCG90_CONFIG {
 
   LPCG90_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG90_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG90_CONFIG*>(0x40CC6B58); }
+  static inline volatile LPCG90_CONFIG &ref() { return *reinterpret_cast<volatile LPCG90_CONFIG*>(0x40CC6B58); }
 };
 
 // LPCG access control
@@ -55427,7 +55427,7 @@ union LPCG90_AUTHEN {
 
   LPCG90_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG90_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG90_AUTHEN*>(0x40CC6B5C); }
+  static inline volatile LPCG90_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG90_AUTHEN*>(0x40CC6B5C); }
 };
 
 // LPCG direct control
@@ -55453,7 +55453,7 @@ union LPCG91_DIRECT {
 
   LPCG91_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG91_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG91_DIRECT*>(0x40CC6B60); }
+  static inline volatile LPCG91_DIRECT &ref() { return *reinterpret_cast<volatile LPCG91_DIRECT*>(0x40CC6B60); }
 };
 
 // LPCG domain control
@@ -55553,7 +55553,7 @@ union LPCG91_DOMAIN {
 
   LPCG91_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG91_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG91_DOMAIN*>(0x40CC6B64); }
+  static inline volatile LPCG91_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG91_DOMAIN*>(0x40CC6B64); }
 };
 
 // LPCG working status
@@ -55656,7 +55656,7 @@ union LPCG91_STATUS0 {
 
   LPCG91_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG91_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG91_STATUS0*>(0x40CC6B70); }
+  static inline volatile LPCG91_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG91_STATUS0*>(0x40CC6B70); }
 };
 
 // LPCG low power status
@@ -55852,7 +55852,7 @@ union LPCG91_STATUS1 {
 
   LPCG91_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG91_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG91_STATUS1*>(0x40CC6B74); }
+  static inline volatile LPCG91_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG91_STATUS1*>(0x40CC6B74); }
 };
 
 // LPCG configuration
@@ -55879,7 +55879,7 @@ union LPCG91_CONFIG {
 
   LPCG91_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG91_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG91_CONFIG*>(0x40CC6B78); }
+  static inline volatile LPCG91_CONFIG &ref() { return *reinterpret_cast<volatile LPCG91_CONFIG*>(0x40CC6B78); }
 };
 
 // LPCG access control
@@ -55981,7 +55981,7 @@ union LPCG91_AUTHEN {
 
   LPCG91_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG91_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG91_AUTHEN*>(0x40CC6B7C); }
+  static inline volatile LPCG91_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG91_AUTHEN*>(0x40CC6B7C); }
 };
 
 // LPCG direct control
@@ -56007,7 +56007,7 @@ union LPCG92_DIRECT {
 
   LPCG92_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG92_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG92_DIRECT*>(0x40CC6B80); }
+  static inline volatile LPCG92_DIRECT &ref() { return *reinterpret_cast<volatile LPCG92_DIRECT*>(0x40CC6B80); }
 };
 
 // LPCG domain control
@@ -56107,7 +56107,7 @@ union LPCG92_DOMAIN {
 
   LPCG92_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG92_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG92_DOMAIN*>(0x40CC6B84); }
+  static inline volatile LPCG92_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG92_DOMAIN*>(0x40CC6B84); }
 };
 
 // LPCG working status
@@ -56210,7 +56210,7 @@ union LPCG92_STATUS0 {
 
   LPCG92_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG92_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG92_STATUS0*>(0x40CC6B90); }
+  static inline volatile LPCG92_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG92_STATUS0*>(0x40CC6B90); }
 };
 
 // LPCG low power status
@@ -56406,7 +56406,7 @@ union LPCG92_STATUS1 {
 
   LPCG92_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG92_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG92_STATUS1*>(0x40CC6B94); }
+  static inline volatile LPCG92_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG92_STATUS1*>(0x40CC6B94); }
 };
 
 // LPCG configuration
@@ -56433,7 +56433,7 @@ union LPCG92_CONFIG {
 
   LPCG92_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG92_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG92_CONFIG*>(0x40CC6B98); }
+  static inline volatile LPCG92_CONFIG &ref() { return *reinterpret_cast<volatile LPCG92_CONFIG*>(0x40CC6B98); }
 };
 
 // LPCG access control
@@ -56535,7 +56535,7 @@ union LPCG92_AUTHEN {
 
   LPCG92_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG92_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG92_AUTHEN*>(0x40CC6B9C); }
+  static inline volatile LPCG92_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG92_AUTHEN*>(0x40CC6B9C); }
 };
 
 // LPCG direct control
@@ -56561,7 +56561,7 @@ union LPCG93_DIRECT {
 
   LPCG93_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG93_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG93_DIRECT*>(0x40CC6BA0); }
+  static inline volatile LPCG93_DIRECT &ref() { return *reinterpret_cast<volatile LPCG93_DIRECT*>(0x40CC6BA0); }
 };
 
 // LPCG domain control
@@ -56661,7 +56661,7 @@ union LPCG93_DOMAIN {
 
   LPCG93_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG93_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG93_DOMAIN*>(0x40CC6BA4); }
+  static inline volatile LPCG93_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG93_DOMAIN*>(0x40CC6BA4); }
 };
 
 // LPCG working status
@@ -56764,7 +56764,7 @@ union LPCG93_STATUS0 {
 
   LPCG93_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG93_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG93_STATUS0*>(0x40CC6BB0); }
+  static inline volatile LPCG93_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG93_STATUS0*>(0x40CC6BB0); }
 };
 
 // LPCG low power status
@@ -56960,7 +56960,7 @@ union LPCG93_STATUS1 {
 
   LPCG93_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG93_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG93_STATUS1*>(0x40CC6BB4); }
+  static inline volatile LPCG93_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG93_STATUS1*>(0x40CC6BB4); }
 };
 
 // LPCG configuration
@@ -56987,7 +56987,7 @@ union LPCG93_CONFIG {
 
   LPCG93_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG93_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG93_CONFIG*>(0x40CC6BB8); }
+  static inline volatile LPCG93_CONFIG &ref() { return *reinterpret_cast<volatile LPCG93_CONFIG*>(0x40CC6BB8); }
 };
 
 // LPCG access control
@@ -57089,7 +57089,7 @@ union LPCG93_AUTHEN {
 
   LPCG93_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG93_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG93_AUTHEN*>(0x40CC6BBC); }
+  static inline volatile LPCG93_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG93_AUTHEN*>(0x40CC6BBC); }
 };
 
 // LPCG direct control
@@ -57115,7 +57115,7 @@ union LPCG94_DIRECT {
 
   LPCG94_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG94_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG94_DIRECT*>(0x40CC6BC0); }
+  static inline volatile LPCG94_DIRECT &ref() { return *reinterpret_cast<volatile LPCG94_DIRECT*>(0x40CC6BC0); }
 };
 
 // LPCG domain control
@@ -57215,7 +57215,7 @@ union LPCG94_DOMAIN {
 
   LPCG94_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG94_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG94_DOMAIN*>(0x40CC6BC4); }
+  static inline volatile LPCG94_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG94_DOMAIN*>(0x40CC6BC4); }
 };
 
 // LPCG working status
@@ -57318,7 +57318,7 @@ union LPCG94_STATUS0 {
 
   LPCG94_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG94_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG94_STATUS0*>(0x40CC6BD0); }
+  static inline volatile LPCG94_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG94_STATUS0*>(0x40CC6BD0); }
 };
 
 // LPCG low power status
@@ -57514,7 +57514,7 @@ union LPCG94_STATUS1 {
 
   LPCG94_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG94_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG94_STATUS1*>(0x40CC6BD4); }
+  static inline volatile LPCG94_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG94_STATUS1*>(0x40CC6BD4); }
 };
 
 // LPCG configuration
@@ -57541,7 +57541,7 @@ union LPCG94_CONFIG {
 
   LPCG94_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG94_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG94_CONFIG*>(0x40CC6BD8); }
+  static inline volatile LPCG94_CONFIG &ref() { return *reinterpret_cast<volatile LPCG94_CONFIG*>(0x40CC6BD8); }
 };
 
 // LPCG access control
@@ -57643,7 +57643,7 @@ union LPCG94_AUTHEN {
 
   LPCG94_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG94_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG94_AUTHEN*>(0x40CC6BDC); }
+  static inline volatile LPCG94_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG94_AUTHEN*>(0x40CC6BDC); }
 };
 
 // LPCG direct control
@@ -57669,7 +57669,7 @@ union LPCG95_DIRECT {
 
   LPCG95_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG95_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG95_DIRECT*>(0x40CC6BE0); }
+  static inline volatile LPCG95_DIRECT &ref() { return *reinterpret_cast<volatile LPCG95_DIRECT*>(0x40CC6BE0); }
 };
 
 // LPCG domain control
@@ -57769,7 +57769,7 @@ union LPCG95_DOMAIN {
 
   LPCG95_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG95_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG95_DOMAIN*>(0x40CC6BE4); }
+  static inline volatile LPCG95_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG95_DOMAIN*>(0x40CC6BE4); }
 };
 
 // LPCG working status
@@ -57872,7 +57872,7 @@ union LPCG95_STATUS0 {
 
   LPCG95_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG95_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG95_STATUS0*>(0x40CC6BF0); }
+  static inline volatile LPCG95_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG95_STATUS0*>(0x40CC6BF0); }
 };
 
 // LPCG low power status
@@ -58068,7 +58068,7 @@ union LPCG95_STATUS1 {
 
   LPCG95_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG95_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG95_STATUS1*>(0x40CC6BF4); }
+  static inline volatile LPCG95_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG95_STATUS1*>(0x40CC6BF4); }
 };
 
 // LPCG configuration
@@ -58095,7 +58095,7 @@ union LPCG95_CONFIG {
 
   LPCG95_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG95_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG95_CONFIG*>(0x40CC6BF8); }
+  static inline volatile LPCG95_CONFIG &ref() { return *reinterpret_cast<volatile LPCG95_CONFIG*>(0x40CC6BF8); }
 };
 
 // LPCG access control
@@ -58197,7 +58197,7 @@ union LPCG95_AUTHEN {
 
   LPCG95_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG95_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG95_AUTHEN*>(0x40CC6BFC); }
+  static inline volatile LPCG95_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG95_AUTHEN*>(0x40CC6BFC); }
 };
 
 // LPCG direct control
@@ -58223,7 +58223,7 @@ union LPCG96_DIRECT {
 
   LPCG96_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG96_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG96_DIRECT*>(0x40CC6C00); }
+  static inline volatile LPCG96_DIRECT &ref() { return *reinterpret_cast<volatile LPCG96_DIRECT*>(0x40CC6C00); }
 };
 
 // LPCG domain control
@@ -58323,7 +58323,7 @@ union LPCG96_DOMAIN {
 
   LPCG96_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG96_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG96_DOMAIN*>(0x40CC6C04); }
+  static inline volatile LPCG96_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG96_DOMAIN*>(0x40CC6C04); }
 };
 
 // LPCG working status
@@ -58426,7 +58426,7 @@ union LPCG96_STATUS0 {
 
   LPCG96_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG96_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG96_STATUS0*>(0x40CC6C10); }
+  static inline volatile LPCG96_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG96_STATUS0*>(0x40CC6C10); }
 };
 
 // LPCG low power status
@@ -58622,7 +58622,7 @@ union LPCG96_STATUS1 {
 
   LPCG96_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG96_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG96_STATUS1*>(0x40CC6C14); }
+  static inline volatile LPCG96_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG96_STATUS1*>(0x40CC6C14); }
 };
 
 // LPCG configuration
@@ -58649,7 +58649,7 @@ union LPCG96_CONFIG {
 
   LPCG96_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG96_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG96_CONFIG*>(0x40CC6C18); }
+  static inline volatile LPCG96_CONFIG &ref() { return *reinterpret_cast<volatile LPCG96_CONFIG*>(0x40CC6C18); }
 };
 
 // LPCG access control
@@ -58751,7 +58751,7 @@ union LPCG96_AUTHEN {
 
   LPCG96_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG96_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG96_AUTHEN*>(0x40CC6C1C); }
+  static inline volatile LPCG96_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG96_AUTHEN*>(0x40CC6C1C); }
 };
 
 // LPCG direct control
@@ -58777,7 +58777,7 @@ union LPCG97_DIRECT {
 
   LPCG97_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG97_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG97_DIRECT*>(0x40CC6C20); }
+  static inline volatile LPCG97_DIRECT &ref() { return *reinterpret_cast<volatile LPCG97_DIRECT*>(0x40CC6C20); }
 };
 
 // LPCG domain control
@@ -58877,7 +58877,7 @@ union LPCG97_DOMAIN {
 
   LPCG97_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG97_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG97_DOMAIN*>(0x40CC6C24); }
+  static inline volatile LPCG97_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG97_DOMAIN*>(0x40CC6C24); }
 };
 
 // LPCG working status
@@ -58980,7 +58980,7 @@ union LPCG97_STATUS0 {
 
   LPCG97_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG97_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG97_STATUS0*>(0x40CC6C30); }
+  static inline volatile LPCG97_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG97_STATUS0*>(0x40CC6C30); }
 };
 
 // LPCG low power status
@@ -59176,7 +59176,7 @@ union LPCG97_STATUS1 {
 
   LPCG97_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG97_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG97_STATUS1*>(0x40CC6C34); }
+  static inline volatile LPCG97_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG97_STATUS1*>(0x40CC6C34); }
 };
 
 // LPCG configuration
@@ -59203,7 +59203,7 @@ union LPCG97_CONFIG {
 
   LPCG97_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG97_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG97_CONFIG*>(0x40CC6C38); }
+  static inline volatile LPCG97_CONFIG &ref() { return *reinterpret_cast<volatile LPCG97_CONFIG*>(0x40CC6C38); }
 };
 
 // LPCG access control
@@ -59305,7 +59305,7 @@ union LPCG97_AUTHEN {
 
   LPCG97_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG97_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG97_AUTHEN*>(0x40CC6C3C); }
+  static inline volatile LPCG97_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG97_AUTHEN*>(0x40CC6C3C); }
 };
 
 // LPCG direct control
@@ -59331,7 +59331,7 @@ union LPCG98_DIRECT {
 
   LPCG98_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG98_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG98_DIRECT*>(0x40CC6C40); }
+  static inline volatile LPCG98_DIRECT &ref() { return *reinterpret_cast<volatile LPCG98_DIRECT*>(0x40CC6C40); }
 };
 
 // LPCG domain control
@@ -59431,7 +59431,7 @@ union LPCG98_DOMAIN {
 
   LPCG98_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG98_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG98_DOMAIN*>(0x40CC6C44); }
+  static inline volatile LPCG98_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG98_DOMAIN*>(0x40CC6C44); }
 };
 
 // LPCG working status
@@ -59534,7 +59534,7 @@ union LPCG98_STATUS0 {
 
   LPCG98_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG98_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG98_STATUS0*>(0x40CC6C50); }
+  static inline volatile LPCG98_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG98_STATUS0*>(0x40CC6C50); }
 };
 
 // LPCG low power status
@@ -59730,7 +59730,7 @@ union LPCG98_STATUS1 {
 
   LPCG98_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG98_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG98_STATUS1*>(0x40CC6C54); }
+  static inline volatile LPCG98_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG98_STATUS1*>(0x40CC6C54); }
 };
 
 // LPCG configuration
@@ -59757,7 +59757,7 @@ union LPCG98_CONFIG {
 
   LPCG98_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG98_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG98_CONFIG*>(0x40CC6C58); }
+  static inline volatile LPCG98_CONFIG &ref() { return *reinterpret_cast<volatile LPCG98_CONFIG*>(0x40CC6C58); }
 };
 
 // LPCG access control
@@ -59859,7 +59859,7 @@ union LPCG98_AUTHEN {
 
   LPCG98_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG98_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG98_AUTHEN*>(0x40CC6C5C); }
+  static inline volatile LPCG98_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG98_AUTHEN*>(0x40CC6C5C); }
 };
 
 // LPCG direct control
@@ -59885,7 +59885,7 @@ union LPCG99_DIRECT {
 
   LPCG99_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG99_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG99_DIRECT*>(0x40CC6C60); }
+  static inline volatile LPCG99_DIRECT &ref() { return *reinterpret_cast<volatile LPCG99_DIRECT*>(0x40CC6C60); }
 };
 
 // LPCG domain control
@@ -59985,7 +59985,7 @@ union LPCG99_DOMAIN {
 
   LPCG99_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG99_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG99_DOMAIN*>(0x40CC6C64); }
+  static inline volatile LPCG99_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG99_DOMAIN*>(0x40CC6C64); }
 };
 
 // LPCG working status
@@ -60088,7 +60088,7 @@ union LPCG99_STATUS0 {
 
   LPCG99_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG99_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG99_STATUS0*>(0x40CC6C70); }
+  static inline volatile LPCG99_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG99_STATUS0*>(0x40CC6C70); }
 };
 
 // LPCG low power status
@@ -60284,7 +60284,7 @@ union LPCG99_STATUS1 {
 
   LPCG99_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG99_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG99_STATUS1*>(0x40CC6C74); }
+  static inline volatile LPCG99_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG99_STATUS1*>(0x40CC6C74); }
 };
 
 // LPCG configuration
@@ -60311,7 +60311,7 @@ union LPCG99_CONFIG {
 
   LPCG99_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG99_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG99_CONFIG*>(0x40CC6C78); }
+  static inline volatile LPCG99_CONFIG &ref() { return *reinterpret_cast<volatile LPCG99_CONFIG*>(0x40CC6C78); }
 };
 
 // LPCG access control
@@ -60413,7 +60413,7 @@ union LPCG99_AUTHEN {
 
   LPCG99_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG99_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG99_AUTHEN*>(0x40CC6C7C); }
+  static inline volatile LPCG99_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG99_AUTHEN*>(0x40CC6C7C); }
 };
 
 // LPCG direct control
@@ -60439,7 +60439,7 @@ union LPCG100_DIRECT {
 
   LPCG100_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG100_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG100_DIRECT*>(0x40CC6C80); }
+  static inline volatile LPCG100_DIRECT &ref() { return *reinterpret_cast<volatile LPCG100_DIRECT*>(0x40CC6C80); }
 };
 
 // LPCG domain control
@@ -60539,7 +60539,7 @@ union LPCG100_DOMAIN {
 
   LPCG100_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG100_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG100_DOMAIN*>(0x40CC6C84); }
+  static inline volatile LPCG100_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG100_DOMAIN*>(0x40CC6C84); }
 };
 
 // LPCG working status
@@ -60642,7 +60642,7 @@ union LPCG100_STATUS0 {
 
   LPCG100_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG100_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG100_STATUS0*>(0x40CC6C90); }
+  static inline volatile LPCG100_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG100_STATUS0*>(0x40CC6C90); }
 };
 
 // LPCG low power status
@@ -60838,7 +60838,7 @@ union LPCG100_STATUS1 {
 
   LPCG100_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG100_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG100_STATUS1*>(0x40CC6C94); }
+  static inline volatile LPCG100_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG100_STATUS1*>(0x40CC6C94); }
 };
 
 // LPCG configuration
@@ -60865,7 +60865,7 @@ union LPCG100_CONFIG {
 
   LPCG100_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG100_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG100_CONFIG*>(0x40CC6C98); }
+  static inline volatile LPCG100_CONFIG &ref() { return *reinterpret_cast<volatile LPCG100_CONFIG*>(0x40CC6C98); }
 };
 
 // LPCG access control
@@ -60967,7 +60967,7 @@ union LPCG100_AUTHEN {
 
   LPCG100_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG100_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG100_AUTHEN*>(0x40CC6C9C); }
+  static inline volatile LPCG100_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG100_AUTHEN*>(0x40CC6C9C); }
 };
 
 // LPCG direct control
@@ -60993,7 +60993,7 @@ union LPCG101_DIRECT {
 
   LPCG101_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG101_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG101_DIRECT*>(0x40CC6CA0); }
+  static inline volatile LPCG101_DIRECT &ref() { return *reinterpret_cast<volatile LPCG101_DIRECT*>(0x40CC6CA0); }
 };
 
 // LPCG domain control
@@ -61093,7 +61093,7 @@ union LPCG101_DOMAIN {
 
   LPCG101_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG101_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG101_DOMAIN*>(0x40CC6CA4); }
+  static inline volatile LPCG101_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG101_DOMAIN*>(0x40CC6CA4); }
 };
 
 // LPCG working status
@@ -61196,7 +61196,7 @@ union LPCG101_STATUS0 {
 
   LPCG101_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG101_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG101_STATUS0*>(0x40CC6CB0); }
+  static inline volatile LPCG101_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG101_STATUS0*>(0x40CC6CB0); }
 };
 
 // LPCG low power status
@@ -61392,7 +61392,7 @@ union LPCG101_STATUS1 {
 
   LPCG101_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG101_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG101_STATUS1*>(0x40CC6CB4); }
+  static inline volatile LPCG101_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG101_STATUS1*>(0x40CC6CB4); }
 };
 
 // LPCG configuration
@@ -61419,7 +61419,7 @@ union LPCG101_CONFIG {
 
   LPCG101_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG101_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG101_CONFIG*>(0x40CC6CB8); }
+  static inline volatile LPCG101_CONFIG &ref() { return *reinterpret_cast<volatile LPCG101_CONFIG*>(0x40CC6CB8); }
 };
 
 // LPCG access control
@@ -61521,7 +61521,7 @@ union LPCG101_AUTHEN {
 
   LPCG101_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG101_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG101_AUTHEN*>(0x40CC6CBC); }
+  static inline volatile LPCG101_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG101_AUTHEN*>(0x40CC6CBC); }
 };
 
 // LPCG direct control
@@ -61547,7 +61547,7 @@ union LPCG102_DIRECT {
 
   LPCG102_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG102_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG102_DIRECT*>(0x40CC6CC0); }
+  static inline volatile LPCG102_DIRECT &ref() { return *reinterpret_cast<volatile LPCG102_DIRECT*>(0x40CC6CC0); }
 };
 
 // LPCG domain control
@@ -61647,7 +61647,7 @@ union LPCG102_DOMAIN {
 
   LPCG102_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG102_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG102_DOMAIN*>(0x40CC6CC4); }
+  static inline volatile LPCG102_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG102_DOMAIN*>(0x40CC6CC4); }
 };
 
 // LPCG working status
@@ -61750,7 +61750,7 @@ union LPCG102_STATUS0 {
 
   LPCG102_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG102_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG102_STATUS0*>(0x40CC6CD0); }
+  static inline volatile LPCG102_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG102_STATUS0*>(0x40CC6CD0); }
 };
 
 // LPCG low power status
@@ -61946,7 +61946,7 @@ union LPCG102_STATUS1 {
 
   LPCG102_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG102_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG102_STATUS1*>(0x40CC6CD4); }
+  static inline volatile LPCG102_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG102_STATUS1*>(0x40CC6CD4); }
 };
 
 // LPCG configuration
@@ -61973,7 +61973,7 @@ union LPCG102_CONFIG {
 
   LPCG102_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG102_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG102_CONFIG*>(0x40CC6CD8); }
+  static inline volatile LPCG102_CONFIG &ref() { return *reinterpret_cast<volatile LPCG102_CONFIG*>(0x40CC6CD8); }
 };
 
 // LPCG access control
@@ -62075,7 +62075,7 @@ union LPCG102_AUTHEN {
 
   LPCG102_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG102_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG102_AUTHEN*>(0x40CC6CDC); }
+  static inline volatile LPCG102_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG102_AUTHEN*>(0x40CC6CDC); }
 };
 
 // LPCG direct control
@@ -62101,7 +62101,7 @@ union LPCG103_DIRECT {
 
   LPCG103_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG103_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG103_DIRECT*>(0x40CC6CE0); }
+  static inline volatile LPCG103_DIRECT &ref() { return *reinterpret_cast<volatile LPCG103_DIRECT*>(0x40CC6CE0); }
 };
 
 // LPCG domain control
@@ -62201,7 +62201,7 @@ union LPCG103_DOMAIN {
 
   LPCG103_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG103_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG103_DOMAIN*>(0x40CC6CE4); }
+  static inline volatile LPCG103_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG103_DOMAIN*>(0x40CC6CE4); }
 };
 
 // LPCG working status
@@ -62304,7 +62304,7 @@ union LPCG103_STATUS0 {
 
   LPCG103_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG103_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG103_STATUS0*>(0x40CC6CF0); }
+  static inline volatile LPCG103_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG103_STATUS0*>(0x40CC6CF0); }
 };
 
 // LPCG low power status
@@ -62500,7 +62500,7 @@ union LPCG103_STATUS1 {
 
   LPCG103_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG103_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG103_STATUS1*>(0x40CC6CF4); }
+  static inline volatile LPCG103_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG103_STATUS1*>(0x40CC6CF4); }
 };
 
 // LPCG configuration
@@ -62527,7 +62527,7 @@ union LPCG103_CONFIG {
 
   LPCG103_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG103_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG103_CONFIG*>(0x40CC6CF8); }
+  static inline volatile LPCG103_CONFIG &ref() { return *reinterpret_cast<volatile LPCG103_CONFIG*>(0x40CC6CF8); }
 };
 
 // LPCG access control
@@ -62629,7 +62629,7 @@ union LPCG103_AUTHEN {
 
   LPCG103_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG103_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG103_AUTHEN*>(0x40CC6CFC); }
+  static inline volatile LPCG103_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG103_AUTHEN*>(0x40CC6CFC); }
 };
 
 // LPCG direct control
@@ -62655,7 +62655,7 @@ union LPCG104_DIRECT {
 
   LPCG104_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG104_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG104_DIRECT*>(0x40CC6D00); }
+  static inline volatile LPCG104_DIRECT &ref() { return *reinterpret_cast<volatile LPCG104_DIRECT*>(0x40CC6D00); }
 };
 
 // LPCG domain control
@@ -62755,7 +62755,7 @@ union LPCG104_DOMAIN {
 
   LPCG104_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG104_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG104_DOMAIN*>(0x40CC6D04); }
+  static inline volatile LPCG104_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG104_DOMAIN*>(0x40CC6D04); }
 };
 
 // LPCG working status
@@ -62858,7 +62858,7 @@ union LPCG104_STATUS0 {
 
   LPCG104_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG104_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG104_STATUS0*>(0x40CC6D10); }
+  static inline volatile LPCG104_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG104_STATUS0*>(0x40CC6D10); }
 };
 
 // LPCG low power status
@@ -63054,7 +63054,7 @@ union LPCG104_STATUS1 {
 
   LPCG104_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG104_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG104_STATUS1*>(0x40CC6D14); }
+  static inline volatile LPCG104_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG104_STATUS1*>(0x40CC6D14); }
 };
 
 // LPCG configuration
@@ -63081,7 +63081,7 @@ union LPCG104_CONFIG {
 
   LPCG104_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG104_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG104_CONFIG*>(0x40CC6D18); }
+  static inline volatile LPCG104_CONFIG &ref() { return *reinterpret_cast<volatile LPCG104_CONFIG*>(0x40CC6D18); }
 };
 
 // LPCG access control
@@ -63183,7 +63183,7 @@ union LPCG104_AUTHEN {
 
   LPCG104_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG104_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG104_AUTHEN*>(0x40CC6D1C); }
+  static inline volatile LPCG104_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG104_AUTHEN*>(0x40CC6D1C); }
 };
 
 // LPCG direct control
@@ -63209,7 +63209,7 @@ union LPCG105_DIRECT {
 
   LPCG105_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG105_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG105_DIRECT*>(0x40CC6D20); }
+  static inline volatile LPCG105_DIRECT &ref() { return *reinterpret_cast<volatile LPCG105_DIRECT*>(0x40CC6D20); }
 };
 
 // LPCG domain control
@@ -63309,7 +63309,7 @@ union LPCG105_DOMAIN {
 
   LPCG105_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG105_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG105_DOMAIN*>(0x40CC6D24); }
+  static inline volatile LPCG105_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG105_DOMAIN*>(0x40CC6D24); }
 };
 
 // LPCG working status
@@ -63412,7 +63412,7 @@ union LPCG105_STATUS0 {
 
   LPCG105_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG105_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG105_STATUS0*>(0x40CC6D30); }
+  static inline volatile LPCG105_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG105_STATUS0*>(0x40CC6D30); }
 };
 
 // LPCG low power status
@@ -63608,7 +63608,7 @@ union LPCG105_STATUS1 {
 
   LPCG105_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG105_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG105_STATUS1*>(0x40CC6D34); }
+  static inline volatile LPCG105_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG105_STATUS1*>(0x40CC6D34); }
 };
 
 // LPCG configuration
@@ -63635,7 +63635,7 @@ union LPCG105_CONFIG {
 
   LPCG105_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG105_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG105_CONFIG*>(0x40CC6D38); }
+  static inline volatile LPCG105_CONFIG &ref() { return *reinterpret_cast<volatile LPCG105_CONFIG*>(0x40CC6D38); }
 };
 
 // LPCG access control
@@ -63737,7 +63737,7 @@ union LPCG105_AUTHEN {
 
   LPCG105_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG105_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG105_AUTHEN*>(0x40CC6D3C); }
+  static inline volatile LPCG105_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG105_AUTHEN*>(0x40CC6D3C); }
 };
 
 // LPCG direct control
@@ -63763,7 +63763,7 @@ union LPCG106_DIRECT {
 
   LPCG106_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG106_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG106_DIRECT*>(0x40CC6D40); }
+  static inline volatile LPCG106_DIRECT &ref() { return *reinterpret_cast<volatile LPCG106_DIRECT*>(0x40CC6D40); }
 };
 
 // LPCG domain control
@@ -63863,7 +63863,7 @@ union LPCG106_DOMAIN {
 
   LPCG106_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG106_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG106_DOMAIN*>(0x40CC6D44); }
+  static inline volatile LPCG106_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG106_DOMAIN*>(0x40CC6D44); }
 };
 
 // LPCG working status
@@ -63966,7 +63966,7 @@ union LPCG106_STATUS0 {
 
   LPCG106_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG106_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG106_STATUS0*>(0x40CC6D50); }
+  static inline volatile LPCG106_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG106_STATUS0*>(0x40CC6D50); }
 };
 
 // LPCG low power status
@@ -64162,7 +64162,7 @@ union LPCG106_STATUS1 {
 
   LPCG106_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG106_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG106_STATUS1*>(0x40CC6D54); }
+  static inline volatile LPCG106_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG106_STATUS1*>(0x40CC6D54); }
 };
 
 // LPCG configuration
@@ -64189,7 +64189,7 @@ union LPCG106_CONFIG {
 
   LPCG106_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG106_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG106_CONFIG*>(0x40CC6D58); }
+  static inline volatile LPCG106_CONFIG &ref() { return *reinterpret_cast<volatile LPCG106_CONFIG*>(0x40CC6D58); }
 };
 
 // LPCG access control
@@ -64291,7 +64291,7 @@ union LPCG106_AUTHEN {
 
   LPCG106_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG106_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG106_AUTHEN*>(0x40CC6D5C); }
+  static inline volatile LPCG106_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG106_AUTHEN*>(0x40CC6D5C); }
 };
 
 // LPCG direct control
@@ -64317,7 +64317,7 @@ union LPCG107_DIRECT {
 
   LPCG107_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG107_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG107_DIRECT*>(0x40CC6D60); }
+  static inline volatile LPCG107_DIRECT &ref() { return *reinterpret_cast<volatile LPCG107_DIRECT*>(0x40CC6D60); }
 };
 
 // LPCG domain control
@@ -64417,7 +64417,7 @@ union LPCG107_DOMAIN {
 
   LPCG107_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG107_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG107_DOMAIN*>(0x40CC6D64); }
+  static inline volatile LPCG107_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG107_DOMAIN*>(0x40CC6D64); }
 };
 
 // LPCG working status
@@ -64520,7 +64520,7 @@ union LPCG107_STATUS0 {
 
   LPCG107_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG107_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG107_STATUS0*>(0x40CC6D70); }
+  static inline volatile LPCG107_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG107_STATUS0*>(0x40CC6D70); }
 };
 
 // LPCG low power status
@@ -64716,7 +64716,7 @@ union LPCG107_STATUS1 {
 
   LPCG107_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG107_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG107_STATUS1*>(0x40CC6D74); }
+  static inline volatile LPCG107_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG107_STATUS1*>(0x40CC6D74); }
 };
 
 // LPCG configuration
@@ -64743,7 +64743,7 @@ union LPCG107_CONFIG {
 
   LPCG107_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG107_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG107_CONFIG*>(0x40CC6D78); }
+  static inline volatile LPCG107_CONFIG &ref() { return *reinterpret_cast<volatile LPCG107_CONFIG*>(0x40CC6D78); }
 };
 
 // LPCG access control
@@ -64845,7 +64845,7 @@ union LPCG107_AUTHEN {
 
   LPCG107_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG107_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG107_AUTHEN*>(0x40CC6D7C); }
+  static inline volatile LPCG107_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG107_AUTHEN*>(0x40CC6D7C); }
 };
 
 // LPCG direct control
@@ -64871,7 +64871,7 @@ union LPCG108_DIRECT {
 
   LPCG108_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG108_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG108_DIRECT*>(0x40CC6D80); }
+  static inline volatile LPCG108_DIRECT &ref() { return *reinterpret_cast<volatile LPCG108_DIRECT*>(0x40CC6D80); }
 };
 
 // LPCG domain control
@@ -64971,7 +64971,7 @@ union LPCG108_DOMAIN {
 
   LPCG108_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG108_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG108_DOMAIN*>(0x40CC6D84); }
+  static inline volatile LPCG108_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG108_DOMAIN*>(0x40CC6D84); }
 };
 
 // LPCG working status
@@ -65074,7 +65074,7 @@ union LPCG108_STATUS0 {
 
   LPCG108_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG108_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG108_STATUS0*>(0x40CC6D90); }
+  static inline volatile LPCG108_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG108_STATUS0*>(0x40CC6D90); }
 };
 
 // LPCG low power status
@@ -65270,7 +65270,7 @@ union LPCG108_STATUS1 {
 
   LPCG108_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG108_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG108_STATUS1*>(0x40CC6D94); }
+  static inline volatile LPCG108_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG108_STATUS1*>(0x40CC6D94); }
 };
 
 // LPCG configuration
@@ -65297,7 +65297,7 @@ union LPCG108_CONFIG {
 
   LPCG108_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG108_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG108_CONFIG*>(0x40CC6D98); }
+  static inline volatile LPCG108_CONFIG &ref() { return *reinterpret_cast<volatile LPCG108_CONFIG*>(0x40CC6D98); }
 };
 
 // LPCG access control
@@ -65399,7 +65399,7 @@ union LPCG108_AUTHEN {
 
   LPCG108_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG108_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG108_AUTHEN*>(0x40CC6D9C); }
+  static inline volatile LPCG108_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG108_AUTHEN*>(0x40CC6D9C); }
 };
 
 // LPCG direct control
@@ -65425,7 +65425,7 @@ union LPCG109_DIRECT {
 
   LPCG109_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG109_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG109_DIRECT*>(0x40CC6DA0); }
+  static inline volatile LPCG109_DIRECT &ref() { return *reinterpret_cast<volatile LPCG109_DIRECT*>(0x40CC6DA0); }
 };
 
 // LPCG domain control
@@ -65525,7 +65525,7 @@ union LPCG109_DOMAIN {
 
   LPCG109_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG109_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG109_DOMAIN*>(0x40CC6DA4); }
+  static inline volatile LPCG109_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG109_DOMAIN*>(0x40CC6DA4); }
 };
 
 // LPCG working status
@@ -65628,7 +65628,7 @@ union LPCG109_STATUS0 {
 
   LPCG109_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG109_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG109_STATUS0*>(0x40CC6DB0); }
+  static inline volatile LPCG109_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG109_STATUS0*>(0x40CC6DB0); }
 };
 
 // LPCG low power status
@@ -65824,7 +65824,7 @@ union LPCG109_STATUS1 {
 
   LPCG109_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG109_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG109_STATUS1*>(0x40CC6DB4); }
+  static inline volatile LPCG109_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG109_STATUS1*>(0x40CC6DB4); }
 };
 
 // LPCG configuration
@@ -65851,7 +65851,7 @@ union LPCG109_CONFIG {
 
   LPCG109_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG109_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG109_CONFIG*>(0x40CC6DB8); }
+  static inline volatile LPCG109_CONFIG &ref() { return *reinterpret_cast<volatile LPCG109_CONFIG*>(0x40CC6DB8); }
 };
 
 // LPCG access control
@@ -65953,7 +65953,7 @@ union LPCG109_AUTHEN {
 
   LPCG109_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG109_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG109_AUTHEN*>(0x40CC6DBC); }
+  static inline volatile LPCG109_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG109_AUTHEN*>(0x40CC6DBC); }
 };
 
 // LPCG direct control
@@ -65979,7 +65979,7 @@ union LPCG110_DIRECT {
 
   LPCG110_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG110_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG110_DIRECT*>(0x40CC6DC0); }
+  static inline volatile LPCG110_DIRECT &ref() { return *reinterpret_cast<volatile LPCG110_DIRECT*>(0x40CC6DC0); }
 };
 
 // LPCG domain control
@@ -66079,7 +66079,7 @@ union LPCG110_DOMAIN {
 
   LPCG110_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG110_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG110_DOMAIN*>(0x40CC6DC4); }
+  static inline volatile LPCG110_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG110_DOMAIN*>(0x40CC6DC4); }
 };
 
 // LPCG working status
@@ -66182,7 +66182,7 @@ union LPCG110_STATUS0 {
 
   LPCG110_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG110_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG110_STATUS0*>(0x40CC6DD0); }
+  static inline volatile LPCG110_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG110_STATUS0*>(0x40CC6DD0); }
 };
 
 // LPCG low power status
@@ -66378,7 +66378,7 @@ union LPCG110_STATUS1 {
 
   LPCG110_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG110_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG110_STATUS1*>(0x40CC6DD4); }
+  static inline volatile LPCG110_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG110_STATUS1*>(0x40CC6DD4); }
 };
 
 // LPCG configuration
@@ -66405,7 +66405,7 @@ union LPCG110_CONFIG {
 
   LPCG110_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG110_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG110_CONFIG*>(0x40CC6DD8); }
+  static inline volatile LPCG110_CONFIG &ref() { return *reinterpret_cast<volatile LPCG110_CONFIG*>(0x40CC6DD8); }
 };
 
 // LPCG access control
@@ -66507,7 +66507,7 @@ union LPCG110_AUTHEN {
 
   LPCG110_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG110_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG110_AUTHEN*>(0x40CC6DDC); }
+  static inline volatile LPCG110_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG110_AUTHEN*>(0x40CC6DDC); }
 };
 
 // LPCG direct control
@@ -66533,7 +66533,7 @@ union LPCG111_DIRECT {
 
   LPCG111_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG111_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG111_DIRECT*>(0x40CC6DE0); }
+  static inline volatile LPCG111_DIRECT &ref() { return *reinterpret_cast<volatile LPCG111_DIRECT*>(0x40CC6DE0); }
 };
 
 // LPCG domain control
@@ -66633,7 +66633,7 @@ union LPCG111_DOMAIN {
 
   LPCG111_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG111_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG111_DOMAIN*>(0x40CC6DE4); }
+  static inline volatile LPCG111_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG111_DOMAIN*>(0x40CC6DE4); }
 };
 
 // LPCG working status
@@ -66736,7 +66736,7 @@ union LPCG111_STATUS0 {
 
   LPCG111_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG111_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG111_STATUS0*>(0x40CC6DF0); }
+  static inline volatile LPCG111_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG111_STATUS0*>(0x40CC6DF0); }
 };
 
 // LPCG low power status
@@ -66932,7 +66932,7 @@ union LPCG111_STATUS1 {
 
   LPCG111_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG111_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG111_STATUS1*>(0x40CC6DF4); }
+  static inline volatile LPCG111_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG111_STATUS1*>(0x40CC6DF4); }
 };
 
 // LPCG configuration
@@ -66959,7 +66959,7 @@ union LPCG111_CONFIG {
 
   LPCG111_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG111_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG111_CONFIG*>(0x40CC6DF8); }
+  static inline volatile LPCG111_CONFIG &ref() { return *reinterpret_cast<volatile LPCG111_CONFIG*>(0x40CC6DF8); }
 };
 
 // LPCG access control
@@ -67061,7 +67061,7 @@ union LPCG111_AUTHEN {
 
   LPCG111_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG111_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG111_AUTHEN*>(0x40CC6DFC); }
+  static inline volatile LPCG111_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG111_AUTHEN*>(0x40CC6DFC); }
 };
 
 // LPCG direct control
@@ -67087,7 +67087,7 @@ union LPCG112_DIRECT {
 
   LPCG112_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG112_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG112_DIRECT*>(0x40CC6E00); }
+  static inline volatile LPCG112_DIRECT &ref() { return *reinterpret_cast<volatile LPCG112_DIRECT*>(0x40CC6E00); }
 };
 
 // LPCG domain control
@@ -67187,7 +67187,7 @@ union LPCG112_DOMAIN {
 
   LPCG112_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG112_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG112_DOMAIN*>(0x40CC6E04); }
+  static inline volatile LPCG112_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG112_DOMAIN*>(0x40CC6E04); }
 };
 
 // LPCG working status
@@ -67290,7 +67290,7 @@ union LPCG112_STATUS0 {
 
   LPCG112_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG112_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG112_STATUS0*>(0x40CC6E10); }
+  static inline volatile LPCG112_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG112_STATUS0*>(0x40CC6E10); }
 };
 
 // LPCG low power status
@@ -67486,7 +67486,7 @@ union LPCG112_STATUS1 {
 
   LPCG112_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG112_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG112_STATUS1*>(0x40CC6E14); }
+  static inline volatile LPCG112_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG112_STATUS1*>(0x40CC6E14); }
 };
 
 // LPCG configuration
@@ -67513,7 +67513,7 @@ union LPCG112_CONFIG {
 
   LPCG112_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG112_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG112_CONFIG*>(0x40CC6E18); }
+  static inline volatile LPCG112_CONFIG &ref() { return *reinterpret_cast<volatile LPCG112_CONFIG*>(0x40CC6E18); }
 };
 
 // LPCG access control
@@ -67615,7 +67615,7 @@ union LPCG112_AUTHEN {
 
   LPCG112_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG112_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG112_AUTHEN*>(0x40CC6E1C); }
+  static inline volatile LPCG112_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG112_AUTHEN*>(0x40CC6E1C); }
 };
 
 // LPCG direct control
@@ -67641,7 +67641,7 @@ union LPCG113_DIRECT {
 
   LPCG113_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG113_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG113_DIRECT*>(0x40CC6E20); }
+  static inline volatile LPCG113_DIRECT &ref() { return *reinterpret_cast<volatile LPCG113_DIRECT*>(0x40CC6E20); }
 };
 
 // LPCG domain control
@@ -67741,7 +67741,7 @@ union LPCG113_DOMAIN {
 
   LPCG113_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG113_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG113_DOMAIN*>(0x40CC6E24); }
+  static inline volatile LPCG113_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG113_DOMAIN*>(0x40CC6E24); }
 };
 
 // LPCG working status
@@ -67844,7 +67844,7 @@ union LPCG113_STATUS0 {
 
   LPCG113_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG113_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG113_STATUS0*>(0x40CC6E30); }
+  static inline volatile LPCG113_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG113_STATUS0*>(0x40CC6E30); }
 };
 
 // LPCG low power status
@@ -68040,7 +68040,7 @@ union LPCG113_STATUS1 {
 
   LPCG113_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG113_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG113_STATUS1*>(0x40CC6E34); }
+  static inline volatile LPCG113_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG113_STATUS1*>(0x40CC6E34); }
 };
 
 // LPCG configuration
@@ -68067,7 +68067,7 @@ union LPCG113_CONFIG {
 
   LPCG113_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG113_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG113_CONFIG*>(0x40CC6E38); }
+  static inline volatile LPCG113_CONFIG &ref() { return *reinterpret_cast<volatile LPCG113_CONFIG*>(0x40CC6E38); }
 };
 
 // LPCG access control
@@ -68169,7 +68169,7 @@ union LPCG113_AUTHEN {
 
   LPCG113_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG113_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG113_AUTHEN*>(0x40CC6E3C); }
+  static inline volatile LPCG113_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG113_AUTHEN*>(0x40CC6E3C); }
 };
 
 // LPCG direct control
@@ -68195,7 +68195,7 @@ union LPCG114_DIRECT {
 
   LPCG114_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG114_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG114_DIRECT*>(0x40CC6E40); }
+  static inline volatile LPCG114_DIRECT &ref() { return *reinterpret_cast<volatile LPCG114_DIRECT*>(0x40CC6E40); }
 };
 
 // LPCG domain control
@@ -68295,7 +68295,7 @@ union LPCG114_DOMAIN {
 
   LPCG114_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG114_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG114_DOMAIN*>(0x40CC6E44); }
+  static inline volatile LPCG114_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG114_DOMAIN*>(0x40CC6E44); }
 };
 
 // LPCG working status
@@ -68398,7 +68398,7 @@ union LPCG114_STATUS0 {
 
   LPCG114_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG114_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG114_STATUS0*>(0x40CC6E50); }
+  static inline volatile LPCG114_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG114_STATUS0*>(0x40CC6E50); }
 };
 
 // LPCG low power status
@@ -68594,7 +68594,7 @@ union LPCG114_STATUS1 {
 
   LPCG114_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG114_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG114_STATUS1*>(0x40CC6E54); }
+  static inline volatile LPCG114_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG114_STATUS1*>(0x40CC6E54); }
 };
 
 // LPCG configuration
@@ -68621,7 +68621,7 @@ union LPCG114_CONFIG {
 
   LPCG114_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG114_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG114_CONFIG*>(0x40CC6E58); }
+  static inline volatile LPCG114_CONFIG &ref() { return *reinterpret_cast<volatile LPCG114_CONFIG*>(0x40CC6E58); }
 };
 
 // LPCG access control
@@ -68723,7 +68723,7 @@ union LPCG114_AUTHEN {
 
   LPCG114_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG114_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG114_AUTHEN*>(0x40CC6E5C); }
+  static inline volatile LPCG114_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG114_AUTHEN*>(0x40CC6E5C); }
 };
 
 // LPCG direct control
@@ -68749,7 +68749,7 @@ union LPCG115_DIRECT {
 
   LPCG115_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG115_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG115_DIRECT*>(0x40CC6E60); }
+  static inline volatile LPCG115_DIRECT &ref() { return *reinterpret_cast<volatile LPCG115_DIRECT*>(0x40CC6E60); }
 };
 
 // LPCG domain control
@@ -68849,7 +68849,7 @@ union LPCG115_DOMAIN {
 
   LPCG115_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG115_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG115_DOMAIN*>(0x40CC6E64); }
+  static inline volatile LPCG115_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG115_DOMAIN*>(0x40CC6E64); }
 };
 
 // LPCG working status
@@ -68952,7 +68952,7 @@ union LPCG115_STATUS0 {
 
   LPCG115_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG115_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG115_STATUS0*>(0x40CC6E70); }
+  static inline volatile LPCG115_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG115_STATUS0*>(0x40CC6E70); }
 };
 
 // LPCG low power status
@@ -69148,7 +69148,7 @@ union LPCG115_STATUS1 {
 
   LPCG115_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG115_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG115_STATUS1*>(0x40CC6E74); }
+  static inline volatile LPCG115_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG115_STATUS1*>(0x40CC6E74); }
 };
 
 // LPCG configuration
@@ -69175,7 +69175,7 @@ union LPCG115_CONFIG {
 
   LPCG115_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG115_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG115_CONFIG*>(0x40CC6E78); }
+  static inline volatile LPCG115_CONFIG &ref() { return *reinterpret_cast<volatile LPCG115_CONFIG*>(0x40CC6E78); }
 };
 
 // LPCG access control
@@ -69277,7 +69277,7 @@ union LPCG115_AUTHEN {
 
   LPCG115_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG115_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG115_AUTHEN*>(0x40CC6E7C); }
+  static inline volatile LPCG115_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG115_AUTHEN*>(0x40CC6E7C); }
 };
 
 // LPCG direct control
@@ -69303,7 +69303,7 @@ union LPCG116_DIRECT {
 
   LPCG116_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG116_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG116_DIRECT*>(0x40CC6E80); }
+  static inline volatile LPCG116_DIRECT &ref() { return *reinterpret_cast<volatile LPCG116_DIRECT*>(0x40CC6E80); }
 };
 
 // LPCG domain control
@@ -69403,7 +69403,7 @@ union LPCG116_DOMAIN {
 
   LPCG116_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG116_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG116_DOMAIN*>(0x40CC6E84); }
+  static inline volatile LPCG116_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG116_DOMAIN*>(0x40CC6E84); }
 };
 
 // LPCG working status
@@ -69506,7 +69506,7 @@ union LPCG116_STATUS0 {
 
   LPCG116_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG116_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG116_STATUS0*>(0x40CC6E90); }
+  static inline volatile LPCG116_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG116_STATUS0*>(0x40CC6E90); }
 };
 
 // LPCG low power status
@@ -69702,7 +69702,7 @@ union LPCG116_STATUS1 {
 
   LPCG116_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG116_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG116_STATUS1*>(0x40CC6E94); }
+  static inline volatile LPCG116_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG116_STATUS1*>(0x40CC6E94); }
 };
 
 // LPCG configuration
@@ -69729,7 +69729,7 @@ union LPCG116_CONFIG {
 
   LPCG116_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG116_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG116_CONFIG*>(0x40CC6E98); }
+  static inline volatile LPCG116_CONFIG &ref() { return *reinterpret_cast<volatile LPCG116_CONFIG*>(0x40CC6E98); }
 };
 
 // LPCG access control
@@ -69831,7 +69831,7 @@ union LPCG116_AUTHEN {
 
   LPCG116_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG116_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG116_AUTHEN*>(0x40CC6E9C); }
+  static inline volatile LPCG116_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG116_AUTHEN*>(0x40CC6E9C); }
 };
 
 // LPCG direct control
@@ -69857,7 +69857,7 @@ union LPCG117_DIRECT {
 
   LPCG117_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG117_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG117_DIRECT*>(0x40CC6EA0); }
+  static inline volatile LPCG117_DIRECT &ref() { return *reinterpret_cast<volatile LPCG117_DIRECT*>(0x40CC6EA0); }
 };
 
 // LPCG domain control
@@ -69957,7 +69957,7 @@ union LPCG117_DOMAIN {
 
   LPCG117_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG117_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG117_DOMAIN*>(0x40CC6EA4); }
+  static inline volatile LPCG117_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG117_DOMAIN*>(0x40CC6EA4); }
 };
 
 // LPCG working status
@@ -70060,7 +70060,7 @@ union LPCG117_STATUS0 {
 
   LPCG117_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG117_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG117_STATUS0*>(0x40CC6EB0); }
+  static inline volatile LPCG117_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG117_STATUS0*>(0x40CC6EB0); }
 };
 
 // LPCG low power status
@@ -70256,7 +70256,7 @@ union LPCG117_STATUS1 {
 
   LPCG117_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG117_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG117_STATUS1*>(0x40CC6EB4); }
+  static inline volatile LPCG117_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG117_STATUS1*>(0x40CC6EB4); }
 };
 
 // LPCG configuration
@@ -70283,7 +70283,7 @@ union LPCG117_CONFIG {
 
   LPCG117_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG117_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG117_CONFIG*>(0x40CC6EB8); }
+  static inline volatile LPCG117_CONFIG &ref() { return *reinterpret_cast<volatile LPCG117_CONFIG*>(0x40CC6EB8); }
 };
 
 // LPCG access control
@@ -70385,7 +70385,7 @@ union LPCG117_AUTHEN {
 
   LPCG117_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG117_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG117_AUTHEN*>(0x40CC6EBC); }
+  static inline volatile LPCG117_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG117_AUTHEN*>(0x40CC6EBC); }
 };
 
 // LPCG direct control
@@ -70411,7 +70411,7 @@ union LPCG118_DIRECT {
 
   LPCG118_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG118_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG118_DIRECT*>(0x40CC6EC0); }
+  static inline volatile LPCG118_DIRECT &ref() { return *reinterpret_cast<volatile LPCG118_DIRECT*>(0x40CC6EC0); }
 };
 
 // LPCG domain control
@@ -70511,7 +70511,7 @@ union LPCG118_DOMAIN {
 
   LPCG118_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG118_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG118_DOMAIN*>(0x40CC6EC4); }
+  static inline volatile LPCG118_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG118_DOMAIN*>(0x40CC6EC4); }
 };
 
 // LPCG working status
@@ -70614,7 +70614,7 @@ union LPCG118_STATUS0 {
 
   LPCG118_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG118_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG118_STATUS0*>(0x40CC6ED0); }
+  static inline volatile LPCG118_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG118_STATUS0*>(0x40CC6ED0); }
 };
 
 // LPCG low power status
@@ -70810,7 +70810,7 @@ union LPCG118_STATUS1 {
 
   LPCG118_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG118_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG118_STATUS1*>(0x40CC6ED4); }
+  static inline volatile LPCG118_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG118_STATUS1*>(0x40CC6ED4); }
 };
 
 // LPCG configuration
@@ -70837,7 +70837,7 @@ union LPCG118_CONFIG {
 
   LPCG118_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG118_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG118_CONFIG*>(0x40CC6ED8); }
+  static inline volatile LPCG118_CONFIG &ref() { return *reinterpret_cast<volatile LPCG118_CONFIG*>(0x40CC6ED8); }
 };
 
 // LPCG access control
@@ -70939,7 +70939,7 @@ union LPCG118_AUTHEN {
 
   LPCG118_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG118_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG118_AUTHEN*>(0x40CC6EDC); }
+  static inline volatile LPCG118_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG118_AUTHEN*>(0x40CC6EDC); }
 };
 
 // LPCG direct control
@@ -70965,7 +70965,7 @@ union LPCG119_DIRECT {
 
   LPCG119_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG119_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG119_DIRECT*>(0x40CC6EE0); }
+  static inline volatile LPCG119_DIRECT &ref() { return *reinterpret_cast<volatile LPCG119_DIRECT*>(0x40CC6EE0); }
 };
 
 // LPCG domain control
@@ -71065,7 +71065,7 @@ union LPCG119_DOMAIN {
 
   LPCG119_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG119_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG119_DOMAIN*>(0x40CC6EE4); }
+  static inline volatile LPCG119_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG119_DOMAIN*>(0x40CC6EE4); }
 };
 
 // LPCG working status
@@ -71168,7 +71168,7 @@ union LPCG119_STATUS0 {
 
   LPCG119_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG119_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG119_STATUS0*>(0x40CC6EF0); }
+  static inline volatile LPCG119_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG119_STATUS0*>(0x40CC6EF0); }
 };
 
 // LPCG low power status
@@ -71364,7 +71364,7 @@ union LPCG119_STATUS1 {
 
   LPCG119_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG119_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG119_STATUS1*>(0x40CC6EF4); }
+  static inline volatile LPCG119_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG119_STATUS1*>(0x40CC6EF4); }
 };
 
 // LPCG configuration
@@ -71391,7 +71391,7 @@ union LPCG119_CONFIG {
 
   LPCG119_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG119_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG119_CONFIG*>(0x40CC6EF8); }
+  static inline volatile LPCG119_CONFIG &ref() { return *reinterpret_cast<volatile LPCG119_CONFIG*>(0x40CC6EF8); }
 };
 
 // LPCG access control
@@ -71493,7 +71493,7 @@ union LPCG119_AUTHEN {
 
   LPCG119_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG119_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG119_AUTHEN*>(0x40CC6EFC); }
+  static inline volatile LPCG119_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG119_AUTHEN*>(0x40CC6EFC); }
 };
 
 // LPCG direct control
@@ -71519,7 +71519,7 @@ union LPCG120_DIRECT {
 
   LPCG120_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG120_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG120_DIRECT*>(0x40CC6F00); }
+  static inline volatile LPCG120_DIRECT &ref() { return *reinterpret_cast<volatile LPCG120_DIRECT*>(0x40CC6F00); }
 };
 
 // LPCG domain control
@@ -71619,7 +71619,7 @@ union LPCG120_DOMAIN {
 
   LPCG120_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG120_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG120_DOMAIN*>(0x40CC6F04); }
+  static inline volatile LPCG120_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG120_DOMAIN*>(0x40CC6F04); }
 };
 
 // LPCG working status
@@ -71722,7 +71722,7 @@ union LPCG120_STATUS0 {
 
   LPCG120_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG120_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG120_STATUS0*>(0x40CC6F10); }
+  static inline volatile LPCG120_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG120_STATUS0*>(0x40CC6F10); }
 };
 
 // LPCG low power status
@@ -71918,7 +71918,7 @@ union LPCG120_STATUS1 {
 
   LPCG120_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG120_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG120_STATUS1*>(0x40CC6F14); }
+  static inline volatile LPCG120_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG120_STATUS1*>(0x40CC6F14); }
 };
 
 // LPCG configuration
@@ -71945,7 +71945,7 @@ union LPCG120_CONFIG {
 
   LPCG120_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG120_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG120_CONFIG*>(0x40CC6F18); }
+  static inline volatile LPCG120_CONFIG &ref() { return *reinterpret_cast<volatile LPCG120_CONFIG*>(0x40CC6F18); }
 };
 
 // LPCG access control
@@ -72047,7 +72047,7 @@ union LPCG120_AUTHEN {
 
   LPCG120_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG120_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG120_AUTHEN*>(0x40CC6F1C); }
+  static inline volatile LPCG120_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG120_AUTHEN*>(0x40CC6F1C); }
 };
 
 // LPCG direct control
@@ -72073,7 +72073,7 @@ union LPCG121_DIRECT {
 
   LPCG121_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG121_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG121_DIRECT*>(0x40CC6F20); }
+  static inline volatile LPCG121_DIRECT &ref() { return *reinterpret_cast<volatile LPCG121_DIRECT*>(0x40CC6F20); }
 };
 
 // LPCG domain control
@@ -72173,7 +72173,7 @@ union LPCG121_DOMAIN {
 
   LPCG121_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG121_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG121_DOMAIN*>(0x40CC6F24); }
+  static inline volatile LPCG121_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG121_DOMAIN*>(0x40CC6F24); }
 };
 
 // LPCG working status
@@ -72276,7 +72276,7 @@ union LPCG121_STATUS0 {
 
   LPCG121_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG121_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG121_STATUS0*>(0x40CC6F30); }
+  static inline volatile LPCG121_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG121_STATUS0*>(0x40CC6F30); }
 };
 
 // LPCG low power status
@@ -72472,7 +72472,7 @@ union LPCG121_STATUS1 {
 
   LPCG121_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG121_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG121_STATUS1*>(0x40CC6F34); }
+  static inline volatile LPCG121_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG121_STATUS1*>(0x40CC6F34); }
 };
 
 // LPCG configuration
@@ -72499,7 +72499,7 @@ union LPCG121_CONFIG {
 
   LPCG121_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG121_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG121_CONFIG*>(0x40CC6F38); }
+  static inline volatile LPCG121_CONFIG &ref() { return *reinterpret_cast<volatile LPCG121_CONFIG*>(0x40CC6F38); }
 };
 
 // LPCG access control
@@ -72601,7 +72601,7 @@ union LPCG121_AUTHEN {
 
   LPCG121_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG121_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG121_AUTHEN*>(0x40CC6F3C); }
+  static inline volatile LPCG121_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG121_AUTHEN*>(0x40CC6F3C); }
 };
 
 // LPCG direct control
@@ -72627,7 +72627,7 @@ union LPCG122_DIRECT {
 
   LPCG122_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG122_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG122_DIRECT*>(0x40CC6F40); }
+  static inline volatile LPCG122_DIRECT &ref() { return *reinterpret_cast<volatile LPCG122_DIRECT*>(0x40CC6F40); }
 };
 
 // LPCG domain control
@@ -72727,7 +72727,7 @@ union LPCG122_DOMAIN {
 
   LPCG122_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG122_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG122_DOMAIN*>(0x40CC6F44); }
+  static inline volatile LPCG122_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG122_DOMAIN*>(0x40CC6F44); }
 };
 
 // LPCG working status
@@ -72830,7 +72830,7 @@ union LPCG122_STATUS0 {
 
   LPCG122_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG122_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG122_STATUS0*>(0x40CC6F50); }
+  static inline volatile LPCG122_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG122_STATUS0*>(0x40CC6F50); }
 };
 
 // LPCG low power status
@@ -73026,7 +73026,7 @@ union LPCG122_STATUS1 {
 
   LPCG122_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG122_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG122_STATUS1*>(0x40CC6F54); }
+  static inline volatile LPCG122_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG122_STATUS1*>(0x40CC6F54); }
 };
 
 // LPCG configuration
@@ -73053,7 +73053,7 @@ union LPCG122_CONFIG {
 
   LPCG122_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG122_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG122_CONFIG*>(0x40CC6F58); }
+  static inline volatile LPCG122_CONFIG &ref() { return *reinterpret_cast<volatile LPCG122_CONFIG*>(0x40CC6F58); }
 };
 
 // LPCG access control
@@ -73155,7 +73155,7 @@ union LPCG122_AUTHEN {
 
   LPCG122_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG122_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG122_AUTHEN*>(0x40CC6F5C); }
+  static inline volatile LPCG122_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG122_AUTHEN*>(0x40CC6F5C); }
 };
 
 // LPCG direct control
@@ -73181,7 +73181,7 @@ union LPCG123_DIRECT {
 
   LPCG123_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG123_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG123_DIRECT*>(0x40CC6F60); }
+  static inline volatile LPCG123_DIRECT &ref() { return *reinterpret_cast<volatile LPCG123_DIRECT*>(0x40CC6F60); }
 };
 
 // LPCG domain control
@@ -73281,7 +73281,7 @@ union LPCG123_DOMAIN {
 
   LPCG123_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG123_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG123_DOMAIN*>(0x40CC6F64); }
+  static inline volatile LPCG123_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG123_DOMAIN*>(0x40CC6F64); }
 };
 
 // LPCG working status
@@ -73384,7 +73384,7 @@ union LPCG123_STATUS0 {
 
   LPCG123_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG123_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG123_STATUS0*>(0x40CC6F70); }
+  static inline volatile LPCG123_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG123_STATUS0*>(0x40CC6F70); }
 };
 
 // LPCG low power status
@@ -73580,7 +73580,7 @@ union LPCG123_STATUS1 {
 
   LPCG123_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG123_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG123_STATUS1*>(0x40CC6F74); }
+  static inline volatile LPCG123_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG123_STATUS1*>(0x40CC6F74); }
 };
 
 // LPCG configuration
@@ -73607,7 +73607,7 @@ union LPCG123_CONFIG {
 
   LPCG123_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG123_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG123_CONFIG*>(0x40CC6F78); }
+  static inline volatile LPCG123_CONFIG &ref() { return *reinterpret_cast<volatile LPCG123_CONFIG*>(0x40CC6F78); }
 };
 
 // LPCG access control
@@ -73709,7 +73709,7 @@ union LPCG123_AUTHEN {
 
   LPCG123_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG123_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG123_AUTHEN*>(0x40CC6F7C); }
+  static inline volatile LPCG123_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG123_AUTHEN*>(0x40CC6F7C); }
 };
 
 // LPCG direct control
@@ -73735,7 +73735,7 @@ union LPCG124_DIRECT {
 
   LPCG124_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG124_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG124_DIRECT*>(0x40CC6F80); }
+  static inline volatile LPCG124_DIRECT &ref() { return *reinterpret_cast<volatile LPCG124_DIRECT*>(0x40CC6F80); }
 };
 
 // LPCG domain control
@@ -73835,7 +73835,7 @@ union LPCG124_DOMAIN {
 
   LPCG124_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG124_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG124_DOMAIN*>(0x40CC6F84); }
+  static inline volatile LPCG124_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG124_DOMAIN*>(0x40CC6F84); }
 };
 
 // LPCG working status
@@ -73938,7 +73938,7 @@ union LPCG124_STATUS0 {
 
   LPCG124_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG124_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG124_STATUS0*>(0x40CC6F90); }
+  static inline volatile LPCG124_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG124_STATUS0*>(0x40CC6F90); }
 };
 
 // LPCG low power status
@@ -74134,7 +74134,7 @@ union LPCG124_STATUS1 {
 
   LPCG124_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG124_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG124_STATUS1*>(0x40CC6F94); }
+  static inline volatile LPCG124_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG124_STATUS1*>(0x40CC6F94); }
 };
 
 // LPCG configuration
@@ -74161,7 +74161,7 @@ union LPCG124_CONFIG {
 
   LPCG124_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG124_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG124_CONFIG*>(0x40CC6F98); }
+  static inline volatile LPCG124_CONFIG &ref() { return *reinterpret_cast<volatile LPCG124_CONFIG*>(0x40CC6F98); }
 };
 
 // LPCG access control
@@ -74263,7 +74263,7 @@ union LPCG124_AUTHEN {
 
   LPCG124_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG124_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG124_AUTHEN*>(0x40CC6F9C); }
+  static inline volatile LPCG124_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG124_AUTHEN*>(0x40CC6F9C); }
 };
 
 // LPCG direct control
@@ -74289,7 +74289,7 @@ union LPCG125_DIRECT {
 
   LPCG125_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG125_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG125_DIRECT*>(0x40CC6FA0); }
+  static inline volatile LPCG125_DIRECT &ref() { return *reinterpret_cast<volatile LPCG125_DIRECT*>(0x40CC6FA0); }
 };
 
 // LPCG domain control
@@ -74389,7 +74389,7 @@ union LPCG125_DOMAIN {
 
   LPCG125_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG125_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG125_DOMAIN*>(0x40CC6FA4); }
+  static inline volatile LPCG125_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG125_DOMAIN*>(0x40CC6FA4); }
 };
 
 // LPCG working status
@@ -74492,7 +74492,7 @@ union LPCG125_STATUS0 {
 
   LPCG125_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG125_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG125_STATUS0*>(0x40CC6FB0); }
+  static inline volatile LPCG125_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG125_STATUS0*>(0x40CC6FB0); }
 };
 
 // LPCG low power status
@@ -74688,7 +74688,7 @@ union LPCG125_STATUS1 {
 
   LPCG125_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG125_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG125_STATUS1*>(0x40CC6FB4); }
+  static inline volatile LPCG125_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG125_STATUS1*>(0x40CC6FB4); }
 };
 
 // LPCG configuration
@@ -74715,7 +74715,7 @@ union LPCG125_CONFIG {
 
   LPCG125_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG125_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG125_CONFIG*>(0x40CC6FB8); }
+  static inline volatile LPCG125_CONFIG &ref() { return *reinterpret_cast<volatile LPCG125_CONFIG*>(0x40CC6FB8); }
 };
 
 // LPCG access control
@@ -74817,7 +74817,7 @@ union LPCG125_AUTHEN {
 
   LPCG125_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG125_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG125_AUTHEN*>(0x40CC6FBC); }
+  static inline volatile LPCG125_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG125_AUTHEN*>(0x40CC6FBC); }
 };
 
 // LPCG direct control
@@ -74843,7 +74843,7 @@ union LPCG126_DIRECT {
 
   LPCG126_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG126_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG126_DIRECT*>(0x40CC6FC0); }
+  static inline volatile LPCG126_DIRECT &ref() { return *reinterpret_cast<volatile LPCG126_DIRECT*>(0x40CC6FC0); }
 };
 
 // LPCG domain control
@@ -74943,7 +74943,7 @@ union LPCG126_DOMAIN {
 
   LPCG126_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG126_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG126_DOMAIN*>(0x40CC6FC4); }
+  static inline volatile LPCG126_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG126_DOMAIN*>(0x40CC6FC4); }
 };
 
 // LPCG working status
@@ -75046,7 +75046,7 @@ union LPCG126_STATUS0 {
 
   LPCG126_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG126_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG126_STATUS0*>(0x40CC6FD0); }
+  static inline volatile LPCG126_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG126_STATUS0*>(0x40CC6FD0); }
 };
 
 // LPCG low power status
@@ -75242,7 +75242,7 @@ union LPCG126_STATUS1 {
 
   LPCG126_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG126_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG126_STATUS1*>(0x40CC6FD4); }
+  static inline volatile LPCG126_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG126_STATUS1*>(0x40CC6FD4); }
 };
 
 // LPCG configuration
@@ -75269,7 +75269,7 @@ union LPCG126_CONFIG {
 
   LPCG126_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG126_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG126_CONFIG*>(0x40CC6FD8); }
+  static inline volatile LPCG126_CONFIG &ref() { return *reinterpret_cast<volatile LPCG126_CONFIG*>(0x40CC6FD8); }
 };
 
 // LPCG access control
@@ -75371,7 +75371,7 @@ union LPCG126_AUTHEN {
 
   LPCG126_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG126_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG126_AUTHEN*>(0x40CC6FDC); }
+  static inline volatile LPCG126_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG126_AUTHEN*>(0x40CC6FDC); }
 };
 
 // LPCG direct control
@@ -75397,7 +75397,7 @@ union LPCG127_DIRECT {
 
   LPCG127_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG127_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG127_DIRECT*>(0x40CC6FE0); }
+  static inline volatile LPCG127_DIRECT &ref() { return *reinterpret_cast<volatile LPCG127_DIRECT*>(0x40CC6FE0); }
 };
 
 // LPCG domain control
@@ -75497,7 +75497,7 @@ union LPCG127_DOMAIN {
 
   LPCG127_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG127_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG127_DOMAIN*>(0x40CC6FE4); }
+  static inline volatile LPCG127_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG127_DOMAIN*>(0x40CC6FE4); }
 };
 
 // LPCG working status
@@ -75600,7 +75600,7 @@ union LPCG127_STATUS0 {
 
   LPCG127_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG127_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG127_STATUS0*>(0x40CC6FF0); }
+  static inline volatile LPCG127_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG127_STATUS0*>(0x40CC6FF0); }
 };
 
 // LPCG low power status
@@ -75796,7 +75796,7 @@ union LPCG127_STATUS1 {
 
   LPCG127_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG127_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG127_STATUS1*>(0x40CC6FF4); }
+  static inline volatile LPCG127_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG127_STATUS1*>(0x40CC6FF4); }
 };
 
 // LPCG configuration
@@ -75823,7 +75823,7 @@ union LPCG127_CONFIG {
 
   LPCG127_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG127_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG127_CONFIG*>(0x40CC6FF8); }
+  static inline volatile LPCG127_CONFIG &ref() { return *reinterpret_cast<volatile LPCG127_CONFIG*>(0x40CC6FF8); }
 };
 
 // LPCG access control
@@ -75925,7 +75925,7 @@ union LPCG127_AUTHEN {
 
   LPCG127_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG127_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG127_AUTHEN*>(0x40CC6FFC); }
+  static inline volatile LPCG127_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG127_AUTHEN*>(0x40CC6FFC); }
 };
 
 // LPCG direct control
@@ -75951,7 +75951,7 @@ union LPCG128_DIRECT {
 
   LPCG128_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG128_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG128_DIRECT*>(0x40CC7000); }
+  static inline volatile LPCG128_DIRECT &ref() { return *reinterpret_cast<volatile LPCG128_DIRECT*>(0x40CC7000); }
 };
 
 // LPCG domain control
@@ -76051,7 +76051,7 @@ union LPCG128_DOMAIN {
 
   LPCG128_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG128_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG128_DOMAIN*>(0x40CC7004); }
+  static inline volatile LPCG128_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG128_DOMAIN*>(0x40CC7004); }
 };
 
 // LPCG working status
@@ -76154,7 +76154,7 @@ union LPCG128_STATUS0 {
 
   LPCG128_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG128_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG128_STATUS0*>(0x40CC7010); }
+  static inline volatile LPCG128_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG128_STATUS0*>(0x40CC7010); }
 };
 
 // LPCG low power status
@@ -76350,7 +76350,7 @@ union LPCG128_STATUS1 {
 
   LPCG128_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG128_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG128_STATUS1*>(0x40CC7014); }
+  static inline volatile LPCG128_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG128_STATUS1*>(0x40CC7014); }
 };
 
 // LPCG configuration
@@ -76377,7 +76377,7 @@ union LPCG128_CONFIG {
 
   LPCG128_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG128_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG128_CONFIG*>(0x40CC7018); }
+  static inline volatile LPCG128_CONFIG &ref() { return *reinterpret_cast<volatile LPCG128_CONFIG*>(0x40CC7018); }
 };
 
 // LPCG access control
@@ -76479,7 +76479,7 @@ union LPCG128_AUTHEN {
 
   LPCG128_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG128_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG128_AUTHEN*>(0x40CC701C); }
+  static inline volatile LPCG128_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG128_AUTHEN*>(0x40CC701C); }
 };
 
 // LPCG direct control
@@ -76505,7 +76505,7 @@ union LPCG129_DIRECT {
 
   LPCG129_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG129_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG129_DIRECT*>(0x40CC7020); }
+  static inline volatile LPCG129_DIRECT &ref() { return *reinterpret_cast<volatile LPCG129_DIRECT*>(0x40CC7020); }
 };
 
 // LPCG domain control
@@ -76605,7 +76605,7 @@ union LPCG129_DOMAIN {
 
   LPCG129_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG129_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG129_DOMAIN*>(0x40CC7024); }
+  static inline volatile LPCG129_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG129_DOMAIN*>(0x40CC7024); }
 };
 
 // LPCG working status
@@ -76708,7 +76708,7 @@ union LPCG129_STATUS0 {
 
   LPCG129_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG129_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG129_STATUS0*>(0x40CC7030); }
+  static inline volatile LPCG129_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG129_STATUS0*>(0x40CC7030); }
 };
 
 // LPCG low power status
@@ -76904,7 +76904,7 @@ union LPCG129_STATUS1 {
 
   LPCG129_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG129_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG129_STATUS1*>(0x40CC7034); }
+  static inline volatile LPCG129_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG129_STATUS1*>(0x40CC7034); }
 };
 
 // LPCG configuration
@@ -76931,7 +76931,7 @@ union LPCG129_CONFIG {
 
   LPCG129_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG129_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG129_CONFIG*>(0x40CC7038); }
+  static inline volatile LPCG129_CONFIG &ref() { return *reinterpret_cast<volatile LPCG129_CONFIG*>(0x40CC7038); }
 };
 
 // LPCG access control
@@ -77033,7 +77033,7 @@ union LPCG129_AUTHEN {
 
   LPCG129_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG129_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG129_AUTHEN*>(0x40CC703C); }
+  static inline volatile LPCG129_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG129_AUTHEN*>(0x40CC703C); }
 };
 
 // LPCG direct control
@@ -77059,7 +77059,7 @@ union LPCG130_DIRECT {
 
   LPCG130_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG130_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG130_DIRECT*>(0x40CC7040); }
+  static inline volatile LPCG130_DIRECT &ref() { return *reinterpret_cast<volatile LPCG130_DIRECT*>(0x40CC7040); }
 };
 
 // LPCG domain control
@@ -77159,7 +77159,7 @@ union LPCG130_DOMAIN {
 
   LPCG130_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG130_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG130_DOMAIN*>(0x40CC7044); }
+  static inline volatile LPCG130_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG130_DOMAIN*>(0x40CC7044); }
 };
 
 // LPCG working status
@@ -77262,7 +77262,7 @@ union LPCG130_STATUS0 {
 
   LPCG130_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG130_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG130_STATUS0*>(0x40CC7050); }
+  static inline volatile LPCG130_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG130_STATUS0*>(0x40CC7050); }
 };
 
 // LPCG low power status
@@ -77458,7 +77458,7 @@ union LPCG130_STATUS1 {
 
   LPCG130_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG130_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG130_STATUS1*>(0x40CC7054); }
+  static inline volatile LPCG130_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG130_STATUS1*>(0x40CC7054); }
 };
 
 // LPCG configuration
@@ -77485,7 +77485,7 @@ union LPCG130_CONFIG {
 
   LPCG130_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG130_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG130_CONFIG*>(0x40CC7058); }
+  static inline volatile LPCG130_CONFIG &ref() { return *reinterpret_cast<volatile LPCG130_CONFIG*>(0x40CC7058); }
 };
 
 // LPCG access control
@@ -77587,7 +77587,7 @@ union LPCG130_AUTHEN {
 
   LPCG130_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG130_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG130_AUTHEN*>(0x40CC705C); }
+  static inline volatile LPCG130_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG130_AUTHEN*>(0x40CC705C); }
 };
 
 // LPCG direct control
@@ -77613,7 +77613,7 @@ union LPCG131_DIRECT {
 
   LPCG131_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG131_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG131_DIRECT*>(0x40CC7060); }
+  static inline volatile LPCG131_DIRECT &ref() { return *reinterpret_cast<volatile LPCG131_DIRECT*>(0x40CC7060); }
 };
 
 // LPCG domain control
@@ -77713,7 +77713,7 @@ union LPCG131_DOMAIN {
 
   LPCG131_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG131_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG131_DOMAIN*>(0x40CC7064); }
+  static inline volatile LPCG131_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG131_DOMAIN*>(0x40CC7064); }
 };
 
 // LPCG working status
@@ -77816,7 +77816,7 @@ union LPCG131_STATUS0 {
 
   LPCG131_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG131_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG131_STATUS0*>(0x40CC7070); }
+  static inline volatile LPCG131_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG131_STATUS0*>(0x40CC7070); }
 };
 
 // LPCG low power status
@@ -78012,7 +78012,7 @@ union LPCG131_STATUS1 {
 
   LPCG131_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG131_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG131_STATUS1*>(0x40CC7074); }
+  static inline volatile LPCG131_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG131_STATUS1*>(0x40CC7074); }
 };
 
 // LPCG configuration
@@ -78039,7 +78039,7 @@ union LPCG131_CONFIG {
 
   LPCG131_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG131_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG131_CONFIG*>(0x40CC7078); }
+  static inline volatile LPCG131_CONFIG &ref() { return *reinterpret_cast<volatile LPCG131_CONFIG*>(0x40CC7078); }
 };
 
 // LPCG access control
@@ -78141,7 +78141,7 @@ union LPCG131_AUTHEN {
 
   LPCG131_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG131_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG131_AUTHEN*>(0x40CC707C); }
+  static inline volatile LPCG131_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG131_AUTHEN*>(0x40CC707C); }
 };
 
 // LPCG direct control
@@ -78167,7 +78167,7 @@ union LPCG132_DIRECT {
 
   LPCG132_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG132_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG132_DIRECT*>(0x40CC7080); }
+  static inline volatile LPCG132_DIRECT &ref() { return *reinterpret_cast<volatile LPCG132_DIRECT*>(0x40CC7080); }
 };
 
 // LPCG domain control
@@ -78267,7 +78267,7 @@ union LPCG132_DOMAIN {
 
   LPCG132_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG132_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG132_DOMAIN*>(0x40CC7084); }
+  static inline volatile LPCG132_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG132_DOMAIN*>(0x40CC7084); }
 };
 
 // LPCG working status
@@ -78370,7 +78370,7 @@ union LPCG132_STATUS0 {
 
   LPCG132_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG132_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG132_STATUS0*>(0x40CC7090); }
+  static inline volatile LPCG132_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG132_STATUS0*>(0x40CC7090); }
 };
 
 // LPCG low power status
@@ -78566,7 +78566,7 @@ union LPCG132_STATUS1 {
 
   LPCG132_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG132_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG132_STATUS1*>(0x40CC7094); }
+  static inline volatile LPCG132_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG132_STATUS1*>(0x40CC7094); }
 };
 
 // LPCG configuration
@@ -78593,7 +78593,7 @@ union LPCG132_CONFIG {
 
   LPCG132_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG132_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG132_CONFIG*>(0x40CC7098); }
+  static inline volatile LPCG132_CONFIG &ref() { return *reinterpret_cast<volatile LPCG132_CONFIG*>(0x40CC7098); }
 };
 
 // LPCG access control
@@ -78695,7 +78695,7 @@ union LPCG132_AUTHEN {
 
   LPCG132_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG132_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG132_AUTHEN*>(0x40CC709C); }
+  static inline volatile LPCG132_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG132_AUTHEN*>(0x40CC709C); }
 };
 
 // LPCG direct control
@@ -78721,7 +78721,7 @@ union LPCG133_DIRECT {
 
   LPCG133_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG133_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG133_DIRECT*>(0x40CC70A0); }
+  static inline volatile LPCG133_DIRECT &ref() { return *reinterpret_cast<volatile LPCG133_DIRECT*>(0x40CC70A0); }
 };
 
 // LPCG domain control
@@ -78821,7 +78821,7 @@ union LPCG133_DOMAIN {
 
   LPCG133_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG133_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG133_DOMAIN*>(0x40CC70A4); }
+  static inline volatile LPCG133_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG133_DOMAIN*>(0x40CC70A4); }
 };
 
 // LPCG working status
@@ -78924,7 +78924,7 @@ union LPCG133_STATUS0 {
 
   LPCG133_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG133_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG133_STATUS0*>(0x40CC70B0); }
+  static inline volatile LPCG133_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG133_STATUS0*>(0x40CC70B0); }
 };
 
 // LPCG low power status
@@ -79120,7 +79120,7 @@ union LPCG133_STATUS1 {
 
   LPCG133_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG133_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG133_STATUS1*>(0x40CC70B4); }
+  static inline volatile LPCG133_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG133_STATUS1*>(0x40CC70B4); }
 };
 
 // LPCG configuration
@@ -79147,7 +79147,7 @@ union LPCG133_CONFIG {
 
   LPCG133_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG133_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG133_CONFIG*>(0x40CC70B8); }
+  static inline volatile LPCG133_CONFIG &ref() { return *reinterpret_cast<volatile LPCG133_CONFIG*>(0x40CC70B8); }
 };
 
 // LPCG access control
@@ -79249,7 +79249,7 @@ union LPCG133_AUTHEN {
 
   LPCG133_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG133_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG133_AUTHEN*>(0x40CC70BC); }
+  static inline volatile LPCG133_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG133_AUTHEN*>(0x40CC70BC); }
 };
 
 // LPCG direct control
@@ -79275,7 +79275,7 @@ union LPCG134_DIRECT {
 
   LPCG134_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG134_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG134_DIRECT*>(0x40CC70C0); }
+  static inline volatile LPCG134_DIRECT &ref() { return *reinterpret_cast<volatile LPCG134_DIRECT*>(0x40CC70C0); }
 };
 
 // LPCG domain control
@@ -79375,7 +79375,7 @@ union LPCG134_DOMAIN {
 
   LPCG134_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG134_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG134_DOMAIN*>(0x40CC70C4); }
+  static inline volatile LPCG134_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG134_DOMAIN*>(0x40CC70C4); }
 };
 
 // LPCG working status
@@ -79478,7 +79478,7 @@ union LPCG134_STATUS0 {
 
   LPCG134_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG134_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG134_STATUS0*>(0x40CC70D0); }
+  static inline volatile LPCG134_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG134_STATUS0*>(0x40CC70D0); }
 };
 
 // LPCG low power status
@@ -79674,7 +79674,7 @@ union LPCG134_STATUS1 {
 
   LPCG134_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG134_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG134_STATUS1*>(0x40CC70D4); }
+  static inline volatile LPCG134_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG134_STATUS1*>(0x40CC70D4); }
 };
 
 // LPCG configuration
@@ -79701,7 +79701,7 @@ union LPCG134_CONFIG {
 
   LPCG134_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG134_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG134_CONFIG*>(0x40CC70D8); }
+  static inline volatile LPCG134_CONFIG &ref() { return *reinterpret_cast<volatile LPCG134_CONFIG*>(0x40CC70D8); }
 };
 
 // LPCG access control
@@ -79803,7 +79803,7 @@ union LPCG134_AUTHEN {
 
   LPCG134_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG134_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG134_AUTHEN*>(0x40CC70DC); }
+  static inline volatile LPCG134_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG134_AUTHEN*>(0x40CC70DC); }
 };
 
 // LPCG direct control
@@ -79829,7 +79829,7 @@ union LPCG135_DIRECT {
 
   LPCG135_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG135_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG135_DIRECT*>(0x40CC70E0); }
+  static inline volatile LPCG135_DIRECT &ref() { return *reinterpret_cast<volatile LPCG135_DIRECT*>(0x40CC70E0); }
 };
 
 // LPCG domain control
@@ -79929,7 +79929,7 @@ union LPCG135_DOMAIN {
 
   LPCG135_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG135_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG135_DOMAIN*>(0x40CC70E4); }
+  static inline volatile LPCG135_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG135_DOMAIN*>(0x40CC70E4); }
 };
 
 // LPCG working status
@@ -80032,7 +80032,7 @@ union LPCG135_STATUS0 {
 
   LPCG135_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG135_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG135_STATUS0*>(0x40CC70F0); }
+  static inline volatile LPCG135_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG135_STATUS0*>(0x40CC70F0); }
 };
 
 // LPCG low power status
@@ -80228,7 +80228,7 @@ union LPCG135_STATUS1 {
 
   LPCG135_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG135_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG135_STATUS1*>(0x40CC70F4); }
+  static inline volatile LPCG135_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG135_STATUS1*>(0x40CC70F4); }
 };
 
 // LPCG configuration
@@ -80255,7 +80255,7 @@ union LPCG135_CONFIG {
 
   LPCG135_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG135_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG135_CONFIG*>(0x40CC70F8); }
+  static inline volatile LPCG135_CONFIG &ref() { return *reinterpret_cast<volatile LPCG135_CONFIG*>(0x40CC70F8); }
 };
 
 // LPCG access control
@@ -80357,7 +80357,7 @@ union LPCG135_AUTHEN {
 
   LPCG135_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG135_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG135_AUTHEN*>(0x40CC70FC); }
+  static inline volatile LPCG135_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG135_AUTHEN*>(0x40CC70FC); }
 };
 
 // LPCG direct control
@@ -80383,7 +80383,7 @@ union LPCG136_DIRECT {
 
   LPCG136_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG136_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG136_DIRECT*>(0x40CC7100); }
+  static inline volatile LPCG136_DIRECT &ref() { return *reinterpret_cast<volatile LPCG136_DIRECT*>(0x40CC7100); }
 };
 
 // LPCG domain control
@@ -80483,7 +80483,7 @@ union LPCG136_DOMAIN {
 
   LPCG136_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG136_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG136_DOMAIN*>(0x40CC7104); }
+  static inline volatile LPCG136_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG136_DOMAIN*>(0x40CC7104); }
 };
 
 // LPCG working status
@@ -80586,7 +80586,7 @@ union LPCG136_STATUS0 {
 
   LPCG136_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG136_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG136_STATUS0*>(0x40CC7110); }
+  static inline volatile LPCG136_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG136_STATUS0*>(0x40CC7110); }
 };
 
 // LPCG low power status
@@ -80782,7 +80782,7 @@ union LPCG136_STATUS1 {
 
   LPCG136_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG136_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG136_STATUS1*>(0x40CC7114); }
+  static inline volatile LPCG136_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG136_STATUS1*>(0x40CC7114); }
 };
 
 // LPCG configuration
@@ -80809,7 +80809,7 @@ union LPCG136_CONFIG {
 
   LPCG136_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG136_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG136_CONFIG*>(0x40CC7118); }
+  static inline volatile LPCG136_CONFIG &ref() { return *reinterpret_cast<volatile LPCG136_CONFIG*>(0x40CC7118); }
 };
 
 // LPCG access control
@@ -80911,7 +80911,7 @@ union LPCG136_AUTHEN {
 
   LPCG136_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG136_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG136_AUTHEN*>(0x40CC711C); }
+  static inline volatile LPCG136_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG136_AUTHEN*>(0x40CC711C); }
 };
 
 // LPCG direct control
@@ -80937,7 +80937,7 @@ union LPCG137_DIRECT {
 
   LPCG137_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LPCG137_DIRECT &Instance() { return *reinterpret_cast<volatile LPCG137_DIRECT*>(0x40CC7120); }
+  static inline volatile LPCG137_DIRECT &ref() { return *reinterpret_cast<volatile LPCG137_DIRECT*>(0x40CC7120); }
 };
 
 // LPCG domain control
@@ -81037,7 +81037,7 @@ union LPCG137_DOMAIN {
 
   LPCG137_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
-  static inline volatile LPCG137_DOMAIN &Instance() { return *reinterpret_cast<volatile LPCG137_DOMAIN*>(0x40CC7124); }
+  static inline volatile LPCG137_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG137_DOMAIN*>(0x40CC7124); }
 };
 
 // LPCG working status
@@ -81140,7 +81140,7 @@ union LPCG137_STATUS0 {
 
   LPCG137_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG137_STATUS0 &Instance() { return *reinterpret_cast<volatile LPCG137_STATUS0*>(0x40CC7130); }
+  static inline volatile LPCG137_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG137_STATUS0*>(0x40CC7130); }
 };
 
 // LPCG low power status
@@ -81336,7 +81336,7 @@ union LPCG137_STATUS1 {
 
   LPCG137_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG137_STATUS1 &Instance() { return *reinterpret_cast<volatile LPCG137_STATUS1*>(0x40CC7134); }
+  static inline volatile LPCG137_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG137_STATUS1*>(0x40CC7134); }
 };
 
 // LPCG configuration
@@ -81363,7 +81363,7 @@ union LPCG137_CONFIG {
 
   LPCG137_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG137_CONFIG &Instance() { return *reinterpret_cast<volatile LPCG137_CONFIG*>(0x40CC7138); }
+  static inline volatile LPCG137_CONFIG &ref() { return *reinterpret_cast<volatile LPCG137_CONFIG*>(0x40CC7138); }
 };
 
 // LPCG access control
@@ -81465,7 +81465,7 @@ union LPCG137_AUTHEN {
 
   LPCG137_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPCG137_AUTHEN &Instance() { return *reinterpret_cast<volatile LPCG137_AUTHEN*>(0x40CC713C); }
+  static inline volatile LPCG137_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG137_AUTHEN*>(0x40CC713C); }
 };
 
 

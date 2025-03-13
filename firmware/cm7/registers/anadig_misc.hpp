@@ -24,7 +24,7 @@ union MISC_DIFPROG {
 
   MISC_DIFPROG() = delete;
   inline void Reset() volatile { this->value = 0x001170B0; }
-  static inline volatile MISC_DIFPROG &Instance() { return *reinterpret_cast<volatile MISC_DIFPROG*>(0x40C84800); }
+  static inline volatile MISC_DIFPROG &ref() { return *reinterpret_cast<volatile MISC_DIFPROG*>(0x40C84800); }
 };
 
 // VDDSOC_AI_CTRL_REGISTER
@@ -45,7 +45,7 @@ union VDDSOC_AI_CTRL {
 
   VDDSOC_AI_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDSOC_AI_CTRL &Instance() { return *reinterpret_cast<volatile VDDSOC_AI_CTRL*>(0x40C84820); }
+  static inline volatile VDDSOC_AI_CTRL &ref() { return *reinterpret_cast<volatile VDDSOC_AI_CTRL*>(0x40C84820); }
 };
 
 // VDDSOC_AI_WDATA_REGISTER
@@ -62,7 +62,7 @@ union VDDSOC_AI_WDATA {
 
   VDDSOC_AI_WDATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDSOC_AI_WDATA &Instance() { return *reinterpret_cast<volatile VDDSOC_AI_WDATA*>(0x40C84830); }
+  static inline volatile VDDSOC_AI_WDATA &ref() { return *reinterpret_cast<volatile VDDSOC_AI_WDATA*>(0x40C84830); }
 };
 
 // VDDSOC_AI_RDATA_REGISTER
@@ -79,7 +79,7 @@ union VDDSOC_AI_RDATA {
 
   VDDSOC_AI_RDATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDSOC_AI_RDATA &Instance() { return *reinterpret_cast<volatile VDDSOC_AI_RDATA*>(0x40C84840); }
+  static inline volatile VDDSOC_AI_RDATA &ref() { return *reinterpret_cast<volatile VDDSOC_AI_RDATA*>(0x40C84840); }
 };
 
 // VDDSOC2PLL_AI_CTRL_1G_REGISTER
@@ -104,7 +104,7 @@ union VDDSOC2PLL_AI_CTRL_1G {
 
   VDDSOC2PLL_AI_CTRL_1G() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDSOC2PLL_AI_CTRL_1G &Instance() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_CTRL_1G*>(0x40C84850); }
+  static inline volatile VDDSOC2PLL_AI_CTRL_1G &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_CTRL_1G*>(0x40C84850); }
 };
 
 // VDDSOC2PLL_AI_WDATA_1G_REGISTER
@@ -121,7 +121,7 @@ union VDDSOC2PLL_AI_WDATA_1G {
 
   VDDSOC2PLL_AI_WDATA_1G() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDSOC2PLL_AI_WDATA_1G &Instance() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_WDATA_1G*>(0x40C84860); }
+  static inline volatile VDDSOC2PLL_AI_WDATA_1G &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_WDATA_1G*>(0x40C84860); }
 };
 
 // VDDSOC2PLL_AI_RDATA_1G_REGISTER
@@ -138,7 +138,7 @@ union VDDSOC2PLL_AI_RDATA_1G {
 
   VDDSOC2PLL_AI_RDATA_1G() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDSOC2PLL_AI_RDATA_1G &Instance() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_RDATA_1G*>(0x40C84870); }
+  static inline volatile VDDSOC2PLL_AI_RDATA_1G &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_RDATA_1G*>(0x40C84870); }
 };
 
 // VDDSOC_AI_CTRL_AUDIO_REGISTER
@@ -163,7 +163,7 @@ union VDDSOC2PLL_AI_CTRL_AUDIO {
 
   VDDSOC2PLL_AI_CTRL_AUDIO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDSOC2PLL_AI_CTRL_AUDIO &Instance() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_CTRL_AUDIO*>(0x40C84880); }
+  static inline volatile VDDSOC2PLL_AI_CTRL_AUDIO &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_CTRL_AUDIO*>(0x40C84880); }
 };
 
 // VDDSOC_AI_WDATA_AUDIO_REGISTER
@@ -180,7 +180,7 @@ union VDDSOC2PLL_AI_WDATA_AUDIO {
 
   VDDSOC2PLL_AI_WDATA_AUDIO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDSOC2PLL_AI_WDATA_AUDIO &Instance() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_WDATA_AUDIO*>(0x40C84890); }
+  static inline volatile VDDSOC2PLL_AI_WDATA_AUDIO &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_WDATA_AUDIO*>(0x40C84890); }
 };
 
 // VDDSOC2PLL_AI_RDATA_REGISTER
@@ -197,7 +197,7 @@ union VDDSOC2PLL_AI_RDATA_AUDIO {
 
   VDDSOC2PLL_AI_RDATA_AUDIO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDSOC2PLL_AI_RDATA_AUDIO &Instance() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_RDATA_AUDIO*>(0x40C848A0); }
+  static inline volatile VDDSOC2PLL_AI_RDATA_AUDIO &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_RDATA_AUDIO*>(0x40C848A0); }
 };
 
 // VDDSOC2PLL_AI_CTRL_VIDEO_REGISTER
@@ -222,7 +222,7 @@ union VDDSOC2PLL_AI_CTRL_VIDEO {
 
   VDDSOC2PLL_AI_CTRL_VIDEO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDSOC2PLL_AI_CTRL_VIDEO &Instance() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_CTRL_VIDEO*>(0x40C848B0); }
+  static inline volatile VDDSOC2PLL_AI_CTRL_VIDEO &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_CTRL_VIDEO*>(0x40C848B0); }
 };
 
 // VDDSOC2PLL_AI_WDATA_VIDEO_REGISTER
@@ -239,7 +239,7 @@ union VDDSOC2PLL_AI_WDATA_VIDEO {
 
   VDDSOC2PLL_AI_WDATA_VIDEO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDSOC2PLL_AI_WDATA_VIDEO &Instance() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_WDATA_VIDEO*>(0x40C848C0); }
+  static inline volatile VDDSOC2PLL_AI_WDATA_VIDEO &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_WDATA_VIDEO*>(0x40C848C0); }
 };
 
 // VDDSOC2PLL_AI_RDATA_VIDEO_REGISTER
@@ -256,7 +256,7 @@ union VDDSOC2PLL_AI_RDATA_VIDEO {
 
   VDDSOC2PLL_AI_RDATA_VIDEO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDSOC2PLL_AI_RDATA_VIDEO &Instance() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_RDATA_VIDEO*>(0x40C848D0); }
+  static inline volatile VDDSOC2PLL_AI_RDATA_VIDEO &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_RDATA_VIDEO*>(0x40C848D0); }
 };
 
 // VDDSOC_AI_CTRL_REGISTER
@@ -277,7 +277,7 @@ union VDDLPSR_AI_CTRL {
 
   VDDLPSR_AI_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDLPSR_AI_CTRL &Instance() { return *reinterpret_cast<volatile VDDLPSR_AI_CTRL*>(0x40C848E0); }
+  static inline volatile VDDLPSR_AI_CTRL &ref() { return *reinterpret_cast<volatile VDDLPSR_AI_CTRL*>(0x40C848E0); }
 };
 
 // VDDLPSR_AI_WDATA_REGISTER
@@ -294,7 +294,7 @@ union VDDLPSR_AI_WDATA {
 
   VDDLPSR_AI_WDATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDLPSR_AI_WDATA &Instance() { return *reinterpret_cast<volatile VDDLPSR_AI_WDATA*>(0x40C848F0); }
+  static inline volatile VDDLPSR_AI_WDATA &ref() { return *reinterpret_cast<volatile VDDLPSR_AI_WDATA*>(0x40C848F0); }
 };
 
 // VDDLPSR_AI_RDATA_REFTOP_REGISTER
@@ -311,7 +311,7 @@ union VDDLPSR_AI_RDATA_REFTOP {
 
   VDDLPSR_AI_RDATA_REFTOP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDLPSR_AI_RDATA_REFTOP &Instance() { return *reinterpret_cast<volatile VDDLPSR_AI_RDATA_REFTOP*>(0x40C84900); }
+  static inline volatile VDDLPSR_AI_RDATA_REFTOP &ref() { return *reinterpret_cast<volatile VDDLPSR_AI_RDATA_REFTOP*>(0x40C84900); }
 };
 
 // VDDLPSR_AI_RDATA_TMPSNS_REGISTER
@@ -328,7 +328,7 @@ union VDDLPSR_AI_RDATA_TMPSNS {
 
   VDDLPSR_AI_RDATA_TMPSNS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDLPSR_AI_RDATA_TMPSNS &Instance() { return *reinterpret_cast<volatile VDDLPSR_AI_RDATA_TMPSNS*>(0x40C84910); }
+  static inline volatile VDDLPSR_AI_RDATA_TMPSNS &ref() { return *reinterpret_cast<volatile VDDLPSR_AI_RDATA_TMPSNS*>(0x40C84910); }
 };
 
 // VDDLPSR_AI400M_CTRL_REGISTER
@@ -353,7 +353,7 @@ union VDDLPSR_AI400M_CTRL {
 
   VDDLPSR_AI400M_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDLPSR_AI400M_CTRL &Instance() { return *reinterpret_cast<volatile VDDLPSR_AI400M_CTRL*>(0x40C84920); }
+  static inline volatile VDDLPSR_AI400M_CTRL &ref() { return *reinterpret_cast<volatile VDDLPSR_AI400M_CTRL*>(0x40C84920); }
 };
 
 // VDDLPSR_AI400M_WDATA_REGISTER
@@ -370,7 +370,7 @@ union VDDLPSR_AI400M_WDATA {
 
   VDDLPSR_AI400M_WDATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDLPSR_AI400M_WDATA &Instance() { return *reinterpret_cast<volatile VDDLPSR_AI400M_WDATA*>(0x40C84930); }
+  static inline volatile VDDLPSR_AI400M_WDATA &ref() { return *reinterpret_cast<volatile VDDLPSR_AI400M_WDATA*>(0x40C84930); }
 };
 
 // VDDLPSR_AI400M_RDATA_REGISTER
@@ -387,7 +387,7 @@ union VDDLPSR_AI400M_RDATA {
 
   VDDLPSR_AI400M_RDATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VDDLPSR_AI400M_RDATA &Instance() { return *reinterpret_cast<volatile VDDLPSR_AI400M_RDATA*>(0x40C84940); }
+  static inline volatile VDDLPSR_AI400M_RDATA &ref() { return *reinterpret_cast<volatile VDDLPSR_AI400M_RDATA*>(0x40C84940); }
 };
 
 

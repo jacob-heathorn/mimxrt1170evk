@@ -114,7 +114,7 @@ union PCCCR {
 
   PCCCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PCCCR &Instance() { return *reinterpret_cast<volatile PCCCR*>(0xE0082000); }
+  static inline volatile PCCCR &ref() { return *reinterpret_cast<volatile PCCCR*>(0xE0082000); }
 };
 
 // PC bus Cache line control register
@@ -206,7 +206,7 @@ union PCCLCR {
 
   PCCLCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PCCLCR &Instance() { return *reinterpret_cast<volatile PCCLCR*>(0xE0082004); }
+  static inline volatile PCCLCR &ref() { return *reinterpret_cast<volatile PCCLCR*>(0xE0082004); }
 };
 
 // PC bus Cache search address register
@@ -233,7 +233,7 @@ union PCCSAR {
 
   PCCSAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PCCSAR &Instance() { return *reinterpret_cast<volatile PCCSAR*>(0xE0082008); }
+  static inline volatile PCCSAR &ref() { return *reinterpret_cast<volatile PCCSAR*>(0xE0082008); }
 };
 
 // PC bus Cache read/write value register
@@ -250,7 +250,7 @@ union PCCCVR {
 
   PCCCVR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PCCCVR &Instance() { return *reinterpret_cast<volatile PCCCVR*>(0xE008200C); }
+  static inline volatile PCCCVR &ref() { return *reinterpret_cast<volatile PCCCVR*>(0xE008200C); }
 };
 
 // PS bus Cache control register
@@ -357,7 +357,7 @@ union PSCCR {
 
   PSCCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PSCCR &Instance() { return *reinterpret_cast<volatile PSCCR*>(0xE0082800); }
+  static inline volatile PSCCR &ref() { return *reinterpret_cast<volatile PSCCR*>(0xE0082800); }
 };
 
 // PS bus Cache line control register
@@ -449,7 +449,7 @@ union PSCLCR {
 
   PSCLCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PSCLCR &Instance() { return *reinterpret_cast<volatile PSCLCR*>(0xE0082804); }
+  static inline volatile PSCLCR &ref() { return *reinterpret_cast<volatile PSCLCR*>(0xE0082804); }
 };
 
 // PS bus Cache search address register
@@ -476,7 +476,7 @@ union PSCSAR {
 
   PSCSAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PSCSAR &Instance() { return *reinterpret_cast<volatile PSCSAR*>(0xE0082808); }
+  static inline volatile PSCSAR &ref() { return *reinterpret_cast<volatile PSCSAR*>(0xE0082808); }
 };
 
 // PS bus Cache read/write value register
@@ -493,7 +493,7 @@ union PSCCVR {
 
   PSCCVR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PSCCVR &Instance() { return *reinterpret_cast<volatile PSCCVR*>(0xE008280C); }
+  static inline volatile PSCCVR &ref() { return *reinterpret_cast<volatile PSCCVR*>(0xE008280C); }
 };
 
 

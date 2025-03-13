@@ -24,7 +24,7 @@ union DR {
 
   DR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DR &Instance() { return *reinterpret_cast<volatile DR*>(0x4200C000); }
+  static inline volatile DR &ref() { return *reinterpret_cast<volatile DR*>(0x4200C000); }
 };
 
 // GPIO direction register
@@ -41,7 +41,7 @@ union GDIR {
 
   GDIR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GDIR &Instance() { return *reinterpret_cast<volatile GDIR*>(0x4200C004); }
+  static inline volatile GDIR &ref() { return *reinterpret_cast<volatile GDIR*>(0x4200C004); }
 };
 
 // GPIO pad status register
@@ -58,7 +58,7 @@ union PSR {
 
   PSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PSR &Instance() { return *reinterpret_cast<volatile PSR*>(0x4200C008); }
+  static inline volatile PSR &ref() { return *reinterpret_cast<volatile PSR*>(0x4200C008); }
 };
 
 // GPIO interrupt configuration register1
@@ -297,7 +297,7 @@ union ICR1 {
 
   ICR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ICR1 &Instance() { return *reinterpret_cast<volatile ICR1*>(0x4200C00C); }
+  static inline volatile ICR1 &ref() { return *reinterpret_cast<volatile ICR1*>(0x4200C00C); }
 };
 
 // GPIO interrupt configuration register2
@@ -536,7 +536,7 @@ union ICR2 {
 
   ICR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ICR2 &Instance() { return *reinterpret_cast<volatile ICR2*>(0x4200C010); }
+  static inline volatile ICR2 &ref() { return *reinterpret_cast<volatile ICR2*>(0x4200C010); }
 };
 
 // GPIO interrupt mask register
@@ -553,7 +553,7 @@ union IMR {
 
   IMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IMR &Instance() { return *reinterpret_cast<volatile IMR*>(0x4200C014); }
+  static inline volatile IMR &ref() { return *reinterpret_cast<volatile IMR*>(0x4200C014); }
 };
 
 // GPIO interrupt status register
@@ -570,7 +570,7 @@ union ISR {
 
   ISR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ISR &Instance() { return *reinterpret_cast<volatile ISR*>(0x4200C018); }
+  static inline volatile ISR &ref() { return *reinterpret_cast<volatile ISR*>(0x4200C018); }
 };
 
 // GPIO edge select register
@@ -587,7 +587,7 @@ union EDGE_SEL {
 
   EDGE_SEL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile EDGE_SEL &Instance() { return *reinterpret_cast<volatile EDGE_SEL*>(0x4200C01C); }
+  static inline volatile EDGE_SEL &ref() { return *reinterpret_cast<volatile EDGE_SEL*>(0x4200C01C); }
 };
 
 // GPIO data register SET
@@ -604,7 +604,7 @@ union DR_SET {
 
   DR_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DR_SET &Instance() { return *reinterpret_cast<volatile DR_SET*>(0x4200C084); }
+  static inline volatile DR_SET &ref() { return *reinterpret_cast<volatile DR_SET*>(0x4200C084); }
 };
 
 // GPIO data register CLEAR
@@ -621,7 +621,7 @@ union DR_CLEAR {
 
   DR_CLEAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DR_CLEAR &Instance() { return *reinterpret_cast<volatile DR_CLEAR*>(0x4200C088); }
+  static inline volatile DR_CLEAR &ref() { return *reinterpret_cast<volatile DR_CLEAR*>(0x4200C088); }
 };
 
 // GPIO data register TOGGLE
@@ -638,7 +638,7 @@ union DR_TOGGLE {
 
   DR_TOGGLE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DR_TOGGLE &Instance() { return *reinterpret_cast<volatile DR_TOGGLE*>(0x4200C08C); }
+  static inline volatile DR_TOGGLE &ref() { return *reinterpret_cast<volatile DR_TOGGLE*>(0x4200C08C); }
 };
 
 

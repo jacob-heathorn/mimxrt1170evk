@@ -84,7 +84,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x40C82000); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40C82000); }
 };
 
 // PUF Key Index Register
@@ -138,7 +138,7 @@ union KEYINDEX {
 
   KEYINDEX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile KEYINDEX &Instance() { return *reinterpret_cast<volatile KEYINDEX*>(0x40C82004); }
+  static inline volatile KEYINDEX &ref() { return *reinterpret_cast<volatile KEYINDEX*>(0x40C82004); }
 };
 
 // PUF Key Size Register
@@ -288,7 +288,7 @@ union KEYSIZE {
 
   KEYSIZE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile KEYSIZE &Instance() { return *reinterpret_cast<volatile KEYSIZE*>(0x40C82008); }
+  static inline volatile KEYSIZE &ref() { return *reinterpret_cast<volatile KEYSIZE*>(0x40C82008); }
 };
 
 // PUF Status Register
@@ -375,7 +375,7 @@ union STAT {
 
   STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile STAT &Instance() { return *reinterpret_cast<volatile STAT*>(0x40C82020); }
+  static inline volatile STAT &ref() { return *reinterpret_cast<volatile STAT*>(0x40C82020); }
 };
 
 // PUF Allow Register
@@ -431,7 +431,7 @@ union ALLOW {
 
   ALLOW() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ALLOW &Instance() { return *reinterpret_cast<volatile ALLOW*>(0x40C82028); }
+  static inline volatile ALLOW &ref() { return *reinterpret_cast<volatile ALLOW*>(0x40C82028); }
 };
 
 // PUF Key Input Register
@@ -448,7 +448,7 @@ union KEYINPUT {
 
   KEYINPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile KEYINPUT &Instance() { return *reinterpret_cast<volatile KEYINPUT*>(0x40C82040); }
+  static inline volatile KEYINPUT &ref() { return *reinterpret_cast<volatile KEYINPUT*>(0x40C82040); }
 };
 
 // PUF Code Input Register
@@ -465,7 +465,7 @@ union CODEINPUT {
 
   CODEINPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CODEINPUT &Instance() { return *reinterpret_cast<volatile CODEINPUT*>(0x40C82044); }
+  static inline volatile CODEINPUT &ref() { return *reinterpret_cast<volatile CODEINPUT*>(0x40C82044); }
 };
 
 // PUF Code Output Register
@@ -482,7 +482,7 @@ union CODEOUTPUT {
 
   CODEOUTPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CODEOUTPUT &Instance() { return *reinterpret_cast<volatile CODEOUTPUT*>(0x40C82048); }
+  static inline volatile CODEOUTPUT &ref() { return *reinterpret_cast<volatile CODEOUTPUT*>(0x40C82048); }
 };
 
 // PUF Key Output Index Register
@@ -499,7 +499,7 @@ union KEYOUTINDEX {
 
   KEYOUTINDEX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile KEYOUTINDEX &Instance() { return *reinterpret_cast<volatile KEYOUTINDEX*>(0x40C82060); }
+  static inline volatile KEYOUTINDEX &ref() { return *reinterpret_cast<volatile KEYOUTINDEX*>(0x40C82060); }
 };
 
 // PUF Key Output Register
@@ -516,7 +516,7 @@ union KEYOUTPUT {
 
   KEYOUTPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile KEYOUTPUT &Instance() { return *reinterpret_cast<volatile KEYOUTPUT*>(0x40C82064); }
+  static inline volatile KEYOUTPUT &ref() { return *reinterpret_cast<volatile KEYOUTPUT*>(0x40C82064); }
 };
 
 // PUF Interface Status Register
@@ -542,7 +542,7 @@ union IFSTAT {
 
   IFSTAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IFSTAT &Instance() { return *reinterpret_cast<volatile IFSTAT*>(0x40C820DC); }
+  static inline volatile IFSTAT &ref() { return *reinterpret_cast<volatile IFSTAT*>(0x40C820DC); }
 };
 
 // PUF Version Register
@@ -559,7 +559,7 @@ union VERSION {
 
   VERSION() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VERSION &Instance() { return *reinterpret_cast<volatile VERSION*>(0x40C820FC); }
+  static inline volatile VERSION &ref() { return *reinterpret_cast<volatile VERSION*>(0x40C820FC); }
 };
 
 // PUF Interrupt Enable
@@ -646,7 +646,7 @@ union INTEN {
 
   INTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INTEN &Instance() { return *reinterpret_cast<volatile INTEN*>(0x40C82100); }
+  static inline volatile INTEN &ref() { return *reinterpret_cast<volatile INTEN*>(0x40C82100); }
 };
 
 // PUF Interrupt Status
@@ -733,7 +733,7 @@ union INTSTAT {
 
   INTSTAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INTSTAT &Instance() { return *reinterpret_cast<volatile INTSTAT*>(0x40C82104); }
+  static inline volatile INTSTAT &ref() { return *reinterpret_cast<volatile INTSTAT*>(0x40C82104); }
 };
 
 // PUF Power Control Of RAM
@@ -782,7 +782,7 @@ union PWRCTRL {
 
   PWRCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile PWRCTRL &Instance() { return *reinterpret_cast<volatile PWRCTRL*>(0x40C82108); }
+  static inline volatile PWRCTRL &ref() { return *reinterpret_cast<volatile PWRCTRL*>(0x40C82108); }
 };
 
 // PUF Configuration Register
@@ -818,7 +818,7 @@ union CFG {
 
   CFG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG &Instance() { return *reinterpret_cast<volatile CFG*>(0x40C8210C); }
+  static inline volatile CFG &ref() { return *reinterpret_cast<volatile CFG*>(0x40C8210C); }
 };
 
 // PUF Key Manager Lock
@@ -862,7 +862,7 @@ union KEYLOCK {
 
   KEYLOCK() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile KEYLOCK &Instance() { return *reinterpret_cast<volatile KEYLOCK*>(0x40C82200); }
+  static inline volatile KEYLOCK &ref() { return *reinterpret_cast<volatile KEYLOCK*>(0x40C82200); }
 };
 
 // PUF Key Manager Enable
@@ -906,7 +906,7 @@ union KEYENABLE {
 
   KEYENABLE() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
-  static inline volatile KEYENABLE &Instance() { return *reinterpret_cast<volatile KEYENABLE*>(0x40C82204); }
+  static inline volatile KEYENABLE &ref() { return *reinterpret_cast<volatile KEYENABLE*>(0x40C82204); }
 };
 
 // PUF Key Manager Reset
@@ -950,7 +950,7 @@ union KEYRESET {
 
   KEYRESET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile KEYRESET &Instance() { return *reinterpret_cast<volatile KEYRESET*>(0x40C82208); }
+  static inline volatile KEYRESET &ref() { return *reinterpret_cast<volatile KEYRESET*>(0x40C82208); }
 };
 
 // PUF Index Block Key Output
@@ -997,7 +997,7 @@ union IDXBLK {
 
   IDXBLK() = delete;
   inline void Reset() volatile { this->value = 0xAAAAAAAA; }
-  static inline volatile IDXBLK &Instance() { return *reinterpret_cast<volatile IDXBLK*>(0x40C8220C); }
+  static inline volatile IDXBLK &ref() { return *reinterpret_cast<volatile IDXBLK*>(0x40C8220C); }
 };
 
 // PUF Index Block Key Output
@@ -1044,7 +1044,7 @@ union IDXBLK_DP {
 
   IDXBLK_DP() = delete;
   inline void Reset() volatile { this->value = 0xAAAAAAAA; }
-  static inline volatile IDXBLK_DP &Instance() { return *reinterpret_cast<volatile IDXBLK_DP*>(0x40C82210); }
+  static inline volatile IDXBLK_DP &ref() { return *reinterpret_cast<volatile IDXBLK_DP*>(0x40C82210); }
 };
 
 // PUF Key Block 0 Mask Enable
@@ -1061,7 +1061,7 @@ union KEYMASK0 {
 
   KEYMASK0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile KEYMASK0 &Instance() { return *reinterpret_cast<volatile KEYMASK0*>(0x40C82214); }
+  static inline volatile KEYMASK0 &ref() { return *reinterpret_cast<volatile KEYMASK0*>(0x40C82214); }
 };
 
 // PUF Key Block 1 Mask Enable
@@ -1078,7 +1078,7 @@ union KEYMASK1 {
 
   KEYMASK1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile KEYMASK1 &Instance() { return *reinterpret_cast<volatile KEYMASK1*>(0x40C82218); }
+  static inline volatile KEYMASK1 &ref() { return *reinterpret_cast<volatile KEYMASK1*>(0x40C82218); }
 };
 
 // PUF Index Block Setting Status Register
@@ -1125,7 +1125,7 @@ union IDXBLK_STATUS {
 
   IDXBLK_STATUS() = delete;
   inline void Reset() volatile { this->value = 0xAAAAAAAA; }
-  static inline volatile IDXBLK_STATUS &Instance() { return *reinterpret_cast<volatile IDXBLK_STATUS*>(0x40C82254); }
+  static inline volatile IDXBLK_STATUS &ref() { return *reinterpret_cast<volatile IDXBLK_STATUS*>(0x40C82254); }
 };
 
 // PUF Key Manager Shift Status
@@ -1145,7 +1145,7 @@ union IDXBLK_SHIFT {
 
   IDXBLK_SHIFT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IDXBLK_SHIFT &Instance() { return *reinterpret_cast<volatile IDXBLK_SHIFT*>(0x40C82258); }
+  static inline volatile IDXBLK_SHIFT &ref() { return *reinterpret_cast<volatile IDXBLK_SHIFT*>(0x40C82258); }
 };
 
 

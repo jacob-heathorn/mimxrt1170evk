@@ -55,7 +55,7 @@ union CHCFG_0 {
 
   CHCFG_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_0 &Instance() { return *reinterpret_cast<volatile CHCFG_0*>(0x40C18000); }
+  static inline volatile CHCFG_0 &ref() { return *reinterpret_cast<volatile CHCFG_0*>(0x40C18000); }
 };
 // Channel index Configuration Register
 union CHCFG_1 {
@@ -102,7 +102,7 @@ union CHCFG_1 {
 
   CHCFG_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_1 &Instance() { return *reinterpret_cast<volatile CHCFG_1*>(0x40C18004); }
+  static inline volatile CHCFG_1 &ref() { return *reinterpret_cast<volatile CHCFG_1*>(0x40C18004); }
 };
 // Channel index Configuration Register
 union CHCFG_2 {
@@ -149,7 +149,7 @@ union CHCFG_2 {
 
   CHCFG_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_2 &Instance() { return *reinterpret_cast<volatile CHCFG_2*>(0x40C18008); }
+  static inline volatile CHCFG_2 &ref() { return *reinterpret_cast<volatile CHCFG_2*>(0x40C18008); }
 };
 // Channel index Configuration Register
 union CHCFG_3 {
@@ -196,7 +196,7 @@ union CHCFG_3 {
 
   CHCFG_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_3 &Instance() { return *reinterpret_cast<volatile CHCFG_3*>(0x40C1800C); }
+  static inline volatile CHCFG_3 &ref() { return *reinterpret_cast<volatile CHCFG_3*>(0x40C1800C); }
 };
 // Channel index Configuration Register
 union CHCFG_4 {
@@ -243,7 +243,7 @@ union CHCFG_4 {
 
   CHCFG_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_4 &Instance() { return *reinterpret_cast<volatile CHCFG_4*>(0x40C18010); }
+  static inline volatile CHCFG_4 &ref() { return *reinterpret_cast<volatile CHCFG_4*>(0x40C18010); }
 };
 // Channel index Configuration Register
 union CHCFG_5 {
@@ -290,7 +290,7 @@ union CHCFG_5 {
 
   CHCFG_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_5 &Instance() { return *reinterpret_cast<volatile CHCFG_5*>(0x40C18014); }
+  static inline volatile CHCFG_5 &ref() { return *reinterpret_cast<volatile CHCFG_5*>(0x40C18014); }
 };
 // Channel index Configuration Register
 union CHCFG_6 {
@@ -337,7 +337,7 @@ union CHCFG_6 {
 
   CHCFG_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_6 &Instance() { return *reinterpret_cast<volatile CHCFG_6*>(0x40C18018); }
+  static inline volatile CHCFG_6 &ref() { return *reinterpret_cast<volatile CHCFG_6*>(0x40C18018); }
 };
 // Channel index Configuration Register
 union CHCFG_7 {
@@ -384,7 +384,7 @@ union CHCFG_7 {
 
   CHCFG_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_7 &Instance() { return *reinterpret_cast<volatile CHCFG_7*>(0x40C1801C); }
+  static inline volatile CHCFG_7 &ref() { return *reinterpret_cast<volatile CHCFG_7*>(0x40C1801C); }
 };
 // Channel index Configuration Register
 union CHCFG_8 {
@@ -431,7 +431,7 @@ union CHCFG_8 {
 
   CHCFG_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_8 &Instance() { return *reinterpret_cast<volatile CHCFG_8*>(0x40C18020); }
+  static inline volatile CHCFG_8 &ref() { return *reinterpret_cast<volatile CHCFG_8*>(0x40C18020); }
 };
 // Channel index Configuration Register
 union CHCFG_9 {
@@ -478,7 +478,7 @@ union CHCFG_9 {
 
   CHCFG_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_9 &Instance() { return *reinterpret_cast<volatile CHCFG_9*>(0x40C18024); }
+  static inline volatile CHCFG_9 &ref() { return *reinterpret_cast<volatile CHCFG_9*>(0x40C18024); }
 };
 // Channel index Configuration Register
 union CHCFG_10 {
@@ -525,7 +525,7 @@ union CHCFG_10 {
 
   CHCFG_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_10 &Instance() { return *reinterpret_cast<volatile CHCFG_10*>(0x40C18028); }
+  static inline volatile CHCFG_10 &ref() { return *reinterpret_cast<volatile CHCFG_10*>(0x40C18028); }
 };
 // Channel index Configuration Register
 union CHCFG_11 {
@@ -572,7 +572,7 @@ union CHCFG_11 {
 
   CHCFG_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_11 &Instance() { return *reinterpret_cast<volatile CHCFG_11*>(0x40C1802C); }
+  static inline volatile CHCFG_11 &ref() { return *reinterpret_cast<volatile CHCFG_11*>(0x40C1802C); }
 };
 // Channel index Configuration Register
 union CHCFG_12 {
@@ -619,7 +619,7 @@ union CHCFG_12 {
 
   CHCFG_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_12 &Instance() { return *reinterpret_cast<volatile CHCFG_12*>(0x40C18030); }
+  static inline volatile CHCFG_12 &ref() { return *reinterpret_cast<volatile CHCFG_12*>(0x40C18030); }
 };
 // Channel index Configuration Register
 union CHCFG_13 {
@@ -666,7 +666,7 @@ union CHCFG_13 {
 
   CHCFG_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_13 &Instance() { return *reinterpret_cast<volatile CHCFG_13*>(0x40C18034); }
+  static inline volatile CHCFG_13 &ref() { return *reinterpret_cast<volatile CHCFG_13*>(0x40C18034); }
 };
 // Channel index Configuration Register
 union CHCFG_14 {
@@ -713,7 +713,7 @@ union CHCFG_14 {
 
   CHCFG_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_14 &Instance() { return *reinterpret_cast<volatile CHCFG_14*>(0x40C18038); }
+  static inline volatile CHCFG_14 &ref() { return *reinterpret_cast<volatile CHCFG_14*>(0x40C18038); }
 };
 // Channel index Configuration Register
 union CHCFG_15 {
@@ -760,7 +760,7 @@ union CHCFG_15 {
 
   CHCFG_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_15 &Instance() { return *reinterpret_cast<volatile CHCFG_15*>(0x40C1803C); }
+  static inline volatile CHCFG_15 &ref() { return *reinterpret_cast<volatile CHCFG_15*>(0x40C1803C); }
 };
 // Channel index Configuration Register
 union CHCFG_16 {
@@ -807,7 +807,7 @@ union CHCFG_16 {
 
   CHCFG_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_16 &Instance() { return *reinterpret_cast<volatile CHCFG_16*>(0x40C18040); }
+  static inline volatile CHCFG_16 &ref() { return *reinterpret_cast<volatile CHCFG_16*>(0x40C18040); }
 };
 // Channel index Configuration Register
 union CHCFG_17 {
@@ -854,7 +854,7 @@ union CHCFG_17 {
 
   CHCFG_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_17 &Instance() { return *reinterpret_cast<volatile CHCFG_17*>(0x40C18044); }
+  static inline volatile CHCFG_17 &ref() { return *reinterpret_cast<volatile CHCFG_17*>(0x40C18044); }
 };
 // Channel index Configuration Register
 union CHCFG_18 {
@@ -901,7 +901,7 @@ union CHCFG_18 {
 
   CHCFG_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_18 &Instance() { return *reinterpret_cast<volatile CHCFG_18*>(0x40C18048); }
+  static inline volatile CHCFG_18 &ref() { return *reinterpret_cast<volatile CHCFG_18*>(0x40C18048); }
 };
 // Channel index Configuration Register
 union CHCFG_19 {
@@ -948,7 +948,7 @@ union CHCFG_19 {
 
   CHCFG_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_19 &Instance() { return *reinterpret_cast<volatile CHCFG_19*>(0x40C1804C); }
+  static inline volatile CHCFG_19 &ref() { return *reinterpret_cast<volatile CHCFG_19*>(0x40C1804C); }
 };
 // Channel index Configuration Register
 union CHCFG_20 {
@@ -995,7 +995,7 @@ union CHCFG_20 {
 
   CHCFG_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_20 &Instance() { return *reinterpret_cast<volatile CHCFG_20*>(0x40C18050); }
+  static inline volatile CHCFG_20 &ref() { return *reinterpret_cast<volatile CHCFG_20*>(0x40C18050); }
 };
 // Channel index Configuration Register
 union CHCFG_21 {
@@ -1042,7 +1042,7 @@ union CHCFG_21 {
 
   CHCFG_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_21 &Instance() { return *reinterpret_cast<volatile CHCFG_21*>(0x40C18054); }
+  static inline volatile CHCFG_21 &ref() { return *reinterpret_cast<volatile CHCFG_21*>(0x40C18054); }
 };
 // Channel index Configuration Register
 union CHCFG_22 {
@@ -1089,7 +1089,7 @@ union CHCFG_22 {
 
   CHCFG_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_22 &Instance() { return *reinterpret_cast<volatile CHCFG_22*>(0x40C18058); }
+  static inline volatile CHCFG_22 &ref() { return *reinterpret_cast<volatile CHCFG_22*>(0x40C18058); }
 };
 // Channel index Configuration Register
 union CHCFG_23 {
@@ -1136,7 +1136,7 @@ union CHCFG_23 {
 
   CHCFG_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_23 &Instance() { return *reinterpret_cast<volatile CHCFG_23*>(0x40C1805C); }
+  static inline volatile CHCFG_23 &ref() { return *reinterpret_cast<volatile CHCFG_23*>(0x40C1805C); }
 };
 // Channel index Configuration Register
 union CHCFG_24 {
@@ -1183,7 +1183,7 @@ union CHCFG_24 {
 
   CHCFG_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_24 &Instance() { return *reinterpret_cast<volatile CHCFG_24*>(0x40C18060); }
+  static inline volatile CHCFG_24 &ref() { return *reinterpret_cast<volatile CHCFG_24*>(0x40C18060); }
 };
 // Channel index Configuration Register
 union CHCFG_25 {
@@ -1230,7 +1230,7 @@ union CHCFG_25 {
 
   CHCFG_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_25 &Instance() { return *reinterpret_cast<volatile CHCFG_25*>(0x40C18064); }
+  static inline volatile CHCFG_25 &ref() { return *reinterpret_cast<volatile CHCFG_25*>(0x40C18064); }
 };
 // Channel index Configuration Register
 union CHCFG_26 {
@@ -1277,7 +1277,7 @@ union CHCFG_26 {
 
   CHCFG_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_26 &Instance() { return *reinterpret_cast<volatile CHCFG_26*>(0x40C18068); }
+  static inline volatile CHCFG_26 &ref() { return *reinterpret_cast<volatile CHCFG_26*>(0x40C18068); }
 };
 // Channel index Configuration Register
 union CHCFG_27 {
@@ -1324,7 +1324,7 @@ union CHCFG_27 {
 
   CHCFG_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_27 &Instance() { return *reinterpret_cast<volatile CHCFG_27*>(0x40C1806C); }
+  static inline volatile CHCFG_27 &ref() { return *reinterpret_cast<volatile CHCFG_27*>(0x40C1806C); }
 };
 // Channel index Configuration Register
 union CHCFG_28 {
@@ -1371,7 +1371,7 @@ union CHCFG_28 {
 
   CHCFG_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_28 &Instance() { return *reinterpret_cast<volatile CHCFG_28*>(0x40C18070); }
+  static inline volatile CHCFG_28 &ref() { return *reinterpret_cast<volatile CHCFG_28*>(0x40C18070); }
 };
 // Channel index Configuration Register
 union CHCFG_29 {
@@ -1418,7 +1418,7 @@ union CHCFG_29 {
 
   CHCFG_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_29 &Instance() { return *reinterpret_cast<volatile CHCFG_29*>(0x40C18074); }
+  static inline volatile CHCFG_29 &ref() { return *reinterpret_cast<volatile CHCFG_29*>(0x40C18074); }
 };
 // Channel index Configuration Register
 union CHCFG_30 {
@@ -1465,7 +1465,7 @@ union CHCFG_30 {
 
   CHCFG_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_30 &Instance() { return *reinterpret_cast<volatile CHCFG_30*>(0x40C18078); }
+  static inline volatile CHCFG_30 &ref() { return *reinterpret_cast<volatile CHCFG_30*>(0x40C18078); }
 };
 // Channel index Configuration Register
 union CHCFG_31 {
@@ -1512,7 +1512,7 @@ union CHCFG_31 {
 
   CHCFG_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG_31 &Instance() { return *reinterpret_cast<volatile CHCFG_31*>(0x40C1807C); }
+  static inline volatile CHCFG_31 &ref() { return *reinterpret_cast<volatile CHCFG_31*>(0x40C1807C); }
 };
 
 

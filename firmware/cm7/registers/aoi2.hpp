@@ -135,7 +135,7 @@ union BFCRT010 {
 
   BFCRT010() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BFCRT010 &Instance() { return *reinterpret_cast<volatile BFCRT010*>(0x400BC000); }
+  static inline volatile BFCRT010 &ref() { return *reinterpret_cast<volatile BFCRT010*>(0x400BC000); }
 };
 
 // Boolean Function Term 2 and 3 Configuration Register for EVENTn
@@ -263,7 +263,7 @@ union BFCRT230 {
 
   BFCRT230() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BFCRT230 &Instance() { return *reinterpret_cast<volatile BFCRT230*>(0x400BC002); }
+  static inline volatile BFCRT230 &ref() { return *reinterpret_cast<volatile BFCRT230*>(0x400BC002); }
 };
 
 // Boolean Function Term 0 and 1 Configuration Register for EVENTn
@@ -391,7 +391,7 @@ union BFCRT011 {
 
   BFCRT011() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BFCRT011 &Instance() { return *reinterpret_cast<volatile BFCRT011*>(0x400BC004); }
+  static inline volatile BFCRT011 &ref() { return *reinterpret_cast<volatile BFCRT011*>(0x400BC004); }
 };
 
 // Boolean Function Term 2 and 3 Configuration Register for EVENTn
@@ -519,7 +519,7 @@ union BFCRT231 {
 
   BFCRT231() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BFCRT231 &Instance() { return *reinterpret_cast<volatile BFCRT231*>(0x400BC006); }
+  static inline volatile BFCRT231 &ref() { return *reinterpret_cast<volatile BFCRT231*>(0x400BC006); }
 };
 
 // Boolean Function Term 0 and 1 Configuration Register for EVENTn
@@ -647,7 +647,7 @@ union BFCRT012 {
 
   BFCRT012() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BFCRT012 &Instance() { return *reinterpret_cast<volatile BFCRT012*>(0x400BC008); }
+  static inline volatile BFCRT012 &ref() { return *reinterpret_cast<volatile BFCRT012*>(0x400BC008); }
 };
 
 // Boolean Function Term 2 and 3 Configuration Register for EVENTn
@@ -775,7 +775,7 @@ union BFCRT232 {
 
   BFCRT232() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BFCRT232 &Instance() { return *reinterpret_cast<volatile BFCRT232*>(0x400BC00A); }
+  static inline volatile BFCRT232 &ref() { return *reinterpret_cast<volatile BFCRT232*>(0x400BC00A); }
 };
 
 // Boolean Function Term 0 and 1 Configuration Register for EVENTn
@@ -903,7 +903,7 @@ union BFCRT013 {
 
   BFCRT013() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BFCRT013 &Instance() { return *reinterpret_cast<volatile BFCRT013*>(0x400BC00C); }
+  static inline volatile BFCRT013 &ref() { return *reinterpret_cast<volatile BFCRT013*>(0x400BC00C); }
 };
 
 // Boolean Function Term 2 and 3 Configuration Register for EVENTn
@@ -1031,7 +1031,7 @@ union BFCRT233 {
 
   BFCRT233() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BFCRT233 &Instance() { return *reinterpret_cast<volatile BFCRT233*>(0x400BC00E); }
+  static inline volatile BFCRT233 &ref() { return *reinterpret_cast<volatile BFCRT233*>(0x400BC00E); }
 };
 
 

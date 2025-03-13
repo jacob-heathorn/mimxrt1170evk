@@ -142,7 +142,7 @@ union MCR0 {
 
   MCR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFF80C2; }
-  static inline volatile MCR0 &Instance() { return *reinterpret_cast<volatile MCR0*>(0x400D0000); }
+  static inline volatile MCR0 &ref() { return *reinterpret_cast<volatile MCR0*>(0x400D0000); }
 };
 
 // Module Control 1
@@ -161,7 +161,7 @@ union MCR1 {
 
   MCR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MCR1 &Instance() { return *reinterpret_cast<volatile MCR1*>(0x400D0004); }
+  static inline volatile MCR1 &ref() { return *reinterpret_cast<volatile MCR1*>(0x400D0004); }
 };
 
 // Module Control 2
@@ -212,7 +212,7 @@ union MCR2 {
 
   MCR2() = delete;
   inline void Reset() volatile { this->value = 0x200081F7; }
-  static inline volatile MCR2 &Instance() { return *reinterpret_cast<volatile MCR2*>(0x400D0008); }
+  static inline volatile MCR2 &ref() { return *reinterpret_cast<volatile MCR2*>(0x400D0008); }
 };
 
 // AHB Bus Control
@@ -384,7 +384,7 @@ union AHBCR {
 
   AHBCR() = delete;
   inline void Reset() volatile { this->value = 0x00000018; }
-  static inline volatile AHBCR &Instance() { return *reinterpret_cast<volatile AHBCR*>(0x400D000C); }
+  static inline volatile AHBCR &ref() { return *reinterpret_cast<volatile AHBCR*>(0x400D000C); }
 };
 
 // Interrupt Enable
@@ -551,7 +551,7 @@ union INTEN {
 
   INTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INTEN &Instance() { return *reinterpret_cast<volatile INTEN*>(0x400D0010); }
+  static inline volatile INTEN &ref() { return *reinterpret_cast<volatile INTEN*>(0x400D0010); }
 };
 
 // Interrupt
@@ -710,7 +710,7 @@ union INTR {
 
   INTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INTR &Instance() { return *reinterpret_cast<volatile INTR*>(0x400D0014); }
+  static inline volatile INTR &ref() { return *reinterpret_cast<volatile INTR*>(0x400D0014); }
 };
 
 // LUT Key
@@ -727,7 +727,7 @@ union LUTKEY {
 
   LUTKEY() = delete;
   inline void Reset() volatile { this->value = 0x5AF05AF0; }
-  static inline volatile LUTKEY &Instance() { return *reinterpret_cast<volatile LUTKEY*>(0x400D0018); }
+  static inline volatile LUTKEY &ref() { return *reinterpret_cast<volatile LUTKEY*>(0x400D0018); }
 };
 
 // LUT Control
@@ -763,7 +763,7 @@ union LUTCR {
 
   LUTCR() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile LUTCR &Instance() { return *reinterpret_cast<volatile LUTCR*>(0x400D001C); }
+  static inline volatile LUTCR &ref() { return *reinterpret_cast<volatile LUTCR*>(0x400D001C); }
 };
 
 // AHB Receive Buffer 0 Control 0
@@ -797,7 +797,7 @@ union AHBRXBUF0CR0 {
 
   AHBRXBUF0CR0() = delete;
   inline void Reset() volatile { this->value = 0x80000040; }
-  static inline volatile AHBRXBUF0CR0 &Instance() { return *reinterpret_cast<volatile AHBRXBUF0CR0*>(0x400D0020); }
+  static inline volatile AHBRXBUF0CR0 &ref() { return *reinterpret_cast<volatile AHBRXBUF0CR0*>(0x400D0020); }
 };
 
 // AHB Receive Buffer 1 Control 0
@@ -831,7 +831,7 @@ union AHBRXBUF1CR0 {
 
   AHBRXBUF1CR0() = delete;
   inline void Reset() volatile { this->value = 0x80010040; }
-  static inline volatile AHBRXBUF1CR0 &Instance() { return *reinterpret_cast<volatile AHBRXBUF1CR0*>(0x400D0024); }
+  static inline volatile AHBRXBUF1CR0 &ref() { return *reinterpret_cast<volatile AHBRXBUF1CR0*>(0x400D0024); }
 };
 
 // AHB Receive Buffer 2 Control 0
@@ -865,7 +865,7 @@ union AHBRXBUF2CR0 {
 
   AHBRXBUF2CR0() = delete;
   inline void Reset() volatile { this->value = 0x80020040; }
-  static inline volatile AHBRXBUF2CR0 &Instance() { return *reinterpret_cast<volatile AHBRXBUF2CR0*>(0x400D0028); }
+  static inline volatile AHBRXBUF2CR0 &ref() { return *reinterpret_cast<volatile AHBRXBUF2CR0*>(0x400D0028); }
 };
 
 // AHB Receive Buffer 3 Control 0
@@ -899,7 +899,7 @@ union AHBRXBUF3CR0 {
 
   AHBRXBUF3CR0() = delete;
   inline void Reset() volatile { this->value = 0x80030040; }
-  static inline volatile AHBRXBUF3CR0 &Instance() { return *reinterpret_cast<volatile AHBRXBUF3CR0*>(0x400D002C); }
+  static inline volatile AHBRXBUF3CR0 &ref() { return *reinterpret_cast<volatile AHBRXBUF3CR0*>(0x400D002C); }
 };
 
 // AHB Receive Buffer 4 Control 0
@@ -933,7 +933,7 @@ union AHBRXBUF4CR0 {
 
   AHBRXBUF4CR0() = delete;
   inline void Reset() volatile { this->value = 0x80040040; }
-  static inline volatile AHBRXBUF4CR0 &Instance() { return *reinterpret_cast<volatile AHBRXBUF4CR0*>(0x400D0030); }
+  static inline volatile AHBRXBUF4CR0 &ref() { return *reinterpret_cast<volatile AHBRXBUF4CR0*>(0x400D0030); }
 };
 
 // AHB Receive Buffer 5 Control 0
@@ -967,7 +967,7 @@ union AHBRXBUF5CR0 {
 
   AHBRXBUF5CR0() = delete;
   inline void Reset() volatile { this->value = 0x80050040; }
-  static inline volatile AHBRXBUF5CR0 &Instance() { return *reinterpret_cast<volatile AHBRXBUF5CR0*>(0x400D0034); }
+  static inline volatile AHBRXBUF5CR0 &ref() { return *reinterpret_cast<volatile AHBRXBUF5CR0*>(0x400D0034); }
 };
 
 // AHB Receive Buffer 6 Control 0
@@ -1001,7 +1001,7 @@ union AHBRXBUF6CR0 {
 
   AHBRXBUF6CR0() = delete;
   inline void Reset() volatile { this->value = 0x80060040; }
-  static inline volatile AHBRXBUF6CR0 &Instance() { return *reinterpret_cast<volatile AHBRXBUF6CR0*>(0x400D0038); }
+  static inline volatile AHBRXBUF6CR0 &ref() { return *reinterpret_cast<volatile AHBRXBUF6CR0*>(0x400D0038); }
 };
 
 // AHB Receive Buffer 7 Control 0
@@ -1035,7 +1035,7 @@ union AHBRXBUF7CR0 {
 
   AHBRXBUF7CR0() = delete;
   inline void Reset() volatile { this->value = 0x80070040; }
-  static inline volatile AHBRXBUF7CR0 &Instance() { return *reinterpret_cast<volatile AHBRXBUF7CR0*>(0x400D003C); }
+  static inline volatile AHBRXBUF7CR0 &ref() { return *reinterpret_cast<volatile AHBRXBUF7CR0*>(0x400D003C); }
 };
 
 // Flash Control 0
@@ -1073,7 +1073,7 @@ union FLSHA1CR0 {
 
   FLSHA1CR0() = delete;
   inline void Reset() volatile { this->value = 0x00010000; }
-  static inline volatile FLSHA1CR0 &Instance() { return *reinterpret_cast<volatile FLSHA1CR0*>(0x400D0060); }
+  static inline volatile FLSHA1CR0 &ref() { return *reinterpret_cast<volatile FLSHA1CR0*>(0x400D0060); }
 };
 
 // Flash Control 0
@@ -1111,7 +1111,7 @@ union FLSHA2CR0 {
 
   FLSHA2CR0() = delete;
   inline void Reset() volatile { this->value = 0x00010000; }
-  static inline volatile FLSHA2CR0 &Instance() { return *reinterpret_cast<volatile FLSHA2CR0*>(0x400D0064); }
+  static inline volatile FLSHA2CR0 &ref() { return *reinterpret_cast<volatile FLSHA2CR0*>(0x400D0064); }
 };
 
 // Flash Control 0
@@ -1149,7 +1149,7 @@ union FLSHB1CR0 {
 
   FLSHB1CR0() = delete;
   inline void Reset() volatile { this->value = 0x00010000; }
-  static inline volatile FLSHB1CR0 &Instance() { return *reinterpret_cast<volatile FLSHB1CR0*>(0x400D0068); }
+  static inline volatile FLSHB1CR0 &ref() { return *reinterpret_cast<volatile FLSHB1CR0*>(0x400D0068); }
 };
 
 // Flash Control 0
@@ -1187,7 +1187,7 @@ union FLSHB2CR0 {
 
   FLSHB2CR0() = delete;
   inline void Reset() volatile { this->value = 0x00010000; }
-  static inline volatile FLSHB2CR0 &Instance() { return *reinterpret_cast<volatile FLSHB2CR0*>(0x400D006C); }
+  static inline volatile FLSHB2CR0 &ref() { return *reinterpret_cast<volatile FLSHB2CR0*>(0x400D006C); }
 };
 
 // Flash Control 1
@@ -1230,7 +1230,7 @@ union FLSHCR1A1 {
 
   FLSHCR1A1() = delete;
   inline void Reset() volatile { this->value = 0x00000063; }
-  static inline volatile FLSHCR1A1 &Instance() { return *reinterpret_cast<volatile FLSHCR1A1*>(0x400D0070); }
+  static inline volatile FLSHCR1A1 &ref() { return *reinterpret_cast<volatile FLSHCR1A1*>(0x400D0070); }
 };
 // Flash Control 1
 union FLSHCR1A2 {
@@ -1272,7 +1272,7 @@ union FLSHCR1A2 {
 
   FLSHCR1A2() = delete;
   inline void Reset() volatile { this->value = 0x00000063; }
-  static inline volatile FLSHCR1A2 &Instance() { return *reinterpret_cast<volatile FLSHCR1A2*>(0x400D0074); }
+  static inline volatile FLSHCR1A2 &ref() { return *reinterpret_cast<volatile FLSHCR1A2*>(0x400D0074); }
 };
 // Flash Control 1
 union FLSHCR1B1 {
@@ -1314,7 +1314,7 @@ union FLSHCR1B1 {
 
   FLSHCR1B1() = delete;
   inline void Reset() volatile { this->value = 0x00000063; }
-  static inline volatile FLSHCR1B1 &Instance() { return *reinterpret_cast<volatile FLSHCR1B1*>(0x400D0078); }
+  static inline volatile FLSHCR1B1 &ref() { return *reinterpret_cast<volatile FLSHCR1B1*>(0x400D0078); }
 };
 // Flash Control 1
 union FLSHCR1B2 {
@@ -1356,7 +1356,7 @@ union FLSHCR1B2 {
 
   FLSHCR1B2() = delete;
   inline void Reset() volatile { this->value = 0x00000063; }
-  static inline volatile FLSHCR1B2 &Instance() { return *reinterpret_cast<volatile FLSHCR1B2*>(0x400D007C); }
+  static inline volatile FLSHCR1B2 &ref() { return *reinterpret_cast<volatile FLSHCR1B2*>(0x400D007C); }
 };
 
 // Flash Control 2
@@ -1407,7 +1407,7 @@ union FLSHCR2A1 {
 
   FLSHCR2A1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FLSHCR2A1 &Instance() { return *reinterpret_cast<volatile FLSHCR2A1*>(0x400D0080); }
+  static inline volatile FLSHCR2A1 &ref() { return *reinterpret_cast<volatile FLSHCR2A1*>(0x400D0080); }
 };
 // Flash Control 2
 union FLSHCR2A2 {
@@ -1457,7 +1457,7 @@ union FLSHCR2A2 {
 
   FLSHCR2A2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FLSHCR2A2 &Instance() { return *reinterpret_cast<volatile FLSHCR2A2*>(0x400D0084); }
+  static inline volatile FLSHCR2A2 &ref() { return *reinterpret_cast<volatile FLSHCR2A2*>(0x400D0084); }
 };
 // Flash Control 2
 union FLSHCR2B1 {
@@ -1507,7 +1507,7 @@ union FLSHCR2B1 {
 
   FLSHCR2B1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FLSHCR2B1 &Instance() { return *reinterpret_cast<volatile FLSHCR2B1*>(0x400D0088); }
+  static inline volatile FLSHCR2B1 &ref() { return *reinterpret_cast<volatile FLSHCR2B1*>(0x400D0088); }
 };
 // Flash Control 2
 union FLSHCR2B2 {
@@ -1557,7 +1557,7 @@ union FLSHCR2B2 {
 
   FLSHCR2B2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FLSHCR2B2 &Instance() { return *reinterpret_cast<volatile FLSHCR2B2*>(0x400D008C); }
+  static inline volatile FLSHCR2B2 &ref() { return *reinterpret_cast<volatile FLSHCR2B2*>(0x400D008C); }
 };
 
 // Flash Control 4
@@ -1613,7 +1613,7 @@ union FLSHCR4 {
 
   FLSHCR4() = delete;
   inline void Reset() volatile { this->value = 0x000000C3; }
-  static inline volatile FLSHCR4 &Instance() { return *reinterpret_cast<volatile FLSHCR4*>(0x400D0094); }
+  static inline volatile FLSHCR4 &ref() { return *reinterpret_cast<volatile FLSHCR4*>(0x400D0094); }
 };
 
 // IP Control 0
@@ -1630,7 +1630,7 @@ union IPCR0 {
 
   IPCR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPCR0 &Instance() { return *reinterpret_cast<volatile IPCR0*>(0x400D00A0); }
+  static inline volatile IPCR0 &ref() { return *reinterpret_cast<volatile IPCR0*>(0x400D00A0); }
 };
 
 // IP Control 1
@@ -1663,7 +1663,7 @@ union IPCR1 {
 
   IPCR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPCR1 &Instance() { return *reinterpret_cast<volatile IPCR1*>(0x400D00A4); }
+  static inline volatile IPCR1 &ref() { return *reinterpret_cast<volatile IPCR1*>(0x400D00A4); }
 };
 
 // IP Command
@@ -1689,7 +1689,7 @@ union IPCMD {
 
   IPCMD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPCMD &Instance() { return *reinterpret_cast<volatile IPCMD*>(0x400D00B0); }
+  static inline volatile IPCMD &ref() { return *reinterpret_cast<volatile IPCMD*>(0x400D00B0); }
 };
 
 // IP Receive FIFO Control
@@ -1727,7 +1727,7 @@ union IPRXFCR {
 
   IPRXFCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPRXFCR &Instance() { return *reinterpret_cast<volatile IPRXFCR*>(0x400D00B8); }
+  static inline volatile IPRXFCR &ref() { return *reinterpret_cast<volatile IPRXFCR*>(0x400D00B8); }
 };
 
 // IP Transmit FIFO Control
@@ -1765,7 +1765,7 @@ union IPTXFCR {
 
   IPTXFCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPTXFCR &Instance() { return *reinterpret_cast<volatile IPTXFCR*>(0x400D00BC); }
+  static inline volatile IPTXFCR &ref() { return *reinterpret_cast<volatile IPTXFCR*>(0x400D00BC); }
 };
 
 // DLL Control 0
@@ -1819,7 +1819,7 @@ union DLLCRA {
 
   DLLCRA() = delete;
   inline void Reset() volatile { this->value = 0x00000100; }
-  static inline volatile DLLCRA &Instance() { return *reinterpret_cast<volatile DLLCRA*>(0x400D00C0); }
+  static inline volatile DLLCRA &ref() { return *reinterpret_cast<volatile DLLCRA*>(0x400D00C0); }
 };
 // DLL Control 0
 union DLLCRB {
@@ -1872,7 +1872,7 @@ union DLLCRB {
 
   DLLCRB() = delete;
   inline void Reset() volatile { this->value = 0x00000100; }
-  static inline volatile DLLCRB &Instance() { return *reinterpret_cast<volatile DLLCRB*>(0x400D00C4); }
+  static inline volatile DLLCRB &ref() { return *reinterpret_cast<volatile DLLCRB*>(0x400D00C4); }
 };
 
 // Misc Control 4
@@ -1889,7 +1889,7 @@ union MISCCR4 {
 
   MISCCR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MISCCR4 &Instance() { return *reinterpret_cast<volatile MISCCR4*>(0x400D00D0); }
+  static inline volatile MISCCR4 &ref() { return *reinterpret_cast<volatile MISCCR4*>(0x400D00D0); }
 };
 
 // Miscellaneous Control 5
@@ -1906,7 +1906,7 @@ union MISCCR5 {
 
   MISCCR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MISCCR5 &Instance() { return *reinterpret_cast<volatile MISCCR5*>(0x400D00D4); }
+  static inline volatile MISCCR5 &ref() { return *reinterpret_cast<volatile MISCCR5*>(0x400D00D4); }
 };
 
 // Miscellaneous Control 6
@@ -1943,7 +1943,7 @@ union MISCCR6 {
 
   MISCCR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MISCCR6 &Instance() { return *reinterpret_cast<volatile MISCCR6*>(0x400D00D8); }
+  static inline volatile MISCCR6 &ref() { return *reinterpret_cast<volatile MISCCR6*>(0x400D00D8); }
 };
 
 // Miscellaneous Control 7
@@ -1972,7 +1972,7 @@ union MISCCR7 {
 
   MISCCR7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MISCCR7 &Instance() { return *reinterpret_cast<volatile MISCCR7*>(0x400D00DC); }
+  static inline volatile MISCCR7 &ref() { return *reinterpret_cast<volatile MISCCR7*>(0x400D00DC); }
 };
 
 // Status 0
@@ -2022,7 +2022,7 @@ union STS0 {
 
   STS0() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile STS0 &Instance() { return *reinterpret_cast<volatile STS0*>(0x400D00E0); }
+  static inline volatile STS0 &ref() { return *reinterpret_cast<volatile STS0*>(0x400D00E0); }
 };
 
 // Status 1
@@ -2085,7 +2085,7 @@ union STS1 {
 
   STS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS1 &Instance() { return *reinterpret_cast<volatile STS1*>(0x400D00E4); }
+  static inline volatile STS1 &ref() { return *reinterpret_cast<volatile STS1*>(0x400D00E4); }
 };
 
 // Status 2
@@ -2150,7 +2150,7 @@ union STS2 {
 
   STS2() = delete;
   inline void Reset() volatile { this->value = 0x01000100; }
-  static inline volatile STS2 &Instance() { return *reinterpret_cast<volatile STS2*>(0x400D00E8); }
+  static inline volatile STS2 &ref() { return *reinterpret_cast<volatile STS2*>(0x400D00E8); }
 };
 
 // AHB Suspend Status
@@ -2180,7 +2180,7 @@ union AHBSPNDSTS {
 
   AHBSPNDSTS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AHBSPNDSTS &Instance() { return *reinterpret_cast<volatile AHBSPNDSTS*>(0x400D00EC); }
+  static inline volatile AHBSPNDSTS &ref() { return *reinterpret_cast<volatile AHBSPNDSTS*>(0x400D00EC); }
 };
 
 // IP Receive FIFO Status
@@ -2200,7 +2200,7 @@ union IPRXFSTS {
 
   IPRXFSTS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPRXFSTS &Instance() { return *reinterpret_cast<volatile IPRXFSTS*>(0x400D00F0); }
+  static inline volatile IPRXFSTS &ref() { return *reinterpret_cast<volatile IPRXFSTS*>(0x400D00F0); }
 };
 
 // IP Transmit FIFO Status
@@ -2220,7 +2220,7 @@ union IPTXFSTS {
 
   IPTXFSTS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPTXFSTS &Instance() { return *reinterpret_cast<volatile IPTXFSTS*>(0x400D00F4); }
+  static inline volatile IPTXFSTS &ref() { return *reinterpret_cast<volatile IPTXFSTS*>(0x400D00F4); }
 };
 
 // IP Receive FIFO Data x
@@ -2237,7 +2237,7 @@ union RFDR_0 {
 
   RFDR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_0 &Instance() { return *reinterpret_cast<volatile RFDR_0*>(0x400D0100); }
+  static inline volatile RFDR_0 &ref() { return *reinterpret_cast<volatile RFDR_0*>(0x400D0100); }
 };
 // IP Receive FIFO Data x
 union RFDR_1 {
@@ -2253,7 +2253,7 @@ union RFDR_1 {
 
   RFDR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_1 &Instance() { return *reinterpret_cast<volatile RFDR_1*>(0x400D0104); }
+  static inline volatile RFDR_1 &ref() { return *reinterpret_cast<volatile RFDR_1*>(0x400D0104); }
 };
 // IP Receive FIFO Data x
 union RFDR_2 {
@@ -2269,7 +2269,7 @@ union RFDR_2 {
 
   RFDR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_2 &Instance() { return *reinterpret_cast<volatile RFDR_2*>(0x400D0108); }
+  static inline volatile RFDR_2 &ref() { return *reinterpret_cast<volatile RFDR_2*>(0x400D0108); }
 };
 // IP Receive FIFO Data x
 union RFDR_3 {
@@ -2285,7 +2285,7 @@ union RFDR_3 {
 
   RFDR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_3 &Instance() { return *reinterpret_cast<volatile RFDR_3*>(0x400D010C); }
+  static inline volatile RFDR_3 &ref() { return *reinterpret_cast<volatile RFDR_3*>(0x400D010C); }
 };
 // IP Receive FIFO Data x
 union RFDR_4 {
@@ -2301,7 +2301,7 @@ union RFDR_4 {
 
   RFDR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_4 &Instance() { return *reinterpret_cast<volatile RFDR_4*>(0x400D0110); }
+  static inline volatile RFDR_4 &ref() { return *reinterpret_cast<volatile RFDR_4*>(0x400D0110); }
 };
 // IP Receive FIFO Data x
 union RFDR_5 {
@@ -2317,7 +2317,7 @@ union RFDR_5 {
 
   RFDR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_5 &Instance() { return *reinterpret_cast<volatile RFDR_5*>(0x400D0114); }
+  static inline volatile RFDR_5 &ref() { return *reinterpret_cast<volatile RFDR_5*>(0x400D0114); }
 };
 // IP Receive FIFO Data x
 union RFDR_6 {
@@ -2333,7 +2333,7 @@ union RFDR_6 {
 
   RFDR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_6 &Instance() { return *reinterpret_cast<volatile RFDR_6*>(0x400D0118); }
+  static inline volatile RFDR_6 &ref() { return *reinterpret_cast<volatile RFDR_6*>(0x400D0118); }
 };
 // IP Receive FIFO Data x
 union RFDR_7 {
@@ -2349,7 +2349,7 @@ union RFDR_7 {
 
   RFDR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_7 &Instance() { return *reinterpret_cast<volatile RFDR_7*>(0x400D011C); }
+  static inline volatile RFDR_7 &ref() { return *reinterpret_cast<volatile RFDR_7*>(0x400D011C); }
 };
 // IP Receive FIFO Data x
 union RFDR_8 {
@@ -2365,7 +2365,7 @@ union RFDR_8 {
 
   RFDR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_8 &Instance() { return *reinterpret_cast<volatile RFDR_8*>(0x400D0120); }
+  static inline volatile RFDR_8 &ref() { return *reinterpret_cast<volatile RFDR_8*>(0x400D0120); }
 };
 // IP Receive FIFO Data x
 union RFDR_9 {
@@ -2381,7 +2381,7 @@ union RFDR_9 {
 
   RFDR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_9 &Instance() { return *reinterpret_cast<volatile RFDR_9*>(0x400D0124); }
+  static inline volatile RFDR_9 &ref() { return *reinterpret_cast<volatile RFDR_9*>(0x400D0124); }
 };
 // IP Receive FIFO Data x
 union RFDR_10 {
@@ -2397,7 +2397,7 @@ union RFDR_10 {
 
   RFDR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_10 &Instance() { return *reinterpret_cast<volatile RFDR_10*>(0x400D0128); }
+  static inline volatile RFDR_10 &ref() { return *reinterpret_cast<volatile RFDR_10*>(0x400D0128); }
 };
 // IP Receive FIFO Data x
 union RFDR_11 {
@@ -2413,7 +2413,7 @@ union RFDR_11 {
 
   RFDR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_11 &Instance() { return *reinterpret_cast<volatile RFDR_11*>(0x400D012C); }
+  static inline volatile RFDR_11 &ref() { return *reinterpret_cast<volatile RFDR_11*>(0x400D012C); }
 };
 // IP Receive FIFO Data x
 union RFDR_12 {
@@ -2429,7 +2429,7 @@ union RFDR_12 {
 
   RFDR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_12 &Instance() { return *reinterpret_cast<volatile RFDR_12*>(0x400D0130); }
+  static inline volatile RFDR_12 &ref() { return *reinterpret_cast<volatile RFDR_12*>(0x400D0130); }
 };
 // IP Receive FIFO Data x
 union RFDR_13 {
@@ -2445,7 +2445,7 @@ union RFDR_13 {
 
   RFDR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_13 &Instance() { return *reinterpret_cast<volatile RFDR_13*>(0x400D0134); }
+  static inline volatile RFDR_13 &ref() { return *reinterpret_cast<volatile RFDR_13*>(0x400D0134); }
 };
 // IP Receive FIFO Data x
 union RFDR_14 {
@@ -2461,7 +2461,7 @@ union RFDR_14 {
 
   RFDR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_14 &Instance() { return *reinterpret_cast<volatile RFDR_14*>(0x400D0138); }
+  static inline volatile RFDR_14 &ref() { return *reinterpret_cast<volatile RFDR_14*>(0x400D0138); }
 };
 // IP Receive FIFO Data x
 union RFDR_15 {
@@ -2477,7 +2477,7 @@ union RFDR_15 {
 
   RFDR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_15 &Instance() { return *reinterpret_cast<volatile RFDR_15*>(0x400D013C); }
+  static inline volatile RFDR_15 &ref() { return *reinterpret_cast<volatile RFDR_15*>(0x400D013C); }
 };
 // IP Receive FIFO Data x
 union RFDR_16 {
@@ -2493,7 +2493,7 @@ union RFDR_16 {
 
   RFDR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_16 &Instance() { return *reinterpret_cast<volatile RFDR_16*>(0x400D0140); }
+  static inline volatile RFDR_16 &ref() { return *reinterpret_cast<volatile RFDR_16*>(0x400D0140); }
 };
 // IP Receive FIFO Data x
 union RFDR_17 {
@@ -2509,7 +2509,7 @@ union RFDR_17 {
 
   RFDR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_17 &Instance() { return *reinterpret_cast<volatile RFDR_17*>(0x400D0144); }
+  static inline volatile RFDR_17 &ref() { return *reinterpret_cast<volatile RFDR_17*>(0x400D0144); }
 };
 // IP Receive FIFO Data x
 union RFDR_18 {
@@ -2525,7 +2525,7 @@ union RFDR_18 {
 
   RFDR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_18 &Instance() { return *reinterpret_cast<volatile RFDR_18*>(0x400D0148); }
+  static inline volatile RFDR_18 &ref() { return *reinterpret_cast<volatile RFDR_18*>(0x400D0148); }
 };
 // IP Receive FIFO Data x
 union RFDR_19 {
@@ -2541,7 +2541,7 @@ union RFDR_19 {
 
   RFDR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_19 &Instance() { return *reinterpret_cast<volatile RFDR_19*>(0x400D014C); }
+  static inline volatile RFDR_19 &ref() { return *reinterpret_cast<volatile RFDR_19*>(0x400D014C); }
 };
 // IP Receive FIFO Data x
 union RFDR_20 {
@@ -2557,7 +2557,7 @@ union RFDR_20 {
 
   RFDR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_20 &Instance() { return *reinterpret_cast<volatile RFDR_20*>(0x400D0150); }
+  static inline volatile RFDR_20 &ref() { return *reinterpret_cast<volatile RFDR_20*>(0x400D0150); }
 };
 // IP Receive FIFO Data x
 union RFDR_21 {
@@ -2573,7 +2573,7 @@ union RFDR_21 {
 
   RFDR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_21 &Instance() { return *reinterpret_cast<volatile RFDR_21*>(0x400D0154); }
+  static inline volatile RFDR_21 &ref() { return *reinterpret_cast<volatile RFDR_21*>(0x400D0154); }
 };
 // IP Receive FIFO Data x
 union RFDR_22 {
@@ -2589,7 +2589,7 @@ union RFDR_22 {
 
   RFDR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_22 &Instance() { return *reinterpret_cast<volatile RFDR_22*>(0x400D0158); }
+  static inline volatile RFDR_22 &ref() { return *reinterpret_cast<volatile RFDR_22*>(0x400D0158); }
 };
 // IP Receive FIFO Data x
 union RFDR_23 {
@@ -2605,7 +2605,7 @@ union RFDR_23 {
 
   RFDR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_23 &Instance() { return *reinterpret_cast<volatile RFDR_23*>(0x400D015C); }
+  static inline volatile RFDR_23 &ref() { return *reinterpret_cast<volatile RFDR_23*>(0x400D015C); }
 };
 // IP Receive FIFO Data x
 union RFDR_24 {
@@ -2621,7 +2621,7 @@ union RFDR_24 {
 
   RFDR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_24 &Instance() { return *reinterpret_cast<volatile RFDR_24*>(0x400D0160); }
+  static inline volatile RFDR_24 &ref() { return *reinterpret_cast<volatile RFDR_24*>(0x400D0160); }
 };
 // IP Receive FIFO Data x
 union RFDR_25 {
@@ -2637,7 +2637,7 @@ union RFDR_25 {
 
   RFDR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_25 &Instance() { return *reinterpret_cast<volatile RFDR_25*>(0x400D0164); }
+  static inline volatile RFDR_25 &ref() { return *reinterpret_cast<volatile RFDR_25*>(0x400D0164); }
 };
 // IP Receive FIFO Data x
 union RFDR_26 {
@@ -2653,7 +2653,7 @@ union RFDR_26 {
 
   RFDR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_26 &Instance() { return *reinterpret_cast<volatile RFDR_26*>(0x400D0168); }
+  static inline volatile RFDR_26 &ref() { return *reinterpret_cast<volatile RFDR_26*>(0x400D0168); }
 };
 // IP Receive FIFO Data x
 union RFDR_27 {
@@ -2669,7 +2669,7 @@ union RFDR_27 {
 
   RFDR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_27 &Instance() { return *reinterpret_cast<volatile RFDR_27*>(0x400D016C); }
+  static inline volatile RFDR_27 &ref() { return *reinterpret_cast<volatile RFDR_27*>(0x400D016C); }
 };
 // IP Receive FIFO Data x
 union RFDR_28 {
@@ -2685,7 +2685,7 @@ union RFDR_28 {
 
   RFDR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_28 &Instance() { return *reinterpret_cast<volatile RFDR_28*>(0x400D0170); }
+  static inline volatile RFDR_28 &ref() { return *reinterpret_cast<volatile RFDR_28*>(0x400D0170); }
 };
 // IP Receive FIFO Data x
 union RFDR_29 {
@@ -2701,7 +2701,7 @@ union RFDR_29 {
 
   RFDR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_29 &Instance() { return *reinterpret_cast<volatile RFDR_29*>(0x400D0174); }
+  static inline volatile RFDR_29 &ref() { return *reinterpret_cast<volatile RFDR_29*>(0x400D0174); }
 };
 // IP Receive FIFO Data x
 union RFDR_30 {
@@ -2717,7 +2717,7 @@ union RFDR_30 {
 
   RFDR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_30 &Instance() { return *reinterpret_cast<volatile RFDR_30*>(0x400D0178); }
+  static inline volatile RFDR_30 &ref() { return *reinterpret_cast<volatile RFDR_30*>(0x400D0178); }
 };
 // IP Receive FIFO Data x
 union RFDR_31 {
@@ -2733,7 +2733,7 @@ union RFDR_31 {
 
   RFDR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR_31 &Instance() { return *reinterpret_cast<volatile RFDR_31*>(0x400D017C); }
+  static inline volatile RFDR_31 &ref() { return *reinterpret_cast<volatile RFDR_31*>(0x400D017C); }
 };
 
 // IP TX FIFO Data x
@@ -2750,7 +2750,7 @@ union TFDR_0 {
 
   TFDR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_0 &Instance() { return *reinterpret_cast<volatile TFDR_0*>(0x400D0180); }
+  static inline volatile TFDR_0 &ref() { return *reinterpret_cast<volatile TFDR_0*>(0x400D0180); }
 };
 // IP TX FIFO Data x
 union TFDR_1 {
@@ -2766,7 +2766,7 @@ union TFDR_1 {
 
   TFDR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_1 &Instance() { return *reinterpret_cast<volatile TFDR_1*>(0x400D0184); }
+  static inline volatile TFDR_1 &ref() { return *reinterpret_cast<volatile TFDR_1*>(0x400D0184); }
 };
 // IP TX FIFO Data x
 union TFDR_2 {
@@ -2782,7 +2782,7 @@ union TFDR_2 {
 
   TFDR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_2 &Instance() { return *reinterpret_cast<volatile TFDR_2*>(0x400D0188); }
+  static inline volatile TFDR_2 &ref() { return *reinterpret_cast<volatile TFDR_2*>(0x400D0188); }
 };
 // IP TX FIFO Data x
 union TFDR_3 {
@@ -2798,7 +2798,7 @@ union TFDR_3 {
 
   TFDR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_3 &Instance() { return *reinterpret_cast<volatile TFDR_3*>(0x400D018C); }
+  static inline volatile TFDR_3 &ref() { return *reinterpret_cast<volatile TFDR_3*>(0x400D018C); }
 };
 // IP TX FIFO Data x
 union TFDR_4 {
@@ -2814,7 +2814,7 @@ union TFDR_4 {
 
   TFDR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_4 &Instance() { return *reinterpret_cast<volatile TFDR_4*>(0x400D0190); }
+  static inline volatile TFDR_4 &ref() { return *reinterpret_cast<volatile TFDR_4*>(0x400D0190); }
 };
 // IP TX FIFO Data x
 union TFDR_5 {
@@ -2830,7 +2830,7 @@ union TFDR_5 {
 
   TFDR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_5 &Instance() { return *reinterpret_cast<volatile TFDR_5*>(0x400D0194); }
+  static inline volatile TFDR_5 &ref() { return *reinterpret_cast<volatile TFDR_5*>(0x400D0194); }
 };
 // IP TX FIFO Data x
 union TFDR_6 {
@@ -2846,7 +2846,7 @@ union TFDR_6 {
 
   TFDR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_6 &Instance() { return *reinterpret_cast<volatile TFDR_6*>(0x400D0198); }
+  static inline volatile TFDR_6 &ref() { return *reinterpret_cast<volatile TFDR_6*>(0x400D0198); }
 };
 // IP TX FIFO Data x
 union TFDR_7 {
@@ -2862,7 +2862,7 @@ union TFDR_7 {
 
   TFDR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_7 &Instance() { return *reinterpret_cast<volatile TFDR_7*>(0x400D019C); }
+  static inline volatile TFDR_7 &ref() { return *reinterpret_cast<volatile TFDR_7*>(0x400D019C); }
 };
 // IP TX FIFO Data x
 union TFDR_8 {
@@ -2878,7 +2878,7 @@ union TFDR_8 {
 
   TFDR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_8 &Instance() { return *reinterpret_cast<volatile TFDR_8*>(0x400D01A0); }
+  static inline volatile TFDR_8 &ref() { return *reinterpret_cast<volatile TFDR_8*>(0x400D01A0); }
 };
 // IP TX FIFO Data x
 union TFDR_9 {
@@ -2894,7 +2894,7 @@ union TFDR_9 {
 
   TFDR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_9 &Instance() { return *reinterpret_cast<volatile TFDR_9*>(0x400D01A4); }
+  static inline volatile TFDR_9 &ref() { return *reinterpret_cast<volatile TFDR_9*>(0x400D01A4); }
 };
 // IP TX FIFO Data x
 union TFDR_10 {
@@ -2910,7 +2910,7 @@ union TFDR_10 {
 
   TFDR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_10 &Instance() { return *reinterpret_cast<volatile TFDR_10*>(0x400D01A8); }
+  static inline volatile TFDR_10 &ref() { return *reinterpret_cast<volatile TFDR_10*>(0x400D01A8); }
 };
 // IP TX FIFO Data x
 union TFDR_11 {
@@ -2926,7 +2926,7 @@ union TFDR_11 {
 
   TFDR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_11 &Instance() { return *reinterpret_cast<volatile TFDR_11*>(0x400D01AC); }
+  static inline volatile TFDR_11 &ref() { return *reinterpret_cast<volatile TFDR_11*>(0x400D01AC); }
 };
 // IP TX FIFO Data x
 union TFDR_12 {
@@ -2942,7 +2942,7 @@ union TFDR_12 {
 
   TFDR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_12 &Instance() { return *reinterpret_cast<volatile TFDR_12*>(0x400D01B0); }
+  static inline volatile TFDR_12 &ref() { return *reinterpret_cast<volatile TFDR_12*>(0x400D01B0); }
 };
 // IP TX FIFO Data x
 union TFDR_13 {
@@ -2958,7 +2958,7 @@ union TFDR_13 {
 
   TFDR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_13 &Instance() { return *reinterpret_cast<volatile TFDR_13*>(0x400D01B4); }
+  static inline volatile TFDR_13 &ref() { return *reinterpret_cast<volatile TFDR_13*>(0x400D01B4); }
 };
 // IP TX FIFO Data x
 union TFDR_14 {
@@ -2974,7 +2974,7 @@ union TFDR_14 {
 
   TFDR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_14 &Instance() { return *reinterpret_cast<volatile TFDR_14*>(0x400D01B8); }
+  static inline volatile TFDR_14 &ref() { return *reinterpret_cast<volatile TFDR_14*>(0x400D01B8); }
 };
 // IP TX FIFO Data x
 union TFDR_15 {
@@ -2990,7 +2990,7 @@ union TFDR_15 {
 
   TFDR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_15 &Instance() { return *reinterpret_cast<volatile TFDR_15*>(0x400D01BC); }
+  static inline volatile TFDR_15 &ref() { return *reinterpret_cast<volatile TFDR_15*>(0x400D01BC); }
 };
 // IP TX FIFO Data x
 union TFDR_16 {
@@ -3006,7 +3006,7 @@ union TFDR_16 {
 
   TFDR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_16 &Instance() { return *reinterpret_cast<volatile TFDR_16*>(0x400D01C0); }
+  static inline volatile TFDR_16 &ref() { return *reinterpret_cast<volatile TFDR_16*>(0x400D01C0); }
 };
 // IP TX FIFO Data x
 union TFDR_17 {
@@ -3022,7 +3022,7 @@ union TFDR_17 {
 
   TFDR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_17 &Instance() { return *reinterpret_cast<volatile TFDR_17*>(0x400D01C4); }
+  static inline volatile TFDR_17 &ref() { return *reinterpret_cast<volatile TFDR_17*>(0x400D01C4); }
 };
 // IP TX FIFO Data x
 union TFDR_18 {
@@ -3038,7 +3038,7 @@ union TFDR_18 {
 
   TFDR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_18 &Instance() { return *reinterpret_cast<volatile TFDR_18*>(0x400D01C8); }
+  static inline volatile TFDR_18 &ref() { return *reinterpret_cast<volatile TFDR_18*>(0x400D01C8); }
 };
 // IP TX FIFO Data x
 union TFDR_19 {
@@ -3054,7 +3054,7 @@ union TFDR_19 {
 
   TFDR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_19 &Instance() { return *reinterpret_cast<volatile TFDR_19*>(0x400D01CC); }
+  static inline volatile TFDR_19 &ref() { return *reinterpret_cast<volatile TFDR_19*>(0x400D01CC); }
 };
 // IP TX FIFO Data x
 union TFDR_20 {
@@ -3070,7 +3070,7 @@ union TFDR_20 {
 
   TFDR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_20 &Instance() { return *reinterpret_cast<volatile TFDR_20*>(0x400D01D0); }
+  static inline volatile TFDR_20 &ref() { return *reinterpret_cast<volatile TFDR_20*>(0x400D01D0); }
 };
 // IP TX FIFO Data x
 union TFDR_21 {
@@ -3086,7 +3086,7 @@ union TFDR_21 {
 
   TFDR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_21 &Instance() { return *reinterpret_cast<volatile TFDR_21*>(0x400D01D4); }
+  static inline volatile TFDR_21 &ref() { return *reinterpret_cast<volatile TFDR_21*>(0x400D01D4); }
 };
 // IP TX FIFO Data x
 union TFDR_22 {
@@ -3102,7 +3102,7 @@ union TFDR_22 {
 
   TFDR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_22 &Instance() { return *reinterpret_cast<volatile TFDR_22*>(0x400D01D8); }
+  static inline volatile TFDR_22 &ref() { return *reinterpret_cast<volatile TFDR_22*>(0x400D01D8); }
 };
 // IP TX FIFO Data x
 union TFDR_23 {
@@ -3118,7 +3118,7 @@ union TFDR_23 {
 
   TFDR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_23 &Instance() { return *reinterpret_cast<volatile TFDR_23*>(0x400D01DC); }
+  static inline volatile TFDR_23 &ref() { return *reinterpret_cast<volatile TFDR_23*>(0x400D01DC); }
 };
 // IP TX FIFO Data x
 union TFDR_24 {
@@ -3134,7 +3134,7 @@ union TFDR_24 {
 
   TFDR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_24 &Instance() { return *reinterpret_cast<volatile TFDR_24*>(0x400D01E0); }
+  static inline volatile TFDR_24 &ref() { return *reinterpret_cast<volatile TFDR_24*>(0x400D01E0); }
 };
 // IP TX FIFO Data x
 union TFDR_25 {
@@ -3150,7 +3150,7 @@ union TFDR_25 {
 
   TFDR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_25 &Instance() { return *reinterpret_cast<volatile TFDR_25*>(0x400D01E4); }
+  static inline volatile TFDR_25 &ref() { return *reinterpret_cast<volatile TFDR_25*>(0x400D01E4); }
 };
 // IP TX FIFO Data x
 union TFDR_26 {
@@ -3166,7 +3166,7 @@ union TFDR_26 {
 
   TFDR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_26 &Instance() { return *reinterpret_cast<volatile TFDR_26*>(0x400D01E8); }
+  static inline volatile TFDR_26 &ref() { return *reinterpret_cast<volatile TFDR_26*>(0x400D01E8); }
 };
 // IP TX FIFO Data x
 union TFDR_27 {
@@ -3182,7 +3182,7 @@ union TFDR_27 {
 
   TFDR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_27 &Instance() { return *reinterpret_cast<volatile TFDR_27*>(0x400D01EC); }
+  static inline volatile TFDR_27 &ref() { return *reinterpret_cast<volatile TFDR_27*>(0x400D01EC); }
 };
 // IP TX FIFO Data x
 union TFDR_28 {
@@ -3198,7 +3198,7 @@ union TFDR_28 {
 
   TFDR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_28 &Instance() { return *reinterpret_cast<volatile TFDR_28*>(0x400D01F0); }
+  static inline volatile TFDR_28 &ref() { return *reinterpret_cast<volatile TFDR_28*>(0x400D01F0); }
 };
 // IP TX FIFO Data x
 union TFDR_29 {
@@ -3214,7 +3214,7 @@ union TFDR_29 {
 
   TFDR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_29 &Instance() { return *reinterpret_cast<volatile TFDR_29*>(0x400D01F4); }
+  static inline volatile TFDR_29 &ref() { return *reinterpret_cast<volatile TFDR_29*>(0x400D01F4); }
 };
 // IP TX FIFO Data x
 union TFDR_30 {
@@ -3230,7 +3230,7 @@ union TFDR_30 {
 
   TFDR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_30 &Instance() { return *reinterpret_cast<volatile TFDR_30*>(0x400D01F8); }
+  static inline volatile TFDR_30 &ref() { return *reinterpret_cast<volatile TFDR_30*>(0x400D01F8); }
 };
 // IP TX FIFO Data x
 union TFDR_31 {
@@ -3246,7 +3246,7 @@ union TFDR_31 {
 
   TFDR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR_31 &Instance() { return *reinterpret_cast<volatile TFDR_31*>(0x400D01FC); }
+  static inline volatile TFDR_31 &ref() { return *reinterpret_cast<volatile TFDR_31*>(0x400D01FC); }
 };
 
 // Lookup Table x
@@ -3273,7 +3273,7 @@ union LUT_0 {
 
   LUT_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_0 &Instance() { return *reinterpret_cast<volatile LUT_0*>(0x400D0200); }
+  static inline volatile LUT_0 &ref() { return *reinterpret_cast<volatile LUT_0*>(0x400D0200); }
 };
 // Lookup Table x
 union LUT_1 {
@@ -3299,7 +3299,7 @@ union LUT_1 {
 
   LUT_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_1 &Instance() { return *reinterpret_cast<volatile LUT_1*>(0x400D0204); }
+  static inline volatile LUT_1 &ref() { return *reinterpret_cast<volatile LUT_1*>(0x400D0204); }
 };
 // Lookup Table x
 union LUT_2 {
@@ -3325,7 +3325,7 @@ union LUT_2 {
 
   LUT_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_2 &Instance() { return *reinterpret_cast<volatile LUT_2*>(0x400D0208); }
+  static inline volatile LUT_2 &ref() { return *reinterpret_cast<volatile LUT_2*>(0x400D0208); }
 };
 // Lookup Table x
 union LUT_3 {
@@ -3351,7 +3351,7 @@ union LUT_3 {
 
   LUT_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_3 &Instance() { return *reinterpret_cast<volatile LUT_3*>(0x400D020C); }
+  static inline volatile LUT_3 &ref() { return *reinterpret_cast<volatile LUT_3*>(0x400D020C); }
 };
 // Lookup Table x
 union LUT_4 {
@@ -3377,7 +3377,7 @@ union LUT_4 {
 
   LUT_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_4 &Instance() { return *reinterpret_cast<volatile LUT_4*>(0x400D0210); }
+  static inline volatile LUT_4 &ref() { return *reinterpret_cast<volatile LUT_4*>(0x400D0210); }
 };
 // Lookup Table x
 union LUT_5 {
@@ -3403,7 +3403,7 @@ union LUT_5 {
 
   LUT_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_5 &Instance() { return *reinterpret_cast<volatile LUT_5*>(0x400D0214); }
+  static inline volatile LUT_5 &ref() { return *reinterpret_cast<volatile LUT_5*>(0x400D0214); }
 };
 // Lookup Table x
 union LUT_6 {
@@ -3429,7 +3429,7 @@ union LUT_6 {
 
   LUT_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_6 &Instance() { return *reinterpret_cast<volatile LUT_6*>(0x400D0218); }
+  static inline volatile LUT_6 &ref() { return *reinterpret_cast<volatile LUT_6*>(0x400D0218); }
 };
 // Lookup Table x
 union LUT_7 {
@@ -3455,7 +3455,7 @@ union LUT_7 {
 
   LUT_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_7 &Instance() { return *reinterpret_cast<volatile LUT_7*>(0x400D021C); }
+  static inline volatile LUT_7 &ref() { return *reinterpret_cast<volatile LUT_7*>(0x400D021C); }
 };
 // Lookup Table x
 union LUT_8 {
@@ -3481,7 +3481,7 @@ union LUT_8 {
 
   LUT_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_8 &Instance() { return *reinterpret_cast<volatile LUT_8*>(0x400D0220); }
+  static inline volatile LUT_8 &ref() { return *reinterpret_cast<volatile LUT_8*>(0x400D0220); }
 };
 // Lookup Table x
 union LUT_9 {
@@ -3507,7 +3507,7 @@ union LUT_9 {
 
   LUT_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_9 &Instance() { return *reinterpret_cast<volatile LUT_9*>(0x400D0224); }
+  static inline volatile LUT_9 &ref() { return *reinterpret_cast<volatile LUT_9*>(0x400D0224); }
 };
 // Lookup Table x
 union LUT_10 {
@@ -3533,7 +3533,7 @@ union LUT_10 {
 
   LUT_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_10 &Instance() { return *reinterpret_cast<volatile LUT_10*>(0x400D0228); }
+  static inline volatile LUT_10 &ref() { return *reinterpret_cast<volatile LUT_10*>(0x400D0228); }
 };
 // Lookup Table x
 union LUT_11 {
@@ -3559,7 +3559,7 @@ union LUT_11 {
 
   LUT_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_11 &Instance() { return *reinterpret_cast<volatile LUT_11*>(0x400D022C); }
+  static inline volatile LUT_11 &ref() { return *reinterpret_cast<volatile LUT_11*>(0x400D022C); }
 };
 // Lookup Table x
 union LUT_12 {
@@ -3585,7 +3585,7 @@ union LUT_12 {
 
   LUT_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_12 &Instance() { return *reinterpret_cast<volatile LUT_12*>(0x400D0230); }
+  static inline volatile LUT_12 &ref() { return *reinterpret_cast<volatile LUT_12*>(0x400D0230); }
 };
 // Lookup Table x
 union LUT_13 {
@@ -3611,7 +3611,7 @@ union LUT_13 {
 
   LUT_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_13 &Instance() { return *reinterpret_cast<volatile LUT_13*>(0x400D0234); }
+  static inline volatile LUT_13 &ref() { return *reinterpret_cast<volatile LUT_13*>(0x400D0234); }
 };
 // Lookup Table x
 union LUT_14 {
@@ -3637,7 +3637,7 @@ union LUT_14 {
 
   LUT_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_14 &Instance() { return *reinterpret_cast<volatile LUT_14*>(0x400D0238); }
+  static inline volatile LUT_14 &ref() { return *reinterpret_cast<volatile LUT_14*>(0x400D0238); }
 };
 // Lookup Table x
 union LUT_15 {
@@ -3663,7 +3663,7 @@ union LUT_15 {
 
   LUT_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_15 &Instance() { return *reinterpret_cast<volatile LUT_15*>(0x400D023C); }
+  static inline volatile LUT_15 &ref() { return *reinterpret_cast<volatile LUT_15*>(0x400D023C); }
 };
 // Lookup Table x
 union LUT_16 {
@@ -3689,7 +3689,7 @@ union LUT_16 {
 
   LUT_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_16 &Instance() { return *reinterpret_cast<volatile LUT_16*>(0x400D0240); }
+  static inline volatile LUT_16 &ref() { return *reinterpret_cast<volatile LUT_16*>(0x400D0240); }
 };
 // Lookup Table x
 union LUT_17 {
@@ -3715,7 +3715,7 @@ union LUT_17 {
 
   LUT_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_17 &Instance() { return *reinterpret_cast<volatile LUT_17*>(0x400D0244); }
+  static inline volatile LUT_17 &ref() { return *reinterpret_cast<volatile LUT_17*>(0x400D0244); }
 };
 // Lookup Table x
 union LUT_18 {
@@ -3741,7 +3741,7 @@ union LUT_18 {
 
   LUT_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_18 &Instance() { return *reinterpret_cast<volatile LUT_18*>(0x400D0248); }
+  static inline volatile LUT_18 &ref() { return *reinterpret_cast<volatile LUT_18*>(0x400D0248); }
 };
 // Lookup Table x
 union LUT_19 {
@@ -3767,7 +3767,7 @@ union LUT_19 {
 
   LUT_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_19 &Instance() { return *reinterpret_cast<volatile LUT_19*>(0x400D024C); }
+  static inline volatile LUT_19 &ref() { return *reinterpret_cast<volatile LUT_19*>(0x400D024C); }
 };
 // Lookup Table x
 union LUT_20 {
@@ -3793,7 +3793,7 @@ union LUT_20 {
 
   LUT_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_20 &Instance() { return *reinterpret_cast<volatile LUT_20*>(0x400D0250); }
+  static inline volatile LUT_20 &ref() { return *reinterpret_cast<volatile LUT_20*>(0x400D0250); }
 };
 // Lookup Table x
 union LUT_21 {
@@ -3819,7 +3819,7 @@ union LUT_21 {
 
   LUT_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_21 &Instance() { return *reinterpret_cast<volatile LUT_21*>(0x400D0254); }
+  static inline volatile LUT_21 &ref() { return *reinterpret_cast<volatile LUT_21*>(0x400D0254); }
 };
 // Lookup Table x
 union LUT_22 {
@@ -3845,7 +3845,7 @@ union LUT_22 {
 
   LUT_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_22 &Instance() { return *reinterpret_cast<volatile LUT_22*>(0x400D0258); }
+  static inline volatile LUT_22 &ref() { return *reinterpret_cast<volatile LUT_22*>(0x400D0258); }
 };
 // Lookup Table x
 union LUT_23 {
@@ -3871,7 +3871,7 @@ union LUT_23 {
 
   LUT_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_23 &Instance() { return *reinterpret_cast<volatile LUT_23*>(0x400D025C); }
+  static inline volatile LUT_23 &ref() { return *reinterpret_cast<volatile LUT_23*>(0x400D025C); }
 };
 // Lookup Table x
 union LUT_24 {
@@ -3897,7 +3897,7 @@ union LUT_24 {
 
   LUT_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_24 &Instance() { return *reinterpret_cast<volatile LUT_24*>(0x400D0260); }
+  static inline volatile LUT_24 &ref() { return *reinterpret_cast<volatile LUT_24*>(0x400D0260); }
 };
 // Lookup Table x
 union LUT_25 {
@@ -3923,7 +3923,7 @@ union LUT_25 {
 
   LUT_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_25 &Instance() { return *reinterpret_cast<volatile LUT_25*>(0x400D0264); }
+  static inline volatile LUT_25 &ref() { return *reinterpret_cast<volatile LUT_25*>(0x400D0264); }
 };
 // Lookup Table x
 union LUT_26 {
@@ -3949,7 +3949,7 @@ union LUT_26 {
 
   LUT_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_26 &Instance() { return *reinterpret_cast<volatile LUT_26*>(0x400D0268); }
+  static inline volatile LUT_26 &ref() { return *reinterpret_cast<volatile LUT_26*>(0x400D0268); }
 };
 // Lookup Table x
 union LUT_27 {
@@ -3975,7 +3975,7 @@ union LUT_27 {
 
   LUT_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_27 &Instance() { return *reinterpret_cast<volatile LUT_27*>(0x400D026C); }
+  static inline volatile LUT_27 &ref() { return *reinterpret_cast<volatile LUT_27*>(0x400D026C); }
 };
 // Lookup Table x
 union LUT_28 {
@@ -4001,7 +4001,7 @@ union LUT_28 {
 
   LUT_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_28 &Instance() { return *reinterpret_cast<volatile LUT_28*>(0x400D0270); }
+  static inline volatile LUT_28 &ref() { return *reinterpret_cast<volatile LUT_28*>(0x400D0270); }
 };
 // Lookup Table x
 union LUT_29 {
@@ -4027,7 +4027,7 @@ union LUT_29 {
 
   LUT_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_29 &Instance() { return *reinterpret_cast<volatile LUT_29*>(0x400D0274); }
+  static inline volatile LUT_29 &ref() { return *reinterpret_cast<volatile LUT_29*>(0x400D0274); }
 };
 // Lookup Table x
 union LUT_30 {
@@ -4053,7 +4053,7 @@ union LUT_30 {
 
   LUT_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_30 &Instance() { return *reinterpret_cast<volatile LUT_30*>(0x400D0278); }
+  static inline volatile LUT_30 &ref() { return *reinterpret_cast<volatile LUT_30*>(0x400D0278); }
 };
 // Lookup Table x
 union LUT_31 {
@@ -4079,7 +4079,7 @@ union LUT_31 {
 
   LUT_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_31 &Instance() { return *reinterpret_cast<volatile LUT_31*>(0x400D027C); }
+  static inline volatile LUT_31 &ref() { return *reinterpret_cast<volatile LUT_31*>(0x400D027C); }
 };
 // Lookup Table x
 union LUT_32 {
@@ -4105,7 +4105,7 @@ union LUT_32 {
 
   LUT_32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_32 &Instance() { return *reinterpret_cast<volatile LUT_32*>(0x400D0280); }
+  static inline volatile LUT_32 &ref() { return *reinterpret_cast<volatile LUT_32*>(0x400D0280); }
 };
 // Lookup Table x
 union LUT_33 {
@@ -4131,7 +4131,7 @@ union LUT_33 {
 
   LUT_33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_33 &Instance() { return *reinterpret_cast<volatile LUT_33*>(0x400D0284); }
+  static inline volatile LUT_33 &ref() { return *reinterpret_cast<volatile LUT_33*>(0x400D0284); }
 };
 // Lookup Table x
 union LUT_34 {
@@ -4157,7 +4157,7 @@ union LUT_34 {
 
   LUT_34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_34 &Instance() { return *reinterpret_cast<volatile LUT_34*>(0x400D0288); }
+  static inline volatile LUT_34 &ref() { return *reinterpret_cast<volatile LUT_34*>(0x400D0288); }
 };
 // Lookup Table x
 union LUT_35 {
@@ -4183,7 +4183,7 @@ union LUT_35 {
 
   LUT_35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_35 &Instance() { return *reinterpret_cast<volatile LUT_35*>(0x400D028C); }
+  static inline volatile LUT_35 &ref() { return *reinterpret_cast<volatile LUT_35*>(0x400D028C); }
 };
 // Lookup Table x
 union LUT_36 {
@@ -4209,7 +4209,7 @@ union LUT_36 {
 
   LUT_36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_36 &Instance() { return *reinterpret_cast<volatile LUT_36*>(0x400D0290); }
+  static inline volatile LUT_36 &ref() { return *reinterpret_cast<volatile LUT_36*>(0x400D0290); }
 };
 // Lookup Table x
 union LUT_37 {
@@ -4235,7 +4235,7 @@ union LUT_37 {
 
   LUT_37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_37 &Instance() { return *reinterpret_cast<volatile LUT_37*>(0x400D0294); }
+  static inline volatile LUT_37 &ref() { return *reinterpret_cast<volatile LUT_37*>(0x400D0294); }
 };
 // Lookup Table x
 union LUT_38 {
@@ -4261,7 +4261,7 @@ union LUT_38 {
 
   LUT_38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_38 &Instance() { return *reinterpret_cast<volatile LUT_38*>(0x400D0298); }
+  static inline volatile LUT_38 &ref() { return *reinterpret_cast<volatile LUT_38*>(0x400D0298); }
 };
 // Lookup Table x
 union LUT_39 {
@@ -4287,7 +4287,7 @@ union LUT_39 {
 
   LUT_39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_39 &Instance() { return *reinterpret_cast<volatile LUT_39*>(0x400D029C); }
+  static inline volatile LUT_39 &ref() { return *reinterpret_cast<volatile LUT_39*>(0x400D029C); }
 };
 // Lookup Table x
 union LUT_40 {
@@ -4313,7 +4313,7 @@ union LUT_40 {
 
   LUT_40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_40 &Instance() { return *reinterpret_cast<volatile LUT_40*>(0x400D02A0); }
+  static inline volatile LUT_40 &ref() { return *reinterpret_cast<volatile LUT_40*>(0x400D02A0); }
 };
 // Lookup Table x
 union LUT_41 {
@@ -4339,7 +4339,7 @@ union LUT_41 {
 
   LUT_41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_41 &Instance() { return *reinterpret_cast<volatile LUT_41*>(0x400D02A4); }
+  static inline volatile LUT_41 &ref() { return *reinterpret_cast<volatile LUT_41*>(0x400D02A4); }
 };
 // Lookup Table x
 union LUT_42 {
@@ -4365,7 +4365,7 @@ union LUT_42 {
 
   LUT_42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_42 &Instance() { return *reinterpret_cast<volatile LUT_42*>(0x400D02A8); }
+  static inline volatile LUT_42 &ref() { return *reinterpret_cast<volatile LUT_42*>(0x400D02A8); }
 };
 // Lookup Table x
 union LUT_43 {
@@ -4391,7 +4391,7 @@ union LUT_43 {
 
   LUT_43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_43 &Instance() { return *reinterpret_cast<volatile LUT_43*>(0x400D02AC); }
+  static inline volatile LUT_43 &ref() { return *reinterpret_cast<volatile LUT_43*>(0x400D02AC); }
 };
 // Lookup Table x
 union LUT_44 {
@@ -4417,7 +4417,7 @@ union LUT_44 {
 
   LUT_44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_44 &Instance() { return *reinterpret_cast<volatile LUT_44*>(0x400D02B0); }
+  static inline volatile LUT_44 &ref() { return *reinterpret_cast<volatile LUT_44*>(0x400D02B0); }
 };
 // Lookup Table x
 union LUT_45 {
@@ -4443,7 +4443,7 @@ union LUT_45 {
 
   LUT_45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_45 &Instance() { return *reinterpret_cast<volatile LUT_45*>(0x400D02B4); }
+  static inline volatile LUT_45 &ref() { return *reinterpret_cast<volatile LUT_45*>(0x400D02B4); }
 };
 // Lookup Table x
 union LUT_46 {
@@ -4469,7 +4469,7 @@ union LUT_46 {
 
   LUT_46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_46 &Instance() { return *reinterpret_cast<volatile LUT_46*>(0x400D02B8); }
+  static inline volatile LUT_46 &ref() { return *reinterpret_cast<volatile LUT_46*>(0x400D02B8); }
 };
 // Lookup Table x
 union LUT_47 {
@@ -4495,7 +4495,7 @@ union LUT_47 {
 
   LUT_47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_47 &Instance() { return *reinterpret_cast<volatile LUT_47*>(0x400D02BC); }
+  static inline volatile LUT_47 &ref() { return *reinterpret_cast<volatile LUT_47*>(0x400D02BC); }
 };
 // Lookup Table x
 union LUT_48 {
@@ -4521,7 +4521,7 @@ union LUT_48 {
 
   LUT_48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_48 &Instance() { return *reinterpret_cast<volatile LUT_48*>(0x400D02C0); }
+  static inline volatile LUT_48 &ref() { return *reinterpret_cast<volatile LUT_48*>(0x400D02C0); }
 };
 // Lookup Table x
 union LUT_49 {
@@ -4547,7 +4547,7 @@ union LUT_49 {
 
   LUT_49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_49 &Instance() { return *reinterpret_cast<volatile LUT_49*>(0x400D02C4); }
+  static inline volatile LUT_49 &ref() { return *reinterpret_cast<volatile LUT_49*>(0x400D02C4); }
 };
 // Lookup Table x
 union LUT_50 {
@@ -4573,7 +4573,7 @@ union LUT_50 {
 
   LUT_50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_50 &Instance() { return *reinterpret_cast<volatile LUT_50*>(0x400D02C8); }
+  static inline volatile LUT_50 &ref() { return *reinterpret_cast<volatile LUT_50*>(0x400D02C8); }
 };
 // Lookup Table x
 union LUT_51 {
@@ -4599,7 +4599,7 @@ union LUT_51 {
 
   LUT_51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_51 &Instance() { return *reinterpret_cast<volatile LUT_51*>(0x400D02CC); }
+  static inline volatile LUT_51 &ref() { return *reinterpret_cast<volatile LUT_51*>(0x400D02CC); }
 };
 // Lookup Table x
 union LUT_52 {
@@ -4625,7 +4625,7 @@ union LUT_52 {
 
   LUT_52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_52 &Instance() { return *reinterpret_cast<volatile LUT_52*>(0x400D02D0); }
+  static inline volatile LUT_52 &ref() { return *reinterpret_cast<volatile LUT_52*>(0x400D02D0); }
 };
 // Lookup Table x
 union LUT_53 {
@@ -4651,7 +4651,7 @@ union LUT_53 {
 
   LUT_53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_53 &Instance() { return *reinterpret_cast<volatile LUT_53*>(0x400D02D4); }
+  static inline volatile LUT_53 &ref() { return *reinterpret_cast<volatile LUT_53*>(0x400D02D4); }
 };
 // Lookup Table x
 union LUT_54 {
@@ -4677,7 +4677,7 @@ union LUT_54 {
 
   LUT_54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_54 &Instance() { return *reinterpret_cast<volatile LUT_54*>(0x400D02D8); }
+  static inline volatile LUT_54 &ref() { return *reinterpret_cast<volatile LUT_54*>(0x400D02D8); }
 };
 // Lookup Table x
 union LUT_55 {
@@ -4703,7 +4703,7 @@ union LUT_55 {
 
   LUT_55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_55 &Instance() { return *reinterpret_cast<volatile LUT_55*>(0x400D02DC); }
+  static inline volatile LUT_55 &ref() { return *reinterpret_cast<volatile LUT_55*>(0x400D02DC); }
 };
 // Lookup Table x
 union LUT_56 {
@@ -4729,7 +4729,7 @@ union LUT_56 {
 
   LUT_56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_56 &Instance() { return *reinterpret_cast<volatile LUT_56*>(0x400D02E0); }
+  static inline volatile LUT_56 &ref() { return *reinterpret_cast<volatile LUT_56*>(0x400D02E0); }
 };
 // Lookup Table x
 union LUT_57 {
@@ -4755,7 +4755,7 @@ union LUT_57 {
 
   LUT_57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_57 &Instance() { return *reinterpret_cast<volatile LUT_57*>(0x400D02E4); }
+  static inline volatile LUT_57 &ref() { return *reinterpret_cast<volatile LUT_57*>(0x400D02E4); }
 };
 // Lookup Table x
 union LUT_58 {
@@ -4781,7 +4781,7 @@ union LUT_58 {
 
   LUT_58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_58 &Instance() { return *reinterpret_cast<volatile LUT_58*>(0x400D02E8); }
+  static inline volatile LUT_58 &ref() { return *reinterpret_cast<volatile LUT_58*>(0x400D02E8); }
 };
 // Lookup Table x
 union LUT_59 {
@@ -4807,7 +4807,7 @@ union LUT_59 {
 
   LUT_59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_59 &Instance() { return *reinterpret_cast<volatile LUT_59*>(0x400D02EC); }
+  static inline volatile LUT_59 &ref() { return *reinterpret_cast<volatile LUT_59*>(0x400D02EC); }
 };
 // Lookup Table x
 union LUT_60 {
@@ -4833,7 +4833,7 @@ union LUT_60 {
 
   LUT_60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_60 &Instance() { return *reinterpret_cast<volatile LUT_60*>(0x400D02F0); }
+  static inline volatile LUT_60 &ref() { return *reinterpret_cast<volatile LUT_60*>(0x400D02F0); }
 };
 // Lookup Table x
 union LUT_61 {
@@ -4859,7 +4859,7 @@ union LUT_61 {
 
   LUT_61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_61 &Instance() { return *reinterpret_cast<volatile LUT_61*>(0x400D02F4); }
+  static inline volatile LUT_61 &ref() { return *reinterpret_cast<volatile LUT_61*>(0x400D02F4); }
 };
 // Lookup Table x
 union LUT_62 {
@@ -4885,7 +4885,7 @@ union LUT_62 {
 
   LUT_62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_62 &Instance() { return *reinterpret_cast<volatile LUT_62*>(0x400D02F8); }
+  static inline volatile LUT_62 &ref() { return *reinterpret_cast<volatile LUT_62*>(0x400D02F8); }
 };
 // Lookup Table x
 union LUT_63 {
@@ -4911,7 +4911,7 @@ union LUT_63 {
 
   LUT_63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT_63 &Instance() { return *reinterpret_cast<volatile LUT_63*>(0x400D02FC); }
+  static inline volatile LUT_63 &ref() { return *reinterpret_cast<volatile LUT_63*>(0x400D02FC); }
 };
 
 // AHB Controller ID 0 Control
@@ -4938,7 +4938,7 @@ union HMSTR0CR {
 
   HMSTR0CR() = delete;
   inline void Reset() volatile { this->value = 0x0040FFCF; }
-  static inline volatile HMSTR0CR &Instance() { return *reinterpret_cast<volatile HMSTR0CR*>(0x400D0400); }
+  static inline volatile HMSTR0CR &ref() { return *reinterpret_cast<volatile HMSTR0CR*>(0x400D0400); }
 };
 
 // AHB Controller ID 1 Control
@@ -4965,7 +4965,7 @@ union HMSTR1CR {
 
   HMSTR1CR() = delete;
   inline void Reset() volatile { this->value = 0x0000FFCF; }
-  static inline volatile HMSTR1CR &Instance() { return *reinterpret_cast<volatile HMSTR1CR*>(0x400D0404); }
+  static inline volatile HMSTR1CR &ref() { return *reinterpret_cast<volatile HMSTR1CR*>(0x400D0404); }
 };
 
 // AHB Controller ID 2 Control
@@ -4992,7 +4992,7 @@ union HMSTR2CR {
 
   HMSTR2CR() = delete;
   inline void Reset() volatile { this->value = 0x0004F00F; }
-  static inline volatile HMSTR2CR &Instance() { return *reinterpret_cast<volatile HMSTR2CR*>(0x400D0408); }
+  static inline volatile HMSTR2CR &ref() { return *reinterpret_cast<volatile HMSTR2CR*>(0x400D0408); }
 };
 
 // AHB Controller ID 3 Control
@@ -5019,7 +5019,7 @@ union HMSTR3CR {
 
   HMSTR3CR() = delete;
   inline void Reset() volatile { this->value = 0x0022807F; }
-  static inline volatile HMSTR3CR &Instance() { return *reinterpret_cast<volatile HMSTR3CR*>(0x400D040C); }
+  static inline volatile HMSTR3CR &ref() { return *reinterpret_cast<volatile HMSTR3CR*>(0x400D040C); }
 };
 
 // AHB Controller ID 4 Control
@@ -5046,7 +5046,7 @@ union HMSTR4CR {
 
   HMSTR4CR() = delete;
   inline void Reset() volatile { this->value = 0x0032F87F; }
-  static inline volatile HMSTR4CR &Instance() { return *reinterpret_cast<volatile HMSTR4CR*>(0x400D0410); }
+  static inline volatile HMSTR4CR &ref() { return *reinterpret_cast<volatile HMSTR4CR*>(0x400D0410); }
 };
 
 // AHB Controller ID 5 Control
@@ -5073,7 +5073,7 @@ union HMSTR5CR {
 
   HMSTR5CR() = delete;
   inline void Reset() volatile { this->value = 0x0011F87F; }
-  static inline volatile HMSTR5CR &Instance() { return *reinterpret_cast<volatile HMSTR5CR*>(0x400D0414); }
+  static inline volatile HMSTR5CR &ref() { return *reinterpret_cast<volatile HMSTR5CR*>(0x400D0414); }
 };
 
 // AHB Controller ID 6 Control
@@ -5100,7 +5100,7 @@ union HMSTR6CR {
 
   HMSTR6CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HMSTR6CR &Instance() { return *reinterpret_cast<volatile HMSTR6CR*>(0x400D0418); }
+  static inline volatile HMSTR6CR &ref() { return *reinterpret_cast<volatile HMSTR6CR*>(0x400D0418); }
 };
 
 // AHB Controller ID 7 Control
@@ -5127,7 +5127,7 @@ union HMSTR7CR {
 
   HMSTR7CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HMSTR7CR &Instance() { return *reinterpret_cast<volatile HMSTR7CR*>(0x400D041C); }
+  static inline volatile HMSTR7CR &ref() { return *reinterpret_cast<volatile HMSTR7CR*>(0x400D041C); }
 };
 
 // HADDR REMAP Start Address
@@ -5165,7 +5165,7 @@ union HADDRSTART {
 
   HADDRSTART() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HADDRSTART &Instance() { return *reinterpret_cast<volatile HADDRSTART*>(0x400D0420); }
+  static inline volatile HADDRSTART &ref() { return *reinterpret_cast<volatile HADDRSTART*>(0x400D0420); }
 };
 
 // HADDR REMAP END ADDR
@@ -5183,7 +5183,7 @@ union HADDREND {
 
   HADDREND() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HADDREND &Instance() { return *reinterpret_cast<volatile HADDREND*>(0x400D0424); }
+  static inline volatile HADDREND &ref() { return *reinterpret_cast<volatile HADDREND*>(0x400D0424); }
 };
 
 // HADDR Remap Offset
@@ -5201,7 +5201,7 @@ union HADDROFFSET {
 
   HADDROFFSET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HADDROFFSET &Instance() { return *reinterpret_cast<volatile HADDROFFSET*>(0x400D0428); }
+  static inline volatile HADDROFFSET &ref() { return *reinterpret_cast<volatile HADDROFFSET*>(0x400D0428); }
 };
 
 

@@ -110,7 +110,7 @@ union ARM_PLL_CTRL {
 
   ARM_PLL_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x400000A6; }
-  static inline volatile ARM_PLL_CTRL &Instance() { return *reinterpret_cast<volatile ARM_PLL_CTRL*>(0x40C84200); }
+  static inline volatile ARM_PLL_CTRL &ref() { return *reinterpret_cast<volatile ARM_PLL_CTRL*>(0x40C84200); }
 };
 
 // SYS_PLL3_CTRL_REGISTER
@@ -207,7 +207,7 @@ union SYS_PLL3_CTRL {
 
   SYS_PLL3_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x40000003; }
-  static inline volatile SYS_PLL3_CTRL &Instance() { return *reinterpret_cast<volatile SYS_PLL3_CTRL*>(0x40C84210); }
+  static inline volatile SYS_PLL3_CTRL &ref() { return *reinterpret_cast<volatile SYS_PLL3_CTRL*>(0x40C84210); }
 };
 
 // SYS_PLL3_UPDATE_REGISTER
@@ -272,7 +272,7 @@ union SYS_PLL3_UPDATE {
 
   SYS_PLL3_UPDATE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SYS_PLL3_UPDATE &Instance() { return *reinterpret_cast<volatile SYS_PLL3_UPDATE*>(0x40C84220); }
+  static inline volatile SYS_PLL3_UPDATE &ref() { return *reinterpret_cast<volatile SYS_PLL3_UPDATE*>(0x40C84220); }
 };
 
 // SYS_PLL3_PFD_REGISTER
@@ -343,7 +343,7 @@ union SYS_PLL3_PFD {
 
   SYS_PLL3_PFD() = delete;
   inline void Reset() volatile { this->value = 0x8CA0918D; }
-  static inline volatile SYS_PLL3_PFD &Instance() { return *reinterpret_cast<volatile SYS_PLL3_PFD*>(0x40C84230); }
+  static inline volatile SYS_PLL3_PFD &ref() { return *reinterpret_cast<volatile SYS_PLL3_PFD*>(0x40C84230); }
 };
 
 // SYS_PLL2_CTRL_REGISTER
@@ -442,7 +442,7 @@ union SYS_PLL2_CTRL {
 
   SYS_PLL2_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x40000000; }
-  static inline volatile SYS_PLL2_CTRL &Instance() { return *reinterpret_cast<volatile SYS_PLL2_CTRL*>(0x40C84240); }
+  static inline volatile SYS_PLL2_CTRL &ref() { return *reinterpret_cast<volatile SYS_PLL2_CTRL*>(0x40C84240); }
 };
 
 // SYS_PLL2_UPDATE_REGISTER
@@ -507,7 +507,7 @@ union SYS_PLL2_UPDATE {
 
   SYS_PLL2_UPDATE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SYS_PLL2_UPDATE &Instance() { return *reinterpret_cast<volatile SYS_PLL2_UPDATE*>(0x40C84250); }
+  static inline volatile SYS_PLL2_UPDATE &ref() { return *reinterpret_cast<volatile SYS_PLL2_UPDATE*>(0x40C84250); }
 };
 
 // SYS_PLL2_SS_REGISTER
@@ -536,7 +536,7 @@ union SYS_PLL2_SS {
 
   SYS_PLL2_SS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SYS_PLL2_SS &Instance() { return *reinterpret_cast<volatile SYS_PLL2_SS*>(0x40C84260); }
+  static inline volatile SYS_PLL2_SS &ref() { return *reinterpret_cast<volatile SYS_PLL2_SS*>(0x40C84260); }
 };
 
 // SYS_PLL2_PFD_REGISTER
@@ -575,7 +575,7 @@ union SYS_PLL2_PFD {
 
   SYS_PLL2_PFD() = delete;
   inline void Reset() volatile { this->value = 0xA098909B; }
-  static inline volatile SYS_PLL2_PFD &Instance() { return *reinterpret_cast<volatile SYS_PLL2_PFD*>(0x40C84270); }
+  static inline volatile SYS_PLL2_PFD &ref() { return *reinterpret_cast<volatile SYS_PLL2_PFD*>(0x40C84270); }
 };
 
 // SYS_PLL2_MFD_REGISTER
@@ -593,7 +593,7 @@ union SYS_PLL2_MFD {
 
   SYS_PLL2_MFD() = delete;
   inline void Reset() volatile { this->value = 0x0FFFFFFF; }
-  static inline volatile SYS_PLL2_MFD &Instance() { return *reinterpret_cast<volatile SYS_PLL2_MFD*>(0x40C842A0); }
+  static inline volatile SYS_PLL2_MFD &ref() { return *reinterpret_cast<volatile SYS_PLL2_MFD*>(0x40C842A0); }
 };
 
 // SYS_PLL1_SS_REGISTER
@@ -622,7 +622,7 @@ union SYS_PLL1_SS {
 
   SYS_PLL1_SS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SYS_PLL1_SS &Instance() { return *reinterpret_cast<volatile SYS_PLL1_SS*>(0x40C842B0); }
+  static inline volatile SYS_PLL1_SS &ref() { return *reinterpret_cast<volatile SYS_PLL1_SS*>(0x40C842B0); }
 };
 
 // SYS_PLL1_CTRL_REGISTER
@@ -689,7 +689,7 @@ union SYS_PLL1_CTRL {
 
   SYS_PLL1_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00004000; }
-  static inline volatile SYS_PLL1_CTRL &Instance() { return *reinterpret_cast<volatile SYS_PLL1_CTRL*>(0x40C842C0); }
+  static inline volatile SYS_PLL1_CTRL &ref() { return *reinterpret_cast<volatile SYS_PLL1_CTRL*>(0x40C842C0); }
 };
 
 // SYS_PLL1_DENOMINATOR_REGISTER
@@ -707,7 +707,7 @@ union SYS_PLL1_DENOMINATOR {
 
   SYS_PLL1_DENOMINATOR() = delete;
   inline void Reset() volatile { this->value = 0x2FFFFFFE; }
-  static inline volatile SYS_PLL1_DENOMINATOR &Instance() { return *reinterpret_cast<volatile SYS_PLL1_DENOMINATOR*>(0x40C842D0); }
+  static inline volatile SYS_PLL1_DENOMINATOR &ref() { return *reinterpret_cast<volatile SYS_PLL1_DENOMINATOR*>(0x40C842D0); }
 };
 
 // SYS_PLL1_NUMERATOR_REGISTER
@@ -725,7 +725,7 @@ union SYS_PLL1_NUMERATOR {
 
   SYS_PLL1_NUMERATOR() = delete;
   inline void Reset() volatile { this->value = 0x1FFFFFFF; }
-  static inline volatile SYS_PLL1_NUMERATOR &Instance() { return *reinterpret_cast<volatile SYS_PLL1_NUMERATOR*>(0x40C842E0); }
+  static inline volatile SYS_PLL1_NUMERATOR &ref() { return *reinterpret_cast<volatile SYS_PLL1_NUMERATOR*>(0x40C842E0); }
 };
 
 // SYS_PLL1_DIV_SELECT_REGISTER
@@ -743,7 +743,7 @@ union SYS_PLL1_DIV_SELECT {
 
   SYS_PLL1_DIV_SELECT() = delete;
   inline void Reset() volatile { this->value = 0x0000001D; }
-  static inline volatile SYS_PLL1_DIV_SELECT &Instance() { return *reinterpret_cast<volatile SYS_PLL1_DIV_SELECT*>(0x40C842F0); }
+  static inline volatile SYS_PLL1_DIV_SELECT &ref() { return *reinterpret_cast<volatile SYS_PLL1_DIV_SELECT*>(0x40C842F0); }
 };
 
 // PLL_AUDIO_CTRL_REGISTER
@@ -786,7 +786,7 @@ union PLL_AUDIO_CTRL {
 
   PLL_AUDIO_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00004000; }
-  static inline volatile PLL_AUDIO_CTRL &Instance() { return *reinterpret_cast<volatile PLL_AUDIO_CTRL*>(0x40C84300); }
+  static inline volatile PLL_AUDIO_CTRL &ref() { return *reinterpret_cast<volatile PLL_AUDIO_CTRL*>(0x40C84300); }
 };
 
 // PLL_AUDIO_SS_REGISTER
@@ -815,7 +815,7 @@ union PLL_AUDIO_SS {
 
   PLL_AUDIO_SS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PLL_AUDIO_SS &Instance() { return *reinterpret_cast<volatile PLL_AUDIO_SS*>(0x40C84310); }
+  static inline volatile PLL_AUDIO_SS &ref() { return *reinterpret_cast<volatile PLL_AUDIO_SS*>(0x40C84310); }
 };
 
 // PLL_AUDIO_DENOMINATOR_REGISTER
@@ -833,7 +833,7 @@ union PLL_AUDIO_DENOMINATOR {
 
   PLL_AUDIO_DENOMINATOR() = delete;
   inline void Reset() volatile { this->value = 0x2FFFFFFE; }
-  static inline volatile PLL_AUDIO_DENOMINATOR &Instance() { return *reinterpret_cast<volatile PLL_AUDIO_DENOMINATOR*>(0x40C84320); }
+  static inline volatile PLL_AUDIO_DENOMINATOR &ref() { return *reinterpret_cast<volatile PLL_AUDIO_DENOMINATOR*>(0x40C84320); }
 };
 
 // PLL_AUDIO_NUMERATOR_REGISTER
@@ -851,7 +851,7 @@ union PLL_AUDIO_NUMERATOR {
 
   PLL_AUDIO_NUMERATOR() = delete;
   inline void Reset() volatile { this->value = 0x1FFFFFFF; }
-  static inline volatile PLL_AUDIO_NUMERATOR &Instance() { return *reinterpret_cast<volatile PLL_AUDIO_NUMERATOR*>(0x40C84330); }
+  static inline volatile PLL_AUDIO_NUMERATOR &ref() { return *reinterpret_cast<volatile PLL_AUDIO_NUMERATOR*>(0x40C84330); }
 };
 
 // PLL_AUDIO_DIV_SELECT_REGISTER
@@ -869,7 +869,7 @@ union PLL_AUDIO_DIV_SELECT {
 
   PLL_AUDIO_DIV_SELECT() = delete;
   inline void Reset() volatile { this->value = 0x00000029; }
-  static inline volatile PLL_AUDIO_DIV_SELECT &Instance() { return *reinterpret_cast<volatile PLL_AUDIO_DIV_SELECT*>(0x40C84340); }
+  static inline volatile PLL_AUDIO_DIV_SELECT &ref() { return *reinterpret_cast<volatile PLL_AUDIO_DIV_SELECT*>(0x40C84340); }
 };
 
 // PLL_VIDEO_CTRL_REGISTER
@@ -915,7 +915,7 @@ union PLL_VIDEO_CTRL {
 
   PLL_VIDEO_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00004000; }
-  static inline volatile PLL_VIDEO_CTRL &Instance() { return *reinterpret_cast<volatile PLL_VIDEO_CTRL*>(0x40C84350); }
+  static inline volatile PLL_VIDEO_CTRL &ref() { return *reinterpret_cast<volatile PLL_VIDEO_CTRL*>(0x40C84350); }
 };
 
 // PLL_VIDEO_SS_REGISTER
@@ -944,7 +944,7 @@ union PLL_VIDEO_SS {
 
   PLL_VIDEO_SS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PLL_VIDEO_SS &Instance() { return *reinterpret_cast<volatile PLL_VIDEO_SS*>(0x40C84360); }
+  static inline volatile PLL_VIDEO_SS &ref() { return *reinterpret_cast<volatile PLL_VIDEO_SS*>(0x40C84360); }
 };
 
 // PLL_VIDEO_DENOMINATOR_REGISTER
@@ -962,7 +962,7 @@ union PLL_VIDEO_DENOMINATOR {
 
   PLL_VIDEO_DENOMINATOR() = delete;
   inline void Reset() volatile { this->value = 0x2FFFFFFE; }
-  static inline volatile PLL_VIDEO_DENOMINATOR &Instance() { return *reinterpret_cast<volatile PLL_VIDEO_DENOMINATOR*>(0x40C84370); }
+  static inline volatile PLL_VIDEO_DENOMINATOR &ref() { return *reinterpret_cast<volatile PLL_VIDEO_DENOMINATOR*>(0x40C84370); }
 };
 
 // PLL_VIDEO_NUMERATOR_REGISTER
@@ -980,7 +980,7 @@ union PLL_VIDEO_NUMERATOR {
 
   PLL_VIDEO_NUMERATOR() = delete;
   inline void Reset() volatile { this->value = 0x1FFFFFFF; }
-  static inline volatile PLL_VIDEO_NUMERATOR &Instance() { return *reinterpret_cast<volatile PLL_VIDEO_NUMERATOR*>(0x40C84380); }
+  static inline volatile PLL_VIDEO_NUMERATOR &ref() { return *reinterpret_cast<volatile PLL_VIDEO_NUMERATOR*>(0x40C84380); }
 };
 
 // PLL_VIDEO_DIV_SELECT_REGISTER
@@ -998,7 +998,7 @@ union PLL_VIDEO_DIV_SELECT {
 
   PLL_VIDEO_DIV_SELECT() = delete;
   inline void Reset() volatile { this->value = 0x00000029; }
-  static inline volatile PLL_VIDEO_DIV_SELECT &Instance() { return *reinterpret_cast<volatile PLL_VIDEO_DIV_SELECT*>(0x40C84390); }
+  static inline volatile PLL_VIDEO_DIV_SELECT &ref() { return *reinterpret_cast<volatile PLL_VIDEO_DIV_SELECT*>(0x40C84390); }
 };
 
 

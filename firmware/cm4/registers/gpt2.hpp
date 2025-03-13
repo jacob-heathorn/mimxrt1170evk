@@ -237,7 +237,7 @@ union CR {
 
   CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CR &Instance() { return *reinterpret_cast<volatile CR*>(0x400F0000); }
+  static inline volatile CR &ref() { return *reinterpret_cast<volatile CR*>(0x400F0000); }
 };
 
 // GPT Prescaler Register
@@ -277,7 +277,7 @@ union PR {
 
   PR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PR &Instance() { return *reinterpret_cast<volatile PR*>(0x400F0004); }
+  static inline volatile PR &ref() { return *reinterpret_cast<volatile PR*>(0x400F0004); }
 };
 
 // GPT Status Register
@@ -353,7 +353,7 @@ union SR {
 
   SR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SR &Instance() { return *reinterpret_cast<volatile SR*>(0x400F0008); }
+  static inline volatile SR &ref() { return *reinterpret_cast<volatile SR*>(0x400F0008); }
 };
 
 // GPT Interrupt Register
@@ -429,7 +429,7 @@ union IR {
 
   IR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IR &Instance() { return *reinterpret_cast<volatile IR*>(0x400F000C); }
+  static inline volatile IR &ref() { return *reinterpret_cast<volatile IR*>(0x400F000C); }
 };
 
 // GPT Output Compare Register
@@ -446,7 +446,7 @@ union OCR1 {
 
   OCR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile OCR1 &Instance() { return *reinterpret_cast<volatile OCR1*>(0x400F0010); }
+  static inline volatile OCR1 &ref() { return *reinterpret_cast<volatile OCR1*>(0x400F0010); }
 };
 // GPT Output Compare Register
 union OCR2 {
@@ -462,7 +462,7 @@ union OCR2 {
 
   OCR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile OCR2 &Instance() { return *reinterpret_cast<volatile OCR2*>(0x400F0014); }
+  static inline volatile OCR2 &ref() { return *reinterpret_cast<volatile OCR2*>(0x400F0014); }
 };
 // GPT Output Compare Register
 union OCR3 {
@@ -478,7 +478,7 @@ union OCR3 {
 
   OCR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile OCR3 &Instance() { return *reinterpret_cast<volatile OCR3*>(0x400F0018); }
+  static inline volatile OCR3 &ref() { return *reinterpret_cast<volatile OCR3*>(0x400F0018); }
 };
 
 // GPT Input Capture Register
@@ -495,7 +495,7 @@ union ICR1 {
 
   ICR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ICR1 &Instance() { return *reinterpret_cast<volatile ICR1*>(0x400F001C); }
+  static inline volatile ICR1 &ref() { return *reinterpret_cast<volatile ICR1*>(0x400F001C); }
 };
 // GPT Input Capture Register
 union ICR2 {
@@ -511,7 +511,7 @@ union ICR2 {
 
   ICR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ICR2 &Instance() { return *reinterpret_cast<volatile ICR2*>(0x400F0020); }
+  static inline volatile ICR2 &ref() { return *reinterpret_cast<volatile ICR2*>(0x400F0020); }
 };
 
 // GPT Counter Register
@@ -528,7 +528,7 @@ union CNT {
 
   CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CNT &Instance() { return *reinterpret_cast<volatile CNT*>(0x400F0024); }
+  static inline volatile CNT &ref() { return *reinterpret_cast<volatile CNT*>(0x400F0024); }
 };
 
 

@@ -34,7 +34,7 @@ union VERID {
 
   VERID() = delete;
   inline void Reset() volatile { this->value = 0x03010000; }
-  static inline volatile VERID &Instance() { return *reinterpret_cast<volatile VERID*>(0x40404000); }
+  static inline volatile VERID &ref() { return *reinterpret_cast<volatile VERID*>(0x40404000); }
 };
 
 // Parameter
@@ -58,7 +58,7 @@ union PARAM {
 
   PARAM() = delete;
   inline void Reset() volatile { this->value = 0x00050504; }
-  static inline volatile PARAM &Instance() { return *reinterpret_cast<volatile PARAM*>(0x40404004); }
+  static inline volatile PARAM &ref() { return *reinterpret_cast<volatile PARAM*>(0x40404004); }
 };
 
 // Transmit Control
@@ -257,7 +257,7 @@ union TCSR {
 
   TCSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCSR &Instance() { return *reinterpret_cast<volatile TCSR*>(0x40404008); }
+  static inline volatile TCSR &ref() { return *reinterpret_cast<volatile TCSR*>(0x40404008); }
 };
 
 // Transmit Configuration 1
@@ -275,7 +275,7 @@ union TCR1 {
 
   TCR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCR1 &Instance() { return *reinterpret_cast<volatile TCR1*>(0x4040400C); }
+  static inline volatile TCR1 &ref() { return *reinterpret_cast<volatile TCR1*>(0x4040400C); }
 };
 
 // Transmit Configuration 2
@@ -368,7 +368,7 @@ union TCR2 {
 
   TCR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCR2 &Instance() { return *reinterpret_cast<volatile TCR2*>(0x40404010); }
+  static inline volatile TCR2 &ref() { return *reinterpret_cast<volatile TCR2*>(0x40404010); }
 };
 
 // Transmit Configuration 3
@@ -392,7 +392,7 @@ union TCR3 {
 
   TCR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCR3 &Instance() { return *reinterpret_cast<volatile TCR3*>(0x40404014); }
+  static inline volatile TCR3 &ref() { return *reinterpret_cast<volatile TCR3*>(0x40404014); }
 };
 
 // Transmit Configuration 4
@@ -511,7 +511,7 @@ union TCR4 {
 
   TCR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCR4 &Instance() { return *reinterpret_cast<volatile TCR4*>(0x40404018); }
+  static inline volatile TCR4 &ref() { return *reinterpret_cast<volatile TCR4*>(0x40404018); }
 };
 
 // Transmit Configuration 5
@@ -536,7 +536,7 @@ union TCR5 {
 
   TCR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCR5 &Instance() { return *reinterpret_cast<volatile TCR5*>(0x4040401C); }
+  static inline volatile TCR5 &ref() { return *reinterpret_cast<volatile TCR5*>(0x4040401C); }
 };
 
 // Transmit Data
@@ -553,7 +553,7 @@ union TDR_0 {
 
   TDR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDR_0 &Instance() { return *reinterpret_cast<volatile TDR_0*>(0x40404020); }
+  static inline volatile TDR_0 &ref() { return *reinterpret_cast<volatile TDR_0*>(0x40404020); }
 };
 // Transmit Data
 union TDR_1 {
@@ -569,7 +569,7 @@ union TDR_1 {
 
   TDR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDR_1 &Instance() { return *reinterpret_cast<volatile TDR_1*>(0x40404024); }
+  static inline volatile TDR_1 &ref() { return *reinterpret_cast<volatile TDR_1*>(0x40404024); }
 };
 // Transmit Data
 union TDR_2 {
@@ -585,7 +585,7 @@ union TDR_2 {
 
   TDR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDR_2 &Instance() { return *reinterpret_cast<volatile TDR_2*>(0x40404028); }
+  static inline volatile TDR_2 &ref() { return *reinterpret_cast<volatile TDR_2*>(0x40404028); }
 };
 // Transmit Data
 union TDR_3 {
@@ -601,7 +601,7 @@ union TDR_3 {
 
   TDR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDR_3 &Instance() { return *reinterpret_cast<volatile TDR_3*>(0x4040402C); }
+  static inline volatile TDR_3 &ref() { return *reinterpret_cast<volatile TDR_3*>(0x4040402C); }
 };
 
 // Transmit FIFO
@@ -632,7 +632,7 @@ union TFR_0 {
 
   TFR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFR_0 &Instance() { return *reinterpret_cast<volatile TFR_0*>(0x40404040); }
+  static inline volatile TFR_0 &ref() { return *reinterpret_cast<volatile TFR_0*>(0x40404040); }
 };
 // Transmit FIFO
 union TFR_1 {
@@ -662,7 +662,7 @@ union TFR_1 {
 
   TFR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFR_1 &Instance() { return *reinterpret_cast<volatile TFR_1*>(0x40404044); }
+  static inline volatile TFR_1 &ref() { return *reinterpret_cast<volatile TFR_1*>(0x40404044); }
 };
 // Transmit FIFO
 union TFR_2 {
@@ -692,7 +692,7 @@ union TFR_2 {
 
   TFR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFR_2 &Instance() { return *reinterpret_cast<volatile TFR_2*>(0x40404048); }
+  static inline volatile TFR_2 &ref() { return *reinterpret_cast<volatile TFR_2*>(0x40404048); }
 };
 // Transmit FIFO
 union TFR_3 {
@@ -722,7 +722,7 @@ union TFR_3 {
 
   TFR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFR_3 &Instance() { return *reinterpret_cast<volatile TFR_3*>(0x4040404C); }
+  static inline volatile TFR_3 &ref() { return *reinterpret_cast<volatile TFR_3*>(0x4040404C); }
 };
 
 // Transmit Mask
@@ -747,7 +747,7 @@ union TMR {
 
   TMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TMR &Instance() { return *reinterpret_cast<volatile TMR*>(0x40404060); }
+  static inline volatile TMR &ref() { return *reinterpret_cast<volatile TMR*>(0x40404060); }
 };
 
 // Receive Control
@@ -946,7 +946,7 @@ union RCSR {
 
   RCSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RCSR &Instance() { return *reinterpret_cast<volatile RCSR*>(0x40404088); }
+  static inline volatile RCSR &ref() { return *reinterpret_cast<volatile RCSR*>(0x40404088); }
 };
 
 // Receive Configuration 1
@@ -964,7 +964,7 @@ union RCR1 {
 
   RCR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RCR1 &Instance() { return *reinterpret_cast<volatile RCR1*>(0x4040408C); }
+  static inline volatile RCR1 &ref() { return *reinterpret_cast<volatile RCR1*>(0x4040408C); }
 };
 
 // Receive Configuration 2
@@ -1057,7 +1057,7 @@ union RCR2 {
 
   RCR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RCR2 &Instance() { return *reinterpret_cast<volatile RCR2*>(0x40404090); }
+  static inline volatile RCR2 &ref() { return *reinterpret_cast<volatile RCR2*>(0x40404090); }
 };
 
 // Receive Configuration 3
@@ -1081,7 +1081,7 @@ union RCR3 {
 
   RCR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RCR3 &Instance() { return *reinterpret_cast<volatile RCR3*>(0x40404094); }
+  static inline volatile RCR3 &ref() { return *reinterpret_cast<volatile RCR3*>(0x40404094); }
 };
 
 // Receive Configuration 4
@@ -1190,7 +1190,7 @@ union RCR4 {
 
   RCR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RCR4 &Instance() { return *reinterpret_cast<volatile RCR4*>(0x40404098); }
+  static inline volatile RCR4 &ref() { return *reinterpret_cast<volatile RCR4*>(0x40404098); }
 };
 
 // Receive Configuration 5
@@ -1215,7 +1215,7 @@ union RCR5 {
 
   RCR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RCR5 &Instance() { return *reinterpret_cast<volatile RCR5*>(0x4040409C); }
+  static inline volatile RCR5 &ref() { return *reinterpret_cast<volatile RCR5*>(0x4040409C); }
 };
 
 // Receive Data
@@ -1232,7 +1232,7 @@ union RDR_0 {
 
   RDR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDR_0 &Instance() { return *reinterpret_cast<volatile RDR_0*>(0x404040A0); }
+  static inline volatile RDR_0 &ref() { return *reinterpret_cast<volatile RDR_0*>(0x404040A0); }
 };
 // Receive Data
 union RDR_1 {
@@ -1248,7 +1248,7 @@ union RDR_1 {
 
   RDR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDR_1 &Instance() { return *reinterpret_cast<volatile RDR_1*>(0x404040A4); }
+  static inline volatile RDR_1 &ref() { return *reinterpret_cast<volatile RDR_1*>(0x404040A4); }
 };
 // Receive Data
 union RDR_2 {
@@ -1264,7 +1264,7 @@ union RDR_2 {
 
   RDR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDR_2 &Instance() { return *reinterpret_cast<volatile RDR_2*>(0x404040A8); }
+  static inline volatile RDR_2 &ref() { return *reinterpret_cast<volatile RDR_2*>(0x404040A8); }
 };
 // Receive Data
 union RDR_3 {
@@ -1280,7 +1280,7 @@ union RDR_3 {
 
   RDR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDR_3 &Instance() { return *reinterpret_cast<volatile RDR_3*>(0x404040AC); }
+  static inline volatile RDR_3 &ref() { return *reinterpret_cast<volatile RDR_3*>(0x404040AC); }
 };
 
 // Receive FIFO
@@ -1311,7 +1311,7 @@ union RFR_0 {
 
   RFR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFR_0 &Instance() { return *reinterpret_cast<volatile RFR_0*>(0x404040C0); }
+  static inline volatile RFR_0 &ref() { return *reinterpret_cast<volatile RFR_0*>(0x404040C0); }
 };
 // Receive FIFO
 union RFR_1 {
@@ -1341,7 +1341,7 @@ union RFR_1 {
 
   RFR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFR_1 &Instance() { return *reinterpret_cast<volatile RFR_1*>(0x404040C4); }
+  static inline volatile RFR_1 &ref() { return *reinterpret_cast<volatile RFR_1*>(0x404040C4); }
 };
 // Receive FIFO
 union RFR_2 {
@@ -1371,7 +1371,7 @@ union RFR_2 {
 
   RFR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFR_2 &Instance() { return *reinterpret_cast<volatile RFR_2*>(0x404040C8); }
+  static inline volatile RFR_2 &ref() { return *reinterpret_cast<volatile RFR_2*>(0x404040C8); }
 };
 // Receive FIFO
 union RFR_3 {
@@ -1401,7 +1401,7 @@ union RFR_3 {
 
   RFR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFR_3 &Instance() { return *reinterpret_cast<volatile RFR_3*>(0x404040CC); }
+  static inline volatile RFR_3 &ref() { return *reinterpret_cast<volatile RFR_3*>(0x404040CC); }
 };
 
 // Receive Mask
@@ -1426,7 +1426,7 @@ union RMR {
 
   RMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMR &Instance() { return *reinterpret_cast<volatile RMR*>(0x404040E0); }
+  static inline volatile RMR &ref() { return *reinterpret_cast<volatile RMR*>(0x404040E0); }
 };
 
 

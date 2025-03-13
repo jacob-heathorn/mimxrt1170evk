@@ -43,7 +43,7 @@ union MCR {
 
   MCR() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile MCR &Instance() { return *reinterpret_cast<volatile MCR*>(0x400D8000); }
+  static inline volatile MCR &ref() { return *reinterpret_cast<volatile MCR*>(0x400D8000); }
 };
 
 // PIT Upper Lifetime Timer Register
@@ -60,7 +60,7 @@ union LTMR64H {
 
   LTMR64H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LTMR64H &Instance() { return *reinterpret_cast<volatile LTMR64H*>(0x400D80E0); }
+  static inline volatile LTMR64H &ref() { return *reinterpret_cast<volatile LTMR64H*>(0x400D80E0); }
 };
 
 // PIT Lower Lifetime Timer Register
@@ -77,7 +77,7 @@ union LTMR64L {
 
   LTMR64L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LTMR64L &Instance() { return *reinterpret_cast<volatile LTMR64L*>(0x400D80E4); }
+  static inline volatile LTMR64L &ref() { return *reinterpret_cast<volatile LTMR64L*>(0x400D80E4); }
 };
 
 

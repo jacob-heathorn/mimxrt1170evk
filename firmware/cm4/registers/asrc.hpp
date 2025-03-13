@@ -165,7 +165,7 @@ union ASRCTR {
 
   ASRCTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCTR &Instance() { return *reinterpret_cast<volatile ASRCTR*>(0x40414000); }
+  static inline volatile ASRCTR &ref() { return *reinterpret_cast<volatile ASRCTR*>(0x40414000); }
 };
 
 // ASRC Interrupt Enable Register
@@ -261,7 +261,7 @@ union ASRIER {
 
   ASRIER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIER &Instance() { return *reinterpret_cast<volatile ASRIER*>(0x40414004); }
+  static inline volatile ASRIER &ref() { return *reinterpret_cast<volatile ASRIER*>(0x40414004); }
 };
 
 // ASRC Channel Number Configuration Register
@@ -391,7 +391,7 @@ union ASRCNCR {
 
   ASRCNCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCNCR &Instance() { return *reinterpret_cast<volatile ASRCNCR*>(0x4041400C); }
+  static inline volatile ASRCNCR &ref() { return *reinterpret_cast<volatile ASRCNCR*>(0x4041400C); }
 };
 
 // ASRC Filter Configuration Status Register
@@ -546,7 +546,7 @@ union ASRCFG {
 
   ASRCFG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCFG &Instance() { return *reinterpret_cast<volatile ASRCFG*>(0x40414010); }
+  static inline volatile ASRCFG &ref() { return *reinterpret_cast<volatile ASRCFG*>(0x40414010); }
 };
 
 // ASRC Clock Source Register
@@ -790,7 +790,7 @@ union ASRCSR {
 
   ASRCSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCSR &Instance() { return *reinterpret_cast<volatile ASRCSR*>(0x40414014); }
+  static inline volatile ASRCSR &ref() { return *reinterpret_cast<volatile ASRCSR*>(0x40414014); }
 };
 
 // ASRC Clock Divider Register 1
@@ -822,7 +822,7 @@ union ASRCDR1 {
 
   ASRCDR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCDR1 &Instance() { return *reinterpret_cast<volatile ASRCDR1*>(0x40414018); }
+  static inline volatile ASRCDR1 &ref() { return *reinterpret_cast<volatile ASRCDR1*>(0x40414018); }
 };
 
 // ASRC Clock Divider Register 2
@@ -846,7 +846,7 @@ union ASRCDR2 {
 
   ASRCDR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCDR2 &Instance() { return *reinterpret_cast<volatile ASRCDR2*>(0x4041401C); }
+  static inline volatile ASRCDR2 &ref() { return *reinterpret_cast<volatile ASRCDR2*>(0x4041401C); }
 };
 
 // ASRC Status Register
@@ -1082,7 +1082,7 @@ union ASRSTR {
 
   ASRSTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRSTR &Instance() { return *reinterpret_cast<volatile ASRSTR*>(0x40414020); }
+  static inline volatile ASRSTR &ref() { return *reinterpret_cast<volatile ASRSTR*>(0x40414020); }
 };
 
 // ASRC Parameter Register n
@@ -1100,7 +1100,7 @@ union ASRPM1 {
 
   ASRPM1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRPM1 &Instance() { return *reinterpret_cast<volatile ASRPM1*>(0x40414040); }
+  static inline volatile ASRPM1 &ref() { return *reinterpret_cast<volatile ASRPM1*>(0x40414040); }
 };
 // ASRC Parameter Register n
 union ASRPM2 {
@@ -1117,7 +1117,7 @@ union ASRPM2 {
 
   ASRPM2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRPM2 &Instance() { return *reinterpret_cast<volatile ASRPM2*>(0x40414044); }
+  static inline volatile ASRPM2 &ref() { return *reinterpret_cast<volatile ASRPM2*>(0x40414044); }
 };
 // ASRC Parameter Register n
 union ASRPM3 {
@@ -1134,7 +1134,7 @@ union ASRPM3 {
 
   ASRPM3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRPM3 &Instance() { return *reinterpret_cast<volatile ASRPM3*>(0x40414048); }
+  static inline volatile ASRPM3 &ref() { return *reinterpret_cast<volatile ASRPM3*>(0x40414048); }
 };
 // ASRC Parameter Register n
 union ASRPM4 {
@@ -1151,7 +1151,7 @@ union ASRPM4 {
 
   ASRPM4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRPM4 &Instance() { return *reinterpret_cast<volatile ASRPM4*>(0x4041404C); }
+  static inline volatile ASRPM4 &ref() { return *reinterpret_cast<volatile ASRPM4*>(0x4041404C); }
 };
 // ASRC Parameter Register n
 union ASRPM5 {
@@ -1168,7 +1168,7 @@ union ASRPM5 {
 
   ASRPM5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRPM5 &Instance() { return *reinterpret_cast<volatile ASRPM5*>(0x40414050); }
+  static inline volatile ASRPM5 &ref() { return *reinterpret_cast<volatile ASRPM5*>(0x40414050); }
 };
 
 // ASRC Task Queue FIFO Register 1
@@ -1189,7 +1189,7 @@ union ASRTFR1 {
 
   ASRTFR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRTFR1 &Instance() { return *reinterpret_cast<volatile ASRTFR1*>(0x40414054); }
+  static inline volatile ASRTFR1 &ref() { return *reinterpret_cast<volatile ASRTFR1*>(0x40414054); }
 };
 
 // ASRC Channel Counter Register
@@ -1217,7 +1217,7 @@ union ASRCCR {
 
   ASRCCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCCR &Instance() { return *reinterpret_cast<volatile ASRCCR*>(0x4041405C); }
+  static inline volatile ASRCCR &ref() { return *reinterpret_cast<volatile ASRCCR*>(0x4041405C); }
 };
 
 // ASRC Data Input Register for Pair x
@@ -1235,7 +1235,7 @@ union ASRDIA {
 
   ASRDIA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRDIA &Instance() { return *reinterpret_cast<volatile ASRDIA*>(0x40414060); }
+  static inline volatile ASRDIA &ref() { return *reinterpret_cast<volatile ASRDIA*>(0x40414060); }
 };
 
 // ASRC Data Output Register for Pair x
@@ -1253,7 +1253,7 @@ union ASRDOA {
 
   ASRDOA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRDOA &Instance() { return *reinterpret_cast<volatile ASRDOA*>(0x40414064); }
+  static inline volatile ASRDOA &ref() { return *reinterpret_cast<volatile ASRDOA*>(0x40414064); }
 };
 
 // ASRC Data Input Register for Pair x
@@ -1271,7 +1271,7 @@ union ASRDIB {
 
   ASRDIB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRDIB &Instance() { return *reinterpret_cast<volatile ASRDIB*>(0x40414068); }
+  static inline volatile ASRDIB &ref() { return *reinterpret_cast<volatile ASRDIB*>(0x40414068); }
 };
 
 // ASRC Data Output Register for Pair x
@@ -1289,7 +1289,7 @@ union ASRDOB {
 
   ASRDOB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRDOB &Instance() { return *reinterpret_cast<volatile ASRDOB*>(0x4041406C); }
+  static inline volatile ASRDOB &ref() { return *reinterpret_cast<volatile ASRDOB*>(0x4041406C); }
 };
 
 // ASRC Data Input Register for Pair x
@@ -1307,7 +1307,7 @@ union ASRDIC {
 
   ASRDIC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRDIC &Instance() { return *reinterpret_cast<volatile ASRDIC*>(0x40414070); }
+  static inline volatile ASRDIC &ref() { return *reinterpret_cast<volatile ASRDIC*>(0x40414070); }
 };
 
 // ASRC Data Output Register for Pair x
@@ -1325,7 +1325,7 @@ union ASRDOC {
 
   ASRDOC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRDOC &Instance() { return *reinterpret_cast<volatile ASRDOC*>(0x40414074); }
+  static inline volatile ASRDOC &ref() { return *reinterpret_cast<volatile ASRDOC*>(0x40414074); }
 };
 
 // ASRC Ideal Ratio for Pair A-High Part
@@ -1343,7 +1343,7 @@ union ASRIDRHA {
 
   ASRIDRHA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIDRHA &Instance() { return *reinterpret_cast<volatile ASRIDRHA*>(0x40414080); }
+  static inline volatile ASRIDRHA &ref() { return *reinterpret_cast<volatile ASRIDRHA*>(0x40414080); }
 };
 
 // ASRC Ideal Ratio for Pair A -Low Part
@@ -1361,7 +1361,7 @@ union ASRIDRLA {
 
   ASRIDRLA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIDRLA &Instance() { return *reinterpret_cast<volatile ASRIDRLA*>(0x40414084); }
+  static inline volatile ASRIDRLA &ref() { return *reinterpret_cast<volatile ASRIDRLA*>(0x40414084); }
 };
 
 // ASRC Ideal Ratio for Pair B-High Part
@@ -1379,7 +1379,7 @@ union ASRIDRHB {
 
   ASRIDRHB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIDRHB &Instance() { return *reinterpret_cast<volatile ASRIDRHB*>(0x40414088); }
+  static inline volatile ASRIDRHB &ref() { return *reinterpret_cast<volatile ASRIDRHB*>(0x40414088); }
 };
 
 // ASRC Ideal Ratio for Pair B-Low Part
@@ -1397,7 +1397,7 @@ union ASRIDRLB {
 
   ASRIDRLB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIDRLB &Instance() { return *reinterpret_cast<volatile ASRIDRLB*>(0x4041408C); }
+  static inline volatile ASRIDRLB &ref() { return *reinterpret_cast<volatile ASRIDRLB*>(0x4041408C); }
 };
 
 // ASRC Ideal Ratio for Pair C-High Part
@@ -1415,7 +1415,7 @@ union ASRIDRHC {
 
   ASRIDRHC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIDRHC &Instance() { return *reinterpret_cast<volatile ASRIDRHC*>(0x40414090); }
+  static inline volatile ASRIDRHC &ref() { return *reinterpret_cast<volatile ASRIDRHC*>(0x40414090); }
 };
 
 // ASRC Ideal Ratio for Pair C-Low Part
@@ -1433,7 +1433,7 @@ union ASRIDRLC {
 
   ASRIDRLC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIDRLC &Instance() { return *reinterpret_cast<volatile ASRIDRLC*>(0x40414094); }
+  static inline volatile ASRIDRLC &ref() { return *reinterpret_cast<volatile ASRIDRLC*>(0x40414094); }
 };
 
 // ASRC 76 kHz Period in terms of ASRC processing clock
@@ -1451,7 +1451,7 @@ union ASR76K {
 
   ASR76K() = delete;
   inline void Reset() volatile { this->value = 0x00000A47; }
-  static inline volatile ASR76K &Instance() { return *reinterpret_cast<volatile ASR76K*>(0x40414098); }
+  static inline volatile ASR76K &ref() { return *reinterpret_cast<volatile ASR76K*>(0x40414098); }
 };
 
 // ASRC 56 kHz Period in terms of ASRC processing clock
@@ -1469,7 +1469,7 @@ union ASR56K {
 
   ASR56K() = delete;
   inline void Reset() volatile { this->value = 0x00000DF3; }
-  static inline volatile ASR56K &Instance() { return *reinterpret_cast<volatile ASR56K*>(0x4041409C); }
+  static inline volatile ASR56K &ref() { return *reinterpret_cast<volatile ASR56K*>(0x4041409C); }
 };
 
 // ASRC Misc Control Register for Pair A
@@ -1551,7 +1551,7 @@ union ASRMCRA {
 
   ASRMCRA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRMCRA &Instance() { return *reinterpret_cast<volatile ASRMCRA*>(0x404140A0); }
+  static inline volatile ASRMCRA &ref() { return *reinterpret_cast<volatile ASRMCRA*>(0x404140A0); }
 };
 
 // ASRC FIFO Status Register for Pair A
@@ -1593,7 +1593,7 @@ union ASRFSTA {
 
   ASRFSTA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRFSTA &Instance() { return *reinterpret_cast<volatile ASRFSTA*>(0x404140A4); }
+  static inline volatile ASRFSTA &ref() { return *reinterpret_cast<volatile ASRFSTA*>(0x404140A4); }
 };
 
 // ASRC Misc Control Register for Pair B
@@ -1675,7 +1675,7 @@ union ASRMCRB {
 
   ASRMCRB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRMCRB &Instance() { return *reinterpret_cast<volatile ASRMCRB*>(0x404140A8); }
+  static inline volatile ASRMCRB &ref() { return *reinterpret_cast<volatile ASRMCRB*>(0x404140A8); }
 };
 
 // ASRC FIFO Status Register for Pair B
@@ -1717,7 +1717,7 @@ union ASRFSTB {
 
   ASRFSTB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRFSTB &Instance() { return *reinterpret_cast<volatile ASRFSTB*>(0x404140AC); }
+  static inline volatile ASRFSTB &ref() { return *reinterpret_cast<volatile ASRFSTB*>(0x404140AC); }
 };
 
 // ASRC Misc Control Register for Pair C
@@ -1799,7 +1799,7 @@ union ASRMCRC {
 
   ASRMCRC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRMCRC &Instance() { return *reinterpret_cast<volatile ASRMCRC*>(0x404140B0); }
+  static inline volatile ASRMCRC &ref() { return *reinterpret_cast<volatile ASRMCRC*>(0x404140B0); }
 };
 
 // ASRC FIFO Status Register for Pair C
@@ -1841,7 +1841,7 @@ union ASRFSTC {
 
   ASRFSTC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRFSTC &Instance() { return *reinterpret_cast<volatile ASRFSTC*>(0x404140B4); }
+  static inline volatile ASRFSTC &ref() { return *reinterpret_cast<volatile ASRFSTC*>(0x404140B4); }
 };
 
 // ASRC Misc Control Register 1 for Pair X
@@ -1910,7 +1910,7 @@ union ASRMCR1A {
 
   ASRMCR1A() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRMCR1A &Instance() { return *reinterpret_cast<volatile ASRMCR1A*>(0x404140C0); }
+  static inline volatile ASRMCR1A &ref() { return *reinterpret_cast<volatile ASRMCR1A*>(0x404140C0); }
 };
 // ASRC Misc Control Register 1 for Pair X
 union ASRMCR1B {
@@ -1978,7 +1978,7 @@ union ASRMCR1B {
 
   ASRMCR1B() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRMCR1B &Instance() { return *reinterpret_cast<volatile ASRMCR1B*>(0x404140C4); }
+  static inline volatile ASRMCR1B &ref() { return *reinterpret_cast<volatile ASRMCR1B*>(0x404140C4); }
 };
 // ASRC Misc Control Register 1 for Pair X
 union ASRMCR1C {
@@ -2046,7 +2046,7 @@ union ASRMCR1C {
 
   ASRMCR1C() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRMCR1C &Instance() { return *reinterpret_cast<volatile ASRMCR1C*>(0x404140C8); }
+  static inline volatile ASRMCR1C &ref() { return *reinterpret_cast<volatile ASRMCR1C*>(0x404140C8); }
 };
 
 

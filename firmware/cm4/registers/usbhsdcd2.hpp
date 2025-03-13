@@ -86,7 +86,7 @@ union CONTROL {
 
   CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00010000; }
-  static inline volatile CONTROL &Instance() { return *reinterpret_cast<volatile CONTROL*>(0x40438800); }
+  static inline volatile CONTROL &ref() { return *reinterpret_cast<volatile CONTROL*>(0x40438800); }
 };
 
 // Clock register
@@ -115,7 +115,7 @@ union CLOCK {
 
   CLOCK() = delete;
   inline void Reset() volatile { this->value = 0x000000C1; }
-  static inline volatile CLOCK &Instance() { return *reinterpret_cast<volatile CLOCK*>(0x40438804); }
+  static inline volatile CLOCK &ref() { return *reinterpret_cast<volatile CLOCK*>(0x40438804); }
 };
 
 // Status register
@@ -190,7 +190,7 @@ union STATUS {
 
   STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STATUS &Instance() { return *reinterpret_cast<volatile STATUS*>(0x40438808); }
+  static inline volatile STATUS &ref() { return *reinterpret_cast<volatile STATUS*>(0x40438808); }
 };
 
 // Signal Override Register
@@ -216,7 +216,7 @@ union SIGNAL_OVERRIDE {
 
   SIGNAL_OVERRIDE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SIGNAL_OVERRIDE &Instance() { return *reinterpret_cast<volatile SIGNAL_OVERRIDE*>(0x4043880C); }
+  static inline volatile SIGNAL_OVERRIDE &ref() { return *reinterpret_cast<volatile SIGNAL_OVERRIDE*>(0x4043880C); }
 };
 
 // TIMER0 register
@@ -261,7 +261,7 @@ union TIMER0 {
 
   TIMER0() = delete;
   inline void Reset() volatile { this->value = 0x00100000; }
-  static inline volatile TIMER0 &Instance() { return *reinterpret_cast<volatile TIMER0*>(0x40438810); }
+  static inline volatile TIMER0 &ref() { return *reinterpret_cast<volatile TIMER0*>(0x40438810); }
 };
 
 // TIMER1 register
@@ -330,7 +330,7 @@ union TIMER1 {
 
   TIMER1() = delete;
   inline void Reset() volatile { this->value = 0x000A0028; }
-  static inline volatile TIMER1 &Instance() { return *reinterpret_cast<volatile TIMER1*>(0x40438814); }
+  static inline volatile TIMER1 &ref() { return *reinterpret_cast<volatile TIMER1*>(0x40438814); }
 };
 
 // TIMER2_BC11 register
@@ -399,7 +399,7 @@ union TIMER2_BC11 {
 
   TIMER2_BC11() = delete;
   inline void Reset() volatile { this->value = 0x00280001; }
-  static inline volatile TIMER2_BC11 &Instance() { return *reinterpret_cast<volatile TIMER2_BC11*>(0x40438818); }
+  static inline volatile TIMER2_BC11 &ref() { return *reinterpret_cast<volatile TIMER2_BC11*>(0x40438818); }
 };
 
 // TIMER2_BC12 register
@@ -468,7 +468,7 @@ union TIMER2_BC12 {
 
   TIMER2_BC12() = delete;
   inline void Reset() volatile { this->value = 0x00010028; }
-  static inline volatile TIMER2_BC12 &Instance() { return *reinterpret_cast<volatile TIMER2_BC12*>(0x40438818); }
+  static inline volatile TIMER2_BC12 &ref() { return *reinterpret_cast<volatile TIMER2_BC12*>(0x40438818); }
 };
 
 

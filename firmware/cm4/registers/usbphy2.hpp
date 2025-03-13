@@ -95,7 +95,7 @@ union PWD {
 
   PWD() = delete;
   inline void Reset() volatile { this->value = 0x001E1C00; }
-  static inline volatile PWD &Instance() { return *reinterpret_cast<volatile PWD*>(0x40438000); }
+  static inline volatile PWD &ref() { return *reinterpret_cast<volatile PWD*>(0x40438000); }
 };
 
 // USB PHY Power-Down Register
@@ -127,7 +127,7 @@ union PWD_SET {
 
   PWD_SET() = delete;
   inline void Reset() volatile { this->value = 0x001E1C00; }
-  static inline volatile PWD_SET &Instance() { return *reinterpret_cast<volatile PWD_SET*>(0x40438004); }
+  static inline volatile PWD_SET &ref() { return *reinterpret_cast<volatile PWD_SET*>(0x40438004); }
 };
 
 // USB PHY Power-Down Register
@@ -159,7 +159,7 @@ union PWD_CLR {
 
   PWD_CLR() = delete;
   inline void Reset() volatile { this->value = 0x001E1C00; }
-  static inline volatile PWD_CLR &Instance() { return *reinterpret_cast<volatile PWD_CLR*>(0x40438008); }
+  static inline volatile PWD_CLR &ref() { return *reinterpret_cast<volatile PWD_CLR*>(0x40438008); }
 };
 
 // USB PHY Power-Down Register
@@ -191,7 +191,7 @@ union PWD_TOG {
 
   PWD_TOG() = delete;
   inline void Reset() volatile { this->value = 0x001E1C00; }
-  static inline volatile PWD_TOG &Instance() { return *reinterpret_cast<volatile PWD_TOG*>(0x4043800C); }
+  static inline volatile PWD_TOG &ref() { return *reinterpret_cast<volatile PWD_TOG*>(0x4043800C); }
 };
 
 // USB PHY Transmitter Control Register
@@ -225,7 +225,7 @@ union TX {
 
   TX() = delete;
   inline void Reset() volatile { this->value = 0x10060607; }
-  static inline volatile TX &Instance() { return *reinterpret_cast<volatile TX*>(0x40438010); }
+  static inline volatile TX &ref() { return *reinterpret_cast<volatile TX*>(0x40438010); }
 };
 
 // USB PHY Transmitter Control Register
@@ -249,7 +249,7 @@ union TX_SET {
 
   TX_SET() = delete;
   inline void Reset() volatile { this->value = 0x10060607; }
-  static inline volatile TX_SET &Instance() { return *reinterpret_cast<volatile TX_SET*>(0x40438014); }
+  static inline volatile TX_SET &ref() { return *reinterpret_cast<volatile TX_SET*>(0x40438014); }
 };
 
 // USB PHY Transmitter Control Register
@@ -273,7 +273,7 @@ union TX_CLR {
 
   TX_CLR() = delete;
   inline void Reset() volatile { this->value = 0x10060607; }
-  static inline volatile TX_CLR &Instance() { return *reinterpret_cast<volatile TX_CLR*>(0x40438018); }
+  static inline volatile TX_CLR &ref() { return *reinterpret_cast<volatile TX_CLR*>(0x40438018); }
 };
 
 // USB PHY Transmitter Control Register
@@ -297,7 +297,7 @@ union TX_TOG {
 
   TX_TOG() = delete;
   inline void Reset() volatile { this->value = 0x10060607; }
-  static inline volatile TX_TOG &Instance() { return *reinterpret_cast<volatile TX_TOG*>(0x4043801C); }
+  static inline volatile TX_TOG &ref() { return *reinterpret_cast<volatile TX_TOG*>(0x4043801C); }
 };
 
 // USB PHY Receiver Control Register
@@ -353,7 +353,7 @@ union RX {
 
   RX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RX &Instance() { return *reinterpret_cast<volatile RX*>(0x40438020); }
+  static inline volatile RX &ref() { return *reinterpret_cast<volatile RX*>(0x40438020); }
 };
 
 // USB PHY Receiver Control Register
@@ -377,7 +377,7 @@ union RX_SET {
 
   RX_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RX_SET &Instance() { return *reinterpret_cast<volatile RX_SET*>(0x40438024); }
+  static inline volatile RX_SET &ref() { return *reinterpret_cast<volatile RX_SET*>(0x40438024); }
 };
 
 // USB PHY Receiver Control Register
@@ -401,7 +401,7 @@ union RX_CLR {
 
   RX_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RX_CLR &Instance() { return *reinterpret_cast<volatile RX_CLR*>(0x40438028); }
+  static inline volatile RX_CLR &ref() { return *reinterpret_cast<volatile RX_CLR*>(0x40438028); }
 };
 
 // USB PHY Receiver Control Register
@@ -425,7 +425,7 @@ union RX_TOG {
 
   RX_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RX_TOG &Instance() { return *reinterpret_cast<volatile RX_TOG*>(0x4043802C); }
+  static inline volatile RX_TOG &ref() { return *reinterpret_cast<volatile RX_TOG*>(0x4043802C); }
 };
 
 // USB PHY General Control Register
@@ -508,7 +508,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x88000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x40438030); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40438030); }
 };
 
 // USB PHY General Control Register
@@ -583,7 +583,7 @@ union CTRL_SET {
 
   CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x88000000; }
-  static inline volatile CTRL_SET &Instance() { return *reinterpret_cast<volatile CTRL_SET*>(0x40438034); }
+  static inline volatile CTRL_SET &ref() { return *reinterpret_cast<volatile CTRL_SET*>(0x40438034); }
 };
 
 // USB PHY General Control Register
@@ -658,7 +658,7 @@ union CTRL_CLR {
 
   CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x88000000; }
-  static inline volatile CTRL_CLR &Instance() { return *reinterpret_cast<volatile CTRL_CLR*>(0x40438038); }
+  static inline volatile CTRL_CLR &ref() { return *reinterpret_cast<volatile CTRL_CLR*>(0x40438038); }
 };
 
 // USB PHY General Control Register
@@ -733,7 +733,7 @@ union CTRL_TOG {
 
   CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x88000000; }
-  static inline volatile CTRL_TOG &Instance() { return *reinterpret_cast<volatile CTRL_TOG*>(0x4043803C); }
+  static inline volatile CTRL_TOG &ref() { return *reinterpret_cast<volatile CTRL_TOG*>(0x4043803C); }
 };
 
 // USB PHY Status Register
@@ -777,7 +777,7 @@ union STATUS {
 
   STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STATUS &Instance() { return *reinterpret_cast<volatile STATUS*>(0x40438040); }
+  static inline volatile STATUS &ref() { return *reinterpret_cast<volatile STATUS*>(0x40438040); }
 };
 
 // USB PHY Debug Register
@@ -818,7 +818,7 @@ union DEBUG {
 
   DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x7F180000; }
-  static inline volatile DEBUG &Instance() { return *reinterpret_cast<volatile DEBUG*>(0x40438050); }
+  static inline volatile DEBUG &ref() { return *reinterpret_cast<volatile DEBUG*>(0x40438050); }
 };
 
 // USB PHY Debug Register
@@ -859,7 +859,7 @@ union DEBUG_SET {
 
   DEBUG_SET() = delete;
   inline void Reset() volatile { this->value = 0x7F180000; }
-  static inline volatile DEBUG_SET &Instance() { return *reinterpret_cast<volatile DEBUG_SET*>(0x40438054); }
+  static inline volatile DEBUG_SET &ref() { return *reinterpret_cast<volatile DEBUG_SET*>(0x40438054); }
 };
 
 // USB PHY Debug Register
@@ -900,7 +900,7 @@ union DEBUG_CLR {
 
   DEBUG_CLR() = delete;
   inline void Reset() volatile { this->value = 0x7F180000; }
-  static inline volatile DEBUG_CLR &Instance() { return *reinterpret_cast<volatile DEBUG_CLR*>(0x40438058); }
+  static inline volatile DEBUG_CLR &ref() { return *reinterpret_cast<volatile DEBUG_CLR*>(0x40438058); }
 };
 
 // USB PHY Debug Register
@@ -941,7 +941,7 @@ union DEBUG_TOG {
 
   DEBUG_TOG() = delete;
   inline void Reset() volatile { this->value = 0x7F180000; }
-  static inline volatile DEBUG_TOG &Instance() { return *reinterpret_cast<volatile DEBUG_TOG*>(0x4043805C); }
+  static inline volatile DEBUG_TOG &ref() { return *reinterpret_cast<volatile DEBUG_TOG*>(0x4043805C); }
 };
 
 // UTMI Debug Status Register 0
@@ -962,7 +962,7 @@ union DEBUG0_STATUS {
 
   DEBUG0_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DEBUG0_STATUS &Instance() { return *reinterpret_cast<volatile DEBUG0_STATUS*>(0x40438060); }
+  static inline volatile DEBUG0_STATUS &ref() { return *reinterpret_cast<volatile DEBUG0_STATUS*>(0x40438060); }
 };
 
 // UTMI Debug Status Register 1
@@ -1003,7 +1003,7 @@ union DEBUG1 {
 
   DEBUG1() = delete;
   inline void Reset() volatile { this->value = 0x00001000; }
-  static inline volatile DEBUG1 &Instance() { return *reinterpret_cast<volatile DEBUG1*>(0x40438070); }
+  static inline volatile DEBUG1 &ref() { return *reinterpret_cast<volatile DEBUG1*>(0x40438070); }
 };
 
 // UTMI Debug Status Register 1
@@ -1032,7 +1032,7 @@ union DEBUG1_SET {
 
   DEBUG1_SET() = delete;
   inline void Reset() volatile { this->value = 0x00001000; }
-  static inline volatile DEBUG1_SET &Instance() { return *reinterpret_cast<volatile DEBUG1_SET*>(0x40438074); }
+  static inline volatile DEBUG1_SET &ref() { return *reinterpret_cast<volatile DEBUG1_SET*>(0x40438074); }
 };
 
 // UTMI Debug Status Register 1
@@ -1061,7 +1061,7 @@ union DEBUG1_CLR {
 
   DEBUG1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00001000; }
-  static inline volatile DEBUG1_CLR &Instance() { return *reinterpret_cast<volatile DEBUG1_CLR*>(0x40438078); }
+  static inline volatile DEBUG1_CLR &ref() { return *reinterpret_cast<volatile DEBUG1_CLR*>(0x40438078); }
 };
 
 // UTMI Debug Status Register 1
@@ -1090,7 +1090,7 @@ union DEBUG1_TOG {
 
   DEBUG1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00001000; }
-  static inline volatile DEBUG1_TOG &Instance() { return *reinterpret_cast<volatile DEBUG1_TOG*>(0x4043807C); }
+  static inline volatile DEBUG1_TOG &ref() { return *reinterpret_cast<volatile DEBUG1_TOG*>(0x4043807C); }
 };
 
 // UTMI RTL Version
@@ -1111,7 +1111,7 @@ union VERSION {
 
   VERSION() = delete;
   inline void Reset() volatile { this->value = 0x04030000; }
-  static inline volatile VERSION &Instance() { return *reinterpret_cast<volatile VERSION*>(0x40438080); }
+  static inline volatile VERSION &ref() { return *reinterpret_cast<volatile VERSION*>(0x40438080); }
 };
 
 // USB PHY PLL Control/Status Register
@@ -1188,7 +1188,7 @@ union PLL_SIC {
 
   PLL_SIC() = delete;
   inline void Reset() volatile { this->value = 0x00D12000; }
-  static inline volatile PLL_SIC &Instance() { return *reinterpret_cast<volatile PLL_SIC*>(0x404380A0); }
+  static inline volatile PLL_SIC &ref() { return *reinterpret_cast<volatile PLL_SIC*>(0x404380A0); }
 };
 
 // USB PHY PLL Control/Status Register
@@ -1229,7 +1229,7 @@ union PLL_SIC_SET {
 
   PLL_SIC_SET() = delete;
   inline void Reset() volatile { this->value = 0x00D12000; }
-  static inline volatile PLL_SIC_SET &Instance() { return *reinterpret_cast<volatile PLL_SIC_SET*>(0x404380A4); }
+  static inline volatile PLL_SIC_SET &ref() { return *reinterpret_cast<volatile PLL_SIC_SET*>(0x404380A4); }
 };
 
 // USB PHY PLL Control/Status Register
@@ -1270,7 +1270,7 @@ union PLL_SIC_CLR {
 
   PLL_SIC_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00D12000; }
-  static inline volatile PLL_SIC_CLR &Instance() { return *reinterpret_cast<volatile PLL_SIC_CLR*>(0x404380A8); }
+  static inline volatile PLL_SIC_CLR &ref() { return *reinterpret_cast<volatile PLL_SIC_CLR*>(0x404380A8); }
 };
 
 // USB PHY PLL Control/Status Register
@@ -1311,7 +1311,7 @@ union PLL_SIC_TOG {
 
   PLL_SIC_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00D12000; }
-  static inline volatile PLL_SIC_TOG &Instance() { return *reinterpret_cast<volatile PLL_SIC_TOG*>(0x404380AC); }
+  static inline volatile PLL_SIC_TOG &ref() { return *reinterpret_cast<volatile PLL_SIC_TOG*>(0x404380AC); }
 };
 
 // USB PHY VBUS Detect Control Register
@@ -1438,7 +1438,7 @@ union USB1_VBUS_DETECT {
 
   USB1_VBUS_DETECT() = delete;
   inline void Reset() volatile { this->value = 0x00700004; }
-  static inline volatile USB1_VBUS_DETECT &Instance() { return *reinterpret_cast<volatile USB1_VBUS_DETECT*>(0x404380C0); }
+  static inline volatile USB1_VBUS_DETECT &ref() { return *reinterpret_cast<volatile USB1_VBUS_DETECT*>(0x404380C0); }
 };
 
 // USB PHY VBUS Detect Control Register
@@ -1485,7 +1485,7 @@ union USB1_VBUS_DETECT_SET {
 
   USB1_VBUS_DETECT_SET() = delete;
   inline void Reset() volatile { this->value = 0x00700004; }
-  static inline volatile USB1_VBUS_DETECT_SET &Instance() { return *reinterpret_cast<volatile USB1_VBUS_DETECT_SET*>(0x404380C4); }
+  static inline volatile USB1_VBUS_DETECT_SET &ref() { return *reinterpret_cast<volatile USB1_VBUS_DETECT_SET*>(0x404380C4); }
 };
 
 // USB PHY VBUS Detect Control Register
@@ -1532,7 +1532,7 @@ union USB1_VBUS_DETECT_CLR {
 
   USB1_VBUS_DETECT_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00700004; }
-  static inline volatile USB1_VBUS_DETECT_CLR &Instance() { return *reinterpret_cast<volatile USB1_VBUS_DETECT_CLR*>(0x404380C8); }
+  static inline volatile USB1_VBUS_DETECT_CLR &ref() { return *reinterpret_cast<volatile USB1_VBUS_DETECT_CLR*>(0x404380C8); }
 };
 
 // USB PHY VBUS Detect Control Register
@@ -1579,7 +1579,7 @@ union USB1_VBUS_DETECT_TOG {
 
   USB1_VBUS_DETECT_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00700004; }
-  static inline volatile USB1_VBUS_DETECT_TOG &Instance() { return *reinterpret_cast<volatile USB1_VBUS_DETECT_TOG*>(0x404380CC); }
+  static inline volatile USB1_VBUS_DETECT_TOG &ref() { return *reinterpret_cast<volatile USB1_VBUS_DETECT_TOG*>(0x404380CC); }
 };
 
 // USB PHY VBUS Detector Status Register
@@ -1645,7 +1645,7 @@ union USB1_VBUS_DET_STAT {
 
   USB1_VBUS_DET_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile USB1_VBUS_DET_STAT &Instance() { return *reinterpret_cast<volatile USB1_VBUS_DET_STAT*>(0x404380D0); }
+  static inline volatile USB1_VBUS_DET_STAT &ref() { return *reinterpret_cast<volatile USB1_VBUS_DET_STAT*>(0x404380D0); }
 };
 
 // USB PHY Charger Detect Control Register
@@ -1675,7 +1675,7 @@ union USB1_CHRG_DETECT {
 
   USB1_CHRG_DETECT() = delete;
   inline void Reset() volatile { this->value = 0x80180000; }
-  static inline volatile USB1_CHRG_DETECT &Instance() { return *reinterpret_cast<volatile USB1_CHRG_DETECT*>(0x404380E0); }
+  static inline volatile USB1_CHRG_DETECT &ref() { return *reinterpret_cast<volatile USB1_CHRG_DETECT*>(0x404380E0); }
 };
 
 // USB PHY Charger Detect Control Register
@@ -1697,7 +1697,7 @@ union USB1_CHRG_DETECT_SET {
 
   USB1_CHRG_DETECT_SET() = delete;
   inline void Reset() volatile { this->value = 0x80180000; }
-  static inline volatile USB1_CHRG_DETECT_SET &Instance() { return *reinterpret_cast<volatile USB1_CHRG_DETECT_SET*>(0x404380E4); }
+  static inline volatile USB1_CHRG_DETECT_SET &ref() { return *reinterpret_cast<volatile USB1_CHRG_DETECT_SET*>(0x404380E4); }
 };
 
 // USB PHY Charger Detect Control Register
@@ -1719,7 +1719,7 @@ union USB1_CHRG_DETECT_CLR {
 
   USB1_CHRG_DETECT_CLR() = delete;
   inline void Reset() volatile { this->value = 0x80180000; }
-  static inline volatile USB1_CHRG_DETECT_CLR &Instance() { return *reinterpret_cast<volatile USB1_CHRG_DETECT_CLR*>(0x404380E8); }
+  static inline volatile USB1_CHRG_DETECT_CLR &ref() { return *reinterpret_cast<volatile USB1_CHRG_DETECT_CLR*>(0x404380E8); }
 };
 
 // USB PHY Charger Detect Control Register
@@ -1741,7 +1741,7 @@ union USB1_CHRG_DETECT_TOG {
 
   USB1_CHRG_DETECT_TOG() = delete;
   inline void Reset() volatile { this->value = 0x80180000; }
-  static inline volatile USB1_CHRG_DETECT_TOG &Instance() { return *reinterpret_cast<volatile USB1_CHRG_DETECT_TOG*>(0x404380EC); }
+  static inline volatile USB1_CHRG_DETECT_TOG &ref() { return *reinterpret_cast<volatile USB1_CHRG_DETECT_TOG*>(0x404380EC); }
 };
 
 // USB PHY Charger Detect Status Register
@@ -1807,7 +1807,7 @@ union USB1_CHRG_DET_STAT {
 
   USB1_CHRG_DET_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile USB1_CHRG_DET_STAT &Instance() { return *reinterpret_cast<volatile USB1_CHRG_DET_STAT*>(0x404380F0); }
+  static inline volatile USB1_CHRG_DET_STAT &ref() { return *reinterpret_cast<volatile USB1_CHRG_DET_STAT*>(0x404380F0); }
 };
 
 // USB PHY Analog Control Register
@@ -1834,7 +1834,7 @@ union ANACTRL {
 
   ANACTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000402; }
-  static inline volatile ANACTRL &Instance() { return *reinterpret_cast<volatile ANACTRL*>(0x40438100); }
+  static inline volatile ANACTRL &ref() { return *reinterpret_cast<volatile ANACTRL*>(0x40438100); }
 };
 
 // USB PHY Analog Control Register
@@ -1853,7 +1853,7 @@ union ANACTRL_SET {
 
   ANACTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000402; }
-  static inline volatile ANACTRL_SET &Instance() { return *reinterpret_cast<volatile ANACTRL_SET*>(0x40438104); }
+  static inline volatile ANACTRL_SET &ref() { return *reinterpret_cast<volatile ANACTRL_SET*>(0x40438104); }
 };
 
 // USB PHY Analog Control Register
@@ -1872,7 +1872,7 @@ union ANACTRL_CLR {
 
   ANACTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000402; }
-  static inline volatile ANACTRL_CLR &Instance() { return *reinterpret_cast<volatile ANACTRL_CLR*>(0x40438108); }
+  static inline volatile ANACTRL_CLR &ref() { return *reinterpret_cast<volatile ANACTRL_CLR*>(0x40438108); }
 };
 
 // USB PHY Analog Control Register
@@ -1891,7 +1891,7 @@ union ANACTRL_TOG {
 
   ANACTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000402; }
-  static inline volatile ANACTRL_TOG &Instance() { return *reinterpret_cast<volatile ANACTRL_TOG*>(0x4043810C); }
+  static inline volatile ANACTRL_TOG &ref() { return *reinterpret_cast<volatile ANACTRL_TOG*>(0x4043810C); }
 };
 
 // USB PHY Loopback Control/Status Register
@@ -1930,7 +1930,7 @@ union USB1_LOOPBACK {
 
   USB1_LOOPBACK() = delete;
   inline void Reset() volatile { this->value = 0x00550000; }
-  static inline volatile USB1_LOOPBACK &Instance() { return *reinterpret_cast<volatile USB1_LOOPBACK*>(0x40438110); }
+  static inline volatile USB1_LOOPBACK &ref() { return *reinterpret_cast<volatile USB1_LOOPBACK*>(0x40438110); }
 };
 
 // USB PHY Loopback Control/Status Register
@@ -1969,7 +1969,7 @@ union USB1_LOOPBACK_SET {
 
   USB1_LOOPBACK_SET() = delete;
   inline void Reset() volatile { this->value = 0x00550000; }
-  static inline volatile USB1_LOOPBACK_SET &Instance() { return *reinterpret_cast<volatile USB1_LOOPBACK_SET*>(0x40438114); }
+  static inline volatile USB1_LOOPBACK_SET &ref() { return *reinterpret_cast<volatile USB1_LOOPBACK_SET*>(0x40438114); }
 };
 
 // USB PHY Loopback Control/Status Register
@@ -2008,7 +2008,7 @@ union USB1_LOOPBACK_CLR {
 
   USB1_LOOPBACK_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00550000; }
-  static inline volatile USB1_LOOPBACK_CLR &Instance() { return *reinterpret_cast<volatile USB1_LOOPBACK_CLR*>(0x40438118); }
+  static inline volatile USB1_LOOPBACK_CLR &ref() { return *reinterpret_cast<volatile USB1_LOOPBACK_CLR*>(0x40438118); }
 };
 
 // USB PHY Loopback Control/Status Register
@@ -2047,7 +2047,7 @@ union USB1_LOOPBACK_TOG {
 
   USB1_LOOPBACK_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00550000; }
-  static inline volatile USB1_LOOPBACK_TOG &Instance() { return *reinterpret_cast<volatile USB1_LOOPBACK_TOG*>(0x4043811C); }
+  static inline volatile USB1_LOOPBACK_TOG &ref() { return *reinterpret_cast<volatile USB1_LOOPBACK_TOG*>(0x4043811C); }
 };
 
 // USB PHY Loopback Packet Number Select Register
@@ -2066,7 +2066,7 @@ union USB1_LOOPBACK_HSFSCNT {
 
   USB1_LOOPBACK_HSFSCNT() = delete;
   inline void Reset() volatile { this->value = 0x00040010; }
-  static inline volatile USB1_LOOPBACK_HSFSCNT &Instance() { return *reinterpret_cast<volatile USB1_LOOPBACK_HSFSCNT*>(0x40438120); }
+  static inline volatile USB1_LOOPBACK_HSFSCNT &ref() { return *reinterpret_cast<volatile USB1_LOOPBACK_HSFSCNT*>(0x40438120); }
 };
 
 // USB PHY Loopback Packet Number Select Register
@@ -2085,7 +2085,7 @@ union USB1_LOOPBACK_HSFSCNT_SET {
 
   USB1_LOOPBACK_HSFSCNT_SET() = delete;
   inline void Reset() volatile { this->value = 0x00040010; }
-  static inline volatile USB1_LOOPBACK_HSFSCNT_SET &Instance() { return *reinterpret_cast<volatile USB1_LOOPBACK_HSFSCNT_SET*>(0x40438124); }
+  static inline volatile USB1_LOOPBACK_HSFSCNT_SET &ref() { return *reinterpret_cast<volatile USB1_LOOPBACK_HSFSCNT_SET*>(0x40438124); }
 };
 
 // USB PHY Loopback Packet Number Select Register
@@ -2104,7 +2104,7 @@ union USB1_LOOPBACK_HSFSCNT_CLR {
 
   USB1_LOOPBACK_HSFSCNT_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00040010; }
-  static inline volatile USB1_LOOPBACK_HSFSCNT_CLR &Instance() { return *reinterpret_cast<volatile USB1_LOOPBACK_HSFSCNT_CLR*>(0x40438128); }
+  static inline volatile USB1_LOOPBACK_HSFSCNT_CLR &ref() { return *reinterpret_cast<volatile USB1_LOOPBACK_HSFSCNT_CLR*>(0x40438128); }
 };
 
 // USB PHY Loopback Packet Number Select Register
@@ -2123,7 +2123,7 @@ union USB1_LOOPBACK_HSFSCNT_TOG {
 
   USB1_LOOPBACK_HSFSCNT_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00040010; }
-  static inline volatile USB1_LOOPBACK_HSFSCNT_TOG &Instance() { return *reinterpret_cast<volatile USB1_LOOPBACK_HSFSCNT_TOG*>(0x4043812C); }
+  static inline volatile USB1_LOOPBACK_HSFSCNT_TOG &ref() { return *reinterpret_cast<volatile USB1_LOOPBACK_HSFSCNT_TOG*>(0x4043812C); }
 };
 
 // USB PHY Trim Override Enable Register
@@ -2167,7 +2167,7 @@ union TRIM_OVERRIDE_EN {
 
   TRIM_OVERRIDE_EN() = delete;
   inline void Reset() volatile { this->value = 0x0000007F; }
-  static inline volatile TRIM_OVERRIDE_EN &Instance() { return *reinterpret_cast<volatile TRIM_OVERRIDE_EN*>(0x40438130); }
+  static inline volatile TRIM_OVERRIDE_EN &ref() { return *reinterpret_cast<volatile TRIM_OVERRIDE_EN*>(0x40438130); }
 };
 
 // USB PHY Trim Override Enable Register
@@ -2211,7 +2211,7 @@ union TRIM_OVERRIDE_EN_SET {
 
   TRIM_OVERRIDE_EN_SET() = delete;
   inline void Reset() volatile { this->value = 0x0000007F; }
-  static inline volatile TRIM_OVERRIDE_EN_SET &Instance() { return *reinterpret_cast<volatile TRIM_OVERRIDE_EN_SET*>(0x40438134); }
+  static inline volatile TRIM_OVERRIDE_EN_SET &ref() { return *reinterpret_cast<volatile TRIM_OVERRIDE_EN_SET*>(0x40438134); }
 };
 
 // USB PHY Trim Override Enable Register
@@ -2255,7 +2255,7 @@ union TRIM_OVERRIDE_EN_CLR {
 
   TRIM_OVERRIDE_EN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x0000007F; }
-  static inline volatile TRIM_OVERRIDE_EN_CLR &Instance() { return *reinterpret_cast<volatile TRIM_OVERRIDE_EN_CLR*>(0x40438138); }
+  static inline volatile TRIM_OVERRIDE_EN_CLR &ref() { return *reinterpret_cast<volatile TRIM_OVERRIDE_EN_CLR*>(0x40438138); }
 };
 
 // USB PHY Trim Override Enable Register
@@ -2299,7 +2299,7 @@ union TRIM_OVERRIDE_EN_TOG {
 
   TRIM_OVERRIDE_EN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x0000007F; }
-  static inline volatile TRIM_OVERRIDE_EN_TOG &Instance() { return *reinterpret_cast<volatile TRIM_OVERRIDE_EN_TOG*>(0x4043813C); }
+  static inline volatile TRIM_OVERRIDE_EN_TOG &ref() { return *reinterpret_cast<volatile TRIM_OVERRIDE_EN_TOG*>(0x4043813C); }
 };
 
 

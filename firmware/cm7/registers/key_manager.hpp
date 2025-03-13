@@ -44,7 +44,7 @@ union MASTER_KEY_CTRL {
 
   MASTER_KEY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MASTER_KEY_CTRL &Instance() { return *reinterpret_cast<volatile MASTER_KEY_CTRL*>(0x40C80000); }
+  static inline volatile MASTER_KEY_CTRL &ref() { return *reinterpret_cast<volatile MASTER_KEY_CTRL*>(0x40C80000); }
 };
 
 // CSR OTFAD-1 Key Control
@@ -81,7 +81,7 @@ union OTFAD1_KEY_CTRL {
 
   OTFAD1_KEY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OTFAD1_KEY_CTRL &Instance() { return *reinterpret_cast<volatile OTFAD1_KEY_CTRL*>(0x40C80010); }
+  static inline volatile OTFAD1_KEY_CTRL &ref() { return *reinterpret_cast<volatile OTFAD1_KEY_CTRL*>(0x40C80010); }
 };
 
 // CSR OTFAD-2 Key Control
@@ -118,7 +118,7 @@ union OTFAD2_KEY_CTRL {
 
   OTFAD2_KEY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OTFAD2_KEY_CTRL &Instance() { return *reinterpret_cast<volatile OTFAD2_KEY_CTRL*>(0x40C80018); }
+  static inline volatile OTFAD2_KEY_CTRL &ref() { return *reinterpret_cast<volatile OTFAD2_KEY_CTRL*>(0x40C80018); }
 };
 
 // CSR IEE Key Control
@@ -144,7 +144,7 @@ union IEE_KEY_CTRL {
 
   IEE_KEY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEE_KEY_CTRL &Instance() { return *reinterpret_cast<volatile IEE_KEY_CTRL*>(0x40C80020); }
+  static inline volatile IEE_KEY_CTRL &ref() { return *reinterpret_cast<volatile IEE_KEY_CTRL*>(0x40C80020); }
 };
 
 // CSR PUF Key Control
@@ -170,7 +170,7 @@ union PUF_KEY_CTRL {
 
   PUF_KEY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PUF_KEY_CTRL &Instance() { return *reinterpret_cast<volatile PUF_KEY_CTRL*>(0x40C80030); }
+  static inline volatile PUF_KEY_CTRL &ref() { return *reinterpret_cast<volatile PUF_KEY_CTRL*>(0x40C80030); }
 };
 
 // Slot 0 Control
@@ -229,7 +229,7 @@ union SLOT0_CTRL {
 
   SLOT0_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile SLOT0_CTRL &Instance() { return *reinterpret_cast<volatile SLOT0_CTRL*>(0x40C80400); }
+  static inline volatile SLOT0_CTRL &ref() { return *reinterpret_cast<volatile SLOT0_CTRL*>(0x40C80400); }
 };
 
 // Slot1 Control
@@ -288,7 +288,7 @@ union SLOT1_CTRL {
 
   SLOT1_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile SLOT1_CTRL &Instance() { return *reinterpret_cast<volatile SLOT1_CTRL*>(0x40C80404); }
+  static inline volatile SLOT1_CTRL &ref() { return *reinterpret_cast<volatile SLOT1_CTRL*>(0x40C80404); }
 };
 
 // Slot2 Control
@@ -347,7 +347,7 @@ union SLOT2_CTRL {
 
   SLOT2_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile SLOT2_CTRL &Instance() { return *reinterpret_cast<volatile SLOT2_CTRL*>(0x40C80408); }
+  static inline volatile SLOT2_CTRL &ref() { return *reinterpret_cast<volatile SLOT2_CTRL*>(0x40C80408); }
 };
 
 // Slot3 Control
@@ -406,7 +406,7 @@ union SLOT3_CTRL {
 
   SLOT3_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile SLOT3_CTRL &Instance() { return *reinterpret_cast<volatile SLOT3_CTRL*>(0x40C8040C); }
+  static inline volatile SLOT3_CTRL &ref() { return *reinterpret_cast<volatile SLOT3_CTRL*>(0x40C8040C); }
 };
 
 // Slot 4 Control
@@ -465,7 +465,7 @@ union SLOT4_CTRL {
 
   SLOT4_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile SLOT4_CTRL &Instance() { return *reinterpret_cast<volatile SLOT4_CTRL*>(0x40C80410); }
+  static inline volatile SLOT4_CTRL &ref() { return *reinterpret_cast<volatile SLOT4_CTRL*>(0x40C80410); }
 };
 
 

@@ -611,7 +611,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x40CAC000); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40CAC000); }
 };
 
 // OTP Controller Control and Status Register
@@ -639,7 +639,7 @@ union CTRL_SET {
 
   CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_SET &Instance() { return *reinterpret_cast<volatile CTRL_SET*>(0x40CAC004); }
+  static inline volatile CTRL_SET &ref() { return *reinterpret_cast<volatile CTRL_SET*>(0x40CAC004); }
 };
 
 // OTP Controller Control and Status Register
@@ -667,7 +667,7 @@ union CTRL_CLR {
 
   CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_CLR &Instance() { return *reinterpret_cast<volatile CTRL_CLR*>(0x40CAC008); }
+  static inline volatile CTRL_CLR &ref() { return *reinterpret_cast<volatile CTRL_CLR*>(0x40CAC008); }
 };
 
 // OTP Controller Control and Status Register
@@ -695,7 +695,7 @@ union CTRL_TOG {
 
   CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_TOG &Instance() { return *reinterpret_cast<volatile CTRL_TOG*>(0x40CAC00C); }
+  static inline volatile CTRL_TOG &ref() { return *reinterpret_cast<volatile CTRL_TOG*>(0x40CAC00C); }
 };
 
 // OTP Controller PDN Register
@@ -721,7 +721,7 @@ union PDN {
 
   PDN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PDN &Instance() { return *reinterpret_cast<volatile PDN*>(0x40CAC010); }
+  static inline volatile PDN &ref() { return *reinterpret_cast<volatile PDN*>(0x40CAC010); }
 };
 
 // OTP Controller Write Data Register
@@ -738,7 +738,7 @@ union DATA {
 
   DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATA &Instance() { return *reinterpret_cast<volatile DATA*>(0x40CAC020); }
+  static inline volatile DATA &ref() { return *reinterpret_cast<volatile DATA*>(0x40CAC020); }
 };
 
 // OTP Controller Read Control Register
@@ -798,7 +798,7 @@ union READ_CTRL {
 
   READ_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile READ_CTRL &Instance() { return *reinterpret_cast<volatile READ_CTRL*>(0x40CAC030); }
+  static inline volatile READ_CTRL &ref() { return *reinterpret_cast<volatile READ_CTRL*>(0x40CAC030); }
 };
 
 // 8K OTP Memory STATUS Register
@@ -855,7 +855,7 @@ union OUT_STATUS {
 
   OUT_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OUT_STATUS &Instance() { return *reinterpret_cast<volatile OUT_STATUS*>(0x40CAC090); }
+  static inline volatile OUT_STATUS &ref() { return *reinterpret_cast<volatile OUT_STATUS*>(0x40CAC090); }
 };
 
 // 8K OTP Memory STATUS Register
@@ -904,7 +904,7 @@ union OUT_STATUS_SET {
 
   OUT_STATUS_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OUT_STATUS_SET &Instance() { return *reinterpret_cast<volatile OUT_STATUS_SET*>(0x40CAC094); }
+  static inline volatile OUT_STATUS_SET &ref() { return *reinterpret_cast<volatile OUT_STATUS_SET*>(0x40CAC094); }
 };
 
 // 8K OTP Memory STATUS Register
@@ -953,7 +953,7 @@ union OUT_STATUS_CLR {
 
   OUT_STATUS_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OUT_STATUS_CLR &Instance() { return *reinterpret_cast<volatile OUT_STATUS_CLR*>(0x40CAC098); }
+  static inline volatile OUT_STATUS_CLR &ref() { return *reinterpret_cast<volatile OUT_STATUS_CLR*>(0x40CAC098); }
 };
 
 // 8K OTP Memory STATUS Register
@@ -1002,7 +1002,7 @@ union OUT_STATUS_TOG {
 
   OUT_STATUS_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OUT_STATUS_TOG &Instance() { return *reinterpret_cast<volatile OUT_STATUS_TOG*>(0x40CAC09C); }
+  static inline volatile OUT_STATUS_TOG &ref() { return *reinterpret_cast<volatile OUT_STATUS_TOG*>(0x40CAC09C); }
 };
 
 // OTP Controller Version Register
@@ -1023,7 +1023,7 @@ union VERSION {
 
   VERSION() = delete;
   inline void Reset() volatile { this->value = 0x0A000000; }
-  static inline volatile VERSION &Instance() { return *reinterpret_cast<volatile VERSION*>(0x40CAC0B0); }
+  static inline volatile VERSION &ref() { return *reinterpret_cast<volatile VERSION*>(0x40CAC0B0); }
 };
 
 // OTP Controller Read Data 0 Register
@@ -1040,7 +1040,7 @@ union READ_FUSE_DATA0 {
 
   READ_FUSE_DATA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile READ_FUSE_DATA0 &Instance() { return *reinterpret_cast<volatile READ_FUSE_DATA0*>(0x40CAC100); }
+  static inline volatile READ_FUSE_DATA0 &ref() { return *reinterpret_cast<volatile READ_FUSE_DATA0*>(0x40CAC100); }
 };
 
 // OTP Controller Read Data 1 Register
@@ -1057,7 +1057,7 @@ union READ_FUSE_DATA1 {
 
   READ_FUSE_DATA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile READ_FUSE_DATA1 &Instance() { return *reinterpret_cast<volatile READ_FUSE_DATA1*>(0x40CAC110); }
+  static inline volatile READ_FUSE_DATA1 &ref() { return *reinterpret_cast<volatile READ_FUSE_DATA1*>(0x40CAC110); }
 };
 
 // OTP Controller Read Data 2 Register
@@ -1074,7 +1074,7 @@ union READ_FUSE_DATA2 {
 
   READ_FUSE_DATA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile READ_FUSE_DATA2 &Instance() { return *reinterpret_cast<volatile READ_FUSE_DATA2*>(0x40CAC120); }
+  static inline volatile READ_FUSE_DATA2 &ref() { return *reinterpret_cast<volatile READ_FUSE_DATA2*>(0x40CAC120); }
 };
 
 // OTP Controller Read Data 3 Register
@@ -1091,7 +1091,7 @@ union READ_FUSE_DATA3 {
 
   READ_FUSE_DATA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile READ_FUSE_DATA3 &Instance() { return *reinterpret_cast<volatile READ_FUSE_DATA3*>(0x40CAC130); }
+  static inline volatile READ_FUSE_DATA3 &ref() { return *reinterpret_cast<volatile READ_FUSE_DATA3*>(0x40CAC130); }
 };
 
 // SW_LOCK Register
@@ -1108,7 +1108,7 @@ union SW_LOCK {
 
   SW_LOCK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_LOCK &Instance() { return *reinterpret_cast<volatile SW_LOCK*>(0x40CAC140); }
+  static inline volatile SW_LOCK &ref() { return *reinterpret_cast<volatile SW_LOCK*>(0x40CAC140); }
 };
 
 // BIT_LOCK Register
@@ -1125,7 +1125,7 @@ union BIT_LOCK {
 
   BIT_LOCK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BIT_LOCK &Instance() { return *reinterpret_cast<volatile BIT_LOCK*>(0x40CAC150); }
+  static inline volatile BIT_LOCK &ref() { return *reinterpret_cast<volatile BIT_LOCK*>(0x40CAC150); }
 };
 
 // OTP Controller Program Locked Status 0 Register
@@ -1143,7 +1143,7 @@ union LOCKED0 {
 
   LOCKED0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LOCKED0 &Instance() { return *reinterpret_cast<volatile LOCKED0*>(0x40CAC600); }
+  static inline volatile LOCKED0 &ref() { return *reinterpret_cast<volatile LOCKED0*>(0x40CAC600); }
 };
 
 // OTP Controller Program Locked Status 1 Register
@@ -1160,7 +1160,7 @@ union LOCKED1 {
 
   LOCKED1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LOCKED1 &Instance() { return *reinterpret_cast<volatile LOCKED1*>(0x40CAC610); }
+  static inline volatile LOCKED1 &ref() { return *reinterpret_cast<volatile LOCKED1*>(0x40CAC610); }
 };
 
 

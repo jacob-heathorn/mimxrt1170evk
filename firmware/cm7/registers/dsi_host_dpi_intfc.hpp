@@ -25,7 +25,7 @@ union PIXEL_PAYLOAD_SIZE {
 
   PIXEL_PAYLOAD_SIZE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PIXEL_PAYLOAD_SIZE &Instance() { return *reinterpret_cast<volatile PIXEL_PAYLOAD_SIZE*>(0x4080C200); }
+  static inline volatile PIXEL_PAYLOAD_SIZE &ref() { return *reinterpret_cast<volatile PIXEL_PAYLOAD_SIZE*>(0x4080C200); }
 };
 
 // PIXEL_FIFO_SEND_LEVEL
@@ -43,7 +43,7 @@ union PIXEL_FIFO_SEND_LEVEL {
 
   PIXEL_FIFO_SEND_LEVEL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PIXEL_FIFO_SEND_LEVEL &Instance() { return *reinterpret_cast<volatile PIXEL_FIFO_SEND_LEVEL*>(0x4080C204); }
+  static inline volatile PIXEL_FIFO_SEND_LEVEL &ref() { return *reinterpret_cast<volatile PIXEL_FIFO_SEND_LEVEL*>(0x4080C204); }
 };
 
 // INTERFACE_COLOR_CODING
@@ -77,7 +77,7 @@ union INTERFACE_COLOR_CODING {
 
   INTERFACE_COLOR_CODING() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INTERFACE_COLOR_CODING &Instance() { return *reinterpret_cast<volatile INTERFACE_COLOR_CODING*>(0x4080C208); }
+  static inline volatile INTERFACE_COLOR_CODING &ref() { return *reinterpret_cast<volatile INTERFACE_COLOR_CODING*>(0x4080C208); }
 };
 
 // PIXEL_FORMAT
@@ -107,7 +107,7 @@ union PIXEL_FORMAT {
 
   PIXEL_FORMAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PIXEL_FORMAT &Instance() { return *reinterpret_cast<volatile PIXEL_FORMAT*>(0x4080C20C); }
+  static inline volatile PIXEL_FORMAT &ref() { return *reinterpret_cast<volatile PIXEL_FORMAT*>(0x4080C20C); }
 };
 
 // VSYNC_POLARITY
@@ -133,7 +133,7 @@ union VSYNC_POLARITY {
 
   VSYNC_POLARITY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VSYNC_POLARITY &Instance() { return *reinterpret_cast<volatile VSYNC_POLARITY*>(0x4080C210); }
+  static inline volatile VSYNC_POLARITY &ref() { return *reinterpret_cast<volatile VSYNC_POLARITY*>(0x4080C210); }
 };
 
 // HSYNC_POLARITY
@@ -159,7 +159,7 @@ union HSYNC_POLARITY {
 
   HSYNC_POLARITY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HSYNC_POLARITY &Instance() { return *reinterpret_cast<volatile HSYNC_POLARITY*>(0x4080C214); }
+  static inline volatile HSYNC_POLARITY &ref() { return *reinterpret_cast<volatile HSYNC_POLARITY*>(0x4080C214); }
 };
 
 // VIDEO_MODE
@@ -187,7 +187,7 @@ union VIDEO_MODE {
 
   VIDEO_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VIDEO_MODE &Instance() { return *reinterpret_cast<volatile VIDEO_MODE*>(0x4080C218); }
+  static inline volatile VIDEO_MODE &ref() { return *reinterpret_cast<volatile VIDEO_MODE*>(0x4080C218); }
 };
 
 // HFP
@@ -205,7 +205,7 @@ union HFP {
 
   HFP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HFP &Instance() { return *reinterpret_cast<volatile HFP*>(0x4080C21C); }
+  static inline volatile HFP &ref() { return *reinterpret_cast<volatile HFP*>(0x4080C21C); }
 };
 
 // HBP
@@ -223,7 +223,7 @@ union HBP {
 
   HBP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HBP &Instance() { return *reinterpret_cast<volatile HBP*>(0x4080C220); }
+  static inline volatile HBP &ref() { return *reinterpret_cast<volatile HBP*>(0x4080C220); }
 };
 
 // HSA
@@ -241,7 +241,7 @@ union HSA {
 
   HSA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HSA &Instance() { return *reinterpret_cast<volatile HSA*>(0x4080C224); }
+  static inline volatile HSA &ref() { return *reinterpret_cast<volatile HSA*>(0x4080C224); }
 };
 
 // ENABLE_MULT_PKTS
@@ -267,7 +267,7 @@ union ENABLE_MULT_PKTS {
 
   ENABLE_MULT_PKTS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENABLE_MULT_PKTS &Instance() { return *reinterpret_cast<volatile ENABLE_MULT_PKTS*>(0x4080C228); }
+  static inline volatile ENABLE_MULT_PKTS &ref() { return *reinterpret_cast<volatile ENABLE_MULT_PKTS*>(0x4080C228); }
 };
 
 // VBP
@@ -285,7 +285,7 @@ union VBP {
 
   VBP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VBP &Instance() { return *reinterpret_cast<volatile VBP*>(0x4080C22C); }
+  static inline volatile VBP &ref() { return *reinterpret_cast<volatile VBP*>(0x4080C22C); }
 };
 
 // VFP
@@ -303,7 +303,7 @@ union VFP {
 
   VFP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VFP &Instance() { return *reinterpret_cast<volatile VFP*>(0x4080C230); }
+  static inline volatile VFP &ref() { return *reinterpret_cast<volatile VFP*>(0x4080C230); }
 };
 
 // BLLP_MODE
@@ -329,7 +329,7 @@ union BLLP_MODE {
 
   BLLP_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BLLP_MODE &Instance() { return *reinterpret_cast<volatile BLLP_MODE*>(0x4080C234); }
+  static inline volatile BLLP_MODE &ref() { return *reinterpret_cast<volatile BLLP_MODE*>(0x4080C234); }
 };
 
 // USE_NULL_PKT_BLLP
@@ -355,7 +355,7 @@ union USE_NULL_PKT_BLLP {
 
   USE_NULL_PKT_BLLP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile USE_NULL_PKT_BLLP &Instance() { return *reinterpret_cast<volatile USE_NULL_PKT_BLLP*>(0x4080C238); }
+  static inline volatile USE_NULL_PKT_BLLP &ref() { return *reinterpret_cast<volatile USE_NULL_PKT_BLLP*>(0x4080C238); }
 };
 
 // VACTIVE
@@ -373,7 +373,7 @@ union VACTIVE {
 
   VACTIVE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VACTIVE &Instance() { return *reinterpret_cast<volatile VACTIVE*>(0x4080C23C); }
+  static inline volatile VACTIVE &ref() { return *reinterpret_cast<volatile VACTIVE*>(0x4080C23C); }
 };
 
 

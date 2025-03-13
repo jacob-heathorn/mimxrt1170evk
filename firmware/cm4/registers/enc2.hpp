@@ -183,7 +183,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x40178000); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40178000); }
 };
 
 // Input Filter Register
@@ -203,7 +203,7 @@ union FILT {
 
   FILT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FILT &Instance() { return *reinterpret_cast<volatile FILT*>(0x40178002); }
+  static inline volatile FILT &ref() { return *reinterpret_cast<volatile FILT*>(0x40178002); }
 };
 
 // Watchdog Timeout Register
@@ -221,7 +221,7 @@ union WTR {
 
   WTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WTR &Instance() { return *reinterpret_cast<volatile WTR*>(0x40178004); }
+  static inline volatile WTR &ref() { return *reinterpret_cast<volatile WTR*>(0x40178004); }
 };
 
 // Position Difference Counter Register
@@ -239,7 +239,7 @@ union POSD {
 
   POSD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile POSD &Instance() { return *reinterpret_cast<volatile POSD*>(0x40178006); }
+  static inline volatile POSD &ref() { return *reinterpret_cast<volatile POSD*>(0x40178006); }
 };
 
 // Position Difference Hold Register
@@ -257,7 +257,7 @@ union POSDH {
 
   POSDH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile POSDH &Instance() { return *reinterpret_cast<volatile POSDH*>(0x40178008); }
+  static inline volatile POSDH &ref() { return *reinterpret_cast<volatile POSDH*>(0x40178008); }
 };
 
 // Revolution Counter Register
@@ -275,7 +275,7 @@ union REV {
 
   REV() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REV &Instance() { return *reinterpret_cast<volatile REV*>(0x4017800A); }
+  static inline volatile REV &ref() { return *reinterpret_cast<volatile REV*>(0x4017800A); }
 };
 
 // Revolution Hold Register
@@ -293,7 +293,7 @@ union REVH {
 
   REVH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REVH &Instance() { return *reinterpret_cast<volatile REVH*>(0x4017800C); }
+  static inline volatile REVH &ref() { return *reinterpret_cast<volatile REVH*>(0x4017800C); }
 };
 
 // Upper Position Counter Register
@@ -311,7 +311,7 @@ union UPOS {
 
   UPOS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile UPOS &Instance() { return *reinterpret_cast<volatile UPOS*>(0x4017800E); }
+  static inline volatile UPOS &ref() { return *reinterpret_cast<volatile UPOS*>(0x4017800E); }
 };
 
 // Lower Position Counter Register
@@ -329,7 +329,7 @@ union LPOS {
 
   LPOS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPOS &Instance() { return *reinterpret_cast<volatile LPOS*>(0x40178010); }
+  static inline volatile LPOS &ref() { return *reinterpret_cast<volatile LPOS*>(0x40178010); }
 };
 
 // Upper Position Hold Register
@@ -347,7 +347,7 @@ union UPOSH {
 
   UPOSH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile UPOSH &Instance() { return *reinterpret_cast<volatile UPOSH*>(0x40178012); }
+  static inline volatile UPOSH &ref() { return *reinterpret_cast<volatile UPOSH*>(0x40178012); }
 };
 
 // Lower Position Hold Register
@@ -365,7 +365,7 @@ union LPOSH {
 
   LPOSH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPOSH &Instance() { return *reinterpret_cast<volatile LPOSH*>(0x40178014); }
+  static inline volatile LPOSH &ref() { return *reinterpret_cast<volatile LPOSH*>(0x40178014); }
 };
 
 // Upper Initialization Register
@@ -383,7 +383,7 @@ union UINIT {
 
   UINIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile UINIT &Instance() { return *reinterpret_cast<volatile UINIT*>(0x40178016); }
+  static inline volatile UINIT &ref() { return *reinterpret_cast<volatile UINIT*>(0x40178016); }
 };
 
 // Lower Initialization Register
@@ -401,7 +401,7 @@ union LINIT {
 
   LINIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LINIT &Instance() { return *reinterpret_cast<volatile LINIT*>(0x40178018); }
+  static inline volatile LINIT &ref() { return *reinterpret_cast<volatile LINIT*>(0x40178018); }
 };
 
 // Input Monitor Register
@@ -433,7 +433,7 @@ union IMR {
 
   IMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IMR &Instance() { return *reinterpret_cast<volatile IMR*>(0x4017801A); }
+  static inline volatile IMR &ref() { return *reinterpret_cast<volatile IMR*>(0x4017801A); }
 };
 
 // Test Register
@@ -483,7 +483,7 @@ union TST {
 
   TST() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TST &Instance() { return *reinterpret_cast<volatile TST*>(0x4017801C); }
+  static inline volatile TST &ref() { return *reinterpret_cast<volatile TST*>(0x4017801C); }
 };
 
 // Control 2 Register
@@ -619,7 +619,7 @@ union CTRL2 {
 
   CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL2 &Instance() { return *reinterpret_cast<volatile CTRL2*>(0x4017801E); }
+  static inline volatile CTRL2 &ref() { return *reinterpret_cast<volatile CTRL2*>(0x4017801E); }
 };
 
 // Upper Modulus Register
@@ -637,7 +637,7 @@ union UMOD {
 
   UMOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile UMOD &Instance() { return *reinterpret_cast<volatile UMOD*>(0x40178020); }
+  static inline volatile UMOD &ref() { return *reinterpret_cast<volatile UMOD*>(0x40178020); }
 };
 
 // Lower Modulus Register
@@ -655,7 +655,7 @@ union LMOD {
 
   LMOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LMOD &Instance() { return *reinterpret_cast<volatile LMOD*>(0x40178022); }
+  static inline volatile LMOD &ref() { return *reinterpret_cast<volatile LMOD*>(0x40178022); }
 };
 
 // Upper Position Compare Register
@@ -673,7 +673,7 @@ union UCOMP {
 
   UCOMP() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile UCOMP &Instance() { return *reinterpret_cast<volatile UCOMP*>(0x40178024); }
+  static inline volatile UCOMP &ref() { return *reinterpret_cast<volatile UCOMP*>(0x40178024); }
 };
 
 // Lower Position Compare Register
@@ -691,7 +691,7 @@ union LCOMP {
 
   LCOMP() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile LCOMP &Instance() { return *reinterpret_cast<volatile LCOMP*>(0x40178026); }
+  static inline volatile LCOMP &ref() { return *reinterpret_cast<volatile LCOMP*>(0x40178026); }
 };
 
 // Last Edge Time Register
@@ -709,7 +709,7 @@ union LASTEDGE {
 
   LASTEDGE() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile LASTEDGE &Instance() { return *reinterpret_cast<volatile LASTEDGE*>(0x40178028); }
+  static inline volatile LASTEDGE &ref() { return *reinterpret_cast<volatile LASTEDGE*>(0x40178028); }
 };
 
 // Last Edge Time Hold Register
@@ -727,7 +727,7 @@ union LASTEDGEH {
 
   LASTEDGEH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile LASTEDGEH &Instance() { return *reinterpret_cast<volatile LASTEDGEH*>(0x4017802A); }
+  static inline volatile LASTEDGEH &ref() { return *reinterpret_cast<volatile LASTEDGEH*>(0x4017802A); }
 };
 
 // Position Difference Period Counter Register
@@ -745,7 +745,7 @@ union POSDPER {
 
   POSDPER() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile POSDPER &Instance() { return *reinterpret_cast<volatile POSDPER*>(0x4017802C); }
+  static inline volatile POSDPER &ref() { return *reinterpret_cast<volatile POSDPER*>(0x4017802C); }
 };
 
 // Position Difference Period Buffer Register
@@ -763,7 +763,7 @@ union POSDPERBFR {
 
   POSDPERBFR() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile POSDPERBFR &Instance() { return *reinterpret_cast<volatile POSDPERBFR*>(0x4017802E); }
+  static inline volatile POSDPERBFR &ref() { return *reinterpret_cast<volatile POSDPERBFR*>(0x4017802E); }
 };
 
 // Position Difference Period Hold Register
@@ -781,7 +781,7 @@ union POSDPERH {
 
   POSDPERH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile POSDPERH &Instance() { return *reinterpret_cast<volatile POSDPERH*>(0x40178030); }
+  static inline volatile POSDPERH &ref() { return *reinterpret_cast<volatile POSDPERH*>(0x40178030); }
 };
 
 // Control 3 Register
@@ -810,7 +810,7 @@ union CTRL3 {
 
   CTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL3 &Instance() { return *reinterpret_cast<volatile CTRL3*>(0x40178032); }
+  static inline volatile CTRL3 &ref() { return *reinterpret_cast<volatile CTRL3*>(0x40178032); }
 };
 
 

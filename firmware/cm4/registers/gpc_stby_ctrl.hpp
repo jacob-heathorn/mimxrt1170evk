@@ -26,7 +26,7 @@ union STBY_AUTHEN_CTRL {
 
   STBY_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STBY_AUTHEN_CTRL &Instance() { return *reinterpret_cast<volatile STBY_AUTHEN_CTRL*>(0x40C02804); }
+  static inline volatile STBY_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile STBY_AUTHEN_CTRL*>(0x40C02804); }
 };
 
 // STBY Misc
@@ -50,7 +50,7 @@ union STBY_MISC {
 
   STBY_MISC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STBY_MISC &Instance() { return *reinterpret_cast<volatile STBY_MISC*>(0x40C0280C); }
+  static inline volatile STBY_MISC &ref() { return *reinterpret_cast<volatile STBY_MISC*>(0x40C0280C); }
 };
 
 // STBY lpcg_in control
@@ -85,7 +85,7 @@ union STBY_LPCG_IN_CTRL {
 
   STBY_LPCG_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_LPCG_IN_CTRL &Instance() { return *reinterpret_cast<volatile STBY_LPCG_IN_CTRL*>(0x40C028F0); }
+  static inline volatile STBY_LPCG_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_LPCG_IN_CTRL*>(0x40C028F0); }
 };
 
 // STBY pll_in control
@@ -120,7 +120,7 @@ union STBY_PLL_IN_CTRL {
 
   STBY_PLL_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_PLL_IN_CTRL &Instance() { return *reinterpret_cast<volatile STBY_PLL_IN_CTRL*>(0x40C02900); }
+  static inline volatile STBY_PLL_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_PLL_IN_CTRL*>(0x40C02900); }
 };
 
 // STBY bias_in control
@@ -155,7 +155,7 @@ union STBY_BIAS_IN_CTRL {
 
   STBY_BIAS_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_BIAS_IN_CTRL &Instance() { return *reinterpret_cast<volatile STBY_BIAS_IN_CTRL*>(0x40C02910); }
+  static inline volatile STBY_BIAS_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_BIAS_IN_CTRL*>(0x40C02910); }
 };
 
 // STBY pldo_in control
@@ -190,7 +190,7 @@ union STBY_PLDO_IN_CTRL {
 
   STBY_PLDO_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_PLDO_IN_CTRL &Instance() { return *reinterpret_cast<volatile STBY_PLDO_IN_CTRL*>(0x40C02920); }
+  static inline volatile STBY_PLDO_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_PLDO_IN_CTRL*>(0x40C02920); }
 };
 
 // STBY bandgap_in control
@@ -225,7 +225,7 @@ union STBY_BANDGAP_IN_CTRL {
 
   STBY_BANDGAP_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_BANDGAP_IN_CTRL &Instance() { return *reinterpret_cast<volatile STBY_BANDGAP_IN_CTRL*>(0x40C02928); }
+  static inline volatile STBY_BANDGAP_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_BANDGAP_IN_CTRL*>(0x40C02928); }
 };
 
 // STBY ldo_in control
@@ -260,7 +260,7 @@ union STBY_LDO_IN_CTRL {
 
   STBY_LDO_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_LDO_IN_CTRL &Instance() { return *reinterpret_cast<volatile STBY_LDO_IN_CTRL*>(0x40C02930); }
+  static inline volatile STBY_LDO_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_LDO_IN_CTRL*>(0x40C02930); }
 };
 
 // STBY dcdc_in control
@@ -295,7 +295,7 @@ union STBY_DCDC_IN_CTRL {
 
   STBY_DCDC_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_DCDC_IN_CTRL &Instance() { return *reinterpret_cast<volatile STBY_DCDC_IN_CTRL*>(0x40C02940); }
+  static inline volatile STBY_DCDC_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_DCDC_IN_CTRL*>(0x40C02940); }
 };
 
 // STBY PMIC in control
@@ -330,7 +330,7 @@ union STBY_PMIC_IN_CTRL {
 
   STBY_PMIC_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_PMIC_IN_CTRL &Instance() { return *reinterpret_cast<volatile STBY_PMIC_IN_CTRL*>(0x40C02950); }
+  static inline volatile STBY_PMIC_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_PMIC_IN_CTRL*>(0x40C02950); }
 };
 
 // STBY PMIC out control
@@ -365,7 +365,7 @@ union STBY_PMIC_OUT_CTRL {
 
   STBY_PMIC_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_PMIC_OUT_CTRL &Instance() { return *reinterpret_cast<volatile STBY_PMIC_OUT_CTRL*>(0x40C02A00); }
+  static inline volatile STBY_PMIC_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_PMIC_OUT_CTRL*>(0x40C02A00); }
 };
 
 // STBY DCDC out control
@@ -400,7 +400,7 @@ union STBY_DCDC_OUT_CTRL {
 
   STBY_DCDC_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_DCDC_OUT_CTRL &Instance() { return *reinterpret_cast<volatile STBY_DCDC_OUT_CTRL*>(0x40C02A10); }
+  static inline volatile STBY_DCDC_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_DCDC_OUT_CTRL*>(0x40C02A10); }
 };
 
 // STBY LDO out control
@@ -435,7 +435,7 @@ union STBY_LDO_OUT_CTRL {
 
   STBY_LDO_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_LDO_OUT_CTRL &Instance() { return *reinterpret_cast<volatile STBY_LDO_OUT_CTRL*>(0x40C02A20); }
+  static inline volatile STBY_LDO_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_LDO_OUT_CTRL*>(0x40C02A20); }
 };
 
 // STBY bandgap out control
@@ -470,7 +470,7 @@ union STBY_BANDGAP_OUT_CTRL {
 
   STBY_BANDGAP_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_BANDGAP_OUT_CTRL &Instance() { return *reinterpret_cast<volatile STBY_BANDGAP_OUT_CTRL*>(0x40C02A30); }
+  static inline volatile STBY_BANDGAP_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_BANDGAP_OUT_CTRL*>(0x40C02A30); }
 };
 
 // STBY pldo out control
@@ -505,7 +505,7 @@ union STBY_PLDO_OUT_CTRL {
 
   STBY_PLDO_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_PLDO_OUT_CTRL &Instance() { return *reinterpret_cast<volatile STBY_PLDO_OUT_CTRL*>(0x40C02A38); }
+  static inline volatile STBY_PLDO_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_PLDO_OUT_CTRL*>(0x40C02A38); }
 };
 
 // STBY bias out control
@@ -540,7 +540,7 @@ union STBY_BIAS_OUT_CTRL {
 
   STBY_BIAS_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_BIAS_OUT_CTRL &Instance() { return *reinterpret_cast<volatile STBY_BIAS_OUT_CTRL*>(0x40C02A40); }
+  static inline volatile STBY_BIAS_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_BIAS_OUT_CTRL*>(0x40C02A40); }
 };
 
 // STBY PLL out control
@@ -575,7 +575,7 @@ union STBY_PLL_OUT_CTRL {
 
   STBY_PLL_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_PLL_OUT_CTRL &Instance() { return *reinterpret_cast<volatile STBY_PLL_OUT_CTRL*>(0x40C02A50); }
+  static inline volatile STBY_PLL_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_PLL_OUT_CTRL*>(0x40C02A50); }
 };
 
 // STBY LPCG out control
@@ -610,7 +610,7 @@ union STBY_LPCG_OUT_CTRL {
 
   STBY_LPCG_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_LPCG_OUT_CTRL &Instance() { return *reinterpret_cast<volatile STBY_LPCG_OUT_CTRL*>(0x40C02A60); }
+  static inline volatile STBY_LPCG_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_LPCG_OUT_CTRL*>(0x40C02A60); }
 };
 
 

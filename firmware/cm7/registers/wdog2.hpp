@@ -119,7 +119,7 @@ union WCR {
 
   WCR() = delete;
   inline void Reset() volatile { this->value = 0x00000030; }
-  static inline volatile WCR &Instance() { return *reinterpret_cast<volatile WCR*>(0x40034000); }
+  static inline volatile WCR &ref() { return *reinterpret_cast<volatile WCR*>(0x40034000); }
 };
 
 // Watchdog Service Register
@@ -145,7 +145,7 @@ union WSR {
 
   WSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WSR &Instance() { return *reinterpret_cast<volatile WSR*>(0x40034002); }
+  static inline volatile WSR &ref() { return *reinterpret_cast<volatile WSR*>(0x40034002); }
 };
 
 // Watchdog Reset Status Register
@@ -192,7 +192,7 @@ union WRSR {
 
   WRSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WRSR &Instance() { return *reinterpret_cast<volatile WRSR*>(0x40034004); }
+  static inline volatile WRSR &ref() { return *reinterpret_cast<volatile WRSR*>(0x40034004); }
 };
 
 // Watchdog Interrupt Control Register
@@ -243,7 +243,7 @@ union WICR {
 
   WICR() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile WICR &Instance() { return *reinterpret_cast<volatile WICR*>(0x40034006); }
+  static inline volatile WICR &ref() { return *reinterpret_cast<volatile WICR*>(0x40034006); }
 };
 
 // Watchdog Miscellaneous Control Register
@@ -269,7 +269,7 @@ union WMCR {
 
   WMCR() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile WMCR &Instance() { return *reinterpret_cast<volatile WMCR*>(0x40034008); }
+  static inline volatile WMCR &ref() { return *reinterpret_cast<volatile WMCR*>(0x40034008); }
 };
 
 

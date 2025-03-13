@@ -135,7 +135,7 @@ union PXP_CTRL {
 
   PXP_CTRL() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile PXP_CTRL &Instance() { return *reinterpret_cast<volatile PXP_CTRL*>(0x40814000); }
+  static inline volatile PXP_CTRL &ref() { return *reinterpret_cast<volatile PXP_CTRL*>(0x40814000); }
 };
 
 // Control Register 0
@@ -263,7 +263,7 @@ union PXP_CTRL_SET {
 
   PXP_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile PXP_CTRL_SET &Instance() { return *reinterpret_cast<volatile PXP_CTRL_SET*>(0x40814004); }
+  static inline volatile PXP_CTRL_SET &ref() { return *reinterpret_cast<volatile PXP_CTRL_SET*>(0x40814004); }
 };
 
 // Control Register 0
@@ -391,7 +391,7 @@ union PXP_CTRL_CLR {
 
   PXP_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile PXP_CTRL_CLR &Instance() { return *reinterpret_cast<volatile PXP_CTRL_CLR*>(0x40814008); }
+  static inline volatile PXP_CTRL_CLR &ref() { return *reinterpret_cast<volatile PXP_CTRL_CLR*>(0x40814008); }
 };
 
 // Control Register 0
@@ -519,7 +519,7 @@ union PXP_CTRL_TOG {
 
   PXP_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile PXP_CTRL_TOG &Instance() { return *reinterpret_cast<volatile PXP_CTRL_TOG*>(0x4081400C); }
+  static inline volatile PXP_CTRL_TOG &ref() { return *reinterpret_cast<volatile PXP_CTRL_TOG*>(0x4081400C); }
 };
 
 // Status Register
@@ -583,7 +583,7 @@ union PXP_STAT {
 
   PXP_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_STAT &Instance() { return *reinterpret_cast<volatile PXP_STAT*>(0x40814010); }
+  static inline volatile PXP_STAT &ref() { return *reinterpret_cast<volatile PXP_STAT*>(0x40814010); }
 };
 
 // Status Register
@@ -647,7 +647,7 @@ union PXP_STAT_SET {
 
   PXP_STAT_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_STAT_SET &Instance() { return *reinterpret_cast<volatile PXP_STAT_SET*>(0x40814014); }
+  static inline volatile PXP_STAT_SET &ref() { return *reinterpret_cast<volatile PXP_STAT_SET*>(0x40814014); }
 };
 
 // Status Register
@@ -711,7 +711,7 @@ union PXP_STAT_CLR {
 
   PXP_STAT_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_STAT_CLR &Instance() { return *reinterpret_cast<volatile PXP_STAT_CLR*>(0x40814018); }
+  static inline volatile PXP_STAT_CLR &ref() { return *reinterpret_cast<volatile PXP_STAT_CLR*>(0x40814018); }
 };
 
 // Status Register
@@ -775,7 +775,7 @@ union PXP_STAT_TOG {
 
   PXP_STAT_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_STAT_TOG &Instance() { return *reinterpret_cast<volatile PXP_STAT_TOG*>(0x4081401C); }
+  static inline volatile PXP_STAT_TOG &ref() { return *reinterpret_cast<volatile PXP_STAT_TOG*>(0x4081401C); }
 };
 
 // Output Buffer Control Register
@@ -858,7 +858,7 @@ union PXP_OUT_CTRL {
 
   PXP_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_OUT_CTRL &Instance() { return *reinterpret_cast<volatile PXP_OUT_CTRL*>(0x40814020); }
+  static inline volatile PXP_OUT_CTRL &ref() { return *reinterpret_cast<volatile PXP_OUT_CTRL*>(0x40814020); }
 };
 
 // Output Buffer Control Register
@@ -941,7 +941,7 @@ union PXP_OUT_CTRL_SET {
 
   PXP_OUT_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_OUT_CTRL_SET &Instance() { return *reinterpret_cast<volatile PXP_OUT_CTRL_SET*>(0x40814024); }
+  static inline volatile PXP_OUT_CTRL_SET &ref() { return *reinterpret_cast<volatile PXP_OUT_CTRL_SET*>(0x40814024); }
 };
 
 // Output Buffer Control Register
@@ -1024,7 +1024,7 @@ union PXP_OUT_CTRL_CLR {
 
   PXP_OUT_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_OUT_CTRL_CLR &Instance() { return *reinterpret_cast<volatile PXP_OUT_CTRL_CLR*>(0x40814028); }
+  static inline volatile PXP_OUT_CTRL_CLR &ref() { return *reinterpret_cast<volatile PXP_OUT_CTRL_CLR*>(0x40814028); }
 };
 
 // Output Buffer Control Register
@@ -1107,7 +1107,7 @@ union PXP_OUT_CTRL_TOG {
 
   PXP_OUT_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_OUT_CTRL_TOG &Instance() { return *reinterpret_cast<volatile PXP_OUT_CTRL_TOG*>(0x4081402C); }
+  static inline volatile PXP_OUT_CTRL_TOG &ref() { return *reinterpret_cast<volatile PXP_OUT_CTRL_TOG*>(0x4081402C); }
 };
 
 // Output Frame Buffer Pointer
@@ -1124,7 +1124,7 @@ union PXP_OUT_BUF {
 
   PXP_OUT_BUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_OUT_BUF &Instance() { return *reinterpret_cast<volatile PXP_OUT_BUF*>(0x40814030); }
+  static inline volatile PXP_OUT_BUF &ref() { return *reinterpret_cast<volatile PXP_OUT_BUF*>(0x40814030); }
 };
 
 // Output Frame Buffer Pointer #2
@@ -1141,7 +1141,7 @@ union PXP_OUT_BUF2 {
 
   PXP_OUT_BUF2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_OUT_BUF2 &Instance() { return *reinterpret_cast<volatile PXP_OUT_BUF2*>(0x40814040); }
+  static inline volatile PXP_OUT_BUF2 &ref() { return *reinterpret_cast<volatile PXP_OUT_BUF2*>(0x40814040); }
 };
 
 // Output Buffer Pitch
@@ -1159,7 +1159,7 @@ union PXP_OUT_PITCH {
 
   PXP_OUT_PITCH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_OUT_PITCH &Instance() { return *reinterpret_cast<volatile PXP_OUT_PITCH*>(0x40814050); }
+  static inline volatile PXP_OUT_PITCH &ref() { return *reinterpret_cast<volatile PXP_OUT_PITCH*>(0x40814050); }
 };
 
 // Output Surface Lower Right Coordinate
@@ -1180,7 +1180,7 @@ union PXP_OUT_LRC {
 
   PXP_OUT_LRC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_OUT_LRC &Instance() { return *reinterpret_cast<volatile PXP_OUT_LRC*>(0x40814060); }
+  static inline volatile PXP_OUT_LRC &ref() { return *reinterpret_cast<volatile PXP_OUT_LRC*>(0x40814060); }
 };
 
 // Processed Surface Upper Left Coordinate
@@ -1201,7 +1201,7 @@ union PXP_OUT_PS_ULC {
 
   PXP_OUT_PS_ULC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_OUT_PS_ULC &Instance() { return *reinterpret_cast<volatile PXP_OUT_PS_ULC*>(0x40814070); }
+  static inline volatile PXP_OUT_PS_ULC &ref() { return *reinterpret_cast<volatile PXP_OUT_PS_ULC*>(0x40814070); }
 };
 
 // Processed Surface Lower Right Coordinate
@@ -1222,7 +1222,7 @@ union PXP_OUT_PS_LRC {
 
   PXP_OUT_PS_LRC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_OUT_PS_LRC &Instance() { return *reinterpret_cast<volatile PXP_OUT_PS_LRC*>(0x40814080); }
+  static inline volatile PXP_OUT_PS_LRC &ref() { return *reinterpret_cast<volatile PXP_OUT_PS_LRC*>(0x40814080); }
 };
 
 // Alpha Surface Upper Left Coordinate
@@ -1243,7 +1243,7 @@ union PXP_OUT_AS_ULC {
 
   PXP_OUT_AS_ULC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_OUT_AS_ULC &Instance() { return *reinterpret_cast<volatile PXP_OUT_AS_ULC*>(0x40814090); }
+  static inline volatile PXP_OUT_AS_ULC &ref() { return *reinterpret_cast<volatile PXP_OUT_AS_ULC*>(0x40814090); }
 };
 
 // Alpha Surface Lower Right Coordinate
@@ -1264,7 +1264,7 @@ union PXP_OUT_AS_LRC {
 
   PXP_OUT_AS_LRC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_OUT_AS_LRC &Instance() { return *reinterpret_cast<volatile PXP_OUT_AS_LRC*>(0x408140A0); }
+  static inline volatile PXP_OUT_AS_LRC &ref() { return *reinterpret_cast<volatile PXP_OUT_AS_LRC*>(0x408140A0); }
 };
 
 // Processed Surface (PS) Control Register
@@ -1361,7 +1361,7 @@ union PXP_PS_CTRL {
 
   PXP_PS_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_PS_CTRL &Instance() { return *reinterpret_cast<volatile PXP_PS_CTRL*>(0x408140B0); }
+  static inline volatile PXP_PS_CTRL &ref() { return *reinterpret_cast<volatile PXP_PS_CTRL*>(0x408140B0); }
 };
 
 // Processed Surface (PS) Control Register
@@ -1458,7 +1458,7 @@ union PXP_PS_CTRL_SET {
 
   PXP_PS_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_PS_CTRL_SET &Instance() { return *reinterpret_cast<volatile PXP_PS_CTRL_SET*>(0x408140B4); }
+  static inline volatile PXP_PS_CTRL_SET &ref() { return *reinterpret_cast<volatile PXP_PS_CTRL_SET*>(0x408140B4); }
 };
 
 // Processed Surface (PS) Control Register
@@ -1555,7 +1555,7 @@ union PXP_PS_CTRL_CLR {
 
   PXP_PS_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_PS_CTRL_CLR &Instance() { return *reinterpret_cast<volatile PXP_PS_CTRL_CLR*>(0x408140B8); }
+  static inline volatile PXP_PS_CTRL_CLR &ref() { return *reinterpret_cast<volatile PXP_PS_CTRL_CLR*>(0x408140B8); }
 };
 
 // Processed Surface (PS) Control Register
@@ -1652,7 +1652,7 @@ union PXP_PS_CTRL_TOG {
 
   PXP_PS_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_PS_CTRL_TOG &Instance() { return *reinterpret_cast<volatile PXP_PS_CTRL_TOG*>(0x408140BC); }
+  static inline volatile PXP_PS_CTRL_TOG &ref() { return *reinterpret_cast<volatile PXP_PS_CTRL_TOG*>(0x408140BC); }
 };
 
 // PS Input Buffer Address
@@ -1669,7 +1669,7 @@ union PXP_PS_BUF {
 
   PXP_PS_BUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_PS_BUF &Instance() { return *reinterpret_cast<volatile PXP_PS_BUF*>(0x408140C0); }
+  static inline volatile PXP_PS_BUF &ref() { return *reinterpret_cast<volatile PXP_PS_BUF*>(0x408140C0); }
 };
 
 // PS U/Cb or 2 Plane UV Input Buffer Address
@@ -1686,7 +1686,7 @@ union PXP_PS_UBUF {
 
   PXP_PS_UBUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_PS_UBUF &Instance() { return *reinterpret_cast<volatile PXP_PS_UBUF*>(0x408140D0); }
+  static inline volatile PXP_PS_UBUF &ref() { return *reinterpret_cast<volatile PXP_PS_UBUF*>(0x408140D0); }
 };
 
 // PS V/Cr Input Buffer Address
@@ -1703,7 +1703,7 @@ union PXP_PS_VBUF {
 
   PXP_PS_VBUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_PS_VBUF &Instance() { return *reinterpret_cast<volatile PXP_PS_VBUF*>(0x408140E0); }
+  static inline volatile PXP_PS_VBUF &ref() { return *reinterpret_cast<volatile PXP_PS_VBUF*>(0x408140E0); }
 };
 
 // Processed Surface Pitch
@@ -1721,7 +1721,7 @@ union PXP_PS_PITCH {
 
   PXP_PS_PITCH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_PS_PITCH &Instance() { return *reinterpret_cast<volatile PXP_PS_PITCH*>(0x408140F0); }
+  static inline volatile PXP_PS_PITCH &ref() { return *reinterpret_cast<volatile PXP_PS_PITCH*>(0x408140F0); }
 };
 
 // PS Background Color
@@ -1739,7 +1739,7 @@ union PXP_PS_BACKGROUND {
 
   PXP_PS_BACKGROUND() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_PS_BACKGROUND &Instance() { return *reinterpret_cast<volatile PXP_PS_BACKGROUND*>(0x40814100); }
+  static inline volatile PXP_PS_BACKGROUND &ref() { return *reinterpret_cast<volatile PXP_PS_BACKGROUND*>(0x40814100); }
 };
 
 // PS Scale Factor Register
@@ -1760,7 +1760,7 @@ union PXP_PS_SCALE {
 
   PXP_PS_SCALE() = delete;
   inline void Reset() volatile { this->value = 0x10001000; }
-  static inline volatile PXP_PS_SCALE &Instance() { return *reinterpret_cast<volatile PXP_PS_SCALE*>(0x40814110); }
+  static inline volatile PXP_PS_SCALE &ref() { return *reinterpret_cast<volatile PXP_PS_SCALE*>(0x40814110); }
 };
 
 // PS Scale Offset Register
@@ -1781,7 +1781,7 @@ union PXP_PS_OFFSET {
 
   PXP_PS_OFFSET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_PS_OFFSET &Instance() { return *reinterpret_cast<volatile PXP_PS_OFFSET*>(0x40814120); }
+  static inline volatile PXP_PS_OFFSET &ref() { return *reinterpret_cast<volatile PXP_PS_OFFSET*>(0x40814120); }
 };
 
 // PS Color Key Low
@@ -1799,7 +1799,7 @@ union PXP_PS_CLRKEYLOW {
 
   PXP_PS_CLRKEYLOW() = delete;
   inline void Reset() volatile { this->value = 0x00FFFFFF; }
-  static inline volatile PXP_PS_CLRKEYLOW &Instance() { return *reinterpret_cast<volatile PXP_PS_CLRKEYLOW*>(0x40814130); }
+  static inline volatile PXP_PS_CLRKEYLOW &ref() { return *reinterpret_cast<volatile PXP_PS_CLRKEYLOW*>(0x40814130); }
 };
 
 // PS Color Key High
@@ -1817,7 +1817,7 @@ union PXP_PS_CLRKEYHIGH {
 
   PXP_PS_CLRKEYHIGH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_PS_CLRKEYHIGH &Instance() { return *reinterpret_cast<volatile PXP_PS_CLRKEYHIGH*>(0x40814140); }
+  static inline volatile PXP_PS_CLRKEYHIGH &ref() { return *reinterpret_cast<volatile PXP_PS_CLRKEYHIGH*>(0x40814140); }
 };
 
 // Alpha Surface Control
@@ -1926,7 +1926,7 @@ union PXP_AS_CTRL {
 
   PXP_AS_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_AS_CTRL &Instance() { return *reinterpret_cast<volatile PXP_AS_CTRL*>(0x40814150); }
+  static inline volatile PXP_AS_CTRL &ref() { return *reinterpret_cast<volatile PXP_AS_CTRL*>(0x40814150); }
 };
 
 // Alpha Surface Buffer Pointer
@@ -1943,7 +1943,7 @@ union PXP_AS_BUF {
 
   PXP_AS_BUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_AS_BUF &Instance() { return *reinterpret_cast<volatile PXP_AS_BUF*>(0x40814160); }
+  static inline volatile PXP_AS_BUF &ref() { return *reinterpret_cast<volatile PXP_AS_BUF*>(0x40814160); }
 };
 
 // Alpha Surface Pitch
@@ -1961,7 +1961,7 @@ union PXP_AS_PITCH {
 
   PXP_AS_PITCH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_AS_PITCH &Instance() { return *reinterpret_cast<volatile PXP_AS_PITCH*>(0x40814170); }
+  static inline volatile PXP_AS_PITCH &ref() { return *reinterpret_cast<volatile PXP_AS_PITCH*>(0x40814170); }
 };
 
 // Overlay Color Key Low
@@ -1979,7 +1979,7 @@ union PXP_AS_CLRKEYLOW {
 
   PXP_AS_CLRKEYLOW() = delete;
   inline void Reset() volatile { this->value = 0x00FFFFFF; }
-  static inline volatile PXP_AS_CLRKEYLOW &Instance() { return *reinterpret_cast<volatile PXP_AS_CLRKEYLOW*>(0x40814180); }
+  static inline volatile PXP_AS_CLRKEYLOW &ref() { return *reinterpret_cast<volatile PXP_AS_CLRKEYLOW*>(0x40814180); }
 };
 
 // Overlay Color Key High
@@ -1997,7 +1997,7 @@ union PXP_AS_CLRKEYHIGH {
 
   PXP_AS_CLRKEYHIGH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_AS_CLRKEYHIGH &Instance() { return *reinterpret_cast<volatile PXP_AS_CLRKEYHIGH*>(0x40814190); }
+  static inline volatile PXP_AS_CLRKEYHIGH &ref() { return *reinterpret_cast<volatile PXP_AS_CLRKEYHIGH*>(0x40814190); }
 };
 
 // Color Space Conversion Coefficient Register 0
@@ -2031,7 +2031,7 @@ union PXP_CSC1_COEF0 {
 
   PXP_CSC1_COEF0() = delete;
   inline void Reset() volatile { this->value = 0x04000000; }
-  static inline volatile PXP_CSC1_COEF0 &Instance() { return *reinterpret_cast<volatile PXP_CSC1_COEF0*>(0x408141A0); }
+  static inline volatile PXP_CSC1_COEF0 &ref() { return *reinterpret_cast<volatile PXP_CSC1_COEF0*>(0x408141A0); }
 };
 
 // Color Space Conversion Coefficient Register 1
@@ -2052,7 +2052,7 @@ union PXP_CSC1_COEF1 {
 
   PXP_CSC1_COEF1() = delete;
   inline void Reset() volatile { this->value = 0x01230208; }
-  static inline volatile PXP_CSC1_COEF1 &Instance() { return *reinterpret_cast<volatile PXP_CSC1_COEF1*>(0x408141B0); }
+  static inline volatile PXP_CSC1_COEF1 &ref() { return *reinterpret_cast<volatile PXP_CSC1_COEF1*>(0x408141B0); }
 };
 
 // Color Space Conversion Coefficient Register 2
@@ -2073,7 +2073,7 @@ union PXP_CSC1_COEF2 {
 
   PXP_CSC1_COEF2() = delete;
   inline void Reset() volatile { this->value = 0x079B076C; }
-  static inline volatile PXP_CSC1_COEF2 &Instance() { return *reinterpret_cast<volatile PXP_CSC1_COEF2*>(0x408141C0); }
+  static inline volatile PXP_CSC1_COEF2 &ref() { return *reinterpret_cast<volatile PXP_CSC1_COEF2*>(0x408141C0); }
 };
 
 // PXP Power Control Register
@@ -2104,7 +2104,7 @@ union PXP_POWER {
 
   PXP_POWER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_POWER &Instance() { return *reinterpret_cast<volatile PXP_POWER*>(0x40814320); }
+  static inline volatile PXP_POWER &ref() { return *reinterpret_cast<volatile PXP_POWER*>(0x40814320); }
 };
 
 // Next Frame Pointer
@@ -2124,7 +2124,7 @@ union PXP_NEXT {
 
   PXP_NEXT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_NEXT &Instance() { return *reinterpret_cast<volatile PXP_NEXT*>(0x40814400); }
+  static inline volatile PXP_NEXT &ref() { return *reinterpret_cast<volatile PXP_NEXT*>(0x40814400); }
 };
 
 // PXP Alpha Engine A Control Register.
@@ -2251,7 +2251,7 @@ union PXP_PORTER_DUFF_CTRL {
 
   PXP_PORTER_DUFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PXP_PORTER_DUFF_CTRL &Instance() { return *reinterpret_cast<volatile PXP_PORTER_DUFF_CTRL*>(0x40814440); }
+  static inline volatile PXP_PORTER_DUFF_CTRL &ref() { return *reinterpret_cast<volatile PXP_PORTER_DUFF_CTRL*>(0x40814440); }
 };
 
 

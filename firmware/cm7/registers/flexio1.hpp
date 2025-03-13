@@ -40,7 +40,7 @@ union VERID {
 
   VERID() = delete;
   inline void Reset() volatile { this->value = 0x02000001; }
-  static inline volatile VERID &Instance() { return *reinterpret_cast<volatile VERID*>(0x400AC000); }
+  static inline volatile VERID &ref() { return *reinterpret_cast<volatile VERID*>(0x400AC000); }
 };
 
 // Parameter Register
@@ -63,7 +63,7 @@ union PARAM {
 
   PARAM() = delete;
   inline void Reset() volatile { this->value = 0x02200808; }
-  static inline volatile PARAM &Instance() { return *reinterpret_cast<volatile PARAM*>(0x400AC004); }
+  static inline volatile PARAM &ref() { return *reinterpret_cast<volatile PARAM*>(0x400AC004); }
 };
 
 // FlexIO Control Register
@@ -129,7 +129,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x400AC008); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x400AC008); }
 };
 
 // Pin State Register
@@ -146,7 +146,7 @@ union PIN {
 
   PIN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PIN &Instance() { return *reinterpret_cast<volatile PIN*>(0x400AC00C); }
+  static inline volatile PIN &ref() { return *reinterpret_cast<volatile PIN*>(0x400AC00C); }
 };
 
 // Shifter Status Register
@@ -164,7 +164,7 @@ union SHIFTSTAT {
 
   SHIFTSTAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTSTAT &Instance() { return *reinterpret_cast<volatile SHIFTSTAT*>(0x400AC010); }
+  static inline volatile SHIFTSTAT &ref() { return *reinterpret_cast<volatile SHIFTSTAT*>(0x400AC010); }
 };
 
 // Shifter Error Register
@@ -182,7 +182,7 @@ union SHIFTERR {
 
   SHIFTERR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTERR &Instance() { return *reinterpret_cast<volatile SHIFTERR*>(0x400AC014); }
+  static inline volatile SHIFTERR &ref() { return *reinterpret_cast<volatile SHIFTERR*>(0x400AC014); }
 };
 
 // Timer Status Register
@@ -200,7 +200,7 @@ union TIMSTAT {
 
   TIMSTAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMSTAT &Instance() { return *reinterpret_cast<volatile TIMSTAT*>(0x400AC018); }
+  static inline volatile TIMSTAT &ref() { return *reinterpret_cast<volatile TIMSTAT*>(0x400AC018); }
 };
 
 // Shifter Status Interrupt Enable
@@ -218,7 +218,7 @@ union SHIFTSIEN {
 
   SHIFTSIEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTSIEN &Instance() { return *reinterpret_cast<volatile SHIFTSIEN*>(0x400AC020); }
+  static inline volatile SHIFTSIEN &ref() { return *reinterpret_cast<volatile SHIFTSIEN*>(0x400AC020); }
 };
 
 // Shifter Error Interrupt Enable
@@ -236,7 +236,7 @@ union SHIFTEIEN {
 
   SHIFTEIEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTEIEN &Instance() { return *reinterpret_cast<volatile SHIFTEIEN*>(0x400AC024); }
+  static inline volatile SHIFTEIEN &ref() { return *reinterpret_cast<volatile SHIFTEIEN*>(0x400AC024); }
 };
 
 // Timer Interrupt Enable Register
@@ -254,7 +254,7 @@ union TIMIEN {
 
   TIMIEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMIEN &Instance() { return *reinterpret_cast<volatile TIMIEN*>(0x400AC028); }
+  static inline volatile TIMIEN &ref() { return *reinterpret_cast<volatile TIMIEN*>(0x400AC028); }
 };
 
 // Shifter Status DMA Enable
@@ -272,7 +272,7 @@ union SHIFTSDEN {
 
   SHIFTSDEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTSDEN &Instance() { return *reinterpret_cast<volatile SHIFTSDEN*>(0x400AC030); }
+  static inline volatile SHIFTSDEN &ref() { return *reinterpret_cast<volatile SHIFTSDEN*>(0x400AC030); }
 };
 
 // Timer Status DMA Enable
@@ -290,7 +290,7 @@ union TIMERSDEN {
 
   TIMERSDEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMERSDEN &Instance() { return *reinterpret_cast<volatile TIMERSDEN*>(0x400AC038); }
+  static inline volatile TIMERSDEN &ref() { return *reinterpret_cast<volatile TIMERSDEN*>(0x400AC038); }
 };
 
 // Shifter State Register
@@ -308,7 +308,7 @@ union SHIFTSTATE {
 
   SHIFTSTATE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTSTATE &Instance() { return *reinterpret_cast<volatile SHIFTSTATE*>(0x400AC040); }
+  static inline volatile SHIFTSTATE &ref() { return *reinterpret_cast<volatile SHIFTSTATE*>(0x400AC040); }
 };
 
 // Shifter Control N Register
@@ -385,7 +385,7 @@ union SHIFTCTL_0 {
 
   SHIFTCTL_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL_0 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_0*>(0x400AC080); }
+  static inline volatile SHIFTCTL_0 &ref() { return *reinterpret_cast<volatile SHIFTCTL_0*>(0x400AC080); }
 };
 // Shifter Control N Register
 union SHIFTCTL_1 {
@@ -461,7 +461,7 @@ union SHIFTCTL_1 {
 
   SHIFTCTL_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL_1 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_1*>(0x400AC084); }
+  static inline volatile SHIFTCTL_1 &ref() { return *reinterpret_cast<volatile SHIFTCTL_1*>(0x400AC084); }
 };
 // Shifter Control N Register
 union SHIFTCTL_2 {
@@ -537,7 +537,7 @@ union SHIFTCTL_2 {
 
   SHIFTCTL_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL_2 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_2*>(0x400AC088); }
+  static inline volatile SHIFTCTL_2 &ref() { return *reinterpret_cast<volatile SHIFTCTL_2*>(0x400AC088); }
 };
 // Shifter Control N Register
 union SHIFTCTL_3 {
@@ -613,7 +613,7 @@ union SHIFTCTL_3 {
 
   SHIFTCTL_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL_3 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_3*>(0x400AC08C); }
+  static inline volatile SHIFTCTL_3 &ref() { return *reinterpret_cast<volatile SHIFTCTL_3*>(0x400AC08C); }
 };
 // Shifter Control N Register
 union SHIFTCTL_4 {
@@ -689,7 +689,7 @@ union SHIFTCTL_4 {
 
   SHIFTCTL_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL_4 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_4*>(0x400AC090); }
+  static inline volatile SHIFTCTL_4 &ref() { return *reinterpret_cast<volatile SHIFTCTL_4*>(0x400AC090); }
 };
 // Shifter Control N Register
 union SHIFTCTL_5 {
@@ -765,7 +765,7 @@ union SHIFTCTL_5 {
 
   SHIFTCTL_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL_5 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_5*>(0x400AC094); }
+  static inline volatile SHIFTCTL_5 &ref() { return *reinterpret_cast<volatile SHIFTCTL_5*>(0x400AC094); }
 };
 // Shifter Control N Register
 union SHIFTCTL_6 {
@@ -841,7 +841,7 @@ union SHIFTCTL_6 {
 
   SHIFTCTL_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL_6 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_6*>(0x400AC098); }
+  static inline volatile SHIFTCTL_6 &ref() { return *reinterpret_cast<volatile SHIFTCTL_6*>(0x400AC098); }
 };
 // Shifter Control N Register
 union SHIFTCTL_7 {
@@ -917,7 +917,7 @@ union SHIFTCTL_7 {
 
   SHIFTCTL_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL_7 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_7*>(0x400AC09C); }
+  static inline volatile SHIFTCTL_7 &ref() { return *reinterpret_cast<volatile SHIFTCTL_7*>(0x400AC09C); }
 };
 
 // Shifter Configuration N Register
@@ -984,7 +984,7 @@ union SHIFTCFG_0 {
 
   SHIFTCFG_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG_0 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_0*>(0x400AC100); }
+  static inline volatile SHIFTCFG_0 &ref() { return *reinterpret_cast<volatile SHIFTCFG_0*>(0x400AC100); }
 };
 // Shifter Configuration N Register
 union SHIFTCFG_1 {
@@ -1050,7 +1050,7 @@ union SHIFTCFG_1 {
 
   SHIFTCFG_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG_1 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_1*>(0x400AC104); }
+  static inline volatile SHIFTCFG_1 &ref() { return *reinterpret_cast<volatile SHIFTCFG_1*>(0x400AC104); }
 };
 // Shifter Configuration N Register
 union SHIFTCFG_2 {
@@ -1116,7 +1116,7 @@ union SHIFTCFG_2 {
 
   SHIFTCFG_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG_2 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_2*>(0x400AC108); }
+  static inline volatile SHIFTCFG_2 &ref() { return *reinterpret_cast<volatile SHIFTCFG_2*>(0x400AC108); }
 };
 // Shifter Configuration N Register
 union SHIFTCFG_3 {
@@ -1182,7 +1182,7 @@ union SHIFTCFG_3 {
 
   SHIFTCFG_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG_3 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_3*>(0x400AC10C); }
+  static inline volatile SHIFTCFG_3 &ref() { return *reinterpret_cast<volatile SHIFTCFG_3*>(0x400AC10C); }
 };
 // Shifter Configuration N Register
 union SHIFTCFG_4 {
@@ -1248,7 +1248,7 @@ union SHIFTCFG_4 {
 
   SHIFTCFG_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG_4 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_4*>(0x400AC110); }
+  static inline volatile SHIFTCFG_4 &ref() { return *reinterpret_cast<volatile SHIFTCFG_4*>(0x400AC110); }
 };
 // Shifter Configuration N Register
 union SHIFTCFG_5 {
@@ -1314,7 +1314,7 @@ union SHIFTCFG_5 {
 
   SHIFTCFG_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG_5 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_5*>(0x400AC114); }
+  static inline volatile SHIFTCFG_5 &ref() { return *reinterpret_cast<volatile SHIFTCFG_5*>(0x400AC114); }
 };
 // Shifter Configuration N Register
 union SHIFTCFG_6 {
@@ -1380,7 +1380,7 @@ union SHIFTCFG_6 {
 
   SHIFTCFG_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG_6 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_6*>(0x400AC118); }
+  static inline volatile SHIFTCFG_6 &ref() { return *reinterpret_cast<volatile SHIFTCFG_6*>(0x400AC118); }
 };
 // Shifter Configuration N Register
 union SHIFTCFG_7 {
@@ -1446,7 +1446,7 @@ union SHIFTCFG_7 {
 
   SHIFTCFG_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG_7 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_7*>(0x400AC11C); }
+  static inline volatile SHIFTCFG_7 &ref() { return *reinterpret_cast<volatile SHIFTCFG_7*>(0x400AC11C); }
 };
 
 // Shifter Buffer N Register
@@ -1463,7 +1463,7 @@ union SHIFTBUF_0 {
 
   SHIFTBUF_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_0*>(0x400AC200); }
+  static inline volatile SHIFTBUF_0 &ref() { return *reinterpret_cast<volatile SHIFTBUF_0*>(0x400AC200); }
 };
 // Shifter Buffer N Register
 union SHIFTBUF_1 {
@@ -1479,7 +1479,7 @@ union SHIFTBUF_1 {
 
   SHIFTBUF_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_1*>(0x400AC204); }
+  static inline volatile SHIFTBUF_1 &ref() { return *reinterpret_cast<volatile SHIFTBUF_1*>(0x400AC204); }
 };
 // Shifter Buffer N Register
 union SHIFTBUF_2 {
@@ -1495,7 +1495,7 @@ union SHIFTBUF_2 {
 
   SHIFTBUF_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_2*>(0x400AC208); }
+  static inline volatile SHIFTBUF_2 &ref() { return *reinterpret_cast<volatile SHIFTBUF_2*>(0x400AC208); }
 };
 // Shifter Buffer N Register
 union SHIFTBUF_3 {
@@ -1511,7 +1511,7 @@ union SHIFTBUF_3 {
 
   SHIFTBUF_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_3*>(0x400AC20C); }
+  static inline volatile SHIFTBUF_3 &ref() { return *reinterpret_cast<volatile SHIFTBUF_3*>(0x400AC20C); }
 };
 // Shifter Buffer N Register
 union SHIFTBUF_4 {
@@ -1527,7 +1527,7 @@ union SHIFTBUF_4 {
 
   SHIFTBUF_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_4*>(0x400AC210); }
+  static inline volatile SHIFTBUF_4 &ref() { return *reinterpret_cast<volatile SHIFTBUF_4*>(0x400AC210); }
 };
 // Shifter Buffer N Register
 union SHIFTBUF_5 {
@@ -1543,7 +1543,7 @@ union SHIFTBUF_5 {
 
   SHIFTBUF_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_5*>(0x400AC214); }
+  static inline volatile SHIFTBUF_5 &ref() { return *reinterpret_cast<volatile SHIFTBUF_5*>(0x400AC214); }
 };
 // Shifter Buffer N Register
 union SHIFTBUF_6 {
@@ -1559,7 +1559,7 @@ union SHIFTBUF_6 {
 
   SHIFTBUF_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_6*>(0x400AC218); }
+  static inline volatile SHIFTBUF_6 &ref() { return *reinterpret_cast<volatile SHIFTBUF_6*>(0x400AC218); }
 };
 // Shifter Buffer N Register
 union SHIFTBUF_7 {
@@ -1575,7 +1575,7 @@ union SHIFTBUF_7 {
 
   SHIFTBUF_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_7*>(0x400AC21C); }
+  static inline volatile SHIFTBUF_7 &ref() { return *reinterpret_cast<volatile SHIFTBUF_7*>(0x400AC21C); }
 };
 
 // Shifter Buffer N Bit Swapped Register
@@ -1592,7 +1592,7 @@ union SHIFTBUFBIS_0 {
 
   SHIFTBUFBIS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_0*>(0x400AC280); }
+  static inline volatile SHIFTBUFBIS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_0*>(0x400AC280); }
 };
 // Shifter Buffer N Bit Swapped Register
 union SHIFTBUFBIS_1 {
@@ -1608,7 +1608,7 @@ union SHIFTBUFBIS_1 {
 
   SHIFTBUFBIS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_1*>(0x400AC284); }
+  static inline volatile SHIFTBUFBIS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_1*>(0x400AC284); }
 };
 // Shifter Buffer N Bit Swapped Register
 union SHIFTBUFBIS_2 {
@@ -1624,7 +1624,7 @@ union SHIFTBUFBIS_2 {
 
   SHIFTBUFBIS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_2*>(0x400AC288); }
+  static inline volatile SHIFTBUFBIS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_2*>(0x400AC288); }
 };
 // Shifter Buffer N Bit Swapped Register
 union SHIFTBUFBIS_3 {
@@ -1640,7 +1640,7 @@ union SHIFTBUFBIS_3 {
 
   SHIFTBUFBIS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_3*>(0x400AC28C); }
+  static inline volatile SHIFTBUFBIS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_3*>(0x400AC28C); }
 };
 // Shifter Buffer N Bit Swapped Register
 union SHIFTBUFBIS_4 {
@@ -1656,7 +1656,7 @@ union SHIFTBUFBIS_4 {
 
   SHIFTBUFBIS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_4*>(0x400AC290); }
+  static inline volatile SHIFTBUFBIS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_4*>(0x400AC290); }
 };
 // Shifter Buffer N Bit Swapped Register
 union SHIFTBUFBIS_5 {
@@ -1672,7 +1672,7 @@ union SHIFTBUFBIS_5 {
 
   SHIFTBUFBIS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_5*>(0x400AC294); }
+  static inline volatile SHIFTBUFBIS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_5*>(0x400AC294); }
 };
 // Shifter Buffer N Bit Swapped Register
 union SHIFTBUFBIS_6 {
@@ -1688,7 +1688,7 @@ union SHIFTBUFBIS_6 {
 
   SHIFTBUFBIS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_6*>(0x400AC298); }
+  static inline volatile SHIFTBUFBIS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_6*>(0x400AC298); }
 };
 // Shifter Buffer N Bit Swapped Register
 union SHIFTBUFBIS_7 {
@@ -1704,7 +1704,7 @@ union SHIFTBUFBIS_7 {
 
   SHIFTBUFBIS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_7*>(0x400AC29C); }
+  static inline volatile SHIFTBUFBIS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_7*>(0x400AC29C); }
 };
 
 // Shifter Buffer N Byte Swapped Register
@@ -1721,7 +1721,7 @@ union SHIFTBUFBYS_0 {
 
   SHIFTBUFBYS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_0*>(0x400AC300); }
+  static inline volatile SHIFTBUFBYS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_0*>(0x400AC300); }
 };
 // Shifter Buffer N Byte Swapped Register
 union SHIFTBUFBYS_1 {
@@ -1737,7 +1737,7 @@ union SHIFTBUFBYS_1 {
 
   SHIFTBUFBYS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_1*>(0x400AC304); }
+  static inline volatile SHIFTBUFBYS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_1*>(0x400AC304); }
 };
 // Shifter Buffer N Byte Swapped Register
 union SHIFTBUFBYS_2 {
@@ -1753,7 +1753,7 @@ union SHIFTBUFBYS_2 {
 
   SHIFTBUFBYS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_2*>(0x400AC308); }
+  static inline volatile SHIFTBUFBYS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_2*>(0x400AC308); }
 };
 // Shifter Buffer N Byte Swapped Register
 union SHIFTBUFBYS_3 {
@@ -1769,7 +1769,7 @@ union SHIFTBUFBYS_3 {
 
   SHIFTBUFBYS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_3*>(0x400AC30C); }
+  static inline volatile SHIFTBUFBYS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_3*>(0x400AC30C); }
 };
 // Shifter Buffer N Byte Swapped Register
 union SHIFTBUFBYS_4 {
@@ -1785,7 +1785,7 @@ union SHIFTBUFBYS_4 {
 
   SHIFTBUFBYS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_4*>(0x400AC310); }
+  static inline volatile SHIFTBUFBYS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_4*>(0x400AC310); }
 };
 // Shifter Buffer N Byte Swapped Register
 union SHIFTBUFBYS_5 {
@@ -1801,7 +1801,7 @@ union SHIFTBUFBYS_5 {
 
   SHIFTBUFBYS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_5*>(0x400AC314); }
+  static inline volatile SHIFTBUFBYS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_5*>(0x400AC314); }
 };
 // Shifter Buffer N Byte Swapped Register
 union SHIFTBUFBYS_6 {
@@ -1817,7 +1817,7 @@ union SHIFTBUFBYS_6 {
 
   SHIFTBUFBYS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_6*>(0x400AC318); }
+  static inline volatile SHIFTBUFBYS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_6*>(0x400AC318); }
 };
 // Shifter Buffer N Byte Swapped Register
 union SHIFTBUFBYS_7 {
@@ -1833,7 +1833,7 @@ union SHIFTBUFBYS_7 {
 
   SHIFTBUFBYS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_7*>(0x400AC31C); }
+  static inline volatile SHIFTBUFBYS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_7*>(0x400AC31C); }
 };
 
 // Shifter Buffer N Bit Byte Swapped Register
@@ -1850,7 +1850,7 @@ union SHIFTBUFBBS_0 {
 
   SHIFTBUFBBS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_0*>(0x400AC380); }
+  static inline volatile SHIFTBUFBBS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_0*>(0x400AC380); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
 union SHIFTBUFBBS_1 {
@@ -1866,7 +1866,7 @@ union SHIFTBUFBBS_1 {
 
   SHIFTBUFBBS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_1*>(0x400AC384); }
+  static inline volatile SHIFTBUFBBS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_1*>(0x400AC384); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
 union SHIFTBUFBBS_2 {
@@ -1882,7 +1882,7 @@ union SHIFTBUFBBS_2 {
 
   SHIFTBUFBBS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_2*>(0x400AC388); }
+  static inline volatile SHIFTBUFBBS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_2*>(0x400AC388); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
 union SHIFTBUFBBS_3 {
@@ -1898,7 +1898,7 @@ union SHIFTBUFBBS_3 {
 
   SHIFTBUFBBS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_3*>(0x400AC38C); }
+  static inline volatile SHIFTBUFBBS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_3*>(0x400AC38C); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
 union SHIFTBUFBBS_4 {
@@ -1914,7 +1914,7 @@ union SHIFTBUFBBS_4 {
 
   SHIFTBUFBBS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_4*>(0x400AC390); }
+  static inline volatile SHIFTBUFBBS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_4*>(0x400AC390); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
 union SHIFTBUFBBS_5 {
@@ -1930,7 +1930,7 @@ union SHIFTBUFBBS_5 {
 
   SHIFTBUFBBS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_5*>(0x400AC394); }
+  static inline volatile SHIFTBUFBBS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_5*>(0x400AC394); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
 union SHIFTBUFBBS_6 {
@@ -1946,7 +1946,7 @@ union SHIFTBUFBBS_6 {
 
   SHIFTBUFBBS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_6*>(0x400AC398); }
+  static inline volatile SHIFTBUFBBS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_6*>(0x400AC398); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
 union SHIFTBUFBBS_7 {
@@ -1962,7 +1962,7 @@ union SHIFTBUFBBS_7 {
 
   SHIFTBUFBBS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_7*>(0x400AC39C); }
+  static inline volatile SHIFTBUFBBS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_7*>(0x400AC39C); }
 };
 
 // Timer Control N Register
@@ -2071,7 +2071,7 @@ union TIMCTL_0 {
 
   TIMCTL_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL_0 &Instance() { return *reinterpret_cast<volatile TIMCTL_0*>(0x400AC400); }
+  static inline volatile TIMCTL_0 &ref() { return *reinterpret_cast<volatile TIMCTL_0*>(0x400AC400); }
 };
 // Timer Control N Register
 union TIMCTL_1 {
@@ -2179,7 +2179,7 @@ union TIMCTL_1 {
 
   TIMCTL_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL_1 &Instance() { return *reinterpret_cast<volatile TIMCTL_1*>(0x400AC404); }
+  static inline volatile TIMCTL_1 &ref() { return *reinterpret_cast<volatile TIMCTL_1*>(0x400AC404); }
 };
 // Timer Control N Register
 union TIMCTL_2 {
@@ -2287,7 +2287,7 @@ union TIMCTL_2 {
 
   TIMCTL_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL_2 &Instance() { return *reinterpret_cast<volatile TIMCTL_2*>(0x400AC408); }
+  static inline volatile TIMCTL_2 &ref() { return *reinterpret_cast<volatile TIMCTL_2*>(0x400AC408); }
 };
 // Timer Control N Register
 union TIMCTL_3 {
@@ -2395,7 +2395,7 @@ union TIMCTL_3 {
 
   TIMCTL_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL_3 &Instance() { return *reinterpret_cast<volatile TIMCTL_3*>(0x400AC40C); }
+  static inline volatile TIMCTL_3 &ref() { return *reinterpret_cast<volatile TIMCTL_3*>(0x400AC40C); }
 };
 // Timer Control N Register
 union TIMCTL_4 {
@@ -2503,7 +2503,7 @@ union TIMCTL_4 {
 
   TIMCTL_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL_4 &Instance() { return *reinterpret_cast<volatile TIMCTL_4*>(0x400AC410); }
+  static inline volatile TIMCTL_4 &ref() { return *reinterpret_cast<volatile TIMCTL_4*>(0x400AC410); }
 };
 // Timer Control N Register
 union TIMCTL_5 {
@@ -2611,7 +2611,7 @@ union TIMCTL_5 {
 
   TIMCTL_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL_5 &Instance() { return *reinterpret_cast<volatile TIMCTL_5*>(0x400AC414); }
+  static inline volatile TIMCTL_5 &ref() { return *reinterpret_cast<volatile TIMCTL_5*>(0x400AC414); }
 };
 // Timer Control N Register
 union TIMCTL_6 {
@@ -2719,7 +2719,7 @@ union TIMCTL_6 {
 
   TIMCTL_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL_6 &Instance() { return *reinterpret_cast<volatile TIMCTL_6*>(0x400AC418); }
+  static inline volatile TIMCTL_6 &ref() { return *reinterpret_cast<volatile TIMCTL_6*>(0x400AC418); }
 };
 // Timer Control N Register
 union TIMCTL_7 {
@@ -2827,7 +2827,7 @@ union TIMCTL_7 {
 
   TIMCTL_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL_7 &Instance() { return *reinterpret_cast<volatile TIMCTL_7*>(0x400AC41C); }
+  static inline volatile TIMCTL_7 &ref() { return *reinterpret_cast<volatile TIMCTL_7*>(0x400AC41C); }
 };
 
 // Timer Configuration N Register
@@ -2972,7 +2972,7 @@ union TIMCFG_0 {
 
   TIMCFG_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG_0 &Instance() { return *reinterpret_cast<volatile TIMCFG_0*>(0x400AC480); }
+  static inline volatile TIMCFG_0 &ref() { return *reinterpret_cast<volatile TIMCFG_0*>(0x400AC480); }
 };
 // Timer Configuration N Register
 union TIMCFG_1 {
@@ -3116,7 +3116,7 @@ union TIMCFG_1 {
 
   TIMCFG_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG_1 &Instance() { return *reinterpret_cast<volatile TIMCFG_1*>(0x400AC484); }
+  static inline volatile TIMCFG_1 &ref() { return *reinterpret_cast<volatile TIMCFG_1*>(0x400AC484); }
 };
 // Timer Configuration N Register
 union TIMCFG_2 {
@@ -3260,7 +3260,7 @@ union TIMCFG_2 {
 
   TIMCFG_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG_2 &Instance() { return *reinterpret_cast<volatile TIMCFG_2*>(0x400AC488); }
+  static inline volatile TIMCFG_2 &ref() { return *reinterpret_cast<volatile TIMCFG_2*>(0x400AC488); }
 };
 // Timer Configuration N Register
 union TIMCFG_3 {
@@ -3404,7 +3404,7 @@ union TIMCFG_3 {
 
   TIMCFG_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG_3 &Instance() { return *reinterpret_cast<volatile TIMCFG_3*>(0x400AC48C); }
+  static inline volatile TIMCFG_3 &ref() { return *reinterpret_cast<volatile TIMCFG_3*>(0x400AC48C); }
 };
 // Timer Configuration N Register
 union TIMCFG_4 {
@@ -3548,7 +3548,7 @@ union TIMCFG_4 {
 
   TIMCFG_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG_4 &Instance() { return *reinterpret_cast<volatile TIMCFG_4*>(0x400AC490); }
+  static inline volatile TIMCFG_4 &ref() { return *reinterpret_cast<volatile TIMCFG_4*>(0x400AC490); }
 };
 // Timer Configuration N Register
 union TIMCFG_5 {
@@ -3692,7 +3692,7 @@ union TIMCFG_5 {
 
   TIMCFG_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG_5 &Instance() { return *reinterpret_cast<volatile TIMCFG_5*>(0x400AC494); }
+  static inline volatile TIMCFG_5 &ref() { return *reinterpret_cast<volatile TIMCFG_5*>(0x400AC494); }
 };
 // Timer Configuration N Register
 union TIMCFG_6 {
@@ -3836,7 +3836,7 @@ union TIMCFG_6 {
 
   TIMCFG_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG_6 &Instance() { return *reinterpret_cast<volatile TIMCFG_6*>(0x400AC498); }
+  static inline volatile TIMCFG_6 &ref() { return *reinterpret_cast<volatile TIMCFG_6*>(0x400AC498); }
 };
 // Timer Configuration N Register
 union TIMCFG_7 {
@@ -3980,7 +3980,7 @@ union TIMCFG_7 {
 
   TIMCFG_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG_7 &Instance() { return *reinterpret_cast<volatile TIMCFG_7*>(0x400AC49C); }
+  static inline volatile TIMCFG_7 &ref() { return *reinterpret_cast<volatile TIMCFG_7*>(0x400AC49C); }
 };
 
 // Timer Compare N Register
@@ -3998,7 +3998,7 @@ union TIMCMP_0 {
 
   TIMCMP_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP_0 &Instance() { return *reinterpret_cast<volatile TIMCMP_0*>(0x400AC500); }
+  static inline volatile TIMCMP_0 &ref() { return *reinterpret_cast<volatile TIMCMP_0*>(0x400AC500); }
 };
 // Timer Compare N Register
 union TIMCMP_1 {
@@ -4015,7 +4015,7 @@ union TIMCMP_1 {
 
   TIMCMP_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP_1 &Instance() { return *reinterpret_cast<volatile TIMCMP_1*>(0x400AC504); }
+  static inline volatile TIMCMP_1 &ref() { return *reinterpret_cast<volatile TIMCMP_1*>(0x400AC504); }
 };
 // Timer Compare N Register
 union TIMCMP_2 {
@@ -4032,7 +4032,7 @@ union TIMCMP_2 {
 
   TIMCMP_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP_2 &Instance() { return *reinterpret_cast<volatile TIMCMP_2*>(0x400AC508); }
+  static inline volatile TIMCMP_2 &ref() { return *reinterpret_cast<volatile TIMCMP_2*>(0x400AC508); }
 };
 // Timer Compare N Register
 union TIMCMP_3 {
@@ -4049,7 +4049,7 @@ union TIMCMP_3 {
 
   TIMCMP_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP_3 &Instance() { return *reinterpret_cast<volatile TIMCMP_3*>(0x400AC50C); }
+  static inline volatile TIMCMP_3 &ref() { return *reinterpret_cast<volatile TIMCMP_3*>(0x400AC50C); }
 };
 // Timer Compare N Register
 union TIMCMP_4 {
@@ -4066,7 +4066,7 @@ union TIMCMP_4 {
 
   TIMCMP_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP_4 &Instance() { return *reinterpret_cast<volatile TIMCMP_4*>(0x400AC510); }
+  static inline volatile TIMCMP_4 &ref() { return *reinterpret_cast<volatile TIMCMP_4*>(0x400AC510); }
 };
 // Timer Compare N Register
 union TIMCMP_5 {
@@ -4083,7 +4083,7 @@ union TIMCMP_5 {
 
   TIMCMP_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP_5 &Instance() { return *reinterpret_cast<volatile TIMCMP_5*>(0x400AC514); }
+  static inline volatile TIMCMP_5 &ref() { return *reinterpret_cast<volatile TIMCMP_5*>(0x400AC514); }
 };
 // Timer Compare N Register
 union TIMCMP_6 {
@@ -4100,7 +4100,7 @@ union TIMCMP_6 {
 
   TIMCMP_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP_6 &Instance() { return *reinterpret_cast<volatile TIMCMP_6*>(0x400AC518); }
+  static inline volatile TIMCMP_6 &ref() { return *reinterpret_cast<volatile TIMCMP_6*>(0x400AC518); }
 };
 // Timer Compare N Register
 union TIMCMP_7 {
@@ -4117,7 +4117,7 @@ union TIMCMP_7 {
 
   TIMCMP_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP_7 &Instance() { return *reinterpret_cast<volatile TIMCMP_7*>(0x400AC51C); }
+  static inline volatile TIMCMP_7 &ref() { return *reinterpret_cast<volatile TIMCMP_7*>(0x400AC51C); }
 };
 
 // Shifter Buffer N Nibble Byte Swapped Register
@@ -4134,7 +4134,7 @@ union SHIFTBUFNBS_0 {
 
   SHIFTBUFNBS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_0*>(0x400AC680); }
+  static inline volatile SHIFTBUFNBS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_0*>(0x400AC680); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
 union SHIFTBUFNBS_1 {
@@ -4150,7 +4150,7 @@ union SHIFTBUFNBS_1 {
 
   SHIFTBUFNBS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_1*>(0x400AC684); }
+  static inline volatile SHIFTBUFNBS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_1*>(0x400AC684); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
 union SHIFTBUFNBS_2 {
@@ -4166,7 +4166,7 @@ union SHIFTBUFNBS_2 {
 
   SHIFTBUFNBS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_2*>(0x400AC688); }
+  static inline volatile SHIFTBUFNBS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_2*>(0x400AC688); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
 union SHIFTBUFNBS_3 {
@@ -4182,7 +4182,7 @@ union SHIFTBUFNBS_3 {
 
   SHIFTBUFNBS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_3*>(0x400AC68C); }
+  static inline volatile SHIFTBUFNBS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_3*>(0x400AC68C); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
 union SHIFTBUFNBS_4 {
@@ -4198,7 +4198,7 @@ union SHIFTBUFNBS_4 {
 
   SHIFTBUFNBS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_4*>(0x400AC690); }
+  static inline volatile SHIFTBUFNBS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_4*>(0x400AC690); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
 union SHIFTBUFNBS_5 {
@@ -4214,7 +4214,7 @@ union SHIFTBUFNBS_5 {
 
   SHIFTBUFNBS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_5*>(0x400AC694); }
+  static inline volatile SHIFTBUFNBS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_5*>(0x400AC694); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
 union SHIFTBUFNBS_6 {
@@ -4230,7 +4230,7 @@ union SHIFTBUFNBS_6 {
 
   SHIFTBUFNBS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_6*>(0x400AC698); }
+  static inline volatile SHIFTBUFNBS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_6*>(0x400AC698); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
 union SHIFTBUFNBS_7 {
@@ -4246,7 +4246,7 @@ union SHIFTBUFNBS_7 {
 
   SHIFTBUFNBS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_7*>(0x400AC69C); }
+  static inline volatile SHIFTBUFNBS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_7*>(0x400AC69C); }
 };
 
 // Shifter Buffer N Half Word Swapped Register
@@ -4263,7 +4263,7 @@ union SHIFTBUFHWS_0 {
 
   SHIFTBUFHWS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_0*>(0x400AC700); }
+  static inline volatile SHIFTBUFHWS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_0*>(0x400AC700); }
 };
 // Shifter Buffer N Half Word Swapped Register
 union SHIFTBUFHWS_1 {
@@ -4279,7 +4279,7 @@ union SHIFTBUFHWS_1 {
 
   SHIFTBUFHWS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_1*>(0x400AC704); }
+  static inline volatile SHIFTBUFHWS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_1*>(0x400AC704); }
 };
 // Shifter Buffer N Half Word Swapped Register
 union SHIFTBUFHWS_2 {
@@ -4295,7 +4295,7 @@ union SHIFTBUFHWS_2 {
 
   SHIFTBUFHWS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_2*>(0x400AC708); }
+  static inline volatile SHIFTBUFHWS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_2*>(0x400AC708); }
 };
 // Shifter Buffer N Half Word Swapped Register
 union SHIFTBUFHWS_3 {
@@ -4311,7 +4311,7 @@ union SHIFTBUFHWS_3 {
 
   SHIFTBUFHWS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_3*>(0x400AC70C); }
+  static inline volatile SHIFTBUFHWS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_3*>(0x400AC70C); }
 };
 // Shifter Buffer N Half Word Swapped Register
 union SHIFTBUFHWS_4 {
@@ -4327,7 +4327,7 @@ union SHIFTBUFHWS_4 {
 
   SHIFTBUFHWS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_4*>(0x400AC710); }
+  static inline volatile SHIFTBUFHWS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_4*>(0x400AC710); }
 };
 // Shifter Buffer N Half Word Swapped Register
 union SHIFTBUFHWS_5 {
@@ -4343,7 +4343,7 @@ union SHIFTBUFHWS_5 {
 
   SHIFTBUFHWS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_5*>(0x400AC714); }
+  static inline volatile SHIFTBUFHWS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_5*>(0x400AC714); }
 };
 // Shifter Buffer N Half Word Swapped Register
 union SHIFTBUFHWS_6 {
@@ -4359,7 +4359,7 @@ union SHIFTBUFHWS_6 {
 
   SHIFTBUFHWS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_6*>(0x400AC718); }
+  static inline volatile SHIFTBUFHWS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_6*>(0x400AC718); }
 };
 // Shifter Buffer N Half Word Swapped Register
 union SHIFTBUFHWS_7 {
@@ -4375,7 +4375,7 @@ union SHIFTBUFHWS_7 {
 
   SHIFTBUFHWS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_7*>(0x400AC71C); }
+  static inline volatile SHIFTBUFHWS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_7*>(0x400AC71C); }
 };
 
 // Shifter Buffer N Nibble Swapped Register
@@ -4392,7 +4392,7 @@ union SHIFTBUFNIS_0 {
 
   SHIFTBUFNIS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_0*>(0x400AC780); }
+  static inline volatile SHIFTBUFNIS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_0*>(0x400AC780); }
 };
 // Shifter Buffer N Nibble Swapped Register
 union SHIFTBUFNIS_1 {
@@ -4408,7 +4408,7 @@ union SHIFTBUFNIS_1 {
 
   SHIFTBUFNIS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_1*>(0x400AC784); }
+  static inline volatile SHIFTBUFNIS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_1*>(0x400AC784); }
 };
 // Shifter Buffer N Nibble Swapped Register
 union SHIFTBUFNIS_2 {
@@ -4424,7 +4424,7 @@ union SHIFTBUFNIS_2 {
 
   SHIFTBUFNIS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_2*>(0x400AC788); }
+  static inline volatile SHIFTBUFNIS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_2*>(0x400AC788); }
 };
 // Shifter Buffer N Nibble Swapped Register
 union SHIFTBUFNIS_3 {
@@ -4440,7 +4440,7 @@ union SHIFTBUFNIS_3 {
 
   SHIFTBUFNIS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_3*>(0x400AC78C); }
+  static inline volatile SHIFTBUFNIS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_3*>(0x400AC78C); }
 };
 // Shifter Buffer N Nibble Swapped Register
 union SHIFTBUFNIS_4 {
@@ -4456,7 +4456,7 @@ union SHIFTBUFNIS_4 {
 
   SHIFTBUFNIS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_4*>(0x400AC790); }
+  static inline volatile SHIFTBUFNIS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_4*>(0x400AC790); }
 };
 // Shifter Buffer N Nibble Swapped Register
 union SHIFTBUFNIS_5 {
@@ -4472,7 +4472,7 @@ union SHIFTBUFNIS_5 {
 
   SHIFTBUFNIS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_5*>(0x400AC794); }
+  static inline volatile SHIFTBUFNIS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_5*>(0x400AC794); }
 };
 // Shifter Buffer N Nibble Swapped Register
 union SHIFTBUFNIS_6 {
@@ -4488,7 +4488,7 @@ union SHIFTBUFNIS_6 {
 
   SHIFTBUFNIS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_6*>(0x400AC798); }
+  static inline volatile SHIFTBUFNIS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_6*>(0x400AC798); }
 };
 // Shifter Buffer N Nibble Swapped Register
 union SHIFTBUFNIS_7 {
@@ -4504,7 +4504,7 @@ union SHIFTBUFNIS_7 {
 
   SHIFTBUFNIS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_7*>(0x400AC79C); }
+  static inline volatile SHIFTBUFNIS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_7*>(0x400AC79C); }
 };
 
 // Shifter Buffer N Odd Even Swapped Register
@@ -4521,7 +4521,7 @@ union SHIFTBUFOES_0 {
 
   SHIFTBUFOES_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_0*>(0x400AC800); }
+  static inline volatile SHIFTBUFOES_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_0*>(0x400AC800); }
 };
 // Shifter Buffer N Odd Even Swapped Register
 union SHIFTBUFOES_1 {
@@ -4537,7 +4537,7 @@ union SHIFTBUFOES_1 {
 
   SHIFTBUFOES_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_1*>(0x400AC804); }
+  static inline volatile SHIFTBUFOES_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_1*>(0x400AC804); }
 };
 // Shifter Buffer N Odd Even Swapped Register
 union SHIFTBUFOES_2 {
@@ -4553,7 +4553,7 @@ union SHIFTBUFOES_2 {
 
   SHIFTBUFOES_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_2*>(0x400AC808); }
+  static inline volatile SHIFTBUFOES_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_2*>(0x400AC808); }
 };
 // Shifter Buffer N Odd Even Swapped Register
 union SHIFTBUFOES_3 {
@@ -4569,7 +4569,7 @@ union SHIFTBUFOES_3 {
 
   SHIFTBUFOES_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_3*>(0x400AC80C); }
+  static inline volatile SHIFTBUFOES_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_3*>(0x400AC80C); }
 };
 // Shifter Buffer N Odd Even Swapped Register
 union SHIFTBUFOES_4 {
@@ -4585,7 +4585,7 @@ union SHIFTBUFOES_4 {
 
   SHIFTBUFOES_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_4*>(0x400AC810); }
+  static inline volatile SHIFTBUFOES_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_4*>(0x400AC810); }
 };
 // Shifter Buffer N Odd Even Swapped Register
 union SHIFTBUFOES_5 {
@@ -4601,7 +4601,7 @@ union SHIFTBUFOES_5 {
 
   SHIFTBUFOES_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_5*>(0x400AC814); }
+  static inline volatile SHIFTBUFOES_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_5*>(0x400AC814); }
 };
 // Shifter Buffer N Odd Even Swapped Register
 union SHIFTBUFOES_6 {
@@ -4617,7 +4617,7 @@ union SHIFTBUFOES_6 {
 
   SHIFTBUFOES_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_6*>(0x400AC818); }
+  static inline volatile SHIFTBUFOES_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_6*>(0x400AC818); }
 };
 // Shifter Buffer N Odd Even Swapped Register
 union SHIFTBUFOES_7 {
@@ -4633,7 +4633,7 @@ union SHIFTBUFOES_7 {
 
   SHIFTBUFOES_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_7*>(0x400AC81C); }
+  static inline volatile SHIFTBUFOES_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_7*>(0x400AC81C); }
 };
 
 // Shifter Buffer N Even Odd Swapped Register
@@ -4650,7 +4650,7 @@ union SHIFTBUFEOS_0 {
 
   SHIFTBUFEOS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_0*>(0x400AC880); }
+  static inline volatile SHIFTBUFEOS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_0*>(0x400AC880); }
 };
 // Shifter Buffer N Even Odd Swapped Register
 union SHIFTBUFEOS_1 {
@@ -4666,7 +4666,7 @@ union SHIFTBUFEOS_1 {
 
   SHIFTBUFEOS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_1*>(0x400AC884); }
+  static inline volatile SHIFTBUFEOS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_1*>(0x400AC884); }
 };
 // Shifter Buffer N Even Odd Swapped Register
 union SHIFTBUFEOS_2 {
@@ -4682,7 +4682,7 @@ union SHIFTBUFEOS_2 {
 
   SHIFTBUFEOS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_2*>(0x400AC888); }
+  static inline volatile SHIFTBUFEOS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_2*>(0x400AC888); }
 };
 // Shifter Buffer N Even Odd Swapped Register
 union SHIFTBUFEOS_3 {
@@ -4698,7 +4698,7 @@ union SHIFTBUFEOS_3 {
 
   SHIFTBUFEOS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_3*>(0x400AC88C); }
+  static inline volatile SHIFTBUFEOS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_3*>(0x400AC88C); }
 };
 // Shifter Buffer N Even Odd Swapped Register
 union SHIFTBUFEOS_4 {
@@ -4714,7 +4714,7 @@ union SHIFTBUFEOS_4 {
 
   SHIFTBUFEOS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_4*>(0x400AC890); }
+  static inline volatile SHIFTBUFEOS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_4*>(0x400AC890); }
 };
 // Shifter Buffer N Even Odd Swapped Register
 union SHIFTBUFEOS_5 {
@@ -4730,7 +4730,7 @@ union SHIFTBUFEOS_5 {
 
   SHIFTBUFEOS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_5*>(0x400AC894); }
+  static inline volatile SHIFTBUFEOS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_5*>(0x400AC894); }
 };
 // Shifter Buffer N Even Odd Swapped Register
 union SHIFTBUFEOS_6 {
@@ -4746,7 +4746,7 @@ union SHIFTBUFEOS_6 {
 
   SHIFTBUFEOS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_6*>(0x400AC898); }
+  static inline volatile SHIFTBUFEOS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_6*>(0x400AC898); }
 };
 // Shifter Buffer N Even Odd Swapped Register
 union SHIFTBUFEOS_7 {
@@ -4762,7 +4762,7 @@ union SHIFTBUFEOS_7 {
 
   SHIFTBUFEOS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_7*>(0x400AC89C); }
+  static inline volatile SHIFTBUFEOS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_7*>(0x400AC89C); }
 };
 
 

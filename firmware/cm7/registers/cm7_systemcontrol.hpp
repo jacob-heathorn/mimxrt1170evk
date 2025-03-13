@@ -139,7 +139,7 @@ union SCB_ACTLR {
 
   SCB_ACTLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ACTLR &Instance() { return *reinterpret_cast<volatile SCB_ACTLR*>(0xE000E008); }
+  static inline volatile SCB_ACTLR &ref() { return *reinterpret_cast<volatile SCB_ACTLR*>(0xE000E008); }
 };
 
 // CPUID Base Register
@@ -164,7 +164,7 @@ union SCB_CPUID {
 
   SCB_CPUID() = delete;
   inline void Reset() volatile { this->value = 0x410FC240; }
-  static inline volatile SCB_CPUID &Instance() { return *reinterpret_cast<volatile SCB_CPUID*>(0xE000ED00); }
+  static inline volatile SCB_CPUID &ref() { return *reinterpret_cast<volatile SCB_CPUID*>(0xE000ED00); }
 };
 
 // Interrupt Control and State Register
@@ -257,7 +257,7 @@ union SCB_ICSR {
 
   SCB_ICSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ICSR &Instance() { return *reinterpret_cast<volatile SCB_ICSR*>(0xE000ED04); }
+  static inline volatile SCB_ICSR &ref() { return *reinterpret_cast<volatile SCB_ICSR*>(0xE000ED04); }
 };
 
 // Vector Table Offset Register
@@ -275,7 +275,7 @@ union SCB_VTOR {
 
   SCB_VTOR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_VTOR &Instance() { return *reinterpret_cast<volatile SCB_VTOR*>(0xE000ED08); }
+  static inline volatile SCB_VTOR &ref() { return *reinterpret_cast<volatile SCB_VTOR*>(0xE000ED08); }
 };
 
 // Application Interrupt and Reset Control Register
@@ -336,7 +336,7 @@ union SCB_AIRCR {
 
   SCB_AIRCR() = delete;
   inline void Reset() volatile { this->value = 0xFA050000; }
-  static inline volatile SCB_AIRCR &Instance() { return *reinterpret_cast<volatile SCB_AIRCR*>(0xE000ED0C); }
+  static inline volatile SCB_AIRCR &ref() { return *reinterpret_cast<volatile SCB_AIRCR*>(0xE000ED0C); }
 };
 
 // System Control Register
@@ -384,7 +384,7 @@ union SCB_SCR {
 
   SCB_SCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_SCR &Instance() { return *reinterpret_cast<volatile SCB_SCR*>(0xE000ED10); }
+  static inline volatile SCB_SCR &ref() { return *reinterpret_cast<volatile SCB_SCR*>(0xE000ED10); }
 };
 
 // Configuration and Control Register
@@ -485,7 +485,7 @@ union SCB_CCR {
 
   SCB_CCR() = delete;
   inline void Reset() volatile { this->value = 0x00040000; }
-  static inline volatile SCB_CCR &Instance() { return *reinterpret_cast<volatile SCB_CCR*>(0xE000ED14); }
+  static inline volatile SCB_CCR &ref() { return *reinterpret_cast<volatile SCB_CCR*>(0xE000ED14); }
 };
 
 // System Handler Priority Register 1
@@ -507,7 +507,7 @@ union SCB_SHPR1 {
 
   SCB_SHPR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_SHPR1 &Instance() { return *reinterpret_cast<volatile SCB_SHPR1*>(0xE000ED18); }
+  static inline volatile SCB_SHPR1 &ref() { return *reinterpret_cast<volatile SCB_SHPR1*>(0xE000ED18); }
 };
 
 // System Handler Priority Register 2
@@ -525,7 +525,7 @@ union SCB_SHPR2 {
 
   SCB_SHPR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_SHPR2 &Instance() { return *reinterpret_cast<volatile SCB_SHPR2*>(0xE000ED1C); }
+  static inline volatile SCB_SHPR2 &ref() { return *reinterpret_cast<volatile SCB_SHPR2*>(0xE000ED1C); }
 };
 
 // System Handler Priority Register 3
@@ -545,7 +545,7 @@ union SCB_SHPR3 {
 
   SCB_SHPR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_SHPR3 &Instance() { return *reinterpret_cast<volatile SCB_SHPR3*>(0xE000ED20); }
+  static inline volatile SCB_SHPR3 &ref() { return *reinterpret_cast<volatile SCB_SHPR3*>(0xE000ED20); }
 };
 
 // System Handler Control and State Register
@@ -704,7 +704,7 @@ union SCB_SHCSR {
 
   SCB_SHCSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_SHCSR &Instance() { return *reinterpret_cast<volatile SCB_SHCSR*>(0xE000ED24); }
+  static inline volatile SCB_SHCSR &ref() { return *reinterpret_cast<volatile SCB_SHCSR*>(0xE000ED24); }
 };
 
 // Configurable Fault Status Register
@@ -914,7 +914,7 @@ union SCB_CFSR {
 
   SCB_CFSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_CFSR &Instance() { return *reinterpret_cast<volatile SCB_CFSR*>(0xE000ED28); }
+  static inline volatile SCB_CFSR &ref() { return *reinterpret_cast<volatile SCB_CFSR*>(0xE000ED28); }
 };
 
 // HardFault Status register
@@ -961,7 +961,7 @@ union SCB_HFSR {
 
   SCB_HFSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_HFSR &Instance() { return *reinterpret_cast<volatile SCB_HFSR*>(0xE000ED2C); }
+  static inline volatile SCB_HFSR &ref() { return *reinterpret_cast<volatile SCB_HFSR*>(0xE000ED2C); }
 };
 
 // Debug Fault Status Register
@@ -1027,7 +1027,7 @@ union SCB_DFSR {
 
   SCB_DFSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_DFSR &Instance() { return *reinterpret_cast<volatile SCB_DFSR*>(0xE000ED30); }
+  static inline volatile SCB_DFSR &ref() { return *reinterpret_cast<volatile SCB_DFSR*>(0xE000ED30); }
 };
 
 // MemManage Fault Address Register
@@ -1044,7 +1044,7 @@ union SCB_MMFAR {
 
   SCB_MMFAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_MMFAR &Instance() { return *reinterpret_cast<volatile SCB_MMFAR*>(0xE000ED34); }
+  static inline volatile SCB_MMFAR &ref() { return *reinterpret_cast<volatile SCB_MMFAR*>(0xE000ED34); }
 };
 
 // BusFault Address Register
@@ -1061,7 +1061,7 @@ union SCB_BFAR {
 
   SCB_BFAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_BFAR &Instance() { return *reinterpret_cast<volatile SCB_BFAR*>(0xE000ED38); }
+  static inline volatile SCB_BFAR &ref() { return *reinterpret_cast<volatile SCB_BFAR*>(0xE000ED38); }
 };
 
 // Processor Feature Register 0
@@ -1105,7 +1105,7 @@ union SCB_ID_PFR0 {
 
   SCB_ID_PFR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_PFR0 &Instance() { return *reinterpret_cast<volatile SCB_ID_PFR0*>(0xE000ED40); }
+  static inline volatile SCB_ID_PFR0 &ref() { return *reinterpret_cast<volatile SCB_ID_PFR0*>(0xE000ED40); }
 };
 
 // Processor Feature Register 1
@@ -1132,7 +1132,7 @@ union SCB_ID_PFR1 {
 
   SCB_ID_PFR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_PFR1 &Instance() { return *reinterpret_cast<volatile SCB_ID_PFR1*>(0xE000ED44); }
+  static inline volatile SCB_ID_PFR1 &ref() { return *reinterpret_cast<volatile SCB_ID_PFR1*>(0xE000ED44); }
 };
 
 // Debug Feature Register
@@ -1159,7 +1159,7 @@ union SCB_ID_DFR0 {
 
   SCB_ID_DFR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_DFR0 &Instance() { return *reinterpret_cast<volatile SCB_ID_DFR0*>(0xE000ED48); }
+  static inline volatile SCB_ID_DFR0 &ref() { return *reinterpret_cast<volatile SCB_ID_DFR0*>(0xE000ED48); }
 };
 
 // Auxiliary Feature Register
@@ -1183,7 +1183,7 @@ union SCB_ID_AFR0 {
 
   SCB_ID_AFR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_AFR0 &Instance() { return *reinterpret_cast<volatile SCB_ID_AFR0*>(0xE000ED4C); }
+  static inline volatile SCB_ID_AFR0 &ref() { return *reinterpret_cast<volatile SCB_ID_AFR0*>(0xE000ED4C); }
 };
 
 // Memory Model Feature Register 0
@@ -1286,7 +1286,7 @@ union SCB_ID_MMFR0 {
 
   SCB_ID_MMFR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_MMFR0 &Instance() { return *reinterpret_cast<volatile SCB_ID_MMFR0*>(0xE000ED50); }
+  static inline volatile SCB_ID_MMFR0 &ref() { return *reinterpret_cast<volatile SCB_ID_MMFR0*>(0xE000ED50); }
 };
 
 // Memory Model Feature Register 1
@@ -1303,7 +1303,7 @@ union SCB_ID_MMFR1 {
 
   SCB_ID_MMFR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_MMFR1 &Instance() { return *reinterpret_cast<volatile SCB_ID_MMFR1*>(0xE000ED54); }
+  static inline volatile SCB_ID_MMFR1 &ref() { return *reinterpret_cast<volatile SCB_ID_MMFR1*>(0xE000ED54); }
 };
 
 // Memory Model Feature Register 2
@@ -1330,7 +1330,7 @@ union SCB_ID_MMFR2 {
 
   SCB_ID_MMFR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_MMFR2 &Instance() { return *reinterpret_cast<volatile SCB_ID_MMFR2*>(0xE000ED58); }
+  static inline volatile SCB_ID_MMFR2 &ref() { return *reinterpret_cast<volatile SCB_ID_MMFR2*>(0xE000ED58); }
 };
 
 // Memory Model Feature Register 3
@@ -1347,7 +1347,7 @@ union SCB_ID_MMFR3 {
 
   SCB_ID_MMFR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_MMFR3 &Instance() { return *reinterpret_cast<volatile SCB_ID_MMFR3*>(0xE000ED5C); }
+  static inline volatile SCB_ID_MMFR3 &ref() { return *reinterpret_cast<volatile SCB_ID_MMFR3*>(0xE000ED5C); }
 };
 
 // Instruction Set Attributes Register 0
@@ -1430,7 +1430,7 @@ union SCB_ID_ISAR0 {
 
   SCB_ID_ISAR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_ISAR0 &Instance() { return *reinterpret_cast<volatile SCB_ID_ISAR0*>(0xE000ED60); }
+  static inline volatile SCB_ID_ISAR0 &ref() { return *reinterpret_cast<volatile SCB_ID_ISAR0*>(0xE000ED60); }
 };
 
 // Instruction Set Attributes Register 1
@@ -1493,7 +1493,7 @@ union SCB_ID_ISAR1 {
 
   SCB_ID_ISAR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_ISAR1 &Instance() { return *reinterpret_cast<volatile SCB_ID_ISAR1*>(0xE000ED64); }
+  static inline volatile SCB_ID_ISAR1 &ref() { return *reinterpret_cast<volatile SCB_ID_ISAR1*>(0xE000ED64); }
 };
 
 // Instruction Set Attributes Register 2
@@ -1595,7 +1595,7 @@ union SCB_ID_ISAR2 {
 
   SCB_ID_ISAR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_ISAR2 &Instance() { return *reinterpret_cast<volatile SCB_ID_ISAR2*>(0xE000ED68); }
+  static inline volatile SCB_ID_ISAR2 &ref() { return *reinterpret_cast<volatile SCB_ID_ISAR2*>(0xE000ED68); }
 };
 
 // Instruction Set Attributes Register 3
@@ -1675,7 +1675,7 @@ union SCB_ID_ISAR3 {
 
   SCB_ID_ISAR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_ISAR3 &Instance() { return *reinterpret_cast<volatile SCB_ID_ISAR3*>(0xE000ED6C); }
+  static inline volatile SCB_ID_ISAR3 &ref() { return *reinterpret_cast<volatile SCB_ID_ISAR3*>(0xE000ED6C); }
 };
 
 // Instruction Set Attributes Register 4
@@ -1750,7 +1750,7 @@ union SCB_ID_ISAR4 {
 
   SCB_ID_ISAR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ID_ISAR4 &Instance() { return *reinterpret_cast<volatile SCB_ID_ISAR4*>(0xE000ED70); }
+  static inline volatile SCB_ID_ISAR4 &ref() { return *reinterpret_cast<volatile SCB_ID_ISAR4*>(0xE000ED70); }
 };
 
 // Cache Level ID register
@@ -1944,7 +1944,7 @@ union SCB_CLIDR {
 
   SCB_CLIDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_CLIDR &Instance() { return *reinterpret_cast<volatile SCB_CLIDR*>(0xE000ED78); }
+  static inline volatile SCB_CLIDR &ref() { return *reinterpret_cast<volatile SCB_CLIDR*>(0xE000ED78); }
 };
 
 // Cache Type register
@@ -1977,7 +1977,7 @@ union SCB_CTR {
 
   SCB_CTR() = delete;
   inline void Reset() volatile { this->value = 0x8000C000; }
-  static inline volatile SCB_CTR &Instance() { return *reinterpret_cast<volatile SCB_CTR*>(0xE000ED7C); }
+  static inline volatile SCB_CTR &ref() { return *reinterpret_cast<volatile SCB_CTR*>(0xE000ED7C); }
 };
 
 // Cache Size ID Register
@@ -2058,7 +2058,7 @@ union SCB_CCSIDR {
 
   SCB_CCSIDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_CCSIDR &Instance() { return *reinterpret_cast<volatile SCB_CCSIDR*>(0xE000ED80); }
+  static inline volatile SCB_CCSIDR &ref() { return *reinterpret_cast<volatile SCB_CCSIDR*>(0xE000ED80); }
 };
 
 // Cache Size Selection Register
@@ -2104,7 +2104,7 @@ union SCB_CSSELR {
 
   SCB_CSSELR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_CSSELR &Instance() { return *reinterpret_cast<volatile SCB_CSSELR*>(0xE000ED84); }
+  static inline volatile SCB_CSSELR &ref() { return *reinterpret_cast<volatile SCB_CSSELR*>(0xE000ED84); }
 };
 
 // Coprocessor Access Control Register
@@ -2241,7 +2241,7 @@ union SCB_CPACR {
 
   SCB_CPACR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_CPACR &Instance() { return *reinterpret_cast<volatile SCB_CPACR*>(0xE000ED88); }
+  static inline volatile SCB_CPACR &ref() { return *reinterpret_cast<volatile SCB_CPACR*>(0xE000ED88); }
 };
 
 // Instruction cache invalidate all to Point of Unification (PoU)
@@ -2259,7 +2259,7 @@ union SCB_STIR {
 
   SCB_STIR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_STIR &Instance() { return *reinterpret_cast<volatile SCB_STIR*>(0xE000EF00); }
+  static inline volatile SCB_STIR &ref() { return *reinterpret_cast<volatile SCB_STIR*>(0xE000EF00); }
 };
 
 // Instruction cache invalidate all to Point of Unification (PoU)
@@ -2276,7 +2276,7 @@ union SCB_ICIALLU {
 
   SCB_ICIALLU() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ICIALLU &Instance() { return *reinterpret_cast<volatile SCB_ICIALLU*>(0xE000EF50); }
+  static inline volatile SCB_ICIALLU &ref() { return *reinterpret_cast<volatile SCB_ICIALLU*>(0xE000EF50); }
 };
 
 // Instruction cache invalidate by address to PoU
@@ -2293,7 +2293,7 @@ union SCB_ICIMVAU {
 
   SCB_ICIMVAU() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_ICIMVAU &Instance() { return *reinterpret_cast<volatile SCB_ICIMVAU*>(0xE000EF58); }
+  static inline volatile SCB_ICIMVAU &ref() { return *reinterpret_cast<volatile SCB_ICIMVAU*>(0xE000EF58); }
 };
 
 // Data cache invalidate by address to Point of Coherency (PoC)
@@ -2310,7 +2310,7 @@ union SCB_DCIMVAC {
 
   SCB_DCIMVAC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_DCIMVAC &Instance() { return *reinterpret_cast<volatile SCB_DCIMVAC*>(0xE000EF5C); }
+  static inline volatile SCB_DCIMVAC &ref() { return *reinterpret_cast<volatile SCB_DCIMVAC*>(0xE000EF5C); }
 };
 
 // Data cache invalidate by set/way
@@ -2327,7 +2327,7 @@ union SCB_DCISW {
 
   SCB_DCISW() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_DCISW &Instance() { return *reinterpret_cast<volatile SCB_DCISW*>(0xE000EF60); }
+  static inline volatile SCB_DCISW &ref() { return *reinterpret_cast<volatile SCB_DCISW*>(0xE000EF60); }
 };
 
 // Data cache by address to PoU
@@ -2344,7 +2344,7 @@ union SCB_DCCMVAU {
 
   SCB_DCCMVAU() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_DCCMVAU &Instance() { return *reinterpret_cast<volatile SCB_DCCMVAU*>(0xE000EF64); }
+  static inline volatile SCB_DCCMVAU &ref() { return *reinterpret_cast<volatile SCB_DCCMVAU*>(0xE000EF64); }
 };
 
 // Data cache clean by address to PoC
@@ -2361,7 +2361,7 @@ union SCB_DCCMVAC {
 
   SCB_DCCMVAC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_DCCMVAC &Instance() { return *reinterpret_cast<volatile SCB_DCCMVAC*>(0xE000EF68); }
+  static inline volatile SCB_DCCMVAC &ref() { return *reinterpret_cast<volatile SCB_DCCMVAC*>(0xE000EF68); }
 };
 
 // Data cache clean by set/way
@@ -2378,7 +2378,7 @@ union SCB_DCCSW {
 
   SCB_DCCSW() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_DCCSW &Instance() { return *reinterpret_cast<volatile SCB_DCCSW*>(0xE000EF6C); }
+  static inline volatile SCB_DCCSW &ref() { return *reinterpret_cast<volatile SCB_DCCSW*>(0xE000EF6C); }
 };
 
 // Data cache clean and invalidate by address to PoC
@@ -2395,7 +2395,7 @@ union SCB_DCCIMVAC {
 
   SCB_DCCIMVAC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_DCCIMVAC &Instance() { return *reinterpret_cast<volatile SCB_DCCIMVAC*>(0xE000EF70); }
+  static inline volatile SCB_DCCIMVAC &ref() { return *reinterpret_cast<volatile SCB_DCCIMVAC*>(0xE000EF70); }
 };
 
 // Data cache clean and invalidate by set/way
@@ -2412,7 +2412,7 @@ union SCB_DCCISW {
 
   SCB_DCCISW() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_DCCISW &Instance() { return *reinterpret_cast<volatile SCB_DCCISW*>(0xE000EF74); }
+  static inline volatile SCB_DCCISW &ref() { return *reinterpret_cast<volatile SCB_DCCISW*>(0xE000EF74); }
 };
 
 // Instruction Tightly-Coupled Memory Control Register
@@ -2492,7 +2492,7 @@ union SCB_CM7_ITCMCR {
 
   SCB_CM7_ITCMCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_CM7_ITCMCR &Instance() { return *reinterpret_cast<volatile SCB_CM7_ITCMCR*>(0xE000EF90); }
+  static inline volatile SCB_CM7_ITCMCR &ref() { return *reinterpret_cast<volatile SCB_CM7_ITCMCR*>(0xE000EF90); }
 };
 
 // Data Tightly-Coupled Memory Control Register
@@ -2572,7 +2572,7 @@ union SCB_CM7_DTCMCR {
 
   SCB_CM7_DTCMCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_CM7_DTCMCR &Instance() { return *reinterpret_cast<volatile SCB_CM7_DTCMCR*>(0xE000EF94); }
+  static inline volatile SCB_CM7_DTCMCR &ref() { return *reinterpret_cast<volatile SCB_CM7_DTCMCR*>(0xE000EF94); }
 };
 
 // AHBP Control Register
@@ -2614,7 +2614,7 @@ union SCB_CM7_AHBPCR {
 
   SCB_CM7_AHBPCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_CM7_AHBPCR &Instance() { return *reinterpret_cast<volatile SCB_CM7_AHBPCR*>(0xE000EF98); }
+  static inline volatile SCB_CM7_AHBPCR &ref() { return *reinterpret_cast<volatile SCB_CM7_AHBPCR*>(0xE000EF98); }
 };
 
 // L1 Cache Control Register
@@ -2660,7 +2660,7 @@ union SCB_CM7_CACR {
 
   SCB_CM7_CACR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_CM7_CACR &Instance() { return *reinterpret_cast<volatile SCB_CM7_CACR*>(0xE000EF9C); }
+  static inline volatile SCB_CM7_CACR &ref() { return *reinterpret_cast<volatile SCB_CM7_CACR*>(0xE000EF9C); }
 };
 
 // AHB Slave Control Register
@@ -2694,7 +2694,7 @@ union SCB_CM7_AHBSCR {
 
   SCB_CM7_AHBSCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_CM7_AHBSCR &Instance() { return *reinterpret_cast<volatile SCB_CM7_AHBSCR*>(0xE000EFA0); }
+  static inline volatile SCB_CM7_AHBSCR &ref() { return *reinterpret_cast<volatile SCB_CM7_AHBSCR*>(0xE000EFA0); }
 };
 
 // Auxiliary Bus Fault Status Register
@@ -2735,7 +2735,7 @@ union SCB_CM7_ABFSR {
 
   SCB_CM7_ABFSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCB_CM7_ABFSR &Instance() { return *reinterpret_cast<volatile SCB_CM7_ABFSR*>(0xE000EFA8); }
+  static inline volatile SCB_CM7_ABFSR &ref() { return *reinterpret_cast<volatile SCB_CM7_ABFSR*>(0xE000EFA8); }
 };
 
 

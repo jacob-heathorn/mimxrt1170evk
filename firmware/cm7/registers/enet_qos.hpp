@@ -288,7 +288,7 @@ union MAC_CONFIGURATION {
 
   MAC_CONFIGURATION() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_CONFIGURATION &Instance() { return *reinterpret_cast<volatile MAC_CONFIGURATION*>(0x4043C000); }
+  static inline volatile MAC_CONFIGURATION &ref() { return *reinterpret_cast<volatile MAC_CONFIGURATION*>(0x4043C000); }
 };
 
 // MAC Extended Configuration Register
@@ -360,7 +360,7 @@ union MAC_EXT_CONFIGURATION {
 
   MAC_EXT_CONFIGURATION() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_EXT_CONFIGURATION &Instance() { return *reinterpret_cast<volatile MAC_EXT_CONFIGURATION*>(0x4043C004); }
+  static inline volatile MAC_EXT_CONFIGURATION &ref() { return *reinterpret_cast<volatile MAC_EXT_CONFIGURATION*>(0x4043C004); }
 };
 
 // MAC Packet Filter
@@ -522,7 +522,7 @@ union MAC_PACKET_FILTER {
 
   MAC_PACKET_FILTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PACKET_FILTER &Instance() { return *reinterpret_cast<volatile MAC_PACKET_FILTER*>(0x4043C008); }
+  static inline volatile MAC_PACKET_FILTER &ref() { return *reinterpret_cast<volatile MAC_PACKET_FILTER*>(0x4043C008); }
 };
 
 // Watchdog Timeout
@@ -585,7 +585,7 @@ union MAC_WATCHDOG_TIMEOUT {
 
   MAC_WATCHDOG_TIMEOUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_WATCHDOG_TIMEOUT &Instance() { return *reinterpret_cast<volatile MAC_WATCHDOG_TIMEOUT*>(0x4043C00C); }
+  static inline volatile MAC_WATCHDOG_TIMEOUT &ref() { return *reinterpret_cast<volatile MAC_WATCHDOG_TIMEOUT*>(0x4043C00C); }
 };
 
 // MAC Hash Table Register 0
@@ -602,7 +602,7 @@ union MAC_HASH_TABLE_REG0 {
 
   MAC_HASH_TABLE_REG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_HASH_TABLE_REG0 &Instance() { return *reinterpret_cast<volatile MAC_HASH_TABLE_REG0*>(0x4043C010); }
+  static inline volatile MAC_HASH_TABLE_REG0 &ref() { return *reinterpret_cast<volatile MAC_HASH_TABLE_REG0*>(0x4043C010); }
 };
 
 // MAC Hash Table Register 1
@@ -619,7 +619,7 @@ union MAC_HASH_TABLE_REG1 {
 
   MAC_HASH_TABLE_REG1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_HASH_TABLE_REG1 &Instance() { return *reinterpret_cast<volatile MAC_HASH_TABLE_REG1*>(0x4043C014); }
+  static inline volatile MAC_HASH_TABLE_REG1 &ref() { return *reinterpret_cast<volatile MAC_HASH_TABLE_REG1*>(0x4043C014); }
 };
 
 // MAC VLAN Tag Control
@@ -758,7 +758,7 @@ union MAC_VLAN_TAG_CTRL {
 
   MAC_VLAN_TAG_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_VLAN_TAG_CTRL &Instance() { return *reinterpret_cast<volatile MAC_VLAN_TAG_CTRL*>(0x4043C050); }
+  static inline volatile MAC_VLAN_TAG_CTRL &ref() { return *reinterpret_cast<volatile MAC_VLAN_TAG_CTRL*>(0x4043C050); }
 };
 
 // MAC VLAN Tag Data
@@ -839,7 +839,7 @@ union MAC_VLAN_TAG_DATA {
 
   MAC_VLAN_TAG_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_VLAN_TAG_DATA &Instance() { return *reinterpret_cast<volatile MAC_VLAN_TAG_DATA*>(0x4043C054); }
+  static inline volatile MAC_VLAN_TAG_DATA &ref() { return *reinterpret_cast<volatile MAC_VLAN_TAG_DATA*>(0x4043C054); }
 };
 
 // MAC VLAN Hash Table
@@ -857,7 +857,7 @@ union MAC_VLAN_HASH_TABLE {
 
   MAC_VLAN_HASH_TABLE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_VLAN_HASH_TABLE &Instance() { return *reinterpret_cast<volatile MAC_VLAN_HASH_TABLE*>(0x4043C058); }
+  static inline volatile MAC_VLAN_HASH_TABLE &ref() { return *reinterpret_cast<volatile MAC_VLAN_HASH_TABLE*>(0x4043C058); }
 };
 
 // VLAN Tag Inclusion or Replacement
@@ -952,7 +952,7 @@ union MAC_VLAN_INCL {
 
   MAC_VLAN_INCL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_VLAN_INCL &Instance() { return *reinterpret_cast<volatile MAC_VLAN_INCL*>(0x4043C060); }
+  static inline volatile MAC_VLAN_INCL &ref() { return *reinterpret_cast<volatile MAC_VLAN_INCL*>(0x4043C060); }
 };
 
 // MAC Inner VLAN Tag Inclusion or Replacement
@@ -1014,7 +1014,7 @@ union MAC_INNER_VLAN_INCL {
 
   MAC_INNER_VLAN_INCL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_INNER_VLAN_INCL &Instance() { return *reinterpret_cast<volatile MAC_INNER_VLAN_INCL*>(0x4043C064); }
+  static inline volatile MAC_INNER_VLAN_INCL &ref() { return *reinterpret_cast<volatile MAC_INNER_VLAN_INCL*>(0x4043C064); }
 };
 
 // MAC Q0 Tx Flow Control
@@ -1081,7 +1081,7 @@ union MAC_Q0_TX_FLOW_CTRL {
 
   MAC_Q0_TX_FLOW_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_Q0_TX_FLOW_CTRL &Instance() { return *reinterpret_cast<volatile MAC_Q0_TX_FLOW_CTRL*>(0x4043C070); }
+  static inline volatile MAC_Q0_TX_FLOW_CTRL &ref() { return *reinterpret_cast<volatile MAC_Q0_TX_FLOW_CTRL*>(0x4043C070); }
 };
 
 // MAC Q1 Tx Flow Control
@@ -1148,7 +1148,7 @@ union MAC_Q1_TX_FLOW_CTRL {
 
   MAC_Q1_TX_FLOW_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_Q1_TX_FLOW_CTRL &Instance() { return *reinterpret_cast<volatile MAC_Q1_TX_FLOW_CTRL*>(0x4043C074); }
+  static inline volatile MAC_Q1_TX_FLOW_CTRL &ref() { return *reinterpret_cast<volatile MAC_Q1_TX_FLOW_CTRL*>(0x4043C074); }
 };
 
 // MAC Q2 Tx Flow Control
@@ -1215,7 +1215,7 @@ union MAC_Q2_TX_FLOW_CTRL {
 
   MAC_Q2_TX_FLOW_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_Q2_TX_FLOW_CTRL &Instance() { return *reinterpret_cast<volatile MAC_Q2_TX_FLOW_CTRL*>(0x4043C078); }
+  static inline volatile MAC_Q2_TX_FLOW_CTRL &ref() { return *reinterpret_cast<volatile MAC_Q2_TX_FLOW_CTRL*>(0x4043C078); }
 };
 
 // MAC Q3 Tx Flow Control
@@ -1282,7 +1282,7 @@ union MAC_Q3_TX_FLOW_CTRL {
 
   MAC_Q3_TX_FLOW_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_Q3_TX_FLOW_CTRL &Instance() { return *reinterpret_cast<volatile MAC_Q3_TX_FLOW_CTRL*>(0x4043C07C); }
+  static inline volatile MAC_Q3_TX_FLOW_CTRL &ref() { return *reinterpret_cast<volatile MAC_Q3_TX_FLOW_CTRL*>(0x4043C07C); }
 };
 
 // MAC Q4 Tx Flow Control
@@ -1349,7 +1349,7 @@ union MAC_Q4_TX_FLOW_CTRL {
 
   MAC_Q4_TX_FLOW_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_Q4_TX_FLOW_CTRL &Instance() { return *reinterpret_cast<volatile MAC_Q4_TX_FLOW_CTRL*>(0x4043C080); }
+  static inline volatile MAC_Q4_TX_FLOW_CTRL &ref() { return *reinterpret_cast<volatile MAC_Q4_TX_FLOW_CTRL*>(0x4043C080); }
 };
 
 // MAC Rx Flow Control
@@ -1396,7 +1396,7 @@ union MAC_RX_FLOW_CTRL {
 
   MAC_RX_FLOW_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_FLOW_CTRL &Instance() { return *reinterpret_cast<volatile MAC_RX_FLOW_CTRL*>(0x4043C090); }
+  static inline volatile MAC_RX_FLOW_CTRL &ref() { return *reinterpret_cast<volatile MAC_RX_FLOW_CTRL*>(0x4043C090); }
 };
 
 // Receive Queue Control 4
@@ -1450,7 +1450,7 @@ union MAC_RXQ_CTRL4 {
 
   MAC_RXQ_CTRL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXQ_CTRL4 &Instance() { return *reinterpret_cast<volatile MAC_RXQ_CTRL4*>(0x4043C094); }
+  static inline volatile MAC_RXQ_CTRL4 &ref() { return *reinterpret_cast<volatile MAC_RXQ_CTRL4*>(0x4043C094); }
 };
 
 // Transmit Queue Priority Mapping 0
@@ -1473,7 +1473,7 @@ union MAC_TXQ_PRTY_MAP0 {
 
   MAC_TXQ_PRTY_MAP0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TXQ_PRTY_MAP0 &Instance() { return *reinterpret_cast<volatile MAC_TXQ_PRTY_MAP0*>(0x4043C098); }
+  static inline volatile MAC_TXQ_PRTY_MAP0 &ref() { return *reinterpret_cast<volatile MAC_TXQ_PRTY_MAP0*>(0x4043C098); }
 };
 
 // Transmit Queue Priority Mapping 1
@@ -1491,7 +1491,7 @@ union MAC_TXQ_PRTY_MAP1 {
 
   MAC_TXQ_PRTY_MAP1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TXQ_PRTY_MAP1 &Instance() { return *reinterpret_cast<volatile MAC_TXQ_PRTY_MAP1*>(0x4043C09C); }
+  static inline volatile MAC_TXQ_PRTY_MAP1 &ref() { return *reinterpret_cast<volatile MAC_TXQ_PRTY_MAP1*>(0x4043C09C); }
 };
 
 // Receive Queue Control 0
@@ -1567,7 +1567,7 @@ union MAC_RXQ_CTRL0 {
 
   MAC_RXQ_CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXQ_CTRL0 &Instance() { return *reinterpret_cast<volatile MAC_RXQ_CTRL0*>(0x4043C0A0); }
+  static inline volatile MAC_RXQ_CTRL0 &ref() { return *reinterpret_cast<volatile MAC_RXQ_CTRL0*>(0x4043C0A0); }
 };
 
 // Receive Queue Control 1
@@ -1692,7 +1692,7 @@ union MAC_RXQ_CTRL1 {
 
   MAC_RXQ_CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXQ_CTRL1 &Instance() { return *reinterpret_cast<volatile MAC_RXQ_CTRL1*>(0x4043C0A4); }
+  static inline volatile MAC_RXQ_CTRL1 &ref() { return *reinterpret_cast<volatile MAC_RXQ_CTRL1*>(0x4043C0A4); }
 };
 
 // Receive Queue Control 2
@@ -1715,7 +1715,7 @@ union MAC_RXQ_CTRL2 {
 
   MAC_RXQ_CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXQ_CTRL2 &Instance() { return *reinterpret_cast<volatile MAC_RXQ_CTRL2*>(0x4043C0A8); }
+  static inline volatile MAC_RXQ_CTRL2 &ref() { return *reinterpret_cast<volatile MAC_RXQ_CTRL2*>(0x4043C0A8); }
 };
 
 // Receive Queue Control 3
@@ -1733,7 +1733,7 @@ union MAC_RXQ_CTRL3 {
 
   MAC_RXQ_CTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXQ_CTRL3 &Instance() { return *reinterpret_cast<volatile MAC_RXQ_CTRL3*>(0x4043C0AC); }
+  static inline volatile MAC_RXQ_CTRL3 &ref() { return *reinterpret_cast<volatile MAC_RXQ_CTRL3*>(0x4043C0AC); }
 };
 
 // Interrupt Status
@@ -1902,7 +1902,7 @@ union MAC_INTERRUPT_STATUS {
 
   MAC_INTERRUPT_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_INTERRUPT_STATUS &Instance() { return *reinterpret_cast<volatile MAC_INTERRUPT_STATUS*>(0x4043C0B0); }
+  static inline volatile MAC_INTERRUPT_STATUS &ref() { return *reinterpret_cast<volatile MAC_INTERRUPT_STATUS*>(0x4043C0B0); }
 };
 
 // Interrupt Enable
@@ -2011,7 +2011,7 @@ union MAC_INTERRUPT_ENABLE {
 
   MAC_INTERRUPT_ENABLE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_INTERRUPT_ENABLE &Instance() { return *reinterpret_cast<volatile MAC_INTERRUPT_ENABLE*>(0x4043C0B4); }
+  static inline volatile MAC_INTERRUPT_ENABLE &ref() { return *reinterpret_cast<volatile MAC_INTERRUPT_ENABLE*>(0x4043C0B4); }
 };
 
 // Receive Transmit Status
@@ -2098,7 +2098,7 @@ union MAC_RX_TX_STATUS {
 
   MAC_RX_TX_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_TX_STATUS &Instance() { return *reinterpret_cast<volatile MAC_RX_TX_STATUS*>(0x4043C0B8); }
+  static inline volatile MAC_RX_TX_STATUS &ref() { return *reinterpret_cast<volatile MAC_RX_TX_STATUS*>(0x4043C0B8); }
 };
 
 // PMT Control and Status
@@ -2199,7 +2199,7 @@ union MAC_PMT_CONTROL_STATUS {
 
   MAC_PMT_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PMT_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile MAC_PMT_CONTROL_STATUS*>(0x4043C0C0); }
+  static inline volatile MAC_PMT_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile MAC_PMT_CONTROL_STATUS*>(0x4043C0C0); }
 };
 
 // Remote Wakeup Filter
@@ -2216,7 +2216,7 @@ union MAC_RWK_PACKET_FILTER {
 
   MAC_RWK_PACKET_FILTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RWK_PACKET_FILTER &Instance() { return *reinterpret_cast<volatile MAC_RWK_PACKET_FILTER*>(0x4043C0C4); }
+  static inline volatile MAC_RWK_PACKET_FILTER &ref() { return *reinterpret_cast<volatile MAC_RWK_PACKET_FILTER*>(0x4043C0C4); }
 };
 
 // LPI Control and Status
@@ -2354,7 +2354,7 @@ union MAC_LPI_CONTROL_STATUS {
 
   MAC_LPI_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LPI_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile MAC_LPI_CONTROL_STATUS*>(0x4043C0D0); }
+  static inline volatile MAC_LPI_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile MAC_LPI_CONTROL_STATUS*>(0x4043C0D0); }
 };
 
 // LPI Timers Control
@@ -2374,7 +2374,7 @@ union MAC_LPI_TIMERS_CONTROL {
 
   MAC_LPI_TIMERS_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x03E80000; }
-  static inline volatile MAC_LPI_TIMERS_CONTROL &Instance() { return *reinterpret_cast<volatile MAC_LPI_TIMERS_CONTROL*>(0x4043C0D4); }
+  static inline volatile MAC_LPI_TIMERS_CONTROL &ref() { return *reinterpret_cast<volatile MAC_LPI_TIMERS_CONTROL*>(0x4043C0D4); }
 };
 
 // Tx LPI Entry Timer Control
@@ -2393,7 +2393,7 @@ union MAC_LPI_ENTRY_TIMER {
 
   MAC_LPI_ENTRY_TIMER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LPI_ENTRY_TIMER &Instance() { return *reinterpret_cast<volatile MAC_LPI_ENTRY_TIMER*>(0x4043C0D8); }
+  static inline volatile MAC_LPI_ENTRY_TIMER &ref() { return *reinterpret_cast<volatile MAC_LPI_ENTRY_TIMER*>(0x4043C0D8); }
 };
 
 // One-microsecond Reference Timer
@@ -2411,7 +2411,7 @@ union MAC_ONEUS_TIC_COUNTER {
 
   MAC_ONEUS_TIC_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000063; }
-  static inline volatile MAC_ONEUS_TIC_COUNTER &Instance() { return *reinterpret_cast<volatile MAC_ONEUS_TIC_COUNTER*>(0x4043C0DC); }
+  static inline volatile MAC_ONEUS_TIC_COUNTER &ref() { return *reinterpret_cast<volatile MAC_ONEUS_TIC_COUNTER*>(0x4043C0DC); }
 };
 
 // PHY Interface Control and Status
@@ -2480,7 +2480,7 @@ union MAC_PHYIF_CONTROL_STATUS {
 
   MAC_PHYIF_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PHYIF_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile MAC_PHYIF_CONTROL_STATUS*>(0x4043C0F8); }
+  static inline volatile MAC_PHYIF_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile MAC_PHYIF_CONTROL_STATUS*>(0x4043C0F8); }
 };
 
 // MAC Version
@@ -2500,7 +2500,7 @@ union MAC_VERSION {
 
   MAC_VERSION() = delete;
   inline void Reset() volatile { this->value = 0x00001051; }
-  static inline volatile MAC_VERSION &Instance() { return *reinterpret_cast<volatile MAC_VERSION*>(0x4043C110); }
+  static inline volatile MAC_VERSION &ref() { return *reinterpret_cast<volatile MAC_VERSION*>(0x4043C110); }
 };
 
 // MAC Debug
@@ -2553,7 +2553,7 @@ union MAC_DEBUG {
 
   MAC_DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_DEBUG &Instance() { return *reinterpret_cast<volatile MAC_DEBUG*>(0x4043C114); }
+  static inline volatile MAC_DEBUG &ref() { return *reinterpret_cast<volatile MAC_DEBUG*>(0x4043C114); }
 };
 
 // Optional Features or Functions 0
@@ -2778,7 +2778,7 @@ union MAC_HW_FEATURE0 {
 
   MAC_HW_FEATURE0() = delete;
   inline void Reset() volatile { this->value = 0x0EFD71F7; }
-  static inline volatile MAC_HW_FEATURE0 &Instance() { return *reinterpret_cast<volatile MAC_HW_FEATURE0*>(0x4043C11C); }
+  static inline volatile MAC_HW_FEATURE0 &ref() { return *reinterpret_cast<volatile MAC_HW_FEATURE0*>(0x4043C11C); }
 };
 
 // Optional Features or Functions 1
@@ -3014,7 +3014,7 @@ union MAC_HW_FEATURE1 {
 
   MAC_HW_FEATURE1() = delete;
   inline void Reset() volatile { this->value = 0x419939A6; }
-  static inline volatile MAC_HW_FEATURE1 &Instance() { return *reinterpret_cast<volatile MAC_HW_FEATURE1*>(0x4043C120); }
+  static inline volatile MAC_HW_FEATURE1 &ref() { return *reinterpret_cast<volatile MAC_HW_FEATURE1*>(0x4043C120); }
 };
 
 // Optional Features or Functions 2
@@ -3131,7 +3131,7 @@ union MAC_HW_FEATURE2 {
 
   MAC_HW_FEATURE2() = delete;
   inline void Reset() volatile { this->value = 0x44104104; }
-  static inline volatile MAC_HW_FEATURE2 &Instance() { return *reinterpret_cast<volatile MAC_HW_FEATURE2*>(0x4043C124); }
+  static inline volatile MAC_HW_FEATURE2 &ref() { return *reinterpret_cast<volatile MAC_HW_FEATURE2*>(0x4043C124); }
 };
 
 // Optional Features or Functions 3
@@ -3309,7 +3309,7 @@ union MAC_HW_FEATURE3 {
 
   MAC_HW_FEATURE3() = delete;
   inline void Reset() volatile { this->value = 0x0C395632; }
-  static inline volatile MAC_HW_FEATURE3 &Instance() { return *reinterpret_cast<volatile MAC_HW_FEATURE3*>(0x4043C128); }
+  static inline volatile MAC_HW_FEATURE3 &ref() { return *reinterpret_cast<volatile MAC_HW_FEATURE3*>(0x4043C128); }
 };
 
 // MDIO Address
@@ -3405,7 +3405,7 @@ union MAC_MDIO_ADDRESS {
 
   MAC_MDIO_ADDRESS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MDIO_ADDRESS &Instance() { return *reinterpret_cast<volatile MAC_MDIO_ADDRESS*>(0x4043C200); }
+  static inline volatile MAC_MDIO_ADDRESS &ref() { return *reinterpret_cast<volatile MAC_MDIO_ADDRESS*>(0x4043C200); }
 };
 
 // MAC MDIO Data
@@ -3424,7 +3424,7 @@ union MAC_MDIO_DATA {
 
   MAC_MDIO_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MDIO_DATA &Instance() { return *reinterpret_cast<volatile MAC_MDIO_DATA*>(0x4043C204); }
+  static inline volatile MAC_MDIO_DATA &ref() { return *reinterpret_cast<volatile MAC_MDIO_DATA*>(0x4043C204); }
 };
 
 // CSR Software Control
@@ -3450,7 +3450,7 @@ union MAC_CSR_SW_CTRL {
 
   MAC_CSR_SW_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_CSR_SW_CTRL &Instance() { return *reinterpret_cast<volatile MAC_CSR_SW_CTRL*>(0x4043C230); }
+  static inline volatile MAC_CSR_SW_CTRL &ref() { return *reinterpret_cast<volatile MAC_CSR_SW_CTRL*>(0x4043C230); }
 };
 
 // Frame Preemption Control
@@ -3539,7 +3539,7 @@ union MAC_FPE_CTRL_STS {
 
   MAC_FPE_CTRL_STS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_FPE_CTRL_STS &Instance() { return *reinterpret_cast<volatile MAC_FPE_CTRL_STS*>(0x4043C234); }
+  static inline volatile MAC_FPE_CTRL_STS &ref() { return *reinterpret_cast<volatile MAC_FPE_CTRL_STS*>(0x4043C234); }
 };
 
 // 32-bit Binary Rollover Equivalent Time
@@ -3556,7 +3556,7 @@ union MAC_PRESN_TIME_NS {
 
   MAC_PRESN_TIME_NS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PRESN_TIME_NS &Instance() { return *reinterpret_cast<volatile MAC_PRESN_TIME_NS*>(0x4043C240); }
+  static inline volatile MAC_PRESN_TIME_NS &ref() { return *reinterpret_cast<volatile MAC_PRESN_TIME_NS*>(0x4043C240); }
 };
 
 // MAC 1722 Presentation Time
@@ -3573,7 +3573,7 @@ union MAC_PRESN_TIME_UPDT {
 
   MAC_PRESN_TIME_UPDT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PRESN_TIME_UPDT &Instance() { return *reinterpret_cast<volatile MAC_PRESN_TIME_UPDT*>(0x4043C244); }
+  static inline volatile MAC_PRESN_TIME_UPDT &ref() { return *reinterpret_cast<volatile MAC_PRESN_TIME_UPDT*>(0x4043C244); }
 };
 
 // MAC Address0 High
@@ -3603,7 +3603,7 @@ union MAC_ADDRESS0_HIGH {
 
   MAC_ADDRESS0_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x8000FFFF; }
-  static inline volatile MAC_ADDRESS0_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS0_HIGH*>(0x4043C300); }
+  static inline volatile MAC_ADDRESS0_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS0_HIGH*>(0x4043C300); }
 };
 
 // MAC Address0 Low
@@ -3620,7 +3620,7 @@ union MAC_ADDRESS0_LOW {
 
   MAC_ADDRESS0_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS0_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS0_LOW*>(0x4043C304); }
+  static inline volatile MAC_ADDRESS0_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS0_LOW*>(0x4043C304); }
 };
 
 // MAC Address1 High
@@ -3662,7 +3662,7 @@ union MAC_ADDRESS1_HIGH {
 
   MAC_ADDRESS1_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS1_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS1_HIGH*>(0x4043C308); }
+  static inline volatile MAC_ADDRESS1_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS1_HIGH*>(0x4043C308); }
 };
 
 // MAC Address1 Low
@@ -3679,7 +3679,7 @@ union MAC_ADDRESS1_LOW {
 
   MAC_ADDRESS1_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS1_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS1_LOW*>(0x4043C30C); }
+  static inline volatile MAC_ADDRESS1_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS1_LOW*>(0x4043C30C); }
 };
 
 // MAC Address2 High
@@ -3721,7 +3721,7 @@ union MAC_ADDRESS2_HIGH {
 
   MAC_ADDRESS2_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS2_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS2_HIGH*>(0x4043C310); }
+  static inline volatile MAC_ADDRESS2_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS2_HIGH*>(0x4043C310); }
 };
 
 // MAC Address2 Low
@@ -3738,7 +3738,7 @@ union MAC_ADDRESS2_LOW {
 
   MAC_ADDRESS2_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS2_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS2_LOW*>(0x4043C314); }
+  static inline volatile MAC_ADDRESS2_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS2_LOW*>(0x4043C314); }
 };
 
 // MAC Address3 High
@@ -3780,7 +3780,7 @@ union MAC_ADDRESS3_HIGH {
 
   MAC_ADDRESS3_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS3_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS3_HIGH*>(0x4043C318); }
+  static inline volatile MAC_ADDRESS3_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS3_HIGH*>(0x4043C318); }
 };
 
 // MAC Address3 Low
@@ -3797,7 +3797,7 @@ union MAC_ADDRESS3_LOW {
 
   MAC_ADDRESS3_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS3_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS3_LOW*>(0x4043C31C); }
+  static inline volatile MAC_ADDRESS3_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS3_LOW*>(0x4043C31C); }
 };
 
 // MAC Address4 High
@@ -3839,7 +3839,7 @@ union MAC_ADDRESS4_HIGH {
 
   MAC_ADDRESS4_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS4_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS4_HIGH*>(0x4043C320); }
+  static inline volatile MAC_ADDRESS4_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS4_HIGH*>(0x4043C320); }
 };
 
 // MAC Address4 Low
@@ -3856,7 +3856,7 @@ union MAC_ADDRESS4_LOW {
 
   MAC_ADDRESS4_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS4_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS4_LOW*>(0x4043C324); }
+  static inline volatile MAC_ADDRESS4_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS4_LOW*>(0x4043C324); }
 };
 
 // MAC Address5 High
@@ -3898,7 +3898,7 @@ union MAC_ADDRESS5_HIGH {
 
   MAC_ADDRESS5_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS5_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS5_HIGH*>(0x4043C328); }
+  static inline volatile MAC_ADDRESS5_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS5_HIGH*>(0x4043C328); }
 };
 
 // MAC Address5 Low
@@ -3915,7 +3915,7 @@ union MAC_ADDRESS5_LOW {
 
   MAC_ADDRESS5_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS5_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS5_LOW*>(0x4043C32C); }
+  static inline volatile MAC_ADDRESS5_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS5_LOW*>(0x4043C32C); }
 };
 
 // MAC Address6 High
@@ -3957,7 +3957,7 @@ union MAC_ADDRESS6_HIGH {
 
   MAC_ADDRESS6_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS6_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS6_HIGH*>(0x4043C330); }
+  static inline volatile MAC_ADDRESS6_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS6_HIGH*>(0x4043C330); }
 };
 
 // MAC Address6 Low
@@ -3974,7 +3974,7 @@ union MAC_ADDRESS6_LOW {
 
   MAC_ADDRESS6_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS6_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS6_LOW*>(0x4043C334); }
+  static inline volatile MAC_ADDRESS6_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS6_LOW*>(0x4043C334); }
 };
 
 // MAC Address7 High
@@ -4016,7 +4016,7 @@ union MAC_ADDRESS7_HIGH {
 
   MAC_ADDRESS7_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS7_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS7_HIGH*>(0x4043C338); }
+  static inline volatile MAC_ADDRESS7_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS7_HIGH*>(0x4043C338); }
 };
 
 // MAC Address7 Low
@@ -4033,7 +4033,7 @@ union MAC_ADDRESS7_LOW {
 
   MAC_ADDRESS7_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS7_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS7_LOW*>(0x4043C33C); }
+  static inline volatile MAC_ADDRESS7_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS7_LOW*>(0x4043C33C); }
 };
 
 // MAC Address8 High
@@ -4075,7 +4075,7 @@ union MAC_ADDRESS8_HIGH {
 
   MAC_ADDRESS8_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS8_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS8_HIGH*>(0x4043C340); }
+  static inline volatile MAC_ADDRESS8_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS8_HIGH*>(0x4043C340); }
 };
 
 // MAC Address8 Low
@@ -4092,7 +4092,7 @@ union MAC_ADDRESS8_LOW {
 
   MAC_ADDRESS8_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS8_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS8_LOW*>(0x4043C344); }
+  static inline volatile MAC_ADDRESS8_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS8_LOW*>(0x4043C344); }
 };
 
 // MAC Address9 High
@@ -4134,7 +4134,7 @@ union MAC_ADDRESS9_HIGH {
 
   MAC_ADDRESS9_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS9_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS9_HIGH*>(0x4043C348); }
+  static inline volatile MAC_ADDRESS9_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS9_HIGH*>(0x4043C348); }
 };
 
 // MAC Address9 Low
@@ -4151,7 +4151,7 @@ union MAC_ADDRESS9_LOW {
 
   MAC_ADDRESS9_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS9_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS9_LOW*>(0x4043C34C); }
+  static inline volatile MAC_ADDRESS9_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS9_LOW*>(0x4043C34C); }
 };
 
 // MAC Address10 High
@@ -4193,7 +4193,7 @@ union MAC_ADDRESS10_HIGH {
 
   MAC_ADDRESS10_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS10_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS10_HIGH*>(0x4043C350); }
+  static inline volatile MAC_ADDRESS10_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS10_HIGH*>(0x4043C350); }
 };
 
 // MAC Address10 Low
@@ -4210,7 +4210,7 @@ union MAC_ADDRESS10_LOW {
 
   MAC_ADDRESS10_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS10_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS10_LOW*>(0x4043C354); }
+  static inline volatile MAC_ADDRESS10_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS10_LOW*>(0x4043C354); }
 };
 
 // MAC Address11 High
@@ -4252,7 +4252,7 @@ union MAC_ADDRESS11_HIGH {
 
   MAC_ADDRESS11_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS11_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS11_HIGH*>(0x4043C358); }
+  static inline volatile MAC_ADDRESS11_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS11_HIGH*>(0x4043C358); }
 };
 
 // MAC Address11 Low
@@ -4269,7 +4269,7 @@ union MAC_ADDRESS11_LOW {
 
   MAC_ADDRESS11_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS11_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS11_LOW*>(0x4043C35C); }
+  static inline volatile MAC_ADDRESS11_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS11_LOW*>(0x4043C35C); }
 };
 
 // MAC Address12 High
@@ -4311,7 +4311,7 @@ union MAC_ADDRESS12_HIGH {
 
   MAC_ADDRESS12_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS12_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS12_HIGH*>(0x4043C360); }
+  static inline volatile MAC_ADDRESS12_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS12_HIGH*>(0x4043C360); }
 };
 
 // MAC Address12 Low
@@ -4328,7 +4328,7 @@ union MAC_ADDRESS12_LOW {
 
   MAC_ADDRESS12_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS12_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS12_LOW*>(0x4043C364); }
+  static inline volatile MAC_ADDRESS12_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS12_LOW*>(0x4043C364); }
 };
 
 // MAC Address13 High
@@ -4370,7 +4370,7 @@ union MAC_ADDRESS13_HIGH {
 
   MAC_ADDRESS13_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS13_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS13_HIGH*>(0x4043C368); }
+  static inline volatile MAC_ADDRESS13_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS13_HIGH*>(0x4043C368); }
 };
 
 // MAC Address13 Low
@@ -4387,7 +4387,7 @@ union MAC_ADDRESS13_LOW {
 
   MAC_ADDRESS13_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS13_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS13_LOW*>(0x4043C36C); }
+  static inline volatile MAC_ADDRESS13_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS13_LOW*>(0x4043C36C); }
 };
 
 // MAC Address14 High
@@ -4429,7 +4429,7 @@ union MAC_ADDRESS14_HIGH {
 
   MAC_ADDRESS14_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS14_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS14_HIGH*>(0x4043C370); }
+  static inline volatile MAC_ADDRESS14_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS14_HIGH*>(0x4043C370); }
 };
 
 // MAC Address14 Low
@@ -4446,7 +4446,7 @@ union MAC_ADDRESS14_LOW {
 
   MAC_ADDRESS14_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS14_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS14_LOW*>(0x4043C374); }
+  static inline volatile MAC_ADDRESS14_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS14_LOW*>(0x4043C374); }
 };
 
 // MAC Address15 High
@@ -4488,7 +4488,7 @@ union MAC_ADDRESS15_HIGH {
 
   MAC_ADDRESS15_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS15_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS15_HIGH*>(0x4043C378); }
+  static inline volatile MAC_ADDRESS15_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS15_HIGH*>(0x4043C378); }
 };
 
 // MAC Address15 Low
@@ -4505,7 +4505,7 @@ union MAC_ADDRESS15_LOW {
 
   MAC_ADDRESS15_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS15_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS15_LOW*>(0x4043C37C); }
+  static inline volatile MAC_ADDRESS15_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS15_LOW*>(0x4043C37C); }
 };
 
 // MAC Address16 High
@@ -4547,7 +4547,7 @@ union MAC_ADDRESS16_HIGH {
 
   MAC_ADDRESS16_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS16_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS16_HIGH*>(0x4043C380); }
+  static inline volatile MAC_ADDRESS16_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS16_HIGH*>(0x4043C380); }
 };
 
 // MAC Address16 Low
@@ -4564,7 +4564,7 @@ union MAC_ADDRESS16_LOW {
 
   MAC_ADDRESS16_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS16_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS16_LOW*>(0x4043C384); }
+  static inline volatile MAC_ADDRESS16_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS16_LOW*>(0x4043C384); }
 };
 
 // MAC Address17 High
@@ -4606,7 +4606,7 @@ union MAC_ADDRESS17_HIGH {
 
   MAC_ADDRESS17_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS17_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS17_HIGH*>(0x4043C388); }
+  static inline volatile MAC_ADDRESS17_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS17_HIGH*>(0x4043C388); }
 };
 
 // MAC Address17 Low
@@ -4623,7 +4623,7 @@ union MAC_ADDRESS17_LOW {
 
   MAC_ADDRESS17_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS17_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS17_LOW*>(0x4043C38C); }
+  static inline volatile MAC_ADDRESS17_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS17_LOW*>(0x4043C38C); }
 };
 
 // MAC Address18 High
@@ -4665,7 +4665,7 @@ union MAC_ADDRESS18_HIGH {
 
   MAC_ADDRESS18_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS18_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS18_HIGH*>(0x4043C390); }
+  static inline volatile MAC_ADDRESS18_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS18_HIGH*>(0x4043C390); }
 };
 
 // MAC Address18 Low
@@ -4682,7 +4682,7 @@ union MAC_ADDRESS18_LOW {
 
   MAC_ADDRESS18_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS18_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS18_LOW*>(0x4043C394); }
+  static inline volatile MAC_ADDRESS18_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS18_LOW*>(0x4043C394); }
 };
 
 // MAC Address19 High
@@ -4724,7 +4724,7 @@ union MAC_ADDRESS19_HIGH {
 
   MAC_ADDRESS19_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS19_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS19_HIGH*>(0x4043C398); }
+  static inline volatile MAC_ADDRESS19_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS19_HIGH*>(0x4043C398); }
 };
 
 // MAC Address19 Low
@@ -4741,7 +4741,7 @@ union MAC_ADDRESS19_LOW {
 
   MAC_ADDRESS19_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS19_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS19_LOW*>(0x4043C39C); }
+  static inline volatile MAC_ADDRESS19_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS19_LOW*>(0x4043C39C); }
 };
 
 // MAC Address20 High
@@ -4783,7 +4783,7 @@ union MAC_ADDRESS20_HIGH {
 
   MAC_ADDRESS20_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS20_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS20_HIGH*>(0x4043C3A0); }
+  static inline volatile MAC_ADDRESS20_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS20_HIGH*>(0x4043C3A0); }
 };
 
 // MAC Address20 Low
@@ -4800,7 +4800,7 @@ union MAC_ADDRESS20_LOW {
 
   MAC_ADDRESS20_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS20_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS20_LOW*>(0x4043C3A4); }
+  static inline volatile MAC_ADDRESS20_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS20_LOW*>(0x4043C3A4); }
 };
 
 // MAC Address21 High
@@ -4842,7 +4842,7 @@ union MAC_ADDRESS21_HIGH {
 
   MAC_ADDRESS21_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS21_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS21_HIGH*>(0x4043C3A8); }
+  static inline volatile MAC_ADDRESS21_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS21_HIGH*>(0x4043C3A8); }
 };
 
 // MAC Address21 Low
@@ -4859,7 +4859,7 @@ union MAC_ADDRESS21_LOW {
 
   MAC_ADDRESS21_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS21_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS21_LOW*>(0x4043C3AC); }
+  static inline volatile MAC_ADDRESS21_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS21_LOW*>(0x4043C3AC); }
 };
 
 // MAC Address22 High
@@ -4901,7 +4901,7 @@ union MAC_ADDRESS22_HIGH {
 
   MAC_ADDRESS22_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS22_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS22_HIGH*>(0x4043C3B0); }
+  static inline volatile MAC_ADDRESS22_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS22_HIGH*>(0x4043C3B0); }
 };
 
 // MAC Address22 Low
@@ -4918,7 +4918,7 @@ union MAC_ADDRESS22_LOW {
 
   MAC_ADDRESS22_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS22_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS22_LOW*>(0x4043C3B4); }
+  static inline volatile MAC_ADDRESS22_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS22_LOW*>(0x4043C3B4); }
 };
 
 // MAC Address23 High
@@ -4960,7 +4960,7 @@ union MAC_ADDRESS23_HIGH {
 
   MAC_ADDRESS23_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS23_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS23_HIGH*>(0x4043C3B8); }
+  static inline volatile MAC_ADDRESS23_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS23_HIGH*>(0x4043C3B8); }
 };
 
 // MAC Address23 Low
@@ -4977,7 +4977,7 @@ union MAC_ADDRESS23_LOW {
 
   MAC_ADDRESS23_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS23_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS23_LOW*>(0x4043C3BC); }
+  static inline volatile MAC_ADDRESS23_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS23_LOW*>(0x4043C3BC); }
 };
 
 // MAC Address24 High
@@ -5019,7 +5019,7 @@ union MAC_ADDRESS24_HIGH {
 
   MAC_ADDRESS24_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS24_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS24_HIGH*>(0x4043C3C0); }
+  static inline volatile MAC_ADDRESS24_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS24_HIGH*>(0x4043C3C0); }
 };
 
 // MAC Address24 Low
@@ -5036,7 +5036,7 @@ union MAC_ADDRESS24_LOW {
 
   MAC_ADDRESS24_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS24_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS24_LOW*>(0x4043C3C4); }
+  static inline volatile MAC_ADDRESS24_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS24_LOW*>(0x4043C3C4); }
 };
 
 // MAC Address25 High
@@ -5078,7 +5078,7 @@ union MAC_ADDRESS25_HIGH {
 
   MAC_ADDRESS25_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS25_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS25_HIGH*>(0x4043C3C8); }
+  static inline volatile MAC_ADDRESS25_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS25_HIGH*>(0x4043C3C8); }
 };
 
 // MAC Address25 Low
@@ -5095,7 +5095,7 @@ union MAC_ADDRESS25_LOW {
 
   MAC_ADDRESS25_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS25_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS25_LOW*>(0x4043C3CC); }
+  static inline volatile MAC_ADDRESS25_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS25_LOW*>(0x4043C3CC); }
 };
 
 // MAC Address26 High
@@ -5137,7 +5137,7 @@ union MAC_ADDRESS26_HIGH {
 
   MAC_ADDRESS26_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS26_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS26_HIGH*>(0x4043C3D0); }
+  static inline volatile MAC_ADDRESS26_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS26_HIGH*>(0x4043C3D0); }
 };
 
 // MAC Address26 Low
@@ -5154,7 +5154,7 @@ union MAC_ADDRESS26_LOW {
 
   MAC_ADDRESS26_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS26_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS26_LOW*>(0x4043C3D4); }
+  static inline volatile MAC_ADDRESS26_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS26_LOW*>(0x4043C3D4); }
 };
 
 // MAC Address27 High
@@ -5196,7 +5196,7 @@ union MAC_ADDRESS27_HIGH {
 
   MAC_ADDRESS27_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS27_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS27_HIGH*>(0x4043C3D8); }
+  static inline volatile MAC_ADDRESS27_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS27_HIGH*>(0x4043C3D8); }
 };
 
 // MAC Address27 Low
@@ -5213,7 +5213,7 @@ union MAC_ADDRESS27_LOW {
 
   MAC_ADDRESS27_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS27_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS27_LOW*>(0x4043C3DC); }
+  static inline volatile MAC_ADDRESS27_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS27_LOW*>(0x4043C3DC); }
 };
 
 // MAC Address28 High
@@ -5255,7 +5255,7 @@ union MAC_ADDRESS28_HIGH {
 
   MAC_ADDRESS28_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS28_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS28_HIGH*>(0x4043C3E0); }
+  static inline volatile MAC_ADDRESS28_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS28_HIGH*>(0x4043C3E0); }
 };
 
 // MAC Address28 Low
@@ -5272,7 +5272,7 @@ union MAC_ADDRESS28_LOW {
 
   MAC_ADDRESS28_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS28_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS28_LOW*>(0x4043C3E4); }
+  static inline volatile MAC_ADDRESS28_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS28_LOW*>(0x4043C3E4); }
 };
 
 // MAC Address29 High
@@ -5314,7 +5314,7 @@ union MAC_ADDRESS29_HIGH {
 
   MAC_ADDRESS29_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS29_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS29_HIGH*>(0x4043C3E8); }
+  static inline volatile MAC_ADDRESS29_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS29_HIGH*>(0x4043C3E8); }
 };
 
 // MAC Address29 Low
@@ -5331,7 +5331,7 @@ union MAC_ADDRESS29_LOW {
 
   MAC_ADDRESS29_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS29_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS29_LOW*>(0x4043C3EC); }
+  static inline volatile MAC_ADDRESS29_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS29_LOW*>(0x4043C3EC); }
 };
 
 // MAC Address30 High
@@ -5373,7 +5373,7 @@ union MAC_ADDRESS30_HIGH {
 
   MAC_ADDRESS30_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS30_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS30_HIGH*>(0x4043C3F0); }
+  static inline volatile MAC_ADDRESS30_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS30_HIGH*>(0x4043C3F0); }
 };
 
 // MAC Address30 Low
@@ -5390,7 +5390,7 @@ union MAC_ADDRESS30_LOW {
 
   MAC_ADDRESS30_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS30_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS30_LOW*>(0x4043C3F4); }
+  static inline volatile MAC_ADDRESS30_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS30_LOW*>(0x4043C3F4); }
 };
 
 // MAC Address31 High
@@ -5432,7 +5432,7 @@ union MAC_ADDRESS31_HIGH {
 
   MAC_ADDRESS31_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS31_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS31_HIGH*>(0x4043C3F8); }
+  static inline volatile MAC_ADDRESS31_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS31_HIGH*>(0x4043C3F8); }
 };
 
 // MAC Address31 Low
@@ -5449,7 +5449,7 @@ union MAC_ADDRESS31_LOW {
 
   MAC_ADDRESS31_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS31_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS31_LOW*>(0x4043C3FC); }
+  static inline volatile MAC_ADDRESS31_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS31_LOW*>(0x4043C3FC); }
 };
 
 // MAC Address32 High
@@ -5479,7 +5479,7 @@ union MAC_ADDRESS32_HIGH {
 
   MAC_ADDRESS32_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS32_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS32_HIGH*>(0x4043C400); }
+  static inline volatile MAC_ADDRESS32_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS32_HIGH*>(0x4043C400); }
 };
 
 // MAC Address32 Low
@@ -5496,7 +5496,7 @@ union MAC_ADDRESS32_LOW {
 
   MAC_ADDRESS32_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS32_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS32_LOW*>(0x4043C404); }
+  static inline volatile MAC_ADDRESS32_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS32_LOW*>(0x4043C404); }
 };
 
 // MAC Address33 High
@@ -5526,7 +5526,7 @@ union MAC_ADDRESS33_HIGH {
 
   MAC_ADDRESS33_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS33_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS33_HIGH*>(0x4043C408); }
+  static inline volatile MAC_ADDRESS33_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS33_HIGH*>(0x4043C408); }
 };
 
 // MAC Address33 Low
@@ -5543,7 +5543,7 @@ union MAC_ADDRESS33_LOW {
 
   MAC_ADDRESS33_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS33_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS33_LOW*>(0x4043C40C); }
+  static inline volatile MAC_ADDRESS33_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS33_LOW*>(0x4043C40C); }
 };
 
 // MAC Address34 High
@@ -5573,7 +5573,7 @@ union MAC_ADDRESS34_HIGH {
 
   MAC_ADDRESS34_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS34_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS34_HIGH*>(0x4043C410); }
+  static inline volatile MAC_ADDRESS34_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS34_HIGH*>(0x4043C410); }
 };
 
 // MAC Address34 Low
@@ -5590,7 +5590,7 @@ union MAC_ADDRESS34_LOW {
 
   MAC_ADDRESS34_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS34_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS34_LOW*>(0x4043C414); }
+  static inline volatile MAC_ADDRESS34_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS34_LOW*>(0x4043C414); }
 };
 
 // MAC Address35 High
@@ -5620,7 +5620,7 @@ union MAC_ADDRESS35_HIGH {
 
   MAC_ADDRESS35_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS35_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS35_HIGH*>(0x4043C418); }
+  static inline volatile MAC_ADDRESS35_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS35_HIGH*>(0x4043C418); }
 };
 
 // MAC Address35 Low
@@ -5637,7 +5637,7 @@ union MAC_ADDRESS35_LOW {
 
   MAC_ADDRESS35_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS35_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS35_LOW*>(0x4043C41C); }
+  static inline volatile MAC_ADDRESS35_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS35_LOW*>(0x4043C41C); }
 };
 
 // MAC Address36 High
@@ -5667,7 +5667,7 @@ union MAC_ADDRESS36_HIGH {
 
   MAC_ADDRESS36_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS36_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS36_HIGH*>(0x4043C420); }
+  static inline volatile MAC_ADDRESS36_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS36_HIGH*>(0x4043C420); }
 };
 
 // MAC Address36 Low
@@ -5684,7 +5684,7 @@ union MAC_ADDRESS36_LOW {
 
   MAC_ADDRESS36_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS36_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS36_LOW*>(0x4043C424); }
+  static inline volatile MAC_ADDRESS36_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS36_LOW*>(0x4043C424); }
 };
 
 // MAC Address37 High
@@ -5714,7 +5714,7 @@ union MAC_ADDRESS37_HIGH {
 
   MAC_ADDRESS37_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS37_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS37_HIGH*>(0x4043C428); }
+  static inline volatile MAC_ADDRESS37_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS37_HIGH*>(0x4043C428); }
 };
 
 // MAC Address37 Low
@@ -5731,7 +5731,7 @@ union MAC_ADDRESS37_LOW {
 
   MAC_ADDRESS37_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS37_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS37_LOW*>(0x4043C42C); }
+  static inline volatile MAC_ADDRESS37_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS37_LOW*>(0x4043C42C); }
 };
 
 // MAC Address38 High
@@ -5761,7 +5761,7 @@ union MAC_ADDRESS38_HIGH {
 
   MAC_ADDRESS38_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS38_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS38_HIGH*>(0x4043C430); }
+  static inline volatile MAC_ADDRESS38_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS38_HIGH*>(0x4043C430); }
 };
 
 // MAC Address38 Low
@@ -5778,7 +5778,7 @@ union MAC_ADDRESS38_LOW {
 
   MAC_ADDRESS38_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS38_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS38_LOW*>(0x4043C434); }
+  static inline volatile MAC_ADDRESS38_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS38_LOW*>(0x4043C434); }
 };
 
 // MAC Address39 High
@@ -5808,7 +5808,7 @@ union MAC_ADDRESS39_HIGH {
 
   MAC_ADDRESS39_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS39_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS39_HIGH*>(0x4043C438); }
+  static inline volatile MAC_ADDRESS39_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS39_HIGH*>(0x4043C438); }
 };
 
 // MAC Address39 Low
@@ -5825,7 +5825,7 @@ union MAC_ADDRESS39_LOW {
 
   MAC_ADDRESS39_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS39_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS39_LOW*>(0x4043C43C); }
+  static inline volatile MAC_ADDRESS39_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS39_LOW*>(0x4043C43C); }
 };
 
 // MAC Address40 High
@@ -5855,7 +5855,7 @@ union MAC_ADDRESS40_HIGH {
 
   MAC_ADDRESS40_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS40_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS40_HIGH*>(0x4043C440); }
+  static inline volatile MAC_ADDRESS40_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS40_HIGH*>(0x4043C440); }
 };
 
 // MAC Address40 Low
@@ -5872,7 +5872,7 @@ union MAC_ADDRESS40_LOW {
 
   MAC_ADDRESS40_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS40_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS40_LOW*>(0x4043C444); }
+  static inline volatile MAC_ADDRESS40_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS40_LOW*>(0x4043C444); }
 };
 
 // MAC Address41 High
@@ -5902,7 +5902,7 @@ union MAC_ADDRESS41_HIGH {
 
   MAC_ADDRESS41_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS41_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS41_HIGH*>(0x4043C448); }
+  static inline volatile MAC_ADDRESS41_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS41_HIGH*>(0x4043C448); }
 };
 
 // MAC Address41 Low
@@ -5919,7 +5919,7 @@ union MAC_ADDRESS41_LOW {
 
   MAC_ADDRESS41_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS41_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS41_LOW*>(0x4043C44C); }
+  static inline volatile MAC_ADDRESS41_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS41_LOW*>(0x4043C44C); }
 };
 
 // MAC Address42 High
@@ -5949,7 +5949,7 @@ union MAC_ADDRESS42_HIGH {
 
   MAC_ADDRESS42_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS42_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS42_HIGH*>(0x4043C450); }
+  static inline volatile MAC_ADDRESS42_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS42_HIGH*>(0x4043C450); }
 };
 
 // MAC Address42 Low
@@ -5966,7 +5966,7 @@ union MAC_ADDRESS42_LOW {
 
   MAC_ADDRESS42_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS42_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS42_LOW*>(0x4043C454); }
+  static inline volatile MAC_ADDRESS42_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS42_LOW*>(0x4043C454); }
 };
 
 // MAC Address43 High
@@ -5996,7 +5996,7 @@ union MAC_ADDRESS43_HIGH {
 
   MAC_ADDRESS43_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS43_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS43_HIGH*>(0x4043C458); }
+  static inline volatile MAC_ADDRESS43_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS43_HIGH*>(0x4043C458); }
 };
 
 // MAC Address43 Low
@@ -6013,7 +6013,7 @@ union MAC_ADDRESS43_LOW {
 
   MAC_ADDRESS43_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS43_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS43_LOW*>(0x4043C45C); }
+  static inline volatile MAC_ADDRESS43_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS43_LOW*>(0x4043C45C); }
 };
 
 // MAC Address44 High
@@ -6043,7 +6043,7 @@ union MAC_ADDRESS44_HIGH {
 
   MAC_ADDRESS44_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS44_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS44_HIGH*>(0x4043C460); }
+  static inline volatile MAC_ADDRESS44_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS44_HIGH*>(0x4043C460); }
 };
 
 // MAC Address44 Low
@@ -6060,7 +6060,7 @@ union MAC_ADDRESS44_LOW {
 
   MAC_ADDRESS44_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS44_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS44_LOW*>(0x4043C464); }
+  static inline volatile MAC_ADDRESS44_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS44_LOW*>(0x4043C464); }
 };
 
 // MAC Address45 High
@@ -6090,7 +6090,7 @@ union MAC_ADDRESS45_HIGH {
 
   MAC_ADDRESS45_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS45_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS45_HIGH*>(0x4043C468); }
+  static inline volatile MAC_ADDRESS45_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS45_HIGH*>(0x4043C468); }
 };
 
 // MAC Address45 Low
@@ -6107,7 +6107,7 @@ union MAC_ADDRESS45_LOW {
 
   MAC_ADDRESS45_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS45_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS45_LOW*>(0x4043C46C); }
+  static inline volatile MAC_ADDRESS45_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS45_LOW*>(0x4043C46C); }
 };
 
 // MAC Address46 High
@@ -6137,7 +6137,7 @@ union MAC_ADDRESS46_HIGH {
 
   MAC_ADDRESS46_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS46_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS46_HIGH*>(0x4043C470); }
+  static inline volatile MAC_ADDRESS46_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS46_HIGH*>(0x4043C470); }
 };
 
 // MAC Address46 Low
@@ -6154,7 +6154,7 @@ union MAC_ADDRESS46_LOW {
 
   MAC_ADDRESS46_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS46_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS46_LOW*>(0x4043C474); }
+  static inline volatile MAC_ADDRESS46_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS46_LOW*>(0x4043C474); }
 };
 
 // MAC Address47 High
@@ -6184,7 +6184,7 @@ union MAC_ADDRESS47_HIGH {
 
   MAC_ADDRESS47_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS47_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS47_HIGH*>(0x4043C478); }
+  static inline volatile MAC_ADDRESS47_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS47_HIGH*>(0x4043C478); }
 };
 
 // MAC Address47 Low
@@ -6201,7 +6201,7 @@ union MAC_ADDRESS47_LOW {
 
   MAC_ADDRESS47_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS47_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS47_LOW*>(0x4043C47C); }
+  static inline volatile MAC_ADDRESS47_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS47_LOW*>(0x4043C47C); }
 };
 
 // MAC Address48 High
@@ -6231,7 +6231,7 @@ union MAC_ADDRESS48_HIGH {
 
   MAC_ADDRESS48_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS48_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS48_HIGH*>(0x4043C480); }
+  static inline volatile MAC_ADDRESS48_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS48_HIGH*>(0x4043C480); }
 };
 
 // MAC Address48 Low
@@ -6248,7 +6248,7 @@ union MAC_ADDRESS48_LOW {
 
   MAC_ADDRESS48_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS48_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS48_LOW*>(0x4043C484); }
+  static inline volatile MAC_ADDRESS48_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS48_LOW*>(0x4043C484); }
 };
 
 // MAC Address49 High
@@ -6278,7 +6278,7 @@ union MAC_ADDRESS49_HIGH {
 
   MAC_ADDRESS49_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS49_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS49_HIGH*>(0x4043C488); }
+  static inline volatile MAC_ADDRESS49_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS49_HIGH*>(0x4043C488); }
 };
 
 // MAC Address49 Low
@@ -6295,7 +6295,7 @@ union MAC_ADDRESS49_LOW {
 
   MAC_ADDRESS49_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS49_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS49_LOW*>(0x4043C48C); }
+  static inline volatile MAC_ADDRESS49_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS49_LOW*>(0x4043C48C); }
 };
 
 // MAC Address50 High
@@ -6325,7 +6325,7 @@ union MAC_ADDRESS50_HIGH {
 
   MAC_ADDRESS50_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS50_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS50_HIGH*>(0x4043C490); }
+  static inline volatile MAC_ADDRESS50_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS50_HIGH*>(0x4043C490); }
 };
 
 // MAC Address50 Low
@@ -6342,7 +6342,7 @@ union MAC_ADDRESS50_LOW {
 
   MAC_ADDRESS50_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS50_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS50_LOW*>(0x4043C494); }
+  static inline volatile MAC_ADDRESS50_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS50_LOW*>(0x4043C494); }
 };
 
 // MAC Address51 High
@@ -6372,7 +6372,7 @@ union MAC_ADDRESS51_HIGH {
 
   MAC_ADDRESS51_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS51_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS51_HIGH*>(0x4043C498); }
+  static inline volatile MAC_ADDRESS51_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS51_HIGH*>(0x4043C498); }
 };
 
 // MAC Address51 Low
@@ -6389,7 +6389,7 @@ union MAC_ADDRESS51_LOW {
 
   MAC_ADDRESS51_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS51_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS51_LOW*>(0x4043C49C); }
+  static inline volatile MAC_ADDRESS51_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS51_LOW*>(0x4043C49C); }
 };
 
 // MAC Address52 High
@@ -6419,7 +6419,7 @@ union MAC_ADDRESS52_HIGH {
 
   MAC_ADDRESS52_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS52_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS52_HIGH*>(0x4043C4A0); }
+  static inline volatile MAC_ADDRESS52_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS52_HIGH*>(0x4043C4A0); }
 };
 
 // MAC Address52 Low
@@ -6436,7 +6436,7 @@ union MAC_ADDRESS52_LOW {
 
   MAC_ADDRESS52_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS52_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS52_LOW*>(0x4043C4A4); }
+  static inline volatile MAC_ADDRESS52_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS52_LOW*>(0x4043C4A4); }
 };
 
 // MAC Address53 High
@@ -6466,7 +6466,7 @@ union MAC_ADDRESS53_HIGH {
 
   MAC_ADDRESS53_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS53_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS53_HIGH*>(0x4043C4A8); }
+  static inline volatile MAC_ADDRESS53_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS53_HIGH*>(0x4043C4A8); }
 };
 
 // MAC Address53 Low
@@ -6483,7 +6483,7 @@ union MAC_ADDRESS53_LOW {
 
   MAC_ADDRESS53_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS53_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS53_LOW*>(0x4043C4AC); }
+  static inline volatile MAC_ADDRESS53_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS53_LOW*>(0x4043C4AC); }
 };
 
 // MAC Address54 High
@@ -6513,7 +6513,7 @@ union MAC_ADDRESS54_HIGH {
 
   MAC_ADDRESS54_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS54_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS54_HIGH*>(0x4043C4B0); }
+  static inline volatile MAC_ADDRESS54_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS54_HIGH*>(0x4043C4B0); }
 };
 
 // MAC Address54 Low
@@ -6530,7 +6530,7 @@ union MAC_ADDRESS54_LOW {
 
   MAC_ADDRESS54_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS54_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS54_LOW*>(0x4043C4B4); }
+  static inline volatile MAC_ADDRESS54_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS54_LOW*>(0x4043C4B4); }
 };
 
 // MAC Address55 High
@@ -6560,7 +6560,7 @@ union MAC_ADDRESS55_HIGH {
 
   MAC_ADDRESS55_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS55_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS55_HIGH*>(0x4043C4B8); }
+  static inline volatile MAC_ADDRESS55_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS55_HIGH*>(0x4043C4B8); }
 };
 
 // MAC Address55 Low
@@ -6577,7 +6577,7 @@ union MAC_ADDRESS55_LOW {
 
   MAC_ADDRESS55_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS55_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS55_LOW*>(0x4043C4BC); }
+  static inline volatile MAC_ADDRESS55_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS55_LOW*>(0x4043C4BC); }
 };
 
 // MAC Address56 High
@@ -6607,7 +6607,7 @@ union MAC_ADDRESS56_HIGH {
 
   MAC_ADDRESS56_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS56_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS56_HIGH*>(0x4043C4C0); }
+  static inline volatile MAC_ADDRESS56_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS56_HIGH*>(0x4043C4C0); }
 };
 
 // MAC Address56 Low
@@ -6624,7 +6624,7 @@ union MAC_ADDRESS56_LOW {
 
   MAC_ADDRESS56_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS56_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS56_LOW*>(0x4043C4C4); }
+  static inline volatile MAC_ADDRESS56_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS56_LOW*>(0x4043C4C4); }
 };
 
 // MAC Address57 High
@@ -6654,7 +6654,7 @@ union MAC_ADDRESS57_HIGH {
 
   MAC_ADDRESS57_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS57_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS57_HIGH*>(0x4043C4C8); }
+  static inline volatile MAC_ADDRESS57_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS57_HIGH*>(0x4043C4C8); }
 };
 
 // MAC Address57 Low
@@ -6671,7 +6671,7 @@ union MAC_ADDRESS57_LOW {
 
   MAC_ADDRESS57_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS57_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS57_LOW*>(0x4043C4CC); }
+  static inline volatile MAC_ADDRESS57_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS57_LOW*>(0x4043C4CC); }
 };
 
 // MAC Address58 High
@@ -6701,7 +6701,7 @@ union MAC_ADDRESS58_HIGH {
 
   MAC_ADDRESS58_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS58_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS58_HIGH*>(0x4043C4D0); }
+  static inline volatile MAC_ADDRESS58_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS58_HIGH*>(0x4043C4D0); }
 };
 
 // MAC Address58 Low
@@ -6718,7 +6718,7 @@ union MAC_ADDRESS58_LOW {
 
   MAC_ADDRESS58_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS58_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS58_LOW*>(0x4043C4D4); }
+  static inline volatile MAC_ADDRESS58_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS58_LOW*>(0x4043C4D4); }
 };
 
 // MAC Address59 High
@@ -6748,7 +6748,7 @@ union MAC_ADDRESS59_HIGH {
 
   MAC_ADDRESS59_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS59_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS59_HIGH*>(0x4043C4D8); }
+  static inline volatile MAC_ADDRESS59_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS59_HIGH*>(0x4043C4D8); }
 };
 
 // MAC Address59 Low
@@ -6765,7 +6765,7 @@ union MAC_ADDRESS59_LOW {
 
   MAC_ADDRESS59_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS59_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS59_LOW*>(0x4043C4DC); }
+  static inline volatile MAC_ADDRESS59_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS59_LOW*>(0x4043C4DC); }
 };
 
 // MAC Address60 High
@@ -6795,7 +6795,7 @@ union MAC_ADDRESS60_HIGH {
 
   MAC_ADDRESS60_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS60_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS60_HIGH*>(0x4043C4E0); }
+  static inline volatile MAC_ADDRESS60_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS60_HIGH*>(0x4043C4E0); }
 };
 
 // MAC Address60 Low
@@ -6812,7 +6812,7 @@ union MAC_ADDRESS60_LOW {
 
   MAC_ADDRESS60_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS60_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS60_LOW*>(0x4043C4E4); }
+  static inline volatile MAC_ADDRESS60_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS60_LOW*>(0x4043C4E4); }
 };
 
 // MAC Address61 High
@@ -6842,7 +6842,7 @@ union MAC_ADDRESS61_HIGH {
 
   MAC_ADDRESS61_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS61_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS61_HIGH*>(0x4043C4E8); }
+  static inline volatile MAC_ADDRESS61_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS61_HIGH*>(0x4043C4E8); }
 };
 
 // MAC Address61 Low
@@ -6859,7 +6859,7 @@ union MAC_ADDRESS61_LOW {
 
   MAC_ADDRESS61_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS61_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS61_LOW*>(0x4043C4EC); }
+  static inline volatile MAC_ADDRESS61_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS61_LOW*>(0x4043C4EC); }
 };
 
 // MAC Address62 High
@@ -6889,7 +6889,7 @@ union MAC_ADDRESS62_HIGH {
 
   MAC_ADDRESS62_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS62_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS62_HIGH*>(0x4043C4F0); }
+  static inline volatile MAC_ADDRESS62_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS62_HIGH*>(0x4043C4F0); }
 };
 
 // MAC Address62 Low
@@ -6906,7 +6906,7 @@ union MAC_ADDRESS62_LOW {
 
   MAC_ADDRESS62_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS62_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS62_LOW*>(0x4043C4F4); }
+  static inline volatile MAC_ADDRESS62_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS62_LOW*>(0x4043C4F4); }
 };
 
 // MAC Address63 High
@@ -6936,7 +6936,7 @@ union MAC_ADDRESS63_HIGH {
 
   MAC_ADDRESS63_HIGH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile MAC_ADDRESS63_HIGH &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS63_HIGH*>(0x4043C4F8); }
+  static inline volatile MAC_ADDRESS63_HIGH &ref() { return *reinterpret_cast<volatile MAC_ADDRESS63_HIGH*>(0x4043C4F8); }
 };
 
 // MAC Address63 Low
@@ -6953,7 +6953,7 @@ union MAC_ADDRESS63_LOW {
 
   MAC_ADDRESS63_LOW() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile MAC_ADDRESS63_LOW &Instance() { return *reinterpret_cast<volatile MAC_ADDRESS63_LOW*>(0x4043C4FC); }
+  static inline volatile MAC_ADDRESS63_LOW &ref() { return *reinterpret_cast<volatile MAC_ADDRESS63_LOW*>(0x4043C4FC); }
 };
 
 // MMC Control
@@ -7040,7 +7040,7 @@ union MAC_MMC_CONTROL {
 
   MAC_MMC_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_CONTROL &Instance() { return *reinterpret_cast<volatile MAC_MMC_CONTROL*>(0x4043C700); }
+  static inline volatile MAC_MMC_CONTROL &ref() { return *reinterpret_cast<volatile MAC_MMC_CONTROL*>(0x4043C700); }
 };
 
 // MMC Rx Interrupt
@@ -7336,7 +7336,7 @@ union MAC_MMC_RX_INTERRUPT {
 
   MAC_MMC_RX_INTERRUPT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_RX_INTERRUPT &Instance() { return *reinterpret_cast<volatile MAC_MMC_RX_INTERRUPT*>(0x4043C704); }
+  static inline volatile MAC_MMC_RX_INTERRUPT &ref() { return *reinterpret_cast<volatile MAC_MMC_RX_INTERRUPT*>(0x4043C704); }
 };
 
 // MMC Tx Interrupt
@@ -7632,7 +7632,7 @@ union MAC_MMC_TX_INTERRUPT {
 
   MAC_MMC_TX_INTERRUPT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_TX_INTERRUPT &Instance() { return *reinterpret_cast<volatile MAC_MMC_TX_INTERRUPT*>(0x4043C708); }
+  static inline volatile MAC_MMC_TX_INTERRUPT &ref() { return *reinterpret_cast<volatile MAC_MMC_TX_INTERRUPT*>(0x4043C708); }
 };
 
 // MMC Rx Interrupt Mask
@@ -7928,7 +7928,7 @@ union MAC_MMC_RX_INTERRUPT_MASK {
 
   MAC_MMC_RX_INTERRUPT_MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_RX_INTERRUPT_MASK &Instance() { return *reinterpret_cast<volatile MAC_MMC_RX_INTERRUPT_MASK*>(0x4043C70C); }
+  static inline volatile MAC_MMC_RX_INTERRUPT_MASK &ref() { return *reinterpret_cast<volatile MAC_MMC_RX_INTERRUPT_MASK*>(0x4043C70C); }
 };
 
 // MMC Tx Interrupt Mask
@@ -8224,7 +8224,7 @@ union MAC_MMC_TX_INTERRUPT_MASK {
 
   MAC_MMC_TX_INTERRUPT_MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_TX_INTERRUPT_MASK &Instance() { return *reinterpret_cast<volatile MAC_MMC_TX_INTERRUPT_MASK*>(0x4043C710); }
+  static inline volatile MAC_MMC_TX_INTERRUPT_MASK &ref() { return *reinterpret_cast<volatile MAC_MMC_TX_INTERRUPT_MASK*>(0x4043C710); }
 };
 
 // Tx Octet Count Good and Bad
@@ -8241,7 +8241,7 @@ union MAC_TX_OCTET_COUNT_GOOD_BAD {
 
   MAC_TX_OCTET_COUNT_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_OCTET_COUNT_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_TX_OCTET_COUNT_GOOD_BAD*>(0x4043C714); }
+  static inline volatile MAC_TX_OCTET_COUNT_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_TX_OCTET_COUNT_GOOD_BAD*>(0x4043C714); }
 };
 
 // Tx Packet Count Good and Bad
@@ -8258,7 +8258,7 @@ union MAC_TX_PACKET_COUNT_GOOD_BAD {
 
   MAC_TX_PACKET_COUNT_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_PACKET_COUNT_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_TX_PACKET_COUNT_GOOD_BAD*>(0x4043C718); }
+  static inline volatile MAC_TX_PACKET_COUNT_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_TX_PACKET_COUNT_GOOD_BAD*>(0x4043C718); }
 };
 
 // Tx Broadcast Packets Good
@@ -8275,7 +8275,7 @@ union MAC_TX_BROADCAST_PACKETS_GOOD {
 
   MAC_TX_BROADCAST_PACKETS_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_BROADCAST_PACKETS_GOOD &Instance() { return *reinterpret_cast<volatile MAC_TX_BROADCAST_PACKETS_GOOD*>(0x4043C71C); }
+  static inline volatile MAC_TX_BROADCAST_PACKETS_GOOD &ref() { return *reinterpret_cast<volatile MAC_TX_BROADCAST_PACKETS_GOOD*>(0x4043C71C); }
 };
 
 // Tx Multicast Packets Good
@@ -8292,7 +8292,7 @@ union MAC_TX_MULTICAST_PACKETS_GOOD {
 
   MAC_TX_MULTICAST_PACKETS_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_MULTICAST_PACKETS_GOOD &Instance() { return *reinterpret_cast<volatile MAC_TX_MULTICAST_PACKETS_GOOD*>(0x4043C720); }
+  static inline volatile MAC_TX_MULTICAST_PACKETS_GOOD &ref() { return *reinterpret_cast<volatile MAC_TX_MULTICAST_PACKETS_GOOD*>(0x4043C720); }
 };
 
 // Tx Good and Bad 64-Byte Packets
@@ -8309,7 +8309,7 @@ union MAC_TX_64OCTETS_PACKETS_GOOD_BAD {
 
   MAC_TX_64OCTETS_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_64OCTETS_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_TX_64OCTETS_PACKETS_GOOD_BAD*>(0x4043C724); }
+  static inline volatile MAC_TX_64OCTETS_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_TX_64OCTETS_PACKETS_GOOD_BAD*>(0x4043C724); }
 };
 
 // Tx Good and Bad 65 to 127-Byte Packets
@@ -8326,7 +8326,7 @@ union MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD {
 
   MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD*>(0x4043C728); }
+  static inline volatile MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD*>(0x4043C728); }
 };
 
 // Tx Good and Bad 128 to 255-Byte Packets
@@ -8343,7 +8343,7 @@ union MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD {
 
   MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD*>(0x4043C72C); }
+  static inline volatile MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD*>(0x4043C72C); }
 };
 
 // Tx Good and Bad 256 to 511-Byte Packets
@@ -8360,7 +8360,7 @@ union MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD {
 
   MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD*>(0x4043C730); }
+  static inline volatile MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD*>(0x4043C730); }
 };
 
 // Tx Good and Bad 512 to 1023-Byte Packets
@@ -8377,7 +8377,7 @@ union MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD {
 
   MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD*>(0x4043C734); }
+  static inline volatile MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD*>(0x4043C734); }
 };
 
 // Tx Good and Bad 1024 to Max-Byte Packets
@@ -8394,7 +8394,7 @@ union MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD {
 
   MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD*>(0x4043C738); }
+  static inline volatile MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD*>(0x4043C738); }
 };
 
 // Good and Bad Unicast Packets Transmitted
@@ -8411,7 +8411,7 @@ union MAC_TX_UNICAST_PACKETS_GOOD_BAD {
 
   MAC_TX_UNICAST_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_UNICAST_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_TX_UNICAST_PACKETS_GOOD_BAD*>(0x4043C73C); }
+  static inline volatile MAC_TX_UNICAST_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_TX_UNICAST_PACKETS_GOOD_BAD*>(0x4043C73C); }
 };
 
 // Good and Bad Multicast Packets Transmitted
@@ -8428,7 +8428,7 @@ union MAC_TX_MULTICAST_PACKETS_GOOD_BAD {
 
   MAC_TX_MULTICAST_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_MULTICAST_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_TX_MULTICAST_PACKETS_GOOD_BAD*>(0x4043C740); }
+  static inline volatile MAC_TX_MULTICAST_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_TX_MULTICAST_PACKETS_GOOD_BAD*>(0x4043C740); }
 };
 
 // Good and Bad Broadcast Packets Transmitted
@@ -8445,7 +8445,7 @@ union MAC_TX_BROADCAST_PACKETS_GOOD_BAD {
 
   MAC_TX_BROADCAST_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_BROADCAST_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_TX_BROADCAST_PACKETS_GOOD_BAD*>(0x4043C744); }
+  static inline volatile MAC_TX_BROADCAST_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_TX_BROADCAST_PACKETS_GOOD_BAD*>(0x4043C744); }
 };
 
 // Tx Packets Aborted By Underflow Error
@@ -8462,7 +8462,7 @@ union MAC_TX_UNDERFLOW_ERROR_PACKETS {
 
   MAC_TX_UNDERFLOW_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_UNDERFLOW_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_TX_UNDERFLOW_ERROR_PACKETS*>(0x4043C748); }
+  static inline volatile MAC_TX_UNDERFLOW_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_TX_UNDERFLOW_ERROR_PACKETS*>(0x4043C748); }
 };
 
 // Single Collision Good Packets Transmitted
@@ -8479,7 +8479,7 @@ union MAC_TX_SINGLE_COLLISION_GOOD_PACKETS {
 
   MAC_TX_SINGLE_COLLISION_GOOD_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_SINGLE_COLLISION_GOOD_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_TX_SINGLE_COLLISION_GOOD_PACKETS*>(0x4043C74C); }
+  static inline volatile MAC_TX_SINGLE_COLLISION_GOOD_PACKETS &ref() { return *reinterpret_cast<volatile MAC_TX_SINGLE_COLLISION_GOOD_PACKETS*>(0x4043C74C); }
 };
 
 // Multiple Collision Good Packets Transmitted
@@ -8496,7 +8496,7 @@ union MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS {
 
   MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS*>(0x4043C750); }
+  static inline volatile MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS &ref() { return *reinterpret_cast<volatile MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS*>(0x4043C750); }
 };
 
 // Deferred Packets Transmitted
@@ -8513,7 +8513,7 @@ union MAC_TX_DEFERRED_PACKETS {
 
   MAC_TX_DEFERRED_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_DEFERRED_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_TX_DEFERRED_PACKETS*>(0x4043C754); }
+  static inline volatile MAC_TX_DEFERRED_PACKETS &ref() { return *reinterpret_cast<volatile MAC_TX_DEFERRED_PACKETS*>(0x4043C754); }
 };
 
 // Late Collision Packets Transmitted
@@ -8530,7 +8530,7 @@ union MAC_TX_LATE_COLLISION_PACKETS {
 
   MAC_TX_LATE_COLLISION_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_LATE_COLLISION_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_TX_LATE_COLLISION_PACKETS*>(0x4043C758); }
+  static inline volatile MAC_TX_LATE_COLLISION_PACKETS &ref() { return *reinterpret_cast<volatile MAC_TX_LATE_COLLISION_PACKETS*>(0x4043C758); }
 };
 
 // Excessive Collision Packets Transmitted
@@ -8547,7 +8547,7 @@ union MAC_TX_EXCESSIVE_COLLISION_PACKETS {
 
   MAC_TX_EXCESSIVE_COLLISION_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_EXCESSIVE_COLLISION_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_TX_EXCESSIVE_COLLISION_PACKETS*>(0x4043C75C); }
+  static inline volatile MAC_TX_EXCESSIVE_COLLISION_PACKETS &ref() { return *reinterpret_cast<volatile MAC_TX_EXCESSIVE_COLLISION_PACKETS*>(0x4043C75C); }
 };
 
 // Carrier Error Packets Transmitted
@@ -8564,7 +8564,7 @@ union MAC_TX_CARRIER_ERROR_PACKETS {
 
   MAC_TX_CARRIER_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_CARRIER_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_TX_CARRIER_ERROR_PACKETS*>(0x4043C760); }
+  static inline volatile MAC_TX_CARRIER_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_TX_CARRIER_ERROR_PACKETS*>(0x4043C760); }
 };
 
 // Bytes Transmitted in Good Packets
@@ -8581,7 +8581,7 @@ union MAC_TX_OCTET_COUNT_GOOD {
 
   MAC_TX_OCTET_COUNT_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_OCTET_COUNT_GOOD &Instance() { return *reinterpret_cast<volatile MAC_TX_OCTET_COUNT_GOOD*>(0x4043C764); }
+  static inline volatile MAC_TX_OCTET_COUNT_GOOD &ref() { return *reinterpret_cast<volatile MAC_TX_OCTET_COUNT_GOOD*>(0x4043C764); }
 };
 
 // Good Packets Transmitted
@@ -8598,7 +8598,7 @@ union MAC_TX_PACKET_COUNT_GOOD {
 
   MAC_TX_PACKET_COUNT_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_PACKET_COUNT_GOOD &Instance() { return *reinterpret_cast<volatile MAC_TX_PACKET_COUNT_GOOD*>(0x4043C768); }
+  static inline volatile MAC_TX_PACKET_COUNT_GOOD &ref() { return *reinterpret_cast<volatile MAC_TX_PACKET_COUNT_GOOD*>(0x4043C768); }
 };
 
 // Packets Aborted By Excessive Deferral Error
@@ -8615,7 +8615,7 @@ union MAC_TX_EXCESSIVE_DEFERRAL_ERROR {
 
   MAC_TX_EXCESSIVE_DEFERRAL_ERROR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_EXCESSIVE_DEFERRAL_ERROR &Instance() { return *reinterpret_cast<volatile MAC_TX_EXCESSIVE_DEFERRAL_ERROR*>(0x4043C76C); }
+  static inline volatile MAC_TX_EXCESSIVE_DEFERRAL_ERROR &ref() { return *reinterpret_cast<volatile MAC_TX_EXCESSIVE_DEFERRAL_ERROR*>(0x4043C76C); }
 };
 
 // Pause Packets Transmitted
@@ -8632,7 +8632,7 @@ union MAC_TX_PAUSE_PACKETS {
 
   MAC_TX_PAUSE_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_PAUSE_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_TX_PAUSE_PACKETS*>(0x4043C770); }
+  static inline volatile MAC_TX_PAUSE_PACKETS &ref() { return *reinterpret_cast<volatile MAC_TX_PAUSE_PACKETS*>(0x4043C770); }
 };
 
 // Good VLAN Packets Transmitted
@@ -8649,7 +8649,7 @@ union MAC_TX_VLAN_PACKETS_GOOD {
 
   MAC_TX_VLAN_PACKETS_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_VLAN_PACKETS_GOOD &Instance() { return *reinterpret_cast<volatile MAC_TX_VLAN_PACKETS_GOOD*>(0x4043C774); }
+  static inline volatile MAC_TX_VLAN_PACKETS_GOOD &ref() { return *reinterpret_cast<volatile MAC_TX_VLAN_PACKETS_GOOD*>(0x4043C774); }
 };
 
 // Good Oversize Packets Transmitted
@@ -8666,7 +8666,7 @@ union MAC_TX_OSIZE_PACKETS_GOOD {
 
   MAC_TX_OSIZE_PACKETS_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_OSIZE_PACKETS_GOOD &Instance() { return *reinterpret_cast<volatile MAC_TX_OSIZE_PACKETS_GOOD*>(0x4043C778); }
+  static inline volatile MAC_TX_OSIZE_PACKETS_GOOD &ref() { return *reinterpret_cast<volatile MAC_TX_OSIZE_PACKETS_GOOD*>(0x4043C778); }
 };
 
 // Good and Bad Packets Received
@@ -8683,7 +8683,7 @@ union MAC_RX_PACKETS_COUNT_GOOD_BAD {
 
   MAC_RX_PACKETS_COUNT_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_PACKETS_COUNT_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_RX_PACKETS_COUNT_GOOD_BAD*>(0x4043C780); }
+  static inline volatile MAC_RX_PACKETS_COUNT_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_RX_PACKETS_COUNT_GOOD_BAD*>(0x4043C780); }
 };
 
 // Bytes in Good and Bad Packets Received
@@ -8700,7 +8700,7 @@ union MAC_RX_OCTET_COUNT_GOOD_BAD {
 
   MAC_RX_OCTET_COUNT_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_OCTET_COUNT_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_RX_OCTET_COUNT_GOOD_BAD*>(0x4043C784); }
+  static inline volatile MAC_RX_OCTET_COUNT_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_RX_OCTET_COUNT_GOOD_BAD*>(0x4043C784); }
 };
 
 // Bytes in Good Packets Received
@@ -8717,7 +8717,7 @@ union MAC_RX_OCTET_COUNT_GOOD {
 
   MAC_RX_OCTET_COUNT_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_OCTET_COUNT_GOOD &Instance() { return *reinterpret_cast<volatile MAC_RX_OCTET_COUNT_GOOD*>(0x4043C788); }
+  static inline volatile MAC_RX_OCTET_COUNT_GOOD &ref() { return *reinterpret_cast<volatile MAC_RX_OCTET_COUNT_GOOD*>(0x4043C788); }
 };
 
 // Good Broadcast Packets Received
@@ -8734,7 +8734,7 @@ union MAC_RX_BROADCAST_PACKETS_GOOD {
 
   MAC_RX_BROADCAST_PACKETS_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_BROADCAST_PACKETS_GOOD &Instance() { return *reinterpret_cast<volatile MAC_RX_BROADCAST_PACKETS_GOOD*>(0x4043C78C); }
+  static inline volatile MAC_RX_BROADCAST_PACKETS_GOOD &ref() { return *reinterpret_cast<volatile MAC_RX_BROADCAST_PACKETS_GOOD*>(0x4043C78C); }
 };
 
 // Good Multicast Packets Received
@@ -8751,7 +8751,7 @@ union MAC_RX_MULTICAST_PACKETS_GOOD {
 
   MAC_RX_MULTICAST_PACKETS_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_MULTICAST_PACKETS_GOOD &Instance() { return *reinterpret_cast<volatile MAC_RX_MULTICAST_PACKETS_GOOD*>(0x4043C790); }
+  static inline volatile MAC_RX_MULTICAST_PACKETS_GOOD &ref() { return *reinterpret_cast<volatile MAC_RX_MULTICAST_PACKETS_GOOD*>(0x4043C790); }
 };
 
 // CRC Error Packets Received
@@ -8768,7 +8768,7 @@ union MAC_RX_CRC_ERROR_PACKETS {
 
   MAC_RX_CRC_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_CRC_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RX_CRC_ERROR_PACKETS*>(0x4043C794); }
+  static inline volatile MAC_RX_CRC_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RX_CRC_ERROR_PACKETS*>(0x4043C794); }
 };
 
 // Alignment Error Packets Received
@@ -8785,7 +8785,7 @@ union MAC_RX_ALIGNMENT_ERROR_PACKETS {
 
   MAC_RX_ALIGNMENT_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_ALIGNMENT_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RX_ALIGNMENT_ERROR_PACKETS*>(0x4043C798); }
+  static inline volatile MAC_RX_ALIGNMENT_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RX_ALIGNMENT_ERROR_PACKETS*>(0x4043C798); }
 };
 
 // Runt Error Packets Received
@@ -8802,7 +8802,7 @@ union MAC_RX_RUNT_ERROR_PACKETS {
 
   MAC_RX_RUNT_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_RUNT_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RX_RUNT_ERROR_PACKETS*>(0x4043C79C); }
+  static inline volatile MAC_RX_RUNT_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RX_RUNT_ERROR_PACKETS*>(0x4043C79C); }
 };
 
 // Jabber Error Packets Received
@@ -8819,7 +8819,7 @@ union MAC_RX_JABBER_ERROR_PACKETS {
 
   MAC_RX_JABBER_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_JABBER_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RX_JABBER_ERROR_PACKETS*>(0x4043C7A0); }
+  static inline volatile MAC_RX_JABBER_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RX_JABBER_ERROR_PACKETS*>(0x4043C7A0); }
 };
 
 // Good Undersize Packets Received
@@ -8836,7 +8836,7 @@ union MAC_RX_UNDERSIZE_PACKETS_GOOD {
 
   MAC_RX_UNDERSIZE_PACKETS_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_UNDERSIZE_PACKETS_GOOD &Instance() { return *reinterpret_cast<volatile MAC_RX_UNDERSIZE_PACKETS_GOOD*>(0x4043C7A4); }
+  static inline volatile MAC_RX_UNDERSIZE_PACKETS_GOOD &ref() { return *reinterpret_cast<volatile MAC_RX_UNDERSIZE_PACKETS_GOOD*>(0x4043C7A4); }
 };
 
 // Good Oversize Packets Received
@@ -8853,7 +8853,7 @@ union MAC_RX_OVERSIZE_PACKETS_GOOD {
 
   MAC_RX_OVERSIZE_PACKETS_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_OVERSIZE_PACKETS_GOOD &Instance() { return *reinterpret_cast<volatile MAC_RX_OVERSIZE_PACKETS_GOOD*>(0x4043C7A8); }
+  static inline volatile MAC_RX_OVERSIZE_PACKETS_GOOD &ref() { return *reinterpret_cast<volatile MAC_RX_OVERSIZE_PACKETS_GOOD*>(0x4043C7A8); }
 };
 
 // Good and Bad 64-Byte Packets Received
@@ -8870,7 +8870,7 @@ union MAC_RX_64OCTETS_PACKETS_GOOD_BAD {
 
   MAC_RX_64OCTETS_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_64OCTETS_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_RX_64OCTETS_PACKETS_GOOD_BAD*>(0x4043C7AC); }
+  static inline volatile MAC_RX_64OCTETS_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_RX_64OCTETS_PACKETS_GOOD_BAD*>(0x4043C7AC); }
 };
 
 // Good and Bad 64-to-127 Byte Packets Received
@@ -8887,7 +8887,7 @@ union MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD {
 
   MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD*>(0x4043C7B0); }
+  static inline volatile MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD*>(0x4043C7B0); }
 };
 
 // Good and Bad 128-to-255 Byte Packets Received
@@ -8904,7 +8904,7 @@ union MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD {
 
   MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD*>(0x4043C7B4); }
+  static inline volatile MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD*>(0x4043C7B4); }
 };
 
 // Good and Bad 256-to-511 Byte Packets Received
@@ -8921,7 +8921,7 @@ union MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD {
 
   MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD*>(0x4043C7B8); }
+  static inline volatile MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD*>(0x4043C7B8); }
 };
 
 // Good and Bad 512-to-1023 Byte Packets Received
@@ -8938,7 +8938,7 @@ union MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD {
 
   MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD*>(0x4043C7BC); }
+  static inline volatile MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD*>(0x4043C7BC); }
 };
 
 // Good and Bad 1024-to-Max Byte Packets Received
@@ -8955,7 +8955,7 @@ union MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD {
 
   MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD*>(0x4043C7C0); }
+  static inline volatile MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD*>(0x4043C7C0); }
 };
 
 // Good Unicast Packets Received
@@ -8972,7 +8972,7 @@ union MAC_RX_UNICAST_PACKETS_GOOD {
 
   MAC_RX_UNICAST_PACKETS_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_UNICAST_PACKETS_GOOD &Instance() { return *reinterpret_cast<volatile MAC_RX_UNICAST_PACKETS_GOOD*>(0x4043C7C4); }
+  static inline volatile MAC_RX_UNICAST_PACKETS_GOOD &ref() { return *reinterpret_cast<volatile MAC_RX_UNICAST_PACKETS_GOOD*>(0x4043C7C4); }
 };
 
 // Length Error Packets Received
@@ -8989,7 +8989,7 @@ union MAC_RX_LENGTH_ERROR_PACKETS {
 
   MAC_RX_LENGTH_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_LENGTH_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RX_LENGTH_ERROR_PACKETS*>(0x4043C7C8); }
+  static inline volatile MAC_RX_LENGTH_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RX_LENGTH_ERROR_PACKETS*>(0x4043C7C8); }
 };
 
 // Out-of-range Type Packets Received
@@ -9006,7 +9006,7 @@ union MAC_RX_OUT_OF_RANGE_TYPE_PACKETS {
 
   MAC_RX_OUT_OF_RANGE_TYPE_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_OUT_OF_RANGE_TYPE_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RX_OUT_OF_RANGE_TYPE_PACKETS*>(0x4043C7CC); }
+  static inline volatile MAC_RX_OUT_OF_RANGE_TYPE_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RX_OUT_OF_RANGE_TYPE_PACKETS*>(0x4043C7CC); }
 };
 
 // Pause Packets Received
@@ -9023,7 +9023,7 @@ union MAC_RX_PAUSE_PACKETS {
 
   MAC_RX_PAUSE_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_PAUSE_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RX_PAUSE_PACKETS*>(0x4043C7D0); }
+  static inline volatile MAC_RX_PAUSE_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RX_PAUSE_PACKETS*>(0x4043C7D0); }
 };
 
 // Missed Packets Due to FIFO Overflow
@@ -9040,7 +9040,7 @@ union MAC_RX_FIFO_OVERFLOW_PACKETS {
 
   MAC_RX_FIFO_OVERFLOW_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_FIFO_OVERFLOW_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RX_FIFO_OVERFLOW_PACKETS*>(0x4043C7D4); }
+  static inline volatile MAC_RX_FIFO_OVERFLOW_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RX_FIFO_OVERFLOW_PACKETS*>(0x4043C7D4); }
 };
 
 // Good and Bad VLAN Packets Received
@@ -9057,7 +9057,7 @@ union MAC_RX_VLAN_PACKETS_GOOD_BAD {
 
   MAC_RX_VLAN_PACKETS_GOOD_BAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_VLAN_PACKETS_GOOD_BAD &Instance() { return *reinterpret_cast<volatile MAC_RX_VLAN_PACKETS_GOOD_BAD*>(0x4043C7D8); }
+  static inline volatile MAC_RX_VLAN_PACKETS_GOOD_BAD &ref() { return *reinterpret_cast<volatile MAC_RX_VLAN_PACKETS_GOOD_BAD*>(0x4043C7D8); }
 };
 
 // Watchdog Error Packets Received
@@ -9074,7 +9074,7 @@ union MAC_RX_WATCHDOG_ERROR_PACKETS {
 
   MAC_RX_WATCHDOG_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_WATCHDOG_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RX_WATCHDOG_ERROR_PACKETS*>(0x4043C7DC); }
+  static inline volatile MAC_RX_WATCHDOG_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RX_WATCHDOG_ERROR_PACKETS*>(0x4043C7DC); }
 };
 
 // Receive Error Packets Received
@@ -9091,7 +9091,7 @@ union MAC_RX_RECEIVE_ERROR_PACKETS {
 
   MAC_RX_RECEIVE_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_RECEIVE_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RX_RECEIVE_ERROR_PACKETS*>(0x4043C7E0); }
+  static inline volatile MAC_RX_RECEIVE_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RX_RECEIVE_ERROR_PACKETS*>(0x4043C7E0); }
 };
 
 // Good Control Packets Received
@@ -9108,7 +9108,7 @@ union MAC_RX_CONTROL_PACKETS_GOOD {
 
   MAC_RX_CONTROL_PACKETS_GOOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_CONTROL_PACKETS_GOOD &Instance() { return *reinterpret_cast<volatile MAC_RX_CONTROL_PACKETS_GOOD*>(0x4043C7E4); }
+  static inline volatile MAC_RX_CONTROL_PACKETS_GOOD &ref() { return *reinterpret_cast<volatile MAC_RX_CONTROL_PACKETS_GOOD*>(0x4043C7E4); }
 };
 
 // Microseconds Tx LPI Asserted
@@ -9125,7 +9125,7 @@ union MAC_TX_LPI_USEC_CNTR {
 
   MAC_TX_LPI_USEC_CNTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_LPI_USEC_CNTR &Instance() { return *reinterpret_cast<volatile MAC_TX_LPI_USEC_CNTR*>(0x4043C7EC); }
+  static inline volatile MAC_TX_LPI_USEC_CNTR &ref() { return *reinterpret_cast<volatile MAC_TX_LPI_USEC_CNTR*>(0x4043C7EC); }
 };
 
 // Number of Times Tx LPI Asserted
@@ -9142,7 +9142,7 @@ union MAC_TX_LPI_TRAN_CNTR {
 
   MAC_TX_LPI_TRAN_CNTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_LPI_TRAN_CNTR &Instance() { return *reinterpret_cast<volatile MAC_TX_LPI_TRAN_CNTR*>(0x4043C7F0); }
+  static inline volatile MAC_TX_LPI_TRAN_CNTR &ref() { return *reinterpret_cast<volatile MAC_TX_LPI_TRAN_CNTR*>(0x4043C7F0); }
 };
 
 // Microseconds Rx LPI Sampled
@@ -9159,7 +9159,7 @@ union MAC_RX_LPI_USEC_CNTR {
 
   MAC_RX_LPI_USEC_CNTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_LPI_USEC_CNTR &Instance() { return *reinterpret_cast<volatile MAC_RX_LPI_USEC_CNTR*>(0x4043C7F4); }
+  static inline volatile MAC_RX_LPI_USEC_CNTR &ref() { return *reinterpret_cast<volatile MAC_RX_LPI_USEC_CNTR*>(0x4043C7F4); }
 };
 
 // Number of Times Rx LPI Entered
@@ -9176,7 +9176,7 @@ union MAC_RX_LPI_TRAN_CNTR {
 
   MAC_RX_LPI_TRAN_CNTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RX_LPI_TRAN_CNTR &Instance() { return *reinterpret_cast<volatile MAC_RX_LPI_TRAN_CNTR*>(0x4043C7F8); }
+  static inline volatile MAC_RX_LPI_TRAN_CNTR &ref() { return *reinterpret_cast<volatile MAC_RX_LPI_TRAN_CNTR*>(0x4043C7F8); }
 };
 
 // MMC IPC Receive Interrupt Mask
@@ -9473,7 +9473,7 @@ union MAC_MMC_IPC_RX_INTERRUPT_MASK {
 
   MAC_MMC_IPC_RX_INTERRUPT_MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_IPC_RX_INTERRUPT_MASK &Instance() { return *reinterpret_cast<volatile MAC_MMC_IPC_RX_INTERRUPT_MASK*>(0x4043C800); }
+  static inline volatile MAC_MMC_IPC_RX_INTERRUPT_MASK &ref() { return *reinterpret_cast<volatile MAC_MMC_IPC_RX_INTERRUPT_MASK*>(0x4043C800); }
 };
 
 // MMC IPC Receive Interrupt
@@ -9770,7 +9770,7 @@ union MAC_MMC_IPC_RX_INTERRUPT {
 
   MAC_MMC_IPC_RX_INTERRUPT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_IPC_RX_INTERRUPT &Instance() { return *reinterpret_cast<volatile MAC_MMC_IPC_RX_INTERRUPT*>(0x4043C808); }
+  static inline volatile MAC_MMC_IPC_RX_INTERRUPT &ref() { return *reinterpret_cast<volatile MAC_MMC_IPC_RX_INTERRUPT*>(0x4043C808); }
 };
 
 // Good IPv4 Datagrams Received
@@ -9787,7 +9787,7 @@ union MAC_RXIPV4_GOOD_PACKETS {
 
   MAC_RXIPV4_GOOD_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV4_GOOD_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV4_GOOD_PACKETS*>(0x4043C810); }
+  static inline volatile MAC_RXIPV4_GOOD_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV4_GOOD_PACKETS*>(0x4043C810); }
 };
 
 // IPv4 Datagrams Received with Header Errors
@@ -9804,7 +9804,7 @@ union MAC_RXIPV4_HEADER_ERROR_PACKETS {
 
   MAC_RXIPV4_HEADER_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV4_HEADER_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV4_HEADER_ERROR_PACKETS*>(0x4043C814); }
+  static inline volatile MAC_RXIPV4_HEADER_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV4_HEADER_ERROR_PACKETS*>(0x4043C814); }
 };
 
 // IPv4 Datagrams Received with No Payload
@@ -9821,7 +9821,7 @@ union MAC_RXIPV4_NO_PAYLOAD_PACKETS {
 
   MAC_RXIPV4_NO_PAYLOAD_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV4_NO_PAYLOAD_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV4_NO_PAYLOAD_PACKETS*>(0x4043C818); }
+  static inline volatile MAC_RXIPV4_NO_PAYLOAD_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV4_NO_PAYLOAD_PACKETS*>(0x4043C818); }
 };
 
 // IPv4 Datagrams Received with Fragmentation
@@ -9838,7 +9838,7 @@ union MAC_RXIPV4_FRAGMENTED_PACKETS {
 
   MAC_RXIPV4_FRAGMENTED_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV4_FRAGMENTED_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV4_FRAGMENTED_PACKETS*>(0x4043C81C); }
+  static inline volatile MAC_RXIPV4_FRAGMENTED_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV4_FRAGMENTED_PACKETS*>(0x4043C81C); }
 };
 
 // IPv4 Datagrams Received with UDP Checksum Disabled
@@ -9855,7 +9855,7 @@ union MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS {
 
   MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS*>(0x4043C820); }
+  static inline volatile MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS*>(0x4043C820); }
 };
 
 // Good IPv6 Datagrams Received
@@ -9872,7 +9872,7 @@ union MAC_RXIPV6_GOOD_PACKETS {
 
   MAC_RXIPV6_GOOD_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV6_GOOD_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV6_GOOD_PACKETS*>(0x4043C824); }
+  static inline volatile MAC_RXIPV6_GOOD_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV6_GOOD_PACKETS*>(0x4043C824); }
 };
 
 // IPv6 Datagrams Received with Header Errors
@@ -9889,7 +9889,7 @@ union MAC_RXIPV6_HEADER_ERROR_PACKETS {
 
   MAC_RXIPV6_HEADER_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV6_HEADER_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV6_HEADER_ERROR_PACKETS*>(0x4043C828); }
+  static inline volatile MAC_RXIPV6_HEADER_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV6_HEADER_ERROR_PACKETS*>(0x4043C828); }
 };
 
 // IPv6 Datagrams Received with No Payload
@@ -9906,7 +9906,7 @@ union MAC_RXIPV6_NO_PAYLOAD_PACKETS {
 
   MAC_RXIPV6_NO_PAYLOAD_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV6_NO_PAYLOAD_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV6_NO_PAYLOAD_PACKETS*>(0x4043C82C); }
+  static inline volatile MAC_RXIPV6_NO_PAYLOAD_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV6_NO_PAYLOAD_PACKETS*>(0x4043C82C); }
 };
 
 // IPv6 Datagrams Received with Good UDP
@@ -9923,7 +9923,7 @@ union MAC_RXUDP_GOOD_PACKETS {
 
   MAC_RXUDP_GOOD_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXUDP_GOOD_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXUDP_GOOD_PACKETS*>(0x4043C830); }
+  static inline volatile MAC_RXUDP_GOOD_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXUDP_GOOD_PACKETS*>(0x4043C830); }
 };
 
 // IPv6 Datagrams Received with UDP Checksum Error
@@ -9940,7 +9940,7 @@ union MAC_RXUDP_ERROR_PACKETS {
 
   MAC_RXUDP_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXUDP_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXUDP_ERROR_PACKETS*>(0x4043C834); }
+  static inline volatile MAC_RXUDP_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXUDP_ERROR_PACKETS*>(0x4043C834); }
 };
 
 // IPv6 Datagrams Received with Good TCP Payload
@@ -9957,7 +9957,7 @@ union MAC_RXTCP_GOOD_PACKETS {
 
   MAC_RXTCP_GOOD_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXTCP_GOOD_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXTCP_GOOD_PACKETS*>(0x4043C838); }
+  static inline volatile MAC_RXTCP_GOOD_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXTCP_GOOD_PACKETS*>(0x4043C838); }
 };
 
 // IPv6 Datagrams Received with TCP Checksum Error
@@ -9974,7 +9974,7 @@ union MAC_RXTCP_ERROR_PACKETS {
 
   MAC_RXTCP_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXTCP_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXTCP_ERROR_PACKETS*>(0x4043C83C); }
+  static inline volatile MAC_RXTCP_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXTCP_ERROR_PACKETS*>(0x4043C83C); }
 };
 
 // IPv6 Datagrams Received with Good ICMP Payload
@@ -9991,7 +9991,7 @@ union MAC_RXICMP_GOOD_PACKETS {
 
   MAC_RXICMP_GOOD_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXICMP_GOOD_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXICMP_GOOD_PACKETS*>(0x4043C840); }
+  static inline volatile MAC_RXICMP_GOOD_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXICMP_GOOD_PACKETS*>(0x4043C840); }
 };
 
 // IPv6 Datagrams Received with ICMP Checksum Error
@@ -10008,7 +10008,7 @@ union MAC_RXICMP_ERROR_PACKETS {
 
   MAC_RXICMP_ERROR_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXICMP_ERROR_PACKETS &Instance() { return *reinterpret_cast<volatile MAC_RXICMP_ERROR_PACKETS*>(0x4043C844); }
+  static inline volatile MAC_RXICMP_ERROR_PACKETS &ref() { return *reinterpret_cast<volatile MAC_RXICMP_ERROR_PACKETS*>(0x4043C844); }
 };
 
 // Good Bytes Received in IPv4 Datagrams
@@ -10025,7 +10025,7 @@ union MAC_RXIPV4_GOOD_OCTETS {
 
   MAC_RXIPV4_GOOD_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV4_GOOD_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV4_GOOD_OCTETS*>(0x4043C850); }
+  static inline volatile MAC_RXIPV4_GOOD_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV4_GOOD_OCTETS*>(0x4043C850); }
 };
 
 // Bytes Received in IPv4 Datagrams with Header Errors
@@ -10042,7 +10042,7 @@ union MAC_RXIPV4_HEADER_ERROR_OCTETS {
 
   MAC_RXIPV4_HEADER_ERROR_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV4_HEADER_ERROR_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV4_HEADER_ERROR_OCTETS*>(0x4043C854); }
+  static inline volatile MAC_RXIPV4_HEADER_ERROR_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV4_HEADER_ERROR_OCTETS*>(0x4043C854); }
 };
 
 // Bytes Received in IPv4 Datagrams with No Payload
@@ -10059,7 +10059,7 @@ union MAC_RXIPV4_NO_PAYLOAD_OCTETS {
 
   MAC_RXIPV4_NO_PAYLOAD_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV4_NO_PAYLOAD_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV4_NO_PAYLOAD_OCTETS*>(0x4043C858); }
+  static inline volatile MAC_RXIPV4_NO_PAYLOAD_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV4_NO_PAYLOAD_OCTETS*>(0x4043C858); }
 };
 
 // Bytes Received in Fragmented IPv4 Datagrams
@@ -10076,7 +10076,7 @@ union MAC_RXIPV4_FRAGMENTED_OCTETS {
 
   MAC_RXIPV4_FRAGMENTED_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV4_FRAGMENTED_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV4_FRAGMENTED_OCTETS*>(0x4043C85C); }
+  static inline volatile MAC_RXIPV4_FRAGMENTED_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV4_FRAGMENTED_OCTETS*>(0x4043C85C); }
 };
 
 // Bytes Received with UDP Checksum Disabled
@@ -10093,7 +10093,7 @@ union MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS {
 
   MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS*>(0x4043C860); }
+  static inline volatile MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS*>(0x4043C860); }
 };
 
 // Bytes Received in Good IPv6 Datagrams
@@ -10110,7 +10110,7 @@ union MAC_RXIPV6_GOOD_OCTETS {
 
   MAC_RXIPV6_GOOD_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV6_GOOD_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV6_GOOD_OCTETS*>(0x4043C864); }
+  static inline volatile MAC_RXIPV6_GOOD_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV6_GOOD_OCTETS*>(0x4043C864); }
 };
 
 // Bytes Received in IPv6 Datagrams with Data Errors
@@ -10127,7 +10127,7 @@ union MAC_RXIPV6_HEADER_ERROR_OCTETS {
 
   MAC_RXIPV6_HEADER_ERROR_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV6_HEADER_ERROR_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV6_HEADER_ERROR_OCTETS*>(0x4043C868); }
+  static inline volatile MAC_RXIPV6_HEADER_ERROR_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV6_HEADER_ERROR_OCTETS*>(0x4043C868); }
 };
 
 // Bytes Received in IPv6 Datagrams with No Payload
@@ -10144,7 +10144,7 @@ union MAC_RXIPV6_NO_PAYLOAD_OCTETS {
 
   MAC_RXIPV6_NO_PAYLOAD_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXIPV6_NO_PAYLOAD_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXIPV6_NO_PAYLOAD_OCTETS*>(0x4043C86C); }
+  static inline volatile MAC_RXIPV6_NO_PAYLOAD_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXIPV6_NO_PAYLOAD_OCTETS*>(0x4043C86C); }
 };
 
 // Bytes Received in Good UDP Segment
@@ -10161,7 +10161,7 @@ union MAC_RXUDP_GOOD_OCTETS {
 
   MAC_RXUDP_GOOD_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXUDP_GOOD_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXUDP_GOOD_OCTETS*>(0x4043C870); }
+  static inline volatile MAC_RXUDP_GOOD_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXUDP_GOOD_OCTETS*>(0x4043C870); }
 };
 
 // Bytes Received in UDP Segment with Checksum Errors
@@ -10178,7 +10178,7 @@ union MAC_RXUDP_ERROR_OCTETS {
 
   MAC_RXUDP_ERROR_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXUDP_ERROR_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXUDP_ERROR_OCTETS*>(0x4043C874); }
+  static inline volatile MAC_RXUDP_ERROR_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXUDP_ERROR_OCTETS*>(0x4043C874); }
 };
 
 // Bytes Received in Good TCP Segment
@@ -10195,7 +10195,7 @@ union MAC_RXTCP_GOOD_OCTETS {
 
   MAC_RXTCP_GOOD_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXTCP_GOOD_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXTCP_GOOD_OCTETS*>(0x4043C878); }
+  static inline volatile MAC_RXTCP_GOOD_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXTCP_GOOD_OCTETS*>(0x4043C878); }
 };
 
 // Bytes Received in TCP Segment with Checksum Errors
@@ -10212,7 +10212,7 @@ union MAC_RXTCP_ERROR_OCTETS {
 
   MAC_RXTCP_ERROR_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXTCP_ERROR_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXTCP_ERROR_OCTETS*>(0x4043C87C); }
+  static inline volatile MAC_RXTCP_ERROR_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXTCP_ERROR_OCTETS*>(0x4043C87C); }
 };
 
 // Bytes Received in Good ICMP Segment
@@ -10229,7 +10229,7 @@ union MAC_RXICMP_GOOD_OCTETS {
 
   MAC_RXICMP_GOOD_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXICMP_GOOD_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXICMP_GOOD_OCTETS*>(0x4043C880); }
+  static inline volatile MAC_RXICMP_GOOD_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXICMP_GOOD_OCTETS*>(0x4043C880); }
 };
 
 // Bytes Received in ICMP Segment with Checksum Errors
@@ -10246,7 +10246,7 @@ union MAC_RXICMP_ERROR_OCTETS {
 
   MAC_RXICMP_ERROR_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_RXICMP_ERROR_OCTETS &Instance() { return *reinterpret_cast<volatile MAC_RXICMP_ERROR_OCTETS*>(0x4043C884); }
+  static inline volatile MAC_RXICMP_ERROR_OCTETS &ref() { return *reinterpret_cast<volatile MAC_RXICMP_ERROR_OCTETS*>(0x4043C884); }
 };
 
 // MMC FPE Transmit Interrupt
@@ -10282,7 +10282,7 @@ union MAC_MMC_FPE_TX_INTERRUPT {
 
   MAC_MMC_FPE_TX_INTERRUPT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_FPE_TX_INTERRUPT &Instance() { return *reinterpret_cast<volatile MAC_MMC_FPE_TX_INTERRUPT*>(0x4043C8A0); }
+  static inline volatile MAC_MMC_FPE_TX_INTERRUPT &ref() { return *reinterpret_cast<volatile MAC_MMC_FPE_TX_INTERRUPT*>(0x4043C8A0); }
 };
 
 // MMC FPE Transmit Mask Interrupt
@@ -10318,7 +10318,7 @@ union MAC_MMC_FPE_TX_INTERRUPT_MASK {
 
   MAC_MMC_FPE_TX_INTERRUPT_MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_FPE_TX_INTERRUPT_MASK &Instance() { return *reinterpret_cast<volatile MAC_MMC_FPE_TX_INTERRUPT_MASK*>(0x4043C8A4); }
+  static inline volatile MAC_MMC_FPE_TX_INTERRUPT_MASK &ref() { return *reinterpret_cast<volatile MAC_MMC_FPE_TX_INTERRUPT_MASK*>(0x4043C8A4); }
 };
 
 // MMC FPE Transmitted Fragment Counter
@@ -10335,7 +10335,7 @@ union MAC_MMC_TX_FPE_FRAGMENT_CNTR {
 
   MAC_MMC_TX_FPE_FRAGMENT_CNTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_TX_FPE_FRAGMENT_CNTR &Instance() { return *reinterpret_cast<volatile MAC_MMC_TX_FPE_FRAGMENT_CNTR*>(0x4043C8A8); }
+  static inline volatile MAC_MMC_TX_FPE_FRAGMENT_CNTR &ref() { return *reinterpret_cast<volatile MAC_MMC_TX_FPE_FRAGMENT_CNTR*>(0x4043C8A8); }
 };
 
 // MMC FPE Transmitted Hold Request Counter
@@ -10352,7 +10352,7 @@ union MAC_MMC_TX_HOLD_REQ_CNTR {
 
   MAC_MMC_TX_HOLD_REQ_CNTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_TX_HOLD_REQ_CNTR &Instance() { return *reinterpret_cast<volatile MAC_MMC_TX_HOLD_REQ_CNTR*>(0x4043C8AC); }
+  static inline volatile MAC_MMC_TX_HOLD_REQ_CNTR &ref() { return *reinterpret_cast<volatile MAC_MMC_TX_HOLD_REQ_CNTR*>(0x4043C8AC); }
 };
 
 // MMC FPE Receive Interrupt
@@ -10408,7 +10408,7 @@ union MAC_MMC_FPE_RX_INTERRUPT {
 
   MAC_MMC_FPE_RX_INTERRUPT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_FPE_RX_INTERRUPT &Instance() { return *reinterpret_cast<volatile MAC_MMC_FPE_RX_INTERRUPT*>(0x4043C8C0); }
+  static inline volatile MAC_MMC_FPE_RX_INTERRUPT &ref() { return *reinterpret_cast<volatile MAC_MMC_FPE_RX_INTERRUPT*>(0x4043C8C0); }
 };
 
 // MMC FPE Receive Interrupt Mask
@@ -10464,7 +10464,7 @@ union MAC_MMC_FPE_RX_INTERRUPT_MASK {
 
   MAC_MMC_FPE_RX_INTERRUPT_MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_FPE_RX_INTERRUPT_MASK &Instance() { return *reinterpret_cast<volatile MAC_MMC_FPE_RX_INTERRUPT_MASK*>(0x4043C8C4); }
+  static inline volatile MAC_MMC_FPE_RX_INTERRUPT_MASK &ref() { return *reinterpret_cast<volatile MAC_MMC_FPE_RX_INTERRUPT_MASK*>(0x4043C8C4); }
 };
 
 // MMC Receive Packet Reassembly Error Counter
@@ -10481,7 +10481,7 @@ union MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR {
 
   MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR &Instance() { return *reinterpret_cast<volatile MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR*>(0x4043C8C8); }
+  static inline volatile MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR &ref() { return *reinterpret_cast<volatile MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR*>(0x4043C8C8); }
 };
 
 // MMC Receive Packet SMD Error Counter
@@ -10498,7 +10498,7 @@ union MAC_MMC_RX_PACKET_SMD_ERR_CNTR {
 
   MAC_MMC_RX_PACKET_SMD_ERR_CNTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_RX_PACKET_SMD_ERR_CNTR &Instance() { return *reinterpret_cast<volatile MAC_MMC_RX_PACKET_SMD_ERR_CNTR*>(0x4043C8CC); }
+  static inline volatile MAC_MMC_RX_PACKET_SMD_ERR_CNTR &ref() { return *reinterpret_cast<volatile MAC_MMC_RX_PACKET_SMD_ERR_CNTR*>(0x4043C8CC); }
 };
 
 // MMC Receive Packet Successful Reassembly Counter
@@ -10515,7 +10515,7 @@ union MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR {
 
   MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR &Instance() { return *reinterpret_cast<volatile MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR*>(0x4043C8D0); }
+  static inline volatile MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR &ref() { return *reinterpret_cast<volatile MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR*>(0x4043C8D0); }
 };
 
 // MMC FPE Received Fragment Counter
@@ -10532,7 +10532,7 @@ union MAC_MMC_RX_FPE_FRAGMENT_CNTR {
 
   MAC_MMC_RX_FPE_FRAGMENT_CNTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_MMC_RX_FPE_FRAGMENT_CNTR &Instance() { return *reinterpret_cast<volatile MAC_MMC_RX_FPE_FRAGMENT_CNTR*>(0x4043C8D4); }
+  static inline volatile MAC_MMC_RX_FPE_FRAGMENT_CNTR &ref() { return *reinterpret_cast<volatile MAC_MMC_RX_FPE_FRAGMENT_CNTR*>(0x4043C8D4); }
 };
 
 // Layer 3 and Layer 4 Control of Filter 0
@@ -10668,7 +10668,7 @@ union MAC_L3_L4_CONTROL0 {
 
   MAC_L3_L4_CONTROL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_L3_L4_CONTROL0 &Instance() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL0*>(0x4043C900); }
+  static inline volatile MAC_L3_L4_CONTROL0 &ref() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL0*>(0x4043C900); }
 };
 
 // Layer 4 Address 0
@@ -10687,7 +10687,7 @@ union MAC_LAYER4_ADDRESS0 {
 
   MAC_LAYER4_ADDRESS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER4_ADDRESS0 &Instance() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS0*>(0x4043C904); }
+  static inline volatile MAC_LAYER4_ADDRESS0 &ref() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS0*>(0x4043C904); }
 };
 
 // Layer 3 Address 0 Register 0
@@ -10704,7 +10704,7 @@ union MAC_LAYER3_ADDR0_REG0 {
 
   MAC_LAYER3_ADDR0_REG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR0_REG0 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG0*>(0x4043C910); }
+  static inline volatile MAC_LAYER3_ADDR0_REG0 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG0*>(0x4043C910); }
 };
 
 // Layer 3 Address 1 Register 0
@@ -10721,7 +10721,7 @@ union MAC_LAYER3_ADDR1_REG0 {
 
   MAC_LAYER3_ADDR1_REG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR1_REG0 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG0*>(0x4043C914); }
+  static inline volatile MAC_LAYER3_ADDR1_REG0 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG0*>(0x4043C914); }
 };
 
 // Layer 3 Address 2 Register 0
@@ -10738,7 +10738,7 @@ union MAC_LAYER3_ADDR2_REG0 {
 
   MAC_LAYER3_ADDR2_REG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR2_REG0 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG0*>(0x4043C918); }
+  static inline volatile MAC_LAYER3_ADDR2_REG0 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG0*>(0x4043C918); }
 };
 
 // Layer 3 Address 3 Register 0
@@ -10755,7 +10755,7 @@ union MAC_LAYER3_ADDR3_REG0 {
 
   MAC_LAYER3_ADDR3_REG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR3_REG0 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG0*>(0x4043C91C); }
+  static inline volatile MAC_LAYER3_ADDR3_REG0 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG0*>(0x4043C91C); }
 };
 
 // Layer 3 and Layer 4 Control of Filter 1
@@ -10891,7 +10891,7 @@ union MAC_L3_L4_CONTROL1 {
 
   MAC_L3_L4_CONTROL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_L3_L4_CONTROL1 &Instance() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL1*>(0x4043C930); }
+  static inline volatile MAC_L3_L4_CONTROL1 &ref() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL1*>(0x4043C930); }
 };
 
 // Layer 4 Address 0
@@ -10910,7 +10910,7 @@ union MAC_LAYER4_ADDRESS1 {
 
   MAC_LAYER4_ADDRESS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER4_ADDRESS1 &Instance() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS1*>(0x4043C934); }
+  static inline volatile MAC_LAYER4_ADDRESS1 &ref() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS1*>(0x4043C934); }
 };
 
 // Layer 3 Address 0 Register 1
@@ -10927,7 +10927,7 @@ union MAC_LAYER3_ADDR0_REG1 {
 
   MAC_LAYER3_ADDR0_REG1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR0_REG1 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG1*>(0x4043C940); }
+  static inline volatile MAC_LAYER3_ADDR0_REG1 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG1*>(0x4043C940); }
 };
 
 // Layer 3 Address 1 Register 1
@@ -10944,7 +10944,7 @@ union MAC_LAYER3_ADDR1_REG1 {
 
   MAC_LAYER3_ADDR1_REG1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR1_REG1 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG1*>(0x4043C944); }
+  static inline volatile MAC_LAYER3_ADDR1_REG1 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG1*>(0x4043C944); }
 };
 
 // Layer 3 Address 2 Register 1
@@ -10961,7 +10961,7 @@ union MAC_LAYER3_ADDR2_REG1 {
 
   MAC_LAYER3_ADDR2_REG1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR2_REG1 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG1*>(0x4043C948); }
+  static inline volatile MAC_LAYER3_ADDR2_REG1 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG1*>(0x4043C948); }
 };
 
 // Layer 3 Address 3 Register 1
@@ -10978,7 +10978,7 @@ union MAC_LAYER3_ADDR3_REG1 {
 
   MAC_LAYER3_ADDR3_REG1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR3_REG1 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG1*>(0x4043C94C); }
+  static inline volatile MAC_LAYER3_ADDR3_REG1 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG1*>(0x4043C94C); }
 };
 
 // Layer 3 and Layer 4 Control of Filter 2
@@ -11114,7 +11114,7 @@ union MAC_L3_L4_CONTROL2 {
 
   MAC_L3_L4_CONTROL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_L3_L4_CONTROL2 &Instance() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL2*>(0x4043C960); }
+  static inline volatile MAC_L3_L4_CONTROL2 &ref() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL2*>(0x4043C960); }
 };
 
 // Layer 4 Address 2
@@ -11133,7 +11133,7 @@ union MAC_LAYER4_ADDRESS2 {
 
   MAC_LAYER4_ADDRESS2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER4_ADDRESS2 &Instance() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS2*>(0x4043C964); }
+  static inline volatile MAC_LAYER4_ADDRESS2 &ref() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS2*>(0x4043C964); }
 };
 
 // Layer 3 Address 0 Register 2
@@ -11150,7 +11150,7 @@ union MAC_LAYER3_ADDR0_REG2 {
 
   MAC_LAYER3_ADDR0_REG2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR0_REG2 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG2*>(0x4043C970); }
+  static inline volatile MAC_LAYER3_ADDR0_REG2 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG2*>(0x4043C970); }
 };
 
 // Layer 3 Address 0 Register 2
@@ -11167,7 +11167,7 @@ union MAC_LAYER3_ADDR1_REG2 {
 
   MAC_LAYER3_ADDR1_REG2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR1_REG2 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG2*>(0x4043C974); }
+  static inline volatile MAC_LAYER3_ADDR1_REG2 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG2*>(0x4043C974); }
 };
 
 // Layer 3 Address 2 Register 2
@@ -11184,7 +11184,7 @@ union MAC_LAYER3_ADDR2_REG2 {
 
   MAC_LAYER3_ADDR2_REG2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR2_REG2 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG2*>(0x4043C978); }
+  static inline volatile MAC_LAYER3_ADDR2_REG2 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG2*>(0x4043C978); }
 };
 
 // Layer 3 Address 3 Register 2
@@ -11201,7 +11201,7 @@ union MAC_LAYER3_ADDR3_REG2 {
 
   MAC_LAYER3_ADDR3_REG2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR3_REG2 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG2*>(0x4043C97C); }
+  static inline volatile MAC_LAYER3_ADDR3_REG2 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG2*>(0x4043C97C); }
 };
 
 // Layer 3 and Layer 4 Control of Filter 3
@@ -11337,7 +11337,7 @@ union MAC_L3_L4_CONTROL3 {
 
   MAC_L3_L4_CONTROL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_L3_L4_CONTROL3 &Instance() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL3*>(0x4043C990); }
+  static inline volatile MAC_L3_L4_CONTROL3 &ref() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL3*>(0x4043C990); }
 };
 
 // Layer 4 Address 3
@@ -11356,7 +11356,7 @@ union MAC_LAYER4_ADDRESS3 {
 
   MAC_LAYER4_ADDRESS3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER4_ADDRESS3 &Instance() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS3*>(0x4043C994); }
+  static inline volatile MAC_LAYER4_ADDRESS3 &ref() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS3*>(0x4043C994); }
 };
 
 // Layer 3 Address 0 Register 3
@@ -11373,7 +11373,7 @@ union MAC_LAYER3_ADDR0_REG3 {
 
   MAC_LAYER3_ADDR0_REG3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR0_REG3 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG3*>(0x4043C9A0); }
+  static inline volatile MAC_LAYER3_ADDR0_REG3 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG3*>(0x4043C9A0); }
 };
 
 // Layer 3 Address 1 Register 3
@@ -11390,7 +11390,7 @@ union MAC_LAYER3_ADDR1_REG3 {
 
   MAC_LAYER3_ADDR1_REG3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR1_REG3 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG3*>(0x4043C9A4); }
+  static inline volatile MAC_LAYER3_ADDR1_REG3 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG3*>(0x4043C9A4); }
 };
 
 // Layer 3 Address 2 Register 3
@@ -11407,7 +11407,7 @@ union MAC_LAYER3_ADDR2_REG3 {
 
   MAC_LAYER3_ADDR2_REG3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR2_REG3 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG3*>(0x4043C9A8); }
+  static inline volatile MAC_LAYER3_ADDR2_REG3 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG3*>(0x4043C9A8); }
 };
 
 // Layer 3 Address 3 Register 3
@@ -11424,7 +11424,7 @@ union MAC_LAYER3_ADDR3_REG3 {
 
   MAC_LAYER3_ADDR3_REG3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR3_REG3 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG3*>(0x4043C9AC); }
+  static inline volatile MAC_LAYER3_ADDR3_REG3 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG3*>(0x4043C9AC); }
 };
 
 // Layer 3 and Layer 4 Control of Filter 4
@@ -11560,7 +11560,7 @@ union MAC_L3_L4_CONTROL4 {
 
   MAC_L3_L4_CONTROL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_L3_L4_CONTROL4 &Instance() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL4*>(0x4043C9C0); }
+  static inline volatile MAC_L3_L4_CONTROL4 &ref() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL4*>(0x4043C9C0); }
 };
 
 // Layer 4 Address 4
@@ -11579,7 +11579,7 @@ union MAC_LAYER4_ADDRESS4 {
 
   MAC_LAYER4_ADDRESS4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER4_ADDRESS4 &Instance() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS4*>(0x4043C9C4); }
+  static inline volatile MAC_LAYER4_ADDRESS4 &ref() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS4*>(0x4043C9C4); }
 };
 
 // Layer 3 Address 0 Register 4
@@ -11596,7 +11596,7 @@ union MAC_LAYER3_ADDR0_REG4 {
 
   MAC_LAYER3_ADDR0_REG4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR0_REG4 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG4*>(0x4043C9D0); }
+  static inline volatile MAC_LAYER3_ADDR0_REG4 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG4*>(0x4043C9D0); }
 };
 
 // Layer 3 Address 1 Register 4
@@ -11613,7 +11613,7 @@ union MAC_LAYER3_ADDR1_REG4 {
 
   MAC_LAYER3_ADDR1_REG4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR1_REG4 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG4*>(0x4043C9D4); }
+  static inline volatile MAC_LAYER3_ADDR1_REG4 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG4*>(0x4043C9D4); }
 };
 
 // Layer 3 Address 2 Register 4
@@ -11630,7 +11630,7 @@ union MAC_LAYER3_ADDR2_REG4 {
 
   MAC_LAYER3_ADDR2_REG4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR2_REG4 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG4*>(0x4043C9D8); }
+  static inline volatile MAC_LAYER3_ADDR2_REG4 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG4*>(0x4043C9D8); }
 };
 
 // Layer 3 Address 3 Register 4
@@ -11647,7 +11647,7 @@ union MAC_LAYER3_ADDR3_REG4 {
 
   MAC_LAYER3_ADDR3_REG4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR3_REG4 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG4*>(0x4043C9DC); }
+  static inline volatile MAC_LAYER3_ADDR3_REG4 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG4*>(0x4043C9DC); }
 };
 
 // Layer 3 and Layer 4 Control of Filter 5
@@ -11783,7 +11783,7 @@ union MAC_L3_L4_CONTROL5 {
 
   MAC_L3_L4_CONTROL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_L3_L4_CONTROL5 &Instance() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL5*>(0x4043C9F0); }
+  static inline volatile MAC_L3_L4_CONTROL5 &ref() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL5*>(0x4043C9F0); }
 };
 
 // Layer 4 Address 5
@@ -11802,7 +11802,7 @@ union MAC_LAYER4_ADDRESS5 {
 
   MAC_LAYER4_ADDRESS5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER4_ADDRESS5 &Instance() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS5*>(0x4043C9F4); }
+  static inline volatile MAC_LAYER4_ADDRESS5 &ref() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS5*>(0x4043C9F4); }
 };
 
 // Layer 3 Address 0 Register 5
@@ -11819,7 +11819,7 @@ union MAC_LAYER3_ADDR0_REG5 {
 
   MAC_LAYER3_ADDR0_REG5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR0_REG5 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG5*>(0x4043CA00); }
+  static inline volatile MAC_LAYER3_ADDR0_REG5 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG5*>(0x4043CA00); }
 };
 
 // Layer 3 Address 1 Register 5
@@ -11836,7 +11836,7 @@ union MAC_LAYER3_ADDR1_REG5 {
 
   MAC_LAYER3_ADDR1_REG5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR1_REG5 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG5*>(0x4043CA04); }
+  static inline volatile MAC_LAYER3_ADDR1_REG5 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG5*>(0x4043CA04); }
 };
 
 // Layer 3 Address 2 Register 5
@@ -11853,7 +11853,7 @@ union MAC_LAYER3_ADDR2_REG5 {
 
   MAC_LAYER3_ADDR2_REG5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR2_REG5 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG5*>(0x4043CA08); }
+  static inline volatile MAC_LAYER3_ADDR2_REG5 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG5*>(0x4043CA08); }
 };
 
 // Layer 3 Address 3 Register 5
@@ -11870,7 +11870,7 @@ union MAC_LAYER3_ADDR3_REG5 {
 
   MAC_LAYER3_ADDR3_REG5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR3_REG5 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG5*>(0x4043CA0C); }
+  static inline volatile MAC_LAYER3_ADDR3_REG5 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG5*>(0x4043CA0C); }
 };
 
 // Layer 3 and Layer 4 Control of Filter 6
@@ -12006,7 +12006,7 @@ union MAC_L3_L4_CONTROL6 {
 
   MAC_L3_L4_CONTROL6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_L3_L4_CONTROL6 &Instance() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL6*>(0x4043CA20); }
+  static inline volatile MAC_L3_L4_CONTROL6 &ref() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL6*>(0x4043CA20); }
 };
 
 // Layer 4 Address 6
@@ -12025,7 +12025,7 @@ union MAC_LAYER4_ADDRESS6 {
 
   MAC_LAYER4_ADDRESS6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER4_ADDRESS6 &Instance() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS6*>(0x4043CA24); }
+  static inline volatile MAC_LAYER4_ADDRESS6 &ref() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS6*>(0x4043CA24); }
 };
 
 // Layer 3 Address 0 Register 6
@@ -12042,7 +12042,7 @@ union MAC_LAYER3_ADDR0_REG6 {
 
   MAC_LAYER3_ADDR0_REG6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR0_REG6 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG6*>(0x4043CA30); }
+  static inline volatile MAC_LAYER3_ADDR0_REG6 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG6*>(0x4043CA30); }
 };
 
 // Layer 3 Address 1 Register 6
@@ -12059,7 +12059,7 @@ union MAC_LAYER3_ADDR1_REG6 {
 
   MAC_LAYER3_ADDR1_REG6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR1_REG6 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG6*>(0x4043CA34); }
+  static inline volatile MAC_LAYER3_ADDR1_REG6 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG6*>(0x4043CA34); }
 };
 
 // Layer 3 Address 2 Register 6
@@ -12076,7 +12076,7 @@ union MAC_LAYER3_ADDR2_REG6 {
 
   MAC_LAYER3_ADDR2_REG6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR2_REG6 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG6*>(0x4043CA38); }
+  static inline volatile MAC_LAYER3_ADDR2_REG6 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG6*>(0x4043CA38); }
 };
 
 // Layer 3 Address 3 Register 6
@@ -12093,7 +12093,7 @@ union MAC_LAYER3_ADDR3_REG6 {
 
   MAC_LAYER3_ADDR3_REG6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR3_REG6 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG6*>(0x4043CA3C); }
+  static inline volatile MAC_LAYER3_ADDR3_REG6 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG6*>(0x4043CA3C); }
 };
 
 // Layer 3 and Layer 4 Control of Filter 0
@@ -12229,7 +12229,7 @@ union MAC_L3_L4_CONTROL7 {
 
   MAC_L3_L4_CONTROL7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_L3_L4_CONTROL7 &Instance() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL7*>(0x4043CA50); }
+  static inline volatile MAC_L3_L4_CONTROL7 &ref() { return *reinterpret_cast<volatile MAC_L3_L4_CONTROL7*>(0x4043CA50); }
 };
 
 // Layer 4 Address 7
@@ -12248,7 +12248,7 @@ union MAC_LAYER4_ADDRESS7 {
 
   MAC_LAYER4_ADDRESS7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER4_ADDRESS7 &Instance() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS7*>(0x4043CA54); }
+  static inline volatile MAC_LAYER4_ADDRESS7 &ref() { return *reinterpret_cast<volatile MAC_LAYER4_ADDRESS7*>(0x4043CA54); }
 };
 
 // Layer 3 Address 0 Register 7
@@ -12265,7 +12265,7 @@ union MAC_LAYER3_ADDR0_REG7 {
 
   MAC_LAYER3_ADDR0_REG7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR0_REG7 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG7*>(0x4043CA60); }
+  static inline volatile MAC_LAYER3_ADDR0_REG7 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR0_REG7*>(0x4043CA60); }
 };
 
 // Layer 3 Address 1 Register 7
@@ -12282,7 +12282,7 @@ union MAC_LAYER3_ADDR1_REG7 {
 
   MAC_LAYER3_ADDR1_REG7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR1_REG7 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG7*>(0x4043CA64); }
+  static inline volatile MAC_LAYER3_ADDR1_REG7 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR1_REG7*>(0x4043CA64); }
 };
 
 // Layer 3 Address 2 Register 7
@@ -12299,7 +12299,7 @@ union MAC_LAYER3_ADDR2_REG7 {
 
   MAC_LAYER3_ADDR2_REG7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR2_REG7 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG7*>(0x4043CA68); }
+  static inline volatile MAC_LAYER3_ADDR2_REG7 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR2_REG7*>(0x4043CA68); }
 };
 
 // Layer 3 Address 3 Register 7
@@ -12316,7 +12316,7 @@ union MAC_LAYER3_ADDR3_REG7 {
 
   MAC_LAYER3_ADDR3_REG7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LAYER3_ADDR3_REG7 &Instance() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG7*>(0x4043CA6C); }
+  static inline volatile MAC_LAYER3_ADDR3_REG7 &ref() { return *reinterpret_cast<volatile MAC_LAYER3_ADDR3_REG7*>(0x4043CA6C); }
 };
 
 // Timestamp Control
@@ -12528,7 +12528,7 @@ union MAC_TIMESTAMP_CONTROL {
 
   MAC_TIMESTAMP_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile MAC_TIMESTAMP_CONTROL &Instance() { return *reinterpret_cast<volatile MAC_TIMESTAMP_CONTROL*>(0x4043CB00); }
+  static inline volatile MAC_TIMESTAMP_CONTROL &ref() { return *reinterpret_cast<volatile MAC_TIMESTAMP_CONTROL*>(0x4043CB00); }
 };
 
 // Subsecond Increment
@@ -12549,7 +12549,7 @@ union MAC_SUB_SECOND_INCREMENT {
 
   MAC_SUB_SECOND_INCREMENT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_SUB_SECOND_INCREMENT &Instance() { return *reinterpret_cast<volatile MAC_SUB_SECOND_INCREMENT*>(0x4043CB04); }
+  static inline volatile MAC_SUB_SECOND_INCREMENT &ref() { return *reinterpret_cast<volatile MAC_SUB_SECOND_INCREMENT*>(0x4043CB04); }
 };
 
 // System Time Seconds
@@ -12566,7 +12566,7 @@ union MAC_SYSTEM_TIME_SECONDS {
 
   MAC_SYSTEM_TIME_SECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_SYSTEM_TIME_SECONDS &Instance() { return *reinterpret_cast<volatile MAC_SYSTEM_TIME_SECONDS*>(0x4043CB08); }
+  static inline volatile MAC_SYSTEM_TIME_SECONDS &ref() { return *reinterpret_cast<volatile MAC_SYSTEM_TIME_SECONDS*>(0x4043CB08); }
 };
 
 // System Time Nanoseconds
@@ -12584,7 +12584,7 @@ union MAC_SYSTEM_TIME_NANOSECONDS {
 
   MAC_SYSTEM_TIME_NANOSECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_SYSTEM_TIME_NANOSECONDS &Instance() { return *reinterpret_cast<volatile MAC_SYSTEM_TIME_NANOSECONDS*>(0x4043CB0C); }
+  static inline volatile MAC_SYSTEM_TIME_NANOSECONDS &ref() { return *reinterpret_cast<volatile MAC_SYSTEM_TIME_NANOSECONDS*>(0x4043CB0C); }
 };
 
 // System Time Seconds Update
@@ -12601,7 +12601,7 @@ union MAC_SYSTEM_TIME_SECONDS_UPDATE {
 
   MAC_SYSTEM_TIME_SECONDS_UPDATE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_SYSTEM_TIME_SECONDS_UPDATE &Instance() { return *reinterpret_cast<volatile MAC_SYSTEM_TIME_SECONDS_UPDATE*>(0x4043CB10); }
+  static inline volatile MAC_SYSTEM_TIME_SECONDS_UPDATE &ref() { return *reinterpret_cast<volatile MAC_SYSTEM_TIME_SECONDS_UPDATE*>(0x4043CB10); }
 };
 
 // System Time Nanoseconds Update
@@ -12628,7 +12628,7 @@ union MAC_SYSTEM_TIME_NANOSECONDS_UPDATE {
 
   MAC_SYSTEM_TIME_NANOSECONDS_UPDATE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_SYSTEM_TIME_NANOSECONDS_UPDATE &Instance() { return *reinterpret_cast<volatile MAC_SYSTEM_TIME_NANOSECONDS_UPDATE*>(0x4043CB14); }
+  static inline volatile MAC_SYSTEM_TIME_NANOSECONDS_UPDATE &ref() { return *reinterpret_cast<volatile MAC_SYSTEM_TIME_NANOSECONDS_UPDATE*>(0x4043CB14); }
 };
 
 // Timestamp Addend
@@ -12645,7 +12645,7 @@ union MAC_TIMESTAMP_ADDEND {
 
   MAC_TIMESTAMP_ADDEND() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TIMESTAMP_ADDEND &Instance() { return *reinterpret_cast<volatile MAC_TIMESTAMP_ADDEND*>(0x4043CB18); }
+  static inline volatile MAC_TIMESTAMP_ADDEND &ref() { return *reinterpret_cast<volatile MAC_TIMESTAMP_ADDEND*>(0x4043CB18); }
 };
 
 // System Time - Higher Word Seconds
@@ -12663,7 +12663,7 @@ union MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS {
 
   MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS &Instance() { return *reinterpret_cast<volatile MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS*>(0x4043CB1C); }
+  static inline volatile MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS &ref() { return *reinterpret_cast<volatile MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS*>(0x4043CB1C); }
 };
 
 // Timestamp Status
@@ -12805,7 +12805,7 @@ union MAC_TIMESTAMP_STATUS {
 
   MAC_TIMESTAMP_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TIMESTAMP_STATUS &Instance() { return *reinterpret_cast<volatile MAC_TIMESTAMP_STATUS*>(0x4043CB20); }
+  static inline volatile MAC_TIMESTAMP_STATUS &ref() { return *reinterpret_cast<volatile MAC_TIMESTAMP_STATUS*>(0x4043CB20); }
 };
 
 // Transmit Timestamp Status Nanoseconds
@@ -12832,7 +12832,7 @@ union MAC_TX_TIMESTAMP_STATUS_NANOSECONDS {
 
   MAC_TX_TIMESTAMP_STATUS_NANOSECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_TIMESTAMP_STATUS_NANOSECONDS &Instance() { return *reinterpret_cast<volatile MAC_TX_TIMESTAMP_STATUS_NANOSECONDS*>(0x4043CB30); }
+  static inline volatile MAC_TX_TIMESTAMP_STATUS_NANOSECONDS &ref() { return *reinterpret_cast<volatile MAC_TX_TIMESTAMP_STATUS_NANOSECONDS*>(0x4043CB30); }
 };
 
 // Transmit Timestamp Status Seconds
@@ -12849,7 +12849,7 @@ union MAC_TX_TIMESTAMP_STATUS_SECONDS {
 
   MAC_TX_TIMESTAMP_STATUS_SECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TX_TIMESTAMP_STATUS_SECONDS &Instance() { return *reinterpret_cast<volatile MAC_TX_TIMESTAMP_STATUS_SECONDS*>(0x4043CB34); }
+  static inline volatile MAC_TX_TIMESTAMP_STATUS_SECONDS &ref() { return *reinterpret_cast<volatile MAC_TX_TIMESTAMP_STATUS_SECONDS*>(0x4043CB34); }
 };
 
 // Auxiliary Timestamp Control
@@ -12916,7 +12916,7 @@ union MAC_AUXILIARY_CONTROL {
 
   MAC_AUXILIARY_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_AUXILIARY_CONTROL &Instance() { return *reinterpret_cast<volatile MAC_AUXILIARY_CONTROL*>(0x4043CB40); }
+  static inline volatile MAC_AUXILIARY_CONTROL &ref() { return *reinterpret_cast<volatile MAC_AUXILIARY_CONTROL*>(0x4043CB40); }
 };
 
 // Auxiliary Timestamp Nanoseconds
@@ -12934,7 +12934,7 @@ union MAC_AUXILIARY_TIMESTAMP_NANOSECONDS {
 
   MAC_AUXILIARY_TIMESTAMP_NANOSECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_AUXILIARY_TIMESTAMP_NANOSECONDS &Instance() { return *reinterpret_cast<volatile MAC_AUXILIARY_TIMESTAMP_NANOSECONDS*>(0x4043CB48); }
+  static inline volatile MAC_AUXILIARY_TIMESTAMP_NANOSECONDS &ref() { return *reinterpret_cast<volatile MAC_AUXILIARY_TIMESTAMP_NANOSECONDS*>(0x4043CB48); }
 };
 
 // Auxiliary Timestamp Seconds
@@ -12951,7 +12951,7 @@ union MAC_AUXILIARY_TIMESTAMP_SECONDS {
 
   MAC_AUXILIARY_TIMESTAMP_SECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_AUXILIARY_TIMESTAMP_SECONDS &Instance() { return *reinterpret_cast<volatile MAC_AUXILIARY_TIMESTAMP_SECONDS*>(0x4043CB4C); }
+  static inline volatile MAC_AUXILIARY_TIMESTAMP_SECONDS &ref() { return *reinterpret_cast<volatile MAC_AUXILIARY_TIMESTAMP_SECONDS*>(0x4043CB4C); }
 };
 
 // Timestamp Ingress Asymmetry Correction
@@ -12968,7 +12968,7 @@ union MAC_TIMESTAMP_INGRESS_ASYM_CORR {
 
   MAC_TIMESTAMP_INGRESS_ASYM_CORR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TIMESTAMP_INGRESS_ASYM_CORR &Instance() { return *reinterpret_cast<volatile MAC_TIMESTAMP_INGRESS_ASYM_CORR*>(0x4043CB50); }
+  static inline volatile MAC_TIMESTAMP_INGRESS_ASYM_CORR &ref() { return *reinterpret_cast<volatile MAC_TIMESTAMP_INGRESS_ASYM_CORR*>(0x4043CB50); }
 };
 
 // imestamp Egress Asymmetry Correction
@@ -12985,7 +12985,7 @@ union MAC_TIMESTAMP_EGRESS_ASYM_CORR {
 
   MAC_TIMESTAMP_EGRESS_ASYM_CORR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TIMESTAMP_EGRESS_ASYM_CORR &Instance() { return *reinterpret_cast<volatile MAC_TIMESTAMP_EGRESS_ASYM_CORR*>(0x4043CB54); }
+  static inline volatile MAC_TIMESTAMP_EGRESS_ASYM_CORR &ref() { return *reinterpret_cast<volatile MAC_TIMESTAMP_EGRESS_ASYM_CORR*>(0x4043CB54); }
 };
 
 // Timestamp Ingress Correction Nanosecond
@@ -13002,7 +13002,7 @@ union MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND {
 
   MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND &Instance() { return *reinterpret_cast<volatile MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND*>(0x4043CB58); }
+  static inline volatile MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND &ref() { return *reinterpret_cast<volatile MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND*>(0x4043CB58); }
 };
 
 // Timestamp Egress Correction Nanosecond
@@ -13019,7 +13019,7 @@ union MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND {
 
   MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND &Instance() { return *reinterpret_cast<volatile MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND*>(0x4043CB5C); }
+  static inline volatile MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND &ref() { return *reinterpret_cast<volatile MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND*>(0x4043CB5C); }
 };
 
 // Timestamp Ingress Correction Subnanosecond
@@ -13038,7 +13038,7 @@ union MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC {
 
   MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC &Instance() { return *reinterpret_cast<volatile MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC*>(0x4043CB60); }
+  static inline volatile MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC &ref() { return *reinterpret_cast<volatile MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC*>(0x4043CB60); }
 };
 
 // Timestamp Egress Correction Subnanosecond
@@ -13057,7 +13057,7 @@ union MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC {
 
   MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC &Instance() { return *reinterpret_cast<volatile MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC*>(0x4043CB64); }
+  static inline volatile MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC &ref() { return *reinterpret_cast<volatile MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC*>(0x4043CB64); }
 };
 
 // Timestamp Ingress Latency
@@ -13078,7 +13078,7 @@ union MAC_TIMESTAMP_INGRESS_LATENCY {
 
   MAC_TIMESTAMP_INGRESS_LATENCY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TIMESTAMP_INGRESS_LATENCY &Instance() { return *reinterpret_cast<volatile MAC_TIMESTAMP_INGRESS_LATENCY*>(0x4043CB68); }
+  static inline volatile MAC_TIMESTAMP_INGRESS_LATENCY &ref() { return *reinterpret_cast<volatile MAC_TIMESTAMP_INGRESS_LATENCY*>(0x4043CB68); }
 };
 
 // Timestamp Egress Latency
@@ -13099,7 +13099,7 @@ union MAC_TIMESTAMP_EGRESS_LATENCY {
 
   MAC_TIMESTAMP_EGRESS_LATENCY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_TIMESTAMP_EGRESS_LATENCY &Instance() { return *reinterpret_cast<volatile MAC_TIMESTAMP_EGRESS_LATENCY*>(0x4043CB6C); }
+  static inline volatile MAC_TIMESTAMP_EGRESS_LATENCY &ref() { return *reinterpret_cast<volatile MAC_TIMESTAMP_EGRESS_LATENCY*>(0x4043CB6C); }
 };
 
 // PPS Control
@@ -13215,7 +13215,7 @@ union MAC_PPS_CONTROL {
 
   MAC_PPS_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS_CONTROL &Instance() { return *reinterpret_cast<volatile MAC_PPS_CONTROL*>(0x4043CB70); }
+  static inline volatile MAC_PPS_CONTROL &ref() { return *reinterpret_cast<volatile MAC_PPS_CONTROL*>(0x4043CB70); }
 };
 
 // PPS0 Target Time Seconds
@@ -13232,7 +13232,7 @@ union MAC_PPS0_TARGET_TIME_SECONDS {
 
   MAC_PPS0_TARGET_TIME_SECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS0_TARGET_TIME_SECONDS &Instance() { return *reinterpret_cast<volatile MAC_PPS0_TARGET_TIME_SECONDS*>(0x4043CB80); }
+  static inline volatile MAC_PPS0_TARGET_TIME_SECONDS &ref() { return *reinterpret_cast<volatile MAC_PPS0_TARGET_TIME_SECONDS*>(0x4043CB80); }
 };
 
 // PPS0 Target Time Nanoseconds
@@ -13259,7 +13259,7 @@ union MAC_PPS0_TARGET_TIME_NANOSECONDS {
 
   MAC_PPS0_TARGET_TIME_NANOSECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS0_TARGET_TIME_NANOSECONDS &Instance() { return *reinterpret_cast<volatile MAC_PPS0_TARGET_TIME_NANOSECONDS*>(0x4043CB84); }
+  static inline volatile MAC_PPS0_TARGET_TIME_NANOSECONDS &ref() { return *reinterpret_cast<volatile MAC_PPS0_TARGET_TIME_NANOSECONDS*>(0x4043CB84); }
 };
 
 // PPS0 Interval
@@ -13276,7 +13276,7 @@ union MAC_PPS0_INTERVAL {
 
   MAC_PPS0_INTERVAL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS0_INTERVAL &Instance() { return *reinterpret_cast<volatile MAC_PPS0_INTERVAL*>(0x4043CB88); }
+  static inline volatile MAC_PPS0_INTERVAL &ref() { return *reinterpret_cast<volatile MAC_PPS0_INTERVAL*>(0x4043CB88); }
 };
 
 // PPS0 Width
@@ -13293,7 +13293,7 @@ union MAC_PPS0_WIDTH {
 
   MAC_PPS0_WIDTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS0_WIDTH &Instance() { return *reinterpret_cast<volatile MAC_PPS0_WIDTH*>(0x4043CB8C); }
+  static inline volatile MAC_PPS0_WIDTH &ref() { return *reinterpret_cast<volatile MAC_PPS0_WIDTH*>(0x4043CB8C); }
 };
 
 // PPS1 Target Time Seconds
@@ -13310,7 +13310,7 @@ union MAC_PPS1_TARGET_TIME_SECONDS {
 
   MAC_PPS1_TARGET_TIME_SECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS1_TARGET_TIME_SECONDS &Instance() { return *reinterpret_cast<volatile MAC_PPS1_TARGET_TIME_SECONDS*>(0x4043CB90); }
+  static inline volatile MAC_PPS1_TARGET_TIME_SECONDS &ref() { return *reinterpret_cast<volatile MAC_PPS1_TARGET_TIME_SECONDS*>(0x4043CB90); }
 };
 
 // PPS1 Target Time Nanoseconds
@@ -13337,7 +13337,7 @@ union MAC_PPS1_TARGET_TIME_NANOSECONDS {
 
   MAC_PPS1_TARGET_TIME_NANOSECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS1_TARGET_TIME_NANOSECONDS &Instance() { return *reinterpret_cast<volatile MAC_PPS1_TARGET_TIME_NANOSECONDS*>(0x4043CB94); }
+  static inline volatile MAC_PPS1_TARGET_TIME_NANOSECONDS &ref() { return *reinterpret_cast<volatile MAC_PPS1_TARGET_TIME_NANOSECONDS*>(0x4043CB94); }
 };
 
 // PPS1 Interval
@@ -13354,7 +13354,7 @@ union MAC_PPS1_INTERVAL {
 
   MAC_PPS1_INTERVAL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS1_INTERVAL &Instance() { return *reinterpret_cast<volatile MAC_PPS1_INTERVAL*>(0x4043CB98); }
+  static inline volatile MAC_PPS1_INTERVAL &ref() { return *reinterpret_cast<volatile MAC_PPS1_INTERVAL*>(0x4043CB98); }
 };
 
 // PPS1 Width
@@ -13371,7 +13371,7 @@ union MAC_PPS1_WIDTH {
 
   MAC_PPS1_WIDTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS1_WIDTH &Instance() { return *reinterpret_cast<volatile MAC_PPS1_WIDTH*>(0x4043CB9C); }
+  static inline volatile MAC_PPS1_WIDTH &ref() { return *reinterpret_cast<volatile MAC_PPS1_WIDTH*>(0x4043CB9C); }
 };
 
 // PPS2 Target Time Seconds
@@ -13388,7 +13388,7 @@ union MAC_PPS2_TARGET_TIME_SECONDS {
 
   MAC_PPS2_TARGET_TIME_SECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS2_TARGET_TIME_SECONDS &Instance() { return *reinterpret_cast<volatile MAC_PPS2_TARGET_TIME_SECONDS*>(0x4043CBA0); }
+  static inline volatile MAC_PPS2_TARGET_TIME_SECONDS &ref() { return *reinterpret_cast<volatile MAC_PPS2_TARGET_TIME_SECONDS*>(0x4043CBA0); }
 };
 
 // PPS2 Target Time Nanoseconds
@@ -13415,7 +13415,7 @@ union MAC_PPS2_TARGET_TIME_NANOSECONDS {
 
   MAC_PPS2_TARGET_TIME_NANOSECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS2_TARGET_TIME_NANOSECONDS &Instance() { return *reinterpret_cast<volatile MAC_PPS2_TARGET_TIME_NANOSECONDS*>(0x4043CBA4); }
+  static inline volatile MAC_PPS2_TARGET_TIME_NANOSECONDS &ref() { return *reinterpret_cast<volatile MAC_PPS2_TARGET_TIME_NANOSECONDS*>(0x4043CBA4); }
 };
 
 // PPS2 Interval
@@ -13432,7 +13432,7 @@ union MAC_PPS2_INTERVAL {
 
   MAC_PPS2_INTERVAL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS2_INTERVAL &Instance() { return *reinterpret_cast<volatile MAC_PPS2_INTERVAL*>(0x4043CBA8); }
+  static inline volatile MAC_PPS2_INTERVAL &ref() { return *reinterpret_cast<volatile MAC_PPS2_INTERVAL*>(0x4043CBA8); }
 };
 
 // PPS2 Width
@@ -13449,7 +13449,7 @@ union MAC_PPS2_WIDTH {
 
   MAC_PPS2_WIDTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS2_WIDTH &Instance() { return *reinterpret_cast<volatile MAC_PPS2_WIDTH*>(0x4043CBAC); }
+  static inline volatile MAC_PPS2_WIDTH &ref() { return *reinterpret_cast<volatile MAC_PPS2_WIDTH*>(0x4043CBAC); }
 };
 
 // PPS3 Target Time Seconds
@@ -13466,7 +13466,7 @@ union MAC_PPS3_TARGET_TIME_SECONDS {
 
   MAC_PPS3_TARGET_TIME_SECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS3_TARGET_TIME_SECONDS &Instance() { return *reinterpret_cast<volatile MAC_PPS3_TARGET_TIME_SECONDS*>(0x4043CBB0); }
+  static inline volatile MAC_PPS3_TARGET_TIME_SECONDS &ref() { return *reinterpret_cast<volatile MAC_PPS3_TARGET_TIME_SECONDS*>(0x4043CBB0); }
 };
 
 // PPS3 Target Time Nanoseconds
@@ -13493,7 +13493,7 @@ union MAC_PPS3_TARGET_TIME_NANOSECONDS {
 
   MAC_PPS3_TARGET_TIME_NANOSECONDS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS3_TARGET_TIME_NANOSECONDS &Instance() { return *reinterpret_cast<volatile MAC_PPS3_TARGET_TIME_NANOSECONDS*>(0x4043CBB4); }
+  static inline volatile MAC_PPS3_TARGET_TIME_NANOSECONDS &ref() { return *reinterpret_cast<volatile MAC_PPS3_TARGET_TIME_NANOSECONDS*>(0x4043CBB4); }
 };
 
 // PPS3 Interval
@@ -13510,7 +13510,7 @@ union MAC_PPS3_INTERVAL {
 
   MAC_PPS3_INTERVAL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS3_INTERVAL &Instance() { return *reinterpret_cast<volatile MAC_PPS3_INTERVAL*>(0x4043CBB8); }
+  static inline volatile MAC_PPS3_INTERVAL &ref() { return *reinterpret_cast<volatile MAC_PPS3_INTERVAL*>(0x4043CBB8); }
 };
 
 // PPS3 Width
@@ -13527,7 +13527,7 @@ union MAC_PPS3_WIDTH {
 
   MAC_PPS3_WIDTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PPS3_WIDTH &Instance() { return *reinterpret_cast<volatile MAC_PPS3_WIDTH*>(0x4043CBBC); }
+  static inline volatile MAC_PPS3_WIDTH &ref() { return *reinterpret_cast<volatile MAC_PPS3_WIDTH*>(0x4043CBBC); }
 };
 
 // PTP Offload Engine Control
@@ -13616,7 +13616,7 @@ union MAC_PTO_CONTROL {
 
   MAC_PTO_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_PTO_CONTROL &Instance() { return *reinterpret_cast<volatile MAC_PTO_CONTROL*>(0x4043CBC0); }
+  static inline volatile MAC_PTO_CONTROL &ref() { return *reinterpret_cast<volatile MAC_PTO_CONTROL*>(0x4043CBC0); }
 };
 
 // Source Port Identity 0
@@ -13633,7 +13633,7 @@ union MAC_SOURCE_PORT_IDENTITY0 {
 
   MAC_SOURCE_PORT_IDENTITY0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_SOURCE_PORT_IDENTITY0 &Instance() { return *reinterpret_cast<volatile MAC_SOURCE_PORT_IDENTITY0*>(0x4043CBC4); }
+  static inline volatile MAC_SOURCE_PORT_IDENTITY0 &ref() { return *reinterpret_cast<volatile MAC_SOURCE_PORT_IDENTITY0*>(0x4043CBC4); }
 };
 
 // Source Port Identity 1
@@ -13650,7 +13650,7 @@ union MAC_SOURCE_PORT_IDENTITY1 {
 
   MAC_SOURCE_PORT_IDENTITY1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_SOURCE_PORT_IDENTITY1 &Instance() { return *reinterpret_cast<volatile MAC_SOURCE_PORT_IDENTITY1*>(0x4043CBC8); }
+  static inline volatile MAC_SOURCE_PORT_IDENTITY1 &ref() { return *reinterpret_cast<volatile MAC_SOURCE_PORT_IDENTITY1*>(0x4043CBC8); }
 };
 
 // Source Port Identity 2
@@ -13668,7 +13668,7 @@ union MAC_SOURCE_PORT_IDENTITY2 {
 
   MAC_SOURCE_PORT_IDENTITY2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_SOURCE_PORT_IDENTITY2 &Instance() { return *reinterpret_cast<volatile MAC_SOURCE_PORT_IDENTITY2*>(0x4043CBCC); }
+  static inline volatile MAC_SOURCE_PORT_IDENTITY2 &ref() { return *reinterpret_cast<volatile MAC_SOURCE_PORT_IDENTITY2*>(0x4043CBCC); }
 };
 
 // Log Message Interval
@@ -13706,7 +13706,7 @@ union MAC_LOG_MESSAGE_INTERVAL {
 
   MAC_LOG_MESSAGE_INTERVAL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MAC_LOG_MESSAGE_INTERVAL &Instance() { return *reinterpret_cast<volatile MAC_LOG_MESSAGE_INTERVAL*>(0x4043CBD0); }
+  static inline volatile MAC_LOG_MESSAGE_INTERVAL &ref() { return *reinterpret_cast<volatile MAC_LOG_MESSAGE_INTERVAL*>(0x4043CBD0); }
 };
 
 // MTL Operation Mode
@@ -13790,7 +13790,7 @@ union MTL_OPERATION_MODE {
 
   MTL_OPERATION_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_OPERATION_MODE &Instance() { return *reinterpret_cast<volatile MTL_OPERATION_MODE*>(0x4043CC00); }
+  static inline volatile MTL_OPERATION_MODE &ref() { return *reinterpret_cast<volatile MTL_OPERATION_MODE*>(0x4043CC00); }
 };
 
 // FIFO Debug Access Control and Status
@@ -13930,7 +13930,7 @@ union MTL_DBG_CTL {
 
   MTL_DBG_CTL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_DBG_CTL &Instance() { return *reinterpret_cast<volatile MTL_DBG_CTL*>(0x4043CC08); }
+  static inline volatile MTL_DBG_CTL &ref() { return *reinterpret_cast<volatile MTL_DBG_CTL*>(0x4043CC08); }
 };
 
 // FIFO Debug Status
@@ -14007,7 +14007,7 @@ union MTL_DBG_STS {
 
   MTL_DBG_STS() = delete;
   inline void Reset() volatile { this->value = 0x00000018; }
-  static inline volatile MTL_DBG_STS &Instance() { return *reinterpret_cast<volatile MTL_DBG_STS*>(0x4043CC0C); }
+  static inline volatile MTL_DBG_STS &ref() { return *reinterpret_cast<volatile MTL_DBG_STS*>(0x4043CC0C); }
 };
 
 // FIFO Debug Data
@@ -14024,7 +14024,7 @@ union MTL_FIFO_DEBUG_DATA {
 
   MTL_FIFO_DEBUG_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_FIFO_DEBUG_DATA &Instance() { return *reinterpret_cast<volatile MTL_FIFO_DEBUG_DATA*>(0x4043CC10); }
+  static inline volatile MTL_FIFO_DEBUG_DATA &ref() { return *reinterpret_cast<volatile MTL_FIFO_DEBUG_DATA*>(0x4043CC10); }
 };
 
 // MTL Interrupt Status
@@ -14122,7 +14122,7 @@ union MTL_INTERRUPT_STATUS {
 
   MTL_INTERRUPT_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_INTERRUPT_STATUS &Instance() { return *reinterpret_cast<volatile MTL_INTERRUPT_STATUS*>(0x4043CC20); }
+  static inline volatile MTL_INTERRUPT_STATUS &ref() { return *reinterpret_cast<volatile MTL_INTERRUPT_STATUS*>(0x4043CC20); }
 };
 
 // Receive Queue and DMA Channel Mapping 0
@@ -14193,7 +14193,7 @@ union MTL_RXQ_DMA_MAP0 {
 
   MTL_RXQ_DMA_MAP0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ_DMA_MAP0 &Instance() { return *reinterpret_cast<volatile MTL_RXQ_DMA_MAP0*>(0x4043CC30); }
+  static inline volatile MTL_RXQ_DMA_MAP0 &ref() { return *reinterpret_cast<volatile MTL_RXQ_DMA_MAP0*>(0x4043CC30); }
 };
 
 // Receive Queue and DMA Channel Mapping 1
@@ -14222,7 +14222,7 @@ union MTL_RXQ_DMA_MAP1 {
 
   MTL_RXQ_DMA_MAP1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ_DMA_MAP1 &Instance() { return *reinterpret_cast<volatile MTL_RXQ_DMA_MAP1*>(0x4043CC34); }
+  static inline volatile MTL_RXQ_DMA_MAP1 &ref() { return *reinterpret_cast<volatile MTL_RXQ_DMA_MAP1*>(0x4043CC34); }
 };
 
 // Time Based Scheduling Control
@@ -14263,7 +14263,7 @@ union MTL_TBS_CTRL {
 
   MTL_TBS_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TBS_CTRL &Instance() { return *reinterpret_cast<volatile MTL_TBS_CTRL*>(0x4043CC40); }
+  static inline volatile MTL_TBS_CTRL &ref() { return *reinterpret_cast<volatile MTL_TBS_CTRL*>(0x4043CC40); }
 };
 
 // Enhancements to Scheduled Transmission Control
@@ -14340,7 +14340,7 @@ union MTL_EST_CONTROL {
 
   MTL_EST_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_EST_CONTROL &Instance() { return *reinterpret_cast<volatile MTL_EST_CONTROL*>(0x4043CC50); }
+  static inline volatile MTL_EST_CONTROL &ref() { return *reinterpret_cast<volatile MTL_EST_CONTROL*>(0x4043CC50); }
 };
 
 // Enhancements to Scheduled Transmission Status
@@ -14422,7 +14422,7 @@ union MTL_EST_STATUS {
 
   MTL_EST_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_EST_STATUS &Instance() { return *reinterpret_cast<volatile MTL_EST_STATUS*>(0x4043CC58); }
+  static inline volatile MTL_EST_STATUS &ref() { return *reinterpret_cast<volatile MTL_EST_STATUS*>(0x4043CC58); }
 };
 
 // EST Scheduling Error
@@ -14440,7 +14440,7 @@ union MTL_EST_SCH_ERROR {
 
   MTL_EST_SCH_ERROR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_EST_SCH_ERROR &Instance() { return *reinterpret_cast<volatile MTL_EST_SCH_ERROR*>(0x4043CC60); }
+  static inline volatile MTL_EST_SCH_ERROR &ref() { return *reinterpret_cast<volatile MTL_EST_SCH_ERROR*>(0x4043CC60); }
 };
 
 // EST Frame Size Error
@@ -14458,7 +14458,7 @@ union MTL_EST_FRM_SIZE_ERROR {
 
   MTL_EST_FRM_SIZE_ERROR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_EST_FRM_SIZE_ERROR &Instance() { return *reinterpret_cast<volatile MTL_EST_FRM_SIZE_ERROR*>(0x4043CC64); }
+  static inline volatile MTL_EST_FRM_SIZE_ERROR &ref() { return *reinterpret_cast<volatile MTL_EST_FRM_SIZE_ERROR*>(0x4043CC64); }
 };
 
 // EST Frame Size Capture
@@ -14479,7 +14479,7 @@ union MTL_EST_FRM_SIZE_CAPTURE {
 
   MTL_EST_FRM_SIZE_CAPTURE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_EST_FRM_SIZE_CAPTURE &Instance() { return *reinterpret_cast<volatile MTL_EST_FRM_SIZE_CAPTURE*>(0x4043CC68); }
+  static inline volatile MTL_EST_FRM_SIZE_CAPTURE &ref() { return *reinterpret_cast<volatile MTL_EST_FRM_SIZE_CAPTURE*>(0x4043CC68); }
 };
 
 // EST Interrupt Enable
@@ -14545,7 +14545,7 @@ union MTL_EST_INTR_ENABLE {
 
   MTL_EST_INTR_ENABLE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_EST_INTR_ENABLE &Instance() { return *reinterpret_cast<volatile MTL_EST_INTR_ENABLE*>(0x4043CC70); }
+  static inline volatile MTL_EST_INTR_ENABLE &ref() { return *reinterpret_cast<volatile MTL_EST_INTR_ENABLE*>(0x4043CC70); }
 };
 
 // EST GCL Control
@@ -14650,7 +14650,7 @@ union MTL_EST_GCL_CONTROL {
 
   MTL_EST_GCL_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_EST_GCL_CONTROL &Instance() { return *reinterpret_cast<volatile MTL_EST_GCL_CONTROL*>(0x4043CC80); }
+  static inline volatile MTL_EST_GCL_CONTROL &ref() { return *reinterpret_cast<volatile MTL_EST_GCL_CONTROL*>(0x4043CC80); }
 };
 
 // EST GCL Data
@@ -14667,7 +14667,7 @@ union MTL_EST_GCL_DATA {
 
   MTL_EST_GCL_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_EST_GCL_DATA &Instance() { return *reinterpret_cast<volatile MTL_EST_GCL_DATA*>(0x4043CC84); }
+  static inline volatile MTL_EST_GCL_DATA &ref() { return *reinterpret_cast<volatile MTL_EST_GCL_DATA*>(0x4043CC84); }
 };
 
 // Frame Preemption Control and Status
@@ -14699,7 +14699,7 @@ union MTL_FPE_CTRL_STS {
 
   MTL_FPE_CTRL_STS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_FPE_CTRL_STS &Instance() { return *reinterpret_cast<volatile MTL_FPE_CTRL_STS*>(0x4043CC90); }
+  static inline volatile MTL_FPE_CTRL_STS &ref() { return *reinterpret_cast<volatile MTL_FPE_CTRL_STS*>(0x4043CC90); }
 };
 
 // Frame Preemption Hold and Release Advance
@@ -14718,7 +14718,7 @@ union MTL_FPE_ADVANCE {
 
   MTL_FPE_ADVANCE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_FPE_ADVANCE &Instance() { return *reinterpret_cast<volatile MTL_FPE_ADVANCE*>(0x4043CC94); }
+  static inline volatile MTL_FPE_ADVANCE &ref() { return *reinterpret_cast<volatile MTL_FPE_ADVANCE*>(0x4043CC94); }
 };
 
 // RXP Control Status
@@ -14749,7 +14749,7 @@ union MTL_RXP_CONTROL_STATUS {
 
   MTL_RXP_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x80FF00FF; }
-  static inline volatile MTL_RXP_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile MTL_RXP_CONTROL_STATUS*>(0x4043CCA0); }
+  static inline volatile MTL_RXP_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile MTL_RXP_CONTROL_STATUS*>(0x4043CCA0); }
 };
 
 // RXP Interrupt Control Status
@@ -14846,7 +14846,7 @@ union MTL_RXP_INTERRUPT_CONTROL_STATUS {
 
   MTL_RXP_INTERRUPT_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXP_INTERRUPT_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile MTL_RXP_INTERRUPT_CONTROL_STATUS*>(0x4043CCA4); }
+  static inline volatile MTL_RXP_INTERRUPT_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile MTL_RXP_INTERRUPT_CONTROL_STATUS*>(0x4043CCA4); }
 };
 
 // RXP Drop Count
@@ -14873,7 +14873,7 @@ union MTL_RXP_DROP_CNT {
 
   MTL_RXP_DROP_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXP_DROP_CNT &Instance() { return *reinterpret_cast<volatile MTL_RXP_DROP_CNT*>(0x4043CCA8); }
+  static inline volatile MTL_RXP_DROP_CNT &ref() { return *reinterpret_cast<volatile MTL_RXP_DROP_CNT*>(0x4043CCA8); }
 };
 
 // RXP Error Count
@@ -14900,7 +14900,7 @@ union MTL_RXP_ERROR_CNT {
 
   MTL_RXP_ERROR_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXP_ERROR_CNT &Instance() { return *reinterpret_cast<volatile MTL_RXP_ERROR_CNT*>(0x4043CCAC); }
+  static inline volatile MTL_RXP_ERROR_CNT &ref() { return *reinterpret_cast<volatile MTL_RXP_ERROR_CNT*>(0x4043CCAC); }
 };
 
 // RXP Indirect Access Control and Status
@@ -14939,7 +14939,7 @@ union MTL_RXP_INDIRECT_ACC_CONTROL_STATUS {
 
   MTL_RXP_INDIRECT_ACC_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXP_INDIRECT_ACC_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile MTL_RXP_INDIRECT_ACC_CONTROL_STATUS*>(0x4043CCB0); }
+  static inline volatile MTL_RXP_INDIRECT_ACC_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile MTL_RXP_INDIRECT_ACC_CONTROL_STATUS*>(0x4043CCB0); }
 };
 
 // RXP Indirect Access Data
@@ -14956,7 +14956,7 @@ union MTL_RXP_INDIRECT_ACC_DATA {
 
   MTL_RXP_INDIRECT_ACC_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXP_INDIRECT_ACC_DATA &Instance() { return *reinterpret_cast<volatile MTL_RXP_INDIRECT_ACC_DATA*>(0x4043CCB4); }
+  static inline volatile MTL_RXP_INDIRECT_ACC_DATA &ref() { return *reinterpret_cast<volatile MTL_RXP_INDIRECT_ACC_DATA*>(0x4043CCB4); }
 };
 
 // Queue 0 Transmit Operation Mode
@@ -15029,7 +15029,7 @@ union MTL_TXQ0_OPERATION_MODE {
 
   MTL_TXQ0_OPERATION_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ0_OPERATION_MODE &Instance() { return *reinterpret_cast<volatile MTL_TXQ0_OPERATION_MODE*>(0x4043CD00); }
+  static inline volatile MTL_TXQ0_OPERATION_MODE &ref() { return *reinterpret_cast<volatile MTL_TXQ0_OPERATION_MODE*>(0x4043CD00); }
 };
 
 // Queue 0 Underflow Counter
@@ -15057,7 +15057,7 @@ union MTL_TXQ0_UNDERFLOW {
 
   MTL_TXQ0_UNDERFLOW() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ0_UNDERFLOW &Instance() { return *reinterpret_cast<volatile MTL_TXQ0_UNDERFLOW*>(0x4043CD04); }
+  static inline volatile MTL_TXQ0_UNDERFLOW &ref() { return *reinterpret_cast<volatile MTL_TXQ0_UNDERFLOW*>(0x4043CD04); }
 };
 
 // Queue 0 Transmit Debug
@@ -15133,7 +15133,7 @@ union MTL_TXQ0_DEBUG {
 
   MTL_TXQ0_DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ0_DEBUG &Instance() { return *reinterpret_cast<volatile MTL_TXQ0_DEBUG*>(0x4043CD08); }
+  static inline volatile MTL_TXQ0_DEBUG &ref() { return *reinterpret_cast<volatile MTL_TXQ0_DEBUG*>(0x4043CD08); }
 };
 
 // Queue 0 ETS Status
@@ -15151,7 +15151,7 @@ union MTL_TXQ0_ETS_STATUS {
 
   MTL_TXQ0_ETS_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ0_ETS_STATUS &Instance() { return *reinterpret_cast<volatile MTL_TXQ0_ETS_STATUS*>(0x4043CD14); }
+  static inline volatile MTL_TXQ0_ETS_STATUS &ref() { return *reinterpret_cast<volatile MTL_TXQ0_ETS_STATUS*>(0x4043CD14); }
 };
 
 // Queue 0 Quantum or Weights
@@ -15169,7 +15169,7 @@ union MTL_TXQ0_QUANTUM_WEIGHT {
 
   MTL_TXQ0_QUANTUM_WEIGHT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ0_QUANTUM_WEIGHT &Instance() { return *reinterpret_cast<volatile MTL_TXQ0_QUANTUM_WEIGHT*>(0x4043CD18); }
+  static inline volatile MTL_TXQ0_QUANTUM_WEIGHT &ref() { return *reinterpret_cast<volatile MTL_TXQ0_QUANTUM_WEIGHT*>(0x4043CD18); }
 };
 
 // Queue 0 Interrupt Control Status
@@ -15248,7 +15248,7 @@ union MTL_Q0_INTERRUPT_CONTROL_STATUS {
 
   MTL_Q0_INTERRUPT_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_Q0_INTERRUPT_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile MTL_Q0_INTERRUPT_CONTROL_STATUS*>(0x4043CD2C); }
+  static inline volatile MTL_Q0_INTERRUPT_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile MTL_Q0_INTERRUPT_CONTROL_STATUS*>(0x4043CD2C); }
 };
 
 // Queue 0 Receive Operation Mode
@@ -15337,7 +15337,7 @@ union MTL_RXQ0_OPERATION_MODE {
 
   MTL_RXQ0_OPERATION_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ0_OPERATION_MODE &Instance() { return *reinterpret_cast<volatile MTL_RXQ0_OPERATION_MODE*>(0x4043CD30); }
+  static inline volatile MTL_RXQ0_OPERATION_MODE &ref() { return *reinterpret_cast<volatile MTL_RXQ0_OPERATION_MODE*>(0x4043CD30); }
 };
 
 // Queue 0 Missed Packet and Overflow Counter
@@ -15378,7 +15378,7 @@ union MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT {
 
   MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT &Instance() { return *reinterpret_cast<volatile MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT*>(0x4043CD34); }
+  static inline volatile MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT &ref() { return *reinterpret_cast<volatile MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT*>(0x4043CD34); }
 };
 
 // Queue 0 Receive Debug
@@ -15436,7 +15436,7 @@ union MTL_RXQ0_DEBUG {
 
   MTL_RXQ0_DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ0_DEBUG &Instance() { return *reinterpret_cast<volatile MTL_RXQ0_DEBUG*>(0x4043CD38); }
+  static inline volatile MTL_RXQ0_DEBUG &ref() { return *reinterpret_cast<volatile MTL_RXQ0_DEBUG*>(0x4043CD38); }
 };
 
 // Queue 0 Receive Control
@@ -15464,7 +15464,7 @@ union MTL_RXQ0_CONTROL {
 
   MTL_RXQ0_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ0_CONTROL &Instance() { return *reinterpret_cast<volatile MTL_RXQ0_CONTROL*>(0x4043CD3C); }
+  static inline volatile MTL_RXQ0_CONTROL &ref() { return *reinterpret_cast<volatile MTL_RXQ0_CONTROL*>(0x4043CD3C); }
 };
 
 // Queue 1 Transmit Operation Mode
@@ -15537,7 +15537,7 @@ union MTL_TXQ1_OPERATION_MODE {
 
   MTL_TXQ1_OPERATION_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ1_OPERATION_MODE &Instance() { return *reinterpret_cast<volatile MTL_TXQ1_OPERATION_MODE*>(0x4043CD40); }
+  static inline volatile MTL_TXQ1_OPERATION_MODE &ref() { return *reinterpret_cast<volatile MTL_TXQ1_OPERATION_MODE*>(0x4043CD40); }
 };
 
 // Queue 1 Underflow Counter
@@ -15565,7 +15565,7 @@ union MTL_TXQ1_UNDERFLOW {
 
   MTL_TXQ1_UNDERFLOW() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ1_UNDERFLOW &Instance() { return *reinterpret_cast<volatile MTL_TXQ1_UNDERFLOW*>(0x4043CD44); }
+  static inline volatile MTL_TXQ1_UNDERFLOW &ref() { return *reinterpret_cast<volatile MTL_TXQ1_UNDERFLOW*>(0x4043CD44); }
 };
 
 // Queue 1 Transmit Debug
@@ -15641,7 +15641,7 @@ union MTL_TXQ1_DEBUG {
 
   MTL_TXQ1_DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ1_DEBUG &Instance() { return *reinterpret_cast<volatile MTL_TXQ1_DEBUG*>(0x4043CD48); }
+  static inline volatile MTL_TXQ1_DEBUG &ref() { return *reinterpret_cast<volatile MTL_TXQ1_DEBUG*>(0x4043CD48); }
 };
 
 // Queue 1 ETS Control
@@ -15694,7 +15694,7 @@ union MTL_TXQ1_ETS_CONTROL {
 
   MTL_TXQ1_ETS_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ1_ETS_CONTROL &Instance() { return *reinterpret_cast<volatile MTL_TXQ1_ETS_CONTROL*>(0x4043CD50); }
+  static inline volatile MTL_TXQ1_ETS_CONTROL &ref() { return *reinterpret_cast<volatile MTL_TXQ1_ETS_CONTROL*>(0x4043CD50); }
 };
 
 // Queue 1 ETS Status
@@ -15712,7 +15712,7 @@ union MTL_TXQ1_ETS_STATUS {
 
   MTL_TXQ1_ETS_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ1_ETS_STATUS &Instance() { return *reinterpret_cast<volatile MTL_TXQ1_ETS_STATUS*>(0x4043CD54); }
+  static inline volatile MTL_TXQ1_ETS_STATUS &ref() { return *reinterpret_cast<volatile MTL_TXQ1_ETS_STATUS*>(0x4043CD54); }
 };
 
 // Queue 1 idleSlopeCredit, Quantum or Weights
@@ -15730,7 +15730,7 @@ union MTL_TXQ1_QUANTUM_WEIGHT {
 
   MTL_TXQ1_QUANTUM_WEIGHT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ1_QUANTUM_WEIGHT &Instance() { return *reinterpret_cast<volatile MTL_TXQ1_QUANTUM_WEIGHT*>(0x4043CD58); }
+  static inline volatile MTL_TXQ1_QUANTUM_WEIGHT &ref() { return *reinterpret_cast<volatile MTL_TXQ1_QUANTUM_WEIGHT*>(0x4043CD58); }
 };
 
 // Queue 1 sendSlopeCredit
@@ -15748,7 +15748,7 @@ union MTL_TXQ1_SENDSLOPECREDIT {
 
   MTL_TXQ1_SENDSLOPECREDIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ1_SENDSLOPECREDIT &Instance() { return *reinterpret_cast<volatile MTL_TXQ1_SENDSLOPECREDIT*>(0x4043CD5C); }
+  static inline volatile MTL_TXQ1_SENDSLOPECREDIT &ref() { return *reinterpret_cast<volatile MTL_TXQ1_SENDSLOPECREDIT*>(0x4043CD5C); }
 };
 
 // Queue 1 hiCredit
@@ -15766,7 +15766,7 @@ union MTL_TXQ1_HICREDIT {
 
   MTL_TXQ1_HICREDIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ1_HICREDIT &Instance() { return *reinterpret_cast<volatile MTL_TXQ1_HICREDIT*>(0x4043CD60); }
+  static inline volatile MTL_TXQ1_HICREDIT &ref() { return *reinterpret_cast<volatile MTL_TXQ1_HICREDIT*>(0x4043CD60); }
 };
 
 // Queue 1 loCredit
@@ -15784,7 +15784,7 @@ union MTL_TXQ1_LOCREDIT {
 
   MTL_TXQ1_LOCREDIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ1_LOCREDIT &Instance() { return *reinterpret_cast<volatile MTL_TXQ1_LOCREDIT*>(0x4043CD64); }
+  static inline volatile MTL_TXQ1_LOCREDIT &ref() { return *reinterpret_cast<volatile MTL_TXQ1_LOCREDIT*>(0x4043CD64); }
 };
 
 // Queue 1 Interrupt Control Status
@@ -15863,7 +15863,7 @@ union MTL_Q1_INTERRUPT_CONTROL_STATUS {
 
   MTL_Q1_INTERRUPT_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_Q1_INTERRUPT_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile MTL_Q1_INTERRUPT_CONTROL_STATUS*>(0x4043CD6C); }
+  static inline volatile MTL_Q1_INTERRUPT_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile MTL_Q1_INTERRUPT_CONTROL_STATUS*>(0x4043CD6C); }
 };
 
 // Queue 1 Receive Operation Mode
@@ -15952,7 +15952,7 @@ union MTL_RXQ1_OPERATION_MODE {
 
   MTL_RXQ1_OPERATION_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ1_OPERATION_MODE &Instance() { return *reinterpret_cast<volatile MTL_RXQ1_OPERATION_MODE*>(0x4043CD70); }
+  static inline volatile MTL_RXQ1_OPERATION_MODE &ref() { return *reinterpret_cast<volatile MTL_RXQ1_OPERATION_MODE*>(0x4043CD70); }
 };
 
 // Queue 1 Missed Packet and Overflow Counter
@@ -15993,7 +15993,7 @@ union MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT {
 
   MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT &Instance() { return *reinterpret_cast<volatile MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT*>(0x4043CD74); }
+  static inline volatile MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT &ref() { return *reinterpret_cast<volatile MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT*>(0x4043CD74); }
 };
 
 // Queue 1 Receive Debug
@@ -16051,7 +16051,7 @@ union MTL_RXQ1_DEBUG {
 
   MTL_RXQ1_DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ1_DEBUG &Instance() { return *reinterpret_cast<volatile MTL_RXQ1_DEBUG*>(0x4043CD78); }
+  static inline volatile MTL_RXQ1_DEBUG &ref() { return *reinterpret_cast<volatile MTL_RXQ1_DEBUG*>(0x4043CD78); }
 };
 
 // Queue 1 Receive Control
@@ -16079,7 +16079,7 @@ union MTL_RXQ1_CONTROL {
 
   MTL_RXQ1_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ1_CONTROL &Instance() { return *reinterpret_cast<volatile MTL_RXQ1_CONTROL*>(0x4043CD7C); }
+  static inline volatile MTL_RXQ1_CONTROL &ref() { return *reinterpret_cast<volatile MTL_RXQ1_CONTROL*>(0x4043CD7C); }
 };
 
 // Queue 2 Transmit Operation Mode
@@ -16152,7 +16152,7 @@ union MTL_TXQ2_OPERATION_MODE {
 
   MTL_TXQ2_OPERATION_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ2_OPERATION_MODE &Instance() { return *reinterpret_cast<volatile MTL_TXQ2_OPERATION_MODE*>(0x4043CD80); }
+  static inline volatile MTL_TXQ2_OPERATION_MODE &ref() { return *reinterpret_cast<volatile MTL_TXQ2_OPERATION_MODE*>(0x4043CD80); }
 };
 
 // Queue 2 Underflow Counter
@@ -16180,7 +16180,7 @@ union MTL_TXQ2_UNDERFLOW {
 
   MTL_TXQ2_UNDERFLOW() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ2_UNDERFLOW &Instance() { return *reinterpret_cast<volatile MTL_TXQ2_UNDERFLOW*>(0x4043CD84); }
+  static inline volatile MTL_TXQ2_UNDERFLOW &ref() { return *reinterpret_cast<volatile MTL_TXQ2_UNDERFLOW*>(0x4043CD84); }
 };
 
 // Queue 2 Transmit Debug
@@ -16256,7 +16256,7 @@ union MTL_TXQ2_DEBUG {
 
   MTL_TXQ2_DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ2_DEBUG &Instance() { return *reinterpret_cast<volatile MTL_TXQ2_DEBUG*>(0x4043CD88); }
+  static inline volatile MTL_TXQ2_DEBUG &ref() { return *reinterpret_cast<volatile MTL_TXQ2_DEBUG*>(0x4043CD88); }
 };
 
 // Queue 2 ETS Control
@@ -16309,7 +16309,7 @@ union MTL_TXQ2_ETS_CONTROL {
 
   MTL_TXQ2_ETS_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ2_ETS_CONTROL &Instance() { return *reinterpret_cast<volatile MTL_TXQ2_ETS_CONTROL*>(0x4043CD90); }
+  static inline volatile MTL_TXQ2_ETS_CONTROL &ref() { return *reinterpret_cast<volatile MTL_TXQ2_ETS_CONTROL*>(0x4043CD90); }
 };
 
 // Queue 2 ETS Status
@@ -16327,7 +16327,7 @@ union MTL_TXQ2_ETS_STATUS {
 
   MTL_TXQ2_ETS_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ2_ETS_STATUS &Instance() { return *reinterpret_cast<volatile MTL_TXQ2_ETS_STATUS*>(0x4043CD94); }
+  static inline volatile MTL_TXQ2_ETS_STATUS &ref() { return *reinterpret_cast<volatile MTL_TXQ2_ETS_STATUS*>(0x4043CD94); }
 };
 
 // Queue 2 idleSlopeCredit, Quantum or Weights
@@ -16345,7 +16345,7 @@ union MTL_TXQ2_QUANTUM_WEIGHT {
 
   MTL_TXQ2_QUANTUM_WEIGHT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ2_QUANTUM_WEIGHT &Instance() { return *reinterpret_cast<volatile MTL_TXQ2_QUANTUM_WEIGHT*>(0x4043CD98); }
+  static inline volatile MTL_TXQ2_QUANTUM_WEIGHT &ref() { return *reinterpret_cast<volatile MTL_TXQ2_QUANTUM_WEIGHT*>(0x4043CD98); }
 };
 
 // Queue 2 sendSlopeCredit
@@ -16363,7 +16363,7 @@ union MTL_TXQ2_SENDSLOPECREDIT {
 
   MTL_TXQ2_SENDSLOPECREDIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ2_SENDSLOPECREDIT &Instance() { return *reinterpret_cast<volatile MTL_TXQ2_SENDSLOPECREDIT*>(0x4043CD9C); }
+  static inline volatile MTL_TXQ2_SENDSLOPECREDIT &ref() { return *reinterpret_cast<volatile MTL_TXQ2_SENDSLOPECREDIT*>(0x4043CD9C); }
 };
 
 // Queue 2 hiCredit
@@ -16381,7 +16381,7 @@ union MTL_TXQ2_HICREDIT {
 
   MTL_TXQ2_HICREDIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ2_HICREDIT &Instance() { return *reinterpret_cast<volatile MTL_TXQ2_HICREDIT*>(0x4043CDA0); }
+  static inline volatile MTL_TXQ2_HICREDIT &ref() { return *reinterpret_cast<volatile MTL_TXQ2_HICREDIT*>(0x4043CDA0); }
 };
 
 // Queue 2 loCredit
@@ -16399,7 +16399,7 @@ union MTL_TXQ2_LOCREDIT {
 
   MTL_TXQ2_LOCREDIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ2_LOCREDIT &Instance() { return *reinterpret_cast<volatile MTL_TXQ2_LOCREDIT*>(0x4043CDA4); }
+  static inline volatile MTL_TXQ2_LOCREDIT &ref() { return *reinterpret_cast<volatile MTL_TXQ2_LOCREDIT*>(0x4043CDA4); }
 };
 
 // Queue 2 Interrupt Control Status
@@ -16478,7 +16478,7 @@ union MTL_Q2_INTERRUPT_CONTROL_STATUS {
 
   MTL_Q2_INTERRUPT_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_Q2_INTERRUPT_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile MTL_Q2_INTERRUPT_CONTROL_STATUS*>(0x4043CDAC); }
+  static inline volatile MTL_Q2_INTERRUPT_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile MTL_Q2_INTERRUPT_CONTROL_STATUS*>(0x4043CDAC); }
 };
 
 // Queue 2 Receive Operation Mode
@@ -16567,7 +16567,7 @@ union MTL_RXQ2_OPERATION_MODE {
 
   MTL_RXQ2_OPERATION_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ2_OPERATION_MODE &Instance() { return *reinterpret_cast<volatile MTL_RXQ2_OPERATION_MODE*>(0x4043CDB0); }
+  static inline volatile MTL_RXQ2_OPERATION_MODE &ref() { return *reinterpret_cast<volatile MTL_RXQ2_OPERATION_MODE*>(0x4043CDB0); }
 };
 
 // Queue 2 Missed Packet and Overflow Counter
@@ -16608,7 +16608,7 @@ union MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT {
 
   MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT &Instance() { return *reinterpret_cast<volatile MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT*>(0x4043CDB4); }
+  static inline volatile MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT &ref() { return *reinterpret_cast<volatile MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT*>(0x4043CDB4); }
 };
 
 // Queue 2 Receive Debug
@@ -16666,7 +16666,7 @@ union MTL_RXQ2_DEBUG {
 
   MTL_RXQ2_DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ2_DEBUG &Instance() { return *reinterpret_cast<volatile MTL_RXQ2_DEBUG*>(0x4043CDB8); }
+  static inline volatile MTL_RXQ2_DEBUG &ref() { return *reinterpret_cast<volatile MTL_RXQ2_DEBUG*>(0x4043CDB8); }
 };
 
 // Queue 2 Receive Control
@@ -16694,7 +16694,7 @@ union MTL_RXQ2_CONTROL {
 
   MTL_RXQ2_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ2_CONTROL &Instance() { return *reinterpret_cast<volatile MTL_RXQ2_CONTROL*>(0x4043CDBC); }
+  static inline volatile MTL_RXQ2_CONTROL &ref() { return *reinterpret_cast<volatile MTL_RXQ2_CONTROL*>(0x4043CDBC); }
 };
 
 // Queue 3 Transmit Operation Mode
@@ -16767,7 +16767,7 @@ union MTL_TXQ3_OPERATION_MODE {
 
   MTL_TXQ3_OPERATION_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ3_OPERATION_MODE &Instance() { return *reinterpret_cast<volatile MTL_TXQ3_OPERATION_MODE*>(0x4043CDC0); }
+  static inline volatile MTL_TXQ3_OPERATION_MODE &ref() { return *reinterpret_cast<volatile MTL_TXQ3_OPERATION_MODE*>(0x4043CDC0); }
 };
 
 // Queue 3 Underflow Counter
@@ -16795,7 +16795,7 @@ union MTL_TXQ3_UNDERFLOW {
 
   MTL_TXQ3_UNDERFLOW() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ3_UNDERFLOW &Instance() { return *reinterpret_cast<volatile MTL_TXQ3_UNDERFLOW*>(0x4043CDC4); }
+  static inline volatile MTL_TXQ3_UNDERFLOW &ref() { return *reinterpret_cast<volatile MTL_TXQ3_UNDERFLOW*>(0x4043CDC4); }
 };
 
 // Queue 3 Transmit Debug
@@ -16871,7 +16871,7 @@ union MTL_TXQ3_DEBUG {
 
   MTL_TXQ3_DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ3_DEBUG &Instance() { return *reinterpret_cast<volatile MTL_TXQ3_DEBUG*>(0x4043CDC8); }
+  static inline volatile MTL_TXQ3_DEBUG &ref() { return *reinterpret_cast<volatile MTL_TXQ3_DEBUG*>(0x4043CDC8); }
 };
 
 // Queue 3 ETS Control
@@ -16924,7 +16924,7 @@ union MTL_TXQ3_ETS_CONTROL {
 
   MTL_TXQ3_ETS_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ3_ETS_CONTROL &Instance() { return *reinterpret_cast<volatile MTL_TXQ3_ETS_CONTROL*>(0x4043CDD0); }
+  static inline volatile MTL_TXQ3_ETS_CONTROL &ref() { return *reinterpret_cast<volatile MTL_TXQ3_ETS_CONTROL*>(0x4043CDD0); }
 };
 
 // Queue 3 ETS Status
@@ -16942,7 +16942,7 @@ union MTL_TXQ3_ETS_STATUS {
 
   MTL_TXQ3_ETS_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ3_ETS_STATUS &Instance() { return *reinterpret_cast<volatile MTL_TXQ3_ETS_STATUS*>(0x4043CDD4); }
+  static inline volatile MTL_TXQ3_ETS_STATUS &ref() { return *reinterpret_cast<volatile MTL_TXQ3_ETS_STATUS*>(0x4043CDD4); }
 };
 
 // Queue 3 idleSlopeCredit, Quantum or Weights
@@ -16960,7 +16960,7 @@ union MTL_TXQ3_QUANTUM_WEIGHT {
 
   MTL_TXQ3_QUANTUM_WEIGHT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ3_QUANTUM_WEIGHT &Instance() { return *reinterpret_cast<volatile MTL_TXQ3_QUANTUM_WEIGHT*>(0x4043CDD8); }
+  static inline volatile MTL_TXQ3_QUANTUM_WEIGHT &ref() { return *reinterpret_cast<volatile MTL_TXQ3_QUANTUM_WEIGHT*>(0x4043CDD8); }
 };
 
 // Queue 3 sendSlopeCredit
@@ -16978,7 +16978,7 @@ union MTL_TXQ3_SENDSLOPECREDIT {
 
   MTL_TXQ3_SENDSLOPECREDIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ3_SENDSLOPECREDIT &Instance() { return *reinterpret_cast<volatile MTL_TXQ3_SENDSLOPECREDIT*>(0x4043CDDC); }
+  static inline volatile MTL_TXQ3_SENDSLOPECREDIT &ref() { return *reinterpret_cast<volatile MTL_TXQ3_SENDSLOPECREDIT*>(0x4043CDDC); }
 };
 
 // Queue 3 hiCredit
@@ -16996,7 +16996,7 @@ union MTL_TXQ3_HICREDIT {
 
   MTL_TXQ3_HICREDIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ3_HICREDIT &Instance() { return *reinterpret_cast<volatile MTL_TXQ3_HICREDIT*>(0x4043CDE0); }
+  static inline volatile MTL_TXQ3_HICREDIT &ref() { return *reinterpret_cast<volatile MTL_TXQ3_HICREDIT*>(0x4043CDE0); }
 };
 
 // Queue 3 loCredit
@@ -17014,7 +17014,7 @@ union MTL_TXQ3_LOCREDIT {
 
   MTL_TXQ3_LOCREDIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ3_LOCREDIT &Instance() { return *reinterpret_cast<volatile MTL_TXQ3_LOCREDIT*>(0x4043CDE4); }
+  static inline volatile MTL_TXQ3_LOCREDIT &ref() { return *reinterpret_cast<volatile MTL_TXQ3_LOCREDIT*>(0x4043CDE4); }
 };
 
 // Queue 3 Interrupt Control Status
@@ -17093,7 +17093,7 @@ union MTL_Q3_INTERRUPT_CONTROL_STATUS {
 
   MTL_Q3_INTERRUPT_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_Q3_INTERRUPT_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile MTL_Q3_INTERRUPT_CONTROL_STATUS*>(0x4043CDEC); }
+  static inline volatile MTL_Q3_INTERRUPT_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile MTL_Q3_INTERRUPT_CONTROL_STATUS*>(0x4043CDEC); }
 };
 
 // Queue 3 Receive Operation Mode
@@ -17182,7 +17182,7 @@ union MTL_RXQ3_OPERATION_MODE {
 
   MTL_RXQ3_OPERATION_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ3_OPERATION_MODE &Instance() { return *reinterpret_cast<volatile MTL_RXQ3_OPERATION_MODE*>(0x4043CDF0); }
+  static inline volatile MTL_RXQ3_OPERATION_MODE &ref() { return *reinterpret_cast<volatile MTL_RXQ3_OPERATION_MODE*>(0x4043CDF0); }
 };
 
 // Queue 3 Missed Packet and Overflow Counter
@@ -17223,7 +17223,7 @@ union MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT {
 
   MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT &Instance() { return *reinterpret_cast<volatile MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT*>(0x4043CDF4); }
+  static inline volatile MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT &ref() { return *reinterpret_cast<volatile MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT*>(0x4043CDF4); }
 };
 
 // Queue 3 Receive Debug
@@ -17281,7 +17281,7 @@ union MTL_RXQ3_DEBUG {
 
   MTL_RXQ3_DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ3_DEBUG &Instance() { return *reinterpret_cast<volatile MTL_RXQ3_DEBUG*>(0x4043CDF8); }
+  static inline volatile MTL_RXQ3_DEBUG &ref() { return *reinterpret_cast<volatile MTL_RXQ3_DEBUG*>(0x4043CDF8); }
 };
 
 // Queue 3 Receive Control
@@ -17309,7 +17309,7 @@ union MTL_RXQ3_CONTROL {
 
   MTL_RXQ3_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ3_CONTROL &Instance() { return *reinterpret_cast<volatile MTL_RXQ3_CONTROL*>(0x4043CDFC); }
+  static inline volatile MTL_RXQ3_CONTROL &ref() { return *reinterpret_cast<volatile MTL_RXQ3_CONTROL*>(0x4043CDFC); }
 };
 
 // Queue 4 Transmit Operation Mode
@@ -17382,7 +17382,7 @@ union MTL_TXQ4_OPERATION_MODE {
 
   MTL_TXQ4_OPERATION_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ4_OPERATION_MODE &Instance() { return *reinterpret_cast<volatile MTL_TXQ4_OPERATION_MODE*>(0x4043CE00); }
+  static inline volatile MTL_TXQ4_OPERATION_MODE &ref() { return *reinterpret_cast<volatile MTL_TXQ4_OPERATION_MODE*>(0x4043CE00); }
 };
 
 // Queue 4 Underflow Counter
@@ -17410,7 +17410,7 @@ union MTL_TXQ4_UNDERFLOW {
 
   MTL_TXQ4_UNDERFLOW() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ4_UNDERFLOW &Instance() { return *reinterpret_cast<volatile MTL_TXQ4_UNDERFLOW*>(0x4043CE04); }
+  static inline volatile MTL_TXQ4_UNDERFLOW &ref() { return *reinterpret_cast<volatile MTL_TXQ4_UNDERFLOW*>(0x4043CE04); }
 };
 
 // Queue 4 Transmit Debug
@@ -17486,7 +17486,7 @@ union MTL_TXQ4_DEBUG {
 
   MTL_TXQ4_DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ4_DEBUG &Instance() { return *reinterpret_cast<volatile MTL_TXQ4_DEBUG*>(0x4043CE08); }
+  static inline volatile MTL_TXQ4_DEBUG &ref() { return *reinterpret_cast<volatile MTL_TXQ4_DEBUG*>(0x4043CE08); }
 };
 
 // Queue 4 ETS Control
@@ -17539,7 +17539,7 @@ union MTL_TXQ4_ETS_CONTROL {
 
   MTL_TXQ4_ETS_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ4_ETS_CONTROL &Instance() { return *reinterpret_cast<volatile MTL_TXQ4_ETS_CONTROL*>(0x4043CE10); }
+  static inline volatile MTL_TXQ4_ETS_CONTROL &ref() { return *reinterpret_cast<volatile MTL_TXQ4_ETS_CONTROL*>(0x4043CE10); }
 };
 
 // Queue 4 ETS Status
@@ -17557,7 +17557,7 @@ union MTL_TXQ4_ETS_STATUS {
 
   MTL_TXQ4_ETS_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ4_ETS_STATUS &Instance() { return *reinterpret_cast<volatile MTL_TXQ4_ETS_STATUS*>(0x4043CE14); }
+  static inline volatile MTL_TXQ4_ETS_STATUS &ref() { return *reinterpret_cast<volatile MTL_TXQ4_ETS_STATUS*>(0x4043CE14); }
 };
 
 // Queue 4 idleSlopeCredit, Quantum or Weights
@@ -17575,7 +17575,7 @@ union MTL_TXQ4_QUANTUM_WEIGHT {
 
   MTL_TXQ4_QUANTUM_WEIGHT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ4_QUANTUM_WEIGHT &Instance() { return *reinterpret_cast<volatile MTL_TXQ4_QUANTUM_WEIGHT*>(0x4043CE18); }
+  static inline volatile MTL_TXQ4_QUANTUM_WEIGHT &ref() { return *reinterpret_cast<volatile MTL_TXQ4_QUANTUM_WEIGHT*>(0x4043CE18); }
 };
 
 // Queue 4 sendSlopeCredit
@@ -17593,7 +17593,7 @@ union MTL_TXQ4_SENDSLOPECREDIT {
 
   MTL_TXQ4_SENDSLOPECREDIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ4_SENDSLOPECREDIT &Instance() { return *reinterpret_cast<volatile MTL_TXQ4_SENDSLOPECREDIT*>(0x4043CE1C); }
+  static inline volatile MTL_TXQ4_SENDSLOPECREDIT &ref() { return *reinterpret_cast<volatile MTL_TXQ4_SENDSLOPECREDIT*>(0x4043CE1C); }
 };
 
 // Queue 4 hiCredit
@@ -17611,7 +17611,7 @@ union MTL_TXQ4_HICREDIT {
 
   MTL_TXQ4_HICREDIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ4_HICREDIT &Instance() { return *reinterpret_cast<volatile MTL_TXQ4_HICREDIT*>(0x4043CE20); }
+  static inline volatile MTL_TXQ4_HICREDIT &ref() { return *reinterpret_cast<volatile MTL_TXQ4_HICREDIT*>(0x4043CE20); }
 };
 
 // Queue 4 loCredit
@@ -17629,7 +17629,7 @@ union MTL_TXQ4_LOCREDIT {
 
   MTL_TXQ4_LOCREDIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_TXQ4_LOCREDIT &Instance() { return *reinterpret_cast<volatile MTL_TXQ4_LOCREDIT*>(0x4043CE24); }
+  static inline volatile MTL_TXQ4_LOCREDIT &ref() { return *reinterpret_cast<volatile MTL_TXQ4_LOCREDIT*>(0x4043CE24); }
 };
 
 // Queue 4 Interrupt Control Status
@@ -17708,7 +17708,7 @@ union MTL_Q4_INTERRUPT_CONTROL_STATUS {
 
   MTL_Q4_INTERRUPT_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_Q4_INTERRUPT_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile MTL_Q4_INTERRUPT_CONTROL_STATUS*>(0x4043CE2C); }
+  static inline volatile MTL_Q4_INTERRUPT_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile MTL_Q4_INTERRUPT_CONTROL_STATUS*>(0x4043CE2C); }
 };
 
 // Queue 4 Receive Operation Mode
@@ -17797,7 +17797,7 @@ union MTL_RXQ4_OPERATION_MODE {
 
   MTL_RXQ4_OPERATION_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ4_OPERATION_MODE &Instance() { return *reinterpret_cast<volatile MTL_RXQ4_OPERATION_MODE*>(0x4043CE30); }
+  static inline volatile MTL_RXQ4_OPERATION_MODE &ref() { return *reinterpret_cast<volatile MTL_RXQ4_OPERATION_MODE*>(0x4043CE30); }
 };
 
 // Queue 4 Missed Packet and Overflow Counter
@@ -17838,7 +17838,7 @@ union MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT {
 
   MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT &Instance() { return *reinterpret_cast<volatile MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT*>(0x4043CE34); }
+  static inline volatile MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT &ref() { return *reinterpret_cast<volatile MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT*>(0x4043CE34); }
 };
 
 // Queue 4 Receive Debug
@@ -17896,7 +17896,7 @@ union MTL_RXQ4_DEBUG {
 
   MTL_RXQ4_DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ4_DEBUG &Instance() { return *reinterpret_cast<volatile MTL_RXQ4_DEBUG*>(0x4043CE38); }
+  static inline volatile MTL_RXQ4_DEBUG &ref() { return *reinterpret_cast<volatile MTL_RXQ4_DEBUG*>(0x4043CE38); }
 };
 
 // Queue 4 Receive Control
@@ -17924,7 +17924,7 @@ union MTL_RXQ4_CONTROL {
 
   MTL_RXQ4_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTL_RXQ4_CONTROL &Instance() { return *reinterpret_cast<volatile MTL_RXQ4_CONTROL*>(0x4043CE3C); }
+  static inline volatile MTL_RXQ4_CONTROL &ref() { return *reinterpret_cast<volatile MTL_RXQ4_CONTROL*>(0x4043CE3C); }
 };
 
 // DMA Bus Mode
@@ -17974,7 +17974,7 @@ union DMA_MODE {
 
   DMA_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_MODE &Instance() { return *reinterpret_cast<volatile DMA_MODE*>(0x4043D000); }
+  static inline volatile DMA_MODE &ref() { return *reinterpret_cast<volatile DMA_MODE*>(0x4043D000); }
 };
 
 // DMA System Bus Mode
@@ -18088,7 +18088,7 @@ union DMA_SYSBUS_MODE {
 
   DMA_SYSBUS_MODE() = delete;
   inline void Reset() volatile { this->value = 0x01010000; }
-  static inline volatile DMA_SYSBUS_MODE &Instance() { return *reinterpret_cast<volatile DMA_SYSBUS_MODE*>(0x4043D004); }
+  static inline volatile DMA_SYSBUS_MODE &ref() { return *reinterpret_cast<volatile DMA_SYSBUS_MODE*>(0x4043D004); }
 };
 
 // DMA Interrupt Status
@@ -18175,7 +18175,7 @@ union DMA_INTERRUPT_STATUS {
 
   DMA_INTERRUPT_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_INTERRUPT_STATUS &Instance() { return *reinterpret_cast<volatile DMA_INTERRUPT_STATUS*>(0x4043D008); }
+  static inline volatile DMA_INTERRUPT_STATUS &ref() { return *reinterpret_cast<volatile DMA_INTERRUPT_STATUS*>(0x4043D008); }
 };
 
 // DMA Debug Status 0
@@ -18331,7 +18331,7 @@ union DMA_DEBUG_STATUS0 {
 
   DMA_DEBUG_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_DEBUG_STATUS0 &Instance() { return *reinterpret_cast<volatile DMA_DEBUG_STATUS0*>(0x4043D00C); }
+  static inline volatile DMA_DEBUG_STATUS0 &ref() { return *reinterpret_cast<volatile DMA_DEBUG_STATUS0*>(0x4043D00C); }
 };
 
 // DMA Debug Status 1
@@ -18427,7 +18427,7 @@ union DMA_DEBUG_STATUS1 {
 
   DMA_DEBUG_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_DEBUG_STATUS1 &Instance() { return *reinterpret_cast<volatile DMA_DEBUG_STATUS1*>(0x4043D010); }
+  static inline volatile DMA_DEBUG_STATUS1 &ref() { return *reinterpret_cast<volatile DMA_DEBUG_STATUS1*>(0x4043D010); }
 };
 
 // AXI LPI Entry Interval Control
@@ -18445,7 +18445,7 @@ union DMA_AXI_LPI_ENTRY_INTERVAL {
 
   DMA_AXI_LPI_ENTRY_INTERVAL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_AXI_LPI_ENTRY_INTERVAL &Instance() { return *reinterpret_cast<volatile DMA_AXI_LPI_ENTRY_INTERVAL*>(0x4043D040); }
+  static inline volatile DMA_AXI_LPI_ENTRY_INTERVAL &ref() { return *reinterpret_cast<volatile DMA_AXI_LPI_ENTRY_INTERVAL*>(0x4043D040); }
 };
 
 // TBS Control
@@ -18476,7 +18476,7 @@ union DMA_TBS_CTRL {
 
   DMA_TBS_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_TBS_CTRL &Instance() { return *reinterpret_cast<volatile DMA_TBS_CTRL*>(0x4043D050); }
+  static inline volatile DMA_TBS_CTRL &ref() { return *reinterpret_cast<volatile DMA_TBS_CTRL*>(0x4043D050); }
 };
 
 // DMA Channel 0 Control
@@ -18506,7 +18506,7 @@ union DMA_CH0_CONTROL {
 
   DMA_CH0_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH0_CONTROL*>(0x4043D100); }
+  static inline volatile DMA_CH0_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH0_CONTROL*>(0x4043D100); }
 };
 
 // DMA Channel 0 Transmit Control
@@ -18567,7 +18567,7 @@ union DMA_CH0_TX_CONTROL {
 
   DMA_CH0_TX_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_TX_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH0_TX_CONTROL*>(0x4043D104); }
+  static inline volatile DMA_CH0_TX_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH0_TX_CONTROL*>(0x4043D104); }
 };
 
 // DMA Channel 0 Receive Control
@@ -18610,7 +18610,7 @@ union DMA_CH0_RX_CONTROL {
 
   DMA_CH0_RX_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_RX_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH0_RX_CONTROL*>(0x4043D108); }
+  static inline volatile DMA_CH0_RX_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH0_RX_CONTROL*>(0x4043D108); }
 };
 
 // Channel 0 Tx Descriptor List Address register
@@ -18628,7 +18628,7 @@ union DMA_CH0_TXDESC_LIST_ADDRESS {
 
   DMA_CH0_TXDESC_LIST_ADDRESS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_TXDESC_LIST_ADDRESS &Instance() { return *reinterpret_cast<volatile DMA_CH0_TXDESC_LIST_ADDRESS*>(0x4043D114); }
+  static inline volatile DMA_CH0_TXDESC_LIST_ADDRESS &ref() { return *reinterpret_cast<volatile DMA_CH0_TXDESC_LIST_ADDRESS*>(0x4043D114); }
 };
 
 // Channel 0 Rx Descriptor List Address register
@@ -18646,7 +18646,7 @@ union DMA_CH0_RXDESC_LIST_ADDRESS {
 
   DMA_CH0_RXDESC_LIST_ADDRESS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_RXDESC_LIST_ADDRESS &Instance() { return *reinterpret_cast<volatile DMA_CH0_RXDESC_LIST_ADDRESS*>(0x4043D11C); }
+  static inline volatile DMA_CH0_RXDESC_LIST_ADDRESS &ref() { return *reinterpret_cast<volatile DMA_CH0_RXDESC_LIST_ADDRESS*>(0x4043D11C); }
 };
 
 // Channel 0 Tx Descriptor Tail Pointer
@@ -18664,7 +18664,7 @@ union DMA_CH0_TXDESC_TAIL_POINTER {
 
   DMA_CH0_TXDESC_TAIL_POINTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_TXDESC_TAIL_POINTER &Instance() { return *reinterpret_cast<volatile DMA_CH0_TXDESC_TAIL_POINTER*>(0x4043D120); }
+  static inline volatile DMA_CH0_TXDESC_TAIL_POINTER &ref() { return *reinterpret_cast<volatile DMA_CH0_TXDESC_TAIL_POINTER*>(0x4043D120); }
 };
 
 // Channel 0 Rx Descriptor Tail Pointer
@@ -18682,7 +18682,7 @@ union DMA_CH0_RXDESC_TAIL_POINTER {
 
   DMA_CH0_RXDESC_TAIL_POINTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_RXDESC_TAIL_POINTER &Instance() { return *reinterpret_cast<volatile DMA_CH0_RXDESC_TAIL_POINTER*>(0x4043D128); }
+  static inline volatile DMA_CH0_RXDESC_TAIL_POINTER &ref() { return *reinterpret_cast<volatile DMA_CH0_RXDESC_TAIL_POINTER*>(0x4043D128); }
 };
 
 // Channel 0 Tx Descriptor Ring Length
@@ -18700,7 +18700,7 @@ union DMA_CH0_TXDESC_RING_LENGTH {
 
   DMA_CH0_TXDESC_RING_LENGTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_TXDESC_RING_LENGTH &Instance() { return *reinterpret_cast<volatile DMA_CH0_TXDESC_RING_LENGTH*>(0x4043D12C); }
+  static inline volatile DMA_CH0_TXDESC_RING_LENGTH &ref() { return *reinterpret_cast<volatile DMA_CH0_TXDESC_RING_LENGTH*>(0x4043D12C); }
 };
 
 // Channel 0 Rx Descriptor Ring Length
@@ -18718,7 +18718,7 @@ union DMA_CH0_RXDESC_RING_LENGTH {
 
   DMA_CH0_RXDESC_RING_LENGTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_RXDESC_RING_LENGTH &Instance() { return *reinterpret_cast<volatile DMA_CH0_RXDESC_RING_LENGTH*>(0x4043D130); }
+  static inline volatile DMA_CH0_RXDESC_RING_LENGTH &ref() { return *reinterpret_cast<volatile DMA_CH0_RXDESC_RING_LENGTH*>(0x4043D130); }
 };
 
 // Channel 0 Interrupt Enable
@@ -18865,7 +18865,7 @@ union DMA_CH0_INTERRUPT_ENABLE {
 
   DMA_CH0_INTERRUPT_ENABLE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_INTERRUPT_ENABLE &Instance() { return *reinterpret_cast<volatile DMA_CH0_INTERRUPT_ENABLE*>(0x4043D134); }
+  static inline volatile DMA_CH0_INTERRUPT_ENABLE &ref() { return *reinterpret_cast<volatile DMA_CH0_INTERRUPT_ENABLE*>(0x4043D134); }
 };
 
 // Channel 0 Receive Interrupt Watchdog Timer
@@ -18886,7 +18886,7 @@ union DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER {
 
   DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER &Instance() { return *reinterpret_cast<volatile DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER*>(0x4043D138); }
+  static inline volatile DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER &ref() { return *reinterpret_cast<volatile DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER*>(0x4043D138); }
 };
 
 // Channel 0 Slot Function Control and Status
@@ -18927,7 +18927,7 @@ union DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS {
 
   DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x000007C0; }
-  static inline volatile DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS*>(0x4043D13C); }
+  static inline volatile DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS*>(0x4043D13C); }
 };
 
 // Channel 0 Current Application Transmit Descriptor
@@ -18944,7 +18944,7 @@ union DMA_CH0_CURRENT_APP_TXDESC {
 
   DMA_CH0_CURRENT_APP_TXDESC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_CURRENT_APP_TXDESC &Instance() { return *reinterpret_cast<volatile DMA_CH0_CURRENT_APP_TXDESC*>(0x4043D144); }
+  static inline volatile DMA_CH0_CURRENT_APP_TXDESC &ref() { return *reinterpret_cast<volatile DMA_CH0_CURRENT_APP_TXDESC*>(0x4043D144); }
 };
 
 // Channel 0 Current Application Receive Descriptor
@@ -18961,7 +18961,7 @@ union DMA_CH0_CURRENT_APP_RXDESC {
 
   DMA_CH0_CURRENT_APP_RXDESC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_CURRENT_APP_RXDESC &Instance() { return *reinterpret_cast<volatile DMA_CH0_CURRENT_APP_RXDESC*>(0x4043D14C); }
+  static inline volatile DMA_CH0_CURRENT_APP_RXDESC &ref() { return *reinterpret_cast<volatile DMA_CH0_CURRENT_APP_RXDESC*>(0x4043D14C); }
 };
 
 // Channel 0 Current Application Transmit Buffer Address
@@ -18978,7 +18978,7 @@ union DMA_CH0_CURRENT_APP_TXBUFFER {
 
   DMA_CH0_CURRENT_APP_TXBUFFER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_CURRENT_APP_TXBUFFER &Instance() { return *reinterpret_cast<volatile DMA_CH0_CURRENT_APP_TXBUFFER*>(0x4043D154); }
+  static inline volatile DMA_CH0_CURRENT_APP_TXBUFFER &ref() { return *reinterpret_cast<volatile DMA_CH0_CURRENT_APP_TXBUFFER*>(0x4043D154); }
 };
 
 // Channel 0 Current Application Receive Buffer Address
@@ -18995,7 +18995,7 @@ union DMA_CH0_CURRENT_APP_RXBUFFER {
 
   DMA_CH0_CURRENT_APP_RXBUFFER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_CURRENT_APP_RXBUFFER &Instance() { return *reinterpret_cast<volatile DMA_CH0_CURRENT_APP_RXBUFFER*>(0x4043D15C); }
+  static inline volatile DMA_CH0_CURRENT_APP_RXBUFFER &ref() { return *reinterpret_cast<volatile DMA_CH0_CURRENT_APP_RXBUFFER*>(0x4043D15C); }
 };
 
 // DMA Channel 0 Status
@@ -19146,7 +19146,7 @@ union DMA_CH0_STATUS {
 
   DMA_CH0_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_STATUS &Instance() { return *reinterpret_cast<volatile DMA_CH0_STATUS*>(0x4043D160); }
+  static inline volatile DMA_CH0_STATUS &ref() { return *reinterpret_cast<volatile DMA_CH0_STATUS*>(0x4043D160); }
 };
 
 // Channel 0 Missed Frame Counter
@@ -19175,7 +19175,7 @@ union DMA_CH0_MISS_FRAME_CNT {
 
   DMA_CH0_MISS_FRAME_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_MISS_FRAME_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH0_MISS_FRAME_CNT*>(0x4043D164); }
+  static inline volatile DMA_CH0_MISS_FRAME_CNT &ref() { return *reinterpret_cast<volatile DMA_CH0_MISS_FRAME_CNT*>(0x4043D164); }
 };
 
 // Channel 0 RXP Frames Accepted Counter
@@ -19202,7 +19202,7 @@ union DMA_CH0_RXP_ACCEPT_CNT {
 
   DMA_CH0_RXP_ACCEPT_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_RXP_ACCEPT_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH0_RXP_ACCEPT_CNT*>(0x4043D168); }
+  static inline volatile DMA_CH0_RXP_ACCEPT_CNT &ref() { return *reinterpret_cast<volatile DMA_CH0_RXP_ACCEPT_CNT*>(0x4043D168); }
 };
 
 // Channel 0 Receive ERI Counter
@@ -19220,7 +19220,7 @@ union DMA_CH0_RX_ERI_CNT {
 
   DMA_CH0_RX_ERI_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH0_RX_ERI_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH0_RX_ERI_CNT*>(0x4043D16C); }
+  static inline volatile DMA_CH0_RX_ERI_CNT &ref() { return *reinterpret_cast<volatile DMA_CH0_RX_ERI_CNT*>(0x4043D16C); }
 };
 
 // DMA Channel 1 Control
@@ -19250,7 +19250,7 @@ union DMA_CH1_CONTROL {
 
   DMA_CH1_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH1_CONTROL*>(0x4043D180); }
+  static inline volatile DMA_CH1_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH1_CONTROL*>(0x4043D180); }
 };
 
 // DMA Channel 1 Transmit Control
@@ -19311,7 +19311,7 @@ union DMA_CH1_TX_CONTROL {
 
   DMA_CH1_TX_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_TX_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH1_TX_CONTROL*>(0x4043D184); }
+  static inline volatile DMA_CH1_TX_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH1_TX_CONTROL*>(0x4043D184); }
 };
 
 // DMA Channel 1 Receive Control
@@ -19354,7 +19354,7 @@ union DMA_CH1_RX_CONTROL {
 
   DMA_CH1_RX_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_RX_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH1_RX_CONTROL*>(0x4043D188); }
+  static inline volatile DMA_CH1_RX_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH1_RX_CONTROL*>(0x4043D188); }
 };
 
 // Channel 1 Tx Descriptor List Address
@@ -19372,7 +19372,7 @@ union DMA_CH1_TXDESC_LIST_ADDRESS {
 
   DMA_CH1_TXDESC_LIST_ADDRESS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_TXDESC_LIST_ADDRESS &Instance() { return *reinterpret_cast<volatile DMA_CH1_TXDESC_LIST_ADDRESS*>(0x4043D194); }
+  static inline volatile DMA_CH1_TXDESC_LIST_ADDRESS &ref() { return *reinterpret_cast<volatile DMA_CH1_TXDESC_LIST_ADDRESS*>(0x4043D194); }
 };
 
 // Channel 1 Rx Descriptor List Address
@@ -19390,7 +19390,7 @@ union DMA_CH1_RXDESC_LIST_ADDRESS {
 
   DMA_CH1_RXDESC_LIST_ADDRESS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_RXDESC_LIST_ADDRESS &Instance() { return *reinterpret_cast<volatile DMA_CH1_RXDESC_LIST_ADDRESS*>(0x4043D19C); }
+  static inline volatile DMA_CH1_RXDESC_LIST_ADDRESS &ref() { return *reinterpret_cast<volatile DMA_CH1_RXDESC_LIST_ADDRESS*>(0x4043D19C); }
 };
 
 // Channel 1 Tx Descriptor Tail Pointer
@@ -19408,7 +19408,7 @@ union DMA_CH1_TXDESC_TAIL_POINTER {
 
   DMA_CH1_TXDESC_TAIL_POINTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_TXDESC_TAIL_POINTER &Instance() { return *reinterpret_cast<volatile DMA_CH1_TXDESC_TAIL_POINTER*>(0x4043D1A0); }
+  static inline volatile DMA_CH1_TXDESC_TAIL_POINTER &ref() { return *reinterpret_cast<volatile DMA_CH1_TXDESC_TAIL_POINTER*>(0x4043D1A0); }
 };
 
 // Channel 1 Rx Descriptor Tail Pointer
@@ -19426,7 +19426,7 @@ union DMA_CH1_RXDESC_TAIL_POINTER {
 
   DMA_CH1_RXDESC_TAIL_POINTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_RXDESC_TAIL_POINTER &Instance() { return *reinterpret_cast<volatile DMA_CH1_RXDESC_TAIL_POINTER*>(0x4043D1A8); }
+  static inline volatile DMA_CH1_RXDESC_TAIL_POINTER &ref() { return *reinterpret_cast<volatile DMA_CH1_RXDESC_TAIL_POINTER*>(0x4043D1A8); }
 };
 
 // Channel 1 Tx Descriptor Ring Length
@@ -19444,7 +19444,7 @@ union DMA_CH1_TXDESC_RING_LENGTH {
 
   DMA_CH1_TXDESC_RING_LENGTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_TXDESC_RING_LENGTH &Instance() { return *reinterpret_cast<volatile DMA_CH1_TXDESC_RING_LENGTH*>(0x4043D1AC); }
+  static inline volatile DMA_CH1_TXDESC_RING_LENGTH &ref() { return *reinterpret_cast<volatile DMA_CH1_TXDESC_RING_LENGTH*>(0x4043D1AC); }
 };
 
 // Channel 1 Rx Descriptor Ring Length
@@ -19462,7 +19462,7 @@ union DMA_CH1_RXDESC_RING_LENGTH {
 
   DMA_CH1_RXDESC_RING_LENGTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_RXDESC_RING_LENGTH &Instance() { return *reinterpret_cast<volatile DMA_CH1_RXDESC_RING_LENGTH*>(0x4043D1B0); }
+  static inline volatile DMA_CH1_RXDESC_RING_LENGTH &ref() { return *reinterpret_cast<volatile DMA_CH1_RXDESC_RING_LENGTH*>(0x4043D1B0); }
 };
 
 // Channel 1 Interrupt Enable
@@ -19609,7 +19609,7 @@ union DMA_CH1_INTERRUPT_ENABLE {
 
   DMA_CH1_INTERRUPT_ENABLE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_INTERRUPT_ENABLE &Instance() { return *reinterpret_cast<volatile DMA_CH1_INTERRUPT_ENABLE*>(0x4043D1B4); }
+  static inline volatile DMA_CH1_INTERRUPT_ENABLE &ref() { return *reinterpret_cast<volatile DMA_CH1_INTERRUPT_ENABLE*>(0x4043D1B4); }
 };
 
 // Channel 1 Receive Interrupt Watchdog Timer
@@ -19630,7 +19630,7 @@ union DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER {
 
   DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER &Instance() { return *reinterpret_cast<volatile DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER*>(0x4043D1B8); }
+  static inline volatile DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER &ref() { return *reinterpret_cast<volatile DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER*>(0x4043D1B8); }
 };
 
 // Channel 1 Slot Function Control and Status
@@ -19671,7 +19671,7 @@ union DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS {
 
   DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x000007C0; }
-  static inline volatile DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS*>(0x4043D1BC); }
+  static inline volatile DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS*>(0x4043D1BC); }
 };
 
 // Channel 1 Current Application Transmit Descriptor
@@ -19688,7 +19688,7 @@ union DMA_CH1_CURRENT_APP_TXDESC {
 
   DMA_CH1_CURRENT_APP_TXDESC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_CURRENT_APP_TXDESC &Instance() { return *reinterpret_cast<volatile DMA_CH1_CURRENT_APP_TXDESC*>(0x4043D1C4); }
+  static inline volatile DMA_CH1_CURRENT_APP_TXDESC &ref() { return *reinterpret_cast<volatile DMA_CH1_CURRENT_APP_TXDESC*>(0x4043D1C4); }
 };
 
 // Channel 1 Current Application Receive Descriptor
@@ -19705,7 +19705,7 @@ union DMA_CH1_CURRENT_APP_RXDESC {
 
   DMA_CH1_CURRENT_APP_RXDESC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_CURRENT_APP_RXDESC &Instance() { return *reinterpret_cast<volatile DMA_CH1_CURRENT_APP_RXDESC*>(0x4043D1CC); }
+  static inline volatile DMA_CH1_CURRENT_APP_RXDESC &ref() { return *reinterpret_cast<volatile DMA_CH1_CURRENT_APP_RXDESC*>(0x4043D1CC); }
 };
 
 // Channel 1 Current Application Transmit Buffer Address
@@ -19722,7 +19722,7 @@ union DMA_CH1_CURRENT_APP_TXBUFFER {
 
   DMA_CH1_CURRENT_APP_TXBUFFER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_CURRENT_APP_TXBUFFER &Instance() { return *reinterpret_cast<volatile DMA_CH1_CURRENT_APP_TXBUFFER*>(0x4043D1D4); }
+  static inline volatile DMA_CH1_CURRENT_APP_TXBUFFER &ref() { return *reinterpret_cast<volatile DMA_CH1_CURRENT_APP_TXBUFFER*>(0x4043D1D4); }
 };
 
 // Channel 1 Current Application Receive Buffer Address
@@ -19739,7 +19739,7 @@ union DMA_CH1_CURRENT_APP_RXBUFFER {
 
   DMA_CH1_CURRENT_APP_RXBUFFER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_CURRENT_APP_RXBUFFER &Instance() { return *reinterpret_cast<volatile DMA_CH1_CURRENT_APP_RXBUFFER*>(0x4043D1DC); }
+  static inline volatile DMA_CH1_CURRENT_APP_RXBUFFER &ref() { return *reinterpret_cast<volatile DMA_CH1_CURRENT_APP_RXBUFFER*>(0x4043D1DC); }
 };
 
 // DMA Channel 1 Status
@@ -19890,7 +19890,7 @@ union DMA_CH1_STATUS {
 
   DMA_CH1_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_STATUS &Instance() { return *reinterpret_cast<volatile DMA_CH1_STATUS*>(0x4043D1E0); }
+  static inline volatile DMA_CH1_STATUS &ref() { return *reinterpret_cast<volatile DMA_CH1_STATUS*>(0x4043D1E0); }
 };
 
 // Channel 1 Missed Frame Counter
@@ -19919,7 +19919,7 @@ union DMA_CH1_MISS_FRAME_CNT {
 
   DMA_CH1_MISS_FRAME_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_MISS_FRAME_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH1_MISS_FRAME_CNT*>(0x4043D1E4); }
+  static inline volatile DMA_CH1_MISS_FRAME_CNT &ref() { return *reinterpret_cast<volatile DMA_CH1_MISS_FRAME_CNT*>(0x4043D1E4); }
 };
 
 // Channel 1 RXP Frames Accepted Counter
@@ -19946,7 +19946,7 @@ union DMA_CH1_RXP_ACCEPT_CNT {
 
   DMA_CH1_RXP_ACCEPT_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_RXP_ACCEPT_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH1_RXP_ACCEPT_CNT*>(0x4043D1E8); }
+  static inline volatile DMA_CH1_RXP_ACCEPT_CNT &ref() { return *reinterpret_cast<volatile DMA_CH1_RXP_ACCEPT_CNT*>(0x4043D1E8); }
 };
 
 // Channel 1 Receive ERI Counter
@@ -19964,7 +19964,7 @@ union DMA_CH1_RX_ERI_CNT {
 
   DMA_CH1_RX_ERI_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH1_RX_ERI_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH1_RX_ERI_CNT*>(0x4043D1EC); }
+  static inline volatile DMA_CH1_RX_ERI_CNT &ref() { return *reinterpret_cast<volatile DMA_CH1_RX_ERI_CNT*>(0x4043D1EC); }
 };
 
 // DMA Channel 2 Control
@@ -19994,7 +19994,7 @@ union DMA_CH2_CONTROL {
 
   DMA_CH2_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH2_CONTROL*>(0x4043D200); }
+  static inline volatile DMA_CH2_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH2_CONTROL*>(0x4043D200); }
 };
 
 // DMA Channel 2 Transmit Control
@@ -20055,7 +20055,7 @@ union DMA_CH2_TX_CONTROL {
 
   DMA_CH2_TX_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_TX_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH2_TX_CONTROL*>(0x4043D204); }
+  static inline volatile DMA_CH2_TX_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH2_TX_CONTROL*>(0x4043D204); }
 };
 
 // DMA Channel 2 Receive Control
@@ -20098,7 +20098,7 @@ union DMA_CH2_RX_CONTROL {
 
   DMA_CH2_RX_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_RX_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH2_RX_CONTROL*>(0x4043D208); }
+  static inline volatile DMA_CH2_RX_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH2_RX_CONTROL*>(0x4043D208); }
 };
 
 // Channel 2 Tx Descriptor List Address
@@ -20116,7 +20116,7 @@ union DMA_CH2_TXDESC_LIST_ADDRESS {
 
   DMA_CH2_TXDESC_LIST_ADDRESS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_TXDESC_LIST_ADDRESS &Instance() { return *reinterpret_cast<volatile DMA_CH2_TXDESC_LIST_ADDRESS*>(0x4043D214); }
+  static inline volatile DMA_CH2_TXDESC_LIST_ADDRESS &ref() { return *reinterpret_cast<volatile DMA_CH2_TXDESC_LIST_ADDRESS*>(0x4043D214); }
 };
 
 // Channel 2 Rx Descriptor List Address
@@ -20134,7 +20134,7 @@ union DMA_CH2_RXDESC_LIST_ADDRESS {
 
   DMA_CH2_RXDESC_LIST_ADDRESS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_RXDESC_LIST_ADDRESS &Instance() { return *reinterpret_cast<volatile DMA_CH2_RXDESC_LIST_ADDRESS*>(0x4043D21C); }
+  static inline volatile DMA_CH2_RXDESC_LIST_ADDRESS &ref() { return *reinterpret_cast<volatile DMA_CH2_RXDESC_LIST_ADDRESS*>(0x4043D21C); }
 };
 
 // Channel 2 Tx Descriptor Tail Pointer
@@ -20152,7 +20152,7 @@ union DMA_CH2_TXDESC_TAIL_POINTER {
 
   DMA_CH2_TXDESC_TAIL_POINTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_TXDESC_TAIL_POINTER &Instance() { return *reinterpret_cast<volatile DMA_CH2_TXDESC_TAIL_POINTER*>(0x4043D220); }
+  static inline volatile DMA_CH2_TXDESC_TAIL_POINTER &ref() { return *reinterpret_cast<volatile DMA_CH2_TXDESC_TAIL_POINTER*>(0x4043D220); }
 };
 
 // Channel 2 Rx Descriptor Tail Pointer
@@ -20170,7 +20170,7 @@ union DMA_CH2_RXDESC_TAIL_POINTER {
 
   DMA_CH2_RXDESC_TAIL_POINTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_RXDESC_TAIL_POINTER &Instance() { return *reinterpret_cast<volatile DMA_CH2_RXDESC_TAIL_POINTER*>(0x4043D228); }
+  static inline volatile DMA_CH2_RXDESC_TAIL_POINTER &ref() { return *reinterpret_cast<volatile DMA_CH2_RXDESC_TAIL_POINTER*>(0x4043D228); }
 };
 
 // Channel 2 Tx Descriptor Ring Length
@@ -20188,7 +20188,7 @@ union DMA_CH2_TXDESC_RING_LENGTH {
 
   DMA_CH2_TXDESC_RING_LENGTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_TXDESC_RING_LENGTH &Instance() { return *reinterpret_cast<volatile DMA_CH2_TXDESC_RING_LENGTH*>(0x4043D22C); }
+  static inline volatile DMA_CH2_TXDESC_RING_LENGTH &ref() { return *reinterpret_cast<volatile DMA_CH2_TXDESC_RING_LENGTH*>(0x4043D22C); }
 };
 
 // Channel 2 Rx Descriptor Ring Length
@@ -20206,7 +20206,7 @@ union DMA_CH2_RXDESC_RING_LENGTH {
 
   DMA_CH2_RXDESC_RING_LENGTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_RXDESC_RING_LENGTH &Instance() { return *reinterpret_cast<volatile DMA_CH2_RXDESC_RING_LENGTH*>(0x4043D230); }
+  static inline volatile DMA_CH2_RXDESC_RING_LENGTH &ref() { return *reinterpret_cast<volatile DMA_CH2_RXDESC_RING_LENGTH*>(0x4043D230); }
 };
 
 // Channel 2 Interrupt Enable
@@ -20353,7 +20353,7 @@ union DMA_CH2_INTERRUPT_ENABLE {
 
   DMA_CH2_INTERRUPT_ENABLE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_INTERRUPT_ENABLE &Instance() { return *reinterpret_cast<volatile DMA_CH2_INTERRUPT_ENABLE*>(0x4043D234); }
+  static inline volatile DMA_CH2_INTERRUPT_ENABLE &ref() { return *reinterpret_cast<volatile DMA_CH2_INTERRUPT_ENABLE*>(0x4043D234); }
 };
 
 // Channel 2 Receive Interrupt Watchdog Timer
@@ -20374,7 +20374,7 @@ union DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER {
 
   DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER &Instance() { return *reinterpret_cast<volatile DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER*>(0x4043D238); }
+  static inline volatile DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER &ref() { return *reinterpret_cast<volatile DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER*>(0x4043D238); }
 };
 
 // Channel 2 Slot Function Control and Status
@@ -20415,7 +20415,7 @@ union DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS {
 
   DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x000007C0; }
-  static inline volatile DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS*>(0x4043D23C); }
+  static inline volatile DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS*>(0x4043D23C); }
 };
 
 // Channel 2 Current Application Transmit Descriptor
@@ -20432,7 +20432,7 @@ union DMA_CH2_CURRENT_APP_TXDESC {
 
   DMA_CH2_CURRENT_APP_TXDESC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_CURRENT_APP_TXDESC &Instance() { return *reinterpret_cast<volatile DMA_CH2_CURRENT_APP_TXDESC*>(0x4043D244); }
+  static inline volatile DMA_CH2_CURRENT_APP_TXDESC &ref() { return *reinterpret_cast<volatile DMA_CH2_CURRENT_APP_TXDESC*>(0x4043D244); }
 };
 
 // Channel 2 Current Application Receive Descriptor
@@ -20449,7 +20449,7 @@ union DMA_CH2_CURRENT_APP_RXDESC {
 
   DMA_CH2_CURRENT_APP_RXDESC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_CURRENT_APP_RXDESC &Instance() { return *reinterpret_cast<volatile DMA_CH2_CURRENT_APP_RXDESC*>(0x4043D24C); }
+  static inline volatile DMA_CH2_CURRENT_APP_RXDESC &ref() { return *reinterpret_cast<volatile DMA_CH2_CURRENT_APP_RXDESC*>(0x4043D24C); }
 };
 
 // Channel 2 Current Application Transmit Buffer Address
@@ -20466,7 +20466,7 @@ union DMA_CH2_CURRENT_APP_TXBUFFER {
 
   DMA_CH2_CURRENT_APP_TXBUFFER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_CURRENT_APP_TXBUFFER &Instance() { return *reinterpret_cast<volatile DMA_CH2_CURRENT_APP_TXBUFFER*>(0x4043D254); }
+  static inline volatile DMA_CH2_CURRENT_APP_TXBUFFER &ref() { return *reinterpret_cast<volatile DMA_CH2_CURRENT_APP_TXBUFFER*>(0x4043D254); }
 };
 
 // Channel 2 Current Application Receive Buffer Address
@@ -20483,7 +20483,7 @@ union DMA_CH2_CURRENT_APP_RXBUFFER {
 
   DMA_CH2_CURRENT_APP_RXBUFFER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_CURRENT_APP_RXBUFFER &Instance() { return *reinterpret_cast<volatile DMA_CH2_CURRENT_APP_RXBUFFER*>(0x4043D25C); }
+  static inline volatile DMA_CH2_CURRENT_APP_RXBUFFER &ref() { return *reinterpret_cast<volatile DMA_CH2_CURRENT_APP_RXBUFFER*>(0x4043D25C); }
 };
 
 // DMA Channel 2 Status
@@ -20634,7 +20634,7 @@ union DMA_CH2_STATUS {
 
   DMA_CH2_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_STATUS &Instance() { return *reinterpret_cast<volatile DMA_CH2_STATUS*>(0x4043D260); }
+  static inline volatile DMA_CH2_STATUS &ref() { return *reinterpret_cast<volatile DMA_CH2_STATUS*>(0x4043D260); }
 };
 
 // Channel 2 Missed Frame Counter
@@ -20663,7 +20663,7 @@ union DMA_CH2_MISS_FRAME_CNT {
 
   DMA_CH2_MISS_FRAME_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_MISS_FRAME_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH2_MISS_FRAME_CNT*>(0x4043D264); }
+  static inline volatile DMA_CH2_MISS_FRAME_CNT &ref() { return *reinterpret_cast<volatile DMA_CH2_MISS_FRAME_CNT*>(0x4043D264); }
 };
 
 // Channel 2 RXP Frames Accepted Counter
@@ -20690,7 +20690,7 @@ union DMA_CH2_RXP_ACCEPT_CNT {
 
   DMA_CH2_RXP_ACCEPT_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_RXP_ACCEPT_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH2_RXP_ACCEPT_CNT*>(0x4043D268); }
+  static inline volatile DMA_CH2_RXP_ACCEPT_CNT &ref() { return *reinterpret_cast<volatile DMA_CH2_RXP_ACCEPT_CNT*>(0x4043D268); }
 };
 
 // Channel 2 Receive ERI Counter
@@ -20708,7 +20708,7 @@ union DMA_CH2_RX_ERI_CNT {
 
   DMA_CH2_RX_ERI_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH2_RX_ERI_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH2_RX_ERI_CNT*>(0x4043D26C); }
+  static inline volatile DMA_CH2_RX_ERI_CNT &ref() { return *reinterpret_cast<volatile DMA_CH2_RX_ERI_CNT*>(0x4043D26C); }
 };
 
 // DMA Channel 3 Control
@@ -20738,7 +20738,7 @@ union DMA_CH3_CONTROL {
 
   DMA_CH3_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH3_CONTROL*>(0x4043D280); }
+  static inline volatile DMA_CH3_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH3_CONTROL*>(0x4043D280); }
 };
 
 // DMA Channel 3 Transmit Control
@@ -20799,7 +20799,7 @@ union DMA_CH3_TX_CONTROL {
 
   DMA_CH3_TX_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_TX_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH3_TX_CONTROL*>(0x4043D284); }
+  static inline volatile DMA_CH3_TX_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH3_TX_CONTROL*>(0x4043D284); }
 };
 
 // DMA Channel 3 Receive Control
@@ -20842,7 +20842,7 @@ union DMA_CH3_RX_CONTROL {
 
   DMA_CH3_RX_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_RX_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH3_RX_CONTROL*>(0x4043D288); }
+  static inline volatile DMA_CH3_RX_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH3_RX_CONTROL*>(0x4043D288); }
 };
 
 // Channel 3 Tx Descriptor List Address
@@ -20860,7 +20860,7 @@ union DMA_CH3_TXDESC_LIST_ADDRESS {
 
   DMA_CH3_TXDESC_LIST_ADDRESS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_TXDESC_LIST_ADDRESS &Instance() { return *reinterpret_cast<volatile DMA_CH3_TXDESC_LIST_ADDRESS*>(0x4043D294); }
+  static inline volatile DMA_CH3_TXDESC_LIST_ADDRESS &ref() { return *reinterpret_cast<volatile DMA_CH3_TXDESC_LIST_ADDRESS*>(0x4043D294); }
 };
 
 // Channel 3 Rx Descriptor List Address
@@ -20878,7 +20878,7 @@ union DMA_CH3_RXDESC_LIST_ADDRESS {
 
   DMA_CH3_RXDESC_LIST_ADDRESS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_RXDESC_LIST_ADDRESS &Instance() { return *reinterpret_cast<volatile DMA_CH3_RXDESC_LIST_ADDRESS*>(0x4043D29C); }
+  static inline volatile DMA_CH3_RXDESC_LIST_ADDRESS &ref() { return *reinterpret_cast<volatile DMA_CH3_RXDESC_LIST_ADDRESS*>(0x4043D29C); }
 };
 
 // Channel 3 Tx Descriptor Tail Pointer
@@ -20896,7 +20896,7 @@ union DMA_CH3_TXDESC_TAIL_POINTER {
 
   DMA_CH3_TXDESC_TAIL_POINTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_TXDESC_TAIL_POINTER &Instance() { return *reinterpret_cast<volatile DMA_CH3_TXDESC_TAIL_POINTER*>(0x4043D2A0); }
+  static inline volatile DMA_CH3_TXDESC_TAIL_POINTER &ref() { return *reinterpret_cast<volatile DMA_CH3_TXDESC_TAIL_POINTER*>(0x4043D2A0); }
 };
 
 // Channel 3 Rx Descriptor Tail Pointer
@@ -20914,7 +20914,7 @@ union DMA_CH3_RXDESC_TAIL_POINTER {
 
   DMA_CH3_RXDESC_TAIL_POINTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_RXDESC_TAIL_POINTER &Instance() { return *reinterpret_cast<volatile DMA_CH3_RXDESC_TAIL_POINTER*>(0x4043D2A8); }
+  static inline volatile DMA_CH3_RXDESC_TAIL_POINTER &ref() { return *reinterpret_cast<volatile DMA_CH3_RXDESC_TAIL_POINTER*>(0x4043D2A8); }
 };
 
 // Channel 3 Tx Descriptor Ring Length
@@ -20932,7 +20932,7 @@ union DMA_CH3_TXDESC_RING_LENGTH {
 
   DMA_CH3_TXDESC_RING_LENGTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_TXDESC_RING_LENGTH &Instance() { return *reinterpret_cast<volatile DMA_CH3_TXDESC_RING_LENGTH*>(0x4043D2AC); }
+  static inline volatile DMA_CH3_TXDESC_RING_LENGTH &ref() { return *reinterpret_cast<volatile DMA_CH3_TXDESC_RING_LENGTH*>(0x4043D2AC); }
 };
 
 // Channel 3 Rx Descriptor Ring Length
@@ -20950,7 +20950,7 @@ union DMA_CH3_RXDESC_RING_LENGTH {
 
   DMA_CH3_RXDESC_RING_LENGTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_RXDESC_RING_LENGTH &Instance() { return *reinterpret_cast<volatile DMA_CH3_RXDESC_RING_LENGTH*>(0x4043D2B0); }
+  static inline volatile DMA_CH3_RXDESC_RING_LENGTH &ref() { return *reinterpret_cast<volatile DMA_CH3_RXDESC_RING_LENGTH*>(0x4043D2B0); }
 };
 
 // Channel 3 Interrupt Enable
@@ -21097,7 +21097,7 @@ union DMA_CH3_INTERRUPT_ENABLE {
 
   DMA_CH3_INTERRUPT_ENABLE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_INTERRUPT_ENABLE &Instance() { return *reinterpret_cast<volatile DMA_CH3_INTERRUPT_ENABLE*>(0x4043D2B4); }
+  static inline volatile DMA_CH3_INTERRUPT_ENABLE &ref() { return *reinterpret_cast<volatile DMA_CH3_INTERRUPT_ENABLE*>(0x4043D2B4); }
 };
 
 // Channel 3 Receive Interrupt Watchdog Time
@@ -21118,7 +21118,7 @@ union DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER {
 
   DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER &Instance() { return *reinterpret_cast<volatile DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER*>(0x4043D2B8); }
+  static inline volatile DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER &ref() { return *reinterpret_cast<volatile DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER*>(0x4043D2B8); }
 };
 
 // Channel 3 Slot Function Control and Status
@@ -21159,7 +21159,7 @@ union DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS {
 
   DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x000007C0; }
-  static inline volatile DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS*>(0x4043D2BC); }
+  static inline volatile DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS*>(0x4043D2BC); }
 };
 
 // Channel 3 Current Application Transmit Descriptor
@@ -21176,7 +21176,7 @@ union DMA_CH3_CURRENT_APP_TXDESC {
 
   DMA_CH3_CURRENT_APP_TXDESC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_CURRENT_APP_TXDESC &Instance() { return *reinterpret_cast<volatile DMA_CH3_CURRENT_APP_TXDESC*>(0x4043D2C4); }
+  static inline volatile DMA_CH3_CURRENT_APP_TXDESC &ref() { return *reinterpret_cast<volatile DMA_CH3_CURRENT_APP_TXDESC*>(0x4043D2C4); }
 };
 
 // Channel 3 Current Application Receive Descriptor
@@ -21193,7 +21193,7 @@ union DMA_CH3_CURRENT_APP_RXDESC {
 
   DMA_CH3_CURRENT_APP_RXDESC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_CURRENT_APP_RXDESC &Instance() { return *reinterpret_cast<volatile DMA_CH3_CURRENT_APP_RXDESC*>(0x4043D2CC); }
+  static inline volatile DMA_CH3_CURRENT_APP_RXDESC &ref() { return *reinterpret_cast<volatile DMA_CH3_CURRENT_APP_RXDESC*>(0x4043D2CC); }
 };
 
 // Channel 3 Current Application Transmit Buffer Address
@@ -21210,7 +21210,7 @@ union DMA_CH3_CURRENT_APP_TXBUFFER {
 
   DMA_CH3_CURRENT_APP_TXBUFFER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_CURRENT_APP_TXBUFFER &Instance() { return *reinterpret_cast<volatile DMA_CH3_CURRENT_APP_TXBUFFER*>(0x4043D2D4); }
+  static inline volatile DMA_CH3_CURRENT_APP_TXBUFFER &ref() { return *reinterpret_cast<volatile DMA_CH3_CURRENT_APP_TXBUFFER*>(0x4043D2D4); }
 };
 
 // Channel 3 Current Application Receive Buffer Address
@@ -21227,7 +21227,7 @@ union DMA_CH3_CURRENT_APP_RXBUFFER {
 
   DMA_CH3_CURRENT_APP_RXBUFFER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_CURRENT_APP_RXBUFFER &Instance() { return *reinterpret_cast<volatile DMA_CH3_CURRENT_APP_RXBUFFER*>(0x4043D2DC); }
+  static inline volatile DMA_CH3_CURRENT_APP_RXBUFFER &ref() { return *reinterpret_cast<volatile DMA_CH3_CURRENT_APP_RXBUFFER*>(0x4043D2DC); }
 };
 
 // DMA Channel 3 Status
@@ -21378,7 +21378,7 @@ union DMA_CH3_STATUS {
 
   DMA_CH3_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_STATUS &Instance() { return *reinterpret_cast<volatile DMA_CH3_STATUS*>(0x4043D2E0); }
+  static inline volatile DMA_CH3_STATUS &ref() { return *reinterpret_cast<volatile DMA_CH3_STATUS*>(0x4043D2E0); }
 };
 
 // Channel 3 Missed Frame Counter
@@ -21407,7 +21407,7 @@ union DMA_CH3_MISS_FRAME_CNT {
 
   DMA_CH3_MISS_FRAME_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_MISS_FRAME_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH3_MISS_FRAME_CNT*>(0x4043D2E4); }
+  static inline volatile DMA_CH3_MISS_FRAME_CNT &ref() { return *reinterpret_cast<volatile DMA_CH3_MISS_FRAME_CNT*>(0x4043D2E4); }
 };
 
 // Channel 3 RXP Frames Accepted Counter
@@ -21434,7 +21434,7 @@ union DMA_CH3_RXP_ACCEPT_CNT {
 
   DMA_CH3_RXP_ACCEPT_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_RXP_ACCEPT_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH3_RXP_ACCEPT_CNT*>(0x4043D2E8); }
+  static inline volatile DMA_CH3_RXP_ACCEPT_CNT &ref() { return *reinterpret_cast<volatile DMA_CH3_RXP_ACCEPT_CNT*>(0x4043D2E8); }
 };
 
 // Channel 3 Receive ERI Counter
@@ -21452,7 +21452,7 @@ union DMA_CH3_RX_ERI_CNT {
 
   DMA_CH3_RX_ERI_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH3_RX_ERI_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH3_RX_ERI_CNT*>(0x4043D2EC); }
+  static inline volatile DMA_CH3_RX_ERI_CNT &ref() { return *reinterpret_cast<volatile DMA_CH3_RX_ERI_CNT*>(0x4043D2EC); }
 };
 
 // DMA Channel 4 Control
@@ -21482,7 +21482,7 @@ union DMA_CH4_CONTROL {
 
   DMA_CH4_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH4_CONTROL*>(0x4043D300); }
+  static inline volatile DMA_CH4_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH4_CONTROL*>(0x4043D300); }
 };
 
 // DMA Channel 4 Transmit Control
@@ -21543,7 +21543,7 @@ union DMA_CH4_TX_CONTROL {
 
   DMA_CH4_TX_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_TX_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH4_TX_CONTROL*>(0x4043D304); }
+  static inline volatile DMA_CH4_TX_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH4_TX_CONTROL*>(0x4043D304); }
 };
 
 // DMA Channel 4 Receive Control
@@ -21586,7 +21586,7 @@ union DMA_CH4_RX_CONTROL {
 
   DMA_CH4_RX_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_RX_CONTROL &Instance() { return *reinterpret_cast<volatile DMA_CH4_RX_CONTROL*>(0x4043D308); }
+  static inline volatile DMA_CH4_RX_CONTROL &ref() { return *reinterpret_cast<volatile DMA_CH4_RX_CONTROL*>(0x4043D308); }
 };
 
 // Channel 4 Tx Descriptor List Address
@@ -21604,7 +21604,7 @@ union DMA_CH4_TXDESC_LIST_ADDRESS {
 
   DMA_CH4_TXDESC_LIST_ADDRESS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_TXDESC_LIST_ADDRESS &Instance() { return *reinterpret_cast<volatile DMA_CH4_TXDESC_LIST_ADDRESS*>(0x4043D314); }
+  static inline volatile DMA_CH4_TXDESC_LIST_ADDRESS &ref() { return *reinterpret_cast<volatile DMA_CH4_TXDESC_LIST_ADDRESS*>(0x4043D314); }
 };
 
 // Channel 4 Rx Descriptor List Address
@@ -21622,7 +21622,7 @@ union DMA_CH4_RXDESC_LIST_ADDRESS {
 
   DMA_CH4_RXDESC_LIST_ADDRESS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_RXDESC_LIST_ADDRESS &Instance() { return *reinterpret_cast<volatile DMA_CH4_RXDESC_LIST_ADDRESS*>(0x4043D31C); }
+  static inline volatile DMA_CH4_RXDESC_LIST_ADDRESS &ref() { return *reinterpret_cast<volatile DMA_CH4_RXDESC_LIST_ADDRESS*>(0x4043D31C); }
 };
 
 // Channel 4 Tx Descriptor Tail Pointer
@@ -21640,7 +21640,7 @@ union DMA_CH4_TXDESC_TAIL_POINTER {
 
   DMA_CH4_TXDESC_TAIL_POINTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_TXDESC_TAIL_POINTER &Instance() { return *reinterpret_cast<volatile DMA_CH4_TXDESC_TAIL_POINTER*>(0x4043D320); }
+  static inline volatile DMA_CH4_TXDESC_TAIL_POINTER &ref() { return *reinterpret_cast<volatile DMA_CH4_TXDESC_TAIL_POINTER*>(0x4043D320); }
 };
 
 // Channel 4 Rx Descriptor Tail Pointer
@@ -21658,7 +21658,7 @@ union DMA_CH4_RXDESC_TAIL_POINTER {
 
   DMA_CH4_RXDESC_TAIL_POINTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_RXDESC_TAIL_POINTER &Instance() { return *reinterpret_cast<volatile DMA_CH4_RXDESC_TAIL_POINTER*>(0x4043D328); }
+  static inline volatile DMA_CH4_RXDESC_TAIL_POINTER &ref() { return *reinterpret_cast<volatile DMA_CH4_RXDESC_TAIL_POINTER*>(0x4043D328); }
 };
 
 // Channel 4 Tx Descriptor Ring Length
@@ -21676,7 +21676,7 @@ union DMA_CH4_TXDESC_RING_LENGTH {
 
   DMA_CH4_TXDESC_RING_LENGTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_TXDESC_RING_LENGTH &Instance() { return *reinterpret_cast<volatile DMA_CH4_TXDESC_RING_LENGTH*>(0x4043D32C); }
+  static inline volatile DMA_CH4_TXDESC_RING_LENGTH &ref() { return *reinterpret_cast<volatile DMA_CH4_TXDESC_RING_LENGTH*>(0x4043D32C); }
 };
 
 // Channel 4 Rx Descriptor Ring Length
@@ -21694,7 +21694,7 @@ union DMA_CH4_RXDESC_RING_LENGTH {
 
   DMA_CH4_RXDESC_RING_LENGTH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_RXDESC_RING_LENGTH &Instance() { return *reinterpret_cast<volatile DMA_CH4_RXDESC_RING_LENGTH*>(0x4043D330); }
+  static inline volatile DMA_CH4_RXDESC_RING_LENGTH &ref() { return *reinterpret_cast<volatile DMA_CH4_RXDESC_RING_LENGTH*>(0x4043D330); }
 };
 
 // Channel 4 Interrupt Enable
@@ -21841,7 +21841,7 @@ union DMA_CH4_INTERRUPT_ENABLE {
 
   DMA_CH4_INTERRUPT_ENABLE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_INTERRUPT_ENABLE &Instance() { return *reinterpret_cast<volatile DMA_CH4_INTERRUPT_ENABLE*>(0x4043D334); }
+  static inline volatile DMA_CH4_INTERRUPT_ENABLE &ref() { return *reinterpret_cast<volatile DMA_CH4_INTERRUPT_ENABLE*>(0x4043D334); }
 };
 
 // Channel 4 Receive Interrupt Watchdog Timer
@@ -21862,7 +21862,7 @@ union DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER {
 
   DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER &Instance() { return *reinterpret_cast<volatile DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER*>(0x4043D338); }
+  static inline volatile DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER &ref() { return *reinterpret_cast<volatile DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER*>(0x4043D338); }
 };
 
 // Channel 4 Slot Function Control and Status
@@ -21903,7 +21903,7 @@ union DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS {
 
   DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x000007C0; }
-  static inline volatile DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS &Instance() { return *reinterpret_cast<volatile DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS*>(0x4043D33C); }
+  static inline volatile DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS &ref() { return *reinterpret_cast<volatile DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS*>(0x4043D33C); }
 };
 
 // Channel 4 Current Application Transmit Descriptor
@@ -21920,7 +21920,7 @@ union DMA_CH4_CURRENT_APP_TXDESC {
 
   DMA_CH4_CURRENT_APP_TXDESC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_CURRENT_APP_TXDESC &Instance() { return *reinterpret_cast<volatile DMA_CH4_CURRENT_APP_TXDESC*>(0x4043D344); }
+  static inline volatile DMA_CH4_CURRENT_APP_TXDESC &ref() { return *reinterpret_cast<volatile DMA_CH4_CURRENT_APP_TXDESC*>(0x4043D344); }
 };
 
 // Channel 4 Current Application Receive Descriptor
@@ -21937,7 +21937,7 @@ union DMA_CH4_CURRENT_APP_RXDESC {
 
   DMA_CH4_CURRENT_APP_RXDESC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_CURRENT_APP_RXDESC &Instance() { return *reinterpret_cast<volatile DMA_CH4_CURRENT_APP_RXDESC*>(0x4043D34C); }
+  static inline volatile DMA_CH4_CURRENT_APP_RXDESC &ref() { return *reinterpret_cast<volatile DMA_CH4_CURRENT_APP_RXDESC*>(0x4043D34C); }
 };
 
 // Channel 4 Current Application Transmit Buffer Address
@@ -21954,7 +21954,7 @@ union DMA_CH4_CURRENT_APP_TXBUFFER {
 
   DMA_CH4_CURRENT_APP_TXBUFFER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_CURRENT_APP_TXBUFFER &Instance() { return *reinterpret_cast<volatile DMA_CH4_CURRENT_APP_TXBUFFER*>(0x4043D354); }
+  static inline volatile DMA_CH4_CURRENT_APP_TXBUFFER &ref() { return *reinterpret_cast<volatile DMA_CH4_CURRENT_APP_TXBUFFER*>(0x4043D354); }
 };
 
 // Channel 4 Current Application Receive Buffer Address
@@ -21971,7 +21971,7 @@ union DMA_CH4_CURRENT_APP_RXBUFFER {
 
   DMA_CH4_CURRENT_APP_RXBUFFER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_CURRENT_APP_RXBUFFER &Instance() { return *reinterpret_cast<volatile DMA_CH4_CURRENT_APP_RXBUFFER*>(0x4043D35C); }
+  static inline volatile DMA_CH4_CURRENT_APP_RXBUFFER &ref() { return *reinterpret_cast<volatile DMA_CH4_CURRENT_APP_RXBUFFER*>(0x4043D35C); }
 };
 
 // DMA Channel 4 Status
@@ -22122,7 +22122,7 @@ union DMA_CH4_STATUS {
 
   DMA_CH4_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_STATUS &Instance() { return *reinterpret_cast<volatile DMA_CH4_STATUS*>(0x4043D360); }
+  static inline volatile DMA_CH4_STATUS &ref() { return *reinterpret_cast<volatile DMA_CH4_STATUS*>(0x4043D360); }
 };
 
 // Channel 4 Missed Frame Counter
@@ -22151,7 +22151,7 @@ union DMA_CH4_MISS_FRAME_CNT {
 
   DMA_CH4_MISS_FRAME_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_MISS_FRAME_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH4_MISS_FRAME_CNT*>(0x4043D364); }
+  static inline volatile DMA_CH4_MISS_FRAME_CNT &ref() { return *reinterpret_cast<volatile DMA_CH4_MISS_FRAME_CNT*>(0x4043D364); }
 };
 
 // Channel 4 RXP Frames Accepted Counter
@@ -22178,7 +22178,7 @@ union DMA_CH4_RXP_ACCEPT_CNT {
 
   DMA_CH4_RXP_ACCEPT_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_RXP_ACCEPT_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH4_RXP_ACCEPT_CNT*>(0x4043D368); }
+  static inline volatile DMA_CH4_RXP_ACCEPT_CNT &ref() { return *reinterpret_cast<volatile DMA_CH4_RXP_ACCEPT_CNT*>(0x4043D368); }
 };
 
 // Channel 4 Receive ERI Counter
@@ -22196,7 +22196,7 @@ union DMA_CH4_RX_ERI_CNT {
 
   DMA_CH4_RX_ERI_CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CH4_RX_ERI_CNT &Instance() { return *reinterpret_cast<volatile DMA_CH4_RX_ERI_CNT*>(0x4043D36C); }
+  static inline volatile DMA_CH4_RX_ERI_CNT &ref() { return *reinterpret_cast<volatile DMA_CH4_RX_ERI_CNT*>(0x4043D36C); }
 };
 
 

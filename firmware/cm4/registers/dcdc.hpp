@@ -99,7 +99,7 @@ union CTRL0 {
 
   CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000003; }
-  static inline volatile CTRL0 &Instance() { return *reinterpret_cast<volatile CTRL0*>(0x40CA8000); }
+  static inline volatile CTRL0 &ref() { return *reinterpret_cast<volatile CTRL0*>(0x40CA8000); }
 };
 
 // DCDC Control Register 1
@@ -166,7 +166,7 @@ union CTRL1 {
 
   CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x0F0B100C; }
-  static inline volatile CTRL1 &Instance() { return *reinterpret_cast<volatile CTRL1*>(0x40CA8004); }
+  static inline volatile CTRL1 &ref() { return *reinterpret_cast<volatile CTRL1*>(0x40CA8004); }
 };
 
 // DCDC Register 0
@@ -329,7 +329,7 @@ union REG0 {
 
   REG0() = delete;
   inline void Reset() volatile { this->value = 0x04030511; }
-  static inline volatile REG0 &Instance() { return *reinterpret_cast<volatile REG0*>(0x40CA8008); }
+  static inline volatile REG0 &ref() { return *reinterpret_cast<volatile REG0*>(0x40CA8008); }
 };
 
 // DCDC Register 1
@@ -418,7 +418,7 @@ union REG1 {
 
   REG1() = delete;
   inline void Reset() volatile { this->value = 0x01CD5430; }
-  static inline volatile REG1 &Instance() { return *reinterpret_cast<volatile REG1*>(0x40CA800C); }
+  static inline volatile REG1 &ref() { return *reinterpret_cast<volatile REG1*>(0x40CA800C); }
 };
 
 // DCDC Register 2
@@ -457,7 +457,7 @@ union REG2 {
 
   REG2() = delete;
   inline void Reset() volatile { this->value = 0x02108089; }
-  static inline volatile REG2 &Instance() { return *reinterpret_cast<volatile REG2*>(0x40CA8010); }
+  static inline volatile REG2 &ref() { return *reinterpret_cast<volatile REG2*>(0x40CA8010); }
 };
 
 // DCDC Register 3
@@ -576,7 +576,7 @@ union REG3 {
 
   REG3() = delete;
   inline void Reset() volatile { this->value = 0x00980000; }
-  static inline volatile REG3 &Instance() { return *reinterpret_cast<volatile REG3*>(0x40CA8014); }
+  static inline volatile REG3 &ref() { return *reinterpret_cast<volatile REG3*>(0x40CA8014); }
 };
 
 // DCDC Register 4
@@ -594,7 +594,7 @@ union REG4 {
 
   REG4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG4 &Instance() { return *reinterpret_cast<volatile REG4*>(0x40CA8018); }
+  static inline volatile REG4 &ref() { return *reinterpret_cast<volatile REG4*>(0x40CA8018); }
 };
 
 // DCDC Register 5
@@ -612,7 +612,7 @@ union REG5 {
 
   REG5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG5 &Instance() { return *reinterpret_cast<volatile REG5*>(0x40CA801C); }
+  static inline volatile REG5 &ref() { return *reinterpret_cast<volatile REG5*>(0x40CA801C); }
 };
 
 // DCDC Register 6
@@ -630,7 +630,7 @@ union REG6 {
 
   REG6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG6 &Instance() { return *reinterpret_cast<volatile REG6*>(0x40CA8020); }
+  static inline volatile REG6 &ref() { return *reinterpret_cast<volatile REG6*>(0x40CA8020); }
 };
 
 // DCDC Register 7
@@ -648,7 +648,7 @@ union REG7 {
 
   REG7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG7 &Instance() { return *reinterpret_cast<volatile REG7*>(0x40CA8024); }
+  static inline volatile REG7 &ref() { return *reinterpret_cast<volatile REG7*>(0x40CA8024); }
 };
 
 // DCDC Register 7 plus
@@ -666,7 +666,7 @@ union REG7P {
 
   REG7P() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG7P &Instance() { return *reinterpret_cast<volatile REG7P*>(0x40CA8028); }
+  static inline volatile REG7P &ref() { return *reinterpret_cast<volatile REG7P*>(0x40CA8028); }
 };
 
 // DCDC Register 8
@@ -683,7 +683,7 @@ union REG8 {
 
   REG8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG8 &Instance() { return *reinterpret_cast<volatile REG8*>(0x40CA802C); }
+  static inline volatile REG8 &ref() { return *reinterpret_cast<volatile REG8*>(0x40CA802C); }
 };
 
 // DCDC Register 9
@@ -700,7 +700,7 @@ union REG9 {
 
   REG9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG9 &Instance() { return *reinterpret_cast<volatile REG9*>(0x40CA8030); }
+  static inline volatile REG9 &ref() { return *reinterpret_cast<volatile REG9*>(0x40CA8030); }
 };
 
 // DCDC Register 10
@@ -717,7 +717,7 @@ union REG10 {
 
   REG10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG10 &Instance() { return *reinterpret_cast<volatile REG10*>(0x40CA8034); }
+  static inline volatile REG10 &ref() { return *reinterpret_cast<volatile REG10*>(0x40CA8034); }
 };
 
 // DCDC Register 11
@@ -734,7 +734,7 @@ union REG11 {
 
   REG11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG11 &Instance() { return *reinterpret_cast<volatile REG11*>(0x40CA8038); }
+  static inline volatile REG11 &ref() { return *reinterpret_cast<volatile REG11*>(0x40CA8038); }
 };
 
 // DCDC Register 12
@@ -751,7 +751,7 @@ union REG12 {
 
   REG12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG12 &Instance() { return *reinterpret_cast<volatile REG12*>(0x40CA803C); }
+  static inline volatile REG12 &ref() { return *reinterpret_cast<volatile REG12*>(0x40CA803C); }
 };
 
 // DCDC Register 13
@@ -768,7 +768,7 @@ union REG13 {
 
   REG13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG13 &Instance() { return *reinterpret_cast<volatile REG13*>(0x40CA8040); }
+  static inline volatile REG13 &ref() { return *reinterpret_cast<volatile REG13*>(0x40CA8040); }
 };
 
 // DCDC Register 14
@@ -785,7 +785,7 @@ union REG14 {
 
   REG14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG14 &Instance() { return *reinterpret_cast<volatile REG14*>(0x40CA8044); }
+  static inline volatile REG14 &ref() { return *reinterpret_cast<volatile REG14*>(0x40CA8044); }
 };
 
 // DCDC Register 15
@@ -802,7 +802,7 @@ union REG15 {
 
   REG15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG15 &Instance() { return *reinterpret_cast<volatile REG15*>(0x40CA8048); }
+  static inline volatile REG15 &ref() { return *reinterpret_cast<volatile REG15*>(0x40CA8048); }
 };
 
 // DCDC Register 16
@@ -819,7 +819,7 @@ union REG16 {
 
   REG16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG16 &Instance() { return *reinterpret_cast<volatile REG16*>(0x40CA804C); }
+  static inline volatile REG16 &ref() { return *reinterpret_cast<volatile REG16*>(0x40CA804C); }
 };
 
 // DCDC Register 17
@@ -836,7 +836,7 @@ union REG17 {
 
   REG17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG17 &Instance() { return *reinterpret_cast<volatile REG17*>(0x40CA8050); }
+  static inline volatile REG17 &ref() { return *reinterpret_cast<volatile REG17*>(0x40CA8050); }
 };
 
 // DCDC Register 18
@@ -853,7 +853,7 @@ union REG18 {
 
   REG18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG18 &Instance() { return *reinterpret_cast<volatile REG18*>(0x40CA8054); }
+  static inline volatile REG18 &ref() { return *reinterpret_cast<volatile REG18*>(0x40CA8054); }
 };
 
 // DCDC Register 19
@@ -870,7 +870,7 @@ union REG19 {
 
   REG19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG19 &Instance() { return *reinterpret_cast<volatile REG19*>(0x40CA8058); }
+  static inline volatile REG19 &ref() { return *reinterpret_cast<volatile REG19*>(0x40CA8058); }
 };
 
 // DCDC Register 20
@@ -887,7 +887,7 @@ union REG20 {
 
   REG20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG20 &Instance() { return *reinterpret_cast<volatile REG20*>(0x40CA805C); }
+  static inline volatile REG20 &ref() { return *reinterpret_cast<volatile REG20*>(0x40CA805C); }
 };
 
 // DCDC Register 21
@@ -904,7 +904,7 @@ union REG21 {
 
   REG21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG21 &Instance() { return *reinterpret_cast<volatile REG21*>(0x40CA8060); }
+  static inline volatile REG21 &ref() { return *reinterpret_cast<volatile REG21*>(0x40CA8060); }
 };
 
 // DCDC Register 22
@@ -921,7 +921,7 @@ union REG22 {
 
   REG22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG22 &Instance() { return *reinterpret_cast<volatile REG22*>(0x40CA8064); }
+  static inline volatile REG22 &ref() { return *reinterpret_cast<volatile REG22*>(0x40CA8064); }
 };
 
 // DCDC Register 23
@@ -938,7 +938,7 @@ union REG23 {
 
   REG23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REG23 &Instance() { return *reinterpret_cast<volatile REG23*>(0x40CA8068); }
+  static inline volatile REG23 &ref() { return *reinterpret_cast<volatile REG23*>(0x40CA8068); }
 };
 
 // DCDC Register 24
@@ -955,7 +955,7 @@ union REG24 {
 
   REG24() = delete;
   inline void Reset() volatile { this->value = 0x00100000; }
-  static inline volatile REG24 &Instance() { return *reinterpret_cast<volatile REG24*>(0x40CA806C); }
+  static inline volatile REG24 &ref() { return *reinterpret_cast<volatile REG24*>(0x40CA806C); }
 };
 
 

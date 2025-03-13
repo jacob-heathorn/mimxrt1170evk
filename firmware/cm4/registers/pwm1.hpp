@@ -25,7 +25,7 @@ union SM0CNT {
 
   SM0CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CNT &Instance() { return *reinterpret_cast<volatile SM0CNT*>(0x4018C000); }
+  static inline volatile SM0CNT &ref() { return *reinterpret_cast<volatile SM0CNT*>(0x4018C000); }
 };
 
 // Initial Count Register
@@ -43,7 +43,7 @@ union SM0INIT {
 
   SM0INIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0INIT &Instance() { return *reinterpret_cast<volatile SM0INIT*>(0x4018C002); }
+  static inline volatile SM0INIT &ref() { return *reinterpret_cast<volatile SM0INIT*>(0x4018C002); }
 };
 
 // Control 2 Register
@@ -149,7 +149,7 @@ union SM0CTRL2 {
 
   SM0CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CTRL2 &Instance() { return *reinterpret_cast<volatile SM0CTRL2*>(0x4018C004); }
+  static inline volatile SM0CTRL2 &ref() { return *reinterpret_cast<volatile SM0CTRL2*>(0x4018C004); }
 };
 
 // Control Register
@@ -297,7 +297,7 @@ union SM0CTRL {
 
   SM0CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
-  static inline volatile SM0CTRL &Instance() { return *reinterpret_cast<volatile SM0CTRL*>(0x4018C006); }
+  static inline volatile SM0CTRL &ref() { return *reinterpret_cast<volatile SM0CTRL*>(0x4018C006); }
 };
 
 // Value Register 0
@@ -315,7 +315,7 @@ union SM0VAL0 {
 
   SM0VAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0VAL0 &Instance() { return *reinterpret_cast<volatile SM0VAL0*>(0x4018C00A); }
+  static inline volatile SM0VAL0 &ref() { return *reinterpret_cast<volatile SM0VAL0*>(0x4018C00A); }
 };
 
 // Fractional Value Register 1
@@ -334,7 +334,7 @@ union SM0FRACVAL1 {
 
   SM0FRACVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0FRACVAL1 &Instance() { return *reinterpret_cast<volatile SM0FRACVAL1*>(0x4018C00C); }
+  static inline volatile SM0FRACVAL1 &ref() { return *reinterpret_cast<volatile SM0FRACVAL1*>(0x4018C00C); }
 };
 
 // Value Register 1
@@ -352,7 +352,7 @@ union SM0VAL1 {
 
   SM0VAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0VAL1 &Instance() { return *reinterpret_cast<volatile SM0VAL1*>(0x4018C00E); }
+  static inline volatile SM0VAL1 &ref() { return *reinterpret_cast<volatile SM0VAL1*>(0x4018C00E); }
 };
 
 // Fractional Value Register 2
@@ -371,7 +371,7 @@ union SM0FRACVAL2 {
 
   SM0FRACVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0FRACVAL2 &Instance() { return *reinterpret_cast<volatile SM0FRACVAL2*>(0x4018C010); }
+  static inline volatile SM0FRACVAL2 &ref() { return *reinterpret_cast<volatile SM0FRACVAL2*>(0x4018C010); }
 };
 
 // Value Register 2
@@ -389,7 +389,7 @@ union SM0VAL2 {
 
   SM0VAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0VAL2 &Instance() { return *reinterpret_cast<volatile SM0VAL2*>(0x4018C012); }
+  static inline volatile SM0VAL2 &ref() { return *reinterpret_cast<volatile SM0VAL2*>(0x4018C012); }
 };
 
 // Fractional Value Register 3
@@ -408,7 +408,7 @@ union SM0FRACVAL3 {
 
   SM0FRACVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0FRACVAL3 &Instance() { return *reinterpret_cast<volatile SM0FRACVAL3*>(0x4018C014); }
+  static inline volatile SM0FRACVAL3 &ref() { return *reinterpret_cast<volatile SM0FRACVAL3*>(0x4018C014); }
 };
 
 // Value Register 3
@@ -426,7 +426,7 @@ union SM0VAL3 {
 
   SM0VAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0VAL3 &Instance() { return *reinterpret_cast<volatile SM0VAL3*>(0x4018C016); }
+  static inline volatile SM0VAL3 &ref() { return *reinterpret_cast<volatile SM0VAL3*>(0x4018C016); }
 };
 
 // Fractional Value Register 4
@@ -445,7 +445,7 @@ union SM0FRACVAL4 {
 
   SM0FRACVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0FRACVAL4 &Instance() { return *reinterpret_cast<volatile SM0FRACVAL4*>(0x4018C018); }
+  static inline volatile SM0FRACVAL4 &ref() { return *reinterpret_cast<volatile SM0FRACVAL4*>(0x4018C018); }
 };
 
 // Value Register 4
@@ -463,7 +463,7 @@ union SM0VAL4 {
 
   SM0VAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0VAL4 &Instance() { return *reinterpret_cast<volatile SM0VAL4*>(0x4018C01A); }
+  static inline volatile SM0VAL4 &ref() { return *reinterpret_cast<volatile SM0VAL4*>(0x4018C01A); }
 };
 
 // Fractional Value Register 5
@@ -482,7 +482,7 @@ union SM0FRACVAL5 {
 
   SM0FRACVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0FRACVAL5 &Instance() { return *reinterpret_cast<volatile SM0FRACVAL5*>(0x4018C01C); }
+  static inline volatile SM0FRACVAL5 &ref() { return *reinterpret_cast<volatile SM0FRACVAL5*>(0x4018C01C); }
 };
 
 // Value Register 5
@@ -500,7 +500,7 @@ union SM0VAL5 {
 
   SM0VAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0VAL5 &Instance() { return *reinterpret_cast<volatile SM0VAL5*>(0x4018C01E); }
+  static inline volatile SM0VAL5 &ref() { return *reinterpret_cast<volatile SM0VAL5*>(0x4018C01E); }
 };
 
 // Fractional Control Register
@@ -551,7 +551,7 @@ union SM0FRCTRL {
 
   SM0FRCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0FRCTRL &Instance() { return *reinterpret_cast<volatile SM0FRCTRL*>(0x4018C020); }
+  static inline volatile SM0FRCTRL &ref() { return *reinterpret_cast<volatile SM0FRCTRL*>(0x4018C020); }
 };
 
 // Output Control Register
@@ -647,7 +647,7 @@ union SM0OCTRL {
 
   SM0OCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0OCTRL &Instance() { return *reinterpret_cast<volatile SM0OCTRL*>(0x4018C022); }
+  static inline volatile SM0OCTRL &ref() { return *reinterpret_cast<volatile SM0OCTRL*>(0x4018C022); }
 };
 
 // Status Register
@@ -715,7 +715,7 @@ union SM0STS {
 
   SM0STS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0STS &Instance() { return *reinterpret_cast<volatile SM0STS*>(0x4018C024); }
+  static inline volatile SM0STS &ref() { return *reinterpret_cast<volatile SM0STS*>(0x4018C024); }
 };
 
 // Interrupt Enable Register
@@ -821,7 +821,7 @@ union SM0INTEN {
 
   SM0INTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0INTEN &Instance() { return *reinterpret_cast<volatile SM0INTEN*>(0x4018C026); }
+  static inline volatile SM0INTEN &ref() { return *reinterpret_cast<volatile SM0INTEN*>(0x4018C026); }
 };
 
 // DMA Enable Register
@@ -883,7 +883,7 @@ union SM0DMAEN {
 
   SM0DMAEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0DMAEN &Instance() { return *reinterpret_cast<volatile SM0DMAEN*>(0x4018C028); }
+  static inline volatile SM0DMAEN &ref() { return *reinterpret_cast<volatile SM0DMAEN*>(0x4018C028); }
 };
 
 // Output Trigger Control Register
@@ -939,7 +939,7 @@ union SM0TCTRL {
 
   SM0TCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0TCTRL &Instance() { return *reinterpret_cast<volatile SM0TCTRL*>(0x4018C02A); }
+  static inline volatile SM0TCTRL &ref() { return *reinterpret_cast<volatile SM0TCTRL*>(0x4018C02A); }
 };
 
 // Fault Disable Mapping Register 0
@@ -961,7 +961,7 @@ union SM0DISMAP0 {
 
   SM0DISMAP0() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile SM0DISMAP0 &Instance() { return *reinterpret_cast<volatile SM0DISMAP0*>(0x4018C02C); }
+  static inline volatile SM0DISMAP0 &ref() { return *reinterpret_cast<volatile SM0DISMAP0*>(0x4018C02C); }
 };
 
 // Deadtime Count Register 0
@@ -979,7 +979,7 @@ union SM0DTCNT0 {
 
   SM0DTCNT0() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
-  static inline volatile SM0DTCNT0 &Instance() { return *reinterpret_cast<volatile SM0DTCNT0*>(0x4018C030); }
+  static inline volatile SM0DTCNT0 &ref() { return *reinterpret_cast<volatile SM0DTCNT0*>(0x4018C030); }
 };
 
 // Deadtime Count Register 1
@@ -997,7 +997,7 @@ union SM0DTCNT1 {
 
   SM0DTCNT1() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
-  static inline volatile SM0DTCNT1 &Instance() { return *reinterpret_cast<volatile SM0DTCNT1*>(0x4018C032); }
+  static inline volatile SM0DTCNT1 &ref() { return *reinterpret_cast<volatile SM0DTCNT1*>(0x4018C032); }
 };
 
 // Capture Control A Register
@@ -1087,7 +1087,7 @@ union SM0CAPTCTRLA {
 
   SM0CAPTCTRLA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CAPTCTRLA &Instance() { return *reinterpret_cast<volatile SM0CAPTCTRLA*>(0x4018C034); }
+  static inline volatile SM0CAPTCTRLA &ref() { return *reinterpret_cast<volatile SM0CAPTCTRLA*>(0x4018C034); }
 };
 
 // Capture Compare A Register
@@ -1107,7 +1107,7 @@ union SM0CAPTCOMPA {
 
   SM0CAPTCOMPA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CAPTCOMPA &Instance() { return *reinterpret_cast<volatile SM0CAPTCOMPA*>(0x4018C036); }
+  static inline volatile SM0CAPTCOMPA &ref() { return *reinterpret_cast<volatile SM0CAPTCOMPA*>(0x4018C036); }
 };
 
 // Capture Control B Register
@@ -1197,7 +1197,7 @@ union SM0CAPTCTRLB {
 
   SM0CAPTCTRLB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CAPTCTRLB &Instance() { return *reinterpret_cast<volatile SM0CAPTCTRLB*>(0x4018C038); }
+  static inline volatile SM0CAPTCTRLB &ref() { return *reinterpret_cast<volatile SM0CAPTCTRLB*>(0x4018C038); }
 };
 
 // Capture Compare B Register
@@ -1217,7 +1217,7 @@ union SM0CAPTCOMPB {
 
   SM0CAPTCOMPB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CAPTCOMPB &Instance() { return *reinterpret_cast<volatile SM0CAPTCOMPB*>(0x4018C03A); }
+  static inline volatile SM0CAPTCOMPB &ref() { return *reinterpret_cast<volatile SM0CAPTCOMPB*>(0x4018C03A); }
 };
 
 // Capture Control X Register
@@ -1307,7 +1307,7 @@ union SM0CAPTCTRLX {
 
   SM0CAPTCTRLX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CAPTCTRLX &Instance() { return *reinterpret_cast<volatile SM0CAPTCTRLX*>(0x4018C03C); }
+  static inline volatile SM0CAPTCTRLX &ref() { return *reinterpret_cast<volatile SM0CAPTCTRLX*>(0x4018C03C); }
 };
 
 // Capture Compare X Register
@@ -1327,7 +1327,7 @@ union SM0CAPTCOMPX {
 
   SM0CAPTCOMPX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CAPTCOMPX &Instance() { return *reinterpret_cast<volatile SM0CAPTCOMPX*>(0x4018C03E); }
+  static inline volatile SM0CAPTCOMPX &ref() { return *reinterpret_cast<volatile SM0CAPTCOMPX*>(0x4018C03E); }
 };
 
 // Capture Value 0 Register
@@ -1345,7 +1345,7 @@ union SM0CVAL0 {
 
   SM0CVAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CVAL0 &Instance() { return *reinterpret_cast<volatile SM0CVAL0*>(0x4018C040); }
+  static inline volatile SM0CVAL0 &ref() { return *reinterpret_cast<volatile SM0CVAL0*>(0x4018C040); }
 };
 
 // Capture Value 0 Cycle Register
@@ -1363,7 +1363,7 @@ union SM0CVAL0CYC {
 
   SM0CVAL0CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CVAL0CYC &Instance() { return *reinterpret_cast<volatile SM0CVAL0CYC*>(0x4018C042); }
+  static inline volatile SM0CVAL0CYC &ref() { return *reinterpret_cast<volatile SM0CVAL0CYC*>(0x4018C042); }
 };
 
 // Capture Value 1 Register
@@ -1381,7 +1381,7 @@ union SM0CVAL1 {
 
   SM0CVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CVAL1 &Instance() { return *reinterpret_cast<volatile SM0CVAL1*>(0x4018C044); }
+  static inline volatile SM0CVAL1 &ref() { return *reinterpret_cast<volatile SM0CVAL1*>(0x4018C044); }
 };
 
 // Capture Value 1 Cycle Register
@@ -1399,7 +1399,7 @@ union SM0CVAL1CYC {
 
   SM0CVAL1CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CVAL1CYC &Instance() { return *reinterpret_cast<volatile SM0CVAL1CYC*>(0x4018C046); }
+  static inline volatile SM0CVAL1CYC &ref() { return *reinterpret_cast<volatile SM0CVAL1CYC*>(0x4018C046); }
 };
 
 // Capture Value 2 Register
@@ -1417,7 +1417,7 @@ union SM0CVAL2 {
 
   SM0CVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CVAL2 &Instance() { return *reinterpret_cast<volatile SM0CVAL2*>(0x4018C048); }
+  static inline volatile SM0CVAL2 &ref() { return *reinterpret_cast<volatile SM0CVAL2*>(0x4018C048); }
 };
 
 // Capture Value 2 Cycle Register
@@ -1435,7 +1435,7 @@ union SM0CVAL2CYC {
 
   SM0CVAL2CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CVAL2CYC &Instance() { return *reinterpret_cast<volatile SM0CVAL2CYC*>(0x4018C04A); }
+  static inline volatile SM0CVAL2CYC &ref() { return *reinterpret_cast<volatile SM0CVAL2CYC*>(0x4018C04A); }
 };
 
 // Capture Value 3 Register
@@ -1453,7 +1453,7 @@ union SM0CVAL3 {
 
   SM0CVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CVAL3 &Instance() { return *reinterpret_cast<volatile SM0CVAL3*>(0x4018C04C); }
+  static inline volatile SM0CVAL3 &ref() { return *reinterpret_cast<volatile SM0CVAL3*>(0x4018C04C); }
 };
 
 // Capture Value 3 Cycle Register
@@ -1471,7 +1471,7 @@ union SM0CVAL3CYC {
 
   SM0CVAL3CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CVAL3CYC &Instance() { return *reinterpret_cast<volatile SM0CVAL3CYC*>(0x4018C04E); }
+  static inline volatile SM0CVAL3CYC &ref() { return *reinterpret_cast<volatile SM0CVAL3CYC*>(0x4018C04E); }
 };
 
 // Capture Value 4 Register
@@ -1489,7 +1489,7 @@ union SM0CVAL4 {
 
   SM0CVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CVAL4 &Instance() { return *reinterpret_cast<volatile SM0CVAL4*>(0x4018C050); }
+  static inline volatile SM0CVAL4 &ref() { return *reinterpret_cast<volatile SM0CVAL4*>(0x4018C050); }
 };
 
 // Capture Value 4 Cycle Register
@@ -1507,7 +1507,7 @@ union SM0CVAL4CYC {
 
   SM0CVAL4CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CVAL4CYC &Instance() { return *reinterpret_cast<volatile SM0CVAL4CYC*>(0x4018C052); }
+  static inline volatile SM0CVAL4CYC &ref() { return *reinterpret_cast<volatile SM0CVAL4CYC*>(0x4018C052); }
 };
 
 // Capture Value 5 Register
@@ -1525,7 +1525,7 @@ union SM0CVAL5 {
 
   SM0CVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CVAL5 &Instance() { return *reinterpret_cast<volatile SM0CVAL5*>(0x4018C054); }
+  static inline volatile SM0CVAL5 &ref() { return *reinterpret_cast<volatile SM0CVAL5*>(0x4018C054); }
 };
 
 // Capture Value 5 Cycle Register
@@ -1543,7 +1543,7 @@ union SM0CVAL5CYC {
 
   SM0CVAL5CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM0CVAL5CYC &Instance() { return *reinterpret_cast<volatile SM0CVAL5CYC*>(0x4018C056); }
+  static inline volatile SM0CVAL5CYC &ref() { return *reinterpret_cast<volatile SM0CVAL5CYC*>(0x4018C056); }
 };
 
 // Counter Register
@@ -1561,7 +1561,7 @@ union SM1CNT {
 
   SM1CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CNT &Instance() { return *reinterpret_cast<volatile SM1CNT*>(0x4018C060); }
+  static inline volatile SM1CNT &ref() { return *reinterpret_cast<volatile SM1CNT*>(0x4018C060); }
 };
 
 // Initial Count Register
@@ -1579,7 +1579,7 @@ union SM1INIT {
 
   SM1INIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1INIT &Instance() { return *reinterpret_cast<volatile SM1INIT*>(0x4018C062); }
+  static inline volatile SM1INIT &ref() { return *reinterpret_cast<volatile SM1INIT*>(0x4018C062); }
 };
 
 // Control 2 Register
@@ -1685,7 +1685,7 @@ union SM1CTRL2 {
 
   SM1CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CTRL2 &Instance() { return *reinterpret_cast<volatile SM1CTRL2*>(0x4018C064); }
+  static inline volatile SM1CTRL2 &ref() { return *reinterpret_cast<volatile SM1CTRL2*>(0x4018C064); }
 };
 
 // Control Register
@@ -1833,7 +1833,7 @@ union SM1CTRL {
 
   SM1CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
-  static inline volatile SM1CTRL &Instance() { return *reinterpret_cast<volatile SM1CTRL*>(0x4018C066); }
+  static inline volatile SM1CTRL &ref() { return *reinterpret_cast<volatile SM1CTRL*>(0x4018C066); }
 };
 
 // Value Register 0
@@ -1851,7 +1851,7 @@ union SM1VAL0 {
 
   SM1VAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1VAL0 &Instance() { return *reinterpret_cast<volatile SM1VAL0*>(0x4018C06A); }
+  static inline volatile SM1VAL0 &ref() { return *reinterpret_cast<volatile SM1VAL0*>(0x4018C06A); }
 };
 
 // Fractional Value Register 1
@@ -1870,7 +1870,7 @@ union SM1FRACVAL1 {
 
   SM1FRACVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1FRACVAL1 &Instance() { return *reinterpret_cast<volatile SM1FRACVAL1*>(0x4018C06C); }
+  static inline volatile SM1FRACVAL1 &ref() { return *reinterpret_cast<volatile SM1FRACVAL1*>(0x4018C06C); }
 };
 
 // Value Register 1
@@ -1888,7 +1888,7 @@ union SM1VAL1 {
 
   SM1VAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1VAL1 &Instance() { return *reinterpret_cast<volatile SM1VAL1*>(0x4018C06E); }
+  static inline volatile SM1VAL1 &ref() { return *reinterpret_cast<volatile SM1VAL1*>(0x4018C06E); }
 };
 
 // Fractional Value Register 2
@@ -1907,7 +1907,7 @@ union SM1FRACVAL2 {
 
   SM1FRACVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1FRACVAL2 &Instance() { return *reinterpret_cast<volatile SM1FRACVAL2*>(0x4018C070); }
+  static inline volatile SM1FRACVAL2 &ref() { return *reinterpret_cast<volatile SM1FRACVAL2*>(0x4018C070); }
 };
 
 // Value Register 2
@@ -1925,7 +1925,7 @@ union SM1VAL2 {
 
   SM1VAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1VAL2 &Instance() { return *reinterpret_cast<volatile SM1VAL2*>(0x4018C072); }
+  static inline volatile SM1VAL2 &ref() { return *reinterpret_cast<volatile SM1VAL2*>(0x4018C072); }
 };
 
 // Fractional Value Register 3
@@ -1944,7 +1944,7 @@ union SM1FRACVAL3 {
 
   SM1FRACVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1FRACVAL3 &Instance() { return *reinterpret_cast<volatile SM1FRACVAL3*>(0x4018C074); }
+  static inline volatile SM1FRACVAL3 &ref() { return *reinterpret_cast<volatile SM1FRACVAL3*>(0x4018C074); }
 };
 
 // Value Register 3
@@ -1962,7 +1962,7 @@ union SM1VAL3 {
 
   SM1VAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1VAL3 &Instance() { return *reinterpret_cast<volatile SM1VAL3*>(0x4018C076); }
+  static inline volatile SM1VAL3 &ref() { return *reinterpret_cast<volatile SM1VAL3*>(0x4018C076); }
 };
 
 // Fractional Value Register 4
@@ -1981,7 +1981,7 @@ union SM1FRACVAL4 {
 
   SM1FRACVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1FRACVAL4 &Instance() { return *reinterpret_cast<volatile SM1FRACVAL4*>(0x4018C078); }
+  static inline volatile SM1FRACVAL4 &ref() { return *reinterpret_cast<volatile SM1FRACVAL4*>(0x4018C078); }
 };
 
 // Value Register 4
@@ -1999,7 +1999,7 @@ union SM1VAL4 {
 
   SM1VAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1VAL4 &Instance() { return *reinterpret_cast<volatile SM1VAL4*>(0x4018C07A); }
+  static inline volatile SM1VAL4 &ref() { return *reinterpret_cast<volatile SM1VAL4*>(0x4018C07A); }
 };
 
 // Fractional Value Register 5
@@ -2018,7 +2018,7 @@ union SM1FRACVAL5 {
 
   SM1FRACVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1FRACVAL5 &Instance() { return *reinterpret_cast<volatile SM1FRACVAL5*>(0x4018C07C); }
+  static inline volatile SM1FRACVAL5 &ref() { return *reinterpret_cast<volatile SM1FRACVAL5*>(0x4018C07C); }
 };
 
 // Value Register 5
@@ -2036,7 +2036,7 @@ union SM1VAL5 {
 
   SM1VAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1VAL5 &Instance() { return *reinterpret_cast<volatile SM1VAL5*>(0x4018C07E); }
+  static inline volatile SM1VAL5 &ref() { return *reinterpret_cast<volatile SM1VAL5*>(0x4018C07E); }
 };
 
 // Fractional Control Register
@@ -2087,7 +2087,7 @@ union SM1FRCTRL {
 
   SM1FRCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1FRCTRL &Instance() { return *reinterpret_cast<volatile SM1FRCTRL*>(0x4018C080); }
+  static inline volatile SM1FRCTRL &ref() { return *reinterpret_cast<volatile SM1FRCTRL*>(0x4018C080); }
 };
 
 // Output Control Register
@@ -2183,7 +2183,7 @@ union SM1OCTRL {
 
   SM1OCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1OCTRL &Instance() { return *reinterpret_cast<volatile SM1OCTRL*>(0x4018C082); }
+  static inline volatile SM1OCTRL &ref() { return *reinterpret_cast<volatile SM1OCTRL*>(0x4018C082); }
 };
 
 // Status Register
@@ -2251,7 +2251,7 @@ union SM1STS {
 
   SM1STS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1STS &Instance() { return *reinterpret_cast<volatile SM1STS*>(0x4018C084); }
+  static inline volatile SM1STS &ref() { return *reinterpret_cast<volatile SM1STS*>(0x4018C084); }
 };
 
 // Interrupt Enable Register
@@ -2357,7 +2357,7 @@ union SM1INTEN {
 
   SM1INTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1INTEN &Instance() { return *reinterpret_cast<volatile SM1INTEN*>(0x4018C086); }
+  static inline volatile SM1INTEN &ref() { return *reinterpret_cast<volatile SM1INTEN*>(0x4018C086); }
 };
 
 // DMA Enable Register
@@ -2419,7 +2419,7 @@ union SM1DMAEN {
 
   SM1DMAEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1DMAEN &Instance() { return *reinterpret_cast<volatile SM1DMAEN*>(0x4018C088); }
+  static inline volatile SM1DMAEN &ref() { return *reinterpret_cast<volatile SM1DMAEN*>(0x4018C088); }
 };
 
 // Output Trigger Control Register
@@ -2475,7 +2475,7 @@ union SM1TCTRL {
 
   SM1TCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1TCTRL &Instance() { return *reinterpret_cast<volatile SM1TCTRL*>(0x4018C08A); }
+  static inline volatile SM1TCTRL &ref() { return *reinterpret_cast<volatile SM1TCTRL*>(0x4018C08A); }
 };
 
 // Fault Disable Mapping Register 0
@@ -2497,7 +2497,7 @@ union SM1DISMAP0 {
 
   SM1DISMAP0() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile SM1DISMAP0 &Instance() { return *reinterpret_cast<volatile SM1DISMAP0*>(0x4018C08C); }
+  static inline volatile SM1DISMAP0 &ref() { return *reinterpret_cast<volatile SM1DISMAP0*>(0x4018C08C); }
 };
 
 // Deadtime Count Register 0
@@ -2515,7 +2515,7 @@ union SM1DTCNT0 {
 
   SM1DTCNT0() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
-  static inline volatile SM1DTCNT0 &Instance() { return *reinterpret_cast<volatile SM1DTCNT0*>(0x4018C090); }
+  static inline volatile SM1DTCNT0 &ref() { return *reinterpret_cast<volatile SM1DTCNT0*>(0x4018C090); }
 };
 
 // Deadtime Count Register 1
@@ -2533,7 +2533,7 @@ union SM1DTCNT1 {
 
   SM1DTCNT1() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
-  static inline volatile SM1DTCNT1 &Instance() { return *reinterpret_cast<volatile SM1DTCNT1*>(0x4018C092); }
+  static inline volatile SM1DTCNT1 &ref() { return *reinterpret_cast<volatile SM1DTCNT1*>(0x4018C092); }
 };
 
 // Capture Control A Register
@@ -2623,7 +2623,7 @@ union SM1CAPTCTRLA {
 
   SM1CAPTCTRLA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CAPTCTRLA &Instance() { return *reinterpret_cast<volatile SM1CAPTCTRLA*>(0x4018C094); }
+  static inline volatile SM1CAPTCTRLA &ref() { return *reinterpret_cast<volatile SM1CAPTCTRLA*>(0x4018C094); }
 };
 
 // Capture Compare A Register
@@ -2643,7 +2643,7 @@ union SM1CAPTCOMPA {
 
   SM1CAPTCOMPA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CAPTCOMPA &Instance() { return *reinterpret_cast<volatile SM1CAPTCOMPA*>(0x4018C096); }
+  static inline volatile SM1CAPTCOMPA &ref() { return *reinterpret_cast<volatile SM1CAPTCOMPA*>(0x4018C096); }
 };
 
 // Capture Control B Register
@@ -2733,7 +2733,7 @@ union SM1CAPTCTRLB {
 
   SM1CAPTCTRLB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CAPTCTRLB &Instance() { return *reinterpret_cast<volatile SM1CAPTCTRLB*>(0x4018C098); }
+  static inline volatile SM1CAPTCTRLB &ref() { return *reinterpret_cast<volatile SM1CAPTCTRLB*>(0x4018C098); }
 };
 
 // Capture Compare B Register
@@ -2753,7 +2753,7 @@ union SM1CAPTCOMPB {
 
   SM1CAPTCOMPB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CAPTCOMPB &Instance() { return *reinterpret_cast<volatile SM1CAPTCOMPB*>(0x4018C09A); }
+  static inline volatile SM1CAPTCOMPB &ref() { return *reinterpret_cast<volatile SM1CAPTCOMPB*>(0x4018C09A); }
 };
 
 // Capture Control X Register
@@ -2843,7 +2843,7 @@ union SM1CAPTCTRLX {
 
   SM1CAPTCTRLX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CAPTCTRLX &Instance() { return *reinterpret_cast<volatile SM1CAPTCTRLX*>(0x4018C09C); }
+  static inline volatile SM1CAPTCTRLX &ref() { return *reinterpret_cast<volatile SM1CAPTCTRLX*>(0x4018C09C); }
 };
 
 // Capture Compare X Register
@@ -2863,7 +2863,7 @@ union SM1CAPTCOMPX {
 
   SM1CAPTCOMPX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CAPTCOMPX &Instance() { return *reinterpret_cast<volatile SM1CAPTCOMPX*>(0x4018C09E); }
+  static inline volatile SM1CAPTCOMPX &ref() { return *reinterpret_cast<volatile SM1CAPTCOMPX*>(0x4018C09E); }
 };
 
 // Capture Value 0 Register
@@ -2881,7 +2881,7 @@ union SM1CVAL0 {
 
   SM1CVAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CVAL0 &Instance() { return *reinterpret_cast<volatile SM1CVAL0*>(0x4018C0A0); }
+  static inline volatile SM1CVAL0 &ref() { return *reinterpret_cast<volatile SM1CVAL0*>(0x4018C0A0); }
 };
 
 // Capture Value 0 Cycle Register
@@ -2899,7 +2899,7 @@ union SM1CVAL0CYC {
 
   SM1CVAL0CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CVAL0CYC &Instance() { return *reinterpret_cast<volatile SM1CVAL0CYC*>(0x4018C0A2); }
+  static inline volatile SM1CVAL0CYC &ref() { return *reinterpret_cast<volatile SM1CVAL0CYC*>(0x4018C0A2); }
 };
 
 // Capture Value 1 Register
@@ -2917,7 +2917,7 @@ union SM1CVAL1 {
 
   SM1CVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CVAL1 &Instance() { return *reinterpret_cast<volatile SM1CVAL1*>(0x4018C0A4); }
+  static inline volatile SM1CVAL1 &ref() { return *reinterpret_cast<volatile SM1CVAL1*>(0x4018C0A4); }
 };
 
 // Capture Value 1 Cycle Register
@@ -2935,7 +2935,7 @@ union SM1CVAL1CYC {
 
   SM1CVAL1CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CVAL1CYC &Instance() { return *reinterpret_cast<volatile SM1CVAL1CYC*>(0x4018C0A6); }
+  static inline volatile SM1CVAL1CYC &ref() { return *reinterpret_cast<volatile SM1CVAL1CYC*>(0x4018C0A6); }
 };
 
 // Capture Value 2 Register
@@ -2953,7 +2953,7 @@ union SM1CVAL2 {
 
   SM1CVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CVAL2 &Instance() { return *reinterpret_cast<volatile SM1CVAL2*>(0x4018C0A8); }
+  static inline volatile SM1CVAL2 &ref() { return *reinterpret_cast<volatile SM1CVAL2*>(0x4018C0A8); }
 };
 
 // Capture Value 2 Cycle Register
@@ -2971,7 +2971,7 @@ union SM1CVAL2CYC {
 
   SM1CVAL2CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CVAL2CYC &Instance() { return *reinterpret_cast<volatile SM1CVAL2CYC*>(0x4018C0AA); }
+  static inline volatile SM1CVAL2CYC &ref() { return *reinterpret_cast<volatile SM1CVAL2CYC*>(0x4018C0AA); }
 };
 
 // Capture Value 3 Register
@@ -2989,7 +2989,7 @@ union SM1CVAL3 {
 
   SM1CVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CVAL3 &Instance() { return *reinterpret_cast<volatile SM1CVAL3*>(0x4018C0AC); }
+  static inline volatile SM1CVAL3 &ref() { return *reinterpret_cast<volatile SM1CVAL3*>(0x4018C0AC); }
 };
 
 // Capture Value 3 Cycle Register
@@ -3007,7 +3007,7 @@ union SM1CVAL3CYC {
 
   SM1CVAL3CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CVAL3CYC &Instance() { return *reinterpret_cast<volatile SM1CVAL3CYC*>(0x4018C0AE); }
+  static inline volatile SM1CVAL3CYC &ref() { return *reinterpret_cast<volatile SM1CVAL3CYC*>(0x4018C0AE); }
 };
 
 // Capture Value 4 Register
@@ -3025,7 +3025,7 @@ union SM1CVAL4 {
 
   SM1CVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CVAL4 &Instance() { return *reinterpret_cast<volatile SM1CVAL4*>(0x4018C0B0); }
+  static inline volatile SM1CVAL4 &ref() { return *reinterpret_cast<volatile SM1CVAL4*>(0x4018C0B0); }
 };
 
 // Capture Value 4 Cycle Register
@@ -3043,7 +3043,7 @@ union SM1CVAL4CYC {
 
   SM1CVAL4CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CVAL4CYC &Instance() { return *reinterpret_cast<volatile SM1CVAL4CYC*>(0x4018C0B2); }
+  static inline volatile SM1CVAL4CYC &ref() { return *reinterpret_cast<volatile SM1CVAL4CYC*>(0x4018C0B2); }
 };
 
 // Capture Value 5 Register
@@ -3061,7 +3061,7 @@ union SM1CVAL5 {
 
   SM1CVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CVAL5 &Instance() { return *reinterpret_cast<volatile SM1CVAL5*>(0x4018C0B4); }
+  static inline volatile SM1CVAL5 &ref() { return *reinterpret_cast<volatile SM1CVAL5*>(0x4018C0B4); }
 };
 
 // Capture Value 5 Cycle Register
@@ -3079,7 +3079,7 @@ union SM1CVAL5CYC {
 
   SM1CVAL5CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM1CVAL5CYC &Instance() { return *reinterpret_cast<volatile SM1CVAL5CYC*>(0x4018C0B6); }
+  static inline volatile SM1CVAL5CYC &ref() { return *reinterpret_cast<volatile SM1CVAL5CYC*>(0x4018C0B6); }
 };
 
 // Counter Register
@@ -3097,7 +3097,7 @@ union SM2CNT {
 
   SM2CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CNT &Instance() { return *reinterpret_cast<volatile SM2CNT*>(0x4018C0C0); }
+  static inline volatile SM2CNT &ref() { return *reinterpret_cast<volatile SM2CNT*>(0x4018C0C0); }
 };
 
 // Initial Count Register
@@ -3115,7 +3115,7 @@ union SM2INIT {
 
   SM2INIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2INIT &Instance() { return *reinterpret_cast<volatile SM2INIT*>(0x4018C0C2); }
+  static inline volatile SM2INIT &ref() { return *reinterpret_cast<volatile SM2INIT*>(0x4018C0C2); }
 };
 
 // Control 2 Register
@@ -3221,7 +3221,7 @@ union SM2CTRL2 {
 
   SM2CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CTRL2 &Instance() { return *reinterpret_cast<volatile SM2CTRL2*>(0x4018C0C4); }
+  static inline volatile SM2CTRL2 &ref() { return *reinterpret_cast<volatile SM2CTRL2*>(0x4018C0C4); }
 };
 
 // Control Register
@@ -3369,7 +3369,7 @@ union SM2CTRL {
 
   SM2CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
-  static inline volatile SM2CTRL &Instance() { return *reinterpret_cast<volatile SM2CTRL*>(0x4018C0C6); }
+  static inline volatile SM2CTRL &ref() { return *reinterpret_cast<volatile SM2CTRL*>(0x4018C0C6); }
 };
 
 // Value Register 0
@@ -3387,7 +3387,7 @@ union SM2VAL0 {
 
   SM2VAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2VAL0 &Instance() { return *reinterpret_cast<volatile SM2VAL0*>(0x4018C0CA); }
+  static inline volatile SM2VAL0 &ref() { return *reinterpret_cast<volatile SM2VAL0*>(0x4018C0CA); }
 };
 
 // Fractional Value Register 1
@@ -3406,7 +3406,7 @@ union SM2FRACVAL1 {
 
   SM2FRACVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2FRACVAL1 &Instance() { return *reinterpret_cast<volatile SM2FRACVAL1*>(0x4018C0CC); }
+  static inline volatile SM2FRACVAL1 &ref() { return *reinterpret_cast<volatile SM2FRACVAL1*>(0x4018C0CC); }
 };
 
 // Value Register 1
@@ -3424,7 +3424,7 @@ union SM2VAL1 {
 
   SM2VAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2VAL1 &Instance() { return *reinterpret_cast<volatile SM2VAL1*>(0x4018C0CE); }
+  static inline volatile SM2VAL1 &ref() { return *reinterpret_cast<volatile SM2VAL1*>(0x4018C0CE); }
 };
 
 // Fractional Value Register 2
@@ -3443,7 +3443,7 @@ union SM2FRACVAL2 {
 
   SM2FRACVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2FRACVAL2 &Instance() { return *reinterpret_cast<volatile SM2FRACVAL2*>(0x4018C0D0); }
+  static inline volatile SM2FRACVAL2 &ref() { return *reinterpret_cast<volatile SM2FRACVAL2*>(0x4018C0D0); }
 };
 
 // Value Register 2
@@ -3461,7 +3461,7 @@ union SM2VAL2 {
 
   SM2VAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2VAL2 &Instance() { return *reinterpret_cast<volatile SM2VAL2*>(0x4018C0D2); }
+  static inline volatile SM2VAL2 &ref() { return *reinterpret_cast<volatile SM2VAL2*>(0x4018C0D2); }
 };
 
 // Fractional Value Register 3
@@ -3480,7 +3480,7 @@ union SM2FRACVAL3 {
 
   SM2FRACVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2FRACVAL3 &Instance() { return *reinterpret_cast<volatile SM2FRACVAL3*>(0x4018C0D4); }
+  static inline volatile SM2FRACVAL3 &ref() { return *reinterpret_cast<volatile SM2FRACVAL3*>(0x4018C0D4); }
 };
 
 // Value Register 3
@@ -3498,7 +3498,7 @@ union SM2VAL3 {
 
   SM2VAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2VAL3 &Instance() { return *reinterpret_cast<volatile SM2VAL3*>(0x4018C0D6); }
+  static inline volatile SM2VAL3 &ref() { return *reinterpret_cast<volatile SM2VAL3*>(0x4018C0D6); }
 };
 
 // Fractional Value Register 4
@@ -3517,7 +3517,7 @@ union SM2FRACVAL4 {
 
   SM2FRACVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2FRACVAL4 &Instance() { return *reinterpret_cast<volatile SM2FRACVAL4*>(0x4018C0D8); }
+  static inline volatile SM2FRACVAL4 &ref() { return *reinterpret_cast<volatile SM2FRACVAL4*>(0x4018C0D8); }
 };
 
 // Value Register 4
@@ -3535,7 +3535,7 @@ union SM2VAL4 {
 
   SM2VAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2VAL4 &Instance() { return *reinterpret_cast<volatile SM2VAL4*>(0x4018C0DA); }
+  static inline volatile SM2VAL4 &ref() { return *reinterpret_cast<volatile SM2VAL4*>(0x4018C0DA); }
 };
 
 // Fractional Value Register 5
@@ -3554,7 +3554,7 @@ union SM2FRACVAL5 {
 
   SM2FRACVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2FRACVAL5 &Instance() { return *reinterpret_cast<volatile SM2FRACVAL5*>(0x4018C0DC); }
+  static inline volatile SM2FRACVAL5 &ref() { return *reinterpret_cast<volatile SM2FRACVAL5*>(0x4018C0DC); }
 };
 
 // Value Register 5
@@ -3572,7 +3572,7 @@ union SM2VAL5 {
 
   SM2VAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2VAL5 &Instance() { return *reinterpret_cast<volatile SM2VAL5*>(0x4018C0DE); }
+  static inline volatile SM2VAL5 &ref() { return *reinterpret_cast<volatile SM2VAL5*>(0x4018C0DE); }
 };
 
 // Fractional Control Register
@@ -3623,7 +3623,7 @@ union SM2FRCTRL {
 
   SM2FRCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2FRCTRL &Instance() { return *reinterpret_cast<volatile SM2FRCTRL*>(0x4018C0E0); }
+  static inline volatile SM2FRCTRL &ref() { return *reinterpret_cast<volatile SM2FRCTRL*>(0x4018C0E0); }
 };
 
 // Output Control Register
@@ -3719,7 +3719,7 @@ union SM2OCTRL {
 
   SM2OCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2OCTRL &Instance() { return *reinterpret_cast<volatile SM2OCTRL*>(0x4018C0E2); }
+  static inline volatile SM2OCTRL &ref() { return *reinterpret_cast<volatile SM2OCTRL*>(0x4018C0E2); }
 };
 
 // Status Register
@@ -3787,7 +3787,7 @@ union SM2STS {
 
   SM2STS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2STS &Instance() { return *reinterpret_cast<volatile SM2STS*>(0x4018C0E4); }
+  static inline volatile SM2STS &ref() { return *reinterpret_cast<volatile SM2STS*>(0x4018C0E4); }
 };
 
 // Interrupt Enable Register
@@ -3893,7 +3893,7 @@ union SM2INTEN {
 
   SM2INTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2INTEN &Instance() { return *reinterpret_cast<volatile SM2INTEN*>(0x4018C0E6); }
+  static inline volatile SM2INTEN &ref() { return *reinterpret_cast<volatile SM2INTEN*>(0x4018C0E6); }
 };
 
 // DMA Enable Register
@@ -3955,7 +3955,7 @@ union SM2DMAEN {
 
   SM2DMAEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2DMAEN &Instance() { return *reinterpret_cast<volatile SM2DMAEN*>(0x4018C0E8); }
+  static inline volatile SM2DMAEN &ref() { return *reinterpret_cast<volatile SM2DMAEN*>(0x4018C0E8); }
 };
 
 // Output Trigger Control Register
@@ -4011,7 +4011,7 @@ union SM2TCTRL {
 
   SM2TCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2TCTRL &Instance() { return *reinterpret_cast<volatile SM2TCTRL*>(0x4018C0EA); }
+  static inline volatile SM2TCTRL &ref() { return *reinterpret_cast<volatile SM2TCTRL*>(0x4018C0EA); }
 };
 
 // Fault Disable Mapping Register 0
@@ -4033,7 +4033,7 @@ union SM2DISMAP0 {
 
   SM2DISMAP0() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile SM2DISMAP0 &Instance() { return *reinterpret_cast<volatile SM2DISMAP0*>(0x4018C0EC); }
+  static inline volatile SM2DISMAP0 &ref() { return *reinterpret_cast<volatile SM2DISMAP0*>(0x4018C0EC); }
 };
 
 // Deadtime Count Register 0
@@ -4051,7 +4051,7 @@ union SM2DTCNT0 {
 
   SM2DTCNT0() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
-  static inline volatile SM2DTCNT0 &Instance() { return *reinterpret_cast<volatile SM2DTCNT0*>(0x4018C0F0); }
+  static inline volatile SM2DTCNT0 &ref() { return *reinterpret_cast<volatile SM2DTCNT0*>(0x4018C0F0); }
 };
 
 // Deadtime Count Register 1
@@ -4069,7 +4069,7 @@ union SM2DTCNT1 {
 
   SM2DTCNT1() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
-  static inline volatile SM2DTCNT1 &Instance() { return *reinterpret_cast<volatile SM2DTCNT1*>(0x4018C0F2); }
+  static inline volatile SM2DTCNT1 &ref() { return *reinterpret_cast<volatile SM2DTCNT1*>(0x4018C0F2); }
 };
 
 // Capture Control A Register
@@ -4159,7 +4159,7 @@ union SM2CAPTCTRLA {
 
   SM2CAPTCTRLA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CAPTCTRLA &Instance() { return *reinterpret_cast<volatile SM2CAPTCTRLA*>(0x4018C0F4); }
+  static inline volatile SM2CAPTCTRLA &ref() { return *reinterpret_cast<volatile SM2CAPTCTRLA*>(0x4018C0F4); }
 };
 
 // Capture Compare A Register
@@ -4179,7 +4179,7 @@ union SM2CAPTCOMPA {
 
   SM2CAPTCOMPA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CAPTCOMPA &Instance() { return *reinterpret_cast<volatile SM2CAPTCOMPA*>(0x4018C0F6); }
+  static inline volatile SM2CAPTCOMPA &ref() { return *reinterpret_cast<volatile SM2CAPTCOMPA*>(0x4018C0F6); }
 };
 
 // Capture Control B Register
@@ -4269,7 +4269,7 @@ union SM2CAPTCTRLB {
 
   SM2CAPTCTRLB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CAPTCTRLB &Instance() { return *reinterpret_cast<volatile SM2CAPTCTRLB*>(0x4018C0F8); }
+  static inline volatile SM2CAPTCTRLB &ref() { return *reinterpret_cast<volatile SM2CAPTCTRLB*>(0x4018C0F8); }
 };
 
 // Capture Compare B Register
@@ -4289,7 +4289,7 @@ union SM2CAPTCOMPB {
 
   SM2CAPTCOMPB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CAPTCOMPB &Instance() { return *reinterpret_cast<volatile SM2CAPTCOMPB*>(0x4018C0FA); }
+  static inline volatile SM2CAPTCOMPB &ref() { return *reinterpret_cast<volatile SM2CAPTCOMPB*>(0x4018C0FA); }
 };
 
 // Capture Control X Register
@@ -4379,7 +4379,7 @@ union SM2CAPTCTRLX {
 
   SM2CAPTCTRLX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CAPTCTRLX &Instance() { return *reinterpret_cast<volatile SM2CAPTCTRLX*>(0x4018C0FC); }
+  static inline volatile SM2CAPTCTRLX &ref() { return *reinterpret_cast<volatile SM2CAPTCTRLX*>(0x4018C0FC); }
 };
 
 // Capture Compare X Register
@@ -4399,7 +4399,7 @@ union SM2CAPTCOMPX {
 
   SM2CAPTCOMPX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CAPTCOMPX &Instance() { return *reinterpret_cast<volatile SM2CAPTCOMPX*>(0x4018C0FE); }
+  static inline volatile SM2CAPTCOMPX &ref() { return *reinterpret_cast<volatile SM2CAPTCOMPX*>(0x4018C0FE); }
 };
 
 // Capture Value 0 Register
@@ -4417,7 +4417,7 @@ union SM2CVAL0 {
 
   SM2CVAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CVAL0 &Instance() { return *reinterpret_cast<volatile SM2CVAL0*>(0x4018C100); }
+  static inline volatile SM2CVAL0 &ref() { return *reinterpret_cast<volatile SM2CVAL0*>(0x4018C100); }
 };
 
 // Capture Value 0 Cycle Register
@@ -4435,7 +4435,7 @@ union SM2CVAL0CYC {
 
   SM2CVAL0CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CVAL0CYC &Instance() { return *reinterpret_cast<volatile SM2CVAL0CYC*>(0x4018C102); }
+  static inline volatile SM2CVAL0CYC &ref() { return *reinterpret_cast<volatile SM2CVAL0CYC*>(0x4018C102); }
 };
 
 // Capture Value 1 Register
@@ -4453,7 +4453,7 @@ union SM2CVAL1 {
 
   SM2CVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CVAL1 &Instance() { return *reinterpret_cast<volatile SM2CVAL1*>(0x4018C104); }
+  static inline volatile SM2CVAL1 &ref() { return *reinterpret_cast<volatile SM2CVAL1*>(0x4018C104); }
 };
 
 // Capture Value 1 Cycle Register
@@ -4471,7 +4471,7 @@ union SM2CVAL1CYC {
 
   SM2CVAL1CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CVAL1CYC &Instance() { return *reinterpret_cast<volatile SM2CVAL1CYC*>(0x4018C106); }
+  static inline volatile SM2CVAL1CYC &ref() { return *reinterpret_cast<volatile SM2CVAL1CYC*>(0x4018C106); }
 };
 
 // Capture Value 2 Register
@@ -4489,7 +4489,7 @@ union SM2CVAL2 {
 
   SM2CVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CVAL2 &Instance() { return *reinterpret_cast<volatile SM2CVAL2*>(0x4018C108); }
+  static inline volatile SM2CVAL2 &ref() { return *reinterpret_cast<volatile SM2CVAL2*>(0x4018C108); }
 };
 
 // Capture Value 2 Cycle Register
@@ -4507,7 +4507,7 @@ union SM2CVAL2CYC {
 
   SM2CVAL2CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CVAL2CYC &Instance() { return *reinterpret_cast<volatile SM2CVAL2CYC*>(0x4018C10A); }
+  static inline volatile SM2CVAL2CYC &ref() { return *reinterpret_cast<volatile SM2CVAL2CYC*>(0x4018C10A); }
 };
 
 // Capture Value 3 Register
@@ -4525,7 +4525,7 @@ union SM2CVAL3 {
 
   SM2CVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CVAL3 &Instance() { return *reinterpret_cast<volatile SM2CVAL3*>(0x4018C10C); }
+  static inline volatile SM2CVAL3 &ref() { return *reinterpret_cast<volatile SM2CVAL3*>(0x4018C10C); }
 };
 
 // Capture Value 3 Cycle Register
@@ -4543,7 +4543,7 @@ union SM2CVAL3CYC {
 
   SM2CVAL3CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CVAL3CYC &Instance() { return *reinterpret_cast<volatile SM2CVAL3CYC*>(0x4018C10E); }
+  static inline volatile SM2CVAL3CYC &ref() { return *reinterpret_cast<volatile SM2CVAL3CYC*>(0x4018C10E); }
 };
 
 // Capture Value 4 Register
@@ -4561,7 +4561,7 @@ union SM2CVAL4 {
 
   SM2CVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CVAL4 &Instance() { return *reinterpret_cast<volatile SM2CVAL4*>(0x4018C110); }
+  static inline volatile SM2CVAL4 &ref() { return *reinterpret_cast<volatile SM2CVAL4*>(0x4018C110); }
 };
 
 // Capture Value 4 Cycle Register
@@ -4579,7 +4579,7 @@ union SM2CVAL4CYC {
 
   SM2CVAL4CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CVAL4CYC &Instance() { return *reinterpret_cast<volatile SM2CVAL4CYC*>(0x4018C112); }
+  static inline volatile SM2CVAL4CYC &ref() { return *reinterpret_cast<volatile SM2CVAL4CYC*>(0x4018C112); }
 };
 
 // Capture Value 5 Register
@@ -4597,7 +4597,7 @@ union SM2CVAL5 {
 
   SM2CVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CVAL5 &Instance() { return *reinterpret_cast<volatile SM2CVAL5*>(0x4018C114); }
+  static inline volatile SM2CVAL5 &ref() { return *reinterpret_cast<volatile SM2CVAL5*>(0x4018C114); }
 };
 
 // Capture Value 5 Cycle Register
@@ -4615,7 +4615,7 @@ union SM2CVAL5CYC {
 
   SM2CVAL5CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM2CVAL5CYC &Instance() { return *reinterpret_cast<volatile SM2CVAL5CYC*>(0x4018C116); }
+  static inline volatile SM2CVAL5CYC &ref() { return *reinterpret_cast<volatile SM2CVAL5CYC*>(0x4018C116); }
 };
 
 // Counter Register
@@ -4633,7 +4633,7 @@ union SM3CNT {
 
   SM3CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CNT &Instance() { return *reinterpret_cast<volatile SM3CNT*>(0x4018C120); }
+  static inline volatile SM3CNT &ref() { return *reinterpret_cast<volatile SM3CNT*>(0x4018C120); }
 };
 
 // Initial Count Register
@@ -4651,7 +4651,7 @@ union SM3INIT {
 
   SM3INIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3INIT &Instance() { return *reinterpret_cast<volatile SM3INIT*>(0x4018C122); }
+  static inline volatile SM3INIT &ref() { return *reinterpret_cast<volatile SM3INIT*>(0x4018C122); }
 };
 
 // Control 2 Register
@@ -4757,7 +4757,7 @@ union SM3CTRL2 {
 
   SM3CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CTRL2 &Instance() { return *reinterpret_cast<volatile SM3CTRL2*>(0x4018C124); }
+  static inline volatile SM3CTRL2 &ref() { return *reinterpret_cast<volatile SM3CTRL2*>(0x4018C124); }
 };
 
 // Control Register
@@ -4905,7 +4905,7 @@ union SM3CTRL {
 
   SM3CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
-  static inline volatile SM3CTRL &Instance() { return *reinterpret_cast<volatile SM3CTRL*>(0x4018C126); }
+  static inline volatile SM3CTRL &ref() { return *reinterpret_cast<volatile SM3CTRL*>(0x4018C126); }
 };
 
 // Value Register 0
@@ -4923,7 +4923,7 @@ union SM3VAL0 {
 
   SM3VAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3VAL0 &Instance() { return *reinterpret_cast<volatile SM3VAL0*>(0x4018C12A); }
+  static inline volatile SM3VAL0 &ref() { return *reinterpret_cast<volatile SM3VAL0*>(0x4018C12A); }
 };
 
 // Fractional Value Register 1
@@ -4942,7 +4942,7 @@ union SM3FRACVAL1 {
 
   SM3FRACVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3FRACVAL1 &Instance() { return *reinterpret_cast<volatile SM3FRACVAL1*>(0x4018C12C); }
+  static inline volatile SM3FRACVAL1 &ref() { return *reinterpret_cast<volatile SM3FRACVAL1*>(0x4018C12C); }
 };
 
 // Value Register 1
@@ -4960,7 +4960,7 @@ union SM3VAL1 {
 
   SM3VAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3VAL1 &Instance() { return *reinterpret_cast<volatile SM3VAL1*>(0x4018C12E); }
+  static inline volatile SM3VAL1 &ref() { return *reinterpret_cast<volatile SM3VAL1*>(0x4018C12E); }
 };
 
 // Fractional Value Register 2
@@ -4979,7 +4979,7 @@ union SM3FRACVAL2 {
 
   SM3FRACVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3FRACVAL2 &Instance() { return *reinterpret_cast<volatile SM3FRACVAL2*>(0x4018C130); }
+  static inline volatile SM3FRACVAL2 &ref() { return *reinterpret_cast<volatile SM3FRACVAL2*>(0x4018C130); }
 };
 
 // Value Register 2
@@ -4997,7 +4997,7 @@ union SM3VAL2 {
 
   SM3VAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3VAL2 &Instance() { return *reinterpret_cast<volatile SM3VAL2*>(0x4018C132); }
+  static inline volatile SM3VAL2 &ref() { return *reinterpret_cast<volatile SM3VAL2*>(0x4018C132); }
 };
 
 // Fractional Value Register 3
@@ -5016,7 +5016,7 @@ union SM3FRACVAL3 {
 
   SM3FRACVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3FRACVAL3 &Instance() { return *reinterpret_cast<volatile SM3FRACVAL3*>(0x4018C134); }
+  static inline volatile SM3FRACVAL3 &ref() { return *reinterpret_cast<volatile SM3FRACVAL3*>(0x4018C134); }
 };
 
 // Value Register 3
@@ -5034,7 +5034,7 @@ union SM3VAL3 {
 
   SM3VAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3VAL3 &Instance() { return *reinterpret_cast<volatile SM3VAL3*>(0x4018C136); }
+  static inline volatile SM3VAL3 &ref() { return *reinterpret_cast<volatile SM3VAL3*>(0x4018C136); }
 };
 
 // Fractional Value Register 4
@@ -5053,7 +5053,7 @@ union SM3FRACVAL4 {
 
   SM3FRACVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3FRACVAL4 &Instance() { return *reinterpret_cast<volatile SM3FRACVAL4*>(0x4018C138); }
+  static inline volatile SM3FRACVAL4 &ref() { return *reinterpret_cast<volatile SM3FRACVAL4*>(0x4018C138); }
 };
 
 // Value Register 4
@@ -5071,7 +5071,7 @@ union SM3VAL4 {
 
   SM3VAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3VAL4 &Instance() { return *reinterpret_cast<volatile SM3VAL4*>(0x4018C13A); }
+  static inline volatile SM3VAL4 &ref() { return *reinterpret_cast<volatile SM3VAL4*>(0x4018C13A); }
 };
 
 // Fractional Value Register 5
@@ -5090,7 +5090,7 @@ union SM3FRACVAL5 {
 
   SM3FRACVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3FRACVAL5 &Instance() { return *reinterpret_cast<volatile SM3FRACVAL5*>(0x4018C13C); }
+  static inline volatile SM3FRACVAL5 &ref() { return *reinterpret_cast<volatile SM3FRACVAL5*>(0x4018C13C); }
 };
 
 // Value Register 5
@@ -5108,7 +5108,7 @@ union SM3VAL5 {
 
   SM3VAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3VAL5 &Instance() { return *reinterpret_cast<volatile SM3VAL5*>(0x4018C13E); }
+  static inline volatile SM3VAL5 &ref() { return *reinterpret_cast<volatile SM3VAL5*>(0x4018C13E); }
 };
 
 // Fractional Control Register
@@ -5159,7 +5159,7 @@ union SM3FRCTRL {
 
   SM3FRCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3FRCTRL &Instance() { return *reinterpret_cast<volatile SM3FRCTRL*>(0x4018C140); }
+  static inline volatile SM3FRCTRL &ref() { return *reinterpret_cast<volatile SM3FRCTRL*>(0x4018C140); }
 };
 
 // Output Control Register
@@ -5255,7 +5255,7 @@ union SM3OCTRL {
 
   SM3OCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3OCTRL &Instance() { return *reinterpret_cast<volatile SM3OCTRL*>(0x4018C142); }
+  static inline volatile SM3OCTRL &ref() { return *reinterpret_cast<volatile SM3OCTRL*>(0x4018C142); }
 };
 
 // Status Register
@@ -5323,7 +5323,7 @@ union SM3STS {
 
   SM3STS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3STS &Instance() { return *reinterpret_cast<volatile SM3STS*>(0x4018C144); }
+  static inline volatile SM3STS &ref() { return *reinterpret_cast<volatile SM3STS*>(0x4018C144); }
 };
 
 // Interrupt Enable Register
@@ -5429,7 +5429,7 @@ union SM3INTEN {
 
   SM3INTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3INTEN &Instance() { return *reinterpret_cast<volatile SM3INTEN*>(0x4018C146); }
+  static inline volatile SM3INTEN &ref() { return *reinterpret_cast<volatile SM3INTEN*>(0x4018C146); }
 };
 
 // DMA Enable Register
@@ -5491,7 +5491,7 @@ union SM3DMAEN {
 
   SM3DMAEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3DMAEN &Instance() { return *reinterpret_cast<volatile SM3DMAEN*>(0x4018C148); }
+  static inline volatile SM3DMAEN &ref() { return *reinterpret_cast<volatile SM3DMAEN*>(0x4018C148); }
 };
 
 // Output Trigger Control Register
@@ -5547,7 +5547,7 @@ union SM3TCTRL {
 
   SM3TCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3TCTRL &Instance() { return *reinterpret_cast<volatile SM3TCTRL*>(0x4018C14A); }
+  static inline volatile SM3TCTRL &ref() { return *reinterpret_cast<volatile SM3TCTRL*>(0x4018C14A); }
 };
 
 // Fault Disable Mapping Register 0
@@ -5569,7 +5569,7 @@ union SM3DISMAP0 {
 
   SM3DISMAP0() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile SM3DISMAP0 &Instance() { return *reinterpret_cast<volatile SM3DISMAP0*>(0x4018C14C); }
+  static inline volatile SM3DISMAP0 &ref() { return *reinterpret_cast<volatile SM3DISMAP0*>(0x4018C14C); }
 };
 
 // Deadtime Count Register 0
@@ -5587,7 +5587,7 @@ union SM3DTCNT0 {
 
   SM3DTCNT0() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
-  static inline volatile SM3DTCNT0 &Instance() { return *reinterpret_cast<volatile SM3DTCNT0*>(0x4018C150); }
+  static inline volatile SM3DTCNT0 &ref() { return *reinterpret_cast<volatile SM3DTCNT0*>(0x4018C150); }
 };
 
 // Deadtime Count Register 1
@@ -5605,7 +5605,7 @@ union SM3DTCNT1 {
 
   SM3DTCNT1() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
-  static inline volatile SM3DTCNT1 &Instance() { return *reinterpret_cast<volatile SM3DTCNT1*>(0x4018C152); }
+  static inline volatile SM3DTCNT1 &ref() { return *reinterpret_cast<volatile SM3DTCNT1*>(0x4018C152); }
 };
 
 // Capture Control A Register
@@ -5695,7 +5695,7 @@ union SM3CAPTCTRLA {
 
   SM3CAPTCTRLA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CAPTCTRLA &Instance() { return *reinterpret_cast<volatile SM3CAPTCTRLA*>(0x4018C154); }
+  static inline volatile SM3CAPTCTRLA &ref() { return *reinterpret_cast<volatile SM3CAPTCTRLA*>(0x4018C154); }
 };
 
 // Capture Compare A Register
@@ -5715,7 +5715,7 @@ union SM3CAPTCOMPA {
 
   SM3CAPTCOMPA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CAPTCOMPA &Instance() { return *reinterpret_cast<volatile SM3CAPTCOMPA*>(0x4018C156); }
+  static inline volatile SM3CAPTCOMPA &ref() { return *reinterpret_cast<volatile SM3CAPTCOMPA*>(0x4018C156); }
 };
 
 // Capture Control B Register
@@ -5805,7 +5805,7 @@ union SM3CAPTCTRLB {
 
   SM3CAPTCTRLB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CAPTCTRLB &Instance() { return *reinterpret_cast<volatile SM3CAPTCTRLB*>(0x4018C158); }
+  static inline volatile SM3CAPTCTRLB &ref() { return *reinterpret_cast<volatile SM3CAPTCTRLB*>(0x4018C158); }
 };
 
 // Capture Compare B Register
@@ -5825,7 +5825,7 @@ union SM3CAPTCOMPB {
 
   SM3CAPTCOMPB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CAPTCOMPB &Instance() { return *reinterpret_cast<volatile SM3CAPTCOMPB*>(0x4018C15A); }
+  static inline volatile SM3CAPTCOMPB &ref() { return *reinterpret_cast<volatile SM3CAPTCOMPB*>(0x4018C15A); }
 };
 
 // Capture Control X Register
@@ -5915,7 +5915,7 @@ union SM3CAPTCTRLX {
 
   SM3CAPTCTRLX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CAPTCTRLX &Instance() { return *reinterpret_cast<volatile SM3CAPTCTRLX*>(0x4018C15C); }
+  static inline volatile SM3CAPTCTRLX &ref() { return *reinterpret_cast<volatile SM3CAPTCTRLX*>(0x4018C15C); }
 };
 
 // Capture Compare X Register
@@ -5935,7 +5935,7 @@ union SM3CAPTCOMPX {
 
   SM3CAPTCOMPX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CAPTCOMPX &Instance() { return *reinterpret_cast<volatile SM3CAPTCOMPX*>(0x4018C15E); }
+  static inline volatile SM3CAPTCOMPX &ref() { return *reinterpret_cast<volatile SM3CAPTCOMPX*>(0x4018C15E); }
 };
 
 // Capture Value 0 Register
@@ -5953,7 +5953,7 @@ union SM3CVAL0 {
 
   SM3CVAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CVAL0 &Instance() { return *reinterpret_cast<volatile SM3CVAL0*>(0x4018C160); }
+  static inline volatile SM3CVAL0 &ref() { return *reinterpret_cast<volatile SM3CVAL0*>(0x4018C160); }
 };
 
 // Capture Value 0 Cycle Register
@@ -5971,7 +5971,7 @@ union SM3CVAL0CYC {
 
   SM3CVAL0CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CVAL0CYC &Instance() { return *reinterpret_cast<volatile SM3CVAL0CYC*>(0x4018C162); }
+  static inline volatile SM3CVAL0CYC &ref() { return *reinterpret_cast<volatile SM3CVAL0CYC*>(0x4018C162); }
 };
 
 // Capture Value 1 Register
@@ -5989,7 +5989,7 @@ union SM3CVAL1 {
 
   SM3CVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CVAL1 &Instance() { return *reinterpret_cast<volatile SM3CVAL1*>(0x4018C164); }
+  static inline volatile SM3CVAL1 &ref() { return *reinterpret_cast<volatile SM3CVAL1*>(0x4018C164); }
 };
 
 // Capture Value 1 Cycle Register
@@ -6007,7 +6007,7 @@ union SM3CVAL1CYC {
 
   SM3CVAL1CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CVAL1CYC &Instance() { return *reinterpret_cast<volatile SM3CVAL1CYC*>(0x4018C166); }
+  static inline volatile SM3CVAL1CYC &ref() { return *reinterpret_cast<volatile SM3CVAL1CYC*>(0x4018C166); }
 };
 
 // Capture Value 2 Register
@@ -6025,7 +6025,7 @@ union SM3CVAL2 {
 
   SM3CVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CVAL2 &Instance() { return *reinterpret_cast<volatile SM3CVAL2*>(0x4018C168); }
+  static inline volatile SM3CVAL2 &ref() { return *reinterpret_cast<volatile SM3CVAL2*>(0x4018C168); }
 };
 
 // Capture Value 2 Cycle Register
@@ -6043,7 +6043,7 @@ union SM3CVAL2CYC {
 
   SM3CVAL2CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CVAL2CYC &Instance() { return *reinterpret_cast<volatile SM3CVAL2CYC*>(0x4018C16A); }
+  static inline volatile SM3CVAL2CYC &ref() { return *reinterpret_cast<volatile SM3CVAL2CYC*>(0x4018C16A); }
 };
 
 // Capture Value 3 Register
@@ -6061,7 +6061,7 @@ union SM3CVAL3 {
 
   SM3CVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CVAL3 &Instance() { return *reinterpret_cast<volatile SM3CVAL3*>(0x4018C16C); }
+  static inline volatile SM3CVAL3 &ref() { return *reinterpret_cast<volatile SM3CVAL3*>(0x4018C16C); }
 };
 
 // Capture Value 3 Cycle Register
@@ -6079,7 +6079,7 @@ union SM3CVAL3CYC {
 
   SM3CVAL3CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CVAL3CYC &Instance() { return *reinterpret_cast<volatile SM3CVAL3CYC*>(0x4018C16E); }
+  static inline volatile SM3CVAL3CYC &ref() { return *reinterpret_cast<volatile SM3CVAL3CYC*>(0x4018C16E); }
 };
 
 // Capture Value 4 Register
@@ -6097,7 +6097,7 @@ union SM3CVAL4 {
 
   SM3CVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CVAL4 &Instance() { return *reinterpret_cast<volatile SM3CVAL4*>(0x4018C170); }
+  static inline volatile SM3CVAL4 &ref() { return *reinterpret_cast<volatile SM3CVAL4*>(0x4018C170); }
 };
 
 // Capture Value 4 Cycle Register
@@ -6115,7 +6115,7 @@ union SM3CVAL4CYC {
 
   SM3CVAL4CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CVAL4CYC &Instance() { return *reinterpret_cast<volatile SM3CVAL4CYC*>(0x4018C172); }
+  static inline volatile SM3CVAL4CYC &ref() { return *reinterpret_cast<volatile SM3CVAL4CYC*>(0x4018C172); }
 };
 
 // Capture Value 5 Register
@@ -6133,7 +6133,7 @@ union SM3CVAL5 {
 
   SM3CVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CVAL5 &Instance() { return *reinterpret_cast<volatile SM3CVAL5*>(0x4018C174); }
+  static inline volatile SM3CVAL5 &ref() { return *reinterpret_cast<volatile SM3CVAL5*>(0x4018C174); }
 };
 
 // Capture Value 5 Cycle Register
@@ -6151,7 +6151,7 @@ union SM3CVAL5CYC {
 
   SM3CVAL5CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SM3CVAL5CYC &Instance() { return *reinterpret_cast<volatile SM3CVAL5CYC*>(0x4018C176); }
+  static inline volatile SM3CVAL5CYC &ref() { return *reinterpret_cast<volatile SM3CVAL5CYC*>(0x4018C176); }
 };
 
 // Output Enable Register
@@ -6173,7 +6173,7 @@ union OUTEN {
 
   OUTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OUTEN &Instance() { return *reinterpret_cast<volatile OUTEN*>(0x4018C180); }
+  static inline volatile OUTEN &ref() { return *reinterpret_cast<volatile OUTEN*>(0x4018C180); }
 };
 
 // Mask Register
@@ -6197,7 +6197,7 @@ union MASK {
 
   MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MASK &Instance() { return *reinterpret_cast<volatile MASK*>(0x4018C182); }
+  static inline volatile MASK &ref() { return *reinterpret_cast<volatile MASK*>(0x4018C182); }
 };
 
 // Software Controlled Output Register
@@ -6293,7 +6293,7 @@ union SWCOUT {
 
   SWCOUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SWCOUT &Instance() { return *reinterpret_cast<volatile SWCOUT*>(0x4018C184); }
+  static inline volatile SWCOUT &ref() { return *reinterpret_cast<volatile SWCOUT*>(0x4018C184); }
 };
 
 // PWM Source Select Register
@@ -6413,7 +6413,7 @@ union DTSRCSEL {
 
   DTSRCSEL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DTSRCSEL &Instance() { return *reinterpret_cast<volatile DTSRCSEL*>(0x4018C186); }
+  static inline volatile DTSRCSEL &ref() { return *reinterpret_cast<volatile DTSRCSEL*>(0x4018C186); }
 };
 
 // Master Control Register
@@ -6461,7 +6461,7 @@ union MCTRL {
 
   MCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCTRL &Instance() { return *reinterpret_cast<volatile MCTRL*>(0x4018C188); }
+  static inline volatile MCTRL &ref() { return *reinterpret_cast<volatile MCTRL*>(0x4018C188); }
 };
 
 // Fault Control Register
@@ -6517,7 +6517,7 @@ union FCTRL0 {
 
   FCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FCTRL0 &Instance() { return *reinterpret_cast<volatile FCTRL0*>(0x4018C18C); }
+  static inline volatile FCTRL0 &ref() { return *reinterpret_cast<volatile FCTRL0*>(0x4018C18C); }
 };
 
 // Fault Status Register
@@ -6565,7 +6565,7 @@ union FSTS0 {
 
   FSTS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FSTS0 &Instance() { return *reinterpret_cast<volatile FSTS0*>(0x4018C18E); }
+  static inline volatile FSTS0 &ref() { return *reinterpret_cast<volatile FSTS0*>(0x4018C18E); }
 };
 
 // Fault Filter Register
@@ -6596,7 +6596,7 @@ union FFILT0 {
 
   FFILT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FFILT0 &Instance() { return *reinterpret_cast<volatile FFILT0*>(0x4018C190); }
+  static inline volatile FFILT0 &ref() { return *reinterpret_cast<volatile FFILT0*>(0x4018C190); }
 };
 
 // Fault Test Register
@@ -6622,7 +6622,7 @@ union FTST0 {
 
   FTST0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FTST0 &Instance() { return *reinterpret_cast<volatile FTST0*>(0x4018C192); }
+  static inline volatile FTST0 &ref() { return *reinterpret_cast<volatile FTST0*>(0x4018C192); }
 };
 
 // Fault Control 2 Register
@@ -6648,7 +6648,7 @@ union FCTRL20 {
 
   FCTRL20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FCTRL20 &Instance() { return *reinterpret_cast<volatile FCTRL20*>(0x4018C194); }
+  static inline volatile FCTRL20 &ref() { return *reinterpret_cast<volatile FCTRL20*>(0x4018C194); }
 };
 
 

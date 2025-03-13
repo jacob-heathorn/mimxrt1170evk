@@ -96,7 +96,7 @@ union CR {
 
   CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CR &Instance() { return *reinterpret_cast<volatile CR*>(0x400D0C00); }
+  static inline volatile CR &ref() { return *reinterpret_cast<volatile CR*>(0x400D0C00); }
 };
 
 // Status Register
@@ -263,7 +263,7 @@ union SR {
 
   SR() = delete;
   inline void Reset() volatile { this->value = 0x00000040; }
-  static inline volatile SR &Instance() { return *reinterpret_cast<volatile SR*>(0x400D0C04); }
+  static inline volatile SR &ref() { return *reinterpret_cast<volatile SR*>(0x400D0C04); }
 };
 
 

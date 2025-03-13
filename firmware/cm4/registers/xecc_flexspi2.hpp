@@ -63,7 +63,7 @@ union ECC_CTRL {
 
   ECC_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_CTRL &Instance() { return *reinterpret_cast<volatile ECC_CTRL*>(0x40020000); }
+  static inline volatile ECC_CTRL &ref() { return *reinterpret_cast<volatile ECC_CTRL*>(0x40020000); }
 };
 
 // Error Interrupt Status Register
@@ -100,7 +100,7 @@ union ERR_STATUS {
 
   ERR_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_STATUS &Instance() { return *reinterpret_cast<volatile ERR_STATUS*>(0x40020004); }
+  static inline volatile ERR_STATUS &ref() { return *reinterpret_cast<volatile ERR_STATUS*>(0x40020004); }
 };
 
 // Error Interrupt Status Enable Register
@@ -137,7 +137,7 @@ union ERR_STAT_EN {
 
   ERR_STAT_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_STAT_EN &Instance() { return *reinterpret_cast<volatile ERR_STAT_EN*>(0x40020008); }
+  static inline volatile ERR_STAT_EN &ref() { return *reinterpret_cast<volatile ERR_STAT_EN*>(0x40020008); }
 };
 
 // Error Interrupt Enable Register
@@ -174,7 +174,7 @@ union ERR_SIG_EN {
 
   ERR_SIG_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_SIG_EN &Instance() { return *reinterpret_cast<volatile ERR_SIG_EN*>(0x4002000C); }
+  static inline volatile ERR_SIG_EN &ref() { return *reinterpret_cast<volatile ERR_SIG_EN*>(0x4002000C); }
 };
 
 // Error Injection On Write Data
@@ -191,7 +191,7 @@ union ERR_DATA_INJ {
 
   ERR_DATA_INJ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_DATA_INJ &Instance() { return *reinterpret_cast<volatile ERR_DATA_INJ*>(0x40020010); }
+  static inline volatile ERR_DATA_INJ &ref() { return *reinterpret_cast<volatile ERR_DATA_INJ*>(0x40020010); }
 };
 
 // Error Injection On ECC Code of Write Data
@@ -208,7 +208,7 @@ union ERR_ECC_INJ {
 
   ERR_ECC_INJ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_ECC_INJ &Instance() { return *reinterpret_cast<volatile ERR_ECC_INJ*>(0x40020014); }
+  static inline volatile ERR_ECC_INJ &ref() { return *reinterpret_cast<volatile ERR_ECC_INJ*>(0x40020014); }
 };
 
 // Single Error Address
@@ -225,7 +225,7 @@ union SINGLE_ERR_ADDR {
 
   SINGLE_ERR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_ADDR &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_ADDR*>(0x40020018); }
+  static inline volatile SINGLE_ERR_ADDR &ref() { return *reinterpret_cast<volatile SINGLE_ERR_ADDR*>(0x40020018); }
 };
 
 // Single Error Read Data
@@ -242,7 +242,7 @@ union SINGLE_ERR_DATA {
 
   SINGLE_ERR_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_DATA &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_DATA*>(0x4002001C); }
+  static inline volatile SINGLE_ERR_DATA &ref() { return *reinterpret_cast<volatile SINGLE_ERR_DATA*>(0x4002001C); }
 };
 
 // Single Error ECC Code
@@ -259,7 +259,7 @@ union SINGLE_ERR_ECC {
 
   SINGLE_ERR_ECC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_ECC &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_ECC*>(0x40020020); }
+  static inline volatile SINGLE_ERR_ECC &ref() { return *reinterpret_cast<volatile SINGLE_ERR_ECC*>(0x40020020); }
 };
 
 // Single Error Bit Position
@@ -276,7 +276,7 @@ union SINGLE_ERR_POS {
 
   SINGLE_ERR_POS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_POS &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_POS*>(0x40020024); }
+  static inline volatile SINGLE_ERR_POS &ref() { return *reinterpret_cast<volatile SINGLE_ERR_POS*>(0x40020024); }
 };
 
 // Single Error Bit Field
@@ -295,7 +295,7 @@ union SINGLE_ERR_BIT_FIELD {
 
   SINGLE_ERR_BIT_FIELD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_BIT_FIELD &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_BIT_FIELD*>(0x40020028); }
+  static inline volatile SINGLE_ERR_BIT_FIELD &ref() { return *reinterpret_cast<volatile SINGLE_ERR_BIT_FIELD*>(0x40020028); }
 };
 
 // Multiple Error Address
@@ -312,7 +312,7 @@ union MULTI_ERR_ADDR {
 
   MULTI_ERR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_ADDR &Instance() { return *reinterpret_cast<volatile MULTI_ERR_ADDR*>(0x4002002C); }
+  static inline volatile MULTI_ERR_ADDR &ref() { return *reinterpret_cast<volatile MULTI_ERR_ADDR*>(0x4002002C); }
 };
 
 // Multiple Error Read Data
@@ -329,7 +329,7 @@ union MULTI_ERR_DATA {
 
   MULTI_ERR_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_DATA &Instance() { return *reinterpret_cast<volatile MULTI_ERR_DATA*>(0x40020030); }
+  static inline volatile MULTI_ERR_DATA &ref() { return *reinterpret_cast<volatile MULTI_ERR_DATA*>(0x40020030); }
 };
 
 // Multiple Error ECC code
@@ -346,7 +346,7 @@ union MULTI_ERR_ECC {
 
   MULTI_ERR_ECC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_ECC &Instance() { return *reinterpret_cast<volatile MULTI_ERR_ECC*>(0x40020034); }
+  static inline volatile MULTI_ERR_ECC &ref() { return *reinterpret_cast<volatile MULTI_ERR_ECC*>(0x40020034); }
 };
 
 // Multiple Error Bit Field
@@ -365,7 +365,7 @@ union MULTI_ERR_BIT_FIELD {
 
   MULTI_ERR_BIT_FIELD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_BIT_FIELD &Instance() { return *reinterpret_cast<volatile MULTI_ERR_BIT_FIELD*>(0x40020038); }
+  static inline volatile MULTI_ERR_BIT_FIELD &ref() { return *reinterpret_cast<volatile MULTI_ERR_BIT_FIELD*>(0x40020038); }
 };
 
 // ECC Region 0 Base Address
@@ -382,7 +382,7 @@ union ECC_BASE_ADDR0 {
 
   ECC_BASE_ADDR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_BASE_ADDR0 &Instance() { return *reinterpret_cast<volatile ECC_BASE_ADDR0*>(0x4002003C); }
+  static inline volatile ECC_BASE_ADDR0 &ref() { return *reinterpret_cast<volatile ECC_BASE_ADDR0*>(0x4002003C); }
 };
 
 // ECC Region 0 End Address
@@ -399,7 +399,7 @@ union ECC_END_ADDR0 {
 
   ECC_END_ADDR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_END_ADDR0 &Instance() { return *reinterpret_cast<volatile ECC_END_ADDR0*>(0x40020040); }
+  static inline volatile ECC_END_ADDR0 &ref() { return *reinterpret_cast<volatile ECC_END_ADDR0*>(0x40020040); }
 };
 
 // ECC Region 1 Base Address
@@ -416,7 +416,7 @@ union ECC_BASE_ADDR1 {
 
   ECC_BASE_ADDR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_BASE_ADDR1 &Instance() { return *reinterpret_cast<volatile ECC_BASE_ADDR1*>(0x40020044); }
+  static inline volatile ECC_BASE_ADDR1 &ref() { return *reinterpret_cast<volatile ECC_BASE_ADDR1*>(0x40020044); }
 };
 
 // ECC Region 1 End Address
@@ -433,7 +433,7 @@ union ECC_END_ADDR1 {
 
   ECC_END_ADDR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_END_ADDR1 &Instance() { return *reinterpret_cast<volatile ECC_END_ADDR1*>(0x40020048); }
+  static inline volatile ECC_END_ADDR1 &ref() { return *reinterpret_cast<volatile ECC_END_ADDR1*>(0x40020048); }
 };
 
 // ECC Region 2 Base Address
@@ -450,7 +450,7 @@ union ECC_BASE_ADDR2 {
 
   ECC_BASE_ADDR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_BASE_ADDR2 &Instance() { return *reinterpret_cast<volatile ECC_BASE_ADDR2*>(0x4002004C); }
+  static inline volatile ECC_BASE_ADDR2 &ref() { return *reinterpret_cast<volatile ECC_BASE_ADDR2*>(0x4002004C); }
 };
 
 // ECC Region 2 End Address
@@ -467,7 +467,7 @@ union ECC_END_ADDR2 {
 
   ECC_END_ADDR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_END_ADDR2 &Instance() { return *reinterpret_cast<volatile ECC_END_ADDR2*>(0x40020050); }
+  static inline volatile ECC_END_ADDR2 &ref() { return *reinterpret_cast<volatile ECC_END_ADDR2*>(0x40020050); }
 };
 
 // ECC Region 3 Base Address
@@ -484,7 +484,7 @@ union ECC_BASE_ADDR3 {
 
   ECC_BASE_ADDR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_BASE_ADDR3 &Instance() { return *reinterpret_cast<volatile ECC_BASE_ADDR3*>(0x40020054); }
+  static inline volatile ECC_BASE_ADDR3 &ref() { return *reinterpret_cast<volatile ECC_BASE_ADDR3*>(0x40020054); }
 };
 
 // ECC Region 3 End Address
@@ -501,7 +501,7 @@ union ECC_END_ADDR3 {
 
   ECC_END_ADDR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_END_ADDR3 &Instance() { return *reinterpret_cast<volatile ECC_END_ADDR3*>(0x40020058); }
+  static inline volatile ECC_END_ADDR3 &ref() { return *reinterpret_cast<volatile ECC_END_ADDR3*>(0x40020058); }
 };
 
 

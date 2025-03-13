@@ -89,7 +89,7 @@ union MCR {
 
   MCR() = delete;
   inline void Reset() volatile { this->value = 0x10000002; }
-  static inline volatile MCR &Instance() { return *reinterpret_cast<volatile MCR*>(0x400D4000); }
+  static inline volatile MCR &ref() { return *reinterpret_cast<volatile MCR*>(0x400D4000); }
 };
 
 // IO MUX Control Register
@@ -381,7 +381,7 @@ union IOCR {
 
   IOCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IOCR &Instance() { return *reinterpret_cast<volatile IOCR*>(0x400D4004); }
+  static inline volatile IOCR &ref() { return *reinterpret_cast<volatile IOCR*>(0x400D4004); }
 };
 
 // Bus (AXI) Master Control Register 0
@@ -405,7 +405,7 @@ union BMCR0 {
 
   BMCR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BMCR0 &Instance() { return *reinterpret_cast<volatile BMCR0*>(0x400D4008); }
+  static inline volatile BMCR0 &ref() { return *reinterpret_cast<volatile BMCR0*>(0x400D4008); }
 };
 
 // Bus (AXI) Master Control Register 1
@@ -430,7 +430,7 @@ union BMCR1 {
 
   BMCR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BMCR1 &Instance() { return *reinterpret_cast<volatile BMCR1*>(0x400D400C); }
+  static inline volatile BMCR1 &ref() { return *reinterpret_cast<volatile BMCR1*>(0x400D400C); }
 };
 
 // Base Register n
@@ -528,7 +528,7 @@ union BR_0 {
 
   BR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR_0 &Instance() { return *reinterpret_cast<volatile BR_0*>(0x400D4010); }
+  static inline volatile BR_0 &ref() { return *reinterpret_cast<volatile BR_0*>(0x400D4010); }
 };
 // Base Register n
 union BR_1 {
@@ -625,7 +625,7 @@ union BR_1 {
 
   BR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR_1 &Instance() { return *reinterpret_cast<volatile BR_1*>(0x400D4014); }
+  static inline volatile BR_1 &ref() { return *reinterpret_cast<volatile BR_1*>(0x400D4014); }
 };
 // Base Register n
 union BR_2 {
@@ -722,7 +722,7 @@ union BR_2 {
 
   BR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR_2 &Instance() { return *reinterpret_cast<volatile BR_2*>(0x400D4018); }
+  static inline volatile BR_2 &ref() { return *reinterpret_cast<volatile BR_2*>(0x400D4018); }
 };
 // Base Register n
 union BR_3 {
@@ -819,7 +819,7 @@ union BR_3 {
 
   BR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR_3 &Instance() { return *reinterpret_cast<volatile BR_3*>(0x400D401C); }
+  static inline volatile BR_3 &ref() { return *reinterpret_cast<volatile BR_3*>(0x400D401C); }
 };
 // Base Register n
 union BR_4 {
@@ -916,7 +916,7 @@ union BR_4 {
 
   BR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR_4 &Instance() { return *reinterpret_cast<volatile BR_4*>(0x400D4020); }
+  static inline volatile BR_4 &ref() { return *reinterpret_cast<volatile BR_4*>(0x400D4020); }
 };
 // Base Register n
 union BR_5 {
@@ -1013,7 +1013,7 @@ union BR_5 {
 
   BR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR_5 &Instance() { return *reinterpret_cast<volatile BR_5*>(0x400D4024); }
+  static inline volatile BR_5 &ref() { return *reinterpret_cast<volatile BR_5*>(0x400D4024); }
 };
 // Base Register n
 union BR_6 {
@@ -1110,7 +1110,7 @@ union BR_6 {
 
   BR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR_6 &Instance() { return *reinterpret_cast<volatile BR_6*>(0x400D4028); }
+  static inline volatile BR_6 &ref() { return *reinterpret_cast<volatile BR_6*>(0x400D4028); }
 };
 // Base Register n
 union BR_7 {
@@ -1207,7 +1207,7 @@ union BR_7 {
 
   BR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR_7 &Instance() { return *reinterpret_cast<volatile BR_7*>(0x400D402C); }
+  static inline volatile BR_7 &ref() { return *reinterpret_cast<volatile BR_7*>(0x400D402C); }
 };
 // Base Register n
 union BR_8 {
@@ -1304,7 +1304,7 @@ union BR_8 {
 
   BR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR_8 &Instance() { return *reinterpret_cast<volatile BR_8*>(0x400D4030); }
+  static inline volatile BR_8 &ref() { return *reinterpret_cast<volatile BR_8*>(0x400D4030); }
 };
 
 // DLL Control Register
@@ -1356,7 +1356,7 @@ union DLLCR {
 
   DLLCR() = delete;
   inline void Reset() volatile { this->value = 0x00000100; }
-  static inline volatile DLLCR &Instance() { return *reinterpret_cast<volatile DLLCR*>(0x400D4034); }
+  static inline volatile DLLCR &ref() { return *reinterpret_cast<volatile DLLCR*>(0x400D4034); }
 };
 
 // Interrupt Enable Register
@@ -1432,7 +1432,7 @@ union INTEN {
 
   INTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INTEN &Instance() { return *reinterpret_cast<volatile INTEN*>(0x400D4038); }
+  static inline volatile INTEN &ref() { return *reinterpret_cast<volatile INTEN*>(0x400D4038); }
 };
 
 // Interrupt Register
@@ -1508,7 +1508,7 @@ union INTR {
 
   INTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INTR &Instance() { return *reinterpret_cast<volatile INTR*>(0x400D403C); }
+  static inline volatile INTR &ref() { return *reinterpret_cast<volatile INTR*>(0x400D403C); }
 };
 
 // SDRAM Control Register 0
@@ -1608,7 +1608,7 @@ union SDRAMCR0 {
 
   SDRAMCR0() = delete;
   inline void Reset() volatile { this->value = 0x00000C26; }
-  static inline volatile SDRAMCR0 &Instance() { return *reinterpret_cast<volatile SDRAMCR0*>(0x400D4040); }
+  static inline volatile SDRAMCR0 &ref() { return *reinterpret_cast<volatile SDRAMCR0*>(0x400D4040); }
 };
 
 // SDRAM Control Register 1
@@ -1636,7 +1636,7 @@ union SDRAMCR1 {
 
   SDRAMCR1() = delete;
   inline void Reset() volatile { this->value = 0x00994934; }
-  static inline volatile SDRAMCR1 &Instance() { return *reinterpret_cast<volatile SDRAMCR1*>(0x400D4044); }
+  static inline volatile SDRAMCR1 &ref() { return *reinterpret_cast<volatile SDRAMCR1*>(0x400D4044); }
 };
 
 // SDRAM Control Register 2
@@ -1683,7 +1683,7 @@ union SDRAMCR2 {
 
   SDRAMCR2() = delete;
   inline void Reset() volatile { this->value = 0x80000EEE; }
-  static inline volatile SDRAMCR2 &Instance() { return *reinterpret_cast<volatile SDRAMCR2*>(0x400D4048); }
+  static inline volatile SDRAMCR2 &ref() { return *reinterpret_cast<volatile SDRAMCR2*>(0x400D4048); }
 };
 
 // SDRAM Control Register 3
@@ -1809,7 +1809,7 @@ union SDRAMCR3 {
 
   SDRAMCR3() = delete;
   inline void Reset() volatile { this->value = 0x40808000; }
-  static inline volatile SDRAMCR3 &Instance() { return *reinterpret_cast<volatile SDRAMCR3*>(0x400D404C); }
+  static inline volatile SDRAMCR3 &ref() { return *reinterpret_cast<volatile SDRAMCR3*>(0x400D404C); }
 };
 
 // NAND Control Register 0
@@ -1900,7 +1900,7 @@ union NANDCR0 {
 
   NANDCR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NANDCR0 &Instance() { return *reinterpret_cast<volatile NANDCR0*>(0x400D4050); }
+  static inline volatile NANDCR0 &ref() { return *reinterpret_cast<volatile NANDCR0*>(0x400D4050); }
 };
 
 // NAND Control Register 1
@@ -1931,7 +1931,7 @@ union NANDCR1 {
 
   NANDCR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NANDCR1 &Instance() { return *reinterpret_cast<volatile NANDCR1*>(0x400D4054); }
+  static inline volatile NANDCR1 &ref() { return *reinterpret_cast<volatile NANDCR1*>(0x400D4054); }
 };
 
 // NAND Control Register 2
@@ -1957,7 +1957,7 @@ union NANDCR2 {
 
   NANDCR2() = delete;
   inline void Reset() volatile { this->value = 0x00010410; }
-  static inline volatile NANDCR2 &Instance() { return *reinterpret_cast<volatile NANDCR2*>(0x400D4058); }
+  static inline volatile NANDCR2 &ref() { return *reinterpret_cast<volatile NANDCR2*>(0x400D4058); }
 };
 
 // NAND Control Register 3
@@ -1989,7 +1989,7 @@ union NANDCR3 {
 
   NANDCR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NANDCR3 &Instance() { return *reinterpret_cast<volatile NANDCR3*>(0x400D405C); }
+  static inline volatile NANDCR3 &ref() { return *reinterpret_cast<volatile NANDCR3*>(0x400D405C); }
 };
 
 // NOR Control Register 0
@@ -2121,7 +2121,7 @@ union NORCR0 {
 
   NORCR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NORCR0 &Instance() { return *reinterpret_cast<volatile NORCR0*>(0x400D4060); }
+  static inline volatile NORCR0 &ref() { return *reinterpret_cast<volatile NORCR0*>(0x400D4060); }
 };
 
 // NOR Control Register 1
@@ -2152,7 +2152,7 @@ union NORCR1 {
 
   NORCR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NORCR1 &Instance() { return *reinterpret_cast<volatile NORCR1*>(0x400D4064); }
+  static inline volatile NORCR1 &ref() { return *reinterpret_cast<volatile NORCR1*>(0x400D4064); }
 };
 
 // NOR Control Register 2
@@ -2180,7 +2180,7 @@ union NORCR2 {
 
   NORCR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NORCR2 &Instance() { return *reinterpret_cast<volatile NORCR2*>(0x400D4068); }
+  static inline volatile NORCR2 &ref() { return *reinterpret_cast<volatile NORCR2*>(0x400D4068); }
 };
 
 // NOR Control Register 3
@@ -2200,7 +2200,7 @@ union NORCR3 {
 
   NORCR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NORCR3 &Instance() { return *reinterpret_cast<volatile NORCR3*>(0x400D406C); }
+  static inline volatile NORCR3 &ref() { return *reinterpret_cast<volatile NORCR3*>(0x400D406C); }
 };
 
 // SRAM Control Register 0
@@ -2351,7 +2351,7 @@ union SRAMCR0 {
 
   SRAMCR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRAMCR0 &Instance() { return *reinterpret_cast<volatile SRAMCR0*>(0x400D4070); }
+  static inline volatile SRAMCR0 &ref() { return *reinterpret_cast<volatile SRAMCR0*>(0x400D4070); }
 };
 
 // SRAM Control Register 1
@@ -2382,7 +2382,7 @@ union SRAMCR1 {
 
   SRAMCR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRAMCR1 &Instance() { return *reinterpret_cast<volatile SRAMCR1*>(0x400D4074); }
+  static inline volatile SRAMCR1 &ref() { return *reinterpret_cast<volatile SRAMCR1*>(0x400D4074); }
 };
 
 // SRAM Control Register 2
@@ -2413,7 +2413,7 @@ union SRAMCR2 {
 
   SRAMCR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRAMCR2 &Instance() { return *reinterpret_cast<volatile SRAMCR2*>(0x400D4078); }
+  static inline volatile SRAMCR2 &ref() { return *reinterpret_cast<volatile SRAMCR2*>(0x400D4078); }
 };
 
 // SRAM Control Register 3
@@ -2429,7 +2429,7 @@ union SRAMCR3 {
 
   SRAMCR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRAMCR3 &Instance() { return *reinterpret_cast<volatile SRAMCR3*>(0x400D407C); }
+  static inline volatile SRAMCR3 &ref() { return *reinterpret_cast<volatile SRAMCR3*>(0x400D407C); }
 };
 
 // DBI-B Control Register 0
@@ -2517,7 +2517,7 @@ union DBICR0 {
 
   DBICR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DBICR0 &Instance() { return *reinterpret_cast<volatile DBICR0*>(0x400D4080); }
+  static inline volatile DBICR0 &ref() { return *reinterpret_cast<volatile DBICR0*>(0x400D4080); }
 };
 
 // DBI-B Control Register 1
@@ -2546,7 +2546,7 @@ union DBICR1 {
 
   DBICR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DBICR1 &Instance() { return *reinterpret_cast<volatile DBICR1*>(0x400D4084); }
+  static inline volatile DBICR1 &ref() { return *reinterpret_cast<volatile DBICR1*>(0x400D4084); }
 };
 
 // DBI-B Control Register 2
@@ -2564,7 +2564,7 @@ union DBICR2 {
 
   DBICR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DBICR2 &Instance() { return *reinterpret_cast<volatile DBICR2*>(0x400D4088); }
+  static inline volatile DBICR2 &ref() { return *reinterpret_cast<volatile DBICR2*>(0x400D4088); }
 };
 
 // IP Command Control Register 0
@@ -2581,7 +2581,7 @@ union IPCR0 {
 
   IPCR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPCR0 &Instance() { return *reinterpret_cast<volatile IPCR0*>(0x400D4090); }
+  static inline volatile IPCR0 &ref() { return *reinterpret_cast<volatile IPCR0*>(0x400D4090); }
 };
 
 // IP Command Control Register 1
@@ -2622,7 +2622,7 @@ union IPCR1 {
 
   IPCR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPCR1 &Instance() { return *reinterpret_cast<volatile IPCR1*>(0x400D4094); }
+  static inline volatile IPCR1 &ref() { return *reinterpret_cast<volatile IPCR1*>(0x400D4094); }
 };
 
 // IP Command Control Register 2
@@ -2678,7 +2678,7 @@ union IPCR2 {
 
   IPCR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPCR2 &Instance() { return *reinterpret_cast<volatile IPCR2*>(0x400D4098); }
+  static inline volatile IPCR2 &ref() { return *reinterpret_cast<volatile IPCR2*>(0x400D4098); }
 };
 
 // IP Command Register
@@ -2697,7 +2697,7 @@ union IPCMD {
 
   IPCMD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPCMD &Instance() { return *reinterpret_cast<volatile IPCMD*>(0x400D409C); }
+  static inline volatile IPCMD &ref() { return *reinterpret_cast<volatile IPCMD*>(0x400D409C); }
 };
 
 // TX DATA Register
@@ -2714,7 +2714,7 @@ union IPTXDAT {
 
   IPTXDAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPTXDAT &Instance() { return *reinterpret_cast<volatile IPTXDAT*>(0x400D40A0); }
+  static inline volatile IPTXDAT &ref() { return *reinterpret_cast<volatile IPTXDAT*>(0x400D40A0); }
 };
 
 // RX DATA Register
@@ -2731,7 +2731,7 @@ union IPRXDAT {
 
   IPRXDAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IPRXDAT &Instance() { return *reinterpret_cast<volatile IPRXDAT*>(0x400D40B0); }
+  static inline volatile IPRXDAT &ref() { return *reinterpret_cast<volatile IPRXDAT*>(0x400D40B0); }
 };
 
 // Status Register 0
@@ -2759,7 +2759,7 @@ union STS0 {
 
   STS0() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile STS0 &Instance() { return *reinterpret_cast<volatile STS0*>(0x400D40C0); }
+  static inline volatile STS0 &ref() { return *reinterpret_cast<volatile STS0*>(0x400D40C0); }
 };
 
 // Status Register 1
@@ -2775,7 +2775,7 @@ union STS1 {
 
   STS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS1 &Instance() { return *reinterpret_cast<volatile STS1*>(0x400D40C4); }
+  static inline volatile STS1 &ref() { return *reinterpret_cast<volatile STS1*>(0x400D40C4); }
 };
 
 // Status Register 2
@@ -2802,7 +2802,7 @@ union STS2 {
 
   STS2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS2 &Instance() { return *reinterpret_cast<volatile STS2*>(0x400D40C8); }
+  static inline volatile STS2 &ref() { return *reinterpret_cast<volatile STS2*>(0x400D40C8); }
 };
 
 // Status Register 3
@@ -2818,7 +2818,7 @@ union STS3 {
 
   STS3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS3 &Instance() { return *reinterpret_cast<volatile STS3*>(0x400D40CC); }
+  static inline volatile STS3 &ref() { return *reinterpret_cast<volatile STS3*>(0x400D40CC); }
 };
 
 // Status Register 4
@@ -2834,7 +2834,7 @@ union STS4 {
 
   STS4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS4 &Instance() { return *reinterpret_cast<volatile STS4*>(0x400D40D0); }
+  static inline volatile STS4 &ref() { return *reinterpret_cast<volatile STS4*>(0x400D40D0); }
 };
 
 // Status Register 5
@@ -2850,7 +2850,7 @@ union STS5 {
 
   STS5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS5 &Instance() { return *reinterpret_cast<volatile STS5*>(0x400D40D4); }
+  static inline volatile STS5 &ref() { return *reinterpret_cast<volatile STS5*>(0x400D40D4); }
 };
 
 // Status Register 6
@@ -2866,7 +2866,7 @@ union STS6 {
 
   STS6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS6 &Instance() { return *reinterpret_cast<volatile STS6*>(0x400D40D8); }
+  static inline volatile STS6 &ref() { return *reinterpret_cast<volatile STS6*>(0x400D40D8); }
 };
 
 // Status Register 7
@@ -2882,7 +2882,7 @@ union STS7 {
 
   STS7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS7 &Instance() { return *reinterpret_cast<volatile STS7*>(0x400D40DC); }
+  static inline volatile STS7 &ref() { return *reinterpret_cast<volatile STS7*>(0x400D40DC); }
 };
 
 // Status Register 8
@@ -2898,7 +2898,7 @@ union STS8 {
 
   STS8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS8 &Instance() { return *reinterpret_cast<volatile STS8*>(0x400D40E0); }
+  static inline volatile STS8 &ref() { return *reinterpret_cast<volatile STS8*>(0x400D40E0); }
 };
 
 // Status Register 9
@@ -2914,7 +2914,7 @@ union STS9 {
 
   STS9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS9 &Instance() { return *reinterpret_cast<volatile STS9*>(0x400D40E4); }
+  static inline volatile STS9 &ref() { return *reinterpret_cast<volatile STS9*>(0x400D40E4); }
 };
 
 // Status Register 10
@@ -2930,7 +2930,7 @@ union STS10 {
 
   STS10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS10 &Instance() { return *reinterpret_cast<volatile STS10*>(0x400D40E8); }
+  static inline volatile STS10 &ref() { return *reinterpret_cast<volatile STS10*>(0x400D40E8); }
 };
 
 // Status Register 11
@@ -2946,7 +2946,7 @@ union STS11 {
 
   STS11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS11 &Instance() { return *reinterpret_cast<volatile STS11*>(0x400D40EC); }
+  static inline volatile STS11 &ref() { return *reinterpret_cast<volatile STS11*>(0x400D40EC); }
 };
 
 // Status Register 12
@@ -2963,7 +2963,7 @@ union STS12 {
 
   STS12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS12 &Instance() { return *reinterpret_cast<volatile STS12*>(0x400D40F0); }
+  static inline volatile STS12 &ref() { return *reinterpret_cast<volatile STS12*>(0x400D40F0); }
 };
 
 // Status Register 13
@@ -3003,7 +3003,7 @@ union STS13 {
 
   STS13() = delete;
   inline void Reset() volatile { this->value = 0x00000100; }
-  static inline volatile STS13 &Instance() { return *reinterpret_cast<volatile STS13*>(0x400D40F4); }
+  static inline volatile STS13 &ref() { return *reinterpret_cast<volatile STS13*>(0x400D40F4); }
 };
 
 // Status Register 14
@@ -3019,7 +3019,7 @@ union STS14 {
 
   STS14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS14 &Instance() { return *reinterpret_cast<volatile STS14*>(0x400D40F8); }
+  static inline volatile STS14 &ref() { return *reinterpret_cast<volatile STS14*>(0x400D40F8); }
 };
 
 // Status Register 15
@@ -3035,7 +3035,7 @@ union STS15 {
 
   STS15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STS15 &Instance() { return *reinterpret_cast<volatile STS15*>(0x400D40FC); }
+  static inline volatile STS15 &ref() { return *reinterpret_cast<volatile STS15*>(0x400D40FC); }
 };
 
 // Base Register 9
@@ -3133,7 +3133,7 @@ union BR9 {
 
   BR9() = delete;
   inline void Reset() volatile { this->value = 0xA0000018; }
-  static inline volatile BR9 &Instance() { return *reinterpret_cast<volatile BR9*>(0x400D4100); }
+  static inline volatile BR9 &ref() { return *reinterpret_cast<volatile BR9*>(0x400D4100); }
 };
 
 // Base Register 10
@@ -3231,7 +3231,7 @@ union BR10 {
 
   BR10() = delete;
   inline void Reset() volatile { this->value = 0xA4000018; }
-  static inline volatile BR10 &Instance() { return *reinterpret_cast<volatile BR10*>(0x400D4104); }
+  static inline volatile BR10 &ref() { return *reinterpret_cast<volatile BR10*>(0x400D4104); }
 };
 
 // Base Register 11
@@ -3329,7 +3329,7 @@ union BR11 {
 
   BR11() = delete;
   inline void Reset() volatile { this->value = 0xA8000018; }
-  static inline volatile BR11 &Instance() { return *reinterpret_cast<volatile BR11*>(0x400D4108); }
+  static inline volatile BR11 &ref() { return *reinterpret_cast<volatile BR11*>(0x400D4108); }
 };
 
 // SRAM Control Register 4
@@ -3480,7 +3480,7 @@ union SRAMCR4 {
 
   SRAMCR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRAMCR4 &Instance() { return *reinterpret_cast<volatile SRAMCR4*>(0x400D4120); }
+  static inline volatile SRAMCR4 &ref() { return *reinterpret_cast<volatile SRAMCR4*>(0x400D4120); }
 };
 
 // SRAM Control Register 5
@@ -3511,7 +3511,7 @@ union SRAMCR5 {
 
   SRAMCR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRAMCR5 &Instance() { return *reinterpret_cast<volatile SRAMCR5*>(0x400D4124); }
+  static inline volatile SRAMCR5 &ref() { return *reinterpret_cast<volatile SRAMCR5*>(0x400D4124); }
 };
 
 // SRAM Control Register 6
@@ -3542,7 +3542,7 @@ union SRAMCR6 {
 
   SRAMCR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRAMCR6 &Instance() { return *reinterpret_cast<volatile SRAMCR6*>(0x400D4128); }
+  static inline volatile SRAMCR6 &ref() { return *reinterpret_cast<volatile SRAMCR6*>(0x400D4128); }
 };
 
 // Delay Chain Control Register
@@ -3609,7 +3609,7 @@ union DCCR {
 
   DCCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DCCR &Instance() { return *reinterpret_cast<volatile DCCR*>(0x400D4150); }
+  static inline volatile DCCR &ref() { return *reinterpret_cast<volatile DCCR*>(0x400D4150); }
 };
 
 

@@ -58,7 +58,7 @@ union MCR {
 
   MCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCR &Instance() { return *reinterpret_cast<volatile MCR*>(0x40CD0000); }
+  static inline volatile MCR &ref() { return *reinterpret_cast<volatile MCR*>(0x40CD0000); }
 };
 
 // Status Register
@@ -80,7 +80,7 @@ union SR {
 
   SR() = delete;
   inline void Reset() volatile { this->value = 0x00000010; }
-  static inline volatile SR &Instance() { return *reinterpret_cast<volatile SR*>(0x40CD0004); }
+  static inline volatile SR &ref() { return *reinterpret_cast<volatile SR*>(0x40CD0004); }
 };
 
 

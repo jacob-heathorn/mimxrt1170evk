@@ -43,7 +43,7 @@ union KPCR {
 
   KPCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile KPCR &Instance() { return *reinterpret_cast<volatile KPCR*>(0x400E0000); }
+  static inline volatile KPCR &ref() { return *reinterpret_cast<volatile KPCR*>(0x400E0000); }
 };
 
 // Keypad Status Register
@@ -120,7 +120,7 @@ union KPSR {
 
   KPSR() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
-  static inline volatile KPSR &Instance() { return *reinterpret_cast<volatile KPSR*>(0x400E0002); }
+  static inline volatile KPSR &ref() { return *reinterpret_cast<volatile KPSR*>(0x400E0002); }
 };
 
 // Keypad Data Direction Register
@@ -156,7 +156,7 @@ union KDDR {
 
   KDDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile KDDR &Instance() { return *reinterpret_cast<volatile KDDR*>(0x400E0004); }
+  static inline volatile KDDR &ref() { return *reinterpret_cast<volatile KDDR*>(0x400E0004); }
 };
 
 // Keypad Data Register
@@ -176,7 +176,7 @@ union KPDR {
 
   KPDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile KPDR &Instance() { return *reinterpret_cast<volatile KPDR*>(0x400E0006); }
+  static inline volatile KPDR &ref() { return *reinterpret_cast<volatile KPDR*>(0x400E0006); }
 };
 
 

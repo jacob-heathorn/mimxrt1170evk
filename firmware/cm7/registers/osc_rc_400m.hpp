@@ -26,7 +26,7 @@ union CTRL0 {
 
   CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0 &Instance() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
+  static inline volatile CTRL0 &ref() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
 };
 
 // Control Register 0
@@ -45,7 +45,7 @@ union CTRL0_SET {
 
   CTRL0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_SET &Instance() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
+  static inline volatile CTRL0_SET &ref() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
 };
 
 // Control Register 0
@@ -64,7 +64,7 @@ union CTRL0_CLR {
 
   CTRL0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_CLR &Instance() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
+  static inline volatile CTRL0_CLR &ref() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
 };
 
 // Control Register 0
@@ -83,7 +83,7 @@ union CTRL0_TOG {
 
   CTRL0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_TOG &Instance() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
+  static inline volatile CTRL0_TOG &ref() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
 };
 
 // Control Register 1
@@ -106,7 +106,7 @@ union CTRL1 {
 
   CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL1 &Instance() { return *reinterpret_cast<volatile CTRL1*>(0x00000010); }
+  static inline volatile CTRL1 &ref() { return *reinterpret_cast<volatile CTRL1*>(0x00000010); }
 };
 
 // Control Register 1
@@ -129,7 +129,7 @@ union CTRL1_SET {
 
   CTRL1_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL1_SET &Instance() { return *reinterpret_cast<volatile CTRL1_SET*>(0x00000014); }
+  static inline volatile CTRL1_SET &ref() { return *reinterpret_cast<volatile CTRL1_SET*>(0x00000014); }
 };
 
 // Control Register 1
@@ -152,7 +152,7 @@ union CTRL1_CLR {
 
   CTRL1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL1_CLR &Instance() { return *reinterpret_cast<volatile CTRL1_CLR*>(0x00000018); }
+  static inline volatile CTRL1_CLR &ref() { return *reinterpret_cast<volatile CTRL1_CLR*>(0x00000018); }
 };
 
 // Control Register 1
@@ -175,7 +175,7 @@ union CTRL1_TOG {
 
   CTRL1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL1_TOG &Instance() { return *reinterpret_cast<volatile CTRL1_TOG*>(0x0000001C); }
+  static inline volatile CTRL1_TOG &ref() { return *reinterpret_cast<volatile CTRL1_TOG*>(0x0000001C); }
 };
 
 // Control Register 2
@@ -226,7 +226,7 @@ union CTRL2 {
 
   CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL2 &Instance() { return *reinterpret_cast<volatile CTRL2*>(0x00000020); }
+  static inline volatile CTRL2 &ref() { return *reinterpret_cast<volatile CTRL2*>(0x00000020); }
 };
 
 // Control Register 2
@@ -253,7 +253,7 @@ union CTRL2_SET {
 
   CTRL2_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL2_SET &Instance() { return *reinterpret_cast<volatile CTRL2_SET*>(0x00000024); }
+  static inline volatile CTRL2_SET &ref() { return *reinterpret_cast<volatile CTRL2_SET*>(0x00000024); }
 };
 
 // Control Register 2
@@ -280,7 +280,7 @@ union CTRL2_CLR {
 
   CTRL2_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL2_CLR &Instance() { return *reinterpret_cast<volatile CTRL2_CLR*>(0x00000028); }
+  static inline volatile CTRL2_CLR &ref() { return *reinterpret_cast<volatile CTRL2_CLR*>(0x00000028); }
 };
 
 // Control Register 2
@@ -307,7 +307,7 @@ union CTRL2_TOG {
 
   CTRL2_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL2_TOG &Instance() { return *reinterpret_cast<volatile CTRL2_TOG*>(0x0000002C); }
+  static inline volatile CTRL2_TOG &ref() { return *reinterpret_cast<volatile CTRL2_TOG*>(0x0000002C); }
 };
 
 // Control Register 3
@@ -357,7 +357,7 @@ union CTRL3 {
 
   CTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL3 &Instance() { return *reinterpret_cast<volatile CTRL3*>(0x00000030); }
+  static inline volatile CTRL3 &ref() { return *reinterpret_cast<volatile CTRL3*>(0x00000030); }
 };
 
 // Control Register 3
@@ -383,7 +383,7 @@ union CTRL3_SET {
 
   CTRL3_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL3_SET &Instance() { return *reinterpret_cast<volatile CTRL3_SET*>(0x00000034); }
+  static inline volatile CTRL3_SET &ref() { return *reinterpret_cast<volatile CTRL3_SET*>(0x00000034); }
 };
 
 // Control Register 3
@@ -409,7 +409,7 @@ union CTRL3_CLR {
 
   CTRL3_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL3_CLR &Instance() { return *reinterpret_cast<volatile CTRL3_CLR*>(0x00000038); }
+  static inline volatile CTRL3_CLR &ref() { return *reinterpret_cast<volatile CTRL3_CLR*>(0x00000038); }
 };
 
 // Control Register 3
@@ -435,7 +435,7 @@ union CTRL3_TOG {
 
   CTRL3_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL3_TOG &Instance() { return *reinterpret_cast<volatile CTRL3_TOG*>(0x0000003C); }
+  static inline volatile CTRL3_TOG &ref() { return *reinterpret_cast<volatile CTRL3_TOG*>(0x0000003C); }
 };
 
 // Status Register 0
@@ -461,7 +461,7 @@ union STAT0 {
 
   STAT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0 &Instance() { return *reinterpret_cast<volatile STAT0*>(0x00000050); }
+  static inline volatile STAT0 &ref() { return *reinterpret_cast<volatile STAT0*>(0x00000050); }
 };
 
 // Status Register 0
@@ -479,7 +479,7 @@ union STAT0_SET {
 
   STAT0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0_SET &Instance() { return *reinterpret_cast<volatile STAT0_SET*>(0x00000054); }
+  static inline volatile STAT0_SET &ref() { return *reinterpret_cast<volatile STAT0_SET*>(0x00000054); }
 };
 
 // Status Register 0
@@ -497,7 +497,7 @@ union STAT0_CLR {
 
   STAT0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0_CLR &Instance() { return *reinterpret_cast<volatile STAT0_CLR*>(0x00000058); }
+  static inline volatile STAT0_CLR &ref() { return *reinterpret_cast<volatile STAT0_CLR*>(0x00000058); }
 };
 
 // Status Register 0
@@ -515,7 +515,7 @@ union STAT0_TOG {
 
   STAT0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0_TOG &Instance() { return *reinterpret_cast<volatile STAT0_TOG*>(0x0000005C); }
+  static inline volatile STAT0_TOG &ref() { return *reinterpret_cast<volatile STAT0_TOG*>(0x0000005C); }
 };
 
 // Status Register 1
@@ -533,7 +533,7 @@ union STAT1 {
 
   STAT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT1 &Instance() { return *reinterpret_cast<volatile STAT1*>(0x00000060); }
+  static inline volatile STAT1 &ref() { return *reinterpret_cast<volatile STAT1*>(0x00000060); }
 };
 
 // Status Register 1
@@ -551,7 +551,7 @@ union STAT1_SET {
 
   STAT1_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT1_SET &Instance() { return *reinterpret_cast<volatile STAT1_SET*>(0x00000064); }
+  static inline volatile STAT1_SET &ref() { return *reinterpret_cast<volatile STAT1_SET*>(0x00000064); }
 };
 
 // Status Register 1
@@ -569,7 +569,7 @@ union STAT1_CLR {
 
   STAT1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT1_CLR &Instance() { return *reinterpret_cast<volatile STAT1_CLR*>(0x00000068); }
+  static inline volatile STAT1_CLR &ref() { return *reinterpret_cast<volatile STAT1_CLR*>(0x00000068); }
 };
 
 // Status Register 1
@@ -587,7 +587,7 @@ union STAT1_TOG {
 
   STAT1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT1_TOG &Instance() { return *reinterpret_cast<volatile STAT1_TOG*>(0x0000006C); }
+  static inline volatile STAT1_TOG &ref() { return *reinterpret_cast<volatile STAT1_TOG*>(0x0000006C); }
 };
 
 // Status Register 2
@@ -605,7 +605,7 @@ union STAT2 {
 
   STAT2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT2 &Instance() { return *reinterpret_cast<volatile STAT2*>(0x00000070); }
+  static inline volatile STAT2 &ref() { return *reinterpret_cast<volatile STAT2*>(0x00000070); }
 };
 
 // Status Register 2
@@ -623,7 +623,7 @@ union STAT2_SET {
 
   STAT2_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT2_SET &Instance() { return *reinterpret_cast<volatile STAT2_SET*>(0x00000074); }
+  static inline volatile STAT2_SET &ref() { return *reinterpret_cast<volatile STAT2_SET*>(0x00000074); }
 };
 
 // Status Register 2
@@ -641,7 +641,7 @@ union STAT2_CLR {
 
   STAT2_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT2_CLR &Instance() { return *reinterpret_cast<volatile STAT2_CLR*>(0x00000078); }
+  static inline volatile STAT2_CLR &ref() { return *reinterpret_cast<volatile STAT2_CLR*>(0x00000078); }
 };
 
 // Status Register 2
@@ -659,7 +659,7 @@ union STAT2_TOG {
 
   STAT2_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT2_TOG &Instance() { return *reinterpret_cast<volatile STAT2_TOG*>(0x0000007C); }
+  static inline volatile STAT2_TOG &ref() { return *reinterpret_cast<volatile STAT2_TOG*>(0x0000007C); }
 };
 
 

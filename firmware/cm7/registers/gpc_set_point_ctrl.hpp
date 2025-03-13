@@ -54,7 +54,7 @@ union SP_AUTHEN_CTRL {
 
   SP_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000F00; }
-  static inline volatile SP_AUTHEN_CTRL &Instance() { return *reinterpret_cast<volatile SP_AUTHEN_CTRL*>(0x40C02004); }
+  static inline volatile SP_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile SP_AUTHEN_CTRL*>(0x40C02004); }
 };
 
 // SP Interrupt Control
@@ -74,7 +74,7 @@ union SP_INT_CTRL {
 
   SP_INT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile SP_INT_CTRL &Instance() { return *reinterpret_cast<volatile SP_INT_CTRL*>(0x40C02008); }
+  static inline volatile SP_INT_CTRL &ref() { return *reinterpret_cast<volatile SP_INT_CTRL*>(0x40C02008); }
 };
 
 // CPU SP Request
@@ -105,7 +105,7 @@ union SP_CPU_REQ {
 
   SP_CPU_REQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SP_CPU_REQ &Instance() { return *reinterpret_cast<volatile SP_CPU_REQ*>(0x40C02010); }
+  static inline volatile SP_CPU_REQ &ref() { return *reinterpret_cast<volatile SP_CPU_REQ*>(0x40C02010); }
 };
 
 // SP System Status
@@ -129,7 +129,7 @@ union SP_SYS_STAT {
 
   SP_SYS_STAT() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile SP_SYS_STAT &Instance() { return *reinterpret_cast<volatile SP_SYS_STAT*>(0x40C02014); }
+  static inline volatile SP_SYS_STAT &ref() { return *reinterpret_cast<volatile SP_SYS_STAT*>(0x40C02014); }
 };
 
 // SP ROSC Control
@@ -147,7 +147,7 @@ union SP_ROSC_CTRL {
 
   SP_ROSC_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SP_ROSC_CTRL &Instance() { return *reinterpret_cast<volatile SP_ROSC_CTRL*>(0x40C0201C); }
+  static inline volatile SP_ROSC_CTRL &ref() { return *reinterpret_cast<volatile SP_ROSC_CTRL*>(0x40C0201C); }
 };
 
 // SP0~7 Priority
@@ -178,7 +178,7 @@ union SP_PRIORITY_0_7 {
 
   SP_PRIORITY_0_7() = delete;
   inline void Reset() volatile { this->value = 0x76543210; }
-  static inline volatile SP_PRIORITY_0_7 &Instance() { return *reinterpret_cast<volatile SP_PRIORITY_0_7*>(0x40C02040); }
+  static inline volatile SP_PRIORITY_0_7 &ref() { return *reinterpret_cast<volatile SP_PRIORITY_0_7*>(0x40C02040); }
 };
 
 // SP8~15 Priority
@@ -209,7 +209,7 @@ union SP_PRIORITY_8_15 {
 
   SP_PRIORITY_8_15() = delete;
   inline void Reset() volatile { this->value = 0xFEDCBA98; }
-  static inline volatile SP_PRIORITY_8_15 &Instance() { return *reinterpret_cast<volatile SP_PRIORITY_8_15*>(0x40C02044); }
+  static inline volatile SP_PRIORITY_8_15 &ref() { return *reinterpret_cast<volatile SP_PRIORITY_8_15*>(0x40C02044); }
 };
 
 // SP SSAR save control
@@ -244,7 +244,7 @@ union SP_SSAR_SAVE_CTRL {
 
   SP_SSAR_SAVE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_SSAR_SAVE_CTRL &Instance() { return *reinterpret_cast<volatile SP_SSAR_SAVE_CTRL*>(0x40C02100); }
+  static inline volatile SP_SSAR_SAVE_CTRL &ref() { return *reinterpret_cast<volatile SP_SSAR_SAVE_CTRL*>(0x40C02100); }
 };
 
 // SP LPCG off control
@@ -279,7 +279,7 @@ union SP_LPCG_OFF_CTRL {
 
   SP_LPCG_OFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_LPCG_OFF_CTRL &Instance() { return *reinterpret_cast<volatile SP_LPCG_OFF_CTRL*>(0x40C02110); }
+  static inline volatile SP_LPCG_OFF_CTRL &ref() { return *reinterpret_cast<volatile SP_LPCG_OFF_CTRL*>(0x40C02110); }
 };
 
 // SP group down control
@@ -314,7 +314,7 @@ union SP_GROUP_DOWN_CTRL {
 
   SP_GROUP_DOWN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_GROUP_DOWN_CTRL &Instance() { return *reinterpret_cast<volatile SP_GROUP_DOWN_CTRL*>(0x40C02120); }
+  static inline volatile SP_GROUP_DOWN_CTRL &ref() { return *reinterpret_cast<volatile SP_GROUP_DOWN_CTRL*>(0x40C02120); }
 };
 
 // SP root down control
@@ -349,7 +349,7 @@ union SP_ROOT_DOWN_CTRL {
 
   SP_ROOT_DOWN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_ROOT_DOWN_CTRL &Instance() { return *reinterpret_cast<volatile SP_ROOT_DOWN_CTRL*>(0x40C02130); }
+  static inline volatile SP_ROOT_DOWN_CTRL &ref() { return *reinterpret_cast<volatile SP_ROOT_DOWN_CTRL*>(0x40C02130); }
 };
 
 // SP PLL off control
@@ -384,7 +384,7 @@ union SP_PLL_OFF_CTRL {
 
   SP_PLL_OFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_PLL_OFF_CTRL &Instance() { return *reinterpret_cast<volatile SP_PLL_OFF_CTRL*>(0x40C02140); }
+  static inline volatile SP_PLL_OFF_CTRL &ref() { return *reinterpret_cast<volatile SP_PLL_OFF_CTRL*>(0x40C02140); }
 };
 
 // SP ISO on control
@@ -419,7 +419,7 @@ union SP_ISO_ON_CTRL {
 
   SP_ISO_ON_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_ISO_ON_CTRL &Instance() { return *reinterpret_cast<volatile SP_ISO_ON_CTRL*>(0x40C02150); }
+  static inline volatile SP_ISO_ON_CTRL &ref() { return *reinterpret_cast<volatile SP_ISO_ON_CTRL*>(0x40C02150); }
 };
 
 // SP reset early control
@@ -454,7 +454,7 @@ union SP_RESET_EARLY_CTRL {
 
   SP_RESET_EARLY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_RESET_EARLY_CTRL &Instance() { return *reinterpret_cast<volatile SP_RESET_EARLY_CTRL*>(0x40C02160); }
+  static inline volatile SP_RESET_EARLY_CTRL &ref() { return *reinterpret_cast<volatile SP_RESET_EARLY_CTRL*>(0x40C02160); }
 };
 
 // SP power off control
@@ -489,7 +489,7 @@ union SP_POWER_OFF_CTRL {
 
   SP_POWER_OFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_POWER_OFF_CTRL &Instance() { return *reinterpret_cast<volatile SP_POWER_OFF_CTRL*>(0x40C02170); }
+  static inline volatile SP_POWER_OFF_CTRL &ref() { return *reinterpret_cast<volatile SP_POWER_OFF_CTRL*>(0x40C02170); }
 };
 
 // SP bias off control
@@ -524,7 +524,7 @@ union SP_BIAS_OFF_CTRL {
 
   SP_BIAS_OFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_BIAS_OFF_CTRL &Instance() { return *reinterpret_cast<volatile SP_BIAS_OFF_CTRL*>(0x40C02180); }
+  static inline volatile SP_BIAS_OFF_CTRL &ref() { return *reinterpret_cast<volatile SP_BIAS_OFF_CTRL*>(0x40C02180); }
 };
 
 // SP bandgap and PLL_LDO off control
@@ -559,7 +559,7 @@ union SP_BG_PLDO_OFF_CTRL {
 
   SP_BG_PLDO_OFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_BG_PLDO_OFF_CTRL &Instance() { return *reinterpret_cast<volatile SP_BG_PLDO_OFF_CTRL*>(0x40C02190); }
+  static inline volatile SP_BG_PLDO_OFF_CTRL &ref() { return *reinterpret_cast<volatile SP_BG_PLDO_OFF_CTRL*>(0x40C02190); }
 };
 
 // SP LDO pre control
@@ -594,7 +594,7 @@ union SP_LDO_PRE_CTRL {
 
   SP_LDO_PRE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_LDO_PRE_CTRL &Instance() { return *reinterpret_cast<volatile SP_LDO_PRE_CTRL*>(0x40C021A0); }
+  static inline volatile SP_LDO_PRE_CTRL &ref() { return *reinterpret_cast<volatile SP_LDO_PRE_CTRL*>(0x40C021A0); }
 };
 
 // SP DCDC down control
@@ -629,7 +629,7 @@ union SP_DCDC_DOWN_CTRL {
 
   SP_DCDC_DOWN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_DCDC_DOWN_CTRL &Instance() { return *reinterpret_cast<volatile SP_DCDC_DOWN_CTRL*>(0x40C021B0); }
+  static inline volatile SP_DCDC_DOWN_CTRL &ref() { return *reinterpret_cast<volatile SP_DCDC_DOWN_CTRL*>(0x40C021B0); }
 };
 
 // SP DCDC up control
@@ -664,7 +664,7 @@ union SP_DCDC_UP_CTRL {
 
   SP_DCDC_UP_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_DCDC_UP_CTRL &Instance() { return *reinterpret_cast<volatile SP_DCDC_UP_CTRL*>(0x40C02200); }
+  static inline volatile SP_DCDC_UP_CTRL &ref() { return *reinterpret_cast<volatile SP_DCDC_UP_CTRL*>(0x40C02200); }
 };
 
 // SP LDO post control
@@ -699,7 +699,7 @@ union SP_LDO_POST_CTRL {
 
   SP_LDO_POST_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_LDO_POST_CTRL &Instance() { return *reinterpret_cast<volatile SP_LDO_POST_CTRL*>(0x40C02210); }
+  static inline volatile SP_LDO_POST_CTRL &ref() { return *reinterpret_cast<volatile SP_LDO_POST_CTRL*>(0x40C02210); }
 };
 
 // SP bandgap and PLL_LDO on control
@@ -734,7 +734,7 @@ union SP_BG_PLDO_ON_CTRL {
 
   SP_BG_PLDO_ON_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_BG_PLDO_ON_CTRL &Instance() { return *reinterpret_cast<volatile SP_BG_PLDO_ON_CTRL*>(0x40C02220); }
+  static inline volatile SP_BG_PLDO_ON_CTRL &ref() { return *reinterpret_cast<volatile SP_BG_PLDO_ON_CTRL*>(0x40C02220); }
 };
 
 // SP bias on control
@@ -769,7 +769,7 @@ union SP_BIAS_ON_CTRL {
 
   SP_BIAS_ON_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_BIAS_ON_CTRL &Instance() { return *reinterpret_cast<volatile SP_BIAS_ON_CTRL*>(0x40C02230); }
+  static inline volatile SP_BIAS_ON_CTRL &ref() { return *reinterpret_cast<volatile SP_BIAS_ON_CTRL*>(0x40C02230); }
 };
 
 // SP power on control
@@ -804,7 +804,7 @@ union SP_POWER_ON_CTRL {
 
   SP_POWER_ON_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_POWER_ON_CTRL &Instance() { return *reinterpret_cast<volatile SP_POWER_ON_CTRL*>(0x40C02240); }
+  static inline volatile SP_POWER_ON_CTRL &ref() { return *reinterpret_cast<volatile SP_POWER_ON_CTRL*>(0x40C02240); }
 };
 
 // SP reset late control
@@ -839,7 +839,7 @@ union SP_RESET_LATE_CTRL {
 
   SP_RESET_LATE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_RESET_LATE_CTRL &Instance() { return *reinterpret_cast<volatile SP_RESET_LATE_CTRL*>(0x40C02250); }
+  static inline volatile SP_RESET_LATE_CTRL &ref() { return *reinterpret_cast<volatile SP_RESET_LATE_CTRL*>(0x40C02250); }
 };
 
 // SP ISO off control
@@ -874,7 +874,7 @@ union SP_ISO_OFF_CTRL {
 
   SP_ISO_OFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_ISO_OFF_CTRL &Instance() { return *reinterpret_cast<volatile SP_ISO_OFF_CTRL*>(0x40C02260); }
+  static inline volatile SP_ISO_OFF_CTRL &ref() { return *reinterpret_cast<volatile SP_ISO_OFF_CTRL*>(0x40C02260); }
 };
 
 // SP PLL on control
@@ -909,7 +909,7 @@ union SP_PLL_ON_CTRL {
 
   SP_PLL_ON_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_PLL_ON_CTRL &Instance() { return *reinterpret_cast<volatile SP_PLL_ON_CTRL*>(0x40C02270); }
+  static inline volatile SP_PLL_ON_CTRL &ref() { return *reinterpret_cast<volatile SP_PLL_ON_CTRL*>(0x40C02270); }
 };
 
 // SP root up control
@@ -944,7 +944,7 @@ union SP_ROOT_UP_CTRL {
 
   SP_ROOT_UP_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_ROOT_UP_CTRL &Instance() { return *reinterpret_cast<volatile SP_ROOT_UP_CTRL*>(0x40C02280); }
+  static inline volatile SP_ROOT_UP_CTRL &ref() { return *reinterpret_cast<volatile SP_ROOT_UP_CTRL*>(0x40C02280); }
 };
 
 // SP group up control
@@ -979,7 +979,7 @@ union SP_GROUP_UP_CTRL {
 
   SP_GROUP_UP_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_GROUP_UP_CTRL &Instance() { return *reinterpret_cast<volatile SP_GROUP_UP_CTRL*>(0x40C02290); }
+  static inline volatile SP_GROUP_UP_CTRL &ref() { return *reinterpret_cast<volatile SP_GROUP_UP_CTRL*>(0x40C02290); }
 };
 
 // SP LPCG on control
@@ -1014,7 +1014,7 @@ union SP_LPCG_ON_CTRL {
 
   SP_LPCG_ON_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_LPCG_ON_CTRL &Instance() { return *reinterpret_cast<volatile SP_LPCG_ON_CTRL*>(0x40C022A0); }
+  static inline volatile SP_LPCG_ON_CTRL &ref() { return *reinterpret_cast<volatile SP_LPCG_ON_CTRL*>(0x40C022A0); }
 };
 
 // SP SSAR restore control
@@ -1049,7 +1049,7 @@ union SP_SSAR_RESTORE_CTRL {
 
   SP_SSAR_RESTORE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile SP_SSAR_RESTORE_CTRL &Instance() { return *reinterpret_cast<volatile SP_SSAR_RESTORE_CTRL*>(0x40C022B0); }
+  static inline volatile SP_SSAR_RESTORE_CTRL &ref() { return *reinterpret_cast<volatile SP_SSAR_RESTORE_CTRL*>(0x40C022B0); }
 };
 
 

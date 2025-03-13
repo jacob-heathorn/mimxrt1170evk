@@ -25,7 +25,7 @@ union MCM_PLREV {
 
   MCM_PLREV() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_PLREV &Instance() { return *reinterpret_cast<volatile MCM_PLREV*>(0xE0080000); }
+  static inline volatile MCM_PLREV &ref() { return *reinterpret_cast<volatile MCM_PLREV*>(0xE0080000); }
 };
 
 // Processor core type
@@ -49,7 +49,7 @@ union MCM_PCT {
 
   MCM_PCT() = delete;
   inline void Reset() volatile { this->value = 0x0000AC40; }
-  static inline volatile MCM_PCT &Instance() { return *reinterpret_cast<volatile MCM_PCT*>(0xE0080002); }
+  static inline volatile MCM_PCT &ref() { return *reinterpret_cast<volatile MCM_PCT*>(0xE0080002); }
 };
 
 // Memory configuration
@@ -71,7 +71,7 @@ union MCM_MEMCFG {
 
   MCM_MEMCFG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_MEMCFG &Instance() { return *reinterpret_cast<volatile MCM_MEMCFG*>(0xE0080004); }
+  static inline volatile MCM_MEMCFG &ref() { return *reinterpret_cast<volatile MCM_MEMCFG*>(0xE0080004); }
 };
 
 // Crossbar Switch (AXBS) Slave Configuration
@@ -97,7 +97,7 @@ union MCM_PLASC {
 
   MCM_PLASC() = delete;
   inline void Reset() volatile { this->value = 0x0000001F; }
-  static inline volatile MCM_PLASC &Instance() { return *reinterpret_cast<volatile MCM_PLASC*>(0xE0080008); }
+  static inline volatile MCM_PLASC &ref() { return *reinterpret_cast<volatile MCM_PLASC*>(0xE0080008); }
 };
 
 // Crossbar Switch (AXBS) Master Configuration
@@ -123,7 +123,7 @@ union MCM_PLAMC {
 
   MCM_PLAMC() = delete;
   inline void Reset() volatile { this->value = 0x0000001F; }
-  static inline volatile MCM_PLAMC &Instance() { return *reinterpret_cast<volatile MCM_PLAMC*>(0xE008000A); }
+  static inline volatile MCM_PLAMC &ref() { return *reinterpret_cast<volatile MCM_PLAMC*>(0xE008000A); }
 };
 
 // Control Register
@@ -185,7 +185,7 @@ union MCM_CR {
 
   MCM_CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_CR &Instance() { return *reinterpret_cast<volatile MCM_CR*>(0xE008000C); }
+  static inline volatile MCM_CR &ref() { return *reinterpret_cast<volatile MCM_CR*>(0xE008000C); }
 };
 
 // Interrupt Status and Control Register
@@ -346,7 +346,7 @@ union MCM_ISCR {
 
   MCM_ISCR() = delete;
   inline void Reset() volatile { this->value = 0x00020000; }
-  static inline volatile MCM_ISCR &Instance() { return *reinterpret_cast<volatile MCM_ISCR*>(0xE0080010); }
+  static inline volatile MCM_ISCR &ref() { return *reinterpret_cast<volatile MCM_ISCR*>(0xE0080010); }
 };
 
 // Fault address register
@@ -363,7 +363,7 @@ union MCM_FADR {
 
   MCM_FADR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_FADR &Instance() { return *reinterpret_cast<volatile MCM_FADR*>(0xE0080020); }
+  static inline volatile MCM_FADR &ref() { return *reinterpret_cast<volatile MCM_FADR*>(0xE0080020); }
 };
 
 // Fault attributes register
@@ -435,7 +435,7 @@ union MCM_FATR {
 
   MCM_FATR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_FATR &Instance() { return *reinterpret_cast<volatile MCM_FATR*>(0xE0080024); }
+  static inline volatile MCM_FATR &ref() { return *reinterpret_cast<volatile MCM_FATR*>(0xE0080024); }
 };
 
 // Fault data register
@@ -452,7 +452,7 @@ union MCM_FDR {
 
   MCM_FDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_FDR &Instance() { return *reinterpret_cast<volatile MCM_FDR*>(0xE0080028); }
+  static inline volatile MCM_FDR &ref() { return *reinterpret_cast<volatile MCM_FDR*>(0xE0080028); }
 };
 
 // Local Memory Descriptor Register
@@ -577,7 +577,7 @@ union MCM_LMDR0 {
 
   MCM_LMDR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_LMDR0 &Instance() { return *reinterpret_cast<volatile MCM_LMDR0*>(0xE0080400); }
+  static inline volatile MCM_LMDR0 &ref() { return *reinterpret_cast<volatile MCM_LMDR0*>(0xE0080400); }
 };
 // Local Memory Descriptor Register
 union MCM_LMDR1 {
@@ -701,7 +701,7 @@ union MCM_LMDR1 {
 
   MCM_LMDR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_LMDR1 &Instance() { return *reinterpret_cast<volatile MCM_LMDR1*>(0xE0080404); }
+  static inline volatile MCM_LMDR1 &ref() { return *reinterpret_cast<volatile MCM_LMDR1*>(0xE0080404); }
 };
 // Local Memory Descriptor Register
 union MCM_LMDR2 {
@@ -825,7 +825,7 @@ union MCM_LMDR2 {
 
   MCM_LMDR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_LMDR2 &Instance() { return *reinterpret_cast<volatile MCM_LMDR2*>(0xE0080408); }
+  static inline volatile MCM_LMDR2 &ref() { return *reinterpret_cast<volatile MCM_LMDR2*>(0xE0080408); }
 };
 // Local Memory Descriptor Register
 union MCM_LMDR3 {
@@ -949,7 +949,7 @@ union MCM_LMDR3 {
 
   MCM_LMDR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_LMDR3 &Instance() { return *reinterpret_cast<volatile MCM_LMDR3*>(0xE008040C); }
+  static inline volatile MCM_LMDR3 &ref() { return *reinterpret_cast<volatile MCM_LMDR3*>(0xE008040C); }
 };
 
 // LMEM Parity & ECC Control Register
@@ -1027,7 +1027,7 @@ union MCM_LMPECR {
 
   MCM_LMPECR() = delete;
   inline void Reset() volatile { this->value = 0x00300003; }
-  static inline volatile MCM_LMPECR &Instance() { return *reinterpret_cast<volatile MCM_LMPECR*>(0xE0080480); }
+  static inline volatile MCM_LMPECR &ref() { return *reinterpret_cast<volatile MCM_LMPECR*>(0xE0080480); }
 };
 
 // LMEM Parity & ECC Interrupt Register
@@ -1053,7 +1053,7 @@ union MCM_LMPEIR {
 
   MCM_LMPEIR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_LMPEIR &Instance() { return *reinterpret_cast<volatile MCM_LMPEIR*>(0xE0080488); }
+  static inline volatile MCM_LMPEIR &ref() { return *reinterpret_cast<volatile MCM_LMPEIR*>(0xE0080488); }
 };
 
 // LMEM Fault Address Register
@@ -1070,7 +1070,7 @@ union MCM_LMFAR {
 
   MCM_LMFAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_LMFAR &Instance() { return *reinterpret_cast<volatile MCM_LMFAR*>(0xE0080490); }
+  static inline volatile MCM_LMFAR &ref() { return *reinterpret_cast<volatile MCM_LMFAR*>(0xE0080490); }
 };
 
 // LMEM Fault Attribute Register
@@ -1099,7 +1099,7 @@ union MCM_LMFATR {
 
   MCM_LMFATR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_LMFATR &Instance() { return *reinterpret_cast<volatile MCM_LMFATR*>(0xE0080494); }
+  static inline volatile MCM_LMFATR &ref() { return *reinterpret_cast<volatile MCM_LMFATR*>(0xE0080494); }
 };
 
 // LMEM Fault Data High Register
@@ -1116,7 +1116,7 @@ union MCM_LMFDHR {
 
   MCM_LMFDHR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_LMFDHR &Instance() { return *reinterpret_cast<volatile MCM_LMFDHR*>(0xE00804A0); }
+  static inline volatile MCM_LMFDHR &ref() { return *reinterpret_cast<volatile MCM_LMFDHR*>(0xE00804A0); }
 };
 
 // LMEM Fault Data Low Register
@@ -1133,7 +1133,7 @@ union MCM_LMFDLR {
 
   MCM_LMFDLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCM_LMFDLR &Instance() { return *reinterpret_cast<volatile MCM_LMFDLR*>(0xE00804A4); }
+  static inline volatile MCM_LMFDLR &ref() { return *reinterpret_cast<volatile MCM_LMFDLR*>(0xE00804A4); }
 };
 
 

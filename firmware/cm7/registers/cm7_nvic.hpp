@@ -24,7 +24,7 @@ union NVICISER0 {
 
   NVICISER0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER0 &Instance() { return *reinterpret_cast<volatile NVICISER0*>(0xE000E100); }
+  static inline volatile NVICISER0 &ref() { return *reinterpret_cast<volatile NVICISER0*>(0xE000E100); }
 };
 
 // Interrupt Set Enable Register n
@@ -41,7 +41,7 @@ union NVICISER1 {
 
   NVICISER1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER1 &Instance() { return *reinterpret_cast<volatile NVICISER1*>(0xE000E104); }
+  static inline volatile NVICISER1 &ref() { return *reinterpret_cast<volatile NVICISER1*>(0xE000E104); }
 };
 
 // Interrupt Set Enable Register n
@@ -58,7 +58,7 @@ union NVICISER2 {
 
   NVICISER2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER2 &Instance() { return *reinterpret_cast<volatile NVICISER2*>(0xE000E108); }
+  static inline volatile NVICISER2 &ref() { return *reinterpret_cast<volatile NVICISER2*>(0xE000E108); }
 };
 
 // Interrupt Set Enable Register n
@@ -75,7 +75,7 @@ union NVICISER3 {
 
   NVICISER3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER3 &Instance() { return *reinterpret_cast<volatile NVICISER3*>(0xE000E10C); }
+  static inline volatile NVICISER3 &ref() { return *reinterpret_cast<volatile NVICISER3*>(0xE000E10C); }
 };
 
 // Interrupt Set Enable Register n
@@ -92,7 +92,7 @@ union NVICISER4 {
 
   NVICISER4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER4 &Instance() { return *reinterpret_cast<volatile NVICISER4*>(0xE000E110); }
+  static inline volatile NVICISER4 &ref() { return *reinterpret_cast<volatile NVICISER4*>(0xE000E110); }
 };
 
 // Interrupt Set Enable Register n
@@ -109,7 +109,7 @@ union NVICISER5 {
 
   NVICISER5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER5 &Instance() { return *reinterpret_cast<volatile NVICISER5*>(0xE000E114); }
+  static inline volatile NVICISER5 &ref() { return *reinterpret_cast<volatile NVICISER5*>(0xE000E114); }
 };
 
 // Interrupt Set Enable Register n
@@ -126,7 +126,7 @@ union NVICISER6 {
 
   NVICISER6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER6 &Instance() { return *reinterpret_cast<volatile NVICISER6*>(0xE000E118); }
+  static inline volatile NVICISER6 &ref() { return *reinterpret_cast<volatile NVICISER6*>(0xE000E118); }
 };
 
 // Interrupt Clear Enable Register n
@@ -143,7 +143,7 @@ union NVICICER0 {
 
   NVICICER0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER0 &Instance() { return *reinterpret_cast<volatile NVICICER0*>(0xE000E180); }
+  static inline volatile NVICICER0 &ref() { return *reinterpret_cast<volatile NVICICER0*>(0xE000E180); }
 };
 
 // Interrupt Clear Enable Register n
@@ -160,7 +160,7 @@ union NVICICER1 {
 
   NVICICER1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER1 &Instance() { return *reinterpret_cast<volatile NVICICER1*>(0xE000E184); }
+  static inline volatile NVICICER1 &ref() { return *reinterpret_cast<volatile NVICICER1*>(0xE000E184); }
 };
 
 // Interrupt Clear Enable Register n
@@ -177,7 +177,7 @@ union NVICICER2 {
 
   NVICICER2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER2 &Instance() { return *reinterpret_cast<volatile NVICICER2*>(0xE000E188); }
+  static inline volatile NVICICER2 &ref() { return *reinterpret_cast<volatile NVICICER2*>(0xE000E188); }
 };
 
 // Interrupt Clear Enable Register n
@@ -194,7 +194,7 @@ union NVICICER3 {
 
   NVICICER3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER3 &Instance() { return *reinterpret_cast<volatile NVICICER3*>(0xE000E18C); }
+  static inline volatile NVICICER3 &ref() { return *reinterpret_cast<volatile NVICICER3*>(0xE000E18C); }
 };
 
 // Interrupt Clear Enable Register n
@@ -211,7 +211,7 @@ union NVICICER4 {
 
   NVICICER4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER4 &Instance() { return *reinterpret_cast<volatile NVICICER4*>(0xE000E190); }
+  static inline volatile NVICICER4 &ref() { return *reinterpret_cast<volatile NVICICER4*>(0xE000E190); }
 };
 
 // Interrupt Clear Enable Register n
@@ -228,7 +228,7 @@ union NVICICER5 {
 
   NVICICER5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER5 &Instance() { return *reinterpret_cast<volatile NVICICER5*>(0xE000E194); }
+  static inline volatile NVICICER5 &ref() { return *reinterpret_cast<volatile NVICICER5*>(0xE000E194); }
 };
 
 // Interrupt Clear Enable Register n
@@ -245,7 +245,7 @@ union NVICICER6 {
 
   NVICICER6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER6 &Instance() { return *reinterpret_cast<volatile NVICICER6*>(0xE000E198); }
+  static inline volatile NVICICER6 &ref() { return *reinterpret_cast<volatile NVICICER6*>(0xE000E198); }
 };
 
 // Interrupt Set Pending Register n
@@ -262,7 +262,7 @@ union NVICISPR0 {
 
   NVICISPR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR0 &Instance() { return *reinterpret_cast<volatile NVICISPR0*>(0xE000E200); }
+  static inline volatile NVICISPR0 &ref() { return *reinterpret_cast<volatile NVICISPR0*>(0xE000E200); }
 };
 
 // Interrupt Set Pending Register n
@@ -279,7 +279,7 @@ union NVICISPR1 {
 
   NVICISPR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR1 &Instance() { return *reinterpret_cast<volatile NVICISPR1*>(0xE000E204); }
+  static inline volatile NVICISPR1 &ref() { return *reinterpret_cast<volatile NVICISPR1*>(0xE000E204); }
 };
 
 // Interrupt Set Pending Register n
@@ -296,7 +296,7 @@ union NVICISPR2 {
 
   NVICISPR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR2 &Instance() { return *reinterpret_cast<volatile NVICISPR2*>(0xE000E208); }
+  static inline volatile NVICISPR2 &ref() { return *reinterpret_cast<volatile NVICISPR2*>(0xE000E208); }
 };
 
 // Interrupt Set Pending Register n
@@ -313,7 +313,7 @@ union NVICISPR3 {
 
   NVICISPR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR3 &Instance() { return *reinterpret_cast<volatile NVICISPR3*>(0xE000E20C); }
+  static inline volatile NVICISPR3 &ref() { return *reinterpret_cast<volatile NVICISPR3*>(0xE000E20C); }
 };
 
 // Interrupt Set Pending Register n
@@ -330,7 +330,7 @@ union NVICISPR4 {
 
   NVICISPR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR4 &Instance() { return *reinterpret_cast<volatile NVICISPR4*>(0xE000E210); }
+  static inline volatile NVICISPR4 &ref() { return *reinterpret_cast<volatile NVICISPR4*>(0xE000E210); }
 };
 
 // Interrupt Set Pending Register n
@@ -347,7 +347,7 @@ union NVICISPR5 {
 
   NVICISPR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR5 &Instance() { return *reinterpret_cast<volatile NVICISPR5*>(0xE000E214); }
+  static inline volatile NVICISPR5 &ref() { return *reinterpret_cast<volatile NVICISPR5*>(0xE000E214); }
 };
 
 // Interrupt Set Pending Register n
@@ -364,7 +364,7 @@ union NVICISPR6 {
 
   NVICISPR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR6 &Instance() { return *reinterpret_cast<volatile NVICISPR6*>(0xE000E218); }
+  static inline volatile NVICISPR6 &ref() { return *reinterpret_cast<volatile NVICISPR6*>(0xE000E218); }
 };
 
 // Interrupt Clear Pending Register n
@@ -381,7 +381,7 @@ union NVICICPR0 {
 
   NVICICPR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR0 &Instance() { return *reinterpret_cast<volatile NVICICPR0*>(0xE000E280); }
+  static inline volatile NVICICPR0 &ref() { return *reinterpret_cast<volatile NVICICPR0*>(0xE000E280); }
 };
 
 // Interrupt Clear Pending Register n
@@ -398,7 +398,7 @@ union NVICICPR1 {
 
   NVICICPR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR1 &Instance() { return *reinterpret_cast<volatile NVICICPR1*>(0xE000E284); }
+  static inline volatile NVICICPR1 &ref() { return *reinterpret_cast<volatile NVICICPR1*>(0xE000E284); }
 };
 
 // Interrupt Clear Pending Register n
@@ -415,7 +415,7 @@ union NVICICPR2 {
 
   NVICICPR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR2 &Instance() { return *reinterpret_cast<volatile NVICICPR2*>(0xE000E288); }
+  static inline volatile NVICICPR2 &ref() { return *reinterpret_cast<volatile NVICICPR2*>(0xE000E288); }
 };
 
 // Interrupt Clear Pending Register n
@@ -432,7 +432,7 @@ union NVICICPR3 {
 
   NVICICPR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR3 &Instance() { return *reinterpret_cast<volatile NVICICPR3*>(0xE000E28C); }
+  static inline volatile NVICICPR3 &ref() { return *reinterpret_cast<volatile NVICICPR3*>(0xE000E28C); }
 };
 
 // Interrupt Clear Pending Register n
@@ -449,7 +449,7 @@ union NVICICPR4 {
 
   NVICICPR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR4 &Instance() { return *reinterpret_cast<volatile NVICICPR4*>(0xE000E290); }
+  static inline volatile NVICICPR4 &ref() { return *reinterpret_cast<volatile NVICICPR4*>(0xE000E290); }
 };
 
 // Interrupt Clear Pending Register n
@@ -466,7 +466,7 @@ union NVICICPR5 {
 
   NVICICPR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR5 &Instance() { return *reinterpret_cast<volatile NVICICPR5*>(0xE000E294); }
+  static inline volatile NVICICPR5 &ref() { return *reinterpret_cast<volatile NVICICPR5*>(0xE000E294); }
 };
 
 // Interrupt Clear Pending Register n
@@ -483,7 +483,7 @@ union NVICICPR6 {
 
   NVICICPR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR6 &Instance() { return *reinterpret_cast<volatile NVICICPR6*>(0xE000E298); }
+  static inline volatile NVICICPR6 &ref() { return *reinterpret_cast<volatile NVICICPR6*>(0xE000E298); }
 };
 
 // Interrupt Active bit Register n
@@ -500,7 +500,7 @@ union NVICIABR0 {
 
   NVICIABR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR0 &Instance() { return *reinterpret_cast<volatile NVICIABR0*>(0xE000E300); }
+  static inline volatile NVICIABR0 &ref() { return *reinterpret_cast<volatile NVICIABR0*>(0xE000E300); }
 };
 
 // Interrupt Active bit Register n
@@ -517,7 +517,7 @@ union NVICIABR1 {
 
   NVICIABR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR1 &Instance() { return *reinterpret_cast<volatile NVICIABR1*>(0xE000E304); }
+  static inline volatile NVICIABR1 &ref() { return *reinterpret_cast<volatile NVICIABR1*>(0xE000E304); }
 };
 
 // Interrupt Active bit Register n
@@ -534,7 +534,7 @@ union NVICIABR2 {
 
   NVICIABR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR2 &Instance() { return *reinterpret_cast<volatile NVICIABR2*>(0xE000E308); }
+  static inline volatile NVICIABR2 &ref() { return *reinterpret_cast<volatile NVICIABR2*>(0xE000E308); }
 };
 
 // Interrupt Active bit Register n
@@ -551,7 +551,7 @@ union NVICIABR3 {
 
   NVICIABR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR3 &Instance() { return *reinterpret_cast<volatile NVICIABR3*>(0xE000E30C); }
+  static inline volatile NVICIABR3 &ref() { return *reinterpret_cast<volatile NVICIABR3*>(0xE000E30C); }
 };
 
 // Interrupt Active bit Register n
@@ -568,7 +568,7 @@ union NVICIABR4 {
 
   NVICIABR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR4 &Instance() { return *reinterpret_cast<volatile NVICIABR4*>(0xE000E310); }
+  static inline volatile NVICIABR4 &ref() { return *reinterpret_cast<volatile NVICIABR4*>(0xE000E310); }
 };
 
 // Interrupt Active bit Register n
@@ -585,7 +585,7 @@ union NVICIABR5 {
 
   NVICIABR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR5 &Instance() { return *reinterpret_cast<volatile NVICIABR5*>(0xE000E314); }
+  static inline volatile NVICIABR5 &ref() { return *reinterpret_cast<volatile NVICIABR5*>(0xE000E314); }
 };
 
 // Interrupt Active bit Register n
@@ -602,7 +602,7 @@ union NVICIABR6 {
 
   NVICIABR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR6 &Instance() { return *reinterpret_cast<volatile NVICIABR6*>(0xE000E318); }
+  static inline volatile NVICIABR6 &ref() { return *reinterpret_cast<volatile NVICIABR6*>(0xE000E318); }
 };
 
 // Interrupt Priority Register 0
@@ -621,7 +621,7 @@ union NVICIP0 {
 
   NVICIP0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP0 &Instance() { return *reinterpret_cast<volatile NVICIP0*>(0xE000E400); }
+  static inline volatile NVICIP0 &ref() { return *reinterpret_cast<volatile NVICIP0*>(0xE000E400); }
 };
 
 // Interrupt Priority Register 1
@@ -640,7 +640,7 @@ union NVICIP1 {
 
   NVICIP1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP1 &Instance() { return *reinterpret_cast<volatile NVICIP1*>(0xE000E401); }
+  static inline volatile NVICIP1 &ref() { return *reinterpret_cast<volatile NVICIP1*>(0xE000E401); }
 };
 
 // Interrupt Priority Register 2
@@ -659,7 +659,7 @@ union NVICIP2 {
 
   NVICIP2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP2 &Instance() { return *reinterpret_cast<volatile NVICIP2*>(0xE000E402); }
+  static inline volatile NVICIP2 &ref() { return *reinterpret_cast<volatile NVICIP2*>(0xE000E402); }
 };
 
 // Interrupt Priority Register 3
@@ -678,7 +678,7 @@ union NVICIP3 {
 
   NVICIP3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP3 &Instance() { return *reinterpret_cast<volatile NVICIP3*>(0xE000E403); }
+  static inline volatile NVICIP3 &ref() { return *reinterpret_cast<volatile NVICIP3*>(0xE000E403); }
 };
 
 // Interrupt Priority Register 4
@@ -697,7 +697,7 @@ union NVICIP4 {
 
   NVICIP4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP4 &Instance() { return *reinterpret_cast<volatile NVICIP4*>(0xE000E404); }
+  static inline volatile NVICIP4 &ref() { return *reinterpret_cast<volatile NVICIP4*>(0xE000E404); }
 };
 
 // Interrupt Priority Register 5
@@ -716,7 +716,7 @@ union NVICIP5 {
 
   NVICIP5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP5 &Instance() { return *reinterpret_cast<volatile NVICIP5*>(0xE000E405); }
+  static inline volatile NVICIP5 &ref() { return *reinterpret_cast<volatile NVICIP5*>(0xE000E405); }
 };
 
 // Interrupt Priority Register 6
@@ -735,7 +735,7 @@ union NVICIP6 {
 
   NVICIP6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP6 &Instance() { return *reinterpret_cast<volatile NVICIP6*>(0xE000E406); }
+  static inline volatile NVICIP6 &ref() { return *reinterpret_cast<volatile NVICIP6*>(0xE000E406); }
 };
 
 // Interrupt Priority Register 7
@@ -754,7 +754,7 @@ union NVICIP7 {
 
   NVICIP7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP7 &Instance() { return *reinterpret_cast<volatile NVICIP7*>(0xE000E407); }
+  static inline volatile NVICIP7 &ref() { return *reinterpret_cast<volatile NVICIP7*>(0xE000E407); }
 };
 
 // Interrupt Priority Register 8
@@ -773,7 +773,7 @@ union NVICIP8 {
 
   NVICIP8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP8 &Instance() { return *reinterpret_cast<volatile NVICIP8*>(0xE000E408); }
+  static inline volatile NVICIP8 &ref() { return *reinterpret_cast<volatile NVICIP8*>(0xE000E408); }
 };
 
 // Interrupt Priority Register 9
@@ -792,7 +792,7 @@ union NVICIP9 {
 
   NVICIP9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP9 &Instance() { return *reinterpret_cast<volatile NVICIP9*>(0xE000E409); }
+  static inline volatile NVICIP9 &ref() { return *reinterpret_cast<volatile NVICIP9*>(0xE000E409); }
 };
 
 // Interrupt Priority Register 10
@@ -811,7 +811,7 @@ union NVICIP10 {
 
   NVICIP10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP10 &Instance() { return *reinterpret_cast<volatile NVICIP10*>(0xE000E40A); }
+  static inline volatile NVICIP10 &ref() { return *reinterpret_cast<volatile NVICIP10*>(0xE000E40A); }
 };
 
 // Interrupt Priority Register 11
@@ -830,7 +830,7 @@ union NVICIP11 {
 
   NVICIP11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP11 &Instance() { return *reinterpret_cast<volatile NVICIP11*>(0xE000E40B); }
+  static inline volatile NVICIP11 &ref() { return *reinterpret_cast<volatile NVICIP11*>(0xE000E40B); }
 };
 
 // Interrupt Priority Register 12
@@ -849,7 +849,7 @@ union NVICIP12 {
 
   NVICIP12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP12 &Instance() { return *reinterpret_cast<volatile NVICIP12*>(0xE000E40C); }
+  static inline volatile NVICIP12 &ref() { return *reinterpret_cast<volatile NVICIP12*>(0xE000E40C); }
 };
 
 // Interrupt Priority Register 13
@@ -868,7 +868,7 @@ union NVICIP13 {
 
   NVICIP13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP13 &Instance() { return *reinterpret_cast<volatile NVICIP13*>(0xE000E40D); }
+  static inline volatile NVICIP13 &ref() { return *reinterpret_cast<volatile NVICIP13*>(0xE000E40D); }
 };
 
 // Interrupt Priority Register 14
@@ -887,7 +887,7 @@ union NVICIP14 {
 
   NVICIP14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP14 &Instance() { return *reinterpret_cast<volatile NVICIP14*>(0xE000E40E); }
+  static inline volatile NVICIP14 &ref() { return *reinterpret_cast<volatile NVICIP14*>(0xE000E40E); }
 };
 
 // Interrupt Priority Register 15
@@ -906,7 +906,7 @@ union NVICIP15 {
 
   NVICIP15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP15 &Instance() { return *reinterpret_cast<volatile NVICIP15*>(0xE000E40F); }
+  static inline volatile NVICIP15 &ref() { return *reinterpret_cast<volatile NVICIP15*>(0xE000E40F); }
 };
 
 // Interrupt Priority Register 16
@@ -925,7 +925,7 @@ union NVICIP16 {
 
   NVICIP16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP16 &Instance() { return *reinterpret_cast<volatile NVICIP16*>(0xE000E410); }
+  static inline volatile NVICIP16 &ref() { return *reinterpret_cast<volatile NVICIP16*>(0xE000E410); }
 };
 
 // Interrupt Priority Register 17
@@ -944,7 +944,7 @@ union NVICIP17 {
 
   NVICIP17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP17 &Instance() { return *reinterpret_cast<volatile NVICIP17*>(0xE000E411); }
+  static inline volatile NVICIP17 &ref() { return *reinterpret_cast<volatile NVICIP17*>(0xE000E411); }
 };
 
 // Interrupt Priority Register 18
@@ -963,7 +963,7 @@ union NVICIP18 {
 
   NVICIP18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP18 &Instance() { return *reinterpret_cast<volatile NVICIP18*>(0xE000E412); }
+  static inline volatile NVICIP18 &ref() { return *reinterpret_cast<volatile NVICIP18*>(0xE000E412); }
 };
 
 // Interrupt Priority Register 19
@@ -982,7 +982,7 @@ union NVICIP19 {
 
   NVICIP19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP19 &Instance() { return *reinterpret_cast<volatile NVICIP19*>(0xE000E413); }
+  static inline volatile NVICIP19 &ref() { return *reinterpret_cast<volatile NVICIP19*>(0xE000E413); }
 };
 
 // Interrupt Priority Register 20
@@ -1001,7 +1001,7 @@ union NVICIP20 {
 
   NVICIP20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP20 &Instance() { return *reinterpret_cast<volatile NVICIP20*>(0xE000E414); }
+  static inline volatile NVICIP20 &ref() { return *reinterpret_cast<volatile NVICIP20*>(0xE000E414); }
 };
 
 // Interrupt Priority Register 21
@@ -1020,7 +1020,7 @@ union NVICIP21 {
 
   NVICIP21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP21 &Instance() { return *reinterpret_cast<volatile NVICIP21*>(0xE000E415); }
+  static inline volatile NVICIP21 &ref() { return *reinterpret_cast<volatile NVICIP21*>(0xE000E415); }
 };
 
 // Interrupt Priority Register 22
@@ -1039,7 +1039,7 @@ union NVICIP22 {
 
   NVICIP22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP22 &Instance() { return *reinterpret_cast<volatile NVICIP22*>(0xE000E416); }
+  static inline volatile NVICIP22 &ref() { return *reinterpret_cast<volatile NVICIP22*>(0xE000E416); }
 };
 
 // Interrupt Priority Register 23
@@ -1058,7 +1058,7 @@ union NVICIP23 {
 
   NVICIP23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP23 &Instance() { return *reinterpret_cast<volatile NVICIP23*>(0xE000E417); }
+  static inline volatile NVICIP23 &ref() { return *reinterpret_cast<volatile NVICIP23*>(0xE000E417); }
 };
 
 // Interrupt Priority Register 24
@@ -1077,7 +1077,7 @@ union NVICIP24 {
 
   NVICIP24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP24 &Instance() { return *reinterpret_cast<volatile NVICIP24*>(0xE000E418); }
+  static inline volatile NVICIP24 &ref() { return *reinterpret_cast<volatile NVICIP24*>(0xE000E418); }
 };
 
 // Interrupt Priority Register 25
@@ -1096,7 +1096,7 @@ union NVICIP25 {
 
   NVICIP25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP25 &Instance() { return *reinterpret_cast<volatile NVICIP25*>(0xE000E419); }
+  static inline volatile NVICIP25 &ref() { return *reinterpret_cast<volatile NVICIP25*>(0xE000E419); }
 };
 
 // Interrupt Priority Register 26
@@ -1115,7 +1115,7 @@ union NVICIP26 {
 
   NVICIP26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP26 &Instance() { return *reinterpret_cast<volatile NVICIP26*>(0xE000E41A); }
+  static inline volatile NVICIP26 &ref() { return *reinterpret_cast<volatile NVICIP26*>(0xE000E41A); }
 };
 
 // Interrupt Priority Register 27
@@ -1134,7 +1134,7 @@ union NVICIP27 {
 
   NVICIP27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP27 &Instance() { return *reinterpret_cast<volatile NVICIP27*>(0xE000E41B); }
+  static inline volatile NVICIP27 &ref() { return *reinterpret_cast<volatile NVICIP27*>(0xE000E41B); }
 };
 
 // Interrupt Priority Register 28
@@ -1153,7 +1153,7 @@ union NVICIP28 {
 
   NVICIP28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP28 &Instance() { return *reinterpret_cast<volatile NVICIP28*>(0xE000E41C); }
+  static inline volatile NVICIP28 &ref() { return *reinterpret_cast<volatile NVICIP28*>(0xE000E41C); }
 };
 
 // Interrupt Priority Register 29
@@ -1172,7 +1172,7 @@ union NVICIP29 {
 
   NVICIP29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP29 &Instance() { return *reinterpret_cast<volatile NVICIP29*>(0xE000E41D); }
+  static inline volatile NVICIP29 &ref() { return *reinterpret_cast<volatile NVICIP29*>(0xE000E41D); }
 };
 
 // Interrupt Priority Register 30
@@ -1191,7 +1191,7 @@ union NVICIP30 {
 
   NVICIP30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP30 &Instance() { return *reinterpret_cast<volatile NVICIP30*>(0xE000E41E); }
+  static inline volatile NVICIP30 &ref() { return *reinterpret_cast<volatile NVICIP30*>(0xE000E41E); }
 };
 
 // Interrupt Priority Register 31
@@ -1210,7 +1210,7 @@ union NVICIP31 {
 
   NVICIP31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP31 &Instance() { return *reinterpret_cast<volatile NVICIP31*>(0xE000E41F); }
+  static inline volatile NVICIP31 &ref() { return *reinterpret_cast<volatile NVICIP31*>(0xE000E41F); }
 };
 
 // Interrupt Priority Register 32
@@ -1229,7 +1229,7 @@ union NVICIP32 {
 
   NVICIP32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP32 &Instance() { return *reinterpret_cast<volatile NVICIP32*>(0xE000E420); }
+  static inline volatile NVICIP32 &ref() { return *reinterpret_cast<volatile NVICIP32*>(0xE000E420); }
 };
 
 // Interrupt Priority Register 33
@@ -1248,7 +1248,7 @@ union NVICIP33 {
 
   NVICIP33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP33 &Instance() { return *reinterpret_cast<volatile NVICIP33*>(0xE000E421); }
+  static inline volatile NVICIP33 &ref() { return *reinterpret_cast<volatile NVICIP33*>(0xE000E421); }
 };
 
 // Interrupt Priority Register 34
@@ -1267,7 +1267,7 @@ union NVICIP34 {
 
   NVICIP34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP34 &Instance() { return *reinterpret_cast<volatile NVICIP34*>(0xE000E422); }
+  static inline volatile NVICIP34 &ref() { return *reinterpret_cast<volatile NVICIP34*>(0xE000E422); }
 };
 
 // Interrupt Priority Register 35
@@ -1286,7 +1286,7 @@ union NVICIP35 {
 
   NVICIP35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP35 &Instance() { return *reinterpret_cast<volatile NVICIP35*>(0xE000E423); }
+  static inline volatile NVICIP35 &ref() { return *reinterpret_cast<volatile NVICIP35*>(0xE000E423); }
 };
 
 // Interrupt Priority Register 36
@@ -1305,7 +1305,7 @@ union NVICIP36 {
 
   NVICIP36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP36 &Instance() { return *reinterpret_cast<volatile NVICIP36*>(0xE000E424); }
+  static inline volatile NVICIP36 &ref() { return *reinterpret_cast<volatile NVICIP36*>(0xE000E424); }
 };
 
 // Interrupt Priority Register 37
@@ -1324,7 +1324,7 @@ union NVICIP37 {
 
   NVICIP37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP37 &Instance() { return *reinterpret_cast<volatile NVICIP37*>(0xE000E425); }
+  static inline volatile NVICIP37 &ref() { return *reinterpret_cast<volatile NVICIP37*>(0xE000E425); }
 };
 
 // Interrupt Priority Register 38
@@ -1343,7 +1343,7 @@ union NVICIP38 {
 
   NVICIP38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP38 &Instance() { return *reinterpret_cast<volatile NVICIP38*>(0xE000E426); }
+  static inline volatile NVICIP38 &ref() { return *reinterpret_cast<volatile NVICIP38*>(0xE000E426); }
 };
 
 // Interrupt Priority Register 39
@@ -1362,7 +1362,7 @@ union NVICIP39 {
 
   NVICIP39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP39 &Instance() { return *reinterpret_cast<volatile NVICIP39*>(0xE000E427); }
+  static inline volatile NVICIP39 &ref() { return *reinterpret_cast<volatile NVICIP39*>(0xE000E427); }
 };
 
 // Interrupt Priority Register 40
@@ -1381,7 +1381,7 @@ union NVICIP40 {
 
   NVICIP40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP40 &Instance() { return *reinterpret_cast<volatile NVICIP40*>(0xE000E428); }
+  static inline volatile NVICIP40 &ref() { return *reinterpret_cast<volatile NVICIP40*>(0xE000E428); }
 };
 
 // Interrupt Priority Register 41
@@ -1400,7 +1400,7 @@ union NVICIP41 {
 
   NVICIP41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP41 &Instance() { return *reinterpret_cast<volatile NVICIP41*>(0xE000E429); }
+  static inline volatile NVICIP41 &ref() { return *reinterpret_cast<volatile NVICIP41*>(0xE000E429); }
 };
 
 // Interrupt Priority Register 42
@@ -1419,7 +1419,7 @@ union NVICIP42 {
 
   NVICIP42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP42 &Instance() { return *reinterpret_cast<volatile NVICIP42*>(0xE000E42A); }
+  static inline volatile NVICIP42 &ref() { return *reinterpret_cast<volatile NVICIP42*>(0xE000E42A); }
 };
 
 // Interrupt Priority Register 43
@@ -1438,7 +1438,7 @@ union NVICIP43 {
 
   NVICIP43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP43 &Instance() { return *reinterpret_cast<volatile NVICIP43*>(0xE000E42B); }
+  static inline volatile NVICIP43 &ref() { return *reinterpret_cast<volatile NVICIP43*>(0xE000E42B); }
 };
 
 // Interrupt Priority Register 44
@@ -1457,7 +1457,7 @@ union NVICIP44 {
 
   NVICIP44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP44 &Instance() { return *reinterpret_cast<volatile NVICIP44*>(0xE000E42C); }
+  static inline volatile NVICIP44 &ref() { return *reinterpret_cast<volatile NVICIP44*>(0xE000E42C); }
 };
 
 // Interrupt Priority Register 45
@@ -1476,7 +1476,7 @@ union NVICIP45 {
 
   NVICIP45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP45 &Instance() { return *reinterpret_cast<volatile NVICIP45*>(0xE000E42D); }
+  static inline volatile NVICIP45 &ref() { return *reinterpret_cast<volatile NVICIP45*>(0xE000E42D); }
 };
 
 // Interrupt Priority Register 46
@@ -1495,7 +1495,7 @@ union NVICIP46 {
 
   NVICIP46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP46 &Instance() { return *reinterpret_cast<volatile NVICIP46*>(0xE000E42E); }
+  static inline volatile NVICIP46 &ref() { return *reinterpret_cast<volatile NVICIP46*>(0xE000E42E); }
 };
 
 // Interrupt Priority Register 47
@@ -1514,7 +1514,7 @@ union NVICIP47 {
 
   NVICIP47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP47 &Instance() { return *reinterpret_cast<volatile NVICIP47*>(0xE000E42F); }
+  static inline volatile NVICIP47 &ref() { return *reinterpret_cast<volatile NVICIP47*>(0xE000E42F); }
 };
 
 // Interrupt Priority Register 48
@@ -1533,7 +1533,7 @@ union NVICIP48 {
 
   NVICIP48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP48 &Instance() { return *reinterpret_cast<volatile NVICIP48*>(0xE000E430); }
+  static inline volatile NVICIP48 &ref() { return *reinterpret_cast<volatile NVICIP48*>(0xE000E430); }
 };
 
 // Interrupt Priority Register 49
@@ -1552,7 +1552,7 @@ union NVICIP49 {
 
   NVICIP49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP49 &Instance() { return *reinterpret_cast<volatile NVICIP49*>(0xE000E431); }
+  static inline volatile NVICIP49 &ref() { return *reinterpret_cast<volatile NVICIP49*>(0xE000E431); }
 };
 
 // Interrupt Priority Register 50
@@ -1571,7 +1571,7 @@ union NVICIP50 {
 
   NVICIP50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP50 &Instance() { return *reinterpret_cast<volatile NVICIP50*>(0xE000E432); }
+  static inline volatile NVICIP50 &ref() { return *reinterpret_cast<volatile NVICIP50*>(0xE000E432); }
 };
 
 // Interrupt Priority Register 51
@@ -1590,7 +1590,7 @@ union NVICIP51 {
 
   NVICIP51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP51 &Instance() { return *reinterpret_cast<volatile NVICIP51*>(0xE000E433); }
+  static inline volatile NVICIP51 &ref() { return *reinterpret_cast<volatile NVICIP51*>(0xE000E433); }
 };
 
 // Interrupt Priority Register 52
@@ -1609,7 +1609,7 @@ union NVICIP52 {
 
   NVICIP52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP52 &Instance() { return *reinterpret_cast<volatile NVICIP52*>(0xE000E434); }
+  static inline volatile NVICIP52 &ref() { return *reinterpret_cast<volatile NVICIP52*>(0xE000E434); }
 };
 
 // Interrupt Priority Register 53
@@ -1628,7 +1628,7 @@ union NVICIP53 {
 
   NVICIP53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP53 &Instance() { return *reinterpret_cast<volatile NVICIP53*>(0xE000E435); }
+  static inline volatile NVICIP53 &ref() { return *reinterpret_cast<volatile NVICIP53*>(0xE000E435); }
 };
 
 // Interrupt Priority Register 54
@@ -1647,7 +1647,7 @@ union NVICIP54 {
 
   NVICIP54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP54 &Instance() { return *reinterpret_cast<volatile NVICIP54*>(0xE000E436); }
+  static inline volatile NVICIP54 &ref() { return *reinterpret_cast<volatile NVICIP54*>(0xE000E436); }
 };
 
 // Interrupt Priority Register 55
@@ -1666,7 +1666,7 @@ union NVICIP55 {
 
   NVICIP55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP55 &Instance() { return *reinterpret_cast<volatile NVICIP55*>(0xE000E437); }
+  static inline volatile NVICIP55 &ref() { return *reinterpret_cast<volatile NVICIP55*>(0xE000E437); }
 };
 
 // Interrupt Priority Register 56
@@ -1685,7 +1685,7 @@ union NVICIP56 {
 
   NVICIP56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP56 &Instance() { return *reinterpret_cast<volatile NVICIP56*>(0xE000E438); }
+  static inline volatile NVICIP56 &ref() { return *reinterpret_cast<volatile NVICIP56*>(0xE000E438); }
 };
 
 // Interrupt Priority Register 57
@@ -1704,7 +1704,7 @@ union NVICIP57 {
 
   NVICIP57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP57 &Instance() { return *reinterpret_cast<volatile NVICIP57*>(0xE000E439); }
+  static inline volatile NVICIP57 &ref() { return *reinterpret_cast<volatile NVICIP57*>(0xE000E439); }
 };
 
 // Interrupt Priority Register 58
@@ -1723,7 +1723,7 @@ union NVICIP58 {
 
   NVICIP58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP58 &Instance() { return *reinterpret_cast<volatile NVICIP58*>(0xE000E43A); }
+  static inline volatile NVICIP58 &ref() { return *reinterpret_cast<volatile NVICIP58*>(0xE000E43A); }
 };
 
 // Interrupt Priority Register 59
@@ -1742,7 +1742,7 @@ union NVICIP59 {
 
   NVICIP59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP59 &Instance() { return *reinterpret_cast<volatile NVICIP59*>(0xE000E43B); }
+  static inline volatile NVICIP59 &ref() { return *reinterpret_cast<volatile NVICIP59*>(0xE000E43B); }
 };
 
 // Interrupt Priority Register 60
@@ -1761,7 +1761,7 @@ union NVICIP60 {
 
   NVICIP60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP60 &Instance() { return *reinterpret_cast<volatile NVICIP60*>(0xE000E43C); }
+  static inline volatile NVICIP60 &ref() { return *reinterpret_cast<volatile NVICIP60*>(0xE000E43C); }
 };
 
 // Interrupt Priority Register 61
@@ -1780,7 +1780,7 @@ union NVICIP61 {
 
   NVICIP61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP61 &Instance() { return *reinterpret_cast<volatile NVICIP61*>(0xE000E43D); }
+  static inline volatile NVICIP61 &ref() { return *reinterpret_cast<volatile NVICIP61*>(0xE000E43D); }
 };
 
 // Interrupt Priority Register 62
@@ -1799,7 +1799,7 @@ union NVICIP62 {
 
   NVICIP62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP62 &Instance() { return *reinterpret_cast<volatile NVICIP62*>(0xE000E43E); }
+  static inline volatile NVICIP62 &ref() { return *reinterpret_cast<volatile NVICIP62*>(0xE000E43E); }
 };
 
 // Interrupt Priority Register 63
@@ -1818,7 +1818,7 @@ union NVICIP63 {
 
   NVICIP63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP63 &Instance() { return *reinterpret_cast<volatile NVICIP63*>(0xE000E43F); }
+  static inline volatile NVICIP63 &ref() { return *reinterpret_cast<volatile NVICIP63*>(0xE000E43F); }
 };
 
 // Interrupt Priority Register 64
@@ -1837,7 +1837,7 @@ union NVICIP64 {
 
   NVICIP64() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP64 &Instance() { return *reinterpret_cast<volatile NVICIP64*>(0xE000E440); }
+  static inline volatile NVICIP64 &ref() { return *reinterpret_cast<volatile NVICIP64*>(0xE000E440); }
 };
 
 // Interrupt Priority Register 65
@@ -1856,7 +1856,7 @@ union NVICIP65 {
 
   NVICIP65() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP65 &Instance() { return *reinterpret_cast<volatile NVICIP65*>(0xE000E441); }
+  static inline volatile NVICIP65 &ref() { return *reinterpret_cast<volatile NVICIP65*>(0xE000E441); }
 };
 
 // Interrupt Priority Register 66
@@ -1875,7 +1875,7 @@ union NVICIP66 {
 
   NVICIP66() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP66 &Instance() { return *reinterpret_cast<volatile NVICIP66*>(0xE000E442); }
+  static inline volatile NVICIP66 &ref() { return *reinterpret_cast<volatile NVICIP66*>(0xE000E442); }
 };
 
 // Interrupt Priority Register 67
@@ -1894,7 +1894,7 @@ union NVICIP67 {
 
   NVICIP67() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP67 &Instance() { return *reinterpret_cast<volatile NVICIP67*>(0xE000E443); }
+  static inline volatile NVICIP67 &ref() { return *reinterpret_cast<volatile NVICIP67*>(0xE000E443); }
 };
 
 // Interrupt Priority Register 68
@@ -1913,7 +1913,7 @@ union NVICIP68 {
 
   NVICIP68() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP68 &Instance() { return *reinterpret_cast<volatile NVICIP68*>(0xE000E444); }
+  static inline volatile NVICIP68 &ref() { return *reinterpret_cast<volatile NVICIP68*>(0xE000E444); }
 };
 
 // Interrupt Priority Register 69
@@ -1932,7 +1932,7 @@ union NVICIP69 {
 
   NVICIP69() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP69 &Instance() { return *reinterpret_cast<volatile NVICIP69*>(0xE000E445); }
+  static inline volatile NVICIP69 &ref() { return *reinterpret_cast<volatile NVICIP69*>(0xE000E445); }
 };
 
 // Interrupt Priority Register 70
@@ -1951,7 +1951,7 @@ union NVICIP70 {
 
   NVICIP70() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP70 &Instance() { return *reinterpret_cast<volatile NVICIP70*>(0xE000E446); }
+  static inline volatile NVICIP70 &ref() { return *reinterpret_cast<volatile NVICIP70*>(0xE000E446); }
 };
 
 // Interrupt Priority Register 71
@@ -1970,7 +1970,7 @@ union NVICIP71 {
 
   NVICIP71() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP71 &Instance() { return *reinterpret_cast<volatile NVICIP71*>(0xE000E447); }
+  static inline volatile NVICIP71 &ref() { return *reinterpret_cast<volatile NVICIP71*>(0xE000E447); }
 };
 
 // Interrupt Priority Register 72
@@ -1989,7 +1989,7 @@ union NVICIP72 {
 
   NVICIP72() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP72 &Instance() { return *reinterpret_cast<volatile NVICIP72*>(0xE000E448); }
+  static inline volatile NVICIP72 &ref() { return *reinterpret_cast<volatile NVICIP72*>(0xE000E448); }
 };
 
 // Interrupt Priority Register 73
@@ -2008,7 +2008,7 @@ union NVICIP73 {
 
   NVICIP73() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP73 &Instance() { return *reinterpret_cast<volatile NVICIP73*>(0xE000E449); }
+  static inline volatile NVICIP73 &ref() { return *reinterpret_cast<volatile NVICIP73*>(0xE000E449); }
 };
 
 // Interrupt Priority Register 74
@@ -2027,7 +2027,7 @@ union NVICIP74 {
 
   NVICIP74() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP74 &Instance() { return *reinterpret_cast<volatile NVICIP74*>(0xE000E44A); }
+  static inline volatile NVICIP74 &ref() { return *reinterpret_cast<volatile NVICIP74*>(0xE000E44A); }
 };
 
 // Interrupt Priority Register 75
@@ -2046,7 +2046,7 @@ union NVICIP75 {
 
   NVICIP75() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP75 &Instance() { return *reinterpret_cast<volatile NVICIP75*>(0xE000E44B); }
+  static inline volatile NVICIP75 &ref() { return *reinterpret_cast<volatile NVICIP75*>(0xE000E44B); }
 };
 
 // Interrupt Priority Register 76
@@ -2065,7 +2065,7 @@ union NVICIP76 {
 
   NVICIP76() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP76 &Instance() { return *reinterpret_cast<volatile NVICIP76*>(0xE000E44C); }
+  static inline volatile NVICIP76 &ref() { return *reinterpret_cast<volatile NVICIP76*>(0xE000E44C); }
 };
 
 // Interrupt Priority Register 77
@@ -2084,7 +2084,7 @@ union NVICIP77 {
 
   NVICIP77() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP77 &Instance() { return *reinterpret_cast<volatile NVICIP77*>(0xE000E44D); }
+  static inline volatile NVICIP77 &ref() { return *reinterpret_cast<volatile NVICIP77*>(0xE000E44D); }
 };
 
 // Interrupt Priority Register 78
@@ -2103,7 +2103,7 @@ union NVICIP78 {
 
   NVICIP78() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP78 &Instance() { return *reinterpret_cast<volatile NVICIP78*>(0xE000E44E); }
+  static inline volatile NVICIP78 &ref() { return *reinterpret_cast<volatile NVICIP78*>(0xE000E44E); }
 };
 
 // Interrupt Priority Register 79
@@ -2122,7 +2122,7 @@ union NVICIP79 {
 
   NVICIP79() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP79 &Instance() { return *reinterpret_cast<volatile NVICIP79*>(0xE000E44F); }
+  static inline volatile NVICIP79 &ref() { return *reinterpret_cast<volatile NVICIP79*>(0xE000E44F); }
 };
 
 // Interrupt Priority Register 80
@@ -2141,7 +2141,7 @@ union NVICIP80 {
 
   NVICIP80() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP80 &Instance() { return *reinterpret_cast<volatile NVICIP80*>(0xE000E450); }
+  static inline volatile NVICIP80 &ref() { return *reinterpret_cast<volatile NVICIP80*>(0xE000E450); }
 };
 
 // Interrupt Priority Register 81
@@ -2160,7 +2160,7 @@ union NVICIP81 {
 
   NVICIP81() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP81 &Instance() { return *reinterpret_cast<volatile NVICIP81*>(0xE000E451); }
+  static inline volatile NVICIP81 &ref() { return *reinterpret_cast<volatile NVICIP81*>(0xE000E451); }
 };
 
 // Interrupt Priority Register 82
@@ -2179,7 +2179,7 @@ union NVICIP82 {
 
   NVICIP82() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP82 &Instance() { return *reinterpret_cast<volatile NVICIP82*>(0xE000E452); }
+  static inline volatile NVICIP82 &ref() { return *reinterpret_cast<volatile NVICIP82*>(0xE000E452); }
 };
 
 // Interrupt Priority Register 83
@@ -2198,7 +2198,7 @@ union NVICIP83 {
 
   NVICIP83() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP83 &Instance() { return *reinterpret_cast<volatile NVICIP83*>(0xE000E453); }
+  static inline volatile NVICIP83 &ref() { return *reinterpret_cast<volatile NVICIP83*>(0xE000E453); }
 };
 
 // Interrupt Priority Register 84
@@ -2217,7 +2217,7 @@ union NVICIP84 {
 
   NVICIP84() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP84 &Instance() { return *reinterpret_cast<volatile NVICIP84*>(0xE000E454); }
+  static inline volatile NVICIP84 &ref() { return *reinterpret_cast<volatile NVICIP84*>(0xE000E454); }
 };
 
 // Interrupt Priority Register 85
@@ -2236,7 +2236,7 @@ union NVICIP85 {
 
   NVICIP85() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP85 &Instance() { return *reinterpret_cast<volatile NVICIP85*>(0xE000E455); }
+  static inline volatile NVICIP85 &ref() { return *reinterpret_cast<volatile NVICIP85*>(0xE000E455); }
 };
 
 // Interrupt Priority Register 86
@@ -2255,7 +2255,7 @@ union NVICIP86 {
 
   NVICIP86() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP86 &Instance() { return *reinterpret_cast<volatile NVICIP86*>(0xE000E456); }
+  static inline volatile NVICIP86 &ref() { return *reinterpret_cast<volatile NVICIP86*>(0xE000E456); }
 };
 
 // Interrupt Priority Register 87
@@ -2274,7 +2274,7 @@ union NVICIP87 {
 
   NVICIP87() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP87 &Instance() { return *reinterpret_cast<volatile NVICIP87*>(0xE000E457); }
+  static inline volatile NVICIP87 &ref() { return *reinterpret_cast<volatile NVICIP87*>(0xE000E457); }
 };
 
 // Interrupt Priority Register 88
@@ -2293,7 +2293,7 @@ union NVICIP88 {
 
   NVICIP88() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP88 &Instance() { return *reinterpret_cast<volatile NVICIP88*>(0xE000E458); }
+  static inline volatile NVICIP88 &ref() { return *reinterpret_cast<volatile NVICIP88*>(0xE000E458); }
 };
 
 // Interrupt Priority Register 89
@@ -2312,7 +2312,7 @@ union NVICIP89 {
 
   NVICIP89() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP89 &Instance() { return *reinterpret_cast<volatile NVICIP89*>(0xE000E459); }
+  static inline volatile NVICIP89 &ref() { return *reinterpret_cast<volatile NVICIP89*>(0xE000E459); }
 };
 
 // Interrupt Priority Register 90
@@ -2331,7 +2331,7 @@ union NVICIP90 {
 
   NVICIP90() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP90 &Instance() { return *reinterpret_cast<volatile NVICIP90*>(0xE000E45A); }
+  static inline volatile NVICIP90 &ref() { return *reinterpret_cast<volatile NVICIP90*>(0xE000E45A); }
 };
 
 // Interrupt Priority Register 91
@@ -2350,7 +2350,7 @@ union NVICIP91 {
 
   NVICIP91() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP91 &Instance() { return *reinterpret_cast<volatile NVICIP91*>(0xE000E45B); }
+  static inline volatile NVICIP91 &ref() { return *reinterpret_cast<volatile NVICIP91*>(0xE000E45B); }
 };
 
 // Interrupt Priority Register 92
@@ -2369,7 +2369,7 @@ union NVICIP92 {
 
   NVICIP92() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP92 &Instance() { return *reinterpret_cast<volatile NVICIP92*>(0xE000E45C); }
+  static inline volatile NVICIP92 &ref() { return *reinterpret_cast<volatile NVICIP92*>(0xE000E45C); }
 };
 
 // Interrupt Priority Register 93
@@ -2388,7 +2388,7 @@ union NVICIP93 {
 
   NVICIP93() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP93 &Instance() { return *reinterpret_cast<volatile NVICIP93*>(0xE000E45D); }
+  static inline volatile NVICIP93 &ref() { return *reinterpret_cast<volatile NVICIP93*>(0xE000E45D); }
 };
 
 // Interrupt Priority Register 94
@@ -2407,7 +2407,7 @@ union NVICIP94 {
 
   NVICIP94() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP94 &Instance() { return *reinterpret_cast<volatile NVICIP94*>(0xE000E45E); }
+  static inline volatile NVICIP94 &ref() { return *reinterpret_cast<volatile NVICIP94*>(0xE000E45E); }
 };
 
 // Interrupt Priority Register 95
@@ -2426,7 +2426,7 @@ union NVICIP95 {
 
   NVICIP95() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP95 &Instance() { return *reinterpret_cast<volatile NVICIP95*>(0xE000E45F); }
+  static inline volatile NVICIP95 &ref() { return *reinterpret_cast<volatile NVICIP95*>(0xE000E45F); }
 };
 
 // Interrupt Priority Register 96
@@ -2445,7 +2445,7 @@ union NVICIP96 {
 
   NVICIP96() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP96 &Instance() { return *reinterpret_cast<volatile NVICIP96*>(0xE000E460); }
+  static inline volatile NVICIP96 &ref() { return *reinterpret_cast<volatile NVICIP96*>(0xE000E460); }
 };
 
 // Interrupt Priority Register 97
@@ -2464,7 +2464,7 @@ union NVICIP97 {
 
   NVICIP97() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP97 &Instance() { return *reinterpret_cast<volatile NVICIP97*>(0xE000E461); }
+  static inline volatile NVICIP97 &ref() { return *reinterpret_cast<volatile NVICIP97*>(0xE000E461); }
 };
 
 // Interrupt Priority Register 98
@@ -2483,7 +2483,7 @@ union NVICIP98 {
 
   NVICIP98() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP98 &Instance() { return *reinterpret_cast<volatile NVICIP98*>(0xE000E462); }
+  static inline volatile NVICIP98 &ref() { return *reinterpret_cast<volatile NVICIP98*>(0xE000E462); }
 };
 
 // Interrupt Priority Register 99
@@ -2502,7 +2502,7 @@ union NVICIP99 {
 
   NVICIP99() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP99 &Instance() { return *reinterpret_cast<volatile NVICIP99*>(0xE000E463); }
+  static inline volatile NVICIP99 &ref() { return *reinterpret_cast<volatile NVICIP99*>(0xE000E463); }
 };
 
 // Interrupt Priority Register 100
@@ -2521,7 +2521,7 @@ union NVICIP100 {
 
   NVICIP100() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP100 &Instance() { return *reinterpret_cast<volatile NVICIP100*>(0xE000E464); }
+  static inline volatile NVICIP100 &ref() { return *reinterpret_cast<volatile NVICIP100*>(0xE000E464); }
 };
 
 // Interrupt Priority Register 101
@@ -2540,7 +2540,7 @@ union NVICIP101 {
 
   NVICIP101() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP101 &Instance() { return *reinterpret_cast<volatile NVICIP101*>(0xE000E465); }
+  static inline volatile NVICIP101 &ref() { return *reinterpret_cast<volatile NVICIP101*>(0xE000E465); }
 };
 
 // Interrupt Priority Register 102
@@ -2559,7 +2559,7 @@ union NVICIP102 {
 
   NVICIP102() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP102 &Instance() { return *reinterpret_cast<volatile NVICIP102*>(0xE000E466); }
+  static inline volatile NVICIP102 &ref() { return *reinterpret_cast<volatile NVICIP102*>(0xE000E466); }
 };
 
 // Interrupt Priority Register 103
@@ -2578,7 +2578,7 @@ union NVICIP103 {
 
   NVICIP103() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP103 &Instance() { return *reinterpret_cast<volatile NVICIP103*>(0xE000E467); }
+  static inline volatile NVICIP103 &ref() { return *reinterpret_cast<volatile NVICIP103*>(0xE000E467); }
 };
 
 // Interrupt Priority Register 104
@@ -2597,7 +2597,7 @@ union NVICIP104 {
 
   NVICIP104() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP104 &Instance() { return *reinterpret_cast<volatile NVICIP104*>(0xE000E468); }
+  static inline volatile NVICIP104 &ref() { return *reinterpret_cast<volatile NVICIP104*>(0xE000E468); }
 };
 
 // Interrupt Priority Register 105
@@ -2616,7 +2616,7 @@ union NVICIP105 {
 
   NVICIP105() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP105 &Instance() { return *reinterpret_cast<volatile NVICIP105*>(0xE000E469); }
+  static inline volatile NVICIP105 &ref() { return *reinterpret_cast<volatile NVICIP105*>(0xE000E469); }
 };
 
 // Interrupt Priority Register 106
@@ -2635,7 +2635,7 @@ union NVICIP106 {
 
   NVICIP106() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP106 &Instance() { return *reinterpret_cast<volatile NVICIP106*>(0xE000E46A); }
+  static inline volatile NVICIP106 &ref() { return *reinterpret_cast<volatile NVICIP106*>(0xE000E46A); }
 };
 
 // Interrupt Priority Register 107
@@ -2654,7 +2654,7 @@ union NVICIP107 {
 
   NVICIP107() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP107 &Instance() { return *reinterpret_cast<volatile NVICIP107*>(0xE000E46B); }
+  static inline volatile NVICIP107 &ref() { return *reinterpret_cast<volatile NVICIP107*>(0xE000E46B); }
 };
 
 // Interrupt Priority Register 108
@@ -2673,7 +2673,7 @@ union NVICIP108 {
 
   NVICIP108() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP108 &Instance() { return *reinterpret_cast<volatile NVICIP108*>(0xE000E46C); }
+  static inline volatile NVICIP108 &ref() { return *reinterpret_cast<volatile NVICIP108*>(0xE000E46C); }
 };
 
 // Interrupt Priority Register 109
@@ -2692,7 +2692,7 @@ union NVICIP109 {
 
   NVICIP109() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP109 &Instance() { return *reinterpret_cast<volatile NVICIP109*>(0xE000E46D); }
+  static inline volatile NVICIP109 &ref() { return *reinterpret_cast<volatile NVICIP109*>(0xE000E46D); }
 };
 
 // Interrupt Priority Register 110
@@ -2711,7 +2711,7 @@ union NVICIP110 {
 
   NVICIP110() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP110 &Instance() { return *reinterpret_cast<volatile NVICIP110*>(0xE000E46E); }
+  static inline volatile NVICIP110 &ref() { return *reinterpret_cast<volatile NVICIP110*>(0xE000E46E); }
 };
 
 // Interrupt Priority Register 111
@@ -2730,7 +2730,7 @@ union NVICIP111 {
 
   NVICIP111() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP111 &Instance() { return *reinterpret_cast<volatile NVICIP111*>(0xE000E46F); }
+  static inline volatile NVICIP111 &ref() { return *reinterpret_cast<volatile NVICIP111*>(0xE000E46F); }
 };
 
 // Interrupt Priority Register 112
@@ -2749,7 +2749,7 @@ union NVICIP112 {
 
   NVICIP112() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP112 &Instance() { return *reinterpret_cast<volatile NVICIP112*>(0xE000E470); }
+  static inline volatile NVICIP112 &ref() { return *reinterpret_cast<volatile NVICIP112*>(0xE000E470); }
 };
 
 // Interrupt Priority Register 113
@@ -2768,7 +2768,7 @@ union NVICIP113 {
 
   NVICIP113() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP113 &Instance() { return *reinterpret_cast<volatile NVICIP113*>(0xE000E471); }
+  static inline volatile NVICIP113 &ref() { return *reinterpret_cast<volatile NVICIP113*>(0xE000E471); }
 };
 
 // Interrupt Priority Register 114
@@ -2787,7 +2787,7 @@ union NVICIP114 {
 
   NVICIP114() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP114 &Instance() { return *reinterpret_cast<volatile NVICIP114*>(0xE000E472); }
+  static inline volatile NVICIP114 &ref() { return *reinterpret_cast<volatile NVICIP114*>(0xE000E472); }
 };
 
 // Interrupt Priority Register 115
@@ -2806,7 +2806,7 @@ union NVICIP115 {
 
   NVICIP115() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP115 &Instance() { return *reinterpret_cast<volatile NVICIP115*>(0xE000E473); }
+  static inline volatile NVICIP115 &ref() { return *reinterpret_cast<volatile NVICIP115*>(0xE000E473); }
 };
 
 // Interrupt Priority Register 116
@@ -2825,7 +2825,7 @@ union NVICIP116 {
 
   NVICIP116() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP116 &Instance() { return *reinterpret_cast<volatile NVICIP116*>(0xE000E474); }
+  static inline volatile NVICIP116 &ref() { return *reinterpret_cast<volatile NVICIP116*>(0xE000E474); }
 };
 
 // Interrupt Priority Register 117
@@ -2844,7 +2844,7 @@ union NVICIP117 {
 
   NVICIP117() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP117 &Instance() { return *reinterpret_cast<volatile NVICIP117*>(0xE000E475); }
+  static inline volatile NVICIP117 &ref() { return *reinterpret_cast<volatile NVICIP117*>(0xE000E475); }
 };
 
 // Interrupt Priority Register 118
@@ -2863,7 +2863,7 @@ union NVICIP118 {
 
   NVICIP118() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP118 &Instance() { return *reinterpret_cast<volatile NVICIP118*>(0xE000E476); }
+  static inline volatile NVICIP118 &ref() { return *reinterpret_cast<volatile NVICIP118*>(0xE000E476); }
 };
 
 // Interrupt Priority Register 119
@@ -2882,7 +2882,7 @@ union NVICIP119 {
 
   NVICIP119() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP119 &Instance() { return *reinterpret_cast<volatile NVICIP119*>(0xE000E477); }
+  static inline volatile NVICIP119 &ref() { return *reinterpret_cast<volatile NVICIP119*>(0xE000E477); }
 };
 
 // Interrupt Priority Register 120
@@ -2901,7 +2901,7 @@ union NVICIP120 {
 
   NVICIP120() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP120 &Instance() { return *reinterpret_cast<volatile NVICIP120*>(0xE000E478); }
+  static inline volatile NVICIP120 &ref() { return *reinterpret_cast<volatile NVICIP120*>(0xE000E478); }
 };
 
 // Interrupt Priority Register 121
@@ -2920,7 +2920,7 @@ union NVICIP121 {
 
   NVICIP121() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP121 &Instance() { return *reinterpret_cast<volatile NVICIP121*>(0xE000E479); }
+  static inline volatile NVICIP121 &ref() { return *reinterpret_cast<volatile NVICIP121*>(0xE000E479); }
 };
 
 // Interrupt Priority Register 122
@@ -2939,7 +2939,7 @@ union NVICIP122 {
 
   NVICIP122() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP122 &Instance() { return *reinterpret_cast<volatile NVICIP122*>(0xE000E47A); }
+  static inline volatile NVICIP122 &ref() { return *reinterpret_cast<volatile NVICIP122*>(0xE000E47A); }
 };
 
 // Interrupt Priority Register 123
@@ -2958,7 +2958,7 @@ union NVICIP123 {
 
   NVICIP123() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP123 &Instance() { return *reinterpret_cast<volatile NVICIP123*>(0xE000E47B); }
+  static inline volatile NVICIP123 &ref() { return *reinterpret_cast<volatile NVICIP123*>(0xE000E47B); }
 };
 
 // Interrupt Priority Register 124
@@ -2977,7 +2977,7 @@ union NVICIP124 {
 
   NVICIP124() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP124 &Instance() { return *reinterpret_cast<volatile NVICIP124*>(0xE000E47C); }
+  static inline volatile NVICIP124 &ref() { return *reinterpret_cast<volatile NVICIP124*>(0xE000E47C); }
 };
 
 // Interrupt Priority Register 125
@@ -2996,7 +2996,7 @@ union NVICIP125 {
 
   NVICIP125() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP125 &Instance() { return *reinterpret_cast<volatile NVICIP125*>(0xE000E47D); }
+  static inline volatile NVICIP125 &ref() { return *reinterpret_cast<volatile NVICIP125*>(0xE000E47D); }
 };
 
 // Interrupt Priority Register 126
@@ -3015,7 +3015,7 @@ union NVICIP126 {
 
   NVICIP126() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP126 &Instance() { return *reinterpret_cast<volatile NVICIP126*>(0xE000E47E); }
+  static inline volatile NVICIP126 &ref() { return *reinterpret_cast<volatile NVICIP126*>(0xE000E47E); }
 };
 
 // Interrupt Priority Register 127
@@ -3034,7 +3034,7 @@ union NVICIP127 {
 
   NVICIP127() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP127 &Instance() { return *reinterpret_cast<volatile NVICIP127*>(0xE000E47F); }
+  static inline volatile NVICIP127 &ref() { return *reinterpret_cast<volatile NVICIP127*>(0xE000E47F); }
 };
 
 // Interrupt Priority Register 128
@@ -3053,7 +3053,7 @@ union NVICIP128 {
 
   NVICIP128() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP128 &Instance() { return *reinterpret_cast<volatile NVICIP128*>(0xE000E480); }
+  static inline volatile NVICIP128 &ref() { return *reinterpret_cast<volatile NVICIP128*>(0xE000E480); }
 };
 
 // Interrupt Priority Register 129
@@ -3072,7 +3072,7 @@ union NVICIP129 {
 
   NVICIP129() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP129 &Instance() { return *reinterpret_cast<volatile NVICIP129*>(0xE000E481); }
+  static inline volatile NVICIP129 &ref() { return *reinterpret_cast<volatile NVICIP129*>(0xE000E481); }
 };
 
 // Interrupt Priority Register 130
@@ -3091,7 +3091,7 @@ union NVICIP130 {
 
   NVICIP130() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP130 &Instance() { return *reinterpret_cast<volatile NVICIP130*>(0xE000E482); }
+  static inline volatile NVICIP130 &ref() { return *reinterpret_cast<volatile NVICIP130*>(0xE000E482); }
 };
 
 // Interrupt Priority Register 131
@@ -3110,7 +3110,7 @@ union NVICIP131 {
 
   NVICIP131() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP131 &Instance() { return *reinterpret_cast<volatile NVICIP131*>(0xE000E483); }
+  static inline volatile NVICIP131 &ref() { return *reinterpret_cast<volatile NVICIP131*>(0xE000E483); }
 };
 
 // Interrupt Priority Register 132
@@ -3129,7 +3129,7 @@ union NVICIP132 {
 
   NVICIP132() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP132 &Instance() { return *reinterpret_cast<volatile NVICIP132*>(0xE000E484); }
+  static inline volatile NVICIP132 &ref() { return *reinterpret_cast<volatile NVICIP132*>(0xE000E484); }
 };
 
 // Interrupt Priority Register 133
@@ -3148,7 +3148,7 @@ union NVICIP133 {
 
   NVICIP133() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP133 &Instance() { return *reinterpret_cast<volatile NVICIP133*>(0xE000E485); }
+  static inline volatile NVICIP133 &ref() { return *reinterpret_cast<volatile NVICIP133*>(0xE000E485); }
 };
 
 // Interrupt Priority Register 134
@@ -3167,7 +3167,7 @@ union NVICIP134 {
 
   NVICIP134() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP134 &Instance() { return *reinterpret_cast<volatile NVICIP134*>(0xE000E486); }
+  static inline volatile NVICIP134 &ref() { return *reinterpret_cast<volatile NVICIP134*>(0xE000E486); }
 };
 
 // Interrupt Priority Register 135
@@ -3186,7 +3186,7 @@ union NVICIP135 {
 
   NVICIP135() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP135 &Instance() { return *reinterpret_cast<volatile NVICIP135*>(0xE000E487); }
+  static inline volatile NVICIP135 &ref() { return *reinterpret_cast<volatile NVICIP135*>(0xE000E487); }
 };
 
 // Interrupt Priority Register 136
@@ -3205,7 +3205,7 @@ union NVICIP136 {
 
   NVICIP136() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP136 &Instance() { return *reinterpret_cast<volatile NVICIP136*>(0xE000E488); }
+  static inline volatile NVICIP136 &ref() { return *reinterpret_cast<volatile NVICIP136*>(0xE000E488); }
 };
 
 // Interrupt Priority Register 137
@@ -3224,7 +3224,7 @@ union NVICIP137 {
 
   NVICIP137() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP137 &Instance() { return *reinterpret_cast<volatile NVICIP137*>(0xE000E489); }
+  static inline volatile NVICIP137 &ref() { return *reinterpret_cast<volatile NVICIP137*>(0xE000E489); }
 };
 
 // Interrupt Priority Register 138
@@ -3243,7 +3243,7 @@ union NVICIP138 {
 
   NVICIP138() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP138 &Instance() { return *reinterpret_cast<volatile NVICIP138*>(0xE000E48A); }
+  static inline volatile NVICIP138 &ref() { return *reinterpret_cast<volatile NVICIP138*>(0xE000E48A); }
 };
 
 // Interrupt Priority Register 139
@@ -3262,7 +3262,7 @@ union NVICIP139 {
 
   NVICIP139() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP139 &Instance() { return *reinterpret_cast<volatile NVICIP139*>(0xE000E48B); }
+  static inline volatile NVICIP139 &ref() { return *reinterpret_cast<volatile NVICIP139*>(0xE000E48B); }
 };
 
 // Interrupt Priority Register 140
@@ -3281,7 +3281,7 @@ union NVICIP140 {
 
   NVICIP140() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP140 &Instance() { return *reinterpret_cast<volatile NVICIP140*>(0xE000E48C); }
+  static inline volatile NVICIP140 &ref() { return *reinterpret_cast<volatile NVICIP140*>(0xE000E48C); }
 };
 
 // Interrupt Priority Register 141
@@ -3300,7 +3300,7 @@ union NVICIP141 {
 
   NVICIP141() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP141 &Instance() { return *reinterpret_cast<volatile NVICIP141*>(0xE000E48D); }
+  static inline volatile NVICIP141 &ref() { return *reinterpret_cast<volatile NVICIP141*>(0xE000E48D); }
 };
 
 // Interrupt Priority Register 142
@@ -3319,7 +3319,7 @@ union NVICIP142 {
 
   NVICIP142() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP142 &Instance() { return *reinterpret_cast<volatile NVICIP142*>(0xE000E48E); }
+  static inline volatile NVICIP142 &ref() { return *reinterpret_cast<volatile NVICIP142*>(0xE000E48E); }
 };
 
 // Interrupt Priority Register 143
@@ -3338,7 +3338,7 @@ union NVICIP143 {
 
   NVICIP143() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP143 &Instance() { return *reinterpret_cast<volatile NVICIP143*>(0xE000E48F); }
+  static inline volatile NVICIP143 &ref() { return *reinterpret_cast<volatile NVICIP143*>(0xE000E48F); }
 };
 
 // Interrupt Priority Register 144
@@ -3357,7 +3357,7 @@ union NVICIP144 {
 
   NVICIP144() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP144 &Instance() { return *reinterpret_cast<volatile NVICIP144*>(0xE000E490); }
+  static inline volatile NVICIP144 &ref() { return *reinterpret_cast<volatile NVICIP144*>(0xE000E490); }
 };
 
 // Interrupt Priority Register 145
@@ -3376,7 +3376,7 @@ union NVICIP145 {
 
   NVICIP145() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP145 &Instance() { return *reinterpret_cast<volatile NVICIP145*>(0xE000E491); }
+  static inline volatile NVICIP145 &ref() { return *reinterpret_cast<volatile NVICIP145*>(0xE000E491); }
 };
 
 // Interrupt Priority Register 146
@@ -3395,7 +3395,7 @@ union NVICIP146 {
 
   NVICIP146() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP146 &Instance() { return *reinterpret_cast<volatile NVICIP146*>(0xE000E492); }
+  static inline volatile NVICIP146 &ref() { return *reinterpret_cast<volatile NVICIP146*>(0xE000E492); }
 };
 
 // Interrupt Priority Register 147
@@ -3414,7 +3414,7 @@ union NVICIP147 {
 
   NVICIP147() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP147 &Instance() { return *reinterpret_cast<volatile NVICIP147*>(0xE000E493); }
+  static inline volatile NVICIP147 &ref() { return *reinterpret_cast<volatile NVICIP147*>(0xE000E493); }
 };
 
 // Interrupt Priority Register 148
@@ -3433,7 +3433,7 @@ union NVICIP148 {
 
   NVICIP148() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP148 &Instance() { return *reinterpret_cast<volatile NVICIP148*>(0xE000E494); }
+  static inline volatile NVICIP148 &ref() { return *reinterpret_cast<volatile NVICIP148*>(0xE000E494); }
 };
 
 // Interrupt Priority Register 149
@@ -3452,7 +3452,7 @@ union NVICIP149 {
 
   NVICIP149() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP149 &Instance() { return *reinterpret_cast<volatile NVICIP149*>(0xE000E495); }
+  static inline volatile NVICIP149 &ref() { return *reinterpret_cast<volatile NVICIP149*>(0xE000E495); }
 };
 
 // Interrupt Priority Register 150
@@ -3471,7 +3471,7 @@ union NVICIP150 {
 
   NVICIP150() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP150 &Instance() { return *reinterpret_cast<volatile NVICIP150*>(0xE000E496); }
+  static inline volatile NVICIP150 &ref() { return *reinterpret_cast<volatile NVICIP150*>(0xE000E496); }
 };
 
 // Interrupt Priority Register 151
@@ -3490,7 +3490,7 @@ union NVICIP151 {
 
   NVICIP151() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP151 &Instance() { return *reinterpret_cast<volatile NVICIP151*>(0xE000E497); }
+  static inline volatile NVICIP151 &ref() { return *reinterpret_cast<volatile NVICIP151*>(0xE000E497); }
 };
 
 // Interrupt Priority Register 152
@@ -3509,7 +3509,7 @@ union NVICIP152 {
 
   NVICIP152() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP152 &Instance() { return *reinterpret_cast<volatile NVICIP152*>(0xE000E498); }
+  static inline volatile NVICIP152 &ref() { return *reinterpret_cast<volatile NVICIP152*>(0xE000E498); }
 };
 
 // Interrupt Priority Register 153
@@ -3528,7 +3528,7 @@ union NVICIP153 {
 
   NVICIP153() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP153 &Instance() { return *reinterpret_cast<volatile NVICIP153*>(0xE000E499); }
+  static inline volatile NVICIP153 &ref() { return *reinterpret_cast<volatile NVICIP153*>(0xE000E499); }
 };
 
 // Interrupt Priority Register 154
@@ -3547,7 +3547,7 @@ union NVICIP154 {
 
   NVICIP154() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP154 &Instance() { return *reinterpret_cast<volatile NVICIP154*>(0xE000E49A); }
+  static inline volatile NVICIP154 &ref() { return *reinterpret_cast<volatile NVICIP154*>(0xE000E49A); }
 };
 
 // Interrupt Priority Register 155
@@ -3566,7 +3566,7 @@ union NVICIP155 {
 
   NVICIP155() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP155 &Instance() { return *reinterpret_cast<volatile NVICIP155*>(0xE000E49B); }
+  static inline volatile NVICIP155 &ref() { return *reinterpret_cast<volatile NVICIP155*>(0xE000E49B); }
 };
 
 // Interrupt Priority Register 156
@@ -3585,7 +3585,7 @@ union NVICIP156 {
 
   NVICIP156() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP156 &Instance() { return *reinterpret_cast<volatile NVICIP156*>(0xE000E49C); }
+  static inline volatile NVICIP156 &ref() { return *reinterpret_cast<volatile NVICIP156*>(0xE000E49C); }
 };
 
 // Interrupt Priority Register 157
@@ -3604,7 +3604,7 @@ union NVICIP157 {
 
   NVICIP157() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP157 &Instance() { return *reinterpret_cast<volatile NVICIP157*>(0xE000E49D); }
+  static inline volatile NVICIP157 &ref() { return *reinterpret_cast<volatile NVICIP157*>(0xE000E49D); }
 };
 
 // Interrupt Priority Register 158
@@ -3623,7 +3623,7 @@ union NVICIP158 {
 
   NVICIP158() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP158 &Instance() { return *reinterpret_cast<volatile NVICIP158*>(0xE000E49E); }
+  static inline volatile NVICIP158 &ref() { return *reinterpret_cast<volatile NVICIP158*>(0xE000E49E); }
 };
 
 // Interrupt Priority Register 159
@@ -3642,7 +3642,7 @@ union NVICIP159 {
 
   NVICIP159() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP159 &Instance() { return *reinterpret_cast<volatile NVICIP159*>(0xE000E49F); }
+  static inline volatile NVICIP159 &ref() { return *reinterpret_cast<volatile NVICIP159*>(0xE000E49F); }
 };
 
 // Interrupt Priority Register 160
@@ -3661,7 +3661,7 @@ union NVICIP160 {
 
   NVICIP160() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP160 &Instance() { return *reinterpret_cast<volatile NVICIP160*>(0xE000E4A0); }
+  static inline volatile NVICIP160 &ref() { return *reinterpret_cast<volatile NVICIP160*>(0xE000E4A0); }
 };
 
 // Interrupt Priority Register 161
@@ -3680,7 +3680,7 @@ union NVICIP161 {
 
   NVICIP161() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP161 &Instance() { return *reinterpret_cast<volatile NVICIP161*>(0xE000E4A1); }
+  static inline volatile NVICIP161 &ref() { return *reinterpret_cast<volatile NVICIP161*>(0xE000E4A1); }
 };
 
 // Interrupt Priority Register 162
@@ -3699,7 +3699,7 @@ union NVICIP162 {
 
   NVICIP162() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP162 &Instance() { return *reinterpret_cast<volatile NVICIP162*>(0xE000E4A2); }
+  static inline volatile NVICIP162 &ref() { return *reinterpret_cast<volatile NVICIP162*>(0xE000E4A2); }
 };
 
 // Interrupt Priority Register 163
@@ -3718,7 +3718,7 @@ union NVICIP163 {
 
   NVICIP163() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP163 &Instance() { return *reinterpret_cast<volatile NVICIP163*>(0xE000E4A3); }
+  static inline volatile NVICIP163 &ref() { return *reinterpret_cast<volatile NVICIP163*>(0xE000E4A3); }
 };
 
 // Interrupt Priority Register 164
@@ -3737,7 +3737,7 @@ union NVICIP164 {
 
   NVICIP164() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP164 &Instance() { return *reinterpret_cast<volatile NVICIP164*>(0xE000E4A4); }
+  static inline volatile NVICIP164 &ref() { return *reinterpret_cast<volatile NVICIP164*>(0xE000E4A4); }
 };
 
 // Interrupt Priority Register 165
@@ -3756,7 +3756,7 @@ union NVICIP165 {
 
   NVICIP165() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP165 &Instance() { return *reinterpret_cast<volatile NVICIP165*>(0xE000E4A5); }
+  static inline volatile NVICIP165 &ref() { return *reinterpret_cast<volatile NVICIP165*>(0xE000E4A5); }
 };
 
 // Interrupt Priority Register 166
@@ -3775,7 +3775,7 @@ union NVICIP166 {
 
   NVICIP166() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP166 &Instance() { return *reinterpret_cast<volatile NVICIP166*>(0xE000E4A6); }
+  static inline volatile NVICIP166 &ref() { return *reinterpret_cast<volatile NVICIP166*>(0xE000E4A6); }
 };
 
 // Interrupt Priority Register 167
@@ -3794,7 +3794,7 @@ union NVICIP167 {
 
   NVICIP167() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP167 &Instance() { return *reinterpret_cast<volatile NVICIP167*>(0xE000E4A7); }
+  static inline volatile NVICIP167 &ref() { return *reinterpret_cast<volatile NVICIP167*>(0xE000E4A7); }
 };
 
 // Interrupt Priority Register 168
@@ -3813,7 +3813,7 @@ union NVICIP168 {
 
   NVICIP168() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP168 &Instance() { return *reinterpret_cast<volatile NVICIP168*>(0xE000E4A8); }
+  static inline volatile NVICIP168 &ref() { return *reinterpret_cast<volatile NVICIP168*>(0xE000E4A8); }
 };
 
 // Interrupt Priority Register 169
@@ -3832,7 +3832,7 @@ union NVICIP169 {
 
   NVICIP169() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP169 &Instance() { return *reinterpret_cast<volatile NVICIP169*>(0xE000E4A9); }
+  static inline volatile NVICIP169 &ref() { return *reinterpret_cast<volatile NVICIP169*>(0xE000E4A9); }
 };
 
 // Interrupt Priority Register 170
@@ -3851,7 +3851,7 @@ union NVICIP170 {
 
   NVICIP170() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP170 &Instance() { return *reinterpret_cast<volatile NVICIP170*>(0xE000E4AA); }
+  static inline volatile NVICIP170 &ref() { return *reinterpret_cast<volatile NVICIP170*>(0xE000E4AA); }
 };
 
 // Interrupt Priority Register 171
@@ -3870,7 +3870,7 @@ union NVICIP171 {
 
   NVICIP171() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP171 &Instance() { return *reinterpret_cast<volatile NVICIP171*>(0xE000E4AB); }
+  static inline volatile NVICIP171 &ref() { return *reinterpret_cast<volatile NVICIP171*>(0xE000E4AB); }
 };
 
 // Interrupt Priority Register 172
@@ -3889,7 +3889,7 @@ union NVICIP172 {
 
   NVICIP172() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP172 &Instance() { return *reinterpret_cast<volatile NVICIP172*>(0xE000E4AC); }
+  static inline volatile NVICIP172 &ref() { return *reinterpret_cast<volatile NVICIP172*>(0xE000E4AC); }
 };
 
 // Interrupt Priority Register 173
@@ -3908,7 +3908,7 @@ union NVICIP173 {
 
   NVICIP173() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP173 &Instance() { return *reinterpret_cast<volatile NVICIP173*>(0xE000E4AD); }
+  static inline volatile NVICIP173 &ref() { return *reinterpret_cast<volatile NVICIP173*>(0xE000E4AD); }
 };
 
 // Interrupt Priority Register 174
@@ -3927,7 +3927,7 @@ union NVICIP174 {
 
   NVICIP174() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP174 &Instance() { return *reinterpret_cast<volatile NVICIP174*>(0xE000E4AE); }
+  static inline volatile NVICIP174 &ref() { return *reinterpret_cast<volatile NVICIP174*>(0xE000E4AE); }
 };
 
 // Interrupt Priority Register 175
@@ -3946,7 +3946,7 @@ union NVICIP175 {
 
   NVICIP175() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP175 &Instance() { return *reinterpret_cast<volatile NVICIP175*>(0xE000E4AF); }
+  static inline volatile NVICIP175 &ref() { return *reinterpret_cast<volatile NVICIP175*>(0xE000E4AF); }
 };
 
 // Interrupt Priority Register 176
@@ -3965,7 +3965,7 @@ union NVICIP176 {
 
   NVICIP176() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP176 &Instance() { return *reinterpret_cast<volatile NVICIP176*>(0xE000E4B0); }
+  static inline volatile NVICIP176 &ref() { return *reinterpret_cast<volatile NVICIP176*>(0xE000E4B0); }
 };
 
 // Interrupt Priority Register 177
@@ -3984,7 +3984,7 @@ union NVICIP177 {
 
   NVICIP177() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP177 &Instance() { return *reinterpret_cast<volatile NVICIP177*>(0xE000E4B1); }
+  static inline volatile NVICIP177 &ref() { return *reinterpret_cast<volatile NVICIP177*>(0xE000E4B1); }
 };
 
 // Interrupt Priority Register 178
@@ -4003,7 +4003,7 @@ union NVICIP178 {
 
   NVICIP178() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP178 &Instance() { return *reinterpret_cast<volatile NVICIP178*>(0xE000E4B2); }
+  static inline volatile NVICIP178 &ref() { return *reinterpret_cast<volatile NVICIP178*>(0xE000E4B2); }
 };
 
 // Interrupt Priority Register 179
@@ -4022,7 +4022,7 @@ union NVICIP179 {
 
   NVICIP179() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP179 &Instance() { return *reinterpret_cast<volatile NVICIP179*>(0xE000E4B3); }
+  static inline volatile NVICIP179 &ref() { return *reinterpret_cast<volatile NVICIP179*>(0xE000E4B3); }
 };
 
 // Interrupt Priority Register 180
@@ -4041,7 +4041,7 @@ union NVICIP180 {
 
   NVICIP180() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP180 &Instance() { return *reinterpret_cast<volatile NVICIP180*>(0xE000E4B4); }
+  static inline volatile NVICIP180 &ref() { return *reinterpret_cast<volatile NVICIP180*>(0xE000E4B4); }
 };
 
 // Interrupt Priority Register 181
@@ -4060,7 +4060,7 @@ union NVICIP181 {
 
   NVICIP181() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP181 &Instance() { return *reinterpret_cast<volatile NVICIP181*>(0xE000E4B5); }
+  static inline volatile NVICIP181 &ref() { return *reinterpret_cast<volatile NVICIP181*>(0xE000E4B5); }
 };
 
 // Interrupt Priority Register 182
@@ -4079,7 +4079,7 @@ union NVICIP182 {
 
   NVICIP182() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP182 &Instance() { return *reinterpret_cast<volatile NVICIP182*>(0xE000E4B6); }
+  static inline volatile NVICIP182 &ref() { return *reinterpret_cast<volatile NVICIP182*>(0xE000E4B6); }
 };
 
 // Interrupt Priority Register 183
@@ -4098,7 +4098,7 @@ union NVICIP183 {
 
   NVICIP183() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP183 &Instance() { return *reinterpret_cast<volatile NVICIP183*>(0xE000E4B7); }
+  static inline volatile NVICIP183 &ref() { return *reinterpret_cast<volatile NVICIP183*>(0xE000E4B7); }
 };
 
 // Interrupt Priority Register 184
@@ -4117,7 +4117,7 @@ union NVICIP184 {
 
   NVICIP184() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP184 &Instance() { return *reinterpret_cast<volatile NVICIP184*>(0xE000E4B8); }
+  static inline volatile NVICIP184 &ref() { return *reinterpret_cast<volatile NVICIP184*>(0xE000E4B8); }
 };
 
 // Interrupt Priority Register 185
@@ -4136,7 +4136,7 @@ union NVICIP185 {
 
   NVICIP185() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP185 &Instance() { return *reinterpret_cast<volatile NVICIP185*>(0xE000E4B9); }
+  static inline volatile NVICIP185 &ref() { return *reinterpret_cast<volatile NVICIP185*>(0xE000E4B9); }
 };
 
 // Interrupt Priority Register 186
@@ -4155,7 +4155,7 @@ union NVICIP186 {
 
   NVICIP186() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP186 &Instance() { return *reinterpret_cast<volatile NVICIP186*>(0xE000E4BA); }
+  static inline volatile NVICIP186 &ref() { return *reinterpret_cast<volatile NVICIP186*>(0xE000E4BA); }
 };
 
 // Interrupt Priority Register 187
@@ -4174,7 +4174,7 @@ union NVICIP187 {
 
   NVICIP187() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP187 &Instance() { return *reinterpret_cast<volatile NVICIP187*>(0xE000E4BB); }
+  static inline volatile NVICIP187 &ref() { return *reinterpret_cast<volatile NVICIP187*>(0xE000E4BB); }
 };
 
 // Interrupt Priority Register 188
@@ -4193,7 +4193,7 @@ union NVICIP188 {
 
   NVICIP188() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP188 &Instance() { return *reinterpret_cast<volatile NVICIP188*>(0xE000E4BC); }
+  static inline volatile NVICIP188 &ref() { return *reinterpret_cast<volatile NVICIP188*>(0xE000E4BC); }
 };
 
 // Interrupt Priority Register 189
@@ -4212,7 +4212,7 @@ union NVICIP189 {
 
   NVICIP189() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP189 &Instance() { return *reinterpret_cast<volatile NVICIP189*>(0xE000E4BD); }
+  static inline volatile NVICIP189 &ref() { return *reinterpret_cast<volatile NVICIP189*>(0xE000E4BD); }
 };
 
 // Interrupt Priority Register 190
@@ -4231,7 +4231,7 @@ union NVICIP190 {
 
   NVICIP190() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP190 &Instance() { return *reinterpret_cast<volatile NVICIP190*>(0xE000E4BE); }
+  static inline volatile NVICIP190 &ref() { return *reinterpret_cast<volatile NVICIP190*>(0xE000E4BE); }
 };
 
 // Interrupt Priority Register 191
@@ -4250,7 +4250,7 @@ union NVICIP191 {
 
   NVICIP191() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP191 &Instance() { return *reinterpret_cast<volatile NVICIP191*>(0xE000E4BF); }
+  static inline volatile NVICIP191 &ref() { return *reinterpret_cast<volatile NVICIP191*>(0xE000E4BF); }
 };
 
 // Interrupt Priority Register 192
@@ -4269,7 +4269,7 @@ union NVICIP192 {
 
   NVICIP192() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP192 &Instance() { return *reinterpret_cast<volatile NVICIP192*>(0xE000E4C0); }
+  static inline volatile NVICIP192 &ref() { return *reinterpret_cast<volatile NVICIP192*>(0xE000E4C0); }
 };
 
 // Interrupt Priority Register 193
@@ -4288,7 +4288,7 @@ union NVICIP193 {
 
   NVICIP193() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP193 &Instance() { return *reinterpret_cast<volatile NVICIP193*>(0xE000E4C1); }
+  static inline volatile NVICIP193 &ref() { return *reinterpret_cast<volatile NVICIP193*>(0xE000E4C1); }
 };
 
 // Interrupt Priority Register 194
@@ -4307,7 +4307,7 @@ union NVICIP194 {
 
   NVICIP194() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP194 &Instance() { return *reinterpret_cast<volatile NVICIP194*>(0xE000E4C2); }
+  static inline volatile NVICIP194 &ref() { return *reinterpret_cast<volatile NVICIP194*>(0xE000E4C2); }
 };
 
 // Interrupt Priority Register 195
@@ -4326,7 +4326,7 @@ union NVICIP195 {
 
   NVICIP195() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP195 &Instance() { return *reinterpret_cast<volatile NVICIP195*>(0xE000E4C3); }
+  static inline volatile NVICIP195 &ref() { return *reinterpret_cast<volatile NVICIP195*>(0xE000E4C3); }
 };
 
 // Interrupt Priority Register 196
@@ -4345,7 +4345,7 @@ union NVICIP196 {
 
   NVICIP196() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP196 &Instance() { return *reinterpret_cast<volatile NVICIP196*>(0xE000E4C4); }
+  static inline volatile NVICIP196 &ref() { return *reinterpret_cast<volatile NVICIP196*>(0xE000E4C4); }
 };
 
 // Interrupt Priority Register 197
@@ -4364,7 +4364,7 @@ union NVICIP197 {
 
   NVICIP197() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP197 &Instance() { return *reinterpret_cast<volatile NVICIP197*>(0xE000E4C5); }
+  static inline volatile NVICIP197 &ref() { return *reinterpret_cast<volatile NVICIP197*>(0xE000E4C5); }
 };
 
 // Interrupt Priority Register 198
@@ -4383,7 +4383,7 @@ union NVICIP198 {
 
   NVICIP198() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP198 &Instance() { return *reinterpret_cast<volatile NVICIP198*>(0xE000E4C6); }
+  static inline volatile NVICIP198 &ref() { return *reinterpret_cast<volatile NVICIP198*>(0xE000E4C6); }
 };
 
 // Interrupt Priority Register 199
@@ -4402,7 +4402,7 @@ union NVICIP199 {
 
   NVICIP199() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP199 &Instance() { return *reinterpret_cast<volatile NVICIP199*>(0xE000E4C7); }
+  static inline volatile NVICIP199 &ref() { return *reinterpret_cast<volatile NVICIP199*>(0xE000E4C7); }
 };
 
 // Interrupt Priority Register 200
@@ -4421,7 +4421,7 @@ union NVICIP200 {
 
   NVICIP200() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP200 &Instance() { return *reinterpret_cast<volatile NVICIP200*>(0xE000E4C8); }
+  static inline volatile NVICIP200 &ref() { return *reinterpret_cast<volatile NVICIP200*>(0xE000E4C8); }
 };
 
 // Interrupt Priority Register 201
@@ -4440,7 +4440,7 @@ union NVICIP201 {
 
   NVICIP201() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP201 &Instance() { return *reinterpret_cast<volatile NVICIP201*>(0xE000E4C9); }
+  static inline volatile NVICIP201 &ref() { return *reinterpret_cast<volatile NVICIP201*>(0xE000E4C9); }
 };
 
 // Interrupt Priority Register 202
@@ -4459,7 +4459,7 @@ union NVICIP202 {
 
   NVICIP202() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP202 &Instance() { return *reinterpret_cast<volatile NVICIP202*>(0xE000E4CA); }
+  static inline volatile NVICIP202 &ref() { return *reinterpret_cast<volatile NVICIP202*>(0xE000E4CA); }
 };
 
 // Interrupt Priority Register 203
@@ -4478,7 +4478,7 @@ union NVICIP203 {
 
   NVICIP203() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP203 &Instance() { return *reinterpret_cast<volatile NVICIP203*>(0xE000E4CB); }
+  static inline volatile NVICIP203 &ref() { return *reinterpret_cast<volatile NVICIP203*>(0xE000E4CB); }
 };
 
 // Interrupt Priority Register 204
@@ -4497,7 +4497,7 @@ union NVICIP204 {
 
   NVICIP204() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP204 &Instance() { return *reinterpret_cast<volatile NVICIP204*>(0xE000E4CC); }
+  static inline volatile NVICIP204 &ref() { return *reinterpret_cast<volatile NVICIP204*>(0xE000E4CC); }
 };
 
 // Interrupt Priority Register 205
@@ -4516,7 +4516,7 @@ union NVICIP205 {
 
   NVICIP205() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP205 &Instance() { return *reinterpret_cast<volatile NVICIP205*>(0xE000E4CD); }
+  static inline volatile NVICIP205 &ref() { return *reinterpret_cast<volatile NVICIP205*>(0xE000E4CD); }
 };
 
 // Interrupt Priority Register 206
@@ -4535,7 +4535,7 @@ union NVICIP206 {
 
   NVICIP206() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP206 &Instance() { return *reinterpret_cast<volatile NVICIP206*>(0xE000E4CE); }
+  static inline volatile NVICIP206 &ref() { return *reinterpret_cast<volatile NVICIP206*>(0xE000E4CE); }
 };
 
 // Interrupt Priority Register 207
@@ -4554,7 +4554,7 @@ union NVICIP207 {
 
   NVICIP207() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP207 &Instance() { return *reinterpret_cast<volatile NVICIP207*>(0xE000E4CF); }
+  static inline volatile NVICIP207 &ref() { return *reinterpret_cast<volatile NVICIP207*>(0xE000E4CF); }
 };
 
 // Interrupt Priority Register 208
@@ -4573,7 +4573,7 @@ union NVICIP208 {
 
   NVICIP208() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP208 &Instance() { return *reinterpret_cast<volatile NVICIP208*>(0xE000E4D0); }
+  static inline volatile NVICIP208 &ref() { return *reinterpret_cast<volatile NVICIP208*>(0xE000E4D0); }
 };
 
 // Interrupt Priority Register 209
@@ -4592,7 +4592,7 @@ union NVICIP209 {
 
   NVICIP209() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP209 &Instance() { return *reinterpret_cast<volatile NVICIP209*>(0xE000E4D1); }
+  static inline volatile NVICIP209 &ref() { return *reinterpret_cast<volatile NVICIP209*>(0xE000E4D1); }
 };
 
 // Interrupt Priority Register 210
@@ -4611,7 +4611,7 @@ union NVICIP210 {
 
   NVICIP210() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP210 &Instance() { return *reinterpret_cast<volatile NVICIP210*>(0xE000E4D2); }
+  static inline volatile NVICIP210 &ref() { return *reinterpret_cast<volatile NVICIP210*>(0xE000E4D2); }
 };
 
 // Interrupt Priority Register 211
@@ -4630,7 +4630,7 @@ union NVICIP211 {
 
   NVICIP211() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP211 &Instance() { return *reinterpret_cast<volatile NVICIP211*>(0xE000E4D3); }
+  static inline volatile NVICIP211 &ref() { return *reinterpret_cast<volatile NVICIP211*>(0xE000E4D3); }
 };
 
 // Interrupt Priority Register 212
@@ -4649,7 +4649,7 @@ union NVICIP212 {
 
   NVICIP212() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP212 &Instance() { return *reinterpret_cast<volatile NVICIP212*>(0xE000E4D4); }
+  static inline volatile NVICIP212 &ref() { return *reinterpret_cast<volatile NVICIP212*>(0xE000E4D4); }
 };
 
 // Interrupt Priority Register 213
@@ -4668,7 +4668,7 @@ union NVICIP213 {
 
   NVICIP213() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP213 &Instance() { return *reinterpret_cast<volatile NVICIP213*>(0xE000E4D5); }
+  static inline volatile NVICIP213 &ref() { return *reinterpret_cast<volatile NVICIP213*>(0xE000E4D5); }
 };
 
 // Interrupt Priority Register 214
@@ -4687,7 +4687,7 @@ union NVICIP214 {
 
   NVICIP214() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP214 &Instance() { return *reinterpret_cast<volatile NVICIP214*>(0xE000E4D6); }
+  static inline volatile NVICIP214 &ref() { return *reinterpret_cast<volatile NVICIP214*>(0xE000E4D6); }
 };
 
 // Interrupt Priority Register 215
@@ -4706,7 +4706,7 @@ union NVICIP215 {
 
   NVICIP215() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP215 &Instance() { return *reinterpret_cast<volatile NVICIP215*>(0xE000E4D7); }
+  static inline volatile NVICIP215 &ref() { return *reinterpret_cast<volatile NVICIP215*>(0xE000E4D7); }
 };
 
 // Interrupt Priority Register 216
@@ -4725,7 +4725,7 @@ union NVICIP216 {
 
   NVICIP216() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP216 &Instance() { return *reinterpret_cast<volatile NVICIP216*>(0xE000E4D8); }
+  static inline volatile NVICIP216 &ref() { return *reinterpret_cast<volatile NVICIP216*>(0xE000E4D8); }
 };
 
 // Interrupt Priority Register 217
@@ -4744,7 +4744,7 @@ union NVICIP217 {
 
   NVICIP217() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP217 &Instance() { return *reinterpret_cast<volatile NVICIP217*>(0xE000E4D9); }
+  static inline volatile NVICIP217 &ref() { return *reinterpret_cast<volatile NVICIP217*>(0xE000E4D9); }
 };
 
 // Software Trigger Interrupt Register
@@ -4762,7 +4762,7 @@ union NVICSTIR {
 
   NVICSTIR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICSTIR &Instance() { return *reinterpret_cast<volatile NVICSTIR*>(0xE000EF00); }
+  static inline volatile NVICSTIR &ref() { return *reinterpret_cast<volatile NVICSTIR*>(0xE000EF00); }
 };
 
 

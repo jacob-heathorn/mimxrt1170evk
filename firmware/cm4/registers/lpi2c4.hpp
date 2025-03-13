@@ -36,7 +36,7 @@ union VERID {
 
   VERID() = delete;
   inline void Reset() volatile { this->value = 0x01010003; }
-  static inline volatile VERID &Instance() { return *reinterpret_cast<volatile VERID*>(0x40110000); }
+  static inline volatile VERID &ref() { return *reinterpret_cast<volatile VERID*>(0x40110000); }
 };
 
 // Parameter
@@ -57,7 +57,7 @@ union PARAM {
 
   PARAM() = delete;
   inline void Reset() volatile { this->value = 0x00000202; }
-  static inline volatile PARAM &Instance() { return *reinterpret_cast<volatile PARAM*>(0x40110004); }
+  static inline volatile PARAM &ref() { return *reinterpret_cast<volatile PARAM*>(0x40110004); }
 };
 
 // Master Control
@@ -134,7 +134,7 @@ union MCR {
 
   MCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCR &Instance() { return *reinterpret_cast<volatile MCR*>(0x40110010); }
+  static inline volatile MCR &ref() { return *reinterpret_cast<volatile MCR*>(0x40110010); }
 };
 
 // Master Status
@@ -262,7 +262,7 @@ union MSR {
 
   MSR() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile MSR &Instance() { return *reinterpret_cast<volatile MSR*>(0x40110014); }
+  static inline volatile MSR &ref() { return *reinterpret_cast<volatile MSR*>(0x40110014); }
 };
 
 // Master Interrupt Enable
@@ -369,7 +369,7 @@ union MIER {
 
   MIER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIER &Instance() { return *reinterpret_cast<volatile MIER*>(0x40110018); }
+  static inline volatile MIER &ref() { return *reinterpret_cast<volatile MIER*>(0x40110018); }
 };
 
 // Master DMA Enable
@@ -405,7 +405,7 @@ union MDER {
 
   MDER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MDER &Instance() { return *reinterpret_cast<volatile MDER*>(0x4011001C); }
+  static inline volatile MDER &ref() { return *reinterpret_cast<volatile MDER*>(0x4011001C); }
 };
 
 // Master Configuration 0
@@ -472,7 +472,7 @@ union MCFGR0 {
 
   MCFGR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCFGR0 &Instance() { return *reinterpret_cast<volatile MCFGR0*>(0x40110020); }
+  static inline volatile MCFGR0 &ref() { return *reinterpret_cast<volatile MCFGR0*>(0x40110020); }
 };
 
 // Master Configuration 1
@@ -585,7 +585,7 @@ union MCFGR1 {
 
   MCFGR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCFGR1 &Instance() { return *reinterpret_cast<volatile MCFGR1*>(0x40110024); }
+  static inline volatile MCFGR1 &ref() { return *reinterpret_cast<volatile MCFGR1*>(0x40110024); }
 };
 
 // Master Configuration 2
@@ -609,7 +609,7 @@ union MCFGR2 {
 
   MCFGR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCFGR2 &Instance() { return *reinterpret_cast<volatile MCFGR2*>(0x40110028); }
+  static inline volatile MCFGR2 &ref() { return *reinterpret_cast<volatile MCFGR2*>(0x40110028); }
 };
 
 // Master Configuration 3
@@ -628,7 +628,7 @@ union MCFGR3 {
 
   MCFGR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCFGR3 &Instance() { return *reinterpret_cast<volatile MCFGR3*>(0x4011002C); }
+  static inline volatile MCFGR3 &ref() { return *reinterpret_cast<volatile MCFGR3*>(0x4011002C); }
 };
 
 // Master Data Match
@@ -649,7 +649,7 @@ union MDMR {
 
   MDMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MDMR &Instance() { return *reinterpret_cast<volatile MDMR*>(0x40110040); }
+  static inline volatile MDMR &ref() { return *reinterpret_cast<volatile MDMR*>(0x40110040); }
 };
 
 // Master Clock Configuration 0
@@ -676,7 +676,7 @@ union MCCR0 {
 
   MCCR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCCR0 &Instance() { return *reinterpret_cast<volatile MCCR0*>(0x40110048); }
+  static inline volatile MCCR0 &ref() { return *reinterpret_cast<volatile MCCR0*>(0x40110048); }
 };
 
 // Master Clock Configuration 1
@@ -703,7 +703,7 @@ union MCCR1 {
 
   MCCR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MCCR1 &Instance() { return *reinterpret_cast<volatile MCCR1*>(0x40110050); }
+  static inline volatile MCCR1 &ref() { return *reinterpret_cast<volatile MCCR1*>(0x40110050); }
 };
 
 // Master FIFO Control
@@ -724,7 +724,7 @@ union MFCR {
 
   MFCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MFCR &Instance() { return *reinterpret_cast<volatile MFCR*>(0x40110058); }
+  static inline volatile MFCR &ref() { return *reinterpret_cast<volatile MFCR*>(0x40110058); }
 };
 
 // Master FIFO Status
@@ -745,7 +745,7 @@ union MFSR {
 
   MFSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MFSR &Instance() { return *reinterpret_cast<volatile MFSR*>(0x4011005C); }
+  static inline volatile MFSR &ref() { return *reinterpret_cast<volatile MFSR*>(0x4011005C); }
 };
 
 // Master Transmit Data
@@ -785,7 +785,7 @@ union MTDR {
 
   MTDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MTDR &Instance() { return *reinterpret_cast<volatile MTDR*>(0x40110060); }
+  static inline volatile MTDR &ref() { return *reinterpret_cast<volatile MTDR*>(0x40110060); }
 };
 
 // Master Receive Data
@@ -814,7 +814,7 @@ union MRDR {
 
   MRDR() = delete;
   inline void Reset() volatile { this->value = 0x00004000; }
-  static inline volatile MRDR &Instance() { return *reinterpret_cast<volatile MRDR*>(0x40110070); }
+  static inline volatile MRDR &ref() { return *reinterpret_cast<volatile MRDR*>(0x40110070); }
 };
 
 // Slave Control
@@ -892,7 +892,7 @@ union SCR {
 
   SCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCR &Instance() { return *reinterpret_cast<volatile SCR*>(0x40110110); }
+  static inline volatile SCR &ref() { return *reinterpret_cast<volatile SCR*>(0x40110110); }
 };
 
 // Slave Status
@@ -1050,7 +1050,7 @@ union SSR {
 
   SSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SSR &Instance() { return *reinterpret_cast<volatile SSR*>(0x40110114); }
+  static inline volatile SSR &ref() { return *reinterpret_cast<volatile SSR*>(0x40110114); }
 };
 
 // Slave Interrupt Enable
@@ -1187,7 +1187,7 @@ union SIER {
 
   SIER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SIER &Instance() { return *reinterpret_cast<volatile SIER*>(0x40110118); }
+  static inline volatile SIER &ref() { return *reinterpret_cast<volatile SIER*>(0x40110118); }
 };
 
 // Slave DMA Enable
@@ -1233,7 +1233,7 @@ union SDER {
 
   SDER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SDER &Instance() { return *reinterpret_cast<volatile SDER*>(0x4011011C); }
+  static inline volatile SDER &ref() { return *reinterpret_cast<volatile SDER*>(0x4011011C); }
 };
 
 // Slave Configuration 1
@@ -1373,7 +1373,7 @@ union SCFGR1 {
 
   SCFGR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCFGR1 &Instance() { return *reinterpret_cast<volatile SCFGR1*>(0x40110124); }
+  static inline volatile SCFGR1 &ref() { return *reinterpret_cast<volatile SCFGR1*>(0x40110124); }
 };
 
 // Slave Configuration 2
@@ -1400,7 +1400,7 @@ union SCFGR2 {
 
   SCFGR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCFGR2 &Instance() { return *reinterpret_cast<volatile SCFGR2*>(0x40110128); }
+  static inline volatile SCFGR2 &ref() { return *reinterpret_cast<volatile SCFGR2*>(0x40110128); }
 };
 
 // Slave Address Match
@@ -1422,7 +1422,7 @@ union SAMR {
 
   SAMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAMR &Instance() { return *reinterpret_cast<volatile SAMR*>(0x40110140); }
+  static inline volatile SAMR &ref() { return *reinterpret_cast<volatile SAMR*>(0x40110140); }
 };
 
 // Slave Address Status
@@ -1451,7 +1451,7 @@ union SASR {
 
   SASR() = delete;
   inline void Reset() volatile { this->value = 0x00004000; }
-  static inline volatile SASR &Instance() { return *reinterpret_cast<volatile SASR*>(0x40110150); }
+  static inline volatile SASR &ref() { return *reinterpret_cast<volatile SASR*>(0x40110150); }
 };
 
 // Slave Transmit ACK
@@ -1477,7 +1477,7 @@ union STAR {
 
   STAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAR &Instance() { return *reinterpret_cast<volatile STAR*>(0x40110154); }
+  static inline volatile STAR &ref() { return *reinterpret_cast<volatile STAR*>(0x40110154); }
 };
 
 // Slave Transmit Data
@@ -1495,7 +1495,7 @@ union STDR {
 
   STDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STDR &Instance() { return *reinterpret_cast<volatile STDR*>(0x40110160); }
+  static inline volatile STDR &ref() { return *reinterpret_cast<volatile STDR*>(0x40110160); }
 };
 
 // Slave Receive Data
@@ -1534,7 +1534,7 @@ union SRDR {
 
   SRDR() = delete;
   inline void Reset() volatile { this->value = 0x00004000; }
-  static inline volatile SRDR &Instance() { return *reinterpret_cast<volatile SRDR*>(0x40110170); }
+  static inline volatile SRDR &ref() { return *reinterpret_cast<volatile SRDR*>(0x40110170); }
 };
 
 

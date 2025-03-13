@@ -33,7 +33,7 @@ union CTRL0 {
 
   CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0 &Instance() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
+  static inline volatile CTRL0 &ref() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
 };
 
 // Analog Control Register CTRL0
@@ -59,7 +59,7 @@ union CTRL0_SET {
 
   CTRL0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_SET &Instance() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
+  static inline volatile CTRL0_SET &ref() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
 };
 
 // Analog Control Register CTRL0
@@ -85,7 +85,7 @@ union CTRL0_CLR {
 
   CTRL0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_CLR &Instance() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
+  static inline volatile CTRL0_CLR &ref() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
 };
 
 // Analog Control Register CTRL0
@@ -111,7 +111,7 @@ union CTRL0_TOG {
 
   CTRL0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_TOG &Instance() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
+  static inline volatile CTRL0_TOG &ref() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
 };
 
 // Analog Status Register STAT0
@@ -135,7 +135,7 @@ union STAT0 {
 
   STAT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0 &Instance() { return *reinterpret_cast<volatile STAT0*>(0x00000050); }
+  static inline volatile STAT0 &ref() { return *reinterpret_cast<volatile STAT0*>(0x00000050); }
 };
 
 // Analog Status Register STAT0
@@ -159,7 +159,7 @@ union STAT0_SET {
 
   STAT0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0_SET &Instance() { return *reinterpret_cast<volatile STAT0_SET*>(0x00000054); }
+  static inline volatile STAT0_SET &ref() { return *reinterpret_cast<volatile STAT0_SET*>(0x00000054); }
 };
 
 // Analog Status Register STAT0
@@ -183,7 +183,7 @@ union STAT0_CLR {
 
   STAT0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0_CLR &Instance() { return *reinterpret_cast<volatile STAT0_CLR*>(0x00000058); }
+  static inline volatile STAT0_CLR &ref() { return *reinterpret_cast<volatile STAT0_CLR*>(0x00000058); }
 };
 
 // Analog Status Register STAT0
@@ -207,7 +207,7 @@ union STAT0_TOG {
 
   STAT0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0_TOG &Instance() { return *reinterpret_cast<volatile STAT0_TOG*>(0x0000005C); }
+  static inline volatile STAT0_TOG &ref() { return *reinterpret_cast<volatile STAT0_TOG*>(0x0000005C); }
 };
 
 

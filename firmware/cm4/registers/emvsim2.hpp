@@ -24,7 +24,7 @@ union VER_ID {
 
   VER_ID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VER_ID &Instance() { return *reinterpret_cast<volatile VER_ID*>(0x40158000); }
+  static inline volatile VER_ID &ref() { return *reinterpret_cast<volatile VER_ID*>(0x40158000); }
 };
 
 // Parameter Register
@@ -44,7 +44,7 @@ union PARAM {
 
   PARAM() = delete;
   inline void Reset() volatile { this->value = 0x00001010; }
-  static inline volatile PARAM &Instance() { return *reinterpret_cast<volatile PARAM*>(0x40158004); }
+  static inline volatile PARAM &ref() { return *reinterpret_cast<volatile PARAM*>(0x40158004); }
 };
 
 // Clock Configuration Register
@@ -90,7 +90,7 @@ union CLKCFG {
 
   CLKCFG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLKCFG &Instance() { return *reinterpret_cast<volatile CLKCFG*>(0x40158008); }
+  static inline volatile CLKCFG &ref() { return *reinterpret_cast<volatile CLKCFG*>(0x40158008); }
 };
 
 // Baud Rate Divisor Register
@@ -132,7 +132,7 @@ union DIVISOR {
 
   DIVISOR() = delete;
   inline void Reset() volatile { this->value = 0x00000174; }
-  static inline volatile DIVISOR &Instance() { return *reinterpret_cast<volatile DIVISOR*>(0x4015800C); }
+  static inline volatile DIVISOR &ref() { return *reinterpret_cast<volatile DIVISOR*>(0x4015800C); }
 };
 
 // Control Register
@@ -380,7 +380,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x01000006; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x40158010); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40158010); }
 };
 
 // Interrupt Mask Register
@@ -556,7 +556,7 @@ union INT_MASK {
 
   INT_MASK() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile INT_MASK &Instance() { return *reinterpret_cast<volatile INT_MASK*>(0x40158014); }
+  static inline volatile INT_MASK &ref() { return *reinterpret_cast<volatile INT_MASK*>(0x40158014); }
 };
 
 // Receiver Threshold Register
@@ -577,7 +577,7 @@ union RX_THD {
 
   RX_THD() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile RX_THD &Instance() { return *reinterpret_cast<volatile RX_THD*>(0x40158018); }
+  static inline volatile RX_THD &ref() { return *reinterpret_cast<volatile RX_THD*>(0x40158018); }
 };
 
 // Transmitter Threshold Register
@@ -598,7 +598,7 @@ union TX_THD {
 
   TX_THD() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile TX_THD &Instance() { return *reinterpret_cast<volatile TX_THD*>(0x4015801C); }
+  static inline volatile TX_THD &ref() { return *reinterpret_cast<volatile TX_THD*>(0x4015801C); }
 };
 
 // Receive Status Register
@@ -737,7 +737,7 @@ union RX_STATUS {
 
   RX_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RX_STATUS &Instance() { return *reinterpret_cast<volatile RX_STATUS*>(0x40158020); }
+  static inline volatile RX_STATUS &ref() { return *reinterpret_cast<volatile RX_STATUS*>(0x40158020); }
 };
 
 // Transmitter Status Register
@@ -846,7 +846,7 @@ union TX_STATUS {
 
   TX_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x000000B8; }
-  static inline volatile TX_STATUS &Instance() { return *reinterpret_cast<volatile TX_STATUS*>(0x40158024); }
+  static inline volatile TX_STATUS &ref() { return *reinterpret_cast<volatile TX_STATUS*>(0x40158024); }
 };
 
 // Port Control and Status Register
@@ -974,7 +974,7 @@ union PCSR {
 
   PCSR() = delete;
   inline void Reset() volatile { this->value = 0x01000000; }
-  static inline volatile PCSR &Instance() { return *reinterpret_cast<volatile PCSR*>(0x40158028); }
+  static inline volatile PCSR &ref() { return *reinterpret_cast<volatile PCSR*>(0x40158028); }
 };
 
 // Receive Data Read Buffer
@@ -992,7 +992,7 @@ union RX_BUF {
 
   RX_BUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RX_BUF &Instance() { return *reinterpret_cast<volatile RX_BUF*>(0x4015802C); }
+  static inline volatile RX_BUF &ref() { return *reinterpret_cast<volatile RX_BUF*>(0x4015802C); }
 };
 
 // Transmit Data Buffer
@@ -1010,7 +1010,7 @@ union TX_BUF {
 
   TX_BUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TX_BUF &Instance() { return *reinterpret_cast<volatile TX_BUF*>(0x40158030); }
+  static inline volatile TX_BUF &ref() { return *reinterpret_cast<volatile TX_BUF*>(0x40158030); }
 };
 
 // Transmitter Guard ETU Value Register
@@ -1028,7 +1028,7 @@ union TX_GETU {
 
   TX_GETU() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TX_GETU &Instance() { return *reinterpret_cast<volatile TX_GETU*>(0x40158034); }
+  static inline volatile TX_GETU &ref() { return *reinterpret_cast<volatile TX_GETU*>(0x40158034); }
 };
 
 // Character Wait Time Value Register
@@ -1046,7 +1046,7 @@ union CWT_VAL {
 
   CWT_VAL() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile CWT_VAL &Instance() { return *reinterpret_cast<volatile CWT_VAL*>(0x40158038); }
+  static inline volatile CWT_VAL &ref() { return *reinterpret_cast<volatile CWT_VAL*>(0x40158038); }
 };
 
 // Block Wait Time Value Register
@@ -1063,7 +1063,7 @@ union BWT_VAL {
 
   BWT_VAL() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile BWT_VAL &Instance() { return *reinterpret_cast<volatile BWT_VAL*>(0x4015803C); }
+  static inline volatile BWT_VAL &ref() { return *reinterpret_cast<volatile BWT_VAL*>(0x4015803C); }
 };
 
 // Block Guard Time Value Register
@@ -1081,7 +1081,7 @@ union BGT_VAL {
 
   BGT_VAL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BGT_VAL &Instance() { return *reinterpret_cast<volatile BGT_VAL*>(0x40158040); }
+  static inline volatile BGT_VAL &ref() { return *reinterpret_cast<volatile BGT_VAL*>(0x40158040); }
 };
 
 // General Purpose Counter 0 Timeout Value Register
@@ -1099,7 +1099,7 @@ union GPCNT0_VAL {
 
   GPCNT0_VAL() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile GPCNT0_VAL &Instance() { return *reinterpret_cast<volatile GPCNT0_VAL*>(0x40158044); }
+  static inline volatile GPCNT0_VAL &ref() { return *reinterpret_cast<volatile GPCNT0_VAL*>(0x40158044); }
 };
 
 // General Purpose Counter 1 Timeout Value
@@ -1117,7 +1117,7 @@ union GPCNT1_VAL {
 
   GPCNT1_VAL() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
-  static inline volatile GPCNT1_VAL &Instance() { return *reinterpret_cast<volatile GPCNT1_VAL*>(0x40158048); }
+  static inline volatile GPCNT1_VAL &ref() { return *reinterpret_cast<volatile GPCNT1_VAL*>(0x40158048); }
 };
 
 

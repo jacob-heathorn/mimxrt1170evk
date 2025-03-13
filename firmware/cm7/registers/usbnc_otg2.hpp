@@ -126,7 +126,7 @@ union CTRL1 {
 
   CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x30001000; }
-  static inline volatile CTRL1 &Instance() { return *reinterpret_cast<volatile CTRL1*>(0x4042C200); }
+  static inline volatile CTRL1 &ref() { return *reinterpret_cast<volatile CTRL1*>(0x4042C200); }
 };
 
 // USB OTG Control 2 Register
@@ -180,7 +180,7 @@ union CTRL2 {
 
   CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x5F000000; }
-  static inline volatile CTRL2 &Instance() { return *reinterpret_cast<volatile CTRL2*>(0x4042C204); }
+  static inline volatile CTRL2 &ref() { return *reinterpret_cast<volatile CTRL2*>(0x4042C204); }
 };
 
 // USB Host HSIC Control Register
@@ -227,7 +227,7 @@ union HSIC_CTRL {
 
   HSIC_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x10004084; }
-  static inline volatile HSIC_CTRL &Instance() { return *reinterpret_cast<volatile HSIC_CTRL*>(0x4042C210); }
+  static inline volatile HSIC_CTRL &ref() { return *reinterpret_cast<volatile HSIC_CTRL*>(0x4042C210); }
 };
 
 

@@ -46,7 +46,7 @@ union TCM_CTRL {
 
   TCM_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCM_CTRL &Instance() { return *reinterpret_cast<volatile TCM_CTRL*>(0x40028000); }
+  static inline volatile TCM_CTRL &ref() { return *reinterpret_cast<volatile TCM_CTRL*>(0x40028000); }
 };
 
 // OCRAM Magic Address Register
@@ -75,7 +75,7 @@ union OCRAM_MAGIC_ADDR {
 
   OCRAM_MAGIC_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OCRAM_MAGIC_ADDR &Instance() { return *reinterpret_cast<volatile OCRAM_MAGIC_ADDR*>(0x40028004); }
+  static inline volatile OCRAM_MAGIC_ADDR &ref() { return *reinterpret_cast<volatile OCRAM_MAGIC_ADDR*>(0x40028004); }
 };
 
 // DTCM Magic Address Register
@@ -104,7 +104,7 @@ union DTCM_MAGIC_ADDR {
 
   DTCM_MAGIC_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DTCM_MAGIC_ADDR &Instance() { return *reinterpret_cast<volatile DTCM_MAGIC_ADDR*>(0x40028008); }
+  static inline volatile DTCM_MAGIC_ADDR &ref() { return *reinterpret_cast<volatile DTCM_MAGIC_ADDR*>(0x40028008); }
 };
 
 // ITCM Magic Address Register
@@ -133,7 +133,7 @@ union ITCM_MAGIC_ADDR {
 
   ITCM_MAGIC_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ITCM_MAGIC_ADDR &Instance() { return *reinterpret_cast<volatile ITCM_MAGIC_ADDR*>(0x4002800C); }
+  static inline volatile ITCM_MAGIC_ADDR &ref() { return *reinterpret_cast<volatile ITCM_MAGIC_ADDR*>(0x4002800C); }
 };
 
 // Interrupt Status Register
@@ -330,7 +330,7 @@ union INT_STATUS {
 
   INT_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_STATUS &Instance() { return *reinterpret_cast<volatile INT_STATUS*>(0x40028010); }
+  static inline volatile INT_STATUS &ref() { return *reinterpret_cast<volatile INT_STATUS*>(0x40028010); }
 };
 
 // Interrupt Status Enable Register
@@ -527,7 +527,7 @@ union INT_STAT_EN {
 
   INT_STAT_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_STAT_EN &Instance() { return *reinterpret_cast<volatile INT_STAT_EN*>(0x40028014); }
+  static inline volatile INT_STAT_EN &ref() { return *reinterpret_cast<volatile INT_STAT_EN*>(0x40028014); }
 };
 
 // Interrupt Enable Register
@@ -724,7 +724,7 @@ union INT_SIG_EN {
 
   INT_SIG_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_SIG_EN &Instance() { return *reinterpret_cast<volatile INT_SIG_EN*>(0x40028018); }
+  static inline volatile INT_SIG_EN &ref() { return *reinterpret_cast<volatile INT_SIG_EN*>(0x40028018); }
 };
 
 // OCRAM single-bit ECC Error Information Register
@@ -745,7 +745,7 @@ union OCRAM_ECC_SINGLE_ERROR_INFO {
 
   OCRAM_ECC_SINGLE_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OCRAM_ECC_SINGLE_ERROR_INFO &Instance() { return *reinterpret_cast<volatile OCRAM_ECC_SINGLE_ERROR_INFO*>(0x4002801C); }
+  static inline volatile OCRAM_ECC_SINGLE_ERROR_INFO &ref() { return *reinterpret_cast<volatile OCRAM_ECC_SINGLE_ERROR_INFO*>(0x4002801C); }
 };
 
 // OCRAM single-bit ECC Error Address Register
@@ -762,7 +762,7 @@ union OCRAM_ECC_SINGLE_ERROR_ADDR {
 
   OCRAM_ECC_SINGLE_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OCRAM_ECC_SINGLE_ERROR_ADDR &Instance() { return *reinterpret_cast<volatile OCRAM_ECC_SINGLE_ERROR_ADDR*>(0x40028020); }
+  static inline volatile OCRAM_ECC_SINGLE_ERROR_ADDR &ref() { return *reinterpret_cast<volatile OCRAM_ECC_SINGLE_ERROR_ADDR*>(0x40028020); }
 };
 
 // OCRAM single-bit ECC Error Data Register
@@ -779,7 +779,7 @@ union OCRAM_ECC_SINGLE_ERROR_DATA_LSB {
 
   OCRAM_ECC_SINGLE_ERROR_DATA_LSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OCRAM_ECC_SINGLE_ERROR_DATA_LSB &Instance() { return *reinterpret_cast<volatile OCRAM_ECC_SINGLE_ERROR_DATA_LSB*>(0x40028024); }
+  static inline volatile OCRAM_ECC_SINGLE_ERROR_DATA_LSB &ref() { return *reinterpret_cast<volatile OCRAM_ECC_SINGLE_ERROR_DATA_LSB*>(0x40028024); }
 };
 
 // OCRAM single-bit ECC Error Data Register
@@ -796,7 +796,7 @@ union OCRAM_ECC_SINGLE_ERROR_DATA_MSB {
 
   OCRAM_ECC_SINGLE_ERROR_DATA_MSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OCRAM_ECC_SINGLE_ERROR_DATA_MSB &Instance() { return *reinterpret_cast<volatile OCRAM_ECC_SINGLE_ERROR_DATA_MSB*>(0x40028028); }
+  static inline volatile OCRAM_ECC_SINGLE_ERROR_DATA_MSB &ref() { return *reinterpret_cast<volatile OCRAM_ECC_SINGLE_ERROR_DATA_MSB*>(0x40028028); }
 };
 
 // OCRAM multi-bit ECC Error Information Register
@@ -815,7 +815,7 @@ union OCRAM_ECC_MULTI_ERROR_INFO {
 
   OCRAM_ECC_MULTI_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OCRAM_ECC_MULTI_ERROR_INFO &Instance() { return *reinterpret_cast<volatile OCRAM_ECC_MULTI_ERROR_INFO*>(0x4002802C); }
+  static inline volatile OCRAM_ECC_MULTI_ERROR_INFO &ref() { return *reinterpret_cast<volatile OCRAM_ECC_MULTI_ERROR_INFO*>(0x4002802C); }
 };
 
 // OCRAM multi-bit ECC Error Address Register
@@ -832,7 +832,7 @@ union OCRAM_ECC_MULTI_ERROR_ADDR {
 
   OCRAM_ECC_MULTI_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OCRAM_ECC_MULTI_ERROR_ADDR &Instance() { return *reinterpret_cast<volatile OCRAM_ECC_MULTI_ERROR_ADDR*>(0x40028030); }
+  static inline volatile OCRAM_ECC_MULTI_ERROR_ADDR &ref() { return *reinterpret_cast<volatile OCRAM_ECC_MULTI_ERROR_ADDR*>(0x40028030); }
 };
 
 // OCRAM multi-bit ECC Error Data Register
@@ -849,7 +849,7 @@ union OCRAM_ECC_MULTI_ERROR_DATA_LSB {
 
   OCRAM_ECC_MULTI_ERROR_DATA_LSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OCRAM_ECC_MULTI_ERROR_DATA_LSB &Instance() { return *reinterpret_cast<volatile OCRAM_ECC_MULTI_ERROR_DATA_LSB*>(0x40028034); }
+  static inline volatile OCRAM_ECC_MULTI_ERROR_DATA_LSB &ref() { return *reinterpret_cast<volatile OCRAM_ECC_MULTI_ERROR_DATA_LSB*>(0x40028034); }
 };
 
 // OCRAM multi-bit ECC Error Data Register
@@ -866,7 +866,7 @@ union OCRAM_ECC_MULTI_ERROR_DATA_MSB {
 
   OCRAM_ECC_MULTI_ERROR_DATA_MSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OCRAM_ECC_MULTI_ERROR_DATA_MSB &Instance() { return *reinterpret_cast<volatile OCRAM_ECC_MULTI_ERROR_DATA_MSB*>(0x40028038); }
+  static inline volatile OCRAM_ECC_MULTI_ERROR_DATA_MSB &ref() { return *reinterpret_cast<volatile OCRAM_ECC_MULTI_ERROR_DATA_MSB*>(0x40028038); }
 };
 
 // ITCM single-bit ECC Error Information Register
@@ -893,7 +893,7 @@ union ITCM_ECC_SINGLE_ERROR_INFO {
 
   ITCM_ECC_SINGLE_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ITCM_ECC_SINGLE_ERROR_INFO &Instance() { return *reinterpret_cast<volatile ITCM_ECC_SINGLE_ERROR_INFO*>(0x4002803C); }
+  static inline volatile ITCM_ECC_SINGLE_ERROR_INFO &ref() { return *reinterpret_cast<volatile ITCM_ECC_SINGLE_ERROR_INFO*>(0x4002803C); }
 };
 
 // ITCM single-bit ECC Error Address Register
@@ -910,7 +910,7 @@ union ITCM_ECC_SINGLE_ERROR_ADDR {
 
   ITCM_ECC_SINGLE_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ITCM_ECC_SINGLE_ERROR_ADDR &Instance() { return *reinterpret_cast<volatile ITCM_ECC_SINGLE_ERROR_ADDR*>(0x40028040); }
+  static inline volatile ITCM_ECC_SINGLE_ERROR_ADDR &ref() { return *reinterpret_cast<volatile ITCM_ECC_SINGLE_ERROR_ADDR*>(0x40028040); }
 };
 
 // ITCM single-bit ECC Error Data Register
@@ -927,7 +927,7 @@ union ITCM_ECC_SINGLE_ERROR_DATA_LSB {
 
   ITCM_ECC_SINGLE_ERROR_DATA_LSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ITCM_ECC_SINGLE_ERROR_DATA_LSB &Instance() { return *reinterpret_cast<volatile ITCM_ECC_SINGLE_ERROR_DATA_LSB*>(0x40028044); }
+  static inline volatile ITCM_ECC_SINGLE_ERROR_DATA_LSB &ref() { return *reinterpret_cast<volatile ITCM_ECC_SINGLE_ERROR_DATA_LSB*>(0x40028044); }
 };
 
 // ITCM single-bit ECC Error Data Register
@@ -944,7 +944,7 @@ union ITCM_ECC_SINGLE_ERROR_DATA_MSB {
 
   ITCM_ECC_SINGLE_ERROR_DATA_MSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ITCM_ECC_SINGLE_ERROR_DATA_MSB &Instance() { return *reinterpret_cast<volatile ITCM_ECC_SINGLE_ERROR_DATA_MSB*>(0x40028048); }
+  static inline volatile ITCM_ECC_SINGLE_ERROR_DATA_MSB &ref() { return *reinterpret_cast<volatile ITCM_ECC_SINGLE_ERROR_DATA_MSB*>(0x40028048); }
 };
 
 // ITCM multi-bit ECC Error Information Register
@@ -971,7 +971,7 @@ union ITCM_ECC_MULTI_ERROR_INFO {
 
   ITCM_ECC_MULTI_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ITCM_ECC_MULTI_ERROR_INFO &Instance() { return *reinterpret_cast<volatile ITCM_ECC_MULTI_ERROR_INFO*>(0x4002804C); }
+  static inline volatile ITCM_ECC_MULTI_ERROR_INFO &ref() { return *reinterpret_cast<volatile ITCM_ECC_MULTI_ERROR_INFO*>(0x4002804C); }
 };
 
 // ITCM multi-bit ECC Error Address Register
@@ -988,7 +988,7 @@ union ITCM_ECC_MULTI_ERROR_ADDR {
 
   ITCM_ECC_MULTI_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ITCM_ECC_MULTI_ERROR_ADDR &Instance() { return *reinterpret_cast<volatile ITCM_ECC_MULTI_ERROR_ADDR*>(0x40028050); }
+  static inline volatile ITCM_ECC_MULTI_ERROR_ADDR &ref() { return *reinterpret_cast<volatile ITCM_ECC_MULTI_ERROR_ADDR*>(0x40028050); }
 };
 
 // ITCM multi-bit ECC Error Data Register
@@ -1005,7 +1005,7 @@ union ITCM_ECC_MULTI_ERROR_DATA_LSB {
 
   ITCM_ECC_MULTI_ERROR_DATA_LSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ITCM_ECC_MULTI_ERROR_DATA_LSB &Instance() { return *reinterpret_cast<volatile ITCM_ECC_MULTI_ERROR_DATA_LSB*>(0x40028054); }
+  static inline volatile ITCM_ECC_MULTI_ERROR_DATA_LSB &ref() { return *reinterpret_cast<volatile ITCM_ECC_MULTI_ERROR_DATA_LSB*>(0x40028054); }
 };
 
 // ITCM multi-bit ECC Error Data Register
@@ -1022,7 +1022,7 @@ union ITCM_ECC_MULTI_ERROR_DATA_MSB {
 
   ITCM_ECC_MULTI_ERROR_DATA_MSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ITCM_ECC_MULTI_ERROR_DATA_MSB &Instance() { return *reinterpret_cast<volatile ITCM_ECC_MULTI_ERROR_DATA_MSB*>(0x40028058); }
+  static inline volatile ITCM_ECC_MULTI_ERROR_DATA_MSB &ref() { return *reinterpret_cast<volatile ITCM_ECC_MULTI_ERROR_DATA_MSB*>(0x40028058); }
 };
 
 // D0TCM single-bit ECC Error Information Register
@@ -1049,7 +1049,7 @@ union D0TCM_ECC_SINGLE_ERROR_INFO {
 
   D0TCM_ECC_SINGLE_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0TCM_ECC_SINGLE_ERROR_INFO &Instance() { return *reinterpret_cast<volatile D0TCM_ECC_SINGLE_ERROR_INFO*>(0x4002805C); }
+  static inline volatile D0TCM_ECC_SINGLE_ERROR_INFO &ref() { return *reinterpret_cast<volatile D0TCM_ECC_SINGLE_ERROR_INFO*>(0x4002805C); }
 };
 
 // D0TCM single-bit ECC Error Address Register
@@ -1066,7 +1066,7 @@ union D0TCM_ECC_SINGLE_ERROR_ADDR {
 
   D0TCM_ECC_SINGLE_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0TCM_ECC_SINGLE_ERROR_ADDR &Instance() { return *reinterpret_cast<volatile D0TCM_ECC_SINGLE_ERROR_ADDR*>(0x40028060); }
+  static inline volatile D0TCM_ECC_SINGLE_ERROR_ADDR &ref() { return *reinterpret_cast<volatile D0TCM_ECC_SINGLE_ERROR_ADDR*>(0x40028060); }
 };
 
 // D0TCM single-bit ECC Error Data Register
@@ -1083,7 +1083,7 @@ union D0TCM_ECC_SINGLE_ERROR_DATA {
 
   D0TCM_ECC_SINGLE_ERROR_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0TCM_ECC_SINGLE_ERROR_DATA &Instance() { return *reinterpret_cast<volatile D0TCM_ECC_SINGLE_ERROR_DATA*>(0x40028064); }
+  static inline volatile D0TCM_ECC_SINGLE_ERROR_DATA &ref() { return *reinterpret_cast<volatile D0TCM_ECC_SINGLE_ERROR_DATA*>(0x40028064); }
 };
 
 // D0TCM multi-bit ECC Error Information Register
@@ -1110,7 +1110,7 @@ union D0TCM_ECC_MULTI_ERROR_INFO {
 
   D0TCM_ECC_MULTI_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0TCM_ECC_MULTI_ERROR_INFO &Instance() { return *reinterpret_cast<volatile D0TCM_ECC_MULTI_ERROR_INFO*>(0x40028068); }
+  static inline volatile D0TCM_ECC_MULTI_ERROR_INFO &ref() { return *reinterpret_cast<volatile D0TCM_ECC_MULTI_ERROR_INFO*>(0x40028068); }
 };
 
 // D0TCM multi-bit ECC Error Address Register
@@ -1127,7 +1127,7 @@ union D0TCM_ECC_MULTI_ERROR_ADDR {
 
   D0TCM_ECC_MULTI_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0TCM_ECC_MULTI_ERROR_ADDR &Instance() { return *reinterpret_cast<volatile D0TCM_ECC_MULTI_ERROR_ADDR*>(0x4002806C); }
+  static inline volatile D0TCM_ECC_MULTI_ERROR_ADDR &ref() { return *reinterpret_cast<volatile D0TCM_ECC_MULTI_ERROR_ADDR*>(0x4002806C); }
 };
 
 // D0TCM multi-bit ECC Error Data Register
@@ -1144,7 +1144,7 @@ union D0TCM_ECC_MULTI_ERROR_DATA {
 
   D0TCM_ECC_MULTI_ERROR_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0TCM_ECC_MULTI_ERROR_DATA &Instance() { return *reinterpret_cast<volatile D0TCM_ECC_MULTI_ERROR_DATA*>(0x40028070); }
+  static inline volatile D0TCM_ECC_MULTI_ERROR_DATA &ref() { return *reinterpret_cast<volatile D0TCM_ECC_MULTI_ERROR_DATA*>(0x40028070); }
 };
 
 // D1TCM single-bit ECC Error Information Register
@@ -1171,7 +1171,7 @@ union D1TCM_ECC_SINGLE_ERROR_INFO {
 
   D1TCM_ECC_SINGLE_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D1TCM_ECC_SINGLE_ERROR_INFO &Instance() { return *reinterpret_cast<volatile D1TCM_ECC_SINGLE_ERROR_INFO*>(0x40028074); }
+  static inline volatile D1TCM_ECC_SINGLE_ERROR_INFO &ref() { return *reinterpret_cast<volatile D1TCM_ECC_SINGLE_ERROR_INFO*>(0x40028074); }
 };
 
 // D1TCM single-bit ECC Error Address Register
@@ -1188,7 +1188,7 @@ union D1TCM_ECC_SINGLE_ERROR_ADDR {
 
   D1TCM_ECC_SINGLE_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D1TCM_ECC_SINGLE_ERROR_ADDR &Instance() { return *reinterpret_cast<volatile D1TCM_ECC_SINGLE_ERROR_ADDR*>(0x40028078); }
+  static inline volatile D1TCM_ECC_SINGLE_ERROR_ADDR &ref() { return *reinterpret_cast<volatile D1TCM_ECC_SINGLE_ERROR_ADDR*>(0x40028078); }
 };
 
 // D1TCM single-bit ECC Error Data Register
@@ -1205,7 +1205,7 @@ union D1TCM_ECC_SINGLE_ERROR_DATA {
 
   D1TCM_ECC_SINGLE_ERROR_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D1TCM_ECC_SINGLE_ERROR_DATA &Instance() { return *reinterpret_cast<volatile D1TCM_ECC_SINGLE_ERROR_DATA*>(0x4002807C); }
+  static inline volatile D1TCM_ECC_SINGLE_ERROR_DATA &ref() { return *reinterpret_cast<volatile D1TCM_ECC_SINGLE_ERROR_DATA*>(0x4002807C); }
 };
 
 // D1TCM multi-bit ECC Error Information Register
@@ -1232,7 +1232,7 @@ union D1TCM_ECC_MULTI_ERROR_INFO {
 
   D1TCM_ECC_MULTI_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D1TCM_ECC_MULTI_ERROR_INFO &Instance() { return *reinterpret_cast<volatile D1TCM_ECC_MULTI_ERROR_INFO*>(0x40028080); }
+  static inline volatile D1TCM_ECC_MULTI_ERROR_INFO &ref() { return *reinterpret_cast<volatile D1TCM_ECC_MULTI_ERROR_INFO*>(0x40028080); }
 };
 
 // D1TCM multi-bit ECC Error Address Register
@@ -1249,7 +1249,7 @@ union D1TCM_ECC_MULTI_ERROR_ADDR {
 
   D1TCM_ECC_MULTI_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D1TCM_ECC_MULTI_ERROR_ADDR &Instance() { return *reinterpret_cast<volatile D1TCM_ECC_MULTI_ERROR_ADDR*>(0x40028084); }
+  static inline volatile D1TCM_ECC_MULTI_ERROR_ADDR &ref() { return *reinterpret_cast<volatile D1TCM_ECC_MULTI_ERROR_ADDR*>(0x40028084); }
 };
 
 // D1TCM multi-bit ECC Error Data Register
@@ -1266,7 +1266,7 @@ union D1TCM_ECC_MULTI_ERROR_DATA {
 
   D1TCM_ECC_MULTI_ERROR_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D1TCM_ECC_MULTI_ERROR_DATA &Instance() { return *reinterpret_cast<volatile D1TCM_ECC_MULTI_ERROR_DATA*>(0x40028088); }
+  static inline volatile D1TCM_ECC_MULTI_ERROR_DATA &ref() { return *reinterpret_cast<volatile D1TCM_ECC_MULTI_ERROR_DATA*>(0x40028088); }
 };
 
 // FlexRAM feature Control register
@@ -1295,7 +1295,7 @@ union FLEXRAM_CTRL {
 
   FLEXRAM_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FLEXRAM_CTRL &Instance() { return *reinterpret_cast<volatile FLEXRAM_CTRL*>(0x40028108); }
+  static inline volatile FLEXRAM_CTRL &ref() { return *reinterpret_cast<volatile FLEXRAM_CTRL*>(0x40028108); }
 };
 
 // OCRAM Pipeline Status register
@@ -1320,7 +1320,7 @@ union OCRAM_PIPELINE_STATUS {
 
   OCRAM_PIPELINE_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OCRAM_PIPELINE_STATUS &Instance() { return *reinterpret_cast<volatile OCRAM_PIPELINE_STATUS*>(0x4002810C); }
+  static inline volatile OCRAM_PIPELINE_STATUS &ref() { return *reinterpret_cast<volatile OCRAM_PIPELINE_STATUS*>(0x4002810C); }
 };
 
 

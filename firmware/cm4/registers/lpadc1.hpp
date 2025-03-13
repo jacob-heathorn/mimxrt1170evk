@@ -101,7 +101,7 @@ union VERID {
 
   VERID() = delete;
   inline void Reset() volatile { this->value = 0x0100001A; }
-  static inline volatile VERID &Instance() { return *reinterpret_cast<volatile VERID*>(0x40050000); }
+  static inline volatile VERID &ref() { return *reinterpret_cast<volatile VERID*>(0x40050000); }
 };
 
 // Parameter Register
@@ -148,7 +148,7 @@ union PARAM {
 
   PARAM() = delete;
   inline void Reset() volatile { this->value = 0x0F041008; }
-  static inline volatile PARAM &Instance() { return *reinterpret_cast<volatile PARAM*>(0x40050004); }
+  static inline volatile PARAM &ref() { return *reinterpret_cast<volatile PARAM*>(0x40050004); }
 };
 
 // LPADC Control Register
@@ -217,7 +217,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x40050010); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40050010); }
 };
 
 // LPADC Status Register
@@ -314,7 +314,7 @@ union STAT {
 
   STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT &Instance() { return *reinterpret_cast<volatile STAT*>(0x40050014); }
+  static inline volatile STAT &ref() { return *reinterpret_cast<volatile STAT*>(0x40050014); }
 };
 
 // Interrupt Enable Register
@@ -350,7 +350,7 @@ union IE {
 
   IE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IE &Instance() { return *reinterpret_cast<volatile IE*>(0x40050018); }
+  static inline volatile IE &ref() { return *reinterpret_cast<volatile IE*>(0x40050018); }
 };
 
 // DMA Enable Register
@@ -376,7 +376,7 @@ union DE {
 
   DE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DE &Instance() { return *reinterpret_cast<volatile DE*>(0x4005001C); }
+  static inline volatile DE &ref() { return *reinterpret_cast<volatile DE*>(0x4005001C); }
 };
 
 // LPADC Configuration Register
@@ -443,7 +443,7 @@ union CFG {
 
   CFG() = delete;
   inline void Reset() volatile { this->value = 0x00800000; }
-  static inline volatile CFG &Instance() { return *reinterpret_cast<volatile CFG*>(0x40050020); }
+  static inline volatile CFG &ref() { return *reinterpret_cast<volatile CFG*>(0x40050020); }
 };
 
 // LPADC Pause Register
@@ -471,7 +471,7 @@ union PAUSE {
 
   PAUSE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PAUSE &Instance() { return *reinterpret_cast<volatile PAUSE*>(0x40050024); }
+  static inline volatile PAUSE &ref() { return *reinterpret_cast<volatile PAUSE*>(0x40050024); }
 };
 
 // LPADC FIFO Control Register
@@ -544,7 +544,7 @@ union FCTRL {
 
   FCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FCTRL &Instance() { return *reinterpret_cast<volatile FCTRL*>(0x40050030); }
+  static inline volatile FCTRL &ref() { return *reinterpret_cast<volatile FCTRL*>(0x40050030); }
 };
 
 // Software Trigger Register
@@ -640,7 +640,7 @@ union SWTRIG {
 
   SWTRIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SWTRIG &Instance() { return *reinterpret_cast<volatile SWTRIG*>(0x40050034); }
+  static inline volatile SWTRIG &ref() { return *reinterpret_cast<volatile SWTRIG*>(0x40050034); }
 };
 
 // Trigger Control Register
@@ -731,7 +731,7 @@ union TCTRL_0 {
 
   TCTRL_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL_0 &Instance() { return *reinterpret_cast<volatile TCTRL_0*>(0x400500C0); }
+  static inline volatile TCTRL_0 &ref() { return *reinterpret_cast<volatile TCTRL_0*>(0x400500C0); }
 };
 // Trigger Control Register
 union TCTRL_1 {
@@ -821,7 +821,7 @@ union TCTRL_1 {
 
   TCTRL_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL_1 &Instance() { return *reinterpret_cast<volatile TCTRL_1*>(0x400500C4); }
+  static inline volatile TCTRL_1 &ref() { return *reinterpret_cast<volatile TCTRL_1*>(0x400500C4); }
 };
 // Trigger Control Register
 union TCTRL_2 {
@@ -911,7 +911,7 @@ union TCTRL_2 {
 
   TCTRL_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL_2 &Instance() { return *reinterpret_cast<volatile TCTRL_2*>(0x400500C8); }
+  static inline volatile TCTRL_2 &ref() { return *reinterpret_cast<volatile TCTRL_2*>(0x400500C8); }
 };
 // Trigger Control Register
 union TCTRL_3 {
@@ -1001,7 +1001,7 @@ union TCTRL_3 {
 
   TCTRL_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL_3 &Instance() { return *reinterpret_cast<volatile TCTRL_3*>(0x400500CC); }
+  static inline volatile TCTRL_3 &ref() { return *reinterpret_cast<volatile TCTRL_3*>(0x400500CC); }
 };
 // Trigger Control Register
 union TCTRL_4 {
@@ -1091,7 +1091,7 @@ union TCTRL_4 {
 
   TCTRL_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL_4 &Instance() { return *reinterpret_cast<volatile TCTRL_4*>(0x400500D0); }
+  static inline volatile TCTRL_4 &ref() { return *reinterpret_cast<volatile TCTRL_4*>(0x400500D0); }
 };
 // Trigger Control Register
 union TCTRL_5 {
@@ -1181,7 +1181,7 @@ union TCTRL_5 {
 
   TCTRL_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL_5 &Instance() { return *reinterpret_cast<volatile TCTRL_5*>(0x400500D4); }
+  static inline volatile TCTRL_5 &ref() { return *reinterpret_cast<volatile TCTRL_5*>(0x400500D4); }
 };
 // Trigger Control Register
 union TCTRL_6 {
@@ -1271,7 +1271,7 @@ union TCTRL_6 {
 
   TCTRL_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL_6 &Instance() { return *reinterpret_cast<volatile TCTRL_6*>(0x400500D8); }
+  static inline volatile TCTRL_6 &ref() { return *reinterpret_cast<volatile TCTRL_6*>(0x400500D8); }
 };
 // Trigger Control Register
 union TCTRL_7 {
@@ -1361,7 +1361,7 @@ union TCTRL_7 {
 
   TCTRL_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL_7 &Instance() { return *reinterpret_cast<volatile TCTRL_7*>(0x400500DC); }
+  static inline volatile TCTRL_7 &ref() { return *reinterpret_cast<volatile TCTRL_7*>(0x400500DC); }
 };
 
 // LPADC Command Low Buffer Register
@@ -1438,7 +1438,7 @@ union CMDL1 {
 
   CMDL1() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL1 &Instance() { return *reinterpret_cast<volatile CMDL1*>(0x40050100); }
+  static inline volatile CMDL1 &ref() { return *reinterpret_cast<volatile CMDL1*>(0x40050100); }
 };
 
 // LPADC Command High Buffer Register
@@ -1580,7 +1580,7 @@ union CMDH1 {
 
   CMDH1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH1 &Instance() { return *reinterpret_cast<volatile CMDH1*>(0x40050104); }
+  static inline volatile CMDH1 &ref() { return *reinterpret_cast<volatile CMDH1*>(0x40050104); }
 };
 
 // LPADC Command Low Buffer Register
@@ -1657,7 +1657,7 @@ union CMDL2 {
 
   CMDL2() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL2 &Instance() { return *reinterpret_cast<volatile CMDL2*>(0x40050108); }
+  static inline volatile CMDL2 &ref() { return *reinterpret_cast<volatile CMDL2*>(0x40050108); }
 };
 
 // LPADC Command High Buffer Register
@@ -1799,7 +1799,7 @@ union CMDH2 {
 
   CMDH2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH2 &Instance() { return *reinterpret_cast<volatile CMDH2*>(0x4005010C); }
+  static inline volatile CMDH2 &ref() { return *reinterpret_cast<volatile CMDH2*>(0x4005010C); }
 };
 
 // LPADC Command Low Buffer Register
@@ -1876,7 +1876,7 @@ union CMDL3 {
 
   CMDL3() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL3 &Instance() { return *reinterpret_cast<volatile CMDL3*>(0x40050110); }
+  static inline volatile CMDL3 &ref() { return *reinterpret_cast<volatile CMDL3*>(0x40050110); }
 };
 
 // LPADC Command High Buffer Register
@@ -2018,7 +2018,7 @@ union CMDH3 {
 
   CMDH3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH3 &Instance() { return *reinterpret_cast<volatile CMDH3*>(0x40050114); }
+  static inline volatile CMDH3 &ref() { return *reinterpret_cast<volatile CMDH3*>(0x40050114); }
 };
 
 // LPADC Command Low Buffer Register
@@ -2095,7 +2095,7 @@ union CMDL4 {
 
   CMDL4() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL4 &Instance() { return *reinterpret_cast<volatile CMDL4*>(0x40050118); }
+  static inline volatile CMDL4 &ref() { return *reinterpret_cast<volatile CMDL4*>(0x40050118); }
 };
 
 // LPADC Command High Buffer Register
@@ -2237,7 +2237,7 @@ union CMDH4 {
 
   CMDH4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH4 &Instance() { return *reinterpret_cast<volatile CMDH4*>(0x4005011C); }
+  static inline volatile CMDH4 &ref() { return *reinterpret_cast<volatile CMDH4*>(0x4005011C); }
 };
 
 // LPADC Command Low Buffer Register
@@ -2314,7 +2314,7 @@ union CMDL5 {
 
   CMDL5() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL5 &Instance() { return *reinterpret_cast<volatile CMDL5*>(0x40050120); }
+  static inline volatile CMDL5 &ref() { return *reinterpret_cast<volatile CMDL5*>(0x40050120); }
 };
 
 // LPADC Command High Buffer Register
@@ -2444,7 +2444,7 @@ union CMDH5 {
 
   CMDH5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH5 &Instance() { return *reinterpret_cast<volatile CMDH5*>(0x40050124); }
+  static inline volatile CMDH5 &ref() { return *reinterpret_cast<volatile CMDH5*>(0x40050124); }
 };
 
 // LPADC Command Low Buffer Register
@@ -2521,7 +2521,7 @@ union CMDL6 {
 
   CMDL6() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL6 &Instance() { return *reinterpret_cast<volatile CMDL6*>(0x40050128); }
+  static inline volatile CMDL6 &ref() { return *reinterpret_cast<volatile CMDL6*>(0x40050128); }
 };
 
 // LPADC Command High Buffer Register
@@ -2651,7 +2651,7 @@ union CMDH6 {
 
   CMDH6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH6 &Instance() { return *reinterpret_cast<volatile CMDH6*>(0x4005012C); }
+  static inline volatile CMDH6 &ref() { return *reinterpret_cast<volatile CMDH6*>(0x4005012C); }
 };
 
 // LPADC Command Low Buffer Register
@@ -2728,7 +2728,7 @@ union CMDL7 {
 
   CMDL7() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL7 &Instance() { return *reinterpret_cast<volatile CMDL7*>(0x40050130); }
+  static inline volatile CMDL7 &ref() { return *reinterpret_cast<volatile CMDL7*>(0x40050130); }
 };
 
 // LPADC Command High Buffer Register
@@ -2858,7 +2858,7 @@ union CMDH7 {
 
   CMDH7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH7 &Instance() { return *reinterpret_cast<volatile CMDH7*>(0x40050134); }
+  static inline volatile CMDH7 &ref() { return *reinterpret_cast<volatile CMDH7*>(0x40050134); }
 };
 
 // LPADC Command Low Buffer Register
@@ -2935,7 +2935,7 @@ union CMDL8 {
 
   CMDL8() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL8 &Instance() { return *reinterpret_cast<volatile CMDL8*>(0x40050138); }
+  static inline volatile CMDL8 &ref() { return *reinterpret_cast<volatile CMDL8*>(0x40050138); }
 };
 
 // LPADC Command High Buffer Register
@@ -3065,7 +3065,7 @@ union CMDH8 {
 
   CMDH8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH8 &Instance() { return *reinterpret_cast<volatile CMDH8*>(0x4005013C); }
+  static inline volatile CMDH8 &ref() { return *reinterpret_cast<volatile CMDH8*>(0x4005013C); }
 };
 
 // LPADC Command Low Buffer Register
@@ -3142,7 +3142,7 @@ union CMDL9 {
 
   CMDL9() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL9 &Instance() { return *reinterpret_cast<volatile CMDL9*>(0x40050140); }
+  static inline volatile CMDL9 &ref() { return *reinterpret_cast<volatile CMDL9*>(0x40050140); }
 };
 
 // LPADC Command High Buffer Register
@@ -3272,7 +3272,7 @@ union CMDH9 {
 
   CMDH9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH9 &Instance() { return *reinterpret_cast<volatile CMDH9*>(0x40050144); }
+  static inline volatile CMDH9 &ref() { return *reinterpret_cast<volatile CMDH9*>(0x40050144); }
 };
 
 // LPADC Command Low Buffer Register
@@ -3349,7 +3349,7 @@ union CMDL10 {
 
   CMDL10() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL10 &Instance() { return *reinterpret_cast<volatile CMDL10*>(0x40050148); }
+  static inline volatile CMDL10 &ref() { return *reinterpret_cast<volatile CMDL10*>(0x40050148); }
 };
 
 // LPADC Command High Buffer Register
@@ -3479,7 +3479,7 @@ union CMDH10 {
 
   CMDH10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH10 &Instance() { return *reinterpret_cast<volatile CMDH10*>(0x4005014C); }
+  static inline volatile CMDH10 &ref() { return *reinterpret_cast<volatile CMDH10*>(0x4005014C); }
 };
 
 // LPADC Command Low Buffer Register
@@ -3556,7 +3556,7 @@ union CMDL11 {
 
   CMDL11() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL11 &Instance() { return *reinterpret_cast<volatile CMDL11*>(0x40050150); }
+  static inline volatile CMDL11 &ref() { return *reinterpret_cast<volatile CMDL11*>(0x40050150); }
 };
 
 // LPADC Command High Buffer Register
@@ -3686,7 +3686,7 @@ union CMDH11 {
 
   CMDH11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH11 &Instance() { return *reinterpret_cast<volatile CMDH11*>(0x40050154); }
+  static inline volatile CMDH11 &ref() { return *reinterpret_cast<volatile CMDH11*>(0x40050154); }
 };
 
 // LPADC Command Low Buffer Register
@@ -3763,7 +3763,7 @@ union CMDL12 {
 
   CMDL12() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL12 &Instance() { return *reinterpret_cast<volatile CMDL12*>(0x40050158); }
+  static inline volatile CMDL12 &ref() { return *reinterpret_cast<volatile CMDL12*>(0x40050158); }
 };
 
 // LPADC Command High Buffer Register
@@ -3893,7 +3893,7 @@ union CMDH12 {
 
   CMDH12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH12 &Instance() { return *reinterpret_cast<volatile CMDH12*>(0x4005015C); }
+  static inline volatile CMDH12 &ref() { return *reinterpret_cast<volatile CMDH12*>(0x4005015C); }
 };
 
 // LPADC Command Low Buffer Register
@@ -3970,7 +3970,7 @@ union CMDL13 {
 
   CMDL13() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL13 &Instance() { return *reinterpret_cast<volatile CMDL13*>(0x40050160); }
+  static inline volatile CMDL13 &ref() { return *reinterpret_cast<volatile CMDL13*>(0x40050160); }
 };
 
 // LPADC Command High Buffer Register
@@ -4100,7 +4100,7 @@ union CMDH13 {
 
   CMDH13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH13 &Instance() { return *reinterpret_cast<volatile CMDH13*>(0x40050164); }
+  static inline volatile CMDH13 &ref() { return *reinterpret_cast<volatile CMDH13*>(0x40050164); }
 };
 
 // LPADC Command Low Buffer Register
@@ -4177,7 +4177,7 @@ union CMDL14 {
 
   CMDL14() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL14 &Instance() { return *reinterpret_cast<volatile CMDL14*>(0x40050168); }
+  static inline volatile CMDL14 &ref() { return *reinterpret_cast<volatile CMDL14*>(0x40050168); }
 };
 
 // LPADC Command High Buffer Register
@@ -4307,7 +4307,7 @@ union CMDH14 {
 
   CMDH14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH14 &Instance() { return *reinterpret_cast<volatile CMDH14*>(0x4005016C); }
+  static inline volatile CMDH14 &ref() { return *reinterpret_cast<volatile CMDH14*>(0x4005016C); }
 };
 
 // LPADC Command Low Buffer Register
@@ -4384,7 +4384,7 @@ union CMDL15 {
 
   CMDL15() = delete;
   inline void Reset() volatile { this->value = 0x00002000; }
-  static inline volatile CMDL15 &Instance() { return *reinterpret_cast<volatile CMDL15*>(0x40050170); }
+  static inline volatile CMDL15 &ref() { return *reinterpret_cast<volatile CMDL15*>(0x40050170); }
 };
 
 // LPADC Command High Buffer Register
@@ -4514,7 +4514,7 @@ union CMDH15 {
 
   CMDH15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMDH15 &Instance() { return *reinterpret_cast<volatile CMDH15*>(0x40050174); }
+  static inline volatile CMDH15 &ref() { return *reinterpret_cast<volatile CMDH15*>(0x40050174); }
 };
 
 // Compare Value Register
@@ -4533,7 +4533,7 @@ union CV1 {
 
   CV1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CV1 &Instance() { return *reinterpret_cast<volatile CV1*>(0x40050200); }
+  static inline volatile CV1 &ref() { return *reinterpret_cast<volatile CV1*>(0x40050200); }
 };
 // Compare Value Register
 union CV2 {
@@ -4551,7 +4551,7 @@ union CV2 {
 
   CV2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CV2 &Instance() { return *reinterpret_cast<volatile CV2*>(0x40050204); }
+  static inline volatile CV2 &ref() { return *reinterpret_cast<volatile CV2*>(0x40050204); }
 };
 // Compare Value Register
 union CV3 {
@@ -4569,7 +4569,7 @@ union CV3 {
 
   CV3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CV3 &Instance() { return *reinterpret_cast<volatile CV3*>(0x40050208); }
+  static inline volatile CV3 &ref() { return *reinterpret_cast<volatile CV3*>(0x40050208); }
 };
 // Compare Value Register
 union CV4 {
@@ -4587,7 +4587,7 @@ union CV4 {
 
   CV4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CV4 &Instance() { return *reinterpret_cast<volatile CV4*>(0x4005020C); }
+  static inline volatile CV4 &ref() { return *reinterpret_cast<volatile CV4*>(0x4005020C); }
 };
 
 // LPADC Data Result FIFO Register
@@ -4694,7 +4694,7 @@ union RESFIFO {
 
   RESFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RESFIFO &Instance() { return *reinterpret_cast<volatile RESFIFO*>(0x40050300); }
+  static inline volatile RESFIFO &ref() { return *reinterpret_cast<volatile RESFIFO*>(0x40050300); }
 };
 
 

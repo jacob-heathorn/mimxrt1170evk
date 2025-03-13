@@ -38,7 +38,7 @@ union CPC_AUTHEN_CTRL {
 
   CPC_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000F00; }
-  static inline volatile CPC_AUTHEN_CTRL &Instance() { return *reinterpret_cast<volatile CPC_AUTHEN_CTRL*>(0x40C89004); }
+  static inline volatile CPC_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile CPC_AUTHEN_CTRL*>(0x40C89004); }
 };
 
 // CPC Core Mode
@@ -64,7 +64,7 @@ union CPC_CORE_MODE {
 
   CPC_CORE_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CPC_CORE_MODE &Instance() { return *reinterpret_cast<volatile CPC_CORE_MODE*>(0x40C89010); }
+  static inline volatile CPC_CORE_MODE &ref() { return *reinterpret_cast<volatile CPC_CORE_MODE*>(0x40C89010); }
 };
 
 // CPC core power control
@@ -96,7 +96,7 @@ union CPC_CORE_POWER_CTRL {
 
   CPC_CORE_POWER_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CPC_CORE_POWER_CTRL &Instance() { return *reinterpret_cast<volatile CPC_CORE_POWER_CTRL*>(0x40C89014); }
+  static inline volatile CPC_CORE_POWER_CTRL &ref() { return *reinterpret_cast<volatile CPC_CORE_POWER_CTRL*>(0x40C89014); }
 };
 
 // CPC flag
@@ -114,7 +114,7 @@ union CPC_FLAG {
 
   CPC_FLAG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CPC_FLAG &Instance() { return *reinterpret_cast<volatile CPC_FLAG*>(0x40C8902C); }
+  static inline volatile CPC_FLAG &ref() { return *reinterpret_cast<volatile CPC_FLAG*>(0x40C8902C); }
 };
 
 // CPC Cache Mode
@@ -142,7 +142,7 @@ union CPC_CACHE_MODE {
 
   CPC_CACHE_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CPC_CACHE_MODE &Instance() { return *reinterpret_cast<volatile CPC_CACHE_MODE*>(0x40C89040); }
+  static inline volatile CPC_CACHE_MODE &ref() { return *reinterpret_cast<volatile CPC_CACHE_MODE*>(0x40C89040); }
 };
 
 // CPC cache CPU mode control
@@ -168,7 +168,7 @@ union CPC_CACHE_CM_CTRL {
 
   CPC_CACHE_CM_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00003330; }
-  static inline volatile CPC_CACHE_CM_CTRL &Instance() { return *reinterpret_cast<volatile CPC_CACHE_CM_CTRL*>(0x40C89044); }
+  static inline volatile CPC_CACHE_CM_CTRL &ref() { return *reinterpret_cast<volatile CPC_CACHE_CM_CTRL*>(0x40C89044); }
 };
 
 // CPC cache Setpoint control 0
@@ -199,7 +199,7 @@ union CPC_CACHE_SP_CTRL_0 {
 
   CPC_CACHE_SP_CTRL_0() = delete;
   inline void Reset() volatile { this->value = 0x33333333; }
-  static inline volatile CPC_CACHE_SP_CTRL_0 &Instance() { return *reinterpret_cast<volatile CPC_CACHE_SP_CTRL_0*>(0x40C89048); }
+  static inline volatile CPC_CACHE_SP_CTRL_0 &ref() { return *reinterpret_cast<volatile CPC_CACHE_SP_CTRL_0*>(0x40C89048); }
 };
 
 // CPC cache Setpoint control 1
@@ -230,7 +230,7 @@ union CPC_CACHE_SP_CTRL_1 {
 
   CPC_CACHE_SP_CTRL_1() = delete;
   inline void Reset() volatile { this->value = 0x33333333; }
-  static inline volatile CPC_CACHE_SP_CTRL_1 &Instance() { return *reinterpret_cast<volatile CPC_CACHE_SP_CTRL_1*>(0x40C8904C); }
+  static inline volatile CPC_CACHE_SP_CTRL_1 &ref() { return *reinterpret_cast<volatile CPC_CACHE_SP_CTRL_1*>(0x40C8904C); }
 };
 
 // CPC local memory Mode
@@ -258,7 +258,7 @@ union CPC_LMEM_MODE {
 
   CPC_LMEM_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CPC_LMEM_MODE &Instance() { return *reinterpret_cast<volatile CPC_LMEM_MODE*>(0x40C890C0); }
+  static inline volatile CPC_LMEM_MODE &ref() { return *reinterpret_cast<volatile CPC_LMEM_MODE*>(0x40C890C0); }
 };
 
 // CPC local memory CPU mode control
@@ -284,7 +284,7 @@ union CPC_LMEM_CM_CTRL {
 
   CPC_LMEM_CM_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CPC_LMEM_CM_CTRL &Instance() { return *reinterpret_cast<volatile CPC_LMEM_CM_CTRL*>(0x40C890C4); }
+  static inline volatile CPC_LMEM_CM_CTRL &ref() { return *reinterpret_cast<volatile CPC_LMEM_CM_CTRL*>(0x40C890C4); }
 };
 
 // CPC local memory Setpoint control 0
@@ -315,7 +315,7 @@ union CPC_LMEM_SP_CTRL_0 {
 
   CPC_LMEM_SP_CTRL_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CPC_LMEM_SP_CTRL_0 &Instance() { return *reinterpret_cast<volatile CPC_LMEM_SP_CTRL_0*>(0x40C890C8); }
+  static inline volatile CPC_LMEM_SP_CTRL_0 &ref() { return *reinterpret_cast<volatile CPC_LMEM_SP_CTRL_0*>(0x40C890C8); }
 };
 
 // CPC local memory Setpoint control 1
@@ -346,7 +346,7 @@ union CPC_LMEM_SP_CTRL_1 {
 
   CPC_LMEM_SP_CTRL_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CPC_LMEM_SP_CTRL_1 &Instance() { return *reinterpret_cast<volatile CPC_LMEM_SP_CTRL_1*>(0x40C890CC); }
+  static inline volatile CPC_LMEM_SP_CTRL_1 &ref() { return *reinterpret_cast<volatile CPC_LMEM_SP_CTRL_1*>(0x40C890CC); }
 };
 
 

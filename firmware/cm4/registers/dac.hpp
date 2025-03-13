@@ -40,7 +40,7 @@ union VERID {
 
   VERID() = delete;
   inline void Reset() volatile { this->value = 0x01000000; }
-  static inline volatile VERID &Instance() { return *reinterpret_cast<volatile VERID*>(0x40064000); }
+  static inline volatile VERID &ref() { return *reinterpret_cast<volatile VERID*>(0x40064000); }
 };
 
 // Parameter Register
@@ -78,7 +78,7 @@ union PARAM {
 
   PARAM() = delete;
   inline void Reset() volatile { this->value = 0x00000003; }
-  static inline volatile PARAM &Instance() { return *reinterpret_cast<volatile PARAM*>(0x40064004); }
+  static inline volatile PARAM &ref() { return *reinterpret_cast<volatile PARAM*>(0x40064004); }
 };
 
 // DAC Data Register
@@ -96,7 +96,7 @@ union DATA {
 
   DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATA &Instance() { return *reinterpret_cast<volatile DATA*>(0x40064008); }
+  static inline volatile DATA &ref() { return *reinterpret_cast<volatile DATA*>(0x40064008); }
 };
 
 // DAC Status and Control Register
@@ -288,7 +288,7 @@ union CR {
 
   CR() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile CR &Instance() { return *reinterpret_cast<volatile CR*>(0x4006400C); }
+  static inline volatile CR &ref() { return *reinterpret_cast<volatile CR*>(0x4006400C); }
 };
 
 // DAC FIFO Pointer Register
@@ -309,7 +309,7 @@ union PTR {
 
   PTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PTR &Instance() { return *reinterpret_cast<volatile PTR*>(0x40064010); }
+  static inline volatile PTR &ref() { return *reinterpret_cast<volatile PTR*>(0x40064010); }
 };
 
 // DAC Status and Control Register 2
@@ -395,7 +395,7 @@ union CR2 {
 
   CR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CR2 &Instance() { return *reinterpret_cast<volatile CR2*>(0x40064014); }
+  static inline volatile CR2 &ref() { return *reinterpret_cast<volatile CR2*>(0x40064014); }
 };
 
 

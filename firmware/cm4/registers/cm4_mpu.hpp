@@ -31,7 +31,7 @@ union TYPE {
 
   TYPE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TYPE &Instance() { return *reinterpret_cast<volatile TYPE*>(0xE000ED90); }
+  static inline volatile TYPE &ref() { return *reinterpret_cast<volatile TYPE*>(0xE000ED90); }
 };
 
 // MPU Control Register.
@@ -77,7 +77,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0xE000ED94); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0xE000ED94); }
 };
 
 // MPU Region Number Register.
@@ -95,7 +95,7 @@ union RNR {
 
   RNR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RNR &Instance() { return *reinterpret_cast<volatile RNR*>(0xE000ED98); }
+  static inline volatile RNR &ref() { return *reinterpret_cast<volatile RNR*>(0xE000ED98); }
 };
 
 // MPU Region Base Address Register.
@@ -124,7 +124,7 @@ union RBAR {
 
   RBAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RBAR &Instance() { return *reinterpret_cast<volatile RBAR*>(0xE000ED9C); }
+  static inline volatile RBAR &ref() { return *reinterpret_cast<volatile RBAR*>(0xE000ED9C); }
 };
 
 // MPU Region Attribute and Size Register.
@@ -203,7 +203,7 @@ union RASR {
 
   RASR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RASR &Instance() { return *reinterpret_cast<volatile RASR*>(0xE000EDA0); }
+  static inline volatile RASR &ref() { return *reinterpret_cast<volatile RASR*>(0xE000EDA0); }
 };
 
 // MPU Region Base Address Register.
@@ -232,7 +232,7 @@ union RBAR_A1 {
 
   RBAR_A1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RBAR_A1 &Instance() { return *reinterpret_cast<volatile RBAR_A1*>(0xE000EDA4); }
+  static inline volatile RBAR_A1 &ref() { return *reinterpret_cast<volatile RBAR_A1*>(0xE000EDA4); }
 };
 
 // MPU Region Attribute and Size Register.
@@ -311,7 +311,7 @@ union RASR_A1 {
 
   RASR_A1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RASR_A1 &Instance() { return *reinterpret_cast<volatile RASR_A1*>(0xE000EDA8); }
+  static inline volatile RASR_A1 &ref() { return *reinterpret_cast<volatile RASR_A1*>(0xE000EDA8); }
 };
 
 // MPU Region Base Address Register.
@@ -340,7 +340,7 @@ union RBAR_A2 {
 
   RBAR_A2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RBAR_A2 &Instance() { return *reinterpret_cast<volatile RBAR_A2*>(0xE000EDAC); }
+  static inline volatile RBAR_A2 &ref() { return *reinterpret_cast<volatile RBAR_A2*>(0xE000EDAC); }
 };
 
 // MPU Region Attribute and Size Register.
@@ -419,7 +419,7 @@ union RASR_A2 {
 
   RASR_A2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RASR_A2 &Instance() { return *reinterpret_cast<volatile RASR_A2*>(0xE000EDB0); }
+  static inline volatile RASR_A2 &ref() { return *reinterpret_cast<volatile RASR_A2*>(0xE000EDB0); }
 };
 
 // MPU Region Base Address Register.
@@ -448,7 +448,7 @@ union RBAR_A3 {
 
   RBAR_A3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RBAR_A3 &Instance() { return *reinterpret_cast<volatile RBAR_A3*>(0xE000EDB4); }
+  static inline volatile RBAR_A3 &ref() { return *reinterpret_cast<volatile RBAR_A3*>(0xE000EDB4); }
 };
 
 // MPU Region Attribute and Size Register.
@@ -527,7 +527,7 @@ union RASR_A3 {
 
   RASR_A3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RASR_A3 &Instance() { return *reinterpret_cast<volatile RASR_A3*>(0xE000EDB8); }
+  static inline volatile RASR_A3 &ref() { return *reinterpret_cast<volatile RASR_A3*>(0xE000EDB8); }
 };
 
 

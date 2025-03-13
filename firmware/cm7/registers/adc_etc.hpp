@@ -63,7 +63,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x40048000); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40048000); }
 };
 
 // ETC DONE0 and DONE1 IRQ State Register
@@ -240,7 +240,7 @@ union DONE0_1_IRQ {
 
   DONE0_1_IRQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DONE0_1_IRQ &Instance() { return *reinterpret_cast<volatile DONE0_1_IRQ*>(0x40048004); }
+  static inline volatile DONE0_1_IRQ &ref() { return *reinterpret_cast<volatile DONE0_1_IRQ*>(0x40048004); }
 };
 
 // ETC DONE_2, DONE_3 and DONE_ERR IRQ State Register
@@ -496,7 +496,7 @@ union DONE2_3_ERR_IRQ {
 
   DONE2_3_ERR_IRQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DONE2_3_ERR_IRQ &Instance() { return *reinterpret_cast<volatile DONE2_3_ERR_IRQ*>(0x40048008); }
+  static inline volatile DONE2_3_ERR_IRQ &ref() { return *reinterpret_cast<volatile DONE2_3_ERR_IRQ*>(0x40048008); }
 };
 
 // ETC DMA control Register
@@ -673,7 +673,7 @@ union DMA_CTRL {
 
   DMA_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_CTRL &Instance() { return *reinterpret_cast<volatile DMA_CTRL*>(0x4004800C); }
+  static inline volatile DMA_CTRL &ref() { return *reinterpret_cast<volatile DMA_CTRL*>(0x4004800C); }
 };
 
 // ETC_TRIG Control Register
@@ -757,7 +757,7 @@ union TRIG0_CTRL {
 
   TRIG0_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG0_CTRL &Instance() { return *reinterpret_cast<volatile TRIG0_CTRL*>(0x40048010); }
+  static inline volatile TRIG0_CTRL &ref() { return *reinterpret_cast<volatile TRIG0_CTRL*>(0x40048010); }
 };
 
 // ETC_TRIG Counter Register
@@ -776,7 +776,7 @@ union TRIG0_COUNTER {
 
   TRIG0_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG0_COUNTER &Instance() { return *reinterpret_cast<volatile TRIG0_COUNTER*>(0x40048014); }
+  static inline volatile TRIG0_COUNTER &ref() { return *reinterpret_cast<volatile TRIG0_COUNTER*>(0x40048014); }
 };
 
 // ETC_TRIG Chain 0/1 Register
@@ -983,7 +983,7 @@ union TRIG0_CHAIN_1_0 {
 
   TRIG0_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG0_CHAIN_1_0 &Instance() { return *reinterpret_cast<volatile TRIG0_CHAIN_1_0*>(0x40048018); }
+  static inline volatile TRIG0_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG0_CHAIN_1_0*>(0x40048018); }
 };
 
 // ETC_TRIG Chain 2/3 Register
@@ -1190,7 +1190,7 @@ union TRIG0_CHAIN_3_2 {
 
   TRIG0_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG0_CHAIN_3_2 &Instance() { return *reinterpret_cast<volatile TRIG0_CHAIN_3_2*>(0x4004801C); }
+  static inline volatile TRIG0_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG0_CHAIN_3_2*>(0x4004801C); }
 };
 
 // ETC_TRIG Chain 4/5 Register
@@ -1397,7 +1397,7 @@ union TRIG0_CHAIN_5_4 {
 
   TRIG0_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG0_CHAIN_5_4 &Instance() { return *reinterpret_cast<volatile TRIG0_CHAIN_5_4*>(0x40048020); }
+  static inline volatile TRIG0_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG0_CHAIN_5_4*>(0x40048020); }
 };
 
 // ETC_TRIG Chain 6/7 Register
@@ -1604,7 +1604,7 @@ union TRIG0_CHAIN_7_6 {
 
   TRIG0_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG0_CHAIN_7_6 &Instance() { return *reinterpret_cast<volatile TRIG0_CHAIN_7_6*>(0x40048024); }
+  static inline volatile TRIG0_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG0_CHAIN_7_6*>(0x40048024); }
 };
 
 // ETC_TRIG Result Data 1/0 Register
@@ -1625,7 +1625,7 @@ union TRIG0_RESULT_1_0 {
 
   TRIG0_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG0_RESULT_1_0 &Instance() { return *reinterpret_cast<volatile TRIG0_RESULT_1_0*>(0x40048028); }
+  static inline volatile TRIG0_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG0_RESULT_1_0*>(0x40048028); }
 };
 
 // ETC_TRIG Result Data 3/2 Register
@@ -1646,7 +1646,7 @@ union TRIG0_RESULT_3_2 {
 
   TRIG0_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG0_RESULT_3_2 &Instance() { return *reinterpret_cast<volatile TRIG0_RESULT_3_2*>(0x4004802C); }
+  static inline volatile TRIG0_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG0_RESULT_3_2*>(0x4004802C); }
 };
 
 // ETC_TRIG Result Data 5/4 Register
@@ -1667,7 +1667,7 @@ union TRIG0_RESULT_5_4 {
 
   TRIG0_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG0_RESULT_5_4 &Instance() { return *reinterpret_cast<volatile TRIG0_RESULT_5_4*>(0x40048030); }
+  static inline volatile TRIG0_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG0_RESULT_5_4*>(0x40048030); }
 };
 
 // ETC_TRIG Result Data 7/6 Register
@@ -1688,7 +1688,7 @@ union TRIG0_RESULT_7_6 {
 
   TRIG0_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG0_RESULT_7_6 &Instance() { return *reinterpret_cast<volatile TRIG0_RESULT_7_6*>(0x40048034); }
+  static inline volatile TRIG0_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG0_RESULT_7_6*>(0x40048034); }
 };
 
 // ETC_TRIG Control Register
@@ -1772,7 +1772,7 @@ union TRIG1_CTRL {
 
   TRIG1_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG1_CTRL &Instance() { return *reinterpret_cast<volatile TRIG1_CTRL*>(0x40048038); }
+  static inline volatile TRIG1_CTRL &ref() { return *reinterpret_cast<volatile TRIG1_CTRL*>(0x40048038); }
 };
 
 // ETC_TRIG Counter Register
@@ -1791,7 +1791,7 @@ union TRIG1_COUNTER {
 
   TRIG1_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG1_COUNTER &Instance() { return *reinterpret_cast<volatile TRIG1_COUNTER*>(0x4004803C); }
+  static inline volatile TRIG1_COUNTER &ref() { return *reinterpret_cast<volatile TRIG1_COUNTER*>(0x4004803C); }
 };
 
 // ETC_TRIG Chain 0/1 Register
@@ -1998,7 +1998,7 @@ union TRIG1_CHAIN_1_0 {
 
   TRIG1_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG1_CHAIN_1_0 &Instance() { return *reinterpret_cast<volatile TRIG1_CHAIN_1_0*>(0x40048040); }
+  static inline volatile TRIG1_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG1_CHAIN_1_0*>(0x40048040); }
 };
 
 // ETC_TRIG Chain 2/3 Register
@@ -2205,7 +2205,7 @@ union TRIG1_CHAIN_3_2 {
 
   TRIG1_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG1_CHAIN_3_2 &Instance() { return *reinterpret_cast<volatile TRIG1_CHAIN_3_2*>(0x40048044); }
+  static inline volatile TRIG1_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG1_CHAIN_3_2*>(0x40048044); }
 };
 
 // ETC_TRIG Chain 4/5 Register
@@ -2412,7 +2412,7 @@ union TRIG1_CHAIN_5_4 {
 
   TRIG1_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG1_CHAIN_5_4 &Instance() { return *reinterpret_cast<volatile TRIG1_CHAIN_5_4*>(0x40048048); }
+  static inline volatile TRIG1_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG1_CHAIN_5_4*>(0x40048048); }
 };
 
 // ETC_TRIG Chain 6/7 Register
@@ -2619,7 +2619,7 @@ union TRIG1_CHAIN_7_6 {
 
   TRIG1_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG1_CHAIN_7_6 &Instance() { return *reinterpret_cast<volatile TRIG1_CHAIN_7_6*>(0x4004804C); }
+  static inline volatile TRIG1_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG1_CHAIN_7_6*>(0x4004804C); }
 };
 
 // ETC_TRIG Result Data 1/0 Register
@@ -2640,7 +2640,7 @@ union TRIG1_RESULT_1_0 {
 
   TRIG1_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG1_RESULT_1_0 &Instance() { return *reinterpret_cast<volatile TRIG1_RESULT_1_0*>(0x40048050); }
+  static inline volatile TRIG1_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG1_RESULT_1_0*>(0x40048050); }
 };
 
 // ETC_TRIG Result Data 3/2 Register
@@ -2661,7 +2661,7 @@ union TRIG1_RESULT_3_2 {
 
   TRIG1_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG1_RESULT_3_2 &Instance() { return *reinterpret_cast<volatile TRIG1_RESULT_3_2*>(0x40048054); }
+  static inline volatile TRIG1_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG1_RESULT_3_2*>(0x40048054); }
 };
 
 // ETC_TRIG Result Data 5/4 Register
@@ -2682,7 +2682,7 @@ union TRIG1_RESULT_5_4 {
 
   TRIG1_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG1_RESULT_5_4 &Instance() { return *reinterpret_cast<volatile TRIG1_RESULT_5_4*>(0x40048058); }
+  static inline volatile TRIG1_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG1_RESULT_5_4*>(0x40048058); }
 };
 
 // ETC_TRIG Result Data 7/6 Register
@@ -2703,7 +2703,7 @@ union TRIG1_RESULT_7_6 {
 
   TRIG1_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG1_RESULT_7_6 &Instance() { return *reinterpret_cast<volatile TRIG1_RESULT_7_6*>(0x4004805C); }
+  static inline volatile TRIG1_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG1_RESULT_7_6*>(0x4004805C); }
 };
 
 // ETC_TRIG Control Register
@@ -2787,7 +2787,7 @@ union TRIG2_CTRL {
 
   TRIG2_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG2_CTRL &Instance() { return *reinterpret_cast<volatile TRIG2_CTRL*>(0x40048060); }
+  static inline volatile TRIG2_CTRL &ref() { return *reinterpret_cast<volatile TRIG2_CTRL*>(0x40048060); }
 };
 
 // ETC_TRIG Counter Register
@@ -2806,7 +2806,7 @@ union TRIG2_COUNTER {
 
   TRIG2_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG2_COUNTER &Instance() { return *reinterpret_cast<volatile TRIG2_COUNTER*>(0x40048064); }
+  static inline volatile TRIG2_COUNTER &ref() { return *reinterpret_cast<volatile TRIG2_COUNTER*>(0x40048064); }
 };
 
 // ETC_TRIG Chain 0/1 Register
@@ -3013,7 +3013,7 @@ union TRIG2_CHAIN_1_0 {
 
   TRIG2_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG2_CHAIN_1_0 &Instance() { return *reinterpret_cast<volatile TRIG2_CHAIN_1_0*>(0x40048068); }
+  static inline volatile TRIG2_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG2_CHAIN_1_0*>(0x40048068); }
 };
 
 // ETC_TRIG Chain 2/3 Register
@@ -3220,7 +3220,7 @@ union TRIG2_CHAIN_3_2 {
 
   TRIG2_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG2_CHAIN_3_2 &Instance() { return *reinterpret_cast<volatile TRIG2_CHAIN_3_2*>(0x4004806C); }
+  static inline volatile TRIG2_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG2_CHAIN_3_2*>(0x4004806C); }
 };
 
 // ETC_TRIG Chain 4/5 Register
@@ -3427,7 +3427,7 @@ union TRIG2_CHAIN_5_4 {
 
   TRIG2_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG2_CHAIN_5_4 &Instance() { return *reinterpret_cast<volatile TRIG2_CHAIN_5_4*>(0x40048070); }
+  static inline volatile TRIG2_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG2_CHAIN_5_4*>(0x40048070); }
 };
 
 // ETC_TRIG Chain 6/7 Register
@@ -3634,7 +3634,7 @@ union TRIG2_CHAIN_7_6 {
 
   TRIG2_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG2_CHAIN_7_6 &Instance() { return *reinterpret_cast<volatile TRIG2_CHAIN_7_6*>(0x40048074); }
+  static inline volatile TRIG2_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG2_CHAIN_7_6*>(0x40048074); }
 };
 
 // ETC_TRIG Result Data 1/0 Register
@@ -3655,7 +3655,7 @@ union TRIG2_RESULT_1_0 {
 
   TRIG2_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG2_RESULT_1_0 &Instance() { return *reinterpret_cast<volatile TRIG2_RESULT_1_0*>(0x40048078); }
+  static inline volatile TRIG2_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG2_RESULT_1_0*>(0x40048078); }
 };
 
 // ETC_TRIG Result Data 3/2 Register
@@ -3676,7 +3676,7 @@ union TRIG2_RESULT_3_2 {
 
   TRIG2_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG2_RESULT_3_2 &Instance() { return *reinterpret_cast<volatile TRIG2_RESULT_3_2*>(0x4004807C); }
+  static inline volatile TRIG2_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG2_RESULT_3_2*>(0x4004807C); }
 };
 
 // ETC_TRIG Result Data 5/4 Register
@@ -3697,7 +3697,7 @@ union TRIG2_RESULT_5_4 {
 
   TRIG2_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG2_RESULT_5_4 &Instance() { return *reinterpret_cast<volatile TRIG2_RESULT_5_4*>(0x40048080); }
+  static inline volatile TRIG2_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG2_RESULT_5_4*>(0x40048080); }
 };
 
 // ETC_TRIG Result Data 7/6 Register
@@ -3718,7 +3718,7 @@ union TRIG2_RESULT_7_6 {
 
   TRIG2_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG2_RESULT_7_6 &Instance() { return *reinterpret_cast<volatile TRIG2_RESULT_7_6*>(0x40048084); }
+  static inline volatile TRIG2_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG2_RESULT_7_6*>(0x40048084); }
 };
 
 // ETC_TRIG Control Register
@@ -3802,7 +3802,7 @@ union TRIG3_CTRL {
 
   TRIG3_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG3_CTRL &Instance() { return *reinterpret_cast<volatile TRIG3_CTRL*>(0x40048088); }
+  static inline volatile TRIG3_CTRL &ref() { return *reinterpret_cast<volatile TRIG3_CTRL*>(0x40048088); }
 };
 
 // ETC_TRIG Counter Register
@@ -3821,7 +3821,7 @@ union TRIG3_COUNTER {
 
   TRIG3_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG3_COUNTER &Instance() { return *reinterpret_cast<volatile TRIG3_COUNTER*>(0x4004808C); }
+  static inline volatile TRIG3_COUNTER &ref() { return *reinterpret_cast<volatile TRIG3_COUNTER*>(0x4004808C); }
 };
 
 // ETC_TRIG Chain 0/1 Register
@@ -4028,7 +4028,7 @@ union TRIG3_CHAIN_1_0 {
 
   TRIG3_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG3_CHAIN_1_0 &Instance() { return *reinterpret_cast<volatile TRIG3_CHAIN_1_0*>(0x40048090); }
+  static inline volatile TRIG3_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG3_CHAIN_1_0*>(0x40048090); }
 };
 
 // ETC_TRIG Chain 2/3 Register
@@ -4235,7 +4235,7 @@ union TRIG3_CHAIN_3_2 {
 
   TRIG3_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG3_CHAIN_3_2 &Instance() { return *reinterpret_cast<volatile TRIG3_CHAIN_3_2*>(0x40048094); }
+  static inline volatile TRIG3_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG3_CHAIN_3_2*>(0x40048094); }
 };
 
 // ETC_TRIG Chain 4/5 Register
@@ -4442,7 +4442,7 @@ union TRIG3_CHAIN_5_4 {
 
   TRIG3_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG3_CHAIN_5_4 &Instance() { return *reinterpret_cast<volatile TRIG3_CHAIN_5_4*>(0x40048098); }
+  static inline volatile TRIG3_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG3_CHAIN_5_4*>(0x40048098); }
 };
 
 // ETC_TRIG Chain 6/7 Register
@@ -4649,7 +4649,7 @@ union TRIG3_CHAIN_7_6 {
 
   TRIG3_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG3_CHAIN_7_6 &Instance() { return *reinterpret_cast<volatile TRIG3_CHAIN_7_6*>(0x4004809C); }
+  static inline volatile TRIG3_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG3_CHAIN_7_6*>(0x4004809C); }
 };
 
 // ETC_TRIG Result Data 1/0 Register
@@ -4670,7 +4670,7 @@ union TRIG3_RESULT_1_0 {
 
   TRIG3_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG3_RESULT_1_0 &Instance() { return *reinterpret_cast<volatile TRIG3_RESULT_1_0*>(0x400480A0); }
+  static inline volatile TRIG3_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG3_RESULT_1_0*>(0x400480A0); }
 };
 
 // ETC_TRIG Result Data 3/2 Register
@@ -4691,7 +4691,7 @@ union TRIG3_RESULT_3_2 {
 
   TRIG3_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG3_RESULT_3_2 &Instance() { return *reinterpret_cast<volatile TRIG3_RESULT_3_2*>(0x400480A4); }
+  static inline volatile TRIG3_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG3_RESULT_3_2*>(0x400480A4); }
 };
 
 // ETC_TRIG Result Data 5/4 Register
@@ -4712,7 +4712,7 @@ union TRIG3_RESULT_5_4 {
 
   TRIG3_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG3_RESULT_5_4 &Instance() { return *reinterpret_cast<volatile TRIG3_RESULT_5_4*>(0x400480A8); }
+  static inline volatile TRIG3_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG3_RESULT_5_4*>(0x400480A8); }
 };
 
 // ETC_TRIG Result Data 7/6 Register
@@ -4733,7 +4733,7 @@ union TRIG3_RESULT_7_6 {
 
   TRIG3_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG3_RESULT_7_6 &Instance() { return *reinterpret_cast<volatile TRIG3_RESULT_7_6*>(0x400480AC); }
+  static inline volatile TRIG3_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG3_RESULT_7_6*>(0x400480AC); }
 };
 
 // ETC_TRIG Control Register
@@ -4817,7 +4817,7 @@ union TRIG4_CTRL {
 
   TRIG4_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG4_CTRL &Instance() { return *reinterpret_cast<volatile TRIG4_CTRL*>(0x400480B0); }
+  static inline volatile TRIG4_CTRL &ref() { return *reinterpret_cast<volatile TRIG4_CTRL*>(0x400480B0); }
 };
 
 // ETC_TRIG Counter Register
@@ -4836,7 +4836,7 @@ union TRIG4_COUNTER {
 
   TRIG4_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG4_COUNTER &Instance() { return *reinterpret_cast<volatile TRIG4_COUNTER*>(0x400480B4); }
+  static inline volatile TRIG4_COUNTER &ref() { return *reinterpret_cast<volatile TRIG4_COUNTER*>(0x400480B4); }
 };
 
 // ETC_TRIG Chain 0/1 Register
@@ -5043,7 +5043,7 @@ union TRIG4_CHAIN_1_0 {
 
   TRIG4_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG4_CHAIN_1_0 &Instance() { return *reinterpret_cast<volatile TRIG4_CHAIN_1_0*>(0x400480B8); }
+  static inline volatile TRIG4_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG4_CHAIN_1_0*>(0x400480B8); }
 };
 
 // ETC_TRIG Chain 2/3 Register
@@ -5250,7 +5250,7 @@ union TRIG4_CHAIN_3_2 {
 
   TRIG4_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG4_CHAIN_3_2 &Instance() { return *reinterpret_cast<volatile TRIG4_CHAIN_3_2*>(0x400480BC); }
+  static inline volatile TRIG4_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG4_CHAIN_3_2*>(0x400480BC); }
 };
 
 // ETC_TRIG Chain 4/5 Register
@@ -5457,7 +5457,7 @@ union TRIG4_CHAIN_5_4 {
 
   TRIG4_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG4_CHAIN_5_4 &Instance() { return *reinterpret_cast<volatile TRIG4_CHAIN_5_4*>(0x400480C0); }
+  static inline volatile TRIG4_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG4_CHAIN_5_4*>(0x400480C0); }
 };
 
 // ETC_TRIG Chain 6/7 Register
@@ -5664,7 +5664,7 @@ union TRIG4_CHAIN_7_6 {
 
   TRIG4_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG4_CHAIN_7_6 &Instance() { return *reinterpret_cast<volatile TRIG4_CHAIN_7_6*>(0x400480C4); }
+  static inline volatile TRIG4_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG4_CHAIN_7_6*>(0x400480C4); }
 };
 
 // ETC_TRIG Result Data 1/0 Register
@@ -5685,7 +5685,7 @@ union TRIG4_RESULT_1_0 {
 
   TRIG4_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG4_RESULT_1_0 &Instance() { return *reinterpret_cast<volatile TRIG4_RESULT_1_0*>(0x400480C8); }
+  static inline volatile TRIG4_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG4_RESULT_1_0*>(0x400480C8); }
 };
 
 // ETC_TRIG Result Data 3/2 Register
@@ -5706,7 +5706,7 @@ union TRIG4_RESULT_3_2 {
 
   TRIG4_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG4_RESULT_3_2 &Instance() { return *reinterpret_cast<volatile TRIG4_RESULT_3_2*>(0x400480CC); }
+  static inline volatile TRIG4_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG4_RESULT_3_2*>(0x400480CC); }
 };
 
 // ETC_TRIG Result Data 5/4 Register
@@ -5727,7 +5727,7 @@ union TRIG4_RESULT_5_4 {
 
   TRIG4_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG4_RESULT_5_4 &Instance() { return *reinterpret_cast<volatile TRIG4_RESULT_5_4*>(0x400480D0); }
+  static inline volatile TRIG4_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG4_RESULT_5_4*>(0x400480D0); }
 };
 
 // ETC_TRIG Result Data 7/6 Register
@@ -5748,7 +5748,7 @@ union TRIG4_RESULT_7_6 {
 
   TRIG4_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG4_RESULT_7_6 &Instance() { return *reinterpret_cast<volatile TRIG4_RESULT_7_6*>(0x400480D4); }
+  static inline volatile TRIG4_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG4_RESULT_7_6*>(0x400480D4); }
 };
 
 // ETC_TRIG Control Register
@@ -5832,7 +5832,7 @@ union TRIG5_CTRL {
 
   TRIG5_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG5_CTRL &Instance() { return *reinterpret_cast<volatile TRIG5_CTRL*>(0x400480D8); }
+  static inline volatile TRIG5_CTRL &ref() { return *reinterpret_cast<volatile TRIG5_CTRL*>(0x400480D8); }
 };
 
 // ETC_TRIG Counter Register
@@ -5851,7 +5851,7 @@ union TRIG5_COUNTER {
 
   TRIG5_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG5_COUNTER &Instance() { return *reinterpret_cast<volatile TRIG5_COUNTER*>(0x400480DC); }
+  static inline volatile TRIG5_COUNTER &ref() { return *reinterpret_cast<volatile TRIG5_COUNTER*>(0x400480DC); }
 };
 
 // ETC_TRIG Chain 0/1 Register
@@ -6058,7 +6058,7 @@ union TRIG5_CHAIN_1_0 {
 
   TRIG5_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG5_CHAIN_1_0 &Instance() { return *reinterpret_cast<volatile TRIG5_CHAIN_1_0*>(0x400480E0); }
+  static inline volatile TRIG5_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG5_CHAIN_1_0*>(0x400480E0); }
 };
 
 // ETC_TRIG Chain 2/3 Register
@@ -6265,7 +6265,7 @@ union TRIG5_CHAIN_3_2 {
 
   TRIG5_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG5_CHAIN_3_2 &Instance() { return *reinterpret_cast<volatile TRIG5_CHAIN_3_2*>(0x400480E4); }
+  static inline volatile TRIG5_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG5_CHAIN_3_2*>(0x400480E4); }
 };
 
 // ETC_TRIG Chain 4/5 Register
@@ -6472,7 +6472,7 @@ union TRIG5_CHAIN_5_4 {
 
   TRIG5_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG5_CHAIN_5_4 &Instance() { return *reinterpret_cast<volatile TRIG5_CHAIN_5_4*>(0x400480E8); }
+  static inline volatile TRIG5_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG5_CHAIN_5_4*>(0x400480E8); }
 };
 
 // ETC_TRIG Chain 6/7 Register
@@ -6679,7 +6679,7 @@ union TRIG5_CHAIN_7_6 {
 
   TRIG5_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG5_CHAIN_7_6 &Instance() { return *reinterpret_cast<volatile TRIG5_CHAIN_7_6*>(0x400480EC); }
+  static inline volatile TRIG5_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG5_CHAIN_7_6*>(0x400480EC); }
 };
 
 // ETC_TRIG Result Data 1/0 Register
@@ -6700,7 +6700,7 @@ union TRIG5_RESULT_1_0 {
 
   TRIG5_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG5_RESULT_1_0 &Instance() { return *reinterpret_cast<volatile TRIG5_RESULT_1_0*>(0x400480F0); }
+  static inline volatile TRIG5_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG5_RESULT_1_0*>(0x400480F0); }
 };
 
 // ETC_TRIG Result Data 3/2 Register
@@ -6721,7 +6721,7 @@ union TRIG5_RESULT_3_2 {
 
   TRIG5_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG5_RESULT_3_2 &Instance() { return *reinterpret_cast<volatile TRIG5_RESULT_3_2*>(0x400480F4); }
+  static inline volatile TRIG5_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG5_RESULT_3_2*>(0x400480F4); }
 };
 
 // ETC_TRIG Result Data 5/4 Register
@@ -6742,7 +6742,7 @@ union TRIG5_RESULT_5_4 {
 
   TRIG5_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG5_RESULT_5_4 &Instance() { return *reinterpret_cast<volatile TRIG5_RESULT_5_4*>(0x400480F8); }
+  static inline volatile TRIG5_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG5_RESULT_5_4*>(0x400480F8); }
 };
 
 // ETC_TRIG Result Data 7/6 Register
@@ -6763,7 +6763,7 @@ union TRIG5_RESULT_7_6 {
 
   TRIG5_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG5_RESULT_7_6 &Instance() { return *reinterpret_cast<volatile TRIG5_RESULT_7_6*>(0x400480FC); }
+  static inline volatile TRIG5_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG5_RESULT_7_6*>(0x400480FC); }
 };
 
 // ETC_TRIG Control Register
@@ -6847,7 +6847,7 @@ union TRIG6_CTRL {
 
   TRIG6_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG6_CTRL &Instance() { return *reinterpret_cast<volatile TRIG6_CTRL*>(0x40048100); }
+  static inline volatile TRIG6_CTRL &ref() { return *reinterpret_cast<volatile TRIG6_CTRL*>(0x40048100); }
 };
 
 // ETC_TRIG Counter Register
@@ -6866,7 +6866,7 @@ union TRIG6_COUNTER {
 
   TRIG6_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG6_COUNTER &Instance() { return *reinterpret_cast<volatile TRIG6_COUNTER*>(0x40048104); }
+  static inline volatile TRIG6_COUNTER &ref() { return *reinterpret_cast<volatile TRIG6_COUNTER*>(0x40048104); }
 };
 
 // ETC_TRIG Chain 0/1 Register
@@ -7073,7 +7073,7 @@ union TRIG6_CHAIN_1_0 {
 
   TRIG6_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG6_CHAIN_1_0 &Instance() { return *reinterpret_cast<volatile TRIG6_CHAIN_1_0*>(0x40048108); }
+  static inline volatile TRIG6_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG6_CHAIN_1_0*>(0x40048108); }
 };
 
 // ETC_TRIG Chain 2/3 Register
@@ -7280,7 +7280,7 @@ union TRIG6_CHAIN_3_2 {
 
   TRIG6_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG6_CHAIN_3_2 &Instance() { return *reinterpret_cast<volatile TRIG6_CHAIN_3_2*>(0x4004810C); }
+  static inline volatile TRIG6_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG6_CHAIN_3_2*>(0x4004810C); }
 };
 
 // ETC_TRIG Chain 4/5 Register
@@ -7487,7 +7487,7 @@ union TRIG6_CHAIN_5_4 {
 
   TRIG6_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG6_CHAIN_5_4 &Instance() { return *reinterpret_cast<volatile TRIG6_CHAIN_5_4*>(0x40048110); }
+  static inline volatile TRIG6_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG6_CHAIN_5_4*>(0x40048110); }
 };
 
 // ETC_TRIG Chain 6/7 Register
@@ -7694,7 +7694,7 @@ union TRIG6_CHAIN_7_6 {
 
   TRIG6_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG6_CHAIN_7_6 &Instance() { return *reinterpret_cast<volatile TRIG6_CHAIN_7_6*>(0x40048114); }
+  static inline volatile TRIG6_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG6_CHAIN_7_6*>(0x40048114); }
 };
 
 // ETC_TRIG Result Data 1/0 Register
@@ -7715,7 +7715,7 @@ union TRIG6_RESULT_1_0 {
 
   TRIG6_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG6_RESULT_1_0 &Instance() { return *reinterpret_cast<volatile TRIG6_RESULT_1_0*>(0x40048118); }
+  static inline volatile TRIG6_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG6_RESULT_1_0*>(0x40048118); }
 };
 
 // ETC_TRIG Result Data 3/2 Register
@@ -7736,7 +7736,7 @@ union TRIG6_RESULT_3_2 {
 
   TRIG6_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG6_RESULT_3_2 &Instance() { return *reinterpret_cast<volatile TRIG6_RESULT_3_2*>(0x4004811C); }
+  static inline volatile TRIG6_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG6_RESULT_3_2*>(0x4004811C); }
 };
 
 // ETC_TRIG Result Data 5/4 Register
@@ -7757,7 +7757,7 @@ union TRIG6_RESULT_5_4 {
 
   TRIG6_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG6_RESULT_5_4 &Instance() { return *reinterpret_cast<volatile TRIG6_RESULT_5_4*>(0x40048120); }
+  static inline volatile TRIG6_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG6_RESULT_5_4*>(0x40048120); }
 };
 
 // ETC_TRIG Result Data 7/6 Register
@@ -7778,7 +7778,7 @@ union TRIG6_RESULT_7_6 {
 
   TRIG6_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG6_RESULT_7_6 &Instance() { return *reinterpret_cast<volatile TRIG6_RESULT_7_6*>(0x40048124); }
+  static inline volatile TRIG6_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG6_RESULT_7_6*>(0x40048124); }
 };
 
 // ETC_TRIG Control Register
@@ -7862,7 +7862,7 @@ union TRIG7_CTRL {
 
   TRIG7_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG7_CTRL &Instance() { return *reinterpret_cast<volatile TRIG7_CTRL*>(0x40048128); }
+  static inline volatile TRIG7_CTRL &ref() { return *reinterpret_cast<volatile TRIG7_CTRL*>(0x40048128); }
 };
 
 // ETC_TRIG Counter Register
@@ -7881,7 +7881,7 @@ union TRIG7_COUNTER {
 
   TRIG7_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG7_COUNTER &Instance() { return *reinterpret_cast<volatile TRIG7_COUNTER*>(0x4004812C); }
+  static inline volatile TRIG7_COUNTER &ref() { return *reinterpret_cast<volatile TRIG7_COUNTER*>(0x4004812C); }
 };
 
 // ETC_TRIG Chain 0/1 Register
@@ -8088,7 +8088,7 @@ union TRIG7_CHAIN_1_0 {
 
   TRIG7_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG7_CHAIN_1_0 &Instance() { return *reinterpret_cast<volatile TRIG7_CHAIN_1_0*>(0x40048130); }
+  static inline volatile TRIG7_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG7_CHAIN_1_0*>(0x40048130); }
 };
 
 // ETC_TRIG Chain 2/3 Register
@@ -8295,7 +8295,7 @@ union TRIG7_CHAIN_3_2 {
 
   TRIG7_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG7_CHAIN_3_2 &Instance() { return *reinterpret_cast<volatile TRIG7_CHAIN_3_2*>(0x40048134); }
+  static inline volatile TRIG7_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG7_CHAIN_3_2*>(0x40048134); }
 };
 
 // ETC_TRIG Chain 4/5 Register
@@ -8502,7 +8502,7 @@ union TRIG7_CHAIN_5_4 {
 
   TRIG7_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG7_CHAIN_5_4 &Instance() { return *reinterpret_cast<volatile TRIG7_CHAIN_5_4*>(0x40048138); }
+  static inline volatile TRIG7_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG7_CHAIN_5_4*>(0x40048138); }
 };
 
 // ETC_TRIG Chain 6/7 Register
@@ -8709,7 +8709,7 @@ union TRIG7_CHAIN_7_6 {
 
   TRIG7_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG7_CHAIN_7_6 &Instance() { return *reinterpret_cast<volatile TRIG7_CHAIN_7_6*>(0x4004813C); }
+  static inline volatile TRIG7_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG7_CHAIN_7_6*>(0x4004813C); }
 };
 
 // ETC_TRIG Result Data 1/0 Register
@@ -8730,7 +8730,7 @@ union TRIG7_RESULT_1_0 {
 
   TRIG7_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG7_RESULT_1_0 &Instance() { return *reinterpret_cast<volatile TRIG7_RESULT_1_0*>(0x40048140); }
+  static inline volatile TRIG7_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG7_RESULT_1_0*>(0x40048140); }
 };
 
 // ETC_TRIG Result Data 3/2 Register
@@ -8751,7 +8751,7 @@ union TRIG7_RESULT_3_2 {
 
   TRIG7_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG7_RESULT_3_2 &Instance() { return *reinterpret_cast<volatile TRIG7_RESULT_3_2*>(0x40048144); }
+  static inline volatile TRIG7_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG7_RESULT_3_2*>(0x40048144); }
 };
 
 // ETC_TRIG Result Data 5/4 Register
@@ -8772,7 +8772,7 @@ union TRIG7_RESULT_5_4 {
 
   TRIG7_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG7_RESULT_5_4 &Instance() { return *reinterpret_cast<volatile TRIG7_RESULT_5_4*>(0x40048148); }
+  static inline volatile TRIG7_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG7_RESULT_5_4*>(0x40048148); }
 };
 
 // ETC_TRIG Result Data 7/6 Register
@@ -8793,7 +8793,7 @@ union TRIG7_RESULT_7_6 {
 
   TRIG7_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TRIG7_RESULT_7_6 &Instance() { return *reinterpret_cast<volatile TRIG7_RESULT_7_6*>(0x4004814C); }
+  static inline volatile TRIG7_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG7_RESULT_7_6*>(0x4004814C); }
 };
 
 

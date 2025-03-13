@@ -183,7 +183,7 @@ union ERR_STATUS {
 
   ERR_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_STATUS &Instance() { return *reinterpret_cast<volatile ERR_STATUS*>(0x40018000); }
+  static inline volatile ERR_STATUS &ref() { return *reinterpret_cast<volatile ERR_STATUS*>(0x40018000); }
 };
 
 // Error Interrupt Status Enable Register
@@ -359,7 +359,7 @@ union ERR_STAT_EN {
 
   ERR_STAT_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_STAT_EN &Instance() { return *reinterpret_cast<volatile ERR_STAT_EN*>(0x40018004); }
+  static inline volatile ERR_STAT_EN &ref() { return *reinterpret_cast<volatile ERR_STAT_EN*>(0x40018004); }
 };
 
 // Error Interrupt Enable Register
@@ -535,7 +535,7 @@ union ERR_SIG_EN {
 
   ERR_SIG_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_SIG_EN &Instance() { return *reinterpret_cast<volatile ERR_SIG_EN*>(0x40018008); }
+  static inline volatile ERR_SIG_EN &ref() { return *reinterpret_cast<volatile ERR_SIG_EN*>(0x40018008); }
 };
 
 // Error Injection On LOW 32 bits Of OCRAM Bank0 Write Data
@@ -552,7 +552,7 @@ union ERR_DATA_INJ_LOW0 {
 
   ERR_DATA_INJ_LOW0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_DATA_INJ_LOW0 &Instance() { return *reinterpret_cast<volatile ERR_DATA_INJ_LOW0*>(0x4001800C); }
+  static inline volatile ERR_DATA_INJ_LOW0 &ref() { return *reinterpret_cast<volatile ERR_DATA_INJ_LOW0*>(0x4001800C); }
 };
 
 // Error Injection On HIGH 32 bits Of OCRAM Bank0 Write Data
@@ -569,7 +569,7 @@ union ERR_DATA_INJ_HIGH0 {
 
   ERR_DATA_INJ_HIGH0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_DATA_INJ_HIGH0 &Instance() { return *reinterpret_cast<volatile ERR_DATA_INJ_HIGH0*>(0x40018010); }
+  static inline volatile ERR_DATA_INJ_HIGH0 &ref() { return *reinterpret_cast<volatile ERR_DATA_INJ_HIGH0*>(0x40018010); }
 };
 
 // Error Injection On 8 bits ECC code Of OCRAM Bank0 Write Data
@@ -587,7 +587,7 @@ union ERR_ECC_INJ0 {
 
   ERR_ECC_INJ0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_ECC_INJ0 &Instance() { return *reinterpret_cast<volatile ERR_ECC_INJ0*>(0x40018014); }
+  static inline volatile ERR_ECC_INJ0 &ref() { return *reinterpret_cast<volatile ERR_ECC_INJ0*>(0x40018014); }
 };
 
 // Error Injection On LOW 32 bits Of OCRAM Bank1 Write Data
@@ -604,7 +604,7 @@ union ERR_DATA_INJ_LOW1 {
 
   ERR_DATA_INJ_LOW1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_DATA_INJ_LOW1 &Instance() { return *reinterpret_cast<volatile ERR_DATA_INJ_LOW1*>(0x40018018); }
+  static inline volatile ERR_DATA_INJ_LOW1 &ref() { return *reinterpret_cast<volatile ERR_DATA_INJ_LOW1*>(0x40018018); }
 };
 
 // Error Injection On HIGH 32 bits Of OCRAM Bank1 Write Data
@@ -621,7 +621,7 @@ union ERR_DATA_INJ_HIGH1 {
 
   ERR_DATA_INJ_HIGH1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_DATA_INJ_HIGH1 &Instance() { return *reinterpret_cast<volatile ERR_DATA_INJ_HIGH1*>(0x4001801C); }
+  static inline volatile ERR_DATA_INJ_HIGH1 &ref() { return *reinterpret_cast<volatile ERR_DATA_INJ_HIGH1*>(0x4001801C); }
 };
 
 // Error Injection On 8 bits ECC code Of OCRAM Bank1 Write Data
@@ -639,7 +639,7 @@ union ERR_ECC_INJ1 {
 
   ERR_ECC_INJ1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_ECC_INJ1 &Instance() { return *reinterpret_cast<volatile ERR_ECC_INJ1*>(0x40018020); }
+  static inline volatile ERR_ECC_INJ1 &ref() { return *reinterpret_cast<volatile ERR_ECC_INJ1*>(0x40018020); }
 };
 
 // Error Injection On LOW 32 bits Of OCRAM Bank2 Write Data
@@ -656,7 +656,7 @@ union ERR_DATA_INJ_LOW2 {
 
   ERR_DATA_INJ_LOW2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_DATA_INJ_LOW2 &Instance() { return *reinterpret_cast<volatile ERR_DATA_INJ_LOW2*>(0x40018024); }
+  static inline volatile ERR_DATA_INJ_LOW2 &ref() { return *reinterpret_cast<volatile ERR_DATA_INJ_LOW2*>(0x40018024); }
 };
 
 // Error Injection On HIGH 32 bits Of OCRAM Bank2 Write Data
@@ -673,7 +673,7 @@ union ERR_DATA_INJ_HIGH2 {
 
   ERR_DATA_INJ_HIGH2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_DATA_INJ_HIGH2 &Instance() { return *reinterpret_cast<volatile ERR_DATA_INJ_HIGH2*>(0x40018028); }
+  static inline volatile ERR_DATA_INJ_HIGH2 &ref() { return *reinterpret_cast<volatile ERR_DATA_INJ_HIGH2*>(0x40018028); }
 };
 
 // Error Injection On 8 bits ECC code Of OCRAM Bank2 Write Data
@@ -691,7 +691,7 @@ union ERR_ECC_INJ2 {
 
   ERR_ECC_INJ2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_ECC_INJ2 &Instance() { return *reinterpret_cast<volatile ERR_ECC_INJ2*>(0x4001802C); }
+  static inline volatile ERR_ECC_INJ2 &ref() { return *reinterpret_cast<volatile ERR_ECC_INJ2*>(0x4001802C); }
 };
 
 // Error Injection On LOW 32 bits Of OCRAM Bank3 Write Data
@@ -708,7 +708,7 @@ union ERR_DATA_INJ_LOW3 {
 
   ERR_DATA_INJ_LOW3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_DATA_INJ_LOW3 &Instance() { return *reinterpret_cast<volatile ERR_DATA_INJ_LOW3*>(0x40018030); }
+  static inline volatile ERR_DATA_INJ_LOW3 &ref() { return *reinterpret_cast<volatile ERR_DATA_INJ_LOW3*>(0x40018030); }
 };
 
 // Error Injection On HIGH 32 bits Of OCRAM Bank3 Write Data
@@ -725,7 +725,7 @@ union ERR_DATA_INJ_HIGH3 {
 
   ERR_DATA_INJ_HIGH3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_DATA_INJ_HIGH3 &Instance() { return *reinterpret_cast<volatile ERR_DATA_INJ_HIGH3*>(0x40018034); }
+  static inline volatile ERR_DATA_INJ_HIGH3 &ref() { return *reinterpret_cast<volatile ERR_DATA_INJ_HIGH3*>(0x40018034); }
 };
 
 // Error Injection On 8 bits ECC code Of OCRAM Bank3 Write Data
@@ -743,7 +743,7 @@ union ERR_ECC_INJ3 {
 
   ERR_ECC_INJ3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_ECC_INJ3 &Instance() { return *reinterpret_cast<volatile ERR_ECC_INJ3*>(0x40018038); }
+  static inline volatile ERR_ECC_INJ3 &ref() { return *reinterpret_cast<volatile ERR_ECC_INJ3*>(0x40018038); }
 };
 
 // Single Error Address And ECC code On OCRAM Bank0
@@ -763,7 +763,7 @@ union SINGLE_ERR_ADDR_ECC0 {
 
   SINGLE_ERR_ADDR_ECC0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_ADDR_ECC0 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_ADDR_ECC0*>(0x4001803C); }
+  static inline volatile SINGLE_ERR_ADDR_ECC0 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_ADDR_ECC0*>(0x4001803C); }
 };
 
 // LOW 32 Bits Single Error Read Data On OCRAM Bank0
@@ -780,7 +780,7 @@ union SINGLE_ERR_DATA_LOW0 {
 
   SINGLE_ERR_DATA_LOW0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_DATA_LOW0 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_LOW0*>(0x40018040); }
+  static inline volatile SINGLE_ERR_DATA_LOW0 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_LOW0*>(0x40018040); }
 };
 
 // HIGH 32 Bits Single Error Read Data On OCRAM Bank0
@@ -797,7 +797,7 @@ union SINGLE_ERR_DATA_HIGH0 {
 
   SINGLE_ERR_DATA_HIGH0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_DATA_HIGH0 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_HIGH0*>(0x40018044); }
+  static inline volatile SINGLE_ERR_DATA_HIGH0 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_HIGH0*>(0x40018044); }
 };
 
 // LOW Single Error Bit Position On OCRAM Bank0
@@ -814,7 +814,7 @@ union SINGLE_ERR_POS_LOW0 {
 
   SINGLE_ERR_POS_LOW0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_POS_LOW0 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_POS_LOW0*>(0x40018048); }
+  static inline volatile SINGLE_ERR_POS_LOW0 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_POS_LOW0*>(0x40018048); }
 };
 
 // HIGH Single Error Bit Position On OCRAM Bank0
@@ -831,7 +831,7 @@ union SINGLE_ERR_POS_HIGH0 {
 
   SINGLE_ERR_POS_HIGH0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_POS_HIGH0 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_POS_HIGH0*>(0x4001804C); }
+  static inline volatile SINGLE_ERR_POS_HIGH0 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_POS_HIGH0*>(0x4001804C); }
 };
 
 // Single Error Address And ECC code On OCRAM Bank1
@@ -851,7 +851,7 @@ union SINGLE_ERR_ADDR_ECC1 {
 
   SINGLE_ERR_ADDR_ECC1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_ADDR_ECC1 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_ADDR_ECC1*>(0x40018050); }
+  static inline volatile SINGLE_ERR_ADDR_ECC1 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_ADDR_ECC1*>(0x40018050); }
 };
 
 // LOW 32 Bits Single Error Read Data On OCRAM Bank1
@@ -868,7 +868,7 @@ union SINGLE_ERR_DATA_LOW1 {
 
   SINGLE_ERR_DATA_LOW1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_DATA_LOW1 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_LOW1*>(0x40018054); }
+  static inline volatile SINGLE_ERR_DATA_LOW1 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_LOW1*>(0x40018054); }
 };
 
 // HIGH 32 Bits Single Error Read Data On OCRAM Bank1
@@ -885,7 +885,7 @@ union SINGLE_ERR_DATA_HIGH1 {
 
   SINGLE_ERR_DATA_HIGH1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_DATA_HIGH1 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_HIGH1*>(0x40018058); }
+  static inline volatile SINGLE_ERR_DATA_HIGH1 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_HIGH1*>(0x40018058); }
 };
 
 // LOW Single Error Bit Position On OCRAM Bank1
@@ -902,7 +902,7 @@ union SINGLE_ERR_POS_LOW1 {
 
   SINGLE_ERR_POS_LOW1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_POS_LOW1 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_POS_LOW1*>(0x4001805C); }
+  static inline volatile SINGLE_ERR_POS_LOW1 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_POS_LOW1*>(0x4001805C); }
 };
 
 // HIGH Single Error Bit Position On OCRAM Bank1
@@ -919,7 +919,7 @@ union SINGLE_ERR_POS_HIGH1 {
 
   SINGLE_ERR_POS_HIGH1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_POS_HIGH1 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_POS_HIGH1*>(0x40018060); }
+  static inline volatile SINGLE_ERR_POS_HIGH1 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_POS_HIGH1*>(0x40018060); }
 };
 
 // Single Error Address And ECC code On OCRAM Bank2
@@ -939,7 +939,7 @@ union SINGLE_ERR_ADDR_ECC2 {
 
   SINGLE_ERR_ADDR_ECC2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_ADDR_ECC2 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_ADDR_ECC2*>(0x40018064); }
+  static inline volatile SINGLE_ERR_ADDR_ECC2 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_ADDR_ECC2*>(0x40018064); }
 };
 
 // LOW 32 Bits Single Error Read Data On OCRAM Bank2
@@ -956,7 +956,7 @@ union SINGLE_ERR_DATA_LOW2 {
 
   SINGLE_ERR_DATA_LOW2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_DATA_LOW2 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_LOW2*>(0x40018068); }
+  static inline volatile SINGLE_ERR_DATA_LOW2 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_LOW2*>(0x40018068); }
 };
 
 // HIGH 32 Bits Single Error Read Data On OCRAM Bank2
@@ -973,7 +973,7 @@ union SINGLE_ERR_DATA_HIGH2 {
 
   SINGLE_ERR_DATA_HIGH2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_DATA_HIGH2 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_HIGH2*>(0x4001806C); }
+  static inline volatile SINGLE_ERR_DATA_HIGH2 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_HIGH2*>(0x4001806C); }
 };
 
 // LOW Single Error Bit Position On OCRAM Bank2
@@ -990,7 +990,7 @@ union SINGLE_ERR_POS_LOW2 {
 
   SINGLE_ERR_POS_LOW2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_POS_LOW2 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_POS_LOW2*>(0x40018070); }
+  static inline volatile SINGLE_ERR_POS_LOW2 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_POS_LOW2*>(0x40018070); }
 };
 
 // HIGH Single Error Bit Position On OCRAM Bank2
@@ -1007,7 +1007,7 @@ union SINGLE_ERR_POS_HIGH2 {
 
   SINGLE_ERR_POS_HIGH2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_POS_HIGH2 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_POS_HIGH2*>(0x40018074); }
+  static inline volatile SINGLE_ERR_POS_HIGH2 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_POS_HIGH2*>(0x40018074); }
 };
 
 // Single Error Address And ECC code On OCRAM Bank3
@@ -1027,7 +1027,7 @@ union SINGLE_ERR_ADDR_ECC3 {
 
   SINGLE_ERR_ADDR_ECC3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_ADDR_ECC3 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_ADDR_ECC3*>(0x40018078); }
+  static inline volatile SINGLE_ERR_ADDR_ECC3 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_ADDR_ECC3*>(0x40018078); }
 };
 
 // LOW 32 Bits Single Error Read Data On OCRAM Bank3
@@ -1044,7 +1044,7 @@ union SINGLE_ERR_DATA_LOW3 {
 
   SINGLE_ERR_DATA_LOW3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_DATA_LOW3 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_LOW3*>(0x4001807C); }
+  static inline volatile SINGLE_ERR_DATA_LOW3 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_LOW3*>(0x4001807C); }
 };
 
 // HIGH 32 Bits Single Error Read Data On OCRAM Bank3
@@ -1061,7 +1061,7 @@ union SINGLE_ERR_DATA_HIGH3 {
 
   SINGLE_ERR_DATA_HIGH3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_DATA_HIGH3 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_HIGH3*>(0x40018080); }
+  static inline volatile SINGLE_ERR_DATA_HIGH3 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_DATA_HIGH3*>(0x40018080); }
 };
 
 // LOW Single Error Bit Position On OCRAM Bank3
@@ -1078,7 +1078,7 @@ union SINGLE_ERR_POS_LOW3 {
 
   SINGLE_ERR_POS_LOW3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_POS_LOW3 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_POS_LOW3*>(0x40018084); }
+  static inline volatile SINGLE_ERR_POS_LOW3 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_POS_LOW3*>(0x40018084); }
 };
 
 // HIGH Single Error Bit Position On OCRAM Bank3
@@ -1095,7 +1095,7 @@ union SINGLE_ERR_POS_HIGH3 {
 
   SINGLE_ERR_POS_HIGH3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_POS_HIGH3 &Instance() { return *reinterpret_cast<volatile SINGLE_ERR_POS_HIGH3*>(0x40018088); }
+  static inline volatile SINGLE_ERR_POS_HIGH3 &ref() { return *reinterpret_cast<volatile SINGLE_ERR_POS_HIGH3*>(0x40018088); }
 };
 
 // Multiple Error Address And ECC code On OCRAM Bank0
@@ -1115,7 +1115,7 @@ union MULTI_ERR_ADDR_ECC0 {
 
   MULTI_ERR_ADDR_ECC0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_ADDR_ECC0 &Instance() { return *reinterpret_cast<volatile MULTI_ERR_ADDR_ECC0*>(0x4001808C); }
+  static inline volatile MULTI_ERR_ADDR_ECC0 &ref() { return *reinterpret_cast<volatile MULTI_ERR_ADDR_ECC0*>(0x4001808C); }
 };
 
 // LOW 32 Bits Multiple Error Read Data On OCRAM Bank0
@@ -1132,7 +1132,7 @@ union MULTI_ERR_DATA_LOW0 {
 
   MULTI_ERR_DATA_LOW0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_DATA_LOW0 &Instance() { return *reinterpret_cast<volatile MULTI_ERR_DATA_LOW0*>(0x40018090); }
+  static inline volatile MULTI_ERR_DATA_LOW0 &ref() { return *reinterpret_cast<volatile MULTI_ERR_DATA_LOW0*>(0x40018090); }
 };
 
 // HIGH 32 Bits Multiple Error Read Data On OCRAM Bank0
@@ -1149,7 +1149,7 @@ union MULTI_ERR_DATA_HIGH0 {
 
   MULTI_ERR_DATA_HIGH0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_DATA_HIGH0 &Instance() { return *reinterpret_cast<volatile MULTI_ERR_DATA_HIGH0*>(0x40018094); }
+  static inline volatile MULTI_ERR_DATA_HIGH0 &ref() { return *reinterpret_cast<volatile MULTI_ERR_DATA_HIGH0*>(0x40018094); }
 };
 
 // Multiple Error Address And ECC code On OCRAM Bank1
@@ -1169,7 +1169,7 @@ union MULTI_ERR_ADDR_ECC1 {
 
   MULTI_ERR_ADDR_ECC1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_ADDR_ECC1 &Instance() { return *reinterpret_cast<volatile MULTI_ERR_ADDR_ECC1*>(0x40018098); }
+  static inline volatile MULTI_ERR_ADDR_ECC1 &ref() { return *reinterpret_cast<volatile MULTI_ERR_ADDR_ECC1*>(0x40018098); }
 };
 
 // LOW 32 Bits Multiple Error Read Data On OCRAM Bank1
@@ -1186,7 +1186,7 @@ union MULTI_ERR_DATA_LOW1 {
 
   MULTI_ERR_DATA_LOW1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_DATA_LOW1 &Instance() { return *reinterpret_cast<volatile MULTI_ERR_DATA_LOW1*>(0x4001809C); }
+  static inline volatile MULTI_ERR_DATA_LOW1 &ref() { return *reinterpret_cast<volatile MULTI_ERR_DATA_LOW1*>(0x4001809C); }
 };
 
 // HIGH 32 Bits Multiple Error Read Data On OCRAM Bank1
@@ -1203,7 +1203,7 @@ union MULTI_ERR_DATA_HIGH1 {
 
   MULTI_ERR_DATA_HIGH1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_DATA_HIGH1 &Instance() { return *reinterpret_cast<volatile MULTI_ERR_DATA_HIGH1*>(0x400180A0); }
+  static inline volatile MULTI_ERR_DATA_HIGH1 &ref() { return *reinterpret_cast<volatile MULTI_ERR_DATA_HIGH1*>(0x400180A0); }
 };
 
 // Multiple Error Address And ECC code On OCRAM Bank2
@@ -1223,7 +1223,7 @@ union MULTI_ERR_ADDR_ECC2 {
 
   MULTI_ERR_ADDR_ECC2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_ADDR_ECC2 &Instance() { return *reinterpret_cast<volatile MULTI_ERR_ADDR_ECC2*>(0x400180A4); }
+  static inline volatile MULTI_ERR_ADDR_ECC2 &ref() { return *reinterpret_cast<volatile MULTI_ERR_ADDR_ECC2*>(0x400180A4); }
 };
 
 // LOW 32 Bits Multiple Error Read Data On OCRAM Bank2
@@ -1240,7 +1240,7 @@ union MULTI_ERR_DATA_LOW2 {
 
   MULTI_ERR_DATA_LOW2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_DATA_LOW2 &Instance() { return *reinterpret_cast<volatile MULTI_ERR_DATA_LOW2*>(0x400180A8); }
+  static inline volatile MULTI_ERR_DATA_LOW2 &ref() { return *reinterpret_cast<volatile MULTI_ERR_DATA_LOW2*>(0x400180A8); }
 };
 
 // HIGH 32 Bits Multiple Error Read Data On OCRAM Bank2
@@ -1257,7 +1257,7 @@ union MULTI_ERR_DATA_HIGH2 {
 
   MULTI_ERR_DATA_HIGH2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_DATA_HIGH2 &Instance() { return *reinterpret_cast<volatile MULTI_ERR_DATA_HIGH2*>(0x400180AC); }
+  static inline volatile MULTI_ERR_DATA_HIGH2 &ref() { return *reinterpret_cast<volatile MULTI_ERR_DATA_HIGH2*>(0x400180AC); }
 };
 
 // Multiple Error Address And ECC code On OCRAM Bank3
@@ -1277,7 +1277,7 @@ union MULTI_ERR_ADDR_ECC3 {
 
   MULTI_ERR_ADDR_ECC3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_ADDR_ECC3 &Instance() { return *reinterpret_cast<volatile MULTI_ERR_ADDR_ECC3*>(0x400180B0); }
+  static inline volatile MULTI_ERR_ADDR_ECC3 &ref() { return *reinterpret_cast<volatile MULTI_ERR_ADDR_ECC3*>(0x400180B0); }
 };
 
 // LOW 32 Bits Multiple Error Read Data On OCRAM Bank3
@@ -1294,7 +1294,7 @@ union MULTI_ERR_DATA_LOW3 {
 
   MULTI_ERR_DATA_LOW3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_DATA_LOW3 &Instance() { return *reinterpret_cast<volatile MULTI_ERR_DATA_LOW3*>(0x400180B4); }
+  static inline volatile MULTI_ERR_DATA_LOW3 &ref() { return *reinterpret_cast<volatile MULTI_ERR_DATA_LOW3*>(0x400180B4); }
 };
 
 // HIGH 32 Bits Multiple Error Read Data On OCRAM Bank3
@@ -1311,7 +1311,7 @@ union MULTI_ERR_DATA_HIGH3 {
 
   MULTI_ERR_DATA_HIGH3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_DATA_HIGH3 &Instance() { return *reinterpret_cast<volatile MULTI_ERR_DATA_HIGH3*>(0x400180B8); }
+  static inline volatile MULTI_ERR_DATA_HIGH3 &ref() { return *reinterpret_cast<volatile MULTI_ERR_DATA_HIGH3*>(0x400180B8); }
 };
 
 // OCRAM Pipeline And ECC Enable
@@ -1377,7 +1377,7 @@ union PIPE_ECC_EN {
 
   PIPE_ECC_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PIPE_ECC_EN &Instance() { return *reinterpret_cast<volatile PIPE_ECC_EN*>(0x40018100); }
+  static inline volatile PIPE_ECC_EN &ref() { return *reinterpret_cast<volatile PIPE_ECC_EN*>(0x40018100); }
 };
 
 // Pending Status
@@ -1433,7 +1433,7 @@ union PENDING_STAT {
 
   PENDING_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PENDING_STAT &Instance() { return *reinterpret_cast<volatile PENDING_STAT*>(0x40018104); }
+  static inline volatile PENDING_STAT &ref() { return *reinterpret_cast<volatile PENDING_STAT*>(0x40018104); }
 };
 
 

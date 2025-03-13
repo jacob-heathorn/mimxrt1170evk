@@ -36,7 +36,7 @@ union VERID {
 
   VERID() = delete;
   inline void Reset() volatile { this->value = 0x04010003; }
-  static inline volatile VERID &Instance() { return *reinterpret_cast<volatile VERID*>(0x40084000); }
+  static inline volatile VERID &ref() { return *reinterpret_cast<volatile VERID*>(0x40084000); }
 };
 
 // Parameter Register
@@ -56,7 +56,7 @@ union PARAM {
 
   PARAM() = delete;
   inline void Reset() volatile { this->value = 0x00000202; }
-  static inline volatile PARAM &Instance() { return *reinterpret_cast<volatile PARAM*>(0x40084004); }
+  static inline volatile PARAM &ref() { return *reinterpret_cast<volatile PARAM*>(0x40084004); }
 };
 
 // LPUART Global Register
@@ -83,7 +83,7 @@ union GLOBAL {
 
   GLOBAL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GLOBAL &Instance() { return *reinterpret_cast<volatile GLOBAL*>(0x40084008); }
+  static inline volatile GLOBAL &ref() { return *reinterpret_cast<volatile GLOBAL*>(0x40084008); }
 };
 
 // LPUART Pin Configuration Register
@@ -113,7 +113,7 @@ union PINCFG {
 
   PINCFG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PINCFG &Instance() { return *reinterpret_cast<volatile PINCFG*>(0x4008400C); }
+  static inline volatile PINCFG &ref() { return *reinterpret_cast<volatile PINCFG*>(0x4008400C); }
 };
 
 // LPUART Baud Rate Register
@@ -312,7 +312,7 @@ union BAUD {
 
   BAUD() = delete;
   inline void Reset() volatile { this->value = 0x0F000004; }
-  static inline volatile BAUD &Instance() { return *reinterpret_cast<volatile BAUD*>(0x40084010); }
+  static inline volatile BAUD &ref() { return *reinterpret_cast<volatile BAUD*>(0x40084010); }
 };
 
 // LPUART Status Register
@@ -508,7 +508,7 @@ union STAT {
 
   STAT() = delete;
   inline void Reset() volatile { this->value = 0x00C00000; }
-  static inline volatile STAT &Instance() { return *reinterpret_cast<volatile STAT*>(0x40084014); }
+  static inline volatile STAT &ref() { return *reinterpret_cast<volatile STAT*>(0x40084014); }
 };
 
 // LPUART Control Register
@@ -800,7 +800,7 @@ union CTRL {
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &Instance() { return *reinterpret_cast<volatile CTRL*>(0x40084018); }
+  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40084018); }
 };
 
 // LPUART Data Register
@@ -887,7 +887,7 @@ union DATA {
 
   DATA() = delete;
   inline void Reset() volatile { this->value = 0x00001000; }
-  static inline volatile DATA &Instance() { return *reinterpret_cast<volatile DATA*>(0x4008401C); }
+  static inline volatile DATA &ref() { return *reinterpret_cast<volatile DATA*>(0x4008401C); }
 };
 
 // LPUART Match Address Register
@@ -908,7 +908,7 @@ union MATCH {
 
   MATCH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MATCH &Instance() { return *reinterpret_cast<volatile MATCH*>(0x40084020); }
+  static inline volatile MATCH &ref() { return *reinterpret_cast<volatile MATCH*>(0x40084020); }
 };
 
 // LPUART Modem IrDA Register
@@ -1012,7 +1012,7 @@ union MODIR {
 
   MODIR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MODIR &Instance() { return *reinterpret_cast<volatile MODIR*>(0x40084024); }
+  static inline volatile MODIR &ref() { return *reinterpret_cast<volatile MODIR*>(0x40084024); }
 };
 
 // LPUART FIFO Register
@@ -1196,7 +1196,7 @@ union FIFO {
 
   FIFO() = delete;
   inline void Reset() volatile { this->value = 0x00C00011; }
-  static inline volatile FIFO &Instance() { return *reinterpret_cast<volatile FIFO*>(0x40084028); }
+  static inline volatile FIFO &ref() { return *reinterpret_cast<volatile FIFO*>(0x40084028); }
 };
 
 // LPUART Watermark Register
@@ -1223,7 +1223,7 @@ union WATER {
 
   WATER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WATER &Instance() { return *reinterpret_cast<volatile WATER*>(0x4008402C); }
+  static inline volatile WATER &ref() { return *reinterpret_cast<volatile WATER*>(0x4008402C); }
 };
 
 

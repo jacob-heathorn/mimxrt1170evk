@@ -63,7 +63,7 @@ union VID_MUX_CTRL {
 
   VID_MUX_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VID_MUX_CTRL &Instance() { return *reinterpret_cast<volatile VID_MUX_CTRL*>(0x40818000); }
+  static inline volatile VID_MUX_CTRL &ref() { return *reinterpret_cast<volatile VID_MUX_CTRL*>(0x40818000); }
 };
 
 // Video mux Control Register
@@ -87,7 +87,7 @@ union VID_MUX_CTRL_SET {
 
   VID_MUX_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VID_MUX_CTRL_SET &Instance() { return *reinterpret_cast<volatile VID_MUX_CTRL_SET*>(0x40818004); }
+  static inline volatile VID_MUX_CTRL_SET &ref() { return *reinterpret_cast<volatile VID_MUX_CTRL_SET*>(0x40818004); }
 };
 
 // Video mux Control Register
@@ -111,7 +111,7 @@ union VID_MUX_CTRL_CLR {
 
   VID_MUX_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VID_MUX_CTRL_CLR &Instance() { return *reinterpret_cast<volatile VID_MUX_CTRL_CLR*>(0x40818008); }
+  static inline volatile VID_MUX_CTRL_CLR &ref() { return *reinterpret_cast<volatile VID_MUX_CTRL_CLR*>(0x40818008); }
 };
 
 // Video mux Control Register
@@ -135,7 +135,7 @@ union VID_MUX_CTRL_TOG {
 
   VID_MUX_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VID_MUX_CTRL_TOG &Instance() { return *reinterpret_cast<volatile VID_MUX_CTRL_TOG*>(0x4081800C); }
+  static inline volatile VID_MUX_CTRL_TOG &ref() { return *reinterpret_cast<volatile VID_MUX_CTRL_TOG*>(0x4081800C); }
 };
 
 // Pixel Link Master(PLM) Control Register
@@ -201,7 +201,7 @@ union PLM_CTRL {
 
   PLM_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PLM_CTRL &Instance() { return *reinterpret_cast<volatile PLM_CTRL*>(0x40818020); }
+  static inline volatile PLM_CTRL &ref() { return *reinterpret_cast<volatile PLM_CTRL*>(0x40818020); }
 };
 
 // Pixel Link Master(PLM) Control Register
@@ -227,7 +227,7 @@ union PLM_CTRL_SET {
 
   PLM_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PLM_CTRL_SET &Instance() { return *reinterpret_cast<volatile PLM_CTRL_SET*>(0x40818024); }
+  static inline volatile PLM_CTRL_SET &ref() { return *reinterpret_cast<volatile PLM_CTRL_SET*>(0x40818024); }
 };
 
 // Pixel Link Master(PLM) Control Register
@@ -253,7 +253,7 @@ union PLM_CTRL_CLR {
 
   PLM_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PLM_CTRL_CLR &Instance() { return *reinterpret_cast<volatile PLM_CTRL_CLR*>(0x40818028); }
+  static inline volatile PLM_CTRL_CLR &ref() { return *reinterpret_cast<volatile PLM_CTRL_CLR*>(0x40818028); }
 };
 
 // Pixel Link Master(PLM) Control Register
@@ -279,7 +279,7 @@ union PLM_CTRL_TOG {
 
   PLM_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PLM_CTRL_TOG &Instance() { return *reinterpret_cast<volatile PLM_CTRL_TOG*>(0x4081802C); }
+  static inline volatile PLM_CTRL_TOG &ref() { return *reinterpret_cast<volatile PLM_CTRL_TOG*>(0x4081802C); }
 };
 
 // YUV420 Control Register
@@ -305,7 +305,7 @@ union YUV420_CTRL {
 
   YUV420_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile YUV420_CTRL &Instance() { return *reinterpret_cast<volatile YUV420_CTRL*>(0x40818030); }
+  static inline volatile YUV420_CTRL &ref() { return *reinterpret_cast<volatile YUV420_CTRL*>(0x40818030); }
 };
 
 // YUV420 Control Register
@@ -323,7 +323,7 @@ union YUV420_CTRL_SET {
 
   YUV420_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile YUV420_CTRL_SET &Instance() { return *reinterpret_cast<volatile YUV420_CTRL_SET*>(0x40818034); }
+  static inline volatile YUV420_CTRL_SET &ref() { return *reinterpret_cast<volatile YUV420_CTRL_SET*>(0x40818034); }
 };
 
 // YUV420 Control Register
@@ -341,7 +341,7 @@ union YUV420_CTRL_CLR {
 
   YUV420_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile YUV420_CTRL_CLR &Instance() { return *reinterpret_cast<volatile YUV420_CTRL_CLR*>(0x40818038); }
+  static inline volatile YUV420_CTRL_CLR &ref() { return *reinterpret_cast<volatile YUV420_CTRL_CLR*>(0x40818038); }
 };
 
 // YUV420 Control Register
@@ -359,7 +359,7 @@ union YUV420_CTRL_TOG {
 
   YUV420_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile YUV420_CTRL_TOG &Instance() { return *reinterpret_cast<volatile YUV420_CTRL_TOG*>(0x4081803C); }
+  static inline volatile YUV420_CTRL_TOG &ref() { return *reinterpret_cast<volatile YUV420_CTRL_TOG*>(0x4081803C); }
 };
 
 // Data Disable Register
@@ -377,7 +377,7 @@ union CFG_DT_DISABLE {
 
   CFG_DT_DISABLE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_DT_DISABLE &Instance() { return *reinterpret_cast<volatile CFG_DT_DISABLE*>(0x40818050); }
+  static inline volatile CFG_DT_DISABLE &ref() { return *reinterpret_cast<volatile CFG_DT_DISABLE*>(0x40818050); }
 };
 
 // Data Disable Register
@@ -395,7 +395,7 @@ union CFG_DT_DISABLE_SET {
 
   CFG_DT_DISABLE_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_DT_DISABLE_SET &Instance() { return *reinterpret_cast<volatile CFG_DT_DISABLE_SET*>(0x40818054); }
+  static inline volatile CFG_DT_DISABLE_SET &ref() { return *reinterpret_cast<volatile CFG_DT_DISABLE_SET*>(0x40818054); }
 };
 
 // Data Disable Register
@@ -413,7 +413,7 @@ union CFG_DT_DISABLE_CLR {
 
   CFG_DT_DISABLE_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_DT_DISABLE_CLR &Instance() { return *reinterpret_cast<volatile CFG_DT_DISABLE_CLR*>(0x40818058); }
+  static inline volatile CFG_DT_DISABLE_CLR &ref() { return *reinterpret_cast<volatile CFG_DT_DISABLE_CLR*>(0x40818058); }
 };
 
 // Data Disable Register
@@ -431,7 +431,7 @@ union CFG_DT_DISABLE_TOG {
 
   CFG_DT_DISABLE_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_DT_DISABLE_TOG &Instance() { return *reinterpret_cast<volatile CFG_DT_DISABLE_TOG*>(0x4081805C); }
+  static inline volatile CFG_DT_DISABLE_TOG &ref() { return *reinterpret_cast<volatile CFG_DT_DISABLE_TOG*>(0x4081805C); }
 };
 
 // MIPI DSI Control Register
@@ -467,7 +467,7 @@ union MIPI_DSI_CTRL {
 
   MIPI_DSI_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIPI_DSI_CTRL &Instance() { return *reinterpret_cast<volatile MIPI_DSI_CTRL*>(0x40818070); }
+  static inline volatile MIPI_DSI_CTRL &ref() { return *reinterpret_cast<volatile MIPI_DSI_CTRL*>(0x40818070); }
 };
 
 // MIPI DSI Control Register
@@ -487,7 +487,7 @@ union MIPI_DSI_CTRL_SET {
 
   MIPI_DSI_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIPI_DSI_CTRL_SET &Instance() { return *reinterpret_cast<volatile MIPI_DSI_CTRL_SET*>(0x40818074); }
+  static inline volatile MIPI_DSI_CTRL_SET &ref() { return *reinterpret_cast<volatile MIPI_DSI_CTRL_SET*>(0x40818074); }
 };
 
 // MIPI DSI Control Register
@@ -507,7 +507,7 @@ union MIPI_DSI_CTRL_CLR {
 
   MIPI_DSI_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIPI_DSI_CTRL_CLR &Instance() { return *reinterpret_cast<volatile MIPI_DSI_CTRL_CLR*>(0x40818078); }
+  static inline volatile MIPI_DSI_CTRL_CLR &ref() { return *reinterpret_cast<volatile MIPI_DSI_CTRL_CLR*>(0x40818078); }
 };
 
 // MIPI DSI Control Register
@@ -527,7 +527,7 @@ union MIPI_DSI_CTRL_TOG {
 
   MIPI_DSI_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIPI_DSI_CTRL_TOG &Instance() { return *reinterpret_cast<volatile MIPI_DSI_CTRL_TOG*>(0x4081807C); }
+  static inline volatile MIPI_DSI_CTRL_TOG &ref() { return *reinterpret_cast<volatile MIPI_DSI_CTRL_TOG*>(0x4081807C); }
 };
 
 

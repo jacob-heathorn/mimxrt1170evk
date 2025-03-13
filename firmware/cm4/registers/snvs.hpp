@@ -205,7 +205,7 @@ union HPLR {
 
   HPLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HPLR &Instance() { return *reinterpret_cast<volatile HPLR*>(0x40C90000); }
+  static inline volatile HPLR &ref() { return *reinterpret_cast<volatile HPLR*>(0x40C90000); }
 };
 
 // SNVS_HP Command Register
@@ -327,7 +327,7 @@ union HPCOMR {
 
   HPCOMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HPCOMR &Instance() { return *reinterpret_cast<volatile HPCOMR*>(0x40C90004); }
+  static inline volatile HPCOMR &ref() { return *reinterpret_cast<volatile HPCOMR*>(0x40C90004); }
 };
 
 // SNVS_HP Control Register
@@ -470,7 +470,7 @@ union HPCR {
 
   HPCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HPCR &Instance() { return *reinterpret_cast<volatile HPCR*>(0x40C90008); }
+  static inline volatile HPCR &ref() { return *reinterpret_cast<volatile HPCR*>(0x40C90008); }
 };
 
 // SNVS_HP Security Interrupt Control Register
@@ -547,7 +547,7 @@ union HPSICR {
 
   HPSICR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HPSICR &Instance() { return *reinterpret_cast<volatile HPSICR*>(0x40C9000C); }
+  static inline volatile HPSICR &ref() { return *reinterpret_cast<volatile HPSICR*>(0x40C9000C); }
 };
 
 // SNVS_HP Security Violation Control Register
@@ -628,7 +628,7 @@ union HPSVCR {
 
   HPSVCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HPSVCR &Instance() { return *reinterpret_cast<volatile HPSVCR*>(0x40C90010); }
+  static inline volatile HPSVCR &ref() { return *reinterpret_cast<volatile HPSVCR*>(0x40C90010); }
 };
 
 // SNVS_HP Status Register
@@ -731,7 +731,7 @@ union HPSR {
 
   HPSR() = delete;
   inline void Reset() volatile { this->value = 0x8000B000; }
-  static inline volatile HPSR &Instance() { return *reinterpret_cast<volatile HPSR*>(0x40C90014); }
+  static inline volatile HPSR &ref() { return *reinterpret_cast<volatile HPSR*>(0x40C90014); }
 };
 
 // SNVS_HP Security Violation Status Register
@@ -820,7 +820,7 @@ union HPSVSR {
 
   HPSVSR() = delete;
   inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile HPSVSR &Instance() { return *reinterpret_cast<volatile HPSVSR*>(0x40C90018); }
+  static inline volatile HPSVSR &ref() { return *reinterpret_cast<volatile HPSVSR*>(0x40C90018); }
 };
 
 // SNVS_HP High Assurance Counter IV Register
@@ -837,7 +837,7 @@ union HPHACIVR {
 
   HPHACIVR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HPHACIVR &Instance() { return *reinterpret_cast<volatile HPHACIVR*>(0x40C9001C); }
+  static inline volatile HPHACIVR &ref() { return *reinterpret_cast<volatile HPHACIVR*>(0x40C9001C); }
 };
 
 // SNVS_HP High Assurance Counter Register
@@ -854,7 +854,7 @@ union HPHACR {
 
   HPHACR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HPHACR &Instance() { return *reinterpret_cast<volatile HPHACR*>(0x40C90020); }
+  static inline volatile HPHACR &ref() { return *reinterpret_cast<volatile HPHACR*>(0x40C90020); }
 };
 
 // SNVS_HP Real Time Counter MSB Register
@@ -872,7 +872,7 @@ union HPRTCMR {
 
   HPRTCMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HPRTCMR &Instance() { return *reinterpret_cast<volatile HPRTCMR*>(0x40C90024); }
+  static inline volatile HPRTCMR &ref() { return *reinterpret_cast<volatile HPRTCMR*>(0x40C90024); }
 };
 
 // SNVS_HP Real Time Counter LSB Register
@@ -889,7 +889,7 @@ union HPRTCLR {
 
   HPRTCLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HPRTCLR &Instance() { return *reinterpret_cast<volatile HPRTCLR*>(0x40C90028); }
+  static inline volatile HPRTCLR &ref() { return *reinterpret_cast<volatile HPRTCLR*>(0x40C90028); }
 };
 
 // SNVS_HP Time Alarm MSB Register
@@ -907,7 +907,7 @@ union HPTAMR {
 
   HPTAMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HPTAMR &Instance() { return *reinterpret_cast<volatile HPTAMR*>(0x40C9002C); }
+  static inline volatile HPTAMR &ref() { return *reinterpret_cast<volatile HPTAMR*>(0x40C9002C); }
 };
 
 // SNVS_HP Time Alarm LSB Register
@@ -924,7 +924,7 @@ union HPTALR {
 
   HPTALR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HPTALR &Instance() { return *reinterpret_cast<volatile HPTALR*>(0x40C90030); }
+  static inline volatile HPTALR &ref() { return *reinterpret_cast<volatile HPTALR*>(0x40C90030); }
 };
 
 // SNVS_LP Lock Register
@@ -1091,7 +1091,7 @@ union LPLR {
 
   LPLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPLR &Instance() { return *reinterpret_cast<volatile LPLR*>(0x40C90034); }
+  static inline volatile LPLR &ref() { return *reinterpret_cast<volatile LPLR*>(0x40C90034); }
 };
 
 // SNVS_LP Control Register
@@ -1217,7 +1217,7 @@ union LPCR {
 
   LPCR() = delete;
   inline void Reset() volatile { this->value = 0x00000020; }
-  static inline volatile LPCR &Instance() { return *reinterpret_cast<volatile LPCR*>(0x40C90038); }
+  static inline volatile LPCR &ref() { return *reinterpret_cast<volatile LPCR*>(0x40C90038); }
 };
 
 // SNVS_LP Master Key Control Register
@@ -1278,7 +1278,7 @@ union LPMKCR {
 
   LPMKCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPMKCR &Instance() { return *reinterpret_cast<volatile LPMKCR*>(0x40C9003C); }
+  static inline volatile LPMKCR &ref() { return *reinterpret_cast<volatile LPMKCR*>(0x40C9003C); }
 };
 
 // SNVS_LP Security Violation Control Register
@@ -1345,7 +1345,7 @@ union LPSVCR {
 
   LPSVCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSVCR &Instance() { return *reinterpret_cast<volatile LPSVCR*>(0x40C90040); }
+  static inline volatile LPSVCR &ref() { return *reinterpret_cast<volatile LPSVCR*>(0x40C90040); }
 };
 
 // SNVS_LP Tamper Glitch Filters Configuration Register
@@ -1398,7 +1398,7 @@ union LPTGFCR {
 
   LPTGFCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPTGFCR &Instance() { return *reinterpret_cast<volatile LPTGFCR*>(0x40C90044); }
+  static inline volatile LPTGFCR &ref() { return *reinterpret_cast<volatile LPTGFCR*>(0x40C90044); }
 };
 
 // SNVS_LP Tamper Detect Configuration Register
@@ -1550,7 +1550,7 @@ union LPTDCR {
 
   LPTDCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPTDCR &Instance() { return *reinterpret_cast<volatile LPTDCR*>(0x40C90048); }
+  static inline volatile LPTDCR &ref() { return *reinterpret_cast<volatile LPTDCR*>(0x40C90048); }
 };
 
 // SNVS_LP Status Register
@@ -1727,7 +1727,7 @@ union LPSR {
 
   LPSR() = delete;
   inline void Reset() volatile { this->value = 0x00000008; }
-  static inline volatile LPSR &Instance() { return *reinterpret_cast<volatile LPSR*>(0x40C9004C); }
+  static inline volatile LPSR &ref() { return *reinterpret_cast<volatile LPSR*>(0x40C9004C); }
 };
 
 // SNVS_LP Secure Real Time Counter MSB Register
@@ -1745,7 +1745,7 @@ union LPSRTCMR {
 
   LPSRTCMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSRTCMR &Instance() { return *reinterpret_cast<volatile LPSRTCMR*>(0x40C90050); }
+  static inline volatile LPSRTCMR &ref() { return *reinterpret_cast<volatile LPSRTCMR*>(0x40C90050); }
 };
 
 // SNVS_LP Secure Real Time Counter LSB Register
@@ -1762,7 +1762,7 @@ union LPSRTCLR {
 
   LPSRTCLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSRTCLR &Instance() { return *reinterpret_cast<volatile LPSRTCLR*>(0x40C90054); }
+  static inline volatile LPSRTCLR &ref() { return *reinterpret_cast<volatile LPSRTCLR*>(0x40C90054); }
 };
 
 // SNVS_LP Time Alarm Register
@@ -1779,7 +1779,7 @@ union LPTAR {
 
   LPTAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPTAR &Instance() { return *reinterpret_cast<volatile LPTAR*>(0x40C90058); }
+  static inline volatile LPTAR &ref() { return *reinterpret_cast<volatile LPTAR*>(0x40C90058); }
 };
 
 // SNVS_LP Secure Monotonic Counter MSB Register
@@ -1798,7 +1798,7 @@ union LPSMCMR {
 
   LPSMCMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSMCMR &Instance() { return *reinterpret_cast<volatile LPSMCMR*>(0x40C9005C); }
+  static inline volatile LPSMCMR &ref() { return *reinterpret_cast<volatile LPSMCMR*>(0x40C9005C); }
 };
 
 // SNVS_LP Secure Monotonic Counter LSB Register
@@ -1815,7 +1815,7 @@ union LPSMCLR {
 
   LPSMCLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSMCLR &Instance() { return *reinterpret_cast<volatile LPSMCLR*>(0x40C90060); }
+  static inline volatile LPSMCLR &ref() { return *reinterpret_cast<volatile LPSMCLR*>(0x40C90060); }
 };
 
 // SNVS_LP Digital Low-Voltage Detector Register
@@ -1832,7 +1832,7 @@ union LPLVDR {
 
   LPLVDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPLVDR &Instance() { return *reinterpret_cast<volatile LPLVDR*>(0x40C90064); }
+  static inline volatile LPLVDR &ref() { return *reinterpret_cast<volatile LPLVDR*>(0x40C90064); }
 };
 
 // SNVS_LP General Purpose Register 0 (legacy alias)
@@ -1849,7 +1849,7 @@ union LPGPR0_legacy_alias {
 
   LPGPR0_legacy_alias() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR0_legacy_alias &Instance() { return *reinterpret_cast<volatile LPGPR0_legacy_alias*>(0x40C90068); }
+  static inline volatile LPGPR0_legacy_alias &ref() { return *reinterpret_cast<volatile LPGPR0_legacy_alias*>(0x40C90068); }
 };
 
 // SNVS_LP Zeroizable Master Key Register
@@ -1866,7 +1866,7 @@ union LPZMKR_0 {
 
   LPZMKR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR_0 &Instance() { return *reinterpret_cast<volatile LPZMKR_0*>(0x40C9006C); }
+  static inline volatile LPZMKR_0 &ref() { return *reinterpret_cast<volatile LPZMKR_0*>(0x40C9006C); }
 };
 // SNVS_LP Zeroizable Master Key Register
 union LPZMKR_1 {
@@ -1882,7 +1882,7 @@ union LPZMKR_1 {
 
   LPZMKR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR_1 &Instance() { return *reinterpret_cast<volatile LPZMKR_1*>(0x40C90070); }
+  static inline volatile LPZMKR_1 &ref() { return *reinterpret_cast<volatile LPZMKR_1*>(0x40C90070); }
 };
 // SNVS_LP Zeroizable Master Key Register
 union LPZMKR_2 {
@@ -1898,7 +1898,7 @@ union LPZMKR_2 {
 
   LPZMKR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR_2 &Instance() { return *reinterpret_cast<volatile LPZMKR_2*>(0x40C90074); }
+  static inline volatile LPZMKR_2 &ref() { return *reinterpret_cast<volatile LPZMKR_2*>(0x40C90074); }
 };
 // SNVS_LP Zeroizable Master Key Register
 union LPZMKR_3 {
@@ -1914,7 +1914,7 @@ union LPZMKR_3 {
 
   LPZMKR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR_3 &Instance() { return *reinterpret_cast<volatile LPZMKR_3*>(0x40C90078); }
+  static inline volatile LPZMKR_3 &ref() { return *reinterpret_cast<volatile LPZMKR_3*>(0x40C90078); }
 };
 // SNVS_LP Zeroizable Master Key Register
 union LPZMKR_4 {
@@ -1930,7 +1930,7 @@ union LPZMKR_4 {
 
   LPZMKR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR_4 &Instance() { return *reinterpret_cast<volatile LPZMKR_4*>(0x40C9007C); }
+  static inline volatile LPZMKR_4 &ref() { return *reinterpret_cast<volatile LPZMKR_4*>(0x40C9007C); }
 };
 // SNVS_LP Zeroizable Master Key Register
 union LPZMKR_5 {
@@ -1946,7 +1946,7 @@ union LPZMKR_5 {
 
   LPZMKR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR_5 &Instance() { return *reinterpret_cast<volatile LPZMKR_5*>(0x40C90080); }
+  static inline volatile LPZMKR_5 &ref() { return *reinterpret_cast<volatile LPZMKR_5*>(0x40C90080); }
 };
 // SNVS_LP Zeroizable Master Key Register
 union LPZMKR_6 {
@@ -1962,7 +1962,7 @@ union LPZMKR_6 {
 
   LPZMKR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR_6 &Instance() { return *reinterpret_cast<volatile LPZMKR_6*>(0x40C90084); }
+  static inline volatile LPZMKR_6 &ref() { return *reinterpret_cast<volatile LPZMKR_6*>(0x40C90084); }
 };
 // SNVS_LP Zeroizable Master Key Register
 union LPZMKR_7 {
@@ -1978,7 +1978,7 @@ union LPZMKR_7 {
 
   LPZMKR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR_7 &Instance() { return *reinterpret_cast<volatile LPZMKR_7*>(0x40C90088); }
+  static inline volatile LPZMKR_7 &ref() { return *reinterpret_cast<volatile LPZMKR_7*>(0x40C90088); }
 };
 
 // SNVS_LP General Purpose Registers 0 .. 3
@@ -1995,7 +1995,7 @@ union LPGPR_alias_0 {
 
   LPGPR_alias_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR_alias_0 &Instance() { return *reinterpret_cast<volatile LPGPR_alias_0*>(0x40C90090); }
+  static inline volatile LPGPR_alias_0 &ref() { return *reinterpret_cast<volatile LPGPR_alias_0*>(0x40C90090); }
 };
 // SNVS_LP General Purpose Registers 0 .. 3
 union LPGPR_alias_1 {
@@ -2011,7 +2011,7 @@ union LPGPR_alias_1 {
 
   LPGPR_alias_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR_alias_1 &Instance() { return *reinterpret_cast<volatile LPGPR_alias_1*>(0x40C90094); }
+  static inline volatile LPGPR_alias_1 &ref() { return *reinterpret_cast<volatile LPGPR_alias_1*>(0x40C90094); }
 };
 // SNVS_LP General Purpose Registers 0 .. 3
 union LPGPR_alias_2 {
@@ -2027,7 +2027,7 @@ union LPGPR_alias_2 {
 
   LPGPR_alias_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR_alias_2 &Instance() { return *reinterpret_cast<volatile LPGPR_alias_2*>(0x40C90098); }
+  static inline volatile LPGPR_alias_2 &ref() { return *reinterpret_cast<volatile LPGPR_alias_2*>(0x40C90098); }
 };
 // SNVS_LP General Purpose Registers 0 .. 3
 union LPGPR_alias_3 {
@@ -2043,7 +2043,7 @@ union LPGPR_alias_3 {
 
   LPGPR_alias_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR_alias_3 &Instance() { return *reinterpret_cast<volatile LPGPR_alias_3*>(0x40C9009C); }
+  static inline volatile LPGPR_alias_3 &ref() { return *reinterpret_cast<volatile LPGPR_alias_3*>(0x40C9009C); }
 };
 
 // SNVS_LP Tamper Detectors Config 2 Register
@@ -2220,7 +2220,7 @@ union LPTDC2R {
 
   LPTDC2R() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPTDC2R &Instance() { return *reinterpret_cast<volatile LPTDC2R*>(0x40C900A0); }
+  static inline volatile LPTDC2R &ref() { return *reinterpret_cast<volatile LPTDC2R*>(0x40C900A0); }
 };
 
 // SNVS_LP Tamper Detectors Status Register
@@ -2316,7 +2316,7 @@ union LPTDSR {
 
   LPTDSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPTDSR &Instance() { return *reinterpret_cast<volatile LPTDSR*>(0x40C900A4); }
+  static inline volatile LPTDSR &ref() { return *reinterpret_cast<volatile LPTDSR*>(0x40C900A4); }
 };
 
 // SNVS_LP Tamper Glitch Filter 1 Configuration Register
@@ -2379,7 +2379,7 @@ union LPTGF1CR {
 
   LPTGF1CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPTGF1CR &Instance() { return *reinterpret_cast<volatile LPTGF1CR*>(0x40C900A8); }
+  static inline volatile LPTGF1CR &ref() { return *reinterpret_cast<volatile LPTGF1CR*>(0x40C900A8); }
 };
 
 // SNVS_LP Tamper Glitch Filter 2 Configuration Register
@@ -2442,7 +2442,7 @@ union LPTGF2CR {
 
   LPTGF2CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPTGF2CR &Instance() { return *reinterpret_cast<volatile LPTGF2CR*>(0x40C900AC); }
+  static inline volatile LPTGF2CR &ref() { return *reinterpret_cast<volatile LPTGF2CR*>(0x40C900AC); }
 };
 
 // SNVS_LP Active Tamper 1 Configuration Register
@@ -2461,7 +2461,7 @@ union LPAT1CR {
 
   LPAT1CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPAT1CR &Instance() { return *reinterpret_cast<volatile LPAT1CR*>(0x40C900C0); }
+  static inline volatile LPAT1CR &ref() { return *reinterpret_cast<volatile LPAT1CR*>(0x40C900C0); }
 };
 
 // SNVS_LP Active Tamper 2 Configuration Register
@@ -2480,7 +2480,7 @@ union LPAT2CR {
 
   LPAT2CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPAT2CR &Instance() { return *reinterpret_cast<volatile LPAT2CR*>(0x40C900C4); }
+  static inline volatile LPAT2CR &ref() { return *reinterpret_cast<volatile LPAT2CR*>(0x40C900C4); }
 };
 
 // SNVS_LP Active Tamper 3 Configuration Register
@@ -2499,7 +2499,7 @@ union LPAT3CR {
 
   LPAT3CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPAT3CR &Instance() { return *reinterpret_cast<volatile LPAT3CR*>(0x40C900C8); }
+  static inline volatile LPAT3CR &ref() { return *reinterpret_cast<volatile LPAT3CR*>(0x40C900C8); }
 };
 
 // SNVS_LP Active Tamper 4 Configuration Register
@@ -2518,7 +2518,7 @@ union LPAT4CR {
 
   LPAT4CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPAT4CR &Instance() { return *reinterpret_cast<volatile LPAT4CR*>(0x40C900CC); }
+  static inline volatile LPAT4CR &ref() { return *reinterpret_cast<volatile LPAT4CR*>(0x40C900CC); }
 };
 
 // SNVS_LP Active Tamper 5 Configuration Register
@@ -2537,7 +2537,7 @@ union LPAT5CR {
 
   LPAT5CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPAT5CR &Instance() { return *reinterpret_cast<volatile LPAT5CR*>(0x40C900D0); }
+  static inline volatile LPAT5CR &ref() { return *reinterpret_cast<volatile LPAT5CR*>(0x40C900D0); }
 };
 
 // SNVS_LP Active Tamper Control Register
@@ -2654,7 +2654,7 @@ union LPATCTLR {
 
   LPATCTLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPATCTLR &Instance() { return *reinterpret_cast<volatile LPATCTLR*>(0x40C900E0); }
+  static inline volatile LPATCTLR &ref() { return *reinterpret_cast<volatile LPATCTLR*>(0x40C900E0); }
 };
 
 // SNVS_LP Active Tamper Clock Control Register
@@ -2684,7 +2684,7 @@ union LPATCLKR {
 
   LPATCLKR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPATCLKR &Instance() { return *reinterpret_cast<volatile LPATCLKR*>(0x40C900E4); }
+  static inline volatile LPATCLKR &ref() { return *reinterpret_cast<volatile LPATCLKR*>(0x40C900E4); }
 };
 
 // SNVS_LP Active Tamper Routing Control 1 Register
@@ -2723,7 +2723,7 @@ union LPATRC1R {
 
   LPATRC1R() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPATRC1R &Instance() { return *reinterpret_cast<volatile LPATRC1R*>(0x40C900E8); }
+  static inline volatile LPATRC1R &ref() { return *reinterpret_cast<volatile LPATRC1R*>(0x40C900E8); }
 };
 
 // SNVS_LP Active Tamper Routing Control 2 Register
@@ -2744,7 +2744,7 @@ union LPATRC2R {
 
   LPATRC2R() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPATRC2R &Instance() { return *reinterpret_cast<volatile LPATRC2R*>(0x40C900EC); }
+  static inline volatile LPATRC2R &ref() { return *reinterpret_cast<volatile LPATRC2R*>(0x40C900EC); }
 };
 
 // SNVS_LP General Purpose Registers 0 .. 3
@@ -2761,7 +2761,7 @@ union LPGPR_0 {
 
   LPGPR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR_0 &Instance() { return *reinterpret_cast<volatile LPGPR_0*>(0x40C90100); }
+  static inline volatile LPGPR_0 &ref() { return *reinterpret_cast<volatile LPGPR_0*>(0x40C90100); }
 };
 // SNVS_LP General Purpose Registers 0 .. 3
 union LPGPR_1 {
@@ -2777,7 +2777,7 @@ union LPGPR_1 {
 
   LPGPR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR_1 &Instance() { return *reinterpret_cast<volatile LPGPR_1*>(0x40C90104); }
+  static inline volatile LPGPR_1 &ref() { return *reinterpret_cast<volatile LPGPR_1*>(0x40C90104); }
 };
 // SNVS_LP General Purpose Registers 0 .. 3
 union LPGPR_2 {
@@ -2793,7 +2793,7 @@ union LPGPR_2 {
 
   LPGPR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR_2 &Instance() { return *reinterpret_cast<volatile LPGPR_2*>(0x40C90108); }
+  static inline volatile LPGPR_2 &ref() { return *reinterpret_cast<volatile LPGPR_2*>(0x40C90108); }
 };
 // SNVS_LP General Purpose Registers 0 .. 3
 union LPGPR_3 {
@@ -2809,7 +2809,7 @@ union LPGPR_3 {
 
   LPGPR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR_3 &Instance() { return *reinterpret_cast<volatile LPGPR_3*>(0x40C9010C); }
+  static inline volatile LPGPR_3 &ref() { return *reinterpret_cast<volatile LPGPR_3*>(0x40C9010C); }
 };
 
 // SNVS_HP Version ID Register 1
@@ -2830,7 +2830,7 @@ union HPVIDR1 {
 
   HPVIDR1() = delete;
   inline void Reset() volatile { this->value = 0x003E0103; }
-  static inline volatile HPVIDR1 &Instance() { return *reinterpret_cast<volatile HPVIDR1*>(0x40C90BF8); }
+  static inline volatile HPVIDR1 &ref() { return *reinterpret_cast<volatile HPVIDR1*>(0x40C90BF8); }
 };
 
 // SNVS_HP Version ID Register 2
@@ -2851,7 +2851,7 @@ union HPVIDR2 {
 
   HPVIDR2() = delete;
   inline void Reset() volatile { this->value = 0x06000500; }
-  static inline volatile HPVIDR2 &Instance() { return *reinterpret_cast<volatile HPVIDR2*>(0x40C90BFC); }
+  static inline volatile HPVIDR2 &ref() { return *reinterpret_cast<volatile HPVIDR2*>(0x40C90BFC); }
 };
 
 

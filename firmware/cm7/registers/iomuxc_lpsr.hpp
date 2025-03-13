@@ -55,7 +55,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_00 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_00() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_00 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_00*>(0x40C08000); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_00 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_00*>(0x40C08000); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_01 SW MUX Control Register
@@ -101,7 +101,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_01 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_01() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_01 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_01*>(0x40C08004); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_01 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_01*>(0x40C08004); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_02 SW MUX Control Register
@@ -145,7 +145,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_02 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_02() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_02 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_02*>(0x40C08008); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_02 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_02*>(0x40C08008); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_03 SW MUX Control Register
@@ -189,7 +189,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_03 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_03() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_03 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_03*>(0x40C0800C); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_03 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_03*>(0x40C0800C); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_04 SW MUX Control Register
@@ -235,7 +235,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_04 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_04() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_04 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_04*>(0x40C08010); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_04 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_04*>(0x40C08010); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_05 SW MUX Control Register
@@ -283,7 +283,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_05 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_05() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_05 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_05*>(0x40C08014); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_05 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_05*>(0x40C08014); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_06 SW MUX Control Register
@@ -333,7 +333,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_06 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_06() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_06 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_06*>(0x40C08018); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_06 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_06*>(0x40C08018); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_07 SW MUX Control Register
@@ -383,7 +383,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_07 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_07() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_07 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_07*>(0x40C0801C); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_07 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_07*>(0x40C0801C); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_08 SW MUX Control Register
@@ -435,7 +435,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_08 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_08() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_08 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_08*>(0x40C08020); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_08 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_08*>(0x40C08020); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_09 SW MUX Control Register
@@ -485,7 +485,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_09 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_09() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_09 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_09*>(0x40C08024); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_09 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_09*>(0x40C08024); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_10 SW MUX Control Register
@@ -537,7 +537,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_10 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_10 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_10*>(0x40C08028); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_10 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_10*>(0x40C08028); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_11 SW MUX Control Register
@@ -589,7 +589,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_11 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_11 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_11*>(0x40C0802C); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_11 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_11*>(0x40C0802C); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_12 SW MUX Control Register
@@ -639,7 +639,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_12 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_12 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_12*>(0x40C08030); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_12 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_12*>(0x40C08030); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_13 SW MUX Control Register
@@ -685,7 +685,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_13 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_13 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_13*>(0x40C08034); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_13 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_13*>(0x40C08034); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_14 SW MUX Control Register
@@ -731,7 +731,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_14 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_14 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_14*>(0x40C08038); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_14 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_14*>(0x40C08038); }
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_15 SW MUX Control Register
@@ -777,7 +777,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_15 {
 
   SW_MUX_CTL_PAD_GPIO_LPSR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_15 &Instance() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_15*>(0x40C0803C); }
+  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_15 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_15*>(0x40C0803C); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_00 SW PAD Control Register
@@ -872,7 +872,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_00 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_00() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_00 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_00*>(0x40C08040); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_00 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_00*>(0x40C08040); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_01 SW PAD Control Register
@@ -967,7 +967,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_01 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_01() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_01 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_01*>(0x40C08044); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_01 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_01*>(0x40C08044); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_02 SW PAD Control Register
@@ -1062,7 +1062,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_02 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_02() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_02 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_02*>(0x40C08048); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_02 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_02*>(0x40C08048); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_03 SW PAD Control Register
@@ -1157,7 +1157,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_03 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_03() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_03 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_03*>(0x40C0804C); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_03 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_03*>(0x40C0804C); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_04 SW PAD Control Register
@@ -1252,7 +1252,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_04 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_04() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_04 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_04*>(0x40C08050); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_04 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_04*>(0x40C08050); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_05 SW PAD Control Register
@@ -1347,7 +1347,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_05 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_05() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_05 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_05*>(0x40C08054); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_05 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_05*>(0x40C08054); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_06 SW PAD Control Register
@@ -1442,7 +1442,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_06 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_06() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_06 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_06*>(0x40C08058); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_06 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_06*>(0x40C08058); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_07 SW PAD Control Register
@@ -1537,7 +1537,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_07 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_07() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_07 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_07*>(0x40C0805C); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_07 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_07*>(0x40C0805C); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_08 SW PAD Control Register
@@ -1632,7 +1632,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_08 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_08() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_08 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_08*>(0x40C08060); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_08 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_08*>(0x40C08060); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_09 SW PAD Control Register
@@ -1727,7 +1727,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_09 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_09() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_09 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_09*>(0x40C08064); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_09 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_09*>(0x40C08064); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_10 SW PAD Control Register
@@ -1822,7 +1822,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_10 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_10() = delete;
   inline void Reset() volatile { this->value = 0x0000000E; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_10 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_10*>(0x40C08068); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_10 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_10*>(0x40C08068); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_11 SW PAD Control Register
@@ -1917,7 +1917,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_11 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_11 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_11*>(0x40C0806C); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_11 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_11*>(0x40C0806C); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_12 SW PAD Control Register
@@ -2012,7 +2012,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_12 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_12() = delete;
   inline void Reset() volatile { this->value = 0x0000000E; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_12 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_12*>(0x40C08070); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_12 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_12*>(0x40C08070); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_13 SW PAD Control Register
@@ -2107,7 +2107,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_13 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_13 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_13*>(0x40C08074); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_13 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_13*>(0x40C08074); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_14 SW PAD Control Register
@@ -2202,7 +2202,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_14 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000006; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_14 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_14*>(0x40C08078); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_14 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_14*>(0x40C08078); }
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_15 SW PAD Control Register
@@ -2297,7 +2297,7 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_15 {
 
   SW_PAD_CTL_PAD_GPIO_LPSR_15() = delete;
   inline void Reset() volatile { this->value = 0x0000000E; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_15 &Instance() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_15*>(0x40C0807C); }
+  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_15 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_15*>(0x40C0807C); }
 };
 
 // CAN3_IPP_IND_CANRX_SELECT_INPUT DAISY Register
@@ -2325,7 +2325,7 @@ union CAN3_IPP_IND_CANRX_SELECT_INPUT {
 
   CAN3_IPP_IND_CANRX_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CAN3_IPP_IND_CANRX_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile CAN3_IPP_IND_CANRX_SELECT_INPUT*>(0x40C08080); }
+  static inline volatile CAN3_IPP_IND_CANRX_SELECT_INPUT &ref() { return *reinterpret_cast<volatile CAN3_IPP_IND_CANRX_SELECT_INPUT*>(0x40C08080); }
 };
 
 // LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT DAISY Register
@@ -2351,7 +2351,7 @@ union LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT {
 
   LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT*>(0x40C08084); }
+  static inline volatile LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT*>(0x40C08084); }
 };
 
 // LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT DAISY Register
@@ -2377,7 +2377,7 @@ union LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT {
 
   LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT*>(0x40C08088); }
+  static inline volatile LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT*>(0x40C08088); }
 };
 
 // LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT DAISY Register
@@ -2403,7 +2403,7 @@ union LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT {
 
   LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT*>(0x40C0808C); }
+  static inline volatile LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT*>(0x40C0808C); }
 };
 
 // LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT DAISY Register
@@ -2429,7 +2429,7 @@ union LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT {
 
   LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT*>(0x40C08090); }
+  static inline volatile LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT*>(0x40C08090); }
 };
 
 // LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0 DAISY Register
@@ -2455,7 +2455,7 @@ union LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0 {
 
   LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0 &Instance() { return *reinterpret_cast<volatile LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0*>(0x40C08094); }
+  static inline volatile LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0 &ref() { return *reinterpret_cast<volatile LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0*>(0x40C08094); }
 };
 
 // LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT DAISY Register
@@ -2481,7 +2481,7 @@ union LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT {
 
   LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT*>(0x40C08098); }
+  static inline volatile LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT*>(0x40C08098); }
 };
 
 // LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT DAISY Register
@@ -2507,7 +2507,7 @@ union LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT {
 
   LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT*>(0x40C0809C); }
+  static inline volatile LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT*>(0x40C0809C); }
 };
 
 // LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT DAISY Register
@@ -2533,7 +2533,7 @@ union LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT {
 
   LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT*>(0x40C080A0); }
+  static inline volatile LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT*>(0x40C080A0); }
 };
 
 // LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT DAISY Register
@@ -2559,7 +2559,7 @@ union LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT {
 
   LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT*>(0x40C080A4); }
+  static inline volatile LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT*>(0x40C080A4); }
 };
 
 // LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT DAISY Register
@@ -2585,7 +2585,7 @@ union LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT {
 
   LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT*>(0x40C080A8); }
+  static inline volatile LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT*>(0x40C080A8); }
 };
 
 // LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT DAISY Register
@@ -2613,7 +2613,7 @@ union LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT {
 
   LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT*>(0x40C080AC); }
+  static inline volatile LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT*>(0x40C080AC); }
 };
 
 // LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT DAISY Register
@@ -2641,7 +2641,7 @@ union LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT {
 
   LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT*>(0x40C080B0); }
+  static inline volatile LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT*>(0x40C080B0); }
 };
 
 // MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0 DAISY Register
@@ -2667,7 +2667,7 @@ union MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0 {
 
   MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0 &Instance() { return *reinterpret_cast<volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0*>(0x40C080B4); }
+  static inline volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0 &ref() { return *reinterpret_cast<volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0*>(0x40C080B4); }
 };
 
 // MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1 DAISY Register
@@ -2693,7 +2693,7 @@ union MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1 {
 
   MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1 &Instance() { return *reinterpret_cast<volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1*>(0x40C080B8); }
+  static inline volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1 &ref() { return *reinterpret_cast<volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1*>(0x40C080B8); }
 };
 
 // MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2 DAISY Register
@@ -2719,7 +2719,7 @@ union MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2 {
 
   MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2 &Instance() { return *reinterpret_cast<volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2*>(0x40C080BC); }
+  static inline volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2 &ref() { return *reinterpret_cast<volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2*>(0x40C080BC); }
 };
 
 // MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3 DAISY Register
@@ -2745,7 +2745,7 @@ union MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3 {
 
   MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3 &Instance() { return *reinterpret_cast<volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3*>(0x40C080C0); }
+  static inline volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3 &ref() { return *reinterpret_cast<volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3*>(0x40C080C0); }
 };
 
 // NMI_GLUE_IPP_IND_NMI_SELECT_INPUT DAISY Register
@@ -2771,7 +2771,7 @@ union NMI_GLUE_IPP_IND_NMI_SELECT_INPUT {
 
   NMI_GLUE_IPP_IND_NMI_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NMI_GLUE_IPP_IND_NMI_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile NMI_GLUE_IPP_IND_NMI_SELECT_INPUT*>(0x40C080C4); }
+  static inline volatile NMI_GLUE_IPP_IND_NMI_SELECT_INPUT &ref() { return *reinterpret_cast<volatile NMI_GLUE_IPP_IND_NMI_SELECT_INPUT*>(0x40C080C4); }
 };
 
 // SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT DAISY Register
@@ -2797,7 +2797,7 @@ union SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT {
 
   SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT*>(0x40C080C8); }
+  static inline volatile SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT &ref() { return *reinterpret_cast<volatile SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT*>(0x40C080C8); }
 };
 
 // SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT DAISY Register
@@ -2823,7 +2823,7 @@ union SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT {
 
   SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT*>(0x40C080CC); }
+  static inline volatile SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT &ref() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT*>(0x40C080CC); }
 };
 
 // SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0 DAISY Register
@@ -2849,7 +2849,7 @@ union SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0 {
 
   SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0 &Instance() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0*>(0x40C080D0); }
+  static inline volatile SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0 &ref() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0*>(0x40C080D0); }
 };
 
 // SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT DAISY Register
@@ -2875,7 +2875,7 @@ union SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT {
 
   SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT*>(0x40C080D4); }
+  static inline volatile SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT &ref() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT*>(0x40C080D4); }
 };
 
 // SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT DAISY Register
@@ -2901,7 +2901,7 @@ union SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT {
 
   SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT*>(0x40C080D8); }
+  static inline volatile SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT &ref() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT*>(0x40C080D8); }
 };
 
 // SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT DAISY Register
@@ -2927,7 +2927,7 @@ union SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT {
 
   SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT &Instance() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT*>(0x40C080DC); }
+  static inline volatile SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT &ref() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT*>(0x40C080DC); }
 };
 
 

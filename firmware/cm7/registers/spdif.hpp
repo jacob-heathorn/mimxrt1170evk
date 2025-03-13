@@ -170,7 +170,7 @@ union SCR {
 
   SCR() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
-  static inline volatile SCR &Instance() { return *reinterpret_cast<volatile SCR*>(0x40400000); }
+  static inline volatile SCR &ref() { return *reinterpret_cast<volatile SCR*>(0x40400000); }
 };
 
 // CDText Control Register
@@ -197,7 +197,7 @@ union SRCD {
 
   SRCD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRCD &Instance() { return *reinterpret_cast<volatile SRCD*>(0x40400004); }
+  static inline volatile SRCD &ref() { return *reinterpret_cast<volatile SRCD*>(0x40400004); }
 };
 
 // PhaseConfig Register
@@ -254,7 +254,7 @@ union SRPC {
 
   SRPC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRPC &Instance() { return *reinterpret_cast<volatile SRPC*>(0x40400008); }
+  static inline volatile SRPC &ref() { return *reinterpret_cast<volatile SRPC*>(0x40400008); }
 };
 
 // InterruptEn Register
@@ -307,7 +307,7 @@ union SIE {
 
   SIE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SIE &Instance() { return *reinterpret_cast<volatile SIE*>(0x4040000C); }
+  static inline volatile SIE &ref() { return *reinterpret_cast<volatile SIE*>(0x4040000C); }
 };
 
 // InterruptClear Register
@@ -354,7 +354,7 @@ union SIC {
 
   SIC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SIC &Instance() { return *reinterpret_cast<volatile SIC*>(0x40400010); }
+  static inline volatile SIC &ref() { return *reinterpret_cast<volatile SIC*>(0x40400010); }
 };
 
 // InterruptStat Register
@@ -407,7 +407,7 @@ union SIS {
 
   SIS() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SIS &Instance() { return *reinterpret_cast<volatile SIS*>(0x40400010); }
+  static inline volatile SIS &ref() { return *reinterpret_cast<volatile SIS*>(0x40400010); }
 };
 
 // SPDIFRxLeft Register
@@ -425,7 +425,7 @@ union SRL {
 
   SRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRL &Instance() { return *reinterpret_cast<volatile SRL*>(0x40400014); }
+  static inline volatile SRL &ref() { return *reinterpret_cast<volatile SRL*>(0x40400014); }
 };
 
 // SPDIFRxRight Register
@@ -443,7 +443,7 @@ union SRR {
 
   SRR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRR &Instance() { return *reinterpret_cast<volatile SRR*>(0x40400018); }
+  static inline volatile SRR &ref() { return *reinterpret_cast<volatile SRR*>(0x40400018); }
 };
 
 // SPDIFRxCChannel_h Register
@@ -461,7 +461,7 @@ union SRCSH {
 
   SRCSH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRCSH &Instance() { return *reinterpret_cast<volatile SRCSH*>(0x4040001C); }
+  static inline volatile SRCSH &ref() { return *reinterpret_cast<volatile SRCSH*>(0x4040001C); }
 };
 
 // SPDIFRxCChannel_l Register
@@ -479,7 +479,7 @@ union SRCSL {
 
   SRCSL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRCSL &Instance() { return *reinterpret_cast<volatile SRCSL*>(0x40400020); }
+  static inline volatile SRCSL &ref() { return *reinterpret_cast<volatile SRCSL*>(0x40400020); }
 };
 
 // UchannelRx Register
@@ -497,7 +497,7 @@ union SRU {
 
   SRU() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRU &Instance() { return *reinterpret_cast<volatile SRU*>(0x40400024); }
+  static inline volatile SRU &ref() { return *reinterpret_cast<volatile SRU*>(0x40400024); }
 };
 
 // QchannelRx Register
@@ -515,7 +515,7 @@ union SRQ {
 
   SRQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRQ &Instance() { return *reinterpret_cast<volatile SRQ*>(0x40400028); }
+  static inline volatile SRQ &ref() { return *reinterpret_cast<volatile SRQ*>(0x40400028); }
 };
 
 // SPDIFTxLeft Register
@@ -533,7 +533,7 @@ union STL {
 
   STL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STL &Instance() { return *reinterpret_cast<volatile STL*>(0x4040002C); }
+  static inline volatile STL &ref() { return *reinterpret_cast<volatile STL*>(0x4040002C); }
 };
 
 // SPDIFTxRight Register
@@ -551,7 +551,7 @@ union STR {
 
   STR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STR &Instance() { return *reinterpret_cast<volatile STR*>(0x40400030); }
+  static inline volatile STR &ref() { return *reinterpret_cast<volatile STR*>(0x40400030); }
 };
 
 // SPDIFTxCChannelCons_h Register
@@ -569,7 +569,7 @@ union STCSCH {
 
   STCSCH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STCSCH &Instance() { return *reinterpret_cast<volatile STCSCH*>(0x40400034); }
+  static inline volatile STCSCH &ref() { return *reinterpret_cast<volatile STCSCH*>(0x40400034); }
 };
 
 // SPDIFTxCChannelCons_l Register
@@ -587,7 +587,7 @@ union STCSCL {
 
   STCSCL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STCSCL &Instance() { return *reinterpret_cast<volatile STCSCL*>(0x40400038); }
+  static inline volatile STCSCL &ref() { return *reinterpret_cast<volatile STCSCL*>(0x40400038); }
 };
 
 // FreqMeas Register
@@ -605,7 +605,7 @@ union SRFM {
 
   SRFM() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRFM &Instance() { return *reinterpret_cast<volatile SRFM*>(0x40400044); }
+  static inline volatile SRFM &ref() { return *reinterpret_cast<volatile SRFM*>(0x40400044); }
 };
 
 // SPDIFTxClk Register
@@ -669,7 +669,7 @@ union STC {
 
   STC() = delete;
   inline void Reset() volatile { this->value = 0x00020F00; }
-  static inline volatile STC &Instance() { return *reinterpret_cast<volatile STC*>(0x40400050); }
+  static inline volatile STC &ref() { return *reinterpret_cast<volatile STC*>(0x40400050); }
 };
 
 

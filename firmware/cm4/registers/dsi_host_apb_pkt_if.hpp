@@ -24,7 +24,7 @@ union TX_PAYLOAD {
 
   TX_PAYLOAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TX_PAYLOAD &Instance() { return *reinterpret_cast<volatile TX_PAYLOAD*>(0x4080C280); }
+  static inline volatile TX_PAYLOAD &ref() { return *reinterpret_cast<volatile TX_PAYLOAD*>(0x4080C280); }
 };
 
 // PKT_CONTROL
@@ -42,7 +42,7 @@ union PKT_CONTROL {
 
   PKT_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PKT_CONTROL &Instance() { return *reinterpret_cast<volatile PKT_CONTROL*>(0x4080C284); }
+  static inline volatile PKT_CONTROL &ref() { return *reinterpret_cast<volatile PKT_CONTROL*>(0x4080C284); }
 };
 
 // SEND_PACKET
@@ -68,7 +68,7 @@ union SEND_PACKET {
 
   SEND_PACKET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEND_PACKET &Instance() { return *reinterpret_cast<volatile SEND_PACKET*>(0x4080C288); }
+  static inline volatile SEND_PACKET &ref() { return *reinterpret_cast<volatile SEND_PACKET*>(0x4080C288); }
 };
 
 // PKT_STATUS
@@ -86,7 +86,7 @@ union PKT_STATUS {
 
   PKT_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PKT_STATUS &Instance() { return *reinterpret_cast<volatile PKT_STATUS*>(0x4080C28C); }
+  static inline volatile PKT_STATUS &ref() { return *reinterpret_cast<volatile PKT_STATUS*>(0x4080C28C); }
 };
 
 // PKT_FIFO_WR_LEVEL
@@ -104,7 +104,7 @@ union PKT_FIFO_WR_LEVEL {
 
   PKT_FIFO_WR_LEVEL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PKT_FIFO_WR_LEVEL &Instance() { return *reinterpret_cast<volatile PKT_FIFO_WR_LEVEL*>(0x4080C290); }
+  static inline volatile PKT_FIFO_WR_LEVEL &ref() { return *reinterpret_cast<volatile PKT_FIFO_WR_LEVEL*>(0x4080C290); }
 };
 
 // PKT_FIFO_RD_LEVEL
@@ -122,7 +122,7 @@ union PKT_FIFO_RD_LEVEL {
 
   PKT_FIFO_RD_LEVEL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PKT_FIFO_RD_LEVEL &Instance() { return *reinterpret_cast<volatile PKT_FIFO_RD_LEVEL*>(0x4080C294); }
+  static inline volatile PKT_FIFO_RD_LEVEL &ref() { return *reinterpret_cast<volatile PKT_FIFO_RD_LEVEL*>(0x4080C294); }
 };
 
 // PKT_RX_PAYLOAD
@@ -139,7 +139,7 @@ union PKT_RX_PAYLOAD {
 
   PKT_RX_PAYLOAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PKT_RX_PAYLOAD &Instance() { return *reinterpret_cast<volatile PKT_RX_PAYLOAD*>(0x4080C298); }
+  static inline volatile PKT_RX_PAYLOAD &ref() { return *reinterpret_cast<volatile PKT_RX_PAYLOAD*>(0x4080C298); }
 };
 
 // PKT_RX_PKT_HEADER
@@ -157,7 +157,7 @@ union PKT_RX_PKT_HEADER {
 
   PKT_RX_PKT_HEADER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PKT_RX_PKT_HEADER &Instance() { return *reinterpret_cast<volatile PKT_RX_PKT_HEADER*>(0x4080C29C); }
+  static inline volatile PKT_RX_PKT_HEADER &ref() { return *reinterpret_cast<volatile PKT_RX_PKT_HEADER*>(0x4080C29C); }
 };
 
 // IRQ_STATUS
@@ -174,7 +174,7 @@ union IRQ_STATUS {
 
   IRQ_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRQ_STATUS &Instance() { return *reinterpret_cast<volatile IRQ_STATUS*>(0x4080C2A0); }
+  static inline volatile IRQ_STATUS &ref() { return *reinterpret_cast<volatile IRQ_STATUS*>(0x4080C2A0); }
 };
 
 // IRQ_STATUS2
@@ -192,7 +192,7 @@ union IRQ_STATUS2 {
 
   IRQ_STATUS2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRQ_STATUS2 &Instance() { return *reinterpret_cast<volatile IRQ_STATUS2*>(0x4080C2A4); }
+  static inline volatile IRQ_STATUS2 &ref() { return *reinterpret_cast<volatile IRQ_STATUS2*>(0x4080C2A4); }
 };
 
 // IRQ_MASK
@@ -209,7 +209,7 @@ union IRQ_MASK {
 
   IRQ_MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRQ_MASK &Instance() { return *reinterpret_cast<volatile IRQ_MASK*>(0x4080C2A8); }
+  static inline volatile IRQ_MASK &ref() { return *reinterpret_cast<volatile IRQ_MASK*>(0x4080C2A8); }
 };
 
 // IRQ_MASK2
@@ -227,7 +227,7 @@ union IRQ_MASK2 {
 
   IRQ_MASK2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRQ_MASK2 &Instance() { return *reinterpret_cast<volatile IRQ_MASK2*>(0x4080C2AC); }
+  static inline volatile IRQ_MASK2 &ref() { return *reinterpret_cast<volatile IRQ_MASK2*>(0x4080C2AC); }
 };
 
 

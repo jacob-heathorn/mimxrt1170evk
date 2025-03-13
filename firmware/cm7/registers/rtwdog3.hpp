@@ -159,7 +159,7 @@ union CS {
 
   CS() = delete;
   inline void Reset() volatile { this->value = 0x00002180; }
-  static inline volatile CS &Instance() { return *reinterpret_cast<volatile CS*>(0x40038000); }
+  static inline volatile CS &ref() { return *reinterpret_cast<volatile CS*>(0x40038000); }
 };
 
 // Watchdog Counter Register
@@ -179,7 +179,7 @@ union CNT {
 
   CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CNT &Instance() { return *reinterpret_cast<volatile CNT*>(0x40038004); }
+  static inline volatile CNT &ref() { return *reinterpret_cast<volatile CNT*>(0x40038004); }
 };
 
 // Watchdog Timeout Value Register
@@ -199,7 +199,7 @@ union TOVAL {
 
   TOVAL() = delete;
   inline void Reset() volatile { this->value = 0x00007D00; }
-  static inline volatile TOVAL &Instance() { return *reinterpret_cast<volatile TOVAL*>(0x40038008); }
+  static inline volatile TOVAL &ref() { return *reinterpret_cast<volatile TOVAL*>(0x40038008); }
 };
 
 // Watchdog Window Register
@@ -219,7 +219,7 @@ union WIN {
 
   WIN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WIN &Instance() { return *reinterpret_cast<volatile WIN*>(0x4003800C); }
+  static inline volatile WIN &ref() { return *reinterpret_cast<volatile WIN*>(0x4003800C); }
 };
 
 

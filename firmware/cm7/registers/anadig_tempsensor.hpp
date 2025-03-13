@@ -28,7 +28,7 @@ union TEMPSENSOR {
 
   TEMPSENSOR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TEMPSENSOR &Instance() { return *reinterpret_cast<volatile TEMPSENSOR*>(0x40C84400); }
+  static inline volatile TEMPSENSOR &ref() { return *reinterpret_cast<volatile TEMPSENSOR*>(0x40C84400); }
 };
 
 // TEMPSNS_OTP_TRIM_VALUE_REGISTER
@@ -47,7 +47,7 @@ union TEMPSNS_OTP_TRIM_VALUE {
 
   TEMPSNS_OTP_TRIM_VALUE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TEMPSNS_OTP_TRIM_VALUE &Instance() { return *reinterpret_cast<volatile TEMPSNS_OTP_TRIM_VALUE*>(0x40C84430); }
+  static inline volatile TEMPSNS_OTP_TRIM_VALUE &ref() { return *reinterpret_cast<volatile TEMPSNS_OTP_TRIM_VALUE*>(0x40C84430); }
 };
 
 

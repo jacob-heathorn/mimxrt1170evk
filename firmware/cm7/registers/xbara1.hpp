@@ -27,7 +27,7 @@ union XBARA1_SEL0 {
 
   XBARA1_SEL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL0 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL0*>(0x4003C000); }
+  static inline volatile XBARA1_SEL0 &ref() { return *reinterpret_cast<volatile XBARA1_SEL0*>(0x4003C000); }
 };
 
 // Crossbar A Select Register 1
@@ -47,7 +47,7 @@ union XBARA1_SEL1 {
 
   XBARA1_SEL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL1 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL1*>(0x4003C002); }
+  static inline volatile XBARA1_SEL1 &ref() { return *reinterpret_cast<volatile XBARA1_SEL1*>(0x4003C002); }
 };
 
 // Crossbar A Select Register 2
@@ -67,7 +67,7 @@ union XBARA1_SEL2 {
 
   XBARA1_SEL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL2 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL2*>(0x4003C004); }
+  static inline volatile XBARA1_SEL2 &ref() { return *reinterpret_cast<volatile XBARA1_SEL2*>(0x4003C004); }
 };
 
 // Crossbar A Select Register 3
@@ -87,7 +87,7 @@ union XBARA1_SEL3 {
 
   XBARA1_SEL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL3 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL3*>(0x4003C006); }
+  static inline volatile XBARA1_SEL3 &ref() { return *reinterpret_cast<volatile XBARA1_SEL3*>(0x4003C006); }
 };
 
 // Crossbar A Select Register 4
@@ -107,7 +107,7 @@ union XBARA1_SEL4 {
 
   XBARA1_SEL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL4 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL4*>(0x4003C008); }
+  static inline volatile XBARA1_SEL4 &ref() { return *reinterpret_cast<volatile XBARA1_SEL4*>(0x4003C008); }
 };
 
 // Crossbar A Select Register 5
@@ -127,7 +127,7 @@ union XBARA1_SEL5 {
 
   XBARA1_SEL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL5 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL5*>(0x4003C00A); }
+  static inline volatile XBARA1_SEL5 &ref() { return *reinterpret_cast<volatile XBARA1_SEL5*>(0x4003C00A); }
 };
 
 // Crossbar A Select Register 6
@@ -147,7 +147,7 @@ union XBARA1_SEL6 {
 
   XBARA1_SEL6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL6 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL6*>(0x4003C00C); }
+  static inline volatile XBARA1_SEL6 &ref() { return *reinterpret_cast<volatile XBARA1_SEL6*>(0x4003C00C); }
 };
 
 // Crossbar A Select Register 7
@@ -167,7 +167,7 @@ union XBARA1_SEL7 {
 
   XBARA1_SEL7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL7 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL7*>(0x4003C00E); }
+  static inline volatile XBARA1_SEL7 &ref() { return *reinterpret_cast<volatile XBARA1_SEL7*>(0x4003C00E); }
 };
 
 // Crossbar A Select Register 8
@@ -187,7 +187,7 @@ union XBARA1_SEL8 {
 
   XBARA1_SEL8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL8 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL8*>(0x4003C010); }
+  static inline volatile XBARA1_SEL8 &ref() { return *reinterpret_cast<volatile XBARA1_SEL8*>(0x4003C010); }
 };
 
 // Crossbar A Select Register 9
@@ -207,7 +207,7 @@ union XBARA1_SEL9 {
 
   XBARA1_SEL9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL9 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL9*>(0x4003C012); }
+  static inline volatile XBARA1_SEL9 &ref() { return *reinterpret_cast<volatile XBARA1_SEL9*>(0x4003C012); }
 };
 
 // Crossbar A Select Register 10
@@ -227,7 +227,7 @@ union XBARA1_SEL10 {
 
   XBARA1_SEL10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL10 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL10*>(0x4003C014); }
+  static inline volatile XBARA1_SEL10 &ref() { return *reinterpret_cast<volatile XBARA1_SEL10*>(0x4003C014); }
 };
 
 // Crossbar A Select Register 11
@@ -247,7 +247,7 @@ union XBARA1_SEL11 {
 
   XBARA1_SEL11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL11 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL11*>(0x4003C016); }
+  static inline volatile XBARA1_SEL11 &ref() { return *reinterpret_cast<volatile XBARA1_SEL11*>(0x4003C016); }
 };
 
 // Crossbar A Select Register 12
@@ -267,7 +267,7 @@ union XBARA1_SEL12 {
 
   XBARA1_SEL12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL12 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL12*>(0x4003C018); }
+  static inline volatile XBARA1_SEL12 &ref() { return *reinterpret_cast<volatile XBARA1_SEL12*>(0x4003C018); }
 };
 
 // Crossbar A Select Register 13
@@ -287,7 +287,7 @@ union XBARA1_SEL13 {
 
   XBARA1_SEL13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL13 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL13*>(0x4003C01A); }
+  static inline volatile XBARA1_SEL13 &ref() { return *reinterpret_cast<volatile XBARA1_SEL13*>(0x4003C01A); }
 };
 
 // Crossbar A Select Register 14
@@ -307,7 +307,7 @@ union XBARA1_SEL14 {
 
   XBARA1_SEL14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL14 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL14*>(0x4003C01C); }
+  static inline volatile XBARA1_SEL14 &ref() { return *reinterpret_cast<volatile XBARA1_SEL14*>(0x4003C01C); }
 };
 
 // Crossbar A Select Register 15
@@ -327,7 +327,7 @@ union XBARA1_SEL15 {
 
   XBARA1_SEL15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL15 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL15*>(0x4003C01E); }
+  static inline volatile XBARA1_SEL15 &ref() { return *reinterpret_cast<volatile XBARA1_SEL15*>(0x4003C01E); }
 };
 
 // Crossbar A Select Register 16
@@ -347,7 +347,7 @@ union XBARA1_SEL16 {
 
   XBARA1_SEL16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL16 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL16*>(0x4003C020); }
+  static inline volatile XBARA1_SEL16 &ref() { return *reinterpret_cast<volatile XBARA1_SEL16*>(0x4003C020); }
 };
 
 // Crossbar A Select Register 17
@@ -367,7 +367,7 @@ union XBARA1_SEL17 {
 
   XBARA1_SEL17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL17 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL17*>(0x4003C022); }
+  static inline volatile XBARA1_SEL17 &ref() { return *reinterpret_cast<volatile XBARA1_SEL17*>(0x4003C022); }
 };
 
 // Crossbar A Select Register 18
@@ -387,7 +387,7 @@ union XBARA1_SEL18 {
 
   XBARA1_SEL18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL18 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL18*>(0x4003C024); }
+  static inline volatile XBARA1_SEL18 &ref() { return *reinterpret_cast<volatile XBARA1_SEL18*>(0x4003C024); }
 };
 
 // Crossbar A Select Register 19
@@ -407,7 +407,7 @@ union XBARA1_SEL19 {
 
   XBARA1_SEL19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL19 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL19*>(0x4003C026); }
+  static inline volatile XBARA1_SEL19 &ref() { return *reinterpret_cast<volatile XBARA1_SEL19*>(0x4003C026); }
 };
 
 // Crossbar A Select Register 20
@@ -427,7 +427,7 @@ union XBARA1_SEL20 {
 
   XBARA1_SEL20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL20 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL20*>(0x4003C028); }
+  static inline volatile XBARA1_SEL20 &ref() { return *reinterpret_cast<volatile XBARA1_SEL20*>(0x4003C028); }
 };
 
 // Crossbar A Select Register 21
@@ -447,7 +447,7 @@ union XBARA1_SEL21 {
 
   XBARA1_SEL21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL21 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL21*>(0x4003C02A); }
+  static inline volatile XBARA1_SEL21 &ref() { return *reinterpret_cast<volatile XBARA1_SEL21*>(0x4003C02A); }
 };
 
 // Crossbar A Select Register 22
@@ -467,7 +467,7 @@ union XBARA1_SEL22 {
 
   XBARA1_SEL22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL22 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL22*>(0x4003C02C); }
+  static inline volatile XBARA1_SEL22 &ref() { return *reinterpret_cast<volatile XBARA1_SEL22*>(0x4003C02C); }
 };
 
 // Crossbar A Select Register 23
@@ -487,7 +487,7 @@ union XBARA1_SEL23 {
 
   XBARA1_SEL23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL23 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL23*>(0x4003C02E); }
+  static inline volatile XBARA1_SEL23 &ref() { return *reinterpret_cast<volatile XBARA1_SEL23*>(0x4003C02E); }
 };
 
 // Crossbar A Select Register 24
@@ -507,7 +507,7 @@ union XBARA1_SEL24 {
 
   XBARA1_SEL24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL24 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL24*>(0x4003C030); }
+  static inline volatile XBARA1_SEL24 &ref() { return *reinterpret_cast<volatile XBARA1_SEL24*>(0x4003C030); }
 };
 
 // Crossbar A Select Register 25
@@ -527,7 +527,7 @@ union XBARA1_SEL25 {
 
   XBARA1_SEL25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL25 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL25*>(0x4003C032); }
+  static inline volatile XBARA1_SEL25 &ref() { return *reinterpret_cast<volatile XBARA1_SEL25*>(0x4003C032); }
 };
 
 // Crossbar A Select Register 26
@@ -547,7 +547,7 @@ union XBARA1_SEL26 {
 
   XBARA1_SEL26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL26 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL26*>(0x4003C034); }
+  static inline volatile XBARA1_SEL26 &ref() { return *reinterpret_cast<volatile XBARA1_SEL26*>(0x4003C034); }
 };
 
 // Crossbar A Select Register 27
@@ -567,7 +567,7 @@ union XBARA1_SEL27 {
 
   XBARA1_SEL27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL27 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL27*>(0x4003C036); }
+  static inline volatile XBARA1_SEL27 &ref() { return *reinterpret_cast<volatile XBARA1_SEL27*>(0x4003C036); }
 };
 
 // Crossbar A Select Register 28
@@ -587,7 +587,7 @@ union XBARA1_SEL28 {
 
   XBARA1_SEL28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL28 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL28*>(0x4003C038); }
+  static inline volatile XBARA1_SEL28 &ref() { return *reinterpret_cast<volatile XBARA1_SEL28*>(0x4003C038); }
 };
 
 // Crossbar A Select Register 29
@@ -607,7 +607,7 @@ union XBARA1_SEL29 {
 
   XBARA1_SEL29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL29 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL29*>(0x4003C03A); }
+  static inline volatile XBARA1_SEL29 &ref() { return *reinterpret_cast<volatile XBARA1_SEL29*>(0x4003C03A); }
 };
 
 // Crossbar A Select Register 30
@@ -627,7 +627,7 @@ union XBARA1_SEL30 {
 
   XBARA1_SEL30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL30 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL30*>(0x4003C03C); }
+  static inline volatile XBARA1_SEL30 &ref() { return *reinterpret_cast<volatile XBARA1_SEL30*>(0x4003C03C); }
 };
 
 // Crossbar A Select Register 31
@@ -647,7 +647,7 @@ union XBARA1_SEL31 {
 
   XBARA1_SEL31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL31 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL31*>(0x4003C03E); }
+  static inline volatile XBARA1_SEL31 &ref() { return *reinterpret_cast<volatile XBARA1_SEL31*>(0x4003C03E); }
 };
 
 // Crossbar A Select Register 32
@@ -667,7 +667,7 @@ union XBARA1_SEL32 {
 
   XBARA1_SEL32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL32 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL32*>(0x4003C040); }
+  static inline volatile XBARA1_SEL32 &ref() { return *reinterpret_cast<volatile XBARA1_SEL32*>(0x4003C040); }
 };
 
 // Crossbar A Select Register 33
@@ -687,7 +687,7 @@ union XBARA1_SEL33 {
 
   XBARA1_SEL33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL33 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL33*>(0x4003C042); }
+  static inline volatile XBARA1_SEL33 &ref() { return *reinterpret_cast<volatile XBARA1_SEL33*>(0x4003C042); }
 };
 
 // Crossbar A Select Register 34
@@ -707,7 +707,7 @@ union XBARA1_SEL34 {
 
   XBARA1_SEL34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL34 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL34*>(0x4003C044); }
+  static inline volatile XBARA1_SEL34 &ref() { return *reinterpret_cast<volatile XBARA1_SEL34*>(0x4003C044); }
 };
 
 // Crossbar A Select Register 35
@@ -727,7 +727,7 @@ union XBARA1_SEL35 {
 
   XBARA1_SEL35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL35 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL35*>(0x4003C046); }
+  static inline volatile XBARA1_SEL35 &ref() { return *reinterpret_cast<volatile XBARA1_SEL35*>(0x4003C046); }
 };
 
 // Crossbar A Select Register 36
@@ -747,7 +747,7 @@ union XBARA1_SEL36 {
 
   XBARA1_SEL36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL36 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL36*>(0x4003C048); }
+  static inline volatile XBARA1_SEL36 &ref() { return *reinterpret_cast<volatile XBARA1_SEL36*>(0x4003C048); }
 };
 
 // Crossbar A Select Register 37
@@ -767,7 +767,7 @@ union XBARA1_SEL37 {
 
   XBARA1_SEL37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL37 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL37*>(0x4003C04A); }
+  static inline volatile XBARA1_SEL37 &ref() { return *reinterpret_cast<volatile XBARA1_SEL37*>(0x4003C04A); }
 };
 
 // Crossbar A Select Register 38
@@ -787,7 +787,7 @@ union XBARA1_SEL38 {
 
   XBARA1_SEL38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL38 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL38*>(0x4003C04C); }
+  static inline volatile XBARA1_SEL38 &ref() { return *reinterpret_cast<volatile XBARA1_SEL38*>(0x4003C04C); }
 };
 
 // Crossbar A Select Register 39
@@ -807,7 +807,7 @@ union XBARA1_SEL39 {
 
   XBARA1_SEL39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL39 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL39*>(0x4003C04E); }
+  static inline volatile XBARA1_SEL39 &ref() { return *reinterpret_cast<volatile XBARA1_SEL39*>(0x4003C04E); }
 };
 
 // Crossbar A Select Register 40
@@ -827,7 +827,7 @@ union XBARA1_SEL40 {
 
   XBARA1_SEL40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL40 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL40*>(0x4003C050); }
+  static inline volatile XBARA1_SEL40 &ref() { return *reinterpret_cast<volatile XBARA1_SEL40*>(0x4003C050); }
 };
 
 // Crossbar A Select Register 41
@@ -847,7 +847,7 @@ union XBARA1_SEL41 {
 
   XBARA1_SEL41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL41 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL41*>(0x4003C052); }
+  static inline volatile XBARA1_SEL41 &ref() { return *reinterpret_cast<volatile XBARA1_SEL41*>(0x4003C052); }
 };
 
 // Crossbar A Select Register 42
@@ -867,7 +867,7 @@ union XBARA1_SEL42 {
 
   XBARA1_SEL42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL42 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL42*>(0x4003C054); }
+  static inline volatile XBARA1_SEL42 &ref() { return *reinterpret_cast<volatile XBARA1_SEL42*>(0x4003C054); }
 };
 
 // Crossbar A Select Register 43
@@ -887,7 +887,7 @@ union XBARA1_SEL43 {
 
   XBARA1_SEL43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL43 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL43*>(0x4003C056); }
+  static inline volatile XBARA1_SEL43 &ref() { return *reinterpret_cast<volatile XBARA1_SEL43*>(0x4003C056); }
 };
 
 // Crossbar A Select Register 44
@@ -907,7 +907,7 @@ union XBARA1_SEL44 {
 
   XBARA1_SEL44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL44 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL44*>(0x4003C058); }
+  static inline volatile XBARA1_SEL44 &ref() { return *reinterpret_cast<volatile XBARA1_SEL44*>(0x4003C058); }
 };
 
 // Crossbar A Select Register 45
@@ -927,7 +927,7 @@ union XBARA1_SEL45 {
 
   XBARA1_SEL45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL45 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL45*>(0x4003C05A); }
+  static inline volatile XBARA1_SEL45 &ref() { return *reinterpret_cast<volatile XBARA1_SEL45*>(0x4003C05A); }
 };
 
 // Crossbar A Select Register 46
@@ -947,7 +947,7 @@ union XBARA1_SEL46 {
 
   XBARA1_SEL46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL46 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL46*>(0x4003C05C); }
+  static inline volatile XBARA1_SEL46 &ref() { return *reinterpret_cast<volatile XBARA1_SEL46*>(0x4003C05C); }
 };
 
 // Crossbar A Select Register 47
@@ -967,7 +967,7 @@ union XBARA1_SEL47 {
 
   XBARA1_SEL47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL47 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL47*>(0x4003C05E); }
+  static inline volatile XBARA1_SEL47 &ref() { return *reinterpret_cast<volatile XBARA1_SEL47*>(0x4003C05E); }
 };
 
 // Crossbar A Select Register 48
@@ -987,7 +987,7 @@ union XBARA1_SEL48 {
 
   XBARA1_SEL48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL48 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL48*>(0x4003C060); }
+  static inline volatile XBARA1_SEL48 &ref() { return *reinterpret_cast<volatile XBARA1_SEL48*>(0x4003C060); }
 };
 
 // Crossbar A Select Register 49
@@ -1007,7 +1007,7 @@ union XBARA1_SEL49 {
 
   XBARA1_SEL49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL49 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL49*>(0x4003C062); }
+  static inline volatile XBARA1_SEL49 &ref() { return *reinterpret_cast<volatile XBARA1_SEL49*>(0x4003C062); }
 };
 
 // Crossbar A Select Register 50
@@ -1027,7 +1027,7 @@ union XBARA1_SEL50 {
 
   XBARA1_SEL50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL50 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL50*>(0x4003C064); }
+  static inline volatile XBARA1_SEL50 &ref() { return *reinterpret_cast<volatile XBARA1_SEL50*>(0x4003C064); }
 };
 
 // Crossbar A Select Register 51
@@ -1047,7 +1047,7 @@ union XBARA1_SEL51 {
 
   XBARA1_SEL51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL51 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL51*>(0x4003C066); }
+  static inline volatile XBARA1_SEL51 &ref() { return *reinterpret_cast<volatile XBARA1_SEL51*>(0x4003C066); }
 };
 
 // Crossbar A Select Register 52
@@ -1067,7 +1067,7 @@ union XBARA1_SEL52 {
 
   XBARA1_SEL52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL52 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL52*>(0x4003C068); }
+  static inline volatile XBARA1_SEL52 &ref() { return *reinterpret_cast<volatile XBARA1_SEL52*>(0x4003C068); }
 };
 
 // Crossbar A Select Register 53
@@ -1087,7 +1087,7 @@ union XBARA1_SEL53 {
 
   XBARA1_SEL53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL53 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL53*>(0x4003C06A); }
+  static inline volatile XBARA1_SEL53 &ref() { return *reinterpret_cast<volatile XBARA1_SEL53*>(0x4003C06A); }
 };
 
 // Crossbar A Select Register 54
@@ -1107,7 +1107,7 @@ union XBARA1_SEL54 {
 
   XBARA1_SEL54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL54 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL54*>(0x4003C06C); }
+  static inline volatile XBARA1_SEL54 &ref() { return *reinterpret_cast<volatile XBARA1_SEL54*>(0x4003C06C); }
 };
 
 // Crossbar A Select Register 55
@@ -1127,7 +1127,7 @@ union XBARA1_SEL55 {
 
   XBARA1_SEL55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL55 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL55*>(0x4003C06E); }
+  static inline volatile XBARA1_SEL55 &ref() { return *reinterpret_cast<volatile XBARA1_SEL55*>(0x4003C06E); }
 };
 
 // Crossbar A Select Register 56
@@ -1147,7 +1147,7 @@ union XBARA1_SEL56 {
 
   XBARA1_SEL56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL56 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL56*>(0x4003C070); }
+  static inline volatile XBARA1_SEL56 &ref() { return *reinterpret_cast<volatile XBARA1_SEL56*>(0x4003C070); }
 };
 
 // Crossbar A Select Register 57
@@ -1167,7 +1167,7 @@ union XBARA1_SEL57 {
 
   XBARA1_SEL57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL57 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL57*>(0x4003C072); }
+  static inline volatile XBARA1_SEL57 &ref() { return *reinterpret_cast<volatile XBARA1_SEL57*>(0x4003C072); }
 };
 
 // Crossbar A Select Register 58
@@ -1187,7 +1187,7 @@ union XBARA1_SEL58 {
 
   XBARA1_SEL58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL58 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL58*>(0x4003C074); }
+  static inline volatile XBARA1_SEL58 &ref() { return *reinterpret_cast<volatile XBARA1_SEL58*>(0x4003C074); }
 };
 
 // Crossbar A Select Register 59
@@ -1207,7 +1207,7 @@ union XBARA1_SEL59 {
 
   XBARA1_SEL59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL59 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL59*>(0x4003C076); }
+  static inline volatile XBARA1_SEL59 &ref() { return *reinterpret_cast<volatile XBARA1_SEL59*>(0x4003C076); }
 };
 
 // Crossbar A Select Register 60
@@ -1227,7 +1227,7 @@ union XBARA1_SEL60 {
 
   XBARA1_SEL60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL60 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL60*>(0x4003C078); }
+  static inline volatile XBARA1_SEL60 &ref() { return *reinterpret_cast<volatile XBARA1_SEL60*>(0x4003C078); }
 };
 
 // Crossbar A Select Register 61
@@ -1247,7 +1247,7 @@ union XBARA1_SEL61 {
 
   XBARA1_SEL61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL61 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL61*>(0x4003C07A); }
+  static inline volatile XBARA1_SEL61 &ref() { return *reinterpret_cast<volatile XBARA1_SEL61*>(0x4003C07A); }
 };
 
 // Crossbar A Select Register 62
@@ -1267,7 +1267,7 @@ union XBARA1_SEL62 {
 
   XBARA1_SEL62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL62 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL62*>(0x4003C07C); }
+  static inline volatile XBARA1_SEL62 &ref() { return *reinterpret_cast<volatile XBARA1_SEL62*>(0x4003C07C); }
 };
 
 // Crossbar A Select Register 63
@@ -1287,7 +1287,7 @@ union XBARA1_SEL63 {
 
   XBARA1_SEL63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL63 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL63*>(0x4003C07E); }
+  static inline volatile XBARA1_SEL63 &ref() { return *reinterpret_cast<volatile XBARA1_SEL63*>(0x4003C07E); }
 };
 
 // Crossbar A Select Register 64
@@ -1307,7 +1307,7 @@ union XBARA1_SEL64 {
 
   XBARA1_SEL64() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL64 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL64*>(0x4003C080); }
+  static inline volatile XBARA1_SEL64 &ref() { return *reinterpret_cast<volatile XBARA1_SEL64*>(0x4003C080); }
 };
 
 // Crossbar A Select Register 65
@@ -1327,7 +1327,7 @@ union XBARA1_SEL65 {
 
   XBARA1_SEL65() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL65 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL65*>(0x4003C082); }
+  static inline volatile XBARA1_SEL65 &ref() { return *reinterpret_cast<volatile XBARA1_SEL65*>(0x4003C082); }
 };
 
 // Crossbar A Select Register 66
@@ -1347,7 +1347,7 @@ union XBARA1_SEL66 {
 
   XBARA1_SEL66() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL66 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL66*>(0x4003C084); }
+  static inline volatile XBARA1_SEL66 &ref() { return *reinterpret_cast<volatile XBARA1_SEL66*>(0x4003C084); }
 };
 
 // Crossbar A Select Register 67
@@ -1367,7 +1367,7 @@ union XBARA1_SEL67 {
 
   XBARA1_SEL67() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL67 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL67*>(0x4003C086); }
+  static inline volatile XBARA1_SEL67 &ref() { return *reinterpret_cast<volatile XBARA1_SEL67*>(0x4003C086); }
 };
 
 // Crossbar A Select Register 68
@@ -1387,7 +1387,7 @@ union XBARA1_SEL68 {
 
   XBARA1_SEL68() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL68 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL68*>(0x4003C088); }
+  static inline volatile XBARA1_SEL68 &ref() { return *reinterpret_cast<volatile XBARA1_SEL68*>(0x4003C088); }
 };
 
 // Crossbar A Select Register 69
@@ -1407,7 +1407,7 @@ union XBARA1_SEL69 {
 
   XBARA1_SEL69() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL69 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL69*>(0x4003C08A); }
+  static inline volatile XBARA1_SEL69 &ref() { return *reinterpret_cast<volatile XBARA1_SEL69*>(0x4003C08A); }
 };
 
 // Crossbar A Select Register 70
@@ -1427,7 +1427,7 @@ union XBARA1_SEL70 {
 
   XBARA1_SEL70() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL70 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL70*>(0x4003C08C); }
+  static inline volatile XBARA1_SEL70 &ref() { return *reinterpret_cast<volatile XBARA1_SEL70*>(0x4003C08C); }
 };
 
 // Crossbar A Select Register 71
@@ -1447,7 +1447,7 @@ union XBARA1_SEL71 {
 
   XBARA1_SEL71() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL71 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL71*>(0x4003C08E); }
+  static inline volatile XBARA1_SEL71 &ref() { return *reinterpret_cast<volatile XBARA1_SEL71*>(0x4003C08E); }
 };
 
 // Crossbar A Select Register 72
@@ -1467,7 +1467,7 @@ union XBARA1_SEL72 {
 
   XBARA1_SEL72() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL72 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL72*>(0x4003C090); }
+  static inline volatile XBARA1_SEL72 &ref() { return *reinterpret_cast<volatile XBARA1_SEL72*>(0x4003C090); }
 };
 
 // Crossbar A Select Register 73
@@ -1487,7 +1487,7 @@ union XBARA1_SEL73 {
 
   XBARA1_SEL73() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL73 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL73*>(0x4003C092); }
+  static inline volatile XBARA1_SEL73 &ref() { return *reinterpret_cast<volatile XBARA1_SEL73*>(0x4003C092); }
 };
 
 // Crossbar A Select Register 74
@@ -1507,7 +1507,7 @@ union XBARA1_SEL74 {
 
   XBARA1_SEL74() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL74 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL74*>(0x4003C094); }
+  static inline volatile XBARA1_SEL74 &ref() { return *reinterpret_cast<volatile XBARA1_SEL74*>(0x4003C094); }
 };
 
 // Crossbar A Select Register 75
@@ -1527,7 +1527,7 @@ union XBARA1_SEL75 {
 
   XBARA1_SEL75() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL75 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL75*>(0x4003C096); }
+  static inline volatile XBARA1_SEL75 &ref() { return *reinterpret_cast<volatile XBARA1_SEL75*>(0x4003C096); }
 };
 
 // Crossbar A Select Register 76
@@ -1547,7 +1547,7 @@ union XBARA1_SEL76 {
 
   XBARA1_SEL76() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL76 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL76*>(0x4003C098); }
+  static inline volatile XBARA1_SEL76 &ref() { return *reinterpret_cast<volatile XBARA1_SEL76*>(0x4003C098); }
 };
 
 // Crossbar A Select Register 77
@@ -1567,7 +1567,7 @@ union XBARA1_SEL77 {
 
   XBARA1_SEL77() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL77 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL77*>(0x4003C09A); }
+  static inline volatile XBARA1_SEL77 &ref() { return *reinterpret_cast<volatile XBARA1_SEL77*>(0x4003C09A); }
 };
 
 // Crossbar A Select Register 78
@@ -1587,7 +1587,7 @@ union XBARA1_SEL78 {
 
   XBARA1_SEL78() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL78 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL78*>(0x4003C09C); }
+  static inline volatile XBARA1_SEL78 &ref() { return *reinterpret_cast<volatile XBARA1_SEL78*>(0x4003C09C); }
 };
 
 // Crossbar A Select Register 79
@@ -1607,7 +1607,7 @@ union XBARA1_SEL79 {
 
   XBARA1_SEL79() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL79 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL79*>(0x4003C09E); }
+  static inline volatile XBARA1_SEL79 &ref() { return *reinterpret_cast<volatile XBARA1_SEL79*>(0x4003C09E); }
 };
 
 // Crossbar A Select Register 80
@@ -1627,7 +1627,7 @@ union XBARA1_SEL80 {
 
   XBARA1_SEL80() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL80 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL80*>(0x4003C0A0); }
+  static inline volatile XBARA1_SEL80 &ref() { return *reinterpret_cast<volatile XBARA1_SEL80*>(0x4003C0A0); }
 };
 
 // Crossbar A Select Register 81
@@ -1647,7 +1647,7 @@ union XBARA1_SEL81 {
 
   XBARA1_SEL81() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL81 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL81*>(0x4003C0A2); }
+  static inline volatile XBARA1_SEL81 &ref() { return *reinterpret_cast<volatile XBARA1_SEL81*>(0x4003C0A2); }
 };
 
 // Crossbar A Select Register 82
@@ -1667,7 +1667,7 @@ union XBARA1_SEL82 {
 
   XBARA1_SEL82() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL82 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL82*>(0x4003C0A4); }
+  static inline volatile XBARA1_SEL82 &ref() { return *reinterpret_cast<volatile XBARA1_SEL82*>(0x4003C0A4); }
 };
 
 // Crossbar A Select Register 83
@@ -1687,7 +1687,7 @@ union XBARA1_SEL83 {
 
   XBARA1_SEL83() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL83 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL83*>(0x4003C0A6); }
+  static inline volatile XBARA1_SEL83 &ref() { return *reinterpret_cast<volatile XBARA1_SEL83*>(0x4003C0A6); }
 };
 
 // Crossbar A Select Register 84
@@ -1707,7 +1707,7 @@ union XBARA1_SEL84 {
 
   XBARA1_SEL84() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL84 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL84*>(0x4003C0A8); }
+  static inline volatile XBARA1_SEL84 &ref() { return *reinterpret_cast<volatile XBARA1_SEL84*>(0x4003C0A8); }
 };
 
 // Crossbar A Select Register 85
@@ -1727,7 +1727,7 @@ union XBARA1_SEL85 {
 
   XBARA1_SEL85() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL85 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL85*>(0x4003C0AA); }
+  static inline volatile XBARA1_SEL85 &ref() { return *reinterpret_cast<volatile XBARA1_SEL85*>(0x4003C0AA); }
 };
 
 // Crossbar A Select Register 86
@@ -1747,7 +1747,7 @@ union XBARA1_SEL86 {
 
   XBARA1_SEL86() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL86 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL86*>(0x4003C0AC); }
+  static inline volatile XBARA1_SEL86 &ref() { return *reinterpret_cast<volatile XBARA1_SEL86*>(0x4003C0AC); }
 };
 
 // Crossbar A Select Register 87
@@ -1767,7 +1767,7 @@ union XBARA1_SEL87 {
 
   XBARA1_SEL87() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_SEL87 &Instance() { return *reinterpret_cast<volatile XBARA1_SEL87*>(0x4003C0AE); }
+  static inline volatile XBARA1_SEL87 &ref() { return *reinterpret_cast<volatile XBARA1_SEL87*>(0x4003C0AE); }
 };
 
 // Crossbar A Control Register 0
@@ -1872,7 +1872,7 @@ union XBARA1_CTRL0 {
 
   XBARA1_CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_CTRL0 &Instance() { return *reinterpret_cast<volatile XBARA1_CTRL0*>(0x4003C0B0); }
+  static inline volatile XBARA1_CTRL0 &ref() { return *reinterpret_cast<volatile XBARA1_CTRL0*>(0x4003C0B0); }
 };
 
 // Crossbar A Control Register 1
@@ -1977,7 +1977,7 @@ union XBARA1_CTRL1 {
 
   XBARA1_CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile XBARA1_CTRL1 &Instance() { return *reinterpret_cast<volatile XBARA1_CTRL1*>(0x4003C0B2); }
+  static inline volatile XBARA1_CTRL1 &ref() { return *reinterpret_cast<volatile XBARA1_CTRL1*>(0x4003C0B2); }
 };
 
 

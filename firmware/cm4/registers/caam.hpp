@@ -66,7 +66,7 @@ union MCFGR {
 
   MCFGR() = delete;
   inline void Reset() volatile { this->value = 0x00082301; }
-  static inline volatile MCFGR &Instance() { return *reinterpret_cast<volatile MCFGR*>(0x40440004); }
+  static inline volatile MCFGR &ref() { return *reinterpret_cast<volatile MCFGR*>(0x40440004); }
 };
 
 // Page 0 SDID Register
@@ -84,7 +84,7 @@ union PAGE0_SDID {
 
   PAGE0_SDID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PAGE0_SDID &Instance() { return *reinterpret_cast<volatile PAGE0_SDID*>(0x40440008); }
+  static inline volatile PAGE0_SDID &ref() { return *reinterpret_cast<volatile PAGE0_SDID*>(0x40440008); }
 };
 
 // Security Configuration Register
@@ -145,7 +145,7 @@ union SCFGR {
 
   SCFGR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCFGR &Instance() { return *reinterpret_cast<volatile SCFGR*>(0x4044000C); }
+  static inline volatile SCFGR &ref() { return *reinterpret_cast<volatile SCFGR*>(0x4044000C); }
 };
 
 // Debug Control Register
@@ -166,7 +166,7 @@ union DEBUGCTL {
 
   DEBUGCTL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DEBUGCTL &Instance() { return *reinterpret_cast<volatile DEBUGCTL*>(0x40440058); }
+  static inline volatile DEBUGCTL &ref() { return *reinterpret_cast<volatile DEBUGCTL*>(0x40440058); }
 };
 
 // Job Ring Start Register
@@ -222,7 +222,7 @@ union JRSTARTR {
 
   JRSTARTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRSTARTR &Instance() { return *reinterpret_cast<volatile JRSTARTR*>(0x4044005C); }
+  static inline volatile JRSTARTR &ref() { return *reinterpret_cast<volatile JRSTARTR*>(0x4044005C); }
 };
 
 // RTIC OWN Register
@@ -244,7 +244,7 @@ union RTIC_OWN {
 
   RTIC_OWN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTIC_OWN &Instance() { return *reinterpret_cast<volatile RTIC_OWN*>(0x40440060); }
+  static inline volatile RTIC_OWN &ref() { return *reinterpret_cast<volatile RTIC_OWN*>(0x40440060); }
 };
 
 // DECO Request Source Register
@@ -264,7 +264,7 @@ union DECORSR {
 
   DECORSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DECORSR &Instance() { return *reinterpret_cast<volatile DECORSR*>(0x40440094); }
+  static inline volatile DECORSR &ref() { return *reinterpret_cast<volatile DECORSR*>(0x40440094); }
 };
 
 // DECO Request Register
@@ -285,7 +285,7 @@ union DECORR {
 
   DECORR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DECORR &Instance() { return *reinterpret_cast<volatile DECORR*>(0x4044009C); }
+  static inline volatile DECORR &ref() { return *reinterpret_cast<volatile DECORR*>(0x4044009C); }
 };
 
 // DECO0 DID Register - most significant half
@@ -307,7 +307,7 @@ union DECO0DID_MS {
 
   DECO0DID_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DECO0DID_MS &Instance() { return *reinterpret_cast<volatile DECO0DID_MS*>(0x404400A0); }
+  static inline volatile DECO0DID_MS &ref() { return *reinterpret_cast<volatile DECO0DID_MS*>(0x404400A0); }
 };
 
 // DECO0 DID Register - least significant half
@@ -332,7 +332,7 @@ union DECO0DID_LS {
 
   DECO0DID_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DECO0DID_LS &Instance() { return *reinterpret_cast<volatile DECO0DID_LS*>(0x404400A4); }
+  static inline volatile DECO0DID_LS &ref() { return *reinterpret_cast<volatile DECO0DID_LS*>(0x404400A4); }
 };
 
 // DECO Availability Register
@@ -350,7 +350,7 @@ union DAR {
 
   DAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DAR &Instance() { return *reinterpret_cast<volatile DAR*>(0x40440120); }
+  static inline volatile DAR &ref() { return *reinterpret_cast<volatile DAR*>(0x40440120); }
 };
 
 // DECO Reset Register
@@ -368,7 +368,7 @@ union DRR {
 
   DRR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DRR &Instance() { return *reinterpret_cast<volatile DRR*>(0x40440124); }
+  static inline volatile DRR &ref() { return *reinterpret_cast<volatile DRR*>(0x40440124); }
 };
 
 // Peak Bandwidth Smoothing Limit Register
@@ -386,7 +386,7 @@ union PBSL {
 
   PBSL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PBSL &Instance() { return *reinterpret_cast<volatile PBSL*>(0x40440220); }
+  static inline volatile PBSL &ref() { return *reinterpret_cast<volatile PBSL*>(0x40440220); }
 };
 
 // DMA0_AIDL_MAP_MS
@@ -409,7 +409,7 @@ union DMA0_AIDL_MAP_MS {
 
   DMA0_AIDL_MAP_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA0_AIDL_MAP_MS &Instance() { return *reinterpret_cast<volatile DMA0_AIDL_MAP_MS*>(0x40440240); }
+  static inline volatile DMA0_AIDL_MAP_MS &ref() { return *reinterpret_cast<volatile DMA0_AIDL_MAP_MS*>(0x40440240); }
 };
 
 // DMA0_AIDL_MAP_LS
@@ -432,7 +432,7 @@ union DMA0_AIDL_MAP_LS {
 
   DMA0_AIDL_MAP_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA0_AIDL_MAP_LS &Instance() { return *reinterpret_cast<volatile DMA0_AIDL_MAP_LS*>(0x40440244); }
+  static inline volatile DMA0_AIDL_MAP_LS &ref() { return *reinterpret_cast<volatile DMA0_AIDL_MAP_LS*>(0x40440244); }
 };
 
 // DMA0_AIDM_MAP_MS
@@ -455,7 +455,7 @@ union DMA0_AIDM_MAP_MS {
 
   DMA0_AIDM_MAP_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA0_AIDM_MAP_MS &Instance() { return *reinterpret_cast<volatile DMA0_AIDM_MAP_MS*>(0x40440248); }
+  static inline volatile DMA0_AIDM_MAP_MS &ref() { return *reinterpret_cast<volatile DMA0_AIDM_MAP_MS*>(0x40440248); }
 };
 
 // DMA0_AIDM_MAP_LS
@@ -478,7 +478,7 @@ union DMA0_AIDM_MAP_LS {
 
   DMA0_AIDM_MAP_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA0_AIDM_MAP_LS &Instance() { return *reinterpret_cast<volatile DMA0_AIDM_MAP_LS*>(0x4044024C); }
+  static inline volatile DMA0_AIDM_MAP_LS &ref() { return *reinterpret_cast<volatile DMA0_AIDM_MAP_LS*>(0x4044024C); }
 };
 
 // DMA0 AXI ID Enable Register
@@ -526,7 +526,7 @@ union DMA0_AID_ENB {
 
   DMA0_AID_ENB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA0_AID_ENB &Instance() { return *reinterpret_cast<volatile DMA0_AID_ENB*>(0x40440250); }
+  static inline volatile DMA0_AID_ENB &ref() { return *reinterpret_cast<volatile DMA0_AID_ENB*>(0x40440250); }
 };
 
 // DMA0 AXI Read Timing Check Register
@@ -557,7 +557,7 @@ union DMA0_ARD_TC {
 
   DMA0_ARD_TC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA0_ARD_TC &Instance() { return *reinterpret_cast<volatile DMA0_ARD_TC*>(0x40440260); }
+  static inline volatile DMA0_ARD_TC &ref() { return *reinterpret_cast<volatile DMA0_ARD_TC*>(0x40440260); }
 };
 
 // DMA0 Read Timing Check Latency Register
@@ -574,7 +574,7 @@ union DMA0_ARD_LAT {
 
   DMA0_ARD_LAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA0_ARD_LAT &Instance() { return *reinterpret_cast<volatile DMA0_ARD_LAT*>(0x4044026C); }
+  static inline volatile DMA0_ARD_LAT &ref() { return *reinterpret_cast<volatile DMA0_ARD_LAT*>(0x4044026C); }
 };
 
 // DMA0 AXI Write Timing Check Register
@@ -604,7 +604,7 @@ union DMA0_AWR_TC {
 
   DMA0_AWR_TC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA0_AWR_TC &Instance() { return *reinterpret_cast<volatile DMA0_AWR_TC*>(0x40440270); }
+  static inline volatile DMA0_AWR_TC &ref() { return *reinterpret_cast<volatile DMA0_AWR_TC*>(0x40440270); }
 };
 
 // DMA0 Write Timing Check Latency Register
@@ -621,7 +621,7 @@ union DMA0_AWR_LAT {
 
   DMA0_AWR_LAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA0_AWR_LAT &Instance() { return *reinterpret_cast<volatile DMA0_AWR_LAT*>(0x4044027C); }
+  static inline volatile DMA0_AWR_LAT &ref() { return *reinterpret_cast<volatile DMA0_AWR_LAT*>(0x4044027C); }
 };
 
 // Manufacturing Protection Private Key Register
@@ -639,7 +639,7 @@ union MPPKR_0 {
 
   MPPKR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_0 &Instance() { return *reinterpret_cast<volatile MPPKR_0*>(0x40440300); }
+  static inline volatile MPPKR_0 &ref() { return *reinterpret_cast<volatile MPPKR_0*>(0x40440300); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_1 {
@@ -656,7 +656,7 @@ union MPPKR_1 {
 
   MPPKR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_1 &Instance() { return *reinterpret_cast<volatile MPPKR_1*>(0x40440301); }
+  static inline volatile MPPKR_1 &ref() { return *reinterpret_cast<volatile MPPKR_1*>(0x40440301); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_2 {
@@ -673,7 +673,7 @@ union MPPKR_2 {
 
   MPPKR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_2 &Instance() { return *reinterpret_cast<volatile MPPKR_2*>(0x40440302); }
+  static inline volatile MPPKR_2 &ref() { return *reinterpret_cast<volatile MPPKR_2*>(0x40440302); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_3 {
@@ -690,7 +690,7 @@ union MPPKR_3 {
 
   MPPKR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_3 &Instance() { return *reinterpret_cast<volatile MPPKR_3*>(0x40440303); }
+  static inline volatile MPPKR_3 &ref() { return *reinterpret_cast<volatile MPPKR_3*>(0x40440303); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_4 {
@@ -707,7 +707,7 @@ union MPPKR_4 {
 
   MPPKR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_4 &Instance() { return *reinterpret_cast<volatile MPPKR_4*>(0x40440304); }
+  static inline volatile MPPKR_4 &ref() { return *reinterpret_cast<volatile MPPKR_4*>(0x40440304); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_5 {
@@ -724,7 +724,7 @@ union MPPKR_5 {
 
   MPPKR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_5 &Instance() { return *reinterpret_cast<volatile MPPKR_5*>(0x40440305); }
+  static inline volatile MPPKR_5 &ref() { return *reinterpret_cast<volatile MPPKR_5*>(0x40440305); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_6 {
@@ -741,7 +741,7 @@ union MPPKR_6 {
 
   MPPKR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_6 &Instance() { return *reinterpret_cast<volatile MPPKR_6*>(0x40440306); }
+  static inline volatile MPPKR_6 &ref() { return *reinterpret_cast<volatile MPPKR_6*>(0x40440306); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_7 {
@@ -758,7 +758,7 @@ union MPPKR_7 {
 
   MPPKR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_7 &Instance() { return *reinterpret_cast<volatile MPPKR_7*>(0x40440307); }
+  static inline volatile MPPKR_7 &ref() { return *reinterpret_cast<volatile MPPKR_7*>(0x40440307); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_8 {
@@ -775,7 +775,7 @@ union MPPKR_8 {
 
   MPPKR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_8 &Instance() { return *reinterpret_cast<volatile MPPKR_8*>(0x40440308); }
+  static inline volatile MPPKR_8 &ref() { return *reinterpret_cast<volatile MPPKR_8*>(0x40440308); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_9 {
@@ -792,7 +792,7 @@ union MPPKR_9 {
 
   MPPKR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_9 &Instance() { return *reinterpret_cast<volatile MPPKR_9*>(0x40440309); }
+  static inline volatile MPPKR_9 &ref() { return *reinterpret_cast<volatile MPPKR_9*>(0x40440309); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_10 {
@@ -809,7 +809,7 @@ union MPPKR_10 {
 
   MPPKR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_10 &Instance() { return *reinterpret_cast<volatile MPPKR_10*>(0x4044030A); }
+  static inline volatile MPPKR_10 &ref() { return *reinterpret_cast<volatile MPPKR_10*>(0x4044030A); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_11 {
@@ -826,7 +826,7 @@ union MPPKR_11 {
 
   MPPKR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_11 &Instance() { return *reinterpret_cast<volatile MPPKR_11*>(0x4044030B); }
+  static inline volatile MPPKR_11 &ref() { return *reinterpret_cast<volatile MPPKR_11*>(0x4044030B); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_12 {
@@ -843,7 +843,7 @@ union MPPKR_12 {
 
   MPPKR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_12 &Instance() { return *reinterpret_cast<volatile MPPKR_12*>(0x4044030C); }
+  static inline volatile MPPKR_12 &ref() { return *reinterpret_cast<volatile MPPKR_12*>(0x4044030C); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_13 {
@@ -860,7 +860,7 @@ union MPPKR_13 {
 
   MPPKR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_13 &Instance() { return *reinterpret_cast<volatile MPPKR_13*>(0x4044030D); }
+  static inline volatile MPPKR_13 &ref() { return *reinterpret_cast<volatile MPPKR_13*>(0x4044030D); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_14 {
@@ -877,7 +877,7 @@ union MPPKR_14 {
 
   MPPKR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_14 &Instance() { return *reinterpret_cast<volatile MPPKR_14*>(0x4044030E); }
+  static inline volatile MPPKR_14 &ref() { return *reinterpret_cast<volatile MPPKR_14*>(0x4044030E); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_15 {
@@ -894,7 +894,7 @@ union MPPKR_15 {
 
   MPPKR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_15 &Instance() { return *reinterpret_cast<volatile MPPKR_15*>(0x4044030F); }
+  static inline volatile MPPKR_15 &ref() { return *reinterpret_cast<volatile MPPKR_15*>(0x4044030F); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_16 {
@@ -911,7 +911,7 @@ union MPPKR_16 {
 
   MPPKR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_16 &Instance() { return *reinterpret_cast<volatile MPPKR_16*>(0x40440310); }
+  static inline volatile MPPKR_16 &ref() { return *reinterpret_cast<volatile MPPKR_16*>(0x40440310); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_17 {
@@ -928,7 +928,7 @@ union MPPKR_17 {
 
   MPPKR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_17 &Instance() { return *reinterpret_cast<volatile MPPKR_17*>(0x40440311); }
+  static inline volatile MPPKR_17 &ref() { return *reinterpret_cast<volatile MPPKR_17*>(0x40440311); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_18 {
@@ -945,7 +945,7 @@ union MPPKR_18 {
 
   MPPKR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_18 &Instance() { return *reinterpret_cast<volatile MPPKR_18*>(0x40440312); }
+  static inline volatile MPPKR_18 &ref() { return *reinterpret_cast<volatile MPPKR_18*>(0x40440312); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_19 {
@@ -962,7 +962,7 @@ union MPPKR_19 {
 
   MPPKR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_19 &Instance() { return *reinterpret_cast<volatile MPPKR_19*>(0x40440313); }
+  static inline volatile MPPKR_19 &ref() { return *reinterpret_cast<volatile MPPKR_19*>(0x40440313); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_20 {
@@ -979,7 +979,7 @@ union MPPKR_20 {
 
   MPPKR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_20 &Instance() { return *reinterpret_cast<volatile MPPKR_20*>(0x40440314); }
+  static inline volatile MPPKR_20 &ref() { return *reinterpret_cast<volatile MPPKR_20*>(0x40440314); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_21 {
@@ -996,7 +996,7 @@ union MPPKR_21 {
 
   MPPKR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_21 &Instance() { return *reinterpret_cast<volatile MPPKR_21*>(0x40440315); }
+  static inline volatile MPPKR_21 &ref() { return *reinterpret_cast<volatile MPPKR_21*>(0x40440315); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_22 {
@@ -1013,7 +1013,7 @@ union MPPKR_22 {
 
   MPPKR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_22 &Instance() { return *reinterpret_cast<volatile MPPKR_22*>(0x40440316); }
+  static inline volatile MPPKR_22 &ref() { return *reinterpret_cast<volatile MPPKR_22*>(0x40440316); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_23 {
@@ -1030,7 +1030,7 @@ union MPPKR_23 {
 
   MPPKR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_23 &Instance() { return *reinterpret_cast<volatile MPPKR_23*>(0x40440317); }
+  static inline volatile MPPKR_23 &ref() { return *reinterpret_cast<volatile MPPKR_23*>(0x40440317); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_24 {
@@ -1047,7 +1047,7 @@ union MPPKR_24 {
 
   MPPKR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_24 &Instance() { return *reinterpret_cast<volatile MPPKR_24*>(0x40440318); }
+  static inline volatile MPPKR_24 &ref() { return *reinterpret_cast<volatile MPPKR_24*>(0x40440318); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_25 {
@@ -1064,7 +1064,7 @@ union MPPKR_25 {
 
   MPPKR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_25 &Instance() { return *reinterpret_cast<volatile MPPKR_25*>(0x40440319); }
+  static inline volatile MPPKR_25 &ref() { return *reinterpret_cast<volatile MPPKR_25*>(0x40440319); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_26 {
@@ -1081,7 +1081,7 @@ union MPPKR_26 {
 
   MPPKR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_26 &Instance() { return *reinterpret_cast<volatile MPPKR_26*>(0x4044031A); }
+  static inline volatile MPPKR_26 &ref() { return *reinterpret_cast<volatile MPPKR_26*>(0x4044031A); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_27 {
@@ -1098,7 +1098,7 @@ union MPPKR_27 {
 
   MPPKR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_27 &Instance() { return *reinterpret_cast<volatile MPPKR_27*>(0x4044031B); }
+  static inline volatile MPPKR_27 &ref() { return *reinterpret_cast<volatile MPPKR_27*>(0x4044031B); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_28 {
@@ -1115,7 +1115,7 @@ union MPPKR_28 {
 
   MPPKR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_28 &Instance() { return *reinterpret_cast<volatile MPPKR_28*>(0x4044031C); }
+  static inline volatile MPPKR_28 &ref() { return *reinterpret_cast<volatile MPPKR_28*>(0x4044031C); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_29 {
@@ -1132,7 +1132,7 @@ union MPPKR_29 {
 
   MPPKR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_29 &Instance() { return *reinterpret_cast<volatile MPPKR_29*>(0x4044031D); }
+  static inline volatile MPPKR_29 &ref() { return *reinterpret_cast<volatile MPPKR_29*>(0x4044031D); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_30 {
@@ -1149,7 +1149,7 @@ union MPPKR_30 {
 
   MPPKR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_30 &Instance() { return *reinterpret_cast<volatile MPPKR_30*>(0x4044031E); }
+  static inline volatile MPPKR_30 &ref() { return *reinterpret_cast<volatile MPPKR_30*>(0x4044031E); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_31 {
@@ -1166,7 +1166,7 @@ union MPPKR_31 {
 
   MPPKR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_31 &Instance() { return *reinterpret_cast<volatile MPPKR_31*>(0x4044031F); }
+  static inline volatile MPPKR_31 &ref() { return *reinterpret_cast<volatile MPPKR_31*>(0x4044031F); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_32 {
@@ -1183,7 +1183,7 @@ union MPPKR_32 {
 
   MPPKR_32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_32 &Instance() { return *reinterpret_cast<volatile MPPKR_32*>(0x40440320); }
+  static inline volatile MPPKR_32 &ref() { return *reinterpret_cast<volatile MPPKR_32*>(0x40440320); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_33 {
@@ -1200,7 +1200,7 @@ union MPPKR_33 {
 
   MPPKR_33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_33 &Instance() { return *reinterpret_cast<volatile MPPKR_33*>(0x40440321); }
+  static inline volatile MPPKR_33 &ref() { return *reinterpret_cast<volatile MPPKR_33*>(0x40440321); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_34 {
@@ -1217,7 +1217,7 @@ union MPPKR_34 {
 
   MPPKR_34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_34 &Instance() { return *reinterpret_cast<volatile MPPKR_34*>(0x40440322); }
+  static inline volatile MPPKR_34 &ref() { return *reinterpret_cast<volatile MPPKR_34*>(0x40440322); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_35 {
@@ -1234,7 +1234,7 @@ union MPPKR_35 {
 
   MPPKR_35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_35 &Instance() { return *reinterpret_cast<volatile MPPKR_35*>(0x40440323); }
+  static inline volatile MPPKR_35 &ref() { return *reinterpret_cast<volatile MPPKR_35*>(0x40440323); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_36 {
@@ -1251,7 +1251,7 @@ union MPPKR_36 {
 
   MPPKR_36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_36 &Instance() { return *reinterpret_cast<volatile MPPKR_36*>(0x40440324); }
+  static inline volatile MPPKR_36 &ref() { return *reinterpret_cast<volatile MPPKR_36*>(0x40440324); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_37 {
@@ -1268,7 +1268,7 @@ union MPPKR_37 {
 
   MPPKR_37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_37 &Instance() { return *reinterpret_cast<volatile MPPKR_37*>(0x40440325); }
+  static inline volatile MPPKR_37 &ref() { return *reinterpret_cast<volatile MPPKR_37*>(0x40440325); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_38 {
@@ -1285,7 +1285,7 @@ union MPPKR_38 {
 
   MPPKR_38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_38 &Instance() { return *reinterpret_cast<volatile MPPKR_38*>(0x40440326); }
+  static inline volatile MPPKR_38 &ref() { return *reinterpret_cast<volatile MPPKR_38*>(0x40440326); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_39 {
@@ -1302,7 +1302,7 @@ union MPPKR_39 {
 
   MPPKR_39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_39 &Instance() { return *reinterpret_cast<volatile MPPKR_39*>(0x40440327); }
+  static inline volatile MPPKR_39 &ref() { return *reinterpret_cast<volatile MPPKR_39*>(0x40440327); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_40 {
@@ -1319,7 +1319,7 @@ union MPPKR_40 {
 
   MPPKR_40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_40 &Instance() { return *reinterpret_cast<volatile MPPKR_40*>(0x40440328); }
+  static inline volatile MPPKR_40 &ref() { return *reinterpret_cast<volatile MPPKR_40*>(0x40440328); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_41 {
@@ -1336,7 +1336,7 @@ union MPPKR_41 {
 
   MPPKR_41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_41 &Instance() { return *reinterpret_cast<volatile MPPKR_41*>(0x40440329); }
+  static inline volatile MPPKR_41 &ref() { return *reinterpret_cast<volatile MPPKR_41*>(0x40440329); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_42 {
@@ -1353,7 +1353,7 @@ union MPPKR_42 {
 
   MPPKR_42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_42 &Instance() { return *reinterpret_cast<volatile MPPKR_42*>(0x4044032A); }
+  static inline volatile MPPKR_42 &ref() { return *reinterpret_cast<volatile MPPKR_42*>(0x4044032A); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_43 {
@@ -1370,7 +1370,7 @@ union MPPKR_43 {
 
   MPPKR_43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_43 &Instance() { return *reinterpret_cast<volatile MPPKR_43*>(0x4044032B); }
+  static inline volatile MPPKR_43 &ref() { return *reinterpret_cast<volatile MPPKR_43*>(0x4044032B); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_44 {
@@ -1387,7 +1387,7 @@ union MPPKR_44 {
 
   MPPKR_44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_44 &Instance() { return *reinterpret_cast<volatile MPPKR_44*>(0x4044032C); }
+  static inline volatile MPPKR_44 &ref() { return *reinterpret_cast<volatile MPPKR_44*>(0x4044032C); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_45 {
@@ -1404,7 +1404,7 @@ union MPPKR_45 {
 
   MPPKR_45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_45 &Instance() { return *reinterpret_cast<volatile MPPKR_45*>(0x4044032D); }
+  static inline volatile MPPKR_45 &ref() { return *reinterpret_cast<volatile MPPKR_45*>(0x4044032D); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_46 {
@@ -1421,7 +1421,7 @@ union MPPKR_46 {
 
   MPPKR_46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_46 &Instance() { return *reinterpret_cast<volatile MPPKR_46*>(0x4044032E); }
+  static inline volatile MPPKR_46 &ref() { return *reinterpret_cast<volatile MPPKR_46*>(0x4044032E); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_47 {
@@ -1438,7 +1438,7 @@ union MPPKR_47 {
 
   MPPKR_47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_47 &Instance() { return *reinterpret_cast<volatile MPPKR_47*>(0x4044032F); }
+  static inline volatile MPPKR_47 &ref() { return *reinterpret_cast<volatile MPPKR_47*>(0x4044032F); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_48 {
@@ -1455,7 +1455,7 @@ union MPPKR_48 {
 
   MPPKR_48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_48 &Instance() { return *reinterpret_cast<volatile MPPKR_48*>(0x40440330); }
+  static inline volatile MPPKR_48 &ref() { return *reinterpret_cast<volatile MPPKR_48*>(0x40440330); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_49 {
@@ -1472,7 +1472,7 @@ union MPPKR_49 {
 
   MPPKR_49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_49 &Instance() { return *reinterpret_cast<volatile MPPKR_49*>(0x40440331); }
+  static inline volatile MPPKR_49 &ref() { return *reinterpret_cast<volatile MPPKR_49*>(0x40440331); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_50 {
@@ -1489,7 +1489,7 @@ union MPPKR_50 {
 
   MPPKR_50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_50 &Instance() { return *reinterpret_cast<volatile MPPKR_50*>(0x40440332); }
+  static inline volatile MPPKR_50 &ref() { return *reinterpret_cast<volatile MPPKR_50*>(0x40440332); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_51 {
@@ -1506,7 +1506,7 @@ union MPPKR_51 {
 
   MPPKR_51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_51 &Instance() { return *reinterpret_cast<volatile MPPKR_51*>(0x40440333); }
+  static inline volatile MPPKR_51 &ref() { return *reinterpret_cast<volatile MPPKR_51*>(0x40440333); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_52 {
@@ -1523,7 +1523,7 @@ union MPPKR_52 {
 
   MPPKR_52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_52 &Instance() { return *reinterpret_cast<volatile MPPKR_52*>(0x40440334); }
+  static inline volatile MPPKR_52 &ref() { return *reinterpret_cast<volatile MPPKR_52*>(0x40440334); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_53 {
@@ -1540,7 +1540,7 @@ union MPPKR_53 {
 
   MPPKR_53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_53 &Instance() { return *reinterpret_cast<volatile MPPKR_53*>(0x40440335); }
+  static inline volatile MPPKR_53 &ref() { return *reinterpret_cast<volatile MPPKR_53*>(0x40440335); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_54 {
@@ -1557,7 +1557,7 @@ union MPPKR_54 {
 
   MPPKR_54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_54 &Instance() { return *reinterpret_cast<volatile MPPKR_54*>(0x40440336); }
+  static inline volatile MPPKR_54 &ref() { return *reinterpret_cast<volatile MPPKR_54*>(0x40440336); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_55 {
@@ -1574,7 +1574,7 @@ union MPPKR_55 {
 
   MPPKR_55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_55 &Instance() { return *reinterpret_cast<volatile MPPKR_55*>(0x40440337); }
+  static inline volatile MPPKR_55 &ref() { return *reinterpret_cast<volatile MPPKR_55*>(0x40440337); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_56 {
@@ -1591,7 +1591,7 @@ union MPPKR_56 {
 
   MPPKR_56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_56 &Instance() { return *reinterpret_cast<volatile MPPKR_56*>(0x40440338); }
+  static inline volatile MPPKR_56 &ref() { return *reinterpret_cast<volatile MPPKR_56*>(0x40440338); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_57 {
@@ -1608,7 +1608,7 @@ union MPPKR_57 {
 
   MPPKR_57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_57 &Instance() { return *reinterpret_cast<volatile MPPKR_57*>(0x40440339); }
+  static inline volatile MPPKR_57 &ref() { return *reinterpret_cast<volatile MPPKR_57*>(0x40440339); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_58 {
@@ -1625,7 +1625,7 @@ union MPPKR_58 {
 
   MPPKR_58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_58 &Instance() { return *reinterpret_cast<volatile MPPKR_58*>(0x4044033A); }
+  static inline volatile MPPKR_58 &ref() { return *reinterpret_cast<volatile MPPKR_58*>(0x4044033A); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_59 {
@@ -1642,7 +1642,7 @@ union MPPKR_59 {
 
   MPPKR_59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_59 &Instance() { return *reinterpret_cast<volatile MPPKR_59*>(0x4044033B); }
+  static inline volatile MPPKR_59 &ref() { return *reinterpret_cast<volatile MPPKR_59*>(0x4044033B); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_60 {
@@ -1659,7 +1659,7 @@ union MPPKR_60 {
 
   MPPKR_60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_60 &Instance() { return *reinterpret_cast<volatile MPPKR_60*>(0x4044033C); }
+  static inline volatile MPPKR_60 &ref() { return *reinterpret_cast<volatile MPPKR_60*>(0x4044033C); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_61 {
@@ -1676,7 +1676,7 @@ union MPPKR_61 {
 
   MPPKR_61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_61 &Instance() { return *reinterpret_cast<volatile MPPKR_61*>(0x4044033D); }
+  static inline volatile MPPKR_61 &ref() { return *reinterpret_cast<volatile MPPKR_61*>(0x4044033D); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_62 {
@@ -1693,7 +1693,7 @@ union MPPKR_62 {
 
   MPPKR_62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_62 &Instance() { return *reinterpret_cast<volatile MPPKR_62*>(0x4044033E); }
+  static inline volatile MPPKR_62 &ref() { return *reinterpret_cast<volatile MPPKR_62*>(0x4044033E); }
 };
 // Manufacturing Protection Private Key Register
 union MPPKR_63 {
@@ -1710,7 +1710,7 @@ union MPPKR_63 {
 
   MPPKR_63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR_63 &Instance() { return *reinterpret_cast<volatile MPPKR_63*>(0x4044033F); }
+  static inline volatile MPPKR_63 &ref() { return *reinterpret_cast<volatile MPPKR_63*>(0x4044033F); }
 };
 
 // Manufacturing Protection Message Register
@@ -1728,7 +1728,7 @@ union MPMR_0 {
 
   MPMR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_0 &Instance() { return *reinterpret_cast<volatile MPMR_0*>(0x40440380); }
+  static inline volatile MPMR_0 &ref() { return *reinterpret_cast<volatile MPMR_0*>(0x40440380); }
 };
 // Manufacturing Protection Message Register
 union MPMR_1 {
@@ -1745,7 +1745,7 @@ union MPMR_1 {
 
   MPMR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_1 &Instance() { return *reinterpret_cast<volatile MPMR_1*>(0x40440381); }
+  static inline volatile MPMR_1 &ref() { return *reinterpret_cast<volatile MPMR_1*>(0x40440381); }
 };
 // Manufacturing Protection Message Register
 union MPMR_2 {
@@ -1762,7 +1762,7 @@ union MPMR_2 {
 
   MPMR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_2 &Instance() { return *reinterpret_cast<volatile MPMR_2*>(0x40440382); }
+  static inline volatile MPMR_2 &ref() { return *reinterpret_cast<volatile MPMR_2*>(0x40440382); }
 };
 // Manufacturing Protection Message Register
 union MPMR_3 {
@@ -1779,7 +1779,7 @@ union MPMR_3 {
 
   MPMR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_3 &Instance() { return *reinterpret_cast<volatile MPMR_3*>(0x40440383); }
+  static inline volatile MPMR_3 &ref() { return *reinterpret_cast<volatile MPMR_3*>(0x40440383); }
 };
 // Manufacturing Protection Message Register
 union MPMR_4 {
@@ -1796,7 +1796,7 @@ union MPMR_4 {
 
   MPMR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_4 &Instance() { return *reinterpret_cast<volatile MPMR_4*>(0x40440384); }
+  static inline volatile MPMR_4 &ref() { return *reinterpret_cast<volatile MPMR_4*>(0x40440384); }
 };
 // Manufacturing Protection Message Register
 union MPMR_5 {
@@ -1813,7 +1813,7 @@ union MPMR_5 {
 
   MPMR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_5 &Instance() { return *reinterpret_cast<volatile MPMR_5*>(0x40440385); }
+  static inline volatile MPMR_5 &ref() { return *reinterpret_cast<volatile MPMR_5*>(0x40440385); }
 };
 // Manufacturing Protection Message Register
 union MPMR_6 {
@@ -1830,7 +1830,7 @@ union MPMR_6 {
 
   MPMR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_6 &Instance() { return *reinterpret_cast<volatile MPMR_6*>(0x40440386); }
+  static inline volatile MPMR_6 &ref() { return *reinterpret_cast<volatile MPMR_6*>(0x40440386); }
 };
 // Manufacturing Protection Message Register
 union MPMR_7 {
@@ -1847,7 +1847,7 @@ union MPMR_7 {
 
   MPMR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_7 &Instance() { return *reinterpret_cast<volatile MPMR_7*>(0x40440387); }
+  static inline volatile MPMR_7 &ref() { return *reinterpret_cast<volatile MPMR_7*>(0x40440387); }
 };
 // Manufacturing Protection Message Register
 union MPMR_8 {
@@ -1864,7 +1864,7 @@ union MPMR_8 {
 
   MPMR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_8 &Instance() { return *reinterpret_cast<volatile MPMR_8*>(0x40440388); }
+  static inline volatile MPMR_8 &ref() { return *reinterpret_cast<volatile MPMR_8*>(0x40440388); }
 };
 // Manufacturing Protection Message Register
 union MPMR_9 {
@@ -1881,7 +1881,7 @@ union MPMR_9 {
 
   MPMR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_9 &Instance() { return *reinterpret_cast<volatile MPMR_9*>(0x40440389); }
+  static inline volatile MPMR_9 &ref() { return *reinterpret_cast<volatile MPMR_9*>(0x40440389); }
 };
 // Manufacturing Protection Message Register
 union MPMR_10 {
@@ -1898,7 +1898,7 @@ union MPMR_10 {
 
   MPMR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_10 &Instance() { return *reinterpret_cast<volatile MPMR_10*>(0x4044038A); }
+  static inline volatile MPMR_10 &ref() { return *reinterpret_cast<volatile MPMR_10*>(0x4044038A); }
 };
 // Manufacturing Protection Message Register
 union MPMR_11 {
@@ -1915,7 +1915,7 @@ union MPMR_11 {
 
   MPMR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_11 &Instance() { return *reinterpret_cast<volatile MPMR_11*>(0x4044038B); }
+  static inline volatile MPMR_11 &ref() { return *reinterpret_cast<volatile MPMR_11*>(0x4044038B); }
 };
 // Manufacturing Protection Message Register
 union MPMR_12 {
@@ -1932,7 +1932,7 @@ union MPMR_12 {
 
   MPMR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_12 &Instance() { return *reinterpret_cast<volatile MPMR_12*>(0x4044038C); }
+  static inline volatile MPMR_12 &ref() { return *reinterpret_cast<volatile MPMR_12*>(0x4044038C); }
 };
 // Manufacturing Protection Message Register
 union MPMR_13 {
@@ -1949,7 +1949,7 @@ union MPMR_13 {
 
   MPMR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_13 &Instance() { return *reinterpret_cast<volatile MPMR_13*>(0x4044038D); }
+  static inline volatile MPMR_13 &ref() { return *reinterpret_cast<volatile MPMR_13*>(0x4044038D); }
 };
 // Manufacturing Protection Message Register
 union MPMR_14 {
@@ -1966,7 +1966,7 @@ union MPMR_14 {
 
   MPMR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_14 &Instance() { return *reinterpret_cast<volatile MPMR_14*>(0x4044038E); }
+  static inline volatile MPMR_14 &ref() { return *reinterpret_cast<volatile MPMR_14*>(0x4044038E); }
 };
 // Manufacturing Protection Message Register
 union MPMR_15 {
@@ -1983,7 +1983,7 @@ union MPMR_15 {
 
   MPMR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_15 &Instance() { return *reinterpret_cast<volatile MPMR_15*>(0x4044038F); }
+  static inline volatile MPMR_15 &ref() { return *reinterpret_cast<volatile MPMR_15*>(0x4044038F); }
 };
 // Manufacturing Protection Message Register
 union MPMR_16 {
@@ -2000,7 +2000,7 @@ union MPMR_16 {
 
   MPMR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_16 &Instance() { return *reinterpret_cast<volatile MPMR_16*>(0x40440390); }
+  static inline volatile MPMR_16 &ref() { return *reinterpret_cast<volatile MPMR_16*>(0x40440390); }
 };
 // Manufacturing Protection Message Register
 union MPMR_17 {
@@ -2017,7 +2017,7 @@ union MPMR_17 {
 
   MPMR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_17 &Instance() { return *reinterpret_cast<volatile MPMR_17*>(0x40440391); }
+  static inline volatile MPMR_17 &ref() { return *reinterpret_cast<volatile MPMR_17*>(0x40440391); }
 };
 // Manufacturing Protection Message Register
 union MPMR_18 {
@@ -2034,7 +2034,7 @@ union MPMR_18 {
 
   MPMR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_18 &Instance() { return *reinterpret_cast<volatile MPMR_18*>(0x40440392); }
+  static inline volatile MPMR_18 &ref() { return *reinterpret_cast<volatile MPMR_18*>(0x40440392); }
 };
 // Manufacturing Protection Message Register
 union MPMR_19 {
@@ -2051,7 +2051,7 @@ union MPMR_19 {
 
   MPMR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_19 &Instance() { return *reinterpret_cast<volatile MPMR_19*>(0x40440393); }
+  static inline volatile MPMR_19 &ref() { return *reinterpret_cast<volatile MPMR_19*>(0x40440393); }
 };
 // Manufacturing Protection Message Register
 union MPMR_20 {
@@ -2068,7 +2068,7 @@ union MPMR_20 {
 
   MPMR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_20 &Instance() { return *reinterpret_cast<volatile MPMR_20*>(0x40440394); }
+  static inline volatile MPMR_20 &ref() { return *reinterpret_cast<volatile MPMR_20*>(0x40440394); }
 };
 // Manufacturing Protection Message Register
 union MPMR_21 {
@@ -2085,7 +2085,7 @@ union MPMR_21 {
 
   MPMR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_21 &Instance() { return *reinterpret_cast<volatile MPMR_21*>(0x40440395); }
+  static inline volatile MPMR_21 &ref() { return *reinterpret_cast<volatile MPMR_21*>(0x40440395); }
 };
 // Manufacturing Protection Message Register
 union MPMR_22 {
@@ -2102,7 +2102,7 @@ union MPMR_22 {
 
   MPMR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_22 &Instance() { return *reinterpret_cast<volatile MPMR_22*>(0x40440396); }
+  static inline volatile MPMR_22 &ref() { return *reinterpret_cast<volatile MPMR_22*>(0x40440396); }
 };
 // Manufacturing Protection Message Register
 union MPMR_23 {
@@ -2119,7 +2119,7 @@ union MPMR_23 {
 
   MPMR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_23 &Instance() { return *reinterpret_cast<volatile MPMR_23*>(0x40440397); }
+  static inline volatile MPMR_23 &ref() { return *reinterpret_cast<volatile MPMR_23*>(0x40440397); }
 };
 // Manufacturing Protection Message Register
 union MPMR_24 {
@@ -2136,7 +2136,7 @@ union MPMR_24 {
 
   MPMR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_24 &Instance() { return *reinterpret_cast<volatile MPMR_24*>(0x40440398); }
+  static inline volatile MPMR_24 &ref() { return *reinterpret_cast<volatile MPMR_24*>(0x40440398); }
 };
 // Manufacturing Protection Message Register
 union MPMR_25 {
@@ -2153,7 +2153,7 @@ union MPMR_25 {
 
   MPMR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_25 &Instance() { return *reinterpret_cast<volatile MPMR_25*>(0x40440399); }
+  static inline volatile MPMR_25 &ref() { return *reinterpret_cast<volatile MPMR_25*>(0x40440399); }
 };
 // Manufacturing Protection Message Register
 union MPMR_26 {
@@ -2170,7 +2170,7 @@ union MPMR_26 {
 
   MPMR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_26 &Instance() { return *reinterpret_cast<volatile MPMR_26*>(0x4044039A); }
+  static inline volatile MPMR_26 &ref() { return *reinterpret_cast<volatile MPMR_26*>(0x4044039A); }
 };
 // Manufacturing Protection Message Register
 union MPMR_27 {
@@ -2187,7 +2187,7 @@ union MPMR_27 {
 
   MPMR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_27 &Instance() { return *reinterpret_cast<volatile MPMR_27*>(0x4044039B); }
+  static inline volatile MPMR_27 &ref() { return *reinterpret_cast<volatile MPMR_27*>(0x4044039B); }
 };
 // Manufacturing Protection Message Register
 union MPMR_28 {
@@ -2204,7 +2204,7 @@ union MPMR_28 {
 
   MPMR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_28 &Instance() { return *reinterpret_cast<volatile MPMR_28*>(0x4044039C); }
+  static inline volatile MPMR_28 &ref() { return *reinterpret_cast<volatile MPMR_28*>(0x4044039C); }
 };
 // Manufacturing Protection Message Register
 union MPMR_29 {
@@ -2221,7 +2221,7 @@ union MPMR_29 {
 
   MPMR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_29 &Instance() { return *reinterpret_cast<volatile MPMR_29*>(0x4044039D); }
+  static inline volatile MPMR_29 &ref() { return *reinterpret_cast<volatile MPMR_29*>(0x4044039D); }
 };
 // Manufacturing Protection Message Register
 union MPMR_30 {
@@ -2238,7 +2238,7 @@ union MPMR_30 {
 
   MPMR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_30 &Instance() { return *reinterpret_cast<volatile MPMR_30*>(0x4044039E); }
+  static inline volatile MPMR_30 &ref() { return *reinterpret_cast<volatile MPMR_30*>(0x4044039E); }
 };
 // Manufacturing Protection Message Register
 union MPMR_31 {
@@ -2255,7 +2255,7 @@ union MPMR_31 {
 
   MPMR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR_31 &Instance() { return *reinterpret_cast<volatile MPMR_31*>(0x4044039F); }
+  static inline volatile MPMR_31 &ref() { return *reinterpret_cast<volatile MPMR_31*>(0x4044039F); }
 };
 
 // Manufacturing Protection Test Register
@@ -2273,7 +2273,7 @@ union MPTESTR_0 {
 
   MPTESTR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_0 &Instance() { return *reinterpret_cast<volatile MPTESTR_0*>(0x404403C0); }
+  static inline volatile MPTESTR_0 &ref() { return *reinterpret_cast<volatile MPTESTR_0*>(0x404403C0); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_1 {
@@ -2290,7 +2290,7 @@ union MPTESTR_1 {
 
   MPTESTR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_1 &Instance() { return *reinterpret_cast<volatile MPTESTR_1*>(0x404403C1); }
+  static inline volatile MPTESTR_1 &ref() { return *reinterpret_cast<volatile MPTESTR_1*>(0x404403C1); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_2 {
@@ -2307,7 +2307,7 @@ union MPTESTR_2 {
 
   MPTESTR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_2 &Instance() { return *reinterpret_cast<volatile MPTESTR_2*>(0x404403C2); }
+  static inline volatile MPTESTR_2 &ref() { return *reinterpret_cast<volatile MPTESTR_2*>(0x404403C2); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_3 {
@@ -2324,7 +2324,7 @@ union MPTESTR_3 {
 
   MPTESTR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_3 &Instance() { return *reinterpret_cast<volatile MPTESTR_3*>(0x404403C3); }
+  static inline volatile MPTESTR_3 &ref() { return *reinterpret_cast<volatile MPTESTR_3*>(0x404403C3); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_4 {
@@ -2341,7 +2341,7 @@ union MPTESTR_4 {
 
   MPTESTR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_4 &Instance() { return *reinterpret_cast<volatile MPTESTR_4*>(0x404403C4); }
+  static inline volatile MPTESTR_4 &ref() { return *reinterpret_cast<volatile MPTESTR_4*>(0x404403C4); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_5 {
@@ -2358,7 +2358,7 @@ union MPTESTR_5 {
 
   MPTESTR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_5 &Instance() { return *reinterpret_cast<volatile MPTESTR_5*>(0x404403C5); }
+  static inline volatile MPTESTR_5 &ref() { return *reinterpret_cast<volatile MPTESTR_5*>(0x404403C5); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_6 {
@@ -2375,7 +2375,7 @@ union MPTESTR_6 {
 
   MPTESTR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_6 &Instance() { return *reinterpret_cast<volatile MPTESTR_6*>(0x404403C6); }
+  static inline volatile MPTESTR_6 &ref() { return *reinterpret_cast<volatile MPTESTR_6*>(0x404403C6); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_7 {
@@ -2392,7 +2392,7 @@ union MPTESTR_7 {
 
   MPTESTR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_7 &Instance() { return *reinterpret_cast<volatile MPTESTR_7*>(0x404403C7); }
+  static inline volatile MPTESTR_7 &ref() { return *reinterpret_cast<volatile MPTESTR_7*>(0x404403C7); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_8 {
@@ -2409,7 +2409,7 @@ union MPTESTR_8 {
 
   MPTESTR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_8 &Instance() { return *reinterpret_cast<volatile MPTESTR_8*>(0x404403C8); }
+  static inline volatile MPTESTR_8 &ref() { return *reinterpret_cast<volatile MPTESTR_8*>(0x404403C8); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_9 {
@@ -2426,7 +2426,7 @@ union MPTESTR_9 {
 
   MPTESTR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_9 &Instance() { return *reinterpret_cast<volatile MPTESTR_9*>(0x404403C9); }
+  static inline volatile MPTESTR_9 &ref() { return *reinterpret_cast<volatile MPTESTR_9*>(0x404403C9); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_10 {
@@ -2443,7 +2443,7 @@ union MPTESTR_10 {
 
   MPTESTR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_10 &Instance() { return *reinterpret_cast<volatile MPTESTR_10*>(0x404403CA); }
+  static inline volatile MPTESTR_10 &ref() { return *reinterpret_cast<volatile MPTESTR_10*>(0x404403CA); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_11 {
@@ -2460,7 +2460,7 @@ union MPTESTR_11 {
 
   MPTESTR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_11 &Instance() { return *reinterpret_cast<volatile MPTESTR_11*>(0x404403CB); }
+  static inline volatile MPTESTR_11 &ref() { return *reinterpret_cast<volatile MPTESTR_11*>(0x404403CB); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_12 {
@@ -2477,7 +2477,7 @@ union MPTESTR_12 {
 
   MPTESTR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_12 &Instance() { return *reinterpret_cast<volatile MPTESTR_12*>(0x404403CC); }
+  static inline volatile MPTESTR_12 &ref() { return *reinterpret_cast<volatile MPTESTR_12*>(0x404403CC); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_13 {
@@ -2494,7 +2494,7 @@ union MPTESTR_13 {
 
   MPTESTR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_13 &Instance() { return *reinterpret_cast<volatile MPTESTR_13*>(0x404403CD); }
+  static inline volatile MPTESTR_13 &ref() { return *reinterpret_cast<volatile MPTESTR_13*>(0x404403CD); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_14 {
@@ -2511,7 +2511,7 @@ union MPTESTR_14 {
 
   MPTESTR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_14 &Instance() { return *reinterpret_cast<volatile MPTESTR_14*>(0x404403CE); }
+  static inline volatile MPTESTR_14 &ref() { return *reinterpret_cast<volatile MPTESTR_14*>(0x404403CE); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_15 {
@@ -2528,7 +2528,7 @@ union MPTESTR_15 {
 
   MPTESTR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_15 &Instance() { return *reinterpret_cast<volatile MPTESTR_15*>(0x404403CF); }
+  static inline volatile MPTESTR_15 &ref() { return *reinterpret_cast<volatile MPTESTR_15*>(0x404403CF); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_16 {
@@ -2545,7 +2545,7 @@ union MPTESTR_16 {
 
   MPTESTR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_16 &Instance() { return *reinterpret_cast<volatile MPTESTR_16*>(0x404403D0); }
+  static inline volatile MPTESTR_16 &ref() { return *reinterpret_cast<volatile MPTESTR_16*>(0x404403D0); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_17 {
@@ -2562,7 +2562,7 @@ union MPTESTR_17 {
 
   MPTESTR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_17 &Instance() { return *reinterpret_cast<volatile MPTESTR_17*>(0x404403D1); }
+  static inline volatile MPTESTR_17 &ref() { return *reinterpret_cast<volatile MPTESTR_17*>(0x404403D1); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_18 {
@@ -2579,7 +2579,7 @@ union MPTESTR_18 {
 
   MPTESTR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_18 &Instance() { return *reinterpret_cast<volatile MPTESTR_18*>(0x404403D2); }
+  static inline volatile MPTESTR_18 &ref() { return *reinterpret_cast<volatile MPTESTR_18*>(0x404403D2); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_19 {
@@ -2596,7 +2596,7 @@ union MPTESTR_19 {
 
   MPTESTR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_19 &Instance() { return *reinterpret_cast<volatile MPTESTR_19*>(0x404403D3); }
+  static inline volatile MPTESTR_19 &ref() { return *reinterpret_cast<volatile MPTESTR_19*>(0x404403D3); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_20 {
@@ -2613,7 +2613,7 @@ union MPTESTR_20 {
 
   MPTESTR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_20 &Instance() { return *reinterpret_cast<volatile MPTESTR_20*>(0x404403D4); }
+  static inline volatile MPTESTR_20 &ref() { return *reinterpret_cast<volatile MPTESTR_20*>(0x404403D4); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_21 {
@@ -2630,7 +2630,7 @@ union MPTESTR_21 {
 
   MPTESTR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_21 &Instance() { return *reinterpret_cast<volatile MPTESTR_21*>(0x404403D5); }
+  static inline volatile MPTESTR_21 &ref() { return *reinterpret_cast<volatile MPTESTR_21*>(0x404403D5); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_22 {
@@ -2647,7 +2647,7 @@ union MPTESTR_22 {
 
   MPTESTR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_22 &Instance() { return *reinterpret_cast<volatile MPTESTR_22*>(0x404403D6); }
+  static inline volatile MPTESTR_22 &ref() { return *reinterpret_cast<volatile MPTESTR_22*>(0x404403D6); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_23 {
@@ -2664,7 +2664,7 @@ union MPTESTR_23 {
 
   MPTESTR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_23 &Instance() { return *reinterpret_cast<volatile MPTESTR_23*>(0x404403D7); }
+  static inline volatile MPTESTR_23 &ref() { return *reinterpret_cast<volatile MPTESTR_23*>(0x404403D7); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_24 {
@@ -2681,7 +2681,7 @@ union MPTESTR_24 {
 
   MPTESTR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_24 &Instance() { return *reinterpret_cast<volatile MPTESTR_24*>(0x404403D8); }
+  static inline volatile MPTESTR_24 &ref() { return *reinterpret_cast<volatile MPTESTR_24*>(0x404403D8); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_25 {
@@ -2698,7 +2698,7 @@ union MPTESTR_25 {
 
   MPTESTR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_25 &Instance() { return *reinterpret_cast<volatile MPTESTR_25*>(0x404403D9); }
+  static inline volatile MPTESTR_25 &ref() { return *reinterpret_cast<volatile MPTESTR_25*>(0x404403D9); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_26 {
@@ -2715,7 +2715,7 @@ union MPTESTR_26 {
 
   MPTESTR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_26 &Instance() { return *reinterpret_cast<volatile MPTESTR_26*>(0x404403DA); }
+  static inline volatile MPTESTR_26 &ref() { return *reinterpret_cast<volatile MPTESTR_26*>(0x404403DA); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_27 {
@@ -2732,7 +2732,7 @@ union MPTESTR_27 {
 
   MPTESTR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_27 &Instance() { return *reinterpret_cast<volatile MPTESTR_27*>(0x404403DB); }
+  static inline volatile MPTESTR_27 &ref() { return *reinterpret_cast<volatile MPTESTR_27*>(0x404403DB); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_28 {
@@ -2749,7 +2749,7 @@ union MPTESTR_28 {
 
   MPTESTR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_28 &Instance() { return *reinterpret_cast<volatile MPTESTR_28*>(0x404403DC); }
+  static inline volatile MPTESTR_28 &ref() { return *reinterpret_cast<volatile MPTESTR_28*>(0x404403DC); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_29 {
@@ -2766,7 +2766,7 @@ union MPTESTR_29 {
 
   MPTESTR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_29 &Instance() { return *reinterpret_cast<volatile MPTESTR_29*>(0x404403DD); }
+  static inline volatile MPTESTR_29 &ref() { return *reinterpret_cast<volatile MPTESTR_29*>(0x404403DD); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_30 {
@@ -2783,7 +2783,7 @@ union MPTESTR_30 {
 
   MPTESTR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_30 &Instance() { return *reinterpret_cast<volatile MPTESTR_30*>(0x404403DE); }
+  static inline volatile MPTESTR_30 &ref() { return *reinterpret_cast<volatile MPTESTR_30*>(0x404403DE); }
 };
 // Manufacturing Protection Test Register
 union MPTESTR_31 {
@@ -2800,7 +2800,7 @@ union MPTESTR_31 {
 
   MPTESTR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR_31 &Instance() { return *reinterpret_cast<volatile MPTESTR_31*>(0x404403DF); }
+  static inline volatile MPTESTR_31 &ref() { return *reinterpret_cast<volatile MPTESTR_31*>(0x404403DF); }
 };
 
 // Manufacturing Protection ECC Register
@@ -2854,7 +2854,7 @@ union MPECC {
 
   MPECC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPECC &Instance() { return *reinterpret_cast<volatile MPECC*>(0x404403F8); }
+  static inline volatile MPECC &ref() { return *reinterpret_cast<volatile MPECC*>(0x404403F8); }
 };
 
 // Job Descriptor Key Encryption Key Register
@@ -2871,7 +2871,7 @@ union JDKEKR_0 {
 
   JDKEKR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR_0 &Instance() { return *reinterpret_cast<volatile JDKEKR_0*>(0x40440400); }
+  static inline volatile JDKEKR_0 &ref() { return *reinterpret_cast<volatile JDKEKR_0*>(0x40440400); }
 };
 // Job Descriptor Key Encryption Key Register
 union JDKEKR_1 {
@@ -2887,7 +2887,7 @@ union JDKEKR_1 {
 
   JDKEKR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR_1 &Instance() { return *reinterpret_cast<volatile JDKEKR_1*>(0x40440404); }
+  static inline volatile JDKEKR_1 &ref() { return *reinterpret_cast<volatile JDKEKR_1*>(0x40440404); }
 };
 // Job Descriptor Key Encryption Key Register
 union JDKEKR_2 {
@@ -2903,7 +2903,7 @@ union JDKEKR_2 {
 
   JDKEKR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR_2 &Instance() { return *reinterpret_cast<volatile JDKEKR_2*>(0x40440408); }
+  static inline volatile JDKEKR_2 &ref() { return *reinterpret_cast<volatile JDKEKR_2*>(0x40440408); }
 };
 // Job Descriptor Key Encryption Key Register
 union JDKEKR_3 {
@@ -2919,7 +2919,7 @@ union JDKEKR_3 {
 
   JDKEKR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR_3 &Instance() { return *reinterpret_cast<volatile JDKEKR_3*>(0x4044040C); }
+  static inline volatile JDKEKR_3 &ref() { return *reinterpret_cast<volatile JDKEKR_3*>(0x4044040C); }
 };
 // Job Descriptor Key Encryption Key Register
 union JDKEKR_4 {
@@ -2935,7 +2935,7 @@ union JDKEKR_4 {
 
   JDKEKR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR_4 &Instance() { return *reinterpret_cast<volatile JDKEKR_4*>(0x40440410); }
+  static inline volatile JDKEKR_4 &ref() { return *reinterpret_cast<volatile JDKEKR_4*>(0x40440410); }
 };
 // Job Descriptor Key Encryption Key Register
 union JDKEKR_5 {
@@ -2951,7 +2951,7 @@ union JDKEKR_5 {
 
   JDKEKR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR_5 &Instance() { return *reinterpret_cast<volatile JDKEKR_5*>(0x40440414); }
+  static inline volatile JDKEKR_5 &ref() { return *reinterpret_cast<volatile JDKEKR_5*>(0x40440414); }
 };
 // Job Descriptor Key Encryption Key Register
 union JDKEKR_6 {
@@ -2967,7 +2967,7 @@ union JDKEKR_6 {
 
   JDKEKR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR_6 &Instance() { return *reinterpret_cast<volatile JDKEKR_6*>(0x40440418); }
+  static inline volatile JDKEKR_6 &ref() { return *reinterpret_cast<volatile JDKEKR_6*>(0x40440418); }
 };
 // Job Descriptor Key Encryption Key Register
 union JDKEKR_7 {
@@ -2983,7 +2983,7 @@ union JDKEKR_7 {
 
   JDKEKR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR_7 &Instance() { return *reinterpret_cast<volatile JDKEKR_7*>(0x4044041C); }
+  static inline volatile JDKEKR_7 &ref() { return *reinterpret_cast<volatile JDKEKR_7*>(0x4044041C); }
 };
 
 // Trusted Descriptor Key Encryption Key Register
@@ -3000,7 +3000,7 @@ union TDKEKR_0 {
 
   TDKEKR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR_0 &Instance() { return *reinterpret_cast<volatile TDKEKR_0*>(0x40440420); }
+  static inline volatile TDKEKR_0 &ref() { return *reinterpret_cast<volatile TDKEKR_0*>(0x40440420); }
 };
 // Trusted Descriptor Key Encryption Key Register
 union TDKEKR_1 {
@@ -3016,7 +3016,7 @@ union TDKEKR_1 {
 
   TDKEKR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR_1 &Instance() { return *reinterpret_cast<volatile TDKEKR_1*>(0x40440424); }
+  static inline volatile TDKEKR_1 &ref() { return *reinterpret_cast<volatile TDKEKR_1*>(0x40440424); }
 };
 // Trusted Descriptor Key Encryption Key Register
 union TDKEKR_2 {
@@ -3032,7 +3032,7 @@ union TDKEKR_2 {
 
   TDKEKR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR_2 &Instance() { return *reinterpret_cast<volatile TDKEKR_2*>(0x40440428); }
+  static inline volatile TDKEKR_2 &ref() { return *reinterpret_cast<volatile TDKEKR_2*>(0x40440428); }
 };
 // Trusted Descriptor Key Encryption Key Register
 union TDKEKR_3 {
@@ -3048,7 +3048,7 @@ union TDKEKR_3 {
 
   TDKEKR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR_3 &Instance() { return *reinterpret_cast<volatile TDKEKR_3*>(0x4044042C); }
+  static inline volatile TDKEKR_3 &ref() { return *reinterpret_cast<volatile TDKEKR_3*>(0x4044042C); }
 };
 // Trusted Descriptor Key Encryption Key Register
 union TDKEKR_4 {
@@ -3064,7 +3064,7 @@ union TDKEKR_4 {
 
   TDKEKR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR_4 &Instance() { return *reinterpret_cast<volatile TDKEKR_4*>(0x40440430); }
+  static inline volatile TDKEKR_4 &ref() { return *reinterpret_cast<volatile TDKEKR_4*>(0x40440430); }
 };
 // Trusted Descriptor Key Encryption Key Register
 union TDKEKR_5 {
@@ -3080,7 +3080,7 @@ union TDKEKR_5 {
 
   TDKEKR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR_5 &Instance() { return *reinterpret_cast<volatile TDKEKR_5*>(0x40440434); }
+  static inline volatile TDKEKR_5 &ref() { return *reinterpret_cast<volatile TDKEKR_5*>(0x40440434); }
 };
 // Trusted Descriptor Key Encryption Key Register
 union TDKEKR_6 {
@@ -3096,7 +3096,7 @@ union TDKEKR_6 {
 
   TDKEKR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR_6 &Instance() { return *reinterpret_cast<volatile TDKEKR_6*>(0x40440438); }
+  static inline volatile TDKEKR_6 &ref() { return *reinterpret_cast<volatile TDKEKR_6*>(0x40440438); }
 };
 // Trusted Descriptor Key Encryption Key Register
 union TDKEKR_7 {
@@ -3112,7 +3112,7 @@ union TDKEKR_7 {
 
   TDKEKR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR_7 &Instance() { return *reinterpret_cast<volatile TDKEKR_7*>(0x4044043C); }
+  static inline volatile TDKEKR_7 &ref() { return *reinterpret_cast<volatile TDKEKR_7*>(0x4044043C); }
 };
 
 // Trusted Descriptor Signing Key Register
@@ -3129,7 +3129,7 @@ union TDSKR_0 {
 
   TDSKR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR_0 &Instance() { return *reinterpret_cast<volatile TDSKR_0*>(0x40440440); }
+  static inline volatile TDSKR_0 &ref() { return *reinterpret_cast<volatile TDSKR_0*>(0x40440440); }
 };
 // Trusted Descriptor Signing Key Register
 union TDSKR_1 {
@@ -3145,7 +3145,7 @@ union TDSKR_1 {
 
   TDSKR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR_1 &Instance() { return *reinterpret_cast<volatile TDSKR_1*>(0x40440444); }
+  static inline volatile TDSKR_1 &ref() { return *reinterpret_cast<volatile TDSKR_1*>(0x40440444); }
 };
 // Trusted Descriptor Signing Key Register
 union TDSKR_2 {
@@ -3161,7 +3161,7 @@ union TDSKR_2 {
 
   TDSKR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR_2 &Instance() { return *reinterpret_cast<volatile TDSKR_2*>(0x40440448); }
+  static inline volatile TDSKR_2 &ref() { return *reinterpret_cast<volatile TDSKR_2*>(0x40440448); }
 };
 // Trusted Descriptor Signing Key Register
 union TDSKR_3 {
@@ -3177,7 +3177,7 @@ union TDSKR_3 {
 
   TDSKR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR_3 &Instance() { return *reinterpret_cast<volatile TDSKR_3*>(0x4044044C); }
+  static inline volatile TDSKR_3 &ref() { return *reinterpret_cast<volatile TDSKR_3*>(0x4044044C); }
 };
 // Trusted Descriptor Signing Key Register
 union TDSKR_4 {
@@ -3193,7 +3193,7 @@ union TDSKR_4 {
 
   TDSKR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR_4 &Instance() { return *reinterpret_cast<volatile TDSKR_4*>(0x40440450); }
+  static inline volatile TDSKR_4 &ref() { return *reinterpret_cast<volatile TDSKR_4*>(0x40440450); }
 };
 // Trusted Descriptor Signing Key Register
 union TDSKR_5 {
@@ -3209,7 +3209,7 @@ union TDSKR_5 {
 
   TDSKR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR_5 &Instance() { return *reinterpret_cast<volatile TDSKR_5*>(0x40440454); }
+  static inline volatile TDSKR_5 &ref() { return *reinterpret_cast<volatile TDSKR_5*>(0x40440454); }
 };
 // Trusted Descriptor Signing Key Register
 union TDSKR_6 {
@@ -3225,7 +3225,7 @@ union TDSKR_6 {
 
   TDSKR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR_6 &Instance() { return *reinterpret_cast<volatile TDSKR_6*>(0x40440458); }
+  static inline volatile TDSKR_6 &ref() { return *reinterpret_cast<volatile TDSKR_6*>(0x40440458); }
 };
 // Trusted Descriptor Signing Key Register
 union TDSKR_7 {
@@ -3241,7 +3241,7 @@ union TDSKR_7 {
 
   TDSKR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR_7 &Instance() { return *reinterpret_cast<volatile TDSKR_7*>(0x4044045C); }
+  static inline volatile TDSKR_7 &ref() { return *reinterpret_cast<volatile TDSKR_7*>(0x4044045C); }
 };
 
 // Secure Key Nonce Register
@@ -3260,7 +3260,7 @@ union SKNR {
 
   SKNR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SKNR &Instance() { return *reinterpret_cast<volatile SKNR*>(0x404404E0); }
+  static inline volatile SKNR &ref() { return *reinterpret_cast<volatile SKNR*>(0x404404E0); }
 };
 
 // DMA Status Register
@@ -3283,7 +3283,7 @@ union DMA_STA {
 
   DMA_STA() = delete;
   inline void Reset() volatile { this->value = 0x00000080; }
-  static inline volatile DMA_STA &Instance() { return *reinterpret_cast<volatile DMA_STA*>(0x4044050C); }
+  static inline volatile DMA_STA &ref() { return *reinterpret_cast<volatile DMA_STA*>(0x4044050C); }
 };
 
 // DMA_X_AID_7_4_MAP
@@ -3306,7 +3306,7 @@ union DMA_X_AID_7_4_MAP {
 
   DMA_X_AID_7_4_MAP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_AID_7_4_MAP &Instance() { return *reinterpret_cast<volatile DMA_X_AID_7_4_MAP*>(0x40440510); }
+  static inline volatile DMA_X_AID_7_4_MAP &ref() { return *reinterpret_cast<volatile DMA_X_AID_7_4_MAP*>(0x40440510); }
 };
 
 // DMA_X_AID_3_0_MAP
@@ -3329,7 +3329,7 @@ union DMA_X_AID_3_0_MAP {
 
   DMA_X_AID_3_0_MAP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_AID_3_0_MAP &Instance() { return *reinterpret_cast<volatile DMA_X_AID_3_0_MAP*>(0x40440514); }
+  static inline volatile DMA_X_AID_3_0_MAP &ref() { return *reinterpret_cast<volatile DMA_X_AID_3_0_MAP*>(0x40440514); }
 };
 
 // DMA_X_AID_15_12_MAP
@@ -3352,7 +3352,7 @@ union DMA_X_AID_15_12_MAP {
 
   DMA_X_AID_15_12_MAP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_AID_15_12_MAP &Instance() { return *reinterpret_cast<volatile DMA_X_AID_15_12_MAP*>(0x40440518); }
+  static inline volatile DMA_X_AID_15_12_MAP &ref() { return *reinterpret_cast<volatile DMA_X_AID_15_12_MAP*>(0x40440518); }
 };
 
 // DMA_X_AID_11_8_MAP
@@ -3375,7 +3375,7 @@ union DMA_X_AID_11_8_MAP {
 
   DMA_X_AID_11_8_MAP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_AID_11_8_MAP &Instance() { return *reinterpret_cast<volatile DMA_X_AID_11_8_MAP*>(0x4044051C); }
+  static inline volatile DMA_X_AID_11_8_MAP &ref() { return *reinterpret_cast<volatile DMA_X_AID_11_8_MAP*>(0x4044051C); }
 };
 
 // DMA_X AXI ID Map Enable Register
@@ -3423,7 +3423,7 @@ union DMA_X_AID_15_0_EN {
 
   DMA_X_AID_15_0_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_AID_15_0_EN &Instance() { return *reinterpret_cast<volatile DMA_X_AID_15_0_EN*>(0x40440524); }
+  static inline volatile DMA_X_AID_15_0_EN &ref() { return *reinterpret_cast<volatile DMA_X_AID_15_0_EN*>(0x40440524); }
 };
 
 // DMA_X AXI Read Timing Check Control Register
@@ -3451,7 +3451,7 @@ union DMA_X_ARTC_CTL {
 
   DMA_X_ARTC_CTL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_ARTC_CTL &Instance() { return *reinterpret_cast<volatile DMA_X_ARTC_CTL*>(0x40440530); }
+  static inline volatile DMA_X_ARTC_CTL &ref() { return *reinterpret_cast<volatile DMA_X_ARTC_CTL*>(0x40440530); }
 };
 
 // DMA_X AXI Read Timing Check Late Count Register
@@ -3469,7 +3469,7 @@ union DMA_X_ARTC_LC {
 
   DMA_X_ARTC_LC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_ARTC_LC &Instance() { return *reinterpret_cast<volatile DMA_X_ARTC_LC*>(0x40440534); }
+  static inline volatile DMA_X_ARTC_LC &ref() { return *reinterpret_cast<volatile DMA_X_ARTC_LC*>(0x40440534); }
 };
 
 // DMA_X AXI Read Timing Check Sample Count Register
@@ -3487,7 +3487,7 @@ union DMA_X_ARTC_SC {
 
   DMA_X_ARTC_SC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_ARTC_SC &Instance() { return *reinterpret_cast<volatile DMA_X_ARTC_SC*>(0x40440538); }
+  static inline volatile DMA_X_ARTC_SC &ref() { return *reinterpret_cast<volatile DMA_X_ARTC_SC*>(0x40440538); }
 };
 
 // DMA_X Read Timing Check Latency Register
@@ -3504,7 +3504,7 @@ union DMA_X_ARTC_LAT {
 
   DMA_X_ARTC_LAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_ARTC_LAT &Instance() { return *reinterpret_cast<volatile DMA_X_ARTC_LAT*>(0x4044053C); }
+  static inline volatile DMA_X_ARTC_LAT &ref() { return *reinterpret_cast<volatile DMA_X_ARTC_LAT*>(0x4044053C); }
 };
 
 // DMA_X AXI Write Timing Check Control Register
@@ -3531,7 +3531,7 @@ union DMA_X_AWTC_CTL {
 
   DMA_X_AWTC_CTL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_AWTC_CTL &Instance() { return *reinterpret_cast<volatile DMA_X_AWTC_CTL*>(0x40440540); }
+  static inline volatile DMA_X_AWTC_CTL &ref() { return *reinterpret_cast<volatile DMA_X_AWTC_CTL*>(0x40440540); }
 };
 
 // DMA_X AXI Write Timing Check Late Count Register
@@ -3549,7 +3549,7 @@ union DMA_X_AWTC_LC {
 
   DMA_X_AWTC_LC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_AWTC_LC &Instance() { return *reinterpret_cast<volatile DMA_X_AWTC_LC*>(0x40440544); }
+  static inline volatile DMA_X_AWTC_LC &ref() { return *reinterpret_cast<volatile DMA_X_AWTC_LC*>(0x40440544); }
 };
 
 // DMA_X AXI Write Timing Check Sample Count Register
@@ -3567,7 +3567,7 @@ union DMA_X_AWTC_SC {
 
   DMA_X_AWTC_SC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_AWTC_SC &Instance() { return *reinterpret_cast<volatile DMA_X_AWTC_SC*>(0x40440548); }
+  static inline volatile DMA_X_AWTC_SC &ref() { return *reinterpret_cast<volatile DMA_X_AWTC_SC*>(0x40440548); }
 };
 
 // DMA_X Write Timing Check Latency Register
@@ -3584,7 +3584,7 @@ union DMA_X_AWTC_LAT {
 
   DMA_X_AWTC_LAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA_X_AWTC_LAT &Instance() { return *reinterpret_cast<volatile DMA_X_AWTC_LAT*>(0x4044054C); }
+  static inline volatile DMA_X_AWTC_LAT &ref() { return *reinterpret_cast<volatile DMA_X_AWTC_LAT*>(0x4044054C); }
 };
 
 // RNG TRNG Miscellaneous Control Register
@@ -3649,7 +3649,7 @@ union RTMCTL {
 
   RTMCTL() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile RTMCTL &Instance() { return *reinterpret_cast<volatile RTMCTL*>(0x40440600); }
+  static inline volatile RTMCTL &ref() { return *reinterpret_cast<volatile RTMCTL*>(0x40440600); }
 };
 
 // RNG TRNG Statistical Check Miscellaneous Register
@@ -3670,7 +3670,7 @@ union RTSCMISC {
 
   RTSCMISC() = delete;
   inline void Reset() volatile { this->value = 0x00010022; }
-  static inline volatile RTSCMISC &Instance() { return *reinterpret_cast<volatile RTSCMISC*>(0x40440604); }
+  static inline volatile RTSCMISC &ref() { return *reinterpret_cast<volatile RTSCMISC*>(0x40440604); }
 };
 
 // RNG TRNG Poker Range Register
@@ -3688,7 +3688,7 @@ union RTPKRRNG {
 
   RTPKRRNG() = delete;
   inline void Reset() volatile { this->value = 0x000009A3; }
-  static inline volatile RTPKRRNG &Instance() { return *reinterpret_cast<volatile RTPKRRNG*>(0x40440608); }
+  static inline volatile RTPKRRNG &ref() { return *reinterpret_cast<volatile RTPKRRNG*>(0x40440608); }
 };
 
 // RNG TRNG Poker Maximum Limit Register
@@ -3706,7 +3706,7 @@ union RTPKRMAX {
 
   RTPKRMAX() = delete;
   inline void Reset() volatile { this->value = 0x00006920; }
-  static inline volatile RTPKRMAX &Instance() { return *reinterpret_cast<volatile RTPKRMAX*>(0x4044060C); }
+  static inline volatile RTPKRMAX &ref() { return *reinterpret_cast<volatile RTPKRMAX*>(0x4044060C); }
 };
 
 // RNG TRNG Poker Square Calculation Result Register
@@ -3724,7 +3724,7 @@ union RTPKRSQ {
 
   RTPKRSQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTPKRSQ &Instance() { return *reinterpret_cast<volatile RTPKRSQ*>(0x4044060C); }
+  static inline volatile RTPKRSQ &ref() { return *reinterpret_cast<volatile RTPKRSQ*>(0x4044060C); }
 };
 
 // RNG TRNG Seed Control Register
@@ -3743,7 +3743,7 @@ union RTSDCTL {
 
   RTSDCTL() = delete;
   inline void Reset() volatile { this->value = 0x0C8009C4; }
-  static inline volatile RTSDCTL &Instance() { return *reinterpret_cast<volatile RTSDCTL*>(0x40440610); }
+  static inline volatile RTSDCTL &ref() { return *reinterpret_cast<volatile RTSDCTL*>(0x40440610); }
 };
 
 // RNG TRNG Sparse Bit Limit Register
@@ -3761,7 +3761,7 @@ union RTSBLIM {
 
   RTSBLIM() = delete;
   inline void Reset() volatile { this->value = 0x0000003F; }
-  static inline volatile RTSBLIM &Instance() { return *reinterpret_cast<volatile RTSBLIM*>(0x40440614); }
+  static inline volatile RTSBLIM &ref() { return *reinterpret_cast<volatile RTSBLIM*>(0x40440614); }
 };
 
 // RNG TRNG Total Samples Register
@@ -3779,7 +3779,7 @@ union RTTOTSAM {
 
   RTTOTSAM() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTTOTSAM &Instance() { return *reinterpret_cast<volatile RTTOTSAM*>(0x40440614); }
+  static inline volatile RTTOTSAM &ref() { return *reinterpret_cast<volatile RTTOTSAM*>(0x40440614); }
 };
 
 // RNG TRNG Frequency Count Minimum Limit Register
@@ -3797,7 +3797,7 @@ union RTFRQMIN {
 
   RTFRQMIN() = delete;
   inline void Reset() volatile { this->value = 0x00000640; }
-  static inline volatile RTFRQMIN &Instance() { return *reinterpret_cast<volatile RTFRQMIN*>(0x40440618); }
+  static inline volatile RTFRQMIN &ref() { return *reinterpret_cast<volatile RTFRQMIN*>(0x40440618); }
 };
 
 // RNG TRNG Frequency Count Register
@@ -3815,7 +3815,7 @@ union RTFRQCNT {
 
   RTFRQCNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTFRQCNT &Instance() { return *reinterpret_cast<volatile RTFRQCNT*>(0x4044061C); }
+  static inline volatile RTFRQCNT &ref() { return *reinterpret_cast<volatile RTFRQCNT*>(0x4044061C); }
 };
 
 // RNG TRNG Frequency Count Maximum Limit Register
@@ -3833,7 +3833,7 @@ union RTFRQMAX {
 
   RTFRQMAX() = delete;
   inline void Reset() volatile { this->value = 0x00006400; }
-  static inline volatile RTFRQMAX &Instance() { return *reinterpret_cast<volatile RTFRQMAX*>(0x4044061C); }
+  static inline volatile RTFRQMAX &ref() { return *reinterpret_cast<volatile RTFRQMAX*>(0x4044061C); }
 };
 
 // RNG TRNG Statistical Check Monobit Count Register
@@ -3851,7 +3851,7 @@ union RTSCMC {
 
   RTSCMC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTSCMC &Instance() { return *reinterpret_cast<volatile RTSCMC*>(0x40440620); }
+  static inline volatile RTSCMC &ref() { return *reinterpret_cast<volatile RTSCMC*>(0x40440620); }
 };
 
 // RNG TRNG Statistical Check Monobit Limit Register
@@ -3870,7 +3870,7 @@ union RTSCML {
 
   RTSCML() = delete;
   inline void Reset() volatile { this->value = 0x010C0568; }
-  static inline volatile RTSCML &Instance() { return *reinterpret_cast<volatile RTSCML*>(0x40440620); }
+  static inline volatile RTSCML &ref() { return *reinterpret_cast<volatile RTSCML*>(0x40440620); }
 };
 
 // RNG TRNG Statistical Check Run Length 1 Count Register
@@ -3891,7 +3891,7 @@ union RTSCR1C {
 
   RTSCR1C() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTSCR1C &Instance() { return *reinterpret_cast<volatile RTSCR1C*>(0x40440624); }
+  static inline volatile RTSCR1C &ref() { return *reinterpret_cast<volatile RTSCR1C*>(0x40440624); }
 };
 
 // RNG TRNG Statistical Check Run Length 1 Limit Register
@@ -3912,7 +3912,7 @@ union RTSCR1L {
 
   RTSCR1L() = delete;
   inline void Reset() volatile { this->value = 0x00B20195; }
-  static inline volatile RTSCR1L &Instance() { return *reinterpret_cast<volatile RTSCR1L*>(0x40440624); }
+  static inline volatile RTSCR1L &ref() { return *reinterpret_cast<volatile RTSCR1L*>(0x40440624); }
 };
 
 // RNG TRNG Statistical Check Run Length 2 Count Register
@@ -3933,7 +3933,7 @@ union RTSCR2C {
 
   RTSCR2C() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTSCR2C &Instance() { return *reinterpret_cast<volatile RTSCR2C*>(0x40440628); }
+  static inline volatile RTSCR2C &ref() { return *reinterpret_cast<volatile RTSCR2C*>(0x40440628); }
 };
 
 // RNG TRNG Statistical Check Run Length 2 Limit Register
@@ -3954,7 +3954,7 @@ union RTSCR2L {
 
   RTSCR2L() = delete;
   inline void Reset() volatile { this->value = 0x007A00DC; }
-  static inline volatile RTSCR2L &Instance() { return *reinterpret_cast<volatile RTSCR2L*>(0x40440628); }
+  static inline volatile RTSCR2L &ref() { return *reinterpret_cast<volatile RTSCR2L*>(0x40440628); }
 };
 
 // RNG TRNG Statistical Check Run Length 3 Count Register
@@ -3975,7 +3975,7 @@ union RTSCR3C {
 
   RTSCR3C() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTSCR3C &Instance() { return *reinterpret_cast<volatile RTSCR3C*>(0x4044062C); }
+  static inline volatile RTSCR3C &ref() { return *reinterpret_cast<volatile RTSCR3C*>(0x4044062C); }
 };
 
 // RNG TRNG Statistical Check Run Length 3 Limit Register
@@ -3996,7 +3996,7 @@ union RTSCR3L {
 
   RTSCR3L() = delete;
   inline void Reset() volatile { this->value = 0x0058007D; }
-  static inline volatile RTSCR3L &Instance() { return *reinterpret_cast<volatile RTSCR3L*>(0x4044062C); }
+  static inline volatile RTSCR3L &ref() { return *reinterpret_cast<volatile RTSCR3L*>(0x4044062C); }
 };
 
 // RNG TRNG Statistical Check Run Length 4 Count Register
@@ -4017,7 +4017,7 @@ union RTSCR4C {
 
   RTSCR4C() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTSCR4C &Instance() { return *reinterpret_cast<volatile RTSCR4C*>(0x40440630); }
+  static inline volatile RTSCR4C &ref() { return *reinterpret_cast<volatile RTSCR4C*>(0x40440630); }
 };
 
 // RNG TRNG Statistical Check Run Length 4 Limit Register
@@ -4038,7 +4038,7 @@ union RTSCR4L {
 
   RTSCR4L() = delete;
   inline void Reset() volatile { this->value = 0x0040004B; }
-  static inline volatile RTSCR4L &Instance() { return *reinterpret_cast<volatile RTSCR4L*>(0x40440630); }
+  static inline volatile RTSCR4L &ref() { return *reinterpret_cast<volatile RTSCR4L*>(0x40440630); }
 };
 
 // RNG TRNG Statistical Check Run Length 5 Count Register
@@ -4059,7 +4059,7 @@ union RTSCR5C {
 
   RTSCR5C() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTSCR5C &Instance() { return *reinterpret_cast<volatile RTSCR5C*>(0x40440634); }
+  static inline volatile RTSCR5C &ref() { return *reinterpret_cast<volatile RTSCR5C*>(0x40440634); }
 };
 
 // RNG TRNG Statistical Check Run Length 5 Limit Register
@@ -4080,7 +4080,7 @@ union RTSCR5L {
 
   RTSCR5L() = delete;
   inline void Reset() volatile { this->value = 0x002E002F; }
-  static inline volatile RTSCR5L &Instance() { return *reinterpret_cast<volatile RTSCR5L*>(0x40440634); }
+  static inline volatile RTSCR5L &ref() { return *reinterpret_cast<volatile RTSCR5L*>(0x40440634); }
 };
 
 // RNG TRNG Statistical Check Run Length 6+ Count Register
@@ -4101,7 +4101,7 @@ union RTSCR6PC {
 
   RTSCR6PC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTSCR6PC &Instance() { return *reinterpret_cast<volatile RTSCR6PC*>(0x40440638); }
+  static inline volatile RTSCR6PC &ref() { return *reinterpret_cast<volatile RTSCR6PC*>(0x40440638); }
 };
 
 // RNG TRNG Statistical Check Run Length 6+ Limit Register
@@ -4122,7 +4122,7 @@ union RTSCR6PL {
 
   RTSCR6PL() = delete;
   inline void Reset() volatile { this->value = 0x002E002F; }
-  static inline volatile RTSCR6PL &Instance() { return *reinterpret_cast<volatile RTSCR6PL*>(0x40440638); }
+  static inline volatile RTSCR6PL &ref() { return *reinterpret_cast<volatile RTSCR6PL*>(0x40440638); }
 };
 
 // RNG TRNG Status Register
@@ -4172,7 +4172,7 @@ union RTSTATUS {
 
   RTSTATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTSTATUS &Instance() { return *reinterpret_cast<volatile RTSTATUS*>(0x4044063C); }
+  static inline volatile RTSTATUS &ref() { return *reinterpret_cast<volatile RTSTATUS*>(0x4044063C); }
 };
 
 // RNG TRNG Entropy Read Register
@@ -4189,7 +4189,7 @@ union RTENT_0 {
 
   RTENT_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_0 &Instance() { return *reinterpret_cast<volatile RTENT_0*>(0x40440640); }
+  static inline volatile RTENT_0 &ref() { return *reinterpret_cast<volatile RTENT_0*>(0x40440640); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_1 {
@@ -4205,7 +4205,7 @@ union RTENT_1 {
 
   RTENT_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_1 &Instance() { return *reinterpret_cast<volatile RTENT_1*>(0x40440644); }
+  static inline volatile RTENT_1 &ref() { return *reinterpret_cast<volatile RTENT_1*>(0x40440644); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_2 {
@@ -4221,7 +4221,7 @@ union RTENT_2 {
 
   RTENT_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_2 &Instance() { return *reinterpret_cast<volatile RTENT_2*>(0x40440648); }
+  static inline volatile RTENT_2 &ref() { return *reinterpret_cast<volatile RTENT_2*>(0x40440648); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_3 {
@@ -4237,7 +4237,7 @@ union RTENT_3 {
 
   RTENT_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_3 &Instance() { return *reinterpret_cast<volatile RTENT_3*>(0x4044064C); }
+  static inline volatile RTENT_3 &ref() { return *reinterpret_cast<volatile RTENT_3*>(0x4044064C); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_4 {
@@ -4253,7 +4253,7 @@ union RTENT_4 {
 
   RTENT_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_4 &Instance() { return *reinterpret_cast<volatile RTENT_4*>(0x40440650); }
+  static inline volatile RTENT_4 &ref() { return *reinterpret_cast<volatile RTENT_4*>(0x40440650); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_5 {
@@ -4269,7 +4269,7 @@ union RTENT_5 {
 
   RTENT_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_5 &Instance() { return *reinterpret_cast<volatile RTENT_5*>(0x40440654); }
+  static inline volatile RTENT_5 &ref() { return *reinterpret_cast<volatile RTENT_5*>(0x40440654); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_6 {
@@ -4285,7 +4285,7 @@ union RTENT_6 {
 
   RTENT_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_6 &Instance() { return *reinterpret_cast<volatile RTENT_6*>(0x40440658); }
+  static inline volatile RTENT_6 &ref() { return *reinterpret_cast<volatile RTENT_6*>(0x40440658); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_7 {
@@ -4301,7 +4301,7 @@ union RTENT_7 {
 
   RTENT_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_7 &Instance() { return *reinterpret_cast<volatile RTENT_7*>(0x4044065C); }
+  static inline volatile RTENT_7 &ref() { return *reinterpret_cast<volatile RTENT_7*>(0x4044065C); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_8 {
@@ -4317,7 +4317,7 @@ union RTENT_8 {
 
   RTENT_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_8 &Instance() { return *reinterpret_cast<volatile RTENT_8*>(0x40440660); }
+  static inline volatile RTENT_8 &ref() { return *reinterpret_cast<volatile RTENT_8*>(0x40440660); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_9 {
@@ -4333,7 +4333,7 @@ union RTENT_9 {
 
   RTENT_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_9 &Instance() { return *reinterpret_cast<volatile RTENT_9*>(0x40440664); }
+  static inline volatile RTENT_9 &ref() { return *reinterpret_cast<volatile RTENT_9*>(0x40440664); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_10 {
@@ -4349,7 +4349,7 @@ union RTENT_10 {
 
   RTENT_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_10 &Instance() { return *reinterpret_cast<volatile RTENT_10*>(0x40440668); }
+  static inline volatile RTENT_10 &ref() { return *reinterpret_cast<volatile RTENT_10*>(0x40440668); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_11 {
@@ -4365,7 +4365,7 @@ union RTENT_11 {
 
   RTENT_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_11 &Instance() { return *reinterpret_cast<volatile RTENT_11*>(0x4044066C); }
+  static inline volatile RTENT_11 &ref() { return *reinterpret_cast<volatile RTENT_11*>(0x4044066C); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_12 {
@@ -4381,7 +4381,7 @@ union RTENT_12 {
 
   RTENT_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_12 &Instance() { return *reinterpret_cast<volatile RTENT_12*>(0x40440670); }
+  static inline volatile RTENT_12 &ref() { return *reinterpret_cast<volatile RTENT_12*>(0x40440670); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_13 {
@@ -4397,7 +4397,7 @@ union RTENT_13 {
 
   RTENT_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_13 &Instance() { return *reinterpret_cast<volatile RTENT_13*>(0x40440674); }
+  static inline volatile RTENT_13 &ref() { return *reinterpret_cast<volatile RTENT_13*>(0x40440674); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_14 {
@@ -4413,7 +4413,7 @@ union RTENT_14 {
 
   RTENT_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_14 &Instance() { return *reinterpret_cast<volatile RTENT_14*>(0x40440678); }
+  static inline volatile RTENT_14 &ref() { return *reinterpret_cast<volatile RTENT_14*>(0x40440678); }
 };
 // RNG TRNG Entropy Read Register
 union RTENT_15 {
@@ -4429,7 +4429,7 @@ union RTENT_15 {
 
   RTENT_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT_15 &Instance() { return *reinterpret_cast<volatile RTENT_15*>(0x4044067C); }
+  static inline volatile RTENT_15 &ref() { return *reinterpret_cast<volatile RTENT_15*>(0x4044067C); }
 };
 
 // RNG TRNG Statistical Check Poker Count 1 and 0 Register
@@ -4448,7 +4448,7 @@ union RTPKRCNT10 {
 
   RTPKRCNT10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTPKRCNT10 &Instance() { return *reinterpret_cast<volatile RTPKRCNT10*>(0x40440680); }
+  static inline volatile RTPKRCNT10 &ref() { return *reinterpret_cast<volatile RTPKRCNT10*>(0x40440680); }
 };
 
 // RNG TRNG Statistical Check Poker Count 3 and 2 Register
@@ -4467,7 +4467,7 @@ union RTPKRCNT32 {
 
   RTPKRCNT32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTPKRCNT32 &Instance() { return *reinterpret_cast<volatile RTPKRCNT32*>(0x40440684); }
+  static inline volatile RTPKRCNT32 &ref() { return *reinterpret_cast<volatile RTPKRCNT32*>(0x40440684); }
 };
 
 // RNG TRNG Statistical Check Poker Count 5 and 4 Register
@@ -4486,7 +4486,7 @@ union RTPKRCNT54 {
 
   RTPKRCNT54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTPKRCNT54 &Instance() { return *reinterpret_cast<volatile RTPKRCNT54*>(0x40440688); }
+  static inline volatile RTPKRCNT54 &ref() { return *reinterpret_cast<volatile RTPKRCNT54*>(0x40440688); }
 };
 
 // RNG TRNG Statistical Check Poker Count 7 and 6 Register
@@ -4505,7 +4505,7 @@ union RTPKRCNT76 {
 
   RTPKRCNT76() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTPKRCNT76 &Instance() { return *reinterpret_cast<volatile RTPKRCNT76*>(0x4044068C); }
+  static inline volatile RTPKRCNT76 &ref() { return *reinterpret_cast<volatile RTPKRCNT76*>(0x4044068C); }
 };
 
 // RNG TRNG Statistical Check Poker Count 9 and 8 Register
@@ -4524,7 +4524,7 @@ union RTPKRCNT98 {
 
   RTPKRCNT98() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTPKRCNT98 &Instance() { return *reinterpret_cast<volatile RTPKRCNT98*>(0x40440690); }
+  static inline volatile RTPKRCNT98 &ref() { return *reinterpret_cast<volatile RTPKRCNT98*>(0x40440690); }
 };
 
 // RNG TRNG Statistical Check Poker Count B and A Register
@@ -4543,7 +4543,7 @@ union RTPKRCNTBA {
 
   RTPKRCNTBA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTPKRCNTBA &Instance() { return *reinterpret_cast<volatile RTPKRCNTBA*>(0x40440694); }
+  static inline volatile RTPKRCNTBA &ref() { return *reinterpret_cast<volatile RTPKRCNTBA*>(0x40440694); }
 };
 
 // RNG TRNG Statistical Check Poker Count D and C Register
@@ -4562,7 +4562,7 @@ union RTPKRCNTDC {
 
   RTPKRCNTDC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTPKRCNTDC &Instance() { return *reinterpret_cast<volatile RTPKRCNTDC*>(0x40440698); }
+  static inline volatile RTPKRCNTDC &ref() { return *reinterpret_cast<volatile RTPKRCNTDC*>(0x40440698); }
 };
 
 // RNG TRNG Statistical Check Poker Count F and E Register
@@ -4581,7 +4581,7 @@ union RTPKRCNTFE {
 
   RTPKRCNTFE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTPKRCNTFE &Instance() { return *reinterpret_cast<volatile RTPKRCNTFE*>(0x4044069C); }
+  static inline volatile RTPKRCNTFE &ref() { return *reinterpret_cast<volatile RTPKRCNTFE*>(0x4044069C); }
 };
 
 // RNG DRNG Status Register
@@ -4620,7 +4620,7 @@ union RDSTA {
 
   RDSTA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDSTA &Instance() { return *reinterpret_cast<volatile RDSTA*>(0x404406C0); }
+  static inline volatile RDSTA &ref() { return *reinterpret_cast<volatile RDSTA*>(0x404406C0); }
 };
 
 // RNG DRNG State Handle 0 Reseed Interval Register
@@ -4637,7 +4637,7 @@ union RDINT0 {
 
   RDINT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDINT0 &Instance() { return *reinterpret_cast<volatile RDINT0*>(0x404406D0); }
+  static inline volatile RDINT0 &ref() { return *reinterpret_cast<volatile RDINT0*>(0x404406D0); }
 };
 
 // RNG DRNG State Handle 1 Reseed Interval Register
@@ -4654,7 +4654,7 @@ union RDINT1 {
 
   RDINT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDINT1 &Instance() { return *reinterpret_cast<volatile RDINT1*>(0x404406D4); }
+  static inline volatile RDINT1 &ref() { return *reinterpret_cast<volatile RDINT1*>(0x404406D4); }
 };
 
 // RNG DRNG Hash Control Register
@@ -4680,7 +4680,7 @@ union RDHCNTL {
 
   RDHCNTL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDHCNTL &Instance() { return *reinterpret_cast<volatile RDHCNTL*>(0x404406E0); }
+  static inline volatile RDHCNTL &ref() { return *reinterpret_cast<volatile RDHCNTL*>(0x404406E0); }
 };
 
 // RNG DRNG Hash Digest Register
@@ -4697,7 +4697,7 @@ union RDHDIG {
 
   RDHDIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDHDIG &Instance() { return *reinterpret_cast<volatile RDHDIG*>(0x404406E4); }
+  static inline volatile RDHDIG &ref() { return *reinterpret_cast<volatile RDHDIG*>(0x404406E4); }
 };
 
 // RNG DRNG Hash Buffer Register
@@ -4714,7 +4714,7 @@ union RDHBUF {
 
   RDHBUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDHBUF &Instance() { return *reinterpret_cast<volatile RDHBUF*>(0x404406E8); }
+  static inline volatile RDHBUF &ref() { return *reinterpret_cast<volatile RDHBUF*>(0x404406E8); }
 };
 
 // Partition 0 SDID register
@@ -4732,7 +4732,7 @@ union P0SDID_PG0 {
 
   P0SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P0SDID_PG0 &Instance() { return *reinterpret_cast<volatile P0SDID_PG0*>(0x40440A00); }
+  static inline volatile P0SDID_PG0 &ref() { return *reinterpret_cast<volatile P0SDID_PG0*>(0x40440A00); }
 };
 
 // Secure Memory Access Permissions register
@@ -4870,7 +4870,7 @@ union P0SMAPR_PG0 {
 
   P0SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P0SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P0SMAPR_PG0*>(0x40440A04); }
+  static inline volatile P0SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P0SMAPR_PG0*>(0x40440A04); }
 };
 
 // Secure Memory Access Group Registers
@@ -4949,7 +4949,7 @@ union P0SMAG2_PG0 {
 
   P0SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P0SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P0SMAG2_PG0*>(0x40440A08); }
+  static inline volatile P0SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P0SMAG2_PG0*>(0x40440A08); }
 };
 
 // Secure Memory Access Group Registers
@@ -5028,7 +5028,7 @@ union P0SMAG1_PG0 {
 
   P0SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P0SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P0SMAG1_PG0*>(0x40440A0C); }
+  static inline volatile P0SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P0SMAG1_PG0*>(0x40440A0C); }
 };
 
 // Partition 1 SDID register
@@ -5046,7 +5046,7 @@ union P1SDID_PG0 {
 
   P1SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P1SDID_PG0 &Instance() { return *reinterpret_cast<volatile P1SDID_PG0*>(0x40440A10); }
+  static inline volatile P1SDID_PG0 &ref() { return *reinterpret_cast<volatile P1SDID_PG0*>(0x40440A10); }
 };
 
 // Secure Memory Access Permissions register
@@ -5184,7 +5184,7 @@ union P1SMAPR_PG0 {
 
   P1SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P1SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P1SMAPR_PG0*>(0x40440A14); }
+  static inline volatile P1SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P1SMAPR_PG0*>(0x40440A14); }
 };
 
 // Secure Memory Access Group Registers
@@ -5263,7 +5263,7 @@ union P1SMAG2_PG0 {
 
   P1SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P1SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P1SMAG2_PG0*>(0x40440A18); }
+  static inline volatile P1SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P1SMAG2_PG0*>(0x40440A18); }
 };
 
 // Secure Memory Access Group Registers
@@ -5342,7 +5342,7 @@ union P1SMAG1_PG0 {
 
   P1SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P1SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P1SMAG1_PG0*>(0x40440A1C); }
+  static inline volatile P1SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P1SMAG1_PG0*>(0x40440A1C); }
 };
 
 // Partition 2 SDID register
@@ -5360,7 +5360,7 @@ union P2SDID_PG0 {
 
   P2SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P2SDID_PG0 &Instance() { return *reinterpret_cast<volatile P2SDID_PG0*>(0x40440A20); }
+  static inline volatile P2SDID_PG0 &ref() { return *reinterpret_cast<volatile P2SDID_PG0*>(0x40440A20); }
 };
 
 // Secure Memory Access Permissions register
@@ -5498,7 +5498,7 @@ union P2SMAPR_PG0 {
 
   P2SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P2SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P2SMAPR_PG0*>(0x40440A24); }
+  static inline volatile P2SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P2SMAPR_PG0*>(0x40440A24); }
 };
 
 // Secure Memory Access Group Registers
@@ -5577,7 +5577,7 @@ union P2SMAG2_PG0 {
 
   P2SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P2SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P2SMAG2_PG0*>(0x40440A28); }
+  static inline volatile P2SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P2SMAG2_PG0*>(0x40440A28); }
 };
 
 // Secure Memory Access Group Registers
@@ -5656,7 +5656,7 @@ union P2SMAG1_PG0 {
 
   P2SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P2SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P2SMAG1_PG0*>(0x40440A2C); }
+  static inline volatile P2SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P2SMAG1_PG0*>(0x40440A2C); }
 };
 
 // Partition 3 SDID register
@@ -5674,7 +5674,7 @@ union P3SDID_PG0 {
 
   P3SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P3SDID_PG0 &Instance() { return *reinterpret_cast<volatile P3SDID_PG0*>(0x40440A30); }
+  static inline volatile P3SDID_PG0 &ref() { return *reinterpret_cast<volatile P3SDID_PG0*>(0x40440A30); }
 };
 
 // Secure Memory Access Permissions register
@@ -5812,7 +5812,7 @@ union P3SMAPR_PG0 {
 
   P3SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P3SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P3SMAPR_PG0*>(0x40440A34); }
+  static inline volatile P3SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P3SMAPR_PG0*>(0x40440A34); }
 };
 
 // Secure Memory Access Group Registers
@@ -5891,7 +5891,7 @@ union P3SMAG2_PG0 {
 
   P3SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P3SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P3SMAG2_PG0*>(0x40440A38); }
+  static inline volatile P3SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P3SMAG2_PG0*>(0x40440A38); }
 };
 
 // Secure Memory Access Group Registers
@@ -5970,7 +5970,7 @@ union P3SMAG1_PG0 {
 
   P3SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P3SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P3SMAG1_PG0*>(0x40440A3C); }
+  static inline volatile P3SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P3SMAG1_PG0*>(0x40440A3C); }
 };
 
 // Partition 4 SDID register
@@ -5988,7 +5988,7 @@ union P4SDID_PG0 {
 
   P4SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P4SDID_PG0 &Instance() { return *reinterpret_cast<volatile P4SDID_PG0*>(0x40440A40); }
+  static inline volatile P4SDID_PG0 &ref() { return *reinterpret_cast<volatile P4SDID_PG0*>(0x40440A40); }
 };
 
 // Secure Memory Access Permissions register
@@ -6126,7 +6126,7 @@ union P4SMAPR_PG0 {
 
   P4SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P4SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P4SMAPR_PG0*>(0x40440A44); }
+  static inline volatile P4SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P4SMAPR_PG0*>(0x40440A44); }
 };
 
 // Secure Memory Access Group Registers
@@ -6205,7 +6205,7 @@ union P4SMAG2_PG0 {
 
   P4SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P4SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P4SMAG2_PG0*>(0x40440A48); }
+  static inline volatile P4SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P4SMAG2_PG0*>(0x40440A48); }
 };
 
 // Secure Memory Access Group Registers
@@ -6284,7 +6284,7 @@ union P4SMAG1_PG0 {
 
   P4SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P4SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P4SMAG1_PG0*>(0x40440A4C); }
+  static inline volatile P4SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P4SMAG1_PG0*>(0x40440A4C); }
 };
 
 // Partition 5 SDID register
@@ -6302,7 +6302,7 @@ union P5SDID_PG0 {
 
   P5SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P5SDID_PG0 &Instance() { return *reinterpret_cast<volatile P5SDID_PG0*>(0x40440A50); }
+  static inline volatile P5SDID_PG0 &ref() { return *reinterpret_cast<volatile P5SDID_PG0*>(0x40440A50); }
 };
 
 // Secure Memory Access Permissions register
@@ -6440,7 +6440,7 @@ union P5SMAPR_PG0 {
 
   P5SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P5SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P5SMAPR_PG0*>(0x40440A54); }
+  static inline volatile P5SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P5SMAPR_PG0*>(0x40440A54); }
 };
 
 // Secure Memory Access Group Registers
@@ -6519,7 +6519,7 @@ union P5SMAG2_PG0 {
 
   P5SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P5SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P5SMAG2_PG0*>(0x40440A58); }
+  static inline volatile P5SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P5SMAG2_PG0*>(0x40440A58); }
 };
 
 // Secure Memory Access Group Registers
@@ -6598,7 +6598,7 @@ union P5SMAG1_PG0 {
 
   P5SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P5SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P5SMAG1_PG0*>(0x40440A5C); }
+  static inline volatile P5SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P5SMAG1_PG0*>(0x40440A5C); }
 };
 
 // Partition 6 SDID register
@@ -6616,7 +6616,7 @@ union P6SDID_PG0 {
 
   P6SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P6SDID_PG0 &Instance() { return *reinterpret_cast<volatile P6SDID_PG0*>(0x40440A60); }
+  static inline volatile P6SDID_PG0 &ref() { return *reinterpret_cast<volatile P6SDID_PG0*>(0x40440A60); }
 };
 
 // Secure Memory Access Permissions register
@@ -6754,7 +6754,7 @@ union P6SMAPR_PG0 {
 
   P6SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P6SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P6SMAPR_PG0*>(0x40440A64); }
+  static inline volatile P6SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P6SMAPR_PG0*>(0x40440A64); }
 };
 
 // Secure Memory Access Group Registers
@@ -6833,7 +6833,7 @@ union P6SMAG2_PG0 {
 
   P6SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P6SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P6SMAG2_PG0*>(0x40440A68); }
+  static inline volatile P6SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P6SMAG2_PG0*>(0x40440A68); }
 };
 
 // Secure Memory Access Group Registers
@@ -6912,7 +6912,7 @@ union P6SMAG1_PG0 {
 
   P6SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P6SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P6SMAG1_PG0*>(0x40440A6C); }
+  static inline volatile P6SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P6SMAG1_PG0*>(0x40440A6C); }
 };
 
 // Partition 7 SDID register
@@ -6930,7 +6930,7 @@ union P7SDID_PG0 {
 
   P7SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P7SDID_PG0 &Instance() { return *reinterpret_cast<volatile P7SDID_PG0*>(0x40440A70); }
+  static inline volatile P7SDID_PG0 &ref() { return *reinterpret_cast<volatile P7SDID_PG0*>(0x40440A70); }
 };
 
 // Secure Memory Access Permissions register
@@ -7068,7 +7068,7 @@ union P7SMAPR_PG0 {
 
   P7SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P7SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P7SMAPR_PG0*>(0x40440A74); }
+  static inline volatile P7SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P7SMAPR_PG0*>(0x40440A74); }
 };
 
 // Secure Memory Access Group Registers
@@ -7147,7 +7147,7 @@ union P7SMAG2_PG0 {
 
   P7SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P7SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P7SMAG2_PG0*>(0x40440A78); }
+  static inline volatile P7SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P7SMAG2_PG0*>(0x40440A78); }
 };
 
 // Secure Memory Access Group Registers
@@ -7226,7 +7226,7 @@ union P7SMAG1_PG0 {
 
   P7SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P7SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P7SMAG1_PG0*>(0x40440A7C); }
+  static inline volatile P7SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P7SMAG1_PG0*>(0x40440A7C); }
 };
 
 // Partition 8 SDID register
@@ -7244,7 +7244,7 @@ union P8SDID_PG0 {
 
   P8SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P8SDID_PG0 &Instance() { return *reinterpret_cast<volatile P8SDID_PG0*>(0x40440A80); }
+  static inline volatile P8SDID_PG0 &ref() { return *reinterpret_cast<volatile P8SDID_PG0*>(0x40440A80); }
 };
 
 // Secure Memory Access Permissions register
@@ -7382,7 +7382,7 @@ union P8SMAPR_PG0 {
 
   P8SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P8SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P8SMAPR_PG0*>(0x40440A84); }
+  static inline volatile P8SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P8SMAPR_PG0*>(0x40440A84); }
 };
 
 // Secure Memory Access Group Registers
@@ -7461,7 +7461,7 @@ union P8SMAG2_PG0 {
 
   P8SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P8SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P8SMAG2_PG0*>(0x40440A88); }
+  static inline volatile P8SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P8SMAG2_PG0*>(0x40440A88); }
 };
 
 // Secure Memory Access Group Registers
@@ -7540,7 +7540,7 @@ union P8SMAG1_PG0 {
 
   P8SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P8SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P8SMAG1_PG0*>(0x40440A8C); }
+  static inline volatile P8SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P8SMAG1_PG0*>(0x40440A8C); }
 };
 
 // Partition 9 SDID register
@@ -7558,7 +7558,7 @@ union P9SDID_PG0 {
 
   P9SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P9SDID_PG0 &Instance() { return *reinterpret_cast<volatile P9SDID_PG0*>(0x40440A90); }
+  static inline volatile P9SDID_PG0 &ref() { return *reinterpret_cast<volatile P9SDID_PG0*>(0x40440A90); }
 };
 
 // Secure Memory Access Permissions register
@@ -7696,7 +7696,7 @@ union P9SMAPR_PG0 {
 
   P9SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P9SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P9SMAPR_PG0*>(0x40440A94); }
+  static inline volatile P9SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P9SMAPR_PG0*>(0x40440A94); }
 };
 
 // Secure Memory Access Group Registers
@@ -7775,7 +7775,7 @@ union P9SMAG2_PG0 {
 
   P9SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P9SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P9SMAG2_PG0*>(0x40440A98); }
+  static inline volatile P9SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P9SMAG2_PG0*>(0x40440A98); }
 };
 
 // Secure Memory Access Group Registers
@@ -7854,7 +7854,7 @@ union P9SMAG1_PG0 {
 
   P9SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P9SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P9SMAG1_PG0*>(0x40440A9C); }
+  static inline volatile P9SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P9SMAG1_PG0*>(0x40440A9C); }
 };
 
 // Partition 10 SDID register
@@ -7872,7 +7872,7 @@ union P10SDID_PG0 {
 
   P10SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P10SDID_PG0 &Instance() { return *reinterpret_cast<volatile P10SDID_PG0*>(0x40440AA0); }
+  static inline volatile P10SDID_PG0 &ref() { return *reinterpret_cast<volatile P10SDID_PG0*>(0x40440AA0); }
 };
 
 // Secure Memory Access Permissions register
@@ -8010,7 +8010,7 @@ union P10SMAPR_PG0 {
 
   P10SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P10SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P10SMAPR_PG0*>(0x40440AA4); }
+  static inline volatile P10SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P10SMAPR_PG0*>(0x40440AA4); }
 };
 
 // Secure Memory Access Group Registers
@@ -8089,7 +8089,7 @@ union P10SMAG2_PG0 {
 
   P10SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P10SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P10SMAG2_PG0*>(0x40440AA8); }
+  static inline volatile P10SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P10SMAG2_PG0*>(0x40440AA8); }
 };
 
 // Secure Memory Access Group Registers
@@ -8168,7 +8168,7 @@ union P10SMAG1_PG0 {
 
   P10SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P10SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P10SMAG1_PG0*>(0x40440AAC); }
+  static inline volatile P10SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P10SMAG1_PG0*>(0x40440AAC); }
 };
 
 // Partition 11 SDID register
@@ -8186,7 +8186,7 @@ union P11SDID_PG0 {
 
   P11SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P11SDID_PG0 &Instance() { return *reinterpret_cast<volatile P11SDID_PG0*>(0x40440AB0); }
+  static inline volatile P11SDID_PG0 &ref() { return *reinterpret_cast<volatile P11SDID_PG0*>(0x40440AB0); }
 };
 
 // Secure Memory Access Permissions register
@@ -8324,7 +8324,7 @@ union P11SMAPR_PG0 {
 
   P11SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P11SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P11SMAPR_PG0*>(0x40440AB4); }
+  static inline volatile P11SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P11SMAPR_PG0*>(0x40440AB4); }
 };
 
 // Secure Memory Access Group Registers
@@ -8403,7 +8403,7 @@ union P11SMAG2_PG0 {
 
   P11SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P11SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P11SMAG2_PG0*>(0x40440AB8); }
+  static inline volatile P11SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P11SMAG2_PG0*>(0x40440AB8); }
 };
 
 // Secure Memory Access Group Registers
@@ -8482,7 +8482,7 @@ union P11SMAG1_PG0 {
 
   P11SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P11SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P11SMAG1_PG0*>(0x40440ABC); }
+  static inline volatile P11SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P11SMAG1_PG0*>(0x40440ABC); }
 };
 
 // Partition 12 SDID register
@@ -8500,7 +8500,7 @@ union P12SDID_PG0 {
 
   P12SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P12SDID_PG0 &Instance() { return *reinterpret_cast<volatile P12SDID_PG0*>(0x40440AC0); }
+  static inline volatile P12SDID_PG0 &ref() { return *reinterpret_cast<volatile P12SDID_PG0*>(0x40440AC0); }
 };
 
 // Secure Memory Access Permissions register
@@ -8638,7 +8638,7 @@ union P12SMAPR_PG0 {
 
   P12SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P12SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P12SMAPR_PG0*>(0x40440AC4); }
+  static inline volatile P12SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P12SMAPR_PG0*>(0x40440AC4); }
 };
 
 // Secure Memory Access Group Registers
@@ -8717,7 +8717,7 @@ union P12SMAG2_PG0 {
 
   P12SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P12SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P12SMAG2_PG0*>(0x40440AC8); }
+  static inline volatile P12SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P12SMAG2_PG0*>(0x40440AC8); }
 };
 
 // Secure Memory Access Group Registers
@@ -8796,7 +8796,7 @@ union P12SMAG1_PG0 {
 
   P12SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P12SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P12SMAG1_PG0*>(0x40440ACC); }
+  static inline volatile P12SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P12SMAG1_PG0*>(0x40440ACC); }
 };
 
 // Partition 13 SDID register
@@ -8814,7 +8814,7 @@ union P13SDID_PG0 {
 
   P13SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P13SDID_PG0 &Instance() { return *reinterpret_cast<volatile P13SDID_PG0*>(0x40440AD0); }
+  static inline volatile P13SDID_PG0 &ref() { return *reinterpret_cast<volatile P13SDID_PG0*>(0x40440AD0); }
 };
 
 // Secure Memory Access Permissions register
@@ -8952,7 +8952,7 @@ union P13SMAPR_PG0 {
 
   P13SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P13SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P13SMAPR_PG0*>(0x40440AD4); }
+  static inline volatile P13SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P13SMAPR_PG0*>(0x40440AD4); }
 };
 
 // Secure Memory Access Group Registers
@@ -9031,7 +9031,7 @@ union P13SMAG2_PG0 {
 
   P13SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P13SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P13SMAG2_PG0*>(0x40440AD8); }
+  static inline volatile P13SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P13SMAG2_PG0*>(0x40440AD8); }
 };
 
 // Secure Memory Access Group Registers
@@ -9110,7 +9110,7 @@ union P13SMAG1_PG0 {
 
   P13SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P13SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P13SMAG1_PG0*>(0x40440ADC); }
+  static inline volatile P13SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P13SMAG1_PG0*>(0x40440ADC); }
 };
 
 // Partition 14 SDID register
@@ -9128,7 +9128,7 @@ union P14SDID_PG0 {
 
   P14SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P14SDID_PG0 &Instance() { return *reinterpret_cast<volatile P14SDID_PG0*>(0x40440AE0); }
+  static inline volatile P14SDID_PG0 &ref() { return *reinterpret_cast<volatile P14SDID_PG0*>(0x40440AE0); }
 };
 
 // Secure Memory Access Permissions register
@@ -9266,7 +9266,7 @@ union P14SMAPR_PG0 {
 
   P14SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P14SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P14SMAPR_PG0*>(0x40440AE4); }
+  static inline volatile P14SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P14SMAPR_PG0*>(0x40440AE4); }
 };
 
 // Secure Memory Access Group Registers
@@ -9345,7 +9345,7 @@ union P14SMAG2_PG0 {
 
   P14SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P14SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P14SMAG2_PG0*>(0x40440AE8); }
+  static inline volatile P14SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P14SMAG2_PG0*>(0x40440AE8); }
 };
 
 // Secure Memory Access Group Registers
@@ -9424,7 +9424,7 @@ union P14SMAG1_PG0 {
 
   P14SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P14SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P14SMAG1_PG0*>(0x40440AEC); }
+  static inline volatile P14SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P14SMAG1_PG0*>(0x40440AEC); }
 };
 
 // Partition 15 SDID register
@@ -9442,7 +9442,7 @@ union P15SDID_PG0 {
 
   P15SDID_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P15SDID_PG0 &Instance() { return *reinterpret_cast<volatile P15SDID_PG0*>(0x40440AF0); }
+  static inline volatile P15SDID_PG0 &ref() { return *reinterpret_cast<volatile P15SDID_PG0*>(0x40440AF0); }
 };
 
 // Secure Memory Access Permissions register
@@ -9580,7 +9580,7 @@ union P15SMAPR_PG0 {
 
   P15SMAPR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P15SMAPR_PG0 &Instance() { return *reinterpret_cast<volatile P15SMAPR_PG0*>(0x40440AF4); }
+  static inline volatile P15SMAPR_PG0 &ref() { return *reinterpret_cast<volatile P15SMAPR_PG0*>(0x40440AF4); }
 };
 
 // Secure Memory Access Group Registers
@@ -9659,7 +9659,7 @@ union P15SMAG2_PG0 {
 
   P15SMAG2_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P15SMAG2_PG0 &Instance() { return *reinterpret_cast<volatile P15SMAG2_PG0*>(0x40440AF8); }
+  static inline volatile P15SMAG2_PG0 &ref() { return *reinterpret_cast<volatile P15SMAG2_PG0*>(0x40440AF8); }
 };
 
 // Secure Memory Access Group Registers
@@ -9738,7 +9738,7 @@ union P15SMAG1_PG0 {
 
   P15SMAG1_PG0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P15SMAG1_PG0 &Instance() { return *reinterpret_cast<volatile P15SMAG1_PG0*>(0x40440AFC); }
+  static inline volatile P15SMAG1_PG0 &ref() { return *reinterpret_cast<volatile P15SMAG1_PG0*>(0x40440AFC); }
 };
 
 // Recoverable Error Interrupt Status
@@ -9768,7 +9768,7 @@ union REIS {
 
   REIS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIS &Instance() { return *reinterpret_cast<volatile REIS*>(0x40440B00); }
+  static inline volatile REIS &ref() { return *reinterpret_cast<volatile REIS*>(0x40440B00); }
 };
 
 // Recoverable Error Interrupt Enable
@@ -9798,7 +9798,7 @@ union REIE {
 
   REIE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIE &Instance() { return *reinterpret_cast<volatile REIE*>(0x40440B04); }
+  static inline volatile REIE &ref() { return *reinterpret_cast<volatile REIE*>(0x40440B04); }
 };
 
 // Recoverable Error Interrupt Force
@@ -9828,7 +9828,7 @@ union REIF {
 
   REIF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIF &Instance() { return *reinterpret_cast<volatile REIF*>(0x40440B08); }
+  static inline volatile REIF &ref() { return *reinterpret_cast<volatile REIF*>(0x40440B08); }
 };
 
 // Recoverable Error Interrupt Halt
@@ -9906,7 +9906,7 @@ union REIH {
 
   REIH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIH &Instance() { return *reinterpret_cast<volatile REIH*>(0x40440B0C); }
+  static inline volatile REIH &ref() { return *reinterpret_cast<volatile REIH*>(0x40440B0C); }
 };
 
 // Secure Memory Write Protect Job Ring Register
@@ -9924,7 +9924,7 @@ union SMWPJRR_0 {
 
   SMWPJRR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMWPJRR_0 &Instance() { return *reinterpret_cast<volatile SMWPJRR_0*>(0x40440BD0); }
+  static inline volatile SMWPJRR_0 &ref() { return *reinterpret_cast<volatile SMWPJRR_0*>(0x40440BD0); }
 };
 // Secure Memory Write Protect Job Ring Register
 union SMWPJRR_1 {
@@ -9941,7 +9941,7 @@ union SMWPJRR_1 {
 
   SMWPJRR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMWPJRR_1 &Instance() { return *reinterpret_cast<volatile SMWPJRR_1*>(0x40440BD4); }
+  static inline volatile SMWPJRR_1 &ref() { return *reinterpret_cast<volatile SMWPJRR_1*>(0x40440BD4); }
 };
 // Secure Memory Write Protect Job Ring Register
 union SMWPJRR_2 {
@@ -9958,7 +9958,7 @@ union SMWPJRR_2 {
 
   SMWPJRR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMWPJRR_2 &Instance() { return *reinterpret_cast<volatile SMWPJRR_2*>(0x40440BD8); }
+  static inline volatile SMWPJRR_2 &ref() { return *reinterpret_cast<volatile SMWPJRR_2*>(0x40440BD8); }
 };
 // Secure Memory Write Protect Job Ring Register
 union SMWPJRR_3 {
@@ -9975,7 +9975,7 @@ union SMWPJRR_3 {
 
   SMWPJRR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMWPJRR_3 &Instance() { return *reinterpret_cast<volatile SMWPJRR_3*>(0x40440BDC); }
+  static inline volatile SMWPJRR_3 &ref() { return *reinterpret_cast<volatile SMWPJRR_3*>(0x40440BDC); }
 };
 
 // Secure Memory Command Register
@@ -9998,7 +9998,7 @@ union SMCR_PG0 {
 
   SMCR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMCR_PG0 &Instance() { return *reinterpret_cast<volatile SMCR_PG0*>(0x40440BE4); }
+  static inline volatile SMCR_PG0 &ref() { return *reinterpret_cast<volatile SMCR_PG0*>(0x40440BE4); }
 };
 
 // Secure Memory Command Status Register
@@ -10050,7 +10050,7 @@ union SMCSR_PG0 {
 
   SMCSR_PG0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMCSR_PG0 &Instance() { return *reinterpret_cast<volatile SMCSR_PG0*>(0x40440BEC); }
+  static inline volatile SMCSR_PG0 &ref() { return *reinterpret_cast<volatile SMCSR_PG0*>(0x40440BEC); }
 };
 
 // Holding Tank 0 Job Descriptor Address
@@ -10067,7 +10067,7 @@ union HT0_JD_ADDR {
 
   HT0_JD_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HT0_JD_ADDR &Instance() { return *reinterpret_cast<volatile HT0_JD_ADDR*>(0x40440C00); }
+  static inline volatile HT0_JD_ADDR &ref() { return *reinterpret_cast<volatile HT0_JD_ADDR*>(0x40440C00); }
 };
 
 // Holding Tank 0 Shared Descriptor Address
@@ -10084,7 +10084,7 @@ union HT0_SD_ADDR {
 
   HT0_SD_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HT0_SD_ADDR &Instance() { return *reinterpret_cast<volatile HT0_SD_ADDR*>(0x40440C08); }
+  static inline volatile HT0_SD_ADDR &ref() { return *reinterpret_cast<volatile HT0_SD_ADDR*>(0x40440C08); }
 };
 
 // Holding Tank 0 Job Queue Control, most-significant half
@@ -10173,7 +10173,7 @@ union HT0_JQ_CTRL_MS {
 
   HT0_JQ_CTRL_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HT0_JQ_CTRL_MS &Instance() { return *reinterpret_cast<volatile HT0_JQ_CTRL_MS*>(0x40440C10); }
+  static inline volatile HT0_JQ_CTRL_MS &ref() { return *reinterpret_cast<volatile HT0_JQ_CTRL_MS*>(0x40440C10); }
 };
 
 // Holding Tank 0 Job Queue Control, least-significant half
@@ -10207,7 +10207,7 @@ union HT0_JQ_CTRL_LS {
 
   HT0_JQ_CTRL_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HT0_JQ_CTRL_LS &Instance() { return *reinterpret_cast<volatile HT0_JQ_CTRL_LS*>(0x40440C14); }
+  static inline volatile HT0_JQ_CTRL_LS &ref() { return *reinterpret_cast<volatile HT0_JQ_CTRL_LS*>(0x40440C14); }
 };
 
 // Holding Tank Status
@@ -10229,7 +10229,7 @@ union HT0_STATUS {
 
   HT0_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HT0_STATUS &Instance() { return *reinterpret_cast<volatile HT0_STATUS*>(0x40440C1C); }
+  static inline volatile HT0_STATUS &ref() { return *reinterpret_cast<volatile HT0_STATUS*>(0x40440C1C); }
 };
 
 // Job Queue Debug Select Register
@@ -10250,7 +10250,7 @@ union JQ_DEBUG_SEL {
 
   JQ_DEBUG_SEL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JQ_DEBUG_SEL &Instance() { return *reinterpret_cast<volatile JQ_DEBUG_SEL*>(0x40440C24); }
+  static inline volatile JQ_DEBUG_SEL &ref() { return *reinterpret_cast<volatile JQ_DEBUG_SEL*>(0x40440C24); }
 };
 
 // Job Ring Job IDs in Use Register, least-significant half
@@ -10274,7 +10274,7 @@ union JRJIDU_LS {
 
   JRJIDU_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRJIDU_LS &Instance() { return *reinterpret_cast<volatile JRJIDU_LS*>(0x40440DBC); }
+  static inline volatile JRJIDU_LS &ref() { return *reinterpret_cast<volatile JRJIDU_LS*>(0x40440DBC); }
 };
 
 // Job Ring Job-Done Job ID FIFO BC
@@ -10292,7 +10292,7 @@ union JRJDJIFBC {
 
   JRJDJIFBC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRJDJIFBC &Instance() { return *reinterpret_cast<volatile JRJDJIFBC*>(0x40440DC0); }
+  static inline volatile JRJDJIFBC &ref() { return *reinterpret_cast<volatile JRJDJIFBC*>(0x40440DC0); }
 };
 
 // Job Ring Job-Done Job ID FIFO
@@ -10310,7 +10310,7 @@ union JRJDJIF {
 
   JRJDJIF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRJDJIF &Instance() { return *reinterpret_cast<volatile JRJDJIF*>(0x40440DC4); }
+  static inline volatile JRJDJIF &ref() { return *reinterpret_cast<volatile JRJDJIF*>(0x40440DC4); }
 };
 
 // Job Ring Job-Done Source 1
@@ -10330,7 +10330,7 @@ union JRJDS1 {
 
   JRJDS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRJDS1 &Instance() { return *reinterpret_cast<volatile JRJDS1*>(0x40440DE4); }
+  static inline volatile JRJDS1 &ref() { return *reinterpret_cast<volatile JRJDS1*>(0x40440DE4); }
 };
 
 // Job Ring Job-Done Descriptor Address 0 Register
@@ -10347,7 +10347,7 @@ union JRJDDA {
 
   JRJDDA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRJDDA &Instance() { return *reinterpret_cast<volatile JRJDDA*>(0x40440E00); }
+  static inline volatile JRJDDA &ref() { return *reinterpret_cast<volatile JRJDDA*>(0x40440E00); }
 };
 
 // CHA Revision Number Register, most-significant half
@@ -10375,7 +10375,7 @@ union CRNR_MS {
 
   CRNR_MS() = delete;
   inline void Reset() volatile { this->value = 0x01000006; }
-  static inline volatile CRNR_MS &Instance() { return *reinterpret_cast<volatile CRNR_MS*>(0x40440FA0); }
+  static inline volatile CRNR_MS &ref() { return *reinterpret_cast<volatile CRNR_MS*>(0x40440FA0); }
 };
 
 // CHA Revision Number Register, least-significant half
@@ -10417,7 +10417,7 @@ union CRNR_LS {
 
   CRNR_LS() = delete;
   inline void Reset() volatile { this->value = 0x7003401A; }
-  static inline volatile CRNR_LS &Instance() { return *reinterpret_cast<volatile CRNR_LS*>(0x40440FA4); }
+  static inline volatile CRNR_LS &ref() { return *reinterpret_cast<volatile CRNR_LS*>(0x40440FA4); }
 };
 
 // Compile Time Parameters Register, most-significant half
@@ -10475,7 +10475,7 @@ union CTPR_MS {
 
   CTPR_MS() = delete;
   inline void Reset() volatile { this->value = 0x01934211; }
-  static inline volatile CTPR_MS &Instance() { return *reinterpret_cast<volatile CTPR_MS*>(0x40440FA8); }
+  static inline volatile CTPR_MS &ref() { return *reinterpret_cast<volatile CTPR_MS*>(0x40440FA8); }
 };
 
 // Compile Time Parameters Register, least-significant half
@@ -10641,7 +10641,7 @@ union CTPR_LS {
 
   CTPR_LS() = delete;
   inline void Reset() volatile { this->value = 0x00006403; }
-  static inline volatile CTPR_LS &Instance() { return *reinterpret_cast<volatile CTPR_LS*>(0x40440FAC); }
+  static inline volatile CTPR_LS &ref() { return *reinterpret_cast<volatile CTPR_LS*>(0x40440FAC); }
 };
 
 // Secure Memory Status Register
@@ -10710,7 +10710,7 @@ union SMSTA {
 
   SMSTA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMSTA &Instance() { return *reinterpret_cast<volatile SMSTA*>(0x40440FB4); }
+  static inline volatile SMSTA &ref() { return *reinterpret_cast<volatile SMSTA*>(0x40440FB4); }
 };
 
 // Secure Memory Partition Owners Register
@@ -10769,7 +10769,7 @@ union SMPO {
 
   SMPO() = delete;
   inline void Reset() volatile { this->value = 0x00000003; }
-  static inline volatile SMPO &Instance() { return *reinterpret_cast<volatile SMPO*>(0x40440FBC); }
+  static inline volatile SMPO &ref() { return *reinterpret_cast<volatile SMPO*>(0x40440FBC); }
 };
 
 // Fault Address Register
@@ -10786,7 +10786,7 @@ union FAR {
 
   FAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FAR &Instance() { return *reinterpret_cast<volatile FAR*>(0x40440FC0); }
+  static inline volatile FAR &ref() { return *reinterpret_cast<volatile FAR*>(0x40440FC0); }
 };
 
 // Fault Address DID Register
@@ -10808,7 +10808,7 @@ union FADID {
 
   FADID() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FADID &Instance() { return *reinterpret_cast<volatile FADID*>(0x40440FC8); }
+  static inline volatile FADID &ref() { return *reinterpret_cast<volatile FADID*>(0x40440FC8); }
 };
 
 // Fault Address Detail Register
@@ -10939,7 +10939,7 @@ union FADR {
 
   FADR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FADR &Instance() { return *reinterpret_cast<volatile FADR*>(0x40440FCC); }
+  static inline volatile FADR &ref() { return *reinterpret_cast<volatile FADR*>(0x40440FCC); }
 };
 
 // CAAM Status Register
@@ -10986,7 +10986,7 @@ union CSTA {
 
   CSTA() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile CSTA &Instance() { return *reinterpret_cast<volatile CSTA*>(0x40440FD4); }
+  static inline volatile CSTA &ref() { return *reinterpret_cast<volatile CSTA*>(0x40440FD4); }
 };
 
 // Secure Memory Version ID Register, most-significant half
@@ -11009,7 +11009,7 @@ union SMVID_MS {
 
   SMVID_MS() = delete;
   inline void Reset() volatile { this->value = 0x000FF00F; }
-  static inline volatile SMVID_MS &Instance() { return *reinterpret_cast<volatile SMVID_MS*>(0x40440FD8); }
+  static inline volatile SMVID_MS &ref() { return *reinterpret_cast<volatile SMVID_MS*>(0x40440FD8); }
 };
 
 // Secure Memory Version ID Register, least-significant half
@@ -11031,7 +11031,7 @@ union SMVID_LS {
 
   SMVID_LS() = delete;
   inline void Reset() volatile { this->value = 0x00020301; }
-  static inline volatile SMVID_LS &Instance() { return *reinterpret_cast<volatile SMVID_LS*>(0x40440FDC); }
+  static inline volatile SMVID_LS &ref() { return *reinterpret_cast<volatile SMVID_LS*>(0x40440FDC); }
 };
 
 // RTIC Version ID Register
@@ -11082,7 +11082,7 @@ union RVID {
 
   RVID() = delete;
   inline void Reset() volatile { this->value = 0x0F0A0004; }
-  static inline volatile RVID &Instance() { return *reinterpret_cast<volatile RVID*>(0x40440FE0); }
+  static inline volatile RVID &ref() { return *reinterpret_cast<volatile RVID*>(0x40440FE0); }
 };
 
 // CHA Cluster Block Version ID Register
@@ -11104,7 +11104,7 @@ union CCBVID {
 
   CCBVID() = delete;
   inline void Reset() volatile { this->value = 0x09000005; }
-  static inline volatile CCBVID &Instance() { return *reinterpret_cast<volatile CCBVID*>(0x40440FE4); }
+  static inline volatile CCBVID &ref() { return *reinterpret_cast<volatile CCBVID*>(0x40440FE4); }
 };
 
 // CHA Version ID Register, most-significant half
@@ -11132,7 +11132,7 @@ union CHAVID_MS {
 
   CHAVID_MS() = delete;
   inline void Reset() volatile { this->value = 0x45000001; }
-  static inline volatile CHAVID_MS &Instance() { return *reinterpret_cast<volatile CHAVID_MS*>(0x40440FE8); }
+  static inline volatile CHAVID_MS &ref() { return *reinterpret_cast<volatile CHAVID_MS*>(0x40440FE8); }
 };
 
 // CHA Version ID Register, least-significant half
@@ -11202,7 +11202,7 @@ union CHAVID_LS {
 
   CHAVID_LS() = delete;
   inline void Reset() volatile { this->value = 0x20041033; }
-  static inline volatile CHAVID_LS &Instance() { return *reinterpret_cast<volatile CHAVID_LS*>(0x40440FEC); }
+  static inline volatile CHAVID_LS &ref() { return *reinterpret_cast<volatile CHAVID_LS*>(0x40440FEC); }
 };
 
 // CHA Number Register, most-significant half
@@ -11230,7 +11230,7 @@ union CHANUM_MS {
 
   CHANUM_MS() = delete;
   inline void Reset() volatile { this->value = 0x41000001; }
-  static inline volatile CHANUM_MS &Instance() { return *reinterpret_cast<volatile CHANUM_MS*>(0x40440FF0); }
+  static inline volatile CHANUM_MS &ref() { return *reinterpret_cast<volatile CHANUM_MS*>(0x40440FF0); }
 };
 
 // CHA Number Register, least-significant half
@@ -11261,7 +11261,7 @@ union CHANUM_LS {
 
   CHANUM_LS() = delete;
   inline void Reset() volatile { this->value = 0x10011011; }
-  static inline volatile CHANUM_LS &Instance() { return *reinterpret_cast<volatile CHANUM_LS*>(0x40440FF4); }
+  static inline volatile CHANUM_LS &ref() { return *reinterpret_cast<volatile CHANUM_LS*>(0x40440FF4); }
 };
 
 // CAAM Version ID Register, most-significant half
@@ -11282,7 +11282,7 @@ union CAAMVID_MS {
 
   CAAMVID_MS() = delete;
   inline void Reset() volatile { this->value = 0x0A160402; }
-  static inline volatile CAAMVID_MS &Instance() { return *reinterpret_cast<volatile CAAMVID_MS*>(0x40440FF8); }
+  static inline volatile CAAMVID_MS &ref() { return *reinterpret_cast<volatile CAAMVID_MS*>(0x40440FF8); }
 };
 
 // CAAM Version ID Register, least-significant half
@@ -11305,7 +11305,7 @@ union CAAMVID_LS {
 
   CAAMVID_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CAAMVID_LS &Instance() { return *reinterpret_cast<volatile CAAMVID_LS*>(0x40440FFC); }
+  static inline volatile CAAMVID_LS &ref() { return *reinterpret_cast<volatile CAAMVID_LS*>(0x40440FFC); }
 };
 
 // Input Ring Base Address Register for Job Ring 0
@@ -11322,7 +11322,7 @@ union IRBAR_JR0 {
 
   IRBAR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRBAR_JR0 &Instance() { return *reinterpret_cast<volatile IRBAR_JR0*>(0x40450000); }
+  static inline volatile IRBAR_JR0 &ref() { return *reinterpret_cast<volatile IRBAR_JR0*>(0x40450000); }
 };
 
 // Input Ring Size Register for Job Ring 0
@@ -11340,7 +11340,7 @@ union IRSR_JR0 {
 
   IRSR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRSR_JR0 &Instance() { return *reinterpret_cast<volatile IRSR_JR0*>(0x4045000C); }
+  static inline volatile IRSR_JR0 &ref() { return *reinterpret_cast<volatile IRSR_JR0*>(0x4045000C); }
 };
 
 // Input Ring Slots Available Register for Job Ring 0
@@ -11358,7 +11358,7 @@ union IRSAR_JR0 {
 
   IRSAR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRSAR_JR0 &Instance() { return *reinterpret_cast<volatile IRSAR_JR0*>(0x40450014); }
+  static inline volatile IRSAR_JR0 &ref() { return *reinterpret_cast<volatile IRSAR_JR0*>(0x40450014); }
 };
 
 // Input Ring Jobs Added Register for Job Ring0
@@ -11376,7 +11376,7 @@ union IRJAR_JR0 {
 
   IRJAR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRJAR_JR0 &Instance() { return *reinterpret_cast<volatile IRJAR_JR0*>(0x4045001C); }
+  static inline volatile IRJAR_JR0 &ref() { return *reinterpret_cast<volatile IRJAR_JR0*>(0x4045001C); }
 };
 
 // Output Ring Base Address Register for Job Ring 0
@@ -11393,7 +11393,7 @@ union ORBAR_JR0 {
 
   ORBAR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORBAR_JR0 &Instance() { return *reinterpret_cast<volatile ORBAR_JR0*>(0x40450020); }
+  static inline volatile ORBAR_JR0 &ref() { return *reinterpret_cast<volatile ORBAR_JR0*>(0x40450020); }
 };
 
 // Output Ring Size Register for Job Ring 0
@@ -11411,7 +11411,7 @@ union ORSR_JR0 {
 
   ORSR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORSR_JR0 &Instance() { return *reinterpret_cast<volatile ORSR_JR0*>(0x4045002C); }
+  static inline volatile ORSR_JR0 &ref() { return *reinterpret_cast<volatile ORSR_JR0*>(0x4045002C); }
 };
 
 // Output Ring Jobs Removed Register for Job Ring 0
@@ -11429,7 +11429,7 @@ union ORJRR_JR0 {
 
   ORJRR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORJRR_JR0 &Instance() { return *reinterpret_cast<volatile ORJRR_JR0*>(0x40450034); }
+  static inline volatile ORJRR_JR0 &ref() { return *reinterpret_cast<volatile ORJRR_JR0*>(0x40450034); }
 };
 
 // Output Ring Slots Full Register for Job Ring 0
@@ -11447,7 +11447,7 @@ union ORSFR_JR0 {
 
   ORSFR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORSFR_JR0 &Instance() { return *reinterpret_cast<volatile ORSFR_JR0*>(0x4045003C); }
+  static inline volatile ORSFR_JR0 &ref() { return *reinterpret_cast<volatile ORSFR_JR0*>(0x4045003C); }
 };
 
 // Job Ring Output Status Register for Job Ring 0
@@ -11482,7 +11482,7 @@ union JRSTAR_JR0 {
 
   JRSTAR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRSTAR_JR0 &Instance() { return *reinterpret_cast<volatile JRSTAR_JR0*>(0x40450044); }
+  static inline volatile JRSTAR_JR0 &ref() { return *reinterpret_cast<volatile JRSTAR_JR0*>(0x40450044); }
 };
 
 // Job Ring Interrupt Status Register for Job Ring 0
@@ -11550,7 +11550,7 @@ union JRINTR_JR0 {
 
   JRINTR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRINTR_JR0 &Instance() { return *reinterpret_cast<volatile JRINTR_JR0*>(0x4045004C); }
+  static inline volatile JRINTR_JR0 &ref() { return *reinterpret_cast<volatile JRINTR_JR0*>(0x4045004C); }
 };
 
 // Job Ring Configuration Register for Job Ring 0, most-significant half
@@ -11605,7 +11605,7 @@ union JRCFGR_JR0_MS {
 
   JRCFGR_JR0_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRCFGR_JR0_MS &Instance() { return *reinterpret_cast<volatile JRCFGR_JR0_MS*>(0x40450050); }
+  static inline volatile JRCFGR_JR0_MS &ref() { return *reinterpret_cast<volatile JRCFGR_JR0_MS*>(0x40450050); }
 };
 
 // Job Ring Configuration Register for Job Ring 0, least-significant half
@@ -11645,7 +11645,7 @@ union JRCFGR_JR0_LS {
 
   JRCFGR_JR0_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRCFGR_JR0_LS &Instance() { return *reinterpret_cast<volatile JRCFGR_JR0_LS*>(0x40450054); }
+  static inline volatile JRCFGR_JR0_LS &ref() { return *reinterpret_cast<volatile JRCFGR_JR0_LS*>(0x40450054); }
 };
 
 // Input Ring Read Index Register for Job Ring 0
@@ -11663,7 +11663,7 @@ union IRRIR_JR0 {
 
   IRRIR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRRIR_JR0 &Instance() { return *reinterpret_cast<volatile IRRIR_JR0*>(0x4045005C); }
+  static inline volatile IRRIR_JR0 &ref() { return *reinterpret_cast<volatile IRRIR_JR0*>(0x4045005C); }
 };
 
 // Output Ring Write Index Register for Job Ring 0
@@ -11681,7 +11681,7 @@ union ORWIR_JR0 {
 
   ORWIR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORWIR_JR0 &Instance() { return *reinterpret_cast<volatile ORWIR_JR0*>(0x40450064); }
+  static inline volatile ORWIR_JR0 &ref() { return *reinterpret_cast<volatile ORWIR_JR0*>(0x40450064); }
 };
 
 // Job Ring Command Register for Job Ring 0
@@ -11701,7 +11701,7 @@ union JRCR_JR0 {
 
   JRCR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRCR_JR0 &Instance() { return *reinterpret_cast<volatile JRCR_JR0*>(0x4045006C); }
+  static inline volatile JRCR_JR0 &ref() { return *reinterpret_cast<volatile JRCR_JR0*>(0x4045006C); }
 };
 
 // Job Ring 0 Address-Array Valid Register
@@ -11727,7 +11727,7 @@ union JR0AAV {
 
   JR0AAV() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR0AAV &Instance() { return *reinterpret_cast<volatile JR0AAV*>(0x40450704); }
+  static inline volatile JR0AAV &ref() { return *reinterpret_cast<volatile JR0AAV*>(0x40450704); }
 };
 
 // Job Ring 0 Address-Array Address 0 Register
@@ -11744,7 +11744,7 @@ union JR0AAA0 {
 
   JR0AAA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR0AAA0 &Instance() { return *reinterpret_cast<volatile JR0AAA0*>(0x40450800); }
+  static inline volatile JR0AAA0 &ref() { return *reinterpret_cast<volatile JR0AAA0*>(0x40450800); }
 };
 
 // Job Ring 0 Address-Array Address 1 Register
@@ -11761,7 +11761,7 @@ union JR0AAA1 {
 
   JR0AAA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR0AAA1 &Instance() { return *reinterpret_cast<volatile JR0AAA1*>(0x40450808); }
+  static inline volatile JR0AAA1 &ref() { return *reinterpret_cast<volatile JR0AAA1*>(0x40450808); }
 };
 
 // Job Ring 0 Address-Array Address 2 Register
@@ -11778,7 +11778,7 @@ union JR0AAA2 {
 
   JR0AAA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR0AAA2 &Instance() { return *reinterpret_cast<volatile JR0AAA2*>(0x40450810); }
+  static inline volatile JR0AAA2 &ref() { return *reinterpret_cast<volatile JR0AAA2*>(0x40450810); }
 };
 
 // Job Ring 0 Address-Array Address 3 Register
@@ -11795,7 +11795,7 @@ union JR0AAA3 {
 
   JR0AAA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR0AAA3 &Instance() { return *reinterpret_cast<volatile JR0AAA3*>(0x40450818); }
+  static inline volatile JR0AAA3 &ref() { return *reinterpret_cast<volatile JR0AAA3*>(0x40450818); }
 };
 
 // Partition 0 SDID register
@@ -11813,7 +11813,7 @@ union P0SDID_JR0 {
 
   P0SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P0SDID_JR0 &Instance() { return *reinterpret_cast<volatile P0SDID_JR0*>(0x40450A00); }
+  static inline volatile P0SDID_JR0 &ref() { return *reinterpret_cast<volatile P0SDID_JR0*>(0x40450A00); }
 };
 
 // Secure Memory Access Permissions register
@@ -11951,7 +11951,7 @@ union P0SMAPR_JR0 {
 
   P0SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P0SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P0SMAPR_JR0*>(0x40450A04); }
+  static inline volatile P0SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P0SMAPR_JR0*>(0x40450A04); }
 };
 
 // Secure Memory Access Group Registers
@@ -12030,7 +12030,7 @@ union P0SMAG2_JR0 {
 
   P0SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P0SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P0SMAG2_JR0*>(0x40450A08); }
+  static inline volatile P0SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P0SMAG2_JR0*>(0x40450A08); }
 };
 
 // Secure Memory Access Group Registers
@@ -12109,7 +12109,7 @@ union P0SMAG1_JR0 {
 
   P0SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P0SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P0SMAG1_JR0*>(0x40450A0C); }
+  static inline volatile P0SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P0SMAG1_JR0*>(0x40450A0C); }
 };
 
 // Partition 1 SDID register
@@ -12127,7 +12127,7 @@ union P1SDID_JR0 {
 
   P1SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P1SDID_JR0 &Instance() { return *reinterpret_cast<volatile P1SDID_JR0*>(0x40450A10); }
+  static inline volatile P1SDID_JR0 &ref() { return *reinterpret_cast<volatile P1SDID_JR0*>(0x40450A10); }
 };
 
 // Secure Memory Access Permissions register
@@ -12265,7 +12265,7 @@ union P1SMAPR_JR0 {
 
   P1SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P1SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P1SMAPR_JR0*>(0x40450A14); }
+  static inline volatile P1SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P1SMAPR_JR0*>(0x40450A14); }
 };
 
 // Secure Memory Access Group Registers
@@ -12344,7 +12344,7 @@ union P1SMAG2_JR0 {
 
   P1SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P1SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P1SMAG2_JR0*>(0x40450A18); }
+  static inline volatile P1SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P1SMAG2_JR0*>(0x40450A18); }
 };
 
 // Secure Memory Access Group Registers
@@ -12423,7 +12423,7 @@ union P1SMAG1_JR0 {
 
   P1SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P1SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P1SMAG1_JR0*>(0x40450A1C); }
+  static inline volatile P1SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P1SMAG1_JR0*>(0x40450A1C); }
 };
 
 // Partition 2 SDID register
@@ -12441,7 +12441,7 @@ union P2SDID_JR0 {
 
   P2SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P2SDID_JR0 &Instance() { return *reinterpret_cast<volatile P2SDID_JR0*>(0x40450A20); }
+  static inline volatile P2SDID_JR0 &ref() { return *reinterpret_cast<volatile P2SDID_JR0*>(0x40450A20); }
 };
 
 // Secure Memory Access Permissions register
@@ -12579,7 +12579,7 @@ union P2SMAPR_JR0 {
 
   P2SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P2SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P2SMAPR_JR0*>(0x40450A24); }
+  static inline volatile P2SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P2SMAPR_JR0*>(0x40450A24); }
 };
 
 // Secure Memory Access Group Registers
@@ -12658,7 +12658,7 @@ union P2SMAG2_JR0 {
 
   P2SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P2SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P2SMAG2_JR0*>(0x40450A28); }
+  static inline volatile P2SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P2SMAG2_JR0*>(0x40450A28); }
 };
 
 // Secure Memory Access Group Registers
@@ -12737,7 +12737,7 @@ union P2SMAG1_JR0 {
 
   P2SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P2SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P2SMAG1_JR0*>(0x40450A2C); }
+  static inline volatile P2SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P2SMAG1_JR0*>(0x40450A2C); }
 };
 
 // Partition 3 SDID register
@@ -12755,7 +12755,7 @@ union P3SDID_JR0 {
 
   P3SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P3SDID_JR0 &Instance() { return *reinterpret_cast<volatile P3SDID_JR0*>(0x40450A30); }
+  static inline volatile P3SDID_JR0 &ref() { return *reinterpret_cast<volatile P3SDID_JR0*>(0x40450A30); }
 };
 
 // Secure Memory Access Permissions register
@@ -12893,7 +12893,7 @@ union P3SMAPR_JR0 {
 
   P3SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P3SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P3SMAPR_JR0*>(0x40450A34); }
+  static inline volatile P3SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P3SMAPR_JR0*>(0x40450A34); }
 };
 
 // Secure Memory Access Group Registers
@@ -12972,7 +12972,7 @@ union P3SMAG2_JR0 {
 
   P3SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P3SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P3SMAG2_JR0*>(0x40450A38); }
+  static inline volatile P3SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P3SMAG2_JR0*>(0x40450A38); }
 };
 
 // Secure Memory Access Group Registers
@@ -13051,7 +13051,7 @@ union P3SMAG1_JR0 {
 
   P3SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P3SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P3SMAG1_JR0*>(0x40450A3C); }
+  static inline volatile P3SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P3SMAG1_JR0*>(0x40450A3C); }
 };
 
 // Partition 4 SDID register
@@ -13069,7 +13069,7 @@ union P4SDID_JR0 {
 
   P4SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P4SDID_JR0 &Instance() { return *reinterpret_cast<volatile P4SDID_JR0*>(0x40450A40); }
+  static inline volatile P4SDID_JR0 &ref() { return *reinterpret_cast<volatile P4SDID_JR0*>(0x40450A40); }
 };
 
 // Secure Memory Access Permissions register
@@ -13207,7 +13207,7 @@ union P4SMAPR_JR0 {
 
   P4SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P4SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P4SMAPR_JR0*>(0x40450A44); }
+  static inline volatile P4SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P4SMAPR_JR0*>(0x40450A44); }
 };
 
 // Secure Memory Access Group Registers
@@ -13286,7 +13286,7 @@ union P4SMAG2_JR0 {
 
   P4SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P4SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P4SMAG2_JR0*>(0x40450A48); }
+  static inline volatile P4SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P4SMAG2_JR0*>(0x40450A48); }
 };
 
 // Secure Memory Access Group Registers
@@ -13365,7 +13365,7 @@ union P4SMAG1_JR0 {
 
   P4SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P4SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P4SMAG1_JR0*>(0x40450A4C); }
+  static inline volatile P4SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P4SMAG1_JR0*>(0x40450A4C); }
 };
 
 // Partition 5 SDID register
@@ -13383,7 +13383,7 @@ union P5SDID_JR0 {
 
   P5SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P5SDID_JR0 &Instance() { return *reinterpret_cast<volatile P5SDID_JR0*>(0x40450A50); }
+  static inline volatile P5SDID_JR0 &ref() { return *reinterpret_cast<volatile P5SDID_JR0*>(0x40450A50); }
 };
 
 // Secure Memory Access Permissions register
@@ -13521,7 +13521,7 @@ union P5SMAPR_JR0 {
 
   P5SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P5SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P5SMAPR_JR0*>(0x40450A54); }
+  static inline volatile P5SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P5SMAPR_JR0*>(0x40450A54); }
 };
 
 // Secure Memory Access Group Registers
@@ -13600,7 +13600,7 @@ union P5SMAG2_JR0 {
 
   P5SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P5SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P5SMAG2_JR0*>(0x40450A58); }
+  static inline volatile P5SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P5SMAG2_JR0*>(0x40450A58); }
 };
 
 // Secure Memory Access Group Registers
@@ -13679,7 +13679,7 @@ union P5SMAG1_JR0 {
 
   P5SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P5SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P5SMAG1_JR0*>(0x40450A5C); }
+  static inline volatile P5SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P5SMAG1_JR0*>(0x40450A5C); }
 };
 
 // Partition 6 SDID register
@@ -13697,7 +13697,7 @@ union P6SDID_JR0 {
 
   P6SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P6SDID_JR0 &Instance() { return *reinterpret_cast<volatile P6SDID_JR0*>(0x40450A60); }
+  static inline volatile P6SDID_JR0 &ref() { return *reinterpret_cast<volatile P6SDID_JR0*>(0x40450A60); }
 };
 
 // Secure Memory Access Permissions register
@@ -13835,7 +13835,7 @@ union P6SMAPR_JR0 {
 
   P6SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P6SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P6SMAPR_JR0*>(0x40450A64); }
+  static inline volatile P6SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P6SMAPR_JR0*>(0x40450A64); }
 };
 
 // Secure Memory Access Group Registers
@@ -13914,7 +13914,7 @@ union P6SMAG2_JR0 {
 
   P6SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P6SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P6SMAG2_JR0*>(0x40450A68); }
+  static inline volatile P6SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P6SMAG2_JR0*>(0x40450A68); }
 };
 
 // Secure Memory Access Group Registers
@@ -13993,7 +13993,7 @@ union P6SMAG1_JR0 {
 
   P6SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P6SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P6SMAG1_JR0*>(0x40450A6C); }
+  static inline volatile P6SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P6SMAG1_JR0*>(0x40450A6C); }
 };
 
 // Partition 7 SDID register
@@ -14011,7 +14011,7 @@ union P7SDID_JR0 {
 
   P7SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P7SDID_JR0 &Instance() { return *reinterpret_cast<volatile P7SDID_JR0*>(0x40450A70); }
+  static inline volatile P7SDID_JR0 &ref() { return *reinterpret_cast<volatile P7SDID_JR0*>(0x40450A70); }
 };
 
 // Secure Memory Access Permissions register
@@ -14149,7 +14149,7 @@ union P7SMAPR_JR0 {
 
   P7SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P7SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P7SMAPR_JR0*>(0x40450A74); }
+  static inline volatile P7SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P7SMAPR_JR0*>(0x40450A74); }
 };
 
 // Secure Memory Access Group Registers
@@ -14228,7 +14228,7 @@ union P7SMAG2_JR0 {
 
   P7SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P7SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P7SMAG2_JR0*>(0x40450A78); }
+  static inline volatile P7SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P7SMAG2_JR0*>(0x40450A78); }
 };
 
 // Secure Memory Access Group Registers
@@ -14307,7 +14307,7 @@ union P7SMAG1_JR0 {
 
   P7SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P7SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P7SMAG1_JR0*>(0x40450A7C); }
+  static inline volatile P7SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P7SMAG1_JR0*>(0x40450A7C); }
 };
 
 // Partition 8 SDID register
@@ -14325,7 +14325,7 @@ union P8SDID_JR0 {
 
   P8SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P8SDID_JR0 &Instance() { return *reinterpret_cast<volatile P8SDID_JR0*>(0x40450A80); }
+  static inline volatile P8SDID_JR0 &ref() { return *reinterpret_cast<volatile P8SDID_JR0*>(0x40450A80); }
 };
 
 // Secure Memory Access Permissions register
@@ -14463,7 +14463,7 @@ union P8SMAPR_JR0 {
 
   P8SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P8SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P8SMAPR_JR0*>(0x40450A84); }
+  static inline volatile P8SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P8SMAPR_JR0*>(0x40450A84); }
 };
 
 // Secure Memory Access Group Registers
@@ -14542,7 +14542,7 @@ union P8SMAG2_JR0 {
 
   P8SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P8SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P8SMAG2_JR0*>(0x40450A88); }
+  static inline volatile P8SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P8SMAG2_JR0*>(0x40450A88); }
 };
 
 // Secure Memory Access Group Registers
@@ -14621,7 +14621,7 @@ union P8SMAG1_JR0 {
 
   P8SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P8SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P8SMAG1_JR0*>(0x40450A8C); }
+  static inline volatile P8SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P8SMAG1_JR0*>(0x40450A8C); }
 };
 
 // Partition 9 SDID register
@@ -14639,7 +14639,7 @@ union P9SDID_JR0 {
 
   P9SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P9SDID_JR0 &Instance() { return *reinterpret_cast<volatile P9SDID_JR0*>(0x40450A90); }
+  static inline volatile P9SDID_JR0 &ref() { return *reinterpret_cast<volatile P9SDID_JR0*>(0x40450A90); }
 };
 
 // Secure Memory Access Permissions register
@@ -14777,7 +14777,7 @@ union P9SMAPR_JR0 {
 
   P9SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P9SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P9SMAPR_JR0*>(0x40450A94); }
+  static inline volatile P9SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P9SMAPR_JR0*>(0x40450A94); }
 };
 
 // Secure Memory Access Group Registers
@@ -14856,7 +14856,7 @@ union P9SMAG2_JR0 {
 
   P9SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P9SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P9SMAG2_JR0*>(0x40450A98); }
+  static inline volatile P9SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P9SMAG2_JR0*>(0x40450A98); }
 };
 
 // Secure Memory Access Group Registers
@@ -14935,7 +14935,7 @@ union P9SMAG1_JR0 {
 
   P9SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P9SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P9SMAG1_JR0*>(0x40450A9C); }
+  static inline volatile P9SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P9SMAG1_JR0*>(0x40450A9C); }
 };
 
 // Partition 10 SDID register
@@ -14953,7 +14953,7 @@ union P10SDID_JR0 {
 
   P10SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P10SDID_JR0 &Instance() { return *reinterpret_cast<volatile P10SDID_JR0*>(0x40450AA0); }
+  static inline volatile P10SDID_JR0 &ref() { return *reinterpret_cast<volatile P10SDID_JR0*>(0x40450AA0); }
 };
 
 // Secure Memory Access Permissions register
@@ -15091,7 +15091,7 @@ union P10SMAPR_JR0 {
 
   P10SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P10SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P10SMAPR_JR0*>(0x40450AA4); }
+  static inline volatile P10SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P10SMAPR_JR0*>(0x40450AA4); }
 };
 
 // Secure Memory Access Group Registers
@@ -15170,7 +15170,7 @@ union P10SMAG2_JR0 {
 
   P10SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P10SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P10SMAG2_JR0*>(0x40450AA8); }
+  static inline volatile P10SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P10SMAG2_JR0*>(0x40450AA8); }
 };
 
 // Secure Memory Access Group Registers
@@ -15249,7 +15249,7 @@ union P10SMAG1_JR0 {
 
   P10SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P10SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P10SMAG1_JR0*>(0x40450AAC); }
+  static inline volatile P10SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P10SMAG1_JR0*>(0x40450AAC); }
 };
 
 // Partition 11 SDID register
@@ -15267,7 +15267,7 @@ union P11SDID_JR0 {
 
   P11SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P11SDID_JR0 &Instance() { return *reinterpret_cast<volatile P11SDID_JR0*>(0x40450AB0); }
+  static inline volatile P11SDID_JR0 &ref() { return *reinterpret_cast<volatile P11SDID_JR0*>(0x40450AB0); }
 };
 
 // Secure Memory Access Permissions register
@@ -15405,7 +15405,7 @@ union P11SMAPR_JR0 {
 
   P11SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P11SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P11SMAPR_JR0*>(0x40450AB4); }
+  static inline volatile P11SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P11SMAPR_JR0*>(0x40450AB4); }
 };
 
 // Secure Memory Access Group Registers
@@ -15484,7 +15484,7 @@ union P11SMAG2_JR0 {
 
   P11SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P11SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P11SMAG2_JR0*>(0x40450AB8); }
+  static inline volatile P11SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P11SMAG2_JR0*>(0x40450AB8); }
 };
 
 // Secure Memory Access Group Registers
@@ -15563,7 +15563,7 @@ union P11SMAG1_JR0 {
 
   P11SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P11SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P11SMAG1_JR0*>(0x40450ABC); }
+  static inline volatile P11SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P11SMAG1_JR0*>(0x40450ABC); }
 };
 
 // Partition 12 SDID register
@@ -15581,7 +15581,7 @@ union P12SDID_JR0 {
 
   P12SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P12SDID_JR0 &Instance() { return *reinterpret_cast<volatile P12SDID_JR0*>(0x40450AC0); }
+  static inline volatile P12SDID_JR0 &ref() { return *reinterpret_cast<volatile P12SDID_JR0*>(0x40450AC0); }
 };
 
 // Secure Memory Access Permissions register
@@ -15719,7 +15719,7 @@ union P12SMAPR_JR0 {
 
   P12SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P12SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P12SMAPR_JR0*>(0x40450AC4); }
+  static inline volatile P12SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P12SMAPR_JR0*>(0x40450AC4); }
 };
 
 // Secure Memory Access Group Registers
@@ -15798,7 +15798,7 @@ union P12SMAG2_JR0 {
 
   P12SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P12SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P12SMAG2_JR0*>(0x40450AC8); }
+  static inline volatile P12SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P12SMAG2_JR0*>(0x40450AC8); }
 };
 
 // Secure Memory Access Group Registers
@@ -15877,7 +15877,7 @@ union P12SMAG1_JR0 {
 
   P12SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P12SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P12SMAG1_JR0*>(0x40450ACC); }
+  static inline volatile P12SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P12SMAG1_JR0*>(0x40450ACC); }
 };
 
 // Partition 13 SDID register
@@ -15895,7 +15895,7 @@ union P13SDID_JR0 {
 
   P13SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P13SDID_JR0 &Instance() { return *reinterpret_cast<volatile P13SDID_JR0*>(0x40450AD0); }
+  static inline volatile P13SDID_JR0 &ref() { return *reinterpret_cast<volatile P13SDID_JR0*>(0x40450AD0); }
 };
 
 // Secure Memory Access Permissions register
@@ -16033,7 +16033,7 @@ union P13SMAPR_JR0 {
 
   P13SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P13SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P13SMAPR_JR0*>(0x40450AD4); }
+  static inline volatile P13SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P13SMAPR_JR0*>(0x40450AD4); }
 };
 
 // Secure Memory Access Group Registers
@@ -16112,7 +16112,7 @@ union P13SMAG2_JR0 {
 
   P13SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P13SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P13SMAG2_JR0*>(0x40450AD8); }
+  static inline volatile P13SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P13SMAG2_JR0*>(0x40450AD8); }
 };
 
 // Secure Memory Access Group Registers
@@ -16191,7 +16191,7 @@ union P13SMAG1_JR0 {
 
   P13SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P13SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P13SMAG1_JR0*>(0x40450ADC); }
+  static inline volatile P13SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P13SMAG1_JR0*>(0x40450ADC); }
 };
 
 // Partition 14 SDID register
@@ -16209,7 +16209,7 @@ union P14SDID_JR0 {
 
   P14SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P14SDID_JR0 &Instance() { return *reinterpret_cast<volatile P14SDID_JR0*>(0x40450AE0); }
+  static inline volatile P14SDID_JR0 &ref() { return *reinterpret_cast<volatile P14SDID_JR0*>(0x40450AE0); }
 };
 
 // Secure Memory Access Permissions register
@@ -16347,7 +16347,7 @@ union P14SMAPR_JR0 {
 
   P14SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P14SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P14SMAPR_JR0*>(0x40450AE4); }
+  static inline volatile P14SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P14SMAPR_JR0*>(0x40450AE4); }
 };
 
 // Secure Memory Access Group Registers
@@ -16426,7 +16426,7 @@ union P14SMAG2_JR0 {
 
   P14SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P14SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P14SMAG2_JR0*>(0x40450AE8); }
+  static inline volatile P14SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P14SMAG2_JR0*>(0x40450AE8); }
 };
 
 // Secure Memory Access Group Registers
@@ -16505,7 +16505,7 @@ union P14SMAG1_JR0 {
 
   P14SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P14SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P14SMAG1_JR0*>(0x40450AEC); }
+  static inline volatile P14SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P14SMAG1_JR0*>(0x40450AEC); }
 };
 
 // Partition 15 SDID register
@@ -16523,7 +16523,7 @@ union P15SDID_JR0 {
 
   P15SDID_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P15SDID_JR0 &Instance() { return *reinterpret_cast<volatile P15SDID_JR0*>(0x40450AF0); }
+  static inline volatile P15SDID_JR0 &ref() { return *reinterpret_cast<volatile P15SDID_JR0*>(0x40450AF0); }
 };
 
 // Secure Memory Access Permissions register
@@ -16661,7 +16661,7 @@ union P15SMAPR_JR0 {
 
   P15SMAPR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P15SMAPR_JR0 &Instance() { return *reinterpret_cast<volatile P15SMAPR_JR0*>(0x40450AF4); }
+  static inline volatile P15SMAPR_JR0 &ref() { return *reinterpret_cast<volatile P15SMAPR_JR0*>(0x40450AF4); }
 };
 
 // Secure Memory Access Group Registers
@@ -16740,7 +16740,7 @@ union P15SMAG2_JR0 {
 
   P15SMAG2_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P15SMAG2_JR0 &Instance() { return *reinterpret_cast<volatile P15SMAG2_JR0*>(0x40450AF8); }
+  static inline volatile P15SMAG2_JR0 &ref() { return *reinterpret_cast<volatile P15SMAG2_JR0*>(0x40450AF8); }
 };
 
 // Secure Memory Access Group Registers
@@ -16819,7 +16819,7 @@ union P15SMAG1_JR0 {
 
   P15SMAG1_JR0() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P15SMAG1_JR0 &Instance() { return *reinterpret_cast<volatile P15SMAG1_JR0*>(0x40450AFC); }
+  static inline volatile P15SMAG1_JR0 &ref() { return *reinterpret_cast<volatile P15SMAG1_JR0*>(0x40450AFC); }
 };
 
 // Secure Memory Command Register
@@ -16842,7 +16842,7 @@ union SMCR_JR0 {
 
   SMCR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMCR_JR0 &Instance() { return *reinterpret_cast<volatile SMCR_JR0*>(0x40450BE4); }
+  static inline volatile SMCR_JR0 &ref() { return *reinterpret_cast<volatile SMCR_JR0*>(0x40450BE4); }
 };
 
 // Secure Memory Command Status Register
@@ -16894,7 +16894,7 @@ union SMCSR_JR0 {
 
   SMCSR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMCSR_JR0 &Instance() { return *reinterpret_cast<volatile SMCSR_JR0*>(0x40450BEC); }
+  static inline volatile SMCSR_JR0 &ref() { return *reinterpret_cast<volatile SMCSR_JR0*>(0x40450BEC); }
 };
 
 // Recoverable Error Interrupt Record 0 for Job Ring 0
@@ -16915,7 +16915,7 @@ union REIR0JR0 {
 
   REIR0JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR0JR0 &Instance() { return *reinterpret_cast<volatile REIR0JR0*>(0x40450E00); }
+  static inline volatile REIR0JR0 &ref() { return *reinterpret_cast<volatile REIR0JR0*>(0x40450E00); }
 };
 
 // Recoverable Error Interrupt Record 2 for Job Ring 0
@@ -16932,7 +16932,7 @@ union REIR2JR0 {
 
   REIR2JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR2JR0 &Instance() { return *reinterpret_cast<volatile REIR2JR0*>(0x40450E08); }
+  static inline volatile REIR2JR0 &ref() { return *reinterpret_cast<volatile REIR2JR0*>(0x40450E08); }
 };
 
 // Recoverable Error Interrupt Record 4 for Job Ring 0
@@ -16963,7 +16963,7 @@ union REIR4JR0 {
 
   REIR4JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR4JR0 &Instance() { return *reinterpret_cast<volatile REIR4JR0*>(0x40450E10); }
+  static inline volatile REIR4JR0 &ref() { return *reinterpret_cast<volatile REIR4JR0*>(0x40450E10); }
 };
 
 // Recoverable Error Interrupt Record 5 for Job Ring 0
@@ -16993,7 +16993,7 @@ union REIR5JR0 {
 
   REIR5JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR5JR0 &Instance() { return *reinterpret_cast<volatile REIR5JR0*>(0x40450E14); }
+  static inline volatile REIR5JR0 &ref() { return *reinterpret_cast<volatile REIR5JR0*>(0x40450E14); }
 };
 
 // Input Ring Base Address Register for Job Ring 1
@@ -17010,7 +17010,7 @@ union IRBAR_JR1 {
 
   IRBAR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRBAR_JR1 &Instance() { return *reinterpret_cast<volatile IRBAR_JR1*>(0x40460000); }
+  static inline volatile IRBAR_JR1 &ref() { return *reinterpret_cast<volatile IRBAR_JR1*>(0x40460000); }
 };
 
 // Input Ring Size Register for Job Ring 1
@@ -17028,7 +17028,7 @@ union IRSR_JR1 {
 
   IRSR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRSR_JR1 &Instance() { return *reinterpret_cast<volatile IRSR_JR1*>(0x4046000C); }
+  static inline volatile IRSR_JR1 &ref() { return *reinterpret_cast<volatile IRSR_JR1*>(0x4046000C); }
 };
 
 // Input Ring Slots Available Register for Job Ring 1
@@ -17046,7 +17046,7 @@ union IRSAR_JR1 {
 
   IRSAR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRSAR_JR1 &Instance() { return *reinterpret_cast<volatile IRSAR_JR1*>(0x40460014); }
+  static inline volatile IRSAR_JR1 &ref() { return *reinterpret_cast<volatile IRSAR_JR1*>(0x40460014); }
 };
 
 // Input Ring Jobs Added Register for Job Ring1
@@ -17064,7 +17064,7 @@ union IRJAR_JR1 {
 
   IRJAR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRJAR_JR1 &Instance() { return *reinterpret_cast<volatile IRJAR_JR1*>(0x4046001C); }
+  static inline volatile IRJAR_JR1 &ref() { return *reinterpret_cast<volatile IRJAR_JR1*>(0x4046001C); }
 };
 
 // Output Ring Base Address Register for Job Ring 1
@@ -17081,7 +17081,7 @@ union ORBAR_JR1 {
 
   ORBAR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORBAR_JR1 &Instance() { return *reinterpret_cast<volatile ORBAR_JR1*>(0x40460020); }
+  static inline volatile ORBAR_JR1 &ref() { return *reinterpret_cast<volatile ORBAR_JR1*>(0x40460020); }
 };
 
 // Output Ring Size Register for Job Ring 1
@@ -17099,7 +17099,7 @@ union ORSR_JR1 {
 
   ORSR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORSR_JR1 &Instance() { return *reinterpret_cast<volatile ORSR_JR1*>(0x4046002C); }
+  static inline volatile ORSR_JR1 &ref() { return *reinterpret_cast<volatile ORSR_JR1*>(0x4046002C); }
 };
 
 // Output Ring Jobs Removed Register for Job Ring 1
@@ -17117,7 +17117,7 @@ union ORJRR_JR1 {
 
   ORJRR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORJRR_JR1 &Instance() { return *reinterpret_cast<volatile ORJRR_JR1*>(0x40460034); }
+  static inline volatile ORJRR_JR1 &ref() { return *reinterpret_cast<volatile ORJRR_JR1*>(0x40460034); }
 };
 
 // Output Ring Slots Full Register for Job Ring 1
@@ -17135,7 +17135,7 @@ union ORSFR_JR1 {
 
   ORSFR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORSFR_JR1 &Instance() { return *reinterpret_cast<volatile ORSFR_JR1*>(0x4046003C); }
+  static inline volatile ORSFR_JR1 &ref() { return *reinterpret_cast<volatile ORSFR_JR1*>(0x4046003C); }
 };
 
 // Job Ring Output Status Register for Job Ring 1
@@ -17170,7 +17170,7 @@ union JRSTAR_JR1 {
 
   JRSTAR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRSTAR_JR1 &Instance() { return *reinterpret_cast<volatile JRSTAR_JR1*>(0x40460044); }
+  static inline volatile JRSTAR_JR1 &ref() { return *reinterpret_cast<volatile JRSTAR_JR1*>(0x40460044); }
 };
 
 // Job Ring Interrupt Status Register for Job Ring 1
@@ -17238,7 +17238,7 @@ union JRINTR_JR1 {
 
   JRINTR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRINTR_JR1 &Instance() { return *reinterpret_cast<volatile JRINTR_JR1*>(0x4046004C); }
+  static inline volatile JRINTR_JR1 &ref() { return *reinterpret_cast<volatile JRINTR_JR1*>(0x4046004C); }
 };
 
 // Job Ring Configuration Register for Job Ring 1, most-significant half
@@ -17293,7 +17293,7 @@ union JRCFGR_JR1_MS {
 
   JRCFGR_JR1_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRCFGR_JR1_MS &Instance() { return *reinterpret_cast<volatile JRCFGR_JR1_MS*>(0x40460050); }
+  static inline volatile JRCFGR_JR1_MS &ref() { return *reinterpret_cast<volatile JRCFGR_JR1_MS*>(0x40460050); }
 };
 
 // Job Ring Configuration Register for Job Ring 1, least-significant half
@@ -17333,7 +17333,7 @@ union JRCFGR_JR1_LS {
 
   JRCFGR_JR1_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRCFGR_JR1_LS &Instance() { return *reinterpret_cast<volatile JRCFGR_JR1_LS*>(0x40460054); }
+  static inline volatile JRCFGR_JR1_LS &ref() { return *reinterpret_cast<volatile JRCFGR_JR1_LS*>(0x40460054); }
 };
 
 // Input Ring Read Index Register for Job Ring 1
@@ -17351,7 +17351,7 @@ union IRRIR_JR1 {
 
   IRRIR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRRIR_JR1 &Instance() { return *reinterpret_cast<volatile IRRIR_JR1*>(0x4046005C); }
+  static inline volatile IRRIR_JR1 &ref() { return *reinterpret_cast<volatile IRRIR_JR1*>(0x4046005C); }
 };
 
 // Output Ring Write Index Register for Job Ring 1
@@ -17369,7 +17369,7 @@ union ORWIR_JR1 {
 
   ORWIR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORWIR_JR1 &Instance() { return *reinterpret_cast<volatile ORWIR_JR1*>(0x40460064); }
+  static inline volatile ORWIR_JR1 &ref() { return *reinterpret_cast<volatile ORWIR_JR1*>(0x40460064); }
 };
 
 // Job Ring Command Register for Job Ring 1
@@ -17389,7 +17389,7 @@ union JRCR_JR1 {
 
   JRCR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRCR_JR1 &Instance() { return *reinterpret_cast<volatile JRCR_JR1*>(0x4046006C); }
+  static inline volatile JRCR_JR1 &ref() { return *reinterpret_cast<volatile JRCR_JR1*>(0x4046006C); }
 };
 
 // Job Ring 1 Address-Array Valid Register
@@ -17415,7 +17415,7 @@ union JR1AAV {
 
   JR1AAV() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR1AAV &Instance() { return *reinterpret_cast<volatile JR1AAV*>(0x40460704); }
+  static inline volatile JR1AAV &ref() { return *reinterpret_cast<volatile JR1AAV*>(0x40460704); }
 };
 
 // Job Ring 1 Address-Array Address 0 Register
@@ -17432,7 +17432,7 @@ union JR1AAA0 {
 
   JR1AAA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR1AAA0 &Instance() { return *reinterpret_cast<volatile JR1AAA0*>(0x40460800); }
+  static inline volatile JR1AAA0 &ref() { return *reinterpret_cast<volatile JR1AAA0*>(0x40460800); }
 };
 
 // Job Ring 1 Address-Array Address 1 Register
@@ -17449,7 +17449,7 @@ union JR1AAA1 {
 
   JR1AAA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR1AAA1 &Instance() { return *reinterpret_cast<volatile JR1AAA1*>(0x40460808); }
+  static inline volatile JR1AAA1 &ref() { return *reinterpret_cast<volatile JR1AAA1*>(0x40460808); }
 };
 
 // Job Ring 1 Address-Array Address 2 Register
@@ -17466,7 +17466,7 @@ union JR1AAA2 {
 
   JR1AAA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR1AAA2 &Instance() { return *reinterpret_cast<volatile JR1AAA2*>(0x40460810); }
+  static inline volatile JR1AAA2 &ref() { return *reinterpret_cast<volatile JR1AAA2*>(0x40460810); }
 };
 
 // Job Ring 1 Address-Array Address 3 Register
@@ -17483,7 +17483,7 @@ union JR1AAA3 {
 
   JR1AAA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR1AAA3 &Instance() { return *reinterpret_cast<volatile JR1AAA3*>(0x40460818); }
+  static inline volatile JR1AAA3 &ref() { return *reinterpret_cast<volatile JR1AAA3*>(0x40460818); }
 };
 
 // Partition 0 SDID register
@@ -17501,7 +17501,7 @@ union P0SDID_JR1 {
 
   P0SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P0SDID_JR1 &Instance() { return *reinterpret_cast<volatile P0SDID_JR1*>(0x40460A00); }
+  static inline volatile P0SDID_JR1 &ref() { return *reinterpret_cast<volatile P0SDID_JR1*>(0x40460A00); }
 };
 
 // Secure Memory Access Permissions register
@@ -17639,7 +17639,7 @@ union P0SMAPR_JR1 {
 
   P0SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P0SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P0SMAPR_JR1*>(0x40460A04); }
+  static inline volatile P0SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P0SMAPR_JR1*>(0x40460A04); }
 };
 
 // Secure Memory Access Group Registers
@@ -17718,7 +17718,7 @@ union P0SMAG2_JR1 {
 
   P0SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P0SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P0SMAG2_JR1*>(0x40460A08); }
+  static inline volatile P0SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P0SMAG2_JR1*>(0x40460A08); }
 };
 
 // Secure Memory Access Group Registers
@@ -17797,7 +17797,7 @@ union P0SMAG1_JR1 {
 
   P0SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P0SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P0SMAG1_JR1*>(0x40460A0C); }
+  static inline volatile P0SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P0SMAG1_JR1*>(0x40460A0C); }
 };
 
 // Partition 1 SDID register
@@ -17815,7 +17815,7 @@ union P1SDID_JR1 {
 
   P1SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P1SDID_JR1 &Instance() { return *reinterpret_cast<volatile P1SDID_JR1*>(0x40460A10); }
+  static inline volatile P1SDID_JR1 &ref() { return *reinterpret_cast<volatile P1SDID_JR1*>(0x40460A10); }
 };
 
 // Secure Memory Access Permissions register
@@ -17953,7 +17953,7 @@ union P1SMAPR_JR1 {
 
   P1SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P1SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P1SMAPR_JR1*>(0x40460A14); }
+  static inline volatile P1SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P1SMAPR_JR1*>(0x40460A14); }
 };
 
 // Secure Memory Access Group Registers
@@ -18032,7 +18032,7 @@ union P1SMAG2_JR1 {
 
   P1SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P1SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P1SMAG2_JR1*>(0x40460A18); }
+  static inline volatile P1SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P1SMAG2_JR1*>(0x40460A18); }
 };
 
 // Secure Memory Access Group Registers
@@ -18111,7 +18111,7 @@ union P1SMAG1_JR1 {
 
   P1SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P1SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P1SMAG1_JR1*>(0x40460A1C); }
+  static inline volatile P1SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P1SMAG1_JR1*>(0x40460A1C); }
 };
 
 // Partition 2 SDID register
@@ -18129,7 +18129,7 @@ union P2SDID_JR1 {
 
   P2SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P2SDID_JR1 &Instance() { return *reinterpret_cast<volatile P2SDID_JR1*>(0x40460A20); }
+  static inline volatile P2SDID_JR1 &ref() { return *reinterpret_cast<volatile P2SDID_JR1*>(0x40460A20); }
 };
 
 // Secure Memory Access Permissions register
@@ -18267,7 +18267,7 @@ union P2SMAPR_JR1 {
 
   P2SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P2SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P2SMAPR_JR1*>(0x40460A24); }
+  static inline volatile P2SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P2SMAPR_JR1*>(0x40460A24); }
 };
 
 // Secure Memory Access Group Registers
@@ -18346,7 +18346,7 @@ union P2SMAG2_JR1 {
 
   P2SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P2SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P2SMAG2_JR1*>(0x40460A28); }
+  static inline volatile P2SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P2SMAG2_JR1*>(0x40460A28); }
 };
 
 // Secure Memory Access Group Registers
@@ -18425,7 +18425,7 @@ union P2SMAG1_JR1 {
 
   P2SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P2SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P2SMAG1_JR1*>(0x40460A2C); }
+  static inline volatile P2SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P2SMAG1_JR1*>(0x40460A2C); }
 };
 
 // Partition 3 SDID register
@@ -18443,7 +18443,7 @@ union P3SDID_JR1 {
 
   P3SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P3SDID_JR1 &Instance() { return *reinterpret_cast<volatile P3SDID_JR1*>(0x40460A30); }
+  static inline volatile P3SDID_JR1 &ref() { return *reinterpret_cast<volatile P3SDID_JR1*>(0x40460A30); }
 };
 
 // Secure Memory Access Permissions register
@@ -18581,7 +18581,7 @@ union P3SMAPR_JR1 {
 
   P3SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P3SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P3SMAPR_JR1*>(0x40460A34); }
+  static inline volatile P3SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P3SMAPR_JR1*>(0x40460A34); }
 };
 
 // Secure Memory Access Group Registers
@@ -18660,7 +18660,7 @@ union P3SMAG2_JR1 {
 
   P3SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P3SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P3SMAG2_JR1*>(0x40460A38); }
+  static inline volatile P3SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P3SMAG2_JR1*>(0x40460A38); }
 };
 
 // Secure Memory Access Group Registers
@@ -18739,7 +18739,7 @@ union P3SMAG1_JR1 {
 
   P3SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P3SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P3SMAG1_JR1*>(0x40460A3C); }
+  static inline volatile P3SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P3SMAG1_JR1*>(0x40460A3C); }
 };
 
 // Partition 4 SDID register
@@ -18757,7 +18757,7 @@ union P4SDID_JR1 {
 
   P4SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P4SDID_JR1 &Instance() { return *reinterpret_cast<volatile P4SDID_JR1*>(0x40460A40); }
+  static inline volatile P4SDID_JR1 &ref() { return *reinterpret_cast<volatile P4SDID_JR1*>(0x40460A40); }
 };
 
 // Secure Memory Access Permissions register
@@ -18895,7 +18895,7 @@ union P4SMAPR_JR1 {
 
   P4SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P4SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P4SMAPR_JR1*>(0x40460A44); }
+  static inline volatile P4SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P4SMAPR_JR1*>(0x40460A44); }
 };
 
 // Secure Memory Access Group Registers
@@ -18974,7 +18974,7 @@ union P4SMAG2_JR1 {
 
   P4SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P4SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P4SMAG2_JR1*>(0x40460A48); }
+  static inline volatile P4SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P4SMAG2_JR1*>(0x40460A48); }
 };
 
 // Secure Memory Access Group Registers
@@ -19053,7 +19053,7 @@ union P4SMAG1_JR1 {
 
   P4SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P4SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P4SMAG1_JR1*>(0x40460A4C); }
+  static inline volatile P4SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P4SMAG1_JR1*>(0x40460A4C); }
 };
 
 // Partition 5 SDID register
@@ -19071,7 +19071,7 @@ union P5SDID_JR1 {
 
   P5SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P5SDID_JR1 &Instance() { return *reinterpret_cast<volatile P5SDID_JR1*>(0x40460A50); }
+  static inline volatile P5SDID_JR1 &ref() { return *reinterpret_cast<volatile P5SDID_JR1*>(0x40460A50); }
 };
 
 // Secure Memory Access Permissions register
@@ -19209,7 +19209,7 @@ union P5SMAPR_JR1 {
 
   P5SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P5SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P5SMAPR_JR1*>(0x40460A54); }
+  static inline volatile P5SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P5SMAPR_JR1*>(0x40460A54); }
 };
 
 // Secure Memory Access Group Registers
@@ -19288,7 +19288,7 @@ union P5SMAG2_JR1 {
 
   P5SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P5SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P5SMAG2_JR1*>(0x40460A58); }
+  static inline volatile P5SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P5SMAG2_JR1*>(0x40460A58); }
 };
 
 // Secure Memory Access Group Registers
@@ -19367,7 +19367,7 @@ union P5SMAG1_JR1 {
 
   P5SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P5SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P5SMAG1_JR1*>(0x40460A5C); }
+  static inline volatile P5SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P5SMAG1_JR1*>(0x40460A5C); }
 };
 
 // Partition 6 SDID register
@@ -19385,7 +19385,7 @@ union P6SDID_JR1 {
 
   P6SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P6SDID_JR1 &Instance() { return *reinterpret_cast<volatile P6SDID_JR1*>(0x40460A60); }
+  static inline volatile P6SDID_JR1 &ref() { return *reinterpret_cast<volatile P6SDID_JR1*>(0x40460A60); }
 };
 
 // Secure Memory Access Permissions register
@@ -19523,7 +19523,7 @@ union P6SMAPR_JR1 {
 
   P6SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P6SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P6SMAPR_JR1*>(0x40460A64); }
+  static inline volatile P6SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P6SMAPR_JR1*>(0x40460A64); }
 };
 
 // Secure Memory Access Group Registers
@@ -19602,7 +19602,7 @@ union P6SMAG2_JR1 {
 
   P6SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P6SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P6SMAG2_JR1*>(0x40460A68); }
+  static inline volatile P6SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P6SMAG2_JR1*>(0x40460A68); }
 };
 
 // Secure Memory Access Group Registers
@@ -19681,7 +19681,7 @@ union P6SMAG1_JR1 {
 
   P6SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P6SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P6SMAG1_JR1*>(0x40460A6C); }
+  static inline volatile P6SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P6SMAG1_JR1*>(0x40460A6C); }
 };
 
 // Partition 7 SDID register
@@ -19699,7 +19699,7 @@ union P7SDID_JR1 {
 
   P7SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P7SDID_JR1 &Instance() { return *reinterpret_cast<volatile P7SDID_JR1*>(0x40460A70); }
+  static inline volatile P7SDID_JR1 &ref() { return *reinterpret_cast<volatile P7SDID_JR1*>(0x40460A70); }
 };
 
 // Secure Memory Access Permissions register
@@ -19837,7 +19837,7 @@ union P7SMAPR_JR1 {
 
   P7SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P7SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P7SMAPR_JR1*>(0x40460A74); }
+  static inline volatile P7SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P7SMAPR_JR1*>(0x40460A74); }
 };
 
 // Secure Memory Access Group Registers
@@ -19916,7 +19916,7 @@ union P7SMAG2_JR1 {
 
   P7SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P7SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P7SMAG2_JR1*>(0x40460A78); }
+  static inline volatile P7SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P7SMAG2_JR1*>(0x40460A78); }
 };
 
 // Secure Memory Access Group Registers
@@ -19995,7 +19995,7 @@ union P7SMAG1_JR1 {
 
   P7SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P7SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P7SMAG1_JR1*>(0x40460A7C); }
+  static inline volatile P7SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P7SMAG1_JR1*>(0x40460A7C); }
 };
 
 // Partition 8 SDID register
@@ -20013,7 +20013,7 @@ union P8SDID_JR1 {
 
   P8SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P8SDID_JR1 &Instance() { return *reinterpret_cast<volatile P8SDID_JR1*>(0x40460A80); }
+  static inline volatile P8SDID_JR1 &ref() { return *reinterpret_cast<volatile P8SDID_JR1*>(0x40460A80); }
 };
 
 // Secure Memory Access Permissions register
@@ -20151,7 +20151,7 @@ union P8SMAPR_JR1 {
 
   P8SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P8SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P8SMAPR_JR1*>(0x40460A84); }
+  static inline volatile P8SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P8SMAPR_JR1*>(0x40460A84); }
 };
 
 // Secure Memory Access Group Registers
@@ -20230,7 +20230,7 @@ union P8SMAG2_JR1 {
 
   P8SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P8SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P8SMAG2_JR1*>(0x40460A88); }
+  static inline volatile P8SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P8SMAG2_JR1*>(0x40460A88); }
 };
 
 // Secure Memory Access Group Registers
@@ -20309,7 +20309,7 @@ union P8SMAG1_JR1 {
 
   P8SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P8SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P8SMAG1_JR1*>(0x40460A8C); }
+  static inline volatile P8SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P8SMAG1_JR1*>(0x40460A8C); }
 };
 
 // Partition 9 SDID register
@@ -20327,7 +20327,7 @@ union P9SDID_JR1 {
 
   P9SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P9SDID_JR1 &Instance() { return *reinterpret_cast<volatile P9SDID_JR1*>(0x40460A90); }
+  static inline volatile P9SDID_JR1 &ref() { return *reinterpret_cast<volatile P9SDID_JR1*>(0x40460A90); }
 };
 
 // Secure Memory Access Permissions register
@@ -20465,7 +20465,7 @@ union P9SMAPR_JR1 {
 
   P9SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P9SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P9SMAPR_JR1*>(0x40460A94); }
+  static inline volatile P9SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P9SMAPR_JR1*>(0x40460A94); }
 };
 
 // Secure Memory Access Group Registers
@@ -20544,7 +20544,7 @@ union P9SMAG2_JR1 {
 
   P9SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P9SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P9SMAG2_JR1*>(0x40460A98); }
+  static inline volatile P9SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P9SMAG2_JR1*>(0x40460A98); }
 };
 
 // Secure Memory Access Group Registers
@@ -20623,7 +20623,7 @@ union P9SMAG1_JR1 {
 
   P9SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P9SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P9SMAG1_JR1*>(0x40460A9C); }
+  static inline volatile P9SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P9SMAG1_JR1*>(0x40460A9C); }
 };
 
 // Partition 10 SDID register
@@ -20641,7 +20641,7 @@ union P10SDID_JR1 {
 
   P10SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P10SDID_JR1 &Instance() { return *reinterpret_cast<volatile P10SDID_JR1*>(0x40460AA0); }
+  static inline volatile P10SDID_JR1 &ref() { return *reinterpret_cast<volatile P10SDID_JR1*>(0x40460AA0); }
 };
 
 // Secure Memory Access Permissions register
@@ -20779,7 +20779,7 @@ union P10SMAPR_JR1 {
 
   P10SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P10SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P10SMAPR_JR1*>(0x40460AA4); }
+  static inline volatile P10SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P10SMAPR_JR1*>(0x40460AA4); }
 };
 
 // Secure Memory Access Group Registers
@@ -20858,7 +20858,7 @@ union P10SMAG2_JR1 {
 
   P10SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P10SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P10SMAG2_JR1*>(0x40460AA8); }
+  static inline volatile P10SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P10SMAG2_JR1*>(0x40460AA8); }
 };
 
 // Secure Memory Access Group Registers
@@ -20937,7 +20937,7 @@ union P10SMAG1_JR1 {
 
   P10SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P10SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P10SMAG1_JR1*>(0x40460AAC); }
+  static inline volatile P10SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P10SMAG1_JR1*>(0x40460AAC); }
 };
 
 // Partition 11 SDID register
@@ -20955,7 +20955,7 @@ union P11SDID_JR1 {
 
   P11SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P11SDID_JR1 &Instance() { return *reinterpret_cast<volatile P11SDID_JR1*>(0x40460AB0); }
+  static inline volatile P11SDID_JR1 &ref() { return *reinterpret_cast<volatile P11SDID_JR1*>(0x40460AB0); }
 };
 
 // Secure Memory Access Permissions register
@@ -21093,7 +21093,7 @@ union P11SMAPR_JR1 {
 
   P11SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P11SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P11SMAPR_JR1*>(0x40460AB4); }
+  static inline volatile P11SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P11SMAPR_JR1*>(0x40460AB4); }
 };
 
 // Secure Memory Access Group Registers
@@ -21172,7 +21172,7 @@ union P11SMAG2_JR1 {
 
   P11SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P11SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P11SMAG2_JR1*>(0x40460AB8); }
+  static inline volatile P11SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P11SMAG2_JR1*>(0x40460AB8); }
 };
 
 // Secure Memory Access Group Registers
@@ -21251,7 +21251,7 @@ union P11SMAG1_JR1 {
 
   P11SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P11SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P11SMAG1_JR1*>(0x40460ABC); }
+  static inline volatile P11SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P11SMAG1_JR1*>(0x40460ABC); }
 };
 
 // Partition 12 SDID register
@@ -21269,7 +21269,7 @@ union P12SDID_JR1 {
 
   P12SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P12SDID_JR1 &Instance() { return *reinterpret_cast<volatile P12SDID_JR1*>(0x40460AC0); }
+  static inline volatile P12SDID_JR1 &ref() { return *reinterpret_cast<volatile P12SDID_JR1*>(0x40460AC0); }
 };
 
 // Secure Memory Access Permissions register
@@ -21407,7 +21407,7 @@ union P12SMAPR_JR1 {
 
   P12SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P12SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P12SMAPR_JR1*>(0x40460AC4); }
+  static inline volatile P12SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P12SMAPR_JR1*>(0x40460AC4); }
 };
 
 // Secure Memory Access Group Registers
@@ -21486,7 +21486,7 @@ union P12SMAG2_JR1 {
 
   P12SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P12SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P12SMAG2_JR1*>(0x40460AC8); }
+  static inline volatile P12SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P12SMAG2_JR1*>(0x40460AC8); }
 };
 
 // Secure Memory Access Group Registers
@@ -21565,7 +21565,7 @@ union P12SMAG1_JR1 {
 
   P12SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P12SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P12SMAG1_JR1*>(0x40460ACC); }
+  static inline volatile P12SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P12SMAG1_JR1*>(0x40460ACC); }
 };
 
 // Partition 13 SDID register
@@ -21583,7 +21583,7 @@ union P13SDID_JR1 {
 
   P13SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P13SDID_JR1 &Instance() { return *reinterpret_cast<volatile P13SDID_JR1*>(0x40460AD0); }
+  static inline volatile P13SDID_JR1 &ref() { return *reinterpret_cast<volatile P13SDID_JR1*>(0x40460AD0); }
 };
 
 // Secure Memory Access Permissions register
@@ -21721,7 +21721,7 @@ union P13SMAPR_JR1 {
 
   P13SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P13SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P13SMAPR_JR1*>(0x40460AD4); }
+  static inline volatile P13SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P13SMAPR_JR1*>(0x40460AD4); }
 };
 
 // Secure Memory Access Group Registers
@@ -21800,7 +21800,7 @@ union P13SMAG2_JR1 {
 
   P13SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P13SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P13SMAG2_JR1*>(0x40460AD8); }
+  static inline volatile P13SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P13SMAG2_JR1*>(0x40460AD8); }
 };
 
 // Secure Memory Access Group Registers
@@ -21879,7 +21879,7 @@ union P13SMAG1_JR1 {
 
   P13SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P13SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P13SMAG1_JR1*>(0x40460ADC); }
+  static inline volatile P13SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P13SMAG1_JR1*>(0x40460ADC); }
 };
 
 // Partition 14 SDID register
@@ -21897,7 +21897,7 @@ union P14SDID_JR1 {
 
   P14SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P14SDID_JR1 &Instance() { return *reinterpret_cast<volatile P14SDID_JR1*>(0x40460AE0); }
+  static inline volatile P14SDID_JR1 &ref() { return *reinterpret_cast<volatile P14SDID_JR1*>(0x40460AE0); }
 };
 
 // Secure Memory Access Permissions register
@@ -22035,7 +22035,7 @@ union P14SMAPR_JR1 {
 
   P14SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P14SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P14SMAPR_JR1*>(0x40460AE4); }
+  static inline volatile P14SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P14SMAPR_JR1*>(0x40460AE4); }
 };
 
 // Secure Memory Access Group Registers
@@ -22114,7 +22114,7 @@ union P14SMAG2_JR1 {
 
   P14SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P14SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P14SMAG2_JR1*>(0x40460AE8); }
+  static inline volatile P14SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P14SMAG2_JR1*>(0x40460AE8); }
 };
 
 // Secure Memory Access Group Registers
@@ -22193,7 +22193,7 @@ union P14SMAG1_JR1 {
 
   P14SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P14SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P14SMAG1_JR1*>(0x40460AEC); }
+  static inline volatile P14SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P14SMAG1_JR1*>(0x40460AEC); }
 };
 
 // Partition 15 SDID register
@@ -22211,7 +22211,7 @@ union P15SDID_JR1 {
 
   P15SDID_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P15SDID_JR1 &Instance() { return *reinterpret_cast<volatile P15SDID_JR1*>(0x40460AF0); }
+  static inline volatile P15SDID_JR1 &ref() { return *reinterpret_cast<volatile P15SDID_JR1*>(0x40460AF0); }
 };
 
 // Secure Memory Access Permissions register
@@ -22349,7 +22349,7 @@ union P15SMAPR_JR1 {
 
   P15SMAPR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P15SMAPR_JR1 &Instance() { return *reinterpret_cast<volatile P15SMAPR_JR1*>(0x40460AF4); }
+  static inline volatile P15SMAPR_JR1 &ref() { return *reinterpret_cast<volatile P15SMAPR_JR1*>(0x40460AF4); }
 };
 
 // Secure Memory Access Group Registers
@@ -22428,7 +22428,7 @@ union P15SMAG2_JR1 {
 
   P15SMAG2_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P15SMAG2_JR1 &Instance() { return *reinterpret_cast<volatile P15SMAG2_JR1*>(0x40460AF8); }
+  static inline volatile P15SMAG2_JR1 &ref() { return *reinterpret_cast<volatile P15SMAG2_JR1*>(0x40460AF8); }
 };
 
 // Secure Memory Access Group Registers
@@ -22507,7 +22507,7 @@ union P15SMAG1_JR1 {
 
   P15SMAG1_JR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P15SMAG1_JR1 &Instance() { return *reinterpret_cast<volatile P15SMAG1_JR1*>(0x40460AFC); }
+  static inline volatile P15SMAG1_JR1 &ref() { return *reinterpret_cast<volatile P15SMAG1_JR1*>(0x40460AFC); }
 };
 
 // Secure Memory Command Register
@@ -22530,7 +22530,7 @@ union SMCR_JR1 {
 
   SMCR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMCR_JR1 &Instance() { return *reinterpret_cast<volatile SMCR_JR1*>(0x40460BE4); }
+  static inline volatile SMCR_JR1 &ref() { return *reinterpret_cast<volatile SMCR_JR1*>(0x40460BE4); }
 };
 
 // Secure Memory Command Status Register
@@ -22582,7 +22582,7 @@ union SMCSR_JR1 {
 
   SMCSR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMCSR_JR1 &Instance() { return *reinterpret_cast<volatile SMCSR_JR1*>(0x40460BEC); }
+  static inline volatile SMCSR_JR1 &ref() { return *reinterpret_cast<volatile SMCSR_JR1*>(0x40460BEC); }
 };
 
 // Recoverable Error Interrupt Record 0 for Job Ring 1
@@ -22603,7 +22603,7 @@ union REIR0JR1 {
 
   REIR0JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR0JR1 &Instance() { return *reinterpret_cast<volatile REIR0JR1*>(0x40460E00); }
+  static inline volatile REIR0JR1 &ref() { return *reinterpret_cast<volatile REIR0JR1*>(0x40460E00); }
 };
 
 // Recoverable Error Interrupt Record 2 for Job Ring 1
@@ -22620,7 +22620,7 @@ union REIR2JR1 {
 
   REIR2JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR2JR1 &Instance() { return *reinterpret_cast<volatile REIR2JR1*>(0x40460E08); }
+  static inline volatile REIR2JR1 &ref() { return *reinterpret_cast<volatile REIR2JR1*>(0x40460E08); }
 };
 
 // Recoverable Error Interrupt Record 4 for Job Ring 1
@@ -22651,7 +22651,7 @@ union REIR4JR1 {
 
   REIR4JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR4JR1 &Instance() { return *reinterpret_cast<volatile REIR4JR1*>(0x40460E10); }
+  static inline volatile REIR4JR1 &ref() { return *reinterpret_cast<volatile REIR4JR1*>(0x40460E10); }
 };
 
 // Recoverable Error Interrupt Record 5 for Job Ring 1
@@ -22681,7 +22681,7 @@ union REIR5JR1 {
 
   REIR5JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR5JR1 &Instance() { return *reinterpret_cast<volatile REIR5JR1*>(0x40460E14); }
+  static inline volatile REIR5JR1 &ref() { return *reinterpret_cast<volatile REIR5JR1*>(0x40460E14); }
 };
 
 // Input Ring Base Address Register for Job Ring 2
@@ -22698,7 +22698,7 @@ union IRBAR_JR2 {
 
   IRBAR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRBAR_JR2 &Instance() { return *reinterpret_cast<volatile IRBAR_JR2*>(0x40470000); }
+  static inline volatile IRBAR_JR2 &ref() { return *reinterpret_cast<volatile IRBAR_JR2*>(0x40470000); }
 };
 
 // Input Ring Size Register for Job Ring 2
@@ -22716,7 +22716,7 @@ union IRSR_JR2 {
 
   IRSR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRSR_JR2 &Instance() { return *reinterpret_cast<volatile IRSR_JR2*>(0x4047000C); }
+  static inline volatile IRSR_JR2 &ref() { return *reinterpret_cast<volatile IRSR_JR2*>(0x4047000C); }
 };
 
 // Input Ring Slots Available Register for Job Ring 2
@@ -22734,7 +22734,7 @@ union IRSAR_JR2 {
 
   IRSAR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRSAR_JR2 &Instance() { return *reinterpret_cast<volatile IRSAR_JR2*>(0x40470014); }
+  static inline volatile IRSAR_JR2 &ref() { return *reinterpret_cast<volatile IRSAR_JR2*>(0x40470014); }
 };
 
 // Input Ring Jobs Added Register for Job Ring2
@@ -22752,7 +22752,7 @@ union IRJAR_JR2 {
 
   IRJAR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRJAR_JR2 &Instance() { return *reinterpret_cast<volatile IRJAR_JR2*>(0x4047001C); }
+  static inline volatile IRJAR_JR2 &ref() { return *reinterpret_cast<volatile IRJAR_JR2*>(0x4047001C); }
 };
 
 // Output Ring Base Address Register for Job Ring 2
@@ -22769,7 +22769,7 @@ union ORBAR_JR2 {
 
   ORBAR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORBAR_JR2 &Instance() { return *reinterpret_cast<volatile ORBAR_JR2*>(0x40470020); }
+  static inline volatile ORBAR_JR2 &ref() { return *reinterpret_cast<volatile ORBAR_JR2*>(0x40470020); }
 };
 
 // Output Ring Size Register for Job Ring 2
@@ -22787,7 +22787,7 @@ union ORSR_JR2 {
 
   ORSR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORSR_JR2 &Instance() { return *reinterpret_cast<volatile ORSR_JR2*>(0x4047002C); }
+  static inline volatile ORSR_JR2 &ref() { return *reinterpret_cast<volatile ORSR_JR2*>(0x4047002C); }
 };
 
 // Output Ring Jobs Removed Register for Job Ring 2
@@ -22805,7 +22805,7 @@ union ORJRR_JR2 {
 
   ORJRR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORJRR_JR2 &Instance() { return *reinterpret_cast<volatile ORJRR_JR2*>(0x40470034); }
+  static inline volatile ORJRR_JR2 &ref() { return *reinterpret_cast<volatile ORJRR_JR2*>(0x40470034); }
 };
 
 // Output Ring Slots Full Register for Job Ring 2
@@ -22823,7 +22823,7 @@ union ORSFR_JR2 {
 
   ORSFR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORSFR_JR2 &Instance() { return *reinterpret_cast<volatile ORSFR_JR2*>(0x4047003C); }
+  static inline volatile ORSFR_JR2 &ref() { return *reinterpret_cast<volatile ORSFR_JR2*>(0x4047003C); }
 };
 
 // Job Ring Output Status Register for Job Ring 2
@@ -22858,7 +22858,7 @@ union JRSTAR_JR2 {
 
   JRSTAR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRSTAR_JR2 &Instance() { return *reinterpret_cast<volatile JRSTAR_JR2*>(0x40470044); }
+  static inline volatile JRSTAR_JR2 &ref() { return *reinterpret_cast<volatile JRSTAR_JR2*>(0x40470044); }
 };
 
 // Job Ring Interrupt Status Register for Job Ring 2
@@ -22926,7 +22926,7 @@ union JRINTR_JR2 {
 
   JRINTR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRINTR_JR2 &Instance() { return *reinterpret_cast<volatile JRINTR_JR2*>(0x4047004C); }
+  static inline volatile JRINTR_JR2 &ref() { return *reinterpret_cast<volatile JRINTR_JR2*>(0x4047004C); }
 };
 
 // Job Ring Configuration Register for Job Ring 2, most-significant half
@@ -22981,7 +22981,7 @@ union JRCFGR_JR2_MS {
 
   JRCFGR_JR2_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRCFGR_JR2_MS &Instance() { return *reinterpret_cast<volatile JRCFGR_JR2_MS*>(0x40470050); }
+  static inline volatile JRCFGR_JR2_MS &ref() { return *reinterpret_cast<volatile JRCFGR_JR2_MS*>(0x40470050); }
 };
 
 // Job Ring Configuration Register for Job Ring 2, least-significant half
@@ -23021,7 +23021,7 @@ union JRCFGR_JR2_LS {
 
   JRCFGR_JR2_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRCFGR_JR2_LS &Instance() { return *reinterpret_cast<volatile JRCFGR_JR2_LS*>(0x40470054); }
+  static inline volatile JRCFGR_JR2_LS &ref() { return *reinterpret_cast<volatile JRCFGR_JR2_LS*>(0x40470054); }
 };
 
 // Input Ring Read Index Register for Job Ring 2
@@ -23039,7 +23039,7 @@ union IRRIR_JR2 {
 
   IRRIR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRRIR_JR2 &Instance() { return *reinterpret_cast<volatile IRRIR_JR2*>(0x4047005C); }
+  static inline volatile IRRIR_JR2 &ref() { return *reinterpret_cast<volatile IRRIR_JR2*>(0x4047005C); }
 };
 
 // Output Ring Write Index Register for Job Ring 2
@@ -23057,7 +23057,7 @@ union ORWIR_JR2 {
 
   ORWIR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORWIR_JR2 &Instance() { return *reinterpret_cast<volatile ORWIR_JR2*>(0x40470064); }
+  static inline volatile ORWIR_JR2 &ref() { return *reinterpret_cast<volatile ORWIR_JR2*>(0x40470064); }
 };
 
 // Job Ring Command Register for Job Ring 2
@@ -23077,7 +23077,7 @@ union JRCR_JR2 {
 
   JRCR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRCR_JR2 &Instance() { return *reinterpret_cast<volatile JRCR_JR2*>(0x4047006C); }
+  static inline volatile JRCR_JR2 &ref() { return *reinterpret_cast<volatile JRCR_JR2*>(0x4047006C); }
 };
 
 // Job Ring 2 Address-Array Valid Register
@@ -23103,7 +23103,7 @@ union JR2AAV {
 
   JR2AAV() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR2AAV &Instance() { return *reinterpret_cast<volatile JR2AAV*>(0x40470704); }
+  static inline volatile JR2AAV &ref() { return *reinterpret_cast<volatile JR2AAV*>(0x40470704); }
 };
 
 // Job Ring 2 Address-Array Address 0 Register
@@ -23120,7 +23120,7 @@ union JR2AAA0 {
 
   JR2AAA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR2AAA0 &Instance() { return *reinterpret_cast<volatile JR2AAA0*>(0x40470800); }
+  static inline volatile JR2AAA0 &ref() { return *reinterpret_cast<volatile JR2AAA0*>(0x40470800); }
 };
 
 // Job Ring 2 Address-Array Address 1 Register
@@ -23137,7 +23137,7 @@ union JR2AAA1 {
 
   JR2AAA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR2AAA1 &Instance() { return *reinterpret_cast<volatile JR2AAA1*>(0x40470808); }
+  static inline volatile JR2AAA1 &ref() { return *reinterpret_cast<volatile JR2AAA1*>(0x40470808); }
 };
 
 // Job Ring 2 Address-Array Address 2 Register
@@ -23154,7 +23154,7 @@ union JR2AAA2 {
 
   JR2AAA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR2AAA2 &Instance() { return *reinterpret_cast<volatile JR2AAA2*>(0x40470810); }
+  static inline volatile JR2AAA2 &ref() { return *reinterpret_cast<volatile JR2AAA2*>(0x40470810); }
 };
 
 // Job Ring 2 Address-Array Address 3 Register
@@ -23171,7 +23171,7 @@ union JR2AAA3 {
 
   JR2AAA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR2AAA3 &Instance() { return *reinterpret_cast<volatile JR2AAA3*>(0x40470818); }
+  static inline volatile JR2AAA3 &ref() { return *reinterpret_cast<volatile JR2AAA3*>(0x40470818); }
 };
 
 // Partition 0 SDID register
@@ -23189,7 +23189,7 @@ union P0SDID_JR2 {
 
   P0SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P0SDID_JR2 &Instance() { return *reinterpret_cast<volatile P0SDID_JR2*>(0x40470A00); }
+  static inline volatile P0SDID_JR2 &ref() { return *reinterpret_cast<volatile P0SDID_JR2*>(0x40470A00); }
 };
 
 // Secure Memory Access Permissions register
@@ -23327,7 +23327,7 @@ union P0SMAPR_JR2 {
 
   P0SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P0SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P0SMAPR_JR2*>(0x40470A04); }
+  static inline volatile P0SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P0SMAPR_JR2*>(0x40470A04); }
 };
 
 // Secure Memory Access Group Registers
@@ -23406,7 +23406,7 @@ union P0SMAG2_JR2 {
 
   P0SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P0SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P0SMAG2_JR2*>(0x40470A08); }
+  static inline volatile P0SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P0SMAG2_JR2*>(0x40470A08); }
 };
 
 // Secure Memory Access Group Registers
@@ -23485,7 +23485,7 @@ union P0SMAG1_JR2 {
 
   P0SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P0SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P0SMAG1_JR2*>(0x40470A0C); }
+  static inline volatile P0SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P0SMAG1_JR2*>(0x40470A0C); }
 };
 
 // Partition 1 SDID register
@@ -23503,7 +23503,7 @@ union P1SDID_JR2 {
 
   P1SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P1SDID_JR2 &Instance() { return *reinterpret_cast<volatile P1SDID_JR2*>(0x40470A10); }
+  static inline volatile P1SDID_JR2 &ref() { return *reinterpret_cast<volatile P1SDID_JR2*>(0x40470A10); }
 };
 
 // Secure Memory Access Permissions register
@@ -23641,7 +23641,7 @@ union P1SMAPR_JR2 {
 
   P1SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P1SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P1SMAPR_JR2*>(0x40470A14); }
+  static inline volatile P1SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P1SMAPR_JR2*>(0x40470A14); }
 };
 
 // Secure Memory Access Group Registers
@@ -23720,7 +23720,7 @@ union P1SMAG2_JR2 {
 
   P1SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P1SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P1SMAG2_JR2*>(0x40470A18); }
+  static inline volatile P1SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P1SMAG2_JR2*>(0x40470A18); }
 };
 
 // Secure Memory Access Group Registers
@@ -23799,7 +23799,7 @@ union P1SMAG1_JR2 {
 
   P1SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P1SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P1SMAG1_JR2*>(0x40470A1C); }
+  static inline volatile P1SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P1SMAG1_JR2*>(0x40470A1C); }
 };
 
 // Partition 2 SDID register
@@ -23817,7 +23817,7 @@ union P2SDID_JR2 {
 
   P2SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P2SDID_JR2 &Instance() { return *reinterpret_cast<volatile P2SDID_JR2*>(0x40470A20); }
+  static inline volatile P2SDID_JR2 &ref() { return *reinterpret_cast<volatile P2SDID_JR2*>(0x40470A20); }
 };
 
 // Secure Memory Access Permissions register
@@ -23955,7 +23955,7 @@ union P2SMAPR_JR2 {
 
   P2SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P2SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P2SMAPR_JR2*>(0x40470A24); }
+  static inline volatile P2SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P2SMAPR_JR2*>(0x40470A24); }
 };
 
 // Secure Memory Access Group Registers
@@ -24034,7 +24034,7 @@ union P2SMAG2_JR2 {
 
   P2SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P2SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P2SMAG2_JR2*>(0x40470A28); }
+  static inline volatile P2SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P2SMAG2_JR2*>(0x40470A28); }
 };
 
 // Secure Memory Access Group Registers
@@ -24113,7 +24113,7 @@ union P2SMAG1_JR2 {
 
   P2SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P2SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P2SMAG1_JR2*>(0x40470A2C); }
+  static inline volatile P2SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P2SMAG1_JR2*>(0x40470A2C); }
 };
 
 // Partition 3 SDID register
@@ -24131,7 +24131,7 @@ union P3SDID_JR2 {
 
   P3SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P3SDID_JR2 &Instance() { return *reinterpret_cast<volatile P3SDID_JR2*>(0x40470A30); }
+  static inline volatile P3SDID_JR2 &ref() { return *reinterpret_cast<volatile P3SDID_JR2*>(0x40470A30); }
 };
 
 // Secure Memory Access Permissions register
@@ -24269,7 +24269,7 @@ union P3SMAPR_JR2 {
 
   P3SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P3SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P3SMAPR_JR2*>(0x40470A34); }
+  static inline volatile P3SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P3SMAPR_JR2*>(0x40470A34); }
 };
 
 // Secure Memory Access Group Registers
@@ -24348,7 +24348,7 @@ union P3SMAG2_JR2 {
 
   P3SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P3SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P3SMAG2_JR2*>(0x40470A38); }
+  static inline volatile P3SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P3SMAG2_JR2*>(0x40470A38); }
 };
 
 // Secure Memory Access Group Registers
@@ -24427,7 +24427,7 @@ union P3SMAG1_JR2 {
 
   P3SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P3SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P3SMAG1_JR2*>(0x40470A3C); }
+  static inline volatile P3SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P3SMAG1_JR2*>(0x40470A3C); }
 };
 
 // Partition 4 SDID register
@@ -24445,7 +24445,7 @@ union P4SDID_JR2 {
 
   P4SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P4SDID_JR2 &Instance() { return *reinterpret_cast<volatile P4SDID_JR2*>(0x40470A40); }
+  static inline volatile P4SDID_JR2 &ref() { return *reinterpret_cast<volatile P4SDID_JR2*>(0x40470A40); }
 };
 
 // Secure Memory Access Permissions register
@@ -24583,7 +24583,7 @@ union P4SMAPR_JR2 {
 
   P4SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P4SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P4SMAPR_JR2*>(0x40470A44); }
+  static inline volatile P4SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P4SMAPR_JR2*>(0x40470A44); }
 };
 
 // Secure Memory Access Group Registers
@@ -24662,7 +24662,7 @@ union P4SMAG2_JR2 {
 
   P4SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P4SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P4SMAG2_JR2*>(0x40470A48); }
+  static inline volatile P4SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P4SMAG2_JR2*>(0x40470A48); }
 };
 
 // Secure Memory Access Group Registers
@@ -24741,7 +24741,7 @@ union P4SMAG1_JR2 {
 
   P4SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P4SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P4SMAG1_JR2*>(0x40470A4C); }
+  static inline volatile P4SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P4SMAG1_JR2*>(0x40470A4C); }
 };
 
 // Partition 5 SDID register
@@ -24759,7 +24759,7 @@ union P5SDID_JR2 {
 
   P5SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P5SDID_JR2 &Instance() { return *reinterpret_cast<volatile P5SDID_JR2*>(0x40470A50); }
+  static inline volatile P5SDID_JR2 &ref() { return *reinterpret_cast<volatile P5SDID_JR2*>(0x40470A50); }
 };
 
 // Secure Memory Access Permissions register
@@ -24897,7 +24897,7 @@ union P5SMAPR_JR2 {
 
   P5SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P5SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P5SMAPR_JR2*>(0x40470A54); }
+  static inline volatile P5SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P5SMAPR_JR2*>(0x40470A54); }
 };
 
 // Secure Memory Access Group Registers
@@ -24976,7 +24976,7 @@ union P5SMAG2_JR2 {
 
   P5SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P5SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P5SMAG2_JR2*>(0x40470A58); }
+  static inline volatile P5SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P5SMAG2_JR2*>(0x40470A58); }
 };
 
 // Secure Memory Access Group Registers
@@ -25055,7 +25055,7 @@ union P5SMAG1_JR2 {
 
   P5SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P5SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P5SMAG1_JR2*>(0x40470A5C); }
+  static inline volatile P5SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P5SMAG1_JR2*>(0x40470A5C); }
 };
 
 // Partition 6 SDID register
@@ -25073,7 +25073,7 @@ union P6SDID_JR2 {
 
   P6SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P6SDID_JR2 &Instance() { return *reinterpret_cast<volatile P6SDID_JR2*>(0x40470A60); }
+  static inline volatile P6SDID_JR2 &ref() { return *reinterpret_cast<volatile P6SDID_JR2*>(0x40470A60); }
 };
 
 // Secure Memory Access Permissions register
@@ -25211,7 +25211,7 @@ union P6SMAPR_JR2 {
 
   P6SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P6SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P6SMAPR_JR2*>(0x40470A64); }
+  static inline volatile P6SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P6SMAPR_JR2*>(0x40470A64); }
 };
 
 // Secure Memory Access Group Registers
@@ -25290,7 +25290,7 @@ union P6SMAG2_JR2 {
 
   P6SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P6SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P6SMAG2_JR2*>(0x40470A68); }
+  static inline volatile P6SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P6SMAG2_JR2*>(0x40470A68); }
 };
 
 // Secure Memory Access Group Registers
@@ -25369,7 +25369,7 @@ union P6SMAG1_JR2 {
 
   P6SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P6SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P6SMAG1_JR2*>(0x40470A6C); }
+  static inline volatile P6SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P6SMAG1_JR2*>(0x40470A6C); }
 };
 
 // Partition 7 SDID register
@@ -25387,7 +25387,7 @@ union P7SDID_JR2 {
 
   P7SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P7SDID_JR2 &Instance() { return *reinterpret_cast<volatile P7SDID_JR2*>(0x40470A70); }
+  static inline volatile P7SDID_JR2 &ref() { return *reinterpret_cast<volatile P7SDID_JR2*>(0x40470A70); }
 };
 
 // Secure Memory Access Permissions register
@@ -25525,7 +25525,7 @@ union P7SMAPR_JR2 {
 
   P7SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P7SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P7SMAPR_JR2*>(0x40470A74); }
+  static inline volatile P7SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P7SMAPR_JR2*>(0x40470A74); }
 };
 
 // Secure Memory Access Group Registers
@@ -25604,7 +25604,7 @@ union P7SMAG2_JR2 {
 
   P7SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P7SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P7SMAG2_JR2*>(0x40470A78); }
+  static inline volatile P7SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P7SMAG2_JR2*>(0x40470A78); }
 };
 
 // Secure Memory Access Group Registers
@@ -25683,7 +25683,7 @@ union P7SMAG1_JR2 {
 
   P7SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P7SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P7SMAG1_JR2*>(0x40470A7C); }
+  static inline volatile P7SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P7SMAG1_JR2*>(0x40470A7C); }
 };
 
 // Partition 8 SDID register
@@ -25701,7 +25701,7 @@ union P8SDID_JR2 {
 
   P8SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P8SDID_JR2 &Instance() { return *reinterpret_cast<volatile P8SDID_JR2*>(0x40470A80); }
+  static inline volatile P8SDID_JR2 &ref() { return *reinterpret_cast<volatile P8SDID_JR2*>(0x40470A80); }
 };
 
 // Secure Memory Access Permissions register
@@ -25839,7 +25839,7 @@ union P8SMAPR_JR2 {
 
   P8SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P8SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P8SMAPR_JR2*>(0x40470A84); }
+  static inline volatile P8SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P8SMAPR_JR2*>(0x40470A84); }
 };
 
 // Secure Memory Access Group Registers
@@ -25918,7 +25918,7 @@ union P8SMAG2_JR2 {
 
   P8SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P8SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P8SMAG2_JR2*>(0x40470A88); }
+  static inline volatile P8SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P8SMAG2_JR2*>(0x40470A88); }
 };
 
 // Secure Memory Access Group Registers
@@ -25997,7 +25997,7 @@ union P8SMAG1_JR2 {
 
   P8SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P8SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P8SMAG1_JR2*>(0x40470A8C); }
+  static inline volatile P8SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P8SMAG1_JR2*>(0x40470A8C); }
 };
 
 // Partition 9 SDID register
@@ -26015,7 +26015,7 @@ union P9SDID_JR2 {
 
   P9SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P9SDID_JR2 &Instance() { return *reinterpret_cast<volatile P9SDID_JR2*>(0x40470A90); }
+  static inline volatile P9SDID_JR2 &ref() { return *reinterpret_cast<volatile P9SDID_JR2*>(0x40470A90); }
 };
 
 // Secure Memory Access Permissions register
@@ -26153,7 +26153,7 @@ union P9SMAPR_JR2 {
 
   P9SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P9SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P9SMAPR_JR2*>(0x40470A94); }
+  static inline volatile P9SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P9SMAPR_JR2*>(0x40470A94); }
 };
 
 // Secure Memory Access Group Registers
@@ -26232,7 +26232,7 @@ union P9SMAG2_JR2 {
 
   P9SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P9SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P9SMAG2_JR2*>(0x40470A98); }
+  static inline volatile P9SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P9SMAG2_JR2*>(0x40470A98); }
 };
 
 // Secure Memory Access Group Registers
@@ -26311,7 +26311,7 @@ union P9SMAG1_JR2 {
 
   P9SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P9SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P9SMAG1_JR2*>(0x40470A9C); }
+  static inline volatile P9SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P9SMAG1_JR2*>(0x40470A9C); }
 };
 
 // Partition 10 SDID register
@@ -26329,7 +26329,7 @@ union P10SDID_JR2 {
 
   P10SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P10SDID_JR2 &Instance() { return *reinterpret_cast<volatile P10SDID_JR2*>(0x40470AA0); }
+  static inline volatile P10SDID_JR2 &ref() { return *reinterpret_cast<volatile P10SDID_JR2*>(0x40470AA0); }
 };
 
 // Secure Memory Access Permissions register
@@ -26467,7 +26467,7 @@ union P10SMAPR_JR2 {
 
   P10SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P10SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P10SMAPR_JR2*>(0x40470AA4); }
+  static inline volatile P10SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P10SMAPR_JR2*>(0x40470AA4); }
 };
 
 // Secure Memory Access Group Registers
@@ -26546,7 +26546,7 @@ union P10SMAG2_JR2 {
 
   P10SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P10SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P10SMAG2_JR2*>(0x40470AA8); }
+  static inline volatile P10SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P10SMAG2_JR2*>(0x40470AA8); }
 };
 
 // Secure Memory Access Group Registers
@@ -26625,7 +26625,7 @@ union P10SMAG1_JR2 {
 
   P10SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P10SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P10SMAG1_JR2*>(0x40470AAC); }
+  static inline volatile P10SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P10SMAG1_JR2*>(0x40470AAC); }
 };
 
 // Partition 11 SDID register
@@ -26643,7 +26643,7 @@ union P11SDID_JR2 {
 
   P11SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P11SDID_JR2 &Instance() { return *reinterpret_cast<volatile P11SDID_JR2*>(0x40470AB0); }
+  static inline volatile P11SDID_JR2 &ref() { return *reinterpret_cast<volatile P11SDID_JR2*>(0x40470AB0); }
 };
 
 // Secure Memory Access Permissions register
@@ -26781,7 +26781,7 @@ union P11SMAPR_JR2 {
 
   P11SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P11SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P11SMAPR_JR2*>(0x40470AB4); }
+  static inline volatile P11SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P11SMAPR_JR2*>(0x40470AB4); }
 };
 
 // Secure Memory Access Group Registers
@@ -26860,7 +26860,7 @@ union P11SMAG2_JR2 {
 
   P11SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P11SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P11SMAG2_JR2*>(0x40470AB8); }
+  static inline volatile P11SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P11SMAG2_JR2*>(0x40470AB8); }
 };
 
 // Secure Memory Access Group Registers
@@ -26939,7 +26939,7 @@ union P11SMAG1_JR2 {
 
   P11SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P11SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P11SMAG1_JR2*>(0x40470ABC); }
+  static inline volatile P11SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P11SMAG1_JR2*>(0x40470ABC); }
 };
 
 // Partition 12 SDID register
@@ -26957,7 +26957,7 @@ union P12SDID_JR2 {
 
   P12SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P12SDID_JR2 &Instance() { return *reinterpret_cast<volatile P12SDID_JR2*>(0x40470AC0); }
+  static inline volatile P12SDID_JR2 &ref() { return *reinterpret_cast<volatile P12SDID_JR2*>(0x40470AC0); }
 };
 
 // Secure Memory Access Permissions register
@@ -27095,7 +27095,7 @@ union P12SMAPR_JR2 {
 
   P12SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P12SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P12SMAPR_JR2*>(0x40470AC4); }
+  static inline volatile P12SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P12SMAPR_JR2*>(0x40470AC4); }
 };
 
 // Secure Memory Access Group Registers
@@ -27174,7 +27174,7 @@ union P12SMAG2_JR2 {
 
   P12SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P12SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P12SMAG2_JR2*>(0x40470AC8); }
+  static inline volatile P12SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P12SMAG2_JR2*>(0x40470AC8); }
 };
 
 // Secure Memory Access Group Registers
@@ -27253,7 +27253,7 @@ union P12SMAG1_JR2 {
 
   P12SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P12SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P12SMAG1_JR2*>(0x40470ACC); }
+  static inline volatile P12SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P12SMAG1_JR2*>(0x40470ACC); }
 };
 
 // Partition 13 SDID register
@@ -27271,7 +27271,7 @@ union P13SDID_JR2 {
 
   P13SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P13SDID_JR2 &Instance() { return *reinterpret_cast<volatile P13SDID_JR2*>(0x40470AD0); }
+  static inline volatile P13SDID_JR2 &ref() { return *reinterpret_cast<volatile P13SDID_JR2*>(0x40470AD0); }
 };
 
 // Secure Memory Access Permissions register
@@ -27409,7 +27409,7 @@ union P13SMAPR_JR2 {
 
   P13SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P13SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P13SMAPR_JR2*>(0x40470AD4); }
+  static inline volatile P13SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P13SMAPR_JR2*>(0x40470AD4); }
 };
 
 // Secure Memory Access Group Registers
@@ -27488,7 +27488,7 @@ union P13SMAG2_JR2 {
 
   P13SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P13SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P13SMAG2_JR2*>(0x40470AD8); }
+  static inline volatile P13SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P13SMAG2_JR2*>(0x40470AD8); }
 };
 
 // Secure Memory Access Group Registers
@@ -27567,7 +27567,7 @@ union P13SMAG1_JR2 {
 
   P13SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P13SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P13SMAG1_JR2*>(0x40470ADC); }
+  static inline volatile P13SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P13SMAG1_JR2*>(0x40470ADC); }
 };
 
 // Partition 14 SDID register
@@ -27585,7 +27585,7 @@ union P14SDID_JR2 {
 
   P14SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P14SDID_JR2 &Instance() { return *reinterpret_cast<volatile P14SDID_JR2*>(0x40470AE0); }
+  static inline volatile P14SDID_JR2 &ref() { return *reinterpret_cast<volatile P14SDID_JR2*>(0x40470AE0); }
 };
 
 // Secure Memory Access Permissions register
@@ -27723,7 +27723,7 @@ union P14SMAPR_JR2 {
 
   P14SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P14SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P14SMAPR_JR2*>(0x40470AE4); }
+  static inline volatile P14SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P14SMAPR_JR2*>(0x40470AE4); }
 };
 
 // Secure Memory Access Group Registers
@@ -27802,7 +27802,7 @@ union P14SMAG2_JR2 {
 
   P14SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P14SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P14SMAG2_JR2*>(0x40470AE8); }
+  static inline volatile P14SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P14SMAG2_JR2*>(0x40470AE8); }
 };
 
 // Secure Memory Access Group Registers
@@ -27881,7 +27881,7 @@ union P14SMAG1_JR2 {
 
   P14SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P14SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P14SMAG1_JR2*>(0x40470AEC); }
+  static inline volatile P14SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P14SMAG1_JR2*>(0x40470AEC); }
 };
 
 // Partition 15 SDID register
@@ -27899,7 +27899,7 @@ union P15SDID_JR2 {
 
   P15SDID_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P15SDID_JR2 &Instance() { return *reinterpret_cast<volatile P15SDID_JR2*>(0x40470AF0); }
+  static inline volatile P15SDID_JR2 &ref() { return *reinterpret_cast<volatile P15SDID_JR2*>(0x40470AF0); }
 };
 
 // Secure Memory Access Permissions register
@@ -28037,7 +28037,7 @@ union P15SMAPR_JR2 {
 
   P15SMAPR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P15SMAPR_JR2 &Instance() { return *reinterpret_cast<volatile P15SMAPR_JR2*>(0x40470AF4); }
+  static inline volatile P15SMAPR_JR2 &ref() { return *reinterpret_cast<volatile P15SMAPR_JR2*>(0x40470AF4); }
 };
 
 // Secure Memory Access Group Registers
@@ -28116,7 +28116,7 @@ union P15SMAG2_JR2 {
 
   P15SMAG2_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P15SMAG2_JR2 &Instance() { return *reinterpret_cast<volatile P15SMAG2_JR2*>(0x40470AF8); }
+  static inline volatile P15SMAG2_JR2 &ref() { return *reinterpret_cast<volatile P15SMAG2_JR2*>(0x40470AF8); }
 };
 
 // Secure Memory Access Group Registers
@@ -28195,7 +28195,7 @@ union P15SMAG1_JR2 {
 
   P15SMAG1_JR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P15SMAG1_JR2 &Instance() { return *reinterpret_cast<volatile P15SMAG1_JR2*>(0x40470AFC); }
+  static inline volatile P15SMAG1_JR2 &ref() { return *reinterpret_cast<volatile P15SMAG1_JR2*>(0x40470AFC); }
 };
 
 // Secure Memory Command Register
@@ -28218,7 +28218,7 @@ union SMCR_JR2 {
 
   SMCR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMCR_JR2 &Instance() { return *reinterpret_cast<volatile SMCR_JR2*>(0x40470BE4); }
+  static inline volatile SMCR_JR2 &ref() { return *reinterpret_cast<volatile SMCR_JR2*>(0x40470BE4); }
 };
 
 // Secure Memory Command Status Register
@@ -28270,7 +28270,7 @@ union SMCSR_JR2 {
 
   SMCSR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMCSR_JR2 &Instance() { return *reinterpret_cast<volatile SMCSR_JR2*>(0x40470BEC); }
+  static inline volatile SMCSR_JR2 &ref() { return *reinterpret_cast<volatile SMCSR_JR2*>(0x40470BEC); }
 };
 
 // Recoverable Error Interrupt Record 0 for Job Ring 2
@@ -28291,7 +28291,7 @@ union REIR0JR2 {
 
   REIR0JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR0JR2 &Instance() { return *reinterpret_cast<volatile REIR0JR2*>(0x40470E00); }
+  static inline volatile REIR0JR2 &ref() { return *reinterpret_cast<volatile REIR0JR2*>(0x40470E00); }
 };
 
 // Recoverable Error Interrupt Record 2 for Job Ring 2
@@ -28308,7 +28308,7 @@ union REIR2JR2 {
 
   REIR2JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR2JR2 &Instance() { return *reinterpret_cast<volatile REIR2JR2*>(0x40470E08); }
+  static inline volatile REIR2JR2 &ref() { return *reinterpret_cast<volatile REIR2JR2*>(0x40470E08); }
 };
 
 // Recoverable Error Interrupt Record 4 for Job Ring 2
@@ -28339,7 +28339,7 @@ union REIR4JR2 {
 
   REIR4JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR4JR2 &Instance() { return *reinterpret_cast<volatile REIR4JR2*>(0x40470E10); }
+  static inline volatile REIR4JR2 &ref() { return *reinterpret_cast<volatile REIR4JR2*>(0x40470E10); }
 };
 
 // Recoverable Error Interrupt Record 5 for Job Ring 2
@@ -28369,7 +28369,7 @@ union REIR5JR2 {
 
   REIR5JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR5JR2 &Instance() { return *reinterpret_cast<volatile REIR5JR2*>(0x40470E14); }
+  static inline volatile REIR5JR2 &ref() { return *reinterpret_cast<volatile REIR5JR2*>(0x40470E14); }
 };
 
 // Input Ring Base Address Register for Job Ring 3
@@ -28386,7 +28386,7 @@ union IRBAR_JR3 {
 
   IRBAR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRBAR_JR3 &Instance() { return *reinterpret_cast<volatile IRBAR_JR3*>(0x40480000); }
+  static inline volatile IRBAR_JR3 &ref() { return *reinterpret_cast<volatile IRBAR_JR3*>(0x40480000); }
 };
 
 // Input Ring Size Register for Job Ring 3
@@ -28404,7 +28404,7 @@ union IRSR_JR3 {
 
   IRSR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRSR_JR3 &Instance() { return *reinterpret_cast<volatile IRSR_JR3*>(0x4048000C); }
+  static inline volatile IRSR_JR3 &ref() { return *reinterpret_cast<volatile IRSR_JR3*>(0x4048000C); }
 };
 
 // Input Ring Slots Available Register for Job Ring 3
@@ -28422,7 +28422,7 @@ union IRSAR_JR3 {
 
   IRSAR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRSAR_JR3 &Instance() { return *reinterpret_cast<volatile IRSAR_JR3*>(0x40480014); }
+  static inline volatile IRSAR_JR3 &ref() { return *reinterpret_cast<volatile IRSAR_JR3*>(0x40480014); }
 };
 
 // Input Ring Jobs Added Register for Job Ring3
@@ -28440,7 +28440,7 @@ union IRJAR_JR3 {
 
   IRJAR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRJAR_JR3 &Instance() { return *reinterpret_cast<volatile IRJAR_JR3*>(0x4048001C); }
+  static inline volatile IRJAR_JR3 &ref() { return *reinterpret_cast<volatile IRJAR_JR3*>(0x4048001C); }
 };
 
 // Output Ring Base Address Register for Job Ring 3
@@ -28457,7 +28457,7 @@ union ORBAR_JR3 {
 
   ORBAR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORBAR_JR3 &Instance() { return *reinterpret_cast<volatile ORBAR_JR3*>(0x40480020); }
+  static inline volatile ORBAR_JR3 &ref() { return *reinterpret_cast<volatile ORBAR_JR3*>(0x40480020); }
 };
 
 // Output Ring Size Register for Job Ring 3
@@ -28475,7 +28475,7 @@ union ORSR_JR3 {
 
   ORSR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORSR_JR3 &Instance() { return *reinterpret_cast<volatile ORSR_JR3*>(0x4048002C); }
+  static inline volatile ORSR_JR3 &ref() { return *reinterpret_cast<volatile ORSR_JR3*>(0x4048002C); }
 };
 
 // Output Ring Jobs Removed Register for Job Ring 3
@@ -28493,7 +28493,7 @@ union ORJRR_JR3 {
 
   ORJRR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORJRR_JR3 &Instance() { return *reinterpret_cast<volatile ORJRR_JR3*>(0x40480034); }
+  static inline volatile ORJRR_JR3 &ref() { return *reinterpret_cast<volatile ORJRR_JR3*>(0x40480034); }
 };
 
 // Output Ring Slots Full Register for Job Ring 3
@@ -28511,7 +28511,7 @@ union ORSFR_JR3 {
 
   ORSFR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORSFR_JR3 &Instance() { return *reinterpret_cast<volatile ORSFR_JR3*>(0x4048003C); }
+  static inline volatile ORSFR_JR3 &ref() { return *reinterpret_cast<volatile ORSFR_JR3*>(0x4048003C); }
 };
 
 // Job Ring Output Status Register for Job Ring 3
@@ -28546,7 +28546,7 @@ union JRSTAR_JR3 {
 
   JRSTAR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRSTAR_JR3 &Instance() { return *reinterpret_cast<volatile JRSTAR_JR3*>(0x40480044); }
+  static inline volatile JRSTAR_JR3 &ref() { return *reinterpret_cast<volatile JRSTAR_JR3*>(0x40480044); }
 };
 
 // Job Ring Interrupt Status Register for Job Ring 3
@@ -28614,7 +28614,7 @@ union JRINTR_JR3 {
 
   JRINTR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRINTR_JR3 &Instance() { return *reinterpret_cast<volatile JRINTR_JR3*>(0x4048004C); }
+  static inline volatile JRINTR_JR3 &ref() { return *reinterpret_cast<volatile JRINTR_JR3*>(0x4048004C); }
 };
 
 // Job Ring Configuration Register for Job Ring 3, most-significant half
@@ -28669,7 +28669,7 @@ union JRCFGR_JR3_MS {
 
   JRCFGR_JR3_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRCFGR_JR3_MS &Instance() { return *reinterpret_cast<volatile JRCFGR_JR3_MS*>(0x40480050); }
+  static inline volatile JRCFGR_JR3_MS &ref() { return *reinterpret_cast<volatile JRCFGR_JR3_MS*>(0x40480050); }
 };
 
 // Job Ring Configuration Register for Job Ring 3, least-significant half
@@ -28709,7 +28709,7 @@ union JRCFGR_JR3_LS {
 
   JRCFGR_JR3_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRCFGR_JR3_LS &Instance() { return *reinterpret_cast<volatile JRCFGR_JR3_LS*>(0x40480054); }
+  static inline volatile JRCFGR_JR3_LS &ref() { return *reinterpret_cast<volatile JRCFGR_JR3_LS*>(0x40480054); }
 };
 
 // Input Ring Read Index Register for Job Ring 3
@@ -28727,7 +28727,7 @@ union IRRIR_JR3 {
 
   IRRIR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRRIR_JR3 &Instance() { return *reinterpret_cast<volatile IRRIR_JR3*>(0x4048005C); }
+  static inline volatile IRRIR_JR3 &ref() { return *reinterpret_cast<volatile IRRIR_JR3*>(0x4048005C); }
 };
 
 // Output Ring Write Index Register for Job Ring 3
@@ -28745,7 +28745,7 @@ union ORWIR_JR3 {
 
   ORWIR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ORWIR_JR3 &Instance() { return *reinterpret_cast<volatile ORWIR_JR3*>(0x40480064); }
+  static inline volatile ORWIR_JR3 &ref() { return *reinterpret_cast<volatile ORWIR_JR3*>(0x40480064); }
 };
 
 // Job Ring Command Register for Job Ring 3
@@ -28765,7 +28765,7 @@ union JRCR_JR3 {
 
   JRCR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JRCR_JR3 &Instance() { return *reinterpret_cast<volatile JRCR_JR3*>(0x4048006C); }
+  static inline volatile JRCR_JR3 &ref() { return *reinterpret_cast<volatile JRCR_JR3*>(0x4048006C); }
 };
 
 // Job Ring 3 Address-Array Valid Register
@@ -28791,7 +28791,7 @@ union JR3AAV {
 
   JR3AAV() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR3AAV &Instance() { return *reinterpret_cast<volatile JR3AAV*>(0x40480704); }
+  static inline volatile JR3AAV &ref() { return *reinterpret_cast<volatile JR3AAV*>(0x40480704); }
 };
 
 // Job Ring 3 Address-Array Address 0 Register
@@ -28808,7 +28808,7 @@ union JR3AAA0 {
 
   JR3AAA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR3AAA0 &Instance() { return *reinterpret_cast<volatile JR3AAA0*>(0x40480800); }
+  static inline volatile JR3AAA0 &ref() { return *reinterpret_cast<volatile JR3AAA0*>(0x40480800); }
 };
 
 // Job Ring 3 Address-Array Address 1 Register
@@ -28825,7 +28825,7 @@ union JR3AAA1 {
 
   JR3AAA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR3AAA1 &Instance() { return *reinterpret_cast<volatile JR3AAA1*>(0x40480808); }
+  static inline volatile JR3AAA1 &ref() { return *reinterpret_cast<volatile JR3AAA1*>(0x40480808); }
 };
 
 // Job Ring 3 Address-Array Address 2 Register
@@ -28842,7 +28842,7 @@ union JR3AAA2 {
 
   JR3AAA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR3AAA2 &Instance() { return *reinterpret_cast<volatile JR3AAA2*>(0x40480810); }
+  static inline volatile JR3AAA2 &ref() { return *reinterpret_cast<volatile JR3AAA2*>(0x40480810); }
 };
 
 // Job Ring 3 Address-Array Address 3 Register
@@ -28859,7 +28859,7 @@ union JR3AAA3 {
 
   JR3AAA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JR3AAA3 &Instance() { return *reinterpret_cast<volatile JR3AAA3*>(0x40480818); }
+  static inline volatile JR3AAA3 &ref() { return *reinterpret_cast<volatile JR3AAA3*>(0x40480818); }
 };
 
 // Partition 0 SDID register
@@ -28877,7 +28877,7 @@ union P0SDID_JR3 {
 
   P0SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P0SDID_JR3 &Instance() { return *reinterpret_cast<volatile P0SDID_JR3*>(0x40480A00); }
+  static inline volatile P0SDID_JR3 &ref() { return *reinterpret_cast<volatile P0SDID_JR3*>(0x40480A00); }
 };
 
 // Secure Memory Access Permissions register
@@ -29015,7 +29015,7 @@ union P0SMAPR_JR3 {
 
   P0SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P0SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P0SMAPR_JR3*>(0x40480A04); }
+  static inline volatile P0SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P0SMAPR_JR3*>(0x40480A04); }
 };
 
 // Secure Memory Access Group Registers
@@ -29094,7 +29094,7 @@ union P0SMAG2_JR3 {
 
   P0SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P0SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P0SMAG2_JR3*>(0x40480A08); }
+  static inline volatile P0SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P0SMAG2_JR3*>(0x40480A08); }
 };
 
 // Secure Memory Access Group Registers
@@ -29173,7 +29173,7 @@ union P0SMAG1_JR3 {
 
   P0SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P0SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P0SMAG1_JR3*>(0x40480A0C); }
+  static inline volatile P0SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P0SMAG1_JR3*>(0x40480A0C); }
 };
 
 // Partition 1 SDID register
@@ -29191,7 +29191,7 @@ union P1SDID_JR3 {
 
   P1SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P1SDID_JR3 &Instance() { return *reinterpret_cast<volatile P1SDID_JR3*>(0x40480A10); }
+  static inline volatile P1SDID_JR3 &ref() { return *reinterpret_cast<volatile P1SDID_JR3*>(0x40480A10); }
 };
 
 // Secure Memory Access Permissions register
@@ -29329,7 +29329,7 @@ union P1SMAPR_JR3 {
 
   P1SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P1SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P1SMAPR_JR3*>(0x40480A14); }
+  static inline volatile P1SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P1SMAPR_JR3*>(0x40480A14); }
 };
 
 // Secure Memory Access Group Registers
@@ -29408,7 +29408,7 @@ union P1SMAG2_JR3 {
 
   P1SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P1SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P1SMAG2_JR3*>(0x40480A18); }
+  static inline volatile P1SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P1SMAG2_JR3*>(0x40480A18); }
 };
 
 // Secure Memory Access Group Registers
@@ -29487,7 +29487,7 @@ union P1SMAG1_JR3 {
 
   P1SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P1SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P1SMAG1_JR3*>(0x40480A1C); }
+  static inline volatile P1SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P1SMAG1_JR3*>(0x40480A1C); }
 };
 
 // Partition 2 SDID register
@@ -29505,7 +29505,7 @@ union P2SDID_JR3 {
 
   P2SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P2SDID_JR3 &Instance() { return *reinterpret_cast<volatile P2SDID_JR3*>(0x40480A20); }
+  static inline volatile P2SDID_JR3 &ref() { return *reinterpret_cast<volatile P2SDID_JR3*>(0x40480A20); }
 };
 
 // Secure Memory Access Permissions register
@@ -29643,7 +29643,7 @@ union P2SMAPR_JR3 {
 
   P2SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P2SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P2SMAPR_JR3*>(0x40480A24); }
+  static inline volatile P2SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P2SMAPR_JR3*>(0x40480A24); }
 };
 
 // Secure Memory Access Group Registers
@@ -29722,7 +29722,7 @@ union P2SMAG2_JR3 {
 
   P2SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P2SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P2SMAG2_JR3*>(0x40480A28); }
+  static inline volatile P2SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P2SMAG2_JR3*>(0x40480A28); }
 };
 
 // Secure Memory Access Group Registers
@@ -29801,7 +29801,7 @@ union P2SMAG1_JR3 {
 
   P2SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P2SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P2SMAG1_JR3*>(0x40480A2C); }
+  static inline volatile P2SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P2SMAG1_JR3*>(0x40480A2C); }
 };
 
 // Partition 3 SDID register
@@ -29819,7 +29819,7 @@ union P3SDID_JR3 {
 
   P3SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P3SDID_JR3 &Instance() { return *reinterpret_cast<volatile P3SDID_JR3*>(0x40480A30); }
+  static inline volatile P3SDID_JR3 &ref() { return *reinterpret_cast<volatile P3SDID_JR3*>(0x40480A30); }
 };
 
 // Secure Memory Access Permissions register
@@ -29957,7 +29957,7 @@ union P3SMAPR_JR3 {
 
   P3SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P3SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P3SMAPR_JR3*>(0x40480A34); }
+  static inline volatile P3SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P3SMAPR_JR3*>(0x40480A34); }
 };
 
 // Secure Memory Access Group Registers
@@ -30036,7 +30036,7 @@ union P3SMAG2_JR3 {
 
   P3SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P3SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P3SMAG2_JR3*>(0x40480A38); }
+  static inline volatile P3SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P3SMAG2_JR3*>(0x40480A38); }
 };
 
 // Secure Memory Access Group Registers
@@ -30115,7 +30115,7 @@ union P3SMAG1_JR3 {
 
   P3SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P3SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P3SMAG1_JR3*>(0x40480A3C); }
+  static inline volatile P3SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P3SMAG1_JR3*>(0x40480A3C); }
 };
 
 // Partition 4 SDID register
@@ -30133,7 +30133,7 @@ union P4SDID_JR3 {
 
   P4SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P4SDID_JR3 &Instance() { return *reinterpret_cast<volatile P4SDID_JR3*>(0x40480A40); }
+  static inline volatile P4SDID_JR3 &ref() { return *reinterpret_cast<volatile P4SDID_JR3*>(0x40480A40); }
 };
 
 // Secure Memory Access Permissions register
@@ -30271,7 +30271,7 @@ union P4SMAPR_JR3 {
 
   P4SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P4SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P4SMAPR_JR3*>(0x40480A44); }
+  static inline volatile P4SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P4SMAPR_JR3*>(0x40480A44); }
 };
 
 // Secure Memory Access Group Registers
@@ -30350,7 +30350,7 @@ union P4SMAG2_JR3 {
 
   P4SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P4SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P4SMAG2_JR3*>(0x40480A48); }
+  static inline volatile P4SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P4SMAG2_JR3*>(0x40480A48); }
 };
 
 // Secure Memory Access Group Registers
@@ -30429,7 +30429,7 @@ union P4SMAG1_JR3 {
 
   P4SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P4SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P4SMAG1_JR3*>(0x40480A4C); }
+  static inline volatile P4SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P4SMAG1_JR3*>(0x40480A4C); }
 };
 
 // Partition 5 SDID register
@@ -30447,7 +30447,7 @@ union P5SDID_JR3 {
 
   P5SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P5SDID_JR3 &Instance() { return *reinterpret_cast<volatile P5SDID_JR3*>(0x40480A50); }
+  static inline volatile P5SDID_JR3 &ref() { return *reinterpret_cast<volatile P5SDID_JR3*>(0x40480A50); }
 };
 
 // Secure Memory Access Permissions register
@@ -30585,7 +30585,7 @@ union P5SMAPR_JR3 {
 
   P5SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P5SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P5SMAPR_JR3*>(0x40480A54); }
+  static inline volatile P5SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P5SMAPR_JR3*>(0x40480A54); }
 };
 
 // Secure Memory Access Group Registers
@@ -30664,7 +30664,7 @@ union P5SMAG2_JR3 {
 
   P5SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P5SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P5SMAG2_JR3*>(0x40480A58); }
+  static inline volatile P5SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P5SMAG2_JR3*>(0x40480A58); }
 };
 
 // Secure Memory Access Group Registers
@@ -30743,7 +30743,7 @@ union P5SMAG1_JR3 {
 
   P5SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P5SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P5SMAG1_JR3*>(0x40480A5C); }
+  static inline volatile P5SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P5SMAG1_JR3*>(0x40480A5C); }
 };
 
 // Partition 6 SDID register
@@ -30761,7 +30761,7 @@ union P6SDID_JR3 {
 
   P6SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P6SDID_JR3 &Instance() { return *reinterpret_cast<volatile P6SDID_JR3*>(0x40480A60); }
+  static inline volatile P6SDID_JR3 &ref() { return *reinterpret_cast<volatile P6SDID_JR3*>(0x40480A60); }
 };
 
 // Secure Memory Access Permissions register
@@ -30899,7 +30899,7 @@ union P6SMAPR_JR3 {
 
   P6SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P6SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P6SMAPR_JR3*>(0x40480A64); }
+  static inline volatile P6SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P6SMAPR_JR3*>(0x40480A64); }
 };
 
 // Secure Memory Access Group Registers
@@ -30978,7 +30978,7 @@ union P6SMAG2_JR3 {
 
   P6SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P6SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P6SMAG2_JR3*>(0x40480A68); }
+  static inline volatile P6SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P6SMAG2_JR3*>(0x40480A68); }
 };
 
 // Secure Memory Access Group Registers
@@ -31057,7 +31057,7 @@ union P6SMAG1_JR3 {
 
   P6SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P6SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P6SMAG1_JR3*>(0x40480A6C); }
+  static inline volatile P6SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P6SMAG1_JR3*>(0x40480A6C); }
 };
 
 // Partition 7 SDID register
@@ -31075,7 +31075,7 @@ union P7SDID_JR3 {
 
   P7SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P7SDID_JR3 &Instance() { return *reinterpret_cast<volatile P7SDID_JR3*>(0x40480A70); }
+  static inline volatile P7SDID_JR3 &ref() { return *reinterpret_cast<volatile P7SDID_JR3*>(0x40480A70); }
 };
 
 // Secure Memory Access Permissions register
@@ -31213,7 +31213,7 @@ union P7SMAPR_JR3 {
 
   P7SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P7SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P7SMAPR_JR3*>(0x40480A74); }
+  static inline volatile P7SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P7SMAPR_JR3*>(0x40480A74); }
 };
 
 // Secure Memory Access Group Registers
@@ -31292,7 +31292,7 @@ union P7SMAG2_JR3 {
 
   P7SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P7SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P7SMAG2_JR3*>(0x40480A78); }
+  static inline volatile P7SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P7SMAG2_JR3*>(0x40480A78); }
 };
 
 // Secure Memory Access Group Registers
@@ -31371,7 +31371,7 @@ union P7SMAG1_JR3 {
 
   P7SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P7SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P7SMAG1_JR3*>(0x40480A7C); }
+  static inline volatile P7SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P7SMAG1_JR3*>(0x40480A7C); }
 };
 
 // Partition 8 SDID register
@@ -31389,7 +31389,7 @@ union P8SDID_JR3 {
 
   P8SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P8SDID_JR3 &Instance() { return *reinterpret_cast<volatile P8SDID_JR3*>(0x40480A80); }
+  static inline volatile P8SDID_JR3 &ref() { return *reinterpret_cast<volatile P8SDID_JR3*>(0x40480A80); }
 };
 
 // Secure Memory Access Permissions register
@@ -31527,7 +31527,7 @@ union P8SMAPR_JR3 {
 
   P8SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P8SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P8SMAPR_JR3*>(0x40480A84); }
+  static inline volatile P8SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P8SMAPR_JR3*>(0x40480A84); }
 };
 
 // Secure Memory Access Group Registers
@@ -31606,7 +31606,7 @@ union P8SMAG2_JR3 {
 
   P8SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P8SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P8SMAG2_JR3*>(0x40480A88); }
+  static inline volatile P8SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P8SMAG2_JR3*>(0x40480A88); }
 };
 
 // Secure Memory Access Group Registers
@@ -31685,7 +31685,7 @@ union P8SMAG1_JR3 {
 
   P8SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P8SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P8SMAG1_JR3*>(0x40480A8C); }
+  static inline volatile P8SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P8SMAG1_JR3*>(0x40480A8C); }
 };
 
 // Partition 9 SDID register
@@ -31703,7 +31703,7 @@ union P9SDID_JR3 {
 
   P9SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P9SDID_JR3 &Instance() { return *reinterpret_cast<volatile P9SDID_JR3*>(0x40480A90); }
+  static inline volatile P9SDID_JR3 &ref() { return *reinterpret_cast<volatile P9SDID_JR3*>(0x40480A90); }
 };
 
 // Secure Memory Access Permissions register
@@ -31841,7 +31841,7 @@ union P9SMAPR_JR3 {
 
   P9SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P9SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P9SMAPR_JR3*>(0x40480A94); }
+  static inline volatile P9SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P9SMAPR_JR3*>(0x40480A94); }
 };
 
 // Secure Memory Access Group Registers
@@ -31920,7 +31920,7 @@ union P9SMAG2_JR3 {
 
   P9SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P9SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P9SMAG2_JR3*>(0x40480A98); }
+  static inline volatile P9SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P9SMAG2_JR3*>(0x40480A98); }
 };
 
 // Secure Memory Access Group Registers
@@ -31999,7 +31999,7 @@ union P9SMAG1_JR3 {
 
   P9SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P9SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P9SMAG1_JR3*>(0x40480A9C); }
+  static inline volatile P9SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P9SMAG1_JR3*>(0x40480A9C); }
 };
 
 // Partition 10 SDID register
@@ -32017,7 +32017,7 @@ union P10SDID_JR3 {
 
   P10SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P10SDID_JR3 &Instance() { return *reinterpret_cast<volatile P10SDID_JR3*>(0x40480AA0); }
+  static inline volatile P10SDID_JR3 &ref() { return *reinterpret_cast<volatile P10SDID_JR3*>(0x40480AA0); }
 };
 
 // Secure Memory Access Permissions register
@@ -32155,7 +32155,7 @@ union P10SMAPR_JR3 {
 
   P10SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P10SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P10SMAPR_JR3*>(0x40480AA4); }
+  static inline volatile P10SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P10SMAPR_JR3*>(0x40480AA4); }
 };
 
 // Secure Memory Access Group Registers
@@ -32234,7 +32234,7 @@ union P10SMAG2_JR3 {
 
   P10SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P10SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P10SMAG2_JR3*>(0x40480AA8); }
+  static inline volatile P10SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P10SMAG2_JR3*>(0x40480AA8); }
 };
 
 // Secure Memory Access Group Registers
@@ -32313,7 +32313,7 @@ union P10SMAG1_JR3 {
 
   P10SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P10SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P10SMAG1_JR3*>(0x40480AAC); }
+  static inline volatile P10SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P10SMAG1_JR3*>(0x40480AAC); }
 };
 
 // Partition 11 SDID register
@@ -32331,7 +32331,7 @@ union P11SDID_JR3 {
 
   P11SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P11SDID_JR3 &Instance() { return *reinterpret_cast<volatile P11SDID_JR3*>(0x40480AB0); }
+  static inline volatile P11SDID_JR3 &ref() { return *reinterpret_cast<volatile P11SDID_JR3*>(0x40480AB0); }
 };
 
 // Secure Memory Access Permissions register
@@ -32469,7 +32469,7 @@ union P11SMAPR_JR3 {
 
   P11SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P11SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P11SMAPR_JR3*>(0x40480AB4); }
+  static inline volatile P11SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P11SMAPR_JR3*>(0x40480AB4); }
 };
 
 // Secure Memory Access Group Registers
@@ -32548,7 +32548,7 @@ union P11SMAG2_JR3 {
 
   P11SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P11SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P11SMAG2_JR3*>(0x40480AB8); }
+  static inline volatile P11SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P11SMAG2_JR3*>(0x40480AB8); }
 };
 
 // Secure Memory Access Group Registers
@@ -32627,7 +32627,7 @@ union P11SMAG1_JR3 {
 
   P11SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P11SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P11SMAG1_JR3*>(0x40480ABC); }
+  static inline volatile P11SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P11SMAG1_JR3*>(0x40480ABC); }
 };
 
 // Partition 12 SDID register
@@ -32645,7 +32645,7 @@ union P12SDID_JR3 {
 
   P12SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P12SDID_JR3 &Instance() { return *reinterpret_cast<volatile P12SDID_JR3*>(0x40480AC0); }
+  static inline volatile P12SDID_JR3 &ref() { return *reinterpret_cast<volatile P12SDID_JR3*>(0x40480AC0); }
 };
 
 // Secure Memory Access Permissions register
@@ -32783,7 +32783,7 @@ union P12SMAPR_JR3 {
 
   P12SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P12SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P12SMAPR_JR3*>(0x40480AC4); }
+  static inline volatile P12SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P12SMAPR_JR3*>(0x40480AC4); }
 };
 
 // Secure Memory Access Group Registers
@@ -32862,7 +32862,7 @@ union P12SMAG2_JR3 {
 
   P12SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P12SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P12SMAG2_JR3*>(0x40480AC8); }
+  static inline volatile P12SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P12SMAG2_JR3*>(0x40480AC8); }
 };
 
 // Secure Memory Access Group Registers
@@ -32941,7 +32941,7 @@ union P12SMAG1_JR3 {
 
   P12SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P12SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P12SMAG1_JR3*>(0x40480ACC); }
+  static inline volatile P12SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P12SMAG1_JR3*>(0x40480ACC); }
 };
 
 // Partition 13 SDID register
@@ -32959,7 +32959,7 @@ union P13SDID_JR3 {
 
   P13SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P13SDID_JR3 &Instance() { return *reinterpret_cast<volatile P13SDID_JR3*>(0x40480AD0); }
+  static inline volatile P13SDID_JR3 &ref() { return *reinterpret_cast<volatile P13SDID_JR3*>(0x40480AD0); }
 };
 
 // Secure Memory Access Permissions register
@@ -33097,7 +33097,7 @@ union P13SMAPR_JR3 {
 
   P13SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P13SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P13SMAPR_JR3*>(0x40480AD4); }
+  static inline volatile P13SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P13SMAPR_JR3*>(0x40480AD4); }
 };
 
 // Secure Memory Access Group Registers
@@ -33176,7 +33176,7 @@ union P13SMAG2_JR3 {
 
   P13SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P13SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P13SMAG2_JR3*>(0x40480AD8); }
+  static inline volatile P13SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P13SMAG2_JR3*>(0x40480AD8); }
 };
 
 // Secure Memory Access Group Registers
@@ -33255,7 +33255,7 @@ union P13SMAG1_JR3 {
 
   P13SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P13SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P13SMAG1_JR3*>(0x40480ADC); }
+  static inline volatile P13SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P13SMAG1_JR3*>(0x40480ADC); }
 };
 
 // Partition 14 SDID register
@@ -33273,7 +33273,7 @@ union P14SDID_JR3 {
 
   P14SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P14SDID_JR3 &Instance() { return *reinterpret_cast<volatile P14SDID_JR3*>(0x40480AE0); }
+  static inline volatile P14SDID_JR3 &ref() { return *reinterpret_cast<volatile P14SDID_JR3*>(0x40480AE0); }
 };
 
 // Secure Memory Access Permissions register
@@ -33411,7 +33411,7 @@ union P14SMAPR_JR3 {
 
   P14SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P14SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P14SMAPR_JR3*>(0x40480AE4); }
+  static inline volatile P14SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P14SMAPR_JR3*>(0x40480AE4); }
 };
 
 // Secure Memory Access Group Registers
@@ -33490,7 +33490,7 @@ union P14SMAG2_JR3 {
 
   P14SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P14SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P14SMAG2_JR3*>(0x40480AE8); }
+  static inline volatile P14SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P14SMAG2_JR3*>(0x40480AE8); }
 };
 
 // Secure Memory Access Group Registers
@@ -33569,7 +33569,7 @@ union P14SMAG1_JR3 {
 
   P14SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P14SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P14SMAG1_JR3*>(0x40480AEC); }
+  static inline volatile P14SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P14SMAG1_JR3*>(0x40480AEC); }
 };
 
 // Partition 15 SDID register
@@ -33587,7 +33587,7 @@ union P15SDID_JR3 {
 
   P15SDID_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile P15SDID_JR3 &Instance() { return *reinterpret_cast<volatile P15SDID_JR3*>(0x40480AF0); }
+  static inline volatile P15SDID_JR3 &ref() { return *reinterpret_cast<volatile P15SDID_JR3*>(0x40480AF0); }
 };
 
 // Secure Memory Access Permissions register
@@ -33725,7 +33725,7 @@ union P15SMAPR_JR3 {
 
   P15SMAPR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile P15SMAPR_JR3 &Instance() { return *reinterpret_cast<volatile P15SMAPR_JR3*>(0x40480AF4); }
+  static inline volatile P15SMAPR_JR3 &ref() { return *reinterpret_cast<volatile P15SMAPR_JR3*>(0x40480AF4); }
 };
 
 // Secure Memory Access Group Registers
@@ -33804,7 +33804,7 @@ union P15SMAG2_JR3 {
 
   P15SMAG2_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P15SMAG2_JR3 &Instance() { return *reinterpret_cast<volatile P15SMAG2_JR3*>(0x40480AF8); }
+  static inline volatile P15SMAG2_JR3 &ref() { return *reinterpret_cast<volatile P15SMAG2_JR3*>(0x40480AF8); }
 };
 
 // Secure Memory Access Group Registers
@@ -33883,7 +33883,7 @@ union P15SMAG1_JR3 {
 
   P15SMAG1_JR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
-  static inline volatile P15SMAG1_JR3 &Instance() { return *reinterpret_cast<volatile P15SMAG1_JR3*>(0x40480AFC); }
+  static inline volatile P15SMAG1_JR3 &ref() { return *reinterpret_cast<volatile P15SMAG1_JR3*>(0x40480AFC); }
 };
 
 // Secure Memory Command Register
@@ -33906,7 +33906,7 @@ union SMCR_JR3 {
 
   SMCR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMCR_JR3 &Instance() { return *reinterpret_cast<volatile SMCR_JR3*>(0x40480BE4); }
+  static inline volatile SMCR_JR3 &ref() { return *reinterpret_cast<volatile SMCR_JR3*>(0x40480BE4); }
 };
 
 // Secure Memory Command Status Register
@@ -33958,7 +33958,7 @@ union SMCSR_JR3 {
 
   SMCSR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMCSR_JR3 &Instance() { return *reinterpret_cast<volatile SMCSR_JR3*>(0x40480BEC); }
+  static inline volatile SMCSR_JR3 &ref() { return *reinterpret_cast<volatile SMCSR_JR3*>(0x40480BEC); }
 };
 
 // Recoverable Error Interrupt Record 0 for Job Ring 3
@@ -33979,7 +33979,7 @@ union REIR0JR3 {
 
   REIR0JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR0JR3 &Instance() { return *reinterpret_cast<volatile REIR0JR3*>(0x40480E00); }
+  static inline volatile REIR0JR3 &ref() { return *reinterpret_cast<volatile REIR0JR3*>(0x40480E00); }
 };
 
 // Recoverable Error Interrupt Record 2 for Job Ring 3
@@ -33996,7 +33996,7 @@ union REIR2JR3 {
 
   REIR2JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR2JR3 &Instance() { return *reinterpret_cast<volatile REIR2JR3*>(0x40480E08); }
+  static inline volatile REIR2JR3 &ref() { return *reinterpret_cast<volatile REIR2JR3*>(0x40480E08); }
 };
 
 // Recoverable Error Interrupt Record 4 for Job Ring 3
@@ -34027,7 +34027,7 @@ union REIR4JR3 {
 
   REIR4JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR4JR3 &Instance() { return *reinterpret_cast<volatile REIR4JR3*>(0x40480E10); }
+  static inline volatile REIR4JR3 &ref() { return *reinterpret_cast<volatile REIR4JR3*>(0x40480E10); }
 };
 
 // Recoverable Error Interrupt Record 5 for Job Ring 3
@@ -34057,7 +34057,7 @@ union REIR5JR3 {
 
   REIR5JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR5JR3 &Instance() { return *reinterpret_cast<volatile REIR5JR3*>(0x40480E14); }
+  static inline volatile REIR5JR3 &ref() { return *reinterpret_cast<volatile REIR5JR3*>(0x40480E14); }
 };
 
 // RTIC Status Register
@@ -34165,7 +34165,7 @@ union RSTA {
 
   RSTA() = delete;
   inline void Reset() volatile { this->value = 0x00040000; }
-  static inline volatile RSTA &Instance() { return *reinterpret_cast<volatile RSTA*>(0x404A0004); }
+  static inline volatile RSTA &ref() { return *reinterpret_cast<volatile RSTA*>(0x404A0004); }
 };
 
 // RTIC Command Register
@@ -34221,7 +34221,7 @@ union RCMD {
 
   RCMD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RCMD &Instance() { return *reinterpret_cast<volatile RCMD*>(0x404A000C); }
+  static inline volatile RCMD &ref() { return *reinterpret_cast<volatile RCMD*>(0x404A000C); }
 };
 
 // RTIC Control Register
@@ -34259,7 +34259,7 @@ union RCTL {
 
   RCTL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RCTL &Instance() { return *reinterpret_cast<volatile RCTL*>(0x404A0014); }
+  static inline volatile RCTL &ref() { return *reinterpret_cast<volatile RCTL*>(0x404A0014); }
 };
 
 // RTIC Throttle Register
@@ -34277,7 +34277,7 @@ union RTHR {
 
   RTHR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTHR &Instance() { return *reinterpret_cast<volatile RTHR*>(0x404A001C); }
+  static inline volatile RTHR &ref() { return *reinterpret_cast<volatile RTHR*>(0x404A001C); }
 };
 
 // RTIC Watchdog Timer
@@ -34294,7 +34294,7 @@ union RWDOG {
 
   RWDOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RWDOG &Instance() { return *reinterpret_cast<volatile RWDOG*>(0x404A0028); }
+  static inline volatile RWDOG &ref() { return *reinterpret_cast<volatile RWDOG*>(0x404A0028); }
 };
 
 // RTIC Endian Register
@@ -34342,7 +34342,7 @@ union REND {
 
   REND() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REND &Instance() { return *reinterpret_cast<volatile REND*>(0x404A0034); }
+  static inline volatile REND &ref() { return *reinterpret_cast<volatile REND*>(0x404A0034); }
 };
 
 // Recoverable Error Interrupt Record 0 for RTIC
@@ -34363,7 +34363,7 @@ union REIR0RTIC {
 
   REIR0RTIC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR0RTIC &Instance() { return *reinterpret_cast<volatile REIR0RTIC*>(0x404A0E00); }
+  static inline volatile REIR0RTIC &ref() { return *reinterpret_cast<volatile REIR0RTIC*>(0x404A0E00); }
 };
 
 // Recoverable Error Interrupt Record 2 for RTIC
@@ -34380,7 +34380,7 @@ union REIR2RTIC {
 
   REIR2RTIC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR2RTIC &Instance() { return *reinterpret_cast<volatile REIR2RTIC*>(0x404A0E08); }
+  static inline volatile REIR2RTIC &ref() { return *reinterpret_cast<volatile REIR2RTIC*>(0x404A0E08); }
 };
 
 // Recoverable Error Interrupt Record 4 for RTIC
@@ -34411,7 +34411,7 @@ union REIR4RTIC {
 
   REIR4RTIC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR4RTIC &Instance() { return *reinterpret_cast<volatile REIR4RTIC*>(0x404A0E10); }
+  static inline volatile REIR4RTIC &ref() { return *reinterpret_cast<volatile REIR4RTIC*>(0x404A0E10); }
 };
 
 // Recoverable Error Interrupt Record 5 for RTIC
@@ -34435,7 +34435,7 @@ union REIR5RTIC {
 
   REIR5RTIC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REIR5RTIC &Instance() { return *reinterpret_cast<volatile REIR5RTIC*>(0x404A0E14); }
+  static inline volatile REIR5RTIC &ref() { return *reinterpret_cast<volatile REIR5RTIC*>(0x404A0E14); }
 };
 
 // CCB 0 Class 1 Mode Register Format for Non-Public Key Algorithms
@@ -34494,7 +34494,7 @@ union C0C1MR {
 
   C0C1MR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1MR &Instance() { return *reinterpret_cast<volatile C0C1MR*>(0x404C0004); }
+  static inline volatile C0C1MR &ref() { return *reinterpret_cast<volatile C0C1MR*>(0x404C0004); }
 };
 
 // CCB 0 Class 1 Mode Register Format for Public Key Algorithms
@@ -34515,7 +34515,7 @@ union C0C1MR_PK {
 
   C0C1MR_PK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1MR_PK &Instance() { return *reinterpret_cast<volatile C0C1MR_PK*>(0x404C0004); }
+  static inline volatile C0C1MR_PK &ref() { return *reinterpret_cast<volatile C0C1MR_PK*>(0x404C0004); }
 };
 
 // CCB 0 Class 1 Mode Register Format for RNG4
@@ -34607,7 +34607,7 @@ union C0C1MR_RNG {
 
   C0C1MR_RNG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1MR_RNG &Instance() { return *reinterpret_cast<volatile C0C1MR_RNG*>(0x404C0004); }
+  static inline volatile C0C1MR_RNG &ref() { return *reinterpret_cast<volatile C0C1MR_RNG*>(0x404C0004); }
 };
 
 // CCB 0 Class 1 Key Size Register
@@ -34625,7 +34625,7 @@ union C0C1KSR {
 
   C0C1KSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1KSR &Instance() { return *reinterpret_cast<volatile C0C1KSR*>(0x404C000C); }
+  static inline volatile C0C1KSR &ref() { return *reinterpret_cast<volatile C0C1KSR*>(0x404C000C); }
 };
 
 // CCB 0 Class 1 Data Size Register
@@ -34655,7 +34655,7 @@ union C0C1DSR {
 
   C0C1DSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1DSR &Instance() { return *reinterpret_cast<volatile C0C1DSR*>(0x404C0010); }
+  static inline volatile C0C1DSR &ref() { return *reinterpret_cast<volatile C0C1DSR*>(0x404C0010); }
 };
 
 // CCB 0 Class 1 ICV Size Register
@@ -34673,7 +34673,7 @@ union C0C1ICVSR {
 
   C0C1ICVSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1ICVSR &Instance() { return *reinterpret_cast<volatile C0C1ICVSR*>(0x404C001C); }
+  static inline volatile C0C1ICVSR &ref() { return *reinterpret_cast<volatile C0C1ICVSR*>(0x404C001C); }
 };
 
 // CCB 0 CHA Control Register
@@ -34872,7 +34872,7 @@ union C0CCTRL {
 
   C0CCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0CCTRL &Instance() { return *reinterpret_cast<volatile C0CCTRL*>(0x404C0034); }
+  static inline volatile C0CCTRL &ref() { return *reinterpret_cast<volatile C0CCTRL*>(0x404C0034); }
 };
 
 // CCB 0 Interrupt Control Register
@@ -34964,7 +34964,7 @@ union C0ICTL {
 
   C0ICTL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0ICTL &Instance() { return *reinterpret_cast<volatile C0ICTL*>(0x404C003C); }
+  static inline volatile C0ICTL &ref() { return *reinterpret_cast<volatile C0ICTL*>(0x404C003C); }
 };
 
 // CCB 0 Clear Written Register
@@ -35185,7 +35185,7 @@ union C0CWR {
 
   C0CWR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0CWR &Instance() { return *reinterpret_cast<volatile C0CWR*>(0x404C0044); }
+  static inline volatile C0CWR &ref() { return *reinterpret_cast<volatile C0CWR*>(0x404C0044); }
 };
 
 // CCB 0 Status and Error Register, most-significant half
@@ -35284,7 +35284,7 @@ union C0CSTA_MS {
 
   C0CSTA_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0CSTA_MS &Instance() { return *reinterpret_cast<volatile C0CSTA_MS*>(0x404C0048); }
+  static inline volatile C0CSTA_MS &ref() { return *reinterpret_cast<volatile C0CSTA_MS*>(0x404C0048); }
 };
 
 // CCB 0 Status and Error Register, least-significant half
@@ -35435,7 +35435,7 @@ union C0CSTA_LS {
 
   C0CSTA_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0CSTA_LS &Instance() { return *reinterpret_cast<volatile C0CSTA_LS*>(0x404C004C); }
+  static inline volatile C0CSTA_LS &ref() { return *reinterpret_cast<volatile C0CSTA_LS*>(0x404C004C); }
 };
 
 // CCB 0 Class 1 AAD Size Register
@@ -35453,7 +35453,7 @@ union C0C1AADSZR {
 
   C0C1AADSZR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1AADSZR &Instance() { return *reinterpret_cast<volatile C0C1AADSZR*>(0x404C005C); }
+  static inline volatile C0C1AADSZR &ref() { return *reinterpret_cast<volatile C0C1AADSZR*>(0x404C005C); }
 };
 
 // CCB 0 Class 1 IV Size Register
@@ -35471,7 +35471,7 @@ union C0C1IVSZR {
 
   C0C1IVSZR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1IVSZR &Instance() { return *reinterpret_cast<volatile C0C1IVSZR*>(0x404C0064); }
+  static inline volatile C0C1IVSZR &ref() { return *reinterpret_cast<volatile C0C1IVSZR*>(0x404C0064); }
 };
 
 // PKHA A Size Register
@@ -35489,7 +35489,7 @@ union C0PKASZR {
 
   C0PKASZR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0PKASZR &Instance() { return *reinterpret_cast<volatile C0PKASZR*>(0x404C0084); }
+  static inline volatile C0PKASZR &ref() { return *reinterpret_cast<volatile C0PKASZR*>(0x404C0084); }
 };
 
 // PKHA B Size Register
@@ -35507,7 +35507,7 @@ union C0PKBSZR {
 
   C0PKBSZR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0PKBSZR &Instance() { return *reinterpret_cast<volatile C0PKBSZR*>(0x404C008C); }
+  static inline volatile C0PKBSZR &ref() { return *reinterpret_cast<volatile C0PKBSZR*>(0x404C008C); }
 };
 
 // PKHA N Size Register
@@ -35525,7 +35525,7 @@ union C0PKNSZR {
 
   C0PKNSZR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0PKNSZR &Instance() { return *reinterpret_cast<volatile C0PKNSZR*>(0x404C0094); }
+  static inline volatile C0PKNSZR &ref() { return *reinterpret_cast<volatile C0PKNSZR*>(0x404C0094); }
 };
 
 // PKHA E Size Register
@@ -35543,7 +35543,7 @@ union C0PKESZR {
 
   C0PKESZR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0PKESZR &Instance() { return *reinterpret_cast<volatile C0PKESZR*>(0x404C009C); }
+  static inline volatile C0PKESZR &ref() { return *reinterpret_cast<volatile C0PKESZR*>(0x404C009C); }
 };
 
 // CCB 0 Class 1 Context Register Word 0
@@ -35560,7 +35560,7 @@ union C0C1CTXR0 {
 
   C0C1CTXR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR0 &Instance() { return *reinterpret_cast<volatile C0C1CTXR0*>(0x404C0100); }
+  static inline volatile C0C1CTXR0 &ref() { return *reinterpret_cast<volatile C0C1CTXR0*>(0x404C0100); }
 };
 
 // CCB 0 Class 1 Context Register Word 1
@@ -35577,7 +35577,7 @@ union C0C1CTXR1 {
 
   C0C1CTXR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR1 &Instance() { return *reinterpret_cast<volatile C0C1CTXR1*>(0x404C0104); }
+  static inline volatile C0C1CTXR1 &ref() { return *reinterpret_cast<volatile C0C1CTXR1*>(0x404C0104); }
 };
 
 // CCB 0 Class 1 Context Register Word 2
@@ -35594,7 +35594,7 @@ union C0C1CTXR2 {
 
   C0C1CTXR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR2 &Instance() { return *reinterpret_cast<volatile C0C1CTXR2*>(0x404C0108); }
+  static inline volatile C0C1CTXR2 &ref() { return *reinterpret_cast<volatile C0C1CTXR2*>(0x404C0108); }
 };
 
 // CCB 0 Class 1 Context Register Word 3
@@ -35611,7 +35611,7 @@ union C0C1CTXR3 {
 
   C0C1CTXR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR3 &Instance() { return *reinterpret_cast<volatile C0C1CTXR3*>(0x404C010C); }
+  static inline volatile C0C1CTXR3 &ref() { return *reinterpret_cast<volatile C0C1CTXR3*>(0x404C010C); }
 };
 
 // CCB 0 Class 1 Context Register Word 4
@@ -35628,7 +35628,7 @@ union C0C1CTXR4 {
 
   C0C1CTXR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR4 &Instance() { return *reinterpret_cast<volatile C0C1CTXR4*>(0x404C0110); }
+  static inline volatile C0C1CTXR4 &ref() { return *reinterpret_cast<volatile C0C1CTXR4*>(0x404C0110); }
 };
 
 // CCB 0 Class 1 Context Register Word 5
@@ -35645,7 +35645,7 @@ union C0C1CTXR5 {
 
   C0C1CTXR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR5 &Instance() { return *reinterpret_cast<volatile C0C1CTXR5*>(0x404C0114); }
+  static inline volatile C0C1CTXR5 &ref() { return *reinterpret_cast<volatile C0C1CTXR5*>(0x404C0114); }
 };
 
 // CCB 0 Class 1 Context Register Word 6
@@ -35662,7 +35662,7 @@ union C0C1CTXR6 {
 
   C0C1CTXR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR6 &Instance() { return *reinterpret_cast<volatile C0C1CTXR6*>(0x404C0118); }
+  static inline volatile C0C1CTXR6 &ref() { return *reinterpret_cast<volatile C0C1CTXR6*>(0x404C0118); }
 };
 
 // CCB 0 Class 1 Context Register Word 7
@@ -35679,7 +35679,7 @@ union C0C1CTXR7 {
 
   C0C1CTXR7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR7 &Instance() { return *reinterpret_cast<volatile C0C1CTXR7*>(0x404C011C); }
+  static inline volatile C0C1CTXR7 &ref() { return *reinterpret_cast<volatile C0C1CTXR7*>(0x404C011C); }
 };
 
 // CCB 0 Class 1 Context Register Word 8
@@ -35696,7 +35696,7 @@ union C0C1CTXR8 {
 
   C0C1CTXR8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR8 &Instance() { return *reinterpret_cast<volatile C0C1CTXR8*>(0x404C0120); }
+  static inline volatile C0C1CTXR8 &ref() { return *reinterpret_cast<volatile C0C1CTXR8*>(0x404C0120); }
 };
 
 // CCB 0 Class 1 Context Register Word 9
@@ -35713,7 +35713,7 @@ union C0C1CTXR9 {
 
   C0C1CTXR9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR9 &Instance() { return *reinterpret_cast<volatile C0C1CTXR9*>(0x404C0124); }
+  static inline volatile C0C1CTXR9 &ref() { return *reinterpret_cast<volatile C0C1CTXR9*>(0x404C0124); }
 };
 
 // CCB 0 Class 1 Context Register Word 10
@@ -35730,7 +35730,7 @@ union C0C1CTXR10 {
 
   C0C1CTXR10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR10 &Instance() { return *reinterpret_cast<volatile C0C1CTXR10*>(0x404C0128); }
+  static inline volatile C0C1CTXR10 &ref() { return *reinterpret_cast<volatile C0C1CTXR10*>(0x404C0128); }
 };
 
 // CCB 0 Class 1 Context Register Word 11
@@ -35747,7 +35747,7 @@ union C0C1CTXR11 {
 
   C0C1CTXR11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR11 &Instance() { return *reinterpret_cast<volatile C0C1CTXR11*>(0x404C012C); }
+  static inline volatile C0C1CTXR11 &ref() { return *reinterpret_cast<volatile C0C1CTXR11*>(0x404C012C); }
 };
 
 // CCB 0 Class 1 Context Register Word 12
@@ -35764,7 +35764,7 @@ union C0C1CTXR12 {
 
   C0C1CTXR12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR12 &Instance() { return *reinterpret_cast<volatile C0C1CTXR12*>(0x404C0130); }
+  static inline volatile C0C1CTXR12 &ref() { return *reinterpret_cast<volatile C0C1CTXR12*>(0x404C0130); }
 };
 
 // CCB 0 Class 1 Context Register Word 13
@@ -35781,7 +35781,7 @@ union C0C1CTXR13 {
 
   C0C1CTXR13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR13 &Instance() { return *reinterpret_cast<volatile C0C1CTXR13*>(0x404C0134); }
+  static inline volatile C0C1CTXR13 &ref() { return *reinterpret_cast<volatile C0C1CTXR13*>(0x404C0134); }
 };
 
 // CCB 0 Class 1 Context Register Word 14
@@ -35798,7 +35798,7 @@ union C0C1CTXR14 {
 
   C0C1CTXR14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR14 &Instance() { return *reinterpret_cast<volatile C0C1CTXR14*>(0x404C0138); }
+  static inline volatile C0C1CTXR14 &ref() { return *reinterpret_cast<volatile C0C1CTXR14*>(0x404C0138); }
 };
 
 // CCB 0 Class 1 Context Register Word 15
@@ -35815,7 +35815,7 @@ union C0C1CTXR15 {
 
   C0C1CTXR15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1CTXR15 &Instance() { return *reinterpret_cast<volatile C0C1CTXR15*>(0x404C013C); }
+  static inline volatile C0C1CTXR15 &ref() { return *reinterpret_cast<volatile C0C1CTXR15*>(0x404C013C); }
 };
 
 // CCB 0 Class 1 Key Registers Word 0
@@ -35832,7 +35832,7 @@ union C0C1KR0 {
 
   C0C1KR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1KR0 &Instance() { return *reinterpret_cast<volatile C0C1KR0*>(0x404C0200); }
+  static inline volatile C0C1KR0 &ref() { return *reinterpret_cast<volatile C0C1KR0*>(0x404C0200); }
 };
 
 // CCB 0 Class 1 Key Registers Word 1
@@ -35849,7 +35849,7 @@ union C0C1KR1 {
 
   C0C1KR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1KR1 &Instance() { return *reinterpret_cast<volatile C0C1KR1*>(0x404C0204); }
+  static inline volatile C0C1KR1 &ref() { return *reinterpret_cast<volatile C0C1KR1*>(0x404C0204); }
 };
 
 // CCB 0 Class 1 Key Registers Word 2
@@ -35866,7 +35866,7 @@ union C0C1KR2 {
 
   C0C1KR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1KR2 &Instance() { return *reinterpret_cast<volatile C0C1KR2*>(0x404C0208); }
+  static inline volatile C0C1KR2 &ref() { return *reinterpret_cast<volatile C0C1KR2*>(0x404C0208); }
 };
 
 // CCB 0 Class 1 Key Registers Word 3
@@ -35883,7 +35883,7 @@ union C0C1KR3 {
 
   C0C1KR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1KR3 &Instance() { return *reinterpret_cast<volatile C0C1KR3*>(0x404C020C); }
+  static inline volatile C0C1KR3 &ref() { return *reinterpret_cast<volatile C0C1KR3*>(0x404C020C); }
 };
 
 // CCB 0 Class 1 Key Registers Word 4
@@ -35900,7 +35900,7 @@ union C0C1KR4 {
 
   C0C1KR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1KR4 &Instance() { return *reinterpret_cast<volatile C0C1KR4*>(0x404C0210); }
+  static inline volatile C0C1KR4 &ref() { return *reinterpret_cast<volatile C0C1KR4*>(0x404C0210); }
 };
 
 // CCB 0 Class 1 Key Registers Word 5
@@ -35917,7 +35917,7 @@ union C0C1KR5 {
 
   C0C1KR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1KR5 &Instance() { return *reinterpret_cast<volatile C0C1KR5*>(0x404C0214); }
+  static inline volatile C0C1KR5 &ref() { return *reinterpret_cast<volatile C0C1KR5*>(0x404C0214); }
 };
 
 // CCB 0 Class 1 Key Registers Word 6
@@ -35934,7 +35934,7 @@ union C0C1KR6 {
 
   C0C1KR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1KR6 &Instance() { return *reinterpret_cast<volatile C0C1KR6*>(0x404C0218); }
+  static inline volatile C0C1KR6 &ref() { return *reinterpret_cast<volatile C0C1KR6*>(0x404C0218); }
 };
 
 // CCB 0 Class 1 Key Registers Word 7
@@ -35951,7 +35951,7 @@ union C0C1KR7 {
 
   C0C1KR7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C1KR7 &Instance() { return *reinterpret_cast<volatile C0C1KR7*>(0x404C021C); }
+  static inline volatile C0C1KR7 &ref() { return *reinterpret_cast<volatile C0C1KR7*>(0x404C021C); }
 };
 
 // CCB 0 Class 2 Mode Register
@@ -36028,7 +36028,7 @@ union C0C2MR {
 
   C0C2MR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2MR &Instance() { return *reinterpret_cast<volatile C0C2MR*>(0x404C0404); }
+  static inline volatile C0C2MR &ref() { return *reinterpret_cast<volatile C0C2MR*>(0x404C0404); }
 };
 
 // CCB 0 Class 2 Key Size Register
@@ -36046,7 +36046,7 @@ union C0C2KSR {
 
   C0C2KSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KSR &Instance() { return *reinterpret_cast<volatile C0C2KSR*>(0x404C040C); }
+  static inline volatile C0C2KSR &ref() { return *reinterpret_cast<volatile C0C2KSR*>(0x404C040C); }
 };
 
 // CCB 0 Class 2 Data Size Register
@@ -36076,7 +36076,7 @@ union C0C2DSR {
 
   C0C2DSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2DSR &Instance() { return *reinterpret_cast<volatile C0C2DSR*>(0x404C0410); }
+  static inline volatile C0C2DSR &ref() { return *reinterpret_cast<volatile C0C2DSR*>(0x404C0410); }
 };
 
 // CCB 0 Class 2 ICV Size Register
@@ -36094,7 +36094,7 @@ union C0C2ICVSZR {
 
   C0C2ICVSZR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2ICVSZR &Instance() { return *reinterpret_cast<volatile C0C2ICVSZR*>(0x404C041C); }
+  static inline volatile C0C2ICVSZR &ref() { return *reinterpret_cast<volatile C0C2ICVSZR*>(0x404C041C); }
 };
 
 // CCB 0 Class 2 Context Register Word 0
@@ -36111,7 +36111,7 @@ union C0C2CTXR0 {
 
   C0C2CTXR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR0 &Instance() { return *reinterpret_cast<volatile C0C2CTXR0*>(0x404C0500); }
+  static inline volatile C0C2CTXR0 &ref() { return *reinterpret_cast<volatile C0C2CTXR0*>(0x404C0500); }
 };
 
 // CCB 0 Class 2 Context Register Word 1
@@ -36128,7 +36128,7 @@ union C0C2CTXR1 {
 
   C0C2CTXR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR1 &Instance() { return *reinterpret_cast<volatile C0C2CTXR1*>(0x404C0504); }
+  static inline volatile C0C2CTXR1 &ref() { return *reinterpret_cast<volatile C0C2CTXR1*>(0x404C0504); }
 };
 
 // CCB 0 Class 2 Context Register Word 2
@@ -36145,7 +36145,7 @@ union C0C2CTXR2 {
 
   C0C2CTXR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR2 &Instance() { return *reinterpret_cast<volatile C0C2CTXR2*>(0x404C0508); }
+  static inline volatile C0C2CTXR2 &ref() { return *reinterpret_cast<volatile C0C2CTXR2*>(0x404C0508); }
 };
 
 // CCB 0 Class 2 Context Register Word 3
@@ -36162,7 +36162,7 @@ union C0C2CTXR3 {
 
   C0C2CTXR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR3 &Instance() { return *reinterpret_cast<volatile C0C2CTXR3*>(0x404C050C); }
+  static inline volatile C0C2CTXR3 &ref() { return *reinterpret_cast<volatile C0C2CTXR3*>(0x404C050C); }
 };
 
 // CCB 0 Class 2 Context Register Word 4
@@ -36179,7 +36179,7 @@ union C0C2CTXR4 {
 
   C0C2CTXR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR4 &Instance() { return *reinterpret_cast<volatile C0C2CTXR4*>(0x404C0510); }
+  static inline volatile C0C2CTXR4 &ref() { return *reinterpret_cast<volatile C0C2CTXR4*>(0x404C0510); }
 };
 
 // CCB 0 Class 2 Context Register Word 5
@@ -36196,7 +36196,7 @@ union C0C2CTXR5 {
 
   C0C2CTXR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR5 &Instance() { return *reinterpret_cast<volatile C0C2CTXR5*>(0x404C0514); }
+  static inline volatile C0C2CTXR5 &ref() { return *reinterpret_cast<volatile C0C2CTXR5*>(0x404C0514); }
 };
 
 // CCB 0 Class 2 Context Register Word 6
@@ -36213,7 +36213,7 @@ union C0C2CTXR6 {
 
   C0C2CTXR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR6 &Instance() { return *reinterpret_cast<volatile C0C2CTXR6*>(0x404C0518); }
+  static inline volatile C0C2CTXR6 &ref() { return *reinterpret_cast<volatile C0C2CTXR6*>(0x404C0518); }
 };
 
 // CCB 0 Class 2 Context Register Word 7
@@ -36230,7 +36230,7 @@ union C0C2CTXR7 {
 
   C0C2CTXR7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR7 &Instance() { return *reinterpret_cast<volatile C0C2CTXR7*>(0x404C051C); }
+  static inline volatile C0C2CTXR7 &ref() { return *reinterpret_cast<volatile C0C2CTXR7*>(0x404C051C); }
 };
 
 // CCB 0 Class 2 Context Register Word 8
@@ -36247,7 +36247,7 @@ union C0C2CTXR8 {
 
   C0C2CTXR8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR8 &Instance() { return *reinterpret_cast<volatile C0C2CTXR8*>(0x404C0520); }
+  static inline volatile C0C2CTXR8 &ref() { return *reinterpret_cast<volatile C0C2CTXR8*>(0x404C0520); }
 };
 
 // CCB 0 Class 2 Context Register Word 9
@@ -36264,7 +36264,7 @@ union C0C2CTXR9 {
 
   C0C2CTXR9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR9 &Instance() { return *reinterpret_cast<volatile C0C2CTXR9*>(0x404C0524); }
+  static inline volatile C0C2CTXR9 &ref() { return *reinterpret_cast<volatile C0C2CTXR9*>(0x404C0524); }
 };
 
 // CCB 0 Class 2 Context Register Word 10
@@ -36281,7 +36281,7 @@ union C0C2CTXR10 {
 
   C0C2CTXR10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR10 &Instance() { return *reinterpret_cast<volatile C0C2CTXR10*>(0x404C0528); }
+  static inline volatile C0C2CTXR10 &ref() { return *reinterpret_cast<volatile C0C2CTXR10*>(0x404C0528); }
 };
 
 // CCB 0 Class 2 Context Register Word 11
@@ -36298,7 +36298,7 @@ union C0C2CTXR11 {
 
   C0C2CTXR11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR11 &Instance() { return *reinterpret_cast<volatile C0C2CTXR11*>(0x404C052C); }
+  static inline volatile C0C2CTXR11 &ref() { return *reinterpret_cast<volatile C0C2CTXR11*>(0x404C052C); }
 };
 
 // CCB 0 Class 2 Context Register Word 12
@@ -36315,7 +36315,7 @@ union C0C2CTXR12 {
 
   C0C2CTXR12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR12 &Instance() { return *reinterpret_cast<volatile C0C2CTXR12*>(0x404C0530); }
+  static inline volatile C0C2CTXR12 &ref() { return *reinterpret_cast<volatile C0C2CTXR12*>(0x404C0530); }
 };
 
 // CCB 0 Class 2 Context Register Word 13
@@ -36332,7 +36332,7 @@ union C0C2CTXR13 {
 
   C0C2CTXR13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR13 &Instance() { return *reinterpret_cast<volatile C0C2CTXR13*>(0x404C0534); }
+  static inline volatile C0C2CTXR13 &ref() { return *reinterpret_cast<volatile C0C2CTXR13*>(0x404C0534); }
 };
 
 // CCB 0 Class 2 Context Register Word 14
@@ -36349,7 +36349,7 @@ union C0C2CTXR14 {
 
   C0C2CTXR14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR14 &Instance() { return *reinterpret_cast<volatile C0C2CTXR14*>(0x404C0538); }
+  static inline volatile C0C2CTXR14 &ref() { return *reinterpret_cast<volatile C0C2CTXR14*>(0x404C0538); }
 };
 
 // CCB 0 Class 2 Context Register Word 15
@@ -36366,7 +36366,7 @@ union C0C2CTXR15 {
 
   C0C2CTXR15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR15 &Instance() { return *reinterpret_cast<volatile C0C2CTXR15*>(0x404C053C); }
+  static inline volatile C0C2CTXR15 &ref() { return *reinterpret_cast<volatile C0C2CTXR15*>(0x404C053C); }
 };
 
 // CCB 0 Class 2 Context Register Word 16
@@ -36383,7 +36383,7 @@ union C0C2CTXR16 {
 
   C0C2CTXR16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR16 &Instance() { return *reinterpret_cast<volatile C0C2CTXR16*>(0x404C0540); }
+  static inline volatile C0C2CTXR16 &ref() { return *reinterpret_cast<volatile C0C2CTXR16*>(0x404C0540); }
 };
 
 // CCB 0 Class 2 Context Register Word 17
@@ -36400,7 +36400,7 @@ union C0C2CTXR17 {
 
   C0C2CTXR17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2CTXR17 &Instance() { return *reinterpret_cast<volatile C0C2CTXR17*>(0x404C0544); }
+  static inline volatile C0C2CTXR17 &ref() { return *reinterpret_cast<volatile C0C2CTXR17*>(0x404C0544); }
 };
 
 // CCB 0 Class 2 Key Register Word 0
@@ -36417,7 +36417,7 @@ union C0C2KEYR0 {
 
   C0C2KEYR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR0 &Instance() { return *reinterpret_cast<volatile C0C2KEYR0*>(0x404C0600); }
+  static inline volatile C0C2KEYR0 &ref() { return *reinterpret_cast<volatile C0C2KEYR0*>(0x404C0600); }
 };
 
 // CCB 0 Class 2 Key Register Word 1
@@ -36434,7 +36434,7 @@ union C0C2KEYR1 {
 
   C0C2KEYR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR1 &Instance() { return *reinterpret_cast<volatile C0C2KEYR1*>(0x404C0604); }
+  static inline volatile C0C2KEYR1 &ref() { return *reinterpret_cast<volatile C0C2KEYR1*>(0x404C0604); }
 };
 
 // CCB 0 Class 2 Key Register Word 2
@@ -36451,7 +36451,7 @@ union C0C2KEYR2 {
 
   C0C2KEYR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR2 &Instance() { return *reinterpret_cast<volatile C0C2KEYR2*>(0x404C0608); }
+  static inline volatile C0C2KEYR2 &ref() { return *reinterpret_cast<volatile C0C2KEYR2*>(0x404C0608); }
 };
 
 // CCB 0 Class 2 Key Register Word 3
@@ -36468,7 +36468,7 @@ union C0C2KEYR3 {
 
   C0C2KEYR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR3 &Instance() { return *reinterpret_cast<volatile C0C2KEYR3*>(0x404C060C); }
+  static inline volatile C0C2KEYR3 &ref() { return *reinterpret_cast<volatile C0C2KEYR3*>(0x404C060C); }
 };
 
 // CCB 0 Class 2 Key Register Word 4
@@ -36485,7 +36485,7 @@ union C0C2KEYR4 {
 
   C0C2KEYR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR4 &Instance() { return *reinterpret_cast<volatile C0C2KEYR4*>(0x404C0610); }
+  static inline volatile C0C2KEYR4 &ref() { return *reinterpret_cast<volatile C0C2KEYR4*>(0x404C0610); }
 };
 
 // CCB 0 Class 2 Key Register Word 5
@@ -36502,7 +36502,7 @@ union C0C2KEYR5 {
 
   C0C2KEYR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR5 &Instance() { return *reinterpret_cast<volatile C0C2KEYR5*>(0x404C0614); }
+  static inline volatile C0C2KEYR5 &ref() { return *reinterpret_cast<volatile C0C2KEYR5*>(0x404C0614); }
 };
 
 // CCB 0 Class 2 Key Register Word 6
@@ -36519,7 +36519,7 @@ union C0C2KEYR6 {
 
   C0C2KEYR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR6 &Instance() { return *reinterpret_cast<volatile C0C2KEYR6*>(0x404C0618); }
+  static inline volatile C0C2KEYR6 &ref() { return *reinterpret_cast<volatile C0C2KEYR6*>(0x404C0618); }
 };
 
 // CCB 0 Class 2 Key Register Word 7
@@ -36536,7 +36536,7 @@ union C0C2KEYR7 {
 
   C0C2KEYR7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR7 &Instance() { return *reinterpret_cast<volatile C0C2KEYR7*>(0x404C061C); }
+  static inline volatile C0C2KEYR7 &ref() { return *reinterpret_cast<volatile C0C2KEYR7*>(0x404C061C); }
 };
 
 // CCB 0 Class 2 Key Register Word 8
@@ -36553,7 +36553,7 @@ union C0C2KEYR8 {
 
   C0C2KEYR8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR8 &Instance() { return *reinterpret_cast<volatile C0C2KEYR8*>(0x404C0620); }
+  static inline volatile C0C2KEYR8 &ref() { return *reinterpret_cast<volatile C0C2KEYR8*>(0x404C0620); }
 };
 
 // CCB 0 Class 2 Key Register Word 9
@@ -36570,7 +36570,7 @@ union C0C2KEYR9 {
 
   C0C2KEYR9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR9 &Instance() { return *reinterpret_cast<volatile C0C2KEYR9*>(0x404C0624); }
+  static inline volatile C0C2KEYR9 &ref() { return *reinterpret_cast<volatile C0C2KEYR9*>(0x404C0624); }
 };
 
 // CCB 0 Class 2 Key Register Word 10
@@ -36587,7 +36587,7 @@ union C0C2KEYR10 {
 
   C0C2KEYR10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR10 &Instance() { return *reinterpret_cast<volatile C0C2KEYR10*>(0x404C0628); }
+  static inline volatile C0C2KEYR10 &ref() { return *reinterpret_cast<volatile C0C2KEYR10*>(0x404C0628); }
 };
 
 // CCB 0 Class 2 Key Register Word 11
@@ -36604,7 +36604,7 @@ union C0C2KEYR11 {
 
   C0C2KEYR11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR11 &Instance() { return *reinterpret_cast<volatile C0C2KEYR11*>(0x404C062C); }
+  static inline volatile C0C2KEYR11 &ref() { return *reinterpret_cast<volatile C0C2KEYR11*>(0x404C062C); }
 };
 
 // CCB 0 Class 2 Key Register Word 12
@@ -36621,7 +36621,7 @@ union C0C2KEYR12 {
 
   C0C2KEYR12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR12 &Instance() { return *reinterpret_cast<volatile C0C2KEYR12*>(0x404C0630); }
+  static inline volatile C0C2KEYR12 &ref() { return *reinterpret_cast<volatile C0C2KEYR12*>(0x404C0630); }
 };
 
 // CCB 0 Class 2 Key Register Word 13
@@ -36638,7 +36638,7 @@ union C0C2KEYR13 {
 
   C0C2KEYR13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR13 &Instance() { return *reinterpret_cast<volatile C0C2KEYR13*>(0x404C0634); }
+  static inline volatile C0C2KEYR13 &ref() { return *reinterpret_cast<volatile C0C2KEYR13*>(0x404C0634); }
 };
 
 // CCB 0 Class 2 Key Register Word 14
@@ -36655,7 +36655,7 @@ union C0C2KEYR14 {
 
   C0C2KEYR14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR14 &Instance() { return *reinterpret_cast<volatile C0C2KEYR14*>(0x404C0638); }
+  static inline volatile C0C2KEYR14 &ref() { return *reinterpret_cast<volatile C0C2KEYR14*>(0x404C0638); }
 };
 
 // CCB 0 Class 2 Key Register Word 15
@@ -36672,7 +36672,7 @@ union C0C2KEYR15 {
 
   C0C2KEYR15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR15 &Instance() { return *reinterpret_cast<volatile C0C2KEYR15*>(0x404C063C); }
+  static inline volatile C0C2KEYR15 &ref() { return *reinterpret_cast<volatile C0C2KEYR15*>(0x404C063C); }
 };
 
 // CCB 0 Class 2 Key Register Word 16
@@ -36689,7 +36689,7 @@ union C0C2KEYR16 {
 
   C0C2KEYR16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR16 &Instance() { return *reinterpret_cast<volatile C0C2KEYR16*>(0x404C0640); }
+  static inline volatile C0C2KEYR16 &ref() { return *reinterpret_cast<volatile C0C2KEYR16*>(0x404C0640); }
 };
 
 // CCB 0 Class 2 Key Register Word 17
@@ -36706,7 +36706,7 @@ union C0C2KEYR17 {
 
   C0C2KEYR17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR17 &Instance() { return *reinterpret_cast<volatile C0C2KEYR17*>(0x404C0644); }
+  static inline volatile C0C2KEYR17 &ref() { return *reinterpret_cast<volatile C0C2KEYR17*>(0x404C0644); }
 };
 
 // CCB 0 Class 2 Key Register Word 18
@@ -36723,7 +36723,7 @@ union C0C2KEYR18 {
 
   C0C2KEYR18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR18 &Instance() { return *reinterpret_cast<volatile C0C2KEYR18*>(0x404C0648); }
+  static inline volatile C0C2KEYR18 &ref() { return *reinterpret_cast<volatile C0C2KEYR18*>(0x404C0648); }
 };
 
 // CCB 0 Class 2 Key Register Word 19
@@ -36740,7 +36740,7 @@ union C0C2KEYR19 {
 
   C0C2KEYR19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR19 &Instance() { return *reinterpret_cast<volatile C0C2KEYR19*>(0x404C064C); }
+  static inline volatile C0C2KEYR19 &ref() { return *reinterpret_cast<volatile C0C2KEYR19*>(0x404C064C); }
 };
 
 // CCB 0 Class 2 Key Register Word 20
@@ -36757,7 +36757,7 @@ union C0C2KEYR20 {
 
   C0C2KEYR20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR20 &Instance() { return *reinterpret_cast<volatile C0C2KEYR20*>(0x404C0650); }
+  static inline volatile C0C2KEYR20 &ref() { return *reinterpret_cast<volatile C0C2KEYR20*>(0x404C0650); }
 };
 
 // CCB 0 Class 2 Key Register Word 21
@@ -36774,7 +36774,7 @@ union C0C2KEYR21 {
 
   C0C2KEYR21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR21 &Instance() { return *reinterpret_cast<volatile C0C2KEYR21*>(0x404C0654); }
+  static inline volatile C0C2KEYR21 &ref() { return *reinterpret_cast<volatile C0C2KEYR21*>(0x404C0654); }
 };
 
 // CCB 0 Class 2 Key Register Word 22
@@ -36791,7 +36791,7 @@ union C0C2KEYR22 {
 
   C0C2KEYR22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR22 &Instance() { return *reinterpret_cast<volatile C0C2KEYR22*>(0x404C0658); }
+  static inline volatile C0C2KEYR22 &ref() { return *reinterpret_cast<volatile C0C2KEYR22*>(0x404C0658); }
 };
 
 // CCB 0 Class 2 Key Register Word 23
@@ -36808,7 +36808,7 @@ union C0C2KEYR23 {
 
   C0C2KEYR23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR23 &Instance() { return *reinterpret_cast<volatile C0C2KEYR23*>(0x404C065C); }
+  static inline volatile C0C2KEYR23 &ref() { return *reinterpret_cast<volatile C0C2KEYR23*>(0x404C065C); }
 };
 
 // CCB 0 Class 2 Key Register Word 24
@@ -36825,7 +36825,7 @@ union C0C2KEYR24 {
 
   C0C2KEYR24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR24 &Instance() { return *reinterpret_cast<volatile C0C2KEYR24*>(0x404C0660); }
+  static inline volatile C0C2KEYR24 &ref() { return *reinterpret_cast<volatile C0C2KEYR24*>(0x404C0660); }
 };
 
 // CCB 0 Class 2 Key Register Word 25
@@ -36842,7 +36842,7 @@ union C0C2KEYR25 {
 
   C0C2KEYR25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR25 &Instance() { return *reinterpret_cast<volatile C0C2KEYR25*>(0x404C0664); }
+  static inline volatile C0C2KEYR25 &ref() { return *reinterpret_cast<volatile C0C2KEYR25*>(0x404C0664); }
 };
 
 // CCB 0 Class 2 Key Register Word 26
@@ -36859,7 +36859,7 @@ union C0C2KEYR26 {
 
   C0C2KEYR26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR26 &Instance() { return *reinterpret_cast<volatile C0C2KEYR26*>(0x404C0668); }
+  static inline volatile C0C2KEYR26 &ref() { return *reinterpret_cast<volatile C0C2KEYR26*>(0x404C0668); }
 };
 
 // CCB 0 Class 2 Key Register Word 27
@@ -36876,7 +36876,7 @@ union C0C2KEYR27 {
 
   C0C2KEYR27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR27 &Instance() { return *reinterpret_cast<volatile C0C2KEYR27*>(0x404C066C); }
+  static inline volatile C0C2KEYR27 &ref() { return *reinterpret_cast<volatile C0C2KEYR27*>(0x404C066C); }
 };
 
 // CCB 0 Class 2 Key Register Word 28
@@ -36893,7 +36893,7 @@ union C0C2KEYR28 {
 
   C0C2KEYR28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR28 &Instance() { return *reinterpret_cast<volatile C0C2KEYR28*>(0x404C0670); }
+  static inline volatile C0C2KEYR28 &ref() { return *reinterpret_cast<volatile C0C2KEYR28*>(0x404C0670); }
 };
 
 // CCB 0 Class 2 Key Register Word 29
@@ -36910,7 +36910,7 @@ union C0C2KEYR29 {
 
   C0C2KEYR29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR29 &Instance() { return *reinterpret_cast<volatile C0C2KEYR29*>(0x404C0674); }
+  static inline volatile C0C2KEYR29 &ref() { return *reinterpret_cast<volatile C0C2KEYR29*>(0x404C0674); }
 };
 
 // CCB 0 Class 2 Key Register Word 30
@@ -36927,7 +36927,7 @@ union C0C2KEYR30 {
 
   C0C2KEYR30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR30 &Instance() { return *reinterpret_cast<volatile C0C2KEYR30*>(0x404C0678); }
+  static inline volatile C0C2KEYR30 &ref() { return *reinterpret_cast<volatile C0C2KEYR30*>(0x404C0678); }
 };
 
 // CCB 0 Class 2 Key Register Word 31
@@ -36944,7 +36944,7 @@ union C0C2KEYR31 {
 
   C0C2KEYR31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0C2KEYR31 &Instance() { return *reinterpret_cast<volatile C0C2KEYR31*>(0x404C067C); }
+  static inline volatile C0C2KEYR31 &ref() { return *reinterpret_cast<volatile C0C2KEYR31*>(0x404C067C); }
 };
 
 // CCB 0 FIFO Status Register
@@ -36967,7 +36967,7 @@ union C0FIFOSTA {
 
   C0FIFOSTA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0FIFOSTA &Instance() { return *reinterpret_cast<volatile C0FIFOSTA*>(0x404C07C0); }
+  static inline volatile C0FIFOSTA &ref() { return *reinterpret_cast<volatile C0FIFOSTA*>(0x404C07C0); }
 };
 
 // CCB 0 iNformation FIFO When STYPE != 10b
@@ -37067,7 +37067,7 @@ union C0NFIFO {
 
   C0NFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0NFIFO &Instance() { return *reinterpret_cast<volatile C0NFIFO*>(0x404C07D0); }
+  static inline volatile C0NFIFO &ref() { return *reinterpret_cast<volatile C0NFIFO*>(0x404C07D0); }
 };
 
 // CCB 0 iNformation FIFO When STYPE == 10b
@@ -37206,7 +37206,7 @@ union C0NFIFO_2 {
 
   C0NFIFO_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0NFIFO_2 &Instance() { return *reinterpret_cast<volatile C0NFIFO_2*>(0x404C07D0); }
+  static inline volatile C0NFIFO_2 &ref() { return *reinterpret_cast<volatile C0NFIFO_2*>(0x404C07D0); }
 };
 
 // CCB 0 Input Data FIFO
@@ -37223,7 +37223,7 @@ union C0IFIFO {
 
   C0IFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0IFIFO &Instance() { return *reinterpret_cast<volatile C0IFIFO*>(0x404C07E0); }
+  static inline volatile C0IFIFO &ref() { return *reinterpret_cast<volatile C0IFIFO*>(0x404C07E0); }
 };
 
 // CCB 0 Output Data FIFO
@@ -37240,7 +37240,7 @@ union C0OFIFO {
 
   C0OFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile C0OFIFO &Instance() { return *reinterpret_cast<volatile C0OFIFO*>(0x404C07F0); }
+  static inline volatile C0OFIFO &ref() { return *reinterpret_cast<volatile C0OFIFO*>(0x404C07F0); }
 };
 
 // DECO0 Job Queue Control Register, most-significant half
@@ -37359,7 +37359,7 @@ union D0JQCR_MS {
 
   D0JQCR_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0JQCR_MS &Instance() { return *reinterpret_cast<volatile D0JQCR_MS*>(0x404C0800); }
+  static inline volatile D0JQCR_MS &ref() { return *reinterpret_cast<volatile D0JQCR_MS*>(0x404C0800); }
 };
 
 // DECO0 Job Queue Control Register, least-significant half
@@ -37376,7 +37376,7 @@ union D0JQCR_LS {
 
   D0JQCR_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0JQCR_LS &Instance() { return *reinterpret_cast<volatile D0JQCR_LS*>(0x404C0804); }
+  static inline volatile D0JQCR_LS &ref() { return *reinterpret_cast<volatile D0JQCR_LS*>(0x404C0804); }
 };
 
 // DECO0 Descriptor Address Register
@@ -37393,7 +37393,7 @@ union D0DAR {
 
   D0DAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DAR &Instance() { return *reinterpret_cast<volatile D0DAR*>(0x404C0808); }
+  static inline volatile D0DAR &ref() { return *reinterpret_cast<volatile D0DAR*>(0x404C0808); }
 };
 
 // DECO0 Operation Status Register, most-significant half
@@ -37441,7 +37441,7 @@ union D0OPSTA_MS {
 
   D0OPSTA_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0OPSTA_MS &Instance() { return *reinterpret_cast<volatile D0OPSTA_MS*>(0x404C0810); }
+  static inline volatile D0OPSTA_MS &ref() { return *reinterpret_cast<volatile D0OPSTA_MS*>(0x404C0810); }
 };
 
 // DECO0 Operation Status Register, least-significant half
@@ -37458,7 +37458,7 @@ union D0OPSTA_LS {
 
   D0OPSTA_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0OPSTA_LS &Instance() { return *reinterpret_cast<volatile D0OPSTA_LS*>(0x404C0814); }
+  static inline volatile D0OPSTA_LS &ref() { return *reinterpret_cast<volatile D0OPSTA_LS*>(0x404C0814); }
 };
 
 // DECO0 Primary DID Status Register
@@ -37479,7 +37479,7 @@ union D0PDIDSR {
 
   D0PDIDSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0PDIDSR &Instance() { return *reinterpret_cast<volatile D0PDIDSR*>(0x404C0820); }
+  static inline volatile D0PDIDSR &ref() { return *reinterpret_cast<volatile D0PDIDSR*>(0x404C0820); }
 };
 
 // DECO0 Output DID Status Register
@@ -37500,7 +37500,7 @@ union D0ODIDSR {
 
   D0ODIDSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0ODIDSR &Instance() { return *reinterpret_cast<volatile D0ODIDSR*>(0x404C0824); }
+  static inline volatile D0ODIDSR &ref() { return *reinterpret_cast<volatile D0ODIDSR*>(0x404C0824); }
 };
 
 // DECO0 Math Register 0_MS
@@ -37517,7 +37517,7 @@ union D0MTH0_MS {
 
   D0MTH0_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0MTH0_MS &Instance() { return *reinterpret_cast<volatile D0MTH0_MS*>(0x404C0840); }
+  static inline volatile D0MTH0_MS &ref() { return *reinterpret_cast<volatile D0MTH0_MS*>(0x404C0840); }
 };
 
 // DECO0 Math Register 0_LS
@@ -37534,7 +37534,7 @@ union D0MTH0_LS {
 
   D0MTH0_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0MTH0_LS &Instance() { return *reinterpret_cast<volatile D0MTH0_LS*>(0x404C0844); }
+  static inline volatile D0MTH0_LS &ref() { return *reinterpret_cast<volatile D0MTH0_LS*>(0x404C0844); }
 };
 
 // DECO0 Math Register 1_MS
@@ -37551,7 +37551,7 @@ union D0MTH1_MS {
 
   D0MTH1_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0MTH1_MS &Instance() { return *reinterpret_cast<volatile D0MTH1_MS*>(0x404C0848); }
+  static inline volatile D0MTH1_MS &ref() { return *reinterpret_cast<volatile D0MTH1_MS*>(0x404C0848); }
 };
 
 // DECO0 Math Register 1_LS
@@ -37568,7 +37568,7 @@ union D0MTH1_LS {
 
   D0MTH1_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0MTH1_LS &Instance() { return *reinterpret_cast<volatile D0MTH1_LS*>(0x404C084C); }
+  static inline volatile D0MTH1_LS &ref() { return *reinterpret_cast<volatile D0MTH1_LS*>(0x404C084C); }
 };
 
 // DECO0 Math Register 2_MS
@@ -37585,7 +37585,7 @@ union D0MTH2_MS {
 
   D0MTH2_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0MTH2_MS &Instance() { return *reinterpret_cast<volatile D0MTH2_MS*>(0x404C0850); }
+  static inline volatile D0MTH2_MS &ref() { return *reinterpret_cast<volatile D0MTH2_MS*>(0x404C0850); }
 };
 
 // DECO0 Math Register 2_LS
@@ -37602,7 +37602,7 @@ union D0MTH2_LS {
 
   D0MTH2_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0MTH2_LS &Instance() { return *reinterpret_cast<volatile D0MTH2_LS*>(0x404C0854); }
+  static inline volatile D0MTH2_LS &ref() { return *reinterpret_cast<volatile D0MTH2_LS*>(0x404C0854); }
 };
 
 // DECO0 Math Register 3_MS
@@ -37619,7 +37619,7 @@ union D0MTH3_MS {
 
   D0MTH3_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0MTH3_MS &Instance() { return *reinterpret_cast<volatile D0MTH3_MS*>(0x404C0858); }
+  static inline volatile D0MTH3_MS &ref() { return *reinterpret_cast<volatile D0MTH3_MS*>(0x404C0858); }
 };
 
 // DECO0 Math Register 3_LS
@@ -37636,7 +37636,7 @@ union D0MTH3_LS {
 
   D0MTH3_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0MTH3_LS &Instance() { return *reinterpret_cast<volatile D0MTH3_LS*>(0x404C085C); }
+  static inline volatile D0MTH3_LS &ref() { return *reinterpret_cast<volatile D0MTH3_LS*>(0x404C085C); }
 };
 
 // DECO0 Gather Table Register 0 Word 0
@@ -37654,7 +37654,7 @@ union D0GTR0_0 {
 
   D0GTR0_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0GTR0_0 &Instance() { return *reinterpret_cast<volatile D0GTR0_0*>(0x404C0880); }
+  static inline volatile D0GTR0_0 &ref() { return *reinterpret_cast<volatile D0GTR0_0*>(0x404C0880); }
 };
 
 // DECO0 Gather Table Register 0 Word 1
@@ -37671,7 +37671,7 @@ union D0GTR0_1 {
 
   D0GTR0_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0GTR0_1 &Instance() { return *reinterpret_cast<volatile D0GTR0_1*>(0x404C0884); }
+  static inline volatile D0GTR0_1 &ref() { return *reinterpret_cast<volatile D0GTR0_1*>(0x404C0884); }
 };
 
 // DECO0 Gather Table Register 0 Word 2
@@ -37708,7 +37708,7 @@ union D0GTR0_2 {
 
   D0GTR0_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0GTR0_2 &Instance() { return *reinterpret_cast<volatile D0GTR0_2*>(0x404C0888); }
+  static inline volatile D0GTR0_2 &ref() { return *reinterpret_cast<volatile D0GTR0_2*>(0x404C0888); }
 };
 
 // DECO0 Gather Table Register 0 Word 3
@@ -37726,7 +37726,7 @@ union D0GTR0_3 {
 
   D0GTR0_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0GTR0_3 &Instance() { return *reinterpret_cast<volatile D0GTR0_3*>(0x404C088C); }
+  static inline volatile D0GTR0_3 &ref() { return *reinterpret_cast<volatile D0GTR0_3*>(0x404C088C); }
 };
 
 // DECO0 Scatter Table Register 0 Word 0
@@ -37744,7 +37744,7 @@ union D0STR0_0 {
 
   D0STR0_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0STR0_0 &Instance() { return *reinterpret_cast<volatile D0STR0_0*>(0x404C0900); }
+  static inline volatile D0STR0_0 &ref() { return *reinterpret_cast<volatile D0STR0_0*>(0x404C0900); }
 };
 
 // DECO0 Scatter Table Register 0 Word 1
@@ -37761,7 +37761,7 @@ union D0STR0_1 {
 
   D0STR0_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0STR0_1 &Instance() { return *reinterpret_cast<volatile D0STR0_1*>(0x404C0904); }
+  static inline volatile D0STR0_1 &ref() { return *reinterpret_cast<volatile D0STR0_1*>(0x404C0904); }
 };
 
 // DECO0 Scatter Table Register 0 Word 2
@@ -37798,7 +37798,7 @@ union D0STR0_2 {
 
   D0STR0_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0STR0_2 &Instance() { return *reinterpret_cast<volatile D0STR0_2*>(0x404C0908); }
+  static inline volatile D0STR0_2 &ref() { return *reinterpret_cast<volatile D0STR0_2*>(0x404C0908); }
 };
 
 // DECO0 Scatter Table Register 0 Word 3
@@ -37816,7 +37816,7 @@ union D0STR0_3 {
 
   D0STR0_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0STR0_3 &Instance() { return *reinterpret_cast<volatile D0STR0_3*>(0x404C090C); }
+  static inline volatile D0STR0_3 &ref() { return *reinterpret_cast<volatile D0STR0_3*>(0x404C090C); }
 };
 
 // DECO0 Descriptor Buffer Word 0
@@ -37833,7 +37833,7 @@ union D0DESB0 {
 
   D0DESB0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB0 &Instance() { return *reinterpret_cast<volatile D0DESB0*>(0x404C0A00); }
+  static inline volatile D0DESB0 &ref() { return *reinterpret_cast<volatile D0DESB0*>(0x404C0A00); }
 };
 
 // DECO0 Descriptor Buffer Word 1
@@ -37850,7 +37850,7 @@ union D0DESB1 {
 
   D0DESB1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB1 &Instance() { return *reinterpret_cast<volatile D0DESB1*>(0x404C0A04); }
+  static inline volatile D0DESB1 &ref() { return *reinterpret_cast<volatile D0DESB1*>(0x404C0A04); }
 };
 
 // DECO0 Descriptor Buffer Word 2
@@ -37867,7 +37867,7 @@ union D0DESB2 {
 
   D0DESB2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB2 &Instance() { return *reinterpret_cast<volatile D0DESB2*>(0x404C0A08); }
+  static inline volatile D0DESB2 &ref() { return *reinterpret_cast<volatile D0DESB2*>(0x404C0A08); }
 };
 
 // DECO0 Descriptor Buffer Word 3
@@ -37884,7 +37884,7 @@ union D0DESB3 {
 
   D0DESB3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB3 &Instance() { return *reinterpret_cast<volatile D0DESB3*>(0x404C0A0C); }
+  static inline volatile D0DESB3 &ref() { return *reinterpret_cast<volatile D0DESB3*>(0x404C0A0C); }
 };
 
 // DECO0 Descriptor Buffer Word 4
@@ -37901,7 +37901,7 @@ union D0DESB4 {
 
   D0DESB4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB4 &Instance() { return *reinterpret_cast<volatile D0DESB4*>(0x404C0A10); }
+  static inline volatile D0DESB4 &ref() { return *reinterpret_cast<volatile D0DESB4*>(0x404C0A10); }
 };
 
 // DECO0 Descriptor Buffer Word 5
@@ -37918,7 +37918,7 @@ union D0DESB5 {
 
   D0DESB5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB5 &Instance() { return *reinterpret_cast<volatile D0DESB5*>(0x404C0A14); }
+  static inline volatile D0DESB5 &ref() { return *reinterpret_cast<volatile D0DESB5*>(0x404C0A14); }
 };
 
 // DECO0 Descriptor Buffer Word 6
@@ -37935,7 +37935,7 @@ union D0DESB6 {
 
   D0DESB6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB6 &Instance() { return *reinterpret_cast<volatile D0DESB6*>(0x404C0A18); }
+  static inline volatile D0DESB6 &ref() { return *reinterpret_cast<volatile D0DESB6*>(0x404C0A18); }
 };
 
 // DECO0 Descriptor Buffer Word 7
@@ -37952,7 +37952,7 @@ union D0DESB7 {
 
   D0DESB7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB7 &Instance() { return *reinterpret_cast<volatile D0DESB7*>(0x404C0A1C); }
+  static inline volatile D0DESB7 &ref() { return *reinterpret_cast<volatile D0DESB7*>(0x404C0A1C); }
 };
 
 // DECO0 Descriptor Buffer Word 8
@@ -37969,7 +37969,7 @@ union D0DESB8 {
 
   D0DESB8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB8 &Instance() { return *reinterpret_cast<volatile D0DESB8*>(0x404C0A20); }
+  static inline volatile D0DESB8 &ref() { return *reinterpret_cast<volatile D0DESB8*>(0x404C0A20); }
 };
 
 // DECO0 Descriptor Buffer Word 9
@@ -37986,7 +37986,7 @@ union D0DESB9 {
 
   D0DESB9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB9 &Instance() { return *reinterpret_cast<volatile D0DESB9*>(0x404C0A24); }
+  static inline volatile D0DESB9 &ref() { return *reinterpret_cast<volatile D0DESB9*>(0x404C0A24); }
 };
 
 // DECO0 Descriptor Buffer Word 10
@@ -38003,7 +38003,7 @@ union D0DESB10 {
 
   D0DESB10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB10 &Instance() { return *reinterpret_cast<volatile D0DESB10*>(0x404C0A28); }
+  static inline volatile D0DESB10 &ref() { return *reinterpret_cast<volatile D0DESB10*>(0x404C0A28); }
 };
 
 // DECO0 Descriptor Buffer Word 11
@@ -38020,7 +38020,7 @@ union D0DESB11 {
 
   D0DESB11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB11 &Instance() { return *reinterpret_cast<volatile D0DESB11*>(0x404C0A2C); }
+  static inline volatile D0DESB11 &ref() { return *reinterpret_cast<volatile D0DESB11*>(0x404C0A2C); }
 };
 
 // DECO0 Descriptor Buffer Word 12
@@ -38037,7 +38037,7 @@ union D0DESB12 {
 
   D0DESB12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB12 &Instance() { return *reinterpret_cast<volatile D0DESB12*>(0x404C0A30); }
+  static inline volatile D0DESB12 &ref() { return *reinterpret_cast<volatile D0DESB12*>(0x404C0A30); }
 };
 
 // DECO0 Descriptor Buffer Word 13
@@ -38054,7 +38054,7 @@ union D0DESB13 {
 
   D0DESB13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB13 &Instance() { return *reinterpret_cast<volatile D0DESB13*>(0x404C0A34); }
+  static inline volatile D0DESB13 &ref() { return *reinterpret_cast<volatile D0DESB13*>(0x404C0A34); }
 };
 
 // DECO0 Descriptor Buffer Word 14
@@ -38071,7 +38071,7 @@ union D0DESB14 {
 
   D0DESB14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB14 &Instance() { return *reinterpret_cast<volatile D0DESB14*>(0x404C0A38); }
+  static inline volatile D0DESB14 &ref() { return *reinterpret_cast<volatile D0DESB14*>(0x404C0A38); }
 };
 
 // DECO0 Descriptor Buffer Word 15
@@ -38088,7 +38088,7 @@ union D0DESB15 {
 
   D0DESB15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB15 &Instance() { return *reinterpret_cast<volatile D0DESB15*>(0x404C0A3C); }
+  static inline volatile D0DESB15 &ref() { return *reinterpret_cast<volatile D0DESB15*>(0x404C0A3C); }
 };
 
 // DECO0 Descriptor Buffer Word 16
@@ -38105,7 +38105,7 @@ union D0DESB16 {
 
   D0DESB16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB16 &Instance() { return *reinterpret_cast<volatile D0DESB16*>(0x404C0A40); }
+  static inline volatile D0DESB16 &ref() { return *reinterpret_cast<volatile D0DESB16*>(0x404C0A40); }
 };
 
 // DECO0 Descriptor Buffer Word 17
@@ -38122,7 +38122,7 @@ union D0DESB17 {
 
   D0DESB17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB17 &Instance() { return *reinterpret_cast<volatile D0DESB17*>(0x404C0A44); }
+  static inline volatile D0DESB17 &ref() { return *reinterpret_cast<volatile D0DESB17*>(0x404C0A44); }
 };
 
 // DECO0 Descriptor Buffer Word 18
@@ -38139,7 +38139,7 @@ union D0DESB18 {
 
   D0DESB18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB18 &Instance() { return *reinterpret_cast<volatile D0DESB18*>(0x404C0A48); }
+  static inline volatile D0DESB18 &ref() { return *reinterpret_cast<volatile D0DESB18*>(0x404C0A48); }
 };
 
 // DECO0 Descriptor Buffer Word 19
@@ -38156,7 +38156,7 @@ union D0DESB19 {
 
   D0DESB19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB19 &Instance() { return *reinterpret_cast<volatile D0DESB19*>(0x404C0A4C); }
+  static inline volatile D0DESB19 &ref() { return *reinterpret_cast<volatile D0DESB19*>(0x404C0A4C); }
 };
 
 // DECO0 Descriptor Buffer Word 20
@@ -38173,7 +38173,7 @@ union D0DESB20 {
 
   D0DESB20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB20 &Instance() { return *reinterpret_cast<volatile D0DESB20*>(0x404C0A50); }
+  static inline volatile D0DESB20 &ref() { return *reinterpret_cast<volatile D0DESB20*>(0x404C0A50); }
 };
 
 // DECO0 Descriptor Buffer Word 21
@@ -38190,7 +38190,7 @@ union D0DESB21 {
 
   D0DESB21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB21 &Instance() { return *reinterpret_cast<volatile D0DESB21*>(0x404C0A54); }
+  static inline volatile D0DESB21 &ref() { return *reinterpret_cast<volatile D0DESB21*>(0x404C0A54); }
 };
 
 // DECO0 Descriptor Buffer Word 22
@@ -38207,7 +38207,7 @@ union D0DESB22 {
 
   D0DESB22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB22 &Instance() { return *reinterpret_cast<volatile D0DESB22*>(0x404C0A58); }
+  static inline volatile D0DESB22 &ref() { return *reinterpret_cast<volatile D0DESB22*>(0x404C0A58); }
 };
 
 // DECO0 Descriptor Buffer Word 23
@@ -38224,7 +38224,7 @@ union D0DESB23 {
 
   D0DESB23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB23 &Instance() { return *reinterpret_cast<volatile D0DESB23*>(0x404C0A5C); }
+  static inline volatile D0DESB23 &ref() { return *reinterpret_cast<volatile D0DESB23*>(0x404C0A5C); }
 };
 
 // DECO0 Descriptor Buffer Word 24
@@ -38241,7 +38241,7 @@ union D0DESB24 {
 
   D0DESB24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB24 &Instance() { return *reinterpret_cast<volatile D0DESB24*>(0x404C0A60); }
+  static inline volatile D0DESB24 &ref() { return *reinterpret_cast<volatile D0DESB24*>(0x404C0A60); }
 };
 
 // DECO0 Descriptor Buffer Word 25
@@ -38258,7 +38258,7 @@ union D0DESB25 {
 
   D0DESB25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB25 &Instance() { return *reinterpret_cast<volatile D0DESB25*>(0x404C0A64); }
+  static inline volatile D0DESB25 &ref() { return *reinterpret_cast<volatile D0DESB25*>(0x404C0A64); }
 };
 
 // DECO0 Descriptor Buffer Word 26
@@ -38275,7 +38275,7 @@ union D0DESB26 {
 
   D0DESB26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB26 &Instance() { return *reinterpret_cast<volatile D0DESB26*>(0x404C0A68); }
+  static inline volatile D0DESB26 &ref() { return *reinterpret_cast<volatile D0DESB26*>(0x404C0A68); }
 };
 
 // DECO0 Descriptor Buffer Word 27
@@ -38292,7 +38292,7 @@ union D0DESB27 {
 
   D0DESB27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB27 &Instance() { return *reinterpret_cast<volatile D0DESB27*>(0x404C0A6C); }
+  static inline volatile D0DESB27 &ref() { return *reinterpret_cast<volatile D0DESB27*>(0x404C0A6C); }
 };
 
 // DECO0 Descriptor Buffer Word 28
@@ -38309,7 +38309,7 @@ union D0DESB28 {
 
   D0DESB28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB28 &Instance() { return *reinterpret_cast<volatile D0DESB28*>(0x404C0A70); }
+  static inline volatile D0DESB28 &ref() { return *reinterpret_cast<volatile D0DESB28*>(0x404C0A70); }
 };
 
 // DECO0 Descriptor Buffer Word 29
@@ -38326,7 +38326,7 @@ union D0DESB29 {
 
   D0DESB29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB29 &Instance() { return *reinterpret_cast<volatile D0DESB29*>(0x404C0A74); }
+  static inline volatile D0DESB29 &ref() { return *reinterpret_cast<volatile D0DESB29*>(0x404C0A74); }
 };
 
 // DECO0 Descriptor Buffer Word 30
@@ -38343,7 +38343,7 @@ union D0DESB30 {
 
   D0DESB30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB30 &Instance() { return *reinterpret_cast<volatile D0DESB30*>(0x404C0A78); }
+  static inline volatile D0DESB30 &ref() { return *reinterpret_cast<volatile D0DESB30*>(0x404C0A78); }
 };
 
 // DECO0 Descriptor Buffer Word 31
@@ -38360,7 +38360,7 @@ union D0DESB31 {
 
   D0DESB31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB31 &Instance() { return *reinterpret_cast<volatile D0DESB31*>(0x404C0A7C); }
+  static inline volatile D0DESB31 &ref() { return *reinterpret_cast<volatile D0DESB31*>(0x404C0A7C); }
 };
 
 // DECO0 Descriptor Buffer Word 32
@@ -38377,7 +38377,7 @@ union D0DESB32 {
 
   D0DESB32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB32 &Instance() { return *reinterpret_cast<volatile D0DESB32*>(0x404C0A80); }
+  static inline volatile D0DESB32 &ref() { return *reinterpret_cast<volatile D0DESB32*>(0x404C0A80); }
 };
 
 // DECO0 Descriptor Buffer Word 33
@@ -38394,7 +38394,7 @@ union D0DESB33 {
 
   D0DESB33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB33 &Instance() { return *reinterpret_cast<volatile D0DESB33*>(0x404C0A84); }
+  static inline volatile D0DESB33 &ref() { return *reinterpret_cast<volatile D0DESB33*>(0x404C0A84); }
 };
 
 // DECO0 Descriptor Buffer Word 34
@@ -38411,7 +38411,7 @@ union D0DESB34 {
 
   D0DESB34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB34 &Instance() { return *reinterpret_cast<volatile D0DESB34*>(0x404C0A88); }
+  static inline volatile D0DESB34 &ref() { return *reinterpret_cast<volatile D0DESB34*>(0x404C0A88); }
 };
 
 // DECO0 Descriptor Buffer Word 35
@@ -38428,7 +38428,7 @@ union D0DESB35 {
 
   D0DESB35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB35 &Instance() { return *reinterpret_cast<volatile D0DESB35*>(0x404C0A8C); }
+  static inline volatile D0DESB35 &ref() { return *reinterpret_cast<volatile D0DESB35*>(0x404C0A8C); }
 };
 
 // DECO0 Descriptor Buffer Word 36
@@ -38445,7 +38445,7 @@ union D0DESB36 {
 
   D0DESB36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB36 &Instance() { return *reinterpret_cast<volatile D0DESB36*>(0x404C0A90); }
+  static inline volatile D0DESB36 &ref() { return *reinterpret_cast<volatile D0DESB36*>(0x404C0A90); }
 };
 
 // DECO0 Descriptor Buffer Word 37
@@ -38462,7 +38462,7 @@ union D0DESB37 {
 
   D0DESB37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB37 &Instance() { return *reinterpret_cast<volatile D0DESB37*>(0x404C0A94); }
+  static inline volatile D0DESB37 &ref() { return *reinterpret_cast<volatile D0DESB37*>(0x404C0A94); }
 };
 
 // DECO0 Descriptor Buffer Word 38
@@ -38479,7 +38479,7 @@ union D0DESB38 {
 
   D0DESB38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB38 &Instance() { return *reinterpret_cast<volatile D0DESB38*>(0x404C0A98); }
+  static inline volatile D0DESB38 &ref() { return *reinterpret_cast<volatile D0DESB38*>(0x404C0A98); }
 };
 
 // DECO0 Descriptor Buffer Word 39
@@ -38496,7 +38496,7 @@ union D0DESB39 {
 
   D0DESB39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB39 &Instance() { return *reinterpret_cast<volatile D0DESB39*>(0x404C0A9C); }
+  static inline volatile D0DESB39 &ref() { return *reinterpret_cast<volatile D0DESB39*>(0x404C0A9C); }
 };
 
 // DECO0 Descriptor Buffer Word 40
@@ -38513,7 +38513,7 @@ union D0DESB40 {
 
   D0DESB40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB40 &Instance() { return *reinterpret_cast<volatile D0DESB40*>(0x404C0AA0); }
+  static inline volatile D0DESB40 &ref() { return *reinterpret_cast<volatile D0DESB40*>(0x404C0AA0); }
 };
 
 // DECO0 Descriptor Buffer Word 41
@@ -38530,7 +38530,7 @@ union D0DESB41 {
 
   D0DESB41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB41 &Instance() { return *reinterpret_cast<volatile D0DESB41*>(0x404C0AA4); }
+  static inline volatile D0DESB41 &ref() { return *reinterpret_cast<volatile D0DESB41*>(0x404C0AA4); }
 };
 
 // DECO0 Descriptor Buffer Word 42
@@ -38547,7 +38547,7 @@ union D0DESB42 {
 
   D0DESB42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB42 &Instance() { return *reinterpret_cast<volatile D0DESB42*>(0x404C0AA8); }
+  static inline volatile D0DESB42 &ref() { return *reinterpret_cast<volatile D0DESB42*>(0x404C0AA8); }
 };
 
 // DECO0 Descriptor Buffer Word 43
@@ -38564,7 +38564,7 @@ union D0DESB43 {
 
   D0DESB43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB43 &Instance() { return *reinterpret_cast<volatile D0DESB43*>(0x404C0AAC); }
+  static inline volatile D0DESB43 &ref() { return *reinterpret_cast<volatile D0DESB43*>(0x404C0AAC); }
 };
 
 // DECO0 Descriptor Buffer Word 44
@@ -38581,7 +38581,7 @@ union D0DESB44 {
 
   D0DESB44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB44 &Instance() { return *reinterpret_cast<volatile D0DESB44*>(0x404C0AB0); }
+  static inline volatile D0DESB44 &ref() { return *reinterpret_cast<volatile D0DESB44*>(0x404C0AB0); }
 };
 
 // DECO0 Descriptor Buffer Word 45
@@ -38598,7 +38598,7 @@ union D0DESB45 {
 
   D0DESB45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB45 &Instance() { return *reinterpret_cast<volatile D0DESB45*>(0x404C0AB4); }
+  static inline volatile D0DESB45 &ref() { return *reinterpret_cast<volatile D0DESB45*>(0x404C0AB4); }
 };
 
 // DECO0 Descriptor Buffer Word 46
@@ -38615,7 +38615,7 @@ union D0DESB46 {
 
   D0DESB46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB46 &Instance() { return *reinterpret_cast<volatile D0DESB46*>(0x404C0AB8); }
+  static inline volatile D0DESB46 &ref() { return *reinterpret_cast<volatile D0DESB46*>(0x404C0AB8); }
 };
 
 // DECO0 Descriptor Buffer Word 47
@@ -38632,7 +38632,7 @@ union D0DESB47 {
 
   D0DESB47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB47 &Instance() { return *reinterpret_cast<volatile D0DESB47*>(0x404C0ABC); }
+  static inline volatile D0DESB47 &ref() { return *reinterpret_cast<volatile D0DESB47*>(0x404C0ABC); }
 };
 
 // DECO0 Descriptor Buffer Word 48
@@ -38649,7 +38649,7 @@ union D0DESB48 {
 
   D0DESB48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB48 &Instance() { return *reinterpret_cast<volatile D0DESB48*>(0x404C0AC0); }
+  static inline volatile D0DESB48 &ref() { return *reinterpret_cast<volatile D0DESB48*>(0x404C0AC0); }
 };
 
 // DECO0 Descriptor Buffer Word 49
@@ -38666,7 +38666,7 @@ union D0DESB49 {
 
   D0DESB49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB49 &Instance() { return *reinterpret_cast<volatile D0DESB49*>(0x404C0AC4); }
+  static inline volatile D0DESB49 &ref() { return *reinterpret_cast<volatile D0DESB49*>(0x404C0AC4); }
 };
 
 // DECO0 Descriptor Buffer Word 50
@@ -38683,7 +38683,7 @@ union D0DESB50 {
 
   D0DESB50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB50 &Instance() { return *reinterpret_cast<volatile D0DESB50*>(0x404C0AC8); }
+  static inline volatile D0DESB50 &ref() { return *reinterpret_cast<volatile D0DESB50*>(0x404C0AC8); }
 };
 
 // DECO0 Descriptor Buffer Word 51
@@ -38700,7 +38700,7 @@ union D0DESB51 {
 
   D0DESB51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB51 &Instance() { return *reinterpret_cast<volatile D0DESB51*>(0x404C0ACC); }
+  static inline volatile D0DESB51 &ref() { return *reinterpret_cast<volatile D0DESB51*>(0x404C0ACC); }
 };
 
 // DECO0 Descriptor Buffer Word 52
@@ -38717,7 +38717,7 @@ union D0DESB52 {
 
   D0DESB52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB52 &Instance() { return *reinterpret_cast<volatile D0DESB52*>(0x404C0AD0); }
+  static inline volatile D0DESB52 &ref() { return *reinterpret_cast<volatile D0DESB52*>(0x404C0AD0); }
 };
 
 // DECO0 Descriptor Buffer Word 53
@@ -38734,7 +38734,7 @@ union D0DESB53 {
 
   D0DESB53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB53 &Instance() { return *reinterpret_cast<volatile D0DESB53*>(0x404C0AD4); }
+  static inline volatile D0DESB53 &ref() { return *reinterpret_cast<volatile D0DESB53*>(0x404C0AD4); }
 };
 
 // DECO0 Descriptor Buffer Word 54
@@ -38751,7 +38751,7 @@ union D0DESB54 {
 
   D0DESB54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB54 &Instance() { return *reinterpret_cast<volatile D0DESB54*>(0x404C0AD8); }
+  static inline volatile D0DESB54 &ref() { return *reinterpret_cast<volatile D0DESB54*>(0x404C0AD8); }
 };
 
 // DECO0 Descriptor Buffer Word 55
@@ -38768,7 +38768,7 @@ union D0DESB55 {
 
   D0DESB55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB55 &Instance() { return *reinterpret_cast<volatile D0DESB55*>(0x404C0ADC); }
+  static inline volatile D0DESB55 &ref() { return *reinterpret_cast<volatile D0DESB55*>(0x404C0ADC); }
 };
 
 // DECO0 Descriptor Buffer Word 56
@@ -38785,7 +38785,7 @@ union D0DESB56 {
 
   D0DESB56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB56 &Instance() { return *reinterpret_cast<volatile D0DESB56*>(0x404C0AE0); }
+  static inline volatile D0DESB56 &ref() { return *reinterpret_cast<volatile D0DESB56*>(0x404C0AE0); }
 };
 
 // DECO0 Descriptor Buffer Word 57
@@ -38802,7 +38802,7 @@ union D0DESB57 {
 
   D0DESB57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB57 &Instance() { return *reinterpret_cast<volatile D0DESB57*>(0x404C0AE4); }
+  static inline volatile D0DESB57 &ref() { return *reinterpret_cast<volatile D0DESB57*>(0x404C0AE4); }
 };
 
 // DECO0 Descriptor Buffer Word 58
@@ -38819,7 +38819,7 @@ union D0DESB58 {
 
   D0DESB58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB58 &Instance() { return *reinterpret_cast<volatile D0DESB58*>(0x404C0AE8); }
+  static inline volatile D0DESB58 &ref() { return *reinterpret_cast<volatile D0DESB58*>(0x404C0AE8); }
 };
 
 // DECO0 Descriptor Buffer Word 59
@@ -38836,7 +38836,7 @@ union D0DESB59 {
 
   D0DESB59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB59 &Instance() { return *reinterpret_cast<volatile D0DESB59*>(0x404C0AEC); }
+  static inline volatile D0DESB59 &ref() { return *reinterpret_cast<volatile D0DESB59*>(0x404C0AEC); }
 };
 
 // DECO0 Descriptor Buffer Word 60
@@ -38853,7 +38853,7 @@ union D0DESB60 {
 
   D0DESB60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB60 &Instance() { return *reinterpret_cast<volatile D0DESB60*>(0x404C0AF0); }
+  static inline volatile D0DESB60 &ref() { return *reinterpret_cast<volatile D0DESB60*>(0x404C0AF0); }
 };
 
 // DECO0 Descriptor Buffer Word 61
@@ -38870,7 +38870,7 @@ union D0DESB61 {
 
   D0DESB61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB61 &Instance() { return *reinterpret_cast<volatile D0DESB61*>(0x404C0AF4); }
+  static inline volatile D0DESB61 &ref() { return *reinterpret_cast<volatile D0DESB61*>(0x404C0AF4); }
 };
 
 // DECO0 Descriptor Buffer Word 62
@@ -38887,7 +38887,7 @@ union D0DESB62 {
 
   D0DESB62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB62 &Instance() { return *reinterpret_cast<volatile D0DESB62*>(0x404C0AF8); }
+  static inline volatile D0DESB62 &ref() { return *reinterpret_cast<volatile D0DESB62*>(0x404C0AF8); }
 };
 
 // DECO0 Descriptor Buffer Word 63
@@ -38904,7 +38904,7 @@ union D0DESB63 {
 
   D0DESB63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DESB63 &Instance() { return *reinterpret_cast<volatile D0DESB63*>(0x404C0AFC); }
+  static inline volatile D0DESB63 &ref() { return *reinterpret_cast<volatile D0DESB63*>(0x404C0AFC); }
 };
 
 // DECO0 Debug Job Register
@@ -39033,7 +39033,7 @@ union D0DJR {
 
   D0DJR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DJR &Instance() { return *reinterpret_cast<volatile D0DJR*>(0x404C0E00); }
+  static inline volatile D0DJR &ref() { return *reinterpret_cast<volatile D0DJR*>(0x404C0E00); }
 };
 
 // DECO0 Debug DECO Register
@@ -39166,7 +39166,7 @@ union D0DDR {
 
   D0DDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DDR &Instance() { return *reinterpret_cast<volatile D0DDR*>(0x404C0E04); }
+  static inline volatile D0DDR &ref() { return *reinterpret_cast<volatile D0DDR*>(0x404C0E04); }
 };
 
 // DECO0 Debug Job Pointer
@@ -39183,7 +39183,7 @@ union D0DJP {
 
   D0DJP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DJP &Instance() { return *reinterpret_cast<volatile D0DJP*>(0x404C0E08); }
+  static inline volatile D0DJP &ref() { return *reinterpret_cast<volatile D0DJP*>(0x404C0E08); }
 };
 
 // DECO0 Debug Shared Pointer
@@ -39200,7 +39200,7 @@ union D0SDP {
 
   D0SDP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0SDP &Instance() { return *reinterpret_cast<volatile D0SDP*>(0x404C0E10); }
+  static inline volatile D0SDP &ref() { return *reinterpret_cast<volatile D0SDP*>(0x404C0E10); }
 };
 
 // DECO0 Debug DID, most-significant half
@@ -39234,7 +39234,7 @@ union D0DDR_MS {
 
   D0DDR_MS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DDR_MS &Instance() { return *reinterpret_cast<volatile D0DDR_MS*>(0x404C0E18); }
+  static inline volatile D0DDR_MS &ref() { return *reinterpret_cast<volatile D0DDR_MS*>(0x404C0E18); }
 };
 
 // DECO0 Debug DID, least-significant half
@@ -39255,7 +39255,7 @@ union D0DDR_LS {
 
   D0DDR_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0DDR_LS &Instance() { return *reinterpret_cast<volatile D0DDR_LS*>(0x404C0E1C); }
+  static inline volatile D0DDR_LS &ref() { return *reinterpret_cast<volatile D0DDR_LS*>(0x404C0E1C); }
 };
 
 // Sequence Output Length Register
@@ -39272,7 +39272,7 @@ union SOL0 {
 
   SOL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SOL0 &Instance() { return *reinterpret_cast<volatile SOL0*>(0x404C0E20); }
+  static inline volatile SOL0 &ref() { return *reinterpret_cast<volatile SOL0*>(0x404C0E20); }
 };
 
 // Variable Sequence Output Length Register
@@ -39289,7 +39289,7 @@ union VSOL0 {
 
   VSOL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VSOL0 &Instance() { return *reinterpret_cast<volatile VSOL0*>(0x404C0E24); }
+  static inline volatile VSOL0 &ref() { return *reinterpret_cast<volatile VSOL0*>(0x404C0E24); }
 };
 
 // Sequence Input Length Register
@@ -39306,7 +39306,7 @@ union SIL0 {
 
   SIL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SIL0 &Instance() { return *reinterpret_cast<volatile SIL0*>(0x404C0E28); }
+  static inline volatile SIL0 &ref() { return *reinterpret_cast<volatile SIL0*>(0x404C0E28); }
 };
 
 // Variable Sequence Input Length Register
@@ -39323,7 +39323,7 @@ union VSIL0 {
 
   VSIL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VSIL0 &Instance() { return *reinterpret_cast<volatile VSIL0*>(0x404C0E2C); }
+  static inline volatile VSIL0 &ref() { return *reinterpret_cast<volatile VSIL0*>(0x404C0E2C); }
 };
 
 // Protocol Override Register
@@ -39340,7 +39340,7 @@ union D0POVRD {
 
   D0POVRD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile D0POVRD &Instance() { return *reinterpret_cast<volatile D0POVRD*>(0x404C0E30); }
+  static inline volatile D0POVRD &ref() { return *reinterpret_cast<volatile D0POVRD*>(0x404C0E30); }
 };
 
 // Variable Sequence Output Length Register; Upper 32 bits
@@ -39357,7 +39357,7 @@ union UVSOL0 {
 
   UVSOL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile UVSOL0 &Instance() { return *reinterpret_cast<volatile UVSOL0*>(0x404C0E34); }
+  static inline volatile UVSOL0 &ref() { return *reinterpret_cast<volatile UVSOL0*>(0x404C0E34); }
 };
 
 // Variable Sequence Input Length Register; Upper 32 bits
@@ -39374,7 +39374,7 @@ union UVSIL0 {
 
   UVSIL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile UVSIL0 &Instance() { return *reinterpret_cast<volatile UVSIL0*>(0x404C0E38); }
+  static inline volatile UVSIL0 &ref() { return *reinterpret_cast<volatile UVSIL0*>(0x404C0E38); }
 };
 
 

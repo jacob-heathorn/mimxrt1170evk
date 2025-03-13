@@ -113,7 +113,7 @@ union CTRL_1 {
 
   CTRL_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_1 &Instance() { return *reinterpret_cast<volatile CTRL_1*>(0x40C20000); }
+  static inline volatile CTRL_1 &ref() { return *reinterpret_cast<volatile CTRL_1*>(0x40C20000); }
 };
 
 // PDM Control register 2
@@ -153,7 +153,7 @@ union CTRL_2 {
 
   CTRL_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_2 &Instance() { return *reinterpret_cast<volatile CTRL_2*>(0x40C20004); }
+  static inline volatile CTRL_2 &ref() { return *reinterpret_cast<volatile CTRL_2*>(0x40C20004); }
 };
 
 // PDM Status register
@@ -279,7 +279,7 @@ union STAT {
 
   STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT &Instance() { return *reinterpret_cast<volatile STAT*>(0x40C20008); }
+  static inline volatile STAT &ref() { return *reinterpret_cast<volatile STAT*>(0x40C20008); }
 };
 
 // PDM FIFO Control register
@@ -297,7 +297,7 @@ union FIFO_CTRL {
 
   FIFO_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000007; }
-  static inline volatile FIFO_CTRL &Instance() { return *reinterpret_cast<volatile FIFO_CTRL*>(0x40C20010); }
+  static inline volatile FIFO_CTRL &ref() { return *reinterpret_cast<volatile FIFO_CTRL*>(0x40C20010); }
 };
 
 // PDM FIFO Status register
@@ -473,7 +473,7 @@ union FIFO_STAT {
 
   FIFO_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FIFO_STAT &Instance() { return *reinterpret_cast<volatile FIFO_STAT*>(0x40C20014); }
+  static inline volatile FIFO_STAT &ref() { return *reinterpret_cast<volatile FIFO_STAT*>(0x40C20014); }
 };
 
 // PDM Output Result Register
@@ -490,7 +490,7 @@ union DATACH_0 {
 
   DATACH_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_0 &Instance() { return *reinterpret_cast<volatile DATACH_0*>(0x40C20024); }
+  static inline volatile DATACH_0 &ref() { return *reinterpret_cast<volatile DATACH_0*>(0x40C20024); }
 };
 // PDM Output Result Register
 union DATACH_1 {
@@ -506,7 +506,7 @@ union DATACH_1 {
 
   DATACH_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_1 &Instance() { return *reinterpret_cast<volatile DATACH_1*>(0x40C20028); }
+  static inline volatile DATACH_1 &ref() { return *reinterpret_cast<volatile DATACH_1*>(0x40C20028); }
 };
 // PDM Output Result Register
 union DATACH_2 {
@@ -522,7 +522,7 @@ union DATACH_2 {
 
   DATACH_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_2 &Instance() { return *reinterpret_cast<volatile DATACH_2*>(0x40C2002C); }
+  static inline volatile DATACH_2 &ref() { return *reinterpret_cast<volatile DATACH_2*>(0x40C2002C); }
 };
 // PDM Output Result Register
 union DATACH_3 {
@@ -538,7 +538,7 @@ union DATACH_3 {
 
   DATACH_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_3 &Instance() { return *reinterpret_cast<volatile DATACH_3*>(0x40C20030); }
+  static inline volatile DATACH_3 &ref() { return *reinterpret_cast<volatile DATACH_3*>(0x40C20030); }
 };
 // PDM Output Result Register
 union DATACH_4 {
@@ -554,7 +554,7 @@ union DATACH_4 {
 
   DATACH_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_4 &Instance() { return *reinterpret_cast<volatile DATACH_4*>(0x40C20034); }
+  static inline volatile DATACH_4 &ref() { return *reinterpret_cast<volatile DATACH_4*>(0x40C20034); }
 };
 // PDM Output Result Register
 union DATACH_5 {
@@ -570,7 +570,7 @@ union DATACH_5 {
 
   DATACH_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_5 &Instance() { return *reinterpret_cast<volatile DATACH_5*>(0x40C20038); }
+  static inline volatile DATACH_5 &ref() { return *reinterpret_cast<volatile DATACH_5*>(0x40C20038); }
 };
 // PDM Output Result Register
 union DATACH_6 {
@@ -586,7 +586,7 @@ union DATACH_6 {
 
   DATACH_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_6 &Instance() { return *reinterpret_cast<volatile DATACH_6*>(0x40C2003C); }
+  static inline volatile DATACH_6 &ref() { return *reinterpret_cast<volatile DATACH_6*>(0x40C2003C); }
 };
 // PDM Output Result Register
 union DATACH_7 {
@@ -602,7 +602,7 @@ union DATACH_7 {
 
   DATACH_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_7 &Instance() { return *reinterpret_cast<volatile DATACH_7*>(0x40C20040); }
+  static inline volatile DATACH_7 &ref() { return *reinterpret_cast<volatile DATACH_7*>(0x40C20040); }
 };
 
 // PDM DC Remover Control register
@@ -730,7 +730,7 @@ union DC_CTRL {
 
   DC_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DC_CTRL &Instance() { return *reinterpret_cast<volatile DC_CTRL*>(0x40C20064); }
+  static inline volatile DC_CTRL &ref() { return *reinterpret_cast<volatile DC_CTRL*>(0x40C20064); }
 };
 
 // PDM Range Control register
@@ -761,7 +761,7 @@ union RANGE_CTRL {
 
   RANGE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RANGE_CTRL &Instance() { return *reinterpret_cast<volatile RANGE_CTRL*>(0x40C20074); }
+  static inline volatile RANGE_CTRL &ref() { return *reinterpret_cast<volatile RANGE_CTRL*>(0x40C20074); }
 };
 
 // PDM Range Status register
@@ -938,7 +938,7 @@ union RANGE_STAT {
 
   RANGE_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RANGE_STAT &Instance() { return *reinterpret_cast<volatile RANGE_STAT*>(0x40C2007C); }
+  static inline volatile RANGE_STAT &ref() { return *reinterpret_cast<volatile RANGE_STAT*>(0x40C2007C); }
 };
 
 // Voice Activity Detector 0 Control register
@@ -1005,7 +1005,7 @@ union VAD0_CTRL_1 {
 
   VAD0_CTRL_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VAD0_CTRL_1 &Instance() { return *reinterpret_cast<volatile VAD0_CTRL_1*>(0x40C20090); }
+  static inline volatile VAD0_CTRL_1 &ref() { return *reinterpret_cast<volatile VAD0_CTRL_1*>(0x40C20090); }
 };
 
 // Voice Activity Detector 0 Control register
@@ -1072,7 +1072,7 @@ union VAD0_CTRL_2 {
 
   VAD0_CTRL_2() = delete;
   inline void Reset() volatile { this->value = 0x000A0000; }
-  static inline volatile VAD0_CTRL_2 &Instance() { return *reinterpret_cast<volatile VAD0_CTRL_2*>(0x40C20094); }
+  static inline volatile VAD0_CTRL_2 &ref() { return *reinterpret_cast<volatile VAD0_CTRL_2*>(0x40C20094); }
 };
 
 // Voice Activity Detector 0 Status register
@@ -1129,7 +1129,7 @@ union VAD0_STAT {
 
   VAD0_STAT() = delete;
   inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile VAD0_STAT &Instance() { return *reinterpret_cast<volatile VAD0_STAT*>(0x40C20098); }
+  static inline volatile VAD0_STAT &ref() { return *reinterpret_cast<volatile VAD0_STAT*>(0x40C20098); }
 };
 
 // Voice Activity Detector 0 Signal Configuration
@@ -1167,7 +1167,7 @@ union VAD0_SCONFIG {
 
   VAD0_SCONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VAD0_SCONFIG &Instance() { return *reinterpret_cast<volatile VAD0_SCONFIG*>(0x40C2009C); }
+  static inline volatile VAD0_SCONFIG &ref() { return *reinterpret_cast<volatile VAD0_SCONFIG*>(0x40C2009C); }
 };
 
 // Voice Activity Detector 0 Noise Configuration
@@ -1228,7 +1228,7 @@ union VAD0_NCONFIG {
 
   VAD0_NCONFIG() = delete;
   inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile VAD0_NCONFIG &Instance() { return *reinterpret_cast<volatile VAD0_NCONFIG*>(0x40C200A0); }
+  static inline volatile VAD0_NCONFIG &ref() { return *reinterpret_cast<volatile VAD0_NCONFIG*>(0x40C200A0); }
 };
 
 // Voice Activity Detector 0 Noise Data
@@ -1246,7 +1246,7 @@ union VAD0_NDATA {
 
   VAD0_NDATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VAD0_NDATA &Instance() { return *reinterpret_cast<volatile VAD0_NDATA*>(0x40C200A4); }
+  static inline volatile VAD0_NDATA &ref() { return *reinterpret_cast<volatile VAD0_NDATA*>(0x40C200A4); }
 };
 
 // Voice Activity Detector 0 Zero-Crossing Detector
@@ -1300,7 +1300,7 @@ union VAD0_ZCD {
 
   VAD0_ZCD() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile VAD0_ZCD &Instance() { return *reinterpret_cast<volatile VAD0_ZCD*>(0x40C200A8); }
+  static inline volatile VAD0_ZCD &ref() { return *reinterpret_cast<volatile VAD0_ZCD*>(0x40C200A8); }
 };
 
 

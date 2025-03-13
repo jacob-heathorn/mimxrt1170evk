@@ -25,7 +25,7 @@ union COMP10 {
 
   COMP10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile COMP10 &Instance() { return *reinterpret_cast<volatile COMP10*>(0x4015C000); }
+  static inline volatile COMP10 &ref() { return *reinterpret_cast<volatile COMP10*>(0x4015C000); }
 };
 
 // Timer Channel Compare Register 2
@@ -43,7 +43,7 @@ union COMP20 {
 
   COMP20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile COMP20 &Instance() { return *reinterpret_cast<volatile COMP20*>(0x4015C002); }
+  static inline volatile COMP20 &ref() { return *reinterpret_cast<volatile COMP20*>(0x4015C002); }
 };
 
 // Timer Channel Capture Register
@@ -61,7 +61,7 @@ union CAPT0 {
 
   CAPT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CAPT0 &Instance() { return *reinterpret_cast<volatile CAPT0*>(0x4015C004); }
+  static inline volatile CAPT0 &ref() { return *reinterpret_cast<volatile CAPT0*>(0x4015C004); }
 };
 
 // Timer Channel Load Register
@@ -79,7 +79,7 @@ union LOAD0 {
 
   LOAD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LOAD0 &Instance() { return *reinterpret_cast<volatile LOAD0*>(0x4015C006); }
+  static inline volatile LOAD0 &ref() { return *reinterpret_cast<volatile LOAD0*>(0x4015C006); }
 };
 
 // Timer Channel Hold Register
@@ -97,7 +97,7 @@ union HOLD0 {
 
   HOLD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HOLD0 &Instance() { return *reinterpret_cast<volatile HOLD0*>(0x4015C008); }
+  static inline volatile HOLD0 &ref() { return *reinterpret_cast<volatile HOLD0*>(0x4015C008); }
 };
 
 // Timer Channel Counter Register
@@ -115,7 +115,7 @@ union CNTR0 {
 
   CNTR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CNTR0 &Instance() { return *reinterpret_cast<volatile CNTR0*>(0x4015C00A); }
+  static inline volatile CNTR0 &ref() { return *reinterpret_cast<volatile CNTR0*>(0x4015C00A); }
 };
 
 // Timer Channel Control Register
@@ -267,7 +267,7 @@ union CTRL0 {
 
   CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0 &Instance() { return *reinterpret_cast<volatile CTRL0*>(0x4015C00C); }
+  static inline volatile CTRL0 &ref() { return *reinterpret_cast<volatile CTRL0*>(0x4015C00C); }
 };
 
 // Timer Channel Status and Control Register
@@ -341,7 +341,7 @@ union SCTRL0 {
 
   SCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCTRL0 &Instance() { return *reinterpret_cast<volatile SCTRL0*>(0x4015C00E); }
+  static inline volatile SCTRL0 &ref() { return *reinterpret_cast<volatile SCTRL0*>(0x4015C00E); }
 };
 
 // Timer Channel Comparator Load Register 1
@@ -359,7 +359,7 @@ union CMPLD10 {
 
   CMPLD10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMPLD10 &Instance() { return *reinterpret_cast<volatile CMPLD10*>(0x4015C010); }
+  static inline volatile CMPLD10 &ref() { return *reinterpret_cast<volatile CMPLD10*>(0x4015C010); }
 };
 
 // Timer Channel Comparator Load Register 2
@@ -377,7 +377,7 @@ union CMPLD20 {
 
   CMPLD20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMPLD20 &Instance() { return *reinterpret_cast<volatile CMPLD20*>(0x4015C012); }
+  static inline volatile CMPLD20 &ref() { return *reinterpret_cast<volatile CMPLD20*>(0x4015C012); }
 };
 
 // Timer Channel Comparator Status and Control Register
@@ -491,7 +491,7 @@ union CSCTRL0 {
 
   CSCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSCTRL0 &Instance() { return *reinterpret_cast<volatile CSCTRL0*>(0x4015C014); }
+  static inline volatile CSCTRL0 &ref() { return *reinterpret_cast<volatile CSCTRL0*>(0x4015C014); }
 };
 
 // Timer Channel Input Filter Register
@@ -511,7 +511,7 @@ union FILT0 {
 
   FILT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FILT0 &Instance() { return *reinterpret_cast<volatile FILT0*>(0x4015C016); }
+  static inline volatile FILT0 &ref() { return *reinterpret_cast<volatile FILT0*>(0x4015C016); }
 };
 
 // Timer Channel DMA Enable Register
@@ -533,7 +533,7 @@ union DMA0 {
 
   DMA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA0 &Instance() { return *reinterpret_cast<volatile DMA0*>(0x4015C018); }
+  static inline volatile DMA0 &ref() { return *reinterpret_cast<volatile DMA0*>(0x4015C018); }
 };
 
 // Timer Channel Enable Register
@@ -559,7 +559,7 @@ union ENBL {
 
   ENBL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile ENBL &Instance() { return *reinterpret_cast<volatile ENBL*>(0x4015C01E); }
+  static inline volatile ENBL &ref() { return *reinterpret_cast<volatile ENBL*>(0x4015C01E); }
 };
 
 // Timer Channel Compare Register 1
@@ -577,7 +577,7 @@ union COMP11 {
 
   COMP11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile COMP11 &Instance() { return *reinterpret_cast<volatile COMP11*>(0x4015C020); }
+  static inline volatile COMP11 &ref() { return *reinterpret_cast<volatile COMP11*>(0x4015C020); }
 };
 
 // Timer Channel Compare Register 2
@@ -595,7 +595,7 @@ union COMP21 {
 
   COMP21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile COMP21 &Instance() { return *reinterpret_cast<volatile COMP21*>(0x4015C022); }
+  static inline volatile COMP21 &ref() { return *reinterpret_cast<volatile COMP21*>(0x4015C022); }
 };
 
 // Timer Channel Capture Register
@@ -613,7 +613,7 @@ union CAPT1 {
 
   CAPT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CAPT1 &Instance() { return *reinterpret_cast<volatile CAPT1*>(0x4015C024); }
+  static inline volatile CAPT1 &ref() { return *reinterpret_cast<volatile CAPT1*>(0x4015C024); }
 };
 
 // Timer Channel Load Register
@@ -631,7 +631,7 @@ union LOAD1 {
 
   LOAD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LOAD1 &Instance() { return *reinterpret_cast<volatile LOAD1*>(0x4015C026); }
+  static inline volatile LOAD1 &ref() { return *reinterpret_cast<volatile LOAD1*>(0x4015C026); }
 };
 
 // Timer Channel Hold Register
@@ -649,7 +649,7 @@ union HOLD1 {
 
   HOLD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HOLD1 &Instance() { return *reinterpret_cast<volatile HOLD1*>(0x4015C028); }
+  static inline volatile HOLD1 &ref() { return *reinterpret_cast<volatile HOLD1*>(0x4015C028); }
 };
 
 // Timer Channel Counter Register
@@ -667,7 +667,7 @@ union CNTR1 {
 
   CNTR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CNTR1 &Instance() { return *reinterpret_cast<volatile CNTR1*>(0x4015C02A); }
+  static inline volatile CNTR1 &ref() { return *reinterpret_cast<volatile CNTR1*>(0x4015C02A); }
 };
 
 // Timer Channel Control Register
@@ -819,7 +819,7 @@ union CTRL1 {
 
   CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL1 &Instance() { return *reinterpret_cast<volatile CTRL1*>(0x4015C02C); }
+  static inline volatile CTRL1 &ref() { return *reinterpret_cast<volatile CTRL1*>(0x4015C02C); }
 };
 
 // Timer Channel Status and Control Register
@@ -893,7 +893,7 @@ union SCTRL1 {
 
   SCTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCTRL1 &Instance() { return *reinterpret_cast<volatile SCTRL1*>(0x4015C02E); }
+  static inline volatile SCTRL1 &ref() { return *reinterpret_cast<volatile SCTRL1*>(0x4015C02E); }
 };
 
 // Timer Channel Comparator Load Register 1
@@ -911,7 +911,7 @@ union CMPLD11 {
 
   CMPLD11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMPLD11 &Instance() { return *reinterpret_cast<volatile CMPLD11*>(0x4015C030); }
+  static inline volatile CMPLD11 &ref() { return *reinterpret_cast<volatile CMPLD11*>(0x4015C030); }
 };
 
 // Timer Channel Comparator Load Register 2
@@ -929,7 +929,7 @@ union CMPLD21 {
 
   CMPLD21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMPLD21 &Instance() { return *reinterpret_cast<volatile CMPLD21*>(0x4015C032); }
+  static inline volatile CMPLD21 &ref() { return *reinterpret_cast<volatile CMPLD21*>(0x4015C032); }
 };
 
 // Timer Channel Comparator Status and Control Register
@@ -1043,7 +1043,7 @@ union CSCTRL1 {
 
   CSCTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSCTRL1 &Instance() { return *reinterpret_cast<volatile CSCTRL1*>(0x4015C034); }
+  static inline volatile CSCTRL1 &ref() { return *reinterpret_cast<volatile CSCTRL1*>(0x4015C034); }
 };
 
 // Timer Channel Input Filter Register
@@ -1063,7 +1063,7 @@ union FILT1 {
 
   FILT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FILT1 &Instance() { return *reinterpret_cast<volatile FILT1*>(0x4015C036); }
+  static inline volatile FILT1 &ref() { return *reinterpret_cast<volatile FILT1*>(0x4015C036); }
 };
 
 // Timer Channel DMA Enable Register
@@ -1085,7 +1085,7 @@ union DMA1 {
 
   DMA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA1 &Instance() { return *reinterpret_cast<volatile DMA1*>(0x4015C038); }
+  static inline volatile DMA1 &ref() { return *reinterpret_cast<volatile DMA1*>(0x4015C038); }
 };
 
 // Timer Channel Compare Register 1
@@ -1103,7 +1103,7 @@ union COMP12 {
 
   COMP12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile COMP12 &Instance() { return *reinterpret_cast<volatile COMP12*>(0x4015C040); }
+  static inline volatile COMP12 &ref() { return *reinterpret_cast<volatile COMP12*>(0x4015C040); }
 };
 
 // Timer Channel Compare Register 2
@@ -1121,7 +1121,7 @@ union COMP22 {
 
   COMP22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile COMP22 &Instance() { return *reinterpret_cast<volatile COMP22*>(0x4015C042); }
+  static inline volatile COMP22 &ref() { return *reinterpret_cast<volatile COMP22*>(0x4015C042); }
 };
 
 // Timer Channel Capture Register
@@ -1139,7 +1139,7 @@ union CAPT2 {
 
   CAPT2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CAPT2 &Instance() { return *reinterpret_cast<volatile CAPT2*>(0x4015C044); }
+  static inline volatile CAPT2 &ref() { return *reinterpret_cast<volatile CAPT2*>(0x4015C044); }
 };
 
 // Timer Channel Load Register
@@ -1157,7 +1157,7 @@ union LOAD2 {
 
   LOAD2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LOAD2 &Instance() { return *reinterpret_cast<volatile LOAD2*>(0x4015C046); }
+  static inline volatile LOAD2 &ref() { return *reinterpret_cast<volatile LOAD2*>(0x4015C046); }
 };
 
 // Timer Channel Hold Register
@@ -1175,7 +1175,7 @@ union HOLD2 {
 
   HOLD2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HOLD2 &Instance() { return *reinterpret_cast<volatile HOLD2*>(0x4015C048); }
+  static inline volatile HOLD2 &ref() { return *reinterpret_cast<volatile HOLD2*>(0x4015C048); }
 };
 
 // Timer Channel Counter Register
@@ -1193,7 +1193,7 @@ union CNTR2 {
 
   CNTR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CNTR2 &Instance() { return *reinterpret_cast<volatile CNTR2*>(0x4015C04A); }
+  static inline volatile CNTR2 &ref() { return *reinterpret_cast<volatile CNTR2*>(0x4015C04A); }
 };
 
 // Timer Channel Control Register
@@ -1345,7 +1345,7 @@ union CTRL2 {
 
   CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL2 &Instance() { return *reinterpret_cast<volatile CTRL2*>(0x4015C04C); }
+  static inline volatile CTRL2 &ref() { return *reinterpret_cast<volatile CTRL2*>(0x4015C04C); }
 };
 
 // Timer Channel Status and Control Register
@@ -1419,7 +1419,7 @@ union SCTRL2 {
 
   SCTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCTRL2 &Instance() { return *reinterpret_cast<volatile SCTRL2*>(0x4015C04E); }
+  static inline volatile SCTRL2 &ref() { return *reinterpret_cast<volatile SCTRL2*>(0x4015C04E); }
 };
 
 // Timer Channel Comparator Load Register 1
@@ -1437,7 +1437,7 @@ union CMPLD12 {
 
   CMPLD12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMPLD12 &Instance() { return *reinterpret_cast<volatile CMPLD12*>(0x4015C050); }
+  static inline volatile CMPLD12 &ref() { return *reinterpret_cast<volatile CMPLD12*>(0x4015C050); }
 };
 
 // Timer Channel Comparator Load Register 2
@@ -1455,7 +1455,7 @@ union CMPLD22 {
 
   CMPLD22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMPLD22 &Instance() { return *reinterpret_cast<volatile CMPLD22*>(0x4015C052); }
+  static inline volatile CMPLD22 &ref() { return *reinterpret_cast<volatile CMPLD22*>(0x4015C052); }
 };
 
 // Timer Channel Comparator Status and Control Register
@@ -1569,7 +1569,7 @@ union CSCTRL2 {
 
   CSCTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSCTRL2 &Instance() { return *reinterpret_cast<volatile CSCTRL2*>(0x4015C054); }
+  static inline volatile CSCTRL2 &ref() { return *reinterpret_cast<volatile CSCTRL2*>(0x4015C054); }
 };
 
 // Timer Channel Input Filter Register
@@ -1589,7 +1589,7 @@ union FILT2 {
 
   FILT2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FILT2 &Instance() { return *reinterpret_cast<volatile FILT2*>(0x4015C056); }
+  static inline volatile FILT2 &ref() { return *reinterpret_cast<volatile FILT2*>(0x4015C056); }
 };
 
 // Timer Channel DMA Enable Register
@@ -1611,7 +1611,7 @@ union DMA2 {
 
   DMA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA2 &Instance() { return *reinterpret_cast<volatile DMA2*>(0x4015C058); }
+  static inline volatile DMA2 &ref() { return *reinterpret_cast<volatile DMA2*>(0x4015C058); }
 };
 
 // Timer Channel Compare Register 1
@@ -1629,7 +1629,7 @@ union COMP13 {
 
   COMP13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile COMP13 &Instance() { return *reinterpret_cast<volatile COMP13*>(0x4015C060); }
+  static inline volatile COMP13 &ref() { return *reinterpret_cast<volatile COMP13*>(0x4015C060); }
 };
 
 // Timer Channel Compare Register 2
@@ -1647,7 +1647,7 @@ union COMP23 {
 
   COMP23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile COMP23 &Instance() { return *reinterpret_cast<volatile COMP23*>(0x4015C062); }
+  static inline volatile COMP23 &ref() { return *reinterpret_cast<volatile COMP23*>(0x4015C062); }
 };
 
 // Timer Channel Capture Register
@@ -1665,7 +1665,7 @@ union CAPT3 {
 
   CAPT3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CAPT3 &Instance() { return *reinterpret_cast<volatile CAPT3*>(0x4015C064); }
+  static inline volatile CAPT3 &ref() { return *reinterpret_cast<volatile CAPT3*>(0x4015C064); }
 };
 
 // Timer Channel Load Register
@@ -1683,7 +1683,7 @@ union LOAD3 {
 
   LOAD3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LOAD3 &Instance() { return *reinterpret_cast<volatile LOAD3*>(0x4015C066); }
+  static inline volatile LOAD3 &ref() { return *reinterpret_cast<volatile LOAD3*>(0x4015C066); }
 };
 
 // Timer Channel Hold Register
@@ -1701,7 +1701,7 @@ union HOLD3 {
 
   HOLD3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HOLD3 &Instance() { return *reinterpret_cast<volatile HOLD3*>(0x4015C068); }
+  static inline volatile HOLD3 &ref() { return *reinterpret_cast<volatile HOLD3*>(0x4015C068); }
 };
 
 // Timer Channel Counter Register
@@ -1719,7 +1719,7 @@ union CNTR3 {
 
   CNTR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CNTR3 &Instance() { return *reinterpret_cast<volatile CNTR3*>(0x4015C06A); }
+  static inline volatile CNTR3 &ref() { return *reinterpret_cast<volatile CNTR3*>(0x4015C06A); }
 };
 
 // Timer Channel Control Register
@@ -1871,7 +1871,7 @@ union CTRL3 {
 
   CTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL3 &Instance() { return *reinterpret_cast<volatile CTRL3*>(0x4015C06C); }
+  static inline volatile CTRL3 &ref() { return *reinterpret_cast<volatile CTRL3*>(0x4015C06C); }
 };
 
 // Timer Channel Status and Control Register
@@ -1945,7 +1945,7 @@ union SCTRL3 {
 
   SCTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCTRL3 &Instance() { return *reinterpret_cast<volatile SCTRL3*>(0x4015C06E); }
+  static inline volatile SCTRL3 &ref() { return *reinterpret_cast<volatile SCTRL3*>(0x4015C06E); }
 };
 
 // Timer Channel Comparator Load Register 1
@@ -1963,7 +1963,7 @@ union CMPLD13 {
 
   CMPLD13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMPLD13 &Instance() { return *reinterpret_cast<volatile CMPLD13*>(0x4015C070); }
+  static inline volatile CMPLD13 &ref() { return *reinterpret_cast<volatile CMPLD13*>(0x4015C070); }
 };
 
 // Timer Channel Comparator Load Register 2
@@ -1981,7 +1981,7 @@ union CMPLD23 {
 
   CMPLD23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMPLD23 &Instance() { return *reinterpret_cast<volatile CMPLD23*>(0x4015C072); }
+  static inline volatile CMPLD23 &ref() { return *reinterpret_cast<volatile CMPLD23*>(0x4015C072); }
 };
 
 // Timer Channel Comparator Status and Control Register
@@ -2095,7 +2095,7 @@ union CSCTRL3 {
 
   CSCTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CSCTRL3 &Instance() { return *reinterpret_cast<volatile CSCTRL3*>(0x4015C074); }
+  static inline volatile CSCTRL3 &ref() { return *reinterpret_cast<volatile CSCTRL3*>(0x4015C074); }
 };
 
 // Timer Channel Input Filter Register
@@ -2115,7 +2115,7 @@ union FILT3 {
 
   FILT3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FILT3 &Instance() { return *reinterpret_cast<volatile FILT3*>(0x4015C076); }
+  static inline volatile FILT3 &ref() { return *reinterpret_cast<volatile FILT3*>(0x4015C076); }
 };
 
 // Timer Channel DMA Enable Register
@@ -2137,7 +2137,7 @@ union DMA3 {
 
   DMA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DMA3 &Instance() { return *reinterpret_cast<volatile DMA3*>(0x4015C078); }
+  static inline volatile DMA3 &ref() { return *reinterpret_cast<volatile DMA3*>(0x4015C078); }
 };
 
 

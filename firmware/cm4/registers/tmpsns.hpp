@@ -37,7 +37,7 @@ union CTRL0 {
 
   CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00008020; }
-  static inline volatile CTRL0 &Instance() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
+  static inline volatile CTRL0 &ref() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
 };
 
 // Temperature Sensor Control Register 0
@@ -61,7 +61,7 @@ union CTRL0_SET {
 
   CTRL0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00008020; }
-  static inline volatile CTRL0_SET &Instance() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
+  static inline volatile CTRL0_SET &ref() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
 };
 
 // Temperature Sensor Control Register 0
@@ -85,7 +85,7 @@ union CTRL0_CLR {
 
   CTRL0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00008020; }
-  static inline volatile CTRL0_CLR &Instance() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
+  static inline volatile CTRL0_CLR &ref() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
 };
 
 // Temperature Sensor Control Register 0
@@ -109,7 +109,7 @@ union CTRL0_TOG {
 
   CTRL0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00008020; }
-  static inline volatile CTRL0_TOG &Instance() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
+  static inline volatile CTRL0_TOG &ref() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
 };
 
 // Temperature Sensor Control Register 1
@@ -223,7 +223,7 @@ union CTRL1 {
 
   CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00800000; }
-  static inline volatile CTRL1 &Instance() { return *reinterpret_cast<volatile CTRL1*>(0x00000010); }
+  static inline volatile CTRL1 &ref() { return *reinterpret_cast<volatile CTRL1*>(0x00000010); }
 };
 
 // Temperature Sensor Control Register 1
@@ -257,7 +257,7 @@ union CTRL1_SET {
 
   CTRL1_SET() = delete;
   inline void Reset() volatile { this->value = 0x00800000; }
-  static inline volatile CTRL1_SET &Instance() { return *reinterpret_cast<volatile CTRL1_SET*>(0x00000014); }
+  static inline volatile CTRL1_SET &ref() { return *reinterpret_cast<volatile CTRL1_SET*>(0x00000014); }
 };
 
 // Temperature Sensor Control Register 1
@@ -291,7 +291,7 @@ union CTRL1_CLR {
 
   CTRL1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00800000; }
-  static inline volatile CTRL1_CLR &Instance() { return *reinterpret_cast<volatile CTRL1_CLR*>(0x00000018); }
+  static inline volatile CTRL1_CLR &ref() { return *reinterpret_cast<volatile CTRL1_CLR*>(0x00000018); }
 };
 
 // Temperature Sensor Control Register 1
@@ -325,7 +325,7 @@ union CTRL1_TOG {
 
   CTRL1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00800000; }
-  static inline volatile CTRL1_TOG &Instance() { return *reinterpret_cast<volatile CTRL1_TOG*>(0x0000001C); }
+  static inline volatile CTRL1_TOG &ref() { return *reinterpret_cast<volatile CTRL1_TOG*>(0x0000001C); }
 };
 
 // Temperature Sensor Range Register 0
@@ -346,7 +346,7 @@ union RANGE0 {
 
   RANGE0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RANGE0 &Instance() { return *reinterpret_cast<volatile RANGE0*>(0x00000020); }
+  static inline volatile RANGE0 &ref() { return *reinterpret_cast<volatile RANGE0*>(0x00000020); }
 };
 
 // Temperature Sensor Range Register 0
@@ -367,7 +367,7 @@ union RANGE0_SET {
 
   RANGE0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RANGE0_SET &Instance() { return *reinterpret_cast<volatile RANGE0_SET*>(0x00000024); }
+  static inline volatile RANGE0_SET &ref() { return *reinterpret_cast<volatile RANGE0_SET*>(0x00000024); }
 };
 
 // Temperature Sensor Range Register 0
@@ -388,7 +388,7 @@ union RANGE0_CLR {
 
   RANGE0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RANGE0_CLR &Instance() { return *reinterpret_cast<volatile RANGE0_CLR*>(0x00000028); }
+  static inline volatile RANGE0_CLR &ref() { return *reinterpret_cast<volatile RANGE0_CLR*>(0x00000028); }
 };
 
 // Temperature Sensor Range Register 0
@@ -409,7 +409,7 @@ union RANGE0_TOG {
 
   RANGE0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RANGE0_TOG &Instance() { return *reinterpret_cast<volatile RANGE0_TOG*>(0x0000002C); }
+  static inline volatile RANGE0_TOG &ref() { return *reinterpret_cast<volatile RANGE0_TOG*>(0x0000002C); }
 };
 
 // Temperature Sensor Range Register 1
@@ -427,7 +427,7 @@ union RANGE1 {
 
   RANGE1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RANGE1 &Instance() { return *reinterpret_cast<volatile RANGE1*>(0x00000030); }
+  static inline volatile RANGE1 &ref() { return *reinterpret_cast<volatile RANGE1*>(0x00000030); }
 };
 
 // Temperature Sensor Range Register 1
@@ -445,7 +445,7 @@ union RANGE1_SET {
 
   RANGE1_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RANGE1_SET &Instance() { return *reinterpret_cast<volatile RANGE1_SET*>(0x00000034); }
+  static inline volatile RANGE1_SET &ref() { return *reinterpret_cast<volatile RANGE1_SET*>(0x00000034); }
 };
 
 // Temperature Sensor Range Register 1
@@ -463,7 +463,7 @@ union RANGE1_CLR {
 
   RANGE1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RANGE1_CLR &Instance() { return *reinterpret_cast<volatile RANGE1_CLR*>(0x00000038); }
+  static inline volatile RANGE1_CLR &ref() { return *reinterpret_cast<volatile RANGE1_CLR*>(0x00000038); }
 };
 
 // Temperature Sensor Range Register 1
@@ -481,7 +481,7 @@ union RANGE1_TOG {
 
   RANGE1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RANGE1_TOG &Instance() { return *reinterpret_cast<volatile RANGE1_TOG*>(0x0000003C); }
+  static inline volatile RANGE1_TOG &ref() { return *reinterpret_cast<volatile RANGE1_TOG*>(0x0000003C); }
 };
 
 // Temperature Sensor Status Register 0
@@ -540,7 +540,7 @@ union STATUS0 {
 
   STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STATUS0 &Instance() { return *reinterpret_cast<volatile STATUS0*>(0x00000050); }
+  static inline volatile STATUS0 &ref() { return *reinterpret_cast<volatile STATUS0*>(0x00000050); }
 };
 
 

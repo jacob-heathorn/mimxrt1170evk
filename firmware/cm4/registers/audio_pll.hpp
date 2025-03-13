@@ -122,7 +122,7 @@ union CTRL0 {
 
   CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0 &Instance() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
+  static inline volatile CTRL0 &ref() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
 };
 
 // Fractional PLL Control Register
@@ -165,7 +165,7 @@ union CTRL0_SET {
 
   CTRL0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_SET &Instance() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
+  static inline volatile CTRL0_SET &ref() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
 };
 
 // Fractional PLL Control Register
@@ -208,7 +208,7 @@ union CTRL0_CLR {
 
   CTRL0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_CLR &Instance() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
+  static inline volatile CTRL0_CLR &ref() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
 };
 
 // Fractional PLL Control Register
@@ -251,7 +251,7 @@ union CTRL0_TOG {
 
   CTRL0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_TOG &Instance() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
+  static inline volatile CTRL0_TOG &ref() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
 };
 
 // Fractional PLL Spread Spectrum Control Register
@@ -272,7 +272,7 @@ union SPREAD_SPECTRUM {
 
   SPREAD_SPECTRUM() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SPREAD_SPECTRUM &Instance() { return *reinterpret_cast<volatile SPREAD_SPECTRUM*>(0x00000010); }
+  static inline volatile SPREAD_SPECTRUM &ref() { return *reinterpret_cast<volatile SPREAD_SPECTRUM*>(0x00000010); }
 };
 
 // Fractional PLL Spread Spectrum Control Register
@@ -293,7 +293,7 @@ union SPREAD_SPECTRUM_SET {
 
   SPREAD_SPECTRUM_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SPREAD_SPECTRUM_SET &Instance() { return *reinterpret_cast<volatile SPREAD_SPECTRUM_SET*>(0x00000014); }
+  static inline volatile SPREAD_SPECTRUM_SET &ref() { return *reinterpret_cast<volatile SPREAD_SPECTRUM_SET*>(0x00000014); }
 };
 
 // Fractional PLL Spread Spectrum Control Register
@@ -314,7 +314,7 @@ union SPREAD_SPECTRUM_CLR {
 
   SPREAD_SPECTRUM_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SPREAD_SPECTRUM_CLR &Instance() { return *reinterpret_cast<volatile SPREAD_SPECTRUM_CLR*>(0x00000018); }
+  static inline volatile SPREAD_SPECTRUM_CLR &ref() { return *reinterpret_cast<volatile SPREAD_SPECTRUM_CLR*>(0x00000018); }
 };
 
 // Fractional PLL Spread Spectrum Control Register
@@ -335,7 +335,7 @@ union SPREAD_SPECTRUM_TOG {
 
   SPREAD_SPECTRUM_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SPREAD_SPECTRUM_TOG &Instance() { return *reinterpret_cast<volatile SPREAD_SPECTRUM_TOG*>(0x0000001C); }
+  static inline volatile SPREAD_SPECTRUM_TOG &ref() { return *reinterpret_cast<volatile SPREAD_SPECTRUM_TOG*>(0x0000001C); }
 };
 
 // Fractional PLL Numerator Control Register
@@ -353,7 +353,7 @@ union NUMERATOR {
 
   NUMERATOR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NUMERATOR &Instance() { return *reinterpret_cast<volatile NUMERATOR*>(0x00000020); }
+  static inline volatile NUMERATOR &ref() { return *reinterpret_cast<volatile NUMERATOR*>(0x00000020); }
 };
 
 // Fractional PLL Numerator Control Register
@@ -371,7 +371,7 @@ union NUMERATOR_SET {
 
   NUMERATOR_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NUMERATOR_SET &Instance() { return *reinterpret_cast<volatile NUMERATOR_SET*>(0x00000024); }
+  static inline volatile NUMERATOR_SET &ref() { return *reinterpret_cast<volatile NUMERATOR_SET*>(0x00000024); }
 };
 
 // Fractional PLL Numerator Control Register
@@ -389,7 +389,7 @@ union NUMERATOR_CLR {
 
   NUMERATOR_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NUMERATOR_CLR &Instance() { return *reinterpret_cast<volatile NUMERATOR_CLR*>(0x00000028); }
+  static inline volatile NUMERATOR_CLR &ref() { return *reinterpret_cast<volatile NUMERATOR_CLR*>(0x00000028); }
 };
 
 // Fractional PLL Numerator Control Register
@@ -407,7 +407,7 @@ union NUMERATOR_TOG {
 
   NUMERATOR_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NUMERATOR_TOG &Instance() { return *reinterpret_cast<volatile NUMERATOR_TOG*>(0x0000002C); }
+  static inline volatile NUMERATOR_TOG &ref() { return *reinterpret_cast<volatile NUMERATOR_TOG*>(0x0000002C); }
 };
 
 // Fractional PLL Denominator Control Register
@@ -425,7 +425,7 @@ union DENOMINATOR {
 
   DENOMINATOR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DENOMINATOR &Instance() { return *reinterpret_cast<volatile DENOMINATOR*>(0x00000030); }
+  static inline volatile DENOMINATOR &ref() { return *reinterpret_cast<volatile DENOMINATOR*>(0x00000030); }
 };
 
 // Fractional PLL Denominator Control Register
@@ -443,7 +443,7 @@ union DENOMINATOR_SET {
 
   DENOMINATOR_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DENOMINATOR_SET &Instance() { return *reinterpret_cast<volatile DENOMINATOR_SET*>(0x00000034); }
+  static inline volatile DENOMINATOR_SET &ref() { return *reinterpret_cast<volatile DENOMINATOR_SET*>(0x00000034); }
 };
 
 // Fractional PLL Denominator Control Register
@@ -461,7 +461,7 @@ union DENOMINATOR_CLR {
 
   DENOMINATOR_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DENOMINATOR_CLR &Instance() { return *reinterpret_cast<volatile DENOMINATOR_CLR*>(0x00000038); }
+  static inline volatile DENOMINATOR_CLR &ref() { return *reinterpret_cast<volatile DENOMINATOR_CLR*>(0x00000038); }
 };
 
 // Fractional PLL Denominator Control Register
@@ -479,7 +479,7 @@ union DENOMINATOR_TOG {
 
   DENOMINATOR_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DENOMINATOR_TOG &Instance() { return *reinterpret_cast<volatile DENOMINATOR_TOG*>(0x0000003C); }
+  static inline volatile DENOMINATOR_TOG &ref() { return *reinterpret_cast<volatile DENOMINATOR_TOG*>(0x0000003C); }
 };
 
 

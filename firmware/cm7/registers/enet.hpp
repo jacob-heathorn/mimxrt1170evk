@@ -56,7 +56,7 @@ union EIR {
 
   EIR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile EIR &Instance() { return *reinterpret_cast<volatile EIR*>(0x40424004); }
+  static inline volatile EIR &ref() { return *reinterpret_cast<volatile EIR*>(0x40424004); }
 };
 
 // Interrupt Mask Register
@@ -233,7 +233,7 @@ union EIMR {
 
   EIMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile EIMR &Instance() { return *reinterpret_cast<volatile EIMR*>(0x40424008); }
+  static inline volatile EIMR &ref() { return *reinterpret_cast<volatile EIMR*>(0x40424008); }
 };
 
 // Receive Descriptor Active Register - Ring 0
@@ -252,7 +252,7 @@ union RDAR {
 
   RDAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDAR &Instance() { return *reinterpret_cast<volatile RDAR*>(0x40424010); }
+  static inline volatile RDAR &ref() { return *reinterpret_cast<volatile RDAR*>(0x40424010); }
 };
 
 // Transmit Descriptor Active Register - Ring 0
@@ -271,7 +271,7 @@ union TDAR {
 
   TDAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDAR &Instance() { return *reinterpret_cast<volatile TDAR*>(0x40424014); }
+  static inline volatile TDAR &ref() { return *reinterpret_cast<volatile TDAR*>(0x40424014); }
 };
 
 // Ethernet Control Register
@@ -351,7 +351,7 @@ union ECR {
 
   ECR() = delete;
   inline void Reset() volatile { this->value = 0x70000000; }
-  static inline volatile ECR &Instance() { return *reinterpret_cast<volatile ECR*>(0x40424024); }
+  static inline volatile ECR &ref() { return *reinterpret_cast<volatile ECR*>(0x40424024); }
 };
 
 // MII Management Frame Register
@@ -378,7 +378,7 @@ union MMFR {
 
   MMFR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MMFR &Instance() { return *reinterpret_cast<volatile MMFR*>(0x40424040); }
+  static inline volatile MMFR &ref() { return *reinterpret_cast<volatile MMFR*>(0x40424040); }
 };
 
 // MII Speed Control Register
@@ -421,7 +421,7 @@ union MSCR {
 
   MSCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MSCR &Instance() { return *reinterpret_cast<volatile MSCR*>(0x40424044); }
+  static inline volatile MSCR &ref() { return *reinterpret_cast<volatile MSCR*>(0x40424044); }
 };
 
 // MIB Control Register
@@ -467,7 +467,7 @@ union MIBC {
 
   MIBC() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile MIBC &Instance() { return *reinterpret_cast<volatile MIBC*>(0x40424064); }
+  static inline volatile MIBC &ref() { return *reinterpret_cast<volatile MIBC*>(0x40424064); }
 };
 
 // Receive Control Register
@@ -624,7 +624,7 @@ union RCR {
 
   RCR() = delete;
   inline void Reset() volatile { this->value = 0x05EE0001; }
-  static inline volatile RCR &Instance() { return *reinterpret_cast<volatile RCR*>(0x40424084); }
+  static inline volatile RCR &ref() { return *reinterpret_cast<volatile RCR*>(0x40424084); }
 };
 
 // Transmit Control Register
@@ -701,7 +701,7 @@ union TCR {
 
   TCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCR &Instance() { return *reinterpret_cast<volatile TCR*>(0x404240C4); }
+  static inline volatile TCR &ref() { return *reinterpret_cast<volatile TCR*>(0x404240C4); }
 };
 
 // Physical Address Lower Register
@@ -718,7 +718,7 @@ union PALR {
 
   PALR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PALR &Instance() { return *reinterpret_cast<volatile PALR*>(0x404240E4); }
+  static inline volatile PALR &ref() { return *reinterpret_cast<volatile PALR*>(0x404240E4); }
 };
 
 // Physical Address Upper Register
@@ -737,7 +737,7 @@ union PAUR {
 
   PAUR() = delete;
   inline void Reset() volatile { this->value = 0x00008808; }
-  static inline volatile PAUR &Instance() { return *reinterpret_cast<volatile PAUR*>(0x404240E8); }
+  static inline volatile PAUR &ref() { return *reinterpret_cast<volatile PAUR*>(0x404240E8); }
 };
 
 // Opcode/Pause Duration Register
@@ -756,7 +756,7 @@ union OPD {
 
   OPD() = delete;
   inline void Reset() volatile { this->value = 0x00010000; }
-  static inline volatile OPD &Instance() { return *reinterpret_cast<volatile OPD*>(0x404240EC); }
+  static inline volatile OPD &ref() { return *reinterpret_cast<volatile OPD*>(0x404240EC); }
 };
 
 // Transmit Interrupt Coalescing Register
@@ -797,7 +797,7 @@ union TXIC_0 {
 
   TXIC_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TXIC_0 &Instance() { return *reinterpret_cast<volatile TXIC_0*>(0x404240F0); }
+  static inline volatile TXIC_0 &ref() { return *reinterpret_cast<volatile TXIC_0*>(0x404240F0); }
 };
 // Transmit Interrupt Coalescing Register
 union TXIC_1 {
@@ -837,7 +837,7 @@ union TXIC_1 {
 
   TXIC_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TXIC_1 &Instance() { return *reinterpret_cast<volatile TXIC_1*>(0x404240F4); }
+  static inline volatile TXIC_1 &ref() { return *reinterpret_cast<volatile TXIC_1*>(0x404240F4); }
 };
 // Transmit Interrupt Coalescing Register
 union TXIC_2 {
@@ -877,7 +877,7 @@ union TXIC_2 {
 
   TXIC_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TXIC_2 &Instance() { return *reinterpret_cast<volatile TXIC_2*>(0x404240F8); }
+  static inline volatile TXIC_2 &ref() { return *reinterpret_cast<volatile TXIC_2*>(0x404240F8); }
 };
 
 // Receive Interrupt Coalescing Register
@@ -918,7 +918,7 @@ union RXIC_0 {
 
   RXIC_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIC_0 &Instance() { return *reinterpret_cast<volatile RXIC_0*>(0x40424100); }
+  static inline volatile RXIC_0 &ref() { return *reinterpret_cast<volatile RXIC_0*>(0x40424100); }
 };
 // Receive Interrupt Coalescing Register
 union RXIC_1 {
@@ -958,7 +958,7 @@ union RXIC_1 {
 
   RXIC_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIC_1 &Instance() { return *reinterpret_cast<volatile RXIC_1*>(0x40424104); }
+  static inline volatile RXIC_1 &ref() { return *reinterpret_cast<volatile RXIC_1*>(0x40424104); }
 };
 // Receive Interrupt Coalescing Register
 union RXIC_2 {
@@ -998,7 +998,7 @@ union RXIC_2 {
 
   RXIC_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIC_2 &Instance() { return *reinterpret_cast<volatile RXIC_2*>(0x40424108); }
+  static inline volatile RXIC_2 &ref() { return *reinterpret_cast<volatile RXIC_2*>(0x40424108); }
 };
 
 // Descriptor Individual Upper Address Register
@@ -1015,7 +1015,7 @@ union IAUR {
 
   IAUR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IAUR &Instance() { return *reinterpret_cast<volatile IAUR*>(0x40424118); }
+  static inline volatile IAUR &ref() { return *reinterpret_cast<volatile IAUR*>(0x40424118); }
 };
 
 // Descriptor Individual Lower Address Register
@@ -1032,7 +1032,7 @@ union IALR {
 
   IALR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IALR &Instance() { return *reinterpret_cast<volatile IALR*>(0x4042411C); }
+  static inline volatile IALR &ref() { return *reinterpret_cast<volatile IALR*>(0x4042411C); }
 };
 
 // Descriptor Group Upper Address Register
@@ -1049,7 +1049,7 @@ union GAUR {
 
   GAUR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GAUR &Instance() { return *reinterpret_cast<volatile GAUR*>(0x40424120); }
+  static inline volatile GAUR &ref() { return *reinterpret_cast<volatile GAUR*>(0x40424120); }
 };
 
 // Descriptor Group Lower Address Register
@@ -1066,7 +1066,7 @@ union GALR {
 
   GALR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GALR &Instance() { return *reinterpret_cast<volatile GALR*>(0x40424124); }
+  static inline volatile GALR &ref() { return *reinterpret_cast<volatile GALR*>(0x40424124); }
 };
 
 // Transmit FIFO Watermark Register
@@ -1109,7 +1109,7 @@ union TFWR {
 
   TFWR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFWR &Instance() { return *reinterpret_cast<volatile TFWR*>(0x40424144); }
+  static inline volatile TFWR &ref() { return *reinterpret_cast<volatile TFWR*>(0x40424144); }
 };
 
 // Receive Descriptor Ring 0 Start Register
@@ -1127,7 +1127,7 @@ union RDSR {
 
   RDSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDSR &Instance() { return *reinterpret_cast<volatile RDSR*>(0x40424180); }
+  static inline volatile RDSR &ref() { return *reinterpret_cast<volatile RDSR*>(0x40424180); }
 };
 
 // Transmit Buffer Descriptor Ring 0 Start Register
@@ -1145,7 +1145,7 @@ union TDSR {
 
   TDSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSR &Instance() { return *reinterpret_cast<volatile TDSR*>(0x40424184); }
+  static inline volatile TDSR &ref() { return *reinterpret_cast<volatile TDSR*>(0x40424184); }
 };
 
 // Maximum Receive Buffer Size Register - Ring 0
@@ -1164,7 +1164,7 @@ union MRBR {
 
   MRBR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MRBR &Instance() { return *reinterpret_cast<volatile MRBR*>(0x40424188); }
+  static inline volatile MRBR &ref() { return *reinterpret_cast<volatile MRBR*>(0x40424188); }
 };
 
 // Receive FIFO Section Full Threshold
@@ -1182,7 +1182,7 @@ union RSFL {
 
   RSFL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RSFL &Instance() { return *reinterpret_cast<volatile RSFL*>(0x40424190); }
+  static inline volatile RSFL &ref() { return *reinterpret_cast<volatile RSFL*>(0x40424190); }
 };
 
 // Receive FIFO Section Empty Threshold
@@ -1203,7 +1203,7 @@ union RSEM {
 
   RSEM() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RSEM &Instance() { return *reinterpret_cast<volatile RSEM*>(0x40424194); }
+  static inline volatile RSEM &ref() { return *reinterpret_cast<volatile RSEM*>(0x40424194); }
 };
 
 // Receive FIFO Almost Empty Threshold
@@ -1221,7 +1221,7 @@ union RAEM {
 
   RAEM() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile RAEM &Instance() { return *reinterpret_cast<volatile RAEM*>(0x40424198); }
+  static inline volatile RAEM &ref() { return *reinterpret_cast<volatile RAEM*>(0x40424198); }
 };
 
 // Receive FIFO Almost Full Threshold
@@ -1239,7 +1239,7 @@ union RAFL {
 
   RAFL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile RAFL &Instance() { return *reinterpret_cast<volatile RAFL*>(0x4042419C); }
+  static inline volatile RAFL &ref() { return *reinterpret_cast<volatile RAFL*>(0x4042419C); }
 };
 
 // Transmit FIFO Section Empty Threshold
@@ -1257,7 +1257,7 @@ union TSEM {
 
   TSEM() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TSEM &Instance() { return *reinterpret_cast<volatile TSEM*>(0x404241A0); }
+  static inline volatile TSEM &ref() { return *reinterpret_cast<volatile TSEM*>(0x404241A0); }
 };
 
 // Transmit FIFO Almost Empty Threshold
@@ -1275,7 +1275,7 @@ union TAEM {
 
   TAEM() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile TAEM &Instance() { return *reinterpret_cast<volatile TAEM*>(0x404241A4); }
+  static inline volatile TAEM &ref() { return *reinterpret_cast<volatile TAEM*>(0x404241A4); }
 };
 
 // Transmit FIFO Almost Full Threshold
@@ -1293,7 +1293,7 @@ union TAFL {
 
   TAFL() = delete;
   inline void Reset() volatile { this->value = 0x00000008; }
-  static inline volatile TAFL &Instance() { return *reinterpret_cast<volatile TAFL*>(0x404241A8); }
+  static inline volatile TAFL &ref() { return *reinterpret_cast<volatile TAFL*>(0x404241A8); }
 };
 
 // Transmit Inter-Packet Gap
@@ -1311,7 +1311,7 @@ union TIPG {
 
   TIPG() = delete;
   inline void Reset() volatile { this->value = 0x0000000C; }
-  static inline volatile TIPG &Instance() { return *reinterpret_cast<volatile TIPG*>(0x404241AC); }
+  static inline volatile TIPG &ref() { return *reinterpret_cast<volatile TIPG*>(0x404241AC); }
 };
 
 // Frame Truncation Length
@@ -1329,7 +1329,7 @@ union FTRL {
 
   FTRL() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
-  static inline volatile FTRL &Instance() { return *reinterpret_cast<volatile FTRL*>(0x404241B0); }
+  static inline volatile FTRL &ref() { return *reinterpret_cast<volatile FTRL*>(0x404241B0); }
 };
 
 // Transmit Accelerator Function Configuration
@@ -1376,7 +1376,7 @@ union TACC {
 
   TACC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TACC &Instance() { return *reinterpret_cast<volatile TACC*>(0x404241C0); }
+  static inline volatile TACC &ref() { return *reinterpret_cast<volatile TACC*>(0x404241C0); }
 };
 
 // Receive Accelerator Function Configuration
@@ -1443,7 +1443,7 @@ union RACC {
 
   RACC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RACC &Instance() { return *reinterpret_cast<volatile RACC*>(0x404241C4); }
+  static inline volatile RACC &ref() { return *reinterpret_cast<volatile RACC*>(0x404241C4); }
 };
 
 // Tx Packet Count Statistic Register
@@ -1461,7 +1461,7 @@ union RMON_T_PACKETS {
 
   RMON_T_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_PACKETS &Instance() { return *reinterpret_cast<volatile RMON_T_PACKETS*>(0x40424204); }
+  static inline volatile RMON_T_PACKETS &ref() { return *reinterpret_cast<volatile RMON_T_PACKETS*>(0x40424204); }
 };
 
 // Tx Broadcast Packets Statistic Register
@@ -1479,7 +1479,7 @@ union RMON_T_BC_PKT {
 
   RMON_T_BC_PKT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_BC_PKT &Instance() { return *reinterpret_cast<volatile RMON_T_BC_PKT*>(0x40424208); }
+  static inline volatile RMON_T_BC_PKT &ref() { return *reinterpret_cast<volatile RMON_T_BC_PKT*>(0x40424208); }
 };
 
 // Tx Multicast Packets Statistic Register
@@ -1497,7 +1497,7 @@ union RMON_T_MC_PKT {
 
   RMON_T_MC_PKT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_MC_PKT &Instance() { return *reinterpret_cast<volatile RMON_T_MC_PKT*>(0x4042420C); }
+  static inline volatile RMON_T_MC_PKT &ref() { return *reinterpret_cast<volatile RMON_T_MC_PKT*>(0x4042420C); }
 };
 
 // Tx Packets with CRC/Align Error Statistic Register
@@ -1515,7 +1515,7 @@ union RMON_T_CRC_ALIGN {
 
   RMON_T_CRC_ALIGN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_CRC_ALIGN &Instance() { return *reinterpret_cast<volatile RMON_T_CRC_ALIGN*>(0x40424210); }
+  static inline volatile RMON_T_CRC_ALIGN &ref() { return *reinterpret_cast<volatile RMON_T_CRC_ALIGN*>(0x40424210); }
 };
 
 // Tx Packets Less Than Bytes and Good CRC Statistic Register
@@ -1533,7 +1533,7 @@ union RMON_T_UNDERSIZE {
 
   RMON_T_UNDERSIZE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_UNDERSIZE &Instance() { return *reinterpret_cast<volatile RMON_T_UNDERSIZE*>(0x40424214); }
+  static inline volatile RMON_T_UNDERSIZE &ref() { return *reinterpret_cast<volatile RMON_T_UNDERSIZE*>(0x40424214); }
 };
 
 // Tx Packets GT MAX_FL bytes and Good CRC Statistic Register
@@ -1551,7 +1551,7 @@ union RMON_T_OVERSIZE {
 
   RMON_T_OVERSIZE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_OVERSIZE &Instance() { return *reinterpret_cast<volatile RMON_T_OVERSIZE*>(0x40424218); }
+  static inline volatile RMON_T_OVERSIZE &ref() { return *reinterpret_cast<volatile RMON_T_OVERSIZE*>(0x40424218); }
 };
 
 // Tx Packets Less Than 64 Bytes and Bad CRC Statistic Register
@@ -1569,7 +1569,7 @@ union RMON_T_FRAG {
 
   RMON_T_FRAG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_FRAG &Instance() { return *reinterpret_cast<volatile RMON_T_FRAG*>(0x4042421C); }
+  static inline volatile RMON_T_FRAG &ref() { return *reinterpret_cast<volatile RMON_T_FRAG*>(0x4042421C); }
 };
 
 // Tx Packets Greater Than MAX_FL bytes and Bad CRC Statistic Register
@@ -1587,7 +1587,7 @@ union RMON_T_JAB {
 
   RMON_T_JAB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_JAB &Instance() { return *reinterpret_cast<volatile RMON_T_JAB*>(0x40424220); }
+  static inline volatile RMON_T_JAB &ref() { return *reinterpret_cast<volatile RMON_T_JAB*>(0x40424220); }
 };
 
 // Tx Collision Count Statistic Register
@@ -1605,7 +1605,7 @@ union RMON_T_COL {
 
   RMON_T_COL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_COL &Instance() { return *reinterpret_cast<volatile RMON_T_COL*>(0x40424224); }
+  static inline volatile RMON_T_COL &ref() { return *reinterpret_cast<volatile RMON_T_COL*>(0x40424224); }
 };
 
 // Tx 64-Byte Packets Statistic Register
@@ -1623,7 +1623,7 @@ union RMON_T_P64 {
 
   RMON_T_P64() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P64 &Instance() { return *reinterpret_cast<volatile RMON_T_P64*>(0x40424228); }
+  static inline volatile RMON_T_P64 &ref() { return *reinterpret_cast<volatile RMON_T_P64*>(0x40424228); }
 };
 
 // Tx 65- to 127-byte Packets Statistic Register
@@ -1641,7 +1641,7 @@ union RMON_T_P65TO127 {
 
   RMON_T_P65TO127() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P65TO127 &Instance() { return *reinterpret_cast<volatile RMON_T_P65TO127*>(0x4042422C); }
+  static inline volatile RMON_T_P65TO127 &ref() { return *reinterpret_cast<volatile RMON_T_P65TO127*>(0x4042422C); }
 };
 
 // Tx 128- to 255-byte Packets Statistic Register
@@ -1659,7 +1659,7 @@ union RMON_T_P128TO255 {
 
   RMON_T_P128TO255() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P128TO255 &Instance() { return *reinterpret_cast<volatile RMON_T_P128TO255*>(0x40424230); }
+  static inline volatile RMON_T_P128TO255 &ref() { return *reinterpret_cast<volatile RMON_T_P128TO255*>(0x40424230); }
 };
 
 // Tx 256- to 511-byte Packets Statistic Register
@@ -1677,7 +1677,7 @@ union RMON_T_P256TO511 {
 
   RMON_T_P256TO511() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P256TO511 &Instance() { return *reinterpret_cast<volatile RMON_T_P256TO511*>(0x40424234); }
+  static inline volatile RMON_T_P256TO511 &ref() { return *reinterpret_cast<volatile RMON_T_P256TO511*>(0x40424234); }
 };
 
 // Tx 512- to 1023-byte Packets Statistic Register
@@ -1695,7 +1695,7 @@ union RMON_T_P512TO1023 {
 
   RMON_T_P512TO1023() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P512TO1023 &Instance() { return *reinterpret_cast<volatile RMON_T_P512TO1023*>(0x40424238); }
+  static inline volatile RMON_T_P512TO1023 &ref() { return *reinterpret_cast<volatile RMON_T_P512TO1023*>(0x40424238); }
 };
 
 // Tx 1024- to 2047-byte Packets Statistic Register
@@ -1713,7 +1713,7 @@ union RMON_T_P1024TO2047 {
 
   RMON_T_P1024TO2047() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P1024TO2047 &Instance() { return *reinterpret_cast<volatile RMON_T_P1024TO2047*>(0x4042423C); }
+  static inline volatile RMON_T_P1024TO2047 &ref() { return *reinterpret_cast<volatile RMON_T_P1024TO2047*>(0x4042423C); }
 };
 
 // Tx Packets Greater Than 2048 Bytes Statistic Register
@@ -1731,7 +1731,7 @@ union RMON_T_P_GTE2048 {
 
   RMON_T_P_GTE2048() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P_GTE2048 &Instance() { return *reinterpret_cast<volatile RMON_T_P_GTE2048*>(0x40424240); }
+  static inline volatile RMON_T_P_GTE2048 &ref() { return *reinterpret_cast<volatile RMON_T_P_GTE2048*>(0x40424240); }
 };
 
 // Tx Octets Statistic Register
@@ -1748,7 +1748,7 @@ union RMON_T_OCTETS {
 
   RMON_T_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_OCTETS &Instance() { return *reinterpret_cast<volatile RMON_T_OCTETS*>(0x40424244); }
+  static inline volatile RMON_T_OCTETS &ref() { return *reinterpret_cast<volatile RMON_T_OCTETS*>(0x40424244); }
 };
 
 // Frames Transmitted OK Statistic Register
@@ -1766,7 +1766,7 @@ union IEEE_T_FRAME_OK {
 
   IEEE_T_FRAME_OK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_FRAME_OK &Instance() { return *reinterpret_cast<volatile IEEE_T_FRAME_OK*>(0x4042424C); }
+  static inline volatile IEEE_T_FRAME_OK &ref() { return *reinterpret_cast<volatile IEEE_T_FRAME_OK*>(0x4042424C); }
 };
 
 // Frames Transmitted with Single Collision Statistic Register
@@ -1784,7 +1784,7 @@ union IEEE_T_1COL {
 
   IEEE_T_1COL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_1COL &Instance() { return *reinterpret_cast<volatile IEEE_T_1COL*>(0x40424250); }
+  static inline volatile IEEE_T_1COL &ref() { return *reinterpret_cast<volatile IEEE_T_1COL*>(0x40424250); }
 };
 
 // Frames Transmitted with Multiple Collisions Statistic Register
@@ -1802,7 +1802,7 @@ union IEEE_T_MCOL {
 
   IEEE_T_MCOL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_MCOL &Instance() { return *reinterpret_cast<volatile IEEE_T_MCOL*>(0x40424254); }
+  static inline volatile IEEE_T_MCOL &ref() { return *reinterpret_cast<volatile IEEE_T_MCOL*>(0x40424254); }
 };
 
 // Frames Transmitted after Deferral Delay Statistic Register
@@ -1820,7 +1820,7 @@ union IEEE_T_DEF {
 
   IEEE_T_DEF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_DEF &Instance() { return *reinterpret_cast<volatile IEEE_T_DEF*>(0x40424258); }
+  static inline volatile IEEE_T_DEF &ref() { return *reinterpret_cast<volatile IEEE_T_DEF*>(0x40424258); }
 };
 
 // Frames Transmitted with Late Collision Statistic Register
@@ -1838,7 +1838,7 @@ union IEEE_T_LCOL {
 
   IEEE_T_LCOL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_LCOL &Instance() { return *reinterpret_cast<volatile IEEE_T_LCOL*>(0x4042425C); }
+  static inline volatile IEEE_T_LCOL &ref() { return *reinterpret_cast<volatile IEEE_T_LCOL*>(0x4042425C); }
 };
 
 // Frames Transmitted with Excessive Collisions Statistic Register
@@ -1856,7 +1856,7 @@ union IEEE_T_EXCOL {
 
   IEEE_T_EXCOL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_EXCOL &Instance() { return *reinterpret_cast<volatile IEEE_T_EXCOL*>(0x40424260); }
+  static inline volatile IEEE_T_EXCOL &ref() { return *reinterpret_cast<volatile IEEE_T_EXCOL*>(0x40424260); }
 };
 
 // Frames Transmitted with Tx FIFO Underrun Statistic Register
@@ -1874,7 +1874,7 @@ union IEEE_T_MACERR {
 
   IEEE_T_MACERR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_MACERR &Instance() { return *reinterpret_cast<volatile IEEE_T_MACERR*>(0x40424264); }
+  static inline volatile IEEE_T_MACERR &ref() { return *reinterpret_cast<volatile IEEE_T_MACERR*>(0x40424264); }
 };
 
 // Frames Transmitted with Carrier Sense Error Statistic Register
@@ -1892,7 +1892,7 @@ union IEEE_T_CSERR {
 
   IEEE_T_CSERR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_CSERR &Instance() { return *reinterpret_cast<volatile IEEE_T_CSERR*>(0x40424268); }
+  static inline volatile IEEE_T_CSERR &ref() { return *reinterpret_cast<volatile IEEE_T_CSERR*>(0x40424268); }
 };
 
 // Reserved Statistic Register
@@ -1910,7 +1910,7 @@ union IEEE_T_SQE {
 
   IEEE_T_SQE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_SQE &Instance() { return *reinterpret_cast<volatile IEEE_T_SQE*>(0x4042426C); }
+  static inline volatile IEEE_T_SQE &ref() { return *reinterpret_cast<volatile IEEE_T_SQE*>(0x4042426C); }
 };
 
 // Flow Control Pause Frames Transmitted Statistic Register
@@ -1928,7 +1928,7 @@ union IEEE_T_FDXFC {
 
   IEEE_T_FDXFC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_FDXFC &Instance() { return *reinterpret_cast<volatile IEEE_T_FDXFC*>(0x40424270); }
+  static inline volatile IEEE_T_FDXFC &ref() { return *reinterpret_cast<volatile IEEE_T_FDXFC*>(0x40424270); }
 };
 
 // Octet Count for Frames Transmitted w/o Error Statistic Register
@@ -1945,7 +1945,7 @@ union IEEE_T_OCTETS_OK {
 
   IEEE_T_OCTETS_OK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_OCTETS_OK &Instance() { return *reinterpret_cast<volatile IEEE_T_OCTETS_OK*>(0x40424274); }
+  static inline volatile IEEE_T_OCTETS_OK &ref() { return *reinterpret_cast<volatile IEEE_T_OCTETS_OK*>(0x40424274); }
 };
 
 // Rx Packet Count Statistic Register
@@ -1963,7 +1963,7 @@ union RMON_R_PACKETS {
 
   RMON_R_PACKETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_PACKETS &Instance() { return *reinterpret_cast<volatile RMON_R_PACKETS*>(0x40424284); }
+  static inline volatile RMON_R_PACKETS &ref() { return *reinterpret_cast<volatile RMON_R_PACKETS*>(0x40424284); }
 };
 
 // Rx Broadcast Packets Statistic Register
@@ -1981,7 +1981,7 @@ union RMON_R_BC_PKT {
 
   RMON_R_BC_PKT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_BC_PKT &Instance() { return *reinterpret_cast<volatile RMON_R_BC_PKT*>(0x40424288); }
+  static inline volatile RMON_R_BC_PKT &ref() { return *reinterpret_cast<volatile RMON_R_BC_PKT*>(0x40424288); }
 };
 
 // Rx Multicast Packets Statistic Register
@@ -1999,7 +1999,7 @@ union RMON_R_MC_PKT {
 
   RMON_R_MC_PKT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_MC_PKT &Instance() { return *reinterpret_cast<volatile RMON_R_MC_PKT*>(0x4042428C); }
+  static inline volatile RMON_R_MC_PKT &ref() { return *reinterpret_cast<volatile RMON_R_MC_PKT*>(0x4042428C); }
 };
 
 // Rx Packets with CRC/Align Error Statistic Register
@@ -2017,7 +2017,7 @@ union RMON_R_CRC_ALIGN {
 
   RMON_R_CRC_ALIGN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_CRC_ALIGN &Instance() { return *reinterpret_cast<volatile RMON_R_CRC_ALIGN*>(0x40424290); }
+  static inline volatile RMON_R_CRC_ALIGN &ref() { return *reinterpret_cast<volatile RMON_R_CRC_ALIGN*>(0x40424290); }
 };
 
 // Rx Packets with Less Than 64 Bytes and Good CRC Statistic Register
@@ -2035,7 +2035,7 @@ union RMON_R_UNDERSIZE {
 
   RMON_R_UNDERSIZE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_UNDERSIZE &Instance() { return *reinterpret_cast<volatile RMON_R_UNDERSIZE*>(0x40424294); }
+  static inline volatile RMON_R_UNDERSIZE &ref() { return *reinterpret_cast<volatile RMON_R_UNDERSIZE*>(0x40424294); }
 };
 
 // Rx Packets Greater Than MAX_FL and Good CRC Statistic Register
@@ -2053,7 +2053,7 @@ union RMON_R_OVERSIZE {
 
   RMON_R_OVERSIZE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_OVERSIZE &Instance() { return *reinterpret_cast<volatile RMON_R_OVERSIZE*>(0x40424298); }
+  static inline volatile RMON_R_OVERSIZE &ref() { return *reinterpret_cast<volatile RMON_R_OVERSIZE*>(0x40424298); }
 };
 
 // Rx Packets Less Than 64 Bytes and Bad CRC Statistic Register
@@ -2071,7 +2071,7 @@ union RMON_R_FRAG {
 
   RMON_R_FRAG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_FRAG &Instance() { return *reinterpret_cast<volatile RMON_R_FRAG*>(0x4042429C); }
+  static inline volatile RMON_R_FRAG &ref() { return *reinterpret_cast<volatile RMON_R_FRAG*>(0x4042429C); }
 };
 
 // Rx Packets Greater Than MAX_FL Bytes and Bad CRC Statistic Register
@@ -2089,7 +2089,7 @@ union RMON_R_JAB {
 
   RMON_R_JAB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_JAB &Instance() { return *reinterpret_cast<volatile RMON_R_JAB*>(0x404242A0); }
+  static inline volatile RMON_R_JAB &ref() { return *reinterpret_cast<volatile RMON_R_JAB*>(0x404242A0); }
 };
 
 // Rx 64-Byte Packets Statistic Register
@@ -2107,7 +2107,7 @@ union RMON_R_P64 {
 
   RMON_R_P64() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P64 &Instance() { return *reinterpret_cast<volatile RMON_R_P64*>(0x404242A8); }
+  static inline volatile RMON_R_P64 &ref() { return *reinterpret_cast<volatile RMON_R_P64*>(0x404242A8); }
 };
 
 // Rx 65- to 127-Byte Packets Statistic Register
@@ -2125,7 +2125,7 @@ union RMON_R_P65TO127 {
 
   RMON_R_P65TO127() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P65TO127 &Instance() { return *reinterpret_cast<volatile RMON_R_P65TO127*>(0x404242AC); }
+  static inline volatile RMON_R_P65TO127 &ref() { return *reinterpret_cast<volatile RMON_R_P65TO127*>(0x404242AC); }
 };
 
 // Rx 128- to 255-Byte Packets Statistic Register
@@ -2143,7 +2143,7 @@ union RMON_R_P128TO255 {
 
   RMON_R_P128TO255() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P128TO255 &Instance() { return *reinterpret_cast<volatile RMON_R_P128TO255*>(0x404242B0); }
+  static inline volatile RMON_R_P128TO255 &ref() { return *reinterpret_cast<volatile RMON_R_P128TO255*>(0x404242B0); }
 };
 
 // Rx 256- to 511-Byte Packets Statistic Register
@@ -2161,7 +2161,7 @@ union RMON_R_P256TO511 {
 
   RMON_R_P256TO511() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P256TO511 &Instance() { return *reinterpret_cast<volatile RMON_R_P256TO511*>(0x404242B4); }
+  static inline volatile RMON_R_P256TO511 &ref() { return *reinterpret_cast<volatile RMON_R_P256TO511*>(0x404242B4); }
 };
 
 // Rx 512- to 1023-Byte Packets Statistic Register
@@ -2179,7 +2179,7 @@ union RMON_R_P512TO1023 {
 
   RMON_R_P512TO1023() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P512TO1023 &Instance() { return *reinterpret_cast<volatile RMON_R_P512TO1023*>(0x404242B8); }
+  static inline volatile RMON_R_P512TO1023 &ref() { return *reinterpret_cast<volatile RMON_R_P512TO1023*>(0x404242B8); }
 };
 
 // Rx 1024- to 2047-Byte Packets Statistic Register
@@ -2197,7 +2197,7 @@ union RMON_R_P1024TO2047 {
 
   RMON_R_P1024TO2047() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P1024TO2047 &Instance() { return *reinterpret_cast<volatile RMON_R_P1024TO2047*>(0x404242BC); }
+  static inline volatile RMON_R_P1024TO2047 &ref() { return *reinterpret_cast<volatile RMON_R_P1024TO2047*>(0x404242BC); }
 };
 
 // Rx Packets Greater than 2048 Bytes Statistic Register
@@ -2215,7 +2215,7 @@ union RMON_R_P_GTE2048 {
 
   RMON_R_P_GTE2048() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P_GTE2048 &Instance() { return *reinterpret_cast<volatile RMON_R_P_GTE2048*>(0x404242C0); }
+  static inline volatile RMON_R_P_GTE2048 &ref() { return *reinterpret_cast<volatile RMON_R_P_GTE2048*>(0x404242C0); }
 };
 
 // Rx Octets Statistic Register
@@ -2232,7 +2232,7 @@ union RMON_R_OCTETS {
 
   RMON_R_OCTETS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_OCTETS &Instance() { return *reinterpret_cast<volatile RMON_R_OCTETS*>(0x404242C4); }
+  static inline volatile RMON_R_OCTETS &ref() { return *reinterpret_cast<volatile RMON_R_OCTETS*>(0x404242C4); }
 };
 
 // Frames not Counted Correctly Statistic Register
@@ -2250,7 +2250,7 @@ union IEEE_R_DROP {
 
   IEEE_R_DROP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_DROP &Instance() { return *reinterpret_cast<volatile IEEE_R_DROP*>(0x404242C8); }
+  static inline volatile IEEE_R_DROP &ref() { return *reinterpret_cast<volatile IEEE_R_DROP*>(0x404242C8); }
 };
 
 // Frames Received OK Statistic Register
@@ -2268,7 +2268,7 @@ union IEEE_R_FRAME_OK {
 
   IEEE_R_FRAME_OK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_FRAME_OK &Instance() { return *reinterpret_cast<volatile IEEE_R_FRAME_OK*>(0x404242CC); }
+  static inline volatile IEEE_R_FRAME_OK &ref() { return *reinterpret_cast<volatile IEEE_R_FRAME_OK*>(0x404242CC); }
 };
 
 // Frames Received with CRC Error Statistic Register
@@ -2286,7 +2286,7 @@ union IEEE_R_CRC {
 
   IEEE_R_CRC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_CRC &Instance() { return *reinterpret_cast<volatile IEEE_R_CRC*>(0x404242D0); }
+  static inline volatile IEEE_R_CRC &ref() { return *reinterpret_cast<volatile IEEE_R_CRC*>(0x404242D0); }
 };
 
 // Frames Received with Alignment Error Statistic Register
@@ -2304,7 +2304,7 @@ union IEEE_R_ALIGN {
 
   IEEE_R_ALIGN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_ALIGN &Instance() { return *reinterpret_cast<volatile IEEE_R_ALIGN*>(0x404242D4); }
+  static inline volatile IEEE_R_ALIGN &ref() { return *reinterpret_cast<volatile IEEE_R_ALIGN*>(0x404242D4); }
 };
 
 // Receive FIFO Overflow Count Statistic Register
@@ -2322,7 +2322,7 @@ union IEEE_R_MACERR {
 
   IEEE_R_MACERR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_MACERR &Instance() { return *reinterpret_cast<volatile IEEE_R_MACERR*>(0x404242D8); }
+  static inline volatile IEEE_R_MACERR &ref() { return *reinterpret_cast<volatile IEEE_R_MACERR*>(0x404242D8); }
 };
 
 // Flow Control Pause Frames Received Statistic Register
@@ -2340,7 +2340,7 @@ union IEEE_R_FDXFC {
 
   IEEE_R_FDXFC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_FDXFC &Instance() { return *reinterpret_cast<volatile IEEE_R_FDXFC*>(0x404242DC); }
+  static inline volatile IEEE_R_FDXFC &ref() { return *reinterpret_cast<volatile IEEE_R_FDXFC*>(0x404242DC); }
 };
 
 // Octet Count for Frames Received without Error Statistic Register
@@ -2357,7 +2357,7 @@ union IEEE_R_OCTETS_OK {
 
   IEEE_R_OCTETS_OK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_OCTETS_OK &Instance() { return *reinterpret_cast<volatile IEEE_R_OCTETS_OK*>(0x404242E0); }
+  static inline volatile IEEE_R_OCTETS_OK &ref() { return *reinterpret_cast<volatile IEEE_R_OCTETS_OK*>(0x404242E0); }
 };
 
 // Adjustable Timer Control Register
@@ -2450,7 +2450,7 @@ union ATCR {
 
   ATCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ATCR &Instance() { return *reinterpret_cast<volatile ATCR*>(0x40424400); }
+  static inline volatile ATCR &ref() { return *reinterpret_cast<volatile ATCR*>(0x40424400); }
 };
 
 // Timer Value Register
@@ -2467,7 +2467,7 @@ union ATVR {
 
   ATVR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ATVR &Instance() { return *reinterpret_cast<volatile ATVR*>(0x40424404); }
+  static inline volatile ATVR &ref() { return *reinterpret_cast<volatile ATVR*>(0x40424404); }
 };
 
 // Timer Offset Register
@@ -2484,7 +2484,7 @@ union ATOFF {
 
   ATOFF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ATOFF &Instance() { return *reinterpret_cast<volatile ATOFF*>(0x40424408); }
+  static inline volatile ATOFF &ref() { return *reinterpret_cast<volatile ATOFF*>(0x40424408); }
 };
 
 // Timer Period Register
@@ -2501,7 +2501,7 @@ union ATPER {
 
   ATPER() = delete;
   inline void Reset() volatile { this->value = 0x3B9ACA00; }
-  static inline volatile ATPER &Instance() { return *reinterpret_cast<volatile ATPER*>(0x4042440C); }
+  static inline volatile ATPER &ref() { return *reinterpret_cast<volatile ATPER*>(0x4042440C); }
 };
 
 // Timer Correction Register
@@ -2519,7 +2519,7 @@ union ATCOR {
 
   ATCOR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ATCOR &Instance() { return *reinterpret_cast<volatile ATCOR*>(0x40424410); }
+  static inline volatile ATCOR &ref() { return *reinterpret_cast<volatile ATCOR*>(0x40424410); }
 };
 
 // Time-Stamping Clock Period Register
@@ -2540,7 +2540,7 @@ union ATINC {
 
   ATINC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ATINC &Instance() { return *reinterpret_cast<volatile ATINC*>(0x40424414); }
+  static inline volatile ATINC &ref() { return *reinterpret_cast<volatile ATINC*>(0x40424414); }
 };
 
 // Timestamp of Last Transmitted Frame
@@ -2557,7 +2557,7 @@ union ATSTMP {
 
   ATSTMP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ATSTMP &Instance() { return *reinterpret_cast<volatile ATSTMP*>(0x40424418); }
+  static inline volatile ATSTMP &ref() { return *reinterpret_cast<volatile ATSTMP*>(0x40424418); }
 };
 
 // Timer Global Status Register
@@ -2613,7 +2613,7 @@ union TGSR {
 
   TGSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TGSR &Instance() { return *reinterpret_cast<volatile TGSR*>(0x40424604); }
+  static inline volatile TGSR &ref() { return *reinterpret_cast<volatile TGSR*>(0x40424604); }
 };
 
 // Timer Control Status Register
@@ -2707,7 +2707,7 @@ union TCSR0 {
 
   TCSR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCSR0 &Instance() { return *reinterpret_cast<volatile TCSR0*>(0x40424608); }
+  static inline volatile TCSR0 &ref() { return *reinterpret_cast<volatile TCSR0*>(0x40424608); }
 };
 
 // Timer Compare Capture Register
@@ -2724,7 +2724,7 @@ union TCCR0 {
 
   TCCR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCCR0 &Instance() { return *reinterpret_cast<volatile TCCR0*>(0x4042460C); }
+  static inline volatile TCCR0 &ref() { return *reinterpret_cast<volatile TCCR0*>(0x4042460C); }
 };
 
 // Timer Control Status Register
@@ -2818,7 +2818,7 @@ union TCSR1 {
 
   TCSR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCSR1 &Instance() { return *reinterpret_cast<volatile TCSR1*>(0x40424610); }
+  static inline volatile TCSR1 &ref() { return *reinterpret_cast<volatile TCSR1*>(0x40424610); }
 };
 
 // Timer Compare Capture Register
@@ -2835,7 +2835,7 @@ union TCCR1 {
 
   TCCR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCCR1 &Instance() { return *reinterpret_cast<volatile TCCR1*>(0x40424614); }
+  static inline volatile TCCR1 &ref() { return *reinterpret_cast<volatile TCCR1*>(0x40424614); }
 };
 
 // Timer Control Status Register
@@ -2929,7 +2929,7 @@ union TCSR2 {
 
   TCSR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCSR2 &Instance() { return *reinterpret_cast<volatile TCSR2*>(0x40424618); }
+  static inline volatile TCSR2 &ref() { return *reinterpret_cast<volatile TCSR2*>(0x40424618); }
 };
 
 // Timer Compare Capture Register
@@ -2946,7 +2946,7 @@ union TCCR2 {
 
   TCCR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCCR2 &Instance() { return *reinterpret_cast<volatile TCCR2*>(0x4042461C); }
+  static inline volatile TCCR2 &ref() { return *reinterpret_cast<volatile TCCR2*>(0x4042461C); }
 };
 
 // Timer Control Status Register
@@ -3040,7 +3040,7 @@ union TCSR3 {
 
   TCSR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCSR3 &Instance() { return *reinterpret_cast<volatile TCSR3*>(0x40424620); }
+  static inline volatile TCSR3 &ref() { return *reinterpret_cast<volatile TCSR3*>(0x40424620); }
 };
 
 // Timer Compare Capture Register
@@ -3057,7 +3057,7 @@ union TCCR3 {
 
   TCCR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCCR3 &Instance() { return *reinterpret_cast<volatile TCCR3*>(0x40424624); }
+  static inline volatile TCCR3 &ref() { return *reinterpret_cast<volatile TCCR3*>(0x40424624); }
 };
 
 
