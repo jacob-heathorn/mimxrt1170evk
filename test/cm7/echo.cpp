@@ -141,19 +141,34 @@ public:
         ctrl.bits.TE = nLPUART1::CTRL::eTE::eDISABLED;  // Disable TX until DMA ready
     }
 
-    void write(const uint8_t *txBuffer, uint16_t bufferSize)
+    void write(const uint8_t *buffer, uint16_t size)
     {
+        // TODO check and handle es.
+        auto &es = nDMA0::ES::Instance();
+        es.Reset();
+        
+        // Wait for UART to finish transmitting
+        while (!(nLPUART1::STAT::Instance().bits.TC == nLPUART1::STAT::eTC::eCOMPLETE)) {}
+
+        // Move the txBuffer. TODO error if doesn't fit.
+        memcpy(this->tx_buffer_, buffer, size);  // Copies 'size' bytes from 'src' to 'dest'
+        
+        // Disable DMA requests
+        nDMA0::ERQ::Instance().bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;
+        
+        // Clear DONE and any pending status
+        DMA0_TCD0_CSR &= ~(1 << 7);  // Clear DONE bit (write 0 has no effect, but ensure it’s reset)
         
         // 3. Configure DMA TCD
         auto &lpuart_data = nLPUART1::DATA::Instance();
-        DMA0_TCD0_SADDR = (uint32_t)txBuffer;
+        DMA0_TCD0_SADDR = (uint32_t)tx_buffer_;
         DMA0_TCD0_DADDR = (uint32_t)&lpuart_data.value;
         DMA0_TCD0_SOFF = 1;  // Increment source by 1 byte
         DMA0_TCD0_DOFF = 0;  // No dest increment
         DMA0_TCD0_NBYTES_MLOFFNO = 1;  // 1 byte per minor loop
         DMA0_TCD0_ATTR = (0 << 8) | (0 << 0);  // 8-bit transfers
-        DMA0_TCD0_CITER_ELINKNO = bufferSize;
-        DMA0_TCD0_BITER_ELINKNO = bufferSize;
+        DMA0_TCD0_CITER_ELINKNO = size;
+        DMA0_TCD0_BITER_ELINKNO = size;
         DMA0_TCD0_CSR = (1 << 1);  // Interrupt on completion (optional)
 
         // 4. Configure DMAMUX
@@ -173,37 +188,6 @@ public:
 
         // // 7. Start DMA Transfer
         // DMA0_SSRT = 0;  // Trigger DMA
-
-        // Wait for DMA transfer to complete
-        //while (DMA0_TCD0_CITER_ELINKNO != 0) {}  // Poll until all iterations done
-        auto &es = nDMA0::ES::Instance();
-        es.Reset();
-        auto x = DMA0_TCD0_CSR;
-        auto y = DMA0_TCD0_CITER_ELINKNO;
-        auto z = nLPUART1::FIFO::Instance().bits.TXFIFOSIZE;  // 0–4 bytes in FIFO
-        (void)x;
-        (void)y;
-        (void)z;
-        
-        // Wait for UART to finish transmitting
-        while (!(nLPUART1::STAT::Instance().bits.TC == nLPUART1::STAT::eTC::eCOMPLETE)) {}
-        
-        // Disable DMA requests
-        nDMA0::ERQ::Instance().bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;
-        
-        // Clear DONE and any pending status
-        DMA0_TCD0_CSR &= ~(1 << 7);  // Clear DONE bit (write 0 has no effect, but ensure it’s reset)
-        DMA0_TCD0_CITER_ELINKNO = 0;  // Try reset (might work when ERQ = 0)
-        DMA0_SERQ = 0;  // Clear any service requests
-        
-        // Re-enable DMA channel
-        nDMA0::ERQ::Instance().bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
-        
-        
-        // DMA0_TCD0_CITER_ELINKNO = 0;
-        
-        x = DMA0_TCD0_CSR;
-        y = DMA0_TCD0_CITER_ELINKNO;
     }
 
     int read(uint8_t *buffer, size_t max_length)
@@ -228,6 +212,9 @@ public:
         buffer[i++] = '\0';  // Null-terminate string
         return i;
     }
+private:
+    // TODO how large should this buffer be.
+    uint8_t tx_buffer_[100];
 };
 
 bool lpuart1_write_blocking(const uint8_t* buffer, size_t length) {
@@ -282,11 +269,11 @@ int main(void) {
     uint8_t txBuffer[20];
 
     Lpuart1 lpuart;
-    strcpy((char*)txBuffer, "Hdma!\0");
+    strcpy((char*)txBuffer, "aaaa!");
     uint16_t bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
     lpuart.write(txBuffer, bufferSize);
     
-    strcpy((char*)txBuffer, "Second!");
+    strcpy((char*)txBuffer, "bbbb!");
     bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
     lpuart.write(txBuffer, bufferSize);
 
