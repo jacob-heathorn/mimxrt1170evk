@@ -266,19 +266,19 @@ int lpuart1_read_blocking(uint8_t *buffer, size_t max_length)
 }
 
 int main(void) {
-    uint8_t txBuffer[20];
+    // uint8_t txBuffer[20];
 
     Lpuart1 lpuart;
-    strcpy((char*)txBuffer, "aaaa!");
-    uint16_t bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
-    lpuart.write(txBuffer, bufferSize);
+    // strcpy((char*)txBuffer, "aaaa!");
+    // uint16_t bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
+    // lpuart.write(txBuffer, bufferSize);
     
-    strcpy((char*)txBuffer, "bbbb!");
-    bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
-    lpuart.write(txBuffer, bufferSize);
+    // strcpy((char*)txBuffer, "bbbb!");
+    // bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
+    // lpuart.write(txBuffer, bufferSize);
 
-    while (1)
-    {}
+    // while (1)
+    // {}
 
     // // // Format the address of txBuffer as a hexadecimal string
     // char message_address[50]; // Buffer to store formatted string
@@ -296,19 +296,18 @@ int main(void) {
     //     InitLPUART1(txBuffer, bufferSize);
     // }
     
-    // char input_buffer[100];
-    // const char* message = "MIMXRT1170 UART String Echo Test\r\n";
-    // lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message), std::strlen(message));
-    // char rx_buffer[100];
+    const char* message = "MIMXRT1170 UART String Echo Test\r\n";
+    lpuart.write(reinterpret_cast<const uint8_t*>(message), std::strlen(message));
+    char rx_buffer[100];
 
-    // while (1) {
-    //     const char* message2 = "Type something: ";
-    //     lpuart.write(reinterpret_cast<const uint8_t*>(message2), std::strlen(message2));
-    //     lpuart.read(reinterpret_cast<uint8_t*>(rx_buffer), sizeof(rx_buffer));
+    while (1) {
+        const char* message2 = "Type something: ";
+        lpuart.write(reinterpret_cast<const uint8_t*>(message2), std::strlen(message2));
+        lpuart.read(reinterpret_cast<uint8_t*>(rx_buffer), sizeof(rx_buffer));
         
-    //     lpuart.write(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
-    //     lpuart.write(reinterpret_cast<const uint8_t*>("You typed: "), std::strlen("You typed: "));
-    //     lpuart.write(reinterpret_cast<uint8_t*>(rx_buffer), std::strlen(rx_buffer));
-    //     lpuart.write(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
-    // }
+        lpuart.write(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
+        lpuart.write(reinterpret_cast<const uint8_t*>("You typed: "), std::strlen("You typed: "));
+        lpuart.write(reinterpret_cast<uint8_t*>(rx_buffer), std::strlen(rx_buffer));
+        lpuart.write(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
+    }
 }
