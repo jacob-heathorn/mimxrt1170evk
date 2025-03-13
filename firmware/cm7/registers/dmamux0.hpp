@@ -11,7 +11,7 @@ namespace nDMAMUX0 {
 
 
 // Channel index Configuration Register
-union CHCFG[0] {
+union CHCFG_0 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -53,10 +53,11 @@ union CHCFG[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[0]() = delete;
+  CHCFG_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[0] &Instance() { return *reinterpret_cast<volatile CHCFG[0]*>(0x40074000); }
+  static inline volatile CHCFG_0 &Instance() { return *reinterpret_cast<volatile CHCFG_0*>(0x40074000); }
 };
+/*
 // Channel index Configuration Register
 union CHCFG[1] {
   
@@ -1514,6 +1515,6 @@ union CHCFG[31] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG[31] &Instance() { return *reinterpret_cast<volatile CHCFG[31]*>(0x4007407C); }
 };
-
+*/
 
 } // namespace nDMAMUX0

@@ -1,23 +1,32 @@
 #include <sys/stat.h>
 #include <errno.h>
-#include "fsl_debug_console.h"
+// #include "fsl_debug_console.h"
+#include "platform/lpuart.hpp"
 
+Lpuart1 lpuart;
 
 extern "C" {
     int _write(int fd, const char* ptr, int len) {
         (void)fd;  // Ignore file descriptor
 
-        for (int i = 0; i < len; i++) {
-            DbgConsole_Putchar(ptr[i]);  // Replace with your board’s UART function
-        }
+        lpuart.write(reinterpret_cast<const uint8_t*>(ptr), len);
+
+        // for (int i = 0; i < len; i++) {
+        //     DbgConsole_Putchar(ptr[i]);  // Replace with your board’s UART function
+        // }
         return len;
     }
 
     int _read(int fd, char* ptr, int len) {
-        (void)fd;
-        (void)ptr;
-        (void)len;
-        return 0; // No input support
+        (void)fd;  // Ignore file descriptor
+        *ptr = lpuart.read_byte();
+        
+        // Convert \r to \n for the expected stop condition.
+        if (*ptr == '\r' || *ptr == '\n')
+        {
+            *ptr = '\n';
+        }
+        return 1;
     }
 
     int _close(int fd) {

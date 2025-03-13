@@ -307,211 +307,211 @@ status_t LPUART_Init(LPUART_Type *base, const lpuart_config_t *config, uint32_t 
 #endif
 
     status_t status = kStatus_Success;
-    uint32_t temp;
-    uint16_t sbr, sbrTemp;
-    uint8_t osr, osrTemp;
-    uint32_t tempDiff, calculatedBaud, baudDiff;
+//     uint32_t temp;
+//     uint16_t sbr, sbrTemp;
+//     uint8_t osr, osrTemp;
+//     uint32_t tempDiff, calculatedBaud, baudDiff;
 
-    /* This LPUART instantiation uses a slightly different baud rate calculation
-     * The idea is to use the best OSR (over-sampling rate) possible
-     * Note, OSR is typically hard-set to 16 in other LPUART instantiations
-     * loop to find the best OSR value possible, one that generates minimum baudDiff
-     * iterate through the rest of the supported values of OSR */
+//     /* This LPUART instantiation uses a slightly different baud rate calculation
+//      * The idea is to use the best OSR (over-sampling rate) possible
+//      * Note, OSR is typically hard-set to 16 in other LPUART instantiations
+//      * loop to find the best OSR value possible, one that generates minimum baudDiff
+//      * iterate through the rest of the supported values of OSR */
 
-    baudDiff = config->baudRate_Bps;
-    osr      = 0U;
-    sbr      = 0U;
-    for (osrTemp = 4U; osrTemp <= 32U; osrTemp++)
-    {
-        /* calculate the temporary sbr value   */
-        sbrTemp = (uint16_t)((srcClock_Hz * 10U / (config->baudRate_Bps * (uint32_t)osrTemp) + 5U) / 10U);
-        /*set sbrTemp to 1 if the sourceClockInHz can not satisfy the desired baud rate*/
-        if (sbrTemp == 0U)
-        {
-            sbrTemp = 1U;
-        }
-		else if (sbrTemp > LPUART_BAUD_SBR_MASK)
-        {
-            sbrTemp = LPUART_BAUD_SBR_MASK;
-        }
-        else
-        {
-            /* Avoid MISRA 15.7 */
-        }
-        /* Calculate the baud rate based on the temporary OSR and SBR values */
-        calculatedBaud = (srcClock_Hz / ((uint32_t)osrTemp * (uint32_t)sbrTemp));
-        tempDiff       = calculatedBaud > config->baudRate_Bps ? (calculatedBaud - config->baudRate_Bps) :
-                                                           (config->baudRate_Bps - calculatedBaud);
+//     baudDiff = config->baudRate_Bps;
+//     osr      = 0U;
+//     sbr      = 0U;
+//     for (osrTemp = 4U; osrTemp <= 32U; osrTemp++)
+//     {
+//         /* calculate the temporary sbr value   */
+//         sbrTemp = (uint16_t)((srcClock_Hz * 10U / (config->baudRate_Bps * (uint32_t)osrTemp) + 5U) / 10U);
+//         /*set sbrTemp to 1 if the sourceClockInHz can not satisfy the desired baud rate*/
+//         if (sbrTemp == 0U)
+//         {
+//             sbrTemp = 1U;
+//         }
+// 		else if (sbrTemp > LPUART_BAUD_SBR_MASK)
+//         {
+//             sbrTemp = LPUART_BAUD_SBR_MASK;
+//         }
+//         else
+//         {
+//             /* Avoid MISRA 15.7 */
+//         }
+//         /* Calculate the baud rate based on the temporary OSR and SBR values */
+//         calculatedBaud = (srcClock_Hz / ((uint32_t)osrTemp * (uint32_t)sbrTemp));
+//         tempDiff       = calculatedBaud > config->baudRate_Bps ? (calculatedBaud - config->baudRate_Bps) :
+//                                                            (config->baudRate_Bps - calculatedBaud);
 
-        if (tempDiff <= baudDiff)
-        {
-            baudDiff = tempDiff;
-            osr      = osrTemp; /* update and store the best OSR value calculated */
-            sbr      = sbrTemp; /* update store the best SBR value calculated */
-        }
-    }
+//         if (tempDiff <= baudDiff)
+//         {
+//             baudDiff = tempDiff;
+//             osr      = osrTemp; /* update and store the best OSR value calculated */
+//             sbr      = sbrTemp; /* update store the best SBR value calculated */
+//         }
+//     }
 
-    /* Check to see if actual baud rate is within 3% of desired baud rate
-     * based on the best calculate OSR value */
-    if (baudDiff > ((config->baudRate_Bps / 100U) * 3U))
-    {
-        /* Unacceptable baud rate difference of more than 3%*/
-        status = kStatus_LPUART_BaudrateNotSupport;
-    }
-    else
-    {
-#if !(defined(FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL) && FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL)
+//     /* Check to see if actual baud rate is within 3% of desired baud rate
+//      * based on the best calculate OSR value */
+//     if (baudDiff > ((config->baudRate_Bps / 100U) * 3U))
+//     {
+//         /* Unacceptable baud rate difference of more than 3%*/
+//         status = kStatus_LPUART_BaudrateNotSupport;
+//     }
+//     else
+//     {
+// #if !(defined(FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL) && FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL)
 
-        uint32_t instance = LPUART_GetInstance(base);
+//         // uint32_t instance = LPUART_GetInstance(base);
 
-        /* Enable lpuart clock */
-        (void)CLOCK_EnableClock(s_lpuartClock[instance]);
-#if defined(LPUART_PERIPH_CLOCKS)
-        (void)CLOCK_EnableClock(s_lpuartPeriphClocks[instance]);
-#endif
+//         /* Enable lpuart clock */
+// //         (void)CLOCK_EnableClock(s_lpuartClock[instance]);
+// // #if defined(LPUART_PERIPH_CLOCKS)
+// //         (void)CLOCK_EnableClock(s_lpuartPeriphClocks[instance]);
+// // #endif
 
-#endif /* FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL */
+// #endif /* FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL */
 
-#if defined(FSL_FEATURE_LPUART_HAS_GLOBAL) && FSL_FEATURE_LPUART_HAS_GLOBAL
-        /*Reset all internal logic and registers, except the Global Register */
-        LPUART_SoftwareReset(base);
-#else
-        /* Disable LPUART TX RX before setting. */
-        base->CTRL &= ~(LPUART_CTRL_TE_MASK | LPUART_CTRL_RE_MASK);
-#endif
+// #if defined(FSL_FEATURE_LPUART_HAS_GLOBAL) && FSL_FEATURE_LPUART_HAS_GLOBAL
+//         /*Reset all internal logic and registers, except the Global Register */
+//         LPUART_SoftwareReset(base);
+// #else
+//         /* Disable LPUART TX RX before setting. */
+//         base->CTRL &= ~(LPUART_CTRL_TE_MASK | LPUART_CTRL_RE_MASK);
+// #endif
 
-        temp = base->BAUD;
+//         temp = base->BAUD;
 
-        /* Acceptable baud rate, check if OSR is between 4x and 7x oversampling.
-         * If so, then "BOTHEDGE" sampling must be turned on */
-        /*
-         * $Branch Coverage Justification$
-         * $ref fsl_lpuart_c_ref_1$
-         */
-        if ((osr > 3U) && (osr < 8U))
-        {
-            temp |= LPUART_BAUD_BOTHEDGE_MASK;
-        }
+//         /* Acceptable baud rate, check if OSR is between 4x and 7x oversampling.
+//          * If so, then "BOTHEDGE" sampling must be turned on */
+//         /*
+//          * $Branch Coverage Justification$
+//          * $ref fsl_lpuart_c_ref_1$
+//          */
+//         if ((osr > 3U) && (osr < 8U))
+//         {
+//             temp |= LPUART_BAUD_BOTHEDGE_MASK;
+//         }
 
-        /* program the osr value (bit value is one less than actual value) */
-        temp &= ~LPUART_BAUD_OSR_MASK;
-        temp |= LPUART_BAUD_OSR((uint32_t)osr - 1UL);
+//         /* program the osr value (bit value is one less than actual value) */
+//         temp &= ~LPUART_BAUD_OSR_MASK;
+//         temp |= LPUART_BAUD_OSR((uint32_t)osr - 1UL);
 
-        /* write the sbr value to the BAUD registers */
-        temp &= ~LPUART_BAUD_SBR_MASK;
-        base->BAUD = temp | LPUART_BAUD_SBR(sbr);
+//         /* write the sbr value to the BAUD registers */
+//         temp &= ~LPUART_BAUD_SBR_MASK;
+//         base->BAUD = temp | LPUART_BAUD_SBR(sbr);
 
-        /* Set bit count and parity mode. */
-        base->BAUD &= ~LPUART_BAUD_M10_MASK;
+//         /* Set bit count and parity mode. */
+//         base->BAUD &= ~LPUART_BAUD_M10_MASK;
 
-        temp = base->CTRL & ~(LPUART_CTRL_PE_MASK | LPUART_CTRL_PT_MASK | LPUART_CTRL_M_MASK | LPUART_CTRL_ILT_MASK |
-                              LPUART_CTRL_IDLECFG_MASK);
+//         temp = base->CTRL & ~(LPUART_CTRL_PE_MASK | LPUART_CTRL_PT_MASK | LPUART_CTRL_M_MASK | LPUART_CTRL_ILT_MASK |
+//                               LPUART_CTRL_IDLECFG_MASK);
 
-        temp |= (uint8_t)config->parityMode | LPUART_CTRL_IDLECFG(config->rxIdleConfig) |
-                LPUART_CTRL_ILT(config->rxIdleType);
+//         temp |= (uint8_t)config->parityMode | LPUART_CTRL_IDLECFG(config->rxIdleConfig) |
+//                 LPUART_CTRL_ILT(config->rxIdleType);
 
-#if defined(FSL_FEATURE_LPUART_HAS_7BIT_DATA_SUPPORT) && FSL_FEATURE_LPUART_HAS_7BIT_DATA_SUPPORT
-        if (kLPUART_SevenDataBits == config->dataBitsCount)
-        {
-            if (kLPUART_ParityDisabled != config->parityMode)
-            {
-                temp &= ~LPUART_CTRL_M7_MASK; /* Seven data bits and one parity bit */
-            }
-            else
-            {
-                temp |= LPUART_CTRL_M7_MASK;
-            }
-        }
-        else
-#endif
-        {
-            if (kLPUART_ParityDisabled != config->parityMode)
-            {
-                temp |= LPUART_CTRL_M_MASK; /* Eight data bits and one parity bit */
-            }
-        }
+// #if defined(FSL_FEATURE_LPUART_HAS_7BIT_DATA_SUPPORT) && FSL_FEATURE_LPUART_HAS_7BIT_DATA_SUPPORT
+//         if (kLPUART_SevenDataBits == config->dataBitsCount)
+//         {
+//             if (kLPUART_ParityDisabled != config->parityMode)
+//             {
+//                 temp &= ~LPUART_CTRL_M7_MASK; /* Seven data bits and one parity bit */
+//             }
+//             else
+//             {
+//                 temp |= LPUART_CTRL_M7_MASK;
+//             }
+//         }
+//         else
+// #endif
+//         {
+//             if (kLPUART_ParityDisabled != config->parityMode)
+//             {
+//                 temp |= LPUART_CTRL_M_MASK; /* Eight data bits and one parity bit */
+//             }
+//         }
 
-        base->CTRL = temp;
+//         base->CTRL = temp;
 
-#if defined(FSL_FEATURE_LPUART_HAS_STOP_BIT_CONFIG_SUPPORT) && FSL_FEATURE_LPUART_HAS_STOP_BIT_CONFIG_SUPPORT
-        /* set stop bit per char */
-        temp       = base->BAUD & ~LPUART_BAUD_SBNS_MASK;
-        base->BAUD = temp | LPUART_BAUD_SBNS((uint8_t)config->stopBitCount);
-#endif
+// #if defined(FSL_FEATURE_LPUART_HAS_STOP_BIT_CONFIG_SUPPORT) && FSL_FEATURE_LPUART_HAS_STOP_BIT_CONFIG_SUPPORT
+//         /* set stop bit per char */
+//         temp       = base->BAUD & ~LPUART_BAUD_SBNS_MASK;
+//         base->BAUD = temp | LPUART_BAUD_SBNS((uint8_t)config->stopBitCount);
+// #endif
 
-#if defined(FSL_FEATURE_LPUART_HAS_FIFO) && FSL_FEATURE_LPUART_HAS_FIFO
-        /* Set tx/rx WATER watermark
-           Note:
-           Take care of the RX FIFO, RX interrupt request only assert when received bytes
-           equal or more than RX water mark, there is potential issue if RX water
-           mark larger than 1.
-           For example, if RX FIFO water mark is 2, upper layer needs 5 bytes and
-           5 bytes are received. the last byte will be saved in FIFO but not trigger
-           RX interrupt because the water mark is 2.
-         */
-        base->WATER = (((uint32_t)(config->rxFifoWatermark) << 16U) | config->txFifoWatermark);
+// #if defined(FSL_FEATURE_LPUART_HAS_FIFO) && FSL_FEATURE_LPUART_HAS_FIFO
+//         /* Set tx/rx WATER watermark
+//            Note:
+//            Take care of the RX FIFO, RX interrupt request only assert when received bytes
+//            equal or more than RX water mark, there is potential issue if RX water
+//            mark larger than 1.
+//            For example, if RX FIFO water mark is 2, upper layer needs 5 bytes and
+//            5 bytes are received. the last byte will be saved in FIFO but not trigger
+//            RX interrupt because the water mark is 2.
+//          */
+//         base->WATER = (((uint32_t)(config->rxFifoWatermark) << 16U) | config->txFifoWatermark);
 
-        /* Enable tx/rx FIFO */
-        base->FIFO |= (LPUART_FIFO_TXFE_MASK | LPUART_FIFO_RXFE_MASK);
+//         /* Enable tx/rx FIFO */
+//         base->FIFO |= (LPUART_FIFO_TXFE_MASK | LPUART_FIFO_RXFE_MASK);
 
-        /* Flush FIFO */
-        base->FIFO |= (LPUART_FIFO_TXFLUSH_MASK | LPUART_FIFO_RXFLUSH_MASK);
-#endif
+//         /* Flush FIFO */
+//         base->FIFO |= (LPUART_FIFO_TXFLUSH_MASK | LPUART_FIFO_RXFLUSH_MASK);
+// #endif
 
-        /* Clear all status flags */
-        temp = (LPUART_STAT_RXEDGIF_MASK | LPUART_STAT_IDLE_MASK | LPUART_STAT_OR_MASK | LPUART_STAT_NF_MASK |
-                LPUART_STAT_FE_MASK | LPUART_STAT_PF_MASK);
+//         /* Clear all status flags */
+//         temp = (LPUART_STAT_RXEDGIF_MASK | LPUART_STAT_IDLE_MASK | LPUART_STAT_OR_MASK | LPUART_STAT_NF_MASK |
+//                 LPUART_STAT_FE_MASK | LPUART_STAT_PF_MASK);
 
-#if defined(FSL_FEATURE_LPUART_HAS_LIN_BREAK_DETECT) && FSL_FEATURE_LPUART_HAS_LIN_BREAK_DETECT
-        temp |= LPUART_STAT_LBKDIF_MASK;
-#endif
+// #if defined(FSL_FEATURE_LPUART_HAS_LIN_BREAK_DETECT) && FSL_FEATURE_LPUART_HAS_LIN_BREAK_DETECT
+//         temp |= LPUART_STAT_LBKDIF_MASK;
+// #endif
 
-#if defined(FSL_FEATURE_LPUART_HAS_ADDRESS_MATCHING) && FSL_FEATURE_LPUART_HAS_ADDRESS_MATCHING
-        temp |= (LPUART_STAT_MA1F_MASK | LPUART_STAT_MA2F_MASK);
-#endif
+// #if defined(FSL_FEATURE_LPUART_HAS_ADDRESS_MATCHING) && FSL_FEATURE_LPUART_HAS_ADDRESS_MATCHING
+//         temp |= (LPUART_STAT_MA1F_MASK | LPUART_STAT_MA2F_MASK);
+// #endif
 
-#if defined(FSL_FEATURE_LPUART_HAS_MODEM_SUPPORT) && FSL_FEATURE_LPUART_HAS_MODEM_SUPPORT
-        /* Set the CTS configuration/TX CTS source. */
-        base->MODIR |= LPUART_MODIR_TXCTSC(config->txCtsConfig) | LPUART_MODIR_TXCTSSRC(config->txCtsSource);
-        if (true == config->enableRxRTS)
-        {
-            /* Enable the receiver RTS(request-to-send) function. */
-            base->MODIR |= LPUART_MODIR_RXRTSE_MASK;
-        }
-        if (true == config->enableTxCTS)
-        {
-            /* Enable the CTS(clear-to-send) function. */
-            base->MODIR |= LPUART_MODIR_TXCTSE_MASK;
-        }
-#endif
+// #if defined(FSL_FEATURE_LPUART_HAS_MODEM_SUPPORT) && FSL_FEATURE_LPUART_HAS_MODEM_SUPPORT
+//         /* Set the CTS configuration/TX CTS source. */
+//         base->MODIR |= LPUART_MODIR_TXCTSC(config->txCtsConfig) | LPUART_MODIR_TXCTSSRC(config->txCtsSource);
+//         if (true == config->enableRxRTS)
+//         {
+//             /* Enable the receiver RTS(request-to-send) function. */
+//             base->MODIR |= LPUART_MODIR_RXRTSE_MASK;
+//         }
+//         if (true == config->enableTxCTS)
+//         {
+//             /* Enable the CTS(clear-to-send) function. */
+//             base->MODIR |= LPUART_MODIR_TXCTSE_MASK;
+//         }
+// #endif
 
-        /* Set data bits order. */
-        if (true == config->isMsb)
-        {
-            temp |= LPUART_STAT_MSBF_MASK;
-        }
-        else
-        {
-            temp &= ~LPUART_STAT_MSBF_MASK;
-        }
+//         /* Set data bits order. */
+//         if (true == config->isMsb)
+//         {
+//             temp |= LPUART_STAT_MSBF_MASK;
+//         }
+//         else
+//         {
+//             temp &= ~LPUART_STAT_MSBF_MASK;
+//         }
 
-        base->STAT |= temp;
+//         base->STAT |= temp;
 
-        /* Enable TX/RX base on configure structure. */
-        temp = base->CTRL;
-        if (true == config->enableTx)
-        {
-            temp |= LPUART_CTRL_TE_MASK;
-        }
+//         /* Enable TX/RX base on configure structure. */
+//         temp = base->CTRL;
+//         if (true == config->enableTx)
+//         {
+//             temp |= LPUART_CTRL_TE_MASK;
+//         }
 
-        if (true == config->enableRx)
-        {
-            temp |= LPUART_CTRL_RE_MASK;
-        }
+//         if (true == config->enableRx)
+//         {
+//             temp |= LPUART_CTRL_RE_MASK;
+//         }
 
-        base->CTRL = temp;
-    }
-
+//         base->CTRL = temp;
+    // }
+    // (void)temp; (void)sbr; (void)osr;
     return status;
 }
 /*!
