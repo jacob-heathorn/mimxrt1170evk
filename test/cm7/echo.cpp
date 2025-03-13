@@ -140,7 +140,7 @@ public:
         ctrl.bits.TE = nLPUART1::CTRL::eTE::eDISABLED;  // Disable TX until DMA ready
     }
 
-    void write(uint8_t *txBuffer, uint16_t bufferSize)
+    void write(const uint8_t *txBuffer, uint16_t bufferSize)
     {
         // 3. Configure DMA TCD
         auto &lpuart_data = nLPUART1::DATA::Instance();
@@ -174,6 +174,29 @@ public:
 
         // Wait for completion (optional, for debugging)
         while (!(nLPUART1::STAT::Instance().bits.TC == nLPUART1::STAT::eTC::eCOMPLETE)) {}
+    }
+
+    int read(uint8_t *buffer, size_t max_length)
+    {
+        assert(buffer != nullptr);
+
+        size_t i = 0;
+        uint8_t* data_address = buffer;
+        auto &stat = nLPUART1::STAT::Instance();
+        auto &data = nLPUART1::DATA::Instance();
+
+        // TODO look for read errors.
+
+        while (i < max_length - 1)
+        {
+            while (stat.bits.RDRF == nLPUART1::STAT::eRDRF::eNO_RXDATA) {}
+            uint8_t c = (uint8_t)(data.value & 0xFF);
+            data_address[i++] = c;
+
+            if (c == '\r' || c == '\n') break;  // Stop on Enter key
+        }
+        buffer[i++] = '\0';  // Null-terminate string
+        return i;
     }
 };
 
@@ -227,17 +250,18 @@ int lpuart1_read_blocking(uint8_t *buffer, size_t max_length)
 
 int main(void) {
     uint8_t txBuffer[20];
-    strcpy((char*)txBuffer, "Hello Dma!");
 
-    uint16_t bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
-    
-    
     Lpuart1 lpuart;
+    strcpy((char*)txBuffer, "Hello Dma!");
+    uint16_t bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
     lpuart.write(txBuffer, bufferSize);
     
-    
-    //SCB_CleanDCache_by_Addr((uint32_t*)txBuffer, bufferSize);
-    // InitLPUART1(txBuffer, bufferSize);
+    strcpy((char*)txBuffer, "Second!");
+    bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
+    lpuart.write(txBuffer, bufferSize);
+
+    while (1)
+    {}
 
     // // // Format the address of txBuffer as a hexadecimal string
     // char message_address[50]; // Buffer to store formatted string
@@ -258,17 +282,16 @@ int main(void) {
     // char input_buffer[100];
     // const char* message = "MIMXRT1170 UART String Echo Test\r\n";
     // lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message), std::strlen(message));
+    // char rx_buffer[100];
 
-    while (1)
-    {}
     // while (1) {
     //     const char* message2 = "Type something: ";
-    //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message2), std::strlen(message2));
-    //     lpuart1_read_blocking(reinterpret_cast<uint8_t*>(input_buffer), sizeof(input_buffer));
+    //     lpuart.write(reinterpret_cast<const uint8_t*>(message2), std::strlen(message2));
+    //     lpuart.read(reinterpret_cast<uint8_t*>(rx_buffer), sizeof(rx_buffer));
         
-    //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
-    //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("You typed: "), std::strlen("You typed: "));
-    //     lpuart1_write_blocking(reinterpret_cast<uint8_t*>(input_buffer), std::strlen(input_buffer));
-    //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
+    //     lpuart.write(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
+    //     lpuart.write(reinterpret_cast<const uint8_t*>("You typed: "), std::strlen("You typed: "));
+    //     lpuart.write(reinterpret_cast<uint8_t*>(rx_buffer), std::strlen(rx_buffer));
+    //     lpuart.write(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
     // }
 }
