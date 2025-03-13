@@ -5,6 +5,27 @@ static constexpr uint32_t k_dma0_base = 0x40070000;
 
 namespace nDMA0 {
 
+// TCDn_ATTR
+template<uint16_t N>
+union TCD_ATTR {
+  
+  // Bit field definition.
+  struct {
+    uint16_t DSIZE : 3;
+    uint16_t DMOD : 5;
+    uint16_t SSIZE : 3;
+    uint16_t SMOD : 5;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint16_t value;
+
+  TCD_ATTR() = delete;
+  static inline volatile TCD_ATTR &ref() {
+    return *reinterpret_cast<volatile TCD_ATTR*>(k_dma0_base + 0x1006 + (N * 0x20));
+  }
+};
+
 // TCDn_NBYTES_MLOFFNO
 template<uint32_t N>
 union TCD_NBYTES_MLOFFNO {
@@ -20,7 +41,6 @@ union TCD_NBYTES_MLOFFNO {
   uint32_t value;
 
   TCD_NBYTES_MLOFFNO() = delete;
-  inline void Reset() volatile { this->value = 0x00000400; }
   static inline volatile TCD_NBYTES_MLOFFNO &ref() {
     return *reinterpret_cast<volatile TCD_NBYTES_MLOFFNO*>(k_dma0_base + 0x1008 + (N * 0x20));
   }
@@ -39,7 +59,6 @@ union TCD_DADDR {
   uint32_t value;
 
   TCD_DADDR() = delete;
-  inline void Reset() volatile { this->value = 0x00000400; }
   static inline volatile TCD_DADDR &ref() {
     return *reinterpret_cast<volatile TCD_DADDR*>(k_dma0_base + 0x1010 + (N * 0x20));
   }
@@ -58,7 +77,6 @@ union TCD_SADDR {
   uint32_t value;
 
   TCD_SADDR() = delete;
-  inline void Reset() volatile { this->value = 0x00000400; }
   static inline volatile TCD_SADDR &ref() {
     return *reinterpret_cast<volatile TCD_SADDR*>(k_dma0_base + 0x1000 + (N * 0x20));
   }

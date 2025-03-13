@@ -16,7 +16,7 @@
 // #define DMA0_TCD0_SADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1000))
 // #define DMA0_TCD0_DADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1010))
 // #define DMA0_TCD0_NBYTES_MLOFFNO  (*(volatile uint32_t*)(DMA0_BASE + 0x1008))
-#define DMA0_TCD0_ATTR  (*(volatile uint16_t*)(DMA0_BASE + 0x1006))
+// #define DMA0_TCD0_ATTR  (*(volatile uint16_t*)(DMA0_BASE + 0x1006))
 #define DMA0_TCD0_CITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x1016))
 #define DMA0_TCD0_BITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x101E))
 #define DMA0_TCD0_CSR  (*(volatile uint16_t*)(DMA0_BASE + 0x101C))
@@ -158,7 +158,8 @@ public:
         DMA0_TCD0_SOFF = 1;  // Increment source by 1 byte
         DMA0_TCD0_DOFF = 0;  // No dest increment
         nDMA0::TCD_NBYTES_MLOFFNO<0>::ref().bits.NBYTES = 1; // 1 byte per minor loop
-        DMA0_TCD0_ATTR = (0 << 8) | (0 << 0);  // 8-bit transfers
+        nDMA0::TCD_ATTR<0>::ref().bits.SSIZE = 0; // 8 bit transfers.
+        nDMA0::TCD_ATTR<0>::ref().bits.DSIZE = 0; // 8 bit transfers.
         DMA0_TCD0_CITER_ELINKNO = size;
         DMA0_TCD0_BITER_ELINKNO = size;
         DMA0_TCD0_CSR = (1 << 1);  // Interrupt on completion (optional)
