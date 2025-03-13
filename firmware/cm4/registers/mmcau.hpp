@@ -74,7 +74,7 @@ union CAA {
 };
 
 // General Purpose Register
-union CA[0] {
+union CA_0 {
   
   // Bit field definition.
   struct {
@@ -85,12 +85,12 @@ union CA[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CA[0]() = delete;
+  CA_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA[0] &Instance() { return *reinterpret_cast<volatile CA[0]*>(0xE0081008); }
+  static inline volatile CA_0 &Instance() { return *reinterpret_cast<volatile CA_0*>(0xE0081008); }
 };
 // General Purpose Register
-union CA[1] {
+union CA_1 {
   
   // Bit field definition.
   struct {
@@ -101,12 +101,12 @@ union CA[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CA[1]() = delete;
+  CA_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA[1] &Instance() { return *reinterpret_cast<volatile CA[1]*>(0xE008100C); }
+  static inline volatile CA_1 &Instance() { return *reinterpret_cast<volatile CA_1*>(0xE008100C); }
 };
 // General Purpose Register
-union CA[2] {
+union CA_2 {
   
   // Bit field definition.
   struct {
@@ -117,12 +117,12 @@ union CA[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CA[2]() = delete;
+  CA_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA[2] &Instance() { return *reinterpret_cast<volatile CA[2]*>(0xE0081010); }
+  static inline volatile CA_2 &Instance() { return *reinterpret_cast<volatile CA_2*>(0xE0081010); }
 };
 // General Purpose Register
-union CA[3] {
+union CA_3 {
   
   // Bit field definition.
   struct {
@@ -133,12 +133,12 @@ union CA[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CA[3]() = delete;
+  CA_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA[3] &Instance() { return *reinterpret_cast<volatile CA[3]*>(0xE0081014); }
+  static inline volatile CA_3 &Instance() { return *reinterpret_cast<volatile CA_3*>(0xE0081014); }
 };
 // General Purpose Register
-union CA[4] {
+union CA_4 {
   
   // Bit field definition.
   struct {
@@ -149,12 +149,12 @@ union CA[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CA[4]() = delete;
+  CA_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA[4] &Instance() { return *reinterpret_cast<volatile CA[4]*>(0xE0081018); }
+  static inline volatile CA_4 &Instance() { return *reinterpret_cast<volatile CA_4*>(0xE0081018); }
 };
 // General Purpose Register
-union CA[5] {
+union CA_5 {
   
   // Bit field definition.
   struct {
@@ -165,12 +165,12 @@ union CA[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CA[5]() = delete;
+  CA_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA[5] &Instance() { return *reinterpret_cast<volatile CA[5]*>(0xE008101C); }
+  static inline volatile CA_5 &Instance() { return *reinterpret_cast<volatile CA_5*>(0xE008101C); }
 };
 // General Purpose Register
-union CA[6] {
+union CA_6 {
   
   // Bit field definition.
   struct {
@@ -181,12 +181,12 @@ union CA[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CA[6]() = delete;
+  CA_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA[6] &Instance() { return *reinterpret_cast<volatile CA[6]*>(0xE0081020); }
+  static inline volatile CA_6 &Instance() { return *reinterpret_cast<volatile CA_6*>(0xE0081020); }
 };
 // General Purpose Register
-union CA[7] {
+union CA_7 {
   
   // Bit field definition.
   struct {
@@ -197,12 +197,12 @@ union CA[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CA[7]() = delete;
+  CA_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA[7] &Instance() { return *reinterpret_cast<volatile CA[7]*>(0xE0081024); }
+  static inline volatile CA_7 &Instance() { return *reinterpret_cast<volatile CA_7*>(0xE0081024); }
 };
 // General Purpose Register
-union CA[8] {
+union CA_8 {
   
   // Bit field definition.
   struct {
@@ -213,9 +213,9 @@ union CA[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CA[8]() = delete;
+  CA_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CA[8] &Instance() { return *reinterpret_cast<volatile CA[8]*>(0xE0081028); }
+  static inline volatile CA_8 &Instance() { return *reinterpret_cast<volatile CA_8*>(0xE0081028); }
 };
 
 

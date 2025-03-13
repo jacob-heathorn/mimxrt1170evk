@@ -1853,7 +1853,7 @@ union LPGPR0_legacy_alias {
 };
 
 // SNVS_LP Zeroizable Master Key Register
-union LPZMKR[0] {
+union LPZMKR_0 {
   
   // Bit field definition.
   struct {
@@ -1864,12 +1864,12 @@ union LPZMKR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR[0]() = delete;
+  LPZMKR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR[0] &Instance() { return *reinterpret_cast<volatile LPZMKR[0]*>(0x40C9006C); }
+  static inline volatile LPZMKR_0 &Instance() { return *reinterpret_cast<volatile LPZMKR_0*>(0x40C9006C); }
 };
 // SNVS_LP Zeroizable Master Key Register
-union LPZMKR[1] {
+union LPZMKR_1 {
   
   // Bit field definition.
   struct {
@@ -1880,12 +1880,12 @@ union LPZMKR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR[1]() = delete;
+  LPZMKR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR[1] &Instance() { return *reinterpret_cast<volatile LPZMKR[1]*>(0x40C90070); }
+  static inline volatile LPZMKR_1 &Instance() { return *reinterpret_cast<volatile LPZMKR_1*>(0x40C90070); }
 };
 // SNVS_LP Zeroizable Master Key Register
-union LPZMKR[2] {
+union LPZMKR_2 {
   
   // Bit field definition.
   struct {
@@ -1896,12 +1896,12 @@ union LPZMKR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR[2]() = delete;
+  LPZMKR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR[2] &Instance() { return *reinterpret_cast<volatile LPZMKR[2]*>(0x40C90074); }
+  static inline volatile LPZMKR_2 &Instance() { return *reinterpret_cast<volatile LPZMKR_2*>(0x40C90074); }
 };
 // SNVS_LP Zeroizable Master Key Register
-union LPZMKR[3] {
+union LPZMKR_3 {
   
   // Bit field definition.
   struct {
@@ -1912,12 +1912,12 @@ union LPZMKR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR[3]() = delete;
+  LPZMKR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR[3] &Instance() { return *reinterpret_cast<volatile LPZMKR[3]*>(0x40C90078); }
+  static inline volatile LPZMKR_3 &Instance() { return *reinterpret_cast<volatile LPZMKR_3*>(0x40C90078); }
 };
 // SNVS_LP Zeroizable Master Key Register
-union LPZMKR[4] {
+union LPZMKR_4 {
   
   // Bit field definition.
   struct {
@@ -1928,12 +1928,12 @@ union LPZMKR[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR[4]() = delete;
+  LPZMKR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR[4] &Instance() { return *reinterpret_cast<volatile LPZMKR[4]*>(0x40C9007C); }
+  static inline volatile LPZMKR_4 &Instance() { return *reinterpret_cast<volatile LPZMKR_4*>(0x40C9007C); }
 };
 // SNVS_LP Zeroizable Master Key Register
-union LPZMKR[5] {
+union LPZMKR_5 {
   
   // Bit field definition.
   struct {
@@ -1944,12 +1944,12 @@ union LPZMKR[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR[5]() = delete;
+  LPZMKR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR[5] &Instance() { return *reinterpret_cast<volatile LPZMKR[5]*>(0x40C90080); }
+  static inline volatile LPZMKR_5 &Instance() { return *reinterpret_cast<volatile LPZMKR_5*>(0x40C90080); }
 };
 // SNVS_LP Zeroizable Master Key Register
-union LPZMKR[6] {
+union LPZMKR_6 {
   
   // Bit field definition.
   struct {
@@ -1960,12 +1960,12 @@ union LPZMKR[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR[6]() = delete;
+  LPZMKR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR[6] &Instance() { return *reinterpret_cast<volatile LPZMKR[6]*>(0x40C90084); }
+  static inline volatile LPZMKR_6 &Instance() { return *reinterpret_cast<volatile LPZMKR_6*>(0x40C90084); }
 };
 // SNVS_LP Zeroizable Master Key Register
-union LPZMKR[7] {
+union LPZMKR_7 {
   
   // Bit field definition.
   struct {
@@ -1976,13 +1976,13 @@ union LPZMKR[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR[7]() = delete;
+  LPZMKR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPZMKR[7] &Instance() { return *reinterpret_cast<volatile LPZMKR[7]*>(0x40C90088); }
+  static inline volatile LPZMKR_7 &Instance() { return *reinterpret_cast<volatile LPZMKR_7*>(0x40C90088); }
 };
 
 // SNVS_LP General Purpose Registers 0 .. 3
-union LPGPR_alias[0] {
+union LPGPR_alias_0 {
   
   // Bit field definition.
   struct {
@@ -1993,12 +1993,12 @@ union LPGPR_alias[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR_alias[0]() = delete;
+  LPGPR_alias_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR_alias[0] &Instance() { return *reinterpret_cast<volatile LPGPR_alias[0]*>(0x40C90090); }
+  static inline volatile LPGPR_alias_0 &Instance() { return *reinterpret_cast<volatile LPGPR_alias_0*>(0x40C90090); }
 };
 // SNVS_LP General Purpose Registers 0 .. 3
-union LPGPR_alias[1] {
+union LPGPR_alias_1 {
   
   // Bit field definition.
   struct {
@@ -2009,12 +2009,12 @@ union LPGPR_alias[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR_alias[1]() = delete;
+  LPGPR_alias_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR_alias[1] &Instance() { return *reinterpret_cast<volatile LPGPR_alias[1]*>(0x40C90094); }
+  static inline volatile LPGPR_alias_1 &Instance() { return *reinterpret_cast<volatile LPGPR_alias_1*>(0x40C90094); }
 };
 // SNVS_LP General Purpose Registers 0 .. 3
-union LPGPR_alias[2] {
+union LPGPR_alias_2 {
   
   // Bit field definition.
   struct {
@@ -2025,12 +2025,12 @@ union LPGPR_alias[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR_alias[2]() = delete;
+  LPGPR_alias_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR_alias[2] &Instance() { return *reinterpret_cast<volatile LPGPR_alias[2]*>(0x40C90098); }
+  static inline volatile LPGPR_alias_2 &Instance() { return *reinterpret_cast<volatile LPGPR_alias_2*>(0x40C90098); }
 };
 // SNVS_LP General Purpose Registers 0 .. 3
-union LPGPR_alias[3] {
+union LPGPR_alias_3 {
   
   // Bit field definition.
   struct {
@@ -2041,9 +2041,9 @@ union LPGPR_alias[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR_alias[3]() = delete;
+  LPGPR_alias_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR_alias[3] &Instance() { return *reinterpret_cast<volatile LPGPR_alias[3]*>(0x40C9009C); }
+  static inline volatile LPGPR_alias_3 &Instance() { return *reinterpret_cast<volatile LPGPR_alias_3*>(0x40C9009C); }
 };
 
 // SNVS_LP Tamper Detectors Config 2 Register
@@ -2748,7 +2748,7 @@ union LPATRC2R {
 };
 
 // SNVS_LP General Purpose Registers 0 .. 3
-union LPGPR[0] {
+union LPGPR_0 {
   
   // Bit field definition.
   struct {
@@ -2759,12 +2759,12 @@ union LPGPR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR[0]() = delete;
+  LPGPR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR[0] &Instance() { return *reinterpret_cast<volatile LPGPR[0]*>(0x40C90100); }
+  static inline volatile LPGPR_0 &Instance() { return *reinterpret_cast<volatile LPGPR_0*>(0x40C90100); }
 };
 // SNVS_LP General Purpose Registers 0 .. 3
-union LPGPR[1] {
+union LPGPR_1 {
   
   // Bit field definition.
   struct {
@@ -2775,12 +2775,12 @@ union LPGPR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR[1]() = delete;
+  LPGPR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR[1] &Instance() { return *reinterpret_cast<volatile LPGPR[1]*>(0x40C90104); }
+  static inline volatile LPGPR_1 &Instance() { return *reinterpret_cast<volatile LPGPR_1*>(0x40C90104); }
 };
 // SNVS_LP General Purpose Registers 0 .. 3
-union LPGPR[2] {
+union LPGPR_2 {
   
   // Bit field definition.
   struct {
@@ -2791,12 +2791,12 @@ union LPGPR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR[2]() = delete;
+  LPGPR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR[2] &Instance() { return *reinterpret_cast<volatile LPGPR[2]*>(0x40C90108); }
+  static inline volatile LPGPR_2 &Instance() { return *reinterpret_cast<volatile LPGPR_2*>(0x40C90108); }
 };
 // SNVS_LP General Purpose Registers 0 .. 3
-union LPGPR[3] {
+union LPGPR_3 {
   
   // Bit field definition.
   struct {
@@ -2807,9 +2807,9 @@ union LPGPR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR[3]() = delete;
+  LPGPR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPGPR[3] &Instance() { return *reinterpret_cast<volatile LPGPR[3]*>(0x40C9010C); }
+  static inline volatile LPGPR_3 &Instance() { return *reinterpret_cast<volatile LPGPR_3*>(0x40C9010C); }
 };
 
 // SNVS_HP Version ID Register 1

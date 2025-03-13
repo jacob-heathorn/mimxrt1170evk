@@ -57,9 +57,8 @@ union CHCFG_0 {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_0 &Instance() { return *reinterpret_cast<volatile CHCFG_0*>(0x40074000); }
 };
-/*
 // Channel index Configuration Register
-union CHCFG[1] {
+union CHCFG_1 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -101,12 +100,12 @@ union CHCFG[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[1]() = delete;
+  CHCFG_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[1] &Instance() { return *reinterpret_cast<volatile CHCFG[1]*>(0x40074004); }
+  static inline volatile CHCFG_1 &Instance() { return *reinterpret_cast<volatile CHCFG_1*>(0x40074004); }
 };
 // Channel index Configuration Register
-union CHCFG[2] {
+union CHCFG_2 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -148,12 +147,12 @@ union CHCFG[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[2]() = delete;
+  CHCFG_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[2] &Instance() { return *reinterpret_cast<volatile CHCFG[2]*>(0x40074008); }
+  static inline volatile CHCFG_2 &Instance() { return *reinterpret_cast<volatile CHCFG_2*>(0x40074008); }
 };
 // Channel index Configuration Register
-union CHCFG[3] {
+union CHCFG_3 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -195,12 +194,12 @@ union CHCFG[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[3]() = delete;
+  CHCFG_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[3] &Instance() { return *reinterpret_cast<volatile CHCFG[3]*>(0x4007400C); }
+  static inline volatile CHCFG_3 &Instance() { return *reinterpret_cast<volatile CHCFG_3*>(0x4007400C); }
 };
 // Channel index Configuration Register
-union CHCFG[4] {
+union CHCFG_4 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -242,12 +241,12 @@ union CHCFG[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[4]() = delete;
+  CHCFG_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[4] &Instance() { return *reinterpret_cast<volatile CHCFG[4]*>(0x40074010); }
+  static inline volatile CHCFG_4 &Instance() { return *reinterpret_cast<volatile CHCFG_4*>(0x40074010); }
 };
 // Channel index Configuration Register
-union CHCFG[5] {
+union CHCFG_5 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -289,12 +288,12 @@ union CHCFG[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[5]() = delete;
+  CHCFG_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[5] &Instance() { return *reinterpret_cast<volatile CHCFG[5]*>(0x40074014); }
+  static inline volatile CHCFG_5 &Instance() { return *reinterpret_cast<volatile CHCFG_5*>(0x40074014); }
 };
 // Channel index Configuration Register
-union CHCFG[6] {
+union CHCFG_6 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -336,12 +335,12 @@ union CHCFG[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[6]() = delete;
+  CHCFG_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[6] &Instance() { return *reinterpret_cast<volatile CHCFG[6]*>(0x40074018); }
+  static inline volatile CHCFG_6 &Instance() { return *reinterpret_cast<volatile CHCFG_6*>(0x40074018); }
 };
 // Channel index Configuration Register
-union CHCFG[7] {
+union CHCFG_7 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -383,12 +382,12 @@ union CHCFG[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[7]() = delete;
+  CHCFG_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[7] &Instance() { return *reinterpret_cast<volatile CHCFG[7]*>(0x4007401C); }
+  static inline volatile CHCFG_7 &Instance() { return *reinterpret_cast<volatile CHCFG_7*>(0x4007401C); }
 };
 // Channel index Configuration Register
-union CHCFG[8] {
+union CHCFG_8 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -430,12 +429,12 @@ union CHCFG[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[8]() = delete;
+  CHCFG_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[8] &Instance() { return *reinterpret_cast<volatile CHCFG[8]*>(0x40074020); }
+  static inline volatile CHCFG_8 &Instance() { return *reinterpret_cast<volatile CHCFG_8*>(0x40074020); }
 };
 // Channel index Configuration Register
-union CHCFG[9] {
+union CHCFG_9 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -477,12 +476,12 @@ union CHCFG[9] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[9]() = delete;
+  CHCFG_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[9] &Instance() { return *reinterpret_cast<volatile CHCFG[9]*>(0x40074024); }
+  static inline volatile CHCFG_9 &Instance() { return *reinterpret_cast<volatile CHCFG_9*>(0x40074024); }
 };
 // Channel index Configuration Register
-union CHCFG[10] {
+union CHCFG_10 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -524,12 +523,12 @@ union CHCFG[10] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[10]() = delete;
+  CHCFG_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[10] &Instance() { return *reinterpret_cast<volatile CHCFG[10]*>(0x40074028); }
+  static inline volatile CHCFG_10 &Instance() { return *reinterpret_cast<volatile CHCFG_10*>(0x40074028); }
 };
 // Channel index Configuration Register
-union CHCFG[11] {
+union CHCFG_11 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -571,12 +570,12 @@ union CHCFG[11] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[11]() = delete;
+  CHCFG_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[11] &Instance() { return *reinterpret_cast<volatile CHCFG[11]*>(0x4007402C); }
+  static inline volatile CHCFG_11 &Instance() { return *reinterpret_cast<volatile CHCFG_11*>(0x4007402C); }
 };
 // Channel index Configuration Register
-union CHCFG[12] {
+union CHCFG_12 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -618,12 +617,12 @@ union CHCFG[12] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[12]() = delete;
+  CHCFG_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[12] &Instance() { return *reinterpret_cast<volatile CHCFG[12]*>(0x40074030); }
+  static inline volatile CHCFG_12 &Instance() { return *reinterpret_cast<volatile CHCFG_12*>(0x40074030); }
 };
 // Channel index Configuration Register
-union CHCFG[13] {
+union CHCFG_13 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -665,12 +664,12 @@ union CHCFG[13] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[13]() = delete;
+  CHCFG_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[13] &Instance() { return *reinterpret_cast<volatile CHCFG[13]*>(0x40074034); }
+  static inline volatile CHCFG_13 &Instance() { return *reinterpret_cast<volatile CHCFG_13*>(0x40074034); }
 };
 // Channel index Configuration Register
-union CHCFG[14] {
+union CHCFG_14 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -712,12 +711,12 @@ union CHCFG[14] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[14]() = delete;
+  CHCFG_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[14] &Instance() { return *reinterpret_cast<volatile CHCFG[14]*>(0x40074038); }
+  static inline volatile CHCFG_14 &Instance() { return *reinterpret_cast<volatile CHCFG_14*>(0x40074038); }
 };
 // Channel index Configuration Register
-union CHCFG[15] {
+union CHCFG_15 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -759,12 +758,12 @@ union CHCFG[15] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[15]() = delete;
+  CHCFG_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[15] &Instance() { return *reinterpret_cast<volatile CHCFG[15]*>(0x4007403C); }
+  static inline volatile CHCFG_15 &Instance() { return *reinterpret_cast<volatile CHCFG_15*>(0x4007403C); }
 };
 // Channel index Configuration Register
-union CHCFG[16] {
+union CHCFG_16 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -806,12 +805,12 @@ union CHCFG[16] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[16]() = delete;
+  CHCFG_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[16] &Instance() { return *reinterpret_cast<volatile CHCFG[16]*>(0x40074040); }
+  static inline volatile CHCFG_16 &Instance() { return *reinterpret_cast<volatile CHCFG_16*>(0x40074040); }
 };
 // Channel index Configuration Register
-union CHCFG[17] {
+union CHCFG_17 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -853,12 +852,12 @@ union CHCFG[17] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[17]() = delete;
+  CHCFG_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[17] &Instance() { return *reinterpret_cast<volatile CHCFG[17]*>(0x40074044); }
+  static inline volatile CHCFG_17 &Instance() { return *reinterpret_cast<volatile CHCFG_17*>(0x40074044); }
 };
 // Channel index Configuration Register
-union CHCFG[18] {
+union CHCFG_18 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -900,12 +899,12 @@ union CHCFG[18] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[18]() = delete;
+  CHCFG_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[18] &Instance() { return *reinterpret_cast<volatile CHCFG[18]*>(0x40074048); }
+  static inline volatile CHCFG_18 &Instance() { return *reinterpret_cast<volatile CHCFG_18*>(0x40074048); }
 };
 // Channel index Configuration Register
-union CHCFG[19] {
+union CHCFG_19 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -947,12 +946,12 @@ union CHCFG[19] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[19]() = delete;
+  CHCFG_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[19] &Instance() { return *reinterpret_cast<volatile CHCFG[19]*>(0x4007404C); }
+  static inline volatile CHCFG_19 &Instance() { return *reinterpret_cast<volatile CHCFG_19*>(0x4007404C); }
 };
 // Channel index Configuration Register
-union CHCFG[20] {
+union CHCFG_20 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -994,12 +993,12 @@ union CHCFG[20] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[20]() = delete;
+  CHCFG_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[20] &Instance() { return *reinterpret_cast<volatile CHCFG[20]*>(0x40074050); }
+  static inline volatile CHCFG_20 &Instance() { return *reinterpret_cast<volatile CHCFG_20*>(0x40074050); }
 };
 // Channel index Configuration Register
-union CHCFG[21] {
+union CHCFG_21 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -1041,12 +1040,12 @@ union CHCFG[21] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[21]() = delete;
+  CHCFG_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[21] &Instance() { return *reinterpret_cast<volatile CHCFG[21]*>(0x40074054); }
+  static inline volatile CHCFG_21 &Instance() { return *reinterpret_cast<volatile CHCFG_21*>(0x40074054); }
 };
 // Channel index Configuration Register
-union CHCFG[22] {
+union CHCFG_22 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -1088,12 +1087,12 @@ union CHCFG[22] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[22]() = delete;
+  CHCFG_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[22] &Instance() { return *reinterpret_cast<volatile CHCFG[22]*>(0x40074058); }
+  static inline volatile CHCFG_22 &Instance() { return *reinterpret_cast<volatile CHCFG_22*>(0x40074058); }
 };
 // Channel index Configuration Register
-union CHCFG[23] {
+union CHCFG_23 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -1135,12 +1134,12 @@ union CHCFG[23] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[23]() = delete;
+  CHCFG_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[23] &Instance() { return *reinterpret_cast<volatile CHCFG[23]*>(0x4007405C); }
+  static inline volatile CHCFG_23 &Instance() { return *reinterpret_cast<volatile CHCFG_23*>(0x4007405C); }
 };
 // Channel index Configuration Register
-union CHCFG[24] {
+union CHCFG_24 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -1182,12 +1181,12 @@ union CHCFG[24] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[24]() = delete;
+  CHCFG_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[24] &Instance() { return *reinterpret_cast<volatile CHCFG[24]*>(0x40074060); }
+  static inline volatile CHCFG_24 &Instance() { return *reinterpret_cast<volatile CHCFG_24*>(0x40074060); }
 };
 // Channel index Configuration Register
-union CHCFG[25] {
+union CHCFG_25 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -1229,12 +1228,12 @@ union CHCFG[25] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[25]() = delete;
+  CHCFG_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[25] &Instance() { return *reinterpret_cast<volatile CHCFG[25]*>(0x40074064); }
+  static inline volatile CHCFG_25 &Instance() { return *reinterpret_cast<volatile CHCFG_25*>(0x40074064); }
 };
 // Channel index Configuration Register
-union CHCFG[26] {
+union CHCFG_26 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -1276,12 +1275,12 @@ union CHCFG[26] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[26]() = delete;
+  CHCFG_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[26] &Instance() { return *reinterpret_cast<volatile CHCFG[26]*>(0x40074068); }
+  static inline volatile CHCFG_26 &Instance() { return *reinterpret_cast<volatile CHCFG_26*>(0x40074068); }
 };
 // Channel index Configuration Register
-union CHCFG[27] {
+union CHCFG_27 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -1323,12 +1322,12 @@ union CHCFG[27] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[27]() = delete;
+  CHCFG_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[27] &Instance() { return *reinterpret_cast<volatile CHCFG[27]*>(0x4007406C); }
+  static inline volatile CHCFG_27 &Instance() { return *reinterpret_cast<volatile CHCFG_27*>(0x4007406C); }
 };
 // Channel index Configuration Register
-union CHCFG[28] {
+union CHCFG_28 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -1370,12 +1369,12 @@ union CHCFG[28] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[28]() = delete;
+  CHCFG_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[28] &Instance() { return *reinterpret_cast<volatile CHCFG[28]*>(0x40074070); }
+  static inline volatile CHCFG_28 &Instance() { return *reinterpret_cast<volatile CHCFG_28*>(0x40074070); }
 };
 // Channel index Configuration Register
-union CHCFG[29] {
+union CHCFG_29 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -1417,12 +1416,12 @@ union CHCFG[29] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[29]() = delete;
+  CHCFG_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[29] &Instance() { return *reinterpret_cast<volatile CHCFG[29]*>(0x40074074); }
+  static inline volatile CHCFG_29 &Instance() { return *reinterpret_cast<volatile CHCFG_29*>(0x40074074); }
 };
 // Channel index Configuration Register
-union CHCFG[30] {
+union CHCFG_30 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -1464,12 +1463,12 @@ union CHCFG[30] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[30]() = delete;
+  CHCFG_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[30] &Instance() { return *reinterpret_cast<volatile CHCFG[30]*>(0x40074078); }
+  static inline volatile CHCFG_30 &Instance() { return *reinterpret_cast<volatile CHCFG_30*>(0x40074078); }
 };
 // Channel index Configuration Register
-union CHCFG[31] {
+union CHCFG_31 {
   
   // DMA Channel Always Enable
   enum class eA_ON : uint32_t {
@@ -1511,10 +1510,10 @@ union CHCFG[31] {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG[31]() = delete;
+  CHCFG_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CHCFG[31] &Instance() { return *reinterpret_cast<volatile CHCFG[31]*>(0x4007407C); }
+  static inline volatile CHCFG_31 &Instance() { return *reinterpret_cast<volatile CHCFG_31*>(0x4007407C); }
 };
-*/
+
 
 } // namespace nDMAMUX0

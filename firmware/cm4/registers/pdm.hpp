@@ -477,7 +477,7 @@ union FIFO_STAT {
 };
 
 // PDM Output Result Register
-union DATACH[0] {
+union DATACH_0 {
   
   // Bit field definition.
   struct {
@@ -488,12 +488,12 @@ union DATACH[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  DATACH[0]() = delete;
+  DATACH_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH[0] &Instance() { return *reinterpret_cast<volatile DATACH[0]*>(0x40C20024); }
+  static inline volatile DATACH_0 &Instance() { return *reinterpret_cast<volatile DATACH_0*>(0x40C20024); }
 };
 // PDM Output Result Register
-union DATACH[1] {
+union DATACH_1 {
   
   // Bit field definition.
   struct {
@@ -504,12 +504,12 @@ union DATACH[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  DATACH[1]() = delete;
+  DATACH_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH[1] &Instance() { return *reinterpret_cast<volatile DATACH[1]*>(0x40C20028); }
+  static inline volatile DATACH_1 &Instance() { return *reinterpret_cast<volatile DATACH_1*>(0x40C20028); }
 };
 // PDM Output Result Register
-union DATACH[2] {
+union DATACH_2 {
   
   // Bit field definition.
   struct {
@@ -520,12 +520,12 @@ union DATACH[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  DATACH[2]() = delete;
+  DATACH_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH[2] &Instance() { return *reinterpret_cast<volatile DATACH[2]*>(0x40C2002C); }
+  static inline volatile DATACH_2 &Instance() { return *reinterpret_cast<volatile DATACH_2*>(0x40C2002C); }
 };
 // PDM Output Result Register
-union DATACH[3] {
+union DATACH_3 {
   
   // Bit field definition.
   struct {
@@ -536,12 +536,12 @@ union DATACH[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  DATACH[3]() = delete;
+  DATACH_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH[3] &Instance() { return *reinterpret_cast<volatile DATACH[3]*>(0x40C20030); }
+  static inline volatile DATACH_3 &Instance() { return *reinterpret_cast<volatile DATACH_3*>(0x40C20030); }
 };
 // PDM Output Result Register
-union DATACH[4] {
+union DATACH_4 {
   
   // Bit field definition.
   struct {
@@ -552,12 +552,12 @@ union DATACH[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  DATACH[4]() = delete;
+  DATACH_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH[4] &Instance() { return *reinterpret_cast<volatile DATACH[4]*>(0x40C20034); }
+  static inline volatile DATACH_4 &Instance() { return *reinterpret_cast<volatile DATACH_4*>(0x40C20034); }
 };
 // PDM Output Result Register
-union DATACH[5] {
+union DATACH_5 {
   
   // Bit field definition.
   struct {
@@ -568,12 +568,12 @@ union DATACH[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  DATACH[5]() = delete;
+  DATACH_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH[5] &Instance() { return *reinterpret_cast<volatile DATACH[5]*>(0x40C20038); }
+  static inline volatile DATACH_5 &Instance() { return *reinterpret_cast<volatile DATACH_5*>(0x40C20038); }
 };
 // PDM Output Result Register
-union DATACH[6] {
+union DATACH_6 {
   
   // Bit field definition.
   struct {
@@ -584,12 +584,12 @@ union DATACH[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  DATACH[6]() = delete;
+  DATACH_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH[6] &Instance() { return *reinterpret_cast<volatile DATACH[6]*>(0x40C2003C); }
+  static inline volatile DATACH_6 &Instance() { return *reinterpret_cast<volatile DATACH_6*>(0x40C2003C); }
 };
 // PDM Output Result Register
-union DATACH[7] {
+union DATACH_7 {
   
   // Bit field definition.
   struct {
@@ -600,9 +600,9 @@ union DATACH[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  DATACH[7]() = delete;
+  DATACH_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH[7] &Instance() { return *reinterpret_cast<volatile DATACH[7]*>(0x40C20040); }
+  static inline volatile DATACH_7 &Instance() { return *reinterpret_cast<volatile DATACH_7*>(0x40C20040); }
 };
 
 // PDM DC Remover Control register

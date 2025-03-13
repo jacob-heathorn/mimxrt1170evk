@@ -2224,7 +2224,7 @@ union IPTXFSTS {
 };
 
 // IP Receive FIFO Data x
-union RFDR[0] {
+union RFDR_0 {
   
   // Bit field definition.
   struct {
@@ -2235,12 +2235,12 @@ union RFDR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[0]() = delete;
+  RFDR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[0] &Instance() { return *reinterpret_cast<volatile RFDR[0]*>(0x400CC100); }
+  static inline volatile RFDR_0 &Instance() { return *reinterpret_cast<volatile RFDR_0*>(0x400CC100); }
 };
 // IP Receive FIFO Data x
-union RFDR[1] {
+union RFDR_1 {
   
   // Bit field definition.
   struct {
@@ -2251,12 +2251,12 @@ union RFDR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[1]() = delete;
+  RFDR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[1] &Instance() { return *reinterpret_cast<volatile RFDR[1]*>(0x400CC104); }
+  static inline volatile RFDR_1 &Instance() { return *reinterpret_cast<volatile RFDR_1*>(0x400CC104); }
 };
 // IP Receive FIFO Data x
-union RFDR[2] {
+union RFDR_2 {
   
   // Bit field definition.
   struct {
@@ -2267,12 +2267,12 @@ union RFDR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[2]() = delete;
+  RFDR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[2] &Instance() { return *reinterpret_cast<volatile RFDR[2]*>(0x400CC108); }
+  static inline volatile RFDR_2 &Instance() { return *reinterpret_cast<volatile RFDR_2*>(0x400CC108); }
 };
 // IP Receive FIFO Data x
-union RFDR[3] {
+union RFDR_3 {
   
   // Bit field definition.
   struct {
@@ -2283,12 +2283,12 @@ union RFDR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[3]() = delete;
+  RFDR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[3] &Instance() { return *reinterpret_cast<volatile RFDR[3]*>(0x400CC10C); }
+  static inline volatile RFDR_3 &Instance() { return *reinterpret_cast<volatile RFDR_3*>(0x400CC10C); }
 };
 // IP Receive FIFO Data x
-union RFDR[4] {
+union RFDR_4 {
   
   // Bit field definition.
   struct {
@@ -2299,12 +2299,12 @@ union RFDR[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[4]() = delete;
+  RFDR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[4] &Instance() { return *reinterpret_cast<volatile RFDR[4]*>(0x400CC110); }
+  static inline volatile RFDR_4 &Instance() { return *reinterpret_cast<volatile RFDR_4*>(0x400CC110); }
 };
 // IP Receive FIFO Data x
-union RFDR[5] {
+union RFDR_5 {
   
   // Bit field definition.
   struct {
@@ -2315,12 +2315,12 @@ union RFDR[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[5]() = delete;
+  RFDR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[5] &Instance() { return *reinterpret_cast<volatile RFDR[5]*>(0x400CC114); }
+  static inline volatile RFDR_5 &Instance() { return *reinterpret_cast<volatile RFDR_5*>(0x400CC114); }
 };
 // IP Receive FIFO Data x
-union RFDR[6] {
+union RFDR_6 {
   
   // Bit field definition.
   struct {
@@ -2331,12 +2331,12 @@ union RFDR[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[6]() = delete;
+  RFDR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[6] &Instance() { return *reinterpret_cast<volatile RFDR[6]*>(0x400CC118); }
+  static inline volatile RFDR_6 &Instance() { return *reinterpret_cast<volatile RFDR_6*>(0x400CC118); }
 };
 // IP Receive FIFO Data x
-union RFDR[7] {
+union RFDR_7 {
   
   // Bit field definition.
   struct {
@@ -2347,12 +2347,12 @@ union RFDR[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[7]() = delete;
+  RFDR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[7] &Instance() { return *reinterpret_cast<volatile RFDR[7]*>(0x400CC11C); }
+  static inline volatile RFDR_7 &Instance() { return *reinterpret_cast<volatile RFDR_7*>(0x400CC11C); }
 };
 // IP Receive FIFO Data x
-union RFDR[8] {
+union RFDR_8 {
   
   // Bit field definition.
   struct {
@@ -2363,12 +2363,12 @@ union RFDR[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[8]() = delete;
+  RFDR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[8] &Instance() { return *reinterpret_cast<volatile RFDR[8]*>(0x400CC120); }
+  static inline volatile RFDR_8 &Instance() { return *reinterpret_cast<volatile RFDR_8*>(0x400CC120); }
 };
 // IP Receive FIFO Data x
-union RFDR[9] {
+union RFDR_9 {
   
   // Bit field definition.
   struct {
@@ -2379,12 +2379,12 @@ union RFDR[9] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[9]() = delete;
+  RFDR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[9] &Instance() { return *reinterpret_cast<volatile RFDR[9]*>(0x400CC124); }
+  static inline volatile RFDR_9 &Instance() { return *reinterpret_cast<volatile RFDR_9*>(0x400CC124); }
 };
 // IP Receive FIFO Data x
-union RFDR[10] {
+union RFDR_10 {
   
   // Bit field definition.
   struct {
@@ -2395,12 +2395,12 @@ union RFDR[10] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[10]() = delete;
+  RFDR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[10] &Instance() { return *reinterpret_cast<volatile RFDR[10]*>(0x400CC128); }
+  static inline volatile RFDR_10 &Instance() { return *reinterpret_cast<volatile RFDR_10*>(0x400CC128); }
 };
 // IP Receive FIFO Data x
-union RFDR[11] {
+union RFDR_11 {
   
   // Bit field definition.
   struct {
@@ -2411,12 +2411,12 @@ union RFDR[11] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[11]() = delete;
+  RFDR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[11] &Instance() { return *reinterpret_cast<volatile RFDR[11]*>(0x400CC12C); }
+  static inline volatile RFDR_11 &Instance() { return *reinterpret_cast<volatile RFDR_11*>(0x400CC12C); }
 };
 // IP Receive FIFO Data x
-union RFDR[12] {
+union RFDR_12 {
   
   // Bit field definition.
   struct {
@@ -2427,12 +2427,12 @@ union RFDR[12] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[12]() = delete;
+  RFDR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[12] &Instance() { return *reinterpret_cast<volatile RFDR[12]*>(0x400CC130); }
+  static inline volatile RFDR_12 &Instance() { return *reinterpret_cast<volatile RFDR_12*>(0x400CC130); }
 };
 // IP Receive FIFO Data x
-union RFDR[13] {
+union RFDR_13 {
   
   // Bit field definition.
   struct {
@@ -2443,12 +2443,12 @@ union RFDR[13] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[13]() = delete;
+  RFDR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[13] &Instance() { return *reinterpret_cast<volatile RFDR[13]*>(0x400CC134); }
+  static inline volatile RFDR_13 &Instance() { return *reinterpret_cast<volatile RFDR_13*>(0x400CC134); }
 };
 // IP Receive FIFO Data x
-union RFDR[14] {
+union RFDR_14 {
   
   // Bit field definition.
   struct {
@@ -2459,12 +2459,12 @@ union RFDR[14] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[14]() = delete;
+  RFDR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[14] &Instance() { return *reinterpret_cast<volatile RFDR[14]*>(0x400CC138); }
+  static inline volatile RFDR_14 &Instance() { return *reinterpret_cast<volatile RFDR_14*>(0x400CC138); }
 };
 // IP Receive FIFO Data x
-union RFDR[15] {
+union RFDR_15 {
   
   // Bit field definition.
   struct {
@@ -2475,12 +2475,12 @@ union RFDR[15] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[15]() = delete;
+  RFDR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[15] &Instance() { return *reinterpret_cast<volatile RFDR[15]*>(0x400CC13C); }
+  static inline volatile RFDR_15 &Instance() { return *reinterpret_cast<volatile RFDR_15*>(0x400CC13C); }
 };
 // IP Receive FIFO Data x
-union RFDR[16] {
+union RFDR_16 {
   
   // Bit field definition.
   struct {
@@ -2491,12 +2491,12 @@ union RFDR[16] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[16]() = delete;
+  RFDR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[16] &Instance() { return *reinterpret_cast<volatile RFDR[16]*>(0x400CC140); }
+  static inline volatile RFDR_16 &Instance() { return *reinterpret_cast<volatile RFDR_16*>(0x400CC140); }
 };
 // IP Receive FIFO Data x
-union RFDR[17] {
+union RFDR_17 {
   
   // Bit field definition.
   struct {
@@ -2507,12 +2507,12 @@ union RFDR[17] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[17]() = delete;
+  RFDR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[17] &Instance() { return *reinterpret_cast<volatile RFDR[17]*>(0x400CC144); }
+  static inline volatile RFDR_17 &Instance() { return *reinterpret_cast<volatile RFDR_17*>(0x400CC144); }
 };
 // IP Receive FIFO Data x
-union RFDR[18] {
+union RFDR_18 {
   
   // Bit field definition.
   struct {
@@ -2523,12 +2523,12 @@ union RFDR[18] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[18]() = delete;
+  RFDR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[18] &Instance() { return *reinterpret_cast<volatile RFDR[18]*>(0x400CC148); }
+  static inline volatile RFDR_18 &Instance() { return *reinterpret_cast<volatile RFDR_18*>(0x400CC148); }
 };
 // IP Receive FIFO Data x
-union RFDR[19] {
+union RFDR_19 {
   
   // Bit field definition.
   struct {
@@ -2539,12 +2539,12 @@ union RFDR[19] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[19]() = delete;
+  RFDR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[19] &Instance() { return *reinterpret_cast<volatile RFDR[19]*>(0x400CC14C); }
+  static inline volatile RFDR_19 &Instance() { return *reinterpret_cast<volatile RFDR_19*>(0x400CC14C); }
 };
 // IP Receive FIFO Data x
-union RFDR[20] {
+union RFDR_20 {
   
   // Bit field definition.
   struct {
@@ -2555,12 +2555,12 @@ union RFDR[20] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[20]() = delete;
+  RFDR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[20] &Instance() { return *reinterpret_cast<volatile RFDR[20]*>(0x400CC150); }
+  static inline volatile RFDR_20 &Instance() { return *reinterpret_cast<volatile RFDR_20*>(0x400CC150); }
 };
 // IP Receive FIFO Data x
-union RFDR[21] {
+union RFDR_21 {
   
   // Bit field definition.
   struct {
@@ -2571,12 +2571,12 @@ union RFDR[21] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[21]() = delete;
+  RFDR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[21] &Instance() { return *reinterpret_cast<volatile RFDR[21]*>(0x400CC154); }
+  static inline volatile RFDR_21 &Instance() { return *reinterpret_cast<volatile RFDR_21*>(0x400CC154); }
 };
 // IP Receive FIFO Data x
-union RFDR[22] {
+union RFDR_22 {
   
   // Bit field definition.
   struct {
@@ -2587,12 +2587,12 @@ union RFDR[22] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[22]() = delete;
+  RFDR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[22] &Instance() { return *reinterpret_cast<volatile RFDR[22]*>(0x400CC158); }
+  static inline volatile RFDR_22 &Instance() { return *reinterpret_cast<volatile RFDR_22*>(0x400CC158); }
 };
 // IP Receive FIFO Data x
-union RFDR[23] {
+union RFDR_23 {
   
   // Bit field definition.
   struct {
@@ -2603,12 +2603,12 @@ union RFDR[23] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[23]() = delete;
+  RFDR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[23] &Instance() { return *reinterpret_cast<volatile RFDR[23]*>(0x400CC15C); }
+  static inline volatile RFDR_23 &Instance() { return *reinterpret_cast<volatile RFDR_23*>(0x400CC15C); }
 };
 // IP Receive FIFO Data x
-union RFDR[24] {
+union RFDR_24 {
   
   // Bit field definition.
   struct {
@@ -2619,12 +2619,12 @@ union RFDR[24] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[24]() = delete;
+  RFDR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[24] &Instance() { return *reinterpret_cast<volatile RFDR[24]*>(0x400CC160); }
+  static inline volatile RFDR_24 &Instance() { return *reinterpret_cast<volatile RFDR_24*>(0x400CC160); }
 };
 // IP Receive FIFO Data x
-union RFDR[25] {
+union RFDR_25 {
   
   // Bit field definition.
   struct {
@@ -2635,12 +2635,12 @@ union RFDR[25] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[25]() = delete;
+  RFDR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[25] &Instance() { return *reinterpret_cast<volatile RFDR[25]*>(0x400CC164); }
+  static inline volatile RFDR_25 &Instance() { return *reinterpret_cast<volatile RFDR_25*>(0x400CC164); }
 };
 // IP Receive FIFO Data x
-union RFDR[26] {
+union RFDR_26 {
   
   // Bit field definition.
   struct {
@@ -2651,12 +2651,12 @@ union RFDR[26] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[26]() = delete;
+  RFDR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[26] &Instance() { return *reinterpret_cast<volatile RFDR[26]*>(0x400CC168); }
+  static inline volatile RFDR_26 &Instance() { return *reinterpret_cast<volatile RFDR_26*>(0x400CC168); }
 };
 // IP Receive FIFO Data x
-union RFDR[27] {
+union RFDR_27 {
   
   // Bit field definition.
   struct {
@@ -2667,12 +2667,12 @@ union RFDR[27] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[27]() = delete;
+  RFDR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[27] &Instance() { return *reinterpret_cast<volatile RFDR[27]*>(0x400CC16C); }
+  static inline volatile RFDR_27 &Instance() { return *reinterpret_cast<volatile RFDR_27*>(0x400CC16C); }
 };
 // IP Receive FIFO Data x
-union RFDR[28] {
+union RFDR_28 {
   
   // Bit field definition.
   struct {
@@ -2683,12 +2683,12 @@ union RFDR[28] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[28]() = delete;
+  RFDR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[28] &Instance() { return *reinterpret_cast<volatile RFDR[28]*>(0x400CC170); }
+  static inline volatile RFDR_28 &Instance() { return *reinterpret_cast<volatile RFDR_28*>(0x400CC170); }
 };
 // IP Receive FIFO Data x
-union RFDR[29] {
+union RFDR_29 {
   
   // Bit field definition.
   struct {
@@ -2699,12 +2699,12 @@ union RFDR[29] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[29]() = delete;
+  RFDR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[29] &Instance() { return *reinterpret_cast<volatile RFDR[29]*>(0x400CC174); }
+  static inline volatile RFDR_29 &Instance() { return *reinterpret_cast<volatile RFDR_29*>(0x400CC174); }
 };
 // IP Receive FIFO Data x
-union RFDR[30] {
+union RFDR_30 {
   
   // Bit field definition.
   struct {
@@ -2715,12 +2715,12 @@ union RFDR[30] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[30]() = delete;
+  RFDR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[30] &Instance() { return *reinterpret_cast<volatile RFDR[30]*>(0x400CC178); }
+  static inline volatile RFDR_30 &Instance() { return *reinterpret_cast<volatile RFDR_30*>(0x400CC178); }
 };
 // IP Receive FIFO Data x
-union RFDR[31] {
+union RFDR_31 {
   
   // Bit field definition.
   struct {
@@ -2731,13 +2731,13 @@ union RFDR[31] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFDR[31]() = delete;
+  RFDR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFDR[31] &Instance() { return *reinterpret_cast<volatile RFDR[31]*>(0x400CC17C); }
+  static inline volatile RFDR_31 &Instance() { return *reinterpret_cast<volatile RFDR_31*>(0x400CC17C); }
 };
 
 // IP TX FIFO Data x
-union TFDR[0] {
+union TFDR_0 {
   
   // Bit field definition.
   struct {
@@ -2748,12 +2748,12 @@ union TFDR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[0]() = delete;
+  TFDR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[0] &Instance() { return *reinterpret_cast<volatile TFDR[0]*>(0x400CC180); }
+  static inline volatile TFDR_0 &Instance() { return *reinterpret_cast<volatile TFDR_0*>(0x400CC180); }
 };
 // IP TX FIFO Data x
-union TFDR[1] {
+union TFDR_1 {
   
   // Bit field definition.
   struct {
@@ -2764,12 +2764,12 @@ union TFDR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[1]() = delete;
+  TFDR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[1] &Instance() { return *reinterpret_cast<volatile TFDR[1]*>(0x400CC184); }
+  static inline volatile TFDR_1 &Instance() { return *reinterpret_cast<volatile TFDR_1*>(0x400CC184); }
 };
 // IP TX FIFO Data x
-union TFDR[2] {
+union TFDR_2 {
   
   // Bit field definition.
   struct {
@@ -2780,12 +2780,12 @@ union TFDR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[2]() = delete;
+  TFDR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[2] &Instance() { return *reinterpret_cast<volatile TFDR[2]*>(0x400CC188); }
+  static inline volatile TFDR_2 &Instance() { return *reinterpret_cast<volatile TFDR_2*>(0x400CC188); }
 };
 // IP TX FIFO Data x
-union TFDR[3] {
+union TFDR_3 {
   
   // Bit field definition.
   struct {
@@ -2796,12 +2796,12 @@ union TFDR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[3]() = delete;
+  TFDR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[3] &Instance() { return *reinterpret_cast<volatile TFDR[3]*>(0x400CC18C); }
+  static inline volatile TFDR_3 &Instance() { return *reinterpret_cast<volatile TFDR_3*>(0x400CC18C); }
 };
 // IP TX FIFO Data x
-union TFDR[4] {
+union TFDR_4 {
   
   // Bit field definition.
   struct {
@@ -2812,12 +2812,12 @@ union TFDR[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[4]() = delete;
+  TFDR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[4] &Instance() { return *reinterpret_cast<volatile TFDR[4]*>(0x400CC190); }
+  static inline volatile TFDR_4 &Instance() { return *reinterpret_cast<volatile TFDR_4*>(0x400CC190); }
 };
 // IP TX FIFO Data x
-union TFDR[5] {
+union TFDR_5 {
   
   // Bit field definition.
   struct {
@@ -2828,12 +2828,12 @@ union TFDR[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[5]() = delete;
+  TFDR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[5] &Instance() { return *reinterpret_cast<volatile TFDR[5]*>(0x400CC194); }
+  static inline volatile TFDR_5 &Instance() { return *reinterpret_cast<volatile TFDR_5*>(0x400CC194); }
 };
 // IP TX FIFO Data x
-union TFDR[6] {
+union TFDR_6 {
   
   // Bit field definition.
   struct {
@@ -2844,12 +2844,12 @@ union TFDR[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[6]() = delete;
+  TFDR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[6] &Instance() { return *reinterpret_cast<volatile TFDR[6]*>(0x400CC198); }
+  static inline volatile TFDR_6 &Instance() { return *reinterpret_cast<volatile TFDR_6*>(0x400CC198); }
 };
 // IP TX FIFO Data x
-union TFDR[7] {
+union TFDR_7 {
   
   // Bit field definition.
   struct {
@@ -2860,12 +2860,12 @@ union TFDR[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[7]() = delete;
+  TFDR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[7] &Instance() { return *reinterpret_cast<volatile TFDR[7]*>(0x400CC19C); }
+  static inline volatile TFDR_7 &Instance() { return *reinterpret_cast<volatile TFDR_7*>(0x400CC19C); }
 };
 // IP TX FIFO Data x
-union TFDR[8] {
+union TFDR_8 {
   
   // Bit field definition.
   struct {
@@ -2876,12 +2876,12 @@ union TFDR[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[8]() = delete;
+  TFDR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[8] &Instance() { return *reinterpret_cast<volatile TFDR[8]*>(0x400CC1A0); }
+  static inline volatile TFDR_8 &Instance() { return *reinterpret_cast<volatile TFDR_8*>(0x400CC1A0); }
 };
 // IP TX FIFO Data x
-union TFDR[9] {
+union TFDR_9 {
   
   // Bit field definition.
   struct {
@@ -2892,12 +2892,12 @@ union TFDR[9] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[9]() = delete;
+  TFDR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[9] &Instance() { return *reinterpret_cast<volatile TFDR[9]*>(0x400CC1A4); }
+  static inline volatile TFDR_9 &Instance() { return *reinterpret_cast<volatile TFDR_9*>(0x400CC1A4); }
 };
 // IP TX FIFO Data x
-union TFDR[10] {
+union TFDR_10 {
   
   // Bit field definition.
   struct {
@@ -2908,12 +2908,12 @@ union TFDR[10] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[10]() = delete;
+  TFDR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[10] &Instance() { return *reinterpret_cast<volatile TFDR[10]*>(0x400CC1A8); }
+  static inline volatile TFDR_10 &Instance() { return *reinterpret_cast<volatile TFDR_10*>(0x400CC1A8); }
 };
 // IP TX FIFO Data x
-union TFDR[11] {
+union TFDR_11 {
   
   // Bit field definition.
   struct {
@@ -2924,12 +2924,12 @@ union TFDR[11] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[11]() = delete;
+  TFDR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[11] &Instance() { return *reinterpret_cast<volatile TFDR[11]*>(0x400CC1AC); }
+  static inline volatile TFDR_11 &Instance() { return *reinterpret_cast<volatile TFDR_11*>(0x400CC1AC); }
 };
 // IP TX FIFO Data x
-union TFDR[12] {
+union TFDR_12 {
   
   // Bit field definition.
   struct {
@@ -2940,12 +2940,12 @@ union TFDR[12] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[12]() = delete;
+  TFDR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[12] &Instance() { return *reinterpret_cast<volatile TFDR[12]*>(0x400CC1B0); }
+  static inline volatile TFDR_12 &Instance() { return *reinterpret_cast<volatile TFDR_12*>(0x400CC1B0); }
 };
 // IP TX FIFO Data x
-union TFDR[13] {
+union TFDR_13 {
   
   // Bit field definition.
   struct {
@@ -2956,12 +2956,12 @@ union TFDR[13] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[13]() = delete;
+  TFDR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[13] &Instance() { return *reinterpret_cast<volatile TFDR[13]*>(0x400CC1B4); }
+  static inline volatile TFDR_13 &Instance() { return *reinterpret_cast<volatile TFDR_13*>(0x400CC1B4); }
 };
 // IP TX FIFO Data x
-union TFDR[14] {
+union TFDR_14 {
   
   // Bit field definition.
   struct {
@@ -2972,12 +2972,12 @@ union TFDR[14] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[14]() = delete;
+  TFDR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[14] &Instance() { return *reinterpret_cast<volatile TFDR[14]*>(0x400CC1B8); }
+  static inline volatile TFDR_14 &Instance() { return *reinterpret_cast<volatile TFDR_14*>(0x400CC1B8); }
 };
 // IP TX FIFO Data x
-union TFDR[15] {
+union TFDR_15 {
   
   // Bit field definition.
   struct {
@@ -2988,12 +2988,12 @@ union TFDR[15] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[15]() = delete;
+  TFDR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[15] &Instance() { return *reinterpret_cast<volatile TFDR[15]*>(0x400CC1BC); }
+  static inline volatile TFDR_15 &Instance() { return *reinterpret_cast<volatile TFDR_15*>(0x400CC1BC); }
 };
 // IP TX FIFO Data x
-union TFDR[16] {
+union TFDR_16 {
   
   // Bit field definition.
   struct {
@@ -3004,12 +3004,12 @@ union TFDR[16] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[16]() = delete;
+  TFDR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[16] &Instance() { return *reinterpret_cast<volatile TFDR[16]*>(0x400CC1C0); }
+  static inline volatile TFDR_16 &Instance() { return *reinterpret_cast<volatile TFDR_16*>(0x400CC1C0); }
 };
 // IP TX FIFO Data x
-union TFDR[17] {
+union TFDR_17 {
   
   // Bit field definition.
   struct {
@@ -3020,12 +3020,12 @@ union TFDR[17] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[17]() = delete;
+  TFDR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[17] &Instance() { return *reinterpret_cast<volatile TFDR[17]*>(0x400CC1C4); }
+  static inline volatile TFDR_17 &Instance() { return *reinterpret_cast<volatile TFDR_17*>(0x400CC1C4); }
 };
 // IP TX FIFO Data x
-union TFDR[18] {
+union TFDR_18 {
   
   // Bit field definition.
   struct {
@@ -3036,12 +3036,12 @@ union TFDR[18] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[18]() = delete;
+  TFDR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[18] &Instance() { return *reinterpret_cast<volatile TFDR[18]*>(0x400CC1C8); }
+  static inline volatile TFDR_18 &Instance() { return *reinterpret_cast<volatile TFDR_18*>(0x400CC1C8); }
 };
 // IP TX FIFO Data x
-union TFDR[19] {
+union TFDR_19 {
   
   // Bit field definition.
   struct {
@@ -3052,12 +3052,12 @@ union TFDR[19] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[19]() = delete;
+  TFDR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[19] &Instance() { return *reinterpret_cast<volatile TFDR[19]*>(0x400CC1CC); }
+  static inline volatile TFDR_19 &Instance() { return *reinterpret_cast<volatile TFDR_19*>(0x400CC1CC); }
 };
 // IP TX FIFO Data x
-union TFDR[20] {
+union TFDR_20 {
   
   // Bit field definition.
   struct {
@@ -3068,12 +3068,12 @@ union TFDR[20] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[20]() = delete;
+  TFDR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[20] &Instance() { return *reinterpret_cast<volatile TFDR[20]*>(0x400CC1D0); }
+  static inline volatile TFDR_20 &Instance() { return *reinterpret_cast<volatile TFDR_20*>(0x400CC1D0); }
 };
 // IP TX FIFO Data x
-union TFDR[21] {
+union TFDR_21 {
   
   // Bit field definition.
   struct {
@@ -3084,12 +3084,12 @@ union TFDR[21] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[21]() = delete;
+  TFDR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[21] &Instance() { return *reinterpret_cast<volatile TFDR[21]*>(0x400CC1D4); }
+  static inline volatile TFDR_21 &Instance() { return *reinterpret_cast<volatile TFDR_21*>(0x400CC1D4); }
 };
 // IP TX FIFO Data x
-union TFDR[22] {
+union TFDR_22 {
   
   // Bit field definition.
   struct {
@@ -3100,12 +3100,12 @@ union TFDR[22] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[22]() = delete;
+  TFDR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[22] &Instance() { return *reinterpret_cast<volatile TFDR[22]*>(0x400CC1D8); }
+  static inline volatile TFDR_22 &Instance() { return *reinterpret_cast<volatile TFDR_22*>(0x400CC1D8); }
 };
 // IP TX FIFO Data x
-union TFDR[23] {
+union TFDR_23 {
   
   // Bit field definition.
   struct {
@@ -3116,12 +3116,12 @@ union TFDR[23] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[23]() = delete;
+  TFDR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[23] &Instance() { return *reinterpret_cast<volatile TFDR[23]*>(0x400CC1DC); }
+  static inline volatile TFDR_23 &Instance() { return *reinterpret_cast<volatile TFDR_23*>(0x400CC1DC); }
 };
 // IP TX FIFO Data x
-union TFDR[24] {
+union TFDR_24 {
   
   // Bit field definition.
   struct {
@@ -3132,12 +3132,12 @@ union TFDR[24] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[24]() = delete;
+  TFDR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[24] &Instance() { return *reinterpret_cast<volatile TFDR[24]*>(0x400CC1E0); }
+  static inline volatile TFDR_24 &Instance() { return *reinterpret_cast<volatile TFDR_24*>(0x400CC1E0); }
 };
 // IP TX FIFO Data x
-union TFDR[25] {
+union TFDR_25 {
   
   // Bit field definition.
   struct {
@@ -3148,12 +3148,12 @@ union TFDR[25] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[25]() = delete;
+  TFDR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[25] &Instance() { return *reinterpret_cast<volatile TFDR[25]*>(0x400CC1E4); }
+  static inline volatile TFDR_25 &Instance() { return *reinterpret_cast<volatile TFDR_25*>(0x400CC1E4); }
 };
 // IP TX FIFO Data x
-union TFDR[26] {
+union TFDR_26 {
   
   // Bit field definition.
   struct {
@@ -3164,12 +3164,12 @@ union TFDR[26] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[26]() = delete;
+  TFDR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[26] &Instance() { return *reinterpret_cast<volatile TFDR[26]*>(0x400CC1E8); }
+  static inline volatile TFDR_26 &Instance() { return *reinterpret_cast<volatile TFDR_26*>(0x400CC1E8); }
 };
 // IP TX FIFO Data x
-union TFDR[27] {
+union TFDR_27 {
   
   // Bit field definition.
   struct {
@@ -3180,12 +3180,12 @@ union TFDR[27] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[27]() = delete;
+  TFDR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[27] &Instance() { return *reinterpret_cast<volatile TFDR[27]*>(0x400CC1EC); }
+  static inline volatile TFDR_27 &Instance() { return *reinterpret_cast<volatile TFDR_27*>(0x400CC1EC); }
 };
 // IP TX FIFO Data x
-union TFDR[28] {
+union TFDR_28 {
   
   // Bit field definition.
   struct {
@@ -3196,12 +3196,12 @@ union TFDR[28] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[28]() = delete;
+  TFDR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[28] &Instance() { return *reinterpret_cast<volatile TFDR[28]*>(0x400CC1F0); }
+  static inline volatile TFDR_28 &Instance() { return *reinterpret_cast<volatile TFDR_28*>(0x400CC1F0); }
 };
 // IP TX FIFO Data x
-union TFDR[29] {
+union TFDR_29 {
   
   // Bit field definition.
   struct {
@@ -3212,12 +3212,12 @@ union TFDR[29] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[29]() = delete;
+  TFDR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[29] &Instance() { return *reinterpret_cast<volatile TFDR[29]*>(0x400CC1F4); }
+  static inline volatile TFDR_29 &Instance() { return *reinterpret_cast<volatile TFDR_29*>(0x400CC1F4); }
 };
 // IP TX FIFO Data x
-union TFDR[30] {
+union TFDR_30 {
   
   // Bit field definition.
   struct {
@@ -3228,12 +3228,12 @@ union TFDR[30] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[30]() = delete;
+  TFDR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[30] &Instance() { return *reinterpret_cast<volatile TFDR[30]*>(0x400CC1F8); }
+  static inline volatile TFDR_30 &Instance() { return *reinterpret_cast<volatile TFDR_30*>(0x400CC1F8); }
 };
 // IP TX FIFO Data x
-union TFDR[31] {
+union TFDR_31 {
   
   // Bit field definition.
   struct {
@@ -3244,13 +3244,13 @@ union TFDR[31] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFDR[31]() = delete;
+  TFDR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFDR[31] &Instance() { return *reinterpret_cast<volatile TFDR[31]*>(0x400CC1FC); }
+  static inline volatile TFDR_31 &Instance() { return *reinterpret_cast<volatile TFDR_31*>(0x400CC1FC); }
 };
 
 // Lookup Table x
-union LUT[0] {
+union LUT_0 {
   
   // Bit field definition.
   struct {
@@ -3271,12 +3271,12 @@ union LUT[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[0]() = delete;
+  LUT_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[0] &Instance() { return *reinterpret_cast<volatile LUT[0]*>(0x400CC200); }
+  static inline volatile LUT_0 &Instance() { return *reinterpret_cast<volatile LUT_0*>(0x400CC200); }
 };
 // Lookup Table x
-union LUT[1] {
+union LUT_1 {
   
   // Bit field definition.
   struct {
@@ -3297,12 +3297,12 @@ union LUT[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[1]() = delete;
+  LUT_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[1] &Instance() { return *reinterpret_cast<volatile LUT[1]*>(0x400CC204); }
+  static inline volatile LUT_1 &Instance() { return *reinterpret_cast<volatile LUT_1*>(0x400CC204); }
 };
 // Lookup Table x
-union LUT[2] {
+union LUT_2 {
   
   // Bit field definition.
   struct {
@@ -3323,12 +3323,12 @@ union LUT[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[2]() = delete;
+  LUT_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[2] &Instance() { return *reinterpret_cast<volatile LUT[2]*>(0x400CC208); }
+  static inline volatile LUT_2 &Instance() { return *reinterpret_cast<volatile LUT_2*>(0x400CC208); }
 };
 // Lookup Table x
-union LUT[3] {
+union LUT_3 {
   
   // Bit field definition.
   struct {
@@ -3349,12 +3349,12 @@ union LUT[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[3]() = delete;
+  LUT_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[3] &Instance() { return *reinterpret_cast<volatile LUT[3]*>(0x400CC20C); }
+  static inline volatile LUT_3 &Instance() { return *reinterpret_cast<volatile LUT_3*>(0x400CC20C); }
 };
 // Lookup Table x
-union LUT[4] {
+union LUT_4 {
   
   // Bit field definition.
   struct {
@@ -3375,12 +3375,12 @@ union LUT[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[4]() = delete;
+  LUT_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[4] &Instance() { return *reinterpret_cast<volatile LUT[4]*>(0x400CC210); }
+  static inline volatile LUT_4 &Instance() { return *reinterpret_cast<volatile LUT_4*>(0x400CC210); }
 };
 // Lookup Table x
-union LUT[5] {
+union LUT_5 {
   
   // Bit field definition.
   struct {
@@ -3401,12 +3401,12 @@ union LUT[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[5]() = delete;
+  LUT_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[5] &Instance() { return *reinterpret_cast<volatile LUT[5]*>(0x400CC214); }
+  static inline volatile LUT_5 &Instance() { return *reinterpret_cast<volatile LUT_5*>(0x400CC214); }
 };
 // Lookup Table x
-union LUT[6] {
+union LUT_6 {
   
   // Bit field definition.
   struct {
@@ -3427,12 +3427,12 @@ union LUT[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[6]() = delete;
+  LUT_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[6] &Instance() { return *reinterpret_cast<volatile LUT[6]*>(0x400CC218); }
+  static inline volatile LUT_6 &Instance() { return *reinterpret_cast<volatile LUT_6*>(0x400CC218); }
 };
 // Lookup Table x
-union LUT[7] {
+union LUT_7 {
   
   // Bit field definition.
   struct {
@@ -3453,12 +3453,12 @@ union LUT[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[7]() = delete;
+  LUT_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[7] &Instance() { return *reinterpret_cast<volatile LUT[7]*>(0x400CC21C); }
+  static inline volatile LUT_7 &Instance() { return *reinterpret_cast<volatile LUT_7*>(0x400CC21C); }
 };
 // Lookup Table x
-union LUT[8] {
+union LUT_8 {
   
   // Bit field definition.
   struct {
@@ -3479,12 +3479,12 @@ union LUT[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[8]() = delete;
+  LUT_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[8] &Instance() { return *reinterpret_cast<volatile LUT[8]*>(0x400CC220); }
+  static inline volatile LUT_8 &Instance() { return *reinterpret_cast<volatile LUT_8*>(0x400CC220); }
 };
 // Lookup Table x
-union LUT[9] {
+union LUT_9 {
   
   // Bit field definition.
   struct {
@@ -3505,12 +3505,12 @@ union LUT[9] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[9]() = delete;
+  LUT_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[9] &Instance() { return *reinterpret_cast<volatile LUT[9]*>(0x400CC224); }
+  static inline volatile LUT_9 &Instance() { return *reinterpret_cast<volatile LUT_9*>(0x400CC224); }
 };
 // Lookup Table x
-union LUT[10] {
+union LUT_10 {
   
   // Bit field definition.
   struct {
@@ -3531,12 +3531,12 @@ union LUT[10] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[10]() = delete;
+  LUT_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[10] &Instance() { return *reinterpret_cast<volatile LUT[10]*>(0x400CC228); }
+  static inline volatile LUT_10 &Instance() { return *reinterpret_cast<volatile LUT_10*>(0x400CC228); }
 };
 // Lookup Table x
-union LUT[11] {
+union LUT_11 {
   
   // Bit field definition.
   struct {
@@ -3557,12 +3557,12 @@ union LUT[11] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[11]() = delete;
+  LUT_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[11] &Instance() { return *reinterpret_cast<volatile LUT[11]*>(0x400CC22C); }
+  static inline volatile LUT_11 &Instance() { return *reinterpret_cast<volatile LUT_11*>(0x400CC22C); }
 };
 // Lookup Table x
-union LUT[12] {
+union LUT_12 {
   
   // Bit field definition.
   struct {
@@ -3583,12 +3583,12 @@ union LUT[12] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[12]() = delete;
+  LUT_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[12] &Instance() { return *reinterpret_cast<volatile LUT[12]*>(0x400CC230); }
+  static inline volatile LUT_12 &Instance() { return *reinterpret_cast<volatile LUT_12*>(0x400CC230); }
 };
 // Lookup Table x
-union LUT[13] {
+union LUT_13 {
   
   // Bit field definition.
   struct {
@@ -3609,12 +3609,12 @@ union LUT[13] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[13]() = delete;
+  LUT_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[13] &Instance() { return *reinterpret_cast<volatile LUT[13]*>(0x400CC234); }
+  static inline volatile LUT_13 &Instance() { return *reinterpret_cast<volatile LUT_13*>(0x400CC234); }
 };
 // Lookup Table x
-union LUT[14] {
+union LUT_14 {
   
   // Bit field definition.
   struct {
@@ -3635,12 +3635,12 @@ union LUT[14] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[14]() = delete;
+  LUT_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[14] &Instance() { return *reinterpret_cast<volatile LUT[14]*>(0x400CC238); }
+  static inline volatile LUT_14 &Instance() { return *reinterpret_cast<volatile LUT_14*>(0x400CC238); }
 };
 // Lookup Table x
-union LUT[15] {
+union LUT_15 {
   
   // Bit field definition.
   struct {
@@ -3661,12 +3661,12 @@ union LUT[15] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[15]() = delete;
+  LUT_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[15] &Instance() { return *reinterpret_cast<volatile LUT[15]*>(0x400CC23C); }
+  static inline volatile LUT_15 &Instance() { return *reinterpret_cast<volatile LUT_15*>(0x400CC23C); }
 };
 // Lookup Table x
-union LUT[16] {
+union LUT_16 {
   
   // Bit field definition.
   struct {
@@ -3687,12 +3687,12 @@ union LUT[16] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[16]() = delete;
+  LUT_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[16] &Instance() { return *reinterpret_cast<volatile LUT[16]*>(0x400CC240); }
+  static inline volatile LUT_16 &Instance() { return *reinterpret_cast<volatile LUT_16*>(0x400CC240); }
 };
 // Lookup Table x
-union LUT[17] {
+union LUT_17 {
   
   // Bit field definition.
   struct {
@@ -3713,12 +3713,12 @@ union LUT[17] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[17]() = delete;
+  LUT_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[17] &Instance() { return *reinterpret_cast<volatile LUT[17]*>(0x400CC244); }
+  static inline volatile LUT_17 &Instance() { return *reinterpret_cast<volatile LUT_17*>(0x400CC244); }
 };
 // Lookup Table x
-union LUT[18] {
+union LUT_18 {
   
   // Bit field definition.
   struct {
@@ -3739,12 +3739,12 @@ union LUT[18] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[18]() = delete;
+  LUT_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[18] &Instance() { return *reinterpret_cast<volatile LUT[18]*>(0x400CC248); }
+  static inline volatile LUT_18 &Instance() { return *reinterpret_cast<volatile LUT_18*>(0x400CC248); }
 };
 // Lookup Table x
-union LUT[19] {
+union LUT_19 {
   
   // Bit field definition.
   struct {
@@ -3765,12 +3765,12 @@ union LUT[19] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[19]() = delete;
+  LUT_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[19] &Instance() { return *reinterpret_cast<volatile LUT[19]*>(0x400CC24C); }
+  static inline volatile LUT_19 &Instance() { return *reinterpret_cast<volatile LUT_19*>(0x400CC24C); }
 };
 // Lookup Table x
-union LUT[20] {
+union LUT_20 {
   
   // Bit field definition.
   struct {
@@ -3791,12 +3791,12 @@ union LUT[20] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[20]() = delete;
+  LUT_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[20] &Instance() { return *reinterpret_cast<volatile LUT[20]*>(0x400CC250); }
+  static inline volatile LUT_20 &Instance() { return *reinterpret_cast<volatile LUT_20*>(0x400CC250); }
 };
 // Lookup Table x
-union LUT[21] {
+union LUT_21 {
   
   // Bit field definition.
   struct {
@@ -3817,12 +3817,12 @@ union LUT[21] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[21]() = delete;
+  LUT_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[21] &Instance() { return *reinterpret_cast<volatile LUT[21]*>(0x400CC254); }
+  static inline volatile LUT_21 &Instance() { return *reinterpret_cast<volatile LUT_21*>(0x400CC254); }
 };
 // Lookup Table x
-union LUT[22] {
+union LUT_22 {
   
   // Bit field definition.
   struct {
@@ -3843,12 +3843,12 @@ union LUT[22] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[22]() = delete;
+  LUT_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[22] &Instance() { return *reinterpret_cast<volatile LUT[22]*>(0x400CC258); }
+  static inline volatile LUT_22 &Instance() { return *reinterpret_cast<volatile LUT_22*>(0x400CC258); }
 };
 // Lookup Table x
-union LUT[23] {
+union LUT_23 {
   
   // Bit field definition.
   struct {
@@ -3869,12 +3869,12 @@ union LUT[23] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[23]() = delete;
+  LUT_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[23] &Instance() { return *reinterpret_cast<volatile LUT[23]*>(0x400CC25C); }
+  static inline volatile LUT_23 &Instance() { return *reinterpret_cast<volatile LUT_23*>(0x400CC25C); }
 };
 // Lookup Table x
-union LUT[24] {
+union LUT_24 {
   
   // Bit field definition.
   struct {
@@ -3895,12 +3895,12 @@ union LUT[24] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[24]() = delete;
+  LUT_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[24] &Instance() { return *reinterpret_cast<volatile LUT[24]*>(0x400CC260); }
+  static inline volatile LUT_24 &Instance() { return *reinterpret_cast<volatile LUT_24*>(0x400CC260); }
 };
 // Lookup Table x
-union LUT[25] {
+union LUT_25 {
   
   // Bit field definition.
   struct {
@@ -3921,12 +3921,12 @@ union LUT[25] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[25]() = delete;
+  LUT_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[25] &Instance() { return *reinterpret_cast<volatile LUT[25]*>(0x400CC264); }
+  static inline volatile LUT_25 &Instance() { return *reinterpret_cast<volatile LUT_25*>(0x400CC264); }
 };
 // Lookup Table x
-union LUT[26] {
+union LUT_26 {
   
   // Bit field definition.
   struct {
@@ -3947,12 +3947,12 @@ union LUT[26] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[26]() = delete;
+  LUT_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[26] &Instance() { return *reinterpret_cast<volatile LUT[26]*>(0x400CC268); }
+  static inline volatile LUT_26 &Instance() { return *reinterpret_cast<volatile LUT_26*>(0x400CC268); }
 };
 // Lookup Table x
-union LUT[27] {
+union LUT_27 {
   
   // Bit field definition.
   struct {
@@ -3973,12 +3973,12 @@ union LUT[27] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[27]() = delete;
+  LUT_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[27] &Instance() { return *reinterpret_cast<volatile LUT[27]*>(0x400CC26C); }
+  static inline volatile LUT_27 &Instance() { return *reinterpret_cast<volatile LUT_27*>(0x400CC26C); }
 };
 // Lookup Table x
-union LUT[28] {
+union LUT_28 {
   
   // Bit field definition.
   struct {
@@ -3999,12 +3999,12 @@ union LUT[28] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[28]() = delete;
+  LUT_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[28] &Instance() { return *reinterpret_cast<volatile LUT[28]*>(0x400CC270); }
+  static inline volatile LUT_28 &Instance() { return *reinterpret_cast<volatile LUT_28*>(0x400CC270); }
 };
 // Lookup Table x
-union LUT[29] {
+union LUT_29 {
   
   // Bit field definition.
   struct {
@@ -4025,12 +4025,12 @@ union LUT[29] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[29]() = delete;
+  LUT_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[29] &Instance() { return *reinterpret_cast<volatile LUT[29]*>(0x400CC274); }
+  static inline volatile LUT_29 &Instance() { return *reinterpret_cast<volatile LUT_29*>(0x400CC274); }
 };
 // Lookup Table x
-union LUT[30] {
+union LUT_30 {
   
   // Bit field definition.
   struct {
@@ -4051,12 +4051,12 @@ union LUT[30] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[30]() = delete;
+  LUT_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[30] &Instance() { return *reinterpret_cast<volatile LUT[30]*>(0x400CC278); }
+  static inline volatile LUT_30 &Instance() { return *reinterpret_cast<volatile LUT_30*>(0x400CC278); }
 };
 // Lookup Table x
-union LUT[31] {
+union LUT_31 {
   
   // Bit field definition.
   struct {
@@ -4077,12 +4077,12 @@ union LUT[31] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[31]() = delete;
+  LUT_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[31] &Instance() { return *reinterpret_cast<volatile LUT[31]*>(0x400CC27C); }
+  static inline volatile LUT_31 &Instance() { return *reinterpret_cast<volatile LUT_31*>(0x400CC27C); }
 };
 // Lookup Table x
-union LUT[32] {
+union LUT_32 {
   
   // Bit field definition.
   struct {
@@ -4103,12 +4103,12 @@ union LUT[32] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[32]() = delete;
+  LUT_32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[32] &Instance() { return *reinterpret_cast<volatile LUT[32]*>(0x400CC280); }
+  static inline volatile LUT_32 &Instance() { return *reinterpret_cast<volatile LUT_32*>(0x400CC280); }
 };
 // Lookup Table x
-union LUT[33] {
+union LUT_33 {
   
   // Bit field definition.
   struct {
@@ -4129,12 +4129,12 @@ union LUT[33] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[33]() = delete;
+  LUT_33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[33] &Instance() { return *reinterpret_cast<volatile LUT[33]*>(0x400CC284); }
+  static inline volatile LUT_33 &Instance() { return *reinterpret_cast<volatile LUT_33*>(0x400CC284); }
 };
 // Lookup Table x
-union LUT[34] {
+union LUT_34 {
   
   // Bit field definition.
   struct {
@@ -4155,12 +4155,12 @@ union LUT[34] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[34]() = delete;
+  LUT_34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[34] &Instance() { return *reinterpret_cast<volatile LUT[34]*>(0x400CC288); }
+  static inline volatile LUT_34 &Instance() { return *reinterpret_cast<volatile LUT_34*>(0x400CC288); }
 };
 // Lookup Table x
-union LUT[35] {
+union LUT_35 {
   
   // Bit field definition.
   struct {
@@ -4181,12 +4181,12 @@ union LUT[35] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[35]() = delete;
+  LUT_35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[35] &Instance() { return *reinterpret_cast<volatile LUT[35]*>(0x400CC28C); }
+  static inline volatile LUT_35 &Instance() { return *reinterpret_cast<volatile LUT_35*>(0x400CC28C); }
 };
 // Lookup Table x
-union LUT[36] {
+union LUT_36 {
   
   // Bit field definition.
   struct {
@@ -4207,12 +4207,12 @@ union LUT[36] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[36]() = delete;
+  LUT_36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[36] &Instance() { return *reinterpret_cast<volatile LUT[36]*>(0x400CC290); }
+  static inline volatile LUT_36 &Instance() { return *reinterpret_cast<volatile LUT_36*>(0x400CC290); }
 };
 // Lookup Table x
-union LUT[37] {
+union LUT_37 {
   
   // Bit field definition.
   struct {
@@ -4233,12 +4233,12 @@ union LUT[37] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[37]() = delete;
+  LUT_37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[37] &Instance() { return *reinterpret_cast<volatile LUT[37]*>(0x400CC294); }
+  static inline volatile LUT_37 &Instance() { return *reinterpret_cast<volatile LUT_37*>(0x400CC294); }
 };
 // Lookup Table x
-union LUT[38] {
+union LUT_38 {
   
   // Bit field definition.
   struct {
@@ -4259,12 +4259,12 @@ union LUT[38] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[38]() = delete;
+  LUT_38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[38] &Instance() { return *reinterpret_cast<volatile LUT[38]*>(0x400CC298); }
+  static inline volatile LUT_38 &Instance() { return *reinterpret_cast<volatile LUT_38*>(0x400CC298); }
 };
 // Lookup Table x
-union LUT[39] {
+union LUT_39 {
   
   // Bit field definition.
   struct {
@@ -4285,12 +4285,12 @@ union LUT[39] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[39]() = delete;
+  LUT_39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[39] &Instance() { return *reinterpret_cast<volatile LUT[39]*>(0x400CC29C); }
+  static inline volatile LUT_39 &Instance() { return *reinterpret_cast<volatile LUT_39*>(0x400CC29C); }
 };
 // Lookup Table x
-union LUT[40] {
+union LUT_40 {
   
   // Bit field definition.
   struct {
@@ -4311,12 +4311,12 @@ union LUT[40] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[40]() = delete;
+  LUT_40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[40] &Instance() { return *reinterpret_cast<volatile LUT[40]*>(0x400CC2A0); }
+  static inline volatile LUT_40 &Instance() { return *reinterpret_cast<volatile LUT_40*>(0x400CC2A0); }
 };
 // Lookup Table x
-union LUT[41] {
+union LUT_41 {
   
   // Bit field definition.
   struct {
@@ -4337,12 +4337,12 @@ union LUT[41] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[41]() = delete;
+  LUT_41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[41] &Instance() { return *reinterpret_cast<volatile LUT[41]*>(0x400CC2A4); }
+  static inline volatile LUT_41 &Instance() { return *reinterpret_cast<volatile LUT_41*>(0x400CC2A4); }
 };
 // Lookup Table x
-union LUT[42] {
+union LUT_42 {
   
   // Bit field definition.
   struct {
@@ -4363,12 +4363,12 @@ union LUT[42] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[42]() = delete;
+  LUT_42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[42] &Instance() { return *reinterpret_cast<volatile LUT[42]*>(0x400CC2A8); }
+  static inline volatile LUT_42 &Instance() { return *reinterpret_cast<volatile LUT_42*>(0x400CC2A8); }
 };
 // Lookup Table x
-union LUT[43] {
+union LUT_43 {
   
   // Bit field definition.
   struct {
@@ -4389,12 +4389,12 @@ union LUT[43] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[43]() = delete;
+  LUT_43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[43] &Instance() { return *reinterpret_cast<volatile LUT[43]*>(0x400CC2AC); }
+  static inline volatile LUT_43 &Instance() { return *reinterpret_cast<volatile LUT_43*>(0x400CC2AC); }
 };
 // Lookup Table x
-union LUT[44] {
+union LUT_44 {
   
   // Bit field definition.
   struct {
@@ -4415,12 +4415,12 @@ union LUT[44] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[44]() = delete;
+  LUT_44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[44] &Instance() { return *reinterpret_cast<volatile LUT[44]*>(0x400CC2B0); }
+  static inline volatile LUT_44 &Instance() { return *reinterpret_cast<volatile LUT_44*>(0x400CC2B0); }
 };
 // Lookup Table x
-union LUT[45] {
+union LUT_45 {
   
   // Bit field definition.
   struct {
@@ -4441,12 +4441,12 @@ union LUT[45] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[45]() = delete;
+  LUT_45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[45] &Instance() { return *reinterpret_cast<volatile LUT[45]*>(0x400CC2B4); }
+  static inline volatile LUT_45 &Instance() { return *reinterpret_cast<volatile LUT_45*>(0x400CC2B4); }
 };
 // Lookup Table x
-union LUT[46] {
+union LUT_46 {
   
   // Bit field definition.
   struct {
@@ -4467,12 +4467,12 @@ union LUT[46] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[46]() = delete;
+  LUT_46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[46] &Instance() { return *reinterpret_cast<volatile LUT[46]*>(0x400CC2B8); }
+  static inline volatile LUT_46 &Instance() { return *reinterpret_cast<volatile LUT_46*>(0x400CC2B8); }
 };
 // Lookup Table x
-union LUT[47] {
+union LUT_47 {
   
   // Bit field definition.
   struct {
@@ -4493,12 +4493,12 @@ union LUT[47] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[47]() = delete;
+  LUT_47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[47] &Instance() { return *reinterpret_cast<volatile LUT[47]*>(0x400CC2BC); }
+  static inline volatile LUT_47 &Instance() { return *reinterpret_cast<volatile LUT_47*>(0x400CC2BC); }
 };
 // Lookup Table x
-union LUT[48] {
+union LUT_48 {
   
   // Bit field definition.
   struct {
@@ -4519,12 +4519,12 @@ union LUT[48] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[48]() = delete;
+  LUT_48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[48] &Instance() { return *reinterpret_cast<volatile LUT[48]*>(0x400CC2C0); }
+  static inline volatile LUT_48 &Instance() { return *reinterpret_cast<volatile LUT_48*>(0x400CC2C0); }
 };
 // Lookup Table x
-union LUT[49] {
+union LUT_49 {
   
   // Bit field definition.
   struct {
@@ -4545,12 +4545,12 @@ union LUT[49] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[49]() = delete;
+  LUT_49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[49] &Instance() { return *reinterpret_cast<volatile LUT[49]*>(0x400CC2C4); }
+  static inline volatile LUT_49 &Instance() { return *reinterpret_cast<volatile LUT_49*>(0x400CC2C4); }
 };
 // Lookup Table x
-union LUT[50] {
+union LUT_50 {
   
   // Bit field definition.
   struct {
@@ -4571,12 +4571,12 @@ union LUT[50] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[50]() = delete;
+  LUT_50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[50] &Instance() { return *reinterpret_cast<volatile LUT[50]*>(0x400CC2C8); }
+  static inline volatile LUT_50 &Instance() { return *reinterpret_cast<volatile LUT_50*>(0x400CC2C8); }
 };
 // Lookup Table x
-union LUT[51] {
+union LUT_51 {
   
   // Bit field definition.
   struct {
@@ -4597,12 +4597,12 @@ union LUT[51] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[51]() = delete;
+  LUT_51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[51] &Instance() { return *reinterpret_cast<volatile LUT[51]*>(0x400CC2CC); }
+  static inline volatile LUT_51 &Instance() { return *reinterpret_cast<volatile LUT_51*>(0x400CC2CC); }
 };
 // Lookup Table x
-union LUT[52] {
+union LUT_52 {
   
   // Bit field definition.
   struct {
@@ -4623,12 +4623,12 @@ union LUT[52] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[52]() = delete;
+  LUT_52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[52] &Instance() { return *reinterpret_cast<volatile LUT[52]*>(0x400CC2D0); }
+  static inline volatile LUT_52 &Instance() { return *reinterpret_cast<volatile LUT_52*>(0x400CC2D0); }
 };
 // Lookup Table x
-union LUT[53] {
+union LUT_53 {
   
   // Bit field definition.
   struct {
@@ -4649,12 +4649,12 @@ union LUT[53] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[53]() = delete;
+  LUT_53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[53] &Instance() { return *reinterpret_cast<volatile LUT[53]*>(0x400CC2D4); }
+  static inline volatile LUT_53 &Instance() { return *reinterpret_cast<volatile LUT_53*>(0x400CC2D4); }
 };
 // Lookup Table x
-union LUT[54] {
+union LUT_54 {
   
   // Bit field definition.
   struct {
@@ -4675,12 +4675,12 @@ union LUT[54] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[54]() = delete;
+  LUT_54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[54] &Instance() { return *reinterpret_cast<volatile LUT[54]*>(0x400CC2D8); }
+  static inline volatile LUT_54 &Instance() { return *reinterpret_cast<volatile LUT_54*>(0x400CC2D8); }
 };
 // Lookup Table x
-union LUT[55] {
+union LUT_55 {
   
   // Bit field definition.
   struct {
@@ -4701,12 +4701,12 @@ union LUT[55] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[55]() = delete;
+  LUT_55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[55] &Instance() { return *reinterpret_cast<volatile LUT[55]*>(0x400CC2DC); }
+  static inline volatile LUT_55 &Instance() { return *reinterpret_cast<volatile LUT_55*>(0x400CC2DC); }
 };
 // Lookup Table x
-union LUT[56] {
+union LUT_56 {
   
   // Bit field definition.
   struct {
@@ -4727,12 +4727,12 @@ union LUT[56] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[56]() = delete;
+  LUT_56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[56] &Instance() { return *reinterpret_cast<volatile LUT[56]*>(0x400CC2E0); }
+  static inline volatile LUT_56 &Instance() { return *reinterpret_cast<volatile LUT_56*>(0x400CC2E0); }
 };
 // Lookup Table x
-union LUT[57] {
+union LUT_57 {
   
   // Bit field definition.
   struct {
@@ -4753,12 +4753,12 @@ union LUT[57] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[57]() = delete;
+  LUT_57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[57] &Instance() { return *reinterpret_cast<volatile LUT[57]*>(0x400CC2E4); }
+  static inline volatile LUT_57 &Instance() { return *reinterpret_cast<volatile LUT_57*>(0x400CC2E4); }
 };
 // Lookup Table x
-union LUT[58] {
+union LUT_58 {
   
   // Bit field definition.
   struct {
@@ -4779,12 +4779,12 @@ union LUT[58] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[58]() = delete;
+  LUT_58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[58] &Instance() { return *reinterpret_cast<volatile LUT[58]*>(0x400CC2E8); }
+  static inline volatile LUT_58 &Instance() { return *reinterpret_cast<volatile LUT_58*>(0x400CC2E8); }
 };
 // Lookup Table x
-union LUT[59] {
+union LUT_59 {
   
   // Bit field definition.
   struct {
@@ -4805,12 +4805,12 @@ union LUT[59] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[59]() = delete;
+  LUT_59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[59] &Instance() { return *reinterpret_cast<volatile LUT[59]*>(0x400CC2EC); }
+  static inline volatile LUT_59 &Instance() { return *reinterpret_cast<volatile LUT_59*>(0x400CC2EC); }
 };
 // Lookup Table x
-union LUT[60] {
+union LUT_60 {
   
   // Bit field definition.
   struct {
@@ -4831,12 +4831,12 @@ union LUT[60] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[60]() = delete;
+  LUT_60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[60] &Instance() { return *reinterpret_cast<volatile LUT[60]*>(0x400CC2F0); }
+  static inline volatile LUT_60 &Instance() { return *reinterpret_cast<volatile LUT_60*>(0x400CC2F0); }
 };
 // Lookup Table x
-union LUT[61] {
+union LUT_61 {
   
   // Bit field definition.
   struct {
@@ -4857,12 +4857,12 @@ union LUT[61] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[61]() = delete;
+  LUT_61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[61] &Instance() { return *reinterpret_cast<volatile LUT[61]*>(0x400CC2F4); }
+  static inline volatile LUT_61 &Instance() { return *reinterpret_cast<volatile LUT_61*>(0x400CC2F4); }
 };
 // Lookup Table x
-union LUT[62] {
+union LUT_62 {
   
   // Bit field definition.
   struct {
@@ -4883,12 +4883,12 @@ union LUT[62] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[62]() = delete;
+  LUT_62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[62] &Instance() { return *reinterpret_cast<volatile LUT[62]*>(0x400CC2F8); }
+  static inline volatile LUT_62 &Instance() { return *reinterpret_cast<volatile LUT_62*>(0x400CC2F8); }
 };
 // Lookup Table x
-union LUT[63] {
+union LUT_63 {
   
   // Bit field definition.
   struct {
@@ -4909,9 +4909,9 @@ union LUT[63] {
   // Full 32-bit register value.
   uint32_t value;
 
-  LUT[63]() = delete;
+  LUT_63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LUT[63] &Instance() { return *reinterpret_cast<volatile LUT[63]*>(0x400CC2FC); }
+  static inline volatile LUT_63 &Instance() { return *reinterpret_cast<volatile LUT_63*>(0x400CC2FC); }
 };
 
 // AHB Controller ID 0 Control

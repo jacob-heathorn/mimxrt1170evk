@@ -434,7 +434,7 @@ union BMCR1 {
 };
 
 // Base Register n
-union BR[0] {
+union BR_0 {
   
   // Valid
   enum class eVLD : uint32_t {
@@ -526,12 +526,12 @@ union BR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  BR[0]() = delete;
+  BR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR[0] &Instance() { return *reinterpret_cast<volatile BR[0]*>(0x400D4010); }
+  static inline volatile BR_0 &Instance() { return *reinterpret_cast<volatile BR_0*>(0x400D4010); }
 };
 // Base Register n
-union BR[1] {
+union BR_1 {
   
   // Valid
   enum class eVLD : uint32_t {
@@ -623,12 +623,12 @@ union BR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  BR[1]() = delete;
+  BR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR[1] &Instance() { return *reinterpret_cast<volatile BR[1]*>(0x400D4014); }
+  static inline volatile BR_1 &Instance() { return *reinterpret_cast<volatile BR_1*>(0x400D4014); }
 };
 // Base Register n
-union BR[2] {
+union BR_2 {
   
   // Valid
   enum class eVLD : uint32_t {
@@ -720,12 +720,12 @@ union BR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  BR[2]() = delete;
+  BR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR[2] &Instance() { return *reinterpret_cast<volatile BR[2]*>(0x400D4018); }
+  static inline volatile BR_2 &Instance() { return *reinterpret_cast<volatile BR_2*>(0x400D4018); }
 };
 // Base Register n
-union BR[3] {
+union BR_3 {
   
   // Valid
   enum class eVLD : uint32_t {
@@ -817,12 +817,12 @@ union BR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  BR[3]() = delete;
+  BR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR[3] &Instance() { return *reinterpret_cast<volatile BR[3]*>(0x400D401C); }
+  static inline volatile BR_3 &Instance() { return *reinterpret_cast<volatile BR_3*>(0x400D401C); }
 };
 // Base Register n
-union BR[4] {
+union BR_4 {
   
   // Valid
   enum class eVLD : uint32_t {
@@ -914,12 +914,12 @@ union BR[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  BR[4]() = delete;
+  BR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR[4] &Instance() { return *reinterpret_cast<volatile BR[4]*>(0x400D4020); }
+  static inline volatile BR_4 &Instance() { return *reinterpret_cast<volatile BR_4*>(0x400D4020); }
 };
 // Base Register n
-union BR[5] {
+union BR_5 {
   
   // Valid
   enum class eVLD : uint32_t {
@@ -1011,12 +1011,12 @@ union BR[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  BR[5]() = delete;
+  BR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR[5] &Instance() { return *reinterpret_cast<volatile BR[5]*>(0x400D4024); }
+  static inline volatile BR_5 &Instance() { return *reinterpret_cast<volatile BR_5*>(0x400D4024); }
 };
 // Base Register n
-union BR[6] {
+union BR_6 {
   
   // Valid
   enum class eVLD : uint32_t {
@@ -1108,12 +1108,12 @@ union BR[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  BR[6]() = delete;
+  BR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR[6] &Instance() { return *reinterpret_cast<volatile BR[6]*>(0x400D4028); }
+  static inline volatile BR_6 &Instance() { return *reinterpret_cast<volatile BR_6*>(0x400D4028); }
 };
 // Base Register n
-union BR[7] {
+union BR_7 {
   
   // Valid
   enum class eVLD : uint32_t {
@@ -1205,12 +1205,12 @@ union BR[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  BR[7]() = delete;
+  BR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR[7] &Instance() { return *reinterpret_cast<volatile BR[7]*>(0x400D402C); }
+  static inline volatile BR_7 &Instance() { return *reinterpret_cast<volatile BR_7*>(0x400D402C); }
 };
 // Base Register n
-union BR[8] {
+union BR_8 {
   
   // Valid
   enum class eVLD : uint32_t {
@@ -1302,9 +1302,9 @@ union BR[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  BR[8]() = delete;
+  BR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BR[8] &Instance() { return *reinterpret_cast<volatile BR[8]*>(0x400D4030); }
+  static inline volatile BR_8 &Instance() { return *reinterpret_cast<volatile BR_8*>(0x400D4030); }
 };
 
 // DLL Control Register

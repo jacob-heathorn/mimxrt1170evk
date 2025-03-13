@@ -312,7 +312,7 @@ union SHIFTSTATE {
 };
 
 // Shifter Control N Register
-union SHIFTCTL[0] {
+union SHIFTCTL_0 {
   
   // Shifter Mode
   enum class eSMOD : uint32_t {
@@ -383,12 +383,12 @@ union SHIFTCTL[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL[0]() = delete;
+  SHIFTCTL_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL[0] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[0]*>(0x400B0080); }
+  static inline volatile SHIFTCTL_0 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_0*>(0x400B0080); }
 };
 // Shifter Control N Register
-union SHIFTCTL[1] {
+union SHIFTCTL_1 {
   
   // Shifter Mode
   enum class eSMOD : uint32_t {
@@ -459,12 +459,12 @@ union SHIFTCTL[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL[1]() = delete;
+  SHIFTCTL_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL[1] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[1]*>(0x400B0084); }
+  static inline volatile SHIFTCTL_1 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_1*>(0x400B0084); }
 };
 // Shifter Control N Register
-union SHIFTCTL[2] {
+union SHIFTCTL_2 {
   
   // Shifter Mode
   enum class eSMOD : uint32_t {
@@ -535,12 +535,12 @@ union SHIFTCTL[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL[2]() = delete;
+  SHIFTCTL_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL[2] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[2]*>(0x400B0088); }
+  static inline volatile SHIFTCTL_2 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_2*>(0x400B0088); }
 };
 // Shifter Control N Register
-union SHIFTCTL[3] {
+union SHIFTCTL_3 {
   
   // Shifter Mode
   enum class eSMOD : uint32_t {
@@ -611,12 +611,12 @@ union SHIFTCTL[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL[3]() = delete;
+  SHIFTCTL_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL[3] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[3]*>(0x400B008C); }
+  static inline volatile SHIFTCTL_3 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_3*>(0x400B008C); }
 };
 // Shifter Control N Register
-union SHIFTCTL[4] {
+union SHIFTCTL_4 {
   
   // Shifter Mode
   enum class eSMOD : uint32_t {
@@ -687,12 +687,12 @@ union SHIFTCTL[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL[4]() = delete;
+  SHIFTCTL_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL[4] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[4]*>(0x400B0090); }
+  static inline volatile SHIFTCTL_4 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_4*>(0x400B0090); }
 };
 // Shifter Control N Register
-union SHIFTCTL[5] {
+union SHIFTCTL_5 {
   
   // Shifter Mode
   enum class eSMOD : uint32_t {
@@ -763,12 +763,12 @@ union SHIFTCTL[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL[5]() = delete;
+  SHIFTCTL_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL[5] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[5]*>(0x400B0094); }
+  static inline volatile SHIFTCTL_5 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_5*>(0x400B0094); }
 };
 // Shifter Control N Register
-union SHIFTCTL[6] {
+union SHIFTCTL_6 {
   
   // Shifter Mode
   enum class eSMOD : uint32_t {
@@ -839,12 +839,12 @@ union SHIFTCTL[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL[6]() = delete;
+  SHIFTCTL_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL[6] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[6]*>(0x400B0098); }
+  static inline volatile SHIFTCTL_6 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_6*>(0x400B0098); }
 };
 // Shifter Control N Register
-union SHIFTCTL[7] {
+union SHIFTCTL_7 {
   
   // Shifter Mode
   enum class eSMOD : uint32_t {
@@ -915,13 +915,13 @@ union SHIFTCTL[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL[7]() = delete;
+  SHIFTCTL_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCTL[7] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[7]*>(0x400B009C); }
+  static inline volatile SHIFTCTL_7 &Instance() { return *reinterpret_cast<volatile SHIFTCTL_7*>(0x400B009C); }
 };
 
 // Shifter Configuration N Register
-union SHIFTCFG[0] {
+union SHIFTCFG_0 {
   
   // Shifter Start bit
   enum class eSSTART : uint32_t {
@@ -982,12 +982,12 @@ union SHIFTCFG[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG[0]() = delete;
+  SHIFTCFG_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG[0] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[0]*>(0x400B0100); }
+  static inline volatile SHIFTCFG_0 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_0*>(0x400B0100); }
 };
 // Shifter Configuration N Register
-union SHIFTCFG[1] {
+union SHIFTCFG_1 {
   
   // Shifter Start bit
   enum class eSSTART : uint32_t {
@@ -1048,12 +1048,12 @@ union SHIFTCFG[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG[1]() = delete;
+  SHIFTCFG_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG[1] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[1]*>(0x400B0104); }
+  static inline volatile SHIFTCFG_1 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_1*>(0x400B0104); }
 };
 // Shifter Configuration N Register
-union SHIFTCFG[2] {
+union SHIFTCFG_2 {
   
   // Shifter Start bit
   enum class eSSTART : uint32_t {
@@ -1114,12 +1114,12 @@ union SHIFTCFG[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG[2]() = delete;
+  SHIFTCFG_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG[2] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[2]*>(0x400B0108); }
+  static inline volatile SHIFTCFG_2 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_2*>(0x400B0108); }
 };
 // Shifter Configuration N Register
-union SHIFTCFG[3] {
+union SHIFTCFG_3 {
   
   // Shifter Start bit
   enum class eSSTART : uint32_t {
@@ -1180,12 +1180,12 @@ union SHIFTCFG[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG[3]() = delete;
+  SHIFTCFG_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG[3] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[3]*>(0x400B010C); }
+  static inline volatile SHIFTCFG_3 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_3*>(0x400B010C); }
 };
 // Shifter Configuration N Register
-union SHIFTCFG[4] {
+union SHIFTCFG_4 {
   
   // Shifter Start bit
   enum class eSSTART : uint32_t {
@@ -1246,12 +1246,12 @@ union SHIFTCFG[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG[4]() = delete;
+  SHIFTCFG_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG[4] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[4]*>(0x400B0110); }
+  static inline volatile SHIFTCFG_4 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_4*>(0x400B0110); }
 };
 // Shifter Configuration N Register
-union SHIFTCFG[5] {
+union SHIFTCFG_5 {
   
   // Shifter Start bit
   enum class eSSTART : uint32_t {
@@ -1312,12 +1312,12 @@ union SHIFTCFG[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG[5]() = delete;
+  SHIFTCFG_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG[5] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[5]*>(0x400B0114); }
+  static inline volatile SHIFTCFG_5 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_5*>(0x400B0114); }
 };
 // Shifter Configuration N Register
-union SHIFTCFG[6] {
+union SHIFTCFG_6 {
   
   // Shifter Start bit
   enum class eSSTART : uint32_t {
@@ -1378,12 +1378,12 @@ union SHIFTCFG[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG[6]() = delete;
+  SHIFTCFG_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG[6] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[6]*>(0x400B0118); }
+  static inline volatile SHIFTCFG_6 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_6*>(0x400B0118); }
 };
 // Shifter Configuration N Register
-union SHIFTCFG[7] {
+union SHIFTCFG_7 {
   
   // Shifter Start bit
   enum class eSSTART : uint32_t {
@@ -1444,13 +1444,13 @@ union SHIFTCFG[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG[7]() = delete;
+  SHIFTCFG_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTCFG[7] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[7]*>(0x400B011C); }
+  static inline volatile SHIFTCFG_7 &Instance() { return *reinterpret_cast<volatile SHIFTCFG_7*>(0x400B011C); }
 };
 
 // Shifter Buffer N Register
-union SHIFTBUF[0] {
+union SHIFTBUF_0 {
   
   // Bit field definition.
   struct {
@@ -1461,12 +1461,12 @@ union SHIFTBUF[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF[0]() = delete;
+  SHIFTBUF_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[0]*>(0x400B0200); }
+  static inline volatile SHIFTBUF_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_0*>(0x400B0200); }
 };
 // Shifter Buffer N Register
-union SHIFTBUF[1] {
+union SHIFTBUF_1 {
   
   // Bit field definition.
   struct {
@@ -1477,12 +1477,12 @@ union SHIFTBUF[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF[1]() = delete;
+  SHIFTBUF_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[1]*>(0x400B0204); }
+  static inline volatile SHIFTBUF_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_1*>(0x400B0204); }
 };
 // Shifter Buffer N Register
-union SHIFTBUF[2] {
+union SHIFTBUF_2 {
   
   // Bit field definition.
   struct {
@@ -1493,12 +1493,12 @@ union SHIFTBUF[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF[2]() = delete;
+  SHIFTBUF_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[2]*>(0x400B0208); }
+  static inline volatile SHIFTBUF_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_2*>(0x400B0208); }
 };
 // Shifter Buffer N Register
-union SHIFTBUF[3] {
+union SHIFTBUF_3 {
   
   // Bit field definition.
   struct {
@@ -1509,12 +1509,12 @@ union SHIFTBUF[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF[3]() = delete;
+  SHIFTBUF_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[3]*>(0x400B020C); }
+  static inline volatile SHIFTBUF_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_3*>(0x400B020C); }
 };
 // Shifter Buffer N Register
-union SHIFTBUF[4] {
+union SHIFTBUF_4 {
   
   // Bit field definition.
   struct {
@@ -1525,12 +1525,12 @@ union SHIFTBUF[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF[4]() = delete;
+  SHIFTBUF_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[4]*>(0x400B0210); }
+  static inline volatile SHIFTBUF_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_4*>(0x400B0210); }
 };
 // Shifter Buffer N Register
-union SHIFTBUF[5] {
+union SHIFTBUF_5 {
   
   // Bit field definition.
   struct {
@@ -1541,12 +1541,12 @@ union SHIFTBUF[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF[5]() = delete;
+  SHIFTBUF_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[5]*>(0x400B0214); }
+  static inline volatile SHIFTBUF_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_5*>(0x400B0214); }
 };
 // Shifter Buffer N Register
-union SHIFTBUF[6] {
+union SHIFTBUF_6 {
   
   // Bit field definition.
   struct {
@@ -1557,12 +1557,12 @@ union SHIFTBUF[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF[6]() = delete;
+  SHIFTBUF_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[6]*>(0x400B0218); }
+  static inline volatile SHIFTBUF_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_6*>(0x400B0218); }
 };
 // Shifter Buffer N Register
-union SHIFTBUF[7] {
+union SHIFTBUF_7 {
   
   // Bit field definition.
   struct {
@@ -1573,13 +1573,13 @@ union SHIFTBUF[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF[7]() = delete;
+  SHIFTBUF_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUF[7] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[7]*>(0x400B021C); }
+  static inline volatile SHIFTBUF_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUF_7*>(0x400B021C); }
 };
 
 // Shifter Buffer N Bit Swapped Register
-union SHIFTBUFBIS[0] {
+union SHIFTBUFBIS_0 {
   
   // Bit field definition.
   struct {
@@ -1590,12 +1590,12 @@ union SHIFTBUFBIS[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS[0]() = delete;
+  SHIFTBUFBIS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[0]*>(0x400B0280); }
+  static inline volatile SHIFTBUFBIS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_0*>(0x400B0280); }
 };
 // Shifter Buffer N Bit Swapped Register
-union SHIFTBUFBIS[1] {
+union SHIFTBUFBIS_1 {
   
   // Bit field definition.
   struct {
@@ -1606,12 +1606,12 @@ union SHIFTBUFBIS[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS[1]() = delete;
+  SHIFTBUFBIS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[1]*>(0x400B0284); }
+  static inline volatile SHIFTBUFBIS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_1*>(0x400B0284); }
 };
 // Shifter Buffer N Bit Swapped Register
-union SHIFTBUFBIS[2] {
+union SHIFTBUFBIS_2 {
   
   // Bit field definition.
   struct {
@@ -1622,12 +1622,12 @@ union SHIFTBUFBIS[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS[2]() = delete;
+  SHIFTBUFBIS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[2]*>(0x400B0288); }
+  static inline volatile SHIFTBUFBIS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_2*>(0x400B0288); }
 };
 // Shifter Buffer N Bit Swapped Register
-union SHIFTBUFBIS[3] {
+union SHIFTBUFBIS_3 {
   
   // Bit field definition.
   struct {
@@ -1638,12 +1638,12 @@ union SHIFTBUFBIS[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS[3]() = delete;
+  SHIFTBUFBIS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[3]*>(0x400B028C); }
+  static inline volatile SHIFTBUFBIS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_3*>(0x400B028C); }
 };
 // Shifter Buffer N Bit Swapped Register
-union SHIFTBUFBIS[4] {
+union SHIFTBUFBIS_4 {
   
   // Bit field definition.
   struct {
@@ -1654,12 +1654,12 @@ union SHIFTBUFBIS[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS[4]() = delete;
+  SHIFTBUFBIS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[4]*>(0x400B0290); }
+  static inline volatile SHIFTBUFBIS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_4*>(0x400B0290); }
 };
 // Shifter Buffer N Bit Swapped Register
-union SHIFTBUFBIS[5] {
+union SHIFTBUFBIS_5 {
   
   // Bit field definition.
   struct {
@@ -1670,12 +1670,12 @@ union SHIFTBUFBIS[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS[5]() = delete;
+  SHIFTBUFBIS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[5]*>(0x400B0294); }
+  static inline volatile SHIFTBUFBIS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_5*>(0x400B0294); }
 };
 // Shifter Buffer N Bit Swapped Register
-union SHIFTBUFBIS[6] {
+union SHIFTBUFBIS_6 {
   
   // Bit field definition.
   struct {
@@ -1686,12 +1686,12 @@ union SHIFTBUFBIS[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS[6]() = delete;
+  SHIFTBUFBIS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[6]*>(0x400B0298); }
+  static inline volatile SHIFTBUFBIS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_6*>(0x400B0298); }
 };
 // Shifter Buffer N Bit Swapped Register
-union SHIFTBUFBIS[7] {
+union SHIFTBUFBIS_7 {
   
   // Bit field definition.
   struct {
@@ -1702,13 +1702,13 @@ union SHIFTBUFBIS[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS[7]() = delete;
+  SHIFTBUFBIS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBIS[7] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[7]*>(0x400B029C); }
+  static inline volatile SHIFTBUFBIS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS_7*>(0x400B029C); }
 };
 
 // Shifter Buffer N Byte Swapped Register
-union SHIFTBUFBYS[0] {
+union SHIFTBUFBYS_0 {
   
   // Bit field definition.
   struct {
@@ -1719,12 +1719,12 @@ union SHIFTBUFBYS[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS[0]() = delete;
+  SHIFTBUFBYS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[0]*>(0x400B0300); }
+  static inline volatile SHIFTBUFBYS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_0*>(0x400B0300); }
 };
 // Shifter Buffer N Byte Swapped Register
-union SHIFTBUFBYS[1] {
+union SHIFTBUFBYS_1 {
   
   // Bit field definition.
   struct {
@@ -1735,12 +1735,12 @@ union SHIFTBUFBYS[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS[1]() = delete;
+  SHIFTBUFBYS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[1]*>(0x400B0304); }
+  static inline volatile SHIFTBUFBYS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_1*>(0x400B0304); }
 };
 // Shifter Buffer N Byte Swapped Register
-union SHIFTBUFBYS[2] {
+union SHIFTBUFBYS_2 {
   
   // Bit field definition.
   struct {
@@ -1751,12 +1751,12 @@ union SHIFTBUFBYS[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS[2]() = delete;
+  SHIFTBUFBYS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[2]*>(0x400B0308); }
+  static inline volatile SHIFTBUFBYS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_2*>(0x400B0308); }
 };
 // Shifter Buffer N Byte Swapped Register
-union SHIFTBUFBYS[3] {
+union SHIFTBUFBYS_3 {
   
   // Bit field definition.
   struct {
@@ -1767,12 +1767,12 @@ union SHIFTBUFBYS[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS[3]() = delete;
+  SHIFTBUFBYS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[3]*>(0x400B030C); }
+  static inline volatile SHIFTBUFBYS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_3*>(0x400B030C); }
 };
 // Shifter Buffer N Byte Swapped Register
-union SHIFTBUFBYS[4] {
+union SHIFTBUFBYS_4 {
   
   // Bit field definition.
   struct {
@@ -1783,12 +1783,12 @@ union SHIFTBUFBYS[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS[4]() = delete;
+  SHIFTBUFBYS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[4]*>(0x400B0310); }
+  static inline volatile SHIFTBUFBYS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_4*>(0x400B0310); }
 };
 // Shifter Buffer N Byte Swapped Register
-union SHIFTBUFBYS[5] {
+union SHIFTBUFBYS_5 {
   
   // Bit field definition.
   struct {
@@ -1799,12 +1799,12 @@ union SHIFTBUFBYS[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS[5]() = delete;
+  SHIFTBUFBYS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[5]*>(0x400B0314); }
+  static inline volatile SHIFTBUFBYS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_5*>(0x400B0314); }
 };
 // Shifter Buffer N Byte Swapped Register
-union SHIFTBUFBYS[6] {
+union SHIFTBUFBYS_6 {
   
   // Bit field definition.
   struct {
@@ -1815,12 +1815,12 @@ union SHIFTBUFBYS[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS[6]() = delete;
+  SHIFTBUFBYS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[6]*>(0x400B0318); }
+  static inline volatile SHIFTBUFBYS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_6*>(0x400B0318); }
 };
 // Shifter Buffer N Byte Swapped Register
-union SHIFTBUFBYS[7] {
+union SHIFTBUFBYS_7 {
   
   // Bit field definition.
   struct {
@@ -1831,13 +1831,13 @@ union SHIFTBUFBYS[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS[7]() = delete;
+  SHIFTBUFBYS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBYS[7] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[7]*>(0x400B031C); }
+  static inline volatile SHIFTBUFBYS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS_7*>(0x400B031C); }
 };
 
 // Shifter Buffer N Bit Byte Swapped Register
-union SHIFTBUFBBS[0] {
+union SHIFTBUFBBS_0 {
   
   // Bit field definition.
   struct {
@@ -1848,12 +1848,12 @@ union SHIFTBUFBBS[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS[0]() = delete;
+  SHIFTBUFBBS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[0]*>(0x400B0380); }
+  static inline volatile SHIFTBUFBBS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_0*>(0x400B0380); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-union SHIFTBUFBBS[1] {
+union SHIFTBUFBBS_1 {
   
   // Bit field definition.
   struct {
@@ -1864,12 +1864,12 @@ union SHIFTBUFBBS[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS[1]() = delete;
+  SHIFTBUFBBS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[1]*>(0x400B0384); }
+  static inline volatile SHIFTBUFBBS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_1*>(0x400B0384); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-union SHIFTBUFBBS[2] {
+union SHIFTBUFBBS_2 {
   
   // Bit field definition.
   struct {
@@ -1880,12 +1880,12 @@ union SHIFTBUFBBS[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS[2]() = delete;
+  SHIFTBUFBBS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[2]*>(0x400B0388); }
+  static inline volatile SHIFTBUFBBS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_2*>(0x400B0388); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-union SHIFTBUFBBS[3] {
+union SHIFTBUFBBS_3 {
   
   // Bit field definition.
   struct {
@@ -1896,12 +1896,12 @@ union SHIFTBUFBBS[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS[3]() = delete;
+  SHIFTBUFBBS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[3]*>(0x400B038C); }
+  static inline volatile SHIFTBUFBBS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_3*>(0x400B038C); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-union SHIFTBUFBBS[4] {
+union SHIFTBUFBBS_4 {
   
   // Bit field definition.
   struct {
@@ -1912,12 +1912,12 @@ union SHIFTBUFBBS[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS[4]() = delete;
+  SHIFTBUFBBS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[4]*>(0x400B0390); }
+  static inline volatile SHIFTBUFBBS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_4*>(0x400B0390); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-union SHIFTBUFBBS[5] {
+union SHIFTBUFBBS_5 {
   
   // Bit field definition.
   struct {
@@ -1928,12 +1928,12 @@ union SHIFTBUFBBS[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS[5]() = delete;
+  SHIFTBUFBBS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[5]*>(0x400B0394); }
+  static inline volatile SHIFTBUFBBS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_5*>(0x400B0394); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-union SHIFTBUFBBS[6] {
+union SHIFTBUFBBS_6 {
   
   // Bit field definition.
   struct {
@@ -1944,12 +1944,12 @@ union SHIFTBUFBBS[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS[6]() = delete;
+  SHIFTBUFBBS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[6]*>(0x400B0398); }
+  static inline volatile SHIFTBUFBBS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_6*>(0x400B0398); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-union SHIFTBUFBBS[7] {
+union SHIFTBUFBBS_7 {
   
   // Bit field definition.
   struct {
@@ -1960,13 +1960,13 @@ union SHIFTBUFBBS[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS[7]() = delete;
+  SHIFTBUFBBS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFBBS[7] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[7]*>(0x400B039C); }
+  static inline volatile SHIFTBUFBBS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS_7*>(0x400B039C); }
 };
 
 // Timer Control N Register
-union TIMCTL[0] {
+union TIMCTL_0 {
   
   // Timer Mode
   enum class eTIMOD : uint32_t {
@@ -2069,12 +2069,12 @@ union TIMCTL[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL[0]() = delete;
+  TIMCTL_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL[0] &Instance() { return *reinterpret_cast<volatile TIMCTL[0]*>(0x400B0400); }
+  static inline volatile TIMCTL_0 &Instance() { return *reinterpret_cast<volatile TIMCTL_0*>(0x400B0400); }
 };
 // Timer Control N Register
-union TIMCTL[1] {
+union TIMCTL_1 {
   
   // Timer Mode
   enum class eTIMOD : uint32_t {
@@ -2177,12 +2177,12 @@ union TIMCTL[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL[1]() = delete;
+  TIMCTL_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL[1] &Instance() { return *reinterpret_cast<volatile TIMCTL[1]*>(0x400B0404); }
+  static inline volatile TIMCTL_1 &Instance() { return *reinterpret_cast<volatile TIMCTL_1*>(0x400B0404); }
 };
 // Timer Control N Register
-union TIMCTL[2] {
+union TIMCTL_2 {
   
   // Timer Mode
   enum class eTIMOD : uint32_t {
@@ -2285,12 +2285,12 @@ union TIMCTL[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL[2]() = delete;
+  TIMCTL_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL[2] &Instance() { return *reinterpret_cast<volatile TIMCTL[2]*>(0x400B0408); }
+  static inline volatile TIMCTL_2 &Instance() { return *reinterpret_cast<volatile TIMCTL_2*>(0x400B0408); }
 };
 // Timer Control N Register
-union TIMCTL[3] {
+union TIMCTL_3 {
   
   // Timer Mode
   enum class eTIMOD : uint32_t {
@@ -2393,12 +2393,12 @@ union TIMCTL[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL[3]() = delete;
+  TIMCTL_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL[3] &Instance() { return *reinterpret_cast<volatile TIMCTL[3]*>(0x400B040C); }
+  static inline volatile TIMCTL_3 &Instance() { return *reinterpret_cast<volatile TIMCTL_3*>(0x400B040C); }
 };
 // Timer Control N Register
-union TIMCTL[4] {
+union TIMCTL_4 {
   
   // Timer Mode
   enum class eTIMOD : uint32_t {
@@ -2501,12 +2501,12 @@ union TIMCTL[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL[4]() = delete;
+  TIMCTL_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL[4] &Instance() { return *reinterpret_cast<volatile TIMCTL[4]*>(0x400B0410); }
+  static inline volatile TIMCTL_4 &Instance() { return *reinterpret_cast<volatile TIMCTL_4*>(0x400B0410); }
 };
 // Timer Control N Register
-union TIMCTL[5] {
+union TIMCTL_5 {
   
   // Timer Mode
   enum class eTIMOD : uint32_t {
@@ -2609,12 +2609,12 @@ union TIMCTL[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL[5]() = delete;
+  TIMCTL_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL[5] &Instance() { return *reinterpret_cast<volatile TIMCTL[5]*>(0x400B0414); }
+  static inline volatile TIMCTL_5 &Instance() { return *reinterpret_cast<volatile TIMCTL_5*>(0x400B0414); }
 };
 // Timer Control N Register
-union TIMCTL[6] {
+union TIMCTL_6 {
   
   // Timer Mode
   enum class eTIMOD : uint32_t {
@@ -2717,12 +2717,12 @@ union TIMCTL[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL[6]() = delete;
+  TIMCTL_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL[6] &Instance() { return *reinterpret_cast<volatile TIMCTL[6]*>(0x400B0418); }
+  static inline volatile TIMCTL_6 &Instance() { return *reinterpret_cast<volatile TIMCTL_6*>(0x400B0418); }
 };
 // Timer Control N Register
-union TIMCTL[7] {
+union TIMCTL_7 {
   
   // Timer Mode
   enum class eTIMOD : uint32_t {
@@ -2825,13 +2825,13 @@ union TIMCTL[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL[7]() = delete;
+  TIMCTL_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCTL[7] &Instance() { return *reinterpret_cast<volatile TIMCTL[7]*>(0x400B041C); }
+  static inline volatile TIMCTL_7 &Instance() { return *reinterpret_cast<volatile TIMCTL_7*>(0x400B041C); }
 };
 
 // Timer Configuration N Register
-union TIMCFG[0] {
+union TIMCFG_0 {
   
   // Timer Start Bit
   enum class eTSTART : uint32_t {
@@ -2970,12 +2970,12 @@ union TIMCFG[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG[0]() = delete;
+  TIMCFG_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG[0] &Instance() { return *reinterpret_cast<volatile TIMCFG[0]*>(0x400B0480); }
+  static inline volatile TIMCFG_0 &Instance() { return *reinterpret_cast<volatile TIMCFG_0*>(0x400B0480); }
 };
 // Timer Configuration N Register
-union TIMCFG[1] {
+union TIMCFG_1 {
   
   // Timer Start Bit
   enum class eTSTART : uint32_t {
@@ -3114,12 +3114,12 @@ union TIMCFG[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG[1]() = delete;
+  TIMCFG_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG[1] &Instance() { return *reinterpret_cast<volatile TIMCFG[1]*>(0x400B0484); }
+  static inline volatile TIMCFG_1 &Instance() { return *reinterpret_cast<volatile TIMCFG_1*>(0x400B0484); }
 };
 // Timer Configuration N Register
-union TIMCFG[2] {
+union TIMCFG_2 {
   
   // Timer Start Bit
   enum class eTSTART : uint32_t {
@@ -3258,12 +3258,12 @@ union TIMCFG[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG[2]() = delete;
+  TIMCFG_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG[2] &Instance() { return *reinterpret_cast<volatile TIMCFG[2]*>(0x400B0488); }
+  static inline volatile TIMCFG_2 &Instance() { return *reinterpret_cast<volatile TIMCFG_2*>(0x400B0488); }
 };
 // Timer Configuration N Register
-union TIMCFG[3] {
+union TIMCFG_3 {
   
   // Timer Start Bit
   enum class eTSTART : uint32_t {
@@ -3402,12 +3402,12 @@ union TIMCFG[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG[3]() = delete;
+  TIMCFG_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG[3] &Instance() { return *reinterpret_cast<volatile TIMCFG[3]*>(0x400B048C); }
+  static inline volatile TIMCFG_3 &Instance() { return *reinterpret_cast<volatile TIMCFG_3*>(0x400B048C); }
 };
 // Timer Configuration N Register
-union TIMCFG[4] {
+union TIMCFG_4 {
   
   // Timer Start Bit
   enum class eTSTART : uint32_t {
@@ -3546,12 +3546,12 @@ union TIMCFG[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG[4]() = delete;
+  TIMCFG_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG[4] &Instance() { return *reinterpret_cast<volatile TIMCFG[4]*>(0x400B0490); }
+  static inline volatile TIMCFG_4 &Instance() { return *reinterpret_cast<volatile TIMCFG_4*>(0x400B0490); }
 };
 // Timer Configuration N Register
-union TIMCFG[5] {
+union TIMCFG_5 {
   
   // Timer Start Bit
   enum class eTSTART : uint32_t {
@@ -3690,12 +3690,12 @@ union TIMCFG[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG[5]() = delete;
+  TIMCFG_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG[5] &Instance() { return *reinterpret_cast<volatile TIMCFG[5]*>(0x400B0494); }
+  static inline volatile TIMCFG_5 &Instance() { return *reinterpret_cast<volatile TIMCFG_5*>(0x400B0494); }
 };
 // Timer Configuration N Register
-union TIMCFG[6] {
+union TIMCFG_6 {
   
   // Timer Start Bit
   enum class eTSTART : uint32_t {
@@ -3834,12 +3834,12 @@ union TIMCFG[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG[6]() = delete;
+  TIMCFG_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG[6] &Instance() { return *reinterpret_cast<volatile TIMCFG[6]*>(0x400B0498); }
+  static inline volatile TIMCFG_6 &Instance() { return *reinterpret_cast<volatile TIMCFG_6*>(0x400B0498); }
 };
 // Timer Configuration N Register
-union TIMCFG[7] {
+union TIMCFG_7 {
   
   // Timer Start Bit
   enum class eTSTART : uint32_t {
@@ -3978,13 +3978,13 @@ union TIMCFG[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG[7]() = delete;
+  TIMCFG_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCFG[7] &Instance() { return *reinterpret_cast<volatile TIMCFG[7]*>(0x400B049C); }
+  static inline volatile TIMCFG_7 &Instance() { return *reinterpret_cast<volatile TIMCFG_7*>(0x400B049C); }
 };
 
 // Timer Compare N Register
-union TIMCMP[0] {
+union TIMCMP_0 {
   
   // Bit field definition.
   struct {
@@ -3996,12 +3996,12 @@ union TIMCMP[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP[0]() = delete;
+  TIMCMP_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP[0] &Instance() { return *reinterpret_cast<volatile TIMCMP[0]*>(0x400B0500); }
+  static inline volatile TIMCMP_0 &Instance() { return *reinterpret_cast<volatile TIMCMP_0*>(0x400B0500); }
 };
 // Timer Compare N Register
-union TIMCMP[1] {
+union TIMCMP_1 {
   
   // Bit field definition.
   struct {
@@ -4013,12 +4013,12 @@ union TIMCMP[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP[1]() = delete;
+  TIMCMP_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP[1] &Instance() { return *reinterpret_cast<volatile TIMCMP[1]*>(0x400B0504); }
+  static inline volatile TIMCMP_1 &Instance() { return *reinterpret_cast<volatile TIMCMP_1*>(0x400B0504); }
 };
 // Timer Compare N Register
-union TIMCMP[2] {
+union TIMCMP_2 {
   
   // Bit field definition.
   struct {
@@ -4030,12 +4030,12 @@ union TIMCMP[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP[2]() = delete;
+  TIMCMP_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP[2] &Instance() { return *reinterpret_cast<volatile TIMCMP[2]*>(0x400B0508); }
+  static inline volatile TIMCMP_2 &Instance() { return *reinterpret_cast<volatile TIMCMP_2*>(0x400B0508); }
 };
 // Timer Compare N Register
-union TIMCMP[3] {
+union TIMCMP_3 {
   
   // Bit field definition.
   struct {
@@ -4047,12 +4047,12 @@ union TIMCMP[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP[3]() = delete;
+  TIMCMP_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP[3] &Instance() { return *reinterpret_cast<volatile TIMCMP[3]*>(0x400B050C); }
+  static inline volatile TIMCMP_3 &Instance() { return *reinterpret_cast<volatile TIMCMP_3*>(0x400B050C); }
 };
 // Timer Compare N Register
-union TIMCMP[4] {
+union TIMCMP_4 {
   
   // Bit field definition.
   struct {
@@ -4064,12 +4064,12 @@ union TIMCMP[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP[4]() = delete;
+  TIMCMP_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP[4] &Instance() { return *reinterpret_cast<volatile TIMCMP[4]*>(0x400B0510); }
+  static inline volatile TIMCMP_4 &Instance() { return *reinterpret_cast<volatile TIMCMP_4*>(0x400B0510); }
 };
 // Timer Compare N Register
-union TIMCMP[5] {
+union TIMCMP_5 {
   
   // Bit field definition.
   struct {
@@ -4081,12 +4081,12 @@ union TIMCMP[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP[5]() = delete;
+  TIMCMP_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP[5] &Instance() { return *reinterpret_cast<volatile TIMCMP[5]*>(0x400B0514); }
+  static inline volatile TIMCMP_5 &Instance() { return *reinterpret_cast<volatile TIMCMP_5*>(0x400B0514); }
 };
 // Timer Compare N Register
-union TIMCMP[6] {
+union TIMCMP_6 {
   
   // Bit field definition.
   struct {
@@ -4098,12 +4098,12 @@ union TIMCMP[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP[6]() = delete;
+  TIMCMP_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP[6] &Instance() { return *reinterpret_cast<volatile TIMCMP[6]*>(0x400B0518); }
+  static inline volatile TIMCMP_6 &Instance() { return *reinterpret_cast<volatile TIMCMP_6*>(0x400B0518); }
 };
 // Timer Compare N Register
-union TIMCMP[7] {
+union TIMCMP_7 {
   
   // Bit field definition.
   struct {
@@ -4115,13 +4115,13 @@ union TIMCMP[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP[7]() = delete;
+  TIMCMP_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TIMCMP[7] &Instance() { return *reinterpret_cast<volatile TIMCMP[7]*>(0x400B051C); }
+  static inline volatile TIMCMP_7 &Instance() { return *reinterpret_cast<volatile TIMCMP_7*>(0x400B051C); }
 };
 
 // Shifter Buffer N Nibble Byte Swapped Register
-union SHIFTBUFNBS[0] {
+union SHIFTBUFNBS_0 {
   
   // Bit field definition.
   struct {
@@ -4132,12 +4132,12 @@ union SHIFTBUFNBS[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS[0]() = delete;
+  SHIFTBUFNBS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[0]*>(0x400B0680); }
+  static inline volatile SHIFTBUFNBS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_0*>(0x400B0680); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-union SHIFTBUFNBS[1] {
+union SHIFTBUFNBS_1 {
   
   // Bit field definition.
   struct {
@@ -4148,12 +4148,12 @@ union SHIFTBUFNBS[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS[1]() = delete;
+  SHIFTBUFNBS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[1]*>(0x400B0684); }
+  static inline volatile SHIFTBUFNBS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_1*>(0x400B0684); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-union SHIFTBUFNBS[2] {
+union SHIFTBUFNBS_2 {
   
   // Bit field definition.
   struct {
@@ -4164,12 +4164,12 @@ union SHIFTBUFNBS[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS[2]() = delete;
+  SHIFTBUFNBS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[2]*>(0x400B0688); }
+  static inline volatile SHIFTBUFNBS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_2*>(0x400B0688); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-union SHIFTBUFNBS[3] {
+union SHIFTBUFNBS_3 {
   
   // Bit field definition.
   struct {
@@ -4180,12 +4180,12 @@ union SHIFTBUFNBS[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS[3]() = delete;
+  SHIFTBUFNBS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[3]*>(0x400B068C); }
+  static inline volatile SHIFTBUFNBS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_3*>(0x400B068C); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-union SHIFTBUFNBS[4] {
+union SHIFTBUFNBS_4 {
   
   // Bit field definition.
   struct {
@@ -4196,12 +4196,12 @@ union SHIFTBUFNBS[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS[4]() = delete;
+  SHIFTBUFNBS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[4]*>(0x400B0690); }
+  static inline volatile SHIFTBUFNBS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_4*>(0x400B0690); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-union SHIFTBUFNBS[5] {
+union SHIFTBUFNBS_5 {
   
   // Bit field definition.
   struct {
@@ -4212,12 +4212,12 @@ union SHIFTBUFNBS[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS[5]() = delete;
+  SHIFTBUFNBS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[5]*>(0x400B0694); }
+  static inline volatile SHIFTBUFNBS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_5*>(0x400B0694); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-union SHIFTBUFNBS[6] {
+union SHIFTBUFNBS_6 {
   
   // Bit field definition.
   struct {
@@ -4228,12 +4228,12 @@ union SHIFTBUFNBS[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS[6]() = delete;
+  SHIFTBUFNBS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[6]*>(0x400B0698); }
+  static inline volatile SHIFTBUFNBS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_6*>(0x400B0698); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-union SHIFTBUFNBS[7] {
+union SHIFTBUFNBS_7 {
   
   // Bit field definition.
   struct {
@@ -4244,13 +4244,13 @@ union SHIFTBUFNBS[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS[7]() = delete;
+  SHIFTBUFNBS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNBS[7] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[7]*>(0x400B069C); }
+  static inline volatile SHIFTBUFNBS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS_7*>(0x400B069C); }
 };
 
 // Shifter Buffer N Half Word Swapped Register
-union SHIFTBUFHWS[0] {
+union SHIFTBUFHWS_0 {
   
   // Bit field definition.
   struct {
@@ -4261,12 +4261,12 @@ union SHIFTBUFHWS[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS[0]() = delete;
+  SHIFTBUFHWS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[0]*>(0x400B0700); }
+  static inline volatile SHIFTBUFHWS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_0*>(0x400B0700); }
 };
 // Shifter Buffer N Half Word Swapped Register
-union SHIFTBUFHWS[1] {
+union SHIFTBUFHWS_1 {
   
   // Bit field definition.
   struct {
@@ -4277,12 +4277,12 @@ union SHIFTBUFHWS[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS[1]() = delete;
+  SHIFTBUFHWS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[1]*>(0x400B0704); }
+  static inline volatile SHIFTBUFHWS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_1*>(0x400B0704); }
 };
 // Shifter Buffer N Half Word Swapped Register
-union SHIFTBUFHWS[2] {
+union SHIFTBUFHWS_2 {
   
   // Bit field definition.
   struct {
@@ -4293,12 +4293,12 @@ union SHIFTBUFHWS[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS[2]() = delete;
+  SHIFTBUFHWS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[2]*>(0x400B0708); }
+  static inline volatile SHIFTBUFHWS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_2*>(0x400B0708); }
 };
 // Shifter Buffer N Half Word Swapped Register
-union SHIFTBUFHWS[3] {
+union SHIFTBUFHWS_3 {
   
   // Bit field definition.
   struct {
@@ -4309,12 +4309,12 @@ union SHIFTBUFHWS[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS[3]() = delete;
+  SHIFTBUFHWS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[3]*>(0x400B070C); }
+  static inline volatile SHIFTBUFHWS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_3*>(0x400B070C); }
 };
 // Shifter Buffer N Half Word Swapped Register
-union SHIFTBUFHWS[4] {
+union SHIFTBUFHWS_4 {
   
   // Bit field definition.
   struct {
@@ -4325,12 +4325,12 @@ union SHIFTBUFHWS[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS[4]() = delete;
+  SHIFTBUFHWS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[4]*>(0x400B0710); }
+  static inline volatile SHIFTBUFHWS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_4*>(0x400B0710); }
 };
 // Shifter Buffer N Half Word Swapped Register
-union SHIFTBUFHWS[5] {
+union SHIFTBUFHWS_5 {
   
   // Bit field definition.
   struct {
@@ -4341,12 +4341,12 @@ union SHIFTBUFHWS[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS[5]() = delete;
+  SHIFTBUFHWS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[5]*>(0x400B0714); }
+  static inline volatile SHIFTBUFHWS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_5*>(0x400B0714); }
 };
 // Shifter Buffer N Half Word Swapped Register
-union SHIFTBUFHWS[6] {
+union SHIFTBUFHWS_6 {
   
   // Bit field definition.
   struct {
@@ -4357,12 +4357,12 @@ union SHIFTBUFHWS[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS[6]() = delete;
+  SHIFTBUFHWS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[6]*>(0x400B0718); }
+  static inline volatile SHIFTBUFHWS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_6*>(0x400B0718); }
 };
 // Shifter Buffer N Half Word Swapped Register
-union SHIFTBUFHWS[7] {
+union SHIFTBUFHWS_7 {
   
   // Bit field definition.
   struct {
@@ -4373,13 +4373,13 @@ union SHIFTBUFHWS[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS[7]() = delete;
+  SHIFTBUFHWS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFHWS[7] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[7]*>(0x400B071C); }
+  static inline volatile SHIFTBUFHWS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS_7*>(0x400B071C); }
 };
 
 // Shifter Buffer N Nibble Swapped Register
-union SHIFTBUFNIS[0] {
+union SHIFTBUFNIS_0 {
   
   // Bit field definition.
   struct {
@@ -4390,12 +4390,12 @@ union SHIFTBUFNIS[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS[0]() = delete;
+  SHIFTBUFNIS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[0]*>(0x400B0780); }
+  static inline volatile SHIFTBUFNIS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_0*>(0x400B0780); }
 };
 // Shifter Buffer N Nibble Swapped Register
-union SHIFTBUFNIS[1] {
+union SHIFTBUFNIS_1 {
   
   // Bit field definition.
   struct {
@@ -4406,12 +4406,12 @@ union SHIFTBUFNIS[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS[1]() = delete;
+  SHIFTBUFNIS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[1]*>(0x400B0784); }
+  static inline volatile SHIFTBUFNIS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_1*>(0x400B0784); }
 };
 // Shifter Buffer N Nibble Swapped Register
-union SHIFTBUFNIS[2] {
+union SHIFTBUFNIS_2 {
   
   // Bit field definition.
   struct {
@@ -4422,12 +4422,12 @@ union SHIFTBUFNIS[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS[2]() = delete;
+  SHIFTBUFNIS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[2]*>(0x400B0788); }
+  static inline volatile SHIFTBUFNIS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_2*>(0x400B0788); }
 };
 // Shifter Buffer N Nibble Swapped Register
-union SHIFTBUFNIS[3] {
+union SHIFTBUFNIS_3 {
   
   // Bit field definition.
   struct {
@@ -4438,12 +4438,12 @@ union SHIFTBUFNIS[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS[3]() = delete;
+  SHIFTBUFNIS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[3]*>(0x400B078C); }
+  static inline volatile SHIFTBUFNIS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_3*>(0x400B078C); }
 };
 // Shifter Buffer N Nibble Swapped Register
-union SHIFTBUFNIS[4] {
+union SHIFTBUFNIS_4 {
   
   // Bit field definition.
   struct {
@@ -4454,12 +4454,12 @@ union SHIFTBUFNIS[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS[4]() = delete;
+  SHIFTBUFNIS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[4]*>(0x400B0790); }
+  static inline volatile SHIFTBUFNIS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_4*>(0x400B0790); }
 };
 // Shifter Buffer N Nibble Swapped Register
-union SHIFTBUFNIS[5] {
+union SHIFTBUFNIS_5 {
   
   // Bit field definition.
   struct {
@@ -4470,12 +4470,12 @@ union SHIFTBUFNIS[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS[5]() = delete;
+  SHIFTBUFNIS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[5]*>(0x400B0794); }
+  static inline volatile SHIFTBUFNIS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_5*>(0x400B0794); }
 };
 // Shifter Buffer N Nibble Swapped Register
-union SHIFTBUFNIS[6] {
+union SHIFTBUFNIS_6 {
   
   // Bit field definition.
   struct {
@@ -4486,12 +4486,12 @@ union SHIFTBUFNIS[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS[6]() = delete;
+  SHIFTBUFNIS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[6]*>(0x400B0798); }
+  static inline volatile SHIFTBUFNIS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_6*>(0x400B0798); }
 };
 // Shifter Buffer N Nibble Swapped Register
-union SHIFTBUFNIS[7] {
+union SHIFTBUFNIS_7 {
   
   // Bit field definition.
   struct {
@@ -4502,13 +4502,13 @@ union SHIFTBUFNIS[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS[7]() = delete;
+  SHIFTBUFNIS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFNIS[7] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[7]*>(0x400B079C); }
+  static inline volatile SHIFTBUFNIS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS_7*>(0x400B079C); }
 };
 
 // Shifter Buffer N Odd Even Swapped Register
-union SHIFTBUFOES[0] {
+union SHIFTBUFOES_0 {
   
   // Bit field definition.
   struct {
@@ -4519,12 +4519,12 @@ union SHIFTBUFOES[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES[0]() = delete;
+  SHIFTBUFOES_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[0]*>(0x400B0800); }
+  static inline volatile SHIFTBUFOES_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_0*>(0x400B0800); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-union SHIFTBUFOES[1] {
+union SHIFTBUFOES_1 {
   
   // Bit field definition.
   struct {
@@ -4535,12 +4535,12 @@ union SHIFTBUFOES[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES[1]() = delete;
+  SHIFTBUFOES_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[1]*>(0x400B0804); }
+  static inline volatile SHIFTBUFOES_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_1*>(0x400B0804); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-union SHIFTBUFOES[2] {
+union SHIFTBUFOES_2 {
   
   // Bit field definition.
   struct {
@@ -4551,12 +4551,12 @@ union SHIFTBUFOES[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES[2]() = delete;
+  SHIFTBUFOES_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[2]*>(0x400B0808); }
+  static inline volatile SHIFTBUFOES_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_2*>(0x400B0808); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-union SHIFTBUFOES[3] {
+union SHIFTBUFOES_3 {
   
   // Bit field definition.
   struct {
@@ -4567,12 +4567,12 @@ union SHIFTBUFOES[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES[3]() = delete;
+  SHIFTBUFOES_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[3]*>(0x400B080C); }
+  static inline volatile SHIFTBUFOES_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_3*>(0x400B080C); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-union SHIFTBUFOES[4] {
+union SHIFTBUFOES_4 {
   
   // Bit field definition.
   struct {
@@ -4583,12 +4583,12 @@ union SHIFTBUFOES[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES[4]() = delete;
+  SHIFTBUFOES_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[4]*>(0x400B0810); }
+  static inline volatile SHIFTBUFOES_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_4*>(0x400B0810); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-union SHIFTBUFOES[5] {
+union SHIFTBUFOES_5 {
   
   // Bit field definition.
   struct {
@@ -4599,12 +4599,12 @@ union SHIFTBUFOES[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES[5]() = delete;
+  SHIFTBUFOES_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[5]*>(0x400B0814); }
+  static inline volatile SHIFTBUFOES_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_5*>(0x400B0814); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-union SHIFTBUFOES[6] {
+union SHIFTBUFOES_6 {
   
   // Bit field definition.
   struct {
@@ -4615,12 +4615,12 @@ union SHIFTBUFOES[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES[6]() = delete;
+  SHIFTBUFOES_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[6]*>(0x400B0818); }
+  static inline volatile SHIFTBUFOES_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_6*>(0x400B0818); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-union SHIFTBUFOES[7] {
+union SHIFTBUFOES_7 {
   
   // Bit field definition.
   struct {
@@ -4631,13 +4631,13 @@ union SHIFTBUFOES[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES[7]() = delete;
+  SHIFTBUFOES_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFOES[7] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[7]*>(0x400B081C); }
+  static inline volatile SHIFTBUFOES_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES_7*>(0x400B081C); }
 };
 
 // Shifter Buffer N Even Odd Swapped Register
-union SHIFTBUFEOS[0] {
+union SHIFTBUFEOS_0 {
   
   // Bit field definition.
   struct {
@@ -4648,12 +4648,12 @@ union SHIFTBUFEOS[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS[0]() = delete;
+  SHIFTBUFEOS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[0]*>(0x400B0880); }
+  static inline volatile SHIFTBUFEOS_0 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_0*>(0x400B0880); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-union SHIFTBUFEOS[1] {
+union SHIFTBUFEOS_1 {
   
   // Bit field definition.
   struct {
@@ -4664,12 +4664,12 @@ union SHIFTBUFEOS[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS[1]() = delete;
+  SHIFTBUFEOS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[1]*>(0x400B0884); }
+  static inline volatile SHIFTBUFEOS_1 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_1*>(0x400B0884); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-union SHIFTBUFEOS[2] {
+union SHIFTBUFEOS_2 {
   
   // Bit field definition.
   struct {
@@ -4680,12 +4680,12 @@ union SHIFTBUFEOS[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS[2]() = delete;
+  SHIFTBUFEOS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[2]*>(0x400B0888); }
+  static inline volatile SHIFTBUFEOS_2 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_2*>(0x400B0888); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-union SHIFTBUFEOS[3] {
+union SHIFTBUFEOS_3 {
   
   // Bit field definition.
   struct {
@@ -4696,12 +4696,12 @@ union SHIFTBUFEOS[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS[3]() = delete;
+  SHIFTBUFEOS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[3]*>(0x400B088C); }
+  static inline volatile SHIFTBUFEOS_3 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_3*>(0x400B088C); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-union SHIFTBUFEOS[4] {
+union SHIFTBUFEOS_4 {
   
   // Bit field definition.
   struct {
@@ -4712,12 +4712,12 @@ union SHIFTBUFEOS[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS[4]() = delete;
+  SHIFTBUFEOS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[4]*>(0x400B0890); }
+  static inline volatile SHIFTBUFEOS_4 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_4*>(0x400B0890); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-union SHIFTBUFEOS[5] {
+union SHIFTBUFEOS_5 {
   
   // Bit field definition.
   struct {
@@ -4728,12 +4728,12 @@ union SHIFTBUFEOS[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS[5]() = delete;
+  SHIFTBUFEOS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[5]*>(0x400B0894); }
+  static inline volatile SHIFTBUFEOS_5 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_5*>(0x400B0894); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-union SHIFTBUFEOS[6] {
+union SHIFTBUFEOS_6 {
   
   // Bit field definition.
   struct {
@@ -4744,12 +4744,12 @@ union SHIFTBUFEOS[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS[6]() = delete;
+  SHIFTBUFEOS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[6]*>(0x400B0898); }
+  static inline volatile SHIFTBUFEOS_6 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_6*>(0x400B0898); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-union SHIFTBUFEOS[7] {
+union SHIFTBUFEOS_7 {
   
   // Bit field definition.
   struct {
@@ -4760,9 +4760,9 @@ union SHIFTBUFEOS[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS[7]() = delete;
+  SHIFTBUFEOS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SHIFTBUFEOS[7] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[7]*>(0x400B089C); }
+  static inline volatile SHIFTBUFEOS_7 &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS_7*>(0x400B089C); }
 };
 
 

@@ -540,7 +540,7 @@ union TCR5 {
 };
 
 // Transmit Data
-union TDR[0] {
+union TDR_0 {
   
   // Bit field definition.
   struct {
@@ -551,12 +551,12 @@ union TDR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDR[0]() = delete;
+  TDR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDR[0] &Instance() { return *reinterpret_cast<volatile TDR[0]*>(0x40404020); }
+  static inline volatile TDR_0 &Instance() { return *reinterpret_cast<volatile TDR_0*>(0x40404020); }
 };
 // Transmit Data
-union TDR[1] {
+union TDR_1 {
   
   // Bit field definition.
   struct {
@@ -567,12 +567,12 @@ union TDR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDR[1]() = delete;
+  TDR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDR[1] &Instance() { return *reinterpret_cast<volatile TDR[1]*>(0x40404024); }
+  static inline volatile TDR_1 &Instance() { return *reinterpret_cast<volatile TDR_1*>(0x40404024); }
 };
 // Transmit Data
-union TDR[2] {
+union TDR_2 {
   
   // Bit field definition.
   struct {
@@ -583,12 +583,12 @@ union TDR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDR[2]() = delete;
+  TDR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDR[2] &Instance() { return *reinterpret_cast<volatile TDR[2]*>(0x40404028); }
+  static inline volatile TDR_2 &Instance() { return *reinterpret_cast<volatile TDR_2*>(0x40404028); }
 };
 // Transmit Data
-union TDR[3] {
+union TDR_3 {
   
   // Bit field definition.
   struct {
@@ -599,13 +599,13 @@ union TDR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDR[3]() = delete;
+  TDR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDR[3] &Instance() { return *reinterpret_cast<volatile TDR[3]*>(0x4040402C); }
+  static inline volatile TDR_3 &Instance() { return *reinterpret_cast<volatile TDR_3*>(0x4040402C); }
 };
 
 // Transmit FIFO
-union TFR[0] {
+union TFR_0 {
   
   // Write Channel Pointer
   enum class eWCP : uint32_t {
@@ -630,12 +630,12 @@ union TFR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFR[0]() = delete;
+  TFR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFR[0] &Instance() { return *reinterpret_cast<volatile TFR[0]*>(0x40404040); }
+  static inline volatile TFR_0 &Instance() { return *reinterpret_cast<volatile TFR_0*>(0x40404040); }
 };
 // Transmit FIFO
-union TFR[1] {
+union TFR_1 {
   
   // Write Channel Pointer
   enum class eWCP : uint32_t {
@@ -660,12 +660,12 @@ union TFR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFR[1]() = delete;
+  TFR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFR[1] &Instance() { return *reinterpret_cast<volatile TFR[1]*>(0x40404044); }
+  static inline volatile TFR_1 &Instance() { return *reinterpret_cast<volatile TFR_1*>(0x40404044); }
 };
 // Transmit FIFO
-union TFR[2] {
+union TFR_2 {
   
   // Write Channel Pointer
   enum class eWCP : uint32_t {
@@ -690,12 +690,12 @@ union TFR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFR[2]() = delete;
+  TFR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFR[2] &Instance() { return *reinterpret_cast<volatile TFR[2]*>(0x40404048); }
+  static inline volatile TFR_2 &Instance() { return *reinterpret_cast<volatile TFR_2*>(0x40404048); }
 };
 // Transmit FIFO
-union TFR[3] {
+union TFR_3 {
   
   // Write Channel Pointer
   enum class eWCP : uint32_t {
@@ -720,9 +720,9 @@ union TFR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TFR[3]() = delete;
+  TFR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFR[3] &Instance() { return *reinterpret_cast<volatile TFR[3]*>(0x4040404C); }
+  static inline volatile TFR_3 &Instance() { return *reinterpret_cast<volatile TFR_3*>(0x4040404C); }
 };
 
 // Transmit Mask
@@ -1219,7 +1219,7 @@ union RCR5 {
 };
 
 // Receive Data
-union RDR[0] {
+union RDR_0 {
   
   // Bit field definition.
   struct {
@@ -1230,12 +1230,12 @@ union RDR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RDR[0]() = delete;
+  RDR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDR[0] &Instance() { return *reinterpret_cast<volatile RDR[0]*>(0x404040A0); }
+  static inline volatile RDR_0 &Instance() { return *reinterpret_cast<volatile RDR_0*>(0x404040A0); }
 };
 // Receive Data
-union RDR[1] {
+union RDR_1 {
   
   // Bit field definition.
   struct {
@@ -1246,12 +1246,12 @@ union RDR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RDR[1]() = delete;
+  RDR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDR[1] &Instance() { return *reinterpret_cast<volatile RDR[1]*>(0x404040A4); }
+  static inline volatile RDR_1 &Instance() { return *reinterpret_cast<volatile RDR_1*>(0x404040A4); }
 };
 // Receive Data
-union RDR[2] {
+union RDR_2 {
   
   // Bit field definition.
   struct {
@@ -1262,12 +1262,12 @@ union RDR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RDR[2]() = delete;
+  RDR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDR[2] &Instance() { return *reinterpret_cast<volatile RDR[2]*>(0x404040A8); }
+  static inline volatile RDR_2 &Instance() { return *reinterpret_cast<volatile RDR_2*>(0x404040A8); }
 };
 // Receive Data
-union RDR[3] {
+union RDR_3 {
   
   // Bit field definition.
   struct {
@@ -1278,13 +1278,13 @@ union RDR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RDR[3]() = delete;
+  RDR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDR[3] &Instance() { return *reinterpret_cast<volatile RDR[3]*>(0x404040AC); }
+  static inline volatile RDR_3 &Instance() { return *reinterpret_cast<volatile RDR_3*>(0x404040AC); }
 };
 
 // Receive FIFO
-union RFR[0] {
+union RFR_0 {
   
   // Receive Channel Pointer
   enum class eRCP : uint32_t {
@@ -1309,12 +1309,12 @@ union RFR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFR[0]() = delete;
+  RFR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFR[0] &Instance() { return *reinterpret_cast<volatile RFR[0]*>(0x404040C0); }
+  static inline volatile RFR_0 &Instance() { return *reinterpret_cast<volatile RFR_0*>(0x404040C0); }
 };
 // Receive FIFO
-union RFR[1] {
+union RFR_1 {
   
   // Receive Channel Pointer
   enum class eRCP : uint32_t {
@@ -1339,12 +1339,12 @@ union RFR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFR[1]() = delete;
+  RFR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFR[1] &Instance() { return *reinterpret_cast<volatile RFR[1]*>(0x404040C4); }
+  static inline volatile RFR_1 &Instance() { return *reinterpret_cast<volatile RFR_1*>(0x404040C4); }
 };
 // Receive FIFO
-union RFR[2] {
+union RFR_2 {
   
   // Receive Channel Pointer
   enum class eRCP : uint32_t {
@@ -1369,12 +1369,12 @@ union RFR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFR[2]() = delete;
+  RFR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFR[2] &Instance() { return *reinterpret_cast<volatile RFR[2]*>(0x404040C8); }
+  static inline volatile RFR_2 &Instance() { return *reinterpret_cast<volatile RFR_2*>(0x404040C8); }
 };
 // Receive FIFO
-union RFR[3] {
+union RFR_3 {
   
   // Receive Channel Pointer
   enum class eRCP : uint32_t {
@@ -1399,9 +1399,9 @@ union RFR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RFR[3]() = delete;
+  RFR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RFR[3] &Instance() { return *reinterpret_cast<volatile RFR[3]*>(0x404040CC); }
+  static inline volatile RFR_3 &Instance() { return *reinterpret_cast<volatile RFR_3*>(0x404040CC); }
 };
 
 // Receive Mask

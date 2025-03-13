@@ -11,7 +11,7 @@ namespace nIOMUXC_SNVS_GPR {
 
 
 // GPR0 General Purpose Register
-union GPR[0] {
+union GPR_0 {
   
   // Bit field definition.
   struct {
@@ -22,12 +22,12 @@ union GPR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[0]() = delete;
+  GPR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[0] &Instance() { return *reinterpret_cast<volatile GPR[0]*>(0x40C98000); }
+  static inline volatile GPR_0 &Instance() { return *reinterpret_cast<volatile GPR_0*>(0x40C98000); }
 };
 // GPR0 General Purpose Register
-union GPR[1] {
+union GPR_1 {
   
   // Bit field definition.
   struct {
@@ -38,12 +38,12 @@ union GPR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[1]() = delete;
+  GPR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[1] &Instance() { return *reinterpret_cast<volatile GPR[1]*>(0x40C98004); }
+  static inline volatile GPR_1 &Instance() { return *reinterpret_cast<volatile GPR_1*>(0x40C98004); }
 };
 // GPR0 General Purpose Register
-union GPR[2] {
+union GPR_2 {
   
   // Bit field definition.
   struct {
@@ -54,12 +54,12 @@ union GPR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[2]() = delete;
+  GPR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[2] &Instance() { return *reinterpret_cast<volatile GPR[2]*>(0x40C98008); }
+  static inline volatile GPR_2 &Instance() { return *reinterpret_cast<volatile GPR_2*>(0x40C98008); }
 };
 // GPR0 General Purpose Register
-union GPR[3] {
+union GPR_3 {
   
   // Bit field definition.
   struct {
@@ -70,12 +70,12 @@ union GPR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[3]() = delete;
+  GPR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[3] &Instance() { return *reinterpret_cast<volatile GPR[3]*>(0x40C9800C); }
+  static inline volatile GPR_3 &Instance() { return *reinterpret_cast<volatile GPR_3*>(0x40C9800C); }
 };
 // GPR0 General Purpose Register
-union GPR[4] {
+union GPR_4 {
   
   // Bit field definition.
   struct {
@@ -86,12 +86,12 @@ union GPR[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[4]() = delete;
+  GPR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[4] &Instance() { return *reinterpret_cast<volatile GPR[4]*>(0x40C98010); }
+  static inline volatile GPR_4 &Instance() { return *reinterpret_cast<volatile GPR_4*>(0x40C98010); }
 };
 // GPR0 General Purpose Register
-union GPR[5] {
+union GPR_5 {
   
   // Bit field definition.
   struct {
@@ -102,12 +102,12 @@ union GPR[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[5]() = delete;
+  GPR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[5] &Instance() { return *reinterpret_cast<volatile GPR[5]*>(0x40C98014); }
+  static inline volatile GPR_5 &Instance() { return *reinterpret_cast<volatile GPR_5*>(0x40C98014); }
 };
 // GPR0 General Purpose Register
-union GPR[6] {
+union GPR_6 {
   
   // Bit field definition.
   struct {
@@ -118,12 +118,12 @@ union GPR[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[6]() = delete;
+  GPR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[6] &Instance() { return *reinterpret_cast<volatile GPR[6]*>(0x40C98018); }
+  static inline volatile GPR_6 &Instance() { return *reinterpret_cast<volatile GPR_6*>(0x40C98018); }
 };
 // GPR0 General Purpose Register
-union GPR[7] {
+union GPR_7 {
   
   // Bit field definition.
   struct {
@@ -134,12 +134,12 @@ union GPR[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[7]() = delete;
+  GPR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[7] &Instance() { return *reinterpret_cast<volatile GPR[7]*>(0x40C9801C); }
+  static inline volatile GPR_7 &Instance() { return *reinterpret_cast<volatile GPR_7*>(0x40C9801C); }
 };
 // GPR0 General Purpose Register
-union GPR[8] {
+union GPR_8 {
   
   // Bit field definition.
   struct {
@@ -150,12 +150,12 @@ union GPR[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[8]() = delete;
+  GPR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[8] &Instance() { return *reinterpret_cast<volatile GPR[8]*>(0x40C98020); }
+  static inline volatile GPR_8 &Instance() { return *reinterpret_cast<volatile GPR_8*>(0x40C98020); }
 };
 // GPR0 General Purpose Register
-union GPR[9] {
+union GPR_9 {
   
   // Bit field definition.
   struct {
@@ -166,12 +166,12 @@ union GPR[9] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[9]() = delete;
+  GPR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[9] &Instance() { return *reinterpret_cast<volatile GPR[9]*>(0x40C98024); }
+  static inline volatile GPR_9 &Instance() { return *reinterpret_cast<volatile GPR_9*>(0x40C98024); }
 };
 // GPR0 General Purpose Register
-union GPR[10] {
+union GPR_10 {
   
   // Bit field definition.
   struct {
@@ -182,12 +182,12 @@ union GPR[10] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[10]() = delete;
+  GPR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[10] &Instance() { return *reinterpret_cast<volatile GPR[10]*>(0x40C98028); }
+  static inline volatile GPR_10 &Instance() { return *reinterpret_cast<volatile GPR_10*>(0x40C98028); }
 };
 // GPR0 General Purpose Register
-union GPR[11] {
+union GPR_11 {
   
   // Bit field definition.
   struct {
@@ -198,12 +198,12 @@ union GPR[11] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[11]() = delete;
+  GPR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[11] &Instance() { return *reinterpret_cast<volatile GPR[11]*>(0x40C9802C); }
+  static inline volatile GPR_11 &Instance() { return *reinterpret_cast<volatile GPR_11*>(0x40C9802C); }
 };
 // GPR0 General Purpose Register
-union GPR[12] {
+union GPR_12 {
   
   // Bit field definition.
   struct {
@@ -214,12 +214,12 @@ union GPR[12] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[12]() = delete;
+  GPR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[12] &Instance() { return *reinterpret_cast<volatile GPR[12]*>(0x40C98030); }
+  static inline volatile GPR_12 &Instance() { return *reinterpret_cast<volatile GPR_12*>(0x40C98030); }
 };
 // GPR0 General Purpose Register
-union GPR[13] {
+union GPR_13 {
   
   // Bit field definition.
   struct {
@@ -230,12 +230,12 @@ union GPR[13] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[13]() = delete;
+  GPR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[13] &Instance() { return *reinterpret_cast<volatile GPR[13]*>(0x40C98034); }
+  static inline volatile GPR_13 &Instance() { return *reinterpret_cast<volatile GPR_13*>(0x40C98034); }
 };
 // GPR0 General Purpose Register
-union GPR[14] {
+union GPR_14 {
   
   // Bit field definition.
   struct {
@@ -246,12 +246,12 @@ union GPR[14] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[14]() = delete;
+  GPR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[14] &Instance() { return *reinterpret_cast<volatile GPR[14]*>(0x40C98038); }
+  static inline volatile GPR_14 &Instance() { return *reinterpret_cast<volatile GPR_14*>(0x40C98038); }
 };
 // GPR0 General Purpose Register
-union GPR[15] {
+union GPR_15 {
   
   // Bit field definition.
   struct {
@@ -262,12 +262,12 @@ union GPR[15] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[15]() = delete;
+  GPR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[15] &Instance() { return *reinterpret_cast<volatile GPR[15]*>(0x40C9803C); }
+  static inline volatile GPR_15 &Instance() { return *reinterpret_cast<volatile GPR_15*>(0x40C9803C); }
 };
 // GPR0 General Purpose Register
-union GPR[16] {
+union GPR_16 {
   
   // Bit field definition.
   struct {
@@ -278,12 +278,12 @@ union GPR[16] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[16]() = delete;
+  GPR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[16] &Instance() { return *reinterpret_cast<volatile GPR[16]*>(0x40C98040); }
+  static inline volatile GPR_16 &Instance() { return *reinterpret_cast<volatile GPR_16*>(0x40C98040); }
 };
 // GPR0 General Purpose Register
-union GPR[17] {
+union GPR_17 {
   
   // Bit field definition.
   struct {
@@ -294,12 +294,12 @@ union GPR[17] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[17]() = delete;
+  GPR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[17] &Instance() { return *reinterpret_cast<volatile GPR[17]*>(0x40C98044); }
+  static inline volatile GPR_17 &Instance() { return *reinterpret_cast<volatile GPR_17*>(0x40C98044); }
 };
 // GPR0 General Purpose Register
-union GPR[18] {
+union GPR_18 {
   
   // Bit field definition.
   struct {
@@ -310,12 +310,12 @@ union GPR[18] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[18]() = delete;
+  GPR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[18] &Instance() { return *reinterpret_cast<volatile GPR[18]*>(0x40C98048); }
+  static inline volatile GPR_18 &Instance() { return *reinterpret_cast<volatile GPR_18*>(0x40C98048); }
 };
 // GPR0 General Purpose Register
-union GPR[19] {
+union GPR_19 {
   
   // Bit field definition.
   struct {
@@ -326,12 +326,12 @@ union GPR[19] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[19]() = delete;
+  GPR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[19] &Instance() { return *reinterpret_cast<volatile GPR[19]*>(0x40C9804C); }
+  static inline volatile GPR_19 &Instance() { return *reinterpret_cast<volatile GPR_19*>(0x40C9804C); }
 };
 // GPR0 General Purpose Register
-union GPR[20] {
+union GPR_20 {
   
   // Bit field definition.
   struct {
@@ -342,12 +342,12 @@ union GPR[20] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[20]() = delete;
+  GPR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[20] &Instance() { return *reinterpret_cast<volatile GPR[20]*>(0x40C98050); }
+  static inline volatile GPR_20 &Instance() { return *reinterpret_cast<volatile GPR_20*>(0x40C98050); }
 };
 // GPR0 General Purpose Register
-union GPR[21] {
+union GPR_21 {
   
   // Bit field definition.
   struct {
@@ -358,12 +358,12 @@ union GPR[21] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[21]() = delete;
+  GPR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[21] &Instance() { return *reinterpret_cast<volatile GPR[21]*>(0x40C98054); }
+  static inline volatile GPR_21 &Instance() { return *reinterpret_cast<volatile GPR_21*>(0x40C98054); }
 };
 // GPR0 General Purpose Register
-union GPR[22] {
+union GPR_22 {
   
   // Bit field definition.
   struct {
@@ -374,12 +374,12 @@ union GPR[22] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[22]() = delete;
+  GPR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[22] &Instance() { return *reinterpret_cast<volatile GPR[22]*>(0x40C98058); }
+  static inline volatile GPR_22 &Instance() { return *reinterpret_cast<volatile GPR_22*>(0x40C98058); }
 };
 // GPR0 General Purpose Register
-union GPR[23] {
+union GPR_23 {
   
   // Bit field definition.
   struct {
@@ -390,12 +390,12 @@ union GPR[23] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[23]() = delete;
+  GPR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[23] &Instance() { return *reinterpret_cast<volatile GPR[23]*>(0x40C9805C); }
+  static inline volatile GPR_23 &Instance() { return *reinterpret_cast<volatile GPR_23*>(0x40C9805C); }
 };
 // GPR0 General Purpose Register
-union GPR[24] {
+union GPR_24 {
   
   // Bit field definition.
   struct {
@@ -406,12 +406,12 @@ union GPR[24] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[24]() = delete;
+  GPR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[24] &Instance() { return *reinterpret_cast<volatile GPR[24]*>(0x40C98060); }
+  static inline volatile GPR_24 &Instance() { return *reinterpret_cast<volatile GPR_24*>(0x40C98060); }
 };
 // GPR0 General Purpose Register
-union GPR[25] {
+union GPR_25 {
   
   // Bit field definition.
   struct {
@@ -422,12 +422,12 @@ union GPR[25] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[25]() = delete;
+  GPR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[25] &Instance() { return *reinterpret_cast<volatile GPR[25]*>(0x40C98064); }
+  static inline volatile GPR_25 &Instance() { return *reinterpret_cast<volatile GPR_25*>(0x40C98064); }
 };
 // GPR0 General Purpose Register
-union GPR[26] {
+union GPR_26 {
   
   // Bit field definition.
   struct {
@@ -438,12 +438,12 @@ union GPR[26] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[26]() = delete;
+  GPR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[26] &Instance() { return *reinterpret_cast<volatile GPR[26]*>(0x40C98068); }
+  static inline volatile GPR_26 &Instance() { return *reinterpret_cast<volatile GPR_26*>(0x40C98068); }
 };
 // GPR0 General Purpose Register
-union GPR[27] {
+union GPR_27 {
   
   // Bit field definition.
   struct {
@@ -454,12 +454,12 @@ union GPR[27] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[27]() = delete;
+  GPR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[27] &Instance() { return *reinterpret_cast<volatile GPR[27]*>(0x40C9806C); }
+  static inline volatile GPR_27 &Instance() { return *reinterpret_cast<volatile GPR_27*>(0x40C9806C); }
 };
 // GPR0 General Purpose Register
-union GPR[28] {
+union GPR_28 {
   
   // Bit field definition.
   struct {
@@ -470,12 +470,12 @@ union GPR[28] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[28]() = delete;
+  GPR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[28] &Instance() { return *reinterpret_cast<volatile GPR[28]*>(0x40C98070); }
+  static inline volatile GPR_28 &Instance() { return *reinterpret_cast<volatile GPR_28*>(0x40C98070); }
 };
 // GPR0 General Purpose Register
-union GPR[29] {
+union GPR_29 {
   
   // Bit field definition.
   struct {
@@ -486,12 +486,12 @@ union GPR[29] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[29]() = delete;
+  GPR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[29] &Instance() { return *reinterpret_cast<volatile GPR[29]*>(0x40C98074); }
+  static inline volatile GPR_29 &Instance() { return *reinterpret_cast<volatile GPR_29*>(0x40C98074); }
 };
 // GPR0 General Purpose Register
-union GPR[30] {
+union GPR_30 {
   
   // Bit field definition.
   struct {
@@ -502,12 +502,12 @@ union GPR[30] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[30]() = delete;
+  GPR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[30] &Instance() { return *reinterpret_cast<volatile GPR[30]*>(0x40C98078); }
+  static inline volatile GPR_30 &Instance() { return *reinterpret_cast<volatile GPR_30*>(0x40C98078); }
 };
 // GPR0 General Purpose Register
-union GPR[31] {
+union GPR_31 {
   
   // Bit field definition.
   struct {
@@ -518,9 +518,9 @@ union GPR[31] {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR[31]() = delete;
+  GPR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR[31] &Instance() { return *reinterpret_cast<volatile GPR[31]*>(0x40C9807C); }
+  static inline volatile GPR_31 &Instance() { return *reinterpret_cast<volatile GPR_31*>(0x40C9807C); }
 };
 
 // GPR32 General Purpose Register

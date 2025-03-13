@@ -644,7 +644,7 @@ union SWTRIG {
 };
 
 // Trigger Control Register
-union TCTRL[0] {
+union TCTRL_0 {
   
   // Trigger enable
   enum class eHTEN : uint32_t {
@@ -729,12 +729,12 @@ union TCTRL[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TCTRL[0]() = delete;
+  TCTRL_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL[0] &Instance() { return *reinterpret_cast<volatile TCTRL[0]*>(0x400540C0); }
+  static inline volatile TCTRL_0 &Instance() { return *reinterpret_cast<volatile TCTRL_0*>(0x400540C0); }
 };
 // Trigger Control Register
-union TCTRL[1] {
+union TCTRL_1 {
   
   // Trigger enable
   enum class eHTEN : uint32_t {
@@ -819,12 +819,12 @@ union TCTRL[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TCTRL[1]() = delete;
+  TCTRL_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL[1] &Instance() { return *reinterpret_cast<volatile TCTRL[1]*>(0x400540C4); }
+  static inline volatile TCTRL_1 &Instance() { return *reinterpret_cast<volatile TCTRL_1*>(0x400540C4); }
 };
 // Trigger Control Register
-union TCTRL[2] {
+union TCTRL_2 {
   
   // Trigger enable
   enum class eHTEN : uint32_t {
@@ -909,12 +909,12 @@ union TCTRL[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TCTRL[2]() = delete;
+  TCTRL_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL[2] &Instance() { return *reinterpret_cast<volatile TCTRL[2]*>(0x400540C8); }
+  static inline volatile TCTRL_2 &Instance() { return *reinterpret_cast<volatile TCTRL_2*>(0x400540C8); }
 };
 // Trigger Control Register
-union TCTRL[3] {
+union TCTRL_3 {
   
   // Trigger enable
   enum class eHTEN : uint32_t {
@@ -999,12 +999,12 @@ union TCTRL[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TCTRL[3]() = delete;
+  TCTRL_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL[3] &Instance() { return *reinterpret_cast<volatile TCTRL[3]*>(0x400540CC); }
+  static inline volatile TCTRL_3 &Instance() { return *reinterpret_cast<volatile TCTRL_3*>(0x400540CC); }
 };
 // Trigger Control Register
-union TCTRL[4] {
+union TCTRL_4 {
   
   // Trigger enable
   enum class eHTEN : uint32_t {
@@ -1089,12 +1089,12 @@ union TCTRL[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TCTRL[4]() = delete;
+  TCTRL_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL[4] &Instance() { return *reinterpret_cast<volatile TCTRL[4]*>(0x400540D0); }
+  static inline volatile TCTRL_4 &Instance() { return *reinterpret_cast<volatile TCTRL_4*>(0x400540D0); }
 };
 // Trigger Control Register
-union TCTRL[5] {
+union TCTRL_5 {
   
   // Trigger enable
   enum class eHTEN : uint32_t {
@@ -1179,12 +1179,12 @@ union TCTRL[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TCTRL[5]() = delete;
+  TCTRL_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL[5] &Instance() { return *reinterpret_cast<volatile TCTRL[5]*>(0x400540D4); }
+  static inline volatile TCTRL_5 &Instance() { return *reinterpret_cast<volatile TCTRL_5*>(0x400540D4); }
 };
 // Trigger Control Register
-union TCTRL[6] {
+union TCTRL_6 {
   
   // Trigger enable
   enum class eHTEN : uint32_t {
@@ -1269,12 +1269,12 @@ union TCTRL[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TCTRL[6]() = delete;
+  TCTRL_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL[6] &Instance() { return *reinterpret_cast<volatile TCTRL[6]*>(0x400540D8); }
+  static inline volatile TCTRL_6 &Instance() { return *reinterpret_cast<volatile TCTRL_6*>(0x400540D8); }
 };
 // Trigger Control Register
-union TCTRL[7] {
+union TCTRL_7 {
   
   // Trigger enable
   enum class eHTEN : uint32_t {
@@ -1359,9 +1359,9 @@ union TCTRL[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TCTRL[7]() = delete;
+  TCTRL_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCTRL[7] &Instance() { return *reinterpret_cast<volatile TCTRL[7]*>(0x400540DC); }
+  static inline volatile TCTRL_7 &Instance() { return *reinterpret_cast<volatile TCTRL_7*>(0x400540DC); }
 };
 
 // LPADC Command Low Buffer Register

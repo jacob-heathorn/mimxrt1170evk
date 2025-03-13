@@ -32092,7 +32092,7 @@ union WORD163 {
 };
 
 // Rx Individual Mask Registers
-union RXIMR[0] {
+union RXIMR_0 {
   
   // Bit field definition.
   struct {
@@ -32103,12 +32103,12 @@ union RXIMR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[0]() = delete;
+  RXIMR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[0] &Instance() { return *reinterpret_cast<volatile RXIMR[0]*>(0x400C8880); }
+  static inline volatile RXIMR_0 &Instance() { return *reinterpret_cast<volatile RXIMR_0*>(0x400C8880); }
 };
 // Rx Individual Mask Registers
-union RXIMR[1] {
+union RXIMR_1 {
   
   // Bit field definition.
   struct {
@@ -32119,12 +32119,12 @@ union RXIMR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[1]() = delete;
+  RXIMR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[1] &Instance() { return *reinterpret_cast<volatile RXIMR[1]*>(0x400C8884); }
+  static inline volatile RXIMR_1 &Instance() { return *reinterpret_cast<volatile RXIMR_1*>(0x400C8884); }
 };
 // Rx Individual Mask Registers
-union RXIMR[2] {
+union RXIMR_2 {
   
   // Bit field definition.
   struct {
@@ -32135,12 +32135,12 @@ union RXIMR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[2]() = delete;
+  RXIMR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[2] &Instance() { return *reinterpret_cast<volatile RXIMR[2]*>(0x400C8888); }
+  static inline volatile RXIMR_2 &Instance() { return *reinterpret_cast<volatile RXIMR_2*>(0x400C8888); }
 };
 // Rx Individual Mask Registers
-union RXIMR[3] {
+union RXIMR_3 {
   
   // Bit field definition.
   struct {
@@ -32151,12 +32151,12 @@ union RXIMR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[3]() = delete;
+  RXIMR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[3] &Instance() { return *reinterpret_cast<volatile RXIMR[3]*>(0x400C888C); }
+  static inline volatile RXIMR_3 &Instance() { return *reinterpret_cast<volatile RXIMR_3*>(0x400C888C); }
 };
 // Rx Individual Mask Registers
-union RXIMR[4] {
+union RXIMR_4 {
   
   // Bit field definition.
   struct {
@@ -32167,12 +32167,12 @@ union RXIMR[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[4]() = delete;
+  RXIMR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[4] &Instance() { return *reinterpret_cast<volatile RXIMR[4]*>(0x400C8890); }
+  static inline volatile RXIMR_4 &Instance() { return *reinterpret_cast<volatile RXIMR_4*>(0x400C8890); }
 };
 // Rx Individual Mask Registers
-union RXIMR[5] {
+union RXIMR_5 {
   
   // Bit field definition.
   struct {
@@ -32183,12 +32183,12 @@ union RXIMR[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[5]() = delete;
+  RXIMR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[5] &Instance() { return *reinterpret_cast<volatile RXIMR[5]*>(0x400C8894); }
+  static inline volatile RXIMR_5 &Instance() { return *reinterpret_cast<volatile RXIMR_5*>(0x400C8894); }
 };
 // Rx Individual Mask Registers
-union RXIMR[6] {
+union RXIMR_6 {
   
   // Bit field definition.
   struct {
@@ -32199,12 +32199,12 @@ union RXIMR[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[6]() = delete;
+  RXIMR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[6] &Instance() { return *reinterpret_cast<volatile RXIMR[6]*>(0x400C8898); }
+  static inline volatile RXIMR_6 &Instance() { return *reinterpret_cast<volatile RXIMR_6*>(0x400C8898); }
 };
 // Rx Individual Mask Registers
-union RXIMR[7] {
+union RXIMR_7 {
   
   // Bit field definition.
   struct {
@@ -32215,12 +32215,12 @@ union RXIMR[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[7]() = delete;
+  RXIMR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[7] &Instance() { return *reinterpret_cast<volatile RXIMR[7]*>(0x400C889C); }
+  static inline volatile RXIMR_7 &Instance() { return *reinterpret_cast<volatile RXIMR_7*>(0x400C889C); }
 };
 // Rx Individual Mask Registers
-union RXIMR[8] {
+union RXIMR_8 {
   
   // Bit field definition.
   struct {
@@ -32231,12 +32231,12 @@ union RXIMR[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[8]() = delete;
+  RXIMR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[8] &Instance() { return *reinterpret_cast<volatile RXIMR[8]*>(0x400C88A0); }
+  static inline volatile RXIMR_8 &Instance() { return *reinterpret_cast<volatile RXIMR_8*>(0x400C88A0); }
 };
 // Rx Individual Mask Registers
-union RXIMR[9] {
+union RXIMR_9 {
   
   // Bit field definition.
   struct {
@@ -32247,12 +32247,12 @@ union RXIMR[9] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[9]() = delete;
+  RXIMR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[9] &Instance() { return *reinterpret_cast<volatile RXIMR[9]*>(0x400C88A4); }
+  static inline volatile RXIMR_9 &Instance() { return *reinterpret_cast<volatile RXIMR_9*>(0x400C88A4); }
 };
 // Rx Individual Mask Registers
-union RXIMR[10] {
+union RXIMR_10 {
   
   // Bit field definition.
   struct {
@@ -32263,12 +32263,12 @@ union RXIMR[10] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[10]() = delete;
+  RXIMR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[10] &Instance() { return *reinterpret_cast<volatile RXIMR[10]*>(0x400C88A8); }
+  static inline volatile RXIMR_10 &Instance() { return *reinterpret_cast<volatile RXIMR_10*>(0x400C88A8); }
 };
 // Rx Individual Mask Registers
-union RXIMR[11] {
+union RXIMR_11 {
   
   // Bit field definition.
   struct {
@@ -32279,12 +32279,12 @@ union RXIMR[11] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[11]() = delete;
+  RXIMR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[11] &Instance() { return *reinterpret_cast<volatile RXIMR[11]*>(0x400C88AC); }
+  static inline volatile RXIMR_11 &Instance() { return *reinterpret_cast<volatile RXIMR_11*>(0x400C88AC); }
 };
 // Rx Individual Mask Registers
-union RXIMR[12] {
+union RXIMR_12 {
   
   // Bit field definition.
   struct {
@@ -32295,12 +32295,12 @@ union RXIMR[12] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[12]() = delete;
+  RXIMR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[12] &Instance() { return *reinterpret_cast<volatile RXIMR[12]*>(0x400C88B0); }
+  static inline volatile RXIMR_12 &Instance() { return *reinterpret_cast<volatile RXIMR_12*>(0x400C88B0); }
 };
 // Rx Individual Mask Registers
-union RXIMR[13] {
+union RXIMR_13 {
   
   // Bit field definition.
   struct {
@@ -32311,12 +32311,12 @@ union RXIMR[13] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[13]() = delete;
+  RXIMR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[13] &Instance() { return *reinterpret_cast<volatile RXIMR[13]*>(0x400C88B4); }
+  static inline volatile RXIMR_13 &Instance() { return *reinterpret_cast<volatile RXIMR_13*>(0x400C88B4); }
 };
 // Rx Individual Mask Registers
-union RXIMR[14] {
+union RXIMR_14 {
   
   // Bit field definition.
   struct {
@@ -32327,12 +32327,12 @@ union RXIMR[14] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[14]() = delete;
+  RXIMR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[14] &Instance() { return *reinterpret_cast<volatile RXIMR[14]*>(0x400C88B8); }
+  static inline volatile RXIMR_14 &Instance() { return *reinterpret_cast<volatile RXIMR_14*>(0x400C88B8); }
 };
 // Rx Individual Mask Registers
-union RXIMR[15] {
+union RXIMR_15 {
   
   // Bit field definition.
   struct {
@@ -32343,12 +32343,12 @@ union RXIMR[15] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[15]() = delete;
+  RXIMR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[15] &Instance() { return *reinterpret_cast<volatile RXIMR[15]*>(0x400C88BC); }
+  static inline volatile RXIMR_15 &Instance() { return *reinterpret_cast<volatile RXIMR_15*>(0x400C88BC); }
 };
 // Rx Individual Mask Registers
-union RXIMR[16] {
+union RXIMR_16 {
   
   // Bit field definition.
   struct {
@@ -32359,12 +32359,12 @@ union RXIMR[16] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[16]() = delete;
+  RXIMR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[16] &Instance() { return *reinterpret_cast<volatile RXIMR[16]*>(0x400C88C0); }
+  static inline volatile RXIMR_16 &Instance() { return *reinterpret_cast<volatile RXIMR_16*>(0x400C88C0); }
 };
 // Rx Individual Mask Registers
-union RXIMR[17] {
+union RXIMR_17 {
   
   // Bit field definition.
   struct {
@@ -32375,12 +32375,12 @@ union RXIMR[17] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[17]() = delete;
+  RXIMR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[17] &Instance() { return *reinterpret_cast<volatile RXIMR[17]*>(0x400C88C4); }
+  static inline volatile RXIMR_17 &Instance() { return *reinterpret_cast<volatile RXIMR_17*>(0x400C88C4); }
 };
 // Rx Individual Mask Registers
-union RXIMR[18] {
+union RXIMR_18 {
   
   // Bit field definition.
   struct {
@@ -32391,12 +32391,12 @@ union RXIMR[18] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[18]() = delete;
+  RXIMR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[18] &Instance() { return *reinterpret_cast<volatile RXIMR[18]*>(0x400C88C8); }
+  static inline volatile RXIMR_18 &Instance() { return *reinterpret_cast<volatile RXIMR_18*>(0x400C88C8); }
 };
 // Rx Individual Mask Registers
-union RXIMR[19] {
+union RXIMR_19 {
   
   // Bit field definition.
   struct {
@@ -32407,12 +32407,12 @@ union RXIMR[19] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[19]() = delete;
+  RXIMR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[19] &Instance() { return *reinterpret_cast<volatile RXIMR[19]*>(0x400C88CC); }
+  static inline volatile RXIMR_19 &Instance() { return *reinterpret_cast<volatile RXIMR_19*>(0x400C88CC); }
 };
 // Rx Individual Mask Registers
-union RXIMR[20] {
+union RXIMR_20 {
   
   // Bit field definition.
   struct {
@@ -32423,12 +32423,12 @@ union RXIMR[20] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[20]() = delete;
+  RXIMR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[20] &Instance() { return *reinterpret_cast<volatile RXIMR[20]*>(0x400C88D0); }
+  static inline volatile RXIMR_20 &Instance() { return *reinterpret_cast<volatile RXIMR_20*>(0x400C88D0); }
 };
 // Rx Individual Mask Registers
-union RXIMR[21] {
+union RXIMR_21 {
   
   // Bit field definition.
   struct {
@@ -32439,12 +32439,12 @@ union RXIMR[21] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[21]() = delete;
+  RXIMR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[21] &Instance() { return *reinterpret_cast<volatile RXIMR[21]*>(0x400C88D4); }
+  static inline volatile RXIMR_21 &Instance() { return *reinterpret_cast<volatile RXIMR_21*>(0x400C88D4); }
 };
 // Rx Individual Mask Registers
-union RXIMR[22] {
+union RXIMR_22 {
   
   // Bit field definition.
   struct {
@@ -32455,12 +32455,12 @@ union RXIMR[22] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[22]() = delete;
+  RXIMR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[22] &Instance() { return *reinterpret_cast<volatile RXIMR[22]*>(0x400C88D8); }
+  static inline volatile RXIMR_22 &Instance() { return *reinterpret_cast<volatile RXIMR_22*>(0x400C88D8); }
 };
 // Rx Individual Mask Registers
-union RXIMR[23] {
+union RXIMR_23 {
   
   // Bit field definition.
   struct {
@@ -32471,12 +32471,12 @@ union RXIMR[23] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[23]() = delete;
+  RXIMR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[23] &Instance() { return *reinterpret_cast<volatile RXIMR[23]*>(0x400C88DC); }
+  static inline volatile RXIMR_23 &Instance() { return *reinterpret_cast<volatile RXIMR_23*>(0x400C88DC); }
 };
 // Rx Individual Mask Registers
-union RXIMR[24] {
+union RXIMR_24 {
   
   // Bit field definition.
   struct {
@@ -32487,12 +32487,12 @@ union RXIMR[24] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[24]() = delete;
+  RXIMR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[24] &Instance() { return *reinterpret_cast<volatile RXIMR[24]*>(0x400C88E0); }
+  static inline volatile RXIMR_24 &Instance() { return *reinterpret_cast<volatile RXIMR_24*>(0x400C88E0); }
 };
 // Rx Individual Mask Registers
-union RXIMR[25] {
+union RXIMR_25 {
   
   // Bit field definition.
   struct {
@@ -32503,12 +32503,12 @@ union RXIMR[25] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[25]() = delete;
+  RXIMR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[25] &Instance() { return *reinterpret_cast<volatile RXIMR[25]*>(0x400C88E4); }
+  static inline volatile RXIMR_25 &Instance() { return *reinterpret_cast<volatile RXIMR_25*>(0x400C88E4); }
 };
 // Rx Individual Mask Registers
-union RXIMR[26] {
+union RXIMR_26 {
   
   // Bit field definition.
   struct {
@@ -32519,12 +32519,12 @@ union RXIMR[26] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[26]() = delete;
+  RXIMR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[26] &Instance() { return *reinterpret_cast<volatile RXIMR[26]*>(0x400C88E8); }
+  static inline volatile RXIMR_26 &Instance() { return *reinterpret_cast<volatile RXIMR_26*>(0x400C88E8); }
 };
 // Rx Individual Mask Registers
-union RXIMR[27] {
+union RXIMR_27 {
   
   // Bit field definition.
   struct {
@@ -32535,12 +32535,12 @@ union RXIMR[27] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[27]() = delete;
+  RXIMR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[27] &Instance() { return *reinterpret_cast<volatile RXIMR[27]*>(0x400C88EC); }
+  static inline volatile RXIMR_27 &Instance() { return *reinterpret_cast<volatile RXIMR_27*>(0x400C88EC); }
 };
 // Rx Individual Mask Registers
-union RXIMR[28] {
+union RXIMR_28 {
   
   // Bit field definition.
   struct {
@@ -32551,12 +32551,12 @@ union RXIMR[28] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[28]() = delete;
+  RXIMR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[28] &Instance() { return *reinterpret_cast<volatile RXIMR[28]*>(0x400C88F0); }
+  static inline volatile RXIMR_28 &Instance() { return *reinterpret_cast<volatile RXIMR_28*>(0x400C88F0); }
 };
 // Rx Individual Mask Registers
-union RXIMR[29] {
+union RXIMR_29 {
   
   // Bit field definition.
   struct {
@@ -32567,12 +32567,12 @@ union RXIMR[29] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[29]() = delete;
+  RXIMR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[29] &Instance() { return *reinterpret_cast<volatile RXIMR[29]*>(0x400C88F4); }
+  static inline volatile RXIMR_29 &Instance() { return *reinterpret_cast<volatile RXIMR_29*>(0x400C88F4); }
 };
 // Rx Individual Mask Registers
-union RXIMR[30] {
+union RXIMR_30 {
   
   // Bit field definition.
   struct {
@@ -32583,12 +32583,12 @@ union RXIMR[30] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[30]() = delete;
+  RXIMR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[30] &Instance() { return *reinterpret_cast<volatile RXIMR[30]*>(0x400C88F8); }
+  static inline volatile RXIMR_30 &Instance() { return *reinterpret_cast<volatile RXIMR_30*>(0x400C88F8); }
 };
 // Rx Individual Mask Registers
-union RXIMR[31] {
+union RXIMR_31 {
   
   // Bit field definition.
   struct {
@@ -32599,12 +32599,12 @@ union RXIMR[31] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[31]() = delete;
+  RXIMR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[31] &Instance() { return *reinterpret_cast<volatile RXIMR[31]*>(0x400C88FC); }
+  static inline volatile RXIMR_31 &Instance() { return *reinterpret_cast<volatile RXIMR_31*>(0x400C88FC); }
 };
 // Rx Individual Mask Registers
-union RXIMR[32] {
+union RXIMR_32 {
   
   // Bit field definition.
   struct {
@@ -32615,12 +32615,12 @@ union RXIMR[32] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[32]() = delete;
+  RXIMR_32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[32] &Instance() { return *reinterpret_cast<volatile RXIMR[32]*>(0x400C8900); }
+  static inline volatile RXIMR_32 &Instance() { return *reinterpret_cast<volatile RXIMR_32*>(0x400C8900); }
 };
 // Rx Individual Mask Registers
-union RXIMR[33] {
+union RXIMR_33 {
   
   // Bit field definition.
   struct {
@@ -32631,12 +32631,12 @@ union RXIMR[33] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[33]() = delete;
+  RXIMR_33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[33] &Instance() { return *reinterpret_cast<volatile RXIMR[33]*>(0x400C8904); }
+  static inline volatile RXIMR_33 &Instance() { return *reinterpret_cast<volatile RXIMR_33*>(0x400C8904); }
 };
 // Rx Individual Mask Registers
-union RXIMR[34] {
+union RXIMR_34 {
   
   // Bit field definition.
   struct {
@@ -32647,12 +32647,12 @@ union RXIMR[34] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[34]() = delete;
+  RXIMR_34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[34] &Instance() { return *reinterpret_cast<volatile RXIMR[34]*>(0x400C8908); }
+  static inline volatile RXIMR_34 &Instance() { return *reinterpret_cast<volatile RXIMR_34*>(0x400C8908); }
 };
 // Rx Individual Mask Registers
-union RXIMR[35] {
+union RXIMR_35 {
   
   // Bit field definition.
   struct {
@@ -32663,12 +32663,12 @@ union RXIMR[35] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[35]() = delete;
+  RXIMR_35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[35] &Instance() { return *reinterpret_cast<volatile RXIMR[35]*>(0x400C890C); }
+  static inline volatile RXIMR_35 &Instance() { return *reinterpret_cast<volatile RXIMR_35*>(0x400C890C); }
 };
 // Rx Individual Mask Registers
-union RXIMR[36] {
+union RXIMR_36 {
   
   // Bit field definition.
   struct {
@@ -32679,12 +32679,12 @@ union RXIMR[36] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[36]() = delete;
+  RXIMR_36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[36] &Instance() { return *reinterpret_cast<volatile RXIMR[36]*>(0x400C8910); }
+  static inline volatile RXIMR_36 &Instance() { return *reinterpret_cast<volatile RXIMR_36*>(0x400C8910); }
 };
 // Rx Individual Mask Registers
-union RXIMR[37] {
+union RXIMR_37 {
   
   // Bit field definition.
   struct {
@@ -32695,12 +32695,12 @@ union RXIMR[37] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[37]() = delete;
+  RXIMR_37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[37] &Instance() { return *reinterpret_cast<volatile RXIMR[37]*>(0x400C8914); }
+  static inline volatile RXIMR_37 &Instance() { return *reinterpret_cast<volatile RXIMR_37*>(0x400C8914); }
 };
 // Rx Individual Mask Registers
-union RXIMR[38] {
+union RXIMR_38 {
   
   // Bit field definition.
   struct {
@@ -32711,12 +32711,12 @@ union RXIMR[38] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[38]() = delete;
+  RXIMR_38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[38] &Instance() { return *reinterpret_cast<volatile RXIMR[38]*>(0x400C8918); }
+  static inline volatile RXIMR_38 &Instance() { return *reinterpret_cast<volatile RXIMR_38*>(0x400C8918); }
 };
 // Rx Individual Mask Registers
-union RXIMR[39] {
+union RXIMR_39 {
   
   // Bit field definition.
   struct {
@@ -32727,12 +32727,12 @@ union RXIMR[39] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[39]() = delete;
+  RXIMR_39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[39] &Instance() { return *reinterpret_cast<volatile RXIMR[39]*>(0x400C891C); }
+  static inline volatile RXIMR_39 &Instance() { return *reinterpret_cast<volatile RXIMR_39*>(0x400C891C); }
 };
 // Rx Individual Mask Registers
-union RXIMR[40] {
+union RXIMR_40 {
   
   // Bit field definition.
   struct {
@@ -32743,12 +32743,12 @@ union RXIMR[40] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[40]() = delete;
+  RXIMR_40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[40] &Instance() { return *reinterpret_cast<volatile RXIMR[40]*>(0x400C8920); }
+  static inline volatile RXIMR_40 &Instance() { return *reinterpret_cast<volatile RXIMR_40*>(0x400C8920); }
 };
 // Rx Individual Mask Registers
-union RXIMR[41] {
+union RXIMR_41 {
   
   // Bit field definition.
   struct {
@@ -32759,12 +32759,12 @@ union RXIMR[41] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[41]() = delete;
+  RXIMR_41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[41] &Instance() { return *reinterpret_cast<volatile RXIMR[41]*>(0x400C8924); }
+  static inline volatile RXIMR_41 &Instance() { return *reinterpret_cast<volatile RXIMR_41*>(0x400C8924); }
 };
 // Rx Individual Mask Registers
-union RXIMR[42] {
+union RXIMR_42 {
   
   // Bit field definition.
   struct {
@@ -32775,12 +32775,12 @@ union RXIMR[42] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[42]() = delete;
+  RXIMR_42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[42] &Instance() { return *reinterpret_cast<volatile RXIMR[42]*>(0x400C8928); }
+  static inline volatile RXIMR_42 &Instance() { return *reinterpret_cast<volatile RXIMR_42*>(0x400C8928); }
 };
 // Rx Individual Mask Registers
-union RXIMR[43] {
+union RXIMR_43 {
   
   // Bit field definition.
   struct {
@@ -32791,12 +32791,12 @@ union RXIMR[43] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[43]() = delete;
+  RXIMR_43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[43] &Instance() { return *reinterpret_cast<volatile RXIMR[43]*>(0x400C892C); }
+  static inline volatile RXIMR_43 &Instance() { return *reinterpret_cast<volatile RXIMR_43*>(0x400C892C); }
 };
 // Rx Individual Mask Registers
-union RXIMR[44] {
+union RXIMR_44 {
   
   // Bit field definition.
   struct {
@@ -32807,12 +32807,12 @@ union RXIMR[44] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[44]() = delete;
+  RXIMR_44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[44] &Instance() { return *reinterpret_cast<volatile RXIMR[44]*>(0x400C8930); }
+  static inline volatile RXIMR_44 &Instance() { return *reinterpret_cast<volatile RXIMR_44*>(0x400C8930); }
 };
 // Rx Individual Mask Registers
-union RXIMR[45] {
+union RXIMR_45 {
   
   // Bit field definition.
   struct {
@@ -32823,12 +32823,12 @@ union RXIMR[45] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[45]() = delete;
+  RXIMR_45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[45] &Instance() { return *reinterpret_cast<volatile RXIMR[45]*>(0x400C8934); }
+  static inline volatile RXIMR_45 &Instance() { return *reinterpret_cast<volatile RXIMR_45*>(0x400C8934); }
 };
 // Rx Individual Mask Registers
-union RXIMR[46] {
+union RXIMR_46 {
   
   // Bit field definition.
   struct {
@@ -32839,12 +32839,12 @@ union RXIMR[46] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[46]() = delete;
+  RXIMR_46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[46] &Instance() { return *reinterpret_cast<volatile RXIMR[46]*>(0x400C8938); }
+  static inline volatile RXIMR_46 &Instance() { return *reinterpret_cast<volatile RXIMR_46*>(0x400C8938); }
 };
 // Rx Individual Mask Registers
-union RXIMR[47] {
+union RXIMR_47 {
   
   // Bit field definition.
   struct {
@@ -32855,12 +32855,12 @@ union RXIMR[47] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[47]() = delete;
+  RXIMR_47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[47] &Instance() { return *reinterpret_cast<volatile RXIMR[47]*>(0x400C893C); }
+  static inline volatile RXIMR_47 &Instance() { return *reinterpret_cast<volatile RXIMR_47*>(0x400C893C); }
 };
 // Rx Individual Mask Registers
-union RXIMR[48] {
+union RXIMR_48 {
   
   // Bit field definition.
   struct {
@@ -32871,12 +32871,12 @@ union RXIMR[48] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[48]() = delete;
+  RXIMR_48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[48] &Instance() { return *reinterpret_cast<volatile RXIMR[48]*>(0x400C8940); }
+  static inline volatile RXIMR_48 &Instance() { return *reinterpret_cast<volatile RXIMR_48*>(0x400C8940); }
 };
 // Rx Individual Mask Registers
-union RXIMR[49] {
+union RXIMR_49 {
   
   // Bit field definition.
   struct {
@@ -32887,12 +32887,12 @@ union RXIMR[49] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[49]() = delete;
+  RXIMR_49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[49] &Instance() { return *reinterpret_cast<volatile RXIMR[49]*>(0x400C8944); }
+  static inline volatile RXIMR_49 &Instance() { return *reinterpret_cast<volatile RXIMR_49*>(0x400C8944); }
 };
 // Rx Individual Mask Registers
-union RXIMR[50] {
+union RXIMR_50 {
   
   // Bit field definition.
   struct {
@@ -32903,12 +32903,12 @@ union RXIMR[50] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[50]() = delete;
+  RXIMR_50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[50] &Instance() { return *reinterpret_cast<volatile RXIMR[50]*>(0x400C8948); }
+  static inline volatile RXIMR_50 &Instance() { return *reinterpret_cast<volatile RXIMR_50*>(0x400C8948); }
 };
 // Rx Individual Mask Registers
-union RXIMR[51] {
+union RXIMR_51 {
   
   // Bit field definition.
   struct {
@@ -32919,12 +32919,12 @@ union RXIMR[51] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[51]() = delete;
+  RXIMR_51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[51] &Instance() { return *reinterpret_cast<volatile RXIMR[51]*>(0x400C894C); }
+  static inline volatile RXIMR_51 &Instance() { return *reinterpret_cast<volatile RXIMR_51*>(0x400C894C); }
 };
 // Rx Individual Mask Registers
-union RXIMR[52] {
+union RXIMR_52 {
   
   // Bit field definition.
   struct {
@@ -32935,12 +32935,12 @@ union RXIMR[52] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[52]() = delete;
+  RXIMR_52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[52] &Instance() { return *reinterpret_cast<volatile RXIMR[52]*>(0x400C8950); }
+  static inline volatile RXIMR_52 &Instance() { return *reinterpret_cast<volatile RXIMR_52*>(0x400C8950); }
 };
 // Rx Individual Mask Registers
-union RXIMR[53] {
+union RXIMR_53 {
   
   // Bit field definition.
   struct {
@@ -32951,12 +32951,12 @@ union RXIMR[53] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[53]() = delete;
+  RXIMR_53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[53] &Instance() { return *reinterpret_cast<volatile RXIMR[53]*>(0x400C8954); }
+  static inline volatile RXIMR_53 &Instance() { return *reinterpret_cast<volatile RXIMR_53*>(0x400C8954); }
 };
 // Rx Individual Mask Registers
-union RXIMR[54] {
+union RXIMR_54 {
   
   // Bit field definition.
   struct {
@@ -32967,12 +32967,12 @@ union RXIMR[54] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[54]() = delete;
+  RXIMR_54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[54] &Instance() { return *reinterpret_cast<volatile RXIMR[54]*>(0x400C8958); }
+  static inline volatile RXIMR_54 &Instance() { return *reinterpret_cast<volatile RXIMR_54*>(0x400C8958); }
 };
 // Rx Individual Mask Registers
-union RXIMR[55] {
+union RXIMR_55 {
   
   // Bit field definition.
   struct {
@@ -32983,12 +32983,12 @@ union RXIMR[55] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[55]() = delete;
+  RXIMR_55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[55] &Instance() { return *reinterpret_cast<volatile RXIMR[55]*>(0x400C895C); }
+  static inline volatile RXIMR_55 &Instance() { return *reinterpret_cast<volatile RXIMR_55*>(0x400C895C); }
 };
 // Rx Individual Mask Registers
-union RXIMR[56] {
+union RXIMR_56 {
   
   // Bit field definition.
   struct {
@@ -32999,12 +32999,12 @@ union RXIMR[56] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[56]() = delete;
+  RXIMR_56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[56] &Instance() { return *reinterpret_cast<volatile RXIMR[56]*>(0x400C8960); }
+  static inline volatile RXIMR_56 &Instance() { return *reinterpret_cast<volatile RXIMR_56*>(0x400C8960); }
 };
 // Rx Individual Mask Registers
-union RXIMR[57] {
+union RXIMR_57 {
   
   // Bit field definition.
   struct {
@@ -33015,12 +33015,12 @@ union RXIMR[57] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[57]() = delete;
+  RXIMR_57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[57] &Instance() { return *reinterpret_cast<volatile RXIMR[57]*>(0x400C8964); }
+  static inline volatile RXIMR_57 &Instance() { return *reinterpret_cast<volatile RXIMR_57*>(0x400C8964); }
 };
 // Rx Individual Mask Registers
-union RXIMR[58] {
+union RXIMR_58 {
   
   // Bit field definition.
   struct {
@@ -33031,12 +33031,12 @@ union RXIMR[58] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[58]() = delete;
+  RXIMR_58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[58] &Instance() { return *reinterpret_cast<volatile RXIMR[58]*>(0x400C8968); }
+  static inline volatile RXIMR_58 &Instance() { return *reinterpret_cast<volatile RXIMR_58*>(0x400C8968); }
 };
 // Rx Individual Mask Registers
-union RXIMR[59] {
+union RXIMR_59 {
   
   // Bit field definition.
   struct {
@@ -33047,12 +33047,12 @@ union RXIMR[59] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[59]() = delete;
+  RXIMR_59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[59] &Instance() { return *reinterpret_cast<volatile RXIMR[59]*>(0x400C896C); }
+  static inline volatile RXIMR_59 &Instance() { return *reinterpret_cast<volatile RXIMR_59*>(0x400C896C); }
 };
 // Rx Individual Mask Registers
-union RXIMR[60] {
+union RXIMR_60 {
   
   // Bit field definition.
   struct {
@@ -33063,12 +33063,12 @@ union RXIMR[60] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[60]() = delete;
+  RXIMR_60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[60] &Instance() { return *reinterpret_cast<volatile RXIMR[60]*>(0x400C8970); }
+  static inline volatile RXIMR_60 &Instance() { return *reinterpret_cast<volatile RXIMR_60*>(0x400C8970); }
 };
 // Rx Individual Mask Registers
-union RXIMR[61] {
+union RXIMR_61 {
   
   // Bit field definition.
   struct {
@@ -33079,12 +33079,12 @@ union RXIMR[61] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[61]() = delete;
+  RXIMR_61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[61] &Instance() { return *reinterpret_cast<volatile RXIMR[61]*>(0x400C8974); }
+  static inline volatile RXIMR_61 &Instance() { return *reinterpret_cast<volatile RXIMR_61*>(0x400C8974); }
 };
 // Rx Individual Mask Registers
-union RXIMR[62] {
+union RXIMR_62 {
   
   // Bit field definition.
   struct {
@@ -33095,12 +33095,12 @@ union RXIMR[62] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[62]() = delete;
+  RXIMR_62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[62] &Instance() { return *reinterpret_cast<volatile RXIMR[62]*>(0x400C8978); }
+  static inline volatile RXIMR_62 &Instance() { return *reinterpret_cast<volatile RXIMR_62*>(0x400C8978); }
 };
 // Rx Individual Mask Registers
-union RXIMR[63] {
+union RXIMR_63 {
   
   // Bit field definition.
   struct {
@@ -33111,9 +33111,9 @@ union RXIMR[63] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIMR[63]() = delete;
+  RXIMR_63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIMR[63] &Instance() { return *reinterpret_cast<volatile RXIMR[63]*>(0x400C897C); }
+  static inline volatile RXIMR_63 &Instance() { return *reinterpret_cast<volatile RXIMR_63*>(0x400C897C); }
 };
 
 // Memory Error Control Register

@@ -625,7 +625,7 @@ union DMA0_AWR_LAT {
 };
 
 // Manufacturing Protection Private Key Register
-union MPPKR[0] {
+union MPPKR_0 {
   
   // Bit field definition.
   struct {
@@ -637,12 +637,12 @@ union MPPKR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[0]() = delete;
+  MPPKR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[0] &Instance() { return *reinterpret_cast<volatile MPPKR[0]*>(0x40440300); }
+  static inline volatile MPPKR_0 &Instance() { return *reinterpret_cast<volatile MPPKR_0*>(0x40440300); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[1] {
+union MPPKR_1 {
   
   // Bit field definition.
   struct {
@@ -654,12 +654,12 @@ union MPPKR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[1]() = delete;
+  MPPKR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[1] &Instance() { return *reinterpret_cast<volatile MPPKR[1]*>(0x40440301); }
+  static inline volatile MPPKR_1 &Instance() { return *reinterpret_cast<volatile MPPKR_1*>(0x40440301); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[2] {
+union MPPKR_2 {
   
   // Bit field definition.
   struct {
@@ -671,12 +671,12 @@ union MPPKR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[2]() = delete;
+  MPPKR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[2] &Instance() { return *reinterpret_cast<volatile MPPKR[2]*>(0x40440302); }
+  static inline volatile MPPKR_2 &Instance() { return *reinterpret_cast<volatile MPPKR_2*>(0x40440302); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[3] {
+union MPPKR_3 {
   
   // Bit field definition.
   struct {
@@ -688,12 +688,12 @@ union MPPKR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[3]() = delete;
+  MPPKR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[3] &Instance() { return *reinterpret_cast<volatile MPPKR[3]*>(0x40440303); }
+  static inline volatile MPPKR_3 &Instance() { return *reinterpret_cast<volatile MPPKR_3*>(0x40440303); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[4] {
+union MPPKR_4 {
   
   // Bit field definition.
   struct {
@@ -705,12 +705,12 @@ union MPPKR[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[4]() = delete;
+  MPPKR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[4] &Instance() { return *reinterpret_cast<volatile MPPKR[4]*>(0x40440304); }
+  static inline volatile MPPKR_4 &Instance() { return *reinterpret_cast<volatile MPPKR_4*>(0x40440304); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[5] {
+union MPPKR_5 {
   
   // Bit field definition.
   struct {
@@ -722,12 +722,12 @@ union MPPKR[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[5]() = delete;
+  MPPKR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[5] &Instance() { return *reinterpret_cast<volatile MPPKR[5]*>(0x40440305); }
+  static inline volatile MPPKR_5 &Instance() { return *reinterpret_cast<volatile MPPKR_5*>(0x40440305); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[6] {
+union MPPKR_6 {
   
   // Bit field definition.
   struct {
@@ -739,12 +739,12 @@ union MPPKR[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[6]() = delete;
+  MPPKR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[6] &Instance() { return *reinterpret_cast<volatile MPPKR[6]*>(0x40440306); }
+  static inline volatile MPPKR_6 &Instance() { return *reinterpret_cast<volatile MPPKR_6*>(0x40440306); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[7] {
+union MPPKR_7 {
   
   // Bit field definition.
   struct {
@@ -756,12 +756,12 @@ union MPPKR[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[7]() = delete;
+  MPPKR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[7] &Instance() { return *reinterpret_cast<volatile MPPKR[7]*>(0x40440307); }
+  static inline volatile MPPKR_7 &Instance() { return *reinterpret_cast<volatile MPPKR_7*>(0x40440307); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[8] {
+union MPPKR_8 {
   
   // Bit field definition.
   struct {
@@ -773,12 +773,12 @@ union MPPKR[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[8]() = delete;
+  MPPKR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[8] &Instance() { return *reinterpret_cast<volatile MPPKR[8]*>(0x40440308); }
+  static inline volatile MPPKR_8 &Instance() { return *reinterpret_cast<volatile MPPKR_8*>(0x40440308); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[9] {
+union MPPKR_9 {
   
   // Bit field definition.
   struct {
@@ -790,12 +790,12 @@ union MPPKR[9] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[9]() = delete;
+  MPPKR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[9] &Instance() { return *reinterpret_cast<volatile MPPKR[9]*>(0x40440309); }
+  static inline volatile MPPKR_9 &Instance() { return *reinterpret_cast<volatile MPPKR_9*>(0x40440309); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[10] {
+union MPPKR_10 {
   
   // Bit field definition.
   struct {
@@ -807,12 +807,12 @@ union MPPKR[10] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[10]() = delete;
+  MPPKR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[10] &Instance() { return *reinterpret_cast<volatile MPPKR[10]*>(0x4044030A); }
+  static inline volatile MPPKR_10 &Instance() { return *reinterpret_cast<volatile MPPKR_10*>(0x4044030A); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[11] {
+union MPPKR_11 {
   
   // Bit field definition.
   struct {
@@ -824,12 +824,12 @@ union MPPKR[11] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[11]() = delete;
+  MPPKR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[11] &Instance() { return *reinterpret_cast<volatile MPPKR[11]*>(0x4044030B); }
+  static inline volatile MPPKR_11 &Instance() { return *reinterpret_cast<volatile MPPKR_11*>(0x4044030B); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[12] {
+union MPPKR_12 {
   
   // Bit field definition.
   struct {
@@ -841,12 +841,12 @@ union MPPKR[12] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[12]() = delete;
+  MPPKR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[12] &Instance() { return *reinterpret_cast<volatile MPPKR[12]*>(0x4044030C); }
+  static inline volatile MPPKR_12 &Instance() { return *reinterpret_cast<volatile MPPKR_12*>(0x4044030C); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[13] {
+union MPPKR_13 {
   
   // Bit field definition.
   struct {
@@ -858,12 +858,12 @@ union MPPKR[13] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[13]() = delete;
+  MPPKR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[13] &Instance() { return *reinterpret_cast<volatile MPPKR[13]*>(0x4044030D); }
+  static inline volatile MPPKR_13 &Instance() { return *reinterpret_cast<volatile MPPKR_13*>(0x4044030D); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[14] {
+union MPPKR_14 {
   
   // Bit field definition.
   struct {
@@ -875,12 +875,12 @@ union MPPKR[14] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[14]() = delete;
+  MPPKR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[14] &Instance() { return *reinterpret_cast<volatile MPPKR[14]*>(0x4044030E); }
+  static inline volatile MPPKR_14 &Instance() { return *reinterpret_cast<volatile MPPKR_14*>(0x4044030E); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[15] {
+union MPPKR_15 {
   
   // Bit field definition.
   struct {
@@ -892,12 +892,12 @@ union MPPKR[15] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[15]() = delete;
+  MPPKR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[15] &Instance() { return *reinterpret_cast<volatile MPPKR[15]*>(0x4044030F); }
+  static inline volatile MPPKR_15 &Instance() { return *reinterpret_cast<volatile MPPKR_15*>(0x4044030F); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[16] {
+union MPPKR_16 {
   
   // Bit field definition.
   struct {
@@ -909,12 +909,12 @@ union MPPKR[16] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[16]() = delete;
+  MPPKR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[16] &Instance() { return *reinterpret_cast<volatile MPPKR[16]*>(0x40440310); }
+  static inline volatile MPPKR_16 &Instance() { return *reinterpret_cast<volatile MPPKR_16*>(0x40440310); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[17] {
+union MPPKR_17 {
   
   // Bit field definition.
   struct {
@@ -926,12 +926,12 @@ union MPPKR[17] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[17]() = delete;
+  MPPKR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[17] &Instance() { return *reinterpret_cast<volatile MPPKR[17]*>(0x40440311); }
+  static inline volatile MPPKR_17 &Instance() { return *reinterpret_cast<volatile MPPKR_17*>(0x40440311); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[18] {
+union MPPKR_18 {
   
   // Bit field definition.
   struct {
@@ -943,12 +943,12 @@ union MPPKR[18] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[18]() = delete;
+  MPPKR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[18] &Instance() { return *reinterpret_cast<volatile MPPKR[18]*>(0x40440312); }
+  static inline volatile MPPKR_18 &Instance() { return *reinterpret_cast<volatile MPPKR_18*>(0x40440312); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[19] {
+union MPPKR_19 {
   
   // Bit field definition.
   struct {
@@ -960,12 +960,12 @@ union MPPKR[19] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[19]() = delete;
+  MPPKR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[19] &Instance() { return *reinterpret_cast<volatile MPPKR[19]*>(0x40440313); }
+  static inline volatile MPPKR_19 &Instance() { return *reinterpret_cast<volatile MPPKR_19*>(0x40440313); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[20] {
+union MPPKR_20 {
   
   // Bit field definition.
   struct {
@@ -977,12 +977,12 @@ union MPPKR[20] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[20]() = delete;
+  MPPKR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[20] &Instance() { return *reinterpret_cast<volatile MPPKR[20]*>(0x40440314); }
+  static inline volatile MPPKR_20 &Instance() { return *reinterpret_cast<volatile MPPKR_20*>(0x40440314); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[21] {
+union MPPKR_21 {
   
   // Bit field definition.
   struct {
@@ -994,12 +994,12 @@ union MPPKR[21] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[21]() = delete;
+  MPPKR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[21] &Instance() { return *reinterpret_cast<volatile MPPKR[21]*>(0x40440315); }
+  static inline volatile MPPKR_21 &Instance() { return *reinterpret_cast<volatile MPPKR_21*>(0x40440315); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[22] {
+union MPPKR_22 {
   
   // Bit field definition.
   struct {
@@ -1011,12 +1011,12 @@ union MPPKR[22] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[22]() = delete;
+  MPPKR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[22] &Instance() { return *reinterpret_cast<volatile MPPKR[22]*>(0x40440316); }
+  static inline volatile MPPKR_22 &Instance() { return *reinterpret_cast<volatile MPPKR_22*>(0x40440316); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[23] {
+union MPPKR_23 {
   
   // Bit field definition.
   struct {
@@ -1028,12 +1028,12 @@ union MPPKR[23] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[23]() = delete;
+  MPPKR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[23] &Instance() { return *reinterpret_cast<volatile MPPKR[23]*>(0x40440317); }
+  static inline volatile MPPKR_23 &Instance() { return *reinterpret_cast<volatile MPPKR_23*>(0x40440317); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[24] {
+union MPPKR_24 {
   
   // Bit field definition.
   struct {
@@ -1045,12 +1045,12 @@ union MPPKR[24] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[24]() = delete;
+  MPPKR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[24] &Instance() { return *reinterpret_cast<volatile MPPKR[24]*>(0x40440318); }
+  static inline volatile MPPKR_24 &Instance() { return *reinterpret_cast<volatile MPPKR_24*>(0x40440318); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[25] {
+union MPPKR_25 {
   
   // Bit field definition.
   struct {
@@ -1062,12 +1062,12 @@ union MPPKR[25] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[25]() = delete;
+  MPPKR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[25] &Instance() { return *reinterpret_cast<volatile MPPKR[25]*>(0x40440319); }
+  static inline volatile MPPKR_25 &Instance() { return *reinterpret_cast<volatile MPPKR_25*>(0x40440319); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[26] {
+union MPPKR_26 {
   
   // Bit field definition.
   struct {
@@ -1079,12 +1079,12 @@ union MPPKR[26] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[26]() = delete;
+  MPPKR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[26] &Instance() { return *reinterpret_cast<volatile MPPKR[26]*>(0x4044031A); }
+  static inline volatile MPPKR_26 &Instance() { return *reinterpret_cast<volatile MPPKR_26*>(0x4044031A); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[27] {
+union MPPKR_27 {
   
   // Bit field definition.
   struct {
@@ -1096,12 +1096,12 @@ union MPPKR[27] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[27]() = delete;
+  MPPKR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[27] &Instance() { return *reinterpret_cast<volatile MPPKR[27]*>(0x4044031B); }
+  static inline volatile MPPKR_27 &Instance() { return *reinterpret_cast<volatile MPPKR_27*>(0x4044031B); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[28] {
+union MPPKR_28 {
   
   // Bit field definition.
   struct {
@@ -1113,12 +1113,12 @@ union MPPKR[28] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[28]() = delete;
+  MPPKR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[28] &Instance() { return *reinterpret_cast<volatile MPPKR[28]*>(0x4044031C); }
+  static inline volatile MPPKR_28 &Instance() { return *reinterpret_cast<volatile MPPKR_28*>(0x4044031C); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[29] {
+union MPPKR_29 {
   
   // Bit field definition.
   struct {
@@ -1130,12 +1130,12 @@ union MPPKR[29] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[29]() = delete;
+  MPPKR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[29] &Instance() { return *reinterpret_cast<volatile MPPKR[29]*>(0x4044031D); }
+  static inline volatile MPPKR_29 &Instance() { return *reinterpret_cast<volatile MPPKR_29*>(0x4044031D); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[30] {
+union MPPKR_30 {
   
   // Bit field definition.
   struct {
@@ -1147,12 +1147,12 @@ union MPPKR[30] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[30]() = delete;
+  MPPKR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[30] &Instance() { return *reinterpret_cast<volatile MPPKR[30]*>(0x4044031E); }
+  static inline volatile MPPKR_30 &Instance() { return *reinterpret_cast<volatile MPPKR_30*>(0x4044031E); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[31] {
+union MPPKR_31 {
   
   // Bit field definition.
   struct {
@@ -1164,12 +1164,12 @@ union MPPKR[31] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[31]() = delete;
+  MPPKR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[31] &Instance() { return *reinterpret_cast<volatile MPPKR[31]*>(0x4044031F); }
+  static inline volatile MPPKR_31 &Instance() { return *reinterpret_cast<volatile MPPKR_31*>(0x4044031F); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[32] {
+union MPPKR_32 {
   
   // Bit field definition.
   struct {
@@ -1181,12 +1181,12 @@ union MPPKR[32] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[32]() = delete;
+  MPPKR_32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[32] &Instance() { return *reinterpret_cast<volatile MPPKR[32]*>(0x40440320); }
+  static inline volatile MPPKR_32 &Instance() { return *reinterpret_cast<volatile MPPKR_32*>(0x40440320); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[33] {
+union MPPKR_33 {
   
   // Bit field definition.
   struct {
@@ -1198,12 +1198,12 @@ union MPPKR[33] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[33]() = delete;
+  MPPKR_33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[33] &Instance() { return *reinterpret_cast<volatile MPPKR[33]*>(0x40440321); }
+  static inline volatile MPPKR_33 &Instance() { return *reinterpret_cast<volatile MPPKR_33*>(0x40440321); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[34] {
+union MPPKR_34 {
   
   // Bit field definition.
   struct {
@@ -1215,12 +1215,12 @@ union MPPKR[34] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[34]() = delete;
+  MPPKR_34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[34] &Instance() { return *reinterpret_cast<volatile MPPKR[34]*>(0x40440322); }
+  static inline volatile MPPKR_34 &Instance() { return *reinterpret_cast<volatile MPPKR_34*>(0x40440322); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[35] {
+union MPPKR_35 {
   
   // Bit field definition.
   struct {
@@ -1232,12 +1232,12 @@ union MPPKR[35] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[35]() = delete;
+  MPPKR_35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[35] &Instance() { return *reinterpret_cast<volatile MPPKR[35]*>(0x40440323); }
+  static inline volatile MPPKR_35 &Instance() { return *reinterpret_cast<volatile MPPKR_35*>(0x40440323); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[36] {
+union MPPKR_36 {
   
   // Bit field definition.
   struct {
@@ -1249,12 +1249,12 @@ union MPPKR[36] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[36]() = delete;
+  MPPKR_36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[36] &Instance() { return *reinterpret_cast<volatile MPPKR[36]*>(0x40440324); }
+  static inline volatile MPPKR_36 &Instance() { return *reinterpret_cast<volatile MPPKR_36*>(0x40440324); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[37] {
+union MPPKR_37 {
   
   // Bit field definition.
   struct {
@@ -1266,12 +1266,12 @@ union MPPKR[37] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[37]() = delete;
+  MPPKR_37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[37] &Instance() { return *reinterpret_cast<volatile MPPKR[37]*>(0x40440325); }
+  static inline volatile MPPKR_37 &Instance() { return *reinterpret_cast<volatile MPPKR_37*>(0x40440325); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[38] {
+union MPPKR_38 {
   
   // Bit field definition.
   struct {
@@ -1283,12 +1283,12 @@ union MPPKR[38] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[38]() = delete;
+  MPPKR_38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[38] &Instance() { return *reinterpret_cast<volatile MPPKR[38]*>(0x40440326); }
+  static inline volatile MPPKR_38 &Instance() { return *reinterpret_cast<volatile MPPKR_38*>(0x40440326); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[39] {
+union MPPKR_39 {
   
   // Bit field definition.
   struct {
@@ -1300,12 +1300,12 @@ union MPPKR[39] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[39]() = delete;
+  MPPKR_39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[39] &Instance() { return *reinterpret_cast<volatile MPPKR[39]*>(0x40440327); }
+  static inline volatile MPPKR_39 &Instance() { return *reinterpret_cast<volatile MPPKR_39*>(0x40440327); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[40] {
+union MPPKR_40 {
   
   // Bit field definition.
   struct {
@@ -1317,12 +1317,12 @@ union MPPKR[40] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[40]() = delete;
+  MPPKR_40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[40] &Instance() { return *reinterpret_cast<volatile MPPKR[40]*>(0x40440328); }
+  static inline volatile MPPKR_40 &Instance() { return *reinterpret_cast<volatile MPPKR_40*>(0x40440328); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[41] {
+union MPPKR_41 {
   
   // Bit field definition.
   struct {
@@ -1334,12 +1334,12 @@ union MPPKR[41] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[41]() = delete;
+  MPPKR_41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[41] &Instance() { return *reinterpret_cast<volatile MPPKR[41]*>(0x40440329); }
+  static inline volatile MPPKR_41 &Instance() { return *reinterpret_cast<volatile MPPKR_41*>(0x40440329); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[42] {
+union MPPKR_42 {
   
   // Bit field definition.
   struct {
@@ -1351,12 +1351,12 @@ union MPPKR[42] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[42]() = delete;
+  MPPKR_42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[42] &Instance() { return *reinterpret_cast<volatile MPPKR[42]*>(0x4044032A); }
+  static inline volatile MPPKR_42 &Instance() { return *reinterpret_cast<volatile MPPKR_42*>(0x4044032A); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[43] {
+union MPPKR_43 {
   
   // Bit field definition.
   struct {
@@ -1368,12 +1368,12 @@ union MPPKR[43] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[43]() = delete;
+  MPPKR_43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[43] &Instance() { return *reinterpret_cast<volatile MPPKR[43]*>(0x4044032B); }
+  static inline volatile MPPKR_43 &Instance() { return *reinterpret_cast<volatile MPPKR_43*>(0x4044032B); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[44] {
+union MPPKR_44 {
   
   // Bit field definition.
   struct {
@@ -1385,12 +1385,12 @@ union MPPKR[44] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[44]() = delete;
+  MPPKR_44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[44] &Instance() { return *reinterpret_cast<volatile MPPKR[44]*>(0x4044032C); }
+  static inline volatile MPPKR_44 &Instance() { return *reinterpret_cast<volatile MPPKR_44*>(0x4044032C); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[45] {
+union MPPKR_45 {
   
   // Bit field definition.
   struct {
@@ -1402,12 +1402,12 @@ union MPPKR[45] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[45]() = delete;
+  MPPKR_45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[45] &Instance() { return *reinterpret_cast<volatile MPPKR[45]*>(0x4044032D); }
+  static inline volatile MPPKR_45 &Instance() { return *reinterpret_cast<volatile MPPKR_45*>(0x4044032D); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[46] {
+union MPPKR_46 {
   
   // Bit field definition.
   struct {
@@ -1419,12 +1419,12 @@ union MPPKR[46] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[46]() = delete;
+  MPPKR_46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[46] &Instance() { return *reinterpret_cast<volatile MPPKR[46]*>(0x4044032E); }
+  static inline volatile MPPKR_46 &Instance() { return *reinterpret_cast<volatile MPPKR_46*>(0x4044032E); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[47] {
+union MPPKR_47 {
   
   // Bit field definition.
   struct {
@@ -1436,12 +1436,12 @@ union MPPKR[47] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[47]() = delete;
+  MPPKR_47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[47] &Instance() { return *reinterpret_cast<volatile MPPKR[47]*>(0x4044032F); }
+  static inline volatile MPPKR_47 &Instance() { return *reinterpret_cast<volatile MPPKR_47*>(0x4044032F); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[48] {
+union MPPKR_48 {
   
   // Bit field definition.
   struct {
@@ -1453,12 +1453,12 @@ union MPPKR[48] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[48]() = delete;
+  MPPKR_48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[48] &Instance() { return *reinterpret_cast<volatile MPPKR[48]*>(0x40440330); }
+  static inline volatile MPPKR_48 &Instance() { return *reinterpret_cast<volatile MPPKR_48*>(0x40440330); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[49] {
+union MPPKR_49 {
   
   // Bit field definition.
   struct {
@@ -1470,12 +1470,12 @@ union MPPKR[49] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[49]() = delete;
+  MPPKR_49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[49] &Instance() { return *reinterpret_cast<volatile MPPKR[49]*>(0x40440331); }
+  static inline volatile MPPKR_49 &Instance() { return *reinterpret_cast<volatile MPPKR_49*>(0x40440331); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[50] {
+union MPPKR_50 {
   
   // Bit field definition.
   struct {
@@ -1487,12 +1487,12 @@ union MPPKR[50] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[50]() = delete;
+  MPPKR_50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[50] &Instance() { return *reinterpret_cast<volatile MPPKR[50]*>(0x40440332); }
+  static inline volatile MPPKR_50 &Instance() { return *reinterpret_cast<volatile MPPKR_50*>(0x40440332); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[51] {
+union MPPKR_51 {
   
   // Bit field definition.
   struct {
@@ -1504,12 +1504,12 @@ union MPPKR[51] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[51]() = delete;
+  MPPKR_51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[51] &Instance() { return *reinterpret_cast<volatile MPPKR[51]*>(0x40440333); }
+  static inline volatile MPPKR_51 &Instance() { return *reinterpret_cast<volatile MPPKR_51*>(0x40440333); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[52] {
+union MPPKR_52 {
   
   // Bit field definition.
   struct {
@@ -1521,12 +1521,12 @@ union MPPKR[52] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[52]() = delete;
+  MPPKR_52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[52] &Instance() { return *reinterpret_cast<volatile MPPKR[52]*>(0x40440334); }
+  static inline volatile MPPKR_52 &Instance() { return *reinterpret_cast<volatile MPPKR_52*>(0x40440334); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[53] {
+union MPPKR_53 {
   
   // Bit field definition.
   struct {
@@ -1538,12 +1538,12 @@ union MPPKR[53] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[53]() = delete;
+  MPPKR_53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[53] &Instance() { return *reinterpret_cast<volatile MPPKR[53]*>(0x40440335); }
+  static inline volatile MPPKR_53 &Instance() { return *reinterpret_cast<volatile MPPKR_53*>(0x40440335); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[54] {
+union MPPKR_54 {
   
   // Bit field definition.
   struct {
@@ -1555,12 +1555,12 @@ union MPPKR[54] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[54]() = delete;
+  MPPKR_54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[54] &Instance() { return *reinterpret_cast<volatile MPPKR[54]*>(0x40440336); }
+  static inline volatile MPPKR_54 &Instance() { return *reinterpret_cast<volatile MPPKR_54*>(0x40440336); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[55] {
+union MPPKR_55 {
   
   // Bit field definition.
   struct {
@@ -1572,12 +1572,12 @@ union MPPKR[55] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[55]() = delete;
+  MPPKR_55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[55] &Instance() { return *reinterpret_cast<volatile MPPKR[55]*>(0x40440337); }
+  static inline volatile MPPKR_55 &Instance() { return *reinterpret_cast<volatile MPPKR_55*>(0x40440337); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[56] {
+union MPPKR_56 {
   
   // Bit field definition.
   struct {
@@ -1589,12 +1589,12 @@ union MPPKR[56] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[56]() = delete;
+  MPPKR_56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[56] &Instance() { return *reinterpret_cast<volatile MPPKR[56]*>(0x40440338); }
+  static inline volatile MPPKR_56 &Instance() { return *reinterpret_cast<volatile MPPKR_56*>(0x40440338); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[57] {
+union MPPKR_57 {
   
   // Bit field definition.
   struct {
@@ -1606,12 +1606,12 @@ union MPPKR[57] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[57]() = delete;
+  MPPKR_57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[57] &Instance() { return *reinterpret_cast<volatile MPPKR[57]*>(0x40440339); }
+  static inline volatile MPPKR_57 &Instance() { return *reinterpret_cast<volatile MPPKR_57*>(0x40440339); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[58] {
+union MPPKR_58 {
   
   // Bit field definition.
   struct {
@@ -1623,12 +1623,12 @@ union MPPKR[58] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[58]() = delete;
+  MPPKR_58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[58] &Instance() { return *reinterpret_cast<volatile MPPKR[58]*>(0x4044033A); }
+  static inline volatile MPPKR_58 &Instance() { return *reinterpret_cast<volatile MPPKR_58*>(0x4044033A); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[59] {
+union MPPKR_59 {
   
   // Bit field definition.
   struct {
@@ -1640,12 +1640,12 @@ union MPPKR[59] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[59]() = delete;
+  MPPKR_59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[59] &Instance() { return *reinterpret_cast<volatile MPPKR[59]*>(0x4044033B); }
+  static inline volatile MPPKR_59 &Instance() { return *reinterpret_cast<volatile MPPKR_59*>(0x4044033B); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[60] {
+union MPPKR_60 {
   
   // Bit field definition.
   struct {
@@ -1657,12 +1657,12 @@ union MPPKR[60] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[60]() = delete;
+  MPPKR_60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[60] &Instance() { return *reinterpret_cast<volatile MPPKR[60]*>(0x4044033C); }
+  static inline volatile MPPKR_60 &Instance() { return *reinterpret_cast<volatile MPPKR_60*>(0x4044033C); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[61] {
+union MPPKR_61 {
   
   // Bit field definition.
   struct {
@@ -1674,12 +1674,12 @@ union MPPKR[61] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[61]() = delete;
+  MPPKR_61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[61] &Instance() { return *reinterpret_cast<volatile MPPKR[61]*>(0x4044033D); }
+  static inline volatile MPPKR_61 &Instance() { return *reinterpret_cast<volatile MPPKR_61*>(0x4044033D); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[62] {
+union MPPKR_62 {
   
   // Bit field definition.
   struct {
@@ -1691,12 +1691,12 @@ union MPPKR[62] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[62]() = delete;
+  MPPKR_62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[62] &Instance() { return *reinterpret_cast<volatile MPPKR[62]*>(0x4044033E); }
+  static inline volatile MPPKR_62 &Instance() { return *reinterpret_cast<volatile MPPKR_62*>(0x4044033E); }
 };
 // Manufacturing Protection Private Key Register
-union MPPKR[63] {
+union MPPKR_63 {
   
   // Bit field definition.
   struct {
@@ -1708,13 +1708,13 @@ union MPPKR[63] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPPKR[63]() = delete;
+  MPPKR_63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPPKR[63] &Instance() { return *reinterpret_cast<volatile MPPKR[63]*>(0x4044033F); }
+  static inline volatile MPPKR_63 &Instance() { return *reinterpret_cast<volatile MPPKR_63*>(0x4044033F); }
 };
 
 // Manufacturing Protection Message Register
-union MPMR[0] {
+union MPMR_0 {
   
   // Bit field definition.
   struct {
@@ -1726,12 +1726,12 @@ union MPMR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[0]() = delete;
+  MPMR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[0] &Instance() { return *reinterpret_cast<volatile MPMR[0]*>(0x40440380); }
+  static inline volatile MPMR_0 &Instance() { return *reinterpret_cast<volatile MPMR_0*>(0x40440380); }
 };
 // Manufacturing Protection Message Register
-union MPMR[1] {
+union MPMR_1 {
   
   // Bit field definition.
   struct {
@@ -1743,12 +1743,12 @@ union MPMR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[1]() = delete;
+  MPMR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[1] &Instance() { return *reinterpret_cast<volatile MPMR[1]*>(0x40440381); }
+  static inline volatile MPMR_1 &Instance() { return *reinterpret_cast<volatile MPMR_1*>(0x40440381); }
 };
 // Manufacturing Protection Message Register
-union MPMR[2] {
+union MPMR_2 {
   
   // Bit field definition.
   struct {
@@ -1760,12 +1760,12 @@ union MPMR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[2]() = delete;
+  MPMR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[2] &Instance() { return *reinterpret_cast<volatile MPMR[2]*>(0x40440382); }
+  static inline volatile MPMR_2 &Instance() { return *reinterpret_cast<volatile MPMR_2*>(0x40440382); }
 };
 // Manufacturing Protection Message Register
-union MPMR[3] {
+union MPMR_3 {
   
   // Bit field definition.
   struct {
@@ -1777,12 +1777,12 @@ union MPMR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[3]() = delete;
+  MPMR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[3] &Instance() { return *reinterpret_cast<volatile MPMR[3]*>(0x40440383); }
+  static inline volatile MPMR_3 &Instance() { return *reinterpret_cast<volatile MPMR_3*>(0x40440383); }
 };
 // Manufacturing Protection Message Register
-union MPMR[4] {
+union MPMR_4 {
   
   // Bit field definition.
   struct {
@@ -1794,12 +1794,12 @@ union MPMR[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[4]() = delete;
+  MPMR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[4] &Instance() { return *reinterpret_cast<volatile MPMR[4]*>(0x40440384); }
+  static inline volatile MPMR_4 &Instance() { return *reinterpret_cast<volatile MPMR_4*>(0x40440384); }
 };
 // Manufacturing Protection Message Register
-union MPMR[5] {
+union MPMR_5 {
   
   // Bit field definition.
   struct {
@@ -1811,12 +1811,12 @@ union MPMR[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[5]() = delete;
+  MPMR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[5] &Instance() { return *reinterpret_cast<volatile MPMR[5]*>(0x40440385); }
+  static inline volatile MPMR_5 &Instance() { return *reinterpret_cast<volatile MPMR_5*>(0x40440385); }
 };
 // Manufacturing Protection Message Register
-union MPMR[6] {
+union MPMR_6 {
   
   // Bit field definition.
   struct {
@@ -1828,12 +1828,12 @@ union MPMR[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[6]() = delete;
+  MPMR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[6] &Instance() { return *reinterpret_cast<volatile MPMR[6]*>(0x40440386); }
+  static inline volatile MPMR_6 &Instance() { return *reinterpret_cast<volatile MPMR_6*>(0x40440386); }
 };
 // Manufacturing Protection Message Register
-union MPMR[7] {
+union MPMR_7 {
   
   // Bit field definition.
   struct {
@@ -1845,12 +1845,12 @@ union MPMR[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[7]() = delete;
+  MPMR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[7] &Instance() { return *reinterpret_cast<volatile MPMR[7]*>(0x40440387); }
+  static inline volatile MPMR_7 &Instance() { return *reinterpret_cast<volatile MPMR_7*>(0x40440387); }
 };
 // Manufacturing Protection Message Register
-union MPMR[8] {
+union MPMR_8 {
   
   // Bit field definition.
   struct {
@@ -1862,12 +1862,12 @@ union MPMR[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[8]() = delete;
+  MPMR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[8] &Instance() { return *reinterpret_cast<volatile MPMR[8]*>(0x40440388); }
+  static inline volatile MPMR_8 &Instance() { return *reinterpret_cast<volatile MPMR_8*>(0x40440388); }
 };
 // Manufacturing Protection Message Register
-union MPMR[9] {
+union MPMR_9 {
   
   // Bit field definition.
   struct {
@@ -1879,12 +1879,12 @@ union MPMR[9] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[9]() = delete;
+  MPMR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[9] &Instance() { return *reinterpret_cast<volatile MPMR[9]*>(0x40440389); }
+  static inline volatile MPMR_9 &Instance() { return *reinterpret_cast<volatile MPMR_9*>(0x40440389); }
 };
 // Manufacturing Protection Message Register
-union MPMR[10] {
+union MPMR_10 {
   
   // Bit field definition.
   struct {
@@ -1896,12 +1896,12 @@ union MPMR[10] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[10]() = delete;
+  MPMR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[10] &Instance() { return *reinterpret_cast<volatile MPMR[10]*>(0x4044038A); }
+  static inline volatile MPMR_10 &Instance() { return *reinterpret_cast<volatile MPMR_10*>(0x4044038A); }
 };
 // Manufacturing Protection Message Register
-union MPMR[11] {
+union MPMR_11 {
   
   // Bit field definition.
   struct {
@@ -1913,12 +1913,12 @@ union MPMR[11] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[11]() = delete;
+  MPMR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[11] &Instance() { return *reinterpret_cast<volatile MPMR[11]*>(0x4044038B); }
+  static inline volatile MPMR_11 &Instance() { return *reinterpret_cast<volatile MPMR_11*>(0x4044038B); }
 };
 // Manufacturing Protection Message Register
-union MPMR[12] {
+union MPMR_12 {
   
   // Bit field definition.
   struct {
@@ -1930,12 +1930,12 @@ union MPMR[12] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[12]() = delete;
+  MPMR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[12] &Instance() { return *reinterpret_cast<volatile MPMR[12]*>(0x4044038C); }
+  static inline volatile MPMR_12 &Instance() { return *reinterpret_cast<volatile MPMR_12*>(0x4044038C); }
 };
 // Manufacturing Protection Message Register
-union MPMR[13] {
+union MPMR_13 {
   
   // Bit field definition.
   struct {
@@ -1947,12 +1947,12 @@ union MPMR[13] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[13]() = delete;
+  MPMR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[13] &Instance() { return *reinterpret_cast<volatile MPMR[13]*>(0x4044038D); }
+  static inline volatile MPMR_13 &Instance() { return *reinterpret_cast<volatile MPMR_13*>(0x4044038D); }
 };
 // Manufacturing Protection Message Register
-union MPMR[14] {
+union MPMR_14 {
   
   // Bit field definition.
   struct {
@@ -1964,12 +1964,12 @@ union MPMR[14] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[14]() = delete;
+  MPMR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[14] &Instance() { return *reinterpret_cast<volatile MPMR[14]*>(0x4044038E); }
+  static inline volatile MPMR_14 &Instance() { return *reinterpret_cast<volatile MPMR_14*>(0x4044038E); }
 };
 // Manufacturing Protection Message Register
-union MPMR[15] {
+union MPMR_15 {
   
   // Bit field definition.
   struct {
@@ -1981,12 +1981,12 @@ union MPMR[15] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[15]() = delete;
+  MPMR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[15] &Instance() { return *reinterpret_cast<volatile MPMR[15]*>(0x4044038F); }
+  static inline volatile MPMR_15 &Instance() { return *reinterpret_cast<volatile MPMR_15*>(0x4044038F); }
 };
 // Manufacturing Protection Message Register
-union MPMR[16] {
+union MPMR_16 {
   
   // Bit field definition.
   struct {
@@ -1998,12 +1998,12 @@ union MPMR[16] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[16]() = delete;
+  MPMR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[16] &Instance() { return *reinterpret_cast<volatile MPMR[16]*>(0x40440390); }
+  static inline volatile MPMR_16 &Instance() { return *reinterpret_cast<volatile MPMR_16*>(0x40440390); }
 };
 // Manufacturing Protection Message Register
-union MPMR[17] {
+union MPMR_17 {
   
   // Bit field definition.
   struct {
@@ -2015,12 +2015,12 @@ union MPMR[17] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[17]() = delete;
+  MPMR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[17] &Instance() { return *reinterpret_cast<volatile MPMR[17]*>(0x40440391); }
+  static inline volatile MPMR_17 &Instance() { return *reinterpret_cast<volatile MPMR_17*>(0x40440391); }
 };
 // Manufacturing Protection Message Register
-union MPMR[18] {
+union MPMR_18 {
   
   // Bit field definition.
   struct {
@@ -2032,12 +2032,12 @@ union MPMR[18] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[18]() = delete;
+  MPMR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[18] &Instance() { return *reinterpret_cast<volatile MPMR[18]*>(0x40440392); }
+  static inline volatile MPMR_18 &Instance() { return *reinterpret_cast<volatile MPMR_18*>(0x40440392); }
 };
 // Manufacturing Protection Message Register
-union MPMR[19] {
+union MPMR_19 {
   
   // Bit field definition.
   struct {
@@ -2049,12 +2049,12 @@ union MPMR[19] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[19]() = delete;
+  MPMR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[19] &Instance() { return *reinterpret_cast<volatile MPMR[19]*>(0x40440393); }
+  static inline volatile MPMR_19 &Instance() { return *reinterpret_cast<volatile MPMR_19*>(0x40440393); }
 };
 // Manufacturing Protection Message Register
-union MPMR[20] {
+union MPMR_20 {
   
   // Bit field definition.
   struct {
@@ -2066,12 +2066,12 @@ union MPMR[20] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[20]() = delete;
+  MPMR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[20] &Instance() { return *reinterpret_cast<volatile MPMR[20]*>(0x40440394); }
+  static inline volatile MPMR_20 &Instance() { return *reinterpret_cast<volatile MPMR_20*>(0x40440394); }
 };
 // Manufacturing Protection Message Register
-union MPMR[21] {
+union MPMR_21 {
   
   // Bit field definition.
   struct {
@@ -2083,12 +2083,12 @@ union MPMR[21] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[21]() = delete;
+  MPMR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[21] &Instance() { return *reinterpret_cast<volatile MPMR[21]*>(0x40440395); }
+  static inline volatile MPMR_21 &Instance() { return *reinterpret_cast<volatile MPMR_21*>(0x40440395); }
 };
 // Manufacturing Protection Message Register
-union MPMR[22] {
+union MPMR_22 {
   
   // Bit field definition.
   struct {
@@ -2100,12 +2100,12 @@ union MPMR[22] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[22]() = delete;
+  MPMR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[22] &Instance() { return *reinterpret_cast<volatile MPMR[22]*>(0x40440396); }
+  static inline volatile MPMR_22 &Instance() { return *reinterpret_cast<volatile MPMR_22*>(0x40440396); }
 };
 // Manufacturing Protection Message Register
-union MPMR[23] {
+union MPMR_23 {
   
   // Bit field definition.
   struct {
@@ -2117,12 +2117,12 @@ union MPMR[23] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[23]() = delete;
+  MPMR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[23] &Instance() { return *reinterpret_cast<volatile MPMR[23]*>(0x40440397); }
+  static inline volatile MPMR_23 &Instance() { return *reinterpret_cast<volatile MPMR_23*>(0x40440397); }
 };
 // Manufacturing Protection Message Register
-union MPMR[24] {
+union MPMR_24 {
   
   // Bit field definition.
   struct {
@@ -2134,12 +2134,12 @@ union MPMR[24] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[24]() = delete;
+  MPMR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[24] &Instance() { return *reinterpret_cast<volatile MPMR[24]*>(0x40440398); }
+  static inline volatile MPMR_24 &Instance() { return *reinterpret_cast<volatile MPMR_24*>(0x40440398); }
 };
 // Manufacturing Protection Message Register
-union MPMR[25] {
+union MPMR_25 {
   
   // Bit field definition.
   struct {
@@ -2151,12 +2151,12 @@ union MPMR[25] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[25]() = delete;
+  MPMR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[25] &Instance() { return *reinterpret_cast<volatile MPMR[25]*>(0x40440399); }
+  static inline volatile MPMR_25 &Instance() { return *reinterpret_cast<volatile MPMR_25*>(0x40440399); }
 };
 // Manufacturing Protection Message Register
-union MPMR[26] {
+union MPMR_26 {
   
   // Bit field definition.
   struct {
@@ -2168,12 +2168,12 @@ union MPMR[26] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[26]() = delete;
+  MPMR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[26] &Instance() { return *reinterpret_cast<volatile MPMR[26]*>(0x4044039A); }
+  static inline volatile MPMR_26 &Instance() { return *reinterpret_cast<volatile MPMR_26*>(0x4044039A); }
 };
 // Manufacturing Protection Message Register
-union MPMR[27] {
+union MPMR_27 {
   
   // Bit field definition.
   struct {
@@ -2185,12 +2185,12 @@ union MPMR[27] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[27]() = delete;
+  MPMR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[27] &Instance() { return *reinterpret_cast<volatile MPMR[27]*>(0x4044039B); }
+  static inline volatile MPMR_27 &Instance() { return *reinterpret_cast<volatile MPMR_27*>(0x4044039B); }
 };
 // Manufacturing Protection Message Register
-union MPMR[28] {
+union MPMR_28 {
   
   // Bit field definition.
   struct {
@@ -2202,12 +2202,12 @@ union MPMR[28] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[28]() = delete;
+  MPMR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[28] &Instance() { return *reinterpret_cast<volatile MPMR[28]*>(0x4044039C); }
+  static inline volatile MPMR_28 &Instance() { return *reinterpret_cast<volatile MPMR_28*>(0x4044039C); }
 };
 // Manufacturing Protection Message Register
-union MPMR[29] {
+union MPMR_29 {
   
   // Bit field definition.
   struct {
@@ -2219,12 +2219,12 @@ union MPMR[29] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[29]() = delete;
+  MPMR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[29] &Instance() { return *reinterpret_cast<volatile MPMR[29]*>(0x4044039D); }
+  static inline volatile MPMR_29 &Instance() { return *reinterpret_cast<volatile MPMR_29*>(0x4044039D); }
 };
 // Manufacturing Protection Message Register
-union MPMR[30] {
+union MPMR_30 {
   
   // Bit field definition.
   struct {
@@ -2236,12 +2236,12 @@ union MPMR[30] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[30]() = delete;
+  MPMR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[30] &Instance() { return *reinterpret_cast<volatile MPMR[30]*>(0x4044039E); }
+  static inline volatile MPMR_30 &Instance() { return *reinterpret_cast<volatile MPMR_30*>(0x4044039E); }
 };
 // Manufacturing Protection Message Register
-union MPMR[31] {
+union MPMR_31 {
   
   // Bit field definition.
   struct {
@@ -2253,13 +2253,13 @@ union MPMR[31] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPMR[31]() = delete;
+  MPMR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPMR[31] &Instance() { return *reinterpret_cast<volatile MPMR[31]*>(0x4044039F); }
+  static inline volatile MPMR_31 &Instance() { return *reinterpret_cast<volatile MPMR_31*>(0x4044039F); }
 };
 
 // Manufacturing Protection Test Register
-union MPTESTR[0] {
+union MPTESTR_0 {
   
   // Bit field definition.
   struct {
@@ -2271,12 +2271,12 @@ union MPTESTR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[0]() = delete;
+  MPTESTR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[0] &Instance() { return *reinterpret_cast<volatile MPTESTR[0]*>(0x404403C0); }
+  static inline volatile MPTESTR_0 &Instance() { return *reinterpret_cast<volatile MPTESTR_0*>(0x404403C0); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[1] {
+union MPTESTR_1 {
   
   // Bit field definition.
   struct {
@@ -2288,12 +2288,12 @@ union MPTESTR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[1]() = delete;
+  MPTESTR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[1] &Instance() { return *reinterpret_cast<volatile MPTESTR[1]*>(0x404403C1); }
+  static inline volatile MPTESTR_1 &Instance() { return *reinterpret_cast<volatile MPTESTR_1*>(0x404403C1); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[2] {
+union MPTESTR_2 {
   
   // Bit field definition.
   struct {
@@ -2305,12 +2305,12 @@ union MPTESTR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[2]() = delete;
+  MPTESTR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[2] &Instance() { return *reinterpret_cast<volatile MPTESTR[2]*>(0x404403C2); }
+  static inline volatile MPTESTR_2 &Instance() { return *reinterpret_cast<volatile MPTESTR_2*>(0x404403C2); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[3] {
+union MPTESTR_3 {
   
   // Bit field definition.
   struct {
@@ -2322,12 +2322,12 @@ union MPTESTR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[3]() = delete;
+  MPTESTR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[3] &Instance() { return *reinterpret_cast<volatile MPTESTR[3]*>(0x404403C3); }
+  static inline volatile MPTESTR_3 &Instance() { return *reinterpret_cast<volatile MPTESTR_3*>(0x404403C3); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[4] {
+union MPTESTR_4 {
   
   // Bit field definition.
   struct {
@@ -2339,12 +2339,12 @@ union MPTESTR[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[4]() = delete;
+  MPTESTR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[4] &Instance() { return *reinterpret_cast<volatile MPTESTR[4]*>(0x404403C4); }
+  static inline volatile MPTESTR_4 &Instance() { return *reinterpret_cast<volatile MPTESTR_4*>(0x404403C4); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[5] {
+union MPTESTR_5 {
   
   // Bit field definition.
   struct {
@@ -2356,12 +2356,12 @@ union MPTESTR[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[5]() = delete;
+  MPTESTR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[5] &Instance() { return *reinterpret_cast<volatile MPTESTR[5]*>(0x404403C5); }
+  static inline volatile MPTESTR_5 &Instance() { return *reinterpret_cast<volatile MPTESTR_5*>(0x404403C5); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[6] {
+union MPTESTR_6 {
   
   // Bit field definition.
   struct {
@@ -2373,12 +2373,12 @@ union MPTESTR[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[6]() = delete;
+  MPTESTR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[6] &Instance() { return *reinterpret_cast<volatile MPTESTR[6]*>(0x404403C6); }
+  static inline volatile MPTESTR_6 &Instance() { return *reinterpret_cast<volatile MPTESTR_6*>(0x404403C6); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[7] {
+union MPTESTR_7 {
   
   // Bit field definition.
   struct {
@@ -2390,12 +2390,12 @@ union MPTESTR[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[7]() = delete;
+  MPTESTR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[7] &Instance() { return *reinterpret_cast<volatile MPTESTR[7]*>(0x404403C7); }
+  static inline volatile MPTESTR_7 &Instance() { return *reinterpret_cast<volatile MPTESTR_7*>(0x404403C7); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[8] {
+union MPTESTR_8 {
   
   // Bit field definition.
   struct {
@@ -2407,12 +2407,12 @@ union MPTESTR[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[8]() = delete;
+  MPTESTR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[8] &Instance() { return *reinterpret_cast<volatile MPTESTR[8]*>(0x404403C8); }
+  static inline volatile MPTESTR_8 &Instance() { return *reinterpret_cast<volatile MPTESTR_8*>(0x404403C8); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[9] {
+union MPTESTR_9 {
   
   // Bit field definition.
   struct {
@@ -2424,12 +2424,12 @@ union MPTESTR[9] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[9]() = delete;
+  MPTESTR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[9] &Instance() { return *reinterpret_cast<volatile MPTESTR[9]*>(0x404403C9); }
+  static inline volatile MPTESTR_9 &Instance() { return *reinterpret_cast<volatile MPTESTR_9*>(0x404403C9); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[10] {
+union MPTESTR_10 {
   
   // Bit field definition.
   struct {
@@ -2441,12 +2441,12 @@ union MPTESTR[10] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[10]() = delete;
+  MPTESTR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[10] &Instance() { return *reinterpret_cast<volatile MPTESTR[10]*>(0x404403CA); }
+  static inline volatile MPTESTR_10 &Instance() { return *reinterpret_cast<volatile MPTESTR_10*>(0x404403CA); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[11] {
+union MPTESTR_11 {
   
   // Bit field definition.
   struct {
@@ -2458,12 +2458,12 @@ union MPTESTR[11] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[11]() = delete;
+  MPTESTR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[11] &Instance() { return *reinterpret_cast<volatile MPTESTR[11]*>(0x404403CB); }
+  static inline volatile MPTESTR_11 &Instance() { return *reinterpret_cast<volatile MPTESTR_11*>(0x404403CB); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[12] {
+union MPTESTR_12 {
   
   // Bit field definition.
   struct {
@@ -2475,12 +2475,12 @@ union MPTESTR[12] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[12]() = delete;
+  MPTESTR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[12] &Instance() { return *reinterpret_cast<volatile MPTESTR[12]*>(0x404403CC); }
+  static inline volatile MPTESTR_12 &Instance() { return *reinterpret_cast<volatile MPTESTR_12*>(0x404403CC); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[13] {
+union MPTESTR_13 {
   
   // Bit field definition.
   struct {
@@ -2492,12 +2492,12 @@ union MPTESTR[13] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[13]() = delete;
+  MPTESTR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[13] &Instance() { return *reinterpret_cast<volatile MPTESTR[13]*>(0x404403CD); }
+  static inline volatile MPTESTR_13 &Instance() { return *reinterpret_cast<volatile MPTESTR_13*>(0x404403CD); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[14] {
+union MPTESTR_14 {
   
   // Bit field definition.
   struct {
@@ -2509,12 +2509,12 @@ union MPTESTR[14] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[14]() = delete;
+  MPTESTR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[14] &Instance() { return *reinterpret_cast<volatile MPTESTR[14]*>(0x404403CE); }
+  static inline volatile MPTESTR_14 &Instance() { return *reinterpret_cast<volatile MPTESTR_14*>(0x404403CE); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[15] {
+union MPTESTR_15 {
   
   // Bit field definition.
   struct {
@@ -2526,12 +2526,12 @@ union MPTESTR[15] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[15]() = delete;
+  MPTESTR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[15] &Instance() { return *reinterpret_cast<volatile MPTESTR[15]*>(0x404403CF); }
+  static inline volatile MPTESTR_15 &Instance() { return *reinterpret_cast<volatile MPTESTR_15*>(0x404403CF); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[16] {
+union MPTESTR_16 {
   
   // Bit field definition.
   struct {
@@ -2543,12 +2543,12 @@ union MPTESTR[16] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[16]() = delete;
+  MPTESTR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[16] &Instance() { return *reinterpret_cast<volatile MPTESTR[16]*>(0x404403D0); }
+  static inline volatile MPTESTR_16 &Instance() { return *reinterpret_cast<volatile MPTESTR_16*>(0x404403D0); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[17] {
+union MPTESTR_17 {
   
   // Bit field definition.
   struct {
@@ -2560,12 +2560,12 @@ union MPTESTR[17] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[17]() = delete;
+  MPTESTR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[17] &Instance() { return *reinterpret_cast<volatile MPTESTR[17]*>(0x404403D1); }
+  static inline volatile MPTESTR_17 &Instance() { return *reinterpret_cast<volatile MPTESTR_17*>(0x404403D1); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[18] {
+union MPTESTR_18 {
   
   // Bit field definition.
   struct {
@@ -2577,12 +2577,12 @@ union MPTESTR[18] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[18]() = delete;
+  MPTESTR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[18] &Instance() { return *reinterpret_cast<volatile MPTESTR[18]*>(0x404403D2); }
+  static inline volatile MPTESTR_18 &Instance() { return *reinterpret_cast<volatile MPTESTR_18*>(0x404403D2); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[19] {
+union MPTESTR_19 {
   
   // Bit field definition.
   struct {
@@ -2594,12 +2594,12 @@ union MPTESTR[19] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[19]() = delete;
+  MPTESTR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[19] &Instance() { return *reinterpret_cast<volatile MPTESTR[19]*>(0x404403D3); }
+  static inline volatile MPTESTR_19 &Instance() { return *reinterpret_cast<volatile MPTESTR_19*>(0x404403D3); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[20] {
+union MPTESTR_20 {
   
   // Bit field definition.
   struct {
@@ -2611,12 +2611,12 @@ union MPTESTR[20] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[20]() = delete;
+  MPTESTR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[20] &Instance() { return *reinterpret_cast<volatile MPTESTR[20]*>(0x404403D4); }
+  static inline volatile MPTESTR_20 &Instance() { return *reinterpret_cast<volatile MPTESTR_20*>(0x404403D4); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[21] {
+union MPTESTR_21 {
   
   // Bit field definition.
   struct {
@@ -2628,12 +2628,12 @@ union MPTESTR[21] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[21]() = delete;
+  MPTESTR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[21] &Instance() { return *reinterpret_cast<volatile MPTESTR[21]*>(0x404403D5); }
+  static inline volatile MPTESTR_21 &Instance() { return *reinterpret_cast<volatile MPTESTR_21*>(0x404403D5); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[22] {
+union MPTESTR_22 {
   
   // Bit field definition.
   struct {
@@ -2645,12 +2645,12 @@ union MPTESTR[22] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[22]() = delete;
+  MPTESTR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[22] &Instance() { return *reinterpret_cast<volatile MPTESTR[22]*>(0x404403D6); }
+  static inline volatile MPTESTR_22 &Instance() { return *reinterpret_cast<volatile MPTESTR_22*>(0x404403D6); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[23] {
+union MPTESTR_23 {
   
   // Bit field definition.
   struct {
@@ -2662,12 +2662,12 @@ union MPTESTR[23] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[23]() = delete;
+  MPTESTR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[23] &Instance() { return *reinterpret_cast<volatile MPTESTR[23]*>(0x404403D7); }
+  static inline volatile MPTESTR_23 &Instance() { return *reinterpret_cast<volatile MPTESTR_23*>(0x404403D7); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[24] {
+union MPTESTR_24 {
   
   // Bit field definition.
   struct {
@@ -2679,12 +2679,12 @@ union MPTESTR[24] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[24]() = delete;
+  MPTESTR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[24] &Instance() { return *reinterpret_cast<volatile MPTESTR[24]*>(0x404403D8); }
+  static inline volatile MPTESTR_24 &Instance() { return *reinterpret_cast<volatile MPTESTR_24*>(0x404403D8); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[25] {
+union MPTESTR_25 {
   
   // Bit field definition.
   struct {
@@ -2696,12 +2696,12 @@ union MPTESTR[25] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[25]() = delete;
+  MPTESTR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[25] &Instance() { return *reinterpret_cast<volatile MPTESTR[25]*>(0x404403D9); }
+  static inline volatile MPTESTR_25 &Instance() { return *reinterpret_cast<volatile MPTESTR_25*>(0x404403D9); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[26] {
+union MPTESTR_26 {
   
   // Bit field definition.
   struct {
@@ -2713,12 +2713,12 @@ union MPTESTR[26] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[26]() = delete;
+  MPTESTR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[26] &Instance() { return *reinterpret_cast<volatile MPTESTR[26]*>(0x404403DA); }
+  static inline volatile MPTESTR_26 &Instance() { return *reinterpret_cast<volatile MPTESTR_26*>(0x404403DA); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[27] {
+union MPTESTR_27 {
   
   // Bit field definition.
   struct {
@@ -2730,12 +2730,12 @@ union MPTESTR[27] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[27]() = delete;
+  MPTESTR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[27] &Instance() { return *reinterpret_cast<volatile MPTESTR[27]*>(0x404403DB); }
+  static inline volatile MPTESTR_27 &Instance() { return *reinterpret_cast<volatile MPTESTR_27*>(0x404403DB); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[28] {
+union MPTESTR_28 {
   
   // Bit field definition.
   struct {
@@ -2747,12 +2747,12 @@ union MPTESTR[28] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[28]() = delete;
+  MPTESTR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[28] &Instance() { return *reinterpret_cast<volatile MPTESTR[28]*>(0x404403DC); }
+  static inline volatile MPTESTR_28 &Instance() { return *reinterpret_cast<volatile MPTESTR_28*>(0x404403DC); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[29] {
+union MPTESTR_29 {
   
   // Bit field definition.
   struct {
@@ -2764,12 +2764,12 @@ union MPTESTR[29] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[29]() = delete;
+  MPTESTR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[29] &Instance() { return *reinterpret_cast<volatile MPTESTR[29]*>(0x404403DD); }
+  static inline volatile MPTESTR_29 &Instance() { return *reinterpret_cast<volatile MPTESTR_29*>(0x404403DD); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[30] {
+union MPTESTR_30 {
   
   // Bit field definition.
   struct {
@@ -2781,12 +2781,12 @@ union MPTESTR[30] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[30]() = delete;
+  MPTESTR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[30] &Instance() { return *reinterpret_cast<volatile MPTESTR[30]*>(0x404403DE); }
+  static inline volatile MPTESTR_30 &Instance() { return *reinterpret_cast<volatile MPTESTR_30*>(0x404403DE); }
 };
 // Manufacturing Protection Test Register
-union MPTESTR[31] {
+union MPTESTR_31 {
   
   // Bit field definition.
   struct {
@@ -2798,9 +2798,9 @@ union MPTESTR[31] {
   // Full 32-bit register value.
   uint32_t value;
 
-  MPTESTR[31]() = delete;
+  MPTESTR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MPTESTR[31] &Instance() { return *reinterpret_cast<volatile MPTESTR[31]*>(0x404403DF); }
+  static inline volatile MPTESTR_31 &Instance() { return *reinterpret_cast<volatile MPTESTR_31*>(0x404403DF); }
 };
 
 // Manufacturing Protection ECC Register
@@ -2858,7 +2858,7 @@ union MPECC {
 };
 
 // Job Descriptor Key Encryption Key Register
-union JDKEKR[0] {
+union JDKEKR_0 {
   
   // Bit field definition.
   struct {
@@ -2869,12 +2869,12 @@ union JDKEKR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  JDKEKR[0]() = delete;
+  JDKEKR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR[0] &Instance() { return *reinterpret_cast<volatile JDKEKR[0]*>(0x40440400); }
+  static inline volatile JDKEKR_0 &Instance() { return *reinterpret_cast<volatile JDKEKR_0*>(0x40440400); }
 };
 // Job Descriptor Key Encryption Key Register
-union JDKEKR[1] {
+union JDKEKR_1 {
   
   // Bit field definition.
   struct {
@@ -2885,12 +2885,12 @@ union JDKEKR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  JDKEKR[1]() = delete;
+  JDKEKR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR[1] &Instance() { return *reinterpret_cast<volatile JDKEKR[1]*>(0x40440404); }
+  static inline volatile JDKEKR_1 &Instance() { return *reinterpret_cast<volatile JDKEKR_1*>(0x40440404); }
 };
 // Job Descriptor Key Encryption Key Register
-union JDKEKR[2] {
+union JDKEKR_2 {
   
   // Bit field definition.
   struct {
@@ -2901,12 +2901,12 @@ union JDKEKR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  JDKEKR[2]() = delete;
+  JDKEKR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR[2] &Instance() { return *reinterpret_cast<volatile JDKEKR[2]*>(0x40440408); }
+  static inline volatile JDKEKR_2 &Instance() { return *reinterpret_cast<volatile JDKEKR_2*>(0x40440408); }
 };
 // Job Descriptor Key Encryption Key Register
-union JDKEKR[3] {
+union JDKEKR_3 {
   
   // Bit field definition.
   struct {
@@ -2917,12 +2917,12 @@ union JDKEKR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  JDKEKR[3]() = delete;
+  JDKEKR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR[3] &Instance() { return *reinterpret_cast<volatile JDKEKR[3]*>(0x4044040C); }
+  static inline volatile JDKEKR_3 &Instance() { return *reinterpret_cast<volatile JDKEKR_3*>(0x4044040C); }
 };
 // Job Descriptor Key Encryption Key Register
-union JDKEKR[4] {
+union JDKEKR_4 {
   
   // Bit field definition.
   struct {
@@ -2933,12 +2933,12 @@ union JDKEKR[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  JDKEKR[4]() = delete;
+  JDKEKR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR[4] &Instance() { return *reinterpret_cast<volatile JDKEKR[4]*>(0x40440410); }
+  static inline volatile JDKEKR_4 &Instance() { return *reinterpret_cast<volatile JDKEKR_4*>(0x40440410); }
 };
 // Job Descriptor Key Encryption Key Register
-union JDKEKR[5] {
+union JDKEKR_5 {
   
   // Bit field definition.
   struct {
@@ -2949,12 +2949,12 @@ union JDKEKR[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  JDKEKR[5]() = delete;
+  JDKEKR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR[5] &Instance() { return *reinterpret_cast<volatile JDKEKR[5]*>(0x40440414); }
+  static inline volatile JDKEKR_5 &Instance() { return *reinterpret_cast<volatile JDKEKR_5*>(0x40440414); }
 };
 // Job Descriptor Key Encryption Key Register
-union JDKEKR[6] {
+union JDKEKR_6 {
   
   // Bit field definition.
   struct {
@@ -2965,12 +2965,12 @@ union JDKEKR[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  JDKEKR[6]() = delete;
+  JDKEKR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR[6] &Instance() { return *reinterpret_cast<volatile JDKEKR[6]*>(0x40440418); }
+  static inline volatile JDKEKR_6 &Instance() { return *reinterpret_cast<volatile JDKEKR_6*>(0x40440418); }
 };
 // Job Descriptor Key Encryption Key Register
-union JDKEKR[7] {
+union JDKEKR_7 {
   
   // Bit field definition.
   struct {
@@ -2981,13 +2981,13 @@ union JDKEKR[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  JDKEKR[7]() = delete;
+  JDKEKR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile JDKEKR[7] &Instance() { return *reinterpret_cast<volatile JDKEKR[7]*>(0x4044041C); }
+  static inline volatile JDKEKR_7 &Instance() { return *reinterpret_cast<volatile JDKEKR_7*>(0x4044041C); }
 };
 
 // Trusted Descriptor Key Encryption Key Register
-union TDKEKR[0] {
+union TDKEKR_0 {
   
   // Bit field definition.
   struct {
@@ -2998,12 +2998,12 @@ union TDKEKR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDKEKR[0]() = delete;
+  TDKEKR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR[0] &Instance() { return *reinterpret_cast<volatile TDKEKR[0]*>(0x40440420); }
+  static inline volatile TDKEKR_0 &Instance() { return *reinterpret_cast<volatile TDKEKR_0*>(0x40440420); }
 };
 // Trusted Descriptor Key Encryption Key Register
-union TDKEKR[1] {
+union TDKEKR_1 {
   
   // Bit field definition.
   struct {
@@ -3014,12 +3014,12 @@ union TDKEKR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDKEKR[1]() = delete;
+  TDKEKR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR[1] &Instance() { return *reinterpret_cast<volatile TDKEKR[1]*>(0x40440424); }
+  static inline volatile TDKEKR_1 &Instance() { return *reinterpret_cast<volatile TDKEKR_1*>(0x40440424); }
 };
 // Trusted Descriptor Key Encryption Key Register
-union TDKEKR[2] {
+union TDKEKR_2 {
   
   // Bit field definition.
   struct {
@@ -3030,12 +3030,12 @@ union TDKEKR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDKEKR[2]() = delete;
+  TDKEKR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR[2] &Instance() { return *reinterpret_cast<volatile TDKEKR[2]*>(0x40440428); }
+  static inline volatile TDKEKR_2 &Instance() { return *reinterpret_cast<volatile TDKEKR_2*>(0x40440428); }
 };
 // Trusted Descriptor Key Encryption Key Register
-union TDKEKR[3] {
+union TDKEKR_3 {
   
   // Bit field definition.
   struct {
@@ -3046,12 +3046,12 @@ union TDKEKR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDKEKR[3]() = delete;
+  TDKEKR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR[3] &Instance() { return *reinterpret_cast<volatile TDKEKR[3]*>(0x4044042C); }
+  static inline volatile TDKEKR_3 &Instance() { return *reinterpret_cast<volatile TDKEKR_3*>(0x4044042C); }
 };
 // Trusted Descriptor Key Encryption Key Register
-union TDKEKR[4] {
+union TDKEKR_4 {
   
   // Bit field definition.
   struct {
@@ -3062,12 +3062,12 @@ union TDKEKR[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDKEKR[4]() = delete;
+  TDKEKR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR[4] &Instance() { return *reinterpret_cast<volatile TDKEKR[4]*>(0x40440430); }
+  static inline volatile TDKEKR_4 &Instance() { return *reinterpret_cast<volatile TDKEKR_4*>(0x40440430); }
 };
 // Trusted Descriptor Key Encryption Key Register
-union TDKEKR[5] {
+union TDKEKR_5 {
   
   // Bit field definition.
   struct {
@@ -3078,12 +3078,12 @@ union TDKEKR[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDKEKR[5]() = delete;
+  TDKEKR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR[5] &Instance() { return *reinterpret_cast<volatile TDKEKR[5]*>(0x40440434); }
+  static inline volatile TDKEKR_5 &Instance() { return *reinterpret_cast<volatile TDKEKR_5*>(0x40440434); }
 };
 // Trusted Descriptor Key Encryption Key Register
-union TDKEKR[6] {
+union TDKEKR_6 {
   
   // Bit field definition.
   struct {
@@ -3094,12 +3094,12 @@ union TDKEKR[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDKEKR[6]() = delete;
+  TDKEKR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR[6] &Instance() { return *reinterpret_cast<volatile TDKEKR[6]*>(0x40440438); }
+  static inline volatile TDKEKR_6 &Instance() { return *reinterpret_cast<volatile TDKEKR_6*>(0x40440438); }
 };
 // Trusted Descriptor Key Encryption Key Register
-union TDKEKR[7] {
+union TDKEKR_7 {
   
   // Bit field definition.
   struct {
@@ -3110,13 +3110,13 @@ union TDKEKR[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDKEKR[7]() = delete;
+  TDKEKR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDKEKR[7] &Instance() { return *reinterpret_cast<volatile TDKEKR[7]*>(0x4044043C); }
+  static inline volatile TDKEKR_7 &Instance() { return *reinterpret_cast<volatile TDKEKR_7*>(0x4044043C); }
 };
 
 // Trusted Descriptor Signing Key Register
-union TDSKR[0] {
+union TDSKR_0 {
   
   // Bit field definition.
   struct {
@@ -3127,12 +3127,12 @@ union TDSKR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDSKR[0]() = delete;
+  TDSKR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR[0] &Instance() { return *reinterpret_cast<volatile TDSKR[0]*>(0x40440440); }
+  static inline volatile TDSKR_0 &Instance() { return *reinterpret_cast<volatile TDSKR_0*>(0x40440440); }
 };
 // Trusted Descriptor Signing Key Register
-union TDSKR[1] {
+union TDSKR_1 {
   
   // Bit field definition.
   struct {
@@ -3143,12 +3143,12 @@ union TDSKR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDSKR[1]() = delete;
+  TDSKR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR[1] &Instance() { return *reinterpret_cast<volatile TDSKR[1]*>(0x40440444); }
+  static inline volatile TDSKR_1 &Instance() { return *reinterpret_cast<volatile TDSKR_1*>(0x40440444); }
 };
 // Trusted Descriptor Signing Key Register
-union TDSKR[2] {
+union TDSKR_2 {
   
   // Bit field definition.
   struct {
@@ -3159,12 +3159,12 @@ union TDSKR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDSKR[2]() = delete;
+  TDSKR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR[2] &Instance() { return *reinterpret_cast<volatile TDSKR[2]*>(0x40440448); }
+  static inline volatile TDSKR_2 &Instance() { return *reinterpret_cast<volatile TDSKR_2*>(0x40440448); }
 };
 // Trusted Descriptor Signing Key Register
-union TDSKR[3] {
+union TDSKR_3 {
   
   // Bit field definition.
   struct {
@@ -3175,12 +3175,12 @@ union TDSKR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDSKR[3]() = delete;
+  TDSKR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR[3] &Instance() { return *reinterpret_cast<volatile TDSKR[3]*>(0x4044044C); }
+  static inline volatile TDSKR_3 &Instance() { return *reinterpret_cast<volatile TDSKR_3*>(0x4044044C); }
 };
 // Trusted Descriptor Signing Key Register
-union TDSKR[4] {
+union TDSKR_4 {
   
   // Bit field definition.
   struct {
@@ -3191,12 +3191,12 @@ union TDSKR[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDSKR[4]() = delete;
+  TDSKR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR[4] &Instance() { return *reinterpret_cast<volatile TDSKR[4]*>(0x40440450); }
+  static inline volatile TDSKR_4 &Instance() { return *reinterpret_cast<volatile TDSKR_4*>(0x40440450); }
 };
 // Trusted Descriptor Signing Key Register
-union TDSKR[5] {
+union TDSKR_5 {
   
   // Bit field definition.
   struct {
@@ -3207,12 +3207,12 @@ union TDSKR[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDSKR[5]() = delete;
+  TDSKR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR[5] &Instance() { return *reinterpret_cast<volatile TDSKR[5]*>(0x40440454); }
+  static inline volatile TDSKR_5 &Instance() { return *reinterpret_cast<volatile TDSKR_5*>(0x40440454); }
 };
 // Trusted Descriptor Signing Key Register
-union TDSKR[6] {
+union TDSKR_6 {
   
   // Bit field definition.
   struct {
@@ -3223,12 +3223,12 @@ union TDSKR[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDSKR[6]() = delete;
+  TDSKR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR[6] &Instance() { return *reinterpret_cast<volatile TDSKR[6]*>(0x40440458); }
+  static inline volatile TDSKR_6 &Instance() { return *reinterpret_cast<volatile TDSKR_6*>(0x40440458); }
 };
 // Trusted Descriptor Signing Key Register
-union TDSKR[7] {
+union TDSKR_7 {
   
   // Bit field definition.
   struct {
@@ -3239,9 +3239,9 @@ union TDSKR[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TDSKR[7]() = delete;
+  TDSKR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSKR[7] &Instance() { return *reinterpret_cast<volatile TDSKR[7]*>(0x4044045C); }
+  static inline volatile TDSKR_7 &Instance() { return *reinterpret_cast<volatile TDSKR_7*>(0x4044045C); }
 };
 
 // Secure Key Nonce Register
@@ -4176,7 +4176,7 @@ union RTSTATUS {
 };
 
 // RNG TRNG Entropy Read Register
-union RTENT[0] {
+union RTENT_0 {
   
   // Bit field definition.
   struct {
@@ -4187,12 +4187,12 @@ union RTENT[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[0]() = delete;
+  RTENT_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[0] &Instance() { return *reinterpret_cast<volatile RTENT[0]*>(0x40440640); }
+  static inline volatile RTENT_0 &Instance() { return *reinterpret_cast<volatile RTENT_0*>(0x40440640); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[1] {
+union RTENT_1 {
   
   // Bit field definition.
   struct {
@@ -4203,12 +4203,12 @@ union RTENT[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[1]() = delete;
+  RTENT_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[1] &Instance() { return *reinterpret_cast<volatile RTENT[1]*>(0x40440644); }
+  static inline volatile RTENT_1 &Instance() { return *reinterpret_cast<volatile RTENT_1*>(0x40440644); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[2] {
+union RTENT_2 {
   
   // Bit field definition.
   struct {
@@ -4219,12 +4219,12 @@ union RTENT[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[2]() = delete;
+  RTENT_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[2] &Instance() { return *reinterpret_cast<volatile RTENT[2]*>(0x40440648); }
+  static inline volatile RTENT_2 &Instance() { return *reinterpret_cast<volatile RTENT_2*>(0x40440648); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[3] {
+union RTENT_3 {
   
   // Bit field definition.
   struct {
@@ -4235,12 +4235,12 @@ union RTENT[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[3]() = delete;
+  RTENT_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[3] &Instance() { return *reinterpret_cast<volatile RTENT[3]*>(0x4044064C); }
+  static inline volatile RTENT_3 &Instance() { return *reinterpret_cast<volatile RTENT_3*>(0x4044064C); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[4] {
+union RTENT_4 {
   
   // Bit field definition.
   struct {
@@ -4251,12 +4251,12 @@ union RTENT[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[4]() = delete;
+  RTENT_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[4] &Instance() { return *reinterpret_cast<volatile RTENT[4]*>(0x40440650); }
+  static inline volatile RTENT_4 &Instance() { return *reinterpret_cast<volatile RTENT_4*>(0x40440650); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[5] {
+union RTENT_5 {
   
   // Bit field definition.
   struct {
@@ -4267,12 +4267,12 @@ union RTENT[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[5]() = delete;
+  RTENT_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[5] &Instance() { return *reinterpret_cast<volatile RTENT[5]*>(0x40440654); }
+  static inline volatile RTENT_5 &Instance() { return *reinterpret_cast<volatile RTENT_5*>(0x40440654); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[6] {
+union RTENT_6 {
   
   // Bit field definition.
   struct {
@@ -4283,12 +4283,12 @@ union RTENT[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[6]() = delete;
+  RTENT_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[6] &Instance() { return *reinterpret_cast<volatile RTENT[6]*>(0x40440658); }
+  static inline volatile RTENT_6 &Instance() { return *reinterpret_cast<volatile RTENT_6*>(0x40440658); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[7] {
+union RTENT_7 {
   
   // Bit field definition.
   struct {
@@ -4299,12 +4299,12 @@ union RTENT[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[7]() = delete;
+  RTENT_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[7] &Instance() { return *reinterpret_cast<volatile RTENT[7]*>(0x4044065C); }
+  static inline volatile RTENT_7 &Instance() { return *reinterpret_cast<volatile RTENT_7*>(0x4044065C); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[8] {
+union RTENT_8 {
   
   // Bit field definition.
   struct {
@@ -4315,12 +4315,12 @@ union RTENT[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[8]() = delete;
+  RTENT_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[8] &Instance() { return *reinterpret_cast<volatile RTENT[8]*>(0x40440660); }
+  static inline volatile RTENT_8 &Instance() { return *reinterpret_cast<volatile RTENT_8*>(0x40440660); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[9] {
+union RTENT_9 {
   
   // Bit field definition.
   struct {
@@ -4331,12 +4331,12 @@ union RTENT[9] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[9]() = delete;
+  RTENT_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[9] &Instance() { return *reinterpret_cast<volatile RTENT[9]*>(0x40440664); }
+  static inline volatile RTENT_9 &Instance() { return *reinterpret_cast<volatile RTENT_9*>(0x40440664); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[10] {
+union RTENT_10 {
   
   // Bit field definition.
   struct {
@@ -4347,12 +4347,12 @@ union RTENT[10] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[10]() = delete;
+  RTENT_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[10] &Instance() { return *reinterpret_cast<volatile RTENT[10]*>(0x40440668); }
+  static inline volatile RTENT_10 &Instance() { return *reinterpret_cast<volatile RTENT_10*>(0x40440668); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[11] {
+union RTENT_11 {
   
   // Bit field definition.
   struct {
@@ -4363,12 +4363,12 @@ union RTENT[11] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[11]() = delete;
+  RTENT_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[11] &Instance() { return *reinterpret_cast<volatile RTENT[11]*>(0x4044066C); }
+  static inline volatile RTENT_11 &Instance() { return *reinterpret_cast<volatile RTENT_11*>(0x4044066C); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[12] {
+union RTENT_12 {
   
   // Bit field definition.
   struct {
@@ -4379,12 +4379,12 @@ union RTENT[12] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[12]() = delete;
+  RTENT_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[12] &Instance() { return *reinterpret_cast<volatile RTENT[12]*>(0x40440670); }
+  static inline volatile RTENT_12 &Instance() { return *reinterpret_cast<volatile RTENT_12*>(0x40440670); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[13] {
+union RTENT_13 {
   
   // Bit field definition.
   struct {
@@ -4395,12 +4395,12 @@ union RTENT[13] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[13]() = delete;
+  RTENT_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[13] &Instance() { return *reinterpret_cast<volatile RTENT[13]*>(0x40440674); }
+  static inline volatile RTENT_13 &Instance() { return *reinterpret_cast<volatile RTENT_13*>(0x40440674); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[14] {
+union RTENT_14 {
   
   // Bit field definition.
   struct {
@@ -4411,12 +4411,12 @@ union RTENT[14] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[14]() = delete;
+  RTENT_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[14] &Instance() { return *reinterpret_cast<volatile RTENT[14]*>(0x40440678); }
+  static inline volatile RTENT_14 &Instance() { return *reinterpret_cast<volatile RTENT_14*>(0x40440678); }
 };
 // RNG TRNG Entropy Read Register
-union RTENT[15] {
+union RTENT_15 {
   
   // Bit field definition.
   struct {
@@ -4427,9 +4427,9 @@ union RTENT[15] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RTENT[15]() = delete;
+  RTENT_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RTENT[15] &Instance() { return *reinterpret_cast<volatile RTENT[15]*>(0x4044067C); }
+  static inline volatile RTENT_15 &Instance() { return *reinterpret_cast<volatile RTENT_15*>(0x4044067C); }
 };
 
 // RNG TRNG Statistical Check Poker Count 1 and 0 Register
@@ -9910,7 +9910,7 @@ union REIH {
 };
 
 // Secure Memory Write Protect Job Ring Register
-union SMWPJRR[0] {
+union SMWPJRR_0 {
   
   // Bit field definition.
   struct {
@@ -9922,12 +9922,12 @@ union SMWPJRR[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SMWPJRR[0]() = delete;
+  SMWPJRR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMWPJRR[0] &Instance() { return *reinterpret_cast<volatile SMWPJRR[0]*>(0x40440BD0); }
+  static inline volatile SMWPJRR_0 &Instance() { return *reinterpret_cast<volatile SMWPJRR_0*>(0x40440BD0); }
 };
 // Secure Memory Write Protect Job Ring Register
-union SMWPJRR[1] {
+union SMWPJRR_1 {
   
   // Bit field definition.
   struct {
@@ -9939,12 +9939,12 @@ union SMWPJRR[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SMWPJRR[1]() = delete;
+  SMWPJRR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMWPJRR[1] &Instance() { return *reinterpret_cast<volatile SMWPJRR[1]*>(0x40440BD4); }
+  static inline volatile SMWPJRR_1 &Instance() { return *reinterpret_cast<volatile SMWPJRR_1*>(0x40440BD4); }
 };
 // Secure Memory Write Protect Job Ring Register
-union SMWPJRR[2] {
+union SMWPJRR_2 {
   
   // Bit field definition.
   struct {
@@ -9956,12 +9956,12 @@ union SMWPJRR[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SMWPJRR[2]() = delete;
+  SMWPJRR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMWPJRR[2] &Instance() { return *reinterpret_cast<volatile SMWPJRR[2]*>(0x40440BD8); }
+  static inline volatile SMWPJRR_2 &Instance() { return *reinterpret_cast<volatile SMWPJRR_2*>(0x40440BD8); }
 };
 // Secure Memory Write Protect Job Ring Register
-union SMWPJRR[3] {
+union SMWPJRR_3 {
   
   // Bit field definition.
   struct {
@@ -9973,9 +9973,9 @@ union SMWPJRR[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  SMWPJRR[3]() = delete;
+  SMWPJRR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SMWPJRR[3] &Instance() { return *reinterpret_cast<volatile SMWPJRR[3]*>(0x40440BDC); }
+  static inline volatile SMWPJRR_3 &Instance() { return *reinterpret_cast<volatile SMWPJRR_3*>(0x40440BDC); }
 };
 
 // Secure Memory Command Register

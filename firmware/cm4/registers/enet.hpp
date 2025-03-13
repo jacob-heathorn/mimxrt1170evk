@@ -760,7 +760,7 @@ union OPD {
 };
 
 // Transmit Interrupt Coalescing Register
-union TXIC[0] {
+union TXIC_0 {
   
   // Interrupt Coalescing Timer Clock Source Select
   enum class eICCS : uint32_t {
@@ -795,12 +795,12 @@ union TXIC[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TXIC[0]() = delete;
+  TXIC_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TXIC[0] &Instance() { return *reinterpret_cast<volatile TXIC[0]*>(0x404240F0); }
+  static inline volatile TXIC_0 &Instance() { return *reinterpret_cast<volatile TXIC_0*>(0x404240F0); }
 };
 // Transmit Interrupt Coalescing Register
-union TXIC[1] {
+union TXIC_1 {
   
   // Interrupt Coalescing Timer Clock Source Select
   enum class eICCS : uint32_t {
@@ -835,12 +835,12 @@ union TXIC[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TXIC[1]() = delete;
+  TXIC_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TXIC[1] &Instance() { return *reinterpret_cast<volatile TXIC[1]*>(0x404240F4); }
+  static inline volatile TXIC_1 &Instance() { return *reinterpret_cast<volatile TXIC_1*>(0x404240F4); }
 };
 // Transmit Interrupt Coalescing Register
-union TXIC[2] {
+union TXIC_2 {
   
   // Interrupt Coalescing Timer Clock Source Select
   enum class eICCS : uint32_t {
@@ -875,13 +875,13 @@ union TXIC[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  TXIC[2]() = delete;
+  TXIC_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TXIC[2] &Instance() { return *reinterpret_cast<volatile TXIC[2]*>(0x404240F8); }
+  static inline volatile TXIC_2 &Instance() { return *reinterpret_cast<volatile TXIC_2*>(0x404240F8); }
 };
 
 // Receive Interrupt Coalescing Register
-union RXIC[0] {
+union RXIC_0 {
   
   // Interrupt Coalescing Timer Clock Source Select
   enum class eICCS : uint32_t {
@@ -916,12 +916,12 @@ union RXIC[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIC[0]() = delete;
+  RXIC_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIC[0] &Instance() { return *reinterpret_cast<volatile RXIC[0]*>(0x40424100); }
+  static inline volatile RXIC_0 &Instance() { return *reinterpret_cast<volatile RXIC_0*>(0x40424100); }
 };
 // Receive Interrupt Coalescing Register
-union RXIC[1] {
+union RXIC_1 {
   
   // Interrupt Coalescing Timer Clock Source Select
   enum class eICCS : uint32_t {
@@ -956,12 +956,12 @@ union RXIC[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIC[1]() = delete;
+  RXIC_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIC[1] &Instance() { return *reinterpret_cast<volatile RXIC[1]*>(0x40424104); }
+  static inline volatile RXIC_1 &Instance() { return *reinterpret_cast<volatile RXIC_1*>(0x40424104); }
 };
 // Receive Interrupt Coalescing Register
-union RXIC[2] {
+union RXIC_2 {
   
   // Interrupt Coalescing Timer Clock Source Select
   enum class eICCS : uint32_t {
@@ -996,9 +996,9 @@ union RXIC[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXIC[2]() = delete;
+  RXIC_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIC[2] &Instance() { return *reinterpret_cast<volatile RXIC[2]*>(0x40424108); }
+  static inline volatile RXIC_2 &Instance() { return *reinterpret_cast<volatile RXIC_2*>(0x40424108); }
 };
 
 // Descriptor Individual Upper Address Register

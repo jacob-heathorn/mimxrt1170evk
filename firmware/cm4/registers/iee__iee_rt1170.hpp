@@ -919,7 +919,7 @@ union AESVID {
 };
 
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[0] {
+union AES_TST_DB_0 {
   
   // Bit field definition.
   struct {
@@ -930,12 +930,12 @@ union AES_TST_DB[0] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[0]() = delete;
+  AES_TST_DB_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[0] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[0]*>(0x4006CF00); }
+  static inline volatile AES_TST_DB_0 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_0*>(0x4006CF00); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[1] {
+union AES_TST_DB_1 {
   
   // Bit field definition.
   struct {
@@ -946,12 +946,12 @@ union AES_TST_DB[1] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[1]() = delete;
+  AES_TST_DB_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[1] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[1]*>(0x4006CF04); }
+  static inline volatile AES_TST_DB_1 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_1*>(0x4006CF04); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[2] {
+union AES_TST_DB_2 {
   
   // Bit field definition.
   struct {
@@ -962,12 +962,12 @@ union AES_TST_DB[2] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[2]() = delete;
+  AES_TST_DB_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[2] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[2]*>(0x4006CF08); }
+  static inline volatile AES_TST_DB_2 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_2*>(0x4006CF08); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[3] {
+union AES_TST_DB_3 {
   
   // Bit field definition.
   struct {
@@ -978,12 +978,12 @@ union AES_TST_DB[3] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[3]() = delete;
+  AES_TST_DB_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[3] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[3]*>(0x4006CF0C); }
+  static inline volatile AES_TST_DB_3 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_3*>(0x4006CF0C); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[4] {
+union AES_TST_DB_4 {
   
   // Bit field definition.
   struct {
@@ -994,12 +994,12 @@ union AES_TST_DB[4] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[4]() = delete;
+  AES_TST_DB_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[4] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[4]*>(0x4006CF10); }
+  static inline volatile AES_TST_DB_4 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_4*>(0x4006CF10); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[5] {
+union AES_TST_DB_5 {
   
   // Bit field definition.
   struct {
@@ -1010,12 +1010,12 @@ union AES_TST_DB[5] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[5]() = delete;
+  AES_TST_DB_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[5] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[5]*>(0x4006CF14); }
+  static inline volatile AES_TST_DB_5 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_5*>(0x4006CF14); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[6] {
+union AES_TST_DB_6 {
   
   // Bit field definition.
   struct {
@@ -1026,12 +1026,12 @@ union AES_TST_DB[6] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[6]() = delete;
+  AES_TST_DB_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[6] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[6]*>(0x4006CF18); }
+  static inline volatile AES_TST_DB_6 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_6*>(0x4006CF18); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[7] {
+union AES_TST_DB_7 {
   
   // Bit field definition.
   struct {
@@ -1042,12 +1042,12 @@ union AES_TST_DB[7] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[7]() = delete;
+  AES_TST_DB_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[7] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[7]*>(0x4006CF1C); }
+  static inline volatile AES_TST_DB_7 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_7*>(0x4006CF1C); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[8] {
+union AES_TST_DB_8 {
   
   // Bit field definition.
   struct {
@@ -1058,12 +1058,12 @@ union AES_TST_DB[8] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[8]() = delete;
+  AES_TST_DB_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[8] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[8]*>(0x4006CF20); }
+  static inline volatile AES_TST_DB_8 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_8*>(0x4006CF20); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[9] {
+union AES_TST_DB_9 {
   
   // Bit field definition.
   struct {
@@ -1074,12 +1074,12 @@ union AES_TST_DB[9] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[9]() = delete;
+  AES_TST_DB_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[9] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[9]*>(0x4006CF24); }
+  static inline volatile AES_TST_DB_9 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_9*>(0x4006CF24); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[10] {
+union AES_TST_DB_10 {
   
   // Bit field definition.
   struct {
@@ -1090,12 +1090,12 @@ union AES_TST_DB[10] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[10]() = delete;
+  AES_TST_DB_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[10] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[10]*>(0x4006CF28); }
+  static inline volatile AES_TST_DB_10 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_10*>(0x4006CF28); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[11] {
+union AES_TST_DB_11 {
   
   // Bit field definition.
   struct {
@@ -1106,12 +1106,12 @@ union AES_TST_DB[11] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[11]() = delete;
+  AES_TST_DB_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[11] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[11]*>(0x4006CF2C); }
+  static inline volatile AES_TST_DB_11 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_11*>(0x4006CF2C); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[12] {
+union AES_TST_DB_12 {
   
   // Bit field definition.
   struct {
@@ -1122,12 +1122,12 @@ union AES_TST_DB[12] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[12]() = delete;
+  AES_TST_DB_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[12] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[12]*>(0x4006CF30); }
+  static inline volatile AES_TST_DB_12 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_12*>(0x4006CF30); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[13] {
+union AES_TST_DB_13 {
   
   // Bit field definition.
   struct {
@@ -1138,12 +1138,12 @@ union AES_TST_DB[13] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[13]() = delete;
+  AES_TST_DB_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[13] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[13]*>(0x4006CF34); }
+  static inline volatile AES_TST_DB_13 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_13*>(0x4006CF34); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[14] {
+union AES_TST_DB_14 {
   
   // Bit field definition.
   struct {
@@ -1154,12 +1154,12 @@ union AES_TST_DB[14] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[14]() = delete;
+  AES_TST_DB_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[14] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[14]*>(0x4006CF38); }
+  static inline volatile AES_TST_DB_14 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_14*>(0x4006CF38); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[15] {
+union AES_TST_DB_15 {
   
   // Bit field definition.
   struct {
@@ -1170,12 +1170,12 @@ union AES_TST_DB[15] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[15]() = delete;
+  AES_TST_DB_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[15] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[15]*>(0x4006CF3C); }
+  static inline volatile AES_TST_DB_15 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_15*>(0x4006CF3C); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[16] {
+union AES_TST_DB_16 {
   
   // Bit field definition.
   struct {
@@ -1186,12 +1186,12 @@ union AES_TST_DB[16] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[16]() = delete;
+  AES_TST_DB_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[16] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[16]*>(0x4006CF40); }
+  static inline volatile AES_TST_DB_16 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_16*>(0x4006CF40); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[17] {
+union AES_TST_DB_17 {
   
   // Bit field definition.
   struct {
@@ -1202,12 +1202,12 @@ union AES_TST_DB[17] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[17]() = delete;
+  AES_TST_DB_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[17] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[17]*>(0x4006CF44); }
+  static inline volatile AES_TST_DB_17 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_17*>(0x4006CF44); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[18] {
+union AES_TST_DB_18 {
   
   // Bit field definition.
   struct {
@@ -1218,12 +1218,12 @@ union AES_TST_DB[18] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[18]() = delete;
+  AES_TST_DB_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[18] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[18]*>(0x4006CF48); }
+  static inline volatile AES_TST_DB_18 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_18*>(0x4006CF48); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[19] {
+union AES_TST_DB_19 {
   
   // Bit field definition.
   struct {
@@ -1234,12 +1234,12 @@ union AES_TST_DB[19] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[19]() = delete;
+  AES_TST_DB_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[19] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[19]*>(0x4006CF4C); }
+  static inline volatile AES_TST_DB_19 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_19*>(0x4006CF4C); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[20] {
+union AES_TST_DB_20 {
   
   // Bit field definition.
   struct {
@@ -1250,12 +1250,12 @@ union AES_TST_DB[20] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[20]() = delete;
+  AES_TST_DB_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[20] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[20]*>(0x4006CF50); }
+  static inline volatile AES_TST_DB_20 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_20*>(0x4006CF50); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[21] {
+union AES_TST_DB_21 {
   
   // Bit field definition.
   struct {
@@ -1266,12 +1266,12 @@ union AES_TST_DB[21] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[21]() = delete;
+  AES_TST_DB_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[21] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[21]*>(0x4006CF54); }
+  static inline volatile AES_TST_DB_21 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_21*>(0x4006CF54); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[22] {
+union AES_TST_DB_22 {
   
   // Bit field definition.
   struct {
@@ -1282,12 +1282,12 @@ union AES_TST_DB[22] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[22]() = delete;
+  AES_TST_DB_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[22] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[22]*>(0x4006CF58); }
+  static inline volatile AES_TST_DB_22 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_22*>(0x4006CF58); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[23] {
+union AES_TST_DB_23 {
   
   // Bit field definition.
   struct {
@@ -1298,12 +1298,12 @@ union AES_TST_DB[23] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[23]() = delete;
+  AES_TST_DB_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[23] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[23]*>(0x4006CF5C); }
+  static inline volatile AES_TST_DB_23 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_23*>(0x4006CF5C); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[24] {
+union AES_TST_DB_24 {
   
   // Bit field definition.
   struct {
@@ -1314,12 +1314,12 @@ union AES_TST_DB[24] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[24]() = delete;
+  AES_TST_DB_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[24] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[24]*>(0x4006CF60); }
+  static inline volatile AES_TST_DB_24 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_24*>(0x4006CF60); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[25] {
+union AES_TST_DB_25 {
   
   // Bit field definition.
   struct {
@@ -1330,12 +1330,12 @@ union AES_TST_DB[25] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[25]() = delete;
+  AES_TST_DB_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[25] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[25]*>(0x4006CF64); }
+  static inline volatile AES_TST_DB_25 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_25*>(0x4006CF64); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[26] {
+union AES_TST_DB_26 {
   
   // Bit field definition.
   struct {
@@ -1346,12 +1346,12 @@ union AES_TST_DB[26] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[26]() = delete;
+  AES_TST_DB_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[26] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[26]*>(0x4006CF68); }
+  static inline volatile AES_TST_DB_26 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_26*>(0x4006CF68); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[27] {
+union AES_TST_DB_27 {
   
   // Bit field definition.
   struct {
@@ -1362,12 +1362,12 @@ union AES_TST_DB[27] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[27]() = delete;
+  AES_TST_DB_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[27] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[27]*>(0x4006CF6C); }
+  static inline volatile AES_TST_DB_27 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_27*>(0x4006CF6C); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[28] {
+union AES_TST_DB_28 {
   
   // Bit field definition.
   struct {
@@ -1378,12 +1378,12 @@ union AES_TST_DB[28] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[28]() = delete;
+  AES_TST_DB_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[28] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[28]*>(0x4006CF70); }
+  static inline volatile AES_TST_DB_28 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_28*>(0x4006CF70); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[29] {
+union AES_TST_DB_29 {
   
   // Bit field definition.
   struct {
@@ -1394,12 +1394,12 @@ union AES_TST_DB[29] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[29]() = delete;
+  AES_TST_DB_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[29] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[29]*>(0x4006CF74); }
+  static inline volatile AES_TST_DB_29 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_29*>(0x4006CF74); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[30] {
+union AES_TST_DB_30 {
   
   // Bit field definition.
   struct {
@@ -1410,12 +1410,12 @@ union AES_TST_DB[30] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[30]() = delete;
+  AES_TST_DB_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[30] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[30]*>(0x4006CF78); }
+  static inline volatile AES_TST_DB_30 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_30*>(0x4006CF78); }
 };
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB[31] {
+union AES_TST_DB_31 {
   
   // Bit field definition.
   struct {
@@ -1426,9 +1426,9 @@ union AES_TST_DB[31] {
   // Full 32-bit register value.
   uint32_t value;
 
-  AES_TST_DB[31]() = delete;
+  AES_TST_DB_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB[31] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[31]*>(0x4006CF7C); }
+  static inline volatile AES_TST_DB_31 &Instance() { return *reinterpret_cast<volatile AES_TST_DB_31*>(0x4006CF7C); }
 };
 
 
