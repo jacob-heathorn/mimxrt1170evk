@@ -1,8 +1,8 @@
 #include "clock_config.h"
 #include "board.h"
 #include "mcmgr.h"
-#include "registers/iomuxc.hpp"
-#include "registers/ccm.hpp"
+#include "registers/codegen/iomuxc.hpp"
+#include "registers/codegen/ccm.hpp"
 #include "core_cm7.h"
 #include "cachel1_armv7.h"
 #include <cstdio>

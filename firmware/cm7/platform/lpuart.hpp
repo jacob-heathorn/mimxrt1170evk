@@ -2,14 +2,14 @@
 // #include "clock_config.h"
 // #include "board.h"
 // #include "mcmgr.h"
-#include "registers/iomuxc.hpp"
-#include "registers/ccm.hpp"
+#include "registers/codegen/iomuxc.hpp"
+#include "registers/codegen/ccm.hpp"
 //#include "core_cm7.h"
 //#include "cachel1_armv7.h"
 #include <cstdio>
-#include "registers/lpuart1.hpp"
-#include "registers/dma0.hpp"
-#include "registers/dmamux0.hpp"
+#include "registers/codegen/lpuart1.hpp"
+#include "registers/codegen/dma0.hpp"
+#include "registers/codegen/dmamux0.hpp"
 
 #define DMA0_BASE 0x40070000
 #define DMA0_TCD0_SADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1000))

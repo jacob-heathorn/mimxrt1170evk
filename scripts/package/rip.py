@@ -62,14 +62,14 @@ def main():
   # Do generate core 0 (cm4) registers.
   if args.generate_core_0:
     file = os.path.join(MCUX_SOC_SVD_ROOT, 'MIMXRT1176', 'MIMXRT1176_cm4.xml')
-    output_dir = os.path.join(PROJECT_ROOT, 'firmware', 'cm4', 'registers')
+    output_dir = os.path.join(PROJECT_ROOT, 'firmware', 'cm4', 'registers', 'codegen')
     svd_parser_wrapper = forge.SVDParserWrapper(file, output_dir)
     svd_parser_wrapper.generate()
 
   # Do generate core 1 (cm7) registers.
   if args.generate_core_1:
     file = os.path.join(MCUX_SOC_SVD_ROOT, 'MIMXRT1176', 'MIMXRT1176_cm7.xml')
-    output_dir = os.path.join(PROJECT_ROOT, 'firmware', 'cm7', 'registers')
+    output_dir = os.path.join(PROJECT_ROOT, 'firmware', 'cm7', 'registers', 'codegen')
     svd_parser_wrapper = forge.SVDParserWrapper(file, output_dir)
     svd_parser_wrapper.generate()
 
