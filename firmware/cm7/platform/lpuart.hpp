@@ -9,10 +9,11 @@
 #include <cstdio>
 #include "registers/codegen/lpuart1.hpp"
 #include "registers/codegen/dma0.hpp"
+#include "registers/handwritten/dma0.hpp"
 #include "registers/codegen/dmamux0.hpp"
 
 #define DMA0_BASE 0x40070000
-#define DMA0_TCD0_SADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1000))
+// #define DMA0_TCD0_SADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1000))
 #define DMA0_TCD0_DADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1010))
 #define DMA0_TCD0_NBYTES_MLOFFNO  (*(volatile uint32_t*)(DMA0_BASE + 0x1008))
 #define DMA0_TCD0_ATTR  (*(volatile uint16_t*)(DMA0_BASE + 0x1006))
@@ -152,7 +153,7 @@ public:
         
         // 3. Configure DMA TCD
         auto &lpuart_data = nLPUART1::DATA::ref();
-        DMA0_TCD0_SADDR = (uint32_t)tx_buffer_;
+        nDMA0::TCD0_SADDR::ref().value = (uint32_t)tx_buffer_;
         DMA0_TCD0_DADDR = (uint32_t)&lpuart_data.value;
         DMA0_TCD0_SOFF = 1;  // Increment source by 1 byte
         DMA0_TCD0_DOFF = 0;  // No dest increment
