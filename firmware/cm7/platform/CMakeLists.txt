@@ -4,6 +4,7 @@ target_sources(cm7-platform
   PUBLIC
     mpu.hpp
     syscalls.cpp
+    lpuart.hpp
   PRIVATE
     new_delete.cpp
 )
