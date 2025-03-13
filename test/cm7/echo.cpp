@@ -36,33 +36,27 @@
 
 void InitLPUART1(uint8_t *txBuffer, uint16_t bufferSize)
 {
-    // TODO get this clock frequency from clock driver.
-    //uint32_t uartClkSrcFreq = 24'000'000;
-    // nLPUART1::
-
-    // Enable dma clock.
+    // 1. Enable Clocks
     auto &dma0_clk_direct = nCCM::LPCG22_DIRECT::Instance();
     auto &dma0_clk_status = nCCM::LPCG22_STATUS0::Instance();
-    if (dma0_clk_status.bits.ON != nCCM::LPCG22_STATUS0::eON::eON_1)
-    {
+    if (dma0_clk_status.bits.ON != nCCM::LPCG22_STATUS0::eON::eON_1) {
         dma0_clk_direct.bits.ON = nCCM::LPCG22_DIRECT::eON::eON_1;
         while (dma0_clk_status.bits.ON != nCCM::LPCG22_STATUS0::eON::eON_1) {}
     }
 
-    // Enable LPUART1 clock.
     auto &lpuart_clk_direct = nCCM::LPCG86_DIRECT::Instance();
     auto &lpuart_clk_status = nCCM::LPCG86_STATUS0::Instance();
-    if (lpuart_clk_status.bits.ON != nCCM::LPCG86_STATUS0::eON::eON_1)
-    {
+    if (lpuart_clk_status.bits.ON != nCCM::LPCG86_STATUS0::eON::eON_1) {
         lpuart_clk_direct.bits.ON = nCCM::LPCG86_DIRECT::eON::eON_1;
         while (lpuart_clk_status.bits.ON != nCCM::LPCG86_STATUS0::eON::eON_1) {}
     }
 
-    // Software reset lpuart1. 
+    // 2. Configure LPUART (Transmitter Disabled Initially)
+    //
+    // Software reset lpuart1.
     nLPUART1::GLOBAL::Instance().bits.RST = nLPUART1::GLOBAL::eRST::eRESET;
     nLPUART1::GLOBAL::Instance().bits.RST = nLPUART1::GLOBAL::eRST::eNO_EFFECT;
 
-    // Set BAUD register.
     auto &baud = nLPUART1::BAUD::Instance();
     // BaudRate = LPUART Clock Frequency / ((OSR+1) * SBR)
     // TODO assert uartClkSrcFreq = 24'000'000;
@@ -75,15 +69,12 @@ void InitLPUART1(uint8_t *txBuffer, uint16_t bufferSize)
     baud.bits.BOTHEDGE = nLPUART1::BAUD::eBOTHEDGE::eDISABLED;
     baud.bits.MATCFG = nLPUART1::BAUD::eMATCFG::eADDR_MATCH;
     baud.bits.RDMAE = nLPUART1::BAUD::eRDMAE::eDISABLED;
-    // Disable DMA for transmitter.
-    baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eDISABLED;
+    baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eDISABLED;  // Keep disabled
     baud.bits.M10 = nLPUART1::BAUD::eM10::eDISABLED;
     baud.bits.MAEN2 = nLPUART1::BAUD::eMAEN2::eDISABLED;
     baud.bits.MAEN1 = nLPUART1::BAUD::eMAEN1::eDISABLED;
 
-    // Set FIFO
     auto &fifo = nLPUART1::FIFO::Instance();
-    //fifo.value = 12648601;
     fifo.bits.RXFIFOSIZE = nLPUART1::FIFO::eRXFIFOSIZE::eFIFO_4;
     fifo.bits.RXFE = nLPUART1::FIFO::eRXFE::eENABLED;
     fifo.bits.TXFIFOSIZE = nLPUART1::FIFO::eTXFIFOSIZE::eFIFO_4;
@@ -92,7 +83,7 @@ void InitLPUART1(uint8_t *txBuffer, uint16_t bufferSize)
     fifo.bits.TXOFE = nLPUART1::FIFO::eTXOFE::eDISABLED;
     fifo.bits.RXIDEN = nLPUART1::FIFO::eRXIDEN::eDISABLED;
     fifo.bits.RXFLUSH = nLPUART1::FIFO::eRXFLUSH::eNO_EFFECT;
-    fifo.bits.TXFLUSH = nLPUART1::FIFO::eTXFLUSH::eNO_EFFECT;
+    fifo.bits.TXFLUSH = nLPUART1::FIFO::eTXFLUSH::eTXFIFO_RST;  // Flush TX FIFO
     fifo.bits.RXUF = nLPUART1::FIFO::eRXUF::eNO_UNDERFLOW;
     fifo.bits.TXOF = nLPUART1::FIFO::eTXOF::eNO_OVERFLOW;
     fifo.bits.RXEMPT = nLPUART1::FIFO::eRXEMPT::eEMPTY;
@@ -106,9 +97,8 @@ void InitLPUART1(uint8_t *txBuffer, uint16_t bufferSize)
     auto &modir = nLPUART1::MODIR::Instance();
     modir.Reset();
 
-    // Set STAT. Not msb
+    // Set stat, not msb
     auto &stat = nLPUART1::STAT::Instance();
-    // stat.value = 12582912;
     stat.bits.MA2F = nLPUART1::STAT::eMA2F::eNOMATCH;
     stat.bits.MA1F = nLPUART1::STAT::eMA1F::eNOMATCH;
     stat.bits.PF = nLPUART1::STAT::ePF::eNOPARITY;
@@ -116,10 +106,7 @@ void InitLPUART1(uint8_t *txBuffer, uint16_t bufferSize)
     stat.bits.NF = nLPUART1::STAT::eNF::eNONOISE;
     stat.bits.OR = nLPUART1::STAT::eOR::eNO_OVERRUN;
     stat.bits.IDLE = nLPUART1::STAT::eIDLE::eNOIDLE;
-    stat.bits.RDRF = nLPUART1::STAT::eRDRF::eNO_RXDATA;
-    stat.bits.TC = nLPUART1::STAT::eTC::eCOMPLETE;
-    stat.bits.TDRE = nLPUART1::STAT::eTDRE::eNO_TXDATA;
-    stat.bits.RAF = nLPUART1::STAT::eRAF::eIDLE;
+
     stat.bits.LBKDE = nLPUART1::STAT::eLBKDE::eDISABLED;
     stat.bits.BRK13 = nLPUART1::STAT::eBRK13::eSHORT;
     stat.bits.RWUID = nLPUART1::STAT::eRWUID::eIDLE_NOTSET;
@@ -128,9 +115,8 @@ void InitLPUART1(uint8_t *txBuffer, uint16_t bufferSize)
     stat.bits.RXEDGIF = nLPUART1::STAT::eRXEDGIF::eNO_EDGE;
     stat.bits.LBKDIF = nLPUART1::STAT::eLBKDIF::eNOT_DETECTED;
 
-    // Set CTRL
+    // Set CTRL.
     auto &ctrl = nLPUART1::CTRL::Instance();
-    // ctrl.value = 786692;
     ctrl.bits.PT = nLPUART1::CTRL::ePT::eEVEN;
     ctrl.bits.PE = nLPUART1::CTRL::ePE::eDISABLED;
     ctrl.bits.ILT = nLPUART1::CTRL::eILT::eFROM_STOP;
@@ -146,74 +132,40 @@ void InitLPUART1(uint8_t *txBuffer, uint16_t bufferSize)
     ctrl.bits.SBK = nLPUART1::CTRL::eSBK::eNO_EFFECT;
     ctrl.bits.RWU = nLPUART1::CTRL::eRWU::eNO_EFFECT;
     ctrl.bits.RE = nLPUART1::CTRL::eRE::eENABLED;
-    ctrl.bits.TE = nLPUART1::CTRL::eTE::eENABLED;
+    ctrl.bits.TE = nLPUART1::CTRL::eTE::eDISABLED;  // Disable TX until DMA ready
 
-    // Configure eDMA TCD for LPUART1 TX.
+    // 3. Configure DMA TCD
     auto &lpuart_data = nLPUART1::DATA::Instance();
-    DMA0_TCD0_SADDR = (uint32_t)txBuffer;  // Source address (RAM buffer)
-    DMA0_TCD0_DADDR = (uint32_t)&lpuart_data.value; // Destination (LPUART1 DATA register)
-    //DMA0_TCD0_NBYTES_MLNO = 1 | (1 << 31);  // Minor loop = 1 byte, enable SADDR increment
-    //DMA0_TCD0_NBYTES_MLNO = 1;  // Transfer 1 byte per minor loop (UART is byte-based)
-    DMA0_TCD0_NBYTES_MLOFFNO = 1;
+    DMA0_TCD0_SADDR = (uint32_t)txBuffer;
+    DMA0_TCD0_DADDR = (uint32_t)&lpuart_data.value;
+    DMA0_TCD0_SOFF = 1;  // Increment source by 1 byte
+    DMA0_TCD0_DOFF = 0;  // No dest increment
+    DMA0_TCD0_NBYTES_MLOFFNO = 1;  // 1 byte per minor loop
+    DMA0_TCD0_ATTR = (0 << 8) | (0 << 0);  // 8-bit transfers
+    DMA0_TCD0_CITER_ELINKNO = bufferSize;
+    DMA0_TCD0_BITER_ELINKNO = bufferSize;
+    DMA0_TCD0_CSR = (1 << 1);  // Interrupt on completion (optional)
 
-    // Configure source & destination size: 8-bit transfer
-    DMA0_TCD0_ATTR = (0 << 8) | (0 << 0); // 8-bit transfers (0 = 8-bit, 1 = 16-bit, 2 = 32-bit)
-
-    // Step 3: Configure Loop Counters (Major Loop)
-    DMA0_TCD0_CITER_ELINKNO = bufferSize; // Number of minor loops (bytes to send)
-    DMA0_TCD0_BITER_ELINKNO = bufferSize; // Total number of iterations
-
-    // Step 4: Configure DMA Channel Control Register
-    DMA0_TCD0_CSR |= (1 << 1);  // Enable interrupt on completion
-
-    auto x = DMA0_TCD0_DOFF;
-    auto y = DMA0_TCD0_SOFF;
-    DMA0_TCD0_DOFF = 0;
-    DMA0_TCD0_SOFF = 1;
-    x = DMA0_TCD0_DOFF;
-    y = DMA0_TCD0_SOFF;
-    (void)x;
-    (void)y;
-
-
-    nLPUART1::FIFO::Instance().bits.TXFLUSH = nLPUART1::FIFO::eTXFLUSH::eTXFIFO_RST;
-    while (!(nLPUART1::STAT::Instance().bits.TDRE == nLPUART1::STAT::eTDRE::eNO_TXDATA)) {
-        // Wait for UART TX buffer to be empty
-    }
-    while (nLPUART1::STAT::Instance().bits.TC != nLPUART1::STAT::eTC::eCOMPLETE) {}
-
-    auto &es = nDMA0::ES::Instance();
-    es.Reset();
-
-    // Configure the DMAMUX to Link LPUART1 TX with eDMA Channel 0
-    //
-    // Reference manual: Table 4-3: DMA Mux Mapping.
+    // 4. Configure DMAMUX
     auto &chcfg0 = nDMAMUX0::CHCFG_0::Instance();
-    chcfg0.bits.SOURCE = 8;
-
-    // Step 5: Enable DMA Channel 0 (LPUART1 TX).
-    // nDMA0::SERQ::Instance().bits.SERQ = 0;
-    DMA0_SERQ = 0;
-
-    // Enable dma request channel 0. TODO why wasnt this mentioned before.
-    nDMA0::ERQ::Instance().bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
-
-    // Enable the dma mux channel.
+    chcfg0.bits.SOURCE = 8;  // LPUART1 TX (RM Table 4-3)
     chcfg0.bits.ENBL = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
-    
-    // Step 6: Start Transfer.
-    // nDMA0::SSRT::Instance().bits.SSRT = 0;
-    DMA0_SSRT = 0;
 
-    // Enable DMA for transmitter.
-    baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eENABLED;
+    // 5. Enable DMA Channel
+    nDMA0::ERQ::Instance().bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
+    DMA0_SERQ = 0;  // Clear any pending requests
 
-    while (!(nLPUART1::STAT::Instance().bits.TDRE == nLPUART1::STAT::eTDRE::eNO_TXDATA)) {
-        // Wait for UART TX buffer to be empty
-    }
+    // 6. Enable UART Transmitter and DMA
+    ctrl.bits.TE = nLPUART1::CTRL::eTE::eENABLED;  // Enable TX now
+    baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eENABLED;  // Enable DMA trigger
 
+    // // 7. Start DMA Transfer
+    // DMA0_SSRT = 0;  // Trigger DMA
 
+    // Wait for completion (optional, for debugging)
+    while (!(nLPUART1::STAT::Instance().bits.TC == nLPUART1::STAT::eTC::eCOMPLETE)) {}
 }
+
 
 
 bool lpuart1_write_blocking(const uint8_t* buffer, size_t length) {
@@ -269,8 +221,7 @@ int lpuart1_read_blocking(uint8_t *buffer, size_t max_length)
 
 int main(void) {
     uint8_t txBuffer[20];
-    strcpy((char*)txBuffer, "aaaaaaaaaaaaaaaaaaaaaaa");
-    strcpy((char*)txBuffer, "bbbbbbbbbbbbbb\0");
+    strcpy((char*)txBuffer, "Hello Dma!");
 
     uint16_t bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
     //SCB_CleanDCache_by_Addr((uint32_t*)txBuffer, bufferSize);
@@ -296,6 +247,8 @@ int main(void) {
     // const char* message = "MIMXRT1170 UART String Echo Test\r\n";
     // lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message), std::strlen(message));
 
+    while (1)
+    {}
     // while (1) {
     //     const char* message2 = "Type something: ";
     //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message2), std::strlen(message2));
