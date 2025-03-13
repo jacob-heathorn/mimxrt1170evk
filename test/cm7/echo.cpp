@@ -146,8 +146,11 @@ public:
         // TODO check and handle es.
         auto &es = nDMA0::ES::Instance();
         es.Reset();
-        
-        // Wait for UART to finish transmitting
+
+        // TODO: CITER is not decrimenting properly, it gets stuck at 2, so we check the uart status
+        // instead.
+        //
+        // Wait for UART to finish transmitting.
         while (!(nLPUART1::STAT::Instance().bits.TC == nLPUART1::STAT::eTC::eCOMPLETE)) {}
 
         // Move the txBuffer. TODO error if doesn't fit.
@@ -217,92 +220,15 @@ private:
     uint8_t tx_buffer_[100];
 };
 
-bool lpuart1_write_blocking(const uint8_t* buffer, size_t length) {
-    assert(buffer != nullptr);
-
-    const uint8_t* data_address = buffer;
-    size_t transfer_size = length;
-
-    auto &stat = nLPUART1::STAT::Instance();
-    auto &data = nLPUART1::DATA::Instance();
-
-    while (transfer_size > 0)
-    {   
-        while (stat.bits.TDRE == nLPUART1::STAT::eTDRE::eTXDATA) {
-          // TODO: Add wait time, and fail if necessary.
-        }
-        data.value = static_cast<uint32_t>(*data_address);
-        transfer_size--;
-        data_address++;
-    }
-    while (stat.bits.TC == nLPUART1::STAT::eTC::eACTIVE) {
-      // TODO: Add wait time, and fail if necessary.
-    }
-
-    return true;
-}
-
-int lpuart1_read_blocking(uint8_t *buffer, size_t max_length)
-{
-    assert(buffer != nullptr);
-
-    size_t i = 0;
-    uint8_t* data_address = buffer;
-    auto &stat = nLPUART1::STAT::Instance();
-    auto &data = nLPUART1::DATA::Instance();
-
-    // TODO look for read errors.
-
-    while (i < max_length - 1)
-    {
-        while (stat.bits.RDRF == nLPUART1::STAT::eRDRF::eNO_RXDATA) {}
-        uint8_t c = (uint8_t)(data.value & 0xFF);
-        data_address[i++] = c;
-
-        if (c == '\r' || c == '\n') break;  // Stop on Enter key
-    }
-    buffer[i++] = '\0';  // Null-terminate string
-    return i;
-}
-
 int main(void) {
-    // uint8_t txBuffer[20];
-
-    Lpuart1 lpuart;
-    // strcpy((char*)txBuffer, "aaaa!");
-    // uint16_t bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
-    // lpuart.write(txBuffer, bufferSize);
-    
-    // strcpy((char*)txBuffer, "bbbb!");
-    // bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
-    // lpuart.write(txBuffer, bufferSize);
-
-    // while (1)
-    // {}
-
-    // // // Format the address of txBuffer as a hexadecimal string
-    // char message_address[50]; // Buffer to store formatted string
-    // sprintf(message_address, "txBuffer address: 0x%08lX", (unsigned long)txBuffer);
-    // lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message_address), std::strlen(message_address));
-
-    // // TODO use printf and readf?
-    // volatile uint8_t test_read = txBuffer[0]; // Should not crash
-    // (void)test_read;
-    
-    // if ((uint32_t)txBuffer % 1 != 0) {
-    //     // printf("Error: txBuffer is not byte-aligned!\n");
-    // }
-    // else {
-    //     InitLPUART1(txBuffer, bufferSize);
-    // }
-    
-    const char* message = "MIMXRT1170 UART String Echo Test\r\n";
-    lpuart.write(reinterpret_cast<const uint8_t*>(message), std::strlen(message));
+    Lpuart1 lpuart;    
+    const char* header = "MIMXRT1170 UART String Echo Test\r\n";
+    lpuart.write(reinterpret_cast<const uint8_t*>(header), std::strlen(header));
     char rx_buffer[100];
 
     while (1) {
-        const char* message2 = "Type something: ";
-        lpuart.write(reinterpret_cast<const uint8_t*>(message2), std::strlen(message2));
+        const char* request_message = "Type something: ";
+        lpuart.write(reinterpret_cast<const uint8_t*>(request_message), std::strlen(request_message));
         lpuart.read(reinterpret_cast<uint8_t*>(rx_buffer), sizeof(rx_buffer));
         
         lpuart.write(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
