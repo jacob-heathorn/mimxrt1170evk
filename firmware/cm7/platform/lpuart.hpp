@@ -153,7 +153,7 @@ public:
         
         // 3. Configure DMA TCD
         auto &lpuart_data = nLPUART1::DATA::ref();
-        nDMA0::TCD0_SADDR::ref().value = (uint32_t)tx_buffer_;
+        nDMA0::TCD_SADDR<0>::ref().value = (uint32_t)tx_buffer_;
         DMA0_TCD0_DADDR = (uint32_t)&lpuart_data.value;
         DMA0_TCD0_SOFF = 1;  // Increment source by 1 byte
         DMA0_TCD0_DOFF = 0;  // No dest increment

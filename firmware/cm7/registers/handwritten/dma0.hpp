@@ -5,8 +5,9 @@
 
 namespace nDMA0 {
 
-// TCDn_SADDR register.
-union TCD0_SADDR {
+// TCDn_SADDR
+template<uint32_t N>
+union TCD_SADDR {
   
   // Bit field definition.
   struct {
@@ -16,9 +17,11 @@ union TCD0_SADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  TCD0_SADDR() = delete;
+  TCD_SADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
-  static inline volatile TCD0_SADDR &ref() { return *reinterpret_cast<volatile TCD0_SADDR*>(dma0_base + 0x1000); }
+  static inline volatile TCD_SADDR &ref() {
+    return *reinterpret_cast<volatile TCD_SADDR*>(dma0_base + 0x1000 + (N * 0x20));
+  }
 };
 
 }
