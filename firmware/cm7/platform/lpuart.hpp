@@ -189,21 +189,23 @@ public:
 
         size_t i = 0;
         uint8_t* data_address = buffer;
-        auto &stat = nLPUART1::STAT::Instance();
-        auto &data = nLPUART1::DATA::Instance();
-
-        // TODO look for read errors.
-
+        
         while (i < max_length - 1)
         {
-            while (stat.bits.RDRF == nLPUART1::STAT::eRDRF::eNO_RXDATA) {}
-            uint8_t c = (uint8_t)(data.value & 0xFF);
+            uint8_t c = this->read_byte();
             data_address[i++] = c;
-
             if (c == '\r' || c == '\n') break;  // Stop on Enter key
         }
         buffer[i++] = '\0';  // Null-terminate string
         return i;
+    }
+
+    uint8_t read_byte()
+    {
+        auto &stat = nLPUART1::STAT::Instance();
+        auto &data = nLPUART1::DATA::Instance();
+        while (stat.bits.RDRF == nLPUART1::STAT::eRDRF::eNO_RXDATA) {}
+        return (uint8_t)(data.value & 0xFF);
     }
 private:
     // TODO how large should this buffer be.
