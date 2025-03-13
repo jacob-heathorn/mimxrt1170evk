@@ -82,8 +82,9 @@ public:
         auto &fifo = nLPUART1::FIFO::Instance();
         fifo.bits.RXFIFOSIZE = nLPUART1::FIFO::eRXFIFOSIZE::eFIFO_4;
         fifo.bits.RXFE = nLPUART1::FIFO::eRXFE::eENABLED;
-        fifo.bits.TXFIFOSIZE = nLPUART1::FIFO::eTXFIFOSIZE::eFIFO_4;
-        fifo.bits.TXFE = nLPUART1::FIFO::eTXFE::eENABLED;
+        fifo.bits.TXFIFOSIZE = nLPUART1::FIFO::eTXFIFOSIZE::eFIFO_1;
+        // TODO reconsider fifo.
+        fifo.bits.TXFE = nLPUART1::FIFO::eTXFE::eDISABLED;
         fifo.bits.RXUFE = nLPUART1::FIFO::eRXUFE::eDISABLED;
         fifo.bits.TXOFE = nLPUART1::FIFO::eTXOFE::eDISABLED;
         fifo.bits.RXIDEN = nLPUART1::FIFO::eRXIDEN::eDISABLED;
@@ -142,6 +143,7 @@ public:
 
     void write(const uint8_t *txBuffer, uint16_t bufferSize)
     {
+        
         // 3. Configure DMA TCD
         auto &lpuart_data = nLPUART1::DATA::Instance();
         DMA0_TCD0_SADDR = (uint32_t)txBuffer;
@@ -172,8 +174,36 @@ public:
         // // 7. Start DMA Transfer
         // DMA0_SSRT = 0;  // Trigger DMA
 
-        // Wait for completion (optional, for debugging)
+        // Wait for DMA transfer to complete
+        //while (DMA0_TCD0_CITER_ELINKNO != 0) {}  // Poll until all iterations done
+        auto &es = nDMA0::ES::Instance();
+        es.Reset();
+        auto x = DMA0_TCD0_CSR;
+        auto y = DMA0_TCD0_CITER_ELINKNO;
+        auto z = nLPUART1::FIFO::Instance().bits.TXFIFOSIZE;  // 0–4 bytes in FIFO
+        (void)x;
+        (void)y;
+        (void)z;
+        
+        // Wait for UART to finish transmitting
         while (!(nLPUART1::STAT::Instance().bits.TC == nLPUART1::STAT::eTC::eCOMPLETE)) {}
+        
+        // Disable DMA requests
+        nDMA0::ERQ::Instance().bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;
+        
+        // Clear DONE and any pending status
+        DMA0_TCD0_CSR &= ~(1 << 7);  // Clear DONE bit (write 0 has no effect, but ensure it’s reset)
+        DMA0_TCD0_CITER_ELINKNO = 0;  // Try reset (might work when ERQ = 0)
+        DMA0_SERQ = 0;  // Clear any service requests
+        
+        // Re-enable DMA channel
+        nDMA0::ERQ::Instance().bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
+        
+        
+        // DMA0_TCD0_CITER_ELINKNO = 0;
+        
+        x = DMA0_TCD0_CSR;
+        y = DMA0_TCD0_CITER_ELINKNO;
     }
 
     int read(uint8_t *buffer, size_t max_length)
@@ -252,7 +282,7 @@ int main(void) {
     uint8_t txBuffer[20];
 
     Lpuart1 lpuart;
-    strcpy((char*)txBuffer, "Hello Dma!");
+    strcpy((char*)txBuffer, "Hdma!\0");
     uint16_t bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
     lpuart.write(txBuffer, bufferSize);
     
