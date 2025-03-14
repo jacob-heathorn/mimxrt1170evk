@@ -20,8 +20,8 @@
 // #define DMA0_TCD0_CITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x1016))
 // #define DMA0_TCD0_BITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x101E))
 // #define DMA0_TCD0_CSR  (*(volatile uint16_t*)(DMA0_BASE + 0x101C))
-#define DMA0_TCD0_DOFF (*(volatile uint16_t*)(DMA0_BASE + 0x1014))
-#define DMA0_TCD0_SOFF (*(volatile int16_t*)(DMA0_BASE + 0x1004))
+// #define DMA0_TCD0_DOFF (*(volatile uint16_t*)(DMA0_BASE + 0x1014))
+// #define DMA0_TCD0_SOFF (*(volatile int16_t*)(DMA0_BASE + 0x1004))
 #define DMA0_SERQ (*(volatile uint8_t*)(DMA0_BASE + 0x1B)) // 8-bit register
 #define DMA0_SSRT (*(volatile uint8_t*)(DMA0_BASE + 0x1D)) // 8-bit register
 #define DMA0_LPUART1_TX_CHANNEL 0 // eDMA Channel for LPUART1 TX
@@ -134,6 +134,8 @@ public:
     {
         auto &csr = nDMA0::TCD_CSR<0>::ref();
         auto &citer = nDMA0::TCD_CITER_ELINKNO<0>::ref();
+        auto &doff = nDMA0::TCD_DOFF<0>::ref();
+        auto &soff = nDMA0::TCD_SOFF<0>::ref();
 
         // TODO check and handle es.
         auto &es = nDMA0::ES::ref();
@@ -158,8 +160,8 @@ public:
         auto &lpuart_data = nLPUART1::DATA::ref();
         nDMA0::TCD_SADDR<0>::ref().value = (uint32_t)tx_buffer_;
         nDMA0::TCD_DADDR<0>::ref().value = (uint32_t)&lpuart_data.value;
-        DMA0_TCD0_SOFF = 1;  // Increment source by 1 byte
-        DMA0_TCD0_DOFF = 0;  // No dest increment
+        soff.bits.SOFF = 1;  // Increment source by 1 byte
+        doff.bits.DOFF = 0;  // No dest increment
         nDMA0::TCD_NBYTES_MLOFFNO<0>::ref().bits.NBYTES = 1; // 1 byte per minor loop
         nDMA0::TCD_ATTR<0>::ref().bits.SSIZE = 0; // 8 bit transfers.
         nDMA0::TCD_ATTR<0>::ref().bits.DSIZE = 0; // 8 bit transfers.
