@@ -1,30 +1,11 @@
 #include <cassert>
-// #include "clock_config.h"
-// #include "board.h"
-// #include "mcmgr.h"
 #include "registers/codegen/iomuxc.hpp"
 #include "registers/codegen/ccm.hpp"
-//#include "core_cm7.h"
-//#include "cachel1_armv7.h"
 #include <cstdio>
 #include "registers/codegen/lpuart1.hpp"
 #include "registers/codegen/dma0.hpp"
 #include "registers/handwritten/dma0.hpp"
 #include "registers/codegen/dmamux0.hpp"
-
-#define DMA0_BASE 0x40070000
-// #define DMA0_TCD0_SADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1000))
-// #define DMA0_TCD0_DADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1010))
-// #define DMA0_TCD0_NBYTES_MLOFFNO  (*(volatile uint32_t*)(DMA0_BASE + 0x1008))
-// #define DMA0_TCD0_ATTR  (*(volatile uint16_t*)(DMA0_BASE + 0x1006))
-// #define DMA0_TCD0_CITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x1016))
-// #define DMA0_TCD0_BITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x101E))
-// #define DMA0_TCD0_CSR  (*(volatile uint16_t*)(DMA0_BASE + 0x101C))
-// #define DMA0_TCD0_DOFF (*(volatile uint16_t*)(DMA0_BASE + 0x1014))
-// #define DMA0_TCD0_SOFF (*(volatile int16_t*)(DMA0_BASE + 0x1004))
-// #define DMA0_SERQ (*(volatile uint8_t*)(DMA0_BASE + 0x1B)) // 8-bit register
-// #define DMA0_SSRT (*(volatile uint8_t*)(DMA0_BASE + 0x1D)) // 8-bit register
-#define DMA0_LPUART1_TX_CHANNEL 0 // eDMA Channel for LPUART1 TX
 
 class Lpuart1
 {
