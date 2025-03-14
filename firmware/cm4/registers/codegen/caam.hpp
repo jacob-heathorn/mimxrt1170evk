@@ -535,25 +535,25 @@ union DMA0_ARD_TC {
   // Bit field definition.
   struct {
     // read-write - AXI Read Sample Count
-    uint32_t ARSC : 20;
-    uint32_t _reserved_0 : 4;
+    uint64_t ARSC : 20;
+    uint64_t _reserved_0 : 4;
     // read-write - AXI Read Late Count
-    uint32_t ARLC : 20;
-    uint32_t _reserved_1 : 4;
+    uint64_t ARLC : 20;
+    uint64_t _reserved_1 : 4;
     // read-write - AXI Read Limit
-    uint32_t ARL : 12;
+    uint64_t ARL : 12;
     // read-write - AXI Read Timer Last
-    uint32_t ARTL : 1;
+    uint64_t ARTL : 1;
     // read-write - AXI Read Timer Test
-    uint32_t ARTT : 1;
+    uint64_t ARTT : 1;
     // read-write - AXI Read Counter Test
-    uint32_t ARCT : 1;
+    uint64_t ARCT : 1;
     // read-write - AXI Read Timing Check Enable
-    uint32_t ARTCE : 1;
+    uint64_t ARTCE : 1;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   DMA0_ARD_TC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -583,24 +583,24 @@ union DMA0_AWR_TC {
   // Bit field definition.
   struct {
     // read-write - AXI Write Sample Count
-    uint32_t AWSC : 20;
-    uint32_t _reserved_0 : 4;
+    uint64_t AWSC : 20;
+    uint64_t _reserved_0 : 4;
     // read-write - AXI Write Late Count
-    uint32_t AWLC : 20;
-    uint32_t _reserved_1 : 4;
+    uint64_t AWLC : 20;
+    uint64_t _reserved_1 : 4;
     // read-write - AXI Write Limit
-    uint32_t AWL : 12;
-    uint32_t _reserved_2 : 1;
+    uint64_t AWL : 12;
+    uint64_t _reserved_2 : 1;
     // read-write - AXI Write Timer Test
-    uint32_t AWTT : 1;
+    uint64_t AWTT : 1;
     // read-write - AXI Write Counter Test
-    uint32_t AWCT : 1;
+    uint64_t AWCT : 1;
     // read-write - AXI Write Timing Check Enable
-    uint32_t AWTCE : 1;
+    uint64_t AWTCE : 1;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   DMA0_AWR_TC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3122,14 +3122,14 @@ union SKNR {
   // Bit field definition.
   struct {
     // read-write - Secure Key Nonce - Least Significant Bits
-    uint32_t SK_NONCE_LS : 32;
+    uint64_t SK_NONCE_LS : 32;
     // read-write - Secure Key Nonce - Most Significant Bits
-    uint32_t SK_NONCE_MS : 15;
-    uint32_t _reserved_0 : 17;
+    uint64_t SK_NONCE_MS : 15;
+    uint64_t _reserved_0 : 17;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   SKNR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -9932,12 +9932,12 @@ union HT0_JD_ADDR {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   HT0_JD_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -9950,12 +9950,12 @@ union HT0_SD_ADDR {
   // Bit field definition.
   struct {
     // read-only - Shared Descriptor Address.
-    uint32_t SD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t SD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   HT0_SD_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -10214,12 +10214,12 @@ union JRJDDA {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JRJDDA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -10654,12 +10654,12 @@ union FAR {
   // Bit field definition.
   struct {
     // read-only - Fault Address
-    uint32_t FAR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t FAR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   FAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -11191,12 +11191,12 @@ union IRBAR_JR0 {
   // Bit field definition.
   struct {
     // read-write - Input Ring Base Address.
-    uint32_t IRBA : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t IRBA : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   IRBAR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -11263,12 +11263,12 @@ union ORBAR_JR0 {
   // Bit field definition.
   struct {
     // read-write - Output Ring Base Address.
-    uint32_t ORBA : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t ORBA : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   ORBAR_JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -11615,12 +11615,12 @@ union JR0AAA0 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR0AAA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -11633,12 +11633,12 @@ union JR0AAA1 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR0AAA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -11651,12 +11651,12 @@ union JR0AAA2 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR0AAA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -11669,12 +11669,12 @@ union JR0AAA3 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR0AAA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -16807,12 +16807,12 @@ union REIR2JR0 {
   // Bit field definition.
   struct {
     // read-only - Address associated with the recoverable JR error.
-    uint32_t ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   REIR2JR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -16886,12 +16886,12 @@ union IRBAR_JR1 {
   // Bit field definition.
   struct {
     // read-write - Input Ring Base Address.
-    uint32_t IRBA : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t IRBA : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   IRBAR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -16958,12 +16958,12 @@ union ORBAR_JR1 {
   // Bit field definition.
   struct {
     // read-write - Output Ring Base Address.
-    uint32_t ORBA : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t ORBA : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   ORBAR_JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -17310,12 +17310,12 @@ union JR1AAA0 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR1AAA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -17328,12 +17328,12 @@ union JR1AAA1 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR1AAA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -17346,12 +17346,12 @@ union JR1AAA2 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR1AAA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -17364,12 +17364,12 @@ union JR1AAA3 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR1AAA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -22502,12 +22502,12 @@ union REIR2JR1 {
   // Bit field definition.
   struct {
     // read-only - Address associated with the recoverable JR error.
-    uint32_t ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   REIR2JR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -22581,12 +22581,12 @@ union IRBAR_JR2 {
   // Bit field definition.
   struct {
     // read-write - Input Ring Base Address.
-    uint32_t IRBA : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t IRBA : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   IRBAR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -22653,12 +22653,12 @@ union ORBAR_JR2 {
   // Bit field definition.
   struct {
     // read-write - Output Ring Base Address.
-    uint32_t ORBA : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t ORBA : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   ORBAR_JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -23005,12 +23005,12 @@ union JR2AAA0 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR2AAA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -23023,12 +23023,12 @@ union JR2AAA1 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR2AAA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -23041,12 +23041,12 @@ union JR2AAA2 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR2AAA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -23059,12 +23059,12 @@ union JR2AAA3 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR2AAA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -28197,12 +28197,12 @@ union REIR2JR2 {
   // Bit field definition.
   struct {
     // read-only - Address associated with the recoverable JR error.
-    uint32_t ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   REIR2JR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -28276,12 +28276,12 @@ union IRBAR_JR3 {
   // Bit field definition.
   struct {
     // read-write - Input Ring Base Address.
-    uint32_t IRBA : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t IRBA : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   IRBAR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -28348,12 +28348,12 @@ union ORBAR_JR3 {
   // Bit field definition.
   struct {
     // read-write - Output Ring Base Address.
-    uint32_t ORBA : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t ORBA : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   ORBAR_JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -28700,12 +28700,12 @@ union JR3AAA0 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR3AAA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -28718,12 +28718,12 @@ union JR3AAA1 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR3AAA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -28736,12 +28736,12 @@ union JR3AAA2 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR3AAA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -28754,12 +28754,12 @@ union JR3AAA3 {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Address.
-    uint32_t JD_ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JD_ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   JR3AAA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -33892,12 +33892,12 @@ union REIR2JR3 {
   // Bit field definition.
   struct {
     // read-only - Address associated with the recoverable JR error.
-    uint32_t ADDR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t ADDR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   REIR2JR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -34191,12 +34191,12 @@ union RWDOG {
   // Bit field definition.
   struct {
     // read-write - Run Time Watchdog Time-Out value
-    uint32_t RWDOG : 32;
-    uint32_t _reserved_0 : 32;
+    uint64_t RWDOG : 32;
+    uint64_t _reserved_0 : 32;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   RWDOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -34278,11 +34278,11 @@ union REIR2RTIC {
   // Bit field definition.
   struct {
     // read-only - This register holds the address associated with the recoverable RTIC error.
-    uint32_t ADDR : 64;
+    uint64_t ADDR : 64;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   REIR2RTIC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -34538,7 +34538,7 @@ union C0C1KSR {
 union C0C1DSR {
   
   // Class 1 Data Size Carry
-  enum class eC1CY : uint32_t {
+  enum class eC1CY : uint64_t {
     // No carry out of the C1 Data Size Reg.
     eNO_C1DS_CARRY = 0,
     // There was a carry out of the C1 Data Size Reg.
@@ -34548,16 +34548,16 @@ union C0C1DSR {
   // Bit field definition.
   struct {
     // read-write - Class 1 Data Size
-    uint32_t C1DS : 32;
+    uint64_t C1DS : 32;
     // read-only - Class 1 Data Size Carry
     eC1CY C1CY : 1;
-    uint32_t _reserved_0 : 28;
+    uint64_t _reserved_0 : 28;
     // read-only - Class 1 Data Size Number of bits
-    uint32_t NUMBITS : 3;
+    uint64_t NUMBITS : 3;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   C0C1DSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -35959,7 +35959,7 @@ union C0C2KSR {
 union C0C2DSR {
   
   // Class 2 Data Size Carry
-  enum class eC2CY : uint32_t {
+  enum class eC2CY : uint64_t {
     // A write to the Class 2 Data Size Register did not cause a carry.
     eNO_C2DS_CARRY = 0,
     // A write to the Class 2 Data Size Register caused a carry.
@@ -35969,16 +35969,16 @@ union C0C2DSR {
   // Bit field definition.
   struct {
     // read-write - Class 2 Data Size in Bytes
-    uint32_t C2DS : 32;
+    uint64_t C2DS : 32;
     // read-only - Class 2 Data Size Carry
     eC2CY C2CY : 1;
-    uint32_t _reserved_0 : 28;
+    uint64_t _reserved_0 : 28;
     // read-only - Class 2 Data Size Number of bits
-    uint32_t NUMBITS : 3;
+    uint64_t NUMBITS : 3;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   C0C2DSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -37138,11 +37138,11 @@ union C0OFIFO {
   // Bit field definition.
   struct {
     // read-only - Output FIFO
-    uint32_t OFIFO : 64;
+    uint64_t OFIFO : 64;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   C0OFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -37291,12 +37291,12 @@ union D0DAR {
   // Bit field definition.
   struct {
     // read-only - Descriptor Pointer. Memory address of the Descriptor. Needed for write-back purposes.
-    uint32_t DPTR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t DPTR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   D0DAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -39082,12 +39082,12 @@ union D0DJP {
   // Bit field definition.
   struct {
     // read-only - Job Descriptor Pointer.
-    uint32_t JDPTR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t JDPTR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   D0DJP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -39100,12 +39100,12 @@ union D0SDP {
   // Bit field definition.
   struct {
     // read-only - Shared Descriptor Pointer.
-    uint32_t SDPTR : 36;
-    uint32_t _reserved_0 : 28;
+    uint64_t SDPTR : 36;
+    uint64_t _reserved_0 : 28;
   } bits;
   
   // Full 64-bit register value.
-  uint32_t value;
+  uint64_t value;
 
   D0SDP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
