@@ -14,7 +14,7 @@ namespace nAOI2 {
 union BFCRT010 {
   
   // Product term 1, D input configuration
-  enum class ePT1_DC : uint32_t {
+  enum class ePT1_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT1_DC_0 = 0,
     // Pass the D input in this product term
@@ -26,7 +26,7 @@ union BFCRT010 {
   };
   
   // Product term 1, C input configuration
-  enum class ePT1_CC : uint32_t {
+  enum class ePT1_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT1_CC_0 = 0,
     // Pass the C input in this product term
@@ -38,7 +38,7 @@ union BFCRT010 {
   };
   
   // Product term 1, B input configuration
-  enum class ePT1_BC : uint32_t {
+  enum class ePT1_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT1_BC_0 = 0,
     // Pass the B input in this product term
@@ -50,7 +50,7 @@ union BFCRT010 {
   };
   
   // Product term 1, A input configuration
-  enum class ePT1_AC : uint32_t {
+  enum class ePT1_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT1_AC_0 = 0,
     // Pass the A input in this product term
@@ -62,7 +62,7 @@ union BFCRT010 {
   };
   
   // Product term 0, D input configuration
-  enum class ePT0_DC : uint32_t {
+  enum class ePT0_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT0_DC_0 = 0,
     // Pass the D input in this product term
@@ -74,7 +74,7 @@ union BFCRT010 {
   };
   
   // Product term 0, C input configuration
-  enum class ePT0_CC : uint32_t {
+  enum class ePT0_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT0_CC_0 = 0,
     // Pass the C input in this product term
@@ -86,7 +86,7 @@ union BFCRT010 {
   };
   
   // Product term 0, B input configuration
-  enum class ePT0_BC : uint32_t {
+  enum class ePT0_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT0_BC_0 = 0,
     // Pass the B input in this product term
@@ -98,7 +98,7 @@ union BFCRT010 {
   };
   
   // Product term 0, A input configuration
-  enum class ePT0_AC : uint32_t {
+  enum class ePT0_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT0_AC_0 = 0,
     // Pass the A input in this product term
@@ -127,11 +127,10 @@ union BFCRT010 {
     ePT0_BC PT0_BC : 2;
     // read-write - Product term 0, A input configuration
     ePT0_AC PT0_AC : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   BFCRT010() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -142,7 +141,7 @@ union BFCRT010 {
 union BFCRT230 {
   
   // Product term 3, D input configuration
-  enum class ePT3_DC : uint32_t {
+  enum class ePT3_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT3_DC_0 = 0,
     // Pass the D input in this product term
@@ -154,7 +153,7 @@ union BFCRT230 {
   };
   
   // Product term 3, C input configuration
-  enum class ePT3_CC : uint32_t {
+  enum class ePT3_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT3_CC_0 = 0,
     // Pass the C input in this product term
@@ -166,7 +165,7 @@ union BFCRT230 {
   };
   
   // Product term 3, B input configuration
-  enum class ePT3_BC : uint32_t {
+  enum class ePT3_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT3_BC_0 = 0,
     // Pass the B input in this product term
@@ -178,7 +177,7 @@ union BFCRT230 {
   };
   
   // Product term 3, A input configuration
-  enum class ePT3_AC : uint32_t {
+  enum class ePT3_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT3_AC_0 = 0,
     // Pass the A input in this product term
@@ -190,7 +189,7 @@ union BFCRT230 {
   };
   
   // Product term 2, D input configuration
-  enum class ePT2_DC : uint32_t {
+  enum class ePT2_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT2_DC_0 = 0,
     // Pass the D input in this product term
@@ -202,7 +201,7 @@ union BFCRT230 {
   };
   
   // Product term 2, C input configuration
-  enum class ePT2_CC : uint32_t {
+  enum class ePT2_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT2_CC_0 = 0,
     // Pass the C input in this product term
@@ -214,7 +213,7 @@ union BFCRT230 {
   };
   
   // Product term 2, B input configuration
-  enum class ePT2_BC : uint32_t {
+  enum class ePT2_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT2_BC_0 = 0,
     // Pass the B input in this product term
@@ -226,7 +225,7 @@ union BFCRT230 {
   };
   
   // Product term 2, A input configuration
-  enum class ePT2_AC : uint32_t {
+  enum class ePT2_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT2_AC_0 = 0,
     // Pass the A input in this product term
@@ -255,11 +254,10 @@ union BFCRT230 {
     ePT2_BC PT2_BC : 2;
     // read-write - Product term 2, A input configuration
     ePT2_AC PT2_AC : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   BFCRT230() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -270,7 +268,7 @@ union BFCRT230 {
 union BFCRT011 {
   
   // Product term 1, D input configuration
-  enum class ePT1_DC : uint32_t {
+  enum class ePT1_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT1_DC_0 = 0,
     // Pass the D input in this product term
@@ -282,7 +280,7 @@ union BFCRT011 {
   };
   
   // Product term 1, C input configuration
-  enum class ePT1_CC : uint32_t {
+  enum class ePT1_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT1_CC_0 = 0,
     // Pass the C input in this product term
@@ -294,7 +292,7 @@ union BFCRT011 {
   };
   
   // Product term 1, B input configuration
-  enum class ePT1_BC : uint32_t {
+  enum class ePT1_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT1_BC_0 = 0,
     // Pass the B input in this product term
@@ -306,7 +304,7 @@ union BFCRT011 {
   };
   
   // Product term 1, A input configuration
-  enum class ePT1_AC : uint32_t {
+  enum class ePT1_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT1_AC_0 = 0,
     // Pass the A input in this product term
@@ -318,7 +316,7 @@ union BFCRT011 {
   };
   
   // Product term 0, D input configuration
-  enum class ePT0_DC : uint32_t {
+  enum class ePT0_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT0_DC_0 = 0,
     // Pass the D input in this product term
@@ -330,7 +328,7 @@ union BFCRT011 {
   };
   
   // Product term 0, C input configuration
-  enum class ePT0_CC : uint32_t {
+  enum class ePT0_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT0_CC_0 = 0,
     // Pass the C input in this product term
@@ -342,7 +340,7 @@ union BFCRT011 {
   };
   
   // Product term 0, B input configuration
-  enum class ePT0_BC : uint32_t {
+  enum class ePT0_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT0_BC_0 = 0,
     // Pass the B input in this product term
@@ -354,7 +352,7 @@ union BFCRT011 {
   };
   
   // Product term 0, A input configuration
-  enum class ePT0_AC : uint32_t {
+  enum class ePT0_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT0_AC_0 = 0,
     // Pass the A input in this product term
@@ -383,11 +381,10 @@ union BFCRT011 {
     ePT0_BC PT0_BC : 2;
     // read-write - Product term 0, A input configuration
     ePT0_AC PT0_AC : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   BFCRT011() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -398,7 +395,7 @@ union BFCRT011 {
 union BFCRT231 {
   
   // Product term 3, D input configuration
-  enum class ePT3_DC : uint32_t {
+  enum class ePT3_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT3_DC_0 = 0,
     // Pass the D input in this product term
@@ -410,7 +407,7 @@ union BFCRT231 {
   };
   
   // Product term 3, C input configuration
-  enum class ePT3_CC : uint32_t {
+  enum class ePT3_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT3_CC_0 = 0,
     // Pass the C input in this product term
@@ -422,7 +419,7 @@ union BFCRT231 {
   };
   
   // Product term 3, B input configuration
-  enum class ePT3_BC : uint32_t {
+  enum class ePT3_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT3_BC_0 = 0,
     // Pass the B input in this product term
@@ -434,7 +431,7 @@ union BFCRT231 {
   };
   
   // Product term 3, A input configuration
-  enum class ePT3_AC : uint32_t {
+  enum class ePT3_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT3_AC_0 = 0,
     // Pass the A input in this product term
@@ -446,7 +443,7 @@ union BFCRT231 {
   };
   
   // Product term 2, D input configuration
-  enum class ePT2_DC : uint32_t {
+  enum class ePT2_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT2_DC_0 = 0,
     // Pass the D input in this product term
@@ -458,7 +455,7 @@ union BFCRT231 {
   };
   
   // Product term 2, C input configuration
-  enum class ePT2_CC : uint32_t {
+  enum class ePT2_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT2_CC_0 = 0,
     // Pass the C input in this product term
@@ -470,7 +467,7 @@ union BFCRT231 {
   };
   
   // Product term 2, B input configuration
-  enum class ePT2_BC : uint32_t {
+  enum class ePT2_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT2_BC_0 = 0,
     // Pass the B input in this product term
@@ -482,7 +479,7 @@ union BFCRT231 {
   };
   
   // Product term 2, A input configuration
-  enum class ePT2_AC : uint32_t {
+  enum class ePT2_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT2_AC_0 = 0,
     // Pass the A input in this product term
@@ -511,11 +508,10 @@ union BFCRT231 {
     ePT2_BC PT2_BC : 2;
     // read-write - Product term 2, A input configuration
     ePT2_AC PT2_AC : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   BFCRT231() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -526,7 +522,7 @@ union BFCRT231 {
 union BFCRT012 {
   
   // Product term 1, D input configuration
-  enum class ePT1_DC : uint32_t {
+  enum class ePT1_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT1_DC_0 = 0,
     // Pass the D input in this product term
@@ -538,7 +534,7 @@ union BFCRT012 {
   };
   
   // Product term 1, C input configuration
-  enum class ePT1_CC : uint32_t {
+  enum class ePT1_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT1_CC_0 = 0,
     // Pass the C input in this product term
@@ -550,7 +546,7 @@ union BFCRT012 {
   };
   
   // Product term 1, B input configuration
-  enum class ePT1_BC : uint32_t {
+  enum class ePT1_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT1_BC_0 = 0,
     // Pass the B input in this product term
@@ -562,7 +558,7 @@ union BFCRT012 {
   };
   
   // Product term 1, A input configuration
-  enum class ePT1_AC : uint32_t {
+  enum class ePT1_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT1_AC_0 = 0,
     // Pass the A input in this product term
@@ -574,7 +570,7 @@ union BFCRT012 {
   };
   
   // Product term 0, D input configuration
-  enum class ePT0_DC : uint32_t {
+  enum class ePT0_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT0_DC_0 = 0,
     // Pass the D input in this product term
@@ -586,7 +582,7 @@ union BFCRT012 {
   };
   
   // Product term 0, C input configuration
-  enum class ePT0_CC : uint32_t {
+  enum class ePT0_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT0_CC_0 = 0,
     // Pass the C input in this product term
@@ -598,7 +594,7 @@ union BFCRT012 {
   };
   
   // Product term 0, B input configuration
-  enum class ePT0_BC : uint32_t {
+  enum class ePT0_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT0_BC_0 = 0,
     // Pass the B input in this product term
@@ -610,7 +606,7 @@ union BFCRT012 {
   };
   
   // Product term 0, A input configuration
-  enum class ePT0_AC : uint32_t {
+  enum class ePT0_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT0_AC_0 = 0,
     // Pass the A input in this product term
@@ -639,11 +635,10 @@ union BFCRT012 {
     ePT0_BC PT0_BC : 2;
     // read-write - Product term 0, A input configuration
     ePT0_AC PT0_AC : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   BFCRT012() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -654,7 +649,7 @@ union BFCRT012 {
 union BFCRT232 {
   
   // Product term 3, D input configuration
-  enum class ePT3_DC : uint32_t {
+  enum class ePT3_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT3_DC_0 = 0,
     // Pass the D input in this product term
@@ -666,7 +661,7 @@ union BFCRT232 {
   };
   
   // Product term 3, C input configuration
-  enum class ePT3_CC : uint32_t {
+  enum class ePT3_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT3_CC_0 = 0,
     // Pass the C input in this product term
@@ -678,7 +673,7 @@ union BFCRT232 {
   };
   
   // Product term 3, B input configuration
-  enum class ePT3_BC : uint32_t {
+  enum class ePT3_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT3_BC_0 = 0,
     // Pass the B input in this product term
@@ -690,7 +685,7 @@ union BFCRT232 {
   };
   
   // Product term 3, A input configuration
-  enum class ePT3_AC : uint32_t {
+  enum class ePT3_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT3_AC_0 = 0,
     // Pass the A input in this product term
@@ -702,7 +697,7 @@ union BFCRT232 {
   };
   
   // Product term 2, D input configuration
-  enum class ePT2_DC : uint32_t {
+  enum class ePT2_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT2_DC_0 = 0,
     // Pass the D input in this product term
@@ -714,7 +709,7 @@ union BFCRT232 {
   };
   
   // Product term 2, C input configuration
-  enum class ePT2_CC : uint32_t {
+  enum class ePT2_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT2_CC_0 = 0,
     // Pass the C input in this product term
@@ -726,7 +721,7 @@ union BFCRT232 {
   };
   
   // Product term 2, B input configuration
-  enum class ePT2_BC : uint32_t {
+  enum class ePT2_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT2_BC_0 = 0,
     // Pass the B input in this product term
@@ -738,7 +733,7 @@ union BFCRT232 {
   };
   
   // Product term 2, A input configuration
-  enum class ePT2_AC : uint32_t {
+  enum class ePT2_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT2_AC_0 = 0,
     // Pass the A input in this product term
@@ -767,11 +762,10 @@ union BFCRT232 {
     ePT2_BC PT2_BC : 2;
     // read-write - Product term 2, A input configuration
     ePT2_AC PT2_AC : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   BFCRT232() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -782,7 +776,7 @@ union BFCRT232 {
 union BFCRT013 {
   
   // Product term 1, D input configuration
-  enum class ePT1_DC : uint32_t {
+  enum class ePT1_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT1_DC_0 = 0,
     // Pass the D input in this product term
@@ -794,7 +788,7 @@ union BFCRT013 {
   };
   
   // Product term 1, C input configuration
-  enum class ePT1_CC : uint32_t {
+  enum class ePT1_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT1_CC_0 = 0,
     // Pass the C input in this product term
@@ -806,7 +800,7 @@ union BFCRT013 {
   };
   
   // Product term 1, B input configuration
-  enum class ePT1_BC : uint32_t {
+  enum class ePT1_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT1_BC_0 = 0,
     // Pass the B input in this product term
@@ -818,7 +812,7 @@ union BFCRT013 {
   };
   
   // Product term 1, A input configuration
-  enum class ePT1_AC : uint32_t {
+  enum class ePT1_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT1_AC_0 = 0,
     // Pass the A input in this product term
@@ -830,7 +824,7 @@ union BFCRT013 {
   };
   
   // Product term 0, D input configuration
-  enum class ePT0_DC : uint32_t {
+  enum class ePT0_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT0_DC_0 = 0,
     // Pass the D input in this product term
@@ -842,7 +836,7 @@ union BFCRT013 {
   };
   
   // Product term 0, C input configuration
-  enum class ePT0_CC : uint32_t {
+  enum class ePT0_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT0_CC_0 = 0,
     // Pass the C input in this product term
@@ -854,7 +848,7 @@ union BFCRT013 {
   };
   
   // Product term 0, B input configuration
-  enum class ePT0_BC : uint32_t {
+  enum class ePT0_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT0_BC_0 = 0,
     // Pass the B input in this product term
@@ -866,7 +860,7 @@ union BFCRT013 {
   };
   
   // Product term 0, A input configuration
-  enum class ePT0_AC : uint32_t {
+  enum class ePT0_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT0_AC_0 = 0,
     // Pass the A input in this product term
@@ -895,11 +889,10 @@ union BFCRT013 {
     ePT0_BC PT0_BC : 2;
     // read-write - Product term 0, A input configuration
     ePT0_AC PT0_AC : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   BFCRT013() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -910,7 +903,7 @@ union BFCRT013 {
 union BFCRT233 {
   
   // Product term 3, D input configuration
-  enum class ePT3_DC : uint32_t {
+  enum class ePT3_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT3_DC_0 = 0,
     // Pass the D input in this product term
@@ -922,7 +915,7 @@ union BFCRT233 {
   };
   
   // Product term 3, C input configuration
-  enum class ePT3_CC : uint32_t {
+  enum class ePT3_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT3_CC_0 = 0,
     // Pass the C input in this product term
@@ -934,7 +927,7 @@ union BFCRT233 {
   };
   
   // Product term 3, B input configuration
-  enum class ePT3_BC : uint32_t {
+  enum class ePT3_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT3_BC_0 = 0,
     // Pass the B input in this product term
@@ -946,7 +939,7 @@ union BFCRT233 {
   };
   
   // Product term 3, A input configuration
-  enum class ePT3_AC : uint32_t {
+  enum class ePT3_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT3_AC_0 = 0,
     // Pass the A input in this product term
@@ -958,7 +951,7 @@ union BFCRT233 {
   };
   
   // Product term 2, D input configuration
-  enum class ePT2_DC : uint32_t {
+  enum class ePT2_DC : uint16_t {
     // Force the D input in this product term to a logical zero
     ePT2_DC_0 = 0,
     // Pass the D input in this product term
@@ -970,7 +963,7 @@ union BFCRT233 {
   };
   
   // Product term 2, C input configuration
-  enum class ePT2_CC : uint32_t {
+  enum class ePT2_CC : uint16_t {
     // Force the C input in this product term to a logical zero
     ePT2_CC_0 = 0,
     // Pass the C input in this product term
@@ -982,7 +975,7 @@ union BFCRT233 {
   };
   
   // Product term 2, B input configuration
-  enum class ePT2_BC : uint32_t {
+  enum class ePT2_BC : uint16_t {
     // Force the B input in this product term to a logical zero
     ePT2_BC_0 = 0,
     // Pass the B input in this product term
@@ -994,7 +987,7 @@ union BFCRT233 {
   };
   
   // Product term 2, A input configuration
-  enum class ePT2_AC : uint32_t {
+  enum class ePT2_AC : uint16_t {
     // Force the A input in this product term to a logical zero
     ePT2_AC_0 = 0,
     // Pass the A input in this product term
@@ -1023,11 +1016,10 @@ union BFCRT233 {
     ePT2_BC PT2_BC : 2;
     // read-write - Product term 2, A input configuration
     ePT2_AC PT2_AC : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   BFCRT233() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }

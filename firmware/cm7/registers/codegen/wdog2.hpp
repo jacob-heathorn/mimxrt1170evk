@@ -14,7 +14,7 @@ namespace nWDOG2 {
 union WCR {
   
   // WDZST
-  enum class eWDZST : uint32_t {
+  enum class eWDZST : uint16_t {
     // Continue timer operation (Default).
     eWDZST_0 = 0,
     // Suspend the watchdog timer.
@@ -22,7 +22,7 @@ union WCR {
   };
   
   // WDBG
-  enum class eWDBG : uint32_t {
+  enum class eWDBG : uint16_t {
     // Continue WDOG timer operation (Default).
     eWDBG_0 = 0,
     // Suspend the watchdog timer.
@@ -30,7 +30,7 @@ union WCR {
   };
   
   // WDE
-  enum class eWDE : uint32_t {
+  enum class eWDE : uint16_t {
     // Disable the Watchdog (Default).
     eWDE_0 = 0,
     // Enable the Watchdog.
@@ -38,7 +38,7 @@ union WCR {
   };
   
   // WDT
-  enum class eWDT : uint32_t {
+  enum class eWDT : uint16_t {
     // No effect on WDOG_B (Default).
     eWDT_0 = 0,
     // Assert WDOG_B upon a Watchdog Time-out event.
@@ -46,7 +46,7 @@ union WCR {
   };
   
   // SRS
-  enum class eSRS : uint32_t {
+  enum class eSRS : uint16_t {
     // Assert system reset signal.
     eSRS_0 = 0,
     // No effect on the system (Default).
@@ -54,7 +54,7 @@ union WCR {
   };
   
   // WDA
-  enum class eWDA : uint32_t {
+  enum class eWDA : uint16_t {
     // Assert WDOG_B output.
     eWDA_0 = 0,
     // No effect on system (Default).
@@ -62,7 +62,7 @@ union WCR {
   };
   
   // Software Reset Extension, an optional way to generate software reset
-  enum class eSRE : uint32_t {
+  enum class eSRE : uint16_t {
     // using original way to generate software reset (default)
     eSRE_0 = 0,
     // using new way to generate software reset.
@@ -70,7 +70,7 @@ union WCR {
   };
   
   // WDW
-  enum class eWDW : uint32_t {
+  enum class eWDW : uint16_t {
     // Continue WDOG timer operation (Default).
     eWDW_0 = 0,
     // Suspend WDOG timer operation.
@@ -78,7 +78,7 @@ union WCR {
   };
   
   // WT
-  enum class eWT : uint32_t {
+  enum class eWT : uint16_t {
     // - 0.5 Seconds (Default).
     eWT_0 = 0,
     // - 1.0 Seconds.
@@ -111,11 +111,10 @@ union WCR {
     eWDW WDW : 1;
     // read-write - WT
     eWT WT : 8;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   WCR() = delete;
   inline void Reset() volatile { this->value = 0x00000030; }
@@ -126,7 +125,7 @@ union WCR {
 union WSR {
   
   // WSR
-  enum class eWSR : uint32_t {
+  enum class eWSR : uint16_t {
     // Write to the Watchdog Service Register (WDOG_WSR).
     eWSR_21845 = 21845,
     // Write to the Watchdog Service Register (WDOG_WSR).
@@ -137,11 +136,10 @@ union WSR {
   struct {
     // read-write - WSR
     eWSR WSR : 16;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   WSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -152,7 +150,7 @@ union WSR {
 union WRSR {
   
   // SFTW
-  enum class eSFTW : uint32_t {
+  enum class eSFTW : uint16_t {
     // Reset is not the result of a software reset.
     eSFTW_0 = 0,
     // Reset is the result of a software reset.
@@ -160,7 +158,7 @@ union WRSR {
   };
   
   // TOUT
-  enum class eTOUT : uint32_t {
+  enum class eTOUT : uint16_t {
     // Reset is not the result of a WDOG timeout.
     eTOUT_0 = 0,
     // Reset is the result of a WDOG timeout.
@@ -168,7 +166,7 @@ union WRSR {
   };
   
   // POR
-  enum class ePOR : uint32_t {
+  enum class ePOR : uint16_t {
     // Reset is not the result of a power on reset.
     ePOR_0 = 0,
     // Reset is the result of a power on reset.
@@ -181,14 +179,14 @@ union WRSR {
     eSFTW SFTW : 1;
     // read-only - TOUT
     eTOUT TOUT : 1;
-    uint32_t _reserved_0 : 2;
+    uint16_t _reserved_0 : 2;
     // read-only - POR
     ePOR POR : 1;
-    uint32_t _reserved_1 : 27;
+    uint16_t _reserved_1 : 11;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   WRSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -199,7 +197,7 @@ union WRSR {
 union WICR {
   
   // WICT
-  enum class eWICT : uint32_t {
+  enum class eWICT : uint16_t {
     // WICT[7:0] = Time duration between interrupt and time-out is 0 seconds.
     eWICT_0 = 0,
     // WICT[7:0] = Time duration between interrupt and time-out is 0.5 seconds.
@@ -211,7 +209,7 @@ union WICR {
   };
   
   // WTIS
-  enum class eWTIS : uint32_t {
+  enum class eWTIS : uint16_t {
     // No interrupt has occurred (Default).
     eWTIS_0 = 0,
     // Interrupt has occurred
@@ -219,7 +217,7 @@ union WICR {
   };
   
   // WIE
-  enum class eWIE : uint32_t {
+  enum class eWIE : uint16_t {
     // Disable Interrupt (Default).
     eWIE_0 = 0,
     // Enable Interrupt.
@@ -230,16 +228,15 @@ union WICR {
   struct {
     // read-write - WICT
     eWICT WICT : 8;
-    uint32_t _reserved_0 : 6;
+    uint16_t _reserved_0 : 6;
     // read-write - WTIS
     eWTIS WTIS : 1;
     // read-write - WIE
     eWIE WIE : 1;
-    uint32_t _reserved_1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   WICR() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
@@ -250,7 +247,7 @@ union WICR {
 union WMCR {
   
   // PDE
-  enum class ePDE : uint32_t {
+  enum class ePDE : uint16_t {
     // Power Down Counter of WDOG is disabled.
     ePDE_0 = 0,
     // Power Down Counter of WDOG is enabled (Default).
@@ -261,11 +258,11 @@ union WMCR {
   struct {
     // read-write - PDE
     ePDE PDE : 1;
-    uint32_t _reserved_0 : 31;
+    uint16_t _reserved_0 : 15;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   WMCR() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }

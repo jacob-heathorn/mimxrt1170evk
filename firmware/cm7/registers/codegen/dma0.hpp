@@ -948,7 +948,7 @@ union EEI {
 union CEEI {
   
   // Clear All Enable Error Interrupts
-  enum class eCAEE : uint32_t {
+  enum class eCAEE : uint8_t {
     // Write 0 only to the EEI field specified in the CEEI field
     eCLEAR_EEI = 0,
     // Write 0 to all fields in EEI
@@ -956,7 +956,7 @@ union CEEI {
   };
   
   // No Op Enable
-  enum class eNOP : uint32_t {
+  enum class eNOP : uint8_t {
     // Normal operation
     eNORMAL_OPS = 0,
     // No operation, ignore the other fields in this register
@@ -966,17 +966,16 @@ union CEEI {
   // Bit field definition.
   struct {
     // read-write - Clear Enable Error Interrupt
-    uint32_t CEEI : 5;
-    uint32_t _reserved_0 : 1;
+    uint8_t CEEI : 5;
+    uint8_t _reserved_0 : 1;
     // read-write - Clear All Enable Error Interrupts
     eCAEE CAEE : 1;
     // read-write - No Op Enable
     eNOP NOP : 1;
-    uint32_t _reserved_1 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   CEEI() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -987,7 +986,7 @@ union CEEI {
 union SEEI {
   
   // Set All Enable Error Interrupts
-  enum class eSAEE : uint32_t {
+  enum class eSAEE : uint8_t {
     // Write 1 only to the EEI field specified in the SEEI field
     eSET_EEI = 0,
     // Writes 1 to all fields in EEI
@@ -995,7 +994,7 @@ union SEEI {
   };
   
   // No Op Enable
-  enum class eNOP : uint32_t {
+  enum class eNOP : uint8_t {
     // Normal operation
     eNORMAL_OPS = 0,
     // No operation, ignore the other fields in this register
@@ -1005,17 +1004,16 @@ union SEEI {
   // Bit field definition.
   struct {
     // read-write - Set Enable Error Interrupt
-    uint32_t SEEI : 5;
-    uint32_t _reserved_0 : 1;
+    uint8_t SEEI : 5;
+    uint8_t _reserved_0 : 1;
     // read-write - Set All Enable Error Interrupts
     eSAEE SAEE : 1;
     // read-write - No Op Enable
     eNOP NOP : 1;
-    uint32_t _reserved_1 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEEI() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1026,7 +1024,7 @@ union SEEI {
 union CERQ {
   
   // Clear All Enable Requests
-  enum class eCAER : uint32_t {
+  enum class eCAER : uint8_t {
     // Write 0 to only the ERQ field specified in the CERQ field
     eCLEAR_ERQ = 0,
     // Write 0 to all fields in ERQ
@@ -1034,7 +1032,7 @@ union CERQ {
   };
   
   // No Op Enable
-  enum class eNOP : uint32_t {
+  enum class eNOP : uint8_t {
     // Normal operation
     eNORMAL_OPS = 0,
     // No operation, ignore the other fields in this register
@@ -1044,17 +1042,16 @@ union CERQ {
   // Bit field definition.
   struct {
     // read-write - Clear Enable Request
-    uint32_t CERQ : 5;
-    uint32_t _reserved_0 : 1;
+    uint8_t CERQ : 5;
+    uint8_t _reserved_0 : 1;
     // read-write - Clear All Enable Requests
     eCAER CAER : 1;
     // read-write - No Op Enable
     eNOP NOP : 1;
-    uint32_t _reserved_1 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   CERQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1065,7 +1062,7 @@ union CERQ {
 union SERQ {
   
   // Set All Enable Requests
-  enum class eSAER : uint32_t {
+  enum class eSAER : uint8_t {
     // Write 1 to only the ERQ field specified in the SERQ field
     eSET_ERQ = 0,
     // Write 1 to all fields in ERQ
@@ -1073,7 +1070,7 @@ union SERQ {
   };
   
   // No Op Enable
-  enum class eNOP : uint32_t {
+  enum class eNOP : uint8_t {
     // Normal operation
     eNORMAL_OPS = 0,
     // No operation, ignore the other fields in this register
@@ -1083,17 +1080,16 @@ union SERQ {
   // Bit field definition.
   struct {
     // read-write - Set Enable Request
-    uint32_t SERQ : 5;
-    uint32_t _reserved_0 : 1;
+    uint8_t SERQ : 5;
+    uint8_t _reserved_0 : 1;
     // read-write - Set All Enable Requests
     eSAER SAER : 1;
     // read-write - No Op Enable
     eNOP NOP : 1;
-    uint32_t _reserved_1 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SERQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1104,7 +1100,7 @@ union SERQ {
 union CDNE {
   
   // Clears All DONE fields
-  enum class eCADN : uint32_t {
+  enum class eCADN : uint8_t {
     // Writes 0 to only the TCDn_CSR[DONE] field specified in the CDNE field
     eCLEAR_DONE = 0,
     // Writes 0 to all bits in TCDn_CSR[DONE]
@@ -1112,7 +1108,7 @@ union CDNE {
   };
   
   // No Op Enable
-  enum class eNOP : uint32_t {
+  enum class eNOP : uint8_t {
     // Normal operation
     eNORMAL_OPS = 0,
     // No operation; all other fields in this register are ignored.
@@ -1122,17 +1118,16 @@ union CDNE {
   // Bit field definition.
   struct {
     // read-write - Clear DONE field
-    uint32_t CDNE : 5;
-    uint32_t _reserved_0 : 1;
+    uint8_t CDNE : 5;
+    uint8_t _reserved_0 : 1;
     // read-write - Clears All DONE fields
     eCADN CADN : 1;
     // read-write - No Op Enable
     eNOP NOP : 1;
-    uint32_t _reserved_1 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   CDNE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1143,7 +1138,7 @@ union CDNE {
 union SSRT {
   
   // Set All START fields (activates all channels)
-  enum class eSAST : uint32_t {
+  enum class eSAST : uint8_t {
     // Write 1 to only the TCDn_CSR[START] field specified in the SSRT field
     eSET_START = 0,
     // Write 1 to all bits in TCDn_CSR[START]
@@ -1151,7 +1146,7 @@ union SSRT {
   };
   
   // No Op Enable
-  enum class eNOP : uint32_t {
+  enum class eNOP : uint8_t {
     // Normal operation
     eNORMAL_OPS = 0,
     // No operation; all other fields in this register are ignored.
@@ -1161,17 +1156,16 @@ union SSRT {
   // Bit field definition.
   struct {
     // read-write - Set START field
-    uint32_t SSRT : 5;
-    uint32_t _reserved_0 : 1;
+    uint8_t SSRT : 5;
+    uint8_t _reserved_0 : 1;
     // read-write - Set All START fields (activates all channels)
     eSAST SAST : 1;
     // read-write - No Op Enable
     eNOP NOP : 1;
-    uint32_t _reserved_1 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SSRT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1182,7 +1176,7 @@ union SSRT {
 union CERR {
   
   // Clear All Error Indicators
-  enum class eCAEI : uint32_t {
+  enum class eCAEI : uint8_t {
     // Write 0 to only the ERR field specified in the CERR field
     eCLEAR_ERR = 0,
     // Write 0 to all fields in ERR
@@ -1190,7 +1184,7 @@ union CERR {
   };
   
   // No Op Enable
-  enum class eNOP : uint32_t {
+  enum class eNOP : uint8_t {
     // Normal operation
     eNORMAL_OPS = 0,
     // No operation; all other fields in this register are ignored.
@@ -1200,17 +1194,16 @@ union CERR {
   // Bit field definition.
   struct {
     // read-write - Clear Error Indicator
-    uint32_t CERR : 5;
-    uint32_t _reserved_0 : 1;
+    uint8_t CERR : 5;
+    uint8_t _reserved_0 : 1;
     // read-write - Clear All Error Indicators
     eCAEI CAEI : 1;
     // read-write - No Op Enable
     eNOP NOP : 1;
-    uint32_t _reserved_1 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   CERR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1221,7 +1214,7 @@ union CERR {
 union CINT {
   
   // Clear All Interrupt Requests
-  enum class eCAIR : uint32_t {
+  enum class eCAIR : uint8_t {
     // Clear only the INT field specified in the CINT field
     eCLEAR_INT = 0,
     // Clear all bits in INT
@@ -1229,7 +1222,7 @@ union CINT {
   };
   
   // No Op Enable
-  enum class eNOP : uint32_t {
+  enum class eNOP : uint8_t {
     // Normal operation
     eNORMAL_OPS = 0,
     // No operation; all other fields in this register are ignored.
@@ -1239,17 +1232,16 @@ union CINT {
   // Bit field definition.
   struct {
     // read-write - Clear Interrupt Request
-    uint32_t CINT : 5;
-    uint32_t _reserved_0 : 1;
+    uint8_t CINT : 5;
+    uint8_t _reserved_0 : 1;
     // read-write - Clear All Interrupt Requests
     eCAIR CAIR : 1;
     // read-write - No Op Enable
     eNOP NOP : 1;
-    uint32_t _reserved_1 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   CINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2600,7 +2592,7 @@ union EARS {
 union DCHPRI3 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -2608,7 +2600,7 @@ union DCHPRI3 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2618,18 +2610,17 @@ union DCHPRI3 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI3() = delete;
   inline void Reset() volatile { this->value = 0x00000003; }
@@ -2640,7 +2631,7 @@ union DCHPRI3 {
 union DCHPRI2 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -2648,7 +2639,7 @@ union DCHPRI2 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2658,18 +2649,17 @@ union DCHPRI2 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI2() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
@@ -2680,7 +2670,7 @@ union DCHPRI2 {
 union DCHPRI1 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -2688,7 +2678,7 @@ union DCHPRI1 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2698,18 +2688,17 @@ union DCHPRI1 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI1() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
@@ -2720,7 +2709,7 @@ union DCHPRI1 {
 union DCHPRI0 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -2728,7 +2717,7 @@ union DCHPRI0 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2738,18 +2727,17 @@ union DCHPRI0 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2760,7 +2748,7 @@ union DCHPRI0 {
 union DCHPRI7 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -2768,7 +2756,7 @@ union DCHPRI7 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2778,18 +2766,17 @@ union DCHPRI7 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI7() = delete;
   inline void Reset() volatile { this->value = 0x00000007; }
@@ -2800,7 +2787,7 @@ union DCHPRI7 {
 union DCHPRI6 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -2808,7 +2795,7 @@ union DCHPRI6 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2818,18 +2805,17 @@ union DCHPRI6 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI6() = delete;
   inline void Reset() volatile { this->value = 0x00000006; }
@@ -2840,7 +2826,7 @@ union DCHPRI6 {
 union DCHPRI5 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -2848,7 +2834,7 @@ union DCHPRI5 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2858,18 +2844,17 @@ union DCHPRI5 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI5() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
@@ -2880,7 +2865,7 @@ union DCHPRI5 {
 union DCHPRI4 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -2888,7 +2873,7 @@ union DCHPRI4 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2898,18 +2883,17 @@ union DCHPRI4 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI4() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
@@ -2920,7 +2904,7 @@ union DCHPRI4 {
 union DCHPRI11 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -2928,7 +2912,7 @@ union DCHPRI11 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2938,18 +2922,17 @@ union DCHPRI11 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI11() = delete;
   inline void Reset() volatile { this->value = 0x0000000B; }
@@ -2960,7 +2943,7 @@ union DCHPRI11 {
 union DCHPRI10 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -2968,7 +2951,7 @@ union DCHPRI10 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2978,18 +2961,17 @@ union DCHPRI10 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI10() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
@@ -3000,7 +2982,7 @@ union DCHPRI10 {
 union DCHPRI9 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3008,7 +2990,7 @@ union DCHPRI9 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3018,18 +3000,17 @@ union DCHPRI9 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI9() = delete;
   inline void Reset() volatile { this->value = 0x00000009; }
@@ -3040,7 +3021,7 @@ union DCHPRI9 {
 union DCHPRI8 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3048,7 +3029,7 @@ union DCHPRI8 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3058,18 +3039,17 @@ union DCHPRI8 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI8() = delete;
   inline void Reset() volatile { this->value = 0x00000008; }
@@ -3080,7 +3060,7 @@ union DCHPRI8 {
 union DCHPRI15 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3088,7 +3068,7 @@ union DCHPRI15 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3098,18 +3078,17 @@ union DCHPRI15 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI15() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
@@ -3120,7 +3099,7 @@ union DCHPRI15 {
 union DCHPRI14 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3128,7 +3107,7 @@ union DCHPRI14 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3138,18 +3117,17 @@ union DCHPRI14 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI14() = delete;
   inline void Reset() volatile { this->value = 0x0000000E; }
@@ -3160,7 +3138,7 @@ union DCHPRI14 {
 union DCHPRI13 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3168,7 +3146,7 @@ union DCHPRI13 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3178,18 +3156,17 @@ union DCHPRI13 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI13() = delete;
   inline void Reset() volatile { this->value = 0x0000000D; }
@@ -3200,7 +3177,7 @@ union DCHPRI13 {
 union DCHPRI12 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3208,7 +3185,7 @@ union DCHPRI12 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3218,18 +3195,17 @@ union DCHPRI12 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI12() = delete;
   inline void Reset() volatile { this->value = 0x0000000C; }
@@ -3240,7 +3216,7 @@ union DCHPRI12 {
 union DCHPRI19 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3248,7 +3224,7 @@ union DCHPRI19 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3258,18 +3234,17 @@ union DCHPRI19 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI19() = delete;
   inline void Reset() volatile { this->value = 0x00000013; }
@@ -3280,7 +3255,7 @@ union DCHPRI19 {
 union DCHPRI18 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3288,7 +3263,7 @@ union DCHPRI18 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3298,18 +3273,17 @@ union DCHPRI18 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI18() = delete;
   inline void Reset() volatile { this->value = 0x00000012; }
@@ -3320,7 +3294,7 @@ union DCHPRI18 {
 union DCHPRI17 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3328,7 +3302,7 @@ union DCHPRI17 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3338,18 +3312,17 @@ union DCHPRI17 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI17() = delete;
   inline void Reset() volatile { this->value = 0x00000011; }
@@ -3360,7 +3333,7 @@ union DCHPRI17 {
 union DCHPRI16 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3368,7 +3341,7 @@ union DCHPRI16 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3378,18 +3351,17 @@ union DCHPRI16 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI16() = delete;
   inline void Reset() volatile { this->value = 0x00000010; }
@@ -3400,7 +3372,7 @@ union DCHPRI16 {
 union DCHPRI23 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3408,7 +3380,7 @@ union DCHPRI23 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3418,18 +3390,17 @@ union DCHPRI23 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI23() = delete;
   inline void Reset() volatile { this->value = 0x00000017; }
@@ -3440,7 +3411,7 @@ union DCHPRI23 {
 union DCHPRI22 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3448,7 +3419,7 @@ union DCHPRI22 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3458,18 +3429,17 @@ union DCHPRI22 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI22() = delete;
   inline void Reset() volatile { this->value = 0x00000016; }
@@ -3480,7 +3450,7 @@ union DCHPRI22 {
 union DCHPRI21 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3488,7 +3458,7 @@ union DCHPRI21 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3498,18 +3468,17 @@ union DCHPRI21 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI21() = delete;
   inline void Reset() volatile { this->value = 0x00000015; }
@@ -3520,7 +3489,7 @@ union DCHPRI21 {
 union DCHPRI20 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3528,7 +3497,7 @@ union DCHPRI20 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3538,18 +3507,17 @@ union DCHPRI20 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI20() = delete;
   inline void Reset() volatile { this->value = 0x00000014; }
@@ -3560,7 +3528,7 @@ union DCHPRI20 {
 union DCHPRI27 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3568,7 +3536,7 @@ union DCHPRI27 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3578,18 +3546,17 @@ union DCHPRI27 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI27() = delete;
   inline void Reset() volatile { this->value = 0x0000001B; }
@@ -3600,7 +3567,7 @@ union DCHPRI27 {
 union DCHPRI26 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3608,7 +3575,7 @@ union DCHPRI26 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3618,18 +3585,17 @@ union DCHPRI26 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI26() = delete;
   inline void Reset() volatile { this->value = 0x0000001A; }
@@ -3640,7 +3606,7 @@ union DCHPRI26 {
 union DCHPRI25 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3648,7 +3614,7 @@ union DCHPRI25 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3658,18 +3624,17 @@ union DCHPRI25 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI25() = delete;
   inline void Reset() volatile { this->value = 0x00000019; }
@@ -3680,7 +3645,7 @@ union DCHPRI25 {
 union DCHPRI24 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3688,7 +3653,7 @@ union DCHPRI24 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3698,18 +3663,17 @@ union DCHPRI24 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI24() = delete;
   inline void Reset() volatile { this->value = 0x00000018; }
@@ -3720,7 +3684,7 @@ union DCHPRI24 {
 union DCHPRI31 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3728,7 +3692,7 @@ union DCHPRI31 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3738,18 +3702,17 @@ union DCHPRI31 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI31() = delete;
   inline void Reset() volatile { this->value = 0x0000001F; }
@@ -3760,7 +3723,7 @@ union DCHPRI31 {
 union DCHPRI30 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3768,7 +3731,7 @@ union DCHPRI30 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3778,18 +3741,17 @@ union DCHPRI30 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI30() = delete;
   inline void Reset() volatile { this->value = 0x0000001E; }
@@ -3800,7 +3762,7 @@ union DCHPRI30 {
 union DCHPRI29 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3808,7 +3770,7 @@ union DCHPRI29 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3818,18 +3780,17 @@ union DCHPRI29 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI29() = delete;
   inline void Reset() volatile { this->value = 0x0000001D; }
@@ -3840,7 +3801,7 @@ union DCHPRI29 {
 union DCHPRI28 {
   
   // Disable Preempt Ability. This field resets to 0.
-  enum class eDPA : uint32_t {
+  enum class eDPA : uint8_t {
     // Channel n can suspend a lower priority channel
     eENABLED = 0,
     // Channel n cannot suspend any channel, regardless of channel priority
@@ -3848,7 +3809,7 @@ union DCHPRI28 {
   };
   
   // Enable Channel Preemption. This field resets to 0.
-  enum class eECP : uint32_t {
+  enum class eECP : uint8_t {
     // Channel n cannot be suspended by a higher priority channel's service request
     eDISABLED = 0,
     // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -3858,18 +3819,17 @@ union DCHPRI28 {
   // Bit field definition.
   struct {
     // read-write - Channel n Arbitration Priority
-    uint32_t CHPRI : 4;
+    uint8_t CHPRI : 4;
     // read-only - Channel n Current Group Priority
-    uint32_t GRPPRI : 2;
+    uint8_t GRPPRI : 2;
     // read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
     // read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
-    uint32_t _reserved_0 : 24;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   DCHPRI28() = delete;
   inline void Reset() volatile { this->value = 0x0000001C; }

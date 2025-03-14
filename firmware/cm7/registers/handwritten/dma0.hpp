@@ -1,9 +1,6 @@
 #include "registers/codegen/dma0.hpp"
 
 
-// #define DMA0_SERQ (*(volatile uint8_t*)(DMA0_BASE + 0x1B)) // 8-bit register
-// #define DMA0_SSRT (*(volatile uint8_t*)(DMA0_BASE + 0x1D)) // 8-bit register
-
 // TODO rename?
 static constexpr uint32_t k_dma0_base = 0x40070000;
 

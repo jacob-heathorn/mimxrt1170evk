@@ -14,7 +14,7 @@ namespace nEWM {
 union CTRL {
   
   // EWM enable.
-  enum class eEWMEN : uint32_t {
+  enum class eEWMEN : uint8_t {
     // EWM module is disabled.
     eDISABLE = 0,
     // EWM module is enabled.
@@ -22,7 +22,7 @@ union CTRL {
   };
   
   // EWM_in's Assertion State Select.
-  enum class eASSIN : uint32_t {
+  enum class eASSIN : uint8_t {
     // Default assert state of the EWM_in signal.
     eDISABLE = 0,
     // Inverts the assert state of EWM_in signal.
@@ -30,7 +30,7 @@ union CTRL {
   };
   
   // Input Enable.
-  enum class eINEN : uint32_t {
+  enum class eINEN : uint8_t {
     // EWM_in port is disabled.
     eDISABLE = 0,
     // EWM_in port is enabled.
@@ -38,7 +38,7 @@ union CTRL {
   };
   
   // Interrupt Enable.
-  enum class eINTEN : uint32_t {
+  enum class eINTEN : uint8_t {
     // Deasserts the interrupt request.
     eZERO = 0,
     // Generates an interrupt request, when EWM_OUT_b is asserted.
@@ -55,11 +55,11 @@ union CTRL {
     eINEN INEN : 1;
     // read-write - Interrupt Enable.
     eINTEN INTEN : 1;
-    uint32_t _reserved_0 : 28;
+    uint8_t _reserved_0 : 4;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -72,12 +72,11 @@ union SERV {
   // Bit field definition.
   struct {
     // read-write - SERVICE
-    uint32_t SERVICE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t SERVICE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SERV() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -90,12 +89,11 @@ union CMPL {
   // Bit field definition.
   struct {
     // read-writeOnce - COMPAREL
-    uint32_t COMPAREL : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t COMPAREL : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   CMPL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -108,12 +106,11 @@ union CMPH {
   // Bit field definition.
   struct {
     // read-writeOnce - COMPAREH
-    uint32_t COMPAREH : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t COMPAREH : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   CMPH() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
@@ -126,12 +123,12 @@ union CLKCTRL {
   // Bit field definition.
   struct {
     // read-writeOnce - CLKSEL
-    uint32_t CLKSEL : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t CLKSEL : 2;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   CLKCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -144,12 +141,11 @@ union CLKPRESCALER {
   // Bit field definition.
   struct {
     // read-writeOnce - CLK_DIV
-    uint32_t CLK_DIV : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t CLK_DIV : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   CLKPRESCALER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }

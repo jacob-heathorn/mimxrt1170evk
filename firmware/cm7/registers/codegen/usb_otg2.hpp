@@ -372,12 +372,11 @@ union CAPLENGTH {
   // Bit field definition.
   struct {
     // read-only - CAPLENGTH
-    uint32_t CAPLENGTH : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t CAPLENGTH : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   CAPLENGTH() = delete;
   inline void Reset() volatile { this->value = 0x00000040; }
@@ -390,12 +389,11 @@ union HCIVERSION {
   // Bit field definition.
   struct {
     // read-only - HCIVERSION
-    uint32_t HCIVERSION : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t HCIVERSION : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   HCIVERSION() = delete;
   inline void Reset() volatile { this->value = 0x00000100; }
@@ -475,12 +473,11 @@ union DCIVERSION {
   // Bit field definition.
   struct {
     // read-only - DCIVERSION
-    uint32_t DCIVERSION : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t DCIVERSION : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   DCIVERSION() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }

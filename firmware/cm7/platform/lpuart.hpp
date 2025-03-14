@@ -22,8 +22,8 @@
 // #define DMA0_TCD0_CSR  (*(volatile uint16_t*)(DMA0_BASE + 0x101C))
 // #define DMA0_TCD0_DOFF (*(volatile uint16_t*)(DMA0_BASE + 0x1014))
 // #define DMA0_TCD0_SOFF (*(volatile int16_t*)(DMA0_BASE + 0x1004))
-#define DMA0_SERQ (*(volatile uint8_t*)(DMA0_BASE + 0x1B)) // 8-bit register
-#define DMA0_SSRT (*(volatile uint8_t*)(DMA0_BASE + 0x1D)) // 8-bit register
+// #define DMA0_SERQ (*(volatile uint8_t*)(DMA0_BASE + 0x1B)) // 8-bit register
+// #define DMA0_SSRT (*(volatile uint8_t*)(DMA0_BASE + 0x1D)) // 8-bit register
 #define DMA0_LPUART1_TX_CHANNEL 0 // eDMA Channel for LPUART1 TX
 
 class Lpuart1
@@ -152,7 +152,8 @@ public:
         
         // Disable DMA requests
         nDMA0::ERQ::ref().bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;
-        
+                // // 7. Start DMA Transfer
+        // nDMA0::SSRT::ref().bits.SSRT = 1; // Trigger DMA
         // Clear DONE and any pending status
         csr.bits.DONE = 1;
         
@@ -176,7 +177,7 @@ public:
 
         // 5. Enable DMA Channel
         nDMA0::ERQ::ref().bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
-        DMA0_SERQ = 0;  // Clear any pending requests
+        nDMA0::SERQ::ref().Reset(); // Clear any pending requests
 
         // 6. Enable UART Transmitter and DMA
         auto &ctrl = nLPUART1::CTRL::ref();
@@ -185,7 +186,7 @@ public:
         baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eENABLED;  // Enable DMA trigger
 
         // // 7. Start DMA Transfer
-        // DMA0_SSRT = 0;  // Trigger DMA
+        // nDMA0::SSRT::ref().bits.SSRT = 1; // Trigger DMA
     }
 
     int read(uint8_t *buffer, size_t max_length)

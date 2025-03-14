@@ -14,7 +14,7 @@ namespace nRDC_SEMAPHORE2 {
 union RDC_SEMAPHORE2_GATE0 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -50,7 +50,7 @@ union RDC_SEMAPHORE2_GATE0 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -63,11 +63,11 @@ union RDC_SEMAPHORE2_GATE0 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -77,7 +77,7 @@ union RDC_SEMAPHORE2_GATE0 {
 union RDC_SEMAPHORE2_GATE1 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -113,7 +113,7 @@ union RDC_SEMAPHORE2_GATE1 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -126,11 +126,11 @@ union RDC_SEMAPHORE2_GATE1 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -140,7 +140,7 @@ union RDC_SEMAPHORE2_GATE1 {
 union RDC_SEMAPHORE2_GATE2 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -176,7 +176,7 @@ union RDC_SEMAPHORE2_GATE2 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -189,11 +189,11 @@ union RDC_SEMAPHORE2_GATE2 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -203,7 +203,7 @@ union RDC_SEMAPHORE2_GATE2 {
 union RDC_SEMAPHORE2_GATE3 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -239,7 +239,7 @@ union RDC_SEMAPHORE2_GATE3 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -252,11 +252,11 @@ union RDC_SEMAPHORE2_GATE3 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -266,7 +266,7 @@ union RDC_SEMAPHORE2_GATE3 {
 union RDC_SEMAPHORE2_GATE4 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -302,7 +302,7 @@ union RDC_SEMAPHORE2_GATE4 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -315,11 +315,11 @@ union RDC_SEMAPHORE2_GATE4 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -329,7 +329,7 @@ union RDC_SEMAPHORE2_GATE4 {
 union RDC_SEMAPHORE2_GATE5 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -365,7 +365,7 @@ union RDC_SEMAPHORE2_GATE5 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -378,11 +378,11 @@ union RDC_SEMAPHORE2_GATE5 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -392,7 +392,7 @@ union RDC_SEMAPHORE2_GATE5 {
 union RDC_SEMAPHORE2_GATE6 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -428,7 +428,7 @@ union RDC_SEMAPHORE2_GATE6 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -441,11 +441,11 @@ union RDC_SEMAPHORE2_GATE6 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -455,7 +455,7 @@ union RDC_SEMAPHORE2_GATE6 {
 union RDC_SEMAPHORE2_GATE7 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -491,7 +491,7 @@ union RDC_SEMAPHORE2_GATE7 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -504,11 +504,11 @@ union RDC_SEMAPHORE2_GATE7 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -518,7 +518,7 @@ union RDC_SEMAPHORE2_GATE7 {
 union RDC_SEMAPHORE2_GATE8 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -554,7 +554,7 @@ union RDC_SEMAPHORE2_GATE8 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -567,11 +567,11 @@ union RDC_SEMAPHORE2_GATE8 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -581,7 +581,7 @@ union RDC_SEMAPHORE2_GATE8 {
 union RDC_SEMAPHORE2_GATE9 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -617,7 +617,7 @@ union RDC_SEMAPHORE2_GATE9 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -630,11 +630,11 @@ union RDC_SEMAPHORE2_GATE9 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -644,7 +644,7 @@ union RDC_SEMAPHORE2_GATE9 {
 union RDC_SEMAPHORE2_GATE10 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -680,7 +680,7 @@ union RDC_SEMAPHORE2_GATE10 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -693,11 +693,11 @@ union RDC_SEMAPHORE2_GATE10 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -707,7 +707,7 @@ union RDC_SEMAPHORE2_GATE10 {
 union RDC_SEMAPHORE2_GATE11 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -743,7 +743,7 @@ union RDC_SEMAPHORE2_GATE11 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -756,11 +756,11 @@ union RDC_SEMAPHORE2_GATE11 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -770,7 +770,7 @@ union RDC_SEMAPHORE2_GATE11 {
 union RDC_SEMAPHORE2_GATE12 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -806,7 +806,7 @@ union RDC_SEMAPHORE2_GATE12 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -819,11 +819,11 @@ union RDC_SEMAPHORE2_GATE12 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -833,7 +833,7 @@ union RDC_SEMAPHORE2_GATE12 {
 union RDC_SEMAPHORE2_GATE13 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -869,7 +869,7 @@ union RDC_SEMAPHORE2_GATE13 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -882,11 +882,11 @@ union RDC_SEMAPHORE2_GATE13 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -896,7 +896,7 @@ union RDC_SEMAPHORE2_GATE13 {
 union RDC_SEMAPHORE2_GATE14 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -932,7 +932,7 @@ union RDC_SEMAPHORE2_GATE14 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -945,11 +945,11 @@ union RDC_SEMAPHORE2_GATE14 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -959,7 +959,7 @@ union RDC_SEMAPHORE2_GATE14 {
 union RDC_SEMAPHORE2_GATE15 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -995,7 +995,7 @@ union RDC_SEMAPHORE2_GATE15 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1008,11 +1008,11 @@ union RDC_SEMAPHORE2_GATE15 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1022,7 +1022,7 @@ union RDC_SEMAPHORE2_GATE15 {
 union RDC_SEMAPHORE2_GATE16 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1058,7 +1058,7 @@ union RDC_SEMAPHORE2_GATE16 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1071,11 +1071,11 @@ union RDC_SEMAPHORE2_GATE16 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1085,7 +1085,7 @@ union RDC_SEMAPHORE2_GATE16 {
 union RDC_SEMAPHORE2_GATE17 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1121,7 +1121,7 @@ union RDC_SEMAPHORE2_GATE17 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1134,11 +1134,11 @@ union RDC_SEMAPHORE2_GATE17 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1148,7 +1148,7 @@ union RDC_SEMAPHORE2_GATE17 {
 union RDC_SEMAPHORE2_GATE18 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1184,7 +1184,7 @@ union RDC_SEMAPHORE2_GATE18 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1197,11 +1197,11 @@ union RDC_SEMAPHORE2_GATE18 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1211,7 +1211,7 @@ union RDC_SEMAPHORE2_GATE18 {
 union RDC_SEMAPHORE2_GATE19 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1247,7 +1247,7 @@ union RDC_SEMAPHORE2_GATE19 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1260,11 +1260,11 @@ union RDC_SEMAPHORE2_GATE19 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1274,7 +1274,7 @@ union RDC_SEMAPHORE2_GATE19 {
 union RDC_SEMAPHORE2_GATE20 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1310,7 +1310,7 @@ union RDC_SEMAPHORE2_GATE20 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1323,11 +1323,11 @@ union RDC_SEMAPHORE2_GATE20 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1337,7 +1337,7 @@ union RDC_SEMAPHORE2_GATE20 {
 union RDC_SEMAPHORE2_GATE21 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1373,7 +1373,7 @@ union RDC_SEMAPHORE2_GATE21 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1386,11 +1386,11 @@ union RDC_SEMAPHORE2_GATE21 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1400,7 +1400,7 @@ union RDC_SEMAPHORE2_GATE21 {
 union RDC_SEMAPHORE2_GATE22 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1436,7 +1436,7 @@ union RDC_SEMAPHORE2_GATE22 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1449,11 +1449,11 @@ union RDC_SEMAPHORE2_GATE22 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1463,7 +1463,7 @@ union RDC_SEMAPHORE2_GATE22 {
 union RDC_SEMAPHORE2_GATE23 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1499,7 +1499,7 @@ union RDC_SEMAPHORE2_GATE23 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1512,11 +1512,11 @@ union RDC_SEMAPHORE2_GATE23 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1526,7 +1526,7 @@ union RDC_SEMAPHORE2_GATE23 {
 union RDC_SEMAPHORE2_GATE24 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1562,7 +1562,7 @@ union RDC_SEMAPHORE2_GATE24 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1575,11 +1575,11 @@ union RDC_SEMAPHORE2_GATE24 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1589,7 +1589,7 @@ union RDC_SEMAPHORE2_GATE24 {
 union RDC_SEMAPHORE2_GATE25 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1625,7 +1625,7 @@ union RDC_SEMAPHORE2_GATE25 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1638,11 +1638,11 @@ union RDC_SEMAPHORE2_GATE25 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1652,7 +1652,7 @@ union RDC_SEMAPHORE2_GATE25 {
 union RDC_SEMAPHORE2_GATE26 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1688,7 +1688,7 @@ union RDC_SEMAPHORE2_GATE26 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1701,11 +1701,11 @@ union RDC_SEMAPHORE2_GATE26 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1715,7 +1715,7 @@ union RDC_SEMAPHORE2_GATE26 {
 union RDC_SEMAPHORE2_GATE27 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1751,7 +1751,7 @@ union RDC_SEMAPHORE2_GATE27 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1764,11 +1764,11 @@ union RDC_SEMAPHORE2_GATE27 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1778,7 +1778,7 @@ union RDC_SEMAPHORE2_GATE27 {
 union RDC_SEMAPHORE2_GATE28 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1814,7 +1814,7 @@ union RDC_SEMAPHORE2_GATE28 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1827,11 +1827,11 @@ union RDC_SEMAPHORE2_GATE28 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1841,7 +1841,7 @@ union RDC_SEMAPHORE2_GATE28 {
 union RDC_SEMAPHORE2_GATE29 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1877,7 +1877,7 @@ union RDC_SEMAPHORE2_GATE29 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1890,11 +1890,11 @@ union RDC_SEMAPHORE2_GATE29 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1904,7 +1904,7 @@ union RDC_SEMAPHORE2_GATE29 {
 union RDC_SEMAPHORE2_GATE30 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -1940,7 +1940,7 @@ union RDC_SEMAPHORE2_GATE30 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -1953,11 +1953,11 @@ union RDC_SEMAPHORE2_GATE30 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1967,7 +1967,7 @@ union RDC_SEMAPHORE2_GATE30 {
 union RDC_SEMAPHORE2_GATE31 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2003,7 +2003,7 @@ union RDC_SEMAPHORE2_GATE31 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2016,11 +2016,11 @@ union RDC_SEMAPHORE2_GATE31 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2030,7 +2030,7 @@ union RDC_SEMAPHORE2_GATE31 {
 union RDC_SEMAPHORE2_GATE32 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2066,7 +2066,7 @@ union RDC_SEMAPHORE2_GATE32 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2079,11 +2079,11 @@ union RDC_SEMAPHORE2_GATE32 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2093,7 +2093,7 @@ union RDC_SEMAPHORE2_GATE32 {
 union RDC_SEMAPHORE2_GATE33 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2129,7 +2129,7 @@ union RDC_SEMAPHORE2_GATE33 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2142,11 +2142,11 @@ union RDC_SEMAPHORE2_GATE33 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2156,7 +2156,7 @@ union RDC_SEMAPHORE2_GATE33 {
 union RDC_SEMAPHORE2_GATE34 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2192,7 +2192,7 @@ union RDC_SEMAPHORE2_GATE34 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2205,11 +2205,11 @@ union RDC_SEMAPHORE2_GATE34 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2219,7 +2219,7 @@ union RDC_SEMAPHORE2_GATE34 {
 union RDC_SEMAPHORE2_GATE35 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2255,7 +2255,7 @@ union RDC_SEMAPHORE2_GATE35 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2268,11 +2268,11 @@ union RDC_SEMAPHORE2_GATE35 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2282,7 +2282,7 @@ union RDC_SEMAPHORE2_GATE35 {
 union RDC_SEMAPHORE2_GATE36 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2318,7 +2318,7 @@ union RDC_SEMAPHORE2_GATE36 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2331,11 +2331,11 @@ union RDC_SEMAPHORE2_GATE36 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2345,7 +2345,7 @@ union RDC_SEMAPHORE2_GATE36 {
 union RDC_SEMAPHORE2_GATE37 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2381,7 +2381,7 @@ union RDC_SEMAPHORE2_GATE37 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2394,11 +2394,11 @@ union RDC_SEMAPHORE2_GATE37 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2408,7 +2408,7 @@ union RDC_SEMAPHORE2_GATE37 {
 union RDC_SEMAPHORE2_GATE38 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2444,7 +2444,7 @@ union RDC_SEMAPHORE2_GATE38 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2457,11 +2457,11 @@ union RDC_SEMAPHORE2_GATE38 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2471,7 +2471,7 @@ union RDC_SEMAPHORE2_GATE38 {
 union RDC_SEMAPHORE2_GATE39 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2507,7 +2507,7 @@ union RDC_SEMAPHORE2_GATE39 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2520,11 +2520,11 @@ union RDC_SEMAPHORE2_GATE39 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2534,7 +2534,7 @@ union RDC_SEMAPHORE2_GATE39 {
 union RDC_SEMAPHORE2_GATE40 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2570,7 +2570,7 @@ union RDC_SEMAPHORE2_GATE40 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2583,11 +2583,11 @@ union RDC_SEMAPHORE2_GATE40 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2597,7 +2597,7 @@ union RDC_SEMAPHORE2_GATE40 {
 union RDC_SEMAPHORE2_GATE41 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2633,7 +2633,7 @@ union RDC_SEMAPHORE2_GATE41 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2646,11 +2646,11 @@ union RDC_SEMAPHORE2_GATE41 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2660,7 +2660,7 @@ union RDC_SEMAPHORE2_GATE41 {
 union RDC_SEMAPHORE2_GATE42 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2696,7 +2696,7 @@ union RDC_SEMAPHORE2_GATE42 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2709,11 +2709,11 @@ union RDC_SEMAPHORE2_GATE42 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2723,7 +2723,7 @@ union RDC_SEMAPHORE2_GATE42 {
 union RDC_SEMAPHORE2_GATE43 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2759,7 +2759,7 @@ union RDC_SEMAPHORE2_GATE43 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2772,11 +2772,11 @@ union RDC_SEMAPHORE2_GATE43 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2786,7 +2786,7 @@ union RDC_SEMAPHORE2_GATE43 {
 union RDC_SEMAPHORE2_GATE44 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2822,7 +2822,7 @@ union RDC_SEMAPHORE2_GATE44 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2835,11 +2835,11 @@ union RDC_SEMAPHORE2_GATE44 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2849,7 +2849,7 @@ union RDC_SEMAPHORE2_GATE44 {
 union RDC_SEMAPHORE2_GATE45 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2885,7 +2885,7 @@ union RDC_SEMAPHORE2_GATE45 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2898,11 +2898,11 @@ union RDC_SEMAPHORE2_GATE45 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2912,7 +2912,7 @@ union RDC_SEMAPHORE2_GATE45 {
 union RDC_SEMAPHORE2_GATE46 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -2948,7 +2948,7 @@ union RDC_SEMAPHORE2_GATE46 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -2961,11 +2961,11 @@ union RDC_SEMAPHORE2_GATE46 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2975,7 +2975,7 @@ union RDC_SEMAPHORE2_GATE46 {
 union RDC_SEMAPHORE2_GATE47 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3011,7 +3011,7 @@ union RDC_SEMAPHORE2_GATE47 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3024,11 +3024,11 @@ union RDC_SEMAPHORE2_GATE47 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3038,7 +3038,7 @@ union RDC_SEMAPHORE2_GATE47 {
 union RDC_SEMAPHORE2_GATE48 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3074,7 +3074,7 @@ union RDC_SEMAPHORE2_GATE48 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3087,11 +3087,11 @@ union RDC_SEMAPHORE2_GATE48 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3101,7 +3101,7 @@ union RDC_SEMAPHORE2_GATE48 {
 union RDC_SEMAPHORE2_GATE49 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3137,7 +3137,7 @@ union RDC_SEMAPHORE2_GATE49 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3150,11 +3150,11 @@ union RDC_SEMAPHORE2_GATE49 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3164,7 +3164,7 @@ union RDC_SEMAPHORE2_GATE49 {
 union RDC_SEMAPHORE2_GATE50 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3200,7 +3200,7 @@ union RDC_SEMAPHORE2_GATE50 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3213,11 +3213,11 @@ union RDC_SEMAPHORE2_GATE50 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3227,7 +3227,7 @@ union RDC_SEMAPHORE2_GATE50 {
 union RDC_SEMAPHORE2_GATE51 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3263,7 +3263,7 @@ union RDC_SEMAPHORE2_GATE51 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3276,11 +3276,11 @@ union RDC_SEMAPHORE2_GATE51 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3290,7 +3290,7 @@ union RDC_SEMAPHORE2_GATE51 {
 union RDC_SEMAPHORE2_GATE52 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3326,7 +3326,7 @@ union RDC_SEMAPHORE2_GATE52 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3339,11 +3339,11 @@ union RDC_SEMAPHORE2_GATE52 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3353,7 +3353,7 @@ union RDC_SEMAPHORE2_GATE52 {
 union RDC_SEMAPHORE2_GATE53 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3389,7 +3389,7 @@ union RDC_SEMAPHORE2_GATE53 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3402,11 +3402,11 @@ union RDC_SEMAPHORE2_GATE53 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3416,7 +3416,7 @@ union RDC_SEMAPHORE2_GATE53 {
 union RDC_SEMAPHORE2_GATE54 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3452,7 +3452,7 @@ union RDC_SEMAPHORE2_GATE54 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3465,11 +3465,11 @@ union RDC_SEMAPHORE2_GATE54 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3479,7 +3479,7 @@ union RDC_SEMAPHORE2_GATE54 {
 union RDC_SEMAPHORE2_GATE55 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3515,7 +3515,7 @@ union RDC_SEMAPHORE2_GATE55 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3528,11 +3528,11 @@ union RDC_SEMAPHORE2_GATE55 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3542,7 +3542,7 @@ union RDC_SEMAPHORE2_GATE55 {
 union RDC_SEMAPHORE2_GATE56 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3578,7 +3578,7 @@ union RDC_SEMAPHORE2_GATE56 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3591,11 +3591,11 @@ union RDC_SEMAPHORE2_GATE56 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3605,7 +3605,7 @@ union RDC_SEMAPHORE2_GATE56 {
 union RDC_SEMAPHORE2_GATE57 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3641,7 +3641,7 @@ union RDC_SEMAPHORE2_GATE57 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3654,11 +3654,11 @@ union RDC_SEMAPHORE2_GATE57 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3668,7 +3668,7 @@ union RDC_SEMAPHORE2_GATE57 {
 union RDC_SEMAPHORE2_GATE58 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3704,7 +3704,7 @@ union RDC_SEMAPHORE2_GATE58 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3717,11 +3717,11 @@ union RDC_SEMAPHORE2_GATE58 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3731,7 +3731,7 @@ union RDC_SEMAPHORE2_GATE58 {
 union RDC_SEMAPHORE2_GATE59 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3767,7 +3767,7 @@ union RDC_SEMAPHORE2_GATE59 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3780,11 +3780,11 @@ union RDC_SEMAPHORE2_GATE59 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3794,7 +3794,7 @@ union RDC_SEMAPHORE2_GATE59 {
 union RDC_SEMAPHORE2_GATE60 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3830,7 +3830,7 @@ union RDC_SEMAPHORE2_GATE60 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3843,11 +3843,11 @@ union RDC_SEMAPHORE2_GATE60 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3857,7 +3857,7 @@ union RDC_SEMAPHORE2_GATE60 {
 union RDC_SEMAPHORE2_GATE61 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3893,7 +3893,7 @@ union RDC_SEMAPHORE2_GATE61 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3906,11 +3906,11 @@ union RDC_SEMAPHORE2_GATE61 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3920,7 +3920,7 @@ union RDC_SEMAPHORE2_GATE61 {
 union RDC_SEMAPHORE2_GATE62 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -3956,7 +3956,7 @@ union RDC_SEMAPHORE2_GATE62 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -3969,11 +3969,11 @@ union RDC_SEMAPHORE2_GATE62 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3983,7 +3983,7 @@ union RDC_SEMAPHORE2_GATE62 {
 union RDC_SEMAPHORE2_GATE63 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor with master_index = 0.
@@ -4019,7 +4019,7 @@ union RDC_SEMAPHORE2_GATE63 {
   };
   
   // Read-only bits. They indicate which domain had currently locked the gate.
-  enum class eLDOM : uint32_t {
+  enum class eLDOM : uint8_t {
     // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_0 = 0,
     // The gate has been locked by domain 1.
@@ -4032,11 +4032,11 @@ union RDC_SEMAPHORE2_GATE63 {
     eGTFSM GTFSM : 4;
     // read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
-    uint32_t _reserved_0 : 26;
+    uint8_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   RDC_SEMAPHORE2_GATE63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4047,7 +4047,7 @@ union RDC_SEMAPHORE2_GATE63 {
 union RDC_SEMAPHORE2_RSTGT_R {
   
   // Reset Gate Finite State Machine
-  enum class eRSTGSM : uint32_t {
+  enum class eRSTGSM : uint16_t {
     // Idle, waiting for the first data pattern write.
     eRSTGSM_0 = 0,
     // Waiting for the second data pattern write.
@@ -4061,17 +4061,16 @@ union RDC_SEMAPHORE2_RSTGT_R {
   // Bit field definition.
   struct {
     // read-only - Reset Gate Bus Master
-    uint32_t RSTGMS : 4;
+    uint16_t RSTGMS : 4;
     // read-only - Reset Gate Finite State Machine
     eRSTGSM RSTGSM : 2;
-    uint32_t _reserved_0 : 2;
+    uint16_t _reserved_0 : 2;
     // read-write - Reset Gate Number
-    uint32_t RSTGTN : 8;
-    uint32_t _reserved_1 : 16;
+    uint16_t RSTGTN : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   RDC_SEMAPHORE2_RSTGT_R() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4084,14 +4083,13 @@ union RDC_SEMAPHORE2_RSTGT_W {
   // Bit field definition.
   struct {
     // read-write - Reset Gate Data Pattern
-    uint32_t RSTGDP : 8;
+    uint16_t RSTGDP : 8;
     // read-write - Reset Gate Number
-    uint32_t RSTGTN : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t RSTGTN : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   RDC_SEMAPHORE2_RSTGT_W() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }

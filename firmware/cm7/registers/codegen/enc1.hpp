@@ -14,7 +14,7 @@ namespace nENC1 {
 union CTRL {
   
   // Compare Interrupt Enable
-  enum class eCMPIE : uint32_t {
+  enum class eCMPIE : uint16_t {
     // Disabled
     eCMPIE_0 = 0,
     // Enabled
@@ -22,7 +22,7 @@ union CTRL {
   };
   
   // Compare Interrupt Request
-  enum class eCMPIRQ : uint32_t {
+  enum class eCMPIRQ : uint16_t {
     // No match has occurred (the counter does not match the COMP value)
     eCMPIRQ_0 = 0,
     // COMP match has occurred (the counter matches the COMP value)
@@ -30,7 +30,7 @@ union CTRL {
   };
   
   // Watchdog Enable
-  enum class eWDE : uint32_t {
+  enum class eWDE : uint16_t {
     // Disabled
     eWDE_0 = 0,
     // Enabled
@@ -38,7 +38,7 @@ union CTRL {
   };
   
   // Watchdog Timeout Interrupt Enable
-  enum class eDIE : uint32_t {
+  enum class eDIE : uint16_t {
     // Disabled
     eDIE_0 = 0,
     // Enabled
@@ -46,7 +46,7 @@ union CTRL {
   };
   
   // Watchdog Timeout Interrupt Request
-  enum class eDIRQ : uint32_t {
+  enum class eDIRQ : uint16_t {
     // No Watchdog timeout interrupt has occurred
     eDIRQ_0 = 0,
     // Watchdog timeout interrupt has occurred
@@ -54,7 +54,7 @@ union CTRL {
   };
   
   // Use Negative Edge of INDEX Pulse
-  enum class eXNE : uint32_t {
+  enum class eXNE : uint16_t {
     // Use positive edge of INDEX pulse
     eXNE_0 = 0,
     // Use negative edge of INDEX pulse
@@ -62,7 +62,7 @@ union CTRL {
   };
   
   // INDEX Triggered Initialization of Position Counters UPOS and LPOS
-  enum class eXIP : uint32_t {
+  enum class eXIP : uint16_t {
     // INDEX pulse does not initialize the position counter
     eXIP_0 = 0,
     // INDEX pulse initializes the position counter
@@ -70,7 +70,7 @@ union CTRL {
   };
   
   // INDEX Pulse Interrupt Enable
-  enum class eXIE : uint32_t {
+  enum class eXIE : uint16_t {
     // Disabled
     eXIE_0 = 0,
     // Enabled
@@ -78,7 +78,7 @@ union CTRL {
   };
   
   // INDEX Pulse Interrupt Request
-  enum class eXIRQ : uint32_t {
+  enum class eXIRQ : uint16_t {
     // INDEX pulse has not occurred
     eXIRQ_0 = 0,
     // INDEX pulse has occurred
@@ -86,7 +86,7 @@ union CTRL {
   };
   
   // Enable Signal Phase Count Mode
-  enum class ePH1 : uint32_t {
+  enum class ePH1 : uint16_t {
     // Use the standard quadrature decoder, where PHASEA and PHASEB represent a two-phase quadrature signal.
     ePH1_0 = 0,
     // Bypass the quadrature decoder. A positive transition of the PHASEA input generates a count signal. The PHASEB input and the REV bit control the counter direction: If CTRL[REV] = 0, PHASEB = 0, then count up If CTRL[REV] = 1, PHASEB = 1, then count up If CTRL[REV] = 0, PHASEB = 1, then count down If CTRL[REV] = 1, PHASEB = 0, then count down
@@ -94,7 +94,7 @@ union CTRL {
   };
   
   // Enable Reverse Direction Counting
-  enum class eREV : uint32_t {
+  enum class eREV : uint16_t {
     // Count normally
     eREV_0 = 0,
     // Count in the reverse direction
@@ -102,7 +102,7 @@ union CTRL {
   };
   
   // Software-Triggered Initialization of Position Counters UPOS and LPOS
-  enum class eSWIP : uint32_t {
+  enum class eSWIP : uint16_t {
     // No action
     eSWIP_0 = 0,
     // Initialize position counter (using upper and lower initialization registers, UINIT and LINIT)
@@ -110,7 +110,7 @@ union CTRL {
   };
   
   // Use Negative Edge of HOME Input
-  enum class eHNE : uint32_t {
+  enum class eHNE : uint16_t {
     // Use positive-going edge-to-trigger initialization of position counters UPOS and LPOS
     eHNE_0 = 0,
     // Use negative-going edge-to-trigger initialization of position counters UPOS and LPOS
@@ -118,7 +118,7 @@ union CTRL {
   };
   
   // Enable HOME to Initialize Position Counters UPOS and LPOS
-  enum class eHIP : uint32_t {
+  enum class eHIP : uint16_t {
     // No action
     eHIP_0 = 0,
     // HOME signal initializes the position counter
@@ -126,7 +126,7 @@ union CTRL {
   };
   
   // HOME Interrupt Enable
-  enum class eHIE : uint32_t {
+  enum class eHIE : uint16_t {
     // Disabled
     eHIE_0 = 0,
     // Enabled
@@ -134,7 +134,7 @@ union CTRL {
   };
   
   // HOME Signal Transition Interrupt Request
-  enum class eHIRQ : uint32_t {
+  enum class eHIRQ : uint16_t {
     // No transition on the HOME signal has occurred
     eHIRQ_0 = 0,
     // A transition on the HOME signal has occurred
@@ -175,11 +175,10 @@ union CTRL {
     eHIE HIE : 1;
     // read-write - HOME Signal Transition Interrupt Request
     eHIRQ HIRQ : 1;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -192,14 +191,14 @@ union FILT {
   // Bit field definition.
   struct {
     // read-write - Input Filter Sample Period
-    uint32_t FILT_PER : 8;
+    uint16_t FILT_PER : 8;
     // read-write - Input Filter Sample Count
-    uint32_t FILT_CNT : 3;
-    uint32_t _reserved_0 : 21;
+    uint16_t FILT_CNT : 3;
+    uint16_t _reserved_0 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   FILT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -212,12 +211,11 @@ union WTR {
   // Bit field definition.
   struct {
     // read-write - WDOG
-    uint32_t WDOG : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t WDOG : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   WTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -230,12 +228,11 @@ union POSD {
   // Bit field definition.
   struct {
     // read-write - POSD
-    uint32_t POSD : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t POSD : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   POSD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -248,12 +245,11 @@ union POSDH {
   // Bit field definition.
   struct {
     // read-only - POSDH
-    uint32_t POSDH : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t POSDH : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   POSDH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -266,12 +262,11 @@ union REV {
   // Bit field definition.
   struct {
     // read-write - REV
-    uint32_t REV : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t REV : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   REV() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -284,12 +279,11 @@ union REVH {
   // Bit field definition.
   struct {
     // read-only - REVH
-    uint32_t REVH : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t REVH : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   REVH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -302,12 +296,11 @@ union UPOS {
   // Bit field definition.
   struct {
     // read-write - POS
-    uint32_t POS : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t POS : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   UPOS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -320,12 +313,11 @@ union LPOS {
   // Bit field definition.
   struct {
     // read-write - POS
-    uint32_t POS : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t POS : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   LPOS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -338,12 +330,11 @@ union UPOSH {
   // Bit field definition.
   struct {
     // read-only - POSH
-    uint32_t POSH : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t POSH : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   UPOSH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -356,12 +347,11 @@ union LPOSH {
   // Bit field definition.
   struct {
     // read-only - POSH
-    uint32_t POSH : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t POSH : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   LPOSH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -374,12 +364,11 @@ union UINIT {
   // Bit field definition.
   struct {
     // read-write - INIT
-    uint32_t INIT : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t INIT : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   UINIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -392,12 +381,11 @@ union LINIT {
   // Bit field definition.
   struct {
     // read-write - INIT
-    uint32_t INIT : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t INIT : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   LINIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -410,26 +398,26 @@ union IMR {
   // Bit field definition.
   struct {
     // read-only - HOME
-    uint32_t HOME : 1;
+    uint16_t HOME : 1;
     // read-only - INDEX
-    uint32_t INDEX : 1;
+    uint16_t INDEX : 1;
     // read-only - PHB
-    uint32_t PHB : 1;
+    uint16_t PHB : 1;
     // read-only - PHA
-    uint32_t PHA : 1;
+    uint16_t PHA : 1;
     // read-only - FHOM
-    uint32_t FHOM : 1;
+    uint16_t FHOM : 1;
     // read-only - FIND
-    uint32_t FIND : 1;
+    uint16_t FIND : 1;
     // read-only - FPHB
-    uint32_t FPHB : 1;
+    uint16_t FPHB : 1;
     // read-only - FPHA
-    uint32_t FPHA : 1;
-    uint32_t _reserved_0 : 24;
+    uint16_t FPHA : 1;
+    uint16_t _reserved_0 : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   IMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -440,7 +428,7 @@ union IMR {
 union TST {
   
   // Quadrature Decoder Negative Signal
-  enum class eQDN : uint32_t {
+  enum class eQDN : uint16_t {
     // Generates a positive quadrature decoder signal
     eQDN_0 = 0,
     // Generates a negative quadrature decoder signal
@@ -448,7 +436,7 @@ union TST {
   };
   
   // Test Counter Enable
-  enum class eTCE : uint32_t {
+  enum class eTCE : uint16_t {
     // Disabled
     eTCE_0 = 0,
     // Enabled
@@ -456,7 +444,7 @@ union TST {
   };
   
   // Test Mode Enable
-  enum class eTEN : uint32_t {
+  enum class eTEN : uint16_t {
     // Disabled
     eTEN_0 = 0,
     // Enabled
@@ -466,20 +454,19 @@ union TST {
   // Bit field definition.
   struct {
     // read-write - TEST_COUNT
-    uint32_t TEST_COUNT : 8;
+    uint16_t TEST_COUNT : 8;
     // read-write - TEST_PERIOD
-    uint32_t TEST_PERIOD : 5;
+    uint16_t TEST_PERIOD : 5;
     // read-write - Quadrature Decoder Negative Signal
     eQDN QDN : 1;
     // read-write - Test Counter Enable
     eTCE TCE : 1;
     // read-write - Test Mode Enable
     eTEN TEN : 1;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   TST() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -490,7 +477,7 @@ union TST {
 union CTRL2 {
   
   // Update Hold Registers
-  enum class eUPDHLD : uint32_t {
+  enum class eUPDHLD : uint16_t {
     // Disable updates of hold registers on the rising edge of TRIGGER input signal
     eUPDHLD_0 = 0,
     // Enable updates of hold registers on the rising edge of TRIGGER input signal
@@ -498,7 +485,7 @@ union CTRL2 {
   };
   
   // Update Position Registers
-  enum class eUPDPOS : uint32_t {
+  enum class eUPDPOS : uint16_t {
     // No action for POSD, REV, UPOS and LPOS registers on rising edge of TRIGGER
     eUPDPOS_0 = 0,
     // Clear POSD, REV, UPOS and LPOS registers on rising edge of TRIGGER
@@ -506,7 +493,7 @@ union CTRL2 {
   };
   
   // Enable Modulo Counting
-  enum class eMOD : uint32_t {
+  enum class eMOD : uint16_t {
     // Disable modulo counting
     eMOD_0 = 0,
     // Enable modulo counting
@@ -514,7 +501,7 @@ union CTRL2 {
   };
   
   // Count Direction Flag
-  enum class eDIR : uint32_t {
+  enum class eDIR : uint16_t {
     // Last count was in the down direction
     eDIR_0 = 0,
     // Last count was in the up direction
@@ -522,7 +509,7 @@ union CTRL2 {
   };
   
   // Roll-under Interrupt Enable
-  enum class eRUIE : uint32_t {
+  enum class eRUIE : uint16_t {
     // Disabled
     eRUIE_0 = 0,
     // Enabled
@@ -530,7 +517,7 @@ union CTRL2 {
   };
   
   // Roll-under Interrupt Request
-  enum class eRUIRQ : uint32_t {
+  enum class eRUIRQ : uint16_t {
     // No roll-under has occurred
     eRUIRQ_0 = 0,
     // Roll-under has occurred
@@ -538,7 +525,7 @@ union CTRL2 {
   };
   
   // Roll-over Interrupt Enable
-  enum class eROIE : uint32_t {
+  enum class eROIE : uint16_t {
     // Disabled
     eROIE_0 = 0,
     // Enabled
@@ -546,7 +533,7 @@ union CTRL2 {
   };
   
   // Roll-over Interrupt Request
-  enum class eROIRQ : uint32_t {
+  enum class eROIRQ : uint16_t {
     // No roll-over has occurred
     eROIRQ_0 = 0,
     // Roll-over has occurred
@@ -554,7 +541,7 @@ union CTRL2 {
   };
   
   // Revolution Counter Modulus Enable
-  enum class eREVMOD : uint32_t {
+  enum class eREVMOD : uint16_t {
     // Use INDEX pulse to increment/decrement revolution counter (REV)
     eREVMOD_0 = 0,
     // Use modulus counting roll-over/under to increment/decrement revolution counter (REV)
@@ -562,7 +549,7 @@ union CTRL2 {
   };
   
   // Output Control
-  enum class eOUTCTL : uint32_t {
+  enum class eOUTCTL : uint16_t {
     // POSMATCH pulses when a match occurs between the position counters (POS) and the corresponding compare value (COMP )
     eOUTCTL_0 = 0,
     // POSMATCH pulses when the UPOS, LPOS, REV, or POSD registers are read
@@ -570,7 +557,7 @@ union CTRL2 {
   };
   
   // Simultaneous PHASEA and PHASEB Change Interrupt Enable
-  enum class eSABIE : uint32_t {
+  enum class eSABIE : uint16_t {
     // Disabled
     eSABIE_0 = 0,
     // Enabled
@@ -578,7 +565,7 @@ union CTRL2 {
   };
   
   // Simultaneous PHASEA and PHASEB Change Interrupt Request
-  enum class eSABIRQ : uint32_t {
+  enum class eSABIRQ : uint16_t {
     // No simultaneous change of PHASEA and PHASEB has occurred
     eSABIRQ_0 = 0,
     // A simultaneous change of PHASEA and PHASEB has occurred
@@ -611,11 +598,11 @@ union CTRL2 {
     eSABIE SABIE : 1;
     // read-write - Simultaneous PHASEA and PHASEB Change Interrupt Request
     eSABIRQ SABIRQ : 1;
-    uint32_t _reserved_0 : 20;
+    uint16_t _reserved_0 : 4;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -628,12 +615,11 @@ union UMOD {
   // Bit field definition.
   struct {
     // read-write - MOD
-    uint32_t MOD : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t MOD : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   UMOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -646,12 +632,11 @@ union LMOD {
   // Bit field definition.
   struct {
     // read-write - MOD
-    uint32_t MOD : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t MOD : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   LMOD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -664,12 +649,11 @@ union UCOMP {
   // Bit field definition.
   struct {
     // read-write - COMP
-    uint32_t COMP : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMP : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   UCOMP() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
@@ -682,12 +666,11 @@ union LCOMP {
   // Bit field definition.
   struct {
     // read-write - COMP
-    uint32_t COMP : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMP : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   LCOMP() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
@@ -700,12 +683,11 @@ union LASTEDGE {
   // Bit field definition.
   struct {
     // read-only - Last Edge Time Counter
-    uint32_t LASTEDGE : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t LASTEDGE : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   LASTEDGE() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
@@ -718,12 +700,11 @@ union LASTEDGEH {
   // Bit field definition.
   struct {
     // read-only - Last Edge Time Hold
-    uint32_t LASTEDGEH : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t LASTEDGEH : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   LASTEDGEH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
@@ -736,12 +717,11 @@ union POSDPER {
   // Bit field definition.
   struct {
     // read-only - Position difference period
-    uint32_t POSDPER : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t POSDPER : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   POSDPER() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
@@ -754,12 +734,11 @@ union POSDPERBFR {
   // Bit field definition.
   struct {
     // read-only - Position difference period buffer
-    uint32_t POSDPERBFR : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t POSDPERBFR : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   POSDPERBFR() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
@@ -772,12 +751,11 @@ union POSDPERH {
   // Bit field definition.
   struct {
     // read-only - Position difference period hold
-    uint32_t POSDPERH : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t POSDPERH : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   POSDPERH() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
@@ -788,7 +766,7 @@ union POSDPERH {
 union CTRL3 {
   
   // Period measurement function enable
-  enum class ePMEN : uint32_t {
+  enum class ePMEN : uint16_t {
     // Period measurement functions are not used. POSD is loaded to POSDH and then cleared whenever POSD, UPOS, LPOS, or REV is read.
     ePMEN_0 = 0,
     // Period measurement functions are used. POSD is loaded to POSDH and then cleared only when POSD is read.
@@ -799,14 +777,14 @@ union CTRL3 {
   struct {
     // read-write - Period measurement function enable
     ePMEN PMEN : 1;
-    uint32_t _reserved_0 : 3;
+    uint16_t _reserved_0 : 3;
     // read-write - Prescaler
-    uint32_t PRSC : 4;
-    uint32_t _reserved_1 : 24;
+    uint16_t PRSC : 4;
+    uint16_t _reserved_1 : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }

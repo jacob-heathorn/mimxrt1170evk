@@ -16,15 +16,15 @@ union XBARB3_SEL0 {
   // Bit field definition.
   struct {
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT0 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL0 : 7;
-    uint32_t _reserved_0 : 1;
+    uint16_t SEL0 : 7;
+    uint16_t _reserved_0 : 1;
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT1 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL1 : 7;
-    uint32_t _reserved_1 : 17;
+    uint16_t SEL1 : 7;
+    uint16_t _reserved_1 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   XBARB3_SEL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -37,15 +37,15 @@ union XBARB3_SEL1 {
   // Bit field definition.
   struct {
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT2 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL2 : 7;
-    uint32_t _reserved_0 : 1;
+    uint16_t SEL2 : 7;
+    uint16_t _reserved_0 : 1;
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT3 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL3 : 7;
-    uint32_t _reserved_1 : 17;
+    uint16_t SEL3 : 7;
+    uint16_t _reserved_1 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   XBARB3_SEL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -58,15 +58,15 @@ union XBARB3_SEL2 {
   // Bit field definition.
   struct {
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT4 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL4 : 7;
-    uint32_t _reserved_0 : 1;
+    uint16_t SEL4 : 7;
+    uint16_t _reserved_0 : 1;
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT5 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL5 : 7;
-    uint32_t _reserved_1 : 17;
+    uint16_t SEL5 : 7;
+    uint16_t _reserved_1 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   XBARB3_SEL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -79,15 +79,15 @@ union XBARB3_SEL3 {
   // Bit field definition.
   struct {
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT6 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL6 : 7;
-    uint32_t _reserved_0 : 1;
+    uint16_t SEL6 : 7;
+    uint16_t _reserved_0 : 1;
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT7 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL7 : 7;
-    uint32_t _reserved_1 : 17;
+    uint16_t SEL7 : 7;
+    uint16_t _reserved_1 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   XBARB3_SEL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -100,15 +100,15 @@ union XBARB3_SEL4 {
   // Bit field definition.
   struct {
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT8 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL8 : 7;
-    uint32_t _reserved_0 : 1;
+    uint16_t SEL8 : 7;
+    uint16_t _reserved_0 : 1;
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT9 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL9 : 7;
-    uint32_t _reserved_1 : 17;
+    uint16_t SEL9 : 7;
+    uint16_t _reserved_1 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   XBARB3_SEL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -121,15 +121,15 @@ union XBARB3_SEL5 {
   // Bit field definition.
   struct {
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT10 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL10 : 7;
-    uint32_t _reserved_0 : 1;
+    uint16_t SEL10 : 7;
+    uint16_t _reserved_0 : 1;
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT11 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL11 : 7;
-    uint32_t _reserved_1 : 17;
+    uint16_t SEL11 : 7;
+    uint16_t _reserved_1 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   XBARB3_SEL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -142,15 +142,15 @@ union XBARB3_SEL6 {
   // Bit field definition.
   struct {
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT12 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL12 : 7;
-    uint32_t _reserved_0 : 1;
+    uint16_t SEL12 : 7;
+    uint16_t _reserved_0 : 1;
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT13 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL13 : 7;
-    uint32_t _reserved_1 : 17;
+    uint16_t SEL13 : 7;
+    uint16_t _reserved_1 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   XBARB3_SEL6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -163,15 +163,15 @@ union XBARB3_SEL7 {
   // Bit field definition.
   struct {
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT14 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL14 : 7;
-    uint32_t _reserved_0 : 1;
+    uint16_t SEL14 : 7;
+    uint16_t _reserved_0 : 1;
     // read-write - Input (XBARB_INn) to be muxed to XBARB_OUT15 (refer to Functional Description section for input/output assignment)
-    uint32_t SEL15 : 7;
-    uint32_t _reserved_1 : 17;
+    uint16_t SEL15 : 7;
+    uint16_t _reserved_1 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   XBARB3_SEL7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
