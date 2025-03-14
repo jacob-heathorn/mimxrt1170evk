@@ -14,5 +14,5 @@ target_compile_definitions(hello-world-cm7 PRIVATE
 target_compile_options(hello-world-cm7 PRIVATE -Wno-shadow)
 
 # Echo.
-add_executable(echo echo.cpp )
+add_executable(echo echo.cpp)
 platformify(echo)

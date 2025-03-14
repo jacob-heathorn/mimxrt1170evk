@@ -16,3 +16,11 @@ add_subdirectory(
   $ENV{FORGE_ROOT}/test/common
   ${CMAKE_BINARY_DIR}/forge/test/common
 )
+
+# Add ETL (Embedded Template Library)
+add_subdirectory(
+  $ENV{ETL_ROOT}
+  ${CMAKE_BINARY_DIR}/etl
+)
+# add_library(etl INTERFACE)
+# target_include_directories(etl INTERFACE $ENV{ETL_ROOT}/include)
