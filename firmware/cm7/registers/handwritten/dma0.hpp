@@ -1,7 +1,6 @@
 #include "registers/codegen/dma0.hpp"
 
 
-// TODO rename?
 static constexpr uint32_t k_dma0_base = 0x40070000;
 
 namespace nDMA0 {
