@@ -132,6 +132,9 @@ public:
 
     void write(const uint8_t *buffer, uint16_t size)
     {
+        auto &csr = nDMA0::TCD_CSR<0>::ref();
+        auto &citer = nDMA0::TCD_CITER_ELINKNO<0>::ref();
+
         // TODO check and handle es.
         auto &es = nDMA0::ES::ref();
         es.Reset();
@@ -149,7 +152,7 @@ public:
         nDMA0::ERQ::ref().bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;
         
         // Clear DONE and any pending status
-        nDMA0::TCD_CSR<0>::ref().bits.DONE = 1;
+        csr.bits.DONE = 1;
         
         // 3. Configure DMA TCD
         auto &lpuart_data = nLPUART1::DATA::ref();
@@ -161,8 +164,8 @@ public:
         nDMA0::TCD_ATTR<0>::ref().bits.SSIZE = 0; // 8 bit transfers.
         nDMA0::TCD_ATTR<0>::ref().bits.DSIZE = 0; // 8 bit transfers.
         nDMA0::TCD_BITER_ELINKNO<0>::ref().bits.BITER = size;
-        nDMA0::TCD_CITER_ELINKNO<0>::ref().bits.CITER = size;
-        nDMA0::TCD_CSR<0>::ref().bits.INTMAJOR = 1;
+        citer.bits.CITER = size;
+        csr.bits.INTMAJOR = 1;
 
         // 4. Configure DMAMUX
         auto &chcfg0 = nDMAMUX0::CHCFG_0::ref();
