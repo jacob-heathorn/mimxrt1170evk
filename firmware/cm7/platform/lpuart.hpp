@@ -196,7 +196,6 @@ public:
         return (uint8_t)(data.value & 0xFF);
     }
 private:
-    Lpuart1() = default;
     // TODO how large should this buffer be.
     uint8_t tx_buffer_[100];
 };
