@@ -8,3 +8,6 @@ repositories:
   mcux-soc-svd:
     tag: MCUX_2.16.100
     url: https://github.com/nxp-mcuxpresso/mcux-soc-svd.git
+  etl:
+    tag: 20.40.0
+    url: https://github.com/ETLCPP/etl.git
