@@ -6,11 +6,13 @@
 #include "registers/codegen/dma0.hpp"
 #include "registers/handwritten/dma0.hpp"
 #include "registers/codegen/dmamux0.hpp"
+#include "etl/singleton.h"
 
-class Lpuart1
+class Lpuart1 : public etl::singleton<Lpuart1>
 {
+
 public:
-    Lpuart1()
+    void Init()
     {
         // 1. Enable Clocks
         auto &dma0_clk_direct = nCCM::LPCG22_DIRECT::ref();
@@ -194,6 +196,7 @@ public:
         return (uint8_t)(data.value & 0xFF);
     }
 private:
+    Lpuart1() = default;
     // TODO how large should this buffer be.
     uint8_t tx_buffer_[100];
 };

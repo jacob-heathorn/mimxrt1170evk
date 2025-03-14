@@ -2,13 +2,13 @@
 #include <errno.h>
 #include "platform/lpuart.hpp"
 
-Lpuart1 lpuart;
+// Lpuart1 lpuart;
 
 extern "C" {
     int _write(int fd, const char* ptr, int len) {
         (void)fd;  // Ignore file descriptor
 
-        lpuart.write(reinterpret_cast<const uint8_t*>(ptr), len);
+        Lpuart1::instance().write(reinterpret_cast<const uint8_t*>(ptr), len);
 
         // for (int i = 0; i < len; i++) {
         //     DbgConsole_Putchar(ptr[i]);  // Replace with your board’s UART function
@@ -18,7 +18,7 @@ extern "C" {
 
     int _read(int fd, char* ptr, int len) {
         (void)fd;  // Ignore file descriptor
-        *ptr = lpuart.read_byte();
+        *ptr = Lpuart1::instance().read_byte();
         
         // Convert \r to \n for the expected stop condition.
         if (*ptr == '\r' || *ptr == '\n')

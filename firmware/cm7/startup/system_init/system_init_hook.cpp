@@ -6,6 +6,7 @@
 #include "core_cm7.h"
 #include "cachel1_armv7.h"
 #include <cstdio>
+#include "platform/lpuart.hpp"
 
 extern "C" {
 
@@ -45,6 +46,7 @@ void __pre_main_init()
   BoardInitPins();
   BOARD_BootClockRUN();
 //   BOARD_InitDebugConsole();
+  Lpuart1::instance().Init();
 }
 
 }
