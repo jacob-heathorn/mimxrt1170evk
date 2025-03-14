@@ -1,9 +1,45 @@
 #include "registers/codegen/dma0.hpp"
 
+
+// #define DMA0_TCD0_DOFF (*(volatile uint16_t*)(DMA0_BASE + 0x1014))
+// #define DMA0_TCD0_SOFF (*(volatile int16_t*)(DMA0_BASE + 0x1004))
+// #define DMA0_SERQ (*(volatile uint8_t*)(DMA0_BASE + 0x1B)) // 8-bit register
+// #define DMA0_SSRT (*(volatile uint8_t*)(DMA0_BASE + 0x1D)) // 8-bit register
+
 // TODO rename?
 static constexpr uint32_t k_dma0_base = 0x40070000;
 
 namespace nDMA0 {
+
+
+
+// TCDn_CSR
+template<uint32_t N>
+union TCD_CSR {
+  
+  // Bit field definition.
+  struct {
+    uint16_t START : 1;
+    uint16_t INTMAJOR : 1;
+    uint16_t INTHALF : 1;
+    uint16_t DREQ : 1;
+    uint16_t ESG : 1;
+    uint16_t MAJORELINK : 1;
+    uint16_t ACTIVE : 1;
+    uint16_t DONE : 1;
+    uint16_t MAJORLINKCH : 5;
+    uint16_t reserved_0 : 1;
+    uint16_t BWC : 2;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint16_t value;
+
+  TCD_CSR() = delete;
+  static inline volatile TCD_CSR &ref() {
+    return *reinterpret_cast<volatile TCD_CSR*>(k_dma0_base + 0x101C + (N * 0x20));
+  }
+};
 
 // TCDn_BITER_ELINKNO
 template<uint32_t N>

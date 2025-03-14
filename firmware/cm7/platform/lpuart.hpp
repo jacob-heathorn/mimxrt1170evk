@@ -19,7 +19,7 @@
 // #define DMA0_TCD0_ATTR  (*(volatile uint16_t*)(DMA0_BASE + 0x1006))
 // #define DMA0_TCD0_CITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x1016))
 // #define DMA0_TCD0_BITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x101E))
-#define DMA0_TCD0_CSR  (*(volatile uint16_t*)(DMA0_BASE + 0x101C))
+// #define DMA0_TCD0_CSR  (*(volatile uint16_t*)(DMA0_BASE + 0x101C))
 #define DMA0_TCD0_DOFF (*(volatile uint16_t*)(DMA0_BASE + 0x1014))
 #define DMA0_TCD0_SOFF (*(volatile int16_t*)(DMA0_BASE + 0x1004))
 #define DMA0_SERQ (*(volatile uint8_t*)(DMA0_BASE + 0x1B)) // 8-bit register
@@ -149,7 +149,7 @@ public:
         nDMA0::ERQ::ref().bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;
         
         // Clear DONE and any pending status
-        DMA0_TCD0_CSR &= ~(1 << 7);  // Clear DONE bit (write 0 has no effect, but ensure it’s reset)
+        nDMA0::TCD_CSR<0>::ref().bits.DONE = 1;
         
         // 3. Configure DMA TCD
         auto &lpuart_data = nLPUART1::DATA::ref();
@@ -162,7 +162,7 @@ public:
         nDMA0::TCD_ATTR<0>::ref().bits.DSIZE = 0; // 8 bit transfers.
         nDMA0::TCD_BITER_ELINKNO<0>::ref().bits.BITER = size;
         nDMA0::TCD_CITER_ELINKNO<0>::ref().bits.CITER = size;
-        DMA0_TCD0_CSR = (1 << 1);  // Interrupt on completion (optional)
+        nDMA0::TCD_CSR<0>::ref().bits.INTMAJOR = 1;
 
         // 4. Configure DMAMUX
         auto &chcfg0 = nDMAMUX0::CHCFG_0::ref();
