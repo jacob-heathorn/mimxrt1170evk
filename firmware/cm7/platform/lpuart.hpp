@@ -152,8 +152,7 @@ public:
         
         // Disable DMA requests
         nDMA0::ERQ::ref().bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;
-                // // 7. Start DMA Transfer
-        // nDMA0::SSRT::ref().bits.SSRT = 1; // Trigger DMA
+
         // Clear DONE and any pending status
         csr.bits.DONE = 1;
         

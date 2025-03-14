@@ -14,7 +14,7 @@ namespace nSEMA4 {
 union SEMA4_Gate0 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -29,11 +29,11 @@ union SEMA4_Gate0 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -43,7 +43,7 @@ union SEMA4_Gate0 {
 union SEMA4_Gate1 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -58,11 +58,11 @@ union SEMA4_Gate1 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -72,7 +72,7 @@ union SEMA4_Gate1 {
 union SEMA4_Gate2 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -87,11 +87,11 @@ union SEMA4_Gate2 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -101,7 +101,7 @@ union SEMA4_Gate2 {
 union SEMA4_Gate3 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -116,11 +116,11 @@ union SEMA4_Gate3 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -130,7 +130,7 @@ union SEMA4_Gate3 {
 union SEMA4_Gate4 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -145,11 +145,11 @@ union SEMA4_Gate4 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -159,7 +159,7 @@ union SEMA4_Gate4 {
 union SEMA4_Gate5 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -174,11 +174,11 @@ union SEMA4_Gate5 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -188,7 +188,7 @@ union SEMA4_Gate5 {
 union SEMA4_Gate6 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -203,11 +203,11 @@ union SEMA4_Gate6 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -217,7 +217,7 @@ union SEMA4_Gate6 {
 union SEMA4_Gate7 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -232,11 +232,11 @@ union SEMA4_Gate7 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -246,7 +246,7 @@ union SEMA4_Gate7 {
 union SEMA4_Gate8 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -261,11 +261,11 @@ union SEMA4_Gate8 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -275,7 +275,7 @@ union SEMA4_Gate8 {
 union SEMA4_Gate9 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -290,11 +290,11 @@ union SEMA4_Gate9 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -304,7 +304,7 @@ union SEMA4_Gate9 {
 union SEMA4_Gate10 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -319,11 +319,11 @@ union SEMA4_Gate10 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -333,7 +333,7 @@ union SEMA4_Gate10 {
 union SEMA4_Gate11 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -348,11 +348,11 @@ union SEMA4_Gate11 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -362,7 +362,7 @@ union SEMA4_Gate11 {
 union SEMA4_Gate12 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -377,11 +377,11 @@ union SEMA4_Gate12 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -391,7 +391,7 @@ union SEMA4_Gate12 {
 union SEMA4_Gate13 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -406,11 +406,11 @@ union SEMA4_Gate13 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -420,7 +420,7 @@ union SEMA4_Gate13 {
 union SEMA4_Gate14 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -435,11 +435,11 @@ union SEMA4_Gate14 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -449,7 +449,7 @@ union SEMA4_Gate14 {
 union SEMA4_Gate15 {
   
   // Gate Finite State Machine.
-  enum class eGTFSM : uint32_t {
+  enum class eGTFSM : uint8_t {
     // The gate is unlocked (free).
     eGTFSM_0 = 0,
     // The gate has been locked by processor 0.
@@ -464,11 +464,11 @@ union SEMA4_Gate15 {
   struct {
     // read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_0 : 30;
+    uint8_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   SEMA4_Gate15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -479,7 +479,7 @@ union SEMA4_Gate15 {
 union SEMA4_CP0INE {
   
   // Interrupt Request Notification Enable 7. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 7.
-  enum class eINE7 : uint32_t {
+  enum class eINE7 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE7_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -487,7 +487,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 6. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 6.
-  enum class eINE6 : uint32_t {
+  enum class eINE6 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE6_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -495,7 +495,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 5. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 5.
-  enum class eINE5 : uint32_t {
+  enum class eINE5 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE5_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -503,7 +503,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 4. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 4.
-  enum class eINE4 : uint32_t {
+  enum class eINE4 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE4_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -511,7 +511,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 3
-  enum class eINE3 : uint32_t {
+  enum class eINE3 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE3_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -519,7 +519,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 2
-  enum class eINE2 : uint32_t {
+  enum class eINE2 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE2_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -527,7 +527,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 1
-  enum class eINE1 : uint32_t {
+  enum class eINE1 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE1_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -535,7 +535,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 0
-  enum class eINE0 : uint32_t {
+  enum class eINE0 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE0_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -543,7 +543,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 15. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 15.
-  enum class eINE15 : uint32_t {
+  enum class eINE15 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE15_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -551,7 +551,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 14. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 14.
-  enum class eINE14 : uint32_t {
+  enum class eINE14 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE14_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -559,7 +559,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 13. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 13.
-  enum class eINE13 : uint32_t {
+  enum class eINE13 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE13_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -567,7 +567,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 12. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 12.
-  enum class eINE12 : uint32_t {
+  enum class eINE12 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE12_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -575,7 +575,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 11. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 11.
-  enum class eINE11 : uint32_t {
+  enum class eINE11 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE11_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -583,7 +583,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 10. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 10.
-  enum class eINE10 : uint32_t {
+  enum class eINE10 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE10_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -591,7 +591,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 9. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 9.
-  enum class eINE9 : uint32_t {
+  enum class eINE9 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE9_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -599,7 +599,7 @@ union SEMA4_CP0INE {
   };
   
   // Interrupt Request Notification Enable 8. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 8.
-  enum class eINE8 : uint32_t {
+  enum class eINE8 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE8_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -640,11 +640,10 @@ union SEMA4_CP0INE {
     eINE9 INE9 : 1;
     // read-write - Interrupt Request Notification Enable 8. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 8.
     eINE8 INE8 : 1;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SEMA4_CP0INE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -654,7 +653,7 @@ union SEMA4_CP0INE {
 union SEMA4_CP1INE {
   
   // Interrupt Request Notification Enable 7. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 7.
-  enum class eINE7 : uint32_t {
+  enum class eINE7 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE7_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -662,7 +661,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 6. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 6.
-  enum class eINE6 : uint32_t {
+  enum class eINE6 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE6_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -670,7 +669,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 5. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 5.
-  enum class eINE5 : uint32_t {
+  enum class eINE5 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE5_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -678,7 +677,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 4. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 4.
-  enum class eINE4 : uint32_t {
+  enum class eINE4 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE4_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -686,7 +685,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 3
-  enum class eINE3 : uint32_t {
+  enum class eINE3 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE3_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -694,7 +693,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 2
-  enum class eINE2 : uint32_t {
+  enum class eINE2 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE2_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -702,7 +701,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 1
-  enum class eINE1 : uint32_t {
+  enum class eINE1 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE1_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -710,7 +709,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 0
-  enum class eINE0 : uint32_t {
+  enum class eINE0 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE0_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -718,7 +717,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 15. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 15.
-  enum class eINE15 : uint32_t {
+  enum class eINE15 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE15_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -726,7 +725,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 14. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 14.
-  enum class eINE14 : uint32_t {
+  enum class eINE14 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE14_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -734,7 +733,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 13. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 13.
-  enum class eINE13 : uint32_t {
+  enum class eINE13 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE13_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -742,7 +741,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 12. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 12.
-  enum class eINE12 : uint32_t {
+  enum class eINE12 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE12_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -750,7 +749,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 11. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 11.
-  enum class eINE11 : uint32_t {
+  enum class eINE11 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE11_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -758,7 +757,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 10. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 10.
-  enum class eINE10 : uint32_t {
+  enum class eINE10 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE10_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -766,7 +765,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 9. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 9.
-  enum class eINE9 : uint32_t {
+  enum class eINE9 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE9_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -774,7 +773,7 @@ union SEMA4_CP1INE {
   };
   
   // Interrupt Request Notification Enable 8. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 8.
-  enum class eINE8 : uint32_t {
+  enum class eINE8 : uint16_t {
     // The generation of the notification interrupt is disabled.
     eINE8_0 = 0,
     // The generation of the notification interrupt is enabled.
@@ -815,11 +814,10 @@ union SEMA4_CP1INE {
     eINE9 INE9 : 1;
     // read-write - Interrupt Request Notification Enable 8. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 8.
     eINE8 INE8 : 1;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SEMA4_CP1INE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -832,42 +830,41 @@ union SEMA4_CP0NTF {
   // Bit field definition.
   struct {
     // read-only - Gate 7 Notification
-    uint32_t GN7 : 1;
+    uint16_t GN7 : 1;
     // read-only - Gate 6 Notification
-    uint32_t GN6 : 1;
+    uint16_t GN6 : 1;
     // read-only - Gate 5 Notification
-    uint32_t GN5 : 1;
+    uint16_t GN5 : 1;
     // read-only - Gate 4 Notification
-    uint32_t GN4 : 1;
+    uint16_t GN4 : 1;
     // read-only - Gate 3 Notification
-    uint32_t GN3 : 1;
+    uint16_t GN3 : 1;
     // read-only - Gate 2 Notification
-    uint32_t GN2 : 1;
+    uint16_t GN2 : 1;
     // read-only - Gate 1 Notification
-    uint32_t GN1 : 1;
+    uint16_t GN1 : 1;
     // read-only - Gate 0 Notification
-    uint32_t GN0 : 1;
+    uint16_t GN0 : 1;
     // read-only - Gate 15 Notification
-    uint32_t GN15 : 1;
+    uint16_t GN15 : 1;
     // read-only - Gate 14 Notification
-    uint32_t GN14 : 1;
+    uint16_t GN14 : 1;
     // read-only - Gate 13 Notification
-    uint32_t GN13 : 1;
+    uint16_t GN13 : 1;
     // read-only - Gate 12 Notification
-    uint32_t GN12 : 1;
+    uint16_t GN12 : 1;
     // read-only - Gate 11 Notification
-    uint32_t GN11 : 1;
+    uint16_t GN11 : 1;
     // read-only - Gate 10 Notification
-    uint32_t GN10 : 1;
+    uint16_t GN10 : 1;
     // read-only - Gate 9 Notification
-    uint32_t GN9 : 1;
+    uint16_t GN9 : 1;
     // read-only - Gate 8 Notification
-    uint32_t GN8 : 1;
-    uint32_t _reserved_0 : 16;
+    uint16_t GN8 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SEMA4_CP0NTF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -879,42 +876,41 @@ union SEMA4_CP1NTF {
   // Bit field definition.
   struct {
     // read-only - Gate 7 Notification
-    uint32_t GN7 : 1;
+    uint16_t GN7 : 1;
     // read-only - Gate 6 Notification
-    uint32_t GN6 : 1;
+    uint16_t GN6 : 1;
     // read-only - Gate 5 Notification
-    uint32_t GN5 : 1;
+    uint16_t GN5 : 1;
     // read-only - Gate 4 Notification
-    uint32_t GN4 : 1;
+    uint16_t GN4 : 1;
     // read-only - Gate 3 Notification
-    uint32_t GN3 : 1;
+    uint16_t GN3 : 1;
     // read-only - Gate 2 Notification
-    uint32_t GN2 : 1;
+    uint16_t GN2 : 1;
     // read-only - Gate 1 Notification
-    uint32_t GN1 : 1;
+    uint16_t GN1 : 1;
     // read-only - Gate 0 Notification
-    uint32_t GN0 : 1;
+    uint16_t GN0 : 1;
     // read-only - Gate 15 Notification
-    uint32_t GN15 : 1;
+    uint16_t GN15 : 1;
     // read-only - Gate 14 Notification
-    uint32_t GN14 : 1;
+    uint16_t GN14 : 1;
     // read-only - Gate 13 Notification
-    uint32_t GN13 : 1;
+    uint16_t GN13 : 1;
     // read-only - Gate 12 Notification
-    uint32_t GN12 : 1;
+    uint16_t GN12 : 1;
     // read-only - Gate 11 Notification
-    uint32_t GN11 : 1;
+    uint16_t GN11 : 1;
     // read-only - Gate 10 Notification
-    uint32_t GN10 : 1;
+    uint16_t GN10 : 1;
     // read-only - Gate 9 Notification
-    uint32_t GN9 : 1;
+    uint16_t GN9 : 1;
     // read-only - Gate 8 Notification
-    uint32_t GN8 : 1;
-    uint32_t _reserved_0 : 16;
+    uint16_t GN8 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SEMA4_CP1NTF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -927,14 +923,13 @@ union SEMA4_RSTGT {
   // Bit field definition.
   struct {
     // read-write - This field contains sub-fields that vary depending on whether it is being read or written
-    uint32_t RSTGSM_RSTGMS_RSTGDP : 8;
+    uint16_t RSTGSM_RSTGMS_RSTGDP : 8;
     // read-write - Reset Gate Number
-    uint32_t RSTGTN : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t RSTGTN : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SEMA4_RSTGT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -947,14 +942,13 @@ union SEMA4_RSTNTF {
   // Bit field definition.
   struct {
     // read-write - This field contains sub-fields that vary depending on whether it is being read or written
-    uint32_t RSTNSM_RSTNMS_RSTNDP : 8;
+    uint16_t RSTNSM_RSTNMS_RSTNDP : 8;
     // read-write - Reset Notification Number
-    uint32_t RSTNTN : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t RSTNTN : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SEMA4_RSTNTF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }

@@ -16,12 +16,11 @@ union SM0CNT {
   // Bit field definition.
   struct {
     // read-only - Counter Register Bits
-    uint32_t CNT : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CNT : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -34,12 +33,11 @@ union SM0INIT {
   // Bit field definition.
   struct {
     // read-write - Initial Count Register Bits
-    uint32_t INIT : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t INIT : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0INIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -50,7 +48,7 @@ union SM0INIT {
 union SM0CTRL2 {
   
   // Clock Source Select
-  enum class eCLK_SEL : uint32_t {
+  enum class eCLK_SEL : uint16_t {
     // The IPBus clock is used as the clock for the local prescaler and counter.
     eIPBUS = 0,
     // EXT_CLK is used as the clock for the local prescaler and counter.
@@ -60,7 +58,7 @@ union SM0CTRL2 {
   };
   
   // Reload Source Select
-  enum class eRELOAD_SEL : uint32_t {
+  enum class eRELOAD_SEL : uint16_t {
     // The local RELOAD signal is used to reload registers.
     eLOCAL = 0,
     // The master RELOAD signal (from submodule 0) is used to reload registers. This setting should not be used in submodule 0 as it forces the RELOAD signal to logic 0.
@@ -68,7 +66,7 @@ union SM0CTRL2 {
   };
   
   // Force Select
-  enum class eFORCE_SEL : uint32_t {
+  enum class eFORCE_SEL : uint16_t {
     // The local force signal, CTRL2[FORCE], from this submodule is used to force updates.
     eLOCAL = 0,
     // The master force signal from submodule 0 is used to force updates. This setting should not be used in submodule 0 as it holds the FORCE OUTPUT signal to logic 0.
@@ -88,7 +86,7 @@ union SM0CTRL2 {
   };
   
   // Force Enable
-  enum class eFRCEN : uint32_t {
+  enum class eFRCEN : uint16_t {
     // Initialization from a FORCE_OUT is disabled.
     eDISABLED = 0,
     // Initialization from a FORCE_OUT is enabled.
@@ -96,7 +94,7 @@ union SM0CTRL2 {
   };
   
   // Initialization Control Select
-  enum class eINIT_SEL : uint32_t {
+  enum class eINIT_SEL : uint16_t {
     // Local sync (PWM_X) causes initialization.
     ePWM_X = 0,
     // Master reload from submodule 0 causes initialization. This setting should not be used in submodule 0 as it forces the INIT signal to logic 0. The submodule counter will only re-initialize when a master reload occurs.
@@ -108,7 +106,7 @@ union SM0CTRL2 {
   };
   
   // Independent or Complementary Pair Operation
-  enum class eINDEP : uint32_t {
+  enum class eINDEP : uint16_t {
     // PWM_A and PWM_B form a complementary PWM pair.
     eCOMPLEMENTARY = 0,
     // PWM_A and PWM_B outputs are independent PWMs.
@@ -124,28 +122,27 @@ union SM0CTRL2 {
     // read-write - Force Select
     eFORCE_SEL FORCE_SEL : 3;
     // read-write - Force Initialization
-    uint32_t FORCE : 1;
+    uint16_t FORCE : 1;
     // read-write - Force Enable
     eFRCEN FRCEN : 1;
     // read-write - Initialization Control Select
     eINIT_SEL INIT_SEL : 2;
     // read-write - PWM_X Initial Value
-    uint32_t PWMX_INIT : 1;
+    uint16_t PWMX_INIT : 1;
     // read-write - PWM45 Initial Value
-    uint32_t PWM45_INIT : 1;
+    uint16_t PWM45_INIT : 1;
     // read-write - PWM23 Initial Value
-    uint32_t PWM23_INIT : 1;
+    uint16_t PWM23_INIT : 1;
     // read-write - Independent or Complementary Pair Operation
     eINDEP INDEP : 1;
     // read-write - Wait Enable
-    uint32_t WAITEN : 1;
+    uint16_t WAITEN : 1;
     // read-write - Debug Enable
-    uint32_t DBGEN : 1;
-    uint32_t _reserved_0 : 16;
+    uint16_t DBGEN : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -156,7 +153,7 @@ union SM0CTRL2 {
 union SM0CTRL {
   
   // Double Switching Enable
-  enum class eDBLEN : uint32_t {
+  enum class eDBLEN : uint16_t {
     // Double switching disabled.
     eDISABLED = 0,
     // Double switching enabled.
@@ -164,7 +161,7 @@ union SM0CTRL {
   };
   
   // PWM_X Double Switching Enable
-  enum class eDBLX : uint32_t {
+  enum class eDBLX : uint16_t {
     // PWM_X double pulse disabled.
     eDISABLED = 0,
     // PWM_X double pulse enabled.
@@ -172,7 +169,7 @@ union SM0CTRL {
   };
   
   // Load Mode Select
-  enum class eLDMOD : uint32_t {
+  enum class eLDMOD : uint16_t {
     // Buffered registers of this submodule are loaded and take effect at the next PWM reload if MCTRL[LDOK] is set.
     eNEXT_PWM_RELOAD = 0,
     // Buffered registers of this submodule are loaded and take effect immediately upon MCTRL[LDOK] being set. In this case, it is not necessary to set CTRL[FULL] or CTRL[HALF].
@@ -180,7 +177,7 @@ union SM0CTRL {
   };
   
   // Split the DBLPWM signal to PWM_A and PWM_B
-  enum class eSPLIT : uint32_t {
+  enum class eSPLIT : uint16_t {
     // DBLPWM is not split. PWM_A and PWM_B each have double pulses.
     eDISABLED = 0,
     // DBLPWM is split to PWM_A and PWM_B.
@@ -188,7 +185,7 @@ union SM0CTRL {
   };
   
   // Prescaler
-  enum class ePRSC : uint32_t {
+  enum class ePRSC : uint16_t {
     // Prescaler 1
     eONE = 0,
     // Prescaler 2
@@ -208,7 +205,7 @@ union SM0CTRL {
   };
   
   // Compare Mode
-  enum class eCOMPMODE : uint32_t {
+  enum class eCOMPMODE : uint16_t {
     // The VAL* registers and the PWM counter are compared using an "equal to" method. This means that PWM edges are only produced when the counter is equal to one of the VAL* register values. This implies that a PWM_A output that is high at the end of a period maintains this state until a match with VAL3 clears the output in the following period.
     eEQUAL_TO = 0,
     // The VAL* registers and the PWM counter are compared using an "equal to or greater than" method. This means that PWM edges are produced when the counter is equal to or greater than one of the VAL* register values. This implies that a PWM_A output that is high at the end of a period could go low at the start of the next period if the starting counter value is greater than (but not necessarily equal to) the new VAL3 value.
@@ -216,7 +213,7 @@ union SM0CTRL {
   };
   
   // Full Cycle Reload
-  enum class eFULL : uint32_t {
+  enum class eFULL : uint16_t {
     // Full-cycle reloads disabled.
     eDISABLED = 0,
     // Full-cycle reloads enabled.
@@ -224,7 +221,7 @@ union SM0CTRL {
   };
   
   // Half Cycle Reload
-  enum class eHALF : uint32_t {
+  enum class eHALF : uint16_t {
     // Half-cycle reloads disabled.
     eDISABLED = 0,
     // Half-cycle reloads enabled.
@@ -232,7 +229,7 @@ union SM0CTRL {
   };
   
   // Load Frequency
-  enum class eLDFQ : uint32_t {
+  enum class eLDFQ : uint16_t {
     // Every PWM opportunity
     eEVERYPWM = 0,
     // Every 2 PWM opportunities
@@ -282,18 +279,17 @@ union SM0CTRL {
     // read-write - Compare Mode
     eCOMPMODE COMPMODE : 1;
     // read-only - Deadtime
-    uint32_t DT : 2;
+    uint16_t DT : 2;
     // read-write - Full Cycle Reload
     eFULL FULL : 1;
     // read-write - Half Cycle Reload
     eHALF HALF : 1;
     // read-write - Load Frequency
     eLDFQ LDFQ : 4;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
@@ -306,12 +302,11 @@ union SM0VAL0 {
   // Bit field definition.
   struct {
     // read-write - Value 0
-    uint32_t VAL0 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0VAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -323,14 +318,13 @@ union SM0FRACVAL1 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 1
-    uint32_t FRACVAL1 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL1 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0FRACVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -343,12 +337,11 @@ union SM0VAL1 {
   // Bit field definition.
   struct {
     // read-write - Value 1
-    uint32_t VAL1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0VAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -360,14 +353,13 @@ union SM0FRACVAL2 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 2
-    uint32_t FRACVAL2 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL2 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0FRACVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -380,12 +372,11 @@ union SM0VAL2 {
   // Bit field definition.
   struct {
     // read-write - Value 2
-    uint32_t VAL2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0VAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -397,14 +388,13 @@ union SM0FRACVAL3 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 3
-    uint32_t FRACVAL3 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL3 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0FRACVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -417,12 +407,11 @@ union SM0VAL3 {
   // Bit field definition.
   struct {
     // read-write - Value 3
-    uint32_t VAL3 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL3 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0VAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -434,14 +423,13 @@ union SM0FRACVAL4 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 4
-    uint32_t FRACVAL4 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL4 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0FRACVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -454,12 +442,11 @@ union SM0VAL4 {
   // Bit field definition.
   struct {
     // read-write - Value 4
-    uint32_t VAL4 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL4 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0VAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -471,14 +458,13 @@ union SM0FRACVAL5 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 5
-    uint32_t FRACVAL5 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL5 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0FRACVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -491,12 +477,11 @@ union SM0VAL5 {
   // Bit field definition.
   struct {
     // read-write - Value 5
-    uint32_t VAL5 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL5 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0VAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -507,7 +492,7 @@ union SM0VAL5 {
 union SM0FRCTRL {
   
   // Fractional Cycle PWM Period Enable
-  enum class eFRAC1_EN : uint32_t {
+  enum class eFRAC1_EN : uint16_t {
     // Disable fractional cycle length for the PWM period.
     eDISABLED = 0,
     // Enable fractional cycle length for the PWM period.
@@ -515,7 +500,7 @@ union SM0FRCTRL {
   };
   
   // Fractional Cycle Placement Enable for PWM_A
-  enum class eFRAC23_EN : uint32_t {
+  enum class eFRAC23_EN : uint16_t {
     // Disable fractional cycle placement for PWM_A.
     eDISABLED = 0,
     // Enable fractional cycle placement for PWM_A.
@@ -523,7 +508,7 @@ union SM0FRCTRL {
   };
   
   // Fractional Cycle Placement Enable for PWM_B
-  enum class eFRAC45_EN : uint32_t {
+  enum class eFRAC45_EN : uint16_t {
     // Disable fractional cycle placement for PWM_B.
     eDISABLED = 0,
     // Enable fractional cycle placement for PWM_B.
@@ -532,22 +517,21 @@ union SM0FRCTRL {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 1;
+    uint16_t _reserved_0 : 1;
     // read-write - Fractional Cycle PWM Period Enable
     eFRAC1_EN FRAC1_EN : 1;
     // read-write - Fractional Cycle Placement Enable for PWM_A
     eFRAC23_EN FRAC23_EN : 1;
-    uint32_t _reserved_1 : 1;
+    uint16_t _reserved_1 : 1;
     // read-write - Fractional Cycle Placement Enable for PWM_B
     eFRAC45_EN FRAC45_EN : 1;
-    uint32_t _reserved_2 : 10;
+    uint16_t _reserved_2 : 10;
     // read-only - Test Status Bit
-    uint32_t TEST : 1;
-    uint32_t _reserved_3 : 16;
+    uint16_t TEST : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0FRCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -558,7 +542,7 @@ union SM0FRCTRL {
 union SM0OCTRL {
   
   // PWM_X Fault State
-  enum class ePWMXFS : uint32_t {
+  enum class ePWMXFS : uint16_t {
     // Output is forced to logic 0 state prior to consideration of output polarity control.
     eLOGIC_0 = 0,
     // Output is forced to logic 1 state prior to consideration of output polarity control.
@@ -570,7 +554,7 @@ union SM0OCTRL {
   };
   
   // PWM_B Fault State
-  enum class ePWMBFS : uint32_t {
+  enum class ePWMBFS : uint16_t {
     // Output is forced to logic 0 state prior to consideration of output polarity control.
     eLOGIC_0 = 0,
     // Output is forced to logic 1 state prior to consideration of output polarity control.
@@ -582,7 +566,7 @@ union SM0OCTRL {
   };
   
   // PWM_A Fault State
-  enum class ePWMAFS : uint32_t {
+  enum class ePWMAFS : uint16_t {
     // Output is forced to logic 0 state prior to consideration of output polarity control.
     eLOGIC_0 = 0,
     // Output is forced to logic 1 state prior to consideration of output polarity control.
@@ -594,7 +578,7 @@ union SM0OCTRL {
   };
   
   // PWM_X Output Polarity
-  enum class ePOLX : uint32_t {
+  enum class ePOLX : uint16_t {
     // PWM_X output not inverted. A high level on the PWM_X pin represents the "on" or "active" state.
     eNOT_INVERTED = 0,
     // PWM_X output inverted. A low level on the PWM_X pin represents the "on" or "active" state.
@@ -602,7 +586,7 @@ union SM0OCTRL {
   };
   
   // PWM_B Output Polarity
-  enum class ePOLB : uint32_t {
+  enum class ePOLB : uint16_t {
     // PWM_B output not inverted. A high level on the PWM_B pin represents the "on" or "active" state.
     eNOT_INVERTED = 0,
     // PWM_B output inverted. A low level on the PWM_B pin represents the "on" or "active" state.
@@ -610,7 +594,7 @@ union SM0OCTRL {
   };
   
   // PWM_A Output Polarity
-  enum class ePOLA : uint32_t {
+  enum class ePOLA : uint16_t {
     // PWM_A output not inverted. A high level on the PWM_A pin represents the "on" or "active" state.
     eNOT_INVERTED = 0,
     // PWM_A output inverted. A low level on the PWM_A pin represents the "on" or "active" state.
@@ -625,25 +609,24 @@ union SM0OCTRL {
     ePWMBFS PWMBFS : 2;
     // read-write - PWM_A Fault State
     ePWMAFS PWMAFS : 2;
-    uint32_t _reserved_0 : 2;
+    uint16_t _reserved_0 : 2;
     // read-write - PWM_X Output Polarity
     ePOLX POLX : 1;
     // read-write - PWM_B Output Polarity
     ePOLB POLB : 1;
     // read-write - PWM_A Output Polarity
     ePOLA POLA : 1;
-    uint32_t _reserved_1 : 2;
+    uint16_t _reserved_1 : 2;
     // read-only - PWM_X Input
-    uint32_t PWMX_IN : 1;
+    uint16_t PWMX_IN : 1;
     // read-only - PWM_B Input
-    uint32_t PWMB_IN : 1;
+    uint16_t PWMB_IN : 1;
     // read-only - PWM_A Input
-    uint32_t PWMA_IN : 1;
-    uint32_t _reserved_2 : 16;
+    uint16_t PWMA_IN : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0OCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -654,7 +637,7 @@ union SM0OCTRL {
 union SM0STS {
   
   // Compare Flags
-  enum class eCMPF : uint32_t {
+  enum class eCMPF : uint16_t {
     // No compare event has occurred for a particular VALx value.
     eNO_EVENT = 0,
     // A compare event has occurred for a particular VALx value.
@@ -662,7 +645,7 @@ union SM0STS {
   };
   
   // Reload Flag
-  enum class eRF : uint32_t {
+  enum class eRF : uint16_t {
     // No new reload cycle since last STS[RF] clearing
     eNO_FLAG = 0,
     // New reload cycle since last STS[RF] clearing
@@ -670,7 +653,7 @@ union SM0STS {
   };
   
   // Reload Error Flag
-  enum class eREF : uint32_t {
+  enum class eREF : uint16_t {
     // No reload error occurred.
     eNO_FLAG = 0,
     // Reload signal occurred with non-coherent data and MCTRL[LDOK] = 0.
@@ -678,7 +661,7 @@ union SM0STS {
   };
   
   // Registers Updated Flag
-  enum class eRUF : uint32_t {
+  enum class eRUF : uint16_t {
     // No register update has occurred since last reload.
     eNO_FLAG = 0,
     // At least one of the double buffered registers has been updated since the last reload.
@@ -690,28 +673,28 @@ union SM0STS {
     // read-write - Compare Flags
     eCMPF CMPF : 6;
     // read-write - Capture Flag X0
-    uint32_t CFX0 : 1;
+    uint16_t CFX0 : 1;
     // read-write - Capture Flag X1
-    uint32_t CFX1 : 1;
+    uint16_t CFX1 : 1;
     // read-write - Capture Flag B0
-    uint32_t CFB0 : 1;
+    uint16_t CFB0 : 1;
     // read-write - Capture Flag B1
-    uint32_t CFB1 : 1;
+    uint16_t CFB1 : 1;
     // read-write - Capture Flag A0
-    uint32_t CFA0 : 1;
+    uint16_t CFA0 : 1;
     // read-write - Capture Flag A1
-    uint32_t CFA1 : 1;
+    uint16_t CFA1 : 1;
     // read-write - Reload Flag
     eRF RF : 1;
     // read-write - Reload Error Flag
     eREF REF : 1;
     // read-only - Registers Updated Flag
     eRUF RUF : 1;
-    uint32_t _reserved_0 : 17;
+    uint16_t _reserved_0 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0STS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -722,7 +705,7 @@ union SM0STS {
 union SM0INTEN {
   
   // Compare Interrupt Enables
-  enum class eCMPIE : uint32_t {
+  enum class eCMPIE : uint16_t {
     // The corresponding STS[CMPF] bit will not cause an interrupt request.
     eDISABLED = 0,
     // The corresponding STS[CMPF] bit will cause an interrupt request.
@@ -730,7 +713,7 @@ union SM0INTEN {
   };
   
   // Capture X 0 Interrupt Enable
-  enum class eCX0IE : uint32_t {
+  enum class eCX0IE : uint16_t {
     // Interrupt request disabled for STS[CFX0].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFX0].
@@ -738,7 +721,7 @@ union SM0INTEN {
   };
   
   // Capture X 1 Interrupt Enable
-  enum class eCX1IE : uint32_t {
+  enum class eCX1IE : uint16_t {
     // Interrupt request disabled for STS[CFX1].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFX1].
@@ -746,7 +729,7 @@ union SM0INTEN {
   };
   
   // Capture B 0 Interrupt Enable
-  enum class eCB0IE : uint32_t {
+  enum class eCB0IE : uint16_t {
     // Interrupt request disabled for STS[CFB0].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFB0].
@@ -754,7 +737,7 @@ union SM0INTEN {
   };
   
   // Capture B 1 Interrupt Enable
-  enum class eCB1IE : uint32_t {
+  enum class eCB1IE : uint16_t {
     // Interrupt request disabled for STS[CFB1].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFB1].
@@ -762,7 +745,7 @@ union SM0INTEN {
   };
   
   // Capture A 0 Interrupt Enable
-  enum class eCA0IE : uint32_t {
+  enum class eCA0IE : uint16_t {
     // Interrupt request disabled for STS[CFA0].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFA0].
@@ -770,7 +753,7 @@ union SM0INTEN {
   };
   
   // Capture A 1 Interrupt Enable
-  enum class eCA1IE : uint32_t {
+  enum class eCA1IE : uint16_t {
     // Interrupt request disabled for STS[CFA1]
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFA1]
@@ -778,7 +761,7 @@ union SM0INTEN {
   };
   
   // Reload Interrupt Enable
-  enum class eRIE : uint32_t {
+  enum class eRIE : uint16_t {
     // STS[RF] CPU interrupt requests disabled
     eDISABLED = 0,
     // STS[RF] CPU interrupt requests enabled
@@ -786,7 +769,7 @@ union SM0INTEN {
   };
   
   // Reload Error Interrupt Enable
-  enum class eREIE : uint32_t {
+  enum class eREIE : uint16_t {
     // STS[REF] CPU interrupt requests disabled
     eDISABLED = 0,
     // STS[REF] CPU interrupt requests enabled
@@ -813,11 +796,11 @@ union SM0INTEN {
     eRIE RIE : 1;
     // read-write - Reload Error Interrupt Enable
     eREIE REIE : 1;
-    uint32_t _reserved_0 : 18;
+    uint16_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0INTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -828,7 +811,7 @@ union SM0INTEN {
 union SM0DMAEN {
   
   // Capture DMA Enable Source Select
-  enum class eCAPTDE : uint32_t {
+  enum class eCAPTDE : uint16_t {
     // Read DMA requests disabled.
     eDISABLED = 0,
     // Exceeding a FIFO watermark sets the DMA read request. This requires at least one of DMAEN[CA1DE], DMAEN[CA0DE], DMAEN[CB1DE], DMAEN[CB0DE], DMAEN[CX1DE], or DMAEN[CX0DE] to be set to determine which watermark(s) the DMA request is sensitive.
@@ -840,7 +823,7 @@ union SM0DMAEN {
   };
   
   // FIFO Watermark AND Control
-  enum class eFAND : uint32_t {
+  enum class eFAND : uint16_t {
     // Selected FIFO watermarks are OR'ed together.
     eOR = 0,
     // Selected FIFO watermarks are AND'ed together.
@@ -848,7 +831,7 @@ union SM0DMAEN {
   };
   
   // Value Registers DMA Enable
-  enum class eVALDE : uint32_t {
+  enum class eVALDE : uint16_t {
     // DMA write requests disabled
     eDISABLED = 0,
     // Enabled
@@ -858,28 +841,28 @@ union SM0DMAEN {
   // Bit field definition.
   struct {
     // read-write - Capture X0 FIFO DMA Enable
-    uint32_t CX0DE : 1;
+    uint16_t CX0DE : 1;
     // read-write - Capture X1 FIFO DMA Enable
-    uint32_t CX1DE : 1;
+    uint16_t CX1DE : 1;
     // read-write - Capture B0 FIFO DMA Enable
-    uint32_t CB0DE : 1;
+    uint16_t CB0DE : 1;
     // read-write - Capture B1 FIFO DMA Enable
-    uint32_t CB1DE : 1;
+    uint16_t CB1DE : 1;
     // read-write - Capture A0 FIFO DMA Enable
-    uint32_t CA0DE : 1;
+    uint16_t CA0DE : 1;
     // read-write - Capture A1 FIFO DMA Enable
-    uint32_t CA1DE : 1;
+    uint16_t CA1DE : 1;
     // read-write - Capture DMA Enable Source Select
     eCAPTDE CAPTDE : 2;
     // read-write - FIFO Watermark AND Control
     eFAND FAND : 1;
     // read-write - Value Registers DMA Enable
     eVALDE VALDE : 1;
-    uint32_t _reserved_0 : 22;
+    uint16_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0DMAEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -890,13 +873,13 @@ union SM0DMAEN {
 union SM0TCTRL {
   
   // Output Trigger Enables
-  enum class eOUT_TRIG_EN : uint32_t {
+  enum class eOUT_TRIG_EN : uint16_t {
     // PWM_OUT_TRIG0 will set when the counter value matches the VAL0 value.
     eVAL0 = 1,
   };
   
   // Trigger Frequency
-  enum class eTRGFRQ : uint32_t {
+  enum class eTRGFRQ : uint16_t {
     // Trigger outputs are generated during every PWM period even if the PWM is not reloaded every period due to CTRL[LDFQ] being non-zero.
     eEVERYPWM = 0,
     // Trigger outputs are generated only during the final PWM period prior to a reload opportunity when the PWM is not reloaded every period due to CTRL[LDFQ] being non-zero.
@@ -904,7 +887,7 @@ union SM0TCTRL {
   };
   
   // Output Trigger 1 Source Select
-  enum class ePWBOT1 : uint32_t {
+  enum class ePWBOT1 : uint16_t {
     // Route the PWM_OUT_TRIG1 signal to PWM_OUT_TRIG1 port.
     ePWM_OUT_TRIG1_SIGNAL = 0,
     // Route the PWM_B output to the PWM_OUT_TRIG1 port.
@@ -912,7 +895,7 @@ union SM0TCTRL {
   };
   
   // Output Trigger 0 Source Select
-  enum class ePWAOT0 : uint32_t {
+  enum class ePWAOT0 : uint16_t {
     // Route the PWM_OUT_TRIG0 signal to PWM_OUT_TRIG0 port.
     ePWM_OUT_TRIG0_SIGNAL = 0,
     // Route the PWM_A output to the PWM_OUT_TRIG0 port.
@@ -923,19 +906,18 @@ union SM0TCTRL {
   struct {
     // read-write - Output Trigger Enables
     eOUT_TRIG_EN OUT_TRIG_EN : 6;
-    uint32_t _reserved_0 : 6;
+    uint16_t _reserved_0 : 6;
     // read-write - Trigger Frequency
     eTRGFRQ TRGFRQ : 1;
-    uint32_t _reserved_1 : 1;
+    uint16_t _reserved_1 : 1;
     // read-write - Output Trigger 1 Source Select
     ePWBOT1 PWBOT1 : 1;
     // read-write - Output Trigger 0 Source Select
     ePWAOT0 PWAOT0 : 1;
-    uint32_t _reserved_2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0TCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -948,16 +930,16 @@ union SM0DISMAP0 {
   // Bit field definition.
   struct {
     // read-write - PWM_A Fault Disable Mask 0
-    uint32_t DIS0A : 4;
+    uint16_t DIS0A : 4;
     // read-write - PWM_B Fault Disable Mask 0
-    uint32_t DIS0B : 4;
+    uint16_t DIS0B : 4;
     // read-write - PWM_X Fault Disable Mask 0
-    uint32_t DIS0X : 4;
-    uint32_t _reserved_0 : 20;
+    uint16_t DIS0X : 4;
+    uint16_t _reserved_0 : 4;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0DISMAP0() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
@@ -970,12 +952,11 @@ union SM0DTCNT0 {
   // Bit field definition.
   struct {
     // read-write - DTCNT0
-    uint32_t DTCNT0 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t DTCNT0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0DTCNT0() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
@@ -988,12 +969,11 @@ union SM0DTCNT1 {
   // Bit field definition.
   struct {
     // read-write - DTCNT1
-    uint32_t DTCNT1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t DTCNT1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0DTCNT1() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
@@ -1004,7 +984,7 @@ union SM0DTCNT1 {
 union SM0CAPTCTRLA {
   
   // Arm A
-  enum class eARMA : uint32_t {
+  enum class eARMA : uint16_t {
     // Input capture operation is disabled.
     eDISABLED = 0,
     // Input capture operation as specified by CAPTCTRLA[EDGAx] is enabled.
@@ -1012,7 +992,7 @@ union SM0CAPTCTRLA {
   };
   
   // One Shot Mode A
-  enum class eONESHOTA : uint32_t {
+  enum class eONESHOTA : uint16_t {
     // Free Running
     eFREE_RUNNING = 0,
     // One Shot
@@ -1020,7 +1000,7 @@ union SM0CAPTCTRLA {
   };
   
   // Edge A 0
-  enum class eEDGA0 : uint32_t {
+  enum class eEDGA0 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -1032,7 +1012,7 @@ union SM0CAPTCTRLA {
   };
   
   // Edge A 1
-  enum class eEDGA1 : uint32_t {
+  enum class eEDGA1 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -1044,7 +1024,7 @@ union SM0CAPTCTRLA {
   };
   
   // Input Select A
-  enum class eINP_SELA : uint32_t {
+  enum class eINP_SELA : uint16_t {
     // Raw PWM_A input signal selected as source.
     ePWM_A = 0,
     // Edge Counter
@@ -1052,7 +1032,7 @@ union SM0CAPTCTRLA {
   };
   
   // Edge Counter A Enable
-  enum class eEDGCNTA_EN : uint32_t {
+  enum class eEDGCNTA_EN : uint16_t {
     // Edge counter disabled and held in reset
     eDISABLED = 0,
     // Edge counter enabled
@@ -1074,16 +1054,15 @@ union SM0CAPTCTRLA {
     // read-write - Edge Counter A Enable
     eEDGCNTA_EN EDGCNTA_EN : 1;
     // read-write - Capture A FIFOs Water Mark
-    uint32_t CFAWM : 2;
+    uint16_t CFAWM : 2;
     // read-only - Capture A0 FIFO Word Count
-    uint32_t CA0CNT : 3;
+    uint16_t CA0CNT : 3;
     // read-only - Capture A1 FIFO Word Count
-    uint32_t CA1CNT : 3;
-    uint32_t _reserved_0 : 16;
+    uint16_t CA1CNT : 3;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CAPTCTRLA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1096,14 +1075,13 @@ union SM0CAPTCOMPA {
   // Bit field definition.
   struct {
     // read-write - Edge Compare A
-    uint32_t EDGCMPA : 8;
+    uint16_t EDGCMPA : 8;
     // read-only - Edge Counter A
-    uint32_t EDGCNTA : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t EDGCNTA : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CAPTCOMPA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1114,7 +1092,7 @@ union SM0CAPTCOMPA {
 union SM0CAPTCTRLB {
   
   // Arm B
-  enum class eARMB : uint32_t {
+  enum class eARMB : uint16_t {
     // Input capture operation is disabled.
     eDISABLED = 0,
     // Input capture operation as specified by CAPTCTRLB[EDGBx] is enabled.
@@ -1122,7 +1100,7 @@ union SM0CAPTCTRLB {
   };
   
   // One Shot Mode B
-  enum class eONESHOTB : uint32_t {
+  enum class eONESHOTB : uint16_t {
     // Free Running
     eFREE_RUNNING = 0,
     // One Shot
@@ -1130,7 +1108,7 @@ union SM0CAPTCTRLB {
   };
   
   // Edge B 0
-  enum class eEDGB0 : uint32_t {
+  enum class eEDGB0 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -1142,7 +1120,7 @@ union SM0CAPTCTRLB {
   };
   
   // Edge B 1
-  enum class eEDGB1 : uint32_t {
+  enum class eEDGB1 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -1154,7 +1132,7 @@ union SM0CAPTCTRLB {
   };
   
   // Input Select B
-  enum class eINP_SELB : uint32_t {
+  enum class eINP_SELB : uint16_t {
     // Raw PWM_B input signal selected as source.
     ePWM_B = 0,
     // Edge Counter
@@ -1162,7 +1140,7 @@ union SM0CAPTCTRLB {
   };
   
   // Edge Counter B Enable
-  enum class eEDGCNTB_EN : uint32_t {
+  enum class eEDGCNTB_EN : uint16_t {
     // Edge counter disabled and held in reset
     eDISABLED = 0,
     // Edge counter enabled
@@ -1184,16 +1162,15 @@ union SM0CAPTCTRLB {
     // read-write - Edge Counter B Enable
     eEDGCNTB_EN EDGCNTB_EN : 1;
     // read-write - Capture B FIFOs Water Mark
-    uint32_t CFBWM : 2;
+    uint16_t CFBWM : 2;
     // read-only - Capture B0 FIFO Word Count
-    uint32_t CB0CNT : 3;
+    uint16_t CB0CNT : 3;
     // read-only - Capture B1 FIFO Word Count
-    uint32_t CB1CNT : 3;
-    uint32_t _reserved_0 : 16;
+    uint16_t CB1CNT : 3;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CAPTCTRLB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1206,14 +1183,13 @@ union SM0CAPTCOMPB {
   // Bit field definition.
   struct {
     // read-write - Edge Compare B
-    uint32_t EDGCMPB : 8;
+    uint16_t EDGCMPB : 8;
     // read-only - Edge Counter B
-    uint32_t EDGCNTB : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t EDGCNTB : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CAPTCOMPB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1224,7 +1200,7 @@ union SM0CAPTCOMPB {
 union SM0CAPTCTRLX {
   
   // Arm X
-  enum class eARMX : uint32_t {
+  enum class eARMX : uint16_t {
     // Input capture operation is disabled.
     eDISABLED = 0,
     // Input capture operation as specified by CAPTCTRLX[EDGXx] is enabled.
@@ -1232,7 +1208,7 @@ union SM0CAPTCTRLX {
   };
   
   // One Shot Mode Aux
-  enum class eONESHOTX : uint32_t {
+  enum class eONESHOTX : uint16_t {
     // Free Running
     eFREE_RUNNING = 0,
     // One Shot
@@ -1240,7 +1216,7 @@ union SM0CAPTCTRLX {
   };
   
   // Edge X 0
-  enum class eEDGX0 : uint32_t {
+  enum class eEDGX0 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -1252,7 +1228,7 @@ union SM0CAPTCTRLX {
   };
   
   // Edge X 1
-  enum class eEDGX1 : uint32_t {
+  enum class eEDGX1 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -1264,7 +1240,7 @@ union SM0CAPTCTRLX {
   };
   
   // Input Select X
-  enum class eINP_SELX : uint32_t {
+  enum class eINP_SELX : uint16_t {
     // Raw PWM_X input signal selected as source.
     ePWM_X = 0,
     // Edge Counter
@@ -1272,7 +1248,7 @@ union SM0CAPTCTRLX {
   };
   
   // Edge Counter X Enable
-  enum class eEDGCNTX_EN : uint32_t {
+  enum class eEDGCNTX_EN : uint16_t {
     // Edge counter disabled and held in reset
     eDISABLED = 0,
     // Edge counter enabled
@@ -1294,16 +1270,15 @@ union SM0CAPTCTRLX {
     // read-write - Edge Counter X Enable
     eEDGCNTX_EN EDGCNTX_EN : 1;
     // read-write - Capture X FIFOs Water Mark
-    uint32_t CFXWM : 2;
+    uint16_t CFXWM : 2;
     // read-only - Capture X0 FIFO Word Count
-    uint32_t CX0CNT : 3;
+    uint16_t CX0CNT : 3;
     // read-only - Capture X1 FIFO Word Count
-    uint32_t CX1CNT : 3;
-    uint32_t _reserved_0 : 16;
+    uint16_t CX1CNT : 3;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CAPTCTRLX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1316,14 +1291,13 @@ union SM0CAPTCOMPX {
   // Bit field definition.
   struct {
     // read-write - Edge Compare X
-    uint32_t EDGCMPX : 8;
+    uint16_t EDGCMPX : 8;
     // read-only - Edge Counter X
-    uint32_t EDGCNTX : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t EDGCNTX : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CAPTCOMPX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1336,12 +1310,11 @@ union SM0CVAL0 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 0
-    uint32_t CAPTVAL0 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CVAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1354,12 +1327,12 @@ union SM0CVAL0CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 0 Cycle
-    uint32_t CVAL0CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL0CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CVAL0CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1372,12 +1345,11 @@ union SM0CVAL1 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 1
-    uint32_t CAPTVAL1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1390,12 +1362,12 @@ union SM0CVAL1CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 1 Cycle
-    uint32_t CVAL1CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL1CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CVAL1CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1408,12 +1380,11 @@ union SM0CVAL2 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 2
-    uint32_t CAPTVAL2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1426,12 +1397,12 @@ union SM0CVAL2CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 2 Cycle
-    uint32_t CVAL2CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL2CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CVAL2CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1444,12 +1415,11 @@ union SM0CVAL3 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 3
-    uint32_t CAPTVAL3 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL3 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1462,12 +1432,12 @@ union SM0CVAL3CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 3 Cycle
-    uint32_t CVAL3CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL3CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CVAL3CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1480,12 +1450,11 @@ union SM0CVAL4 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 4
-    uint32_t CAPTVAL4 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL4 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1498,12 +1467,12 @@ union SM0CVAL4CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 4 Cycle
-    uint32_t CVAL4CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL4CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CVAL4CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1516,12 +1485,11 @@ union SM0CVAL5 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 5
-    uint32_t CAPTVAL5 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL5 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1534,12 +1502,12 @@ union SM0CVAL5CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 5 Cycle
-    uint32_t CVAL5CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL5CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM0CVAL5CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1552,12 +1520,11 @@ union SM1CNT {
   // Bit field definition.
   struct {
     // read-only - Counter Register Bits
-    uint32_t CNT : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CNT : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1570,12 +1537,11 @@ union SM1INIT {
   // Bit field definition.
   struct {
     // read-write - Initial Count Register Bits
-    uint32_t INIT : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t INIT : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1INIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1586,7 +1552,7 @@ union SM1INIT {
 union SM1CTRL2 {
   
   // Clock Source Select
-  enum class eCLK_SEL : uint32_t {
+  enum class eCLK_SEL : uint16_t {
     // The IPBus clock is used as the clock for the local prescaler and counter.
     eIPBUS = 0,
     // EXT_CLK is used as the clock for the local prescaler and counter.
@@ -1596,7 +1562,7 @@ union SM1CTRL2 {
   };
   
   // Reload Source Select
-  enum class eRELOAD_SEL : uint32_t {
+  enum class eRELOAD_SEL : uint16_t {
     // The local RELOAD signal is used to reload registers.
     eLOCAL = 0,
     // The master RELOAD signal (from submodule 0) is used to reload registers. This setting should not be used in submodule 0 as it forces the RELOAD signal to logic 0.
@@ -1604,7 +1570,7 @@ union SM1CTRL2 {
   };
   
   // Force Select
-  enum class eFORCE_SEL : uint32_t {
+  enum class eFORCE_SEL : uint16_t {
     // The local force signal, CTRL2[FORCE], from this submodule is used to force updates.
     eLOCAL = 0,
     // The master force signal from submodule 0 is used to force updates. This setting should not be used in submodule 0 as it holds the FORCE OUTPUT signal to logic 0.
@@ -1624,7 +1590,7 @@ union SM1CTRL2 {
   };
   
   // Force Enable
-  enum class eFRCEN : uint32_t {
+  enum class eFRCEN : uint16_t {
     // Initialization from a FORCE_OUT is disabled.
     eDISABLED = 0,
     // Initialization from a FORCE_OUT is enabled.
@@ -1632,7 +1598,7 @@ union SM1CTRL2 {
   };
   
   // Initialization Control Select
-  enum class eINIT_SEL : uint32_t {
+  enum class eINIT_SEL : uint16_t {
     // Local sync (PWM_X) causes initialization.
     ePWM_X = 0,
     // Master reload from submodule 0 causes initialization. This setting should not be used in submodule 0 as it forces the INIT signal to logic 0. The submodule counter will only re-initialize when a master reload occurs.
@@ -1644,7 +1610,7 @@ union SM1CTRL2 {
   };
   
   // Independent or Complementary Pair Operation
-  enum class eINDEP : uint32_t {
+  enum class eINDEP : uint16_t {
     // PWM_A and PWM_B form a complementary PWM pair.
     eCOMPLEMENTARY = 0,
     // PWM_A and PWM_B outputs are independent PWMs.
@@ -1660,28 +1626,27 @@ union SM1CTRL2 {
     // read-write - Force Select
     eFORCE_SEL FORCE_SEL : 3;
     // read-write - Force Initialization
-    uint32_t FORCE : 1;
+    uint16_t FORCE : 1;
     // read-write - Force Enable
     eFRCEN FRCEN : 1;
     // read-write - Initialization Control Select
     eINIT_SEL INIT_SEL : 2;
     // read-write - PWM_X Initial Value
-    uint32_t PWMX_INIT : 1;
+    uint16_t PWMX_INIT : 1;
     // read-write - PWM45 Initial Value
-    uint32_t PWM45_INIT : 1;
+    uint16_t PWM45_INIT : 1;
     // read-write - PWM23 Initial Value
-    uint32_t PWM23_INIT : 1;
+    uint16_t PWM23_INIT : 1;
     // read-write - Independent or Complementary Pair Operation
     eINDEP INDEP : 1;
     // read-write - Wait Enable
-    uint32_t WAITEN : 1;
+    uint16_t WAITEN : 1;
     // read-write - Debug Enable
-    uint32_t DBGEN : 1;
-    uint32_t _reserved_0 : 16;
+    uint16_t DBGEN : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1692,7 +1657,7 @@ union SM1CTRL2 {
 union SM1CTRL {
   
   // Double Switching Enable
-  enum class eDBLEN : uint32_t {
+  enum class eDBLEN : uint16_t {
     // Double switching disabled.
     eDISABLED = 0,
     // Double switching enabled.
@@ -1700,7 +1665,7 @@ union SM1CTRL {
   };
   
   // PWM_X Double Switching Enable
-  enum class eDBLX : uint32_t {
+  enum class eDBLX : uint16_t {
     // PWM_X double pulse disabled.
     eDISABLED = 0,
     // PWM_X double pulse enabled.
@@ -1708,7 +1673,7 @@ union SM1CTRL {
   };
   
   // Load Mode Select
-  enum class eLDMOD : uint32_t {
+  enum class eLDMOD : uint16_t {
     // Buffered registers of this submodule are loaded and take effect at the next PWM reload if MCTRL[LDOK] is set.
     eNEXT_PWM_RELOAD = 0,
     // Buffered registers of this submodule are loaded and take effect immediately upon MCTRL[LDOK] being set. In this case, it is not necessary to set CTRL[FULL] or CTRL[HALF].
@@ -1716,7 +1681,7 @@ union SM1CTRL {
   };
   
   // Split the DBLPWM signal to PWM_A and PWM_B
-  enum class eSPLIT : uint32_t {
+  enum class eSPLIT : uint16_t {
     // DBLPWM is not split. PWM_A and PWM_B each have double pulses.
     eDISABLED = 0,
     // DBLPWM is split to PWM_A and PWM_B.
@@ -1724,7 +1689,7 @@ union SM1CTRL {
   };
   
   // Prescaler
-  enum class ePRSC : uint32_t {
+  enum class ePRSC : uint16_t {
     // Prescaler 1
     eONE = 0,
     // Prescaler 2
@@ -1744,7 +1709,7 @@ union SM1CTRL {
   };
   
   // Compare Mode
-  enum class eCOMPMODE : uint32_t {
+  enum class eCOMPMODE : uint16_t {
     // The VAL* registers and the PWM counter are compared using an "equal to" method. This means that PWM edges are only produced when the counter is equal to one of the VAL* register values. This implies that a PWM_A output that is high at the end of a period maintains this state until a match with VAL3 clears the output in the following period.
     eEQUAL_TO = 0,
     // The VAL* registers and the PWM counter are compared using an "equal to or greater than" method. This means that PWM edges are produced when the counter is equal to or greater than one of the VAL* register values. This implies that a PWM_A output that is high at the end of a period could go low at the start of the next period if the starting counter value is greater than (but not necessarily equal to) the new VAL3 value.
@@ -1752,7 +1717,7 @@ union SM1CTRL {
   };
   
   // Full Cycle Reload
-  enum class eFULL : uint32_t {
+  enum class eFULL : uint16_t {
     // Full-cycle reloads disabled.
     eDISABLED = 0,
     // Full-cycle reloads enabled.
@@ -1760,7 +1725,7 @@ union SM1CTRL {
   };
   
   // Half Cycle Reload
-  enum class eHALF : uint32_t {
+  enum class eHALF : uint16_t {
     // Half-cycle reloads disabled.
     eDISABLED = 0,
     // Half-cycle reloads enabled.
@@ -1768,7 +1733,7 @@ union SM1CTRL {
   };
   
   // Load Frequency
-  enum class eLDFQ : uint32_t {
+  enum class eLDFQ : uint16_t {
     // Every PWM opportunity
     eEVERYPWM = 0,
     // Every 2 PWM opportunities
@@ -1818,18 +1783,17 @@ union SM1CTRL {
     // read-write - Compare Mode
     eCOMPMODE COMPMODE : 1;
     // read-only - Deadtime
-    uint32_t DT : 2;
+    uint16_t DT : 2;
     // read-write - Full Cycle Reload
     eFULL FULL : 1;
     // read-write - Half Cycle Reload
     eHALF HALF : 1;
     // read-write - Load Frequency
     eLDFQ LDFQ : 4;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
@@ -1842,12 +1806,11 @@ union SM1VAL0 {
   // Bit field definition.
   struct {
     // read-write - Value 0
-    uint32_t VAL0 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1VAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1859,14 +1822,13 @@ union SM1FRACVAL1 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 1
-    uint32_t FRACVAL1 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL1 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1FRACVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1879,12 +1841,11 @@ union SM1VAL1 {
   // Bit field definition.
   struct {
     // read-write - Value 1
-    uint32_t VAL1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1VAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1896,14 +1857,13 @@ union SM1FRACVAL2 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 2
-    uint32_t FRACVAL2 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL2 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1FRACVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1916,12 +1876,11 @@ union SM1VAL2 {
   // Bit field definition.
   struct {
     // read-write - Value 2
-    uint32_t VAL2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1VAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1933,14 +1892,13 @@ union SM1FRACVAL3 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 3
-    uint32_t FRACVAL3 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL3 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1FRACVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1953,12 +1911,11 @@ union SM1VAL3 {
   // Bit field definition.
   struct {
     // read-write - Value 3
-    uint32_t VAL3 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL3 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1VAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1970,14 +1927,13 @@ union SM1FRACVAL4 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 4
-    uint32_t FRACVAL4 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL4 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1FRACVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1990,12 +1946,11 @@ union SM1VAL4 {
   // Bit field definition.
   struct {
     // read-write - Value 4
-    uint32_t VAL4 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL4 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1VAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2007,14 +1962,13 @@ union SM1FRACVAL5 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 5
-    uint32_t FRACVAL5 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL5 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1FRACVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2027,12 +1981,11 @@ union SM1VAL5 {
   // Bit field definition.
   struct {
     // read-write - Value 5
-    uint32_t VAL5 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL5 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1VAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2043,7 +1996,7 @@ union SM1VAL5 {
 union SM1FRCTRL {
   
   // Fractional Cycle PWM Period Enable
-  enum class eFRAC1_EN : uint32_t {
+  enum class eFRAC1_EN : uint16_t {
     // Disable fractional cycle length for the PWM period.
     eDISABLED = 0,
     // Enable fractional cycle length for the PWM period.
@@ -2051,7 +2004,7 @@ union SM1FRCTRL {
   };
   
   // Fractional Cycle Placement Enable for PWM_A
-  enum class eFRAC23_EN : uint32_t {
+  enum class eFRAC23_EN : uint16_t {
     // Disable fractional cycle placement for PWM_A.
     eDISABLED = 0,
     // Enable fractional cycle placement for PWM_A.
@@ -2059,7 +2012,7 @@ union SM1FRCTRL {
   };
   
   // Fractional Cycle Placement Enable for PWM_B
-  enum class eFRAC45_EN : uint32_t {
+  enum class eFRAC45_EN : uint16_t {
     // Disable fractional cycle placement for PWM_B.
     eDISABLED = 0,
     // Enable fractional cycle placement for PWM_B.
@@ -2068,22 +2021,21 @@ union SM1FRCTRL {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 1;
+    uint16_t _reserved_0 : 1;
     // read-write - Fractional Cycle PWM Period Enable
     eFRAC1_EN FRAC1_EN : 1;
     // read-write - Fractional Cycle Placement Enable for PWM_A
     eFRAC23_EN FRAC23_EN : 1;
-    uint32_t _reserved_1 : 1;
+    uint16_t _reserved_1 : 1;
     // read-write - Fractional Cycle Placement Enable for PWM_B
     eFRAC45_EN FRAC45_EN : 1;
-    uint32_t _reserved_2 : 10;
+    uint16_t _reserved_2 : 10;
     // read-only - Test Status Bit
-    uint32_t TEST : 1;
-    uint32_t _reserved_3 : 16;
+    uint16_t TEST : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1FRCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2094,7 +2046,7 @@ union SM1FRCTRL {
 union SM1OCTRL {
   
   // PWM_X Fault State
-  enum class ePWMXFS : uint32_t {
+  enum class ePWMXFS : uint16_t {
     // Output is forced to logic 0 state prior to consideration of output polarity control.
     eLOGIC_0 = 0,
     // Output is forced to logic 1 state prior to consideration of output polarity control.
@@ -2106,7 +2058,7 @@ union SM1OCTRL {
   };
   
   // PWM_B Fault State
-  enum class ePWMBFS : uint32_t {
+  enum class ePWMBFS : uint16_t {
     // Output is forced to logic 0 state prior to consideration of output polarity control.
     eLOGIC_0 = 0,
     // Output is forced to logic 1 state prior to consideration of output polarity control.
@@ -2118,7 +2070,7 @@ union SM1OCTRL {
   };
   
   // PWM_A Fault State
-  enum class ePWMAFS : uint32_t {
+  enum class ePWMAFS : uint16_t {
     // Output is forced to logic 0 state prior to consideration of output polarity control.
     eLOGIC_0 = 0,
     // Output is forced to logic 1 state prior to consideration of output polarity control.
@@ -2130,7 +2082,7 @@ union SM1OCTRL {
   };
   
   // PWM_X Output Polarity
-  enum class ePOLX : uint32_t {
+  enum class ePOLX : uint16_t {
     // PWM_X output not inverted. A high level on the PWM_X pin represents the "on" or "active" state.
     eNOT_INVERTED = 0,
     // PWM_X output inverted. A low level on the PWM_X pin represents the "on" or "active" state.
@@ -2138,7 +2090,7 @@ union SM1OCTRL {
   };
   
   // PWM_B Output Polarity
-  enum class ePOLB : uint32_t {
+  enum class ePOLB : uint16_t {
     // PWM_B output not inverted. A high level on the PWM_B pin represents the "on" or "active" state.
     eNOT_INVERTED = 0,
     // PWM_B output inverted. A low level on the PWM_B pin represents the "on" or "active" state.
@@ -2146,7 +2098,7 @@ union SM1OCTRL {
   };
   
   // PWM_A Output Polarity
-  enum class ePOLA : uint32_t {
+  enum class ePOLA : uint16_t {
     // PWM_A output not inverted. A high level on the PWM_A pin represents the "on" or "active" state.
     eNOT_INVERTED = 0,
     // PWM_A output inverted. A low level on the PWM_A pin represents the "on" or "active" state.
@@ -2161,25 +2113,24 @@ union SM1OCTRL {
     ePWMBFS PWMBFS : 2;
     // read-write - PWM_A Fault State
     ePWMAFS PWMAFS : 2;
-    uint32_t _reserved_0 : 2;
+    uint16_t _reserved_0 : 2;
     // read-write - PWM_X Output Polarity
     ePOLX POLX : 1;
     // read-write - PWM_B Output Polarity
     ePOLB POLB : 1;
     // read-write - PWM_A Output Polarity
     ePOLA POLA : 1;
-    uint32_t _reserved_1 : 2;
+    uint16_t _reserved_1 : 2;
     // read-only - PWM_X Input
-    uint32_t PWMX_IN : 1;
+    uint16_t PWMX_IN : 1;
     // read-only - PWM_B Input
-    uint32_t PWMB_IN : 1;
+    uint16_t PWMB_IN : 1;
     // read-only - PWM_A Input
-    uint32_t PWMA_IN : 1;
-    uint32_t _reserved_2 : 16;
+    uint16_t PWMA_IN : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1OCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2190,7 +2141,7 @@ union SM1OCTRL {
 union SM1STS {
   
   // Compare Flags
-  enum class eCMPF : uint32_t {
+  enum class eCMPF : uint16_t {
     // No compare event has occurred for a particular VALx value.
     eNO_EVENT = 0,
     // A compare event has occurred for a particular VALx value.
@@ -2198,7 +2149,7 @@ union SM1STS {
   };
   
   // Reload Flag
-  enum class eRF : uint32_t {
+  enum class eRF : uint16_t {
     // No new reload cycle since last STS[RF] clearing
     eNO_FLAG = 0,
     // New reload cycle since last STS[RF] clearing
@@ -2206,7 +2157,7 @@ union SM1STS {
   };
   
   // Reload Error Flag
-  enum class eREF : uint32_t {
+  enum class eREF : uint16_t {
     // No reload error occurred.
     eNO_FLAG = 0,
     // Reload signal occurred with non-coherent data and MCTRL[LDOK] = 0.
@@ -2214,7 +2165,7 @@ union SM1STS {
   };
   
   // Registers Updated Flag
-  enum class eRUF : uint32_t {
+  enum class eRUF : uint16_t {
     // No register update has occurred since last reload.
     eNO_FLAG = 0,
     // At least one of the double buffered registers has been updated since the last reload.
@@ -2226,28 +2177,28 @@ union SM1STS {
     // read-write - Compare Flags
     eCMPF CMPF : 6;
     // read-write - Capture Flag X0
-    uint32_t CFX0 : 1;
+    uint16_t CFX0 : 1;
     // read-write - Capture Flag X1
-    uint32_t CFX1 : 1;
+    uint16_t CFX1 : 1;
     // read-write - Capture Flag B0
-    uint32_t CFB0 : 1;
+    uint16_t CFB0 : 1;
     // read-write - Capture Flag B1
-    uint32_t CFB1 : 1;
+    uint16_t CFB1 : 1;
     // read-write - Capture Flag A0
-    uint32_t CFA0 : 1;
+    uint16_t CFA0 : 1;
     // read-write - Capture Flag A1
-    uint32_t CFA1 : 1;
+    uint16_t CFA1 : 1;
     // read-write - Reload Flag
     eRF RF : 1;
     // read-write - Reload Error Flag
     eREF REF : 1;
     // read-only - Registers Updated Flag
     eRUF RUF : 1;
-    uint32_t _reserved_0 : 17;
+    uint16_t _reserved_0 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1STS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2258,7 +2209,7 @@ union SM1STS {
 union SM1INTEN {
   
   // Compare Interrupt Enables
-  enum class eCMPIE : uint32_t {
+  enum class eCMPIE : uint16_t {
     // The corresponding STS[CMPF] bit will not cause an interrupt request.
     eDISABLED = 0,
     // The corresponding STS[CMPF] bit will cause an interrupt request.
@@ -2266,7 +2217,7 @@ union SM1INTEN {
   };
   
   // Capture X 0 Interrupt Enable
-  enum class eCX0IE : uint32_t {
+  enum class eCX0IE : uint16_t {
     // Interrupt request disabled for STS[CFX0].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFX0].
@@ -2274,7 +2225,7 @@ union SM1INTEN {
   };
   
   // Capture X 1 Interrupt Enable
-  enum class eCX1IE : uint32_t {
+  enum class eCX1IE : uint16_t {
     // Interrupt request disabled for STS[CFX1].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFX1].
@@ -2282,7 +2233,7 @@ union SM1INTEN {
   };
   
   // Capture B 0 Interrupt Enable
-  enum class eCB0IE : uint32_t {
+  enum class eCB0IE : uint16_t {
     // Interrupt request disabled for STS[CFB0].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFB0].
@@ -2290,7 +2241,7 @@ union SM1INTEN {
   };
   
   // Capture B 1 Interrupt Enable
-  enum class eCB1IE : uint32_t {
+  enum class eCB1IE : uint16_t {
     // Interrupt request disabled for STS[CFB1].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFB1].
@@ -2298,7 +2249,7 @@ union SM1INTEN {
   };
   
   // Capture A 0 Interrupt Enable
-  enum class eCA0IE : uint32_t {
+  enum class eCA0IE : uint16_t {
     // Interrupt request disabled for STS[CFA0].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFA0].
@@ -2306,7 +2257,7 @@ union SM1INTEN {
   };
   
   // Capture A 1 Interrupt Enable
-  enum class eCA1IE : uint32_t {
+  enum class eCA1IE : uint16_t {
     // Interrupt request disabled for STS[CFA1]
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFA1]
@@ -2314,7 +2265,7 @@ union SM1INTEN {
   };
   
   // Reload Interrupt Enable
-  enum class eRIE : uint32_t {
+  enum class eRIE : uint16_t {
     // STS[RF] CPU interrupt requests disabled
     eDISABLED = 0,
     // STS[RF] CPU interrupt requests enabled
@@ -2322,7 +2273,7 @@ union SM1INTEN {
   };
   
   // Reload Error Interrupt Enable
-  enum class eREIE : uint32_t {
+  enum class eREIE : uint16_t {
     // STS[REF] CPU interrupt requests disabled
     eDISABLED = 0,
     // STS[REF] CPU interrupt requests enabled
@@ -2349,11 +2300,11 @@ union SM1INTEN {
     eRIE RIE : 1;
     // read-write - Reload Error Interrupt Enable
     eREIE REIE : 1;
-    uint32_t _reserved_0 : 18;
+    uint16_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1INTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2364,7 +2315,7 @@ union SM1INTEN {
 union SM1DMAEN {
   
   // Capture DMA Enable Source Select
-  enum class eCAPTDE : uint32_t {
+  enum class eCAPTDE : uint16_t {
     // Read DMA requests disabled.
     eDISABLED = 0,
     // Exceeding a FIFO watermark sets the DMA read request. This requires at least one of DMAEN[CA1DE], DMAEN[CA0DE], DMAEN[CB1DE], DMAEN[CB0DE], DMAEN[CX1DE], or DMAEN[CX0DE] to be set to determine which watermark(s) the DMA request is sensitive.
@@ -2376,7 +2327,7 @@ union SM1DMAEN {
   };
   
   // FIFO Watermark AND Control
-  enum class eFAND : uint32_t {
+  enum class eFAND : uint16_t {
     // Selected FIFO watermarks are OR'ed together.
     eOR = 0,
     // Selected FIFO watermarks are AND'ed together.
@@ -2384,7 +2335,7 @@ union SM1DMAEN {
   };
   
   // Value Registers DMA Enable
-  enum class eVALDE : uint32_t {
+  enum class eVALDE : uint16_t {
     // DMA write requests disabled
     eDISABLED = 0,
     // Enabled
@@ -2394,28 +2345,28 @@ union SM1DMAEN {
   // Bit field definition.
   struct {
     // read-write - Capture X0 FIFO DMA Enable
-    uint32_t CX0DE : 1;
+    uint16_t CX0DE : 1;
     // read-write - Capture X1 FIFO DMA Enable
-    uint32_t CX1DE : 1;
+    uint16_t CX1DE : 1;
     // read-write - Capture B0 FIFO DMA Enable
-    uint32_t CB0DE : 1;
+    uint16_t CB0DE : 1;
     // read-write - Capture B1 FIFO DMA Enable
-    uint32_t CB1DE : 1;
+    uint16_t CB1DE : 1;
     // read-write - Capture A0 FIFO DMA Enable
-    uint32_t CA0DE : 1;
+    uint16_t CA0DE : 1;
     // read-write - Capture A1 FIFO DMA Enable
-    uint32_t CA1DE : 1;
+    uint16_t CA1DE : 1;
     // read-write - Capture DMA Enable Source Select
     eCAPTDE CAPTDE : 2;
     // read-write - FIFO Watermark AND Control
     eFAND FAND : 1;
     // read-write - Value Registers DMA Enable
     eVALDE VALDE : 1;
-    uint32_t _reserved_0 : 22;
+    uint16_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1DMAEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2426,13 +2377,13 @@ union SM1DMAEN {
 union SM1TCTRL {
   
   // Output Trigger Enables
-  enum class eOUT_TRIG_EN : uint32_t {
+  enum class eOUT_TRIG_EN : uint16_t {
     // PWM_OUT_TRIG0 will set when the counter value matches the VAL0 value.
     eVAL0 = 1,
   };
   
   // Trigger Frequency
-  enum class eTRGFRQ : uint32_t {
+  enum class eTRGFRQ : uint16_t {
     // Trigger outputs are generated during every PWM period even if the PWM is not reloaded every period due to CTRL[LDFQ] being non-zero.
     eEVERYPWM = 0,
     // Trigger outputs are generated only during the final PWM period prior to a reload opportunity when the PWM is not reloaded every period due to CTRL[LDFQ] being non-zero.
@@ -2440,7 +2391,7 @@ union SM1TCTRL {
   };
   
   // Output Trigger 1 Source Select
-  enum class ePWBOT1 : uint32_t {
+  enum class ePWBOT1 : uint16_t {
     // Route the PWM_OUT_TRIG1 signal to PWM_OUT_TRIG1 port.
     ePWM_OUT_TRIG1_SIGNAL = 0,
     // Route the PWM_B output to the PWM_OUT_TRIG1 port.
@@ -2448,7 +2399,7 @@ union SM1TCTRL {
   };
   
   // Output Trigger 0 Source Select
-  enum class ePWAOT0 : uint32_t {
+  enum class ePWAOT0 : uint16_t {
     // Route the PWM_OUT_TRIG0 signal to PWM_OUT_TRIG0 port.
     ePWM_OUT_TRIG0_SIGNAL = 0,
     // Route the PWM_A output to the PWM_OUT_TRIG0 port.
@@ -2459,19 +2410,18 @@ union SM1TCTRL {
   struct {
     // read-write - Output Trigger Enables
     eOUT_TRIG_EN OUT_TRIG_EN : 6;
-    uint32_t _reserved_0 : 6;
+    uint16_t _reserved_0 : 6;
     // read-write - Trigger Frequency
     eTRGFRQ TRGFRQ : 1;
-    uint32_t _reserved_1 : 1;
+    uint16_t _reserved_1 : 1;
     // read-write - Output Trigger 1 Source Select
     ePWBOT1 PWBOT1 : 1;
     // read-write - Output Trigger 0 Source Select
     ePWAOT0 PWAOT0 : 1;
-    uint32_t _reserved_2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1TCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2484,16 +2434,16 @@ union SM1DISMAP0 {
   // Bit field definition.
   struct {
     // read-write - PWM_A Fault Disable Mask 0
-    uint32_t DIS0A : 4;
+    uint16_t DIS0A : 4;
     // read-write - PWM_B Fault Disable Mask 0
-    uint32_t DIS0B : 4;
+    uint16_t DIS0B : 4;
     // read-write - PWM_X Fault Disable Mask 0
-    uint32_t DIS0X : 4;
-    uint32_t _reserved_0 : 20;
+    uint16_t DIS0X : 4;
+    uint16_t _reserved_0 : 4;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1DISMAP0() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
@@ -2506,12 +2456,11 @@ union SM1DTCNT0 {
   // Bit field definition.
   struct {
     // read-write - DTCNT0
-    uint32_t DTCNT0 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t DTCNT0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1DTCNT0() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
@@ -2524,12 +2473,11 @@ union SM1DTCNT1 {
   // Bit field definition.
   struct {
     // read-write - DTCNT1
-    uint32_t DTCNT1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t DTCNT1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1DTCNT1() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
@@ -2540,7 +2488,7 @@ union SM1DTCNT1 {
 union SM1CAPTCTRLA {
   
   // Arm A
-  enum class eARMA : uint32_t {
+  enum class eARMA : uint16_t {
     // Input capture operation is disabled.
     eDISABLED = 0,
     // Input capture operation as specified by CAPTCTRLA[EDGAx] is enabled.
@@ -2548,7 +2496,7 @@ union SM1CAPTCTRLA {
   };
   
   // One Shot Mode A
-  enum class eONESHOTA : uint32_t {
+  enum class eONESHOTA : uint16_t {
     // Free Running
     eFREE_RUNNING = 0,
     // One Shot
@@ -2556,7 +2504,7 @@ union SM1CAPTCTRLA {
   };
   
   // Edge A 0
-  enum class eEDGA0 : uint32_t {
+  enum class eEDGA0 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -2568,7 +2516,7 @@ union SM1CAPTCTRLA {
   };
   
   // Edge A 1
-  enum class eEDGA1 : uint32_t {
+  enum class eEDGA1 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -2580,7 +2528,7 @@ union SM1CAPTCTRLA {
   };
   
   // Input Select A
-  enum class eINP_SELA : uint32_t {
+  enum class eINP_SELA : uint16_t {
     // Raw PWM_A input signal selected as source.
     ePWM_A = 0,
     // Edge Counter
@@ -2588,7 +2536,7 @@ union SM1CAPTCTRLA {
   };
   
   // Edge Counter A Enable
-  enum class eEDGCNTA_EN : uint32_t {
+  enum class eEDGCNTA_EN : uint16_t {
     // Edge counter disabled and held in reset
     eDISABLED = 0,
     // Edge counter enabled
@@ -2610,16 +2558,15 @@ union SM1CAPTCTRLA {
     // read-write - Edge Counter A Enable
     eEDGCNTA_EN EDGCNTA_EN : 1;
     // read-write - Capture A FIFOs Water Mark
-    uint32_t CFAWM : 2;
+    uint16_t CFAWM : 2;
     // read-only - Capture A0 FIFO Word Count
-    uint32_t CA0CNT : 3;
+    uint16_t CA0CNT : 3;
     // read-only - Capture A1 FIFO Word Count
-    uint32_t CA1CNT : 3;
-    uint32_t _reserved_0 : 16;
+    uint16_t CA1CNT : 3;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CAPTCTRLA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2632,14 +2579,13 @@ union SM1CAPTCOMPA {
   // Bit field definition.
   struct {
     // read-write - Edge Compare A
-    uint32_t EDGCMPA : 8;
+    uint16_t EDGCMPA : 8;
     // read-only - Edge Counter A
-    uint32_t EDGCNTA : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t EDGCNTA : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CAPTCOMPA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2650,7 +2596,7 @@ union SM1CAPTCOMPA {
 union SM1CAPTCTRLB {
   
   // Arm B
-  enum class eARMB : uint32_t {
+  enum class eARMB : uint16_t {
     // Input capture operation is disabled.
     eDISABLED = 0,
     // Input capture operation as specified by CAPTCTRLB[EDGBx] is enabled.
@@ -2658,7 +2604,7 @@ union SM1CAPTCTRLB {
   };
   
   // One Shot Mode B
-  enum class eONESHOTB : uint32_t {
+  enum class eONESHOTB : uint16_t {
     // Free Running
     eFREE_RUNNING = 0,
     // One Shot
@@ -2666,7 +2612,7 @@ union SM1CAPTCTRLB {
   };
   
   // Edge B 0
-  enum class eEDGB0 : uint32_t {
+  enum class eEDGB0 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -2678,7 +2624,7 @@ union SM1CAPTCTRLB {
   };
   
   // Edge B 1
-  enum class eEDGB1 : uint32_t {
+  enum class eEDGB1 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -2690,7 +2636,7 @@ union SM1CAPTCTRLB {
   };
   
   // Input Select B
-  enum class eINP_SELB : uint32_t {
+  enum class eINP_SELB : uint16_t {
     // Raw PWM_B input signal selected as source.
     ePWM_B = 0,
     // Edge Counter
@@ -2698,7 +2644,7 @@ union SM1CAPTCTRLB {
   };
   
   // Edge Counter B Enable
-  enum class eEDGCNTB_EN : uint32_t {
+  enum class eEDGCNTB_EN : uint16_t {
     // Edge counter disabled and held in reset
     eDISABLED = 0,
     // Edge counter enabled
@@ -2720,16 +2666,15 @@ union SM1CAPTCTRLB {
     // read-write - Edge Counter B Enable
     eEDGCNTB_EN EDGCNTB_EN : 1;
     // read-write - Capture B FIFOs Water Mark
-    uint32_t CFBWM : 2;
+    uint16_t CFBWM : 2;
     // read-only - Capture B0 FIFO Word Count
-    uint32_t CB0CNT : 3;
+    uint16_t CB0CNT : 3;
     // read-only - Capture B1 FIFO Word Count
-    uint32_t CB1CNT : 3;
-    uint32_t _reserved_0 : 16;
+    uint16_t CB1CNT : 3;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CAPTCTRLB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2742,14 +2687,13 @@ union SM1CAPTCOMPB {
   // Bit field definition.
   struct {
     // read-write - Edge Compare B
-    uint32_t EDGCMPB : 8;
+    uint16_t EDGCMPB : 8;
     // read-only - Edge Counter B
-    uint32_t EDGCNTB : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t EDGCNTB : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CAPTCOMPB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2760,7 +2704,7 @@ union SM1CAPTCOMPB {
 union SM1CAPTCTRLX {
   
   // Arm X
-  enum class eARMX : uint32_t {
+  enum class eARMX : uint16_t {
     // Input capture operation is disabled.
     eDISABLED = 0,
     // Input capture operation as specified by CAPTCTRLX[EDGXx] is enabled.
@@ -2768,7 +2712,7 @@ union SM1CAPTCTRLX {
   };
   
   // One Shot Mode Aux
-  enum class eONESHOTX : uint32_t {
+  enum class eONESHOTX : uint16_t {
     // Free Running
     eFREE_RUNNING = 0,
     // One Shot
@@ -2776,7 +2720,7 @@ union SM1CAPTCTRLX {
   };
   
   // Edge X 0
-  enum class eEDGX0 : uint32_t {
+  enum class eEDGX0 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -2788,7 +2732,7 @@ union SM1CAPTCTRLX {
   };
   
   // Edge X 1
-  enum class eEDGX1 : uint32_t {
+  enum class eEDGX1 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -2800,7 +2744,7 @@ union SM1CAPTCTRLX {
   };
   
   // Input Select X
-  enum class eINP_SELX : uint32_t {
+  enum class eINP_SELX : uint16_t {
     // Raw PWM_X input signal selected as source.
     ePWM_X = 0,
     // Edge Counter
@@ -2808,7 +2752,7 @@ union SM1CAPTCTRLX {
   };
   
   // Edge Counter X Enable
-  enum class eEDGCNTX_EN : uint32_t {
+  enum class eEDGCNTX_EN : uint16_t {
     // Edge counter disabled and held in reset
     eDISABLED = 0,
     // Edge counter enabled
@@ -2830,16 +2774,15 @@ union SM1CAPTCTRLX {
     // read-write - Edge Counter X Enable
     eEDGCNTX_EN EDGCNTX_EN : 1;
     // read-write - Capture X FIFOs Water Mark
-    uint32_t CFXWM : 2;
+    uint16_t CFXWM : 2;
     // read-only - Capture X0 FIFO Word Count
-    uint32_t CX0CNT : 3;
+    uint16_t CX0CNT : 3;
     // read-only - Capture X1 FIFO Word Count
-    uint32_t CX1CNT : 3;
-    uint32_t _reserved_0 : 16;
+    uint16_t CX1CNT : 3;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CAPTCTRLX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2852,14 +2795,13 @@ union SM1CAPTCOMPX {
   // Bit field definition.
   struct {
     // read-write - Edge Compare X
-    uint32_t EDGCMPX : 8;
+    uint16_t EDGCMPX : 8;
     // read-only - Edge Counter X
-    uint32_t EDGCNTX : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t EDGCNTX : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CAPTCOMPX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2872,12 +2814,11 @@ union SM1CVAL0 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 0
-    uint32_t CAPTVAL0 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CVAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2890,12 +2831,12 @@ union SM1CVAL0CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 0 Cycle
-    uint32_t CVAL0CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL0CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CVAL0CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2908,12 +2849,11 @@ union SM1CVAL1 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 1
-    uint32_t CAPTVAL1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2926,12 +2866,12 @@ union SM1CVAL1CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 1 Cycle
-    uint32_t CVAL1CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL1CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CVAL1CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2944,12 +2884,11 @@ union SM1CVAL2 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 2
-    uint32_t CAPTVAL2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2962,12 +2901,12 @@ union SM1CVAL2CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 2 Cycle
-    uint32_t CVAL2CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL2CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CVAL2CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2980,12 +2919,11 @@ union SM1CVAL3 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 3
-    uint32_t CAPTVAL3 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL3 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2998,12 +2936,12 @@ union SM1CVAL3CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 3 Cycle
-    uint32_t CVAL3CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL3CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CVAL3CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3016,12 +2954,11 @@ union SM1CVAL4 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 4
-    uint32_t CAPTVAL4 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL4 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3034,12 +2971,12 @@ union SM1CVAL4CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 4 Cycle
-    uint32_t CVAL4CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL4CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CVAL4CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3052,12 +2989,11 @@ union SM1CVAL5 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 5
-    uint32_t CAPTVAL5 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL5 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3070,12 +3006,12 @@ union SM1CVAL5CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 5 Cycle
-    uint32_t CVAL5CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL5CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM1CVAL5CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3088,12 +3024,11 @@ union SM2CNT {
   // Bit field definition.
   struct {
     // read-only - Counter Register Bits
-    uint32_t CNT : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CNT : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3106,12 +3041,11 @@ union SM2INIT {
   // Bit field definition.
   struct {
     // read-write - Initial Count Register Bits
-    uint32_t INIT : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t INIT : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2INIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3122,7 +3056,7 @@ union SM2INIT {
 union SM2CTRL2 {
   
   // Clock Source Select
-  enum class eCLK_SEL : uint32_t {
+  enum class eCLK_SEL : uint16_t {
     // The IPBus clock is used as the clock for the local prescaler and counter.
     eIPBUS = 0,
     // EXT_CLK is used as the clock for the local prescaler and counter.
@@ -3132,7 +3066,7 @@ union SM2CTRL2 {
   };
   
   // Reload Source Select
-  enum class eRELOAD_SEL : uint32_t {
+  enum class eRELOAD_SEL : uint16_t {
     // The local RELOAD signal is used to reload registers.
     eLOCAL = 0,
     // The master RELOAD signal (from submodule 0) is used to reload registers. This setting should not be used in submodule 0 as it forces the RELOAD signal to logic 0.
@@ -3140,7 +3074,7 @@ union SM2CTRL2 {
   };
   
   // Force Select
-  enum class eFORCE_SEL : uint32_t {
+  enum class eFORCE_SEL : uint16_t {
     // The local force signal, CTRL2[FORCE], from this submodule is used to force updates.
     eLOCAL = 0,
     // The master force signal from submodule 0 is used to force updates. This setting should not be used in submodule 0 as it holds the FORCE OUTPUT signal to logic 0.
@@ -3160,7 +3094,7 @@ union SM2CTRL2 {
   };
   
   // Force Enable
-  enum class eFRCEN : uint32_t {
+  enum class eFRCEN : uint16_t {
     // Initialization from a FORCE_OUT is disabled.
     eDISABLED = 0,
     // Initialization from a FORCE_OUT is enabled.
@@ -3168,7 +3102,7 @@ union SM2CTRL2 {
   };
   
   // Initialization Control Select
-  enum class eINIT_SEL : uint32_t {
+  enum class eINIT_SEL : uint16_t {
     // Local sync (PWM_X) causes initialization.
     ePWM_X = 0,
     // Master reload from submodule 0 causes initialization. This setting should not be used in submodule 0 as it forces the INIT signal to logic 0. The submodule counter will only re-initialize when a master reload occurs.
@@ -3180,7 +3114,7 @@ union SM2CTRL2 {
   };
   
   // Independent or Complementary Pair Operation
-  enum class eINDEP : uint32_t {
+  enum class eINDEP : uint16_t {
     // PWM_A and PWM_B form a complementary PWM pair.
     eCOMPLEMENTARY = 0,
     // PWM_A and PWM_B outputs are independent PWMs.
@@ -3196,28 +3130,27 @@ union SM2CTRL2 {
     // read-write - Force Select
     eFORCE_SEL FORCE_SEL : 3;
     // read-write - Force Initialization
-    uint32_t FORCE : 1;
+    uint16_t FORCE : 1;
     // read-write - Force Enable
     eFRCEN FRCEN : 1;
     // read-write - Initialization Control Select
     eINIT_SEL INIT_SEL : 2;
     // read-write - PWM_X Initial Value
-    uint32_t PWMX_INIT : 1;
+    uint16_t PWMX_INIT : 1;
     // read-write - PWM45 Initial Value
-    uint32_t PWM45_INIT : 1;
+    uint16_t PWM45_INIT : 1;
     // read-write - PWM23 Initial Value
-    uint32_t PWM23_INIT : 1;
+    uint16_t PWM23_INIT : 1;
     // read-write - Independent or Complementary Pair Operation
     eINDEP INDEP : 1;
     // read-write - Wait Enable
-    uint32_t WAITEN : 1;
+    uint16_t WAITEN : 1;
     // read-write - Debug Enable
-    uint32_t DBGEN : 1;
-    uint32_t _reserved_0 : 16;
+    uint16_t DBGEN : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3228,7 +3161,7 @@ union SM2CTRL2 {
 union SM2CTRL {
   
   // Double Switching Enable
-  enum class eDBLEN : uint32_t {
+  enum class eDBLEN : uint16_t {
     // Double switching disabled.
     eDISABLED = 0,
     // Double switching enabled.
@@ -3236,7 +3169,7 @@ union SM2CTRL {
   };
   
   // PWM_X Double Switching Enable
-  enum class eDBLX : uint32_t {
+  enum class eDBLX : uint16_t {
     // PWM_X double pulse disabled.
     eDISABLED = 0,
     // PWM_X double pulse enabled.
@@ -3244,7 +3177,7 @@ union SM2CTRL {
   };
   
   // Load Mode Select
-  enum class eLDMOD : uint32_t {
+  enum class eLDMOD : uint16_t {
     // Buffered registers of this submodule are loaded and take effect at the next PWM reload if MCTRL[LDOK] is set.
     eNEXT_PWM_RELOAD = 0,
     // Buffered registers of this submodule are loaded and take effect immediately upon MCTRL[LDOK] being set. In this case, it is not necessary to set CTRL[FULL] or CTRL[HALF].
@@ -3252,7 +3185,7 @@ union SM2CTRL {
   };
   
   // Split the DBLPWM signal to PWM_A and PWM_B
-  enum class eSPLIT : uint32_t {
+  enum class eSPLIT : uint16_t {
     // DBLPWM is not split. PWM_A and PWM_B each have double pulses.
     eDISABLED = 0,
     // DBLPWM is split to PWM_A and PWM_B.
@@ -3260,7 +3193,7 @@ union SM2CTRL {
   };
   
   // Prescaler
-  enum class ePRSC : uint32_t {
+  enum class ePRSC : uint16_t {
     // Prescaler 1
     eONE = 0,
     // Prescaler 2
@@ -3280,7 +3213,7 @@ union SM2CTRL {
   };
   
   // Compare Mode
-  enum class eCOMPMODE : uint32_t {
+  enum class eCOMPMODE : uint16_t {
     // The VAL* registers and the PWM counter are compared using an "equal to" method. This means that PWM edges are only produced when the counter is equal to one of the VAL* register values. This implies that a PWM_A output that is high at the end of a period maintains this state until a match with VAL3 clears the output in the following period.
     eEQUAL_TO = 0,
     // The VAL* registers and the PWM counter are compared using an "equal to or greater than" method. This means that PWM edges are produced when the counter is equal to or greater than one of the VAL* register values. This implies that a PWM_A output that is high at the end of a period could go low at the start of the next period if the starting counter value is greater than (but not necessarily equal to) the new VAL3 value.
@@ -3288,7 +3221,7 @@ union SM2CTRL {
   };
   
   // Full Cycle Reload
-  enum class eFULL : uint32_t {
+  enum class eFULL : uint16_t {
     // Full-cycle reloads disabled.
     eDISABLED = 0,
     // Full-cycle reloads enabled.
@@ -3296,7 +3229,7 @@ union SM2CTRL {
   };
   
   // Half Cycle Reload
-  enum class eHALF : uint32_t {
+  enum class eHALF : uint16_t {
     // Half-cycle reloads disabled.
     eDISABLED = 0,
     // Half-cycle reloads enabled.
@@ -3304,7 +3237,7 @@ union SM2CTRL {
   };
   
   // Load Frequency
-  enum class eLDFQ : uint32_t {
+  enum class eLDFQ : uint16_t {
     // Every PWM opportunity
     eEVERYPWM = 0,
     // Every 2 PWM opportunities
@@ -3354,18 +3287,17 @@ union SM2CTRL {
     // read-write - Compare Mode
     eCOMPMODE COMPMODE : 1;
     // read-only - Deadtime
-    uint32_t DT : 2;
+    uint16_t DT : 2;
     // read-write - Full Cycle Reload
     eFULL FULL : 1;
     // read-write - Half Cycle Reload
     eHALF HALF : 1;
     // read-write - Load Frequency
     eLDFQ LDFQ : 4;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
@@ -3378,12 +3310,11 @@ union SM2VAL0 {
   // Bit field definition.
   struct {
     // read-write - Value 0
-    uint32_t VAL0 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2VAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3395,14 +3326,13 @@ union SM2FRACVAL1 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 1
-    uint32_t FRACVAL1 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL1 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2FRACVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3415,12 +3345,11 @@ union SM2VAL1 {
   // Bit field definition.
   struct {
     // read-write - Value 1
-    uint32_t VAL1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2VAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3432,14 +3361,13 @@ union SM2FRACVAL2 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 2
-    uint32_t FRACVAL2 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL2 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2FRACVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3452,12 +3380,11 @@ union SM2VAL2 {
   // Bit field definition.
   struct {
     // read-write - Value 2
-    uint32_t VAL2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2VAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3469,14 +3396,13 @@ union SM2FRACVAL3 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 3
-    uint32_t FRACVAL3 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL3 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2FRACVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3489,12 +3415,11 @@ union SM2VAL3 {
   // Bit field definition.
   struct {
     // read-write - Value 3
-    uint32_t VAL3 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL3 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2VAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3506,14 +3431,13 @@ union SM2FRACVAL4 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 4
-    uint32_t FRACVAL4 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL4 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2FRACVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3526,12 +3450,11 @@ union SM2VAL4 {
   // Bit field definition.
   struct {
     // read-write - Value 4
-    uint32_t VAL4 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL4 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2VAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3543,14 +3466,13 @@ union SM2FRACVAL5 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 5
-    uint32_t FRACVAL5 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL5 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2FRACVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3563,12 +3485,11 @@ union SM2VAL5 {
   // Bit field definition.
   struct {
     // read-write - Value 5
-    uint32_t VAL5 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL5 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2VAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3579,7 +3500,7 @@ union SM2VAL5 {
 union SM2FRCTRL {
   
   // Fractional Cycle PWM Period Enable
-  enum class eFRAC1_EN : uint32_t {
+  enum class eFRAC1_EN : uint16_t {
     // Disable fractional cycle length for the PWM period.
     eDISABLED = 0,
     // Enable fractional cycle length for the PWM period.
@@ -3587,7 +3508,7 @@ union SM2FRCTRL {
   };
   
   // Fractional Cycle Placement Enable for PWM_A
-  enum class eFRAC23_EN : uint32_t {
+  enum class eFRAC23_EN : uint16_t {
     // Disable fractional cycle placement for PWM_A.
     eDISABLED = 0,
     // Enable fractional cycle placement for PWM_A.
@@ -3595,7 +3516,7 @@ union SM2FRCTRL {
   };
   
   // Fractional Cycle Placement Enable for PWM_B
-  enum class eFRAC45_EN : uint32_t {
+  enum class eFRAC45_EN : uint16_t {
     // Disable fractional cycle placement for PWM_B.
     eDISABLED = 0,
     // Enable fractional cycle placement for PWM_B.
@@ -3604,22 +3525,21 @@ union SM2FRCTRL {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 1;
+    uint16_t _reserved_0 : 1;
     // read-write - Fractional Cycle PWM Period Enable
     eFRAC1_EN FRAC1_EN : 1;
     // read-write - Fractional Cycle Placement Enable for PWM_A
     eFRAC23_EN FRAC23_EN : 1;
-    uint32_t _reserved_1 : 1;
+    uint16_t _reserved_1 : 1;
     // read-write - Fractional Cycle Placement Enable for PWM_B
     eFRAC45_EN FRAC45_EN : 1;
-    uint32_t _reserved_2 : 10;
+    uint16_t _reserved_2 : 10;
     // read-only - Test Status Bit
-    uint32_t TEST : 1;
-    uint32_t _reserved_3 : 16;
+    uint16_t TEST : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2FRCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3630,7 +3550,7 @@ union SM2FRCTRL {
 union SM2OCTRL {
   
   // PWM_X Fault State
-  enum class ePWMXFS : uint32_t {
+  enum class ePWMXFS : uint16_t {
     // Output is forced to logic 0 state prior to consideration of output polarity control.
     eLOGIC_0 = 0,
     // Output is forced to logic 1 state prior to consideration of output polarity control.
@@ -3642,7 +3562,7 @@ union SM2OCTRL {
   };
   
   // PWM_B Fault State
-  enum class ePWMBFS : uint32_t {
+  enum class ePWMBFS : uint16_t {
     // Output is forced to logic 0 state prior to consideration of output polarity control.
     eLOGIC_0 = 0,
     // Output is forced to logic 1 state prior to consideration of output polarity control.
@@ -3654,7 +3574,7 @@ union SM2OCTRL {
   };
   
   // PWM_A Fault State
-  enum class ePWMAFS : uint32_t {
+  enum class ePWMAFS : uint16_t {
     // Output is forced to logic 0 state prior to consideration of output polarity control.
     eLOGIC_0 = 0,
     // Output is forced to logic 1 state prior to consideration of output polarity control.
@@ -3666,7 +3586,7 @@ union SM2OCTRL {
   };
   
   // PWM_X Output Polarity
-  enum class ePOLX : uint32_t {
+  enum class ePOLX : uint16_t {
     // PWM_X output not inverted. A high level on the PWM_X pin represents the "on" or "active" state.
     eNOT_INVERTED = 0,
     // PWM_X output inverted. A low level on the PWM_X pin represents the "on" or "active" state.
@@ -3674,7 +3594,7 @@ union SM2OCTRL {
   };
   
   // PWM_B Output Polarity
-  enum class ePOLB : uint32_t {
+  enum class ePOLB : uint16_t {
     // PWM_B output not inverted. A high level on the PWM_B pin represents the "on" or "active" state.
     eNOT_INVERTED = 0,
     // PWM_B output inverted. A low level on the PWM_B pin represents the "on" or "active" state.
@@ -3682,7 +3602,7 @@ union SM2OCTRL {
   };
   
   // PWM_A Output Polarity
-  enum class ePOLA : uint32_t {
+  enum class ePOLA : uint16_t {
     // PWM_A output not inverted. A high level on the PWM_A pin represents the "on" or "active" state.
     eNOT_INVERTED = 0,
     // PWM_A output inverted. A low level on the PWM_A pin represents the "on" or "active" state.
@@ -3697,25 +3617,24 @@ union SM2OCTRL {
     ePWMBFS PWMBFS : 2;
     // read-write - PWM_A Fault State
     ePWMAFS PWMAFS : 2;
-    uint32_t _reserved_0 : 2;
+    uint16_t _reserved_0 : 2;
     // read-write - PWM_X Output Polarity
     ePOLX POLX : 1;
     // read-write - PWM_B Output Polarity
     ePOLB POLB : 1;
     // read-write - PWM_A Output Polarity
     ePOLA POLA : 1;
-    uint32_t _reserved_1 : 2;
+    uint16_t _reserved_1 : 2;
     // read-only - PWM_X Input
-    uint32_t PWMX_IN : 1;
+    uint16_t PWMX_IN : 1;
     // read-only - PWM_B Input
-    uint32_t PWMB_IN : 1;
+    uint16_t PWMB_IN : 1;
     // read-only - PWM_A Input
-    uint32_t PWMA_IN : 1;
-    uint32_t _reserved_2 : 16;
+    uint16_t PWMA_IN : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2OCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3726,7 +3645,7 @@ union SM2OCTRL {
 union SM2STS {
   
   // Compare Flags
-  enum class eCMPF : uint32_t {
+  enum class eCMPF : uint16_t {
     // No compare event has occurred for a particular VALx value.
     eNO_EVENT = 0,
     // A compare event has occurred for a particular VALx value.
@@ -3734,7 +3653,7 @@ union SM2STS {
   };
   
   // Reload Flag
-  enum class eRF : uint32_t {
+  enum class eRF : uint16_t {
     // No new reload cycle since last STS[RF] clearing
     eNO_FLAG = 0,
     // New reload cycle since last STS[RF] clearing
@@ -3742,7 +3661,7 @@ union SM2STS {
   };
   
   // Reload Error Flag
-  enum class eREF : uint32_t {
+  enum class eREF : uint16_t {
     // No reload error occurred.
     eNO_FLAG = 0,
     // Reload signal occurred with non-coherent data and MCTRL[LDOK] = 0.
@@ -3750,7 +3669,7 @@ union SM2STS {
   };
   
   // Registers Updated Flag
-  enum class eRUF : uint32_t {
+  enum class eRUF : uint16_t {
     // No register update has occurred since last reload.
     eNO_FLAG = 0,
     // At least one of the double buffered registers has been updated since the last reload.
@@ -3762,28 +3681,28 @@ union SM2STS {
     // read-write - Compare Flags
     eCMPF CMPF : 6;
     // read-write - Capture Flag X0
-    uint32_t CFX0 : 1;
+    uint16_t CFX0 : 1;
     // read-write - Capture Flag X1
-    uint32_t CFX1 : 1;
+    uint16_t CFX1 : 1;
     // read-write - Capture Flag B0
-    uint32_t CFB0 : 1;
+    uint16_t CFB0 : 1;
     // read-write - Capture Flag B1
-    uint32_t CFB1 : 1;
+    uint16_t CFB1 : 1;
     // read-write - Capture Flag A0
-    uint32_t CFA0 : 1;
+    uint16_t CFA0 : 1;
     // read-write - Capture Flag A1
-    uint32_t CFA1 : 1;
+    uint16_t CFA1 : 1;
     // read-write - Reload Flag
     eRF RF : 1;
     // read-write - Reload Error Flag
     eREF REF : 1;
     // read-only - Registers Updated Flag
     eRUF RUF : 1;
-    uint32_t _reserved_0 : 17;
+    uint16_t _reserved_0 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2STS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3794,7 +3713,7 @@ union SM2STS {
 union SM2INTEN {
   
   // Compare Interrupt Enables
-  enum class eCMPIE : uint32_t {
+  enum class eCMPIE : uint16_t {
     // The corresponding STS[CMPF] bit will not cause an interrupt request.
     eDISABLED = 0,
     // The corresponding STS[CMPF] bit will cause an interrupt request.
@@ -3802,7 +3721,7 @@ union SM2INTEN {
   };
   
   // Capture X 0 Interrupt Enable
-  enum class eCX0IE : uint32_t {
+  enum class eCX0IE : uint16_t {
     // Interrupt request disabled for STS[CFX0].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFX0].
@@ -3810,7 +3729,7 @@ union SM2INTEN {
   };
   
   // Capture X 1 Interrupt Enable
-  enum class eCX1IE : uint32_t {
+  enum class eCX1IE : uint16_t {
     // Interrupt request disabled for STS[CFX1].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFX1].
@@ -3818,7 +3737,7 @@ union SM2INTEN {
   };
   
   // Capture B 0 Interrupt Enable
-  enum class eCB0IE : uint32_t {
+  enum class eCB0IE : uint16_t {
     // Interrupt request disabled for STS[CFB0].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFB0].
@@ -3826,7 +3745,7 @@ union SM2INTEN {
   };
   
   // Capture B 1 Interrupt Enable
-  enum class eCB1IE : uint32_t {
+  enum class eCB1IE : uint16_t {
     // Interrupt request disabled for STS[CFB1].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFB1].
@@ -3834,7 +3753,7 @@ union SM2INTEN {
   };
   
   // Capture A 0 Interrupt Enable
-  enum class eCA0IE : uint32_t {
+  enum class eCA0IE : uint16_t {
     // Interrupt request disabled for STS[CFA0].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFA0].
@@ -3842,7 +3761,7 @@ union SM2INTEN {
   };
   
   // Capture A 1 Interrupt Enable
-  enum class eCA1IE : uint32_t {
+  enum class eCA1IE : uint16_t {
     // Interrupt request disabled for STS[CFA1]
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFA1]
@@ -3850,7 +3769,7 @@ union SM2INTEN {
   };
   
   // Reload Interrupt Enable
-  enum class eRIE : uint32_t {
+  enum class eRIE : uint16_t {
     // STS[RF] CPU interrupt requests disabled
     eDISABLED = 0,
     // STS[RF] CPU interrupt requests enabled
@@ -3858,7 +3777,7 @@ union SM2INTEN {
   };
   
   // Reload Error Interrupt Enable
-  enum class eREIE : uint32_t {
+  enum class eREIE : uint16_t {
     // STS[REF] CPU interrupt requests disabled
     eDISABLED = 0,
     // STS[REF] CPU interrupt requests enabled
@@ -3885,11 +3804,11 @@ union SM2INTEN {
     eRIE RIE : 1;
     // read-write - Reload Error Interrupt Enable
     eREIE REIE : 1;
-    uint32_t _reserved_0 : 18;
+    uint16_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2INTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3900,7 +3819,7 @@ union SM2INTEN {
 union SM2DMAEN {
   
   // Capture DMA Enable Source Select
-  enum class eCAPTDE : uint32_t {
+  enum class eCAPTDE : uint16_t {
     // Read DMA requests disabled.
     eDISABLED = 0,
     // Exceeding a FIFO watermark sets the DMA read request. This requires at least one of DMAEN[CA1DE], DMAEN[CA0DE], DMAEN[CB1DE], DMAEN[CB0DE], DMAEN[CX1DE], or DMAEN[CX0DE] to be set to determine which watermark(s) the DMA request is sensitive.
@@ -3912,7 +3831,7 @@ union SM2DMAEN {
   };
   
   // FIFO Watermark AND Control
-  enum class eFAND : uint32_t {
+  enum class eFAND : uint16_t {
     // Selected FIFO watermarks are OR'ed together.
     eOR = 0,
     // Selected FIFO watermarks are AND'ed together.
@@ -3920,7 +3839,7 @@ union SM2DMAEN {
   };
   
   // Value Registers DMA Enable
-  enum class eVALDE : uint32_t {
+  enum class eVALDE : uint16_t {
     // DMA write requests disabled
     eDISABLED = 0,
     // Enabled
@@ -3930,28 +3849,28 @@ union SM2DMAEN {
   // Bit field definition.
   struct {
     // read-write - Capture X0 FIFO DMA Enable
-    uint32_t CX0DE : 1;
+    uint16_t CX0DE : 1;
     // read-write - Capture X1 FIFO DMA Enable
-    uint32_t CX1DE : 1;
+    uint16_t CX1DE : 1;
     // read-write - Capture B0 FIFO DMA Enable
-    uint32_t CB0DE : 1;
+    uint16_t CB0DE : 1;
     // read-write - Capture B1 FIFO DMA Enable
-    uint32_t CB1DE : 1;
+    uint16_t CB1DE : 1;
     // read-write - Capture A0 FIFO DMA Enable
-    uint32_t CA0DE : 1;
+    uint16_t CA0DE : 1;
     // read-write - Capture A1 FIFO DMA Enable
-    uint32_t CA1DE : 1;
+    uint16_t CA1DE : 1;
     // read-write - Capture DMA Enable Source Select
     eCAPTDE CAPTDE : 2;
     // read-write - FIFO Watermark AND Control
     eFAND FAND : 1;
     // read-write - Value Registers DMA Enable
     eVALDE VALDE : 1;
-    uint32_t _reserved_0 : 22;
+    uint16_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2DMAEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3962,13 +3881,13 @@ union SM2DMAEN {
 union SM2TCTRL {
   
   // Output Trigger Enables
-  enum class eOUT_TRIG_EN : uint32_t {
+  enum class eOUT_TRIG_EN : uint16_t {
     // PWM_OUT_TRIG0 will set when the counter value matches the VAL0 value.
     eVAL0 = 1,
   };
   
   // Trigger Frequency
-  enum class eTRGFRQ : uint32_t {
+  enum class eTRGFRQ : uint16_t {
     // Trigger outputs are generated during every PWM period even if the PWM is not reloaded every period due to CTRL[LDFQ] being non-zero.
     eEVERYPWM = 0,
     // Trigger outputs are generated only during the final PWM period prior to a reload opportunity when the PWM is not reloaded every period due to CTRL[LDFQ] being non-zero.
@@ -3976,7 +3895,7 @@ union SM2TCTRL {
   };
   
   // Output Trigger 1 Source Select
-  enum class ePWBOT1 : uint32_t {
+  enum class ePWBOT1 : uint16_t {
     // Route the PWM_OUT_TRIG1 signal to PWM_OUT_TRIG1 port.
     ePWM_OUT_TRIG1_SIGNAL = 0,
     // Route the PWM_B output to the PWM_OUT_TRIG1 port.
@@ -3984,7 +3903,7 @@ union SM2TCTRL {
   };
   
   // Output Trigger 0 Source Select
-  enum class ePWAOT0 : uint32_t {
+  enum class ePWAOT0 : uint16_t {
     // Route the PWM_OUT_TRIG0 signal to PWM_OUT_TRIG0 port.
     ePWM_OUT_TRIG0_SIGNAL = 0,
     // Route the PWM_A output to the PWM_OUT_TRIG0 port.
@@ -3995,19 +3914,18 @@ union SM2TCTRL {
   struct {
     // read-write - Output Trigger Enables
     eOUT_TRIG_EN OUT_TRIG_EN : 6;
-    uint32_t _reserved_0 : 6;
+    uint16_t _reserved_0 : 6;
     // read-write - Trigger Frequency
     eTRGFRQ TRGFRQ : 1;
-    uint32_t _reserved_1 : 1;
+    uint16_t _reserved_1 : 1;
     // read-write - Output Trigger 1 Source Select
     ePWBOT1 PWBOT1 : 1;
     // read-write - Output Trigger 0 Source Select
     ePWAOT0 PWAOT0 : 1;
-    uint32_t _reserved_2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2TCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4020,16 +3938,16 @@ union SM2DISMAP0 {
   // Bit field definition.
   struct {
     // read-write - PWM_A Fault Disable Mask 0
-    uint32_t DIS0A : 4;
+    uint16_t DIS0A : 4;
     // read-write - PWM_B Fault Disable Mask 0
-    uint32_t DIS0B : 4;
+    uint16_t DIS0B : 4;
     // read-write - PWM_X Fault Disable Mask 0
-    uint32_t DIS0X : 4;
-    uint32_t _reserved_0 : 20;
+    uint16_t DIS0X : 4;
+    uint16_t _reserved_0 : 4;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2DISMAP0() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
@@ -4042,12 +3960,11 @@ union SM2DTCNT0 {
   // Bit field definition.
   struct {
     // read-write - DTCNT0
-    uint32_t DTCNT0 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t DTCNT0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2DTCNT0() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
@@ -4060,12 +3977,11 @@ union SM2DTCNT1 {
   // Bit field definition.
   struct {
     // read-write - DTCNT1
-    uint32_t DTCNT1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t DTCNT1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2DTCNT1() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
@@ -4076,7 +3992,7 @@ union SM2DTCNT1 {
 union SM2CAPTCTRLA {
   
   // Arm A
-  enum class eARMA : uint32_t {
+  enum class eARMA : uint16_t {
     // Input capture operation is disabled.
     eDISABLED = 0,
     // Input capture operation as specified by CAPTCTRLA[EDGAx] is enabled.
@@ -4084,7 +4000,7 @@ union SM2CAPTCTRLA {
   };
   
   // One Shot Mode A
-  enum class eONESHOTA : uint32_t {
+  enum class eONESHOTA : uint16_t {
     // Free Running
     eFREE_RUNNING = 0,
     // One Shot
@@ -4092,7 +4008,7 @@ union SM2CAPTCTRLA {
   };
   
   // Edge A 0
-  enum class eEDGA0 : uint32_t {
+  enum class eEDGA0 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -4104,7 +4020,7 @@ union SM2CAPTCTRLA {
   };
   
   // Edge A 1
-  enum class eEDGA1 : uint32_t {
+  enum class eEDGA1 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -4116,7 +4032,7 @@ union SM2CAPTCTRLA {
   };
   
   // Input Select A
-  enum class eINP_SELA : uint32_t {
+  enum class eINP_SELA : uint16_t {
     // Raw PWM_A input signal selected as source.
     ePWM_A = 0,
     // Edge Counter
@@ -4124,7 +4040,7 @@ union SM2CAPTCTRLA {
   };
   
   // Edge Counter A Enable
-  enum class eEDGCNTA_EN : uint32_t {
+  enum class eEDGCNTA_EN : uint16_t {
     // Edge counter disabled and held in reset
     eDISABLED = 0,
     // Edge counter enabled
@@ -4146,16 +4062,15 @@ union SM2CAPTCTRLA {
     // read-write - Edge Counter A Enable
     eEDGCNTA_EN EDGCNTA_EN : 1;
     // read-write - Capture A FIFOs Water Mark
-    uint32_t CFAWM : 2;
+    uint16_t CFAWM : 2;
     // read-only - Capture A0 FIFO Word Count
-    uint32_t CA0CNT : 3;
+    uint16_t CA0CNT : 3;
     // read-only - Capture A1 FIFO Word Count
-    uint32_t CA1CNT : 3;
-    uint32_t _reserved_0 : 16;
+    uint16_t CA1CNT : 3;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CAPTCTRLA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4168,14 +4083,13 @@ union SM2CAPTCOMPA {
   // Bit field definition.
   struct {
     // read-write - Edge Compare A
-    uint32_t EDGCMPA : 8;
+    uint16_t EDGCMPA : 8;
     // read-only - Edge Counter A
-    uint32_t EDGCNTA : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t EDGCNTA : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CAPTCOMPA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4186,7 +4100,7 @@ union SM2CAPTCOMPA {
 union SM2CAPTCTRLB {
   
   // Arm B
-  enum class eARMB : uint32_t {
+  enum class eARMB : uint16_t {
     // Input capture operation is disabled.
     eDISABLED = 0,
     // Input capture operation as specified by CAPTCTRLB[EDGBx] is enabled.
@@ -4194,7 +4108,7 @@ union SM2CAPTCTRLB {
   };
   
   // One Shot Mode B
-  enum class eONESHOTB : uint32_t {
+  enum class eONESHOTB : uint16_t {
     // Free Running
     eFREE_RUNNING = 0,
     // One Shot
@@ -4202,7 +4116,7 @@ union SM2CAPTCTRLB {
   };
   
   // Edge B 0
-  enum class eEDGB0 : uint32_t {
+  enum class eEDGB0 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -4214,7 +4128,7 @@ union SM2CAPTCTRLB {
   };
   
   // Edge B 1
-  enum class eEDGB1 : uint32_t {
+  enum class eEDGB1 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -4226,7 +4140,7 @@ union SM2CAPTCTRLB {
   };
   
   // Input Select B
-  enum class eINP_SELB : uint32_t {
+  enum class eINP_SELB : uint16_t {
     // Raw PWM_B input signal selected as source.
     ePWM_B = 0,
     // Edge Counter
@@ -4234,7 +4148,7 @@ union SM2CAPTCTRLB {
   };
   
   // Edge Counter B Enable
-  enum class eEDGCNTB_EN : uint32_t {
+  enum class eEDGCNTB_EN : uint16_t {
     // Edge counter disabled and held in reset
     eDISABLED = 0,
     // Edge counter enabled
@@ -4256,16 +4170,15 @@ union SM2CAPTCTRLB {
     // read-write - Edge Counter B Enable
     eEDGCNTB_EN EDGCNTB_EN : 1;
     // read-write - Capture B FIFOs Water Mark
-    uint32_t CFBWM : 2;
+    uint16_t CFBWM : 2;
     // read-only - Capture B0 FIFO Word Count
-    uint32_t CB0CNT : 3;
+    uint16_t CB0CNT : 3;
     // read-only - Capture B1 FIFO Word Count
-    uint32_t CB1CNT : 3;
-    uint32_t _reserved_0 : 16;
+    uint16_t CB1CNT : 3;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CAPTCTRLB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4278,14 +4191,13 @@ union SM2CAPTCOMPB {
   // Bit field definition.
   struct {
     // read-write - Edge Compare B
-    uint32_t EDGCMPB : 8;
+    uint16_t EDGCMPB : 8;
     // read-only - Edge Counter B
-    uint32_t EDGCNTB : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t EDGCNTB : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CAPTCOMPB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4296,7 +4208,7 @@ union SM2CAPTCOMPB {
 union SM2CAPTCTRLX {
   
   // Arm X
-  enum class eARMX : uint32_t {
+  enum class eARMX : uint16_t {
     // Input capture operation is disabled.
     eDISABLED = 0,
     // Input capture operation as specified by CAPTCTRLX[EDGXx] is enabled.
@@ -4304,7 +4216,7 @@ union SM2CAPTCTRLX {
   };
   
   // One Shot Mode Aux
-  enum class eONESHOTX : uint32_t {
+  enum class eONESHOTX : uint16_t {
     // Free Running
     eFREE_RUNNING = 0,
     // One Shot
@@ -4312,7 +4224,7 @@ union SM2CAPTCTRLX {
   };
   
   // Edge X 0
-  enum class eEDGX0 : uint32_t {
+  enum class eEDGX0 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -4324,7 +4236,7 @@ union SM2CAPTCTRLX {
   };
   
   // Edge X 1
-  enum class eEDGX1 : uint32_t {
+  enum class eEDGX1 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -4336,7 +4248,7 @@ union SM2CAPTCTRLX {
   };
   
   // Input Select X
-  enum class eINP_SELX : uint32_t {
+  enum class eINP_SELX : uint16_t {
     // Raw PWM_X input signal selected as source.
     ePWM_X = 0,
     // Edge Counter
@@ -4344,7 +4256,7 @@ union SM2CAPTCTRLX {
   };
   
   // Edge Counter X Enable
-  enum class eEDGCNTX_EN : uint32_t {
+  enum class eEDGCNTX_EN : uint16_t {
     // Edge counter disabled and held in reset
     eDISABLED = 0,
     // Edge counter enabled
@@ -4366,16 +4278,15 @@ union SM2CAPTCTRLX {
     // read-write - Edge Counter X Enable
     eEDGCNTX_EN EDGCNTX_EN : 1;
     // read-write - Capture X FIFOs Water Mark
-    uint32_t CFXWM : 2;
+    uint16_t CFXWM : 2;
     // read-only - Capture X0 FIFO Word Count
-    uint32_t CX0CNT : 3;
+    uint16_t CX0CNT : 3;
     // read-only - Capture X1 FIFO Word Count
-    uint32_t CX1CNT : 3;
-    uint32_t _reserved_0 : 16;
+    uint16_t CX1CNT : 3;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CAPTCTRLX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4388,14 +4299,13 @@ union SM2CAPTCOMPX {
   // Bit field definition.
   struct {
     // read-write - Edge Compare X
-    uint32_t EDGCMPX : 8;
+    uint16_t EDGCMPX : 8;
     // read-only - Edge Counter X
-    uint32_t EDGCNTX : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t EDGCNTX : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CAPTCOMPX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4408,12 +4318,11 @@ union SM2CVAL0 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 0
-    uint32_t CAPTVAL0 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CVAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4426,12 +4335,12 @@ union SM2CVAL0CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 0 Cycle
-    uint32_t CVAL0CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL0CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CVAL0CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4444,12 +4353,11 @@ union SM2CVAL1 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 1
-    uint32_t CAPTVAL1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4462,12 +4370,12 @@ union SM2CVAL1CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 1 Cycle
-    uint32_t CVAL1CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL1CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CVAL1CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4480,12 +4388,11 @@ union SM2CVAL2 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 2
-    uint32_t CAPTVAL2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4498,12 +4405,12 @@ union SM2CVAL2CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 2 Cycle
-    uint32_t CVAL2CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL2CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CVAL2CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4516,12 +4423,11 @@ union SM2CVAL3 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 3
-    uint32_t CAPTVAL3 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL3 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4534,12 +4440,12 @@ union SM2CVAL3CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 3 Cycle
-    uint32_t CVAL3CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL3CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CVAL3CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4552,12 +4458,11 @@ union SM2CVAL4 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 4
-    uint32_t CAPTVAL4 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL4 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4570,12 +4475,12 @@ union SM2CVAL4CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 4 Cycle
-    uint32_t CVAL4CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL4CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CVAL4CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4588,12 +4493,11 @@ union SM2CVAL5 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 5
-    uint32_t CAPTVAL5 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL5 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4606,12 +4510,12 @@ union SM2CVAL5CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 5 Cycle
-    uint32_t CVAL5CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL5CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM2CVAL5CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4624,12 +4528,11 @@ union SM3CNT {
   // Bit field definition.
   struct {
     // read-only - Counter Register Bits
-    uint32_t CNT : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CNT : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4642,12 +4545,11 @@ union SM3INIT {
   // Bit field definition.
   struct {
     // read-write - Initial Count Register Bits
-    uint32_t INIT : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t INIT : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3INIT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4658,7 +4560,7 @@ union SM3INIT {
 union SM3CTRL2 {
   
   // Clock Source Select
-  enum class eCLK_SEL : uint32_t {
+  enum class eCLK_SEL : uint16_t {
     // The IPBus clock is used as the clock for the local prescaler and counter.
     eIPBUS = 0,
     // EXT_CLK is used as the clock for the local prescaler and counter.
@@ -4668,7 +4570,7 @@ union SM3CTRL2 {
   };
   
   // Reload Source Select
-  enum class eRELOAD_SEL : uint32_t {
+  enum class eRELOAD_SEL : uint16_t {
     // The local RELOAD signal is used to reload registers.
     eLOCAL = 0,
     // The master RELOAD signal (from submodule 0) is used to reload registers. This setting should not be used in submodule 0 as it forces the RELOAD signal to logic 0.
@@ -4676,7 +4578,7 @@ union SM3CTRL2 {
   };
   
   // Force Select
-  enum class eFORCE_SEL : uint32_t {
+  enum class eFORCE_SEL : uint16_t {
     // The local force signal, CTRL2[FORCE], from this submodule is used to force updates.
     eLOCAL = 0,
     // The master force signal from submodule 0 is used to force updates. This setting should not be used in submodule 0 as it holds the FORCE OUTPUT signal to logic 0.
@@ -4696,7 +4598,7 @@ union SM3CTRL2 {
   };
   
   // Force Enable
-  enum class eFRCEN : uint32_t {
+  enum class eFRCEN : uint16_t {
     // Initialization from a FORCE_OUT is disabled.
     eDISABLED = 0,
     // Initialization from a FORCE_OUT is enabled.
@@ -4704,7 +4606,7 @@ union SM3CTRL2 {
   };
   
   // Initialization Control Select
-  enum class eINIT_SEL : uint32_t {
+  enum class eINIT_SEL : uint16_t {
     // Local sync (PWM_X) causes initialization.
     ePWM_X = 0,
     // Master reload from submodule 0 causes initialization. This setting should not be used in submodule 0 as it forces the INIT signal to logic 0. The submodule counter will only re-initialize when a master reload occurs.
@@ -4716,7 +4618,7 @@ union SM3CTRL2 {
   };
   
   // Independent or Complementary Pair Operation
-  enum class eINDEP : uint32_t {
+  enum class eINDEP : uint16_t {
     // PWM_A and PWM_B form a complementary PWM pair.
     eCOMPLEMENTARY = 0,
     // PWM_A and PWM_B outputs are independent PWMs.
@@ -4732,28 +4634,27 @@ union SM3CTRL2 {
     // read-write - Force Select
     eFORCE_SEL FORCE_SEL : 3;
     // read-write - Force Initialization
-    uint32_t FORCE : 1;
+    uint16_t FORCE : 1;
     // read-write - Force Enable
     eFRCEN FRCEN : 1;
     // read-write - Initialization Control Select
     eINIT_SEL INIT_SEL : 2;
     // read-write - PWM_X Initial Value
-    uint32_t PWMX_INIT : 1;
+    uint16_t PWMX_INIT : 1;
     // read-write - PWM45 Initial Value
-    uint32_t PWM45_INIT : 1;
+    uint16_t PWM45_INIT : 1;
     // read-write - PWM23 Initial Value
-    uint32_t PWM23_INIT : 1;
+    uint16_t PWM23_INIT : 1;
     // read-write - Independent or Complementary Pair Operation
     eINDEP INDEP : 1;
     // read-write - Wait Enable
-    uint32_t WAITEN : 1;
+    uint16_t WAITEN : 1;
     // read-write - Debug Enable
-    uint32_t DBGEN : 1;
-    uint32_t _reserved_0 : 16;
+    uint16_t DBGEN : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4764,7 +4665,7 @@ union SM3CTRL2 {
 union SM3CTRL {
   
   // Double Switching Enable
-  enum class eDBLEN : uint32_t {
+  enum class eDBLEN : uint16_t {
     // Double switching disabled.
     eDISABLED = 0,
     // Double switching enabled.
@@ -4772,7 +4673,7 @@ union SM3CTRL {
   };
   
   // PWM_X Double Switching Enable
-  enum class eDBLX : uint32_t {
+  enum class eDBLX : uint16_t {
     // PWM_X double pulse disabled.
     eDISABLED = 0,
     // PWM_X double pulse enabled.
@@ -4780,7 +4681,7 @@ union SM3CTRL {
   };
   
   // Load Mode Select
-  enum class eLDMOD : uint32_t {
+  enum class eLDMOD : uint16_t {
     // Buffered registers of this submodule are loaded and take effect at the next PWM reload if MCTRL[LDOK] is set.
     eNEXT_PWM_RELOAD = 0,
     // Buffered registers of this submodule are loaded and take effect immediately upon MCTRL[LDOK] being set. In this case, it is not necessary to set CTRL[FULL] or CTRL[HALF].
@@ -4788,7 +4689,7 @@ union SM3CTRL {
   };
   
   // Split the DBLPWM signal to PWM_A and PWM_B
-  enum class eSPLIT : uint32_t {
+  enum class eSPLIT : uint16_t {
     // DBLPWM is not split. PWM_A and PWM_B each have double pulses.
     eDISABLED = 0,
     // DBLPWM is split to PWM_A and PWM_B.
@@ -4796,7 +4697,7 @@ union SM3CTRL {
   };
   
   // Prescaler
-  enum class ePRSC : uint32_t {
+  enum class ePRSC : uint16_t {
     // Prescaler 1
     eONE = 0,
     // Prescaler 2
@@ -4816,7 +4717,7 @@ union SM3CTRL {
   };
   
   // Compare Mode
-  enum class eCOMPMODE : uint32_t {
+  enum class eCOMPMODE : uint16_t {
     // The VAL* registers and the PWM counter are compared using an "equal to" method. This means that PWM edges are only produced when the counter is equal to one of the VAL* register values. This implies that a PWM_A output that is high at the end of a period maintains this state until a match with VAL3 clears the output in the following period.
     eEQUAL_TO = 0,
     // The VAL* registers and the PWM counter are compared using an "equal to or greater than" method. This means that PWM edges are produced when the counter is equal to or greater than one of the VAL* register values. This implies that a PWM_A output that is high at the end of a period could go low at the start of the next period if the starting counter value is greater than (but not necessarily equal to) the new VAL3 value.
@@ -4824,7 +4725,7 @@ union SM3CTRL {
   };
   
   // Full Cycle Reload
-  enum class eFULL : uint32_t {
+  enum class eFULL : uint16_t {
     // Full-cycle reloads disabled.
     eDISABLED = 0,
     // Full-cycle reloads enabled.
@@ -4832,7 +4733,7 @@ union SM3CTRL {
   };
   
   // Half Cycle Reload
-  enum class eHALF : uint32_t {
+  enum class eHALF : uint16_t {
     // Half-cycle reloads disabled.
     eDISABLED = 0,
     // Half-cycle reloads enabled.
@@ -4840,7 +4741,7 @@ union SM3CTRL {
   };
   
   // Load Frequency
-  enum class eLDFQ : uint32_t {
+  enum class eLDFQ : uint16_t {
     // Every PWM opportunity
     eEVERYPWM = 0,
     // Every 2 PWM opportunities
@@ -4890,18 +4791,17 @@ union SM3CTRL {
     // read-write - Compare Mode
     eCOMPMODE COMPMODE : 1;
     // read-only - Deadtime
-    uint32_t DT : 2;
+    uint16_t DT : 2;
     // read-write - Full Cycle Reload
     eFULL FULL : 1;
     // read-write - Half Cycle Reload
     eHALF HALF : 1;
     // read-write - Load Frequency
     eLDFQ LDFQ : 4;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
@@ -4914,12 +4814,11 @@ union SM3VAL0 {
   // Bit field definition.
   struct {
     // read-write - Value 0
-    uint32_t VAL0 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3VAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4931,14 +4830,13 @@ union SM3FRACVAL1 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 1
-    uint32_t FRACVAL1 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL1 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3FRACVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4951,12 +4849,11 @@ union SM3VAL1 {
   // Bit field definition.
   struct {
     // read-write - Value 1
-    uint32_t VAL1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3VAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4968,14 +4865,13 @@ union SM3FRACVAL2 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 2
-    uint32_t FRACVAL2 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL2 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3FRACVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -4988,12 +4884,11 @@ union SM3VAL2 {
   // Bit field definition.
   struct {
     // read-write - Value 2
-    uint32_t VAL2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3VAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5005,14 +4900,13 @@ union SM3FRACVAL3 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 3
-    uint32_t FRACVAL3 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL3 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3FRACVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5025,12 +4919,11 @@ union SM3VAL3 {
   // Bit field definition.
   struct {
     // read-write - Value 3
-    uint32_t VAL3 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL3 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3VAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5042,14 +4935,13 @@ union SM3FRACVAL4 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 4
-    uint32_t FRACVAL4 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL4 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3FRACVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5062,12 +4954,11 @@ union SM3VAL4 {
   // Bit field definition.
   struct {
     // read-write - Value 4
-    uint32_t VAL4 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL4 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3VAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5079,14 +4970,13 @@ union SM3FRACVAL5 {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 11;
+    uint16_t _reserved_0 : 11;
     // read-write - Fractional Value 5
-    uint32_t FRACVAL5 : 5;
-    uint32_t _reserved_1 : 16;
+    uint16_t FRACVAL5 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3FRACVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5099,12 +4989,11 @@ union SM3VAL5 {
   // Bit field definition.
   struct {
     // read-write - Value 5
-    uint32_t VAL5 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t VAL5 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3VAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5115,7 +5004,7 @@ union SM3VAL5 {
 union SM3FRCTRL {
   
   // Fractional Cycle PWM Period Enable
-  enum class eFRAC1_EN : uint32_t {
+  enum class eFRAC1_EN : uint16_t {
     // Disable fractional cycle length for the PWM period.
     eDISABLED = 0,
     // Enable fractional cycle length for the PWM period.
@@ -5123,7 +5012,7 @@ union SM3FRCTRL {
   };
   
   // Fractional Cycle Placement Enable for PWM_A
-  enum class eFRAC23_EN : uint32_t {
+  enum class eFRAC23_EN : uint16_t {
     // Disable fractional cycle placement for PWM_A.
     eDISABLED = 0,
     // Enable fractional cycle placement for PWM_A.
@@ -5131,7 +5020,7 @@ union SM3FRCTRL {
   };
   
   // Fractional Cycle Placement Enable for PWM_B
-  enum class eFRAC45_EN : uint32_t {
+  enum class eFRAC45_EN : uint16_t {
     // Disable fractional cycle placement for PWM_B.
     eDISABLED = 0,
     // Enable fractional cycle placement for PWM_B.
@@ -5140,22 +5029,21 @@ union SM3FRCTRL {
   
   // Bit field definition.
   struct {
-    uint32_t _reserved_0 : 1;
+    uint16_t _reserved_0 : 1;
     // read-write - Fractional Cycle PWM Period Enable
     eFRAC1_EN FRAC1_EN : 1;
     // read-write - Fractional Cycle Placement Enable for PWM_A
     eFRAC23_EN FRAC23_EN : 1;
-    uint32_t _reserved_1 : 1;
+    uint16_t _reserved_1 : 1;
     // read-write - Fractional Cycle Placement Enable for PWM_B
     eFRAC45_EN FRAC45_EN : 1;
-    uint32_t _reserved_2 : 10;
+    uint16_t _reserved_2 : 10;
     // read-only - Test Status Bit
-    uint32_t TEST : 1;
-    uint32_t _reserved_3 : 16;
+    uint16_t TEST : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3FRCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5166,7 +5054,7 @@ union SM3FRCTRL {
 union SM3OCTRL {
   
   // PWM_X Fault State
-  enum class ePWMXFS : uint32_t {
+  enum class ePWMXFS : uint16_t {
     // Output is forced to logic 0 state prior to consideration of output polarity control.
     eLOGIC_0 = 0,
     // Output is forced to logic 1 state prior to consideration of output polarity control.
@@ -5178,7 +5066,7 @@ union SM3OCTRL {
   };
   
   // PWM_B Fault State
-  enum class ePWMBFS : uint32_t {
+  enum class ePWMBFS : uint16_t {
     // Output is forced to logic 0 state prior to consideration of output polarity control.
     eLOGIC_0 = 0,
     // Output is forced to logic 1 state prior to consideration of output polarity control.
@@ -5190,7 +5078,7 @@ union SM3OCTRL {
   };
   
   // PWM_A Fault State
-  enum class ePWMAFS : uint32_t {
+  enum class ePWMAFS : uint16_t {
     // Output is forced to logic 0 state prior to consideration of output polarity control.
     eLOGIC_0 = 0,
     // Output is forced to logic 1 state prior to consideration of output polarity control.
@@ -5202,7 +5090,7 @@ union SM3OCTRL {
   };
   
   // PWM_X Output Polarity
-  enum class ePOLX : uint32_t {
+  enum class ePOLX : uint16_t {
     // PWM_X output not inverted. A high level on the PWM_X pin represents the "on" or "active" state.
     eNOT_INVERTED = 0,
     // PWM_X output inverted. A low level on the PWM_X pin represents the "on" or "active" state.
@@ -5210,7 +5098,7 @@ union SM3OCTRL {
   };
   
   // PWM_B Output Polarity
-  enum class ePOLB : uint32_t {
+  enum class ePOLB : uint16_t {
     // PWM_B output not inverted. A high level on the PWM_B pin represents the "on" or "active" state.
     eNOT_INVERTED = 0,
     // PWM_B output inverted. A low level on the PWM_B pin represents the "on" or "active" state.
@@ -5218,7 +5106,7 @@ union SM3OCTRL {
   };
   
   // PWM_A Output Polarity
-  enum class ePOLA : uint32_t {
+  enum class ePOLA : uint16_t {
     // PWM_A output not inverted. A high level on the PWM_A pin represents the "on" or "active" state.
     eNOT_INVERTED = 0,
     // PWM_A output inverted. A low level on the PWM_A pin represents the "on" or "active" state.
@@ -5233,25 +5121,24 @@ union SM3OCTRL {
     ePWMBFS PWMBFS : 2;
     // read-write - PWM_A Fault State
     ePWMAFS PWMAFS : 2;
-    uint32_t _reserved_0 : 2;
+    uint16_t _reserved_0 : 2;
     // read-write - PWM_X Output Polarity
     ePOLX POLX : 1;
     // read-write - PWM_B Output Polarity
     ePOLB POLB : 1;
     // read-write - PWM_A Output Polarity
     ePOLA POLA : 1;
-    uint32_t _reserved_1 : 2;
+    uint16_t _reserved_1 : 2;
     // read-only - PWM_X Input
-    uint32_t PWMX_IN : 1;
+    uint16_t PWMX_IN : 1;
     // read-only - PWM_B Input
-    uint32_t PWMB_IN : 1;
+    uint16_t PWMB_IN : 1;
     // read-only - PWM_A Input
-    uint32_t PWMA_IN : 1;
-    uint32_t _reserved_2 : 16;
+    uint16_t PWMA_IN : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3OCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5262,7 +5149,7 @@ union SM3OCTRL {
 union SM3STS {
   
   // Compare Flags
-  enum class eCMPF : uint32_t {
+  enum class eCMPF : uint16_t {
     // No compare event has occurred for a particular VALx value.
     eNO_EVENT = 0,
     // A compare event has occurred for a particular VALx value.
@@ -5270,7 +5157,7 @@ union SM3STS {
   };
   
   // Reload Flag
-  enum class eRF : uint32_t {
+  enum class eRF : uint16_t {
     // No new reload cycle since last STS[RF] clearing
     eNO_FLAG = 0,
     // New reload cycle since last STS[RF] clearing
@@ -5278,7 +5165,7 @@ union SM3STS {
   };
   
   // Reload Error Flag
-  enum class eREF : uint32_t {
+  enum class eREF : uint16_t {
     // No reload error occurred.
     eNO_FLAG = 0,
     // Reload signal occurred with non-coherent data and MCTRL[LDOK] = 0.
@@ -5286,7 +5173,7 @@ union SM3STS {
   };
   
   // Registers Updated Flag
-  enum class eRUF : uint32_t {
+  enum class eRUF : uint16_t {
     // No register update has occurred since last reload.
     eNO_FLAG = 0,
     // At least one of the double buffered registers has been updated since the last reload.
@@ -5298,28 +5185,28 @@ union SM3STS {
     // read-write - Compare Flags
     eCMPF CMPF : 6;
     // read-write - Capture Flag X0
-    uint32_t CFX0 : 1;
+    uint16_t CFX0 : 1;
     // read-write - Capture Flag X1
-    uint32_t CFX1 : 1;
+    uint16_t CFX1 : 1;
     // read-write - Capture Flag B0
-    uint32_t CFB0 : 1;
+    uint16_t CFB0 : 1;
     // read-write - Capture Flag B1
-    uint32_t CFB1 : 1;
+    uint16_t CFB1 : 1;
     // read-write - Capture Flag A0
-    uint32_t CFA0 : 1;
+    uint16_t CFA0 : 1;
     // read-write - Capture Flag A1
-    uint32_t CFA1 : 1;
+    uint16_t CFA1 : 1;
     // read-write - Reload Flag
     eRF RF : 1;
     // read-write - Reload Error Flag
     eREF REF : 1;
     // read-only - Registers Updated Flag
     eRUF RUF : 1;
-    uint32_t _reserved_0 : 17;
+    uint16_t _reserved_0 : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3STS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5330,7 +5217,7 @@ union SM3STS {
 union SM3INTEN {
   
   // Compare Interrupt Enables
-  enum class eCMPIE : uint32_t {
+  enum class eCMPIE : uint16_t {
     // The corresponding STS[CMPF] bit will not cause an interrupt request.
     eDISABLED = 0,
     // The corresponding STS[CMPF] bit will cause an interrupt request.
@@ -5338,7 +5225,7 @@ union SM3INTEN {
   };
   
   // Capture X 0 Interrupt Enable
-  enum class eCX0IE : uint32_t {
+  enum class eCX0IE : uint16_t {
     // Interrupt request disabled for STS[CFX0].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFX0].
@@ -5346,7 +5233,7 @@ union SM3INTEN {
   };
   
   // Capture X 1 Interrupt Enable
-  enum class eCX1IE : uint32_t {
+  enum class eCX1IE : uint16_t {
     // Interrupt request disabled for STS[CFX1].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFX1].
@@ -5354,7 +5241,7 @@ union SM3INTEN {
   };
   
   // Capture B 0 Interrupt Enable
-  enum class eCB0IE : uint32_t {
+  enum class eCB0IE : uint16_t {
     // Interrupt request disabled for STS[CFB0].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFB0].
@@ -5362,7 +5249,7 @@ union SM3INTEN {
   };
   
   // Capture B 1 Interrupt Enable
-  enum class eCB1IE : uint32_t {
+  enum class eCB1IE : uint16_t {
     // Interrupt request disabled for STS[CFB1].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFB1].
@@ -5370,7 +5257,7 @@ union SM3INTEN {
   };
   
   // Capture A 0 Interrupt Enable
-  enum class eCA0IE : uint32_t {
+  enum class eCA0IE : uint16_t {
     // Interrupt request disabled for STS[CFA0].
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFA0].
@@ -5378,7 +5265,7 @@ union SM3INTEN {
   };
   
   // Capture A 1 Interrupt Enable
-  enum class eCA1IE : uint32_t {
+  enum class eCA1IE : uint16_t {
     // Interrupt request disabled for STS[CFA1]
     eDISABLED = 0,
     // Interrupt request enabled for STS[CFA1]
@@ -5386,7 +5273,7 @@ union SM3INTEN {
   };
   
   // Reload Interrupt Enable
-  enum class eRIE : uint32_t {
+  enum class eRIE : uint16_t {
     // STS[RF] CPU interrupt requests disabled
     eDISABLED = 0,
     // STS[RF] CPU interrupt requests enabled
@@ -5394,7 +5281,7 @@ union SM3INTEN {
   };
   
   // Reload Error Interrupt Enable
-  enum class eREIE : uint32_t {
+  enum class eREIE : uint16_t {
     // STS[REF] CPU interrupt requests disabled
     eDISABLED = 0,
     // STS[REF] CPU interrupt requests enabled
@@ -5421,11 +5308,11 @@ union SM3INTEN {
     eRIE RIE : 1;
     // read-write - Reload Error Interrupt Enable
     eREIE REIE : 1;
-    uint32_t _reserved_0 : 18;
+    uint16_t _reserved_0 : 2;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3INTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5436,7 +5323,7 @@ union SM3INTEN {
 union SM3DMAEN {
   
   // Capture DMA Enable Source Select
-  enum class eCAPTDE : uint32_t {
+  enum class eCAPTDE : uint16_t {
     // Read DMA requests disabled.
     eDISABLED = 0,
     // Exceeding a FIFO watermark sets the DMA read request. This requires at least one of DMAEN[CA1DE], DMAEN[CA0DE], DMAEN[CB1DE], DMAEN[CB0DE], DMAEN[CX1DE], or DMAEN[CX0DE] to be set to determine which watermark(s) the DMA request is sensitive.
@@ -5448,7 +5335,7 @@ union SM3DMAEN {
   };
   
   // FIFO Watermark AND Control
-  enum class eFAND : uint32_t {
+  enum class eFAND : uint16_t {
     // Selected FIFO watermarks are OR'ed together.
     eOR = 0,
     // Selected FIFO watermarks are AND'ed together.
@@ -5456,7 +5343,7 @@ union SM3DMAEN {
   };
   
   // Value Registers DMA Enable
-  enum class eVALDE : uint32_t {
+  enum class eVALDE : uint16_t {
     // DMA write requests disabled
     eDISABLED = 0,
     // Enabled
@@ -5466,28 +5353,28 @@ union SM3DMAEN {
   // Bit field definition.
   struct {
     // read-write - Capture X0 FIFO DMA Enable
-    uint32_t CX0DE : 1;
+    uint16_t CX0DE : 1;
     // read-write - Capture X1 FIFO DMA Enable
-    uint32_t CX1DE : 1;
+    uint16_t CX1DE : 1;
     // read-write - Capture B0 FIFO DMA Enable
-    uint32_t CB0DE : 1;
+    uint16_t CB0DE : 1;
     // read-write - Capture B1 FIFO DMA Enable
-    uint32_t CB1DE : 1;
+    uint16_t CB1DE : 1;
     // read-write - Capture A0 FIFO DMA Enable
-    uint32_t CA0DE : 1;
+    uint16_t CA0DE : 1;
     // read-write - Capture A1 FIFO DMA Enable
-    uint32_t CA1DE : 1;
+    uint16_t CA1DE : 1;
     // read-write - Capture DMA Enable Source Select
     eCAPTDE CAPTDE : 2;
     // read-write - FIFO Watermark AND Control
     eFAND FAND : 1;
     // read-write - Value Registers DMA Enable
     eVALDE VALDE : 1;
-    uint32_t _reserved_0 : 22;
+    uint16_t _reserved_0 : 6;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3DMAEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5498,13 +5385,13 @@ union SM3DMAEN {
 union SM3TCTRL {
   
   // Output Trigger Enables
-  enum class eOUT_TRIG_EN : uint32_t {
+  enum class eOUT_TRIG_EN : uint16_t {
     // PWM_OUT_TRIG0 will set when the counter value matches the VAL0 value.
     eVAL0 = 1,
   };
   
   // Trigger Frequency
-  enum class eTRGFRQ : uint32_t {
+  enum class eTRGFRQ : uint16_t {
     // Trigger outputs are generated during every PWM period even if the PWM is not reloaded every period due to CTRL[LDFQ] being non-zero.
     eEVERYPWM = 0,
     // Trigger outputs are generated only during the final PWM period prior to a reload opportunity when the PWM is not reloaded every period due to CTRL[LDFQ] being non-zero.
@@ -5512,7 +5399,7 @@ union SM3TCTRL {
   };
   
   // Output Trigger 1 Source Select
-  enum class ePWBOT1 : uint32_t {
+  enum class ePWBOT1 : uint16_t {
     // Route the PWM_OUT_TRIG1 signal to PWM_OUT_TRIG1 port.
     ePWM_OUT_TRIG1_SIGNAL = 0,
     // Route the PWM_B output to the PWM_OUT_TRIG1 port.
@@ -5520,7 +5407,7 @@ union SM3TCTRL {
   };
   
   // Output Trigger 0 Source Select
-  enum class ePWAOT0 : uint32_t {
+  enum class ePWAOT0 : uint16_t {
     // Route the PWM_OUT_TRIG0 signal to PWM_OUT_TRIG0 port.
     ePWM_OUT_TRIG0_SIGNAL = 0,
     // Route the PWM_A output to the PWM_OUT_TRIG0 port.
@@ -5531,19 +5418,18 @@ union SM3TCTRL {
   struct {
     // read-write - Output Trigger Enables
     eOUT_TRIG_EN OUT_TRIG_EN : 6;
-    uint32_t _reserved_0 : 6;
+    uint16_t _reserved_0 : 6;
     // read-write - Trigger Frequency
     eTRGFRQ TRGFRQ : 1;
-    uint32_t _reserved_1 : 1;
+    uint16_t _reserved_1 : 1;
     // read-write - Output Trigger 1 Source Select
     ePWBOT1 PWBOT1 : 1;
     // read-write - Output Trigger 0 Source Select
     ePWAOT0 PWAOT0 : 1;
-    uint32_t _reserved_2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3TCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5556,16 +5442,16 @@ union SM3DISMAP0 {
   // Bit field definition.
   struct {
     // read-write - PWM_A Fault Disable Mask 0
-    uint32_t DIS0A : 4;
+    uint16_t DIS0A : 4;
     // read-write - PWM_B Fault Disable Mask 0
-    uint32_t DIS0B : 4;
+    uint16_t DIS0B : 4;
     // read-write - PWM_X Fault Disable Mask 0
-    uint32_t DIS0X : 4;
-    uint32_t _reserved_0 : 20;
+    uint16_t DIS0X : 4;
+    uint16_t _reserved_0 : 4;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3DISMAP0() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
@@ -5578,12 +5464,11 @@ union SM3DTCNT0 {
   // Bit field definition.
   struct {
     // read-write - DTCNT0
-    uint32_t DTCNT0 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t DTCNT0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3DTCNT0() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
@@ -5596,12 +5481,11 @@ union SM3DTCNT1 {
   // Bit field definition.
   struct {
     // read-write - DTCNT1
-    uint32_t DTCNT1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t DTCNT1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3DTCNT1() = delete;
   inline void Reset() volatile { this->value = 0x000007FF; }
@@ -5612,7 +5496,7 @@ union SM3DTCNT1 {
 union SM3CAPTCTRLA {
   
   // Arm A
-  enum class eARMA : uint32_t {
+  enum class eARMA : uint16_t {
     // Input capture operation is disabled.
     eDISABLED = 0,
     // Input capture operation as specified by CAPTCTRLA[EDGAx] is enabled.
@@ -5620,7 +5504,7 @@ union SM3CAPTCTRLA {
   };
   
   // One Shot Mode A
-  enum class eONESHOTA : uint32_t {
+  enum class eONESHOTA : uint16_t {
     // Free Running
     eFREE_RUNNING = 0,
     // One Shot
@@ -5628,7 +5512,7 @@ union SM3CAPTCTRLA {
   };
   
   // Edge A 0
-  enum class eEDGA0 : uint32_t {
+  enum class eEDGA0 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -5640,7 +5524,7 @@ union SM3CAPTCTRLA {
   };
   
   // Edge A 1
-  enum class eEDGA1 : uint32_t {
+  enum class eEDGA1 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -5652,7 +5536,7 @@ union SM3CAPTCTRLA {
   };
   
   // Input Select A
-  enum class eINP_SELA : uint32_t {
+  enum class eINP_SELA : uint16_t {
     // Raw PWM_A input signal selected as source.
     ePWM_A = 0,
     // Edge Counter
@@ -5660,7 +5544,7 @@ union SM3CAPTCTRLA {
   };
   
   // Edge Counter A Enable
-  enum class eEDGCNTA_EN : uint32_t {
+  enum class eEDGCNTA_EN : uint16_t {
     // Edge counter disabled and held in reset
     eDISABLED = 0,
     // Edge counter enabled
@@ -5682,16 +5566,15 @@ union SM3CAPTCTRLA {
     // read-write - Edge Counter A Enable
     eEDGCNTA_EN EDGCNTA_EN : 1;
     // read-write - Capture A FIFOs Water Mark
-    uint32_t CFAWM : 2;
+    uint16_t CFAWM : 2;
     // read-only - Capture A0 FIFO Word Count
-    uint32_t CA0CNT : 3;
+    uint16_t CA0CNT : 3;
     // read-only - Capture A1 FIFO Word Count
-    uint32_t CA1CNT : 3;
-    uint32_t _reserved_0 : 16;
+    uint16_t CA1CNT : 3;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CAPTCTRLA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5704,14 +5587,13 @@ union SM3CAPTCOMPA {
   // Bit field definition.
   struct {
     // read-write - Edge Compare A
-    uint32_t EDGCMPA : 8;
+    uint16_t EDGCMPA : 8;
     // read-only - Edge Counter A
-    uint32_t EDGCNTA : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t EDGCNTA : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CAPTCOMPA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5722,7 +5604,7 @@ union SM3CAPTCOMPA {
 union SM3CAPTCTRLB {
   
   // Arm B
-  enum class eARMB : uint32_t {
+  enum class eARMB : uint16_t {
     // Input capture operation is disabled.
     eDISABLED = 0,
     // Input capture operation as specified by CAPTCTRLB[EDGBx] is enabled.
@@ -5730,7 +5612,7 @@ union SM3CAPTCTRLB {
   };
   
   // One Shot Mode B
-  enum class eONESHOTB : uint32_t {
+  enum class eONESHOTB : uint16_t {
     // Free Running
     eFREE_RUNNING = 0,
     // One Shot
@@ -5738,7 +5620,7 @@ union SM3CAPTCTRLB {
   };
   
   // Edge B 0
-  enum class eEDGB0 : uint32_t {
+  enum class eEDGB0 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -5750,7 +5632,7 @@ union SM3CAPTCTRLB {
   };
   
   // Edge B 1
-  enum class eEDGB1 : uint32_t {
+  enum class eEDGB1 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -5762,7 +5644,7 @@ union SM3CAPTCTRLB {
   };
   
   // Input Select B
-  enum class eINP_SELB : uint32_t {
+  enum class eINP_SELB : uint16_t {
     // Raw PWM_B input signal selected as source.
     ePWM_B = 0,
     // Edge Counter
@@ -5770,7 +5652,7 @@ union SM3CAPTCTRLB {
   };
   
   // Edge Counter B Enable
-  enum class eEDGCNTB_EN : uint32_t {
+  enum class eEDGCNTB_EN : uint16_t {
     // Edge counter disabled and held in reset
     eDISABLED = 0,
     // Edge counter enabled
@@ -5792,16 +5674,15 @@ union SM3CAPTCTRLB {
     // read-write - Edge Counter B Enable
     eEDGCNTB_EN EDGCNTB_EN : 1;
     // read-write - Capture B FIFOs Water Mark
-    uint32_t CFBWM : 2;
+    uint16_t CFBWM : 2;
     // read-only - Capture B0 FIFO Word Count
-    uint32_t CB0CNT : 3;
+    uint16_t CB0CNT : 3;
     // read-only - Capture B1 FIFO Word Count
-    uint32_t CB1CNT : 3;
-    uint32_t _reserved_0 : 16;
+    uint16_t CB1CNT : 3;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CAPTCTRLB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5814,14 +5695,13 @@ union SM3CAPTCOMPB {
   // Bit field definition.
   struct {
     // read-write - Edge Compare B
-    uint32_t EDGCMPB : 8;
+    uint16_t EDGCMPB : 8;
     // read-only - Edge Counter B
-    uint32_t EDGCNTB : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t EDGCNTB : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CAPTCOMPB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5832,7 +5712,7 @@ union SM3CAPTCOMPB {
 union SM3CAPTCTRLX {
   
   // Arm X
-  enum class eARMX : uint32_t {
+  enum class eARMX : uint16_t {
     // Input capture operation is disabled.
     eDISABLED = 0,
     // Input capture operation as specified by CAPTCTRLX[EDGXx] is enabled.
@@ -5840,7 +5720,7 @@ union SM3CAPTCTRLX {
   };
   
   // One Shot Mode Aux
-  enum class eONESHOTX : uint32_t {
+  enum class eONESHOTX : uint16_t {
     // Free Running
     eFREE_RUNNING = 0,
     // One Shot
@@ -5848,7 +5728,7 @@ union SM3CAPTCTRLX {
   };
   
   // Edge X 0
-  enum class eEDGX0 : uint32_t {
+  enum class eEDGX0 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -5860,7 +5740,7 @@ union SM3CAPTCTRLX {
   };
   
   // Edge X 1
-  enum class eEDGX1 : uint32_t {
+  enum class eEDGX1 : uint16_t {
     // Disabled
     eDISABLED = 0,
     // Capture falling edges
@@ -5872,7 +5752,7 @@ union SM3CAPTCTRLX {
   };
   
   // Input Select X
-  enum class eINP_SELX : uint32_t {
+  enum class eINP_SELX : uint16_t {
     // Raw PWM_X input signal selected as source.
     ePWM_X = 0,
     // Edge Counter
@@ -5880,7 +5760,7 @@ union SM3CAPTCTRLX {
   };
   
   // Edge Counter X Enable
-  enum class eEDGCNTX_EN : uint32_t {
+  enum class eEDGCNTX_EN : uint16_t {
     // Edge counter disabled and held in reset
     eDISABLED = 0,
     // Edge counter enabled
@@ -5902,16 +5782,15 @@ union SM3CAPTCTRLX {
     // read-write - Edge Counter X Enable
     eEDGCNTX_EN EDGCNTX_EN : 1;
     // read-write - Capture X FIFOs Water Mark
-    uint32_t CFXWM : 2;
+    uint16_t CFXWM : 2;
     // read-only - Capture X0 FIFO Word Count
-    uint32_t CX0CNT : 3;
+    uint16_t CX0CNT : 3;
     // read-only - Capture X1 FIFO Word Count
-    uint32_t CX1CNT : 3;
-    uint32_t _reserved_0 : 16;
+    uint16_t CX1CNT : 3;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CAPTCTRLX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5924,14 +5803,13 @@ union SM3CAPTCOMPX {
   // Bit field definition.
   struct {
     // read-write - Edge Compare X
-    uint32_t EDGCMPX : 8;
+    uint16_t EDGCMPX : 8;
     // read-only - Edge Counter X
-    uint32_t EDGCNTX : 8;
-    uint32_t _reserved_0 : 16;
+    uint16_t EDGCNTX : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CAPTCOMPX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5944,12 +5822,11 @@ union SM3CVAL0 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 0
-    uint32_t CAPTVAL0 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CVAL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5962,12 +5839,12 @@ union SM3CVAL0CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 0 Cycle
-    uint32_t CVAL0CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL0CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CVAL0CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5980,12 +5857,11 @@ union SM3CVAL1 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 1
-    uint32_t CAPTVAL1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CVAL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -5998,12 +5874,12 @@ union SM3CVAL1CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 1 Cycle
-    uint32_t CVAL1CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL1CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CVAL1CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6016,12 +5892,11 @@ union SM3CVAL2 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 2
-    uint32_t CAPTVAL2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CVAL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6034,12 +5909,12 @@ union SM3CVAL2CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 2 Cycle
-    uint32_t CVAL2CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL2CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CVAL2CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6052,12 +5927,11 @@ union SM3CVAL3 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 3
-    uint32_t CAPTVAL3 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL3 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CVAL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6070,12 +5944,12 @@ union SM3CVAL3CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 3 Cycle
-    uint32_t CVAL3CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL3CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CVAL3CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6088,12 +5962,11 @@ union SM3CVAL4 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 4
-    uint32_t CAPTVAL4 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL4 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CVAL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6106,12 +5979,12 @@ union SM3CVAL4CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 4 Cycle
-    uint32_t CVAL4CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL4CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CVAL4CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6124,12 +5997,11 @@ union SM3CVAL5 {
   // Bit field definition.
   struct {
     // read-only - Capture Value 5
-    uint32_t CAPTVAL5 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTVAL5 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CVAL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6142,12 +6014,12 @@ union SM3CVAL5CYC {
   // Bit field definition.
   struct {
     // read-only - Capture Value 5 Cycle
-    uint32_t CVAL5CYC : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t CVAL5CYC : 4;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SM3CVAL5CYC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6160,16 +6032,16 @@ union OUTEN {
   // Bit field definition.
   struct {
     // read-write - PWM_X Output Enables
-    uint32_t PWMX_EN : 4;
+    uint16_t PWMX_EN : 4;
     // read-write - PWM_B Output Enables
-    uint32_t PWMB_EN : 4;
+    uint16_t PWMB_EN : 4;
     // read-write - PWM_A Output Enables
-    uint32_t PWMA_EN : 4;
-    uint32_t _reserved_0 : 20;
+    uint16_t PWMA_EN : 4;
+    uint16_t _reserved_0 : 4;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   OUTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6182,18 +6054,17 @@ union MASK {
   // Bit field definition.
   struct {
     // read-write - PWM_X Masks
-    uint32_t MASKX : 4;
+    uint16_t MASKX : 4;
     // read-write - PWM_B Masks
-    uint32_t MASKB : 4;
+    uint16_t MASKB : 4;
     // read-write - PWM_A Masks
-    uint32_t MASKA : 4;
+    uint16_t MASKA : 4;
     // write-only - Update Mask Bits Immediately
-    uint32_t UPDATE_MASK : 4;
-    uint32_t _reserved_0 : 16;
+    uint16_t UPDATE_MASK : 4;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6204,7 +6075,7 @@ union MASK {
 union SWCOUT {
   
   // Submodule 0 Software Controlled Output 45
-  enum class eSM0OUT45 : uint32_t {
+  enum class eSM0OUT45 : uint16_t {
     // A logic 0 is supplied to the deadtime generator of submodule 0 instead of PWM45.
     eLOGIC_0 = 0,
     // A logic 1 is supplied to the deadtime generator of submodule 0 instead of PWM45.
@@ -6212,7 +6083,7 @@ union SWCOUT {
   };
   
   // Submodule 0 Software Controlled Output 23
-  enum class eSM0OUT23 : uint32_t {
+  enum class eSM0OUT23 : uint16_t {
     // A logic 0 is supplied to the deadtime generator of submodule 0 instead of PWM23.
     eLOGIC_0 = 0,
     // A logic 1 is supplied to the deadtime generator of submodule 0 instead of PWM23.
@@ -6220,7 +6091,7 @@ union SWCOUT {
   };
   
   // Submodule 1 Software Controlled Output 45
-  enum class eSM1OUT45 : uint32_t {
+  enum class eSM1OUT45 : uint16_t {
     // A logic 0 is supplied to the deadtime generator of submodule 1 instead of PWM45.
     eLOGIC_0 = 0,
     // A logic 1 is supplied to the deadtime generator of submodule 1 instead of PWM45.
@@ -6228,7 +6099,7 @@ union SWCOUT {
   };
   
   // Submodule 1 Software Controlled Output 23
-  enum class eSM1OUT23 : uint32_t {
+  enum class eSM1OUT23 : uint16_t {
     // A logic 0 is supplied to the deadtime generator of submodule 1 instead of PWM23.
     eLOGIC_0 = 0,
     // A logic 1 is supplied to the deadtime generator of submodule 1 instead of PWM23.
@@ -6236,7 +6107,7 @@ union SWCOUT {
   };
   
   // Submodule 2 Software Controlled Output 45
-  enum class eSM2OUT45 : uint32_t {
+  enum class eSM2OUT45 : uint16_t {
     // A logic 0 is supplied to the deadtime generator of submodule 2 instead of PWM45.
     eLOGIC_0 = 0,
     // A logic 1 is supplied to the deadtime generator of submodule 2 instead of PWM45.
@@ -6244,7 +6115,7 @@ union SWCOUT {
   };
   
   // Submodule 2 Software Controlled Output 23
-  enum class eSM2OUT23 : uint32_t {
+  enum class eSM2OUT23 : uint16_t {
     // A logic 0 is supplied to the deadtime generator of submodule 2 instead of PWM23.
     eLOGIC_0 = 0,
     // A logic 1 is supplied to the deadtime generator of submodule 2 instead of PWM23.
@@ -6252,7 +6123,7 @@ union SWCOUT {
   };
   
   // Submodule 3 Software Controlled Output 45
-  enum class eSM3OUT45 : uint32_t {
+  enum class eSM3OUT45 : uint16_t {
     // A logic 0 is supplied to the deadtime generator of submodule 3 instead of PWM45.
     eLOGIC_0 = 0,
     // A logic 1 is supplied to the deadtime generator of submodule 3 instead of PWM45.
@@ -6260,7 +6131,7 @@ union SWCOUT {
   };
   
   // Submodule 3 Software Controlled Output 23
-  enum class eSM3OUT23 : uint32_t {
+  enum class eSM3OUT23 : uint16_t {
     // A logic 0 is supplied to the deadtime generator of submodule 3 instead of PWM23.
     eLOGIC_0 = 0,
     // A logic 1 is supplied to the deadtime generator of submodule 3 instead of PWM23.
@@ -6285,11 +6156,11 @@ union SWCOUT {
     eSM3OUT45 SM3OUT45 : 1;
     // read-write - Submodule 3 Software Controlled Output 23
     eSM3OUT23 SM3OUT23 : 1;
-    uint32_t _reserved_0 : 24;
+    uint16_t _reserved_0 : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SWCOUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6300,7 +6171,7 @@ union SWCOUT {
 union DTSRCSEL {
   
   // Submodule 0 PWM45 Control Select
-  enum class eSM0SEL45 : uint32_t {
+  enum class eSM0SEL45 : uint16_t {
     // Generated SM0PWM45 signal used by the deadtime logic.
     eSM0PWM45 = 0,
     // Inverted generated SM0PWM45 signal used by the deadtime logic.
@@ -6310,7 +6181,7 @@ union DTSRCSEL {
   };
   
   // Submodule 0 PWM23 Control Select
-  enum class eSM0SEL23 : uint32_t {
+  enum class eSM0SEL23 : uint16_t {
     // Generated SM0PWM23 signal used by the deadtime logic.
     eSM0PWM23 = 0,
     // Inverted generated SM0PWM23 signal used by the deadtime logic.
@@ -6322,7 +6193,7 @@ union DTSRCSEL {
   };
   
   // Submodule 1 PWM45 Control Select
-  enum class eSM1SEL45 : uint32_t {
+  enum class eSM1SEL45 : uint16_t {
     // Generated SM1PWM45 signal used by the deadtime logic.
     eSM1PWM45 = 0,
     // Inverted generated SM1PWM45 signal used by the deadtime logic.
@@ -6332,7 +6203,7 @@ union DTSRCSEL {
   };
   
   // Submodule 1 PWM23 Control Select
-  enum class eSM1SEL23 : uint32_t {
+  enum class eSM1SEL23 : uint16_t {
     // Generated SM1PWM23 signal used by the deadtime logic.
     eSM1PWM23 = 0,
     // Inverted generated SM1PWM23 signal used by the deadtime logic.
@@ -6344,7 +6215,7 @@ union DTSRCSEL {
   };
   
   // Submodule 2 PWM45 Control Select
-  enum class eSM2SEL45 : uint32_t {
+  enum class eSM2SEL45 : uint16_t {
     // Generated SM2PWM45 signal used by the deadtime logic.
     eSM2PWM45 = 0,
     // Inverted generated SM2PWM45 signal used by the deadtime logic.
@@ -6354,7 +6225,7 @@ union DTSRCSEL {
   };
   
   // Submodule 2 PWM23 Control Select
-  enum class eSM2SEL23 : uint32_t {
+  enum class eSM2SEL23 : uint16_t {
     // Generated SM2PWM23 signal used by the deadtime logic.
     eSM2PWM23 = 0,
     // Inverted generated SM2PWM23 signal used by the deadtime logic.
@@ -6366,7 +6237,7 @@ union DTSRCSEL {
   };
   
   // Submodule 3 PWM45 Control Select
-  enum class eSM3SEL45 : uint32_t {
+  enum class eSM3SEL45 : uint16_t {
     // Generated SM3PWM45 signal used by the deadtime logic.
     eSM3PWM45 = 0,
     // Inverted generated SM3PWM45 signal used by the deadtime logic.
@@ -6376,7 +6247,7 @@ union DTSRCSEL {
   };
   
   // Submodule 3 PWM23 Control Select
-  enum class eSM3SEL23 : uint32_t {
+  enum class eSM3SEL23 : uint16_t {
     // Generated SM3PWM23 signal used by the deadtime logic.
     eSM3PWM23 = 0,
     // Inverted generated SM3PWM23 signal used by the deadtime logic.
@@ -6405,11 +6276,10 @@ union DTSRCSEL {
     eSM3SEL45 SM3SEL45 : 2;
     // read-write - Submodule 3 PWM23 Control Select
     eSM3SEL23 SM3SEL23 : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   DTSRCSEL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6420,7 +6290,7 @@ union DTSRCSEL {
 union MCTRL {
   
   // Load Okay
-  enum class eLDOK : uint32_t {
+  enum class eLDOK : uint16_t {
     // Do not load new values.
     eDISABLED = 0,
     // Load prescaler, modulus, and PWM values of the corresponding submodule.
@@ -6428,7 +6298,7 @@ union MCTRL {
   };
   
   // Run
-  enum class eRUN : uint32_t {
+  enum class eRUN : uint16_t {
     // PWM counter is stopped, but PWM outputs hold the current state.
     eDISABLED = 0,
     // PWM counter is started in the corresponding submodule.
@@ -6436,7 +6306,7 @@ union MCTRL {
   };
   
   // Current Polarity
-  enum class eIPOL : uint32_t {
+  enum class eIPOL : uint16_t {
     // PWM23 is used to generate complementary PWM pair in the corresponding submodule.
     ePWM23 = 0,
     // PWM45 is used to generate complementary PWM pair in the corresponding submodule.
@@ -6448,16 +6318,15 @@ union MCTRL {
     // read-write - Load Okay
     eLDOK LDOK : 4;
     // read-write - Clear Load Okay
-    uint32_t CLDOK : 4;
+    uint16_t CLDOK : 4;
     // read-write - Run
     eRUN RUN : 4;
     // read-write - Current Polarity
     eIPOL IPOL : 4;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   MCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6468,7 +6337,7 @@ union MCTRL {
 union FCTRL0 {
   
   // Fault Interrupt Enables
-  enum class eFIE : uint32_t {
+  enum class eFIE : uint16_t {
     // FAULTx CPU interrupt requests disabled.
     eDISABLED = 0,
     // FAULTx CPU interrupt requests enabled.
@@ -6476,7 +6345,7 @@ union FCTRL0 {
   };
   
   // Fault Safety Mode
-  enum class eFSAFE : uint32_t {
+  enum class eFSAFE : uint16_t {
     // Normal mode. PWM outputs disabled by this fault are not enabled until FSTS[FFLAGx] is clear at the start of a half cycle or full cycle depending on the states of FSTS[FHALF] and FSTS[FFULL] without regard to the state of FSTS[FFPINx]. If neither FHALF nor FFULL is set, then the fault condition cannot be cleared. The PWM outputs disabled by this fault input will not be re-enabled until the actual FAULTx input signal de-asserts since the fault input will combinationally disable the PWM outputs (as programmed in DISMAPn).
     eNORMAL = 0,
     // Safe mode. PWM outputs disabled by this fault are not enabled until FSTS[FFLAGx] is clear and FSTS[FFPINx] is clear at the start of a half cycle or full cycle depending on the states of FSTS[FHALF] and FSTS[FFULL]. If neither FHLAF nor FFULL is set, then the fault condition cannot be cleared.
@@ -6484,7 +6353,7 @@ union FCTRL0 {
   };
   
   // Automatic Fault Clearing
-  enum class eFAUTO : uint32_t {
+  enum class eFAUTO : uint16_t {
     // Manual fault clearing. PWM outputs disabled by this fault are not enabled until FSTS[FFLAGx] is clear at the start of a half cycle or full cycle depending on the states of FSTS[FHALF] and FSTS[FFULL]. If neither FFULL nor FHALF is set, then the fault condition cannot be cleared. This is further controlled by FCTRL[FSAFE].
     eMANUAL = 0,
     // Automatic fault clearing. PWM outputs disabled by this fault are enabled when FSTS[FFPINx] is clear at the start of a half cycle or full cycle depending on the states of FSTS[FHALF] and FSTS[FFULL] without regard to the state of FSTS[FFLAGx]. If neither FFULL nor FHALF is set, then the fault condition cannot be cleared.
@@ -6492,7 +6361,7 @@ union FCTRL0 {
   };
   
   // Fault Level
-  enum class eFLVL : uint32_t {
+  enum class eFLVL : uint16_t {
     // A logic 0 on the fault input indicates a fault condition.
     eLOGIC_0 = 0,
     // A logic 1 on the fault input indicates a fault condition.
@@ -6509,11 +6378,10 @@ union FCTRL0 {
     eFAUTO FAUTO : 4;
     // read-write - Fault Level
     eFLVL FLVL : 4;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   FCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6524,7 +6392,7 @@ union FCTRL0 {
 union FSTS0 {
   
   // Fault Flags
-  enum class eFFLAG : uint32_t {
+  enum class eFFLAG : uint16_t {
     // No fault on the FAULTx pin.
     eNO_FLAG = 0,
     // Fault on the FAULTx pin.
@@ -6532,7 +6400,7 @@ union FSTS0 {
   };
   
   // Full Cycle
-  enum class eFFULL : uint32_t {
+  enum class eFFULL : uint16_t {
     // PWM outputs are not re-enabled at the start of a full cycle
     ePWM_OUTPUTS_NOT_REENABLED = 0,
     // PWM outputs are re-enabled at the start of a full cycle
@@ -6540,7 +6408,7 @@ union FSTS0 {
   };
   
   // Half Cycle Fault Recovery
-  enum class eFHALF : uint32_t {
+  enum class eFHALF : uint16_t {
     // PWM outputs are not re-enabled at the start of a half cycle.
     ePWM_OUTPUTS_NOT_REENABLED = 0,
     // PWM outputs are re-enabled at the start of a half cycle (as defined by VAL0).
@@ -6554,14 +6422,13 @@ union FSTS0 {
     // read-write - Full Cycle
     eFFULL FFULL : 4;
     // read-only - Filtered Fault Pins
-    uint32_t FFPIN : 4;
+    uint16_t FFPIN : 4;
     // read-write - Half Cycle Fault Recovery
     eFHALF FHALF : 4;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   FSTS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6572,7 +6439,7 @@ union FSTS0 {
 union FFILT0 {
   
   // Fault Glitch Stretch Enable
-  enum class eGSTR : uint32_t {
+  enum class eGSTR : uint16_t {
     // Fault input glitch stretching is disabled.
     eDISABLED = 0,
     // Input fault signals are stretched to at least 2 IPBus clock cycles.
@@ -6582,17 +6449,16 @@ union FFILT0 {
   // Bit field definition.
   struct {
     // read-write - Fault Filter Period
-    uint32_t FILT_PER : 8;
+    uint16_t FILT_PER : 8;
     // read-write - Fault Filter Count
-    uint32_t FILT_CNT : 3;
-    uint32_t _reserved_0 : 4;
+    uint16_t FILT_CNT : 3;
+    uint16_t _reserved_0 : 4;
     // read-write - Fault Glitch Stretch Enable
     eGSTR GSTR : 1;
-    uint32_t _reserved_1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   FFILT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6603,7 +6469,7 @@ union FFILT0 {
 union FTST0 {
   
   // Fault Test
-  enum class eFTEST : uint32_t {
+  enum class eFTEST : uint16_t {
     // No fault
     eNO_FAULT = 0,
     // Cause a simulated fault
@@ -6614,11 +6480,11 @@ union FTST0 {
   struct {
     // read-write - Fault Test
     eFTEST FTEST : 1;
-    uint32_t _reserved_0 : 31;
+    uint16_t _reserved_0 : 15;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   FTST0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -6629,7 +6495,7 @@ union FTST0 {
 union FCTRL20 {
   
   // No Combinational Path From Fault Input To PWM Output
-  enum class eNOCOMB : uint32_t {
+  enum class eNOCOMB : uint16_t {
     // There is a combinational link from the fault inputs to the PWM outputs. The fault inputs are combined with the filtered and latched fault signals to disable the PWM outputs.
     eENABLED = 0,
     // The direct combinational path from the fault inputs to the PWM outputs is disabled and the filtered and latched fault signals are used to disable the PWM outputs.
@@ -6640,11 +6506,11 @@ union FCTRL20 {
   struct {
     // read-write - No Combinational Path From Fault Input To PWM Output
     eNOCOMB NOCOMB : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   FCTRL20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }

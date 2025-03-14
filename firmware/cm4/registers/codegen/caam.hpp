@@ -552,7 +552,7 @@ union DMA0_ARD_TC {
     uint32_t ARTCE : 1;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   DMA0_ARD_TC() = delete;
@@ -599,7 +599,7 @@ union DMA0_AWR_TC {
     uint32_t AWTCE : 1;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   DMA0_AWR_TC() = delete;
@@ -630,12 +630,11 @@ union MPPKR_0 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -647,12 +646,11 @@ union MPPKR_1 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -664,12 +662,11 @@ union MPPKR_2 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -681,12 +678,11 @@ union MPPKR_3 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -698,12 +694,11 @@ union MPPKR_4 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -715,12 +710,11 @@ union MPPKR_5 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -732,12 +726,11 @@ union MPPKR_6 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -749,12 +742,11 @@ union MPPKR_7 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -766,12 +758,11 @@ union MPPKR_8 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -783,12 +774,11 @@ union MPPKR_9 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -800,12 +790,11 @@ union MPPKR_10 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -817,12 +806,11 @@ union MPPKR_11 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -834,12 +822,11 @@ union MPPKR_12 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -851,12 +838,11 @@ union MPPKR_13 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -868,12 +854,11 @@ union MPPKR_14 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -885,12 +870,11 @@ union MPPKR_15 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -902,12 +886,11 @@ union MPPKR_16 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -919,12 +902,11 @@ union MPPKR_17 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -936,12 +918,11 @@ union MPPKR_18 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -953,12 +934,11 @@ union MPPKR_19 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -970,12 +950,11 @@ union MPPKR_20 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -987,12 +966,11 @@ union MPPKR_21 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1004,12 +982,11 @@ union MPPKR_22 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1021,12 +998,11 @@ union MPPKR_23 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1038,12 +1014,11 @@ union MPPKR_24 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1055,12 +1030,11 @@ union MPPKR_25 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1072,12 +1046,11 @@ union MPPKR_26 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1089,12 +1062,11 @@ union MPPKR_27 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1106,12 +1078,11 @@ union MPPKR_28 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1123,12 +1094,11 @@ union MPPKR_29 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1140,12 +1110,11 @@ union MPPKR_30 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1157,12 +1126,11 @@ union MPPKR_31 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1174,12 +1142,11 @@ union MPPKR_32 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1191,12 +1158,11 @@ union MPPKR_33 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1208,12 +1174,11 @@ union MPPKR_34 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1225,12 +1190,11 @@ union MPPKR_35 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1242,12 +1206,11 @@ union MPPKR_36 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1259,12 +1222,11 @@ union MPPKR_37 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1276,12 +1238,11 @@ union MPPKR_38 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1293,12 +1254,11 @@ union MPPKR_39 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1310,12 +1270,11 @@ union MPPKR_40 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1327,12 +1286,11 @@ union MPPKR_41 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1344,12 +1302,11 @@ union MPPKR_42 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1361,12 +1318,11 @@ union MPPKR_43 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1378,12 +1334,11 @@ union MPPKR_44 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1395,12 +1350,11 @@ union MPPKR_45 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1412,12 +1366,11 @@ union MPPKR_46 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1429,12 +1382,11 @@ union MPPKR_47 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1446,12 +1398,11 @@ union MPPKR_48 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1463,12 +1414,11 @@ union MPPKR_49 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1480,12 +1430,11 @@ union MPPKR_50 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1497,12 +1446,11 @@ union MPPKR_51 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1514,12 +1462,11 @@ union MPPKR_52 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1531,12 +1478,11 @@ union MPPKR_53 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1548,12 +1494,11 @@ union MPPKR_54 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1565,12 +1510,11 @@ union MPPKR_55 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1582,12 +1526,11 @@ union MPPKR_56 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1599,12 +1542,11 @@ union MPPKR_57 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1616,12 +1558,11 @@ union MPPKR_58 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1633,12 +1574,11 @@ union MPPKR_59 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1650,12 +1590,11 @@ union MPPKR_60 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1667,12 +1606,11 @@ union MPPKR_61 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1684,12 +1622,11 @@ union MPPKR_62 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1701,12 +1638,11 @@ union MPPKR_63 {
   // Bit field definition.
   struct {
     // read-write - MPPrivK. The 512-bit Manufacturing Protection Private Key.
-    uint32_t MPPrivK : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPPrivK : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPPKR_63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1719,12 +1655,11 @@ union MPMR_0 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1736,12 +1671,11 @@ union MPMR_1 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1753,12 +1687,11 @@ union MPMR_2 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1770,12 +1703,11 @@ union MPMR_3 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1787,12 +1719,11 @@ union MPMR_4 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1804,12 +1735,11 @@ union MPMR_5 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1821,12 +1751,11 @@ union MPMR_6 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1838,12 +1767,11 @@ union MPMR_7 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1855,12 +1783,11 @@ union MPMR_8 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1872,12 +1799,11 @@ union MPMR_9 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1889,12 +1815,11 @@ union MPMR_10 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1906,12 +1831,11 @@ union MPMR_11 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1923,12 +1847,11 @@ union MPMR_12 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1940,12 +1863,11 @@ union MPMR_13 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1957,12 +1879,11 @@ union MPMR_14 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1974,12 +1895,11 @@ union MPMR_15 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1991,12 +1911,11 @@ union MPMR_16 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2008,12 +1927,11 @@ union MPMR_17 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2025,12 +1943,11 @@ union MPMR_18 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2042,12 +1959,11 @@ union MPMR_19 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2059,12 +1975,11 @@ union MPMR_20 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2076,12 +1991,11 @@ union MPMR_21 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2093,12 +2007,11 @@ union MPMR_22 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2110,12 +2023,11 @@ union MPMR_23 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2127,12 +2039,11 @@ union MPMR_24 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2144,12 +2055,11 @@ union MPMR_25 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2161,12 +2071,11 @@ union MPMR_26 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2178,12 +2087,11 @@ union MPMR_27 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2195,12 +2103,11 @@ union MPMR_28 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2212,12 +2119,11 @@ union MPMR_29 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2229,12 +2135,11 @@ union MPMR_30 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2246,12 +2151,11 @@ union MPMR_31 {
   // Bit field definition.
   struct {
     // read-write - Holds 256 bits of message data that will be prepended to the input data to the MPSIGN operation
-    uint32_t MPMSG : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t MPMSG : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPMR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2264,12 +2168,11 @@ union MPTESTR_0 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2281,12 +2184,11 @@ union MPTESTR_1 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2298,12 +2200,11 @@ union MPTESTR_2 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2315,12 +2216,11 @@ union MPTESTR_3 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2332,12 +2232,11 @@ union MPTESTR_4 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2349,12 +2248,11 @@ union MPTESTR_5 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2366,12 +2264,11 @@ union MPTESTR_6 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2383,12 +2280,11 @@ union MPTESTR_7 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2400,12 +2296,11 @@ union MPTESTR_8 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2417,12 +2312,11 @@ union MPTESTR_9 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2434,12 +2328,11 @@ union MPTESTR_10 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2451,12 +2344,11 @@ union MPTESTR_11 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2468,12 +2360,11 @@ union MPTESTR_12 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2485,12 +2376,11 @@ union MPTESTR_13 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2502,12 +2392,11 @@ union MPTESTR_14 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2519,12 +2408,11 @@ union MPTESTR_15 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2536,12 +2424,11 @@ union MPTESTR_16 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2553,12 +2440,11 @@ union MPTESTR_17 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2570,12 +2456,11 @@ union MPTESTR_18 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2587,12 +2472,11 @@ union MPTESTR_19 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2604,12 +2488,11 @@ union MPTESTR_20 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2621,12 +2504,11 @@ union MPTESTR_21 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2638,12 +2520,11 @@ union MPTESTR_22 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2655,12 +2536,11 @@ union MPTESTR_23 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2672,12 +2552,11 @@ union MPTESTR_24 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2689,12 +2568,11 @@ union MPTESTR_25 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2706,12 +2584,11 @@ union MPTESTR_26 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2723,12 +2600,11 @@ union MPTESTR_27 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2740,12 +2616,11 @@ union MPTESTR_28 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2757,12 +2632,11 @@ union MPTESTR_29 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2774,12 +2648,11 @@ union MPTESTR_30 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2791,12 +2664,11 @@ union MPTESTR_31 {
   // Bit field definition.
   struct {
     // read-only - TEST_VALUE
-    uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_0 : 24;
+    uint8_t TEST_VALUE : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 8-bit register value.
+  uint8_t value;
 
   MPTESTR_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -3253,9 +3125,10 @@ union SKNR {
     uint32_t SK_NONCE_LS : 32;
     // read-write - Secure Key Nonce - Most Significant Bits
     uint32_t SK_NONCE_MS : 15;
+    uint32_t _reserved_0 : 17;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   SKNR() = delete;
@@ -10060,9 +9933,10 @@ union HT0_JD_ADDR {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   HT0_JD_ADDR() = delete;
@@ -10077,9 +9951,10 @@ union HT0_SD_ADDR {
   struct {
     // read-only - Shared Descriptor Address.
     uint32_t SD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   HT0_SD_ADDR() = delete;
@@ -10340,9 +10215,10 @@ union JRJDDA {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JRJDDA() = delete;
@@ -10779,9 +10655,10 @@ union FAR {
   struct {
     // read-only - Fault Address
     uint32_t FAR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   FAR() = delete;
@@ -11315,9 +11192,10 @@ union IRBAR_JR0 {
   struct {
     // read-write - Input Ring Base Address.
     uint32_t IRBA : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   IRBAR_JR0() = delete;
@@ -11386,9 +11264,10 @@ union ORBAR_JR0 {
   struct {
     // read-write - Output Ring Base Address.
     uint32_t ORBA : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   ORBAR_JR0() = delete;
@@ -11737,9 +11616,10 @@ union JR0AAA0 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR0AAA0() = delete;
@@ -11754,9 +11634,10 @@ union JR0AAA1 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR0AAA1() = delete;
@@ -11771,9 +11652,10 @@ union JR0AAA2 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR0AAA2() = delete;
@@ -11788,9 +11670,10 @@ union JR0AAA3 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR0AAA3() = delete;
@@ -16925,9 +16808,10 @@ union REIR2JR0 {
   struct {
     // read-only - Address associated with the recoverable JR error.
     uint32_t ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   REIR2JR0() = delete;
@@ -17003,9 +16887,10 @@ union IRBAR_JR1 {
   struct {
     // read-write - Input Ring Base Address.
     uint32_t IRBA : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   IRBAR_JR1() = delete;
@@ -17074,9 +16959,10 @@ union ORBAR_JR1 {
   struct {
     // read-write - Output Ring Base Address.
     uint32_t ORBA : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   ORBAR_JR1() = delete;
@@ -17425,9 +17311,10 @@ union JR1AAA0 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR1AAA0() = delete;
@@ -17442,9 +17329,10 @@ union JR1AAA1 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR1AAA1() = delete;
@@ -17459,9 +17347,10 @@ union JR1AAA2 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR1AAA2() = delete;
@@ -17476,9 +17365,10 @@ union JR1AAA3 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR1AAA3() = delete;
@@ -22613,9 +22503,10 @@ union REIR2JR1 {
   struct {
     // read-only - Address associated with the recoverable JR error.
     uint32_t ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   REIR2JR1() = delete;
@@ -22691,9 +22582,10 @@ union IRBAR_JR2 {
   struct {
     // read-write - Input Ring Base Address.
     uint32_t IRBA : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   IRBAR_JR2() = delete;
@@ -22762,9 +22654,10 @@ union ORBAR_JR2 {
   struct {
     // read-write - Output Ring Base Address.
     uint32_t ORBA : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   ORBAR_JR2() = delete;
@@ -23113,9 +23006,10 @@ union JR2AAA0 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR2AAA0() = delete;
@@ -23130,9 +23024,10 @@ union JR2AAA1 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR2AAA1() = delete;
@@ -23147,9 +23042,10 @@ union JR2AAA2 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR2AAA2() = delete;
@@ -23164,9 +23060,10 @@ union JR2AAA3 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR2AAA3() = delete;
@@ -28301,9 +28198,10 @@ union REIR2JR2 {
   struct {
     // read-only - Address associated with the recoverable JR error.
     uint32_t ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   REIR2JR2() = delete;
@@ -28379,9 +28277,10 @@ union IRBAR_JR3 {
   struct {
     // read-write - Input Ring Base Address.
     uint32_t IRBA : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   IRBAR_JR3() = delete;
@@ -28450,9 +28349,10 @@ union ORBAR_JR3 {
   struct {
     // read-write - Output Ring Base Address.
     uint32_t ORBA : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   ORBAR_JR3() = delete;
@@ -28801,9 +28701,10 @@ union JR3AAA0 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR3AAA0() = delete;
@@ -28818,9 +28719,10 @@ union JR3AAA1 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR3AAA1() = delete;
@@ -28835,9 +28737,10 @@ union JR3AAA2 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR3AAA2() = delete;
@@ -28852,9 +28755,10 @@ union JR3AAA3 {
   struct {
     // read-only - Job Descriptor Address.
     uint32_t JD_ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   JR3AAA3() = delete;
@@ -33989,9 +33893,10 @@ union REIR2JR3 {
   struct {
     // read-only - Address associated with the recoverable JR error.
     uint32_t ADDR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   REIR2JR3() = delete;
@@ -34287,9 +34192,10 @@ union RWDOG {
   struct {
     // read-write - Run Time Watchdog Time-Out value
     uint32_t RWDOG : 32;
+    uint32_t _reserved_0 : 32;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   RWDOG() = delete;
@@ -34375,7 +34281,7 @@ union REIR2RTIC {
     uint32_t ADDR : 64;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   REIR2RTIC() = delete;
@@ -34650,7 +34556,7 @@ union C0C1DSR {
     uint32_t NUMBITS : 3;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   C0C1DSR() = delete;
@@ -36071,7 +35977,7 @@ union C0C2DSR {
     uint32_t NUMBITS : 3;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   C0C2DSR() = delete;
@@ -37235,7 +37141,7 @@ union C0OFIFO {
     uint32_t OFIFO : 64;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   C0OFIFO() = delete;
@@ -37386,9 +37292,10 @@ union D0DAR {
   struct {
     // read-only - Descriptor Pointer. Memory address of the Descriptor. Needed for write-back purposes.
     uint32_t DPTR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   D0DAR() = delete;
@@ -39176,9 +39083,10 @@ union D0DJP {
   struct {
     // read-only - Job Descriptor Pointer.
     uint32_t JDPTR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   D0DJP() = delete;
@@ -39193,9 +39101,10 @@ union D0SDP {
   struct {
     // read-only - Shared Descriptor Pointer.
     uint32_t SDPTR : 36;
+    uint32_t _reserved_0 : 28;
   } bits;
   
-  // Full 32-bit register value.
+  // Full 64-bit register value.
   uint32_t value;
 
   D0SDP() = delete;

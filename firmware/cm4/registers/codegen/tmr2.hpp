@@ -16,12 +16,11 @@ union COMP10 {
   // Bit field definition.
   struct {
     // read-write - Comparison Value 1
-    uint32_t COMPARISON_1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARISON_1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   COMP10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -34,12 +33,11 @@ union COMP20 {
   // Bit field definition.
   struct {
     // read-write - Comparison Value 2
-    uint32_t COMPARISON_2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARISON_2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   COMP20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -52,12 +50,11 @@ union CAPT0 {
   // Bit field definition.
   struct {
     // read-write - Capture Value
-    uint32_t CAPTURE : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTURE : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CAPT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -70,12 +67,11 @@ union LOAD0 {
   // Bit field definition.
   struct {
     // read-write - Timer Load Register
-    uint32_t LOAD : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t LOAD : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   LOAD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -88,12 +84,11 @@ union HOLD0 {
   // Bit field definition.
   struct {
     // read-write - HOLD
-    uint32_t HOLD : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t HOLD : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   HOLD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -106,12 +101,11 @@ union CNTR0 {
   // Bit field definition.
   struct {
     // read-write - COUNTER
-    uint32_t COUNTER : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COUNTER : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CNTR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -122,7 +116,7 @@ union CNTR0 {
 union CTRL0 {
   
   // Output Mode
-  enum class eOUTMODE : uint32_t {
+  enum class eOUTMODE : uint16_t {
     // Asserted while counter is active
     eCOUNTER_ACTIVE = 0,
     // Clear OFLAG output on successful compare
@@ -142,7 +136,7 @@ union CTRL0 {
   };
   
   // Co-Channel Initialization
-  enum class eCOINIT : uint32_t {
+  enum class eCOINIT : uint16_t {
     // Co-channel counter/timers cannot force a re-initialization of this counter/timer
     eDISABLE = 0,
     // Co-channel counter/timers may force a re-initialization of this counter/timer
@@ -150,7 +144,7 @@ union CTRL0 {
   };
   
   // Count Direction
-  enum class eDIR : uint32_t {
+  enum class eDIR : uint16_t {
     // Count up.
     eCOUNTUP = 0,
     // Count down.
@@ -158,7 +152,7 @@ union CTRL0 {
   };
   
   // Count Length
-  enum class eLENGTH : uint32_t {
+  enum class eLENGTH : uint16_t {
     // Count until roll over at $FFFF and continue from $0000.
     eUNTIL_ROLLOVER = 0,
     // Count until compare, then re-initialize. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, alternating values of COMP1 and COMP2 are used to generate successful comparisons. For example, the counter counts until a COMP1 value is reached, re-initializes, counts until COMP2 value is reached, re-initializes, counts until COMP1 value is reached, and so on.
@@ -166,7 +160,7 @@ union CTRL0 {
   };
   
   // Count Once
-  enum class eONCE : uint32_t {
+  enum class eONCE : uint16_t {
     // Count repeatedly.
     eREPEAT = 0,
     // Count until compare and then stop. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, the counter re-initializes after reaching the COMP1 value, continues to count to the COMP2 value, and then stops.
@@ -174,7 +168,7 @@ union CTRL0 {
   };
   
   // Secondary Count Source
-  enum class eSCS : uint32_t {
+  enum class eSCS : uint16_t {
     // Counter 0 input pin
     eCOUNTER0_IN = 0,
     // Counter 1 input pin
@@ -186,7 +180,7 @@ union CTRL0 {
   };
   
   // Primary Count Source
-  enum class ePCS : uint32_t {
+  enum class ePCS : uint16_t {
     // Counter 0 input pin
     eCOUNTER0_IN = 0,
     // Counter 1 input pin
@@ -222,7 +216,7 @@ union CTRL0 {
   };
   
   // Count Mode
-  enum class eCM : uint32_t {
+  enum class eCM : uint16_t {
     // No operation
     eNOOP = 0,
     // Count rising edges of primary sourceRising edges are counted only when SCTRL[IPS] = 0. Falling edges are counted when SCTRL[IPS] = 1. If the primary count source is IP bus clock divide by 1, only rising edges are counted regardless of the value of SCTRL[IPS].
@@ -259,11 +253,10 @@ union CTRL0 {
     ePCS PCS : 4;
     // read-write - Count Mode
     eCM CM : 3;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -274,7 +267,7 @@ union CTRL0 {
 union SCTRL0 {
   
   // Output Enable
-  enum class eOEN : uint32_t {
+  enum class eOEN : uint16_t {
     // The external pin is configured as an input.
     eINPUT = 0,
     // The OFLAG output signal is driven on the external pin. Other timer groups using this external pin as their input see the driven value. The polarity of the signal is determined by OPS.
@@ -282,7 +275,7 @@ union SCTRL0 {
   };
   
   // Output Polarity Select
-  enum class eOPS : uint32_t {
+  enum class eOPS : uint16_t {
     // True polarity.
     eTRUE = 0,
     // Inverted polarity.
@@ -290,7 +283,7 @@ union SCTRL0 {
   };
   
   // Input Capture Mode
-  enum class eCAPTURE_MODE : uint32_t {
+  enum class eCAPTURE_MODE : uint16_t {
     // Capture function is disabled
     eDISABLED = 0,
     // Load capture register on rising edge (when IPS=0) or falling edge (when IPS=1) of input
@@ -308,36 +301,35 @@ union SCTRL0 {
     // read-write - Output Polarity Select
     eOPS OPS : 1;
     // read-write - Force OFLAG Output
-    uint32_t FORCE : 1;
+    uint16_t FORCE : 1;
     // read-write - Forced OFLAG Value
-    uint32_t VAL : 1;
+    uint16_t VAL : 1;
     // read-write - Enable External OFLAG Force
-    uint32_t EEOF : 1;
+    uint16_t EEOF : 1;
     // read-write - Master Mode
-    uint32_t MSTR : 1;
+    uint16_t MSTR : 1;
     // read-write - Input Capture Mode
     eCAPTURE_MODE CAPTURE_MODE : 2;
     // read-only - External Input Signal
-    uint32_t INPUT : 1;
+    uint16_t INPUT : 1;
     // read-write - Input Polarity Select
-    uint32_t IPS : 1;
+    uint16_t IPS : 1;
     // read-write - Input Edge Flag Interrupt Enable
-    uint32_t IEFIE : 1;
+    uint16_t IEFIE : 1;
     // read-write - Input Edge Flag
-    uint32_t IEF : 1;
+    uint16_t IEF : 1;
     // read-write - Timer Overflow Flag Interrupt Enable
-    uint32_t TOFIE : 1;
+    uint16_t TOFIE : 1;
     // read-write - Timer Overflow Flag
-    uint32_t TOF : 1;
+    uint16_t TOF : 1;
     // read-write - Timer Compare Flag Interrupt Enable
-    uint32_t TCFIE : 1;
+    uint16_t TCFIE : 1;
     // read-write - Timer Compare Flag
-    uint32_t TCF : 1;
-    uint32_t _reserved_0 : 16;
+    uint16_t TCF : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -350,12 +342,11 @@ union CMPLD10 {
   // Bit field definition.
   struct {
     // read-write - COMPARATOR_LOAD_1
-    uint32_t COMPARATOR_LOAD_1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARATOR_LOAD_1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CMPLD10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -368,12 +359,11 @@ union CMPLD20 {
   // Bit field definition.
   struct {
     // read-write - COMPARATOR_LOAD_2
-    uint32_t COMPARATOR_LOAD_2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARATOR_LOAD_2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CMPLD20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -384,7 +374,7 @@ union CMPLD20 {
 union CSCTRL0 {
   
   // Compare Load Control 1
-  enum class eCL1 : uint32_t {
+  enum class eCL1 : uint16_t {
     // Never preload
     eNEVER = 0,
     // Load upon successful compare with the value in COMP1
@@ -394,7 +384,7 @@ union CSCTRL0 {
   };
   
   // Compare Load Control 2
-  enum class eCL2 : uint32_t {
+  enum class eCL2 : uint16_t {
     // Never preload
     eNEVER = 0,
     // Load upon successful compare with the value in COMP1
@@ -404,7 +394,7 @@ union CSCTRL0 {
   };
   
   // Counting Direction Indicator
-  enum class eUP : uint32_t {
+  enum class eUP : uint16_t {
     // The last count was in the DOWN direction.
     eDOWN = 0,
     // The last count was in the UP direction.
@@ -412,7 +402,7 @@ union CSCTRL0 {
   };
   
   // Triggered Count Initialization Control
-  enum class eTCI : uint32_t {
+  enum class eTCI : uint16_t {
     // Stop the counter upon receiving a second trigger event while still counting from the first trigger event.
     eSTOP = 0,
     // Reload the counter upon receiving a second trigger event while still counting from the first trigger event.
@@ -420,7 +410,7 @@ union CSCTRL0 {
   };
   
   // Reload on Capture
-  enum class eROC : uint32_t {
+  enum class eROC : uint16_t {
     // Disables
     eDISABLE = 0,
     // Enables
@@ -428,7 +418,7 @@ union CSCTRL0 {
   };
   
   // Alternative Load Enable
-  enum class eALT_LOAD : uint32_t {
+  enum class eALT_LOAD : uint16_t {
     // Counter can be re-initialized only with the LOAD register.
     eDISABLE = 0,
     // Counter can be re-initialized with the LOAD or CMPLD2 registers depending on count direction.
@@ -436,7 +426,7 @@ union CSCTRL0 {
   };
   
   // Fault Enable
-  enum class eFAULT : uint32_t {
+  enum class eFAULT : uint16_t {
     // Disables
     eDISABLE = 0,
     // Enables
@@ -444,7 +434,7 @@ union CSCTRL0 {
   };
   
   // Debug Actions Enable
-  enum class eDBG_EN : uint32_t {
+  enum class eDBG_EN : uint16_t {
     // Continue with normal operation during debug mode. (default)
     eNORMAL = 0,
     // Halt TMR counter during debug mode.
@@ -462,15 +452,15 @@ union CSCTRL0 {
     // read-write - Compare Load Control 2
     eCL2 CL2 : 2;
     // read-write - Timer Compare 1 Interrupt Flag
-    uint32_t TCF1 : 1;
+    uint16_t TCF1 : 1;
     // read-write - Timer Compare 2 Interrupt Flag
-    uint32_t TCF2 : 1;
+    uint16_t TCF2 : 1;
     // read-write - Timer Compare 1 Interrupt Enable
-    uint32_t TCF1EN : 1;
+    uint16_t TCF1EN : 1;
     // read-write - Timer Compare 2 Interrupt Enable
-    uint32_t TCF2EN : 1;
+    uint16_t TCF2EN : 1;
     // read-only - Output flag
-    uint32_t OFLAG : 1;
+    uint16_t OFLAG : 1;
     // read-only - Counting Direction Indicator
     eUP UP : 1;
     // read-write - Triggered Count Initialization Control
@@ -483,11 +473,10 @@ union CSCTRL0 {
     eFAULT FAULT : 1;
     // read-write - Debug Actions Enable
     eDBG_EN DBG_EN : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CSCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -500,14 +489,14 @@ union FILT0 {
   // Bit field definition.
   struct {
     // read-write - Input Filter Sample Period
-    uint32_t FILT_PER : 8;
+    uint16_t FILT_PER : 8;
     // read-write - Input Filter Sample Count
-    uint32_t FILT_CNT : 3;
-    uint32_t _reserved_0 : 21;
+    uint16_t FILT_CNT : 3;
+    uint16_t _reserved_0 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   FILT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -520,16 +509,16 @@ union DMA0 {
   // Bit field definition.
   struct {
     // read-write - Input Edge Flag DMA Enable
-    uint32_t IEFDE : 1;
+    uint16_t IEFDE : 1;
     // read-write - Comparator Preload Register 1 DMA Enable
-    uint32_t CMPLD1DE : 1;
+    uint16_t CMPLD1DE : 1;
     // read-write - Comparator Preload Register 2 DMA Enable
-    uint32_t CMPLD2DE : 1;
-    uint32_t _reserved_0 : 29;
+    uint16_t CMPLD2DE : 1;
+    uint16_t _reserved_0 : 13;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   DMA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -540,7 +529,7 @@ union DMA0 {
 union ENBL {
   
   // Timer Channel Enable
-  enum class eENBL : uint32_t {
+  enum class eENBL : uint16_t {
     // Disables the timer channel.
     eDISABLE = 0,
     // Enables the timer channel. (default)
@@ -551,11 +540,11 @@ union ENBL {
   struct {
     // read-write - Timer Channel Enable
     eENBL ENBL : 4;
-    uint32_t _reserved_0 : 28;
+    uint16_t _reserved_0 : 12;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   ENBL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
@@ -568,12 +557,11 @@ union COMP11 {
   // Bit field definition.
   struct {
     // read-write - Comparison Value 1
-    uint32_t COMPARISON_1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARISON_1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   COMP11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -586,12 +574,11 @@ union COMP21 {
   // Bit field definition.
   struct {
     // read-write - Comparison Value 2
-    uint32_t COMPARISON_2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARISON_2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   COMP21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -604,12 +591,11 @@ union CAPT1 {
   // Bit field definition.
   struct {
     // read-write - Capture Value
-    uint32_t CAPTURE : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTURE : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CAPT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -622,12 +608,11 @@ union LOAD1 {
   // Bit field definition.
   struct {
     // read-write - Timer Load Register
-    uint32_t LOAD : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t LOAD : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   LOAD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -640,12 +625,11 @@ union HOLD1 {
   // Bit field definition.
   struct {
     // read-write - HOLD
-    uint32_t HOLD : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t HOLD : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   HOLD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -658,12 +642,11 @@ union CNTR1 {
   // Bit field definition.
   struct {
     // read-write - COUNTER
-    uint32_t COUNTER : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COUNTER : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CNTR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -674,7 +657,7 @@ union CNTR1 {
 union CTRL1 {
   
   // Output Mode
-  enum class eOUTMODE : uint32_t {
+  enum class eOUTMODE : uint16_t {
     // Asserted while counter is active
     eCOUNTER_ACTIVE = 0,
     // Clear OFLAG output on successful compare
@@ -694,7 +677,7 @@ union CTRL1 {
   };
   
   // Co-Channel Initialization
-  enum class eCOINIT : uint32_t {
+  enum class eCOINIT : uint16_t {
     // Co-channel counter/timers cannot force a re-initialization of this counter/timer
     eDISABLE = 0,
     // Co-channel counter/timers may force a re-initialization of this counter/timer
@@ -702,7 +685,7 @@ union CTRL1 {
   };
   
   // Count Direction
-  enum class eDIR : uint32_t {
+  enum class eDIR : uint16_t {
     // Count up.
     eCOUNTUP = 0,
     // Count down.
@@ -710,7 +693,7 @@ union CTRL1 {
   };
   
   // Count Length
-  enum class eLENGTH : uint32_t {
+  enum class eLENGTH : uint16_t {
     // Count until roll over at $FFFF and continue from $0000.
     eUNTIL_ROLLOVER = 0,
     // Count until compare, then re-initialize. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, alternating values of COMP1 and COMP2 are used to generate successful comparisons. For example, the counter counts until a COMP1 value is reached, re-initializes, counts until COMP2 value is reached, re-initializes, counts until COMP1 value is reached, and so on.
@@ -718,7 +701,7 @@ union CTRL1 {
   };
   
   // Count Once
-  enum class eONCE : uint32_t {
+  enum class eONCE : uint16_t {
     // Count repeatedly.
     eREPEAT = 0,
     // Count until compare and then stop. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, the counter re-initializes after reaching the COMP1 value, continues to count to the COMP2 value, and then stops.
@@ -726,7 +709,7 @@ union CTRL1 {
   };
   
   // Secondary Count Source
-  enum class eSCS : uint32_t {
+  enum class eSCS : uint16_t {
     // Counter 0 input pin
     eCOUNTER0_IN = 0,
     // Counter 1 input pin
@@ -738,7 +721,7 @@ union CTRL1 {
   };
   
   // Primary Count Source
-  enum class ePCS : uint32_t {
+  enum class ePCS : uint16_t {
     // Counter 0 input pin
     eCOUNTER0_IN = 0,
     // Counter 1 input pin
@@ -774,7 +757,7 @@ union CTRL1 {
   };
   
   // Count Mode
-  enum class eCM : uint32_t {
+  enum class eCM : uint16_t {
     // No operation
     eNOOP = 0,
     // Count rising edges of primary sourceRising edges are counted only when SCTRL[IPS] = 0. Falling edges are counted when SCTRL[IPS] = 1. If the primary count source is IP bus clock divide by 1, only rising edges are counted regardless of the value of SCTRL[IPS].
@@ -811,11 +794,10 @@ union CTRL1 {
     ePCS PCS : 4;
     // read-write - Count Mode
     eCM CM : 3;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -826,7 +808,7 @@ union CTRL1 {
 union SCTRL1 {
   
   // Output Enable
-  enum class eOEN : uint32_t {
+  enum class eOEN : uint16_t {
     // The external pin is configured as an input.
     eINPUT = 0,
     // The OFLAG output signal is driven on the external pin. Other timer groups using this external pin as their input see the driven value. The polarity of the signal is determined by OPS.
@@ -834,7 +816,7 @@ union SCTRL1 {
   };
   
   // Output Polarity Select
-  enum class eOPS : uint32_t {
+  enum class eOPS : uint16_t {
     // True polarity.
     eTRUE = 0,
     // Inverted polarity.
@@ -842,7 +824,7 @@ union SCTRL1 {
   };
   
   // Input Capture Mode
-  enum class eCAPTURE_MODE : uint32_t {
+  enum class eCAPTURE_MODE : uint16_t {
     // Capture function is disabled
     eDISABLED = 0,
     // Load capture register on rising edge (when IPS=0) or falling edge (when IPS=1) of input
@@ -860,36 +842,35 @@ union SCTRL1 {
     // read-write - Output Polarity Select
     eOPS OPS : 1;
     // read-write - Force OFLAG Output
-    uint32_t FORCE : 1;
+    uint16_t FORCE : 1;
     // read-write - Forced OFLAG Value
-    uint32_t VAL : 1;
+    uint16_t VAL : 1;
     // read-write - Enable External OFLAG Force
-    uint32_t EEOF : 1;
+    uint16_t EEOF : 1;
     // read-write - Master Mode
-    uint32_t MSTR : 1;
+    uint16_t MSTR : 1;
     // read-write - Input Capture Mode
     eCAPTURE_MODE CAPTURE_MODE : 2;
     // read-only - External Input Signal
-    uint32_t INPUT : 1;
+    uint16_t INPUT : 1;
     // read-write - Input Polarity Select
-    uint32_t IPS : 1;
+    uint16_t IPS : 1;
     // read-write - Input Edge Flag Interrupt Enable
-    uint32_t IEFIE : 1;
+    uint16_t IEFIE : 1;
     // read-write - Input Edge Flag
-    uint32_t IEF : 1;
+    uint16_t IEF : 1;
     // read-write - Timer Overflow Flag Interrupt Enable
-    uint32_t TOFIE : 1;
+    uint16_t TOFIE : 1;
     // read-write - Timer Overflow Flag
-    uint32_t TOF : 1;
+    uint16_t TOF : 1;
     // read-write - Timer Compare Flag Interrupt Enable
-    uint32_t TCFIE : 1;
+    uint16_t TCFIE : 1;
     // read-write - Timer Compare Flag
-    uint32_t TCF : 1;
-    uint32_t _reserved_0 : 16;
+    uint16_t TCF : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SCTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -902,12 +883,11 @@ union CMPLD11 {
   // Bit field definition.
   struct {
     // read-write - COMPARATOR_LOAD_1
-    uint32_t COMPARATOR_LOAD_1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARATOR_LOAD_1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CMPLD11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -920,12 +900,11 @@ union CMPLD21 {
   // Bit field definition.
   struct {
     // read-write - COMPARATOR_LOAD_2
-    uint32_t COMPARATOR_LOAD_2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARATOR_LOAD_2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CMPLD21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -936,7 +915,7 @@ union CMPLD21 {
 union CSCTRL1 {
   
   // Compare Load Control 1
-  enum class eCL1 : uint32_t {
+  enum class eCL1 : uint16_t {
     // Never preload
     eNEVER = 0,
     // Load upon successful compare with the value in COMP1
@@ -946,7 +925,7 @@ union CSCTRL1 {
   };
   
   // Compare Load Control 2
-  enum class eCL2 : uint32_t {
+  enum class eCL2 : uint16_t {
     // Never preload
     eNEVER = 0,
     // Load upon successful compare with the value in COMP1
@@ -956,7 +935,7 @@ union CSCTRL1 {
   };
   
   // Counting Direction Indicator
-  enum class eUP : uint32_t {
+  enum class eUP : uint16_t {
     // The last count was in the DOWN direction.
     eDOWN = 0,
     // The last count was in the UP direction.
@@ -964,7 +943,7 @@ union CSCTRL1 {
   };
   
   // Triggered Count Initialization Control
-  enum class eTCI : uint32_t {
+  enum class eTCI : uint16_t {
     // Stop the counter upon receiving a second trigger event while still counting from the first trigger event.
     eSTOP = 0,
     // Reload the counter upon receiving a second trigger event while still counting from the first trigger event.
@@ -972,7 +951,7 @@ union CSCTRL1 {
   };
   
   // Reload on Capture
-  enum class eROC : uint32_t {
+  enum class eROC : uint16_t {
     // Disables
     eDISABLE = 0,
     // Enables
@@ -980,7 +959,7 @@ union CSCTRL1 {
   };
   
   // Alternative Load Enable
-  enum class eALT_LOAD : uint32_t {
+  enum class eALT_LOAD : uint16_t {
     // Counter can be re-initialized only with the LOAD register.
     eDISABLE = 0,
     // Counter can be re-initialized with the LOAD or CMPLD2 registers depending on count direction.
@@ -988,7 +967,7 @@ union CSCTRL1 {
   };
   
   // Fault Enable
-  enum class eFAULT : uint32_t {
+  enum class eFAULT : uint16_t {
     // Disables
     eDISABLE = 0,
     // Enables
@@ -996,7 +975,7 @@ union CSCTRL1 {
   };
   
   // Debug Actions Enable
-  enum class eDBG_EN : uint32_t {
+  enum class eDBG_EN : uint16_t {
     // Continue with normal operation during debug mode. (default)
     eNORMAL = 0,
     // Halt TMR counter during debug mode.
@@ -1014,15 +993,15 @@ union CSCTRL1 {
     // read-write - Compare Load Control 2
     eCL2 CL2 : 2;
     // read-write - Timer Compare 1 Interrupt Flag
-    uint32_t TCF1 : 1;
+    uint16_t TCF1 : 1;
     // read-write - Timer Compare 2 Interrupt Flag
-    uint32_t TCF2 : 1;
+    uint16_t TCF2 : 1;
     // read-write - Timer Compare 1 Interrupt Enable
-    uint32_t TCF1EN : 1;
+    uint16_t TCF1EN : 1;
     // read-write - Timer Compare 2 Interrupt Enable
-    uint32_t TCF2EN : 1;
+    uint16_t TCF2EN : 1;
     // read-only - Output flag
-    uint32_t OFLAG : 1;
+    uint16_t OFLAG : 1;
     // read-only - Counting Direction Indicator
     eUP UP : 1;
     // read-write - Triggered Count Initialization Control
@@ -1035,11 +1014,10 @@ union CSCTRL1 {
     eFAULT FAULT : 1;
     // read-write - Debug Actions Enable
     eDBG_EN DBG_EN : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CSCTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1052,14 +1030,14 @@ union FILT1 {
   // Bit field definition.
   struct {
     // read-write - Input Filter Sample Period
-    uint32_t FILT_PER : 8;
+    uint16_t FILT_PER : 8;
     // read-write - Input Filter Sample Count
-    uint32_t FILT_CNT : 3;
-    uint32_t _reserved_0 : 21;
+    uint16_t FILT_CNT : 3;
+    uint16_t _reserved_0 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   FILT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1072,16 +1050,16 @@ union DMA1 {
   // Bit field definition.
   struct {
     // read-write - Input Edge Flag DMA Enable
-    uint32_t IEFDE : 1;
+    uint16_t IEFDE : 1;
     // read-write - Comparator Preload Register 1 DMA Enable
-    uint32_t CMPLD1DE : 1;
+    uint16_t CMPLD1DE : 1;
     // read-write - Comparator Preload Register 2 DMA Enable
-    uint32_t CMPLD2DE : 1;
-    uint32_t _reserved_0 : 29;
+    uint16_t CMPLD2DE : 1;
+    uint16_t _reserved_0 : 13;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   DMA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1094,12 +1072,11 @@ union COMP12 {
   // Bit field definition.
   struct {
     // read-write - Comparison Value 1
-    uint32_t COMPARISON_1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARISON_1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   COMP12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1112,12 +1089,11 @@ union COMP22 {
   // Bit field definition.
   struct {
     // read-write - Comparison Value 2
-    uint32_t COMPARISON_2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARISON_2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   COMP22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1130,12 +1106,11 @@ union CAPT2 {
   // Bit field definition.
   struct {
     // read-write - Capture Value
-    uint32_t CAPTURE : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTURE : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CAPT2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1148,12 +1123,11 @@ union LOAD2 {
   // Bit field definition.
   struct {
     // read-write - Timer Load Register
-    uint32_t LOAD : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t LOAD : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   LOAD2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1166,12 +1140,11 @@ union HOLD2 {
   // Bit field definition.
   struct {
     // read-write - HOLD
-    uint32_t HOLD : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t HOLD : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   HOLD2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1184,12 +1157,11 @@ union CNTR2 {
   // Bit field definition.
   struct {
     // read-write - COUNTER
-    uint32_t COUNTER : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COUNTER : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CNTR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1200,7 +1172,7 @@ union CNTR2 {
 union CTRL2 {
   
   // Output Mode
-  enum class eOUTMODE : uint32_t {
+  enum class eOUTMODE : uint16_t {
     // Asserted while counter is active
     eCOUNTER_ACTIVE = 0,
     // Clear OFLAG output on successful compare
@@ -1220,7 +1192,7 @@ union CTRL2 {
   };
   
   // Co-Channel Initialization
-  enum class eCOINIT : uint32_t {
+  enum class eCOINIT : uint16_t {
     // Co-channel counter/timers cannot force a re-initialization of this counter/timer
     eDISABLE = 0,
     // Co-channel counter/timers may force a re-initialization of this counter/timer
@@ -1228,7 +1200,7 @@ union CTRL2 {
   };
   
   // Count Direction
-  enum class eDIR : uint32_t {
+  enum class eDIR : uint16_t {
     // Count up.
     eCOUNTUP = 0,
     // Count down.
@@ -1236,7 +1208,7 @@ union CTRL2 {
   };
   
   // Count Length
-  enum class eLENGTH : uint32_t {
+  enum class eLENGTH : uint16_t {
     // Count until roll over at $FFFF and continue from $0000.
     eUNTIL_ROLLOVER = 0,
     // Count until compare, then re-initialize. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, alternating values of COMP1 and COMP2 are used to generate successful comparisons. For example, the counter counts until a COMP1 value is reached, re-initializes, counts until COMP2 value is reached, re-initializes, counts until COMP1 value is reached, and so on.
@@ -1244,7 +1216,7 @@ union CTRL2 {
   };
   
   // Count Once
-  enum class eONCE : uint32_t {
+  enum class eONCE : uint16_t {
     // Count repeatedly.
     eREPEAT = 0,
     // Count until compare and then stop. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, the counter re-initializes after reaching the COMP1 value, continues to count to the COMP2 value, and then stops.
@@ -1252,7 +1224,7 @@ union CTRL2 {
   };
   
   // Secondary Count Source
-  enum class eSCS : uint32_t {
+  enum class eSCS : uint16_t {
     // Counter 0 input pin
     eCOUNTER0_IN = 0,
     // Counter 1 input pin
@@ -1264,7 +1236,7 @@ union CTRL2 {
   };
   
   // Primary Count Source
-  enum class ePCS : uint32_t {
+  enum class ePCS : uint16_t {
     // Counter 0 input pin
     eCOUNTER0_IN = 0,
     // Counter 1 input pin
@@ -1300,7 +1272,7 @@ union CTRL2 {
   };
   
   // Count Mode
-  enum class eCM : uint32_t {
+  enum class eCM : uint16_t {
     // No operation
     eNOOP = 0,
     // Count rising edges of primary sourceRising edges are counted only when SCTRL[IPS] = 0. Falling edges are counted when SCTRL[IPS] = 1. If the primary count source is IP bus clock divide by 1, only rising edges are counted regardless of the value of SCTRL[IPS].
@@ -1337,11 +1309,10 @@ union CTRL2 {
     ePCS PCS : 4;
     // read-write - Count Mode
     eCM CM : 3;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1352,7 +1323,7 @@ union CTRL2 {
 union SCTRL2 {
   
   // Output Enable
-  enum class eOEN : uint32_t {
+  enum class eOEN : uint16_t {
     // The external pin is configured as an input.
     eINPUT = 0,
     // The OFLAG output signal is driven on the external pin. Other timer groups using this external pin as their input see the driven value. The polarity of the signal is determined by OPS.
@@ -1360,7 +1331,7 @@ union SCTRL2 {
   };
   
   // Output Polarity Select
-  enum class eOPS : uint32_t {
+  enum class eOPS : uint16_t {
     // True polarity.
     eTRUE = 0,
     // Inverted polarity.
@@ -1368,7 +1339,7 @@ union SCTRL2 {
   };
   
   // Input Capture Mode
-  enum class eCAPTURE_MODE : uint32_t {
+  enum class eCAPTURE_MODE : uint16_t {
     // Capture function is disabled
     eDISABLED = 0,
     // Load capture register on rising edge (when IPS=0) or falling edge (when IPS=1) of input
@@ -1386,36 +1357,35 @@ union SCTRL2 {
     // read-write - Output Polarity Select
     eOPS OPS : 1;
     // read-write - Force OFLAG Output
-    uint32_t FORCE : 1;
+    uint16_t FORCE : 1;
     // read-write - Forced OFLAG Value
-    uint32_t VAL : 1;
+    uint16_t VAL : 1;
     // read-write - Enable External OFLAG Force
-    uint32_t EEOF : 1;
+    uint16_t EEOF : 1;
     // read-write - Master Mode
-    uint32_t MSTR : 1;
+    uint16_t MSTR : 1;
     // read-write - Input Capture Mode
     eCAPTURE_MODE CAPTURE_MODE : 2;
     // read-only - External Input Signal
-    uint32_t INPUT : 1;
+    uint16_t INPUT : 1;
     // read-write - Input Polarity Select
-    uint32_t IPS : 1;
+    uint16_t IPS : 1;
     // read-write - Input Edge Flag Interrupt Enable
-    uint32_t IEFIE : 1;
+    uint16_t IEFIE : 1;
     // read-write - Input Edge Flag
-    uint32_t IEF : 1;
+    uint16_t IEF : 1;
     // read-write - Timer Overflow Flag Interrupt Enable
-    uint32_t TOFIE : 1;
+    uint16_t TOFIE : 1;
     // read-write - Timer Overflow Flag
-    uint32_t TOF : 1;
+    uint16_t TOF : 1;
     // read-write - Timer Compare Flag Interrupt Enable
-    uint32_t TCFIE : 1;
+    uint16_t TCFIE : 1;
     // read-write - Timer Compare Flag
-    uint32_t TCF : 1;
-    uint32_t _reserved_0 : 16;
+    uint16_t TCF : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SCTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1428,12 +1398,11 @@ union CMPLD12 {
   // Bit field definition.
   struct {
     // read-write - COMPARATOR_LOAD_1
-    uint32_t COMPARATOR_LOAD_1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARATOR_LOAD_1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CMPLD12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1446,12 +1415,11 @@ union CMPLD22 {
   // Bit field definition.
   struct {
     // read-write - COMPARATOR_LOAD_2
-    uint32_t COMPARATOR_LOAD_2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARATOR_LOAD_2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CMPLD22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1462,7 +1430,7 @@ union CMPLD22 {
 union CSCTRL2 {
   
   // Compare Load Control 1
-  enum class eCL1 : uint32_t {
+  enum class eCL1 : uint16_t {
     // Never preload
     eNEVER = 0,
     // Load upon successful compare with the value in COMP1
@@ -1472,7 +1440,7 @@ union CSCTRL2 {
   };
   
   // Compare Load Control 2
-  enum class eCL2 : uint32_t {
+  enum class eCL2 : uint16_t {
     // Never preload
     eNEVER = 0,
     // Load upon successful compare with the value in COMP1
@@ -1482,7 +1450,7 @@ union CSCTRL2 {
   };
   
   // Counting Direction Indicator
-  enum class eUP : uint32_t {
+  enum class eUP : uint16_t {
     // The last count was in the DOWN direction.
     eDOWN = 0,
     // The last count was in the UP direction.
@@ -1490,7 +1458,7 @@ union CSCTRL2 {
   };
   
   // Triggered Count Initialization Control
-  enum class eTCI : uint32_t {
+  enum class eTCI : uint16_t {
     // Stop the counter upon receiving a second trigger event while still counting from the first trigger event.
     eSTOP = 0,
     // Reload the counter upon receiving a second trigger event while still counting from the first trigger event.
@@ -1498,7 +1466,7 @@ union CSCTRL2 {
   };
   
   // Reload on Capture
-  enum class eROC : uint32_t {
+  enum class eROC : uint16_t {
     // Disables
     eDISABLE = 0,
     // Enables
@@ -1506,7 +1474,7 @@ union CSCTRL2 {
   };
   
   // Alternative Load Enable
-  enum class eALT_LOAD : uint32_t {
+  enum class eALT_LOAD : uint16_t {
     // Counter can be re-initialized only with the LOAD register.
     eDISABLE = 0,
     // Counter can be re-initialized with the LOAD or CMPLD2 registers depending on count direction.
@@ -1514,7 +1482,7 @@ union CSCTRL2 {
   };
   
   // Fault Enable
-  enum class eFAULT : uint32_t {
+  enum class eFAULT : uint16_t {
     // Disables
     eDISABLE = 0,
     // Enables
@@ -1522,7 +1490,7 @@ union CSCTRL2 {
   };
   
   // Debug Actions Enable
-  enum class eDBG_EN : uint32_t {
+  enum class eDBG_EN : uint16_t {
     // Continue with normal operation during debug mode. (default)
     eNORMAL = 0,
     // Halt TMR counter during debug mode.
@@ -1540,15 +1508,15 @@ union CSCTRL2 {
     // read-write - Compare Load Control 2
     eCL2 CL2 : 2;
     // read-write - Timer Compare 1 Interrupt Flag
-    uint32_t TCF1 : 1;
+    uint16_t TCF1 : 1;
     // read-write - Timer Compare 2 Interrupt Flag
-    uint32_t TCF2 : 1;
+    uint16_t TCF2 : 1;
     // read-write - Timer Compare 1 Interrupt Enable
-    uint32_t TCF1EN : 1;
+    uint16_t TCF1EN : 1;
     // read-write - Timer Compare 2 Interrupt Enable
-    uint32_t TCF2EN : 1;
+    uint16_t TCF2EN : 1;
     // read-only - Output flag
-    uint32_t OFLAG : 1;
+    uint16_t OFLAG : 1;
     // read-only - Counting Direction Indicator
     eUP UP : 1;
     // read-write - Triggered Count Initialization Control
@@ -1561,11 +1529,10 @@ union CSCTRL2 {
     eFAULT FAULT : 1;
     // read-write - Debug Actions Enable
     eDBG_EN DBG_EN : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CSCTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1578,14 +1545,14 @@ union FILT2 {
   // Bit field definition.
   struct {
     // read-write - Input Filter Sample Period
-    uint32_t FILT_PER : 8;
+    uint16_t FILT_PER : 8;
     // read-write - Input Filter Sample Count
-    uint32_t FILT_CNT : 3;
-    uint32_t _reserved_0 : 21;
+    uint16_t FILT_CNT : 3;
+    uint16_t _reserved_0 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   FILT2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1598,16 +1565,16 @@ union DMA2 {
   // Bit field definition.
   struct {
     // read-write - Input Edge Flag DMA Enable
-    uint32_t IEFDE : 1;
+    uint16_t IEFDE : 1;
     // read-write - Comparator Preload Register 1 DMA Enable
-    uint32_t CMPLD1DE : 1;
+    uint16_t CMPLD1DE : 1;
     // read-write - Comparator Preload Register 2 DMA Enable
-    uint32_t CMPLD2DE : 1;
-    uint32_t _reserved_0 : 29;
+    uint16_t CMPLD2DE : 1;
+    uint16_t _reserved_0 : 13;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   DMA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1620,12 +1587,11 @@ union COMP13 {
   // Bit field definition.
   struct {
     // read-write - Comparison Value 1
-    uint32_t COMPARISON_1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARISON_1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   COMP13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1638,12 +1604,11 @@ union COMP23 {
   // Bit field definition.
   struct {
     // read-write - Comparison Value 2
-    uint32_t COMPARISON_2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARISON_2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   COMP23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1656,12 +1621,11 @@ union CAPT3 {
   // Bit field definition.
   struct {
     // read-write - Capture Value
-    uint32_t CAPTURE : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t CAPTURE : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CAPT3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1674,12 +1638,11 @@ union LOAD3 {
   // Bit field definition.
   struct {
     // read-write - Timer Load Register
-    uint32_t LOAD : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t LOAD : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   LOAD3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1692,12 +1655,11 @@ union HOLD3 {
   // Bit field definition.
   struct {
     // read-write - HOLD
-    uint32_t HOLD : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t HOLD : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   HOLD3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1710,12 +1672,11 @@ union CNTR3 {
   // Bit field definition.
   struct {
     // read-write - COUNTER
-    uint32_t COUNTER : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COUNTER : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CNTR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1726,7 +1687,7 @@ union CNTR3 {
 union CTRL3 {
   
   // Output Mode
-  enum class eOUTMODE : uint32_t {
+  enum class eOUTMODE : uint16_t {
     // Asserted while counter is active
     eCOUNTER_ACTIVE = 0,
     // Clear OFLAG output on successful compare
@@ -1746,7 +1707,7 @@ union CTRL3 {
   };
   
   // Co-Channel Initialization
-  enum class eCOINIT : uint32_t {
+  enum class eCOINIT : uint16_t {
     // Co-channel counter/timers cannot force a re-initialization of this counter/timer
     eDISABLE = 0,
     // Co-channel counter/timers may force a re-initialization of this counter/timer
@@ -1754,7 +1715,7 @@ union CTRL3 {
   };
   
   // Count Direction
-  enum class eDIR : uint32_t {
+  enum class eDIR : uint16_t {
     // Count up.
     eCOUNTUP = 0,
     // Count down.
@@ -1762,7 +1723,7 @@ union CTRL3 {
   };
   
   // Count Length
-  enum class eLENGTH : uint32_t {
+  enum class eLENGTH : uint16_t {
     // Count until roll over at $FFFF and continue from $0000.
     eUNTIL_ROLLOVER = 0,
     // Count until compare, then re-initialize. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, alternating values of COMP1 and COMP2 are used to generate successful comparisons. For example, the counter counts until a COMP1 value is reached, re-initializes, counts until COMP2 value is reached, re-initializes, counts until COMP1 value is reached, and so on.
@@ -1770,7 +1731,7 @@ union CTRL3 {
   };
   
   // Count Once
-  enum class eONCE : uint32_t {
+  enum class eONCE : uint16_t {
     // Count repeatedly.
     eREPEAT = 0,
     // Count until compare and then stop. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, the counter re-initializes after reaching the COMP1 value, continues to count to the COMP2 value, and then stops.
@@ -1778,7 +1739,7 @@ union CTRL3 {
   };
   
   // Secondary Count Source
-  enum class eSCS : uint32_t {
+  enum class eSCS : uint16_t {
     // Counter 0 input pin
     eCOUNTER0_IN = 0,
     // Counter 1 input pin
@@ -1790,7 +1751,7 @@ union CTRL3 {
   };
   
   // Primary Count Source
-  enum class ePCS : uint32_t {
+  enum class ePCS : uint16_t {
     // Counter 0 input pin
     eCOUNTER0_IN = 0,
     // Counter 1 input pin
@@ -1826,7 +1787,7 @@ union CTRL3 {
   };
   
   // Count Mode
-  enum class eCM : uint32_t {
+  enum class eCM : uint16_t {
     // No operation
     eNOOP = 0,
     // Count rising edges of primary sourceRising edges are counted only when SCTRL[IPS] = 0. Falling edges are counted when SCTRL[IPS] = 1. If the primary count source is IP bus clock divide by 1, only rising edges are counted regardless of the value of SCTRL[IPS].
@@ -1863,11 +1824,10 @@ union CTRL3 {
     ePCS PCS : 4;
     // read-write - Count Mode
     eCM CM : 3;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1878,7 +1838,7 @@ union CTRL3 {
 union SCTRL3 {
   
   // Output Enable
-  enum class eOEN : uint32_t {
+  enum class eOEN : uint16_t {
     // The external pin is configured as an input.
     eINPUT = 0,
     // The OFLAG output signal is driven on the external pin. Other timer groups using this external pin as their input see the driven value. The polarity of the signal is determined by OPS.
@@ -1886,7 +1846,7 @@ union SCTRL3 {
   };
   
   // Output Polarity Select
-  enum class eOPS : uint32_t {
+  enum class eOPS : uint16_t {
     // True polarity.
     eTRUE = 0,
     // Inverted polarity.
@@ -1894,7 +1854,7 @@ union SCTRL3 {
   };
   
   // Input Capture Mode
-  enum class eCAPTURE_MODE : uint32_t {
+  enum class eCAPTURE_MODE : uint16_t {
     // Capture function is disabled
     eDISABLED = 0,
     // Load capture register on rising edge (when IPS=0) or falling edge (when IPS=1) of input
@@ -1912,36 +1872,35 @@ union SCTRL3 {
     // read-write - Output Polarity Select
     eOPS OPS : 1;
     // read-write - Force OFLAG Output
-    uint32_t FORCE : 1;
+    uint16_t FORCE : 1;
     // read-write - Forced OFLAG Value
-    uint32_t VAL : 1;
+    uint16_t VAL : 1;
     // read-write - Enable External OFLAG Force
-    uint32_t EEOF : 1;
+    uint16_t EEOF : 1;
     // read-write - Master Mode
-    uint32_t MSTR : 1;
+    uint16_t MSTR : 1;
     // read-write - Input Capture Mode
     eCAPTURE_MODE CAPTURE_MODE : 2;
     // read-only - External Input Signal
-    uint32_t INPUT : 1;
+    uint16_t INPUT : 1;
     // read-write - Input Polarity Select
-    uint32_t IPS : 1;
+    uint16_t IPS : 1;
     // read-write - Input Edge Flag Interrupt Enable
-    uint32_t IEFIE : 1;
+    uint16_t IEFIE : 1;
     // read-write - Input Edge Flag
-    uint32_t IEF : 1;
+    uint16_t IEF : 1;
     // read-write - Timer Overflow Flag Interrupt Enable
-    uint32_t TOFIE : 1;
+    uint16_t TOFIE : 1;
     // read-write - Timer Overflow Flag
-    uint32_t TOF : 1;
+    uint16_t TOF : 1;
     // read-write - Timer Compare Flag Interrupt Enable
-    uint32_t TCFIE : 1;
+    uint16_t TCFIE : 1;
     // read-write - Timer Compare Flag
-    uint32_t TCF : 1;
-    uint32_t _reserved_0 : 16;
+    uint16_t TCF : 1;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   SCTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1954,12 +1913,11 @@ union CMPLD13 {
   // Bit field definition.
   struct {
     // read-write - COMPARATOR_LOAD_1
-    uint32_t COMPARATOR_LOAD_1 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARATOR_LOAD_1 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CMPLD13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1972,12 +1930,11 @@ union CMPLD23 {
   // Bit field definition.
   struct {
     // read-write - COMPARATOR_LOAD_2
-    uint32_t COMPARATOR_LOAD_2 : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t COMPARATOR_LOAD_2 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CMPLD23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -1988,7 +1945,7 @@ union CMPLD23 {
 union CSCTRL3 {
   
   // Compare Load Control 1
-  enum class eCL1 : uint32_t {
+  enum class eCL1 : uint16_t {
     // Never preload
     eNEVER = 0,
     // Load upon successful compare with the value in COMP1
@@ -1998,7 +1955,7 @@ union CSCTRL3 {
   };
   
   // Compare Load Control 2
-  enum class eCL2 : uint32_t {
+  enum class eCL2 : uint16_t {
     // Never preload
     eNEVER = 0,
     // Load upon successful compare with the value in COMP1
@@ -2008,7 +1965,7 @@ union CSCTRL3 {
   };
   
   // Counting Direction Indicator
-  enum class eUP : uint32_t {
+  enum class eUP : uint16_t {
     // The last count was in the DOWN direction.
     eDOWN = 0,
     // The last count was in the UP direction.
@@ -2016,7 +1973,7 @@ union CSCTRL3 {
   };
   
   // Triggered Count Initialization Control
-  enum class eTCI : uint32_t {
+  enum class eTCI : uint16_t {
     // Stop the counter upon receiving a second trigger event while still counting from the first trigger event.
     eSTOP = 0,
     // Reload the counter upon receiving a second trigger event while still counting from the first trigger event.
@@ -2024,7 +1981,7 @@ union CSCTRL3 {
   };
   
   // Reload on Capture
-  enum class eROC : uint32_t {
+  enum class eROC : uint16_t {
     // Disables
     eDISABLE = 0,
     // Enables
@@ -2032,7 +1989,7 @@ union CSCTRL3 {
   };
   
   // Alternative Load Enable
-  enum class eALT_LOAD : uint32_t {
+  enum class eALT_LOAD : uint16_t {
     // Counter can be re-initialized only with the LOAD register.
     eDISABLE = 0,
     // Counter can be re-initialized with the LOAD or CMPLD2 registers depending on count direction.
@@ -2040,7 +1997,7 @@ union CSCTRL3 {
   };
   
   // Fault Enable
-  enum class eFAULT : uint32_t {
+  enum class eFAULT : uint16_t {
     // Disables
     eDISABLE = 0,
     // Enables
@@ -2048,7 +2005,7 @@ union CSCTRL3 {
   };
   
   // Debug Actions Enable
-  enum class eDBG_EN : uint32_t {
+  enum class eDBG_EN : uint16_t {
     // Continue with normal operation during debug mode. (default)
     eNORMAL = 0,
     // Halt TMR counter during debug mode.
@@ -2066,15 +2023,15 @@ union CSCTRL3 {
     // read-write - Compare Load Control 2
     eCL2 CL2 : 2;
     // read-write - Timer Compare 1 Interrupt Flag
-    uint32_t TCF1 : 1;
+    uint16_t TCF1 : 1;
     // read-write - Timer Compare 2 Interrupt Flag
-    uint32_t TCF2 : 1;
+    uint16_t TCF2 : 1;
     // read-write - Timer Compare 1 Interrupt Enable
-    uint32_t TCF1EN : 1;
+    uint16_t TCF1EN : 1;
     // read-write - Timer Compare 2 Interrupt Enable
-    uint32_t TCF2EN : 1;
+    uint16_t TCF2EN : 1;
     // read-only - Output flag
-    uint32_t OFLAG : 1;
+    uint16_t OFLAG : 1;
     // read-only - Counting Direction Indicator
     eUP UP : 1;
     // read-write - Triggered Count Initialization Control
@@ -2087,11 +2044,10 @@ union CSCTRL3 {
     eFAULT FAULT : 1;
     // read-write - Debug Actions Enable
     eDBG_EN DBG_EN : 2;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   CSCTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2104,14 +2060,14 @@ union FILT3 {
   // Bit field definition.
   struct {
     // read-write - Input Filter Sample Period
-    uint32_t FILT_PER : 8;
+    uint16_t FILT_PER : 8;
     // read-write - Input Filter Sample Count
-    uint32_t FILT_CNT : 3;
-    uint32_t _reserved_0 : 21;
+    uint16_t FILT_CNT : 3;
+    uint16_t _reserved_0 : 5;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   FILT3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -2124,16 +2080,16 @@ union DMA3 {
   // Bit field definition.
   struct {
     // read-write - Input Edge Flag DMA Enable
-    uint32_t IEFDE : 1;
+    uint16_t IEFDE : 1;
     // read-write - Comparator Preload Register 1 DMA Enable
-    uint32_t CMPLD1DE : 1;
+    uint16_t CMPLD1DE : 1;
     // read-write - Comparator Preload Register 2 DMA Enable
-    uint32_t CMPLD2DE : 1;
-    uint32_t _reserved_0 : 29;
+    uint16_t CMPLD2DE : 1;
+    uint16_t _reserved_0 : 13;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   DMA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }

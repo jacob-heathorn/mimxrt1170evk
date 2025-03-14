@@ -16,12 +16,11 @@ union MCM_PLREV {
   // Bit field definition.
   struct {
     // read-only - The PLREV[15:0] field is specified by an platform input signal to define a software-visible revision number.
-    uint32_t PLREV : 16;
-    uint32_t _reserved_0 : 16;
+    uint16_t PLREV : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   MCM_PLREV() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
@@ -32,7 +31,7 @@ union MCM_PLREV {
 union MCM_PCT {
   
   // This MCM design supports the ARM Cortex M4 core. The following value identifies this core complex.
-  enum class ePCT : uint32_t {
+  enum class ePCT : uint16_t {
     // ARM Cortex M4
     ePCT_44096 = 44096,
   };
@@ -41,11 +40,10 @@ union MCM_PCT {
   struct {
     // read-only - This MCM design supports the ARM Cortex M4 core. The following value identifies this core complex.
     ePCT PCT : 16;
-    uint32_t _reserved_0 : 16;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   MCM_PCT() = delete;
   inline void Reset() volatile { this->value = 0x0000AC40; }
@@ -78,7 +76,7 @@ union MCM_MEMCFG {
 union MCM_PLASC {
   
   // Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
-  enum class eASC : uint32_t {
+  enum class eASC : uint16_t {
     // A bus slave connection to AXBS input port n is absent
     eASC_0 = 0,
     // A bus slave connection to AXBS input port n is present
@@ -89,11 +87,11 @@ union MCM_PLASC {
   struct {
     // read-only - Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
     eASC ASC : 8;
-    uint32_t _reserved_0 : 24;
+    uint16_t _reserved_0 : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   MCM_PLASC() = delete;
   inline void Reset() volatile { this->value = 0x0000001F; }
@@ -104,7 +102,7 @@ union MCM_PLASC {
 union MCM_PLAMC {
   
   // Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
-  enum class eAMC : uint32_t {
+  enum class eAMC : uint16_t {
     // A bus master connection to AXBS input port n is absent
     eAMC_0 = 0,
     // A bus master connection to AXBS input port n is present
@@ -115,11 +113,11 @@ union MCM_PLAMC {
   struct {
     // read-only - Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
     eAMC AMC : 8;
-    uint32_t _reserved_0 : 24;
+    uint16_t _reserved_0 : 8;
   } bits;
   
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full 16-bit register value.
+  uint16_t value;
 
   MCM_PLAMC() = delete;
   inline void Reset() volatile { this->value = 0x0000001F; }
