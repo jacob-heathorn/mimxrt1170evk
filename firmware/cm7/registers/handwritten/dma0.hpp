@@ -5,6 +5,44 @@ static constexpr uint32_t k_dma0_base = 0x40070000;
 
 namespace nDMA0 {
 
+// TCDn_BITER_ELINKNO
+template<uint32_t N>
+union TCD_BITER_ELINKNO {
+  
+  // Bit field definition.
+  struct {
+    uint16_t BITER : 15;
+    uint16_t ELINK : 1;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint16_t value;
+
+  TCD_BITER_ELINKNO() = delete;
+  static inline volatile TCD_BITER_ELINKNO &ref() {
+    return *reinterpret_cast<volatile TCD_BITER_ELINKNO*>(k_dma0_base + 0x101E + (N * 0x20));
+  }
+};
+
+// TCDn_CITER_ELINKNO
+template<uint32_t N>
+union TCD_CITER_ELINKNO {
+  
+  // Bit field definition.
+  struct {
+    uint16_t CITER : 15;
+    uint16_t ELINK : 1;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint16_t value;
+
+  TCD_CITER_ELINKNO() = delete;
+  static inline volatile TCD_CITER_ELINKNO &ref() {
+    return *reinterpret_cast<volatile TCD_CITER_ELINKNO*>(k_dma0_base + 0x1016 + (N * 0x20));
+  }
+};
+
 // TCDn_ATTR
 template<uint16_t N>
 union TCD_ATTR {
