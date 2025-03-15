@@ -39,6 +39,11 @@
         }
       ]
   },
+  
+  "cmake.cmakePath": "cmake",
+  "cmake.options.statusBarVisibility": "visible",
+  "cmake.configureOnEdit": false,
+  "cmake.configureOnOpen": false,
 
   "files.associations": {
     "array": "cpp",
@@ -108,7 +113,8 @@
     "sstream": "cpp",
     "stop_token": "cpp",
     "thread": "cpp",
-    "cinttypes": "cpp"
-  },
+    "cinttypes": "cpp",
+    "cassert": "cpp"
+},
   "cortex-debug.variableUseNaturalFormat": true
 }
