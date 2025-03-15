@@ -45,6 +45,8 @@
   "cmake.configureOnEdit": false,
   "cmake.configureOnOpen": false,
 
+  "cortex-debug.variableUseNaturalFormat": true,
+
   "files.associations": {
     "array": "cpp",
     "atomic": "cpp",
@@ -115,6 +117,5 @@
     "thread": "cpp",
     "cinttypes": "cpp",
     "cassert": "cpp"
-},
-  "cortex-debug.variableUseNaturalFormat": true
+  },
 }
