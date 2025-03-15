@@ -20,6 +20,7 @@
   * Better Jinja
   * C/C++
   * CMake Language Support
+  * CMake Tools
   * Cortext-Debug
   * Flake8
   * Nix
