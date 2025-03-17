@@ -1,3 +1,5 @@
+# pragma once
+
 #include <cassert>
 #include "registers/codegen/iomuxc.hpp"
 #include "registers/codegen/ccm.hpp"
@@ -117,8 +119,15 @@ public:
     {
         auto &csr = nDMA0::TCD_CSR<0>::ref();
         auto &citer = nDMA0::TCD_CITER_ELINKNO<0>::ref();
+        auto &biter = nDMA0::TCD_BITER_ELINKNO<0>::ref();
         auto &doff = nDMA0::TCD_DOFF<0>::ref();
         auto &soff = nDMA0::TCD_SOFF<0>::ref();
+        auto &nbytes = nDMA0::TCD_NBYTES_MLOFFNO<0>::ref();
+        auto &saddr = nDMA0::TCD_SADDR<0>::ref();
+        auto &daddr = nDMA0::TCD_DADDR<0>::ref();
+        auto &attr = nDMA0::TCD_ATTR<0>::ref();
+        auto &erq = nDMA0::ERQ::ref();
+        auto &serq = nDMA0::SERQ::ref();
 
         // TODO check and handle es.
         auto &es = nDMA0::ES::ref();
@@ -139,27 +148,33 @@ public:
         // Clear DONE and any pending status
         csr.bits.DONE = 1;
         
-        // 3. Configure DMA TCD
+        // Configure DMA TCD
         auto &lpuart_data = nLPUART1::DATA::ref();
-        nDMA0::TCD_SADDR<0>::ref().value = (uint32_t)tx_buffer_;
-        nDMA0::TCD_DADDR<0>::ref().value = (uint32_t)&lpuart_data.value;
+        saddr.value = (uint32_t)tx_buffer_;
+        daddr.value = (uint32_t)&lpuart_data.value;
         soff.bits.SOFF = 1;  // Increment source by 1 byte
         doff.bits.DOFF = 0;  // No dest increment
-        nDMA0::TCD_NBYTES_MLOFFNO<0>::ref().bits.NBYTES = 1; // 1 byte per minor loop
-        nDMA0::TCD_ATTR<0>::ref().bits.SSIZE = 0; // 8 bit transfers.
-        nDMA0::TCD_ATTR<0>::ref().bits.DSIZE = 0; // 8 bit transfers.
-        nDMA0::TCD_BITER_ELINKNO<0>::ref().bits.BITER = size;
+
+        nbytes.bits.DMLOE = 0;
+        nbytes.bits.SMLOE = 0;
+        nbytes.bits.NBYTES = 1; // 1 byte per minor loop
+
+        attr.bits.SSIZE = 0; // 8 bit transfers.
+        attr.bits.DSIZE = 0; // 8 bit transfers.
+
+        biter.bits.BITER = size;
         citer.bits.CITER = size;
+
         csr.bits.INTMAJOR = 1;
 
-        // 4. Configure DMAMUX
+        // Configure DMAMUX
         auto &chcfg0 = nDMAMUX0::CHCFG_0::ref();
         chcfg0.bits.SOURCE = 8;  // LPUART1 TX (RM Table 4-3)
         chcfg0.bits.ENBL = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
 
-        // 5. Enable DMA Channel
-        nDMA0::ERQ::ref().bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
-        nDMA0::SERQ::ref().Reset(); // Clear any pending requests
+        // Enable DMA Channel
+        erq.bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
+        serq.Reset(); // Clear any pending requests
 
         // 6. Enable UART Transmitter and DMA
         auto &ctrl = nLPUART1::CTRL::ref();

@@ -29,11 +29,11 @@ union TCD_DOFF {
   
   // Bit field definition.
   struct {
-    uint16_t DOFF : 16;
+    int16_t DOFF : 16;
   } bits;
   
   // Full 32-bit register value.
-  uint16_t value;
+  int16_t value;
 
   TCD_DOFF() = delete;
   static inline volatile TCD_DOFF &ref() {
