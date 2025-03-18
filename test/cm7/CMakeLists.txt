@@ -21,3 +21,7 @@ platformify(echo)
 add_executable(cache_clean cache_clean.cpp)
 platformify(cache_clean)
 target_link_libraries(cache_clean PUBLIC registers)
+
+# Cache test
+add_platform_test(ut_cache ut_cache.cpp)
+target_link_libraries(ut_cache PUBLIC registers)
