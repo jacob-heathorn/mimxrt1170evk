@@ -17,11 +17,5 @@ target_compile_options(hello-world-cm7 PRIVATE -Wno-shadow)
 add_executable(echo echo.cpp)
 platformify(echo)
 
-# Cache clean.
-add_executable(cache_clean cache_clean.cpp)
-platformify(cache_clean)
-target_link_libraries(cache_clean PUBLIC registers)
-
 # Cache test
-add_platform_test(ut_cache ut_cache.cpp)
-target_link_libraries(ut_cache PUBLIC registers)
+add_platform_test(ut_mpu ut_mpu.cpp)
