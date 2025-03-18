@@ -82,7 +82,7 @@ void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
 // Define a test memory address in SRAM (must align with region size for MPU).
 #define TEST_ADDR    ((uint32_t*)0x20200000)
 
-TEST(CacheTest, Test1)
+TEST(mpu, varify_cache_clean)
 {
   volatile uint32_t *ptr = TEST_ADDR;
   
@@ -106,4 +106,25 @@ TEST(CacheTest, Test1)
   uint32_t ram_read_val_after = 0;
   DMA_ReadWord(ptr, &ram_read_val_after); // Read from RAM via DMA again
   EXPECT_EQ(ram_read_val_after, new_value);
+}
+
+// TODO finish.
+TEST(mpu, verify_regions)
+{
+  for (uint32_t region = 0; region < 8; region++) {  // Check all MPU regions
+    MPU->RNR = region;  // Select region
+
+    uint32_t base = MPU->RBAR & 0xFFFFFFE0;  // Extract base address
+    uint32_t size = (MPU->RASR >> 1) & 0x1F;  // Extract region size (encoded)
+    uint32_t region_size = 1 << (size + 1);  // Compute actual size
+
+    std::printf("Base%lu: 0x%08lX, size: %lu KB, end: 0x%08lX\n\r",
+      region,
+      base,
+      region_size / 1024,
+      base + region_size);
+  }
+
+//   // If no region matched:
+//   (void)PRINTF("❌ Address 0x%08X is NOT COVERED by any MPU region.\n\r", addr);
 }
