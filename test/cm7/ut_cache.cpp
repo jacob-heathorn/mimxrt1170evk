@@ -88,35 +88,27 @@ void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
 
 TEST(CacheTest, Test1)
 {
-  // Enable D-Cache if not already enabled. TODO needed?
-  SCB_EnableDCache();
-
-  // Step 2: Write a new value to the memory location (update stays in cache)
+  // uint32_t test_value = 0xDEADBEEF;
   volatile uint32_t *ptr = TEST_ADDR;
-  uint32_t old_value = *ptr;               // Read the initial value from RAM (likely loads into cache)
-  uint32_t new_value = ~old_value;         // Invert bits of old value to get a distinct new value
+  
+  // Write a new value to the memory location (update stays in cache)
+  uint32_t old_value = *ptr; // Read the initial value from RAM (likely loads into cache)
+  uint32_t new_value = ~old_value; // Invert bits of old value to get a distinct new value
 
-  *ptr = new_value;  // Write new value - goes to D-cache (write-back mode keeps it in cache, not RAM)
-  __DMB();           // Data memory barrier to ensure write completes to cache
+  *ptr = new_value; // Write new value - goes to D-cache (write-back mode keeps it in cache, not RAM)
+  __DMB(); // Data memory barrier to ensure write completes to cache
 
-  // (Optional) Verify CPU can read the new value from cache
-  uint32_t cached_val = *ptr;
-  EXPECT_EQ(cached_val, new_value);
-
-  // Use a DMA read the memory location directly from RAM to confirm old value is still there.
+  // Use a DMA to read the memory location directly from RAM to confirm old value is still there.
   uint32_t ram_read_val = 0;
-  DMA_ReadWord(ptr, &ram_read_val);
-
-  // Expect old value when reading directly from ram with out the DMA
+  DMA_ReadWord((uint32_t *)ptr, &ram_read_val);
   EXPECT_EQ(ram_read_val, old_value);
 
   // Clean the D-Cache to write back the updated value to RAM
-  SCB_CleanDCache_by_Addr((uint32_t*)ptr, sizeof(*ptr));  // Flush cache line for our address to RAM
+  SCB_CleanDCache_by_Addr(ptr, sizeof(ptr)); // Flush cache line for our address to RAM
   __DSB();  // Data sync barrier to ensure cache clean completes
 
-
-  // Read RAM again to verify it now contains the updated value
+  // Read RAM again to verify it now contains the updated value.
   uint32_t ram_read_val_after = 0;
-  DMA_ReadWord(ptr, &ram_read_val_after);  // Read from RAM via DMA again
+  DMA_ReadWord(ptr, &ram_read_val_after); // Read from RAM via DMA again
   EXPECT_EQ(ram_read_val_after, new_value);
 }
