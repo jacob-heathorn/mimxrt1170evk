@@ -79,16 +79,11 @@ void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
     erq.bits.ERQ1 = nDMA0::ERQ::eERQ1::eDISABLE;
 }
 
-// TODO use stack? TODO verify cache in all memory locations?
-
 // Define a test memory address in SRAM (must align with region size for MPU).
 #define TEST_ADDR    ((uint32_t*)0x20200000)
-// #define REGION_SIZE  MPU_REGION_SIZE_32B     // Using a 32-byte MPU region for test
-
 
 TEST(CacheTest, Test1)
 {
-  // uint32_t test_value = 0xDEADBEEF;
   volatile uint32_t *ptr = TEST_ADDR;
   
   // Write a new value to the memory location (update stays in cache)
