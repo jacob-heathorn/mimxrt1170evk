@@ -111,7 +111,7 @@ TEST(mpu, varify_cache_clean)
 // TODO finish.
 TEST(mpu, verify_regions)
 {
-  for (uint32_t region = 0; region < 8; region++) {  // Check all MPU regions
+  for (uint32_t region = 0; region < 16; region++) {  // Check all MPU regions
     MPU->RNR = region;  // Select region
 
     uint32_t base = MPU->RBAR & 0xFFFFFFE0;  // Extract base address
@@ -124,7 +124,13 @@ TEST(mpu, verify_regions)
       region_size / 1024,
       base + region_size);
   }
-
-//   // If no region matched:
-//   (void)PRINTF("❌ Address 0x%08X is NOT COVERED by any MPU region.\n\r", addr);
+  
+  // Verify region 6.
+  MPU->RNR = 6;
+  uint32_t base = MPU->RBAR & 0xFFFFFFE0;  // Extract base address
+  uint32_t size = (MPU->RASR >> 1) & 0x1F;  // Extract region size (encoded)
+  uint32_t region_size_kb = (1 << (size + 1)) / 1024;  // Compute actual size KB
+  EXPECT_EQ(base, 0x20200000U);
+  EXPECT_EQ(size, ARM_MPU_REGION_SIZE_1MB);
+  EXPECT_EQ(region_size_kb, uint32_t(1024));
 }
