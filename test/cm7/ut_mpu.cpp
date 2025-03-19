@@ -117,16 +117,24 @@ inline bool is_write_back_cacheable(uint32_t region)
   return tex == 1 && c == 1 && b ==1;
 }
 
+inline uint32_t get_region_address(uint32_t region)
+{
+  MPU->RNR = region;
+  return MPU->RBAR & 0xFFFFFFE0;
+}
+
+inline uint32_t get_region_size_kb(uint32_t region)
+{
+  MPU->RNR = region;
+  uint32_t size = (MPU->RASR >> 1) & 0x1F;  // Extract region size (encoded)
+  return (1 << (size + 1)) / 1024;  // Compute actual size KB
+}
+
 // TODO finish
 TEST(mpu, verify_regions)
 {
   EXPECT_TRUE(MPU->CTRL & MPU_CTRL_ENABLE_Msk);
-  MPU->RNR = 6; // Select Region 6
-  uint32_t base = MPU->RBAR & 0xFFFFFFE0;  // Extract base address
-  uint32_t size = (MPU->RASR >> 1) & 0x1F;  // Extract region size (encoded)
-  uint32_t region_size_kb = (1 << (size + 1)) / 1024;  // Compute actual size KB
-  EXPECT_EQ(base, 0x20200000U);
-  EXPECT_EQ(size, ARM_MPU_REGION_SIZE_1MB);
-  EXPECT_EQ(region_size_kb, uint32_t(1024));
   EXPECT_TRUE(is_write_back_cacheable(6));
+  EXPECT_EQ(get_region_address(6), 0x20200000U);
+  EXPECT_EQ(get_region_size_kb(6), 1024U);
 }
