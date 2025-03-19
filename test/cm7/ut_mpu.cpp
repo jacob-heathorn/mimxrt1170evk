@@ -120,7 +120,7 @@ inline bool is_cacheable(uint32_t region)
 {
   MPU->RNR = region;
   uint32_t c = (MPU->RASR >> MPU_RASR_C_Pos) & 0x1;
-  return c == 0;
+  return c == 1;
 }
 
 inline bool is_bufferable(uint32_t region)
@@ -211,14 +211,24 @@ TEST(mpu, verify_regions)
   EXPECT_TRUE(MPU->CTRL & MPU_CTRL_ENABLE_Msk);
   uint32_t region = 0;
 
-  // Region 0. The entire 4GB address space, default.
+  // Region 0. Default for the entire 4GB address space.
   region = 0;
   EXPECT_EQ(get_region_start_address(region), 0x00000000U);
   EXPECT_EQ(get_region_size_mb(region), 4096U);
-  EXPECT_TRUE(is_cacheable(region));
+  EXPECT_FALSE(is_cacheable(region));
   EXPECT_FALSE(is_bufferable(region));
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eNoAccess);
+
+  // Region 1. SEMC0 and SEMC1.
+  region = 1;
+  EXPECT_EQ(get_region_start_address(region), 0x80000000U);
+  EXPECT_EQ(get_region_end_address(region), 0x9FFFFFFFU);
+  EXPECT_EQ(get_region_size_mb(region), 512U);
+  EXPECT_FALSE(is_cacheable(region));
+  EXPECT_FALSE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
   
   // Region 6, 1st MB of OCRAM.
   region = 6;

@@ -357,8 +357,7 @@ void BOARD_ConfigMPU(void)
 
     /* Region 3 setting: Memory with Device type, not shareable, non-cacheable. */
     MPU->RBAR = ARM_MPU_RBAR(3, 0x00000000U);
-    MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 2, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_512MB);
-    // NOTE(Jacob): Was ARM_MPU_REGION_SIZE_1GB, but then later rgion inside was not changeable.
+    MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 2, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_1GB);
 
     /* Region 4 setting: Memory with Normal type, not shareable, outer/inner write back */
     MPU->RBAR = ARM_MPU_RBAR(4, 0x00000000U);
