@@ -108,29 +108,25 @@ TEST(mpu, varify_cache_clean)
   EXPECT_EQ(ram_read_val_after, new_value);
 }
 
-// TODO finish.
+inline bool is_write_back_cacheable(uint32_t region)
+{
+  MPU->RNR = region;
+  uint32_t tex = (MPU->RASR >> MPU_RASR_TEX_Pos) & 0x7;
+  uint32_t c = (MPU->RASR >> MPU_RASR_C_Pos) & 0x1;
+  uint32_t b = (MPU->RASR >> MPU_RASR_B_Pos) & 0x1;
+  return tex == 1 && c == 1 && b ==1;
+}
+
+// TODO finish
 TEST(mpu, verify_regions)
 {
-  for (uint32_t region = 0; region < 16; region++) {  // Check all MPU regions
-    MPU->RNR = region;  // Select region
-
-    uint32_t base = MPU->RBAR & 0xFFFFFFE0;  // Extract base address
-    uint32_t size = (MPU->RASR >> 1) & 0x1F;  // Extract region size (encoded)
-    uint32_t region_size = 1 << (size + 1);  // Compute actual size
-
-    std::printf("Base%lu: 0x%08lX, size: %lu KB, end: 0x%08lX\n\r",
-      region,
-      base,
-      region_size / 1024,
-      base + region_size);
-  }
-  
-  // Verify region 6.
-  MPU->RNR = 6;
+  EXPECT_TRUE(MPU->CTRL & MPU_CTRL_ENABLE_Msk);
+  MPU->RNR = 6; // Select Region 6
   uint32_t base = MPU->RBAR & 0xFFFFFFE0;  // Extract base address
   uint32_t size = (MPU->RASR >> 1) & 0x1F;  // Extract region size (encoded)
   uint32_t region_size_kb = (1 << (size + 1)) / 1024;  // Compute actual size KB
   EXPECT_EQ(base, 0x20200000U);
   EXPECT_EQ(size, ARM_MPU_REGION_SIZE_1MB);
   EXPECT_EQ(region_size_kb, uint32_t(1024));
+  EXPECT_TRUE(is_write_back_cacheable(6));
 }
