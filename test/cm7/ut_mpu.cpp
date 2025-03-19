@@ -113,8 +113,14 @@ inline bool is_write_back_cacheable(uint32_t region)
   MPU->RNR = region;
   uint32_t tex = (MPU->RASR >> MPU_RASR_TEX_Pos) & 0x7;
   uint32_t c = (MPU->RASR >> MPU_RASR_C_Pos) & 0x1;
+  return tex == 1 && c == 1;
+}
+
+inline bool is_bufferable(uint32_t region)
+{
+  MPU->RNR = region;
   uint32_t b = (MPU->RASR >> MPU_RASR_B_Pos) & 0x1;
-  return tex == 1 && c == 1 && b ==1;
+  return b == 1;
 }
 
 inline uint32_t get_region_address(uint32_t region)
@@ -130,11 +136,26 @@ inline uint32_t get_region_size_kb(uint32_t region)
   return (1 << (size + 1)) / 1024;  // Compute actual size KB
 }
 
+inline bool is_shareable(uint32_t region) {
+  MPU->RNR = region; // Select the region
+  uint32_t s = (MPU->RASR >> MPU_RASR_S_Pos) & 0x1; // Extract S bit (bit 18)
+  return s == 1; // True if shareable
+}
+
 // TODO finish
 TEST(mpu, verify_regions)
 {
   EXPECT_TRUE(MPU->CTRL & MPU_CTRL_ENABLE_Msk);
-  EXPECT_TRUE(is_write_back_cacheable(6));
+  
+  // Region 6
   EXPECT_EQ(get_region_address(6), 0x20200000U);
   EXPECT_EQ(get_region_size_kb(6), 1024U);
+  EXPECT_TRUE(is_write_back_cacheable(6));
+  EXPECT_TRUE(is_bufferable(6));
+  EXPECT_FALSE(is_shareable(6));
+
+  // // Region 7
+  // EXPECT_TRUE(is_write_back_cacheable(7));
+  // EXPECT_EQ(get_region_address(7), 0x20300000U);
+  // EXPECT_EQ(get_region_size_kb(7), 512U);
 }
