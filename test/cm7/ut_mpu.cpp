@@ -229,6 +229,16 @@ TEST(mpu, verify_regions)
   EXPECT_FALSE(is_bufferable(region));
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
+  // Region 2. FlexSPI2/ FlexSPI2 ciphertext (First 504MB)
+  region = 2;
+  EXPECT_EQ(get_region_start_address(region), 0x60000000U);
+  EXPECT_EQ(get_region_size_mb(region), 512U);
+  EXPECT_FALSE(is_cacheable(region));
+  EXPECT_FALSE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
   
   // Region 6, 1st MB of OCRAM.
   region = 6;
