@@ -116,6 +116,13 @@ inline bool is_write_back_cacheable(uint32_t region)
   return tex == 1 && c == 1;
 }
 
+inline bool is_cacheable(uint32_t region)
+{
+  MPU->RNR = region;
+  uint32_t c = (MPU->RASR >> MPU_RASR_C_Pos) & 0x1;
+  return c == 0;
+}
+
 inline bool is_bufferable(uint32_t region)
 {
   MPU->RNR = region;
@@ -123,17 +130,42 @@ inline bool is_bufferable(uint32_t region)
   return b == 1;
 }
 
-inline uint32_t get_region_address(uint32_t region)
+inline uint32_t get_region_start_address(uint32_t region)
 {
   MPU->RNR = region;
   return MPU->RBAR & 0xFFFFFFE0;
 }
 
+inline uint32_t get_region_end_address(uint32_t region)
+{
+    // Select the region
+    MPU->RNR = region;
+
+    // Extract base address (RBAR) - Aligns to 32 bytes
+    uint32_t base_addr = MPU->RBAR & 0xFFFFFFE0;
+
+    // Extract region size (RASR): Bits 1-5 store (Size encoding - 1)
+    uint32_t size_encoding = (MPU->RASR >> 1) & 0x1F;
+
+    // Compute region size: 2^(size_encoding + 1)
+    uint32_t region_size = (1 << (size_encoding + 1));
+
+    // Compute end address
+    return base_addr + region_size - 1;
+}
+
 inline uint32_t get_region_size_kb(uint32_t region)
 {
   MPU->RNR = region;
-  uint32_t size = (MPU->RASR >> 1) & 0x1F;  // Extract region size (encoded)
-  return (1 << (size + 1)) / 1024;  // Compute actual size KB
+  uint32_t size = (MPU->RASR >> 1) & 0x1F;  // Extract region size field (bits 5:1)
+  // Use uint64_t to prevent overflow
+  uint64_t region_size_bytes = (uint64_t)1 << (size + 1);
+  uint32_t region_size_kb = region_size_bytes / 1024;  // Convert bytes to KB
+  return region_size_kb;
+}
+inline uint32_t get_region_size_mb(uint32_t region)
+{
+  return get_region_size_kb(region) / 1024;
 }
 
 inline bool is_shareable(uint32_t region) {
@@ -142,17 +174,60 @@ inline bool is_shareable(uint32_t region) {
   return s == 1; // True if shareable
 }
 
+enum class eMemoryAccess : uint32_t {
+  eNoAccess      = 0b000,  // No access (privileged and unprivileged)
+  ePrivRW        = 0b001,  // Privileged Read/Write, No access for unprivileged
+  ePrivRW_UnprivR = 0b010, // Privileged Read/Write, Unprivileged Read-only
+  eFullAccess    = 0b011,  // Full Read/Write access for both privileged & unprivileged
+  eReserved1     = 0b100,  // Reserved (should not be used)
+  ePrivRO        = 0b101,  // Privileged Read-only, No access for unprivileged
+  eReadOnly      = 0b110,  // Read-only for both privileged and unprivileged
+  eReserved2     = 0b111   // Reserved (should not be used)
+};
+
+inline eMemoryAccess get_memory_access(uint32_t region) 
+{
+    // Select the region to read its configuration
+    MPU->RNR = region;
+
+    // Extract access permission bits from the RASR register
+    uint32_t ap_bits = (MPU->RASR >> 24) & 0b111; // Bits [26:24] hold the access permissions
+
+    // Convert to eMemoryAccess enum
+    switch (ap_bits) {
+        case 0b000: return eMemoryAccess::eNoAccess;
+        case 0b001: return eMemoryAccess::ePrivRW;
+        case 0b010: return eMemoryAccess::ePrivRW_UnprivR;
+        case 0b011: return eMemoryAccess::eFullAccess;
+        case 0b101: return eMemoryAccess::ePrivRO;
+        case 0b110: return eMemoryAccess::eReadOnly;
+        default:    return eMemoryAccess::eReserved1; // Reserved cases
+    }
+}
+
 // TODO finish
 TEST(mpu, verify_regions)
 {
   EXPECT_TRUE(MPU->CTRL & MPU_CTRL_ENABLE_Msk);
+  uint32_t region = 0;
+
+  // Region 0. The entire 4GB address space, default.
+  region = 0;
+  EXPECT_EQ(get_region_start_address(region), 0x00000000U);
+  EXPECT_EQ(get_region_size_mb(region), 4096U);
+  EXPECT_TRUE(is_cacheable(region));
+  EXPECT_FALSE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eNoAccess);
   
-  // Region 6
-  EXPECT_EQ(get_region_address(6), 0x20200000U);
-  EXPECT_EQ(get_region_size_kb(6), 1024U);
-  EXPECT_TRUE(is_write_back_cacheable(6));
-  EXPECT_TRUE(is_bufferable(6));
-  EXPECT_FALSE(is_shareable(6));
+  // Region 6, 1st MB of OCRAM.
+  region = 6;
+  EXPECT_EQ(get_region_start_address(region), 0x20200000U);
+  EXPECT_EQ(get_region_size_kb(region), 1024U);
+  EXPECT_TRUE(is_write_back_cacheable(region));
+  EXPECT_TRUE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // // Region 7
   // EXPECT_TRUE(is_write_back_cacheable(7));
