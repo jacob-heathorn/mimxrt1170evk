@@ -1,10 +1,7 @@
 repositories:
   forge:
-    tag: 09f940f1f8e930b3f20f7bf5173aa2676bf2562a
+    tag: 16b648a
     url: https://github.com/jacob-heathorn/forge.git
-  mcux-soc-svd:
-    tag: MCUX_2.16.100
-    url: https://github.com/nxp-mcuxpresso/mcux-soc-svd.git
   etl:
     tag: 20.40.0
     url: https://github.com/ETLCPP/etl.git
