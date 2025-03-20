@@ -1,7 +1,7 @@
 repositories:
-  forge:
-    tag: 16b648a
-    url: https://github.com/jacob-heathorn/forge.git
   etl:
     tag: 20.40.0
     url: https://github.com/ETLCPP/etl.git
+  forge:
+    tag: aa022e4ae313c4239544c06ac34478b616a6f1c0
+    url: https://github.com/jacob-heathorn/forge.git
