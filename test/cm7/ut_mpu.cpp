@@ -248,6 +248,24 @@ TEST(mpu, verify_regions)
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
+  // Region 4. First 512KB, ITCM (FlexRAM).
+  region = 4;
+  EXPECT_EQ(get_region_start_address(region), 0x00000000U);
+  EXPECT_EQ(get_region_size_kb(region), 512U);
+  EXPECT_TRUE(is_write_back_cacheable(region));
+  EXPECT_TRUE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
+  // Region 5, DTCM (FlexRAM)
+  region = 5;
+  EXPECT_EQ(get_region_start_address(region), 0x20000000U);
+  EXPECT_EQ(get_region_size_kb(region), 512U);
+  EXPECT_TRUE(is_write_back_cacheable(region));
+  EXPECT_TRUE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
   // Region 6, 1st MB of OCRAM.
   region = 6;
   EXPECT_EQ(get_region_start_address(region), 0x20200000U);

@@ -10,6 +10,9 @@
 #include "registers/codegen/dmamux0.hpp"
 #include "etl/singleton.h"
 
+#include "board.h"
+#include "cachel1_armv7.h"
+
 class Lpuart1 : public etl::singleton<Lpuart1>
 {
 
@@ -140,7 +143,10 @@ public:
         while (!(nLPUART1::STAT::ref().bits.TC == nLPUART1::STAT::eTC::eCOMPLETE)) {}
 
         // Move the txBuffer. TODO error if doesn't fit.
-        memcpy(this->tx_buffer_, buffer, size);  // Copies 'size' bytes from 'src' to 'dest'
+        memcpy(this->tx_buffer_, buffer, size);
+
+        // Flush the cache, to ensure the dma sees the fresh data.
+        SCB_CleanDCache_by_Addr(tx_buffer_, size);
         
         // Disable DMA requests
         nDMA0::ERQ::ref().bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;

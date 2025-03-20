@@ -1,3 +1,5 @@
+#pragma once
+
 #include "registers/codegen/dma0.hpp"
 
 
