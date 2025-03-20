@@ -1,5 +1,5 @@
 {
-  description = "Mimxrt1170evk flake";
+  description = "Mimxrt1170evk forge-extended flake";
 
   inputs = {
     # Inherit the original forge flake
@@ -24,7 +24,7 @@
       shellHook = ''
         ${forgeDevShell.shellHook}  # Run forge shellHook
         export MCUX_SOC_SVD_ROOT=${svdRepoPath}  # Add mcux-soc-svd path
-        echo -e "\033[1;34mExtended forge development shell initialized.\033[0m"
+        echo -e "\e[32mExtended forge development shell for mimxrt1170evk!\e[0m"
       '';
     };
   };
