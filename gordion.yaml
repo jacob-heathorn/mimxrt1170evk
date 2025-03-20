@@ -1,7 +1,4 @@
 repositories:
-  CMSIS_5:
-    tag: 5.4.0
-    url: https://github.com/ARM-software/CMSIS_5.git
   forge:
     tag: 09f940f1f8e930b3f20f7bf5173aa2676bf2562a
     url: https://github.com/jacob-heathorn/forge.git
