@@ -239,7 +239,15 @@ TEST(mpu, verify_regions)
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
-  
+  // Region 3. Default first GB, for devices.
+  region = 3;
+  EXPECT_EQ(get_region_start_address(region), 0x00000000U);
+  EXPECT_EQ(get_region_size_mb(region), 1024U);
+  EXPECT_FALSE(is_cacheable(region));
+  EXPECT_FALSE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
   // Region 6, 1st MB of OCRAM.
   region = 6;
   EXPECT_EQ(get_region_start_address(region), 0x20200000U);
