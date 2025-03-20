@@ -110,10 +110,19 @@ TEST(mpu, varify_cache_clean)
 
 inline bool is_write_back_cacheable(uint32_t region)
 {
+  // tex==1 and cacheable==1
   MPU->RNR = region;
   uint32_t tex = (MPU->RASR >> MPU_RASR_TEX_Pos) & 0x7;
   uint32_t c = (MPU->RASR >> MPU_RASR_C_Pos) & 0x1;
   return tex == 1 && c == 1;
+}
+
+inline bool is_strongly_ordered(uint32_t region)
+{
+  // tex==2
+  MPU->RNR = region;
+  uint32_t tex = (MPU->RASR >> MPU_RASR_TEX_Pos) & 0x7;
+  return tex == 2;
 }
 
 inline bool is_cacheable(uint32_t region)
@@ -298,4 +307,15 @@ TEST(mpu, verify_regions)
   EXPECT_TRUE(is_bufferable(region));
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eReadOnly);
+
+  // Region 11, AIPS (Advanced peripheral bus system)
+  region = 11;
+  EXPECT_EQ(get_region_start_address(region), 0x40000000U);
+  EXPECT_EQ(get_region_end_address(region), 0x40FFFFFFU);
+  EXPECT_EQ(get_region_size_mb(region), 16U);
+  EXPECT_TRUE(is_strongly_ordered(region));
+  EXPECT_FALSE(is_cacheable(region));
+  EXPECT_FALSE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 }
