@@ -145,7 +145,9 @@ public:
         // Move the txBuffer. TODO error if doesn't fit.
         memcpy(this->tx_buffer_, buffer, size);
 
-        // Flush the cache, to ensure the dma sees the fresh data.
+        // Flush the cache, to ensure the dma sees the fresh data. TODO setup a region of
+        // non-cachable memory and use it for the buffer intsead of this. That would have better
+        // performance.
         SCB_CleanDCache_by_Addr(tx_buffer_, size);
         
         // Disable DMA requests

@@ -279,6 +279,16 @@ TEST(mpu, verify_regions)
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
+  // Region 7, next 512KB of OCRAM.
+  // NOTE: Top 512KB of OCRAM, is non-cacheable defined by region 3.
+  region = 7;
+  EXPECT_EQ(get_region_start_address(region), 0x20300000U);
+  EXPECT_EQ(get_region_size_kb(region), 512U);
+  EXPECT_TRUE(is_write_back_cacheable(region));
+  EXPECT_TRUE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
   // // Region 7
   // EXPECT_TRUE(is_write_back_cacheable(7));
   // EXPECT_EQ(get_region_address(7), 0x20300000U);
