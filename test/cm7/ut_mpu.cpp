@@ -318,4 +318,44 @@ TEST(mpu, verify_regions)
   EXPECT_FALSE(is_bufferable(region));
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
+  // Region 12, SIM_DISP and SIM_M configuration ports.
+  region = 12;
+  EXPECT_EQ(get_region_start_address(region), 0x41000000U);
+  EXPECT_EQ(get_region_size_mb(region), 2U);
+  EXPECT_TRUE(is_strongly_ordered(region));
+  EXPECT_FALSE(is_cacheable(region));
+  EXPECT_FALSE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
+  // Region 13, SIM_M7 configuration port.
+  region = 13;
+  EXPECT_EQ(get_region_start_address(region), 0x41400000U);
+  EXPECT_EQ(get_region_size_mb(region), 1U);
+  EXPECT_TRUE(is_strongly_ordered(region));
+  EXPECT_FALSE(is_cacheable(region));
+  EXPECT_FALSE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
+  // Region 14, GPU2D (Peripheral, AHB) and CDOG (Peripheral, AHB).
+  region = 14;
+  EXPECT_EQ(get_region_start_address(region), 0x41800000U);
+  EXPECT_EQ(get_region_size_mb(region), 2U);
+  EXPECT_TRUE(is_strongly_ordered(region));
+  EXPECT_FALSE(is_cacheable(region));
+  EXPECT_FALSE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
+  // Region 15, The memory map says this should be reserved, so I don't know why nxp sets it.
+  region = 15;
+  EXPECT_EQ(get_region_start_address(region), 0x42000000U);
+  EXPECT_EQ(get_region_size_mb(region), 1U);
+  EXPECT_TRUE(is_strongly_ordered(region));
+  EXPECT_FALSE(is_cacheable(region));
+  EXPECT_FALSE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 }
