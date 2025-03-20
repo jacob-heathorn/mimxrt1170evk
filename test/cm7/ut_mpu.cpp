@@ -214,7 +214,6 @@ inline eMemoryAccess get_memory_access(uint32_t region)
     }
 }
 
-// TODO finish
 TEST(mpu, verify_regions)
 {
   EXPECT_TRUE(MPU->CTRL & MPU_CTRL_ENABLE_Msk);
