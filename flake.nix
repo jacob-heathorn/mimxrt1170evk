@@ -4,13 +4,12 @@
   inputs = {
     # Inherit the forge flake. NOTE: Even though forge is locally managed with gordion, we cannot
     # use environment variable to reference the local forge path, because the flake becomes impure.
-    forge.url = "git+ssh://git@github.com/jacob-heathorn/forge";
-    forge.rev = "cmsis-svd";
+    forge.url = "git+ssh://git@github.com/jacob-heathorn/forge?rev=3dc4577b006d33e5e63e1f97c8b8e2b108e372a6";
 
-    # Add mcux-soc-svd repository here instead of in forge
+    # Add mcux-soc-svd repository.
     mcux-soc-svd = {
       url = "github:nxp-mcuxpresso/mcux-soc-svd/MCUX_2.16.100";
-      flake = false;  # It's not a flake, just a repo
+      flake = false;
     };
   };
 
