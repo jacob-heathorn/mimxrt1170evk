@@ -3,7 +3,7 @@
 
   inputs = {
     # Inherit the forge flake
-    forge.url = "path:${builtins.getEnv "FORGE_ROOT"}";
+    forge.url = "path:/home/jacob/embedded/nxp/forge";
 
     # Add mcux-soc-svd repository here instead of in forge
     mcux-soc-svd = {
