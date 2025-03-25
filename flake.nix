@@ -2,8 +2,8 @@
   description = "Mimxrt1170evk forge-extended flake";
 
   inputs = {
-    # Inherit the original forge flake
-    forge.url = "path:/home/jacob/embedded/nxp/forge";  # TODO discover with gordion.
+    # Inherit the forge flake
+    forge.url = "path:${builtins.getEnv "FORGE_ROOT"}";
 
     # Add mcux-soc-svd repository here instead of in forge
     mcux-soc-svd = {
