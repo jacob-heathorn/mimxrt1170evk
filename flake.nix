@@ -2,8 +2,10 @@
   description = "Mimxrt1170evk forge-extended flake";
 
   inputs = {
-    # Inherit the forge flake
-    forge.url = "path:/home/jacob/embedded/nxp/forge";
+    # Inherit the forge flake. NOTE: Even though forge is locally managed with gordion, we cannot
+    # use environment variable to reference the local forge path, because the flake becomes impure.
+    forge.url = "git+ssh://git@github.com/jacob-heathorn/forge";
+    forge.rev = "cmsis-svd";
 
     # Add mcux-soc-svd repository here instead of in forge
     mcux-soc-svd = {

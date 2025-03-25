@@ -5,14 +5,17 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1742490973,
-        "narHash": "sha256-4U74Rpfo2MQXtbv6/6CUdxqgmc4B7F+1nLbsXXHeInw=",
-        "path": "/home/jacob/embedded/nxp/forge",
-        "type": "path"
+        "lastModified": 1739405065,
+        "narHash": "sha256-s2jubQsytGq1HG1aREH/hnNWUCHtps45FKKteleHgUA=",
+        "ref": "refs/heads/develop",
+        "rev": "6751f2bb3a6ee40ff436108df9c09ec0207ef55e",
+        "revCount": 34,
+        "type": "git",
+        "url": "ssh://git@github.com/jacob-heathorn/forge"
       },
       "original": {
-        "path": "/home/jacob/embedded/nxp/forge",
-        "type": "path"
+        "type": "git",
+        "url": "ssh://git@github.com/jacob-heathorn/forge"
       }
     },
     "mcux-soc-svd": {
