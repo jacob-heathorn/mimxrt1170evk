@@ -11,12 +11,12 @@
         "rev": "3dc4577b006d33e5e63e1f97c8b8e2b108e372a6",
         "revCount": 74,
         "type": "git",
-        "url": "ssh://git@github.com/jacob-heathorn/forge"
+        "url": "https://github.com/jacob-heathorn/forge"
       },
       "original": {
         "rev": "3dc4577b006d33e5e63e1f97c8b8e2b108e372a6",
         "type": "git",
-        "url": "ssh://git@github.com/jacob-heathorn/forge"
+        "url": "https://github.com/jacob-heathorn/forge"
       }
     },
     "mcux-soc-svd": {
