@@ -5,16 +5,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1742925951,
-        "narHash": "sha256-7TrSzpS3awTuEZI32ru4AovPXWl8e0aMyCDJMKhyRIM=",
-        "ref": "refs/heads/develop",
-        "rev": "3dc4577b006d33e5e63e1f97c8b8e2b108e372a6",
-        "revCount": 74,
+        "lastModified": 1743004919,
+        "narHash": "sha256-RWFYIXMSAiErUSsUTWCq+bP+OJO7PTFhXeBJn+KIn/0=",
+        "ref": "3dc4577b006d33e5e63e1f97c8b8e2b108e372a6",
+        "rev": "25458d3785fe3a33d9f8761545471060111a4557",
+        "revCount": 35,
         "type": "git",
         "url": "https://github.com/jacob-heathorn/forge"
       },
       "original": {
-        "rev": "3dc4577b006d33e5e63e1f97c8b8e2b108e372a6",
+        "rev": "25458d3785fe3a33d9f8761545471060111a4557",
         "type": "git",
         "url": "https://github.com/jacob-heathorn/forge"
       }
@@ -54,11 +54,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1742272065,
-        "narHash": "sha256-ud8vcSzJsZ/CK+r8/v0lyf4yUntVmDq6Z0A41ODfWbE=",
+        "lastModified": 1742800061,
+        "narHash": "sha256-oDJGK1UMArK52vcW9S5S2apeec4rbfNELgc50LqiPNs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3549532663732bfd89993204d40543e9edaec4f2",
+        "rev": "1750f3c1c89488e2ffdd47cab9d05454dddfb734",
         "type": "github"
       },
       "original": {
