@@ -2,7 +2,6 @@
 
 #include "clock_config.h"
 #include "fsl_common.h"
-// #include "fsl_gpio.h"
 #include "fsl_clock.h"
 
 #if defined(__cplusplus)
