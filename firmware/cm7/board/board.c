@@ -5,12 +5,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include "fsl_common.h"
 #include "board.h"
-#if defined(SDK_I2C_BASED_COMPONENT_USED) && SDK_I2C_BASED_COMPONENT_USED
-#include "fsl_lpi2c.h"
-#endif /* SDK_I2C_BASED_COMPONENT_USED */
-#include "fsl_iomuxc.h"
 
 
 /* MPU configuration. */
@@ -164,12 +159,4 @@ void BOARD_ConfigMPU(void)
     /* Enable I cache and D cache */
     SCB_EnableDCache();
     SCB_EnableICache();
-}
-
-void BOARD_SD_Pin_Config(uint32_t speed, uint32_t strength)
-{
-}
-
-void BOARD_MMC_Pin_Config(uint32_t speed, uint32_t strength)
-{
 }
