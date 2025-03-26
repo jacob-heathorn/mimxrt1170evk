@@ -19,6 +19,34 @@
   ],
   "editor.tabSize": 2,
   "editor.wordWrapColumn": 100,
+
+  "C_Cpp.intelliSenseEngine": "default",
+  "C_Cpp.intelliSenseCacheSize": 1024,
+
+  "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+            "scope": "command-identifier.cmake",
+            "settings": {
+                "foreground": "#DCDCAA"
+            }
+        },
+        {
+            "scope": "expression.group.cmake",
+            "settings": {
+                "foreground": "#9CDCFE"
+            }
+        }
+      ]
+  },
+  
+  "cmake.cmakePath": "cmake",
+  "cmake.options.statusBarVisibility": "visible",
+  "cmake.configureOnEdit": false,
+  "cmake.configureOnOpen": false,
+
+  "cortex-debug.variableUseNaturalFormat": true,
+
   "files.associations": {
     "array": "cpp",
     "atomic": "cpp",
@@ -67,7 +95,27 @@
     "fsl_device_registers.h": "c",
     "mcmgr.h": "c",
     "fsl_mu.h": "c",
-    "clock_config.h": "c"
+    "clock_config.h": "c",
+    "any": "cpp",
+    "ratio": "cpp",
+    "variant": "cpp",
+    "gpio9.hpp": "c",
+    "board.h": "c",
+    "condition_variable": "cpp",
+    "ctime": "cpp",
+    "map": "cpp",
+    "set": "cpp",
+    "optional": "cpp",
+    "fstream": "cpp",
+    "iostream": "cpp",
+    "istream": "cpp",
+    "mutex": "cpp",
+    "semaphore": "cpp",
+    "span": "cpp",
+    "sstream": "cpp",
+    "stop_token": "cpp",
+    "thread": "cpp",
+    "cinttypes": "cpp",
+    "cassert": "cpp"
   },
-  "cortex-debug.variableUseNaturalFormat": true
 }

@@ -1,0 +1,3 @@
+void ConfigMPU(void)
+{
+}

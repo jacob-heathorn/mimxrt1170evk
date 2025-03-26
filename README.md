@@ -19,15 +19,17 @@
   * autopep8
   * Better Jinja
   * C/C++
+  * CMake Language Support
+  * CMake Tools
   * Cortext-Debug
   * Flake8
   * Nix
+  * direnv (cab404)
   * Pylance
   * Python
 8) Run the setup script `setup`
+9) Connect mimxrt1170evk to power, and USB to your computer.
 
-# Repository tests
-`tox`
 
 # Build
 `cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug`
@@ -38,12 +40,30 @@
 # Debug
 `rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4`
 
-# Full test
+# ctest
+`cd .bin/cm7-debug`
+`ctest -V`
+
+# Hello World Test
 ```
 cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
-rip -f0 cm7-debug:hello-world-cm7 && \
-rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4
-````
+rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4 && \
+rip -f0 cm7-debug:hello-world-cm7 -s
+```
+
+# Echo test
+```
+cmake --workflow --preset cm7-debug && \
+rip -d0 cm7-debug:echo && \
+rip -f0 cm7-debug:echo
+```
+
+# Full Repository test suite
+`tox`
+
+# Serial Terminal
+device: `/dev/ttyACM0`
+baud: `115200`
 
 
 # Problems Debugging
@@ -55,3 +75,4 @@ pkill LinkServer
 Unplug/Replug usb
 
 Reboot device
+

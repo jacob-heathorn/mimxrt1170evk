@@ -416,18 +416,18 @@ Reset_Handler:
 #endif /* __STARTUP_CLEAR_BSS */
 
     cpsie   i               /* Unmask interrupts */
-#ifndef __START
-#define __START _start
-#endif
-#ifndef __ATOLLIC__
-    ldr   r0,=__START
-    blx   r0
-#else
+
+    # Call C++ static constructors
     ldr   r0,=__libc_init_array
     blx   r0
+
+    # Load address of the pre-main function, and call it.
+    ldr   r0,=__pre_main_init
+    blx   r0
+
+    # Load and call main()
     ldr   r0,=main
     bx    r0
-#endif
     .pool
     .size Reset_Handler, . - Reset_Handler
 

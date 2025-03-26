@@ -1,9 +1,9 @@
 add_library(utilities STATIC)
 
-target_link_libraries(utilities PRIVATE
+target_link_libraries(utilities PUBLIC
   drivers
   device
-  uart
+  cm7-platform
 )
 
 file(GLOB public_headers "*.h")
@@ -20,4 +20,6 @@ target_sources(utilities
 )
 
 target_include_directories(utilities INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
-platformify(utilities)
+# platformify(utilities)
+add_common_c_cxx_flags(utilities)
+add_platform_flags(utilities)

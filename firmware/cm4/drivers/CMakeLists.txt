@@ -20,5 +20,5 @@ target_compile_options(drivers PUBLIC
   -Wno-null-dereference
   -Wno-unused-parameter
   -Wno-switch-enum
-  -Wno-implicit-function-declaration
+  # -Wno-implicit-function-declaration
 )

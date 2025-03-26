@@ -1,0 +1,518 @@
+#pragma once
+
+#include <stddef.h>
+#include <stdint.h>
+#include <cstring>
+
+// CDOG
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
+namespace nCDOG {
+
+
+// Control
+union CONTROL {
+  
+  // Lock control
+  enum class eLOCK_CTRL : uint32_t {
+    // Locked
+    eLOCKED = 1,
+    // Unlocked
+    eUNLOCKED = 2,
+  };
+  
+  // TIMEOUT fault control
+  enum class eTIMEOUT_CTRL : uint32_t {
+    // Enable reset
+    eENABLE_RESET = 1,
+    // Enable interrupt
+    eENABLE_INTERRUPT = 2,
+    // Disable both reset and interrupt
+    eDISABLE_BOTH = 4,
+  };
+  
+  // MISCOMPARE fault control
+  enum class eMISCOMPARE_CTRL : uint32_t {
+    // Enable reset
+    eENABLE_RESET = 1,
+    // Enable interrupt
+    eENABLE_INTERRUPT = 2,
+    // Disable both reset and interrupt
+    eDISABLE_BOTH = 4,
+  };
+  
+  // SEQUENCE fault control
+  enum class eSEQUENCE_CTRL : uint32_t {
+    // Enable reset
+    eENABLE_RESET = 1,
+    // Enable interrupt
+    eENABLE_INTERRUPT = 2,
+    // Disable both reset and interrupt
+    eDISABLE_BOTH = 4,
+  };
+  
+  // CONTROL fault control
+  enum class eCONTROL_CTRL : uint32_t {
+    // Enable reset
+    eENABLE_RESET = 1,
+    // Disable reset
+    eDISABLE_BOTH = 4,
+  };
+  
+  // STATE fault control
+  enum class eSTATE_CTRL : uint32_t {
+    // Enable reset
+    eENABLE_RESET = 1,
+    // Enable interrupt
+    eENABLE_INTERRUPT = 2,
+    // Disable both reset and interrupt
+    eDISABLE_BOTH = 4,
+  };
+  
+  // ADDRESS fault control
+  enum class eADDRESS_CTRL : uint32_t {
+    // Enable reset
+    eENABLE_RESET = 1,
+    // Enable interrupt
+    eENABLE_INTERRUPT = 2,
+    // Disable both reset and interrupt
+    eDISABLE_BOTH = 4,
+  };
+  
+  // IRQ pause control
+  enum class eIRQ_PAUSE : uint32_t {
+    // Keep the timer running
+    eRUN_TIMER = 1,
+    // Stop the timer
+    ePAUSE_TIMER = 2,
+  };
+  
+  // DEBUG_HALT control
+  enum class eDEBUG_HALT_CTRL : uint32_t {
+    // Keep the timer running
+    eRUN_TIMER = 1,
+    // Stop the timer
+    ePAUSE_TIMER = 2,
+  };
+  
+  // Bit field definition.
+  struct {
+    // read-write - Lock control
+    eLOCK_CTRL LOCK_CTRL : 2;
+    // read-write - TIMEOUT fault control
+    eTIMEOUT_CTRL TIMEOUT_CTRL : 3;
+    // read-write - MISCOMPARE fault control
+    eMISCOMPARE_CTRL MISCOMPARE_CTRL : 3;
+    // read-write - SEQUENCE fault control
+    eSEQUENCE_CTRL SEQUENCE_CTRL : 3;
+    // read-write - CONTROL fault control
+    eCONTROL_CTRL CONTROL_CTRL : 3;
+    // read-write - STATE fault control
+    eSTATE_CTRL STATE_CTRL : 3;
+    // read-write - ADDRESS fault control
+    eADDRESS_CTRL ADDRESS_CTRL : 3;
+    uint32_t _reserved_0 : 8;
+    // read-write - IRQ pause control
+    eIRQ_PAUSE IRQ_PAUSE : 2;
+    // read-write - DEBUG_HALT control
+    eDEBUG_HALT_CTRL DEBUG_HALT_CTRL : 2;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  CONTROL() = delete;
+  inline void Reset() volatile { this->value = 0x50092492; }
+  static inline volatile CONTROL &ref() { return *reinterpret_cast<volatile CONTROL*>(0x41900000); }
+};
+
+// Instruction Timer reload
+union RELOAD {
+  
+  // Bit field definition.
+  struct {
+    // read-write - Instruction Timer reload value
+    uint32_t RLOAD : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  RELOAD() = delete;
+  inline void Reset() volatile { this->value = 0xFFFFFFFF; }
+  static inline volatile RELOAD &ref() { return *reinterpret_cast<volatile RELOAD*>(0x41900004); }
+};
+
+// Instruction Timer
+union INSTRUCTION_TIMER {
+  
+  // Bit field definition.
+  struct {
+    // read-write - Current value of the Instruction Timer
+    uint32_t INSTIM : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  INSTRUCTION_TIMER() = delete;
+  inline void Reset() volatile { this->value = 0xFFFFFFFF; }
+  static inline volatile INSTRUCTION_TIMER &ref() { return *reinterpret_cast<volatile INSTRUCTION_TIMER*>(0x41900008); }
+};
+
+// Secure Counter
+union SECURE_COUNTER {
+  
+  // Bit field definition.
+  struct {
+    // write-only - Secure Counter
+    uint32_t SECCNT : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  SECURE_COUNTER() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile SECURE_COUNTER &ref() { return *reinterpret_cast<volatile SECURE_COUNTER*>(0x4190000C); }
+};
+
+// Status 1
+union STATUS {
+  
+  // Bit field definition.
+  struct {
+    // read-only - Number of TIMEOUT faults since the last POR
+    uint32_t NUMTOF : 8;
+    // read-only - Number of MISCOMPARE faults since the last POR
+    uint32_t NUMMISCOMPF : 8;
+    // read-only - Number of SEQUENCE faults since the last POR
+    uint32_t NUMILSEQF : 8;
+    uint32_t _reserved_0 : 4;
+    // read-only - Current State
+    uint32_t CURST : 4;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  STATUS() = delete;
+  inline void Reset() volatile { this->value = 0x50000000; }
+  static inline volatile STATUS &ref() { return *reinterpret_cast<volatile STATUS*>(0x41900010); }
+};
+
+// Status 2
+union STATUS2 {
+  
+  // Bit field definition.
+  struct {
+    // read-only - Number of CONTROL faults since the last POR
+    uint32_t NUMCNTF : 8;
+    // read-only - Number of STATE faults since the last POR
+    uint32_t NUMILLSTF : 8;
+    // read-only - Number of ADDRESS faults since the last POR
+    uint32_t NUMILLA : 8;
+    uint32_t _reserved_0 : 8;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  STATUS2() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile STATUS2 &ref() { return *reinterpret_cast<volatile STATUS2*>(0x41900014); }
+};
+
+// Flags
+union FLAGS {
+  
+  // TIMEOUT fault flag
+  enum class eTO_FLAG : uint32_t {
+    // A TIMEOUT fault has not occurred
+    eNO_FLAG = 0,
+    // A TIMEOUT fault has occurred
+    eFLAG = 1,
+  };
+  
+  // MISCOMPARE fault flag
+  enum class eMISCOM_FLAG : uint32_t {
+    // A MISCOMPARE fault has not occurred
+    eNO_FLAG = 0,
+    // A MISCOMPARE fault has occurred
+    eFLAG = 1,
+  };
+  
+  // SEQUENCE fault flag
+  enum class eSEQ_FLAG : uint32_t {
+    // A SEQUENCE fault has not occurred
+    eNO_FLAG = 0,
+    // A SEQUENCE fault has occurred
+    eFLAG = 1,
+  };
+  
+  // CONTROL fault flag
+  enum class eCNT_FLAG : uint32_t {
+    // A CONTROL fault has not occurred
+    eNO_FLAG = 0,
+    // A CONTROL fault has occurred
+    eFLAG = 1,
+  };
+  
+  // STATE fault flag
+  enum class eSTATE_FLAG : uint32_t {
+    // A STATE fault has not occurred
+    eNO_FLAG = 0,
+    // A STATE fault has occurred
+    eFLAG = 1,
+  };
+  
+  // ADDRESS fault flag
+  enum class eADDR_FLAG : uint32_t {
+    // An ADDRESS fault has not occurred
+    eNO_FLAG = 0,
+    // An ADDRESS fault has occurred
+    eFLAG = 1,
+  };
+  
+  // Power-on reset flag
+  enum class ePOR_FLAG : uint32_t {
+    // A Power-on reset event has not occurred
+    eNO_FLAG = 0,
+    // A Power-on reset event has occurred
+    eFLAG = 1,
+  };
+  
+  // Bit field definition.
+  struct {
+    // read-write - TIMEOUT fault flag
+    eTO_FLAG TO_FLAG : 1;
+    // read-write - MISCOMPARE fault flag
+    eMISCOM_FLAG MISCOM_FLAG : 1;
+    // read-write - SEQUENCE fault flag
+    eSEQ_FLAG SEQ_FLAG : 1;
+    // read-write - CONTROL fault flag
+    eCNT_FLAG CNT_FLAG : 1;
+    // read-write - STATE fault flag
+    eSTATE_FLAG STATE_FLAG : 1;
+    // read-write - ADDRESS fault flag
+    eADDR_FLAG ADDR_FLAG : 1;
+    uint32_t _reserved_0 : 10;
+    // read-write - Power-on reset flag
+    ePOR_FLAG POR_FLAG : 1;
+    uint32_t _reserved_1 : 15;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  FLAGS() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile FLAGS &ref() { return *reinterpret_cast<volatile FLAGS*>(0x41900018); }
+};
+
+// Persistent Data Storage
+union PERSISTENT {
+  
+  // Bit field definition.
+  struct {
+    // read-write - Persistent Storage
+    uint32_t PERSIS : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  PERSISTENT() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile PERSISTENT &ref() { return *reinterpret_cast<volatile PERSISTENT*>(0x4190001C); }
+};
+
+// START Command
+union START {
+  
+  // Bit field definition.
+  struct {
+    // write-only - Start command
+    uint32_t STRT : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  START() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile START &ref() { return *reinterpret_cast<volatile START*>(0x41900020); }
+};
+
+// STOP Command
+union STOP {
+  
+  // Bit field definition.
+  struct {
+    // write-only - Stop command
+    uint32_t STP : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  STOP() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile STOP &ref() { return *reinterpret_cast<volatile STOP*>(0x41900024); }
+};
+
+// RESTART Command
+union RESTART {
+  
+  // Bit field definition.
+  struct {
+    // write-only - Restart command
+    uint32_t RSTRT : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  RESTART() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile RESTART &ref() { return *reinterpret_cast<volatile RESTART*>(0x41900028); }
+};
+
+// ADD Command
+union ADD {
+  
+  // Bit field definition.
+  struct {
+    // write-only - ADD Write Value
+    uint32_t AD : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  ADD() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile ADD &ref() { return *reinterpret_cast<volatile ADD*>(0x4190002C); }
+};
+
+// ADD1 Command
+union ADD1 {
+  
+  // Bit field definition.
+  struct {
+    // write-only - ADD 1
+    uint32_t AD1 : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  ADD1() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile ADD1 &ref() { return *reinterpret_cast<volatile ADD1*>(0x41900030); }
+};
+
+// ADD16 Command
+union ADD16 {
+  
+  // Bit field definition.
+  struct {
+    // write-only - ADD 16
+    uint32_t AD16 : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  ADD16() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile ADD16 &ref() { return *reinterpret_cast<volatile ADD16*>(0x41900034); }
+};
+
+// ADD256 Command
+union ADD256 {
+  
+  // Bit field definition.
+  struct {
+    // write-only - ADD 256
+    uint32_t AD256 : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  ADD256() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile ADD256 &ref() { return *reinterpret_cast<volatile ADD256*>(0x41900038); }
+};
+
+// SUB Command
+union SUB {
+  
+  // Bit field definition.
+  struct {
+    // write-only - Subtract Write Value
+    uint32_t S0B : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  SUB() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile SUB &ref() { return *reinterpret_cast<volatile SUB*>(0x4190003C); }
+};
+
+// SUB1 Command
+union SUB1 {
+  
+  // Bit field definition.
+  struct {
+    // write-only - Subtract 1
+    uint32_t S1B : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  SUB1() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile SUB1 &ref() { return *reinterpret_cast<volatile SUB1*>(0x41900040); }
+};
+
+// SUB16 Command
+union SUB16 {
+  
+  // Bit field definition.
+  struct {
+    // write-only - Subtract 16
+    uint32_t SB16 : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  SUB16() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile SUB16 &ref() { return *reinterpret_cast<volatile SUB16*>(0x41900044); }
+};
+
+// SUB256 Command
+union SUB256 {
+  
+  // Bit field definition.
+  struct {
+    // write-only - Subtract 256
+    uint32_t SB256 : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  SUB256() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile SUB256 &ref() { return *reinterpret_cast<volatile SUB256*>(0x41900048); }
+};
+
+
+} // namespace nCDOG

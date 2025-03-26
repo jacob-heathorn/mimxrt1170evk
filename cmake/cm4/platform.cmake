@@ -123,7 +123,7 @@ function(add_platform_flags target)
     -ffreestanding
     -fno-builtin
     -mapcs
-    -std=gnu99
+    # -std=gnu99
     #${DEBUG_CONSOLE_CONFIG}
     
     # TODO C++

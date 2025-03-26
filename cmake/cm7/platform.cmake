@@ -4,17 +4,43 @@
 # Include the common platform cmake.
 include($ENV{FORGE_ROOT}/cmake/common/platform.cmake)
 
+# Defers to add_pw_test()
+function(add_platform_test)
+  add_pw_test(${ARGV})
+endfunction()
+
+# Adds a pigweed unit test executable, which can be executed with ctest.
+function(add_pw_test)
+  # Create the executable.
+  add_executable(${ARGV})
+  platformify(${ARGV0})
+  
+  # Get the preset name.
+  target_link_libraries(${ARGV0} PRIVATE pw_unit_test)
+  if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+    set(PRESET_NAME "cm7-debug")
+  elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
+    set(PRESET_NAME "cm7-release")
+  else()
+    message(FATAL_ERROR "Unsupported build type: ${CMAKE_BUILD_TYPE}")
+  endif()
+  
+  # Add the ctest command.
+  add_test(NAME ${ARGV0} 
+    COMMAND
+      rip --ctest ${PRESET_NAME}:${ARGV0}
+  )
+endfunction()
 
 # Adds platform-specific libraries and options to the target.
 function(platformify target)
   add_common_c_cxx_flags(${target})
   add_platform_flags(${target})
-  # target_link_libraries(${target} PUBLIC rt1170-platform)
+  target_link_libraries(${target} PRIVATE cm7-platform)
 
   # Executables get special treatment :)
   get_target_property(_type ${target} TYPE)
   if(_type STREQUAL "EXECUTABLE")
-    # TODO handle cm7 and cm4
     target_link_libraries(${target} PRIVATE rt1170-startup-cm7)
     # Add .elf suffix
     set_target_properties(${target} PROPERTIES OUTPUT_NAME "${target}.elf")
@@ -42,8 +68,10 @@ function(add_platform_flags target)
     # -Wl,--gc-sections                # Enables garbage collection of unused input sections
 
     --specs=nano.specs
-    --specs=nosys.specs
-    -Wl,--start-group  -lm -lc -lgcc -lnosys  -Wl,--end-group
+    -Wl,--undefined=_sbrk # Keep fsl_sbrk.c implementation
+    # --specs=nosys.specs
+    #-Wl,--undefined=_sbrk -Wl,--start-group -lm -lc -lgcc -lnosys -Wl,--end-group
+    -Wl,-Map=output.map
   )
   
   # Compiler flags
@@ -55,6 +83,7 @@ function(add_platform_flags target)
     -fno-exceptions            # Disables exceptions in C++
     $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti> # Disables Run-Time Type Information (RTTI) in C++
     $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit> # Avoids registering destructors for global/static objects with __cxa_atexit
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
   )
 
   # ${CMAKE_C_FLAGS_FLEXSPI_NOR_RELEASE} \
@@ -112,51 +141,26 @@ endfunction()
 # =================================================================================================
 # Other utilities
 
-# TODO move to forge
-# Finds a file recursively in a given directory
-function(FIND_FILE_IN_DIRECTORY result_var input_directory input_filename)
-  # Use GLOB_RECURSE to search for the file recursively
-  file(GLOB_RECURSE found_files
-    RELATIVE "${input_directory}"
-    "${input_directory}/${input_filename}")
-
-  # Check the number of files found
-  list(LENGTH found_files num_files)
-  if(num_files EQUAL 1)
-    list(GET found_files 0 first_file_path)
-    # Construct the full path
-    set(full_path "${input_directory}/${first_file_path}")
-    set("${result_var}" "${full_path}" PARENT_SCOPE)
-    message(STATUS "File found: ${full_path}")
-  elseif(num_files GREATER 1)
-    message(FATAL_ERROR "Error: Multiple instances of '${input_filename}' found in directory '${input_directory}'.")
-  else()
-    message(FATAL_ERROR "Error: The file '${input_filename}' not found in directory '${input_directory}'")
-  endif()
-endfunction()
-
-# TODO: use fore find_application python code instead of cmake?
-#
 # Finds a file in the cortex-m4 debug build directory
-function(FIND_CM4_DEBUG result_var input_filename)
-  FIND_FILE_IN_DIRECTORY(FILE_PATH "$ENV{PROJECT_ROOT}/.bin/cm4-debug" "${input_filename}")
+function(find_cm4_debug result_var input_filename)
+  find_file_in_directory(FILE_PATH "$ENV{PROJECT_ROOT}/.bin/cm4-debug" "${input_filename}")
   set(${result_var} ${FILE_PATH} PARENT_SCOPE)
   message(STATUS "cortex-m4 debug build file found found: ${FILE_PATH}")
 endfunction()
 
 # Finds a file in the cortex-m4 release build directory
-function(FIND_CM4_RELEASE result_var input_filename)
-  FIND_FILE_IN_DIRECTORY(FILE_PATH "$ENV{PROJECT_ROOT}/.bin/cm4-release" "${input_filename}")
+function(find_cm4_release result_var input_filename)
+  find_file_in_directory(FILE_PATH "$ENV{PROJECT_ROOT}/.bin/cm4-release" "${input_filename}")
   set(${result_var} ${FILE_PATH} PARENT_SCOPE)
   message(STATUS "cortex-m4 release build file found: ${FILE_PATH}")
 endfunction()
 
 # Finds a file in either the release or debug build of cortex-m4 depending on the local build type.
-function(FIND_CM4 result_var input_filename)
+function(find_cm4 result_var input_filename)
   if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-    FIND_CM4_DEBUG(CORE0 "${input_filename}")
+    find_cm4_debug(CORE0 "${input_filename}")
   elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-    FIND_CM4_RELEASE(CORE0 "${input_filename}")
+    find_cm4_release(CORE0 "${input_filename}")
   else()
     message(FATAL_ERROR "Unsupported build type: ${CMAKE_BUILD_TYPE}")
   endif()
