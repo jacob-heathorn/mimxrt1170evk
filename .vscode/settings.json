@@ -41,7 +41,7 @@
   },
   
   "cmake.cmakePath": "cmake",
-  "cmake.options.statusBarVisibility": "visible",
+  // "cmake.options.statusBarVisibility": "visible",
   "cmake.configureOnEdit": false,
   "cmake.configureOnOpen": false,
 
