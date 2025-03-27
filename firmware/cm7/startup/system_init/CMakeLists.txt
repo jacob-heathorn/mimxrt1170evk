@@ -18,11 +18,3 @@ platformify(system_init)
 target_compile_options(system_init PRIVATE 
   -Wno-sign-conversion
 )
-
-# # add_common_c_cxx_flags(system_init)
-# # add_platform_flags(system_init)
-
-# add_common_c_cxx_flags(system_init)
-# add_platform_flags(system_init)
-# target_link_libraries(system_init PUBLIC rt1170-platform)
-
