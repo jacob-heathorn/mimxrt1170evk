@@ -117,6 +117,7 @@
     "thread": "cpp",
     "cinttypes": "cpp",
     "cassert": "cpp",
-    "fsl_common.h": "c"
+    "fsl_common.h": "c",
+    "fsl_common_arm.h": "c"
 },
 }
