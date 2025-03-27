@@ -116,6 +116,7 @@
     "stop_token": "cpp",
     "thread": "cpp",
     "cinttypes": "cpp",
-    "cassert": "cpp"
-  },
+    "cassert": "cpp",
+    "fsl_common.h": "c"
+},
 }
