@@ -14,6 +14,20 @@
 #include "cachel1_armv7.h"
 #include <cstdio>
 
+extern "C" {
+#include "startup/system_init/evkmimxrt1170_flexspi_nor_config.h"
+#include "startup/system_init/fsl_flexspi_nor_boot.h"
+extern const ivt image_vector_table;
+extern const BOOT_DATA_T g_boot_data;
+}
+
+extern const flexspi_nor_config_t qspiflash_config;
+volatile const void* qspi_flash_config_ref __attribute__((used)) = &qspiflash_config;
+
+// Force linker to include them
+volatile const void* ivt_ref __attribute__((used)) = &image_vector_table;
+volatile const void* boot_data_ref __attribute__((used)) = &g_boot_data;
+
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
@@ -37,6 +51,7 @@ int main(void)
 
     /* Print the initial banner from Primary core */
     printf("\r\nHello World from the Primary Core!\r\n\n");
+    printf("Address of main: %p\r\n", (void*)&main);
 
     /* This section ensures the secondary core image is copied from flash location to the target RAM memory.
        It consists of several steps: image size calculation, image copying and cache invalidation (optional for some
