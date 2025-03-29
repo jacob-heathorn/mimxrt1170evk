@@ -1,13 +1,13 @@
 add_library(boot STATIC)
 
 target_sources(boot
-  PUBLIC
+  PRIVATE
     evkmimxrt1170_flexspi_nor_config.c
     evkmimxrt1170_flexspi_nor_config.h
     fsl_flexspi_nor_boot.h
     fsl_flexspi_nor_boot.c
 )
-# TODO remove dependency on drivers for the "MIMXRT1176_cm7.h" header.
-target_link_libraries(boot PUBLIC drivers)
+
+target_link_libraries(boot PRIVATE drivers)
 add_common_c_cxx_flags(boot)
 add_platform_flags(boot)
