@@ -10,7 +10,8 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "fsl_common.h"
+//#include "fsl_common.h"
+#include "MIMXRT1176_cm7.h"
 
 /*! @name Driver version */
 /*@{*/

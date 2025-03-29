@@ -9,7 +9,8 @@
 #define __FLEXSPI_NOR_BOOT_H__
 
 #include <stdint.h>
-#include "fsl_common.h"
+//#include "fsl_common.h"
+#include "MIMXRT1176_cm7.h"
 #define BOARD_FLASH_SIZE (0x1000000U)
 
 /*! @name Driver version */
