@@ -1,14 +1,13 @@
 add_subdirectory(system_init)
+add_subdirectory(boot)
 
 # Compile a library from the assembly provided by NXP. TODO(make my own)
 add_library(rt1170-startup-cm7 STATIC 
   ${CMAKE_CURRENT_SOURCE_DIR}/startup_MIMXRT1176_cm7.S
-  # system_init.cpp
-  # interrupt_handlers.cpp
 )
 platformify(rt1170-startup-cm7)
 
-target_link_libraries(rt1170-startup-cm7 PRIVATE system_init)
+target_link_libraries(rt1170-startup-cm7 PRIVATE system_init boot)
 
 # Link the linker script. This needs to be public. Executables will link with
 # this library to inherit the linker script.
