@@ -7,6 +7,6 @@ target_sources(boot
     fsl_flexspi_nor_boot.h
     fsl_flexspi_nor_boot.c
 )
-target_link_libraries(boot PUBLIC drivers board)
+target_link_libraries(boot PUBLIC drivers)
 add_common_c_cxx_flags(boot)
 add_platform_flags(boot)

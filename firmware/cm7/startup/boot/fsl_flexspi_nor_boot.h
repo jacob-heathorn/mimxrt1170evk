@@ -10,9 +10,7 @@
 
 #include <stdint.h>
 #include "fsl_common.h"
-#ifndef BOARD_FLASH_SIZE
-#include "board.h"
-#endif
+#define BOARD_FLASH_SIZE (0x1000000U)
 
 /*! @name Driver version */
 /*@{*/
