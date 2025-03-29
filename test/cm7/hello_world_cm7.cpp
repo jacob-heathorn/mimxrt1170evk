@@ -14,19 +14,6 @@
 #include "cachel1_armv7.h"
 #include <cstdio>
 
-extern "C" {
-#include "startup/boot/evkmimxrt1170_flexspi_nor_config.h"
-#include "startup/boot/fsl_flexspi_nor_boot.h"
-extern const ivt image_vector_table;
-extern const BOOT_DATA_T g_boot_data;
-}
-
-extern const flexspi_nor_config_t qspiflash_config;
-volatile const void* qspi_flash_config_ref __attribute__((used)) = &qspiflash_config;
-
-// Force linker to include them
-volatile const void* ivt_ref __attribute__((used)) = &image_vector_table;
-volatile const void* boot_data_ref __attribute__((used)) = &g_boot_data;
 
 /*******************************************************************************
  * Definitions

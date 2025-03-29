@@ -7,6 +7,7 @@ target_sources(boot
     fsl_flexspi_nor_boot.h
     fsl_flexspi_nor_boot.c
 )
+# TODO remove dependency on drivers for the "MIMXRT1176_cm7.h" header.
 target_link_libraries(boot PUBLIC drivers)
 add_common_c_cxx_flags(boot)
 add_platform_flags(boot)
