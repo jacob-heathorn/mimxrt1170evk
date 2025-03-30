@@ -16,5 +16,3 @@ target_sources(board
 
 target_include_directories(board INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 platformify(board)
-# target_compile_options(device PRIVATE -Wno-sign-conversion)
-

@@ -43,33 +43,33 @@ board: MIMXRT1170-EVK
 /*******************************************************************************
  ************************ BOARD_InitBootClocks function ************************
  ******************************************************************************/
-void BOARD_InitBootClocks(void)
-{
-    BOARD_BootClockRUN();
-}
+// void BOARD_InitBootClocks(void)
+// {
+//     BOARD_BootClockRUN();
+// }
 
-#if defined(XIP_BOOT_HEADER_ENABLE) && (XIP_BOOT_HEADER_ENABLE == 1)
-#if defined(XIP_BOOT_HEADER_DCD_ENABLE) && (XIP_BOOT_HEADER_DCD_ENABLE == 1)
-/* This function should not run from SDRAM since it will change SEMC configuration. */
-AT_QUICKACCESS_SECTION_CODE(void UpdateSemcClock(void));
-void UpdateSemcClock(void)
-{
-    /* Enable self-refresh mode and update semc clock root to 200MHz. */
-    SEMC->IPCMD = 0xA55A000D;
-    while ((SEMC->INTR & 0x3) == 0)
-        ;
-    SEMC->INTR                                = 0x3;
-    SEMC->DCCR                                = 0x0B;
-    /*
-    * Currently we are using SEMC parameter which fit both 166MHz and 200MHz, only
-    * need to change the SEMC clock root here. If customer is using their own DCD and
-    * want to switch from 166MHz to 200MHz, extra SEMC configuration might need to be
-    * adjusted here to fine tune the SDRAM performance
-    */
-    CCM->CLOCK_ROOT[kCLOCK_Root_Semc].CONTROL = 0x602;
-}
-#endif
-#endif
+// #if defined(XIP_BOOT_HEADER_ENABLE) && (XIP_BOOT_HEADER_ENABLE == 1)
+// #if defined(XIP_BOOT_HEADER_DCD_ENABLE) && (XIP_BOOT_HEADER_DCD_ENABLE == 1)
+// /* This function should not run from SDRAM since it will change SEMC configuration. */
+// AT_QUICKACCESS_SECTION_CODE(void UpdateSemcClock(void));
+// void UpdateSemcClock(void)
+// {
+//     /* Enable self-refresh mode and update semc clock root to 200MHz. */
+//     SEMC->IPCMD = 0xA55A000D;
+//     while ((SEMC->INTR & 0x3) == 0)
+//         ;
+//     SEMC->INTR                                = 0x3;
+//     SEMC->DCCR                                = 0x0B;
+//     /*
+//     * Currently we are using SEMC parameter which fit both 166MHz and 200MHz, only
+//     * need to change the SEMC clock root here. If customer is using their own DCD and
+//     * want to switch from 166MHz to 200MHz, extra SEMC configuration might need to be
+//     * adjusted here to fine tune the SDRAM performance
+//     */
+//     CCM->CLOCK_ROOT[kCLOCK_Root_Semc].CONTROL = 0x602;
+// }
+// #endif
+// #endif
 
 /*******************************************************************************
  ********************** Configuration BOARD_BootClockRUN ***********************
@@ -241,15 +241,15 @@ settings:
  * Variables for BOARD_BootClockRUN configuration
  ******************************************************************************/
 
-#ifndef SKIP_POWER_ADJUSTMENT
-#if __CORTEX_M == 7
-#define BYPASS_LDO_LPSR 1
-#define SKIP_LDO_ADJUSTMENT 1
-#elif __CORTEX_M == 4
-#define SKIP_DCDC_ADJUSTMENT 1
-#define SKIP_FBB_ENABLE 1
-#endif
-#endif
+// #ifndef SKIP_POWER_ADJUSTMENT
+// #if __CORTEX_M == 7
+// #define BYPASS_LDO_LPSR 1
+// #define SKIP_LDO_ADJUSTMENT 1
+// #elif __CORTEX_M == 4
+// #define SKIP_DCDC_ADJUSTMENT 1
+// #define SKIP_FBB_ENABLE 1
+// #endif
+// #endif
 
 const clock_arm_pll_config_t armPllConfig_BOARD_BootClockRUN =
     {
@@ -284,7 +284,7 @@ void BOARD_BootClockRUN(void)
     /* Set DCDC to DCM mode to improve the efficiency for light loading in run mode and transient performance with a big loading step. */
     DCDC_BootIntoDCM(DCDC);
 
-#if !defined(SKIP_DCDC_ADJUSTMENT) || (!SKIP_DCDC_ADJUSTMENT)
+    // DCD Adjustment
     if((OCOTP->FUSEN[16].FUSE == 0x57AC5969U) && ((OCOTP->FUSEN[17].FUSE & 0xFFU) == 0x0BU))
     {
         DCDC_SetVDD1P0BuckModeTargetVoltage(DCDC, kDCDC_1P0BuckTarget1P15V);
@@ -294,9 +294,7 @@ void BOARD_BootClockRUN(void)
         /* Set 1.125V for production samples to align with data sheet requirement */
         DCDC_SetVDD1P0BuckModeTargetVoltage(DCDC, kDCDC_1P0BuckTarget1P125V);
     }
-#endif
 
-#if !defined(SKIP_FBB_ENABLE) || (!SKIP_FBB_ENABLE)
     /* Check if FBB need to be enabled in OverDrive(OD) mode */
     if(((OCOTP->FUSEN[7].FUSE & 0x10U) >> 4U) != 1)
     {
@@ -306,30 +304,27 @@ void BOARD_BootClockRUN(void)
     {
         PMU_EnableBodyBias(ANADIG_PMU, kPMU_FBB_CM7, false);
     }
-#endif
 
-#if defined(BYPASS_LDO_LPSR) && BYPASS_LDO_LPSR
     PMU_StaticEnableLpsrAnaLdoBypassMode(ANADIG_LDO_SNVS, true);
     PMU_StaticEnableLpsrDigLdoBypassMode(ANADIG_LDO_SNVS, true);
-#endif
 
-#if !defined(SKIP_LDO_ADJUSTMENT) || (!SKIP_LDO_ADJUSTMENT)
-    pmu_static_lpsr_ana_ldo_config_t lpsrAnaConfig;
-    pmu_static_lpsr_dig_config_t lpsrDigConfig;
+// #if !defined(SKIP_LDO_ADJUSTMENT) || (!SKIP_LDO_ADJUSTMENT) // Remove
+//     pmu_static_lpsr_ana_ldo_config_t lpsrAnaConfig;
+//     pmu_static_lpsr_dig_config_t lpsrDigConfig;
 
-    if((ANADIG_LDO_SNVS->PMU_LDO_LPSR_ANA & ANADIG_LDO_SNVS_PMU_LDO_LPSR_ANA_BYPASS_MODE_EN_MASK) == 0UL)
-    {
-        PMU_StaticGetLpsrAnaLdoDefaultConfig(&lpsrAnaConfig);
-        PMU_StaticLpsrAnaLdoInit(ANADIG_LDO_SNVS, &lpsrAnaConfig);
-    }
+//     if((ANADIG_LDO_SNVS->PMU_LDO_LPSR_ANA & ANADIG_LDO_SNVS_PMU_LDO_LPSR_ANA_BYPASS_MODE_EN_MASK) == 0UL)
+//     {
+//         PMU_StaticGetLpsrAnaLdoDefaultConfig(&lpsrAnaConfig);
+//         PMU_StaticLpsrAnaLdoInit(ANADIG_LDO_SNVS, &lpsrAnaConfig);
+//     }
 
-    if((ANADIG_LDO_SNVS->PMU_LDO_LPSR_DIG & ANADIG_LDO_SNVS_PMU_LDO_LPSR_DIG_BYPASS_MODE_MASK) == 0UL)
-    {
-        PMU_StaticGetLpsrDigLdoDefaultConfig(&lpsrDigConfig);
-        lpsrDigConfig.targetVoltage = kPMU_LpsrDigTargetStableVoltage1P117V;
-        PMU_StaticLpsrDigLdoInit(ANADIG_LDO_SNVS, &lpsrDigConfig);
-    }
-#endif
+//     if((ANADIG_LDO_SNVS->PMU_LDO_LPSR_DIG & ANADIG_LDO_SNVS_PMU_LDO_LPSR_DIG_BYPASS_MODE_MASK) == 0UL)
+//     {
+//         PMU_StaticGetLpsrDigLdoDefaultConfig(&lpsrDigConfig);
+//         lpsrDigConfig.targetVoltage = kPMU_LpsrDigTargetStableVoltage1P117V;
+//         PMU_StaticLpsrDigLdoInit(ANADIG_LDO_SNVS, &lpsrDigConfig);
+//     }
+// #endif
 
     /* Config CLK_1M */
     CLOCK_OSC_Set1MHzOutputBehavior(kCLOCK_1MHzOutEnableFreeRunning1Mhz);
@@ -443,17 +438,15 @@ void BOARD_BootClockRUN(void)
     CLOCK_SetRootClock(kCLOCK_Root_Bus_Lpsr, &rootCfg);
 
     /* Configure SEMC using SYS_PLL2_PFD1_CLK */
-#ifndef SKIP_SEMC_INIT
     rootCfg.mux = kCLOCK_SEMC_ClockRoot_MuxSysPll2Pfd1;
     rootCfg.div = 3;
     CLOCK_SetRootClock(kCLOCK_Root_Semc, &rootCfg);
-#endif
 
-#if defined(XIP_BOOT_HEADER_ENABLE) && (XIP_BOOT_HEADER_ENABLE == 1)
-#if defined(XIP_BOOT_HEADER_DCD_ENABLE) && (XIP_BOOT_HEADER_DCD_ENABLE == 1)
-    UpdateSemcClock();
-#endif
-#endif
+// #if defined(XIP_BOOT_HEADER_ENABLE) && (XIP_BOOT_HEADER_ENABLE == 1)
+// #if defined(XIP_BOOT_HEADER_DCD_ENABLE) && (XIP_BOOT_HEADER_DCD_ENABLE == 1)
+//     UpdateSemcClock();
+// #endif
+// #endif
 
     /* Configure CSSYS using OSC_RC_48M_DIV2 */
     rootCfg.mux = kCLOCK_CSSYS_ClockRoot_MuxOscRc48MDiv2;
@@ -531,11 +524,11 @@ void BOARD_BootClockRUN(void)
     CLOCK_SetRootClock(kCLOCK_Root_Gpt6, &rootCfg);
 
     /* Configure FLEXSPI1 using OSC_RC_48M_DIV2 */
-#if !(defined(XIP_EXTERNAL_FLASH) && (XIP_EXTERNAL_FLASH == 1) || defined(FLEXSPI_IN_USE))
-    rootCfg.mux = kCLOCK_FLEXSPI1_ClockRoot_MuxOscRc48MDiv2;
-    rootCfg.div = 1;
-    CLOCK_SetRootClock(kCLOCK_Root_Flexspi1, &rootCfg);
-#endif
+// #if !(defined(XIP_EXTERNAL_FLASH) && (XIP_EXTERNAL_FLASH == 1) || defined(FLEXSPI_IN_USE))
+//     rootCfg.mux = kCLOCK_FLEXSPI1_ClockRoot_MuxOscRc48MDiv2;
+//     rootCfg.div = 1;
+//     CLOCK_SetRootClock(kCLOCK_Root_Flexspi1, &rootCfg);
+// #endif
 
     /* Configure FLEXSPI2 using OSC_RC_48M_DIV2 */
     rootCfg.mux = kCLOCK_FLEXSPI2_ClockRoot_MuxOscRc48MDiv2;
@@ -863,9 +856,5 @@ void BOARD_BootClockRUN(void)
     /* Set GPT6 High frequency reference clock source. */
     IOMUXC_GPR->GPR27 &= ~IOMUXC_GPR_GPR27_REF_1M_CLK_GPT6_MASK;
 
-#if __CORTEX_M == 7
     SystemCoreClock = CLOCK_GetRootClockFreq(kCLOCK_Root_M7);
-#else
-    SystemCoreClock = CLOCK_GetRootClockFreq(kCLOCK_Root_M4);
-#endif
 }

@@ -1,10 +1,11 @@
 add_library(cm7-platform STATIC)
+target_include_directories(cm7-platform PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 
+file(GLOB header_files "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
 target_sources(cm7-platform
   PUBLIC
-    mpu.hpp
+    ${header_files}
     syscalls.cpp
-    lpuart.hpp
   PRIVATE
     new_delete.cpp
 )

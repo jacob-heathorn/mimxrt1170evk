@@ -14,6 +14,7 @@
 #include "cachel1_armv7.h"
 #include <cstdio>
 
+
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
@@ -37,6 +38,7 @@ int main(void)
 
     /* Print the initial banner from Primary core */
     printf("\r\nHello World from the Primary Core!\r\n\n");
+    printf("Address of main: %p\r\n", (void*)&main);
 
     /* This section ensures the secondary core image is copied from flash location to the target RAM memory.
        It consists of several steps: image size calculation, image copying and cache invalidation (optional for some

@@ -18,23 +18,6 @@
 
 #define BOARD_XTAL32K_CLK_HZ 32768U  /*!< Board xtal32k frequency in Hz */
 
-/*******************************************************************************
- ************************ BOARD_InitBootClocks function ************************
- ******************************************************************************/
-
-#if defined(__cplusplus)
-extern "C" {
-#endif /* __cplusplus*/
-
-/*!
- * @brief This function executes default configuration of clocks.
- *
- */
-void BOARD_InitBootClocks(void);
-
-#if defined(__cplusplus)
-}
-#endif /* __cplusplus*/
 
 /*******************************************************************************
  ********************** Configuration BOARD_BootClockRUN ***********************
@@ -42,11 +25,8 @@ void BOARD_InitBootClocks(void);
 /*******************************************************************************
  * Definitions for BOARD_BootClockRUN configuration
  ******************************************************************************/
-#if __CORTEX_M == 7
-    #define BOARD_BOOTCLOCKRUN_CORE_CLOCK 996000000UL /*!< CM7 Core clock frequency: 996000000Hz */
-#else
-    #define BOARD_BOOTCLOCKRUN_CORE_CLOCK 392727272UL /*!< CM4 Core clock frequency: 392727272Hz */
-#endif
+
+#define BOARD_BOOTCLOCKRUN_CORE_CLOCK 996000000UL /*!< CM7 Core clock frequency: 996000000Hz */
 
 /* Clock outputs (values are in Hz): */
 #define BOARD_BOOTCLOCKRUN_ACMP_CLK_ROOT              24000000UL
