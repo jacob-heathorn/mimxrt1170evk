@@ -219,6 +219,15 @@ SECTIONS
     __data_end__ = .;        /* define a global symbol at data end */
   } > m_data
 
+  /* DTCM high 256KB section */
+  .m_dtcm_high (NOLOAD) :
+  {
+    . = ALIGN(4);
+    KEEP(*(.m_dtcm_high))
+    KEEP(*(.m_dtcm_high.*))
+    . = ALIGN(4);
+  } > m_dtcm_high
+
   __ram_function_flash_start = __DATA_ROM + (__data_end__ - __data_start__); /* Symbol is used by startup for TCM data initialization */
 
   .ram_function : AT(__ram_function_flash_start)
@@ -291,4 +300,5 @@ SECTIONS
   .ARM.attributes 0 : { *(.ARM.attributes) }
 
   ASSERT(__StackLimit >= __HeapLimit, "region m_data overflowed with stack and heap")
+
 }
