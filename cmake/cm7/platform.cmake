@@ -56,10 +56,7 @@ function(add_platform_flags target)
   
   # Linker flags
   target_link_options(${target} PRIVATE
-    -static                          # Links libraries statically, not dynamically
-    # -Wl,--start-group -lc -lm -Wl,--end-group  # Wraps system libraries in a group to resolve circular dependencies
-    -Wl,--gc-sections                # Enables garbage collection of unused input sections
-
+    -static                          # Links libraries statically, not dynamically    -Wl,--gc-sections                # Enables garbage collection of unused input sections
     --specs=nano.specs    # Links against a smaller version of C standard library
     # --specs=nosys.specs
     -Wl,--undefined=_sbrk # Keep fsl_sbrk.c implementation
@@ -79,9 +76,9 @@ function(add_platform_flags target)
     $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti> # Disables Run-Time Type Information (RTTI) in C++
     $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit> # Avoids registering destructors for global/static objects with __cxa_atexit
     $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
+    $<$<COMPILE_LANGUAGE:X>:-std=gnu99>
   )
 
-  #   -std=gnu99 \
   target_compile_options(${target} PUBLIC
     -DCPU_MIMXRT1176DVMAA_cm7
     -DXIP_EXTERNAL_FLASH=1
@@ -97,7 +94,6 @@ function(add_platform_flags target)
     -fno-common
     -ffreestanding
     -fno-builtin
-    -mapcs
     -D__STARTUP_CLEAR_BSS
     -D__STARTUP_INITIALIZE_NONCACHEDATA
   )
