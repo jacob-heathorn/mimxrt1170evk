@@ -82,7 +82,7 @@ void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
 // Define a test memory address in SRAM (must align with region size for MPU).
 #define TEST_ADDR    ((uint32_t*)0x20200000)
 
-TEST(mpu, varify_cache_clean)
+TEST(mpu, verify_cache_clean)
 {
   volatile uint32_t *ptr = TEST_ADDR;
   
