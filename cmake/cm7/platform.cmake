@@ -61,18 +61,17 @@ function(add_platform_flags target)
   
   # Linker flags
   target_link_options(${target} PRIVATE
-    # --specs=nosys.specs              # Redirects system calls to stub functions
-    # #--specs=nano.specs              # Links against a smaller version of C standard library
-    # -static                          # Links libraries statically, not dynamically
+    -static                          # Links libraries statically, not dynamically
     # -Wl,--start-group -lc -lm -Wl,--end-group  # Wraps system libraries in a group to resolve circular dependencies
     # -Wl,--gc-sections                # Enables garbage collection of unused input sections
 
-    --specs=nano.specs
+    --specs=nano.specs    # Links against a smaller version of C standard library
     -Wl,--undefined=_sbrk # Keep fsl_sbrk.c implementation
     # --specs=nosys.specs
     #-Wl,--undefined=_sbrk -Wl,--start-group -lm -lc -lgcc -lnosys -Wl,--end-group
     -Wl,-Map=output.map
     -Wl,--print-memory-usage
+    -Wl,--no-warn-rwx-segments
   )
   
   # Compiler flags
