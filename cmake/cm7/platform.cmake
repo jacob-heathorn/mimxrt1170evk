@@ -51,23 +51,19 @@ endfunction()
 # Adds platform-specific compile and link options to the target.
 function(add_platform_flags target)
 
-  #-g -mcpu=cortex-m7 -Wall -fno-common     -ffunction-sections     -fdata-sections     
-  # -ffreestanding     -fno-builtin     -mthumb     -mapcs     -Xlinker     --gc-sections     
-  # -Xlinker     -static     -Xlinker     -z     -Xlinker     muldefs     -Xlinker     
-  # -Map=output.map     -Wl,--print-memory-usage     -mfloat-abi=hard -mfpu=fpv5-d16     
-  # --specs=nano.specs --specs=nosys.specs     
-  # -T/home/jacob/evtol/nxp/mimxrt1170evk-examples/hello_world_demo_cm7/MIMXRT1176/gcc/MIMXRT1176xxxxx_cm7_ram.ld 
-  # -static    -Wl,--no-warn-rwx-segments
+  #-g -Wall     -ffunction-sections     -fdata-sections     
+  # -ffreestanding     -fno-builtin     -mthumb     -mapcs     -Xlinker     
+  # -Xlinker     -Xlinker     -z     -Xlinker     muldefs     -Xlinker            
   
   # Linker flags
   target_link_options(${target} PRIVATE
     -static                          # Links libraries statically, not dynamically
     # -Wl,--start-group -lc -lm -Wl,--end-group  # Wraps system libraries in a group to resolve circular dependencies
-    # -Wl,--gc-sections                # Enables garbage collection of unused input sections
+    -Wl,--gc-sections                # Enables garbage collection of unused input sections
 
     --specs=nano.specs    # Links against a smaller version of C standard library
-    -Wl,--undefined=_sbrk # Keep fsl_sbrk.c implementation
     # --specs=nosys.specs
+    -Wl,--undefined=_sbrk # Keep fsl_sbrk.c implementation
     #-Wl,--undefined=_sbrk -Wl,--start-group -lm -lc -lgcc -lnosys -Wl,--end-group
     -Wl,-Map=output.map
     -Wl,--print-memory-usage
@@ -94,15 +90,6 @@ function(add_platform_flags target)
   #   -DCPU_MIMXRT1176DVMAA_cm7 \
   #   -DMCMGR_HANDLE_EXCEPTIONS=1 \
   #   -D__SEMIHOST_HARDFAULT_DISABLE=1 \
-  #   -DMCUXPRESSO_SDK \
-  #   -DMULTICORE_APP=1 \
-  #   -Os \
-  #   -mcpu=cortex-m7 \
-  #   -Wall \
-  #   -mthumb \
-  #   -MMD \
-  #   -MP \
-  #   -fno-common \
   #   -ffunction-sections \
   #   -fdata-sections \
   #   -ffreestanding \
@@ -132,8 +119,6 @@ function(add_platform_flags target)
     -mapcs
     -D__STARTUP_CLEAR_BSS
     -D__STARTUP_INITIALIZE_NONCACHEDATA
-    -O0
-    -ggdb
   )
 
 endfunction()
