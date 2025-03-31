@@ -42,7 +42,8 @@ MEMORY
   m_interrupts          (RX)  : ORIGIN = 0x30002000, LENGTH = 0x00000400
   m_text                (RX)  : ORIGIN = 0x30002400, LENGTH = TEXT_SIZE
   m_qacode              (RX)  : ORIGIN = 0x00000000, LENGTH = 0x00040000
-  m_data                (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00040000
+  m_data                (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00040000  /* First 256 KB DTCM */
+  m_dtcm_high           (RW)  : ORIGIN = 0x20040000, LENGTH = 0x00040000  /* Second 256 KB DTCM */
   m_data2               (RW)  : ORIGIN = 0x202C0000 + RPMSG_SHMEM_SIZE, LENGTH = 0x00080000 - RPMSG_SHMEM_SIZE
   rpmsg_sh_mem          (RW)  : ORIGIN = 0x202C0000, LENGTH = RPMSG_SHMEM_SIZE
   m_core1_image         (RX)  : ORIGIN = CORE1IMAGE_START, LENGTH = 0x00040000
