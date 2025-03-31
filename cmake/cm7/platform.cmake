@@ -50,9 +50,8 @@ endfunction()
 
 # Adds platform-specific compile and link options to the target.
 function(add_platform_flags target)
-
-  #-g -Wall     -ffunction-sections     -fdata-sections     
-  # -ffreestanding     -fno-builtin     -mthumb     -mapcs     -Xlinker     
+  
+  # -ffreestanding      -Xlinker     
   # -Xlinker     -Xlinker     -z     -Xlinker     muldefs     -Xlinker            
   
   # Linker flags
@@ -82,23 +81,7 @@ function(add_platform_flags target)
     $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
   )
 
-  # ${CMAKE_C_FLAGS_FLEXSPI_NOR_RELEASE} \
-  #   -DXIP_EXTERNAL_FLASH=1 \
-  #   -DXIP_BOOT_HEADER_ENABLE=1 \
-  #   -DNDEBUG \
-  #   -DCORE1_IMAGE_COPY_TO_RAM \
-  #   -DCPU_MIMXRT1176DVMAA_cm7 \
-  #   -DMCMGR_HANDLE_EXCEPTIONS=1 \
-  #   -D__SEMIHOST_HARDFAULT_DISABLE=1 \
-  #   -ffunction-sections \
-  #   -fdata-sections \
-  #   -ffreestanding \
-  #   -fno-builtin \
-  #   -mapcs \
   #   -std=gnu99 \
-  #   ${FPU} \
-  #   ${DEBUG_CONSOLE_CONFIG} \
-
   target_compile_options(${target} PUBLIC
     -DCPU_MIMXRT1176DVMAA_cm7
     -DXIP_EXTERNAL_FLASH=1
@@ -112,8 +95,6 @@ function(add_platform_flags target)
     -MMD
     -MP
     -fno-common
-    -ffunction-sections
-    -fdata-sections
     -ffreestanding
     -fno-builtin
     -mapcs
