@@ -26,4 +26,13 @@ TEST(memory, dtcm_bump_allocator) {
   // Allocate too much.
   void* p_fail = dtcm.alloc(region_size);  // should fail
   EXPECT_EQ(p_fail, nullptr);
+
+  // Verify Reset.
+  dtcm.reset();
+  p1 = dtcm.alloc(128);
+  EXPECT_NE(p1, nullptr);
+  EXPECT_EQ(reinterpret_cast<uint32_t>(p1), 0x20040000U);
+
+  // Final reset to leave in a clean state.
+  dtcm.reset();
 }
