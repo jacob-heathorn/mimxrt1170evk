@@ -15,8 +15,6 @@ TEST(memory, dtcm_bump_allocator) {
   void* p2 = dtcm.alloc(64);
   void* p3 = dtcm.alloc(16, 32);  // explicit alignment
 
-  printf("Address of p1: %p\r\n", (void*)p1);
-  printf("Address of dtcm: %p\r\n", (void*)dtcm_bump_region);
   EXPECT_NE(p1, nullptr);
   EXPECT_EQ(reinterpret_cast<uint32_t>(p1), 0x20040000U);
   EXPECT_NE(p2, nullptr);
