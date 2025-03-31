@@ -51,27 +51,16 @@ endfunction()
 # Adds platform-specific compile and link options to the target.
 function(add_platform_flags target)
 
-  #-g -mcpu=cortex-m7 -Wall -fno-common     -ffunction-sections     -fdata-sections     
-  # -ffreestanding     -fno-builtin     -mthumb     -mapcs     -Xlinker     --gc-sections     
-  # -Xlinker     -static     -Xlinker     -z     -Xlinker     muldefs     -Xlinker     
-  # -Map=output.map     -Wl,--print-memory-usage     -mfloat-abi=hard -mfpu=fpv5-d16     
-  # --specs=nano.specs --specs=nosys.specs     
-  # -T/home/jacob/evtol/nxp/mimxrt1170evk-examples/hello_world_demo_cm7/MIMXRT1176/gcc/MIMXRT1176xxxxx_cm7_ram.ld 
-  # -static    -Wl,--no-warn-rwx-segments
-  
   # Linker flags
   target_link_options(${target} PRIVATE
-    # --specs=nosys.specs              # Redirects system calls to stub functions
-    # #--specs=nano.specs              # Links against a smaller version of C standard library
-    # -static                          # Links libraries statically, not dynamically
-    # -Wl,--start-group -lc -lm -Wl,--end-group  # Wraps system libraries in a group to resolve circular dependencies
-    # -Wl,--gc-sections                # Enables garbage collection of unused input sections
-
-    --specs=nano.specs
-    -Wl,--undefined=_sbrk # Keep fsl_sbrk.c implementation
+    -static                          # Links libraries statically, not dynamically    -Wl,--gc-sections                # Enables garbage collection of unused input sections
+    --specs=nano.specs    # Links against a smaller version of C standard library
     # --specs=nosys.specs
+    -Wl,--undefined=_sbrk # Keep fsl_sbrk.c implementation
     #-Wl,--undefined=_sbrk -Wl,--start-group -lm -lc -lgcc -lnosys -Wl,--end-group
     -Wl,-Map=output.map
+    -Wl,--print-memory-usage
+    -Wl,--no-warn-rwx-segments
   )
   
   # Compiler flags
@@ -84,33 +73,8 @@ function(add_platform_flags target)
     $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti> # Disables Run-Time Type Information (RTTI) in C++
     $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit> # Avoids registering destructors for global/static objects with __cxa_atexit
     $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
+    $<$<COMPILE_LANGUAGE:X>:-std=gnu99>
   )
-
-  # ${CMAKE_C_FLAGS_FLEXSPI_NOR_RELEASE} \
-  #   -DXIP_EXTERNAL_FLASH=1 \
-  #   -DXIP_BOOT_HEADER_ENABLE=1 \
-  #   -DNDEBUG \
-  #   -DCORE1_IMAGE_COPY_TO_RAM \
-  #   -DCPU_MIMXRT1176DVMAA_cm7 \
-  #   -DMCMGR_HANDLE_EXCEPTIONS=1 \
-  #   -D__SEMIHOST_HARDFAULT_DISABLE=1 \
-  #   -DMCUXPRESSO_SDK \
-  #   -DMULTICORE_APP=1 \
-  #   -Os \
-  #   -mcpu=cortex-m7 \
-  #   -Wall \
-  #   -mthumb \
-  #   -MMD \
-  #   -MP \
-  #   -fno-common \
-  #   -ffunction-sections \
-  #   -fdata-sections \
-  #   -ffreestanding \
-  #   -fno-builtin \
-  #   -mapcs \
-  #   -std=gnu99 \
-  #   ${FPU} \
-  #   ${DEBUG_CONSOLE_CONFIG} \
 
   target_compile_options(${target} PUBLIC
     -DCPU_MIMXRT1176DVMAA_cm7
@@ -125,15 +89,10 @@ function(add_platform_flags target)
     -MMD
     -MP
     -fno-common
-    -ffunction-sections
-    -fdata-sections
     -ffreestanding
     -fno-builtin
-    -mapcs
     -D__STARTUP_CLEAR_BSS
     -D__STARTUP_INITIALIZE_NONCACHEDATA
-    -O0
-    -ggdb
   )
 
 endfunction()
