@@ -50,10 +50,7 @@ endfunction()
 
 # Adds platform-specific compile and link options to the target.
 function(add_platform_flags target)
-  
-  # -ffreestanding      -Xlinker     
-  # -Xlinker     -Xlinker     -z     -Xlinker     muldefs     -Xlinker            
-  
+
   # Linker flags
   target_link_options(${target} PRIVATE
     -static                          # Links libraries statically, not dynamically    -Wl,--gc-sections                # Enables garbage collection of unused input sections
