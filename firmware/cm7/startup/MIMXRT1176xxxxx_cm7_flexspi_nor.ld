@@ -223,6 +223,7 @@ SECTIONS
   .m_dtcm_high (NOLOAD) : {
     . = ALIGN(4);
     __dtcm_high_start__ = .;
+    . = . + 256K;  /* Reserve the full space */
     KEEP(*(.m_dtcm_high))
     KEEP(*(.m_dtcm_high.*))
     __dtcm_high_end__ = .;
