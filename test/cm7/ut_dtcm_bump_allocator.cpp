@@ -11,9 +11,9 @@ TEST(memory, dtcm_bump_allocator) {
   EXPECT_EQ(reinterpret_cast<uint32_t>(DtcmAllocator::end()), 0x20080000U);
   
   DtcmAllocator& dtcm = DtcmAllocator::instance();
-  void* p1 = dtcm.alloc(128);
-  void* p2 = dtcm.alloc(64);
-  void* p3 = dtcm.alloc(16, 32);  // explicit alignment
+  void* p1 = dtcm.allocate(128);
+  void* p2 = dtcm.allocate(64);
+  void* p3 = dtcm.allocate(16, 32);  // explicit alignment
 
   EXPECT_NE(p1, nullptr);
   EXPECT_EQ(reinterpret_cast<uint32_t>(p1), 0x20040000U);
@@ -24,12 +24,12 @@ TEST(memory, dtcm_bump_allocator) {
   EXPECT_EQ(addr3 % 32, 0U);  // Ensure 32-byte alignment
 
   // Allocate too much.
-  void* p_fail = dtcm.alloc(256 * 1024);  // should fail
+  void* p_fail = dtcm.allocate(256 * 1024);  // should fail
   EXPECT_EQ(p_fail, nullptr);
 
   // Verify Reset.
   dtcm.reset();
-  p1 = dtcm.alloc(128);
+  p1 = dtcm.allocate(128);
   EXPECT_NE(p1, nullptr);
   EXPECT_EQ(reinterpret_cast<uint32_t>(p1), 0x20040000U);
 
