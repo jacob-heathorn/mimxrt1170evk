@@ -7,6 +7,7 @@
 #include "cachel1_armv7.h"
 #include <cstdio>
 #include "platform/lpuart.hpp"
+#include "utils/dtcm_allocator.hpp"
 
 extern "C" {
 
@@ -17,9 +18,9 @@ void BoardInitPins()
     while (nCCM::LPCG49_STATUS0::ref().bits.ON != nCCM::LPCG49_STATUS0::eON::eON_1) {}
 
     // Enable lpuartt1 RX and TX.
-    nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_24::ref().bits.MUX_MODE = 
+    nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_24::ref().bits.MUX_MODE =
         nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_24::eMUX_MODE::eALT0_lpuart1_TX;
-    nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_25::ref().bits.MUX_MODE = 
+    nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_25::ref().bits.MUX_MODE =
         nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_25::eMUX_MODE::eALT0_lpuart1_RX;
 }
 
@@ -40,13 +41,14 @@ void __pre_main_init()
 {
   // Initialize MCMGR, install generic event handlers.
   (void)MCMGR_Init();
-  
+
   // Init board hardware.
   BOARD_ConfigMPU();
   BoardInitPins();
   BOARD_BootClockRUN();
 //   BOARD_InitDebugConsole();
   Lpuart1::instance().Init();
+  DtcmAllocator::instance().initialize();
 }
 
 }

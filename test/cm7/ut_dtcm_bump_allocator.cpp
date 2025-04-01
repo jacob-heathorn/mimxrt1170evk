@@ -6,7 +6,6 @@
 TEST(memory, dtcm_bump_allocator) {
 
   DtcmAllocator& dtcm = DtcmAllocator::instance();
-  dtcm.initialize();
 
   // Verify DTCM range.
   EXPECT_EQ(DtcmAllocator::size(), 256U * 1024U);
