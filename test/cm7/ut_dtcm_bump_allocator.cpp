@@ -1,15 +1,10 @@
 #include "gtest/gtest.h"
 
-#include "utils/bump_allocator.hpp"
+#include "utils/dtcm_allocator.hpp"
 #include <cstdio>
 
-// TODO move to dtcm bump allocator cpp.
-__attribute__((section(".m_dtcm_high")))
-uint8_t dtcm_bump_region[64 * 1024];
-
 TEST(memory, dtcm_bump_allocator) {
-  constexpr size_t region_size = 64 * 1024;
-  BumpAllocator dtcm(dtcm_bump_region, region_size);
+  auto dtcm = DtcmAllocator();
 
   void* p1 = dtcm.alloc(128);
   void* p2 = dtcm.alloc(64);
@@ -24,7 +19,7 @@ TEST(memory, dtcm_bump_allocator) {
   EXPECT_EQ(addr3 % 32, 0U);  // Ensure 32-byte alignment
 
   // Allocate too much.
-  void* p_fail = dtcm.alloc(region_size);  // should fail
+  void* p_fail = dtcm.alloc(256 * 1024);  // should fail
   EXPECT_EQ(p_fail, nullptr);
 
   // Verify Reset.
