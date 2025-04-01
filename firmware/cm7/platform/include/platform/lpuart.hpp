@@ -15,9 +15,10 @@
 
 class Lpuart1 : public etl::singleton<Lpuart1>
 {
-
+private:
+    Lpuart1() = default;
 public:
-    void Init()
+    void initialize()
     {
         // 1. Enable Clocks
         auto &dma0_clk_direct = nCCM::LPCG22_DIRECT::ref();
