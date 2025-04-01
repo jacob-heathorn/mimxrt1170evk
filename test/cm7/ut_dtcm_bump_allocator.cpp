@@ -4,12 +4,16 @@
 #include <cstdio>
 
 TEST(memory, dtcm_bump_allocator) {
+
+  DtcmAllocator& dtcm = DtcmAllocator::instance();
+  dtcm.Init();
+
   // Verify DTCM range.
   EXPECT_EQ(DtcmAllocator::size(), 256U * 1024U);
   EXPECT_EQ(reinterpret_cast<uint32_t>(DtcmAllocator::start()), 0x20040000U);
   EXPECT_EQ(reinterpret_cast<uint32_t>(DtcmAllocator::end()), 0x20080000U);
   
-  auto dtcm = DtcmAllocator();
+  // auto dtcm = DtcmAllocator();
 
   void* p1 = dtcm.alloc(128);
   void* p2 = dtcm.alloc(64);
