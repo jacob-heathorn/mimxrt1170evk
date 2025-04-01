@@ -4,9 +4,10 @@
 #include <cstdio>
 
 TEST(memory, dtcm_bump_allocator) {
-  // Verify the assumed DTCM size is correct against the ranges from the linker script.
-  EXPECT_EQ(kDtcmSize,
-    static_cast<uint32_t>(__dtcm_high_end__ - __dtcm_high_start__));
+  // Verify DTCM range.
+  EXPECT_EQ(DtcmAllocator::size(), 256U * 1024U);
+  EXPECT_EQ(reinterpret_cast<uint32_t>(DtcmAllocator::start()), 0x20040000U);
+  EXPECT_EQ(reinterpret_cast<uint32_t>(DtcmAllocator::end()), 0x20080000U);
   
   auto dtcm = DtcmAllocator();
 
