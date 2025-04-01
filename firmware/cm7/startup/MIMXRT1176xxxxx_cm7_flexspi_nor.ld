@@ -220,11 +220,12 @@ SECTIONS
   } > m_data
 
   /* DTCM high 256KB section */
-  .m_dtcm_high (NOLOAD) :
-  {
+  .m_dtcm_high (NOLOAD) : {
     . = ALIGN(4);
+    __dtcm_high_start__ = .;
     KEEP(*(.m_dtcm_high))
     KEEP(*(.m_dtcm_high.*))
+    __dtcm_high_end__ = .;
     . = ALIGN(4);
   } > m_dtcm_high
 

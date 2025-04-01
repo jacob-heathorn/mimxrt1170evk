@@ -4,6 +4,10 @@
 #include <cstdio>
 
 TEST(memory, dtcm_bump_allocator) {
+  // Verify the assumed DTCM size is correct against the ranges from the linker script.
+  EXPECT_EQ(kDtcmSize,
+    static_cast<uint32_t>(__dtcm_high_end__ - __dtcm_high_start__));
+  
   auto dtcm = DtcmAllocator();
 
   void* p1 = dtcm.alloc(128);
