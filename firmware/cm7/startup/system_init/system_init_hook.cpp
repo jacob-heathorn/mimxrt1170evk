@@ -46,8 +46,8 @@ void __pre_main_init()
   BOARD_ConfigMPU();
   BoardInitPins();
   BOARD_BootClockRUN();
+//   DtcmAllocator::instance().initialize();
   Lpuart1::instance().initialize();
-  DtcmAllocator::instance().initialize();
 }
 
 }
