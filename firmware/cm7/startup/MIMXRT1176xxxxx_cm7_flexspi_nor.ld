@@ -282,6 +282,11 @@ SECTIONS
     . += STACK_SIZE;
   } > m_data
 
+  /* Record symbols for range of unused DTCM */
+  . = ALIGN(32);
+  __m_data_used_end__ = .;
+  __m_data_total_end__ = ORIGIN(m_data) + LENGTH(m_data);
+
   /* Initializes stack on the end of block */
   __StackTop   = ORIGIN(m_data) + LENGTH(m_data);
   __StackLimit = __StackTop - STACK_SIZE;
