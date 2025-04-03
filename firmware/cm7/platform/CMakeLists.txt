@@ -16,6 +16,7 @@ target_link_libraries(cm7-platform PUBLIC
   device
   utilities
   drivers
+  cm7_drivers
   board
   mcmgr
   registers

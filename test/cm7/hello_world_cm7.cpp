@@ -13,6 +13,7 @@
 #include "core_cm7.h"
 #include "cachel1_armv7.h"
 #include <cstdio>
+#include "drivers/gpio.hpp"
 
 
 /*******************************************************************************
@@ -65,7 +66,17 @@ int main(void)
     (void)MCMGR_StartCore(kMCMGR_Core1, (void *)(char *)CORE1_BOOT_ADDRESS, 2, kMCMGR_Start_Synchronous);
     std::printf("The secondary core application has been started.\r\n");
 
+    Gpio<9> led(25);
+    led.configure(GpioDirection::eOutput);
+    led.write(false);
+
     for (;;)
     {
+        for (int i = 0; i < 100000000; ++i)
+        {
+            int y = i * 3 / 2;
+            (void)y;
+        }
+        led.toggle();
     }
 }
