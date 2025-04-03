@@ -265,9 +265,11 @@ TEST(mpu, verify_regions)
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
-  // Region 4. First 512KB, ITCM (FlexRAM).
+  // Region 4. 512KB ITCM region (FlexRAM).
   //
-  // NOTE: ITCM is a read-only instruction cache. But it is still marked write-through cacheable.
+  // NOTE:
+  // * The FlexRAM controller allocates 256KB to ITCM by default.
+  // * ITCM is a read-only instruction cache. But it is still marked write-through cacheable.
   region = 4;
   EXPECT_EQ(get_region_start_address(region), 0x00000000U);
   EXPECT_EQ(get_region_size_kb(region), 512U);
@@ -278,8 +280,10 @@ TEST(mpu, verify_regions)
 
   // Region 5, DTCM (FlexRAM)
   //
-  // NOTE: DTCM is write-through cacheable, so writes immediately go to memory, but reads can still
-  // benefit from caching.
+  // NOTE:
+  // * The FlexRAM controller allocates 256KB to DTCM by default.
+  // * DTCM is write-through cacheable, so writes immediately go to memory, but reads can still
+  //   benefit from caching.
   region = 5;
   EXPECT_EQ(get_region_start_address(region), 0x20000000U);
   EXPECT_EQ(get_region_size_kb(region), 512U);
@@ -289,6 +293,10 @@ TEST(mpu, verify_regions)
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 6, 1st MB of OCRAM.
+  // 2020_0000 to 2023_FFFF (256KB OCRAM M4):
+  // 2024_0000 to 202B_FFFF (512KB OCRAM1)
+  // Half of: 202C_0000 to 2033_FFFF (512KB OCRAM2): 
+  // TODO: Consider other ocram sections.
   region = 6;
   EXPECT_EQ(get_region_start_address(region), 0x20200000U);
   EXPECT_EQ(get_region_size_kb(region), 1024U);
