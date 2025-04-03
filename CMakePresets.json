@@ -15,7 +15,8 @@
       "inherits": "default",
       "toolchainFile": "${sourceDir}/cmake/cm7/toolchain.cmake",
       "cacheVariables": {
-        "PLATFORM_PATH": "${sourceDir}/cmake/cm7"
+        "PLATFORM_PATH": "${sourceDir}/cmake/cm7",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       }
     },
     {
@@ -24,7 +25,8 @@
       "inherits": "default",
       "toolchainFile": "${sourceDir}/cmake/cm4/toolchain.cmake",
       "cacheVariables": {
-        "PLATFORM_PATH": "${sourceDir}/cmake/cm4"
+        "PLATFORM_PATH": "${sourceDir}/cmake/cm4",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       }
     },
     {
