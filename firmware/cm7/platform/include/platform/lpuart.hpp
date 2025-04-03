@@ -9,6 +9,7 @@
 #include "registers/handwritten/dma0.hpp"
 #include "registers/codegen/dmamux0.hpp"
 #include "etl/singleton.h"
+#include "utils/dtcm_allocator.hpp"
 
 #include "board.h"
 #include "cachel1_armv7.h"
@@ -20,6 +21,12 @@ private:
 public:
     void initialize()
     {
+        // Allocate tx buffer from DTCM. DTCM is write-through cacheable so we con't need to clean
+        // the cache after writing the tx buffer and giving to the dma.
+        DtcmAllocator& dtcm = DtcmAllocator::instance();
+        this->tx_buffer_ = reinterpret_cast<uint8_t *>(dtcm.allocate(tx_buffer_size_));
+        assert(tx_buffer_ != nullptr);
+
         // 1. Enable Clocks
         auto &dma0_clk_direct = nCCM::LPCG22_DIRECT::ref();
         auto &dma0_clk_status = nCCM::LPCG22_STATUS0::ref();
@@ -143,13 +150,9 @@ public:
         // Wait for UART to finish transmitting.
         while (!(nLPUART1::STAT::ref().bits.TC == nLPUART1::STAT::eTC::eCOMPLETE)) {}
 
-        // Move the txBuffer. TODO error if doesn't fit.
+        // Move the txBuffer. Do not need to flush the cache for DTCM write.
+        assert(size < tx_buffer_size_);
         memcpy(this->tx_buffer_, buffer, size);
-
-        // Flush the cache, to ensure the dma sees the fresh data. TODO setup a region of
-        // non-cachable memory and use it for the buffer intsead of this. That would have better
-        // performance.
-        SCB_CleanDCache_by_Addr(tx_buffer_, size);
         
         // Disable DMA requests
         nDMA0::ERQ::ref().bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;
@@ -220,6 +223,6 @@ public:
         return (uint8_t)(data.value & 0xFF);
     }
 private:
-    // TODO how large should this buffer be.
-    uint8_t tx_buffer_[100];
+    static constexpr uint32_t tx_buffer_size_ = 100;
+    uint8_t *tx_buffer_ = nullptr;
 };

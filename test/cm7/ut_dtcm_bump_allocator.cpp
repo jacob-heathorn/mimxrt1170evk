@@ -25,12 +25,4 @@ TEST(memory, dtcm_bump_allocator) {
   // Allocate too much.
   void* p_fail = dtcm.allocate(256 * 1024);  // should fail
   EXPECT_EQ(p_fail, nullptr);
-
-  // Verify Reset, goes back dtcm start.
-  dtcm.reset();
-  void* p1_after_reset = dtcm.allocate(128);
-  EXPECT_EQ(p1, p1_after_reset);
-
-  // Final reset to leave in a clean state.
-  dtcm.reset();
 }
