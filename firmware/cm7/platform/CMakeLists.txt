@@ -21,6 +21,7 @@ target_link_libraries(cm7-platform PUBLIC
   registers
   cmsis
   etl
+  utils
 )
 
 add_common_c_cxx_flags(cm7-platform)

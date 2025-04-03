@@ -22,6 +22,8 @@
 
   "C_Cpp.intelliSenseEngine": "default",
   "C_Cpp.intelliSenseCacheSize": 1024,
+  // NOTE: Here to help intellisense, but then it only works for the cm7 builds, not cm4.
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/.bin/cm7-debug/compile_commands.json",
 
   "editor.tokenColorCustomizations": {
       "textMateRules": [
@@ -41,7 +43,7 @@
   },
   
   "cmake.cmakePath": "cmake",
-  // "cmake.options.statusBarVisibility": "visible",
+  "cmake.options.statusBarVisibility": "visible",
   "cmake.configureOnEdit": false,
   "cmake.configureOnOpen": false,
 

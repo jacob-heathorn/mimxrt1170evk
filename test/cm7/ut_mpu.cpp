@@ -82,7 +82,7 @@ void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
 // Define a test memory address in SRAM (must align with region size for MPU).
 #define TEST_ADDR    ((uint32_t*)0x20200000)
 
-TEST(mpu, varify_cache_clean)
+TEST(mpu, verify_cache_clean)
 {
   volatile uint32_t *ptr = TEST_ADDR;
   
@@ -110,11 +110,20 @@ TEST(mpu, varify_cache_clean)
 
 inline bool is_write_back_cacheable(uint32_t region)
 {
-  // tex==1 and cacheable==1
+  // TEX==1 and cacheable==1
   MPU->RNR = region;
   uint32_t tex = (MPU->RASR >> MPU_RASR_TEX_Pos) & 0x7;
   uint32_t c = (MPU->RASR >> MPU_RASR_C_Pos) & 0x1;
   return tex == 1 && c == 1;
+}
+
+inline bool is_write_through_cacheable(uint32_t region)
+{
+  // TEX==0, cacheable==1
+  MPU->RNR = region;
+  uint32_t tex = (MPU->RASR >> MPU_RASR_TEX_Pos) & 0x7;
+  uint32_t c   = (MPU->RASR >> MPU_RASR_C_Pos)   & 0x1;
+  return (tex == 0) && (c == 1);
 }
 
 inline bool is_strongly_ordered(uint32_t region)
@@ -256,29 +265,38 @@ TEST(mpu, verify_regions)
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
-  // Region 4. First 512KB, ITCM (FlexRAM).
-  // NOTE: I am not sure why NXP marks tex=0, but cacheable=1.
+  // Region 4. 512KB ITCM region (FlexRAM).
+  //
+  // NOTE:
+  // * The FlexRAM controller allocates 256KB to ITCM by default.
+  // * ITCM is a read-only instruction cache. But it is still marked write-through cacheable.
   region = 4;
   EXPECT_EQ(get_region_start_address(region), 0x00000000U);
   EXPECT_EQ(get_region_size_kb(region), 512U);
-  EXPECT_FALSE(is_write_back_cacheable(region));
-  EXPECT_TRUE(is_cacheable(region));
+  EXPECT_TRUE(is_write_through_cacheable(region));
   EXPECT_TRUE(is_bufferable(region));
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 5, DTCM (FlexRAM)
-  // NOTE: I am not sure why NXP marks tex=0, but cacheable=1
+  //
+  // NOTE:
+  // * The FlexRAM controller allocates 256KB to DTCM by default.
+  // * DTCM is write-through cacheable, so writes immediately go to memory, but reads can still
+  //   benefit from caching.
   region = 5;
   EXPECT_EQ(get_region_start_address(region), 0x20000000U);
   EXPECT_EQ(get_region_size_kb(region), 512U);
-  EXPECT_FALSE(is_write_back_cacheable(region));
-  EXPECT_TRUE(is_cacheable(region));
+  EXPECT_TRUE(is_write_through_cacheable(region));
   EXPECT_TRUE(is_bufferable(region));
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 6, 1st MB of OCRAM.
+  // 2020_0000 to 2023_FFFF (256KB OCRAM M4):
+  // 2024_0000 to 202B_FFFF (512KB OCRAM1)
+  // Half of: 202C_0000 to 2033_FFFF (512KB OCRAM2): 
+  // TODO: Consider other ocram sections.
   region = 6;
   EXPECT_EQ(get_region_start_address(region), 0x20200000U);
   EXPECT_EQ(get_region_size_kb(region), 1024U);
