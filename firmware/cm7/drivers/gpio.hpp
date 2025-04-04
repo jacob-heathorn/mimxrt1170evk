@@ -35,11 +35,7 @@ enum class GpioPull : uint32_t {
 template  <uint32_t GPIO_NUM>
 class Gpio {
 public:
-  Gpio(uint32_t pin) : pin_(pin) {
-    assert(pin == 25);
-    printf("Gpio<%lu> constructed with pin = %lu\n", GPIO_NUM, pin_);
-  }
-
+  Gpio(uint32_t pin) : pin_(pin) {}
   Gpio() = delete;
   Gpio(const Gpio&) = delete;
   Gpio(Gpio&&) noexcept = delete;

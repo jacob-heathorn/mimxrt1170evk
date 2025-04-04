@@ -14,13 +14,13 @@ public:
     void initialize()
     {
 
-      void* raw_memory = DtcmAllocator::instance().allocate(sizeof(Gpio<9>));
-      if (raw_memory == nullptr) {
-          // Handle allocation failure (e.g., assert or throw)
-          assert(false && "DTCM allocation failed");
-      }
+      led_d34_ = DtcmAllocator::instance().allocate2<Gpio<9>>(25);
+      // if (raw_memory == nullptr) {
+      //     // Handle allocation failure (e.g., assert or throw)
+      //     assert(false && "DTCM allocation failed");
+      // }
 
-      led_d34_ = new (raw_memory) Gpio<9>(25);
+      // led_d34_ = new (raw_memory) Gpio<9>(25);
       led_d34_->configure(GpioDirection::eOutput);
       led_d34_->write(false);
       configured_ = true;
