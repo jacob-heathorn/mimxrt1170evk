@@ -13,7 +13,7 @@
 #include "core_cm7.h"
 #include "cachel1_armv7.h"
 #include <cstdio>
-#include "drivers/gpio.hpp"
+#include "platform/assert_led.hpp"
 
 
 /*******************************************************************************
@@ -66,9 +66,14 @@ int main(void)
     (void)MCMGR_StartCore(kMCMGR_Core1, (void *)(char *)CORE1_BOOT_ADDRESS, 2, kMCMGR_Start_Synchronous);
     std::printf("The secondary core application has been started.\r\n");
 
-    Gpio<9> led(25);
-    led.configure(GpioDirection::eOutput);
-    led.write(false);
+
+    // TODO move assert led to hook + assert.
+    //
+    // Gpio<9> led(25);
+    // led.configure(GpioDirection::eOutput);
+    // led.write(false);
+    auto &led = AssertLed::instance();
+    led.initialize();
 
     for (;;)
     {
@@ -78,5 +83,6 @@ int main(void)
             (void)y;
         }
         led.toggle();
+        //AssertLed::instance().toggle();
     }
 }

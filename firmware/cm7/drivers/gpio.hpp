@@ -1,3 +1,6 @@
+#include <cassert>
+#include <stdio.h>
+
 #include "registers/codegen/iomuxc.hpp"
 #include "registers/codegen/ccm.hpp"
 
@@ -32,8 +35,17 @@ enum class GpioPull : uint32_t {
 template  <uint32_t GPIO_NUM>
 class Gpio {
 public:
+  Gpio(uint32_t pin) : pin_(pin) {
+    assert(pin == 25);
+    printf("Gpio<%lu> constructed with pin = %lu\n", GPIO_NUM, pin_);
+  }
 
-  Gpio(uint32_t pin) : pin_(pin) {}
+  Gpio() = delete;
+  Gpio(const Gpio&) = delete;
+  Gpio(Gpio&&) noexcept = delete;
+  Gpio& operator=(const Gpio&) = delete;
+  Gpio& operator=(Gpio&&) noexcept = delete;
+
   void configure(GpioDirection dir, GpioPull pull = GpioPull::eNoPull);
   void write(bool state);
   bool read();
@@ -192,18 +204,15 @@ void Gpio<GPIO_NUM>::toggle() {
     Registers::Gpio<GPIO_NUM>::DR_TOGGLE::ref().bits.DR_TOGGLE ^= (1 << pin_);
 }
 
-// ------------------------------------------------------------------------------------------------
-// Pin Mux Conifigurations
-//
-
+// TODO move
 template <uint32_t GPIO_NUM>
-void Gpio<GPIO_NUM>::configurePinMux() {
+inline void Gpio<GPIO_NUM>::configurePinMux() {
   static_assert(false, "This functions needs to be specialized for this GPIO port");
 }
 
 // GPIO 9 pin mux.
 template <>
-void Gpio<9>::configurePinMux() {
+inline void Gpio<9>::configurePinMux() {
     // Set GPIO9, pin3 mux, for LED.
     switch (pin_)
     {

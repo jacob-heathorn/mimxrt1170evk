@@ -7,6 +7,7 @@
 #include "cachel1_armv7.h"
 #include <cstdio>
 #include "platform/lpuart.hpp"
+#include "platform/assert_led.hpp"
 #include "utils/dtcm_allocator.hpp"
 
 extern "C" {
@@ -46,7 +47,9 @@ void __pre_main_init()
   BOARD_ConfigMPU();
   BoardInitPins();
   BOARD_BootClockRUN();
+
   DtcmAllocator::instance().initialize();
+//   AssertLed::instance().initialize();
   Lpuart1::instance().initialize();
 }
 
