@@ -14,7 +14,7 @@ public:
     void initialize()
     {
 
-      led_d34_ = DtcmAllocator::instance().allocate2<Gpio<9>>(25);
+      led_d34_ = DtcmAllocator::instance().allocate<Gpio<9>>(25);
       led_d34_->configure(GpioDirection::eOutput);
       led_d34_->write(false);
       configured_ = true;

@@ -23,10 +23,10 @@ public:
     return reinterpret_cast<uintptr_t>(end()) - reinterpret_cast<uintptr_t>(start());
   }
 
+  using BumpAllocator::allocate;
 
-  // TODO rename allocate
   template <typename T, typename... Args>
-  T* allocate2(Args&&... args)
+  T* allocate(Args&&... args)
   {
     void* raw_memory = DtcmAllocator::instance().allocate(sizeof(T));
     if (raw_memory == nullptr) {
