@@ -67,11 +67,6 @@ int main(void)
     std::printf("The secondary core application has been started.\r\n");
 
 
-    // TODO move assert led to hook + assert.
-    //
-    // Gpio<9> led(25);
-    // led.configure(GpioDirection::eOutput);
-    // led.write(false);
     auto &led = AssertLed::instance();
     led.initialize();
 
@@ -83,6 +78,5 @@ int main(void)
             (void)y;
         }
         led.toggle();
-        //AssertLed::instance().toggle();
     }
 }
