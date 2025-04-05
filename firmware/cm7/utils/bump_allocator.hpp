@@ -2,14 +2,7 @@
 
 class BumpAllocator {
 public:
-    BumpAllocator() = default;
-
-    void initialize(uint8_t* base, size_t size)
-    {
-        ptr_ = base;
-        end_ = base + size;
-        base_ = base;
-    }
+    BumpAllocator(uint8_t* base, size_t size): ptr_{base}, base_{base}, end_{base + size} {};
 
     void* allocate(size_t size, size_t alignment = alignof(max_align_t)) {
         uintptr_t current = reinterpret_cast<uintptr_t>(ptr_);
@@ -27,6 +20,6 @@ public:
 
 private:
     uint8_t* ptr_ = nullptr;
-    uint8_t* end_ = nullptr;
     uint8_t* base_ = nullptr;
+    uint8_t* end_ = nullptr;
 };

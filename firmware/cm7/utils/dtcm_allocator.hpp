@@ -13,11 +13,8 @@ extern "C" {
 class DtcmAllocator : public BumpAllocator, public StaticSingleton<DtcmAllocator> {
   friend class StaticSingleton<DtcmAllocator>;
 private:
-  DtcmAllocator() = default;
+  DtcmAllocator(): BumpAllocator(start(), size()) {}
 public:
-  void initialize() {
-    BumpAllocator::initialize(start(), size());
-  }
   static uint8_t* start() { return __m_data_used_end__; }
   static uint8_t* end()   { return __m_data_total_end__; }
   static size_t size()    {

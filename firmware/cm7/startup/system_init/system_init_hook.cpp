@@ -50,7 +50,6 @@ void __pre_main_init()
   BOARD_BootClockRUN();
 
   DtcmAllocator::create();
-  DtcmAllocator::instance().initialize();
 //   AssertLed::instance().initialize();
   Lpuart1::create();
   Lpuart1::instance().initialize();
