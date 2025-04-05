@@ -49,11 +49,16 @@ void __pre_main_init()
   BoardInitPins();
   BOARD_BootClockRUN();
 
-  // DtcmAllocator::create();
+  DtcmAllocator::create();
   DtcmAllocator::instance().initialize();
 //   AssertLed::instance().initialize();
   Lpuart1::create();
   Lpuart1::instance().initialize();
+}
+
+void __post_main()
+{
+  while (true) {}
 }
 
 }

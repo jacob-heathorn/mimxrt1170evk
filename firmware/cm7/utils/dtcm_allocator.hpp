@@ -3,14 +3,15 @@
 #include <cstddef>
 #include <stdint.h>
 #include "utils/bump_allocator.hpp"
-#include "etl/singleton.h"
+#include "utils/singleton.hpp"
 
 extern "C" {
     extern uint8_t __m_data_used_end__[];
     extern uint8_t __m_data_total_end__[];
 }
 
-class DtcmAllocator : public BumpAllocator, public etl::singleton<DtcmAllocator> {
+class DtcmAllocator : public BumpAllocator, public StaticSingleton<DtcmAllocator> {
+  friend class StaticSingleton<DtcmAllocator>;
 private:
   DtcmAllocator() = default;
 public:
