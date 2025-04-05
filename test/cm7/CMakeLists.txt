@@ -1,6 +1,10 @@
 # Unit tests.
 add_platform_test(ut-simple ut_simple.cpp)
-add_platform_test(ut-memory ut_mpu.cpp ut_dtcm_bump_allocator.cpp)
+add_platform_test(ut-memory
+  ut_mpu.cpp
+  ut_dtcm_bump_allocator.cpp
+  ut_singleton.cpp
+)
 
 # Hello world.
 find_cm4(CORE0 "hello-world-cm4.bin.cpp")
