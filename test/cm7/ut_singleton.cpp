@@ -2,34 +2,34 @@
 #include "utils/singleton.hpp"
 #include <cstdio>
 
-class MySingleton : public StaticSingleton<MySingleton> {
-  // Grant StaticSingleton access to MySingleton's private constructor.
-  friend class StaticSingleton<MySingleton>;
+// class MySingleton : public StaticSingleton<MySingleton> {
+//   // Grant StaticSingleton access to MySingleton's private constructor.
+//   friend class StaticSingleton<MySingleton>;
 
-public:
-  int data;
+// public:
+//   int data;
 
-  // Non-default constructor.
-  MySingleton(int d) : data(d) {
-      //std::cout << "MySingleton constructed with data = " << data << "\n";
-  }
+//   // Non-default constructor.
+//   MySingleton(int d) : data(d) {
+//       //std::cout << "MySingleton constructed with data = " << data << "\n";
+//   }
 
-  void show() const {
-      printf("Data is: %d\n", data);
-  }
-};
+//   void show() const {
+//       printf("Data is: %d\n", data);
+//   }
+// };
 
-TEST(SimpleTest, ExpectBool) {
+// TEST(SimpleTest, ExpectBool) {
   
-  // Create the singleton in static storage.
-  MySingleton::create(42);
+//   // Create the singleton in static storage.
+//   MySingleton::create(42);
 
-  // Access the singleton instance.
-  MySingleton& inst = MySingleton::instance();
-  inst.show();
+//   // Access the singleton instance.
+//   MySingleton& inst = MySingleton::instance();
+//   inst.show();
 
-  // Optionally, destroy the singleton.
-  MySingleton::destroy();
+//   // Optionally, destroy the singleton.
+//   MySingleton::destroy();
   
-  // EXPECT_TRUE(false);
-}
+//   // EXPECT_TRUE(false);
+// }

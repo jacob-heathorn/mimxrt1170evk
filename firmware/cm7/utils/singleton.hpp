@@ -1,4 +1,5 @@
 #pragma once
+
 #include <new>
 #include <cassert>
 #include <type_traits>

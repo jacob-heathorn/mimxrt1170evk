@@ -9,6 +9,7 @@
 #include "platform/lpuart.hpp"
 #include "platform/assert_led.hpp"
 #include "utils/dtcm_allocator.hpp"
+#include "utils/singleton.hpp"
 
 extern "C" {
 
@@ -48,8 +49,10 @@ void __pre_main_init()
   BoardInitPins();
   BOARD_BootClockRUN();
 
+  // DtcmAllocator::create();
   DtcmAllocator::instance().initialize();
 //   AssertLed::instance().initialize();
+  Lpuart1::create();
   Lpuart1::instance().initialize();
 }
 

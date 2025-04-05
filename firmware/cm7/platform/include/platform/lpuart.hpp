@@ -10,12 +10,14 @@
 #include "registers/codegen/dmamux0.hpp"
 #include "etl/singleton.h"
 #include "utils/dtcm_allocator.hpp"
+#include "utils/singleton.hpp"
 
 #include "board.h"
 #include "cachel1_armv7.h"
 
-class Lpuart1 : public etl::singleton<Lpuart1>
+class Lpuart1 : public StaticSingleton<Lpuart1>
 {
+    friend class StaticSingleton<Lpuart1>;
 private:
     Lpuart1() = default;
 public:
