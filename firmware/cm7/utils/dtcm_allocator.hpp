@@ -10,8 +10,8 @@ extern "C" {
     extern uint8_t __m_data_total_end__[];
 }
 
-class DtcmAllocator : public BumpAllocator, public StaticSingleton<DtcmAllocator> {
-  friend class StaticSingleton<DtcmAllocator>;
+class DtcmAllocator : public BumpAllocator, public Singleton<DtcmAllocator> {
+  friend class Singleton<DtcmAllocator>;
 private:
   DtcmAllocator(): BumpAllocator(start(), size()) {}
 public:

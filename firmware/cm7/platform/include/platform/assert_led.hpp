@@ -5,9 +5,9 @@
 #include "utils/dtcm_allocator.hpp"
 
 
-class AssertLed : public StaticSingleton<AssertLed>
+class AssertLed : public Singleton<AssertLed>
 {
-  friend class StaticSingleton<AssertLed>;
+  friend class Singleton<AssertLed>;
 private:
   AssertLed()
   {

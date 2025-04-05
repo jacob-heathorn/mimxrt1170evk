@@ -5,61 +5,59 @@
 #include <type_traits>
 #include <utility>
 
+// Allows derived classes to only instantiate a single instance, which will be in static storage.
 template <typename T>
-class StaticSingleton {
+class Singleton {
 public:
     // Create the singleton instance in static storage.
     // Must be called exactly once.
     template <typename... Args>
     static void create(Args&&... args) {
-        assert(!created() && "Singleton already created!");
-        if (!created())
+        assert(!is_created() && "Singleton already created!");
+        if (!is_created())
         {
-            new (getInstanceBuffer()) T(std::forward<Args>(args)...);
+            new (instance_buffer()) T(std::forward<Args>(args)...);
         }
     }
 
     // Returns a reference to the singleton instance.
     static T& instance() {
-        assert(created() && "Singleton not created! Call create() first.");
-        return *reinterpret_cast<T*>(getInstanceBuffer());
+        assert(is_created() && "Singleton not created! Call create() first.");
+        return *reinterpret_cast<T*>(instance_buffer());
     }
 
     // Optionally, destroy the singleton (calls its destructor).
     static void destroy() {
-        if (created()) {
+        if (is_created()) {
             instance().~T();
-            setCreated(false);
+            is_created() = false;
         }
     }
 
     // Delete copy and assignment to enforce singleton semantics.
-    StaticSingleton(const StaticSingleton&) = delete;
-    StaticSingleton& operator=(const StaticSingleton&) = delete;
+    Singleton(const Singleton&) = delete;
+    Singleton& operator=(const Singleton&) = delete;
 
 protected:
-    StaticSingleton()
+    Singleton()
     {
-        assert(!created() && "Singleton already created!");
-        setCreated(true);
+        assert(!is_created() && "Singleton already created!");
+        is_created() = true;
     }
-    ~StaticSingleton() = default;
+    ~Singleton() = default;
 
 private:
     // Use a function that returns a reference to a static storage buffer.
-    static void* getInstanceBuffer() {
+    static void* instance_buffer() {
         // This static variable is defined when the function is first called.
         // By then, T should be complete.
-        static typename std::aligned_storage<sizeof(T), alignof(T)>::type instanceBuffer;
-        return &instanceBuffer;
+        static typename std::aligned_storage<sizeof(T), alignof(T)>::type buffer;
+        return &buffer;
     }
 
     // Use a function-local static boolean to track whether the instance was created.
-    static bool& created() {
-        static bool createdFlag = false;
-        return createdFlag;
-    }
-    static void setCreated(bool value) {
-        created() = value;
+    static bool& is_created() {
+        static bool flag = false;
+        return flag;
     }
 };
