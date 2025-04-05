@@ -3,6 +3,12 @@
 #include "utils/dtcm_allocator.hpp"
 #include <cstdio>
 
+class TestClass
+{
+  int x;
+  double y;
+}
+
 TEST(memory, dtcm_bump_allocator) {
 
   // Verify DTCM range.
@@ -12,7 +18,7 @@ TEST(memory, dtcm_bump_allocator) {
   
   DtcmAllocator& dtcm = DtcmAllocator::instance();
   void* p1 = dtcm.allocate(128);
-  void* p2 = dtcm.allocate(64);
+  void* p2 = dtcm.allocate<TestClass>();
   void* p3 = dtcm.allocate(16, 32);  // explicit alignment
 
   EXPECT_NE(p1, nullptr);

@@ -1,4 +1,5 @@
 #include <stddef.h>
+#include <stdint.h>
 
 class BumpAllocator {
 public:
@@ -12,6 +13,16 @@ public:
             return reinterpret_cast<void*>(aligned);
         }
         return nullptr; // Out of memory
+    }
+
+    template <typename T, typename... Args>
+    T* allocate(Args&&... args)
+    {
+      void* raw_memory = allocate(sizeof(T));
+      if (raw_memory == nullptr) {
+        return nullptr;
+      }
+      return new (raw_memory) T(std::forward<Args>(args)...);
     }
 
     void reset() {
