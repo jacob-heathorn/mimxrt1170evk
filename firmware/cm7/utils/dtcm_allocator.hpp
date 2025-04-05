@@ -2,7 +2,7 @@
 
 #include <cstddef>
 #include <stdint.h>
-#include "utils/bump_allocator.hpp"
+#include "forge/bump_allocator.hpp"
 #include "forge/singleton.hpp"
 
 extern "C" {
@@ -10,10 +10,10 @@ extern "C" {
     extern uint8_t __m_data_total_end__[];
 }
 
-class DtcmAllocator : public BumpAllocator, public forge::Singleton<DtcmAllocator> {
+class DtcmAllocator : public forge::BumpAllocator, public forge::Singleton<DtcmAllocator> {
   friend class forge::Singleton<DtcmAllocator>;
 private:
-  DtcmAllocator(): BumpAllocator(start(), size()) {}
+  DtcmAllocator(): forge::BumpAllocator(start(), size()) {}
 public:
   static uint8_t* start() { return __m_data_used_end__; }
   static uint8_t* end()   { return __m_data_total_end__; }

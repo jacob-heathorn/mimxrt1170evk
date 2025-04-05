@@ -3,5 +3,5 @@ repositories:
     tag: 20.40.0
     url: https://github.com/ETLCPP/etl.git
   forge:
-    tag: ba974801a6b16d4e50eb3ce95c9e13aeadd3236f
+    tag: 492209b9c8b9d8c40403f09fae974b2375a1fe86
     url: https://github.com/jacob-heathorn/forge.git
