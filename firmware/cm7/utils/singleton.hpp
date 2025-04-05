@@ -13,8 +13,10 @@ public:
     template <typename... Args>
     static void create(Args&&... args) {
         assert(!created() && "Singleton already created!");
-        new (getInstanceBuffer()) T(std::forward<Args>(args)...);
-        setCreated(true);
+        if (!created())
+        {
+            new (getInstanceBuffer()) T(std::forward<Args>(args)...);
+        }
     }
 
     // Returns a reference to the singleton instance.
@@ -36,7 +38,11 @@ public:
     StaticSingleton& operator=(const StaticSingleton&) = delete;
 
 protected:
-    StaticSingleton() = default;
+    StaticSingleton()
+    {
+        assert(!created() && "Singleton already created!");
+        setCreated(true);
+    }
     ~StaticSingleton() = default;
 
 private:
