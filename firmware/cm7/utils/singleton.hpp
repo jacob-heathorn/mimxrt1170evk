@@ -5,7 +5,9 @@
 #include <type_traits>
 #include <utility>
 
-// Allows derived classes to only instantiate a single instance, which will be in static storage.
+// This template provides a mechanism for ensuring that only one instance of a derived class exists
+// throughout the lifetime of the application. The instance is allocated in static storage and can
+// be accessed via the instance() method.
 template <typename T>
 class Singleton {
 public:
