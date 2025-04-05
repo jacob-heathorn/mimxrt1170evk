@@ -66,9 +66,6 @@ int main(void)
     (void)MCMGR_StartCore(kMCMGR_Core1, (void *)(char *)CORE1_BOOT_ADDRESS, 2, kMCMGR_Start_Synchronous);
     std::printf("The secondary core application has been started.\r\n");
 
-
-    AssertLed::create();
-
     for (;;)
     {
         for (int i = 0; i < 100000000; ++i)

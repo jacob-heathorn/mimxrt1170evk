@@ -19,9 +19,7 @@ class Lpuart1 : public StaticSingleton<Lpuart1>
 {
     friend class StaticSingleton<Lpuart1>;
 private:
-    Lpuart1() = default;
-public:
-    void initialize()
+    Lpuart1()
     {
         // Allocate tx buffer from DTCM. DTCM is write-through cacheable so we con't need to clean
         // the cache after writing the tx buffer and giving to the dma.
@@ -128,6 +126,7 @@ public:
         ctrl.bits.TE = nLPUART1::CTRL::eTE::eDISABLED;  // Disable TX until DMA ready
     }
 
+public:
     void write(const uint8_t *buffer, uint16_t size)
     {
         auto &csr = nDMA0::TCD_CSR<0>::ref();

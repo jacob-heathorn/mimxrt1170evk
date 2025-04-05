@@ -49,10 +49,9 @@ void __pre_main_init()
   BoardInitPins();
   BOARD_BootClockRUN();
 
+  AssertLed::create();
   DtcmAllocator::create();
-//   AssertLed::instance().initialize();
   Lpuart1::create();
-  Lpuart1::instance().initialize();
 }
 
 void __post_main()
