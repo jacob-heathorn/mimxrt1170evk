@@ -15,9 +15,9 @@
 #include "board.h"
 #include "cachel1_armv7.h"
 
-class Lpuart1 : public Singleton<Lpuart1>
+class Lpuart1 : public forge::Singleton<Lpuart1>
 {
-    friend class Singleton<Lpuart1>;
+    friend class forge::Singleton<Lpuart1>;
 private:
     Lpuart1()
     {

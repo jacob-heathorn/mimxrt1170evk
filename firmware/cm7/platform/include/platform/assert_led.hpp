@@ -5,9 +5,9 @@
 #include "utils/dtcm_allocator.hpp"
 
 
-class AssertLed : public Singleton<AssertLed>
+class AssertLed : public forge::Singleton<AssertLed>
 {
-  friend class Singleton<AssertLed>;
+  friend class forge::Singleton<AssertLed>;
 private:
   AssertLed()
   {
