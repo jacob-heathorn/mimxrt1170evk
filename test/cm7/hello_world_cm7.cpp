@@ -67,8 +67,7 @@ int main(void)
     std::printf("The secondary core application has been started.\r\n");
 
 
-    auto &led = AssertLed::instance();
-    led.initialize();
+    AssertLed::create();
 
     for (;;)
     {
@@ -77,6 +76,6 @@ int main(void)
             int y = i * 3 / 2;
             (void)y;
         }
-        led.toggle();
+        AssertLed::instance().toggle();
     }
 }
