@@ -9,7 +9,7 @@
 #include "platform/lpuart.hpp"
 #include "platform/assert_led.hpp"
 #include "utils/dtcm_allocator.hpp"
-#include "utils/singleton.hpp"
+#include "forge/singleton.hpp"
 
 extern "C" {
 

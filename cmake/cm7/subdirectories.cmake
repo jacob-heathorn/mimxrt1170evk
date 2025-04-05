@@ -10,11 +10,16 @@ add_subdirectory(
   ${CMAKE_BINARY_DIR}/mimxrt1170evk/test
 )
 
-# Forge common includes:
-# * pw_unit_test
+# Pigweed unit test library
 add_subdirectory(
   $ENV{FORGE_ROOT}/test/common
   ${CMAKE_BINARY_DIR}/forge/test/common
+)
+
+# Forge library
+add_subdirectory(
+  $ENV{FORGE_ROOT}/firmware
+  ${CMAKE_BINARY_DIR}/forge/firmware
 )
 
 # Add ETL (Embedded Template Library)

@@ -10,7 +10,7 @@
 #include "registers/codegen/dmamux0.hpp"
 #include "etl/singleton.h"
 #include "utils/dtcm_allocator.hpp"
-#include "utils/singleton.hpp"
+#include "forge/singleton.hpp"
 
 #include "board.h"
 #include "cachel1_armv7.h"

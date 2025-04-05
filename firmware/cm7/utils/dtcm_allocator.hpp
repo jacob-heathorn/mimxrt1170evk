@@ -3,7 +3,7 @@
 #include <cstddef>
 #include <stdint.h>
 #include "utils/bump_allocator.hpp"
-#include "utils/singleton.hpp"
+#include "forge/singleton.hpp"
 
 extern "C" {
     extern uint8_t __m_data_used_end__[];

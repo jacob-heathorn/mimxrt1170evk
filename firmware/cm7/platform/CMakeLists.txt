@@ -22,6 +22,7 @@ target_link_libraries(cm7-platform PUBLIC
   registers
   cmsis
   etl
+  forge
   utils
 )
 

@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "utils/singleton.hpp"
+#include "forge/singleton.hpp"
 #include <cstdio>
 
 // class MySingleton : public StaticSingleton<MySingleton> {

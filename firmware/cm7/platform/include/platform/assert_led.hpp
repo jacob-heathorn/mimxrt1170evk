@@ -1,6 +1,6 @@
 # pragma once
 
-#include "utils/singleton.hpp"
+#include "forge/singleton.hpp"
 #include "drivers/gpio.hpp"
 #include "utils/dtcm_allocator.hpp"
 
