@@ -26,3 +26,5 @@ add_executable(hello-threadx
   hello_threadx.cpp
 )
 platformify(hello-threadx)
+target_link_libraries(hello-threadx PRIVATE threadx)
+target_compile_options(hello-threadx PRIVATE -Wno-write-strings)

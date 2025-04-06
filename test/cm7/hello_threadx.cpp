@@ -1,23 +1,28 @@
-/*
- * Copyright (c) 2015, Freescale Semiconductor, Inc.
- * Copyright 2016-2020 NXP
- *
- * SPDX-License-Identifier: BSD-3-Clause
- */
+#include <stdio.h>
+#include <stdint.h>
 
-#include "clock_config.h"
-#include "board.h"
-#include "mcmgr.h"
-#include "registers/codegen/iomuxc.hpp"
-#include "registers/codegen/ccm.hpp"
-#include "core_cm7.h"
-#include "cachel1_armv7.h"
-#include <cstdio>
+extern "C" {
+  #include "tx_api.h"
+}
 
+TX_THREAD app_thread;
+constexpr size_t STACK_SIZE = 1024;
+uint8_t app_stack[STACK_SIZE];
 
-int main(void)
+extern "C" void tx_application_define(void *unused)
 {
+    tx_thread_create(&app_thread, "App Thread",
+        [](ULONG){
+            while (1) {
+                // your app logic here
+            }
+        },
+        0, app_stack, STACK_SIZE, 1, 1, TX_NO_TIME_SLICE, TX_AUTO_START);
+}
 
-    /* Print the initial banner from Primary core */
+int main()
+{
     printf("\r\nHello Threadx\r\n\n");
+    tx_kernel_enter();  // Transfers control to ThreadX
+    return 0;
 }
