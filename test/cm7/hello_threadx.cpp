@@ -7,6 +7,9 @@ extern "C" {
   // TODO
   void _tx_initialize_low_level(void) {
     // Configure SysTick timer or PIT as RTOS tick
+    
+    // // Configure SysTick to interrupt at the ThreadX tick rate
+    // SysTick_Config(SystemCoreClock / TX_TIMER_TICKS_PER_SECOND);
   }
 }
 
@@ -21,6 +24,9 @@ extern "C" void tx_application_define(void *unused)
             while (1) {
                 // your app logic here
                 printf("\r\nHello Threadx\r\n\n");
+                // TODO not working need systick config?
+                //tx_thread_sleep(TX_TIMER_TICKS_PER_SECOND);
+                // tx_thread_sleep(1);
             }
         },
         0, app_stack, STACK_SIZE, 1, 1, TX_NO_TIME_SLICE, TX_AUTO_START);
