@@ -27,3 +27,12 @@ add_subdirectory(
   $ENV{ETL_ROOT}
   ${CMAKE_BINARY_DIR}/etl
 )
+
+# Add threadX
+set(THREADX_ARCH cortex_m7)
+set(THREADX_TOOLCHAIN gnu)
+add_subdirectory(
+  $ENV{THREADX_ROOT}
+  ${CMAKE_BINARY_DIR}/threadx
+)
+platformify(threadx)
