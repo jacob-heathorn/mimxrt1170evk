@@ -20,3 +20,9 @@ target_compile_options(hello-world-cm7 PRIVATE -Wno-shadow)
 # Echo.
 add_executable(echo echo.cpp)
 platformify(echo)
+
+# Hello Threadx.
+add_executable(hello-threadx
+  hello_threadx.cpp
+)
+platformify(hello-threadx)
