@@ -8,6 +8,7 @@ target_sources(cm7-platform
     syscalls.cpp
   PRIVATE
     new_delete.cpp
+    assert.cpp
 )
 
 target_link_libraries(cm7-platform PUBLIC 
@@ -16,11 +17,13 @@ target_link_libraries(cm7-platform PUBLIC
   device
   utilities
   drivers
+  cm7_drivers
   board
   mcmgr
   registers
   cmsis
   etl
+  forge
   utils
 )
 

@@ -67,5 +67,10 @@ int main(void)
 
     for (;;)
     {
+        for (int i = 0; i < 100000000; ++i)
+        {
+            int y = i * 3 / 2;
+            (void)y;
+        }
     }
 }

@@ -427,7 +427,12 @@ Reset_Handler:
 
     # Load and call main()
     ldr   r0,=main
+    blx   r0
+    
+    # Load and call exit function.
+    ldr   r0,=__post_main
     bx    r0
+    
     .pool
     .size Reset_Handler, . - Reset_Handler
 

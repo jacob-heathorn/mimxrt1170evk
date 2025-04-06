@@ -120,6 +120,9 @@
     "cinttypes": "cpp",
     "cassert": "cpp",
     "fsl_common.h": "c",
-    "fsl_common_arm.h": "c"
+    "fsl_common_arm.h": "c",
+    "charconv": "cpp",
+    "format": "cpp",
+    "text_encoding": "cpp"
 },
 }
