@@ -35,7 +35,7 @@ enum class GpioPull : uint32_t {
 template  <uint32_t GPIO_NUM>
 class Gpio {
 public:
-  Gpio(uint32_t pin) : pin_(pin) {}
+  explicit Gpio(uint32_t pin) : pin_(pin) {}
   Gpio() = delete;
   Gpio(const Gpio&) = delete;
   Gpio(Gpio&&) noexcept = delete;
@@ -198,29 +198,4 @@ bool Gpio<GPIO_NUM>::read() {
 template <uint32_t GPIO_NUM>
 void Gpio<GPIO_NUM>::toggle() {
     Registers::Gpio<GPIO_NUM>::DR_TOGGLE::ref().bits.DR_TOGGLE ^= (1 << pin_);
-}
-
-// TODO move
-template <uint32_t GPIO_NUM>
-inline void Gpio<GPIO_NUM>::configurePinMux() {
-  static_assert(false, "This functions needs to be specialized for this GPIO port");
-}
-
-// GPIO 9 pin mux.
-template <>
-inline void Gpio<9>::configurePinMux() {
-    // Set GPIO9, pin3 mux, for LED.
-    switch (pin_)
-    {
-      case 3:
-        nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::ref().bits.MUX_MODE =
-          nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
-        break;
-      case 25:
-        nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_26::ref().bits.MUX_MODE =
-          nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_26::eMUX_MODE::eALT10_gpio9_IO25;
-        break;
-      default:
-        assert(false);  // TODO: pin not implemented yet.
-    }
 }
