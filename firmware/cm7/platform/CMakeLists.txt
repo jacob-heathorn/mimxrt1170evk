@@ -8,6 +8,7 @@ target_sources(cm7-platform
     syscalls.cpp
   PRIVATE
     new_delete.cpp
+    assert.cpp
 )
 
 target_link_libraries(cm7-platform PUBLIC 

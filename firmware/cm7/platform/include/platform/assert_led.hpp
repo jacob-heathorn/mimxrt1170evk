@@ -15,10 +15,8 @@ private:
     led_d34_.write(false);
   }
 public:
-    void toggle()
-    {
-      led_d34_.toggle();
-    }
+  void write(bool state) { led_d34_.write(state); }
+  void toggle() { led_d34_.toggle(); }
 
 private:
   Gpio<9> led_d34_{25};

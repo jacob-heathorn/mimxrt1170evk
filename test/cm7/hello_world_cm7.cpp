@@ -13,7 +13,6 @@
 #include "core_cm7.h"
 #include "cachel1_armv7.h"
 #include <cstdio>
-#include "platform/assert_led.hpp"
 
 
 /*******************************************************************************
@@ -73,6 +72,5 @@ int main(void)
             int y = i * 3 / 2;
             (void)y;
         }
-        AssertLed::instance().toggle();
     }
 }
