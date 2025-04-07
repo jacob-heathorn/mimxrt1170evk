@@ -1,15 +1,21 @@
-#include <stdio.h>
-#include <stdint.h>
-
+#include "fsl_common.h"
 #include "tx_api.h"
-#include "fsl_clock.h"
-#include "clock_config.h"
 
 
-void _tx_timer_interrupt(void);  // explicitly declare it as C linkage
+// /* GCC */
+// extern void *__HeapLimit;
+// #define UNUSED_MEM_PTR  (&__HeapLimit)
 
-void _tx_initialize_low_level(void) {    
+// extern VOID *_tx_initialize_unused_memory;
+
+
+extern VOID _tx_timer_interrupt(VOID);
+
+VOID _tx_initialize_low_level(VOID)
+{
     DisableGlobalIRQ();
+
+    // _tx_initialize_unused_memory = (VOID *)UNUSED_MEM_PTR;
 
     /* enable CPU cycle counter */
     DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
@@ -23,10 +29,11 @@ void _tx_initialize_low_level(void) {
     NVIC_SetPriority(SVCall_IRQn, 0x0ff);
 
     NVIC_SetPriority(DebugMonitor_IRQn, 0);
-    NVIC_SetPriority(PendSV_IRQn, 0xFF);
+    NVIC_SetPriority(PendSV_IRQn, 0x0ff);
     NVIC_SetPriority(SysTick_IRQn, 0x40);
 }
 
-void SysTick_Handler(void) {
+VOID SysTick_Handler(VOID)
+{
     _tx_timer_interrupt();
 }

@@ -7,7 +7,7 @@ add_subdirectory(
 
 target_sources(threadx
   PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/tx_low_level.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/tx_initialize_low_level.c
 )
 
 platformify(threadx)
