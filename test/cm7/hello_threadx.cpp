@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
-
-extern "C" {
-  #include "tx_api.h"
-}
+#include "tx_api.h"
 
 TX_THREAD app_thread;
 constexpr size_t STACK_SIZE = 1024;
