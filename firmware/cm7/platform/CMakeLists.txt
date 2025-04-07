@@ -25,6 +25,7 @@ target_link_libraries(cm7-platform PUBLIC
   etl
   forge
   utils
+  threadx
 )
 
 add_common_c_cxx_flags(cm7-platform)
