@@ -1,21 +1,22 @@
 #pragma once
 
+#include "i_mutex.hpp"
 #include "tx_api.h"
 
 namespace ftl {
 
 static char kMutexName[] = "FtlMutex";
 
-class mutex {
+class Mutex : IMutex {
 private:
     TX_MUTEX handle_;
     bool initialized_;
 
 public:
-    mutex() noexcept {
+    Mutex() noexcept {
         initialized_ = (tx_mutex_create(&handle_, kMutexName, TX_NO_INHERIT) == TX_SUCCESS);
     }
-    ~mutex() noexcept {
+    ~Mutex() noexcept {
         if (initialized_) {
             tx_mutex_delete(&handle_);
         }
@@ -37,8 +38,8 @@ public:
         }
     }
 
-    mutex(const mutex&) = delete;
-    mutex& operator=(const mutex&) = delete;
+    Mutex(const Mutex&) = delete;
+    Mutex& operator=(const Mutex&) = delete;
 
     using native_handle_type = void*;
     native_handle_type native_handle() { return &handle_; }
