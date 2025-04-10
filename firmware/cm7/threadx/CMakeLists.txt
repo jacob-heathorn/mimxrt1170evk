@@ -11,7 +11,7 @@ target_sources(threadx
   PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/tx_initialize_low_level.c
     ${CMAKE_CURRENT_SOURCE_DIR}/tx_user.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/mutex.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/mutex.hpp
 )
 
 target_include_directories(threadx PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

@@ -3,17 +3,16 @@
 #include <stdint.h>
 #include "tx_api.h"
 #include "mutex.hpp"
-#include "utils/dtcm_allocator.hpp"
 
 #define STACK_SIZE 1024
 TX_THREAD thread_1, thread_2;
 uint8_t thread_1_stack[STACK_SIZE], thread_2_stack[STACK_SIZE];
-ftl::mutex *shared_mutex = nullptr;
+ftl::mutex shared_mutex;
 
 void thread_1_entry(ULONG) {
     while (1) {
         {
-            ftl::lock_guard<ftl::mutex> lock(*shared_mutex);
+            ftl::lock_guard<ftl::mutex> lock(shared_mutex);
             printf("Thread 1: Hi\n");
             tx_thread_sleep(50);
             printf("Thread 1: Done\n");
@@ -25,7 +24,7 @@ void thread_1_entry(ULONG) {
 void thread_2_entry(ULONG) {
     while (1) {
         {
-            ftl::lock_guard<ftl::mutex> lock(*shared_mutex);
+            ftl::lock_guard<ftl::mutex> lock(shared_mutex);
             printf("Thread 2: Hello\n");
             tx_thread_sleep(75);
             printf("Thread 2: Finished\n");
@@ -40,7 +39,6 @@ extern "C" void tx_application_define(void*) {
 }
 
 int main() {
-    shared_mutex = DtcmAllocator::instance().allocate<ftl::mutex>();
     tx_kernel_enter();
     return 0;
 }

@@ -1,23 +1,47 @@
 #pragma once
 
+#include "tx_api.h"
+
 namespace ftl {
+
+static char kMutexName[] = "FtlMutex";
+
 class mutex {
 private:
-    struct impl;           // Forward declaration of implementation
-    impl* pimpl;           // Pointer to implementation
+    TX_MUTEX handle_;
+    bool initialized_;
 
 public:
-    mutex() noexcept;
-    ~mutex() noexcept;
-    void lock();
-    bool try_lock();
-    void unlock();
+    mutex() noexcept {
+        initialized_ = (tx_mutex_create(&handle_, kMutexName, TX_NO_INHERIT) == TX_SUCCESS);
+    }
+    ~mutex() noexcept {
+        if (initialized_) {
+            tx_mutex_delete(&handle_);
+        }
+    }
+    void lock() {
+        if (initialized_) {
+            tx_mutex_get(&handle_, TX_WAIT_FOREVER);
+        }
+    }
+    bool try_lock()
+    {
+        if (!initialized_) return false;
+        return (tx_mutex_get(&handle_, TX_NO_WAIT) == TX_SUCCESS);
+    }
+    void unlock()
+    {
+        if (initialized_) {
+            tx_mutex_put(&handle_);
+        }
+    }
 
     mutex(const mutex&) = delete;
     mutex& operator=(const mutex&) = delete;
 
     using native_handle_type = void*;
-    native_handle_type native_handle();
+    native_handle_type native_handle() { return &handle_; }
 };
 
 } // namespace ftl
