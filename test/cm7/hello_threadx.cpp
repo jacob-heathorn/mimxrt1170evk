@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "tx_api.h"
-#include "mutex.hpp"
+#include "ftl/mutex.hpp"
 
 #define STACK_SIZE 1024
 TX_THREAD thread_1, thread_2;

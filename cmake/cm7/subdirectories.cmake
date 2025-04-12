@@ -16,12 +16,6 @@ add_subdirectory(
   ${CMAKE_BINARY_DIR}/forge/test/common
 )
 
-# Forge library
-add_subdirectory(
-  $ENV{FORGE_ROOT}/firmware
-  ${CMAKE_BINARY_DIR}/forge/firmware
-)
-
 # Add ETL (Embedded Template Library)
 add_subdirectory(
   $ENV{ETL_ROOT}
