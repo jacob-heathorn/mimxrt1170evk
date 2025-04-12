@@ -6,11 +6,15 @@ add_subdirectory(
   ${CMAKE_BINARY_DIR}/threadx
 )
 
-# TODO collect all headers and files, reorganize
+
+file(GLOB_RECURSE THREADX_USER_SOURCES CONFIGURE_DEPENDS
+  ${CMAKE_CURRENT_SOURCE_DIR}/*.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/*.h
+)
+
 target_sources(threadx
   PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/tx_initialize_low_level.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/tx_user.h
+    ${THREADX_USER_SOURCES}
 )
 
 target_include_directories(threadx PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
