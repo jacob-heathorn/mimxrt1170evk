@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include "tx_api.h"
 #include "ftl/mutex.hpp"
-#include "ftl/tx/thread.hpp"  // ftl::thread implemented with ThreadX underneath
+#include "ftl/tx_thread.hpp"  // ftl::thread implemented with ThreadX underneath
 
 #define STACK_SIZE 4096  // Increased to avoid stack overflow
 
@@ -48,7 +48,7 @@ extern "C" void tx_application_define(void* first_unused_memory) {
 
   // Create two static ftl::thread objects.
   // The constructor will call tx_thread_create() internally, using the provided stack memory.
-  static ftl::tx::Thread thread1(
+  static ftl::TxThread thread1(
       "Thread 1",            // Thread name (converted to char* as needed)
       thread_1_entry,        // Thread entry function
       nullptr,               // User argument (none in this case)
@@ -60,7 +60,7 @@ extern "C" void tx_application_define(void* first_unused_memory) {
       TX_AUTO_START          // Auto-start thread
   );
 
-  static ftl::tx::Thread thread2(
+  static ftl::TxThread thread2(
       "Thread 2",
       thread_2_entry,
       nullptr,
