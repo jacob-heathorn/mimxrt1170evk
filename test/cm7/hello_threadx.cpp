@@ -11,7 +11,7 @@ alignas(8) uint8_t thread_1_stack[STACK_SIZE];
 alignas(8) uint8_t thread_2_stack[STACK_SIZE];
 
 // Shared mutex instance
-ftl::mutex shared_mutex;
+ftl::Mutex shared_mutex;
 
 // Thread entry functions -- matching signature: void function(void* arg)
 void thread_1_entry(void* arg) {
@@ -19,7 +19,7 @@ void thread_1_entry(void* arg) {
   printf("Thread 1: Starting\n");
   while (1) {
     { // Enter critical section
-      ftl::lock_guard<ftl::mutex> lock(shared_mutex);
+      ftl::LockGuard<ftl::Mutex> lock(shared_mutex);
       printf("Thread 1: Hi\n");
       tx_thread_sleep(50);  // Sleep for 50 tick units
       printf("Thread 1: Done\n");
@@ -33,7 +33,7 @@ void thread_2_entry(void* arg) {
   printf("Thread 2: Starting\n");
   while (1) {
     { // Enter critical section
-      ftl::lock_guard<ftl::mutex> lock(shared_mutex);
+      ftl::LockGuard<ftl::Mutex> lock(shared_mutex);
       printf("Thread 2: Hello\n");
       tx_thread_sleep(75);
       printf("Thread 2: Finished\n");
