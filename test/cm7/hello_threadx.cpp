@@ -50,14 +50,12 @@ extern "C" void tx_application_define(void* first_unused_memory) {
 
   // Create an instance of Thread2.
   static Thread2 thread2obj;
-  auto del = etl::delegate<void(void)>::create<Thread2, &Thread2::doWork>(thread2obj);
-  printf("sizeof del: %u", sizeof(del));
 
   // Create thread2 using a member function of Thread2.
   // Pass the object by reference (not as a pointer) to match the delegate's API.
   static ftl::TxThread thread2(
       "Thread 2",
-      del,
+      etl::delegate<void(void)>::create<Thread2, &Thread2::doWork>(thread2obj),
       thread_2_stack,
       STACK_SIZE,
       2,             // Lower priority than Thread1
