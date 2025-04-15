@@ -54,9 +54,7 @@ extern "C" void tx_application_define(void* first_unused_memory) {
       thread_1_stack,
       STACK_SIZE,
       1,             // Highest priority
-      1,             // Preemption threshold
-      TX_NO_TIME_SLICE,
-      TX_AUTO_START   // Auto-start the thread
+      1              // Preemption threshold
   );
 
   // Create thread2 using a member function (which takes no argument).
@@ -67,9 +65,7 @@ extern "C" void tx_application_define(void* first_unused_memory) {
       thread_2_stack,
       STACK_SIZE,
       2,             // Lower priority than Thread1
-      2,             // Preemption threshold
-      TX_NO_TIME_SLICE,
-      TX_AUTO_START
+      2              // Preemption threshold
   );
 
   // For Thread3 we need to bind an integer argument (5) to a member function that accepts an int.
@@ -89,9 +85,7 @@ extern "C" void tx_application_define(void* first_unused_memory) {
       thread_3_stack,
       STACK_SIZE,
       3,             // Priority (choose appropriately)
-      3,             // Preemption threshold
-      TX_NO_TIME_SLICE,
-      TX_AUTO_START
+      3              // Preemption threshold
   );
 }
 
