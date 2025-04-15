@@ -10,12 +10,6 @@ add_subdirectory(
   ${CMAKE_BINARY_DIR}/mimxrt1170evk/test
 )
 
-# Pigweed unit test library
-add_subdirectory(
-  $ENV{FORGE_ROOT}/test/common
-  ${CMAKE_BINARY_DIR}/forge/test/common
-)
-
 # Add ETL (Embedded Template Library)
 add_subdirectory(
   $ENV{ETL_ROOT}
