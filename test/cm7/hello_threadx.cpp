@@ -53,8 +53,7 @@ extern "C" void tx_application_define(void* first_unused_memory) {
       etl::delegate<void(void)>::create<thread_1_function>(),
       thread_1_stack,
       STACK_SIZE,
-      1,             // Highest priority
-      1              // Preemption threshold
+      1             // Highest priority
   );
 
   // Create thread2 using a member function (which takes no argument).
@@ -64,8 +63,7 @@ extern "C" void tx_application_define(void* first_unused_memory) {
       etl::delegate<void(void)>::create<Thread2, &Thread2::doWork>(thread2obj),
       thread_2_stack,
       STACK_SIZE,
-      2,             // Lower priority than Thread1
-      2              // Preemption threshold
+      2             // Lower priority than Thread1
   );
 
   // For Thread3 we need to bind an integer argument (5) to a member function that accepts an int.
@@ -84,8 +82,7 @@ extern "C" void tx_application_define(void* first_unused_memory) {
       etl::delegate<void(void)>(thread3_lambda),
       thread_3_stack,
       STACK_SIZE,
-      3,             // Priority (choose appropriately)
-      3              // Preemption threshold
+      3             // Priority (choose appropriately)
   );
 }
 
