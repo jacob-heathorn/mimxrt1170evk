@@ -6,15 +6,11 @@ add_subdirectory(
   ${CMAKE_BINARY_DIR}/threadx
 )
 
-
-file(GLOB_RECURSE THREADX_USER_SOURCES CONFIGURE_DEPENDS
-  ${CMAKE_CURRENT_SOURCE_DIR}/*.c
-  ${CMAKE_CURRENT_SOURCE_DIR}/*.h
-)
-
 target_sources(threadx
   PUBLIC
-    ${THREADX_USER_SOURCES}
+    tx_user.h
+    tx_thread_stack_error.cpp
+    tx_initialize_low_level.c
 )
 
 target_include_directories(threadx PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

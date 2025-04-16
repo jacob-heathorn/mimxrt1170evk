@@ -29,7 +29,6 @@ const unsigned char *core1_image_start = hello_world_cm4_bin;
 #define CORE1_IMAGE_START ((void *)core1_image_start)
 #define CORE1_IMAGE_SIZE  ((void *)hello_world_cm4_bin_len)
 
-
 int main(void)
 {
     int x = 4;

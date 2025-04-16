@@ -15,6 +15,9 @@ TEST(MutexTest, BasicLockUnlock)
 {
     // Create a mutex
     ftl::Mutex mutex;
+    uint8_t huge[100023];
+    huge[8022] = 6;
+    (void)huge;
 
     // try_lock() on an unlocked mutex should succeed.
     EXPECT_TRUE(mutex.try_lock());

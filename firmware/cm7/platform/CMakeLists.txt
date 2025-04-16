@@ -6,6 +6,7 @@ target_sources(cm7-platform
   PUBLIC
     ${header_files}
     syscalls.cpp
+    fault_handlers.cpp
   PRIVATE
     new_delete.cpp
     assert.cpp
