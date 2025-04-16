@@ -5,7 +5,9 @@ target_sources(pw_unit_test
 )
 
 # Unit tests.
-add_platform_test(ut-threadx ut_simple.cpp)
+add_platform_test(ut-threadx
+  ut_mutex.cpp
+)
 
 # Hello Threadx.
 add_executable(hello-threadx
