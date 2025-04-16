@@ -8,8 +8,8 @@
 // pw_unit_test:light requires an event handler to be configured.
 #include "pw_unit_test/simple_printing_event_handler.h"
 
-#define STACK_SIZE 1024
-uint8_t main_thread_stack[STACK_SIZE];
+#define GTEST_MAIN_STACK_SIZE 4096
+uint8_t main_thread_stack[GTEST_MAIN_STACK_SIZE];
 
 void WriteString(const std::string_view& string, bool newline) {
   (void)string;
@@ -40,7 +40,7 @@ extern "C" void tx_application_define(void* first_unused_memory) {
       "Pigweed main thread", 
       etl::delegate<void(void)>::create<main_thread_function>(),
       main_thread_stack,
-      STACK_SIZE,
+      GTEST_MAIN_STACK_SIZE,
       1             // Highest priority
   );
 }

@@ -1,9 +1,3 @@
-# # Add pw unit test main file for threadx entry.
-# target_sources(pw_unit_test
-#   PRIVATE
-#     pw_ut_main.cpp
-# )
-
 # Unit tests.
 add_platform_test(ut-simple ut_simple.cpp)
 add_platform_test(ut-memory
@@ -26,5 +20,3 @@ target_compile_options(hello-world-cm7 PRIVATE -Wno-shadow)
 # Echo.
 add_executable(echo echo.cpp)
 platformify(echo)
-
-

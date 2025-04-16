@@ -27,6 +27,18 @@ void thread_1_function() {
 //--- Class for Thread2 (member function with no parameters) ---------------
 struct Thread2 {
   void doWork() {
+    // Create a mutex
+    ftl::Mutex mutex;
+
+    // try_lock() on an unlocked mutex should succeed.
+    if (mutex.try_lock() == true)
+    {
+      mutex.unlock();
+
+      // Manually call lock() and unlock()
+      mutex.lock();
+      mutex.unlock();
+    }
     while (1) {
       {
         ftl::LockGuard<ftl::Mutex> lock(shared_mutex);

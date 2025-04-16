@@ -1,9 +1,3 @@
-# Add pw unit test main file for threadx entry.
-target_sources(pw_unit_test
-  PRIVATE
-    pw_ut_main.cpp
-)
-
 # Unit tests.
 add_platform_test(ut-threadx
   ut_mutex.cpp

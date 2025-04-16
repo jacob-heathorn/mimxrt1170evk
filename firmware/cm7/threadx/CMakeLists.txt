@@ -32,3 +32,14 @@ add_subdirectory(
 )
 
 target_link_libraries(threadx PUBLIC ftl ftl-threadx)
+
+# Add pigweed unit test, and a threadx-main.
+add_subdirectory(
+  $ENV{FORGE_ROOT}/test/common
+  ${CMAKE_BINARY_DIR}/forge/pw_unit_test
+)
+target_sources(pw_unit_test
+  PRIVATE
+    pw_ut_main.cpp
+)
+target_link_libraries(pw_unit_test PUBLIC threadx)
