@@ -21,22 +21,21 @@ target_include_directories(threadx PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 platformify(threadx)
 
-# Add ftl and ftl-threadx subdirectories.
+# Add forge/ftl and forge/threadx subdirectories.
 add_subdirectory(
   $ENV{FORGE_ROOT}/firmware/ftl
   ${CMAKE_BINARY_DIR}/forge/firmware/ftl
 )
 add_subdirectory(
-  $ENV{FORGE_ROOT}/firmware/ftl_threadx
-  ${CMAKE_BINARY_DIR}/forge/firmware/ftl_threadx
+  $ENV{FORGE_ROOT}/firmware/threadx
+  ${CMAKE_BINARY_DIR}/forge/firmware/threadx
 )
-
 target_link_libraries(threadx PUBLIC ftl ftl-threadx)
 
 # Add pigweed unit test, and a threadx-main.
 add_subdirectory(
-  $ENV{FORGE_ROOT}/test/common
-  ${CMAKE_BINARY_DIR}/forge/pw_unit_test
+  $ENV{FORGE_ROOT}/firmware/pw_unit_test
+  ${CMAKE_BINARY_DIR}/forge/firmware/pw_unit_test
 )
 target_sources(pw_unit_test
   PRIVATE

@@ -9,10 +9,3 @@ add_subdirectory(
   $ENV{MIMXRT1170EVK_ROOT}/test/cm7
   ${CMAKE_BINARY_DIR}/mimxrt1170evk/test
 )
-
-# Add ETL (Embedded Template Library)
-add_subdirectory(
-  $ENV{ETL_ROOT}
-  ${CMAKE_BINARY_DIR}/etl
-)
-
