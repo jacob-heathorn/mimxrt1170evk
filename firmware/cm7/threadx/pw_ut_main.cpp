@@ -4,12 +4,12 @@
 #include <cstdio>
 
 #include "ftl/tx_thread.hpp"
+#include "utils/dtcm_allocator.hpp"
 
 // pw_unit_test:light requires an event handler to be configured.
 #include "pw_unit_test/simple_printing_event_handler.h"
 
 #define GTEST_MAIN_STACK_SIZE 4096
-uint8_t main_thread_stack[GTEST_MAIN_STACK_SIZE];
 
 void WriteString(const std::string_view& string, bool newline) {
   (void)string;
@@ -39,7 +39,7 @@ extern "C" void tx_application_define(void* first_unused_memory) {
   static ftl::TxThread main_thread(
       "Pigweed main thread", 
       etl::delegate<void(void)>::create<main_thread_function>(),
-      main_thread_stack,
+      DtcmAllocator::instance().allocate(GTEST_MAIN_STACK_SIZE),
       GTEST_MAIN_STACK_SIZE,
       1             // Highest priority
   );
