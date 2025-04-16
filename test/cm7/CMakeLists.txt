@@ -5,7 +5,7 @@ add_platform_test(ut-memory
   ut_dtcm_bump_allocator.cpp
 )
 add_platform_test(ut-threadx
-  ut_mutex.cpp
+  ut_concurrency.cpp
 )
 
 # Hello world.
