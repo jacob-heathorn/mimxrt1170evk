@@ -6,6 +6,7 @@ target_sources(cm7-platform
   PUBLIC
     ${header_files}
     syscalls.cpp
+    fault_handlers.cpp
   PRIVATE
     new_delete.cpp
     assert.cpp
@@ -23,8 +24,8 @@ target_link_libraries(cm7-platform PUBLIC
   registers
   cmsis
   etl
-  forge
   utils
+  threadx
 )
 
 add_common_c_cxx_flags(cm7-platform)

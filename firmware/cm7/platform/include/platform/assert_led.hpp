@@ -1,13 +1,13 @@
 # pragma once
 
-#include "forge/singleton.hpp"
+#include "ftl/singleton.hpp"
 #include "drivers/gpio.hpp"
 #include "utils/dtcm_allocator.hpp"
 
 
-class AssertLed : public forge::Singleton<AssertLed>
+class AssertLed : public ftl::Singleton<AssertLed>
 {
-  friend class forge::Singleton<AssertLed>;
+  friend class ftl::Singleton<AssertLed>;
 private:
   AssertLed()
   {

@@ -2,18 +2,18 @@
 
 #include <cstddef>
 #include <stdint.h>
-#include "forge/bump_allocator.hpp"
-#include "forge/singleton.hpp"
+#include "ftl/bump_allocator.hpp"
+#include "ftl/singleton.hpp"
 
 extern "C" {
     extern uint8_t __m_data_used_end__[];
     extern uint8_t __m_data_total_end__[];
 }
 
-class DtcmAllocator : public forge::BumpAllocator, public forge::Singleton<DtcmAllocator> {
-  friend class forge::Singleton<DtcmAllocator>;
+class DtcmAllocator : public ftl::BumpAllocator, public ftl::Singleton<DtcmAllocator> {
+  friend class ftl::Singleton<DtcmAllocator>;
 private:
-  DtcmAllocator(): forge::BumpAllocator(start(), size()) {}
+  DtcmAllocator(): ftl::BumpAllocator(start(), size()) {}
 public:
   static uint8_t* start() { return __m_data_used_end__; }
   static uint8_t* end()   { return __m_data_total_end__; }

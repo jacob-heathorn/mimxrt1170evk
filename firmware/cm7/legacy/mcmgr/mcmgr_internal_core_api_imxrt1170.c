@@ -344,43 +344,44 @@ void mcmgr_mu_channel_handler(void)
     }
 }
 
-#if defined(MCMGR_HANDLE_EXCEPTIONS) && (MCMGR_HANDLE_EXCEPTIONS == 1)
-/* This overrides the weak DefaultISR implementation from startup file */
-void DefaultISR(void)
-{
-    uint32_t exceptionNumber = __get_IPSR();
-    (void)MCMGR_TriggerEvent(kMCMGR_RemoteExceptionEvent, (uint16_t)exceptionNumber);
-    for (;;)
-    {
-    } /* stop here */
-}
+// #if defined(MCMGR_HANDLE_EXCEPTIONS) && (MCMGR_HANDLE_EXCEPTIONS == 1)
+// /* This overrides the weak DefaultISR implementation from startup file */
+// void DefaultISR(void)
+// {
+//     uint32_t exceptionNumber = __get_IPSR();
+//     //(void)MCMGR_TriggerEvent(kMCMGR_RemoteExceptionEvent, (uint16_t)exceptionNumber);
+//     (void)exceptionNumber;
+//     for (;;)
+//     {
+//     } /* stop here */
+// }
 
-void HardFault_Handler(void)
-{
-    DefaultISR();
-}
+// void HardFault_Handler(void)
+// {
+//     DefaultISR();
+// }
 
-void NMI_Handler(void)
-{
-    DefaultISR();
-}
+// void NMI_Handler(void)
+// {
+//     DefaultISR();
+// }
 
-#if defined(__CM4_CMSIS_VERSION)
-/* Cortex-M4 contains additional exception handlers */
-void MemManage_Handler(void)
-{
-    DefaultISR();
-}
+// #if defined(__CM4_CMSIS_VERSION)
+// /* Cortex-M4 contains additional exception handlers */
+// void MemManage_Handler(void)
+// {
+//     DefaultISR();
+// }
 
-void BusFault_Handler(void)
-{
-    DefaultISR();
-}
+// void BusFault_Handler(void)
+// {
+//     DefaultISR();
+// }
 
-void UsageFault_Handler(void)
-{
-    DefaultISR();
-}
-#endif
+// void UsageFault_Handler(void)
+// {
+//     DefaultISR();
+// }
+// #endif
 
-#endif /* MCMGR_HANDLE_EXCEPTIONS */
+// #endif /* MCMGR_HANDLE_EXCEPTIONS */

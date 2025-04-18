@@ -10,14 +10,14 @@
 #include "registers/codegen/dmamux0.hpp"
 #include "etl/singleton.h"
 #include "utils/dtcm_allocator.hpp"
-#include "forge/singleton.hpp"
+#include "ftl/singleton.hpp"
 
 #include "board.h"
 #include "cachel1_armv7.h"
 
-class Lpuart1 : public forge::Singleton<Lpuart1>
+class Lpuart1 : public ftl::Singleton<Lpuart1>
 {
-    friend class forge::Singleton<Lpuart1>;
+    friend class ftl::Singleton<Lpuart1>;
 private:
     Lpuart1()
     {

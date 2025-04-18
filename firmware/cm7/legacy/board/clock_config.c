@@ -43,10 +43,10 @@ board: MIMXRT1170-EVK
 /*******************************************************************************
  ************************ BOARD_InitBootClocks function ************************
  ******************************************************************************/
-// void BOARD_InitBootClocks(void)
-// {
-//     BOARD_BootClockRUN();
-// }
+void BOARD_InitBootClocks(void)
+{
+    BOARD_BootClockRUN();
+}
 
 // #if defined(XIP_BOOT_HEADER_ENABLE) && (XIP_BOOT_HEADER_ENABLE == 1)
 // #if defined(XIP_BOOT_HEADER_DCD_ENABLE) && (XIP_BOOT_HEADER_DCD_ENABLE == 1)

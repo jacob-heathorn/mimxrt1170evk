@@ -1,56 +1,40 @@
 #include <cstddef>  // for std::size_t
-#include <cstdlib>  // for malloc and free
-
-extern "C" {
-  void Default_Handler();
-}
+#include <cassert>
 
 // Custom implementation of operator delete
 void operator delete(void* ptr, unsigned int size) {
-  // Your code to free the memory pointed to by 'ptr' with size 'size'
-  // Implement the necessary logic to release the memory in your embedded system.
   (void)ptr;
   (void)size;
+  assert(false && "Dynamic memory allocation not supported!");
 }
 
 // Custom implementation of operator delete[]
 void operator delete[](void* ptr, unsigned int size) {
-  // Your code to free the memory pointed to by 'ptr' with size 'size'
-  // Implement the necessary logic to release the memory in your embedded system.
   (void)ptr;
   (void)size;
+  assert(false && "Dynamic memory allocation not supported!");
 }
 
 // Custom implementation of operator delete
 void operator delete(void* ptr) {
-  // Your code to free the memory pointed to by 'ptr'
-  // Implement the necessary logic to release the memory in your embedded system.
   (void)ptr;
+  assert(false && "Dynamic memory allocation not supported!");
 }
 
 // Custom implementation of operator delete[]
 void operator delete[](void* ptr) {
-  // Your code to free the memory pointed to by 'ptr'
-  // Implement the necessary logic to release the memory in your embedded system.
   (void)ptr;
+  assert(false && "Dynamic memory allocation not supported!");
 }
 
-void* operator new(std::size_t size) {
+void* operator new(std::size_t size) noexcept {
   (void)size;
-  // return malloc(size);
-  // TODO
-  auto x = nullptr;
-  return static_cast<void*>(x);
+  assert(false && "Dynamic memory allocation not supported!");
+  return nullptr;
 }
 
-void* operator new[](std::size_t size) {
+void* operator new[](std::size_t size) noexcept {
   (void)size;
-  // TODO
-  // void* p = malloc(size);
-  // if (!p) {
-  //   Default_Handler();
-  // }
-  // return p;
-  auto x = nullptr;
-  return static_cast<void*>(x);
+  assert(false && "Dynamic memory allocation not supported!");
+  return nullptr;
 }

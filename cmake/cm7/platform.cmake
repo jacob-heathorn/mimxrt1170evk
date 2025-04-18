@@ -70,7 +70,8 @@ function(add_platform_flags target)
     -mfloat-abi=hard           # Specifies that we are using hardware floating-point instructions
     -mthumb                    # Enables generation of Thumb (compressed) instructions
     -fno-exceptions            # Disables exceptions in C++
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti> # Disables Run-Time Type Information (RTTI) in C++
+    # $<$<COMPILE_LANGUAGE:CXX>:-nostdinc++> # Don't allow standard library usage
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>   # Disables Run-Time Type Information (RTTI) in C++
     $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit> # Avoids registering destructors for global/static objects with __cxa_atexit
     $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
     $<$<COMPILE_LANGUAGE:X>:-std=gnu99>
