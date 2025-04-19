@@ -30,3 +30,11 @@ add_executable(hello-threadx
 )
 platformify(hello-threadx)
 target_compile_options(hello-threadx PRIVATE -Wno-write-strings)
+
+# Hello netx
+add_executable(hello-netx
+  hello_netx.cpp
+)
+platformify(hello-netx)
+target_compile_options(hello-netx PRIVATE -Wno-write-strings)
+target_link_libraries(hello-netx PRIVATE netxduo)
