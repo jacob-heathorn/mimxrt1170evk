@@ -1,4 +1,5 @@
 #include "fsl_common.h"
+#include "pin_mux.h"
 
 void BOARD_InitModuleClock(void)
 {
@@ -33,7 +34,7 @@ int main()
   BOARD_InitModuleClock();
   IOMUXC_SelectENETClock();
 
-  // BOARD_InitEnet1GPins();
+  BOARD_InitEnet1GPins();
   // GPIO_PinInit(GPIO11, 14, &gpio_config);
   // /* For a complete PHY reset of RTL8211FDI-CG, this pin must be asserted low for at least 20ms. And
   //   * wait for a further 60ms(for internal circuits settling time) before accessing the PHY register */
