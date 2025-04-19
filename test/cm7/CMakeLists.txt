@@ -35,6 +35,7 @@ target_compile_options(hello-threadx PRIVATE -Wno-write-strings)
 add_executable(hello-netx
   hello_netx.cpp
   pin_mux.c
+  fsl_gpio.c
 )
 platformify(hello-netx)
 target_compile_options(hello-netx PRIVATE -Wno-write-strings)

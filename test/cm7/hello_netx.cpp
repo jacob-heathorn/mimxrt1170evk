@@ -1,5 +1,6 @@
 #include "fsl_common.h"
 #include "pin_mux.h"
+#include "fsl_gpio.h"
 
 void BOARD_InitModuleClock(void)
 {
@@ -31,15 +32,18 @@ void IOMUXC_SelectENETClock(void)
 
 int main()
 {
+  // Init board hardware.
+  gpio_pin_config_t gpio_config = {kGPIO_DigitalOutput, 0, kGPIO_NoIntmode};
+
   BOARD_InitModuleClock();
   IOMUXC_SelectENETClock();
 
   BOARD_InitEnet1GPins();
-  // GPIO_PinInit(GPIO11, 14, &gpio_config);
-  // /* For a complete PHY reset of RTL8211FDI-CG, this pin must be asserted low for at least 20ms. And
-  //   * wait for a further 60ms(for internal circuits settling time) before accessing the PHY register */
-  // GPIO_WritePinOutput(GPIO11, 14, 0);
-  // SDK_DelayAtLeastUs(20000, CLOCK_GetFreq(kCLOCK_CpuClk));
-  // GPIO_WritePinOutput(GPIO11, 14, 1);
-  // SDK_DelayAtLeastUs(60000, CLOCK_GetFreq(kCLOCK_CpuClk));
+  GPIO_PinInit(GPIO11, 14, &gpio_config);
+  /* For a complete PHY reset of RTL8211FDI-CG, this pin must be asserted low for at least 20ms. And
+    * wait for a further 60ms(for internal circuits settling time) before accessing the PHY register */
+  GPIO_WritePinOutput(GPIO11, 14, 0);
+  SDK_DelayAtLeastUs(20000, CLOCK_GetFreq(kCLOCK_CpuClk));
+  GPIO_WritePinOutput(GPIO11, 14, 1);
+  SDK_DelayAtLeastUs(60000, CLOCK_GetFreq(kCLOCK_CpuClk));
 }
