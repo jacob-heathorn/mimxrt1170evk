@@ -1,83 +1,44 @@
-#include <cstdio>
-#include "tx_api.h"
-#include "ftl/tx_thread.hpp"
-#include "ftl/mutex.hpp"
-#include "etl/delegate.h"
-#include "nx_api.h"
+#include "fsl_common.h"
 
-// Define a stack size and allocate stacks for each thread.
-#define STACK_SIZE 1024
-uint8_t thread_1_stack[STACK_SIZE];
-uint8_t thread_2_stack[STACK_SIZE];
+void BOARD_InitModuleClock(void)
+{
+    const clock_sys_pll1_config_t sysPll1Config = {
+        .pllDiv2En = true,
+        .pllDiv5En = false,
+        .ss = nullptr,
+        .ssEnable = false
+    };
+    CLOCK_InitSysPll1(&sysPll1Config);
 
-ftl::Mutex shared_mutex;
+    clock_root_config_t rootCfg = {.clockOff = false, .mux = 4, .div = 4}; /* Generate 125M root clock. */
+    CLOCK_SetRootClock(kCLOCK_Root_Enet2, &rootCfg);
 
-//--- Free function for Thread1 --------------------------------------------
-void thread_1_function() {
-  while (1) {
-    {
-      ftl::LockGuard<ftl::Mutex> lock(shared_mutex);
-      printf("Thread 1: Hello\n");
-      tx_thread_sleep(75);
-      printf("Thread 1: Finished\n");
-    }
-    tx_thread_sleep(150);
-  }
+    /* Select syspll2pfd3, 528*18/24 = 396M */
+    CLOCK_InitPfd(kCLOCK_PllSys2, kCLOCK_Pfd3, 24);
+    rootCfg.mux = 7;
+    rootCfg.div = 2;
+    CLOCK_SetRootClock(kCLOCK_Root_Bus, &rootCfg); /* Generate 198M bus clock. */
 }
 
-//--- Class for Thread2 (member function with no parameters) ---------------
-struct Thread2 {
-  void doWork() {
-    // Create a mutex
-    ftl::Mutex mutex;
+void IOMUXC_SelectENETClock(void)
+{
+    IOMUXC_GPR->GPR5 |= IOMUXC_GPR_GPR5_ENET1G_RGMII_EN_MASK; // bit1:iomuxc_gpr_enet_clk_dir
 
-    // try_lock() on an unlocked mutex should succeed.
-    if (mutex.try_lock() == true)
-    {
-      mutex.unlock();
-
-      // Manually call lock() and unlock()
-      mutex.lock();
-      mutex.unlock();
-    }
-    while (1) {
-      {
-        ftl::LockGuard<ftl::Mutex> lock(shared_mutex);
-        printf("Thread 2: Hello\n");
-        tx_thread_sleep(75);
-        printf("Thread 2: Finished\n");
-      }
-      tx_thread_sleep(150);
-    }
-  }
-};
-
-//--- ThreadX Application Definition ---------------------------------------
-extern "C" void tx_application_define(void* first_unused_memory) {
-  (void)first_unused_memory;  // Unused parameter
-
-  // Create thread1 using a free function.
-  static ftl::TxThread thread1(
-      "Thread 1", 
-      etl::delegate<void(void)>::create<thread_1_function>(),
-      thread_1_stack,
-      STACK_SIZE,
-      1             // Highest priority
-  );
-
-  // Create thread2 using a member function (which takes no argument).
-  static Thread2 thread2obj;
-  static ftl::TxThread thread2(
-      "Thread 2",
-      etl::delegate<void(void)>::create<Thread2, &Thread2::doWork>(thread2obj),
-      thread_2_stack,
-      STACK_SIZE,
-      2             // Lower priority than Thread1
-  );
+    // Wait 1 ms for stabilizing clock.
+    SDK_DelayAtLeastUs(1000, CLOCK_GetFreq(kCLOCK_CpuClk));
 }
 
-// main() simply starts the ThreadX kernel which never returns.
-int main() {
-  tx_kernel_enter();
-  return 0;
+int main()
+{
+  BOARD_InitModuleClock();
+  IOMUXC_SelectENETClock();
+
+  // BOARD_InitEnet1GPins();
+  // GPIO_PinInit(GPIO11, 14, &gpio_config);
+  // /* For a complete PHY reset of RTL8211FDI-CG, this pin must be asserted low for at least 20ms. And
+  //   * wait for a further 60ms(for internal circuits settling time) before accessing the PHY register */
+  // GPIO_WritePinOutput(GPIO11, 14, 0);
+  // SDK_DelayAtLeastUs(20000, CLOCK_GetFreq(kCLOCK_CpuClk));
+  // GPIO_WritePinOutput(GPIO11, 14, 1);
+  // SDK_DelayAtLeastUs(60000, CLOCK_GetFreq(kCLOCK_CpuClk));
 }
