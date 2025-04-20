@@ -35,12 +35,9 @@ target_compile_options(hello-threadx PRIVATE -Wno-write-strings)
 add_executable(hello-netx
   hello_netx.cpp
   pin_mux.c
-  fsl_gpio.c
   nx_driver_imxrt_irq.c
   nx_driver_imxrt.c
   nx_driver_imxrt.h
-  fsl_enet.c
-  fsl_phyrtl8211f.c
 )
 platformify(hello-netx)
 target_compile_options(hello-netx PRIVATE
