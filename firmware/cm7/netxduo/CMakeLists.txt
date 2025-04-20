@@ -1,0 +1,17 @@
+set(NX_USER_FILE ${CMAKE_CURRENT_SOURCE_DIR}/nx_user.h)
+set(NXD_ENABLE_FILE_SERVERS OFF)
+add_subdirectory(
+  $ENV{NETXDUO_ROOT}
+  ${CMAKE_BINARY_DIR}/netxduo
+)
+platformify(netxduo)
+target_compile_options(netxduo PRIVATE
+  -Wno-cast-align
+  -Wno-redundant-decls
+  $<$<COMPILE_LANGUAGE:C>:-Wno-discarded-qualifiers>
+  -Wno-switch-default
+)
+target_sources(netxduo
+  PUBLIC
+    nx_user.h
+)
