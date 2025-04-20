@@ -8,6 +8,7 @@
 #include "nx_api.h"
 #include "ftl/tx_thread.hpp"
 #include "network/gigabit_ethernet.hpp"
+#include "network/udp_socket.hpp"
 
 /*******************************************************************************
  * Definitions
@@ -98,72 +99,32 @@ int main()
   return 0;
 }
 
-static NX_UDP_SOCKET udp_socket;
-
 void send_udp_hello()
 {
-    printf("Waiting for the link..\r\n");
-    UINT status;
-    // ULONG actual_status;
-
-    // // 🟢 Wait for stack to be fully ready
-    // status = nx_ip_status_check(GigabitEthernet::instance().Ip0(), NX_IP_INITIALIZE_DONE, &actual_status, NX_WAIT_FOREVER);
-    // if (status != NX_SUCCESS) {
-    //     printf("IP initialization failed: %u\r\n", status);
-    // }
+    printf("Waiting for link...\r\n");
     GigabitEthernet::instance().WaitUntilReady();
+    printf("Starting Hello World loop...\r\n");
 
-    printf("Sending hello world udp packet..\r\n");
-    ULONG remote_ip = IP_ADDRESS(192, 2, 2, 100); // Change this to your host PC IP
-    UINT remote_port = 5001;                     // Set destination port
+    UDPSocket socket(GigabitEthernet::instance().Ip0(), GigabitEthernet::instance().Pool0());
 
-    // Create UDP socket
-    status = nx_udp_socket_create(GigabitEthernet::instance().Ip0(), &udp_socket, "UDP Socket",
-                                  NX_IP_NORMAL, NX_FRAGMENT_OKAY, NX_IP_TIME_TO_LIVE, 512);
-    if (status != NX_SUCCESS) return;
+    if (!socket.open() || !socket.bind()) {
+        printf("Failed to open or bind UDP socket\r\n");
+        return;
+    }
 
-    // Bind the socket to any port (0 = ephemeral)
-    status = nx_udp_socket_bind(&udp_socket, 0, TX_NO_WAIT);
-    if (status != NX_SUCCESS) return;
-
-    int i = 0;
-    char msg[64];  // Make sure this is big enough for your message
-
-    while (true)
-    {
-        NX_PACKET *packet_ptr;
-
-        // Create the message
+    for (int i = 0; ; ++i) {
+        char msg[64];
         sprintf(msg, "Hello, world UDP %d\n", i);
 
-        // Allocate a UDP packet
-        status = nx_packet_allocate(GigabitEthernet::instance().Pool0(), &packet_ptr, NX_UDP_PACKET, TX_NO_WAIT);
-        if (status != NX_SUCCESS) return;
-
-        // Append the message to the packet
-        status = nx_packet_data_append(packet_ptr, msg, strlen(msg), GigabitEthernet::instance().Pool0(), TX_NO_WAIT);
-        if (status != NX_SUCCESS) {
-            nx_packet_release(packet_ptr);
-            continue;
+        if (!socket.send(msg, 5001)) {
+            printf("Failed to send UDP packet\n");
         }
 
-        // Send the packet
-        status = nx_udp_socket_send(&udp_socket, packet_ptr, remote_ip, remote_port);
-        if (status != NX_SUCCESS) {
-            nx_packet_release(packet_ptr);
-        }
-
-        ++i;
-        tx_thread_sleep(NX_IP_PERIODIC_RATE);  // Sleep ~1s to avoid flooding
+        tx_thread_sleep(NX_IP_PERIODIC_RATE);
     }
 
-    // Clean up
-    nx_udp_socket_unbind(&udp_socket);
-    nx_udp_socket_delete(&udp_socket);
-    while (true)
-    {
-        tx_thread_sleep(75);
-    }
+    // Not reached but good practice:
+    socket.close();
 }
 
 /* Define what the initial system looks like.  */
