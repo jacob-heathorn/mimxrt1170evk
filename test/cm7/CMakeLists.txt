@@ -36,7 +36,18 @@ add_executable(hello-netx
   hello_netx.cpp
   pin_mux.c
   fsl_gpio.c
+  nx_driver_imxrt_irq.c
+  nx_driver_imxrt.c
+  nx_driver_imxrt.h
+  fsl_enet.c
+  fsl_phyrtl8211f.c
 )
 platformify(hello-netx)
-target_compile_options(hello-netx PRIVATE -Wno-write-strings)
+target_compile_options(hello-netx PRIVATE
+  -Wno-write-strings
+  -Wno-cast-align
+)
 target_link_libraries(hello-netx PRIVATE netxduo)
+# target_compile_options(hello-netx PUBLIC
+#   -DBOARD_NETWORK_USE_100M_ENET_PORT=0
+# )
