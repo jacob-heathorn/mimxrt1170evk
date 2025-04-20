@@ -37,7 +37,13 @@ target_sources(netxduo
     nx_driver_imxrt.c
     nx_driver_imxrt.h
 )
+target_compile_options(netxduo PUBLIC
+  -Wno-write-strings
+  -Wno-cast-align
+)
 target_link_libraries(netxduo PRIVATE drivers)
+#target_link_libraries(threadx PUBLIC netxduo)
+
 
 # Add forge/ftl and forge/threadx subdirectories.
 add_subdirectory(
