@@ -33,7 +33,11 @@ target_compile_options(netxduo PRIVATE
 target_sources(netxduo
   PUBLIC
     nx_user.h
+    nx_driver_imxrt_irq.c
+    nx_driver_imxrt.c
+    nx_driver_imxrt.h
 )
+target_link_libraries(netxduo PRIVATE drivers)
 
 # Add forge/ftl and forge/threadx subdirectories.
 add_subdirectory(

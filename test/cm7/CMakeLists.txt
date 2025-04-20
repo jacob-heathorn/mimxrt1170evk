@@ -35,9 +35,6 @@ target_compile_options(hello-threadx PRIVATE -Wno-write-strings)
 add_executable(hello-netx
   hello_netx.cpp
   pin_mux.c
-  nx_driver_imxrt_irq.c
-  nx_driver_imxrt.c
-  nx_driver_imxrt.h
 )
 platformify(hello-netx)
 target_compile_options(hello-netx PRIVATE
@@ -45,6 +42,3 @@ target_compile_options(hello-netx PRIVATE
   -Wno-cast-align
 )
 target_link_libraries(hello-netx PRIVATE netxduo)
-# target_compile_options(hello-netx PUBLIC
-#   -DBOARD_NETWORK_USE_100M_ENET_PORT=0
-# )
