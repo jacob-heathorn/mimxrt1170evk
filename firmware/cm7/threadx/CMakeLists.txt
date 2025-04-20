@@ -42,7 +42,7 @@ target_compile_options(netxduo PUBLIC
   -Wno-cast-align
 )
 target_link_libraries(netxduo PRIVATE drivers)
-#target_link_libraries(threadx PUBLIC netxduo)
+target_link_libraries(threadx PUBLIC netxduo)
 
 
 # Add forge/ftl and forge/threadx subdirectories.

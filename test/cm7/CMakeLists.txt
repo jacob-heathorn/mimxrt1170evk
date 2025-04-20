@@ -37,4 +37,3 @@ add_executable(hello-netx
   pin_mux.c
 )
 platformify(hello-netx)
-target_link_libraries(hello-netx PRIVATE netxduo)
