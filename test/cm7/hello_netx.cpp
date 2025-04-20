@@ -108,8 +108,7 @@ void send_udp_hello()
     UDPSocket socket(GigabitEthernet::instance().Ip0(), GigabitEthernet::instance().Pool0());
 
     if (!socket.open() || !socket.bind()) {
-        printf("Failed to open or bind UDP socket\r\n");
-        return;
+        assert(false && "Failed to open or bind UDP socket");
     }
 
     for (int i = 0; ; ++i) {
