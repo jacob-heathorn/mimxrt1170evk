@@ -1,5 +1,4 @@
-set(THREADX_ARCH cortex_m7)
-set(THREADX_TOOLCHAIN gnu)
+# Add threadx repository as a subdirectory
 set(TX_USER_FILE ${CMAKE_CURRENT_SOURCE_DIR}/tx_user.h)
 add_subdirectory(
   $ENV{THREADX_ROOT}
@@ -15,35 +14,6 @@ target_sources(threadx
 
 target_include_directories(threadx PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 platformify(threadx)
-
-# NETX
-set(NX_USER_FILE ${CMAKE_CURRENT_SOURCE_DIR}/nx_user.h)
-set(NXD_ENABLE_FILE_SERVERS OFF)
-add_subdirectory(
-  $ENV{NETXDUO_ROOT}
-  ${CMAKE_BINARY_DIR}/netxduo
-)
-platformify(netxduo)
-target_compile_options(netxduo PRIVATE
-  -Wno-cast-align
-  -Wno-redundant-decls
-  $<$<COMPILE_LANGUAGE:C>:-Wno-discarded-qualifiers>
-  -Wno-switch-default
-)
-target_sources(netxduo
-  PUBLIC
-    nx_user.h
-    nx_driver_imxrt_irq.c
-    nx_driver_imxrt.c
-    nx_driver_imxrt.h
-)
-target_compile_options(netxduo PUBLIC
-  -Wno-write-strings
-  -Wno-cast-align
-)
-target_link_libraries(netxduo PRIVATE drivers)
-target_link_libraries(threadx PUBLIC netxduo)
-
 
 # Add forge/ftl and forge/threadx subdirectories.
 add_subdirectory(

@@ -1,7 +1,7 @@
 add_subdirectory(drivers)
 add_subdirectory(registers)
+add_subdirectory(rtos)
 add_subdirectory(platform)
 add_subdirectory(legacy)
 add_subdirectory(startup)
-add_subdirectory(threadx)
 add_subdirectory(utils)
