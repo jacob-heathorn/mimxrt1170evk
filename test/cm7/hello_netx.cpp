@@ -6,10 +6,14 @@
 #include "stdio.h"
 #include "tx_api.h"
 #include "nx_api.h"
+#include "ftl/tx_thread.hpp"
 
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
+
+#define STACK_SIZE 2048
+uint8_t thread_1_stack[STACK_SIZE];
 
 /* Define packet pool for the demonstration.  */
 #define NX_PACKET_POOL_SIZE ((1536 + sizeof(NX_PACKET)) * 50)
@@ -102,9 +106,70 @@ int main()
   return 0;
 }
 
+// static NX_UDP_SOCKET udp_socket;
+
+void send_udp_hello()
+{
+    printf("Waiting for the link..");
+    // UINT status;
+    // ULONG actual_status;
+    // // 🟢 Wait for stack to be fully ready
+    // status = nx_ip_status_check(&ip_0, NX_IP_INITIALIZE_DONE, &actual_status, NX_WAIT_FOREVER);
+    // if (status == NX_SUCCESS) {
+    //     send_udp_hello();
+    // } else {
+    //     printf("IP initialization failed: %u\r\n", status);
+    // }
+
+    // printf("Sending hello world udp packet..");
+    // NX_PACKET *packet_ptr;
+    // ULONG remote_ip = IP_ADDRESS(192, 2, 2, 100); // Change this to your host PC IP
+    // UINT remote_port = 5001;                     // Set destination port
+
+    // // Create UDP socket
+    // status = nx_udp_socket_create(&ip_0, &udp_socket, "UDP Socket",
+    //                               NX_IP_NORMAL, NX_FRAGMENT_OKAY, NX_IP_TIME_TO_LIVE, 512);
+    // if (status != NX_SUCCESS) return;
+
+    // // Bind the socket to any port (0 = ephemeral)
+    // status = nx_udp_socket_bind(&udp_socket, 0, TX_NO_WAIT);
+    // if (status != NX_SUCCESS) return;
+
+    // // Allocate a UDP packet
+    // status = nx_packet_allocate(&pool_0, &packet_ptr, NX_UDP_PACKET, TX_NO_WAIT);
+    // if (status != NX_SUCCESS) return;
+
+    // // Add your data to the packet
+    // const char *msg = "Hello, world!";
+    // nx_packet_data_append(packet_ptr, (void *)msg, strlen(msg), &pool_0, TX_NO_WAIT);
+
+    // // Send the packet
+    // status = nx_udp_socket_send(&udp_socket, packet_ptr, remote_ip, remote_port);
+    // if (status != NX_SUCCESS) {
+    //     nx_packet_release(packet_ptr);
+    // }
+
+    // // Clean up
+    // nx_udp_socket_unbind(&udp_socket);
+    // nx_udp_socket_delete(&udp_socket);
+    while (true)
+    {
+    }
+}
+
 /* Define what the initial system looks like.  */
 VOID tx_application_define(void *first_unused_memory)
 {
+    
+    // Create hello thread.
+    static ftl::TxThread thread1(
+        "Thread 1", 
+        etl::delegate<void(void)>::create<send_udp_hello>(),
+        thread_1_stack,
+        STACK_SIZE,
+        10
+    );
+    
     UINT status;
 
     NX_PARAMETER_NOT_USED(first_unused_memory);
@@ -156,4 +221,5 @@ VOID tx_application_define(void *first_unused_memory)
     /* Check for errors.  */
     if (status)
         error_counter++;
+
 }
