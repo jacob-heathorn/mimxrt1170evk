@@ -96,7 +96,8 @@ phy_rtl8211f_resource_t g_phy_resource;
 
 #define EXAMPLE_PHY_RESOURCE    (&g_phy_resource)
 
-#define EXAMPLE_CLOCK_FREQ      BOARD_GetMDIOClock()
+#define MDIO_CLOCK_FREQ         CLOCK_GetRootClockFreq(kCLOCK_Root_Bus)
+#define EXAMPLE_CLOCK_FREQ      MDIO_CLOCK_FREQ
 
 #ifndef PHY_AUTONEGO_TIMEOUT_COUNT
 #define PHY_AUTONEGO_TIMEOUT_COUNT (100000)

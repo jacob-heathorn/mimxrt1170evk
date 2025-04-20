@@ -75,15 +75,6 @@ void IOMUXC_SelectENETClock(void)
     SDK_DelayAtLeastUs(1000, CLOCK_GetFreq(kCLOCK_CpuClk));
 }
 
-extern "C"
-{
-/* return the ENET MDIO interface clock frequency */
-uint32_t BOARD_GetMDIOClock(void)
-{
-    return CLOCK_GetRootClockFreq(kCLOCK_Root_Bus);
-}
-}
-
 int main()
 {
   // Init board hardware.
