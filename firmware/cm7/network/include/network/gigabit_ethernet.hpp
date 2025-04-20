@@ -13,4 +13,7 @@ public:
   // TODO remove
   NX_IP *Ip0();
   NX_PACKET_POOL *Pool0();
+
+  // Waits for the stack to be fully ready.
+  void WaitUntilReady();
 };

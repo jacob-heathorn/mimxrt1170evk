@@ -104,13 +104,14 @@ void send_udp_hello()
 {
     printf("Waiting for the link..\r\n");
     UINT status;
-    ULONG actual_status;
+    // ULONG actual_status;
 
-    // 🟢 Wait for stack to be fully ready
-    status = nx_ip_status_check(GigabitEthernet::instance().Ip0(), NX_IP_INITIALIZE_DONE, &actual_status, NX_WAIT_FOREVER);
-    if (status != NX_SUCCESS) {
-        printf("IP initialization failed: %u\r\n", status);
-    }
+    // // 🟢 Wait for stack to be fully ready
+    // status = nx_ip_status_check(GigabitEthernet::instance().Ip0(), NX_IP_INITIALIZE_DONE, &actual_status, NX_WAIT_FOREVER);
+    // if (status != NX_SUCCESS) {
+    //     printf("IP initialization failed: %u\r\n", status);
+    // }
+    GigabitEthernet::instance().WaitUntilReady();
 
     printf("Sending hello world udp packet..\r\n");
     ULONG remote_ip = IP_ADDRESS(192, 2, 2, 100); // Change this to your host PC IP

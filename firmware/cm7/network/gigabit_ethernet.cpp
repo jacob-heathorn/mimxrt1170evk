@@ -78,3 +78,14 @@ GigabitEthernet::GigabitEthernet()
 
 NX_IP *GigabitEthernet::Ip0() { return &ip_0; }
 NX_PACKET_POOL *GigabitEthernet::Pool0() { return &pool_0; }
+
+void GigabitEthernet::WaitUntilReady()
+{
+  UINT status;
+  ULONG actual_status;
+  status = nx_ip_status_check(GigabitEthernet::instance().Ip0(), NX_IP_INITIALIZE_DONE, &actual_status, NX_WAIT_FOREVER);
+  if (status != NX_SUCCESS) {
+      printf("IP initialization failed: %u\r\n", status);
+      assert(status == NX_SUCCESS);
+  }
+}
