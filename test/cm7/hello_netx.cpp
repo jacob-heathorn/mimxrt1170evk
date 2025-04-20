@@ -7,7 +7,7 @@
 #include "tx_api.h"
 #include "nx_api.h"
 #include "ftl/tx_thread.hpp"
-#include "network/ethernet_interface.hpp"
+#include "network/gigabit_ethernet.hpp"
 
 /*******************************************************************************
  * Definitions
@@ -174,7 +174,8 @@ VOID tx_application_define(void *first_unused_memory)
 
     // /* Initialize the NetX system.  */
     // nx_system_initialize();
-    static EthernetInterface eth0;
+    GigabitEthernet::create();
+    // static EthernetInterface eth0;
 
     /* Create a packet pool.  */
     status = nx_packet_pool_create(&pool_0, "NetX Main Packet Pool", 1536,
