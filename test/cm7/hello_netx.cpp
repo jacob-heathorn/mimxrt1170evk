@@ -120,7 +120,6 @@ void send_udp_hello()
     }
 
     printf("Sending hello world udp packet..\r\n");
-    NX_PACKET *packet_ptr;
     ULONG remote_ip = IP_ADDRESS(192, 2, 2, 100); // Change this to your host PC IP
     UINT remote_port = 5001;                     // Set destination port
 
@@ -133,18 +132,35 @@ void send_udp_hello()
     status = nx_udp_socket_bind(&udp_socket, 0, TX_NO_WAIT);
     if (status != NX_SUCCESS) return;
 
-    // Allocate a UDP packet
-    status = nx_packet_allocate(&pool_0, &packet_ptr, NX_UDP_PACKET, TX_NO_WAIT);
-    if (status != NX_SUCCESS) return;
+    int i = 0;
+    char msg[64];  // Make sure this is big enough for your message
 
-    // Add your data to the packet
-    const char *msg = "Hello, world!";
-    nx_packet_data_append(packet_ptr, (void *)msg, strlen(msg), &pool_0, TX_NO_WAIT);
+    while (true)
+    {
+        NX_PACKET *packet_ptr;
 
-    // Send the packet
-    status = nx_udp_socket_send(&udp_socket, packet_ptr, remote_ip, remote_port);
-    if (status != NX_SUCCESS) {
-        nx_packet_release(packet_ptr);
+        // Create the message
+        sprintf(msg, "Hello, world UDP %d\n", i);
+
+        // Allocate a UDP packet
+        status = nx_packet_allocate(&pool_0, &packet_ptr, NX_UDP_PACKET, TX_NO_WAIT);
+        if (status != NX_SUCCESS) return;
+
+        // Append the message to the packet
+        status = nx_packet_data_append(packet_ptr, msg, strlen(msg), &pool_0, TX_NO_WAIT);
+        if (status != NX_SUCCESS) {
+            nx_packet_release(packet_ptr);
+            continue;
+        }
+
+        // Send the packet
+        status = nx_udp_socket_send(&udp_socket, packet_ptr, remote_ip, remote_port);
+        if (status != NX_SUCCESS) {
+            nx_packet_release(packet_ptr);
+        }
+
+        ++i;
+        tx_thread_sleep(NX_IP_PERIODIC_RATE);  // Sleep ~1s to avoid flooding
     }
 
     // Clean up
