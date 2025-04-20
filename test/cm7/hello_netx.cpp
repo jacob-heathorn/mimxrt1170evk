@@ -16,34 +16,34 @@
 #define STACK_SIZE 2048
 uint8_t thread_1_stack[STACK_SIZE];
 
-/* Define packet pool for the demonstration.  */
-#define NX_PACKET_POOL_SIZE ((1536 + sizeof(NX_PACKET)) * 50)
+// /* Define packet pool for the demonstration.  */
+// #define NX_PACKET_POOL_SIZE ((1536 + sizeof(NX_PACKET)) * 50)
 
 /*******************************************************************************
  * Variables
  ******************************************************************************/
 /* Define the ThreadX and NetX object control blocks...  */
-NX_PACKET_POOL pool_0;
-NX_IP ip_0;
+// NX_PACKET_POOL pool_0;
+// NX_IP ip_0;
 
-/* Define the IP thread's stack area.  */
-ULONG ip_thread_stack[2 * 1024 / sizeof(ULONG)];
+// /* Define the IP thread's stack area.  */
+// ULONG ip_thread_stack[2 * 1024 / sizeof(ULONG)];
 
-AT_NONCACHEABLE_SECTION_ALIGN(ULONG packet_pool_area[NX_PACKET_POOL_SIZE / 4 + 4], 64);
+// AT_NONCACHEABLE_SECTION_ALIGN(ULONG packet_pool_area[NX_PACKET_POOL_SIZE / 4 + 4], 64);
 
-/* Define the ARP cache area.  */
-ULONG arp_space_area[1024 / sizeof(ULONG)];
+// /* Define the ARP cache area.  */
+// ULONG arp_space_area[1024 / sizeof(ULONG)];
 
-/* Define an error counter.  */
-ULONG error_counter;
+// /* Define an error counter.  */
+// ULONG error_counter;
 
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
-extern "C"
-{
-VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
-}
+// extern "C"
+// {
+// VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
+// }
 
 /*******************************************************************************
  * Code
@@ -105,8 +105,9 @@ void send_udp_hello()
     printf("Waiting for the link..\r\n");
     UINT status;
     ULONG actual_status;
+
     // 🟢 Wait for stack to be fully ready
-    status = nx_ip_status_check(&ip_0, NX_IP_INITIALIZE_DONE, &actual_status, NX_WAIT_FOREVER);
+    status = nx_ip_status_check(GigabitEthernet::instance().Ip0(), NX_IP_INITIALIZE_DONE, &actual_status, NX_WAIT_FOREVER);
     if (status != NX_SUCCESS) {
         printf("IP initialization failed: %u\r\n", status);
     }
@@ -116,7 +117,7 @@ void send_udp_hello()
     UINT remote_port = 5001;                     // Set destination port
 
     // Create UDP socket
-    status = nx_udp_socket_create(&ip_0, &udp_socket, "UDP Socket",
+    status = nx_udp_socket_create(GigabitEthernet::instance().Ip0(), &udp_socket, "UDP Socket",
                                   NX_IP_NORMAL, NX_FRAGMENT_OKAY, NX_IP_TIME_TO_LIVE, 512);
     if (status != NX_SUCCESS) return;
 
@@ -135,11 +136,11 @@ void send_udp_hello()
         sprintf(msg, "Hello, world UDP %d\n", i);
 
         // Allocate a UDP packet
-        status = nx_packet_allocate(&pool_0, &packet_ptr, NX_UDP_PACKET, TX_NO_WAIT);
+        status = nx_packet_allocate(GigabitEthernet::instance().Pool0(), &packet_ptr, NX_UDP_PACKET, TX_NO_WAIT);
         if (status != NX_SUCCESS) return;
 
         // Append the message to the packet
-        status = nx_packet_data_append(packet_ptr, msg, strlen(msg), &pool_0, TX_NO_WAIT);
+        status = nx_packet_data_append(packet_ptr, msg, strlen(msg), GigabitEthernet::instance().Pool0(), TX_NO_WAIT);
         if (status != NX_SUCCESS) {
             nx_packet_release(packet_ptr);
             continue;
@@ -168,7 +169,7 @@ void send_udp_hello()
 VOID tx_application_define(void *first_unused_memory)
 {
     
-    UINT status;
+    // UINT status;
 
     NX_PARAMETER_NOT_USED(first_unused_memory);
 
@@ -177,50 +178,50 @@ VOID tx_application_define(void *first_unused_memory)
     GigabitEthernet::create();
     // static EthernetInterface eth0;
 
-    /* Create a packet pool.  */
-    status = nx_packet_pool_create(&pool_0, "NetX Main Packet Pool", 1536,
-                                   (ULONG *)(((int)packet_pool_area + 15) & ~15), NX_PACKET_POOL_SIZE);
+    // /* Create a packet pool.  */
+    // status = nx_packet_pool_create(&pool_0, "NetX Main Packet Pool", 1536,
+    //                                (ULONG *)(((int)packet_pool_area + 15) & ~15), NX_PACKET_POOL_SIZE);
 
-    /* Check for pool creation error.  */
-    if (status)
-        error_counter++;
+    // /* Check for pool creation error.  */
+    // if (status)
+    //     error_counter++;
 
-    /* Create an IP instance.  */
-    status = nx_ip_create(&ip_0, "NetX IP Instance 0",
-                          IP_ADDRESS(192, 2, 2, 149), 0xFFFFFF00UL,
-                          &pool_0, nx_link_driver, (UCHAR *)ip_thread_stack, sizeof(ip_thread_stack), 1);
+    // /* Create an IP instance.  */
+    // status = nx_ip_create(&ip_0, "NetX IP Instance 0",
+    //                       IP_ADDRESS(192, 2, 2, 149), 0xFFFFFF00UL,
+    //                       &pool_0, nx_link_driver, (UCHAR *)ip_thread_stack, sizeof(ip_thread_stack), 1);
 
-    /* Check for IP create errors.  */
-    if (status)
-        error_counter++;
+    // /* Check for IP create errors.  */
+    // if (status)
+    //     error_counter++;
 
-    /* Enable ARP and supply ARP cache memory for IP Instance 0.  */
-    status = nx_arp_enable(&ip_0, (void *)arp_space_area, sizeof(arp_space_area));
+    // /* Enable ARP and supply ARP cache memory for IP Instance 0.  */
+    // status = nx_arp_enable(&ip_0, (void *)arp_space_area, sizeof(arp_space_area));
 
-    /* Check for ARP enable errors.  */
-    if (status)
-        error_counter++;
+    // /* Check for ARP enable errors.  */
+    // if (status)
+    //     error_counter++;
 
-    /* Enable TCP traffic.  */
-    status = nx_tcp_enable(&ip_0);
+    // /* Enable TCP traffic.  */
+    // status = nx_tcp_enable(&ip_0);
 
-    /* Check for TCP enable errors.  */
-    if (status)
-        error_counter++;
+    // /* Check for TCP enable errors.  */
+    // if (status)
+    //     error_counter++;
 
-    /* Enable UDP traffic.  */
-    status = nx_udp_enable(&ip_0);
+    // /* Enable UDP traffic.  */
+    // status = nx_udp_enable(&ip_0);
 
-    /* Check for UDP enable errors.  */
-    if (status)
-        error_counter++;
+    // /* Check for UDP enable errors.  */
+    // if (status)
+    //     error_counter++;
 
-    /* Enable ICMP.  */
-    status = nx_icmp_enable(&ip_0);
+    // /* Enable ICMP.  */
+    // status = nx_icmp_enable(&ip_0);
 
-    /* Check for errors.  */
-    if (status)
-        error_counter++;
+    // /* Check for errors.  */
+    // if (status)
+    //     error_counter++;
 
 
     // Create hello thread.
