@@ -29,7 +29,6 @@ ENTRY(Reset_Handler)
 
 HEAP_SIZE  = DEFINED(__heap_size__)  ? __heap_size__  : 0x0400;
 STACK_SIZE = DEFINED(__stack_size__) ? __stack_size__ : 0x0400;
-RPMSG_SHMEM_SIZE = DEFINED(__use_shmem__) ? 0x2000 : 0;
 VECTOR_RAM_SIZE = DEFINED(__ram_vector_table__) ? 0x00000400 : 0;
 TEXT_SIZE = DEFINED(__use_flash64MB__) ? 0x03FBDC00 : 0x00FBDC00;
 CORE1IMAGE_START = DEFINED(__use_flash64MB__) ? 0x33FC0000 : 0x30FC0000;
@@ -43,16 +42,13 @@ MEMORY
   m_text                (RX)  : ORIGIN = 0x30002400, LENGTH = TEXT_SIZE
   m_qacode              (RX)  : ORIGIN = 0x00000000, LENGTH = 0x00040000  /* ITCM: 256/512 KB FlexRam*/
   m_data                (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00040000  /* DTCM: 256/512 KB FlexRam*/
-  m_data2               (RW)  : ORIGIN = 0x202C0000 + RPMSG_SHMEM_SIZE, LENGTH = 0x00080000 - RPMSG_SHMEM_SIZE
-  rpmsg_sh_mem          (RW)  : ORIGIN = 0x202C0000, LENGTH = RPMSG_SHMEM_SIZE
+  m_data2               (RW)  : ORIGIN = 0x202C0000, LENGTH = 0x00080000
   m_core1_image         (RX)  : ORIGIN = CORE1IMAGE_START, LENGTH = 0x00040000
 }
 
 /* Define output sections */
 SECTIONS
 {
-  __NCACHE_REGION_START = ORIGIN(rpmsg_sh_mem);
-  __NCACHE_REGION_SIZE  = LENGTH(rpmsg_sh_mem);
 
   .flash_config :
   {
@@ -81,15 +77,6 @@ SECTIONS
      *(.core1_code*)
      . = ALIGN(4) ;
   } > m_core1_image
-
-  /* NOINIT section for rpmsg_sh_mem */
-  .noinit_rpmsg_sh_mem (NOLOAD) : ALIGN(4)
-  {
-     __RPMSG_SH_MEM_START__ = .;
-     *(.noinit.$rpmsg_sh_mem*)
-     . = ALIGN(4) ;
-     __RPMSG_SH_MEM_END__ = .;
-  } > rpmsg_sh_mem
 
   /* The startup code goes first into internal RAM */
   .interrupts :
