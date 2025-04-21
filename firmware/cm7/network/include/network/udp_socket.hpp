@@ -2,16 +2,17 @@
 
 #include "nx_api.h"
 #include <cstring>
+#include "network/ethernet_interface.hpp" // TODO forward declare?
 
-class UDPSocket {
+class UdpSocket {
+friend class GigabitEthernet; // TODO firend EthernetInterface?
+friend class EthernetInterface;
 public:
-    UDPSocket(NX_IP* ip, NX_PACKET_POOL* pool)
-        : ip_(ip), pool_(pool), socket_{} {}
+  UdpSocket(EthernetInterface &interface, NX_IP* ip, NX_PACKET_POOL* pool)
+        : interface_{interface}, ip_(ip), pool_(pool), socket_{} {}
 
-    bool open(const char* name = "UDP Socket") {
-        UINT status = nx_udp_socket_create(ip_, &socket_, (CHAR*)name,
-                                           NX_IP_NORMAL, NX_FRAGMENT_OKAY, NX_IP_TIME_TO_LIVE, 512);
-        return status == NX_SUCCESS;
+    bool open() {
+        return interface_.RegisterUdpSocket(*this);
     }
 
     bool bind(UINT port = 0) {
@@ -46,7 +47,9 @@ public:
     }
 
 private:
+    EthernetInterface &interface_;
     NX_IP* ip_;
     NX_PACKET_POOL* pool_;
     NX_UDP_SOCKET socket_;
+    char* name_ = "UdpSocket"; // TODO make unique or pass to interface.
 };

@@ -89,3 +89,10 @@ void GigabitEthernet::WaitUntilReady()
       assert(status == NX_SUCCESS);
   }
 }
+
+bool GigabitEthernet::RegisterUdpSocket(UdpSocket &sock)
+{
+  UINT status = nx_udp_socket_create(&ip_0, &sock.socket_, sock.name_,
+                                           NX_IP_NORMAL, NX_FRAGMENT_OKAY, NX_IP_TIME_TO_LIVE, 512);
+  return status == NX_SUCCESS;
+}

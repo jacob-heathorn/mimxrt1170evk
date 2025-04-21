@@ -105,7 +105,7 @@ void send_udp_hello()
     GigabitEthernet::instance().WaitUntilReady();
     printf("Starting Hello World loop...\r\n");
 
-    UDPSocket socket(GigabitEthernet::instance().Ip0(), GigabitEthernet::instance().Pool0());
+    UdpSocket socket(GigabitEthernet::instance(), GigabitEthernet::instance().Ip0(), GigabitEthernet::instance().Pool0());
 
     if (!socket.open() || !socket.bind()) {
         assert(false && "Failed to open or bind UDP socket");
