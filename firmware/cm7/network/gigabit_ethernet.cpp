@@ -94,6 +94,6 @@ void GigabitEthernet::WaitUntilReady()
 
 UdpSocket *GigabitEthernet::CreateUdpSocket()
 {
-  auto *socket = DtcmAllocator::instance().allocate<NxUdpSocket>(*this, this->Ip0(), this->Pool0());
+  auto *socket = DtcmAllocator::instance().allocate<NxUdpSocket>(*this);
   return socket;
 }

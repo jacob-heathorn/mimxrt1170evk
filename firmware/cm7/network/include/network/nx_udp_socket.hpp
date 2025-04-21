@@ -1,6 +1,7 @@
 #pragma once
 
 #include "network/udp_socket.hpp"
+#include "network/gigabit_ethernet.hpp"
 
 #include "nx_api.h"
 #include <cstring>
@@ -8,11 +9,10 @@
 class NxUdpSocket : public UdpSocket {
 public:
     // TODO give it the NxEthernetInterface?
-    NxUdpSocket(EthernetInterface &interface, NX_IP* ip, NX_PACKET_POOL* pool)
-        : interface_{interface}, ip_(ip), pool_(pool), socket_{} {}
+    NxUdpSocket(GigabitEthernet &interface) : interface_{interface} {}
 
     bool open() override {
-        UINT status = nx_udp_socket_create(ip_, &socket_, name_,
+        UINT status = nx_udp_socket_create(interface_.Ip0(), &socket_, name_,
             NX_IP_NORMAL, NX_FRAGMENT_OKAY, NX_IP_TIME_TO_LIVE, 512);
         return status == NX_SUCCESS;
     }
@@ -26,11 +26,11 @@ public:
         ULONG dest_ip = IP_ADDRESS(192, 2, 2, 100);
 
         NX_PACKET* packet;
-        if (nx_packet_allocate(pool_, &packet, NX_UDP_PACKET, TX_NO_WAIT) != NX_SUCCESS) {
+        if (nx_packet_allocate(interface_.Pool0(), &packet, NX_UDP_PACKET, TX_NO_WAIT) != NX_SUCCESS) {
             return false;
         }
 
-        if (nx_packet_data_append(packet, (void*)message, strlen(message), pool_, TX_NO_WAIT) != NX_SUCCESS) {
+        if (nx_packet_data_append(packet, (void*)message, strlen(message), interface_.Pool0(), TX_NO_WAIT) != NX_SUCCESS) {
             nx_packet_release(packet);
             return false;
         }
@@ -49,9 +49,7 @@ public:
     }
 
 private:
-    EthernetInterface &interface_;
-    NX_IP* ip_;
-    NX_PACKET_POOL* pool_;
-    NX_UDP_SOCKET socket_;
+    GigabitEthernet &interface_;
+    NX_UDP_SOCKET socket_{};
     char* name_ = "UdpSocket"; // TODO make unique or pass to interface.
 };
