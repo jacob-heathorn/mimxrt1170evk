@@ -12,7 +12,7 @@ public:
     NxUdpSocket(NxEthernetInterface &interface) : interface_{interface} {}
 
     bool open() override {
-        UINT status = nx_udp_socket_create(interface_.Ip0(), &socket_, name_,
+        UINT status = nx_udp_socket_create(interface_.Ip(), &socket_, name_,
             NX_IP_NORMAL, NX_FRAGMENT_OKAY, NX_IP_TIME_TO_LIVE, 512);
         return status == NX_SUCCESS;
     }
@@ -26,11 +26,11 @@ public:
         ULONG dest_ip = IP_ADDRESS(192, 2, 2, 100);
 
         NX_PACKET* packet;
-        if (nx_packet_allocate(interface_.Pool0(), &packet, NX_UDP_PACKET, TX_NO_WAIT) != NX_SUCCESS) {
+        if (nx_packet_allocate(interface_.Pool(), &packet, NX_UDP_PACKET, TX_NO_WAIT) != NX_SUCCESS) {
             return false;
         }
 
-        if (nx_packet_data_append(packet, (void*)message, strlen(message), interface_.Pool0(), TX_NO_WAIT) != NX_SUCCESS) {
+        if (nx_packet_data_append(packet, (void*)message, strlen(message), interface_.Pool(), TX_NO_WAIT) != NX_SUCCESS) {
             nx_packet_release(packet);
             return false;
         }

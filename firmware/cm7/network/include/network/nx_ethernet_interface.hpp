@@ -16,12 +16,16 @@ public:
   NxEthernetInterface(NxEthernetInterface&&) = delete;
   NxEthernetInterface& operator=(NxEthernetInterface&&) = delete;
 
-  // TODO remove
-  NX_IP *Ip0();
-  NX_PACKET_POOL *Pool0();
+  NX_IP *Ip() { return &ip_; }
+  NX_PACKET_POOL *Pool() {  return &pool_; };
 
   // Waits for the stack to be fully ready.
   void WaitUntilReady();
 
   UdpSocket *CreateUdpSocket() override;
+
+private:
+  NX_PACKET_POOL pool_{};
+  NX_IP ip_ {};
 };
+
