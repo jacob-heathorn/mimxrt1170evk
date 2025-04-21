@@ -99,31 +99,38 @@ int main()
   return 0;
 }
 
-void send_udp_hello()
+void echo_hello()
 {
     printf("Waiting for link...\r\n");
     GigabitEthernet::instance().WaitUntilReady();
     printf("Starting Hello World loop...\r\n");
 
-    UdpSocket *socket = GigabitEthernet::instance().CreateUdpSocket();
+    UdpSocket* socket = GigabitEthernet::instance().CreateUdpSocket();
 
     if (!socket->open() || !socket->bind()) {
         assert(false && "Failed to open or bind UDP socket");
     }
 
-    for (int i = 0; ; ++i) {
+    for (int i = 0;; ++i) {
+        // Send packet
         char msg[64];
-        sprintf(msg, "Hello, world UDP %d\n", i);
+        sprintf(msg, "Hello World %d\n", i);
 
         if (!socket->send(msg, 5001)) {
             printf("Failed to send UDP packet\n");
         }
 
-        tx_thread_sleep(NX_IP_PERIODIC_RATE);
+        // Try receiving
+        char buf[256];
+        size_t received_len = 0;
+        if (socket->receive(buf, sizeof(buf) - 1, received_len)) {
+            printf("Received UDP: %s", buf);  // already null-terminated by receive()
+        }
+
+        tx_thread_sleep(NX_IP_PERIODIC_RATE);  // ~1 second
     }
 
-    // Not reached but good practice:
-    socket->close();
+    socket->close();  // Unreachable, but good practice
 }
 
 /* Define what the initial system looks like.  */
@@ -188,7 +195,7 @@ VOID tx_application_define(void *first_unused_memory)
     // Create hello thread.
     static ftl::TxThread thread1(
         "Thread 1", 
-        etl::delegate<void(void)>::create<send_udp_hello>(),
+        etl::delegate<void(void)>::create<echo_hello>(),
         thread_1_stack,
         STACK_SIZE,
         10

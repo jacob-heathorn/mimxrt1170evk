@@ -17,5 +17,6 @@ public:
   virtual bool open() = 0;
   virtual bool bind(uint16_t port = 0) = 0;
   virtual bool send(const char* message, uint16_t port) = 0;
+  virtual bool receive(char* buffer, size_t buffer_len, size_t& out_len) = 0;
   virtual void close() = 0;
 };

@@ -43,6 +43,35 @@ public:
         return true;
     }
 
+    bool receive(char* buffer, size_t buffer_len, size_t& out_len) override {
+        NX_PACKET* packet;
+        UINT status = nx_udp_socket_receive(&socket_, &packet, NX_NO_WAIT);
+        if (status != NX_SUCCESS) {
+            return false;
+        }
+
+        // Ensure we don't overflow the buffer
+        ULONG data_len = packet->nx_packet_length;
+        if (data_len > buffer_len) {
+            // Drop the packet if too large
+            nx_packet_release(packet);
+            return false;
+        }
+
+        // Copy the payload into the provided buffer
+        ULONG copied = 0;
+        status = nx_packet_data_extract_offset(packet, 0, buffer, data_len, &copied);
+        if (status != NX_SUCCESS || copied == 0) {
+            nx_packet_release(packet);
+            return false;
+        }
+
+        out_len = copied;
+        buffer[copied] = '\0'; // Null terminate for convenience if it's a string
+        nx_packet_release(packet);
+        return true;
+    }
+
     void close() override {
         nx_udp_socket_unbind(&socket_);
         nx_udp_socket_delete(&socket_);
