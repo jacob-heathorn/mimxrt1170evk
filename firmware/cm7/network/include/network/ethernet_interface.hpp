@@ -14,5 +14,5 @@ class EthernetInterface
     EthernetInterface(EthernetInterface&&) = delete;
     EthernetInterface& operator=(EthernetInterface&&) = delete;
 
-    virtual bool RegisterUdpSocket(UdpSocket &sock) = 0;
+    virtual UdpSocket* CreateUdpSocket() = 0;
 };

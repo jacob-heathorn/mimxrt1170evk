@@ -105,9 +105,9 @@ void send_udp_hello()
     GigabitEthernet::instance().WaitUntilReady();
     printf("Starting Hello World loop...\r\n");
 
-    UdpSocket socket(GigabitEthernet::instance(), GigabitEthernet::instance().Ip0(), GigabitEthernet::instance().Pool0());
+    UdpSocket *socket = GigabitEthernet::instance().CreateUdpSocket();
 
-    if (!socket.open() || !socket.bind()) {
+    if (!socket->open() || !socket->bind()) {
         assert(false && "Failed to open or bind UDP socket");
     }
 
@@ -115,7 +115,7 @@ void send_udp_hello()
         char msg[64];
         sprintf(msg, "Hello, world UDP %d\n", i);
 
-        if (!socket.send(msg, 5001)) {
+        if (!socket->send(msg, 5001)) {
             printf("Failed to send UDP packet\n");
         }
 
@@ -123,7 +123,7 @@ void send_udp_hello()
     }
 
     // Not reached but good practice:
-    socket.close();
+    socket->close();
 }
 
 /* Define what the initial system looks like.  */

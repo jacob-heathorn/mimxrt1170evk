@@ -26,5 +26,5 @@ public:
   // Waits for the stack to be fully ready.
   void WaitUntilReady();
 
-  bool RegisterUdpSocket(UdpSocket &sock) override;
+  UdpSocket *CreateUdpSocket() override;
 };

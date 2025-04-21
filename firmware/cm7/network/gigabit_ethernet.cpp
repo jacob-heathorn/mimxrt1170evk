@@ -1,7 +1,9 @@
 #include "network/gigabit_ethernet.hpp"
+#include "network/nx_udp_socket.hpp"
 
 #include "nx_api.h"
 #include "fsl_common.h"
+#include "utils/dtcm_allocator.hpp"
 
 extern "C"
 {
@@ -90,9 +92,8 @@ void GigabitEthernet::WaitUntilReady()
   }
 }
 
-bool GigabitEthernet::RegisterUdpSocket(UdpSocket &sock)
+UdpSocket *GigabitEthernet::CreateUdpSocket()
 {
-  UINT status = nx_udp_socket_create(&ip_0, &sock.socket_, sock.name_,
-                                           NX_IP_NORMAL, NX_FRAGMENT_OKAY, NX_IP_TIME_TO_LIVE, 512);
-  return status == NX_SUCCESS;
+  auto *socket = DtcmAllocator::instance().allocate<NxUdpSocket>(*this, this->Ip0(), this->Pool0());
+  return socket;
 }
