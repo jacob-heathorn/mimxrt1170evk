@@ -1,7 +1,7 @@
 #pragma once
 
 #include "network/udp_socket.hpp"
-#include "network/gigabit_ethernet.hpp"
+#include "network/nx_ethernet_interface.hpp"
 
 #include "nx_api.h"
 #include <cstring>
@@ -9,7 +9,7 @@
 class NxUdpSocket : public UdpSocket {
 public:
     // TODO give it the NxEthernetInterface?
-    NxUdpSocket(GigabitEthernet &interface) : interface_{interface} {}
+    NxUdpSocket(NxEthernetInterface &interface) : interface_{interface} {}
 
     bool open() override {
         UINT status = nx_udp_socket_create(interface_.Ip0(), &socket_, name_,
@@ -49,7 +49,7 @@ public:
     }
 
 private:
-    GigabitEthernet &interface_;
+    NxEthernetInterface &interface_;
     NX_UDP_SOCKET socket_{};
     char* name_ = "UdpSocket"; // TODO make unique or pass to interface.
 };
