@@ -57,4 +57,15 @@ extern "C" {
             // Infinite loop to halt execution
         }
     }
+
+    int _kill(int pid, int sig) {
+        (void)pid;
+        (void)sig;
+        return 0;
+    }
+    
+    int _getpid(void) {
+        return 1;
+    }
+
 }

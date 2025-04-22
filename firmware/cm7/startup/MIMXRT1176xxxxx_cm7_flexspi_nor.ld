@@ -41,8 +41,10 @@ MEMORY
   m_interrupts          (RX)  : ORIGIN = 0x30002000, LENGTH = 0x00000400
   m_text                (RX)  : ORIGIN = 0x30002400, LENGTH = TEXT_SIZE
   m_qacode              (RX)  : ORIGIN = 0x00000000, LENGTH = 0x00040000  /* ITCM: 256/512 KB FlexRam*/
-  m_data                (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00040000  /* DTCM: 256/512 KB FlexRam*/
-  m_data2               (RW)  : ORIGIN = 0x202C0000, LENGTH = 0x00080000
+  DTCM                (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00040000  /* DTCM: 256/512 KB FlexRam*/
+  OCRAM_M4              (RW)  : ORIGIN = 0x20200000, LENGTH = 0x00040000
+  OCRAM1                (RW)  : ORIGIN = 0x20240000, LENGTH = 0x00080000
+  OCRAM2                (RW)  : ORIGIN = 0x202C0000, LENGTH = 0x00080000
   m_core1_image         (RX)  : ORIGIN = CORE1IMAGE_START, LENGTH = 0x00040000
 }
 
@@ -186,7 +188,7 @@ SECTIONS
     . += VECTOR_RAM_SIZE;
     . = ALIGN(4);
     __interrupts_ram_end__ = .; /* Define a global symbol at data end */
-  } > m_data
+  } > DTCM
 
   __VECTOR_RAM = DEFINED(__ram_vector_table__) ? __VECTOR_RAM__ : ORIGIN(m_interrupts);
   __RAM_VECTOR_TABLE_SIZE_BYTES = DEFINED(__ram_vector_table__) ? (__interrupts_ram_end__ - __interrupts_ram_start__) : 0x0;
@@ -203,7 +205,7 @@ SECTIONS
     KEEP(*(.jcr*))
     . = ALIGN(4);
     __data_end__ = .;        /* define a global symbol at data end */
-  } > m_data
+  } > DTCM
 
   __ram_function_flash_start = __DATA_ROM + (__data_end__ - __data_start__); /* Symbol is used by startup for TCM data initialization */
 
@@ -223,14 +225,14 @@ SECTIONS
     *(NonCacheable.init)
     . = ALIGN(4);
     __noncachedata_init_end__ = .;   /* create a global symbol at initialized ncache data end */
-  } > m_data
+  } > DTCM
   . = __noncachedata_init_end__;
   .ncache :
   {
     *(NonCacheable)
     . = ALIGN(4);
     __noncachedata_end__ = .;     /* define a global symbol at ncache data end */
-  } > m_data
+  } > DTCM
 
   __DATA_END = __NDATA_ROM + (__noncachedata_init_end__ - __noncachedata_start__);
   text_end = ORIGIN(m_text) + LENGTH(m_text);
@@ -250,7 +252,7 @@ SECTIONS
     . = ALIGN(4);
     __bss_end__ = .;
     __END_BSS = .;
-  } > m_data
+  } > DTCM
 
   .heap :
   {
@@ -261,26 +263,26 @@ SECTIONS
     . += HEAP_SIZE;
     __HeapLimit = .;
     __heap_limit = .; /* Add for _sbrk */
-  } > m_data
+  } > DTCM
 
   .stack :
   {
     . = ALIGN(8);
     . += STACK_SIZE;
-  } > m_data
+  } > DTCM
 
   /* Record symbols for range of unused DTCM */
   . = ALIGN(32);
-  __m_data_used_end__ = .;
-  __m_data_total_end__ = ORIGIN(m_data) + LENGTH(m_data);
+  __m_dtcm_used_end__ = .;
+  __m_dtcm_total_end__ = ORIGIN(DTCM) + LENGTH(DTCM);
 
   /* Initializes stack on the end of block */
-  __StackTop   = ORIGIN(m_data) + LENGTH(m_data);
+  __StackTop   = ORIGIN(DTCM) + LENGTH(DTCM);
   __StackLimit = __StackTop - STACK_SIZE;
   PROVIDE(__stack = __StackTop);
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
 
-  ASSERT(__StackLimit >= __HeapLimit, "region m_data overflowed with stack and heap")
+  ASSERT(__StackLimit >= __HeapLimit, "region DTCM overflowed with stack and heap")
 
 }
