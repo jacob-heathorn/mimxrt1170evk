@@ -141,56 +141,7 @@ VOID tx_application_define(void *first_unused_memory)
 
     NX_PARAMETER_NOT_USED(first_unused_memory);
 
-    // /* Initialize the NetX system.  */
-    // nx_system_initialize();
     GigabitEthernet::create();
-    // static EthernetInterface eth0;
-
-    // /* Create a packet pool.  */
-    // status = nx_packet_pool_create(&pool_0, "NetX Main Packet Pool", 1536,
-    //                                (ULONG *)(((int)packet_pool_area + 15) & ~15), NX_PACKET_POOL_SIZE);
-
-    // /* Check for pool creation error.  */
-    // if (status)
-    //     error_counter++;
-
-    // /* Create an IP instance.  */
-    // status = nx_ip_create(&ip_0, "NetX IP Instance 0",
-    //                       IP_ADDRESS(192, 2, 2, 149), 0xFFFFFF00UL,
-    //                       &pool_0, nx_link_driver, (UCHAR *)ip_thread_stack, sizeof(ip_thread_stack), 1);
-
-    // /* Check for IP create errors.  */
-    // if (status)
-    //     error_counter++;
-
-    // /* Enable ARP and supply ARP cache memory for IP Instance 0.  */
-    // status = nx_arp_enable(&ip_0, (void *)arp_space_area, sizeof(arp_space_area));
-
-    // /* Check for ARP enable errors.  */
-    // if (status)
-    //     error_counter++;
-
-    // /* Enable TCP traffic.  */
-    // status = nx_tcp_enable(&ip_0);
-
-    // /* Check for TCP enable errors.  */
-    // if (status)
-    //     error_counter++;
-
-    // /* Enable UDP traffic.  */
-    // status = nx_udp_enable(&ip_0);
-
-    // /* Check for UDP enable errors.  */
-    // if (status)
-    //     error_counter++;
-
-    // /* Enable ICMP.  */
-    // status = nx_icmp_enable(&ip_0);
-
-    // /* Check for errors.  */
-    // if (status)
-    //     error_counter++;
-
 
     // Create hello thread.
     static ftl::TxThread thread1(
