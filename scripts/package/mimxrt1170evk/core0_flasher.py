@@ -41,7 +41,7 @@ class Core0Flasher():
     print(f"{forge.helpers.GREEN_CHECK}", flush=True)
 
     # Connect gdb and reset the target.
-    print("Resetting the target with GDB... ", end="", flush=True)
+    print("Resetting the target with GDB... ", flush=True)
     args = [
         ARM_GDB,
         "-x",
@@ -65,4 +65,4 @@ class Core0Flasher():
         "load",
         application]
     subprocess.check_call(args)
-    print(f"Flash command completed {forge.helpers.GREEN_CHECK}", flush=True)
+    print(f"Flash complete {forge.helpers.GREEN_CHECK}", flush=True)
