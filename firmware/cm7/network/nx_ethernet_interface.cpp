@@ -3,7 +3,7 @@
 
 #include "nx_api.h"
 #include "fsl_common.h"
-#include "utils/dtcm_allocator.hpp"
+#include "utils/ocram2_allocator.hpp"
 
 extern "C"
 {
@@ -90,6 +90,6 @@ void NxEthernetInterface::WaitUntilReady()
 
 UdpSocket *NxEthernetInterface::CreateUdpSocket()
 {
-  auto *socket = DtcmAllocator::instance().allocate<NxUdpSocket>(*this);
+  auto *socket = Ocram2Allocator::instance().allocate<NxUdpSocket>(*this);
   return socket;
 }
