@@ -148,6 +148,14 @@ inline bool is_bufferable(uint32_t region)
   return b == 1;
 }
 
+inline uint32_t get_tex(uint32_t region)
+{
+  MPU->RNR = region;
+  uint32_t tex = (MPU->RASR >> MPU_RASR_TEX_Pos) & 0x7;
+  return tex;
+}
+
+
 inline uint32_t get_region_start_address(uint32_t region)
 {
   MPU->RNR = region;
@@ -292,38 +300,71 @@ TEST(mpu, verify_regions)
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
-  // Region 6, 1st MB of OCRAM.
-  // 2020_0000 to 2023_FFFF (256KB OCRAM M4):
-  // 2024_0000 to 202B_FFFF (512KB OCRAM1)
-  // Half of: 202C_0000 to 2033_FFFF (512KB OCRAM2): 
-  // TODO: Consider other ocram sections.
+  // Region 6, OCRAM M4
   region = 6;
   EXPECT_EQ(get_region_start_address(region), 0x20200000U);
-  EXPECT_EQ(get_region_size_kb(region), 1024U);
+  EXPECT_EQ(get_region_end_address(region), 0x2023FFFFU);
+  EXPECT_EQ(get_region_size_kb(region), 256U);
   EXPECT_TRUE(is_write_back_cacheable(region));
   EXPECT_TRUE(is_bufferable(region));
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
-  // Region 7, next 512KB of OCRAM.
-  // NOTE: Top 512KB of OCRAM, is non-cacheable defined by region 3.
+  // Region 7, OCRAM1
   region = 7;
-  EXPECT_EQ(get_region_start_address(region), 0x20300000U);
+  EXPECT_EQ(get_region_start_address(region), 0x20240000U );
+  EXPECT_EQ(get_region_end_address(region), 0x202BFFFFU);
   EXPECT_EQ(get_region_size_kb(region), 512U);
   EXPECT_TRUE(is_write_back_cacheable(region));
   EXPECT_TRUE(is_bufferable(region));
   EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
-  // Region 8, external flash.
+  // Region 8, OCRAM2 (Non-cacheable OCRAM section)
   region = 8;
+  EXPECT_EQ(get_region_start_address(region), 0x202C0000U );
+  EXPECT_EQ(get_region_end_address(region), 0x2033FFFFU);
+  EXPECT_EQ(get_region_size_kb(region), 512U);
+  EXPECT_TRUE(is_strongly_ordered(region)); // TODO is this overkill?
+  EXPECT_FALSE(is_cacheable(region));
+  EXPECT_FALSE(is_bufferable(region));
+  EXPECT_FALSE(is_shareable(region));
+  EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
+  // // Region 6, 1st MB of OCRAM.
+  // // 2020_0000 to 2023_FFFF (256KB OCRAM M4):
+  // // 2024_0000 to 202B_FFFF (512KB OCRAM1)
+  // // Half of: 202C_0000 to 2033_FFFF (512KB OCRAM2): 
+  // // TODO: Consider other ocram sections.
+  // region = 6;
+  // EXPECT_EQ(get_region_start_address(region), 0x20200000U);
+  // EXPECT_EQ(get_region_size_kb(region), 1024U);
+  // EXPECT_TRUE(is_write_back_cacheable(region));
+  // EXPECT_TRUE(is_bufferable(region));
+  // EXPECT_FALSE(is_shareable(region));
+  // EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
+  // // Region 7, next 512KB of OCRAM.
+  // // NOTE: Top 512KB of OCRAM, is non-cacheable defined by region 3.
+  // region = 7;
+  // EXPECT_EQ(get_region_start_address(region), 0x20300000U);
+  // EXPECT_EQ(get_region_size_kb(region), 512U);
+  // EXPECT_TRUE(is_write_back_cacheable(region));
+  // EXPECT_TRUE(is_bufferable(region));
+  // EXPECT_FALSE(is_shareable(region));
+  // EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
+  // Region 9, external flash.
+  region = 9;
   EXPECT_EQ(get_region_start_address(region), 0x30000000U);
   EXPECT_EQ(get_region_size_mb(region), 16U);
-  EXPECT_FALSE(is_write_back_cacheable(region));
+  EXPECT_EQ(get_tex(region), 0U);
+  EXPECT_FALSE(is_shareable(region));
   EXPECT_TRUE(is_cacheable(region));
   EXPECT_TRUE(is_bufferable(region));
-  EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eReadOnly);
+
+  // Region 10, (Still available)
 
   // Region 11, AIPS (Advanced peripheral bus system)
   region = 11;
