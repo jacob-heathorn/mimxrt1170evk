@@ -288,6 +288,11 @@ SECTIONS
       . = ALIGN(64);
   } > OCRAM2
 
+  /* Record symbols for range of unused OCRAM2 */
+  . = ALIGN(32);
+  __m_ocram2_used_end__ = .;
+  __m_ocram2_total_end__ = ORIGIN(OCRAM2) + LENGTH(OCRAM2);
+
   /* Initializes stack on the end of block */
   __StackTop   = ORIGIN(DTCM) + LENGTH(DTCM);
   __StackLimit = __StackTop - STACK_SIZE;

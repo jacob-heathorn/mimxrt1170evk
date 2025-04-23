@@ -9,6 +9,7 @@
 #include "platform/lpuart.hpp"
 #include "platform/assert_led.hpp"
 #include "utils/dtcm_allocator.hpp"
+#include "utils/ocram2_allocator.hpp"
 
 extern "C" {
 
@@ -50,6 +51,7 @@ void __pre_main_init()
 
   AssertLed::create();
   DtcmAllocator::create();
+  Ocram2Allocator::create();
   Lpuart1::create();
 }
 

@@ -9,7 +9,7 @@
 #include "registers/handwritten/dma0.hpp"
 #include "registers/codegen/dmamux0.hpp"
 #include "etl/singleton.h"
-#include "utils/dtcm_allocator.hpp"
+#include "utils/ocram2_allocator.hpp"
 #include "ftl/singleton.hpp"
 
 #include "board.h"
@@ -21,10 +21,9 @@ class Lpuart1 : public ftl::Singleton<Lpuart1>
 private:
     Lpuart1()
     {
-        // Allocate tx buffer from DTCM. DTCM is write-through cacheable so we con't need to clean
-        // the cache after writing the tx buffer and giving to the dma.
-        DtcmAllocator& dtcm = DtcmAllocator::instance();
-        this->tx_buffer_ = reinterpret_cast<uint8_t *>(dtcm.allocate(tx_buffer_size_));
+        // Allocate tx buffer from non-cacheable OCRAM.
+        Ocram2Allocator& ocram2 = Ocram2Allocator::instance();
+        this->tx_buffer_ = reinterpret_cast<uint8_t *>(ocram2.allocate(tx_buffer_size_));
         assert(tx_buffer_ != nullptr);
 
         // 1. Enable Clocks
@@ -151,7 +150,7 @@ public:
         // Wait for UART to finish transmitting.
         while (!(nLPUART1::STAT::ref().bits.TC == nLPUART1::STAT::eTC::eCOMPLETE)) {}
 
-        // Move the txBuffer. Do not need to flush the cache for DTCM write.
+        // Move the txBuffer. Do not need to flush the cache because OCRAM2 is non-cacheable.
         assert(size < tx_buffer_size_);
         memcpy(this->tx_buffer_, buffer, size);
         

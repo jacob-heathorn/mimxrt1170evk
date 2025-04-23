@@ -2,7 +2,7 @@
 add_platform_test(ut-simple ut_simple.cpp)
 add_platform_test(ut-memory
   ut_mpu.cpp
-  ut_dtcm_bump_allocator.cpp
+  ut_allocators.cpp
 )
 add_platform_test(ut-threadx
   ut_concurrency.cpp
