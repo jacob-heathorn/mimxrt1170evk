@@ -50,7 +50,7 @@ void __pre_main_init()
   BOARD_BootClockRUN();
 
   AssertLed::create();
-  //DtcmAllocator::create();
+  DtcmAllocator::create();
   Ocram2Allocator::create();
   Lpuart1::create();
 }
