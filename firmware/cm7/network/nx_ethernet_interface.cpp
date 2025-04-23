@@ -17,8 +17,10 @@ VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 /* Define the IP thread's stack area.  */
 ULONG ip_thread_stack[2 * 1024 / sizeof(ULONG)];
 
-AT_NONCACHEABLE_SECTION_ALIGN(ULONG packet_pool_area[NX_PACKET_POOL_SIZE / 4 + 4], 64);
-// ULONG packet_pool_area[NX_PACKET_POOL_SIZE / 4 + 4];
+// AT_NONCACHEABLE_SECTION_ALIGN(ULONG packet_pool_area[NX_PACKET_POOL_SIZE / 4 + 4], 64);
+// // ULONG packet_pool_area[NX_PACKET_POOL_SIZE / 4 + 4];
+__attribute__((section(".noncacheable_ocram"), aligned(64)))
+ULONG packet_pool_area[NX_PACKET_POOL_SIZE / 4 + 4];
 
 /* Define the ARP cache area.  */
 ULONG arp_space_area[1024 / sizeof(ULONG)];

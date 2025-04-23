@@ -41,7 +41,7 @@ MEMORY
   m_interrupts          (RX)  : ORIGIN = 0x30002000, LENGTH = 0x00000400
   m_text                (RX)  : ORIGIN = 0x30002400, LENGTH = TEXT_SIZE
   m_qacode              (RX)  : ORIGIN = 0x00000000, LENGTH = 0x00040000  /* ITCM: 256/512 KB FlexRam*/
-  DTCM                (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00040000  /* DTCM: 256/512 KB FlexRam*/
+  DTCM                  (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00040000  /* DTCM: 256/512 KB FlexRam*/
   OCRAM_M4              (RW)  : ORIGIN = 0x20200000, LENGTH = 0x00040000
   OCRAM1                (RW)  : ORIGIN = 0x20240000, LENGTH = 0x00080000
   OCRAM2                (RW)  : ORIGIN = 0x202C0000, LENGTH = 0x00080000
@@ -275,6 +275,18 @@ SECTIONS
   . = ALIGN(32);
   __m_dtcm_used_end__ = .;
   __m_dtcm_total_end__ = ORIGIN(DTCM) + LENGTH(DTCM);
+
+  /* Noncacheable OCRAM (OCRAM2) */
+  __noncacheable_ocram_start__ = ORIGIN(OCRAM2);
+  __noncacheable_ocram_end__   = ORIGIN(OCRAM2) + LENGTH(OCRAM2);
+
+  .noncacheable_ocram (NOLOAD) :
+  {
+      . = ALIGN(64);
+      __noncacheable_ocram__ = .;
+      *(.noncacheable_ocram*)  /* Place matching objects here */
+      . = ALIGN(64);
+  } > OCRAM2
 
   /* Initializes stack on the end of block */
   __StackTop   = ORIGIN(DTCM) + LENGTH(DTCM);

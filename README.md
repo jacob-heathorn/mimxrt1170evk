@@ -67,7 +67,7 @@ rip -f0 cm7-debug:hello-threadx -s
 
 # Netx test
 ```
-cmake --workflow --preset cm7-debug && \
+cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
 rip -d0 cm7-debug:hello-netx && \
 rip -f0 cm7-debug:hello-netx -s
 ```
