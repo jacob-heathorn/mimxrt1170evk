@@ -10,6 +10,7 @@ extern "C" {
     extern uint8_t __m_ocram2_total_end__[];
 }
 
+// Ocram2 is non-cacheable (configured by the MPU), so use it only when you need that.
 class Ocram2Allocator : public ftl::BumpAllocator, public ftl::Singleton<Ocram2Allocator> {
   friend class ftl::Singleton<Ocram2Allocator>;
 private:
