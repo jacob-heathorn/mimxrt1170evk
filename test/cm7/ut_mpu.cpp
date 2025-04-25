@@ -12,6 +12,7 @@
 #include "registers/codegen/dmamux0.hpp"
 
 #include "utils/dtcm_allocator.hpp"
+#include "utils/ocram2_allocator.hpp"
 
 // #define DMA0_BASE 0x40070000
 #define DMA_CHANNEL 1  // Choose eDMA Channel 0
@@ -118,13 +119,31 @@ TEST(mpu, verify_dtcm_non_cacheable)
 
     // Pick a distinct value and write it
     const uint32_t new_value = 0xA5A5A5A5;
-    *ptr = new_value;           // Goes straight into DTCM, bypassing D-cache
+    *ptr = new_value; // Goes straight into DTCM, bypassing D-cache
 
     // Read it back via DMA (which also bypasses D-cache)
     uint32_t dma_read = 0;
     DMA_ReadWord(ptr, &dma_read);
 
     // Because DTCM is non-cacheable, DMA should see new_value immediately
+    EXPECT_EQ(dma_read, new_value);
+}
+
+TEST(mpu, verify_ocram2_non_cacheable)
+{
+    // Allocate one 32-bit word from DTCM
+    volatile uint32_t *ptr = Ocram2Allocator::instance().allocate<uint32_t>();
+    ASSERT_NE(ptr, nullptr);
+
+    // Pick a distinct value and write it
+    const uint32_t new_value = 0xA5A5A5A5;
+    *ptr = new_value; // Goes straight into OCRAM2, bypassing D-cache
+
+    // Read it back via DMA (which also bypasses D-cache)
+    uint32_t dma_read = 0;
+    DMA_ReadWord(ptr, &dma_read);
+
+    // Because OCRAM2 is non-cacheable, DMA should see new_value immediately
     EXPECT_EQ(dma_read, new_value);
 }
 
