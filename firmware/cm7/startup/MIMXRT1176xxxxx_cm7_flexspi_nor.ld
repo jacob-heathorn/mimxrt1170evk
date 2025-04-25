@@ -276,6 +276,23 @@ SECTIONS
   __m_dtcm_used_end__ = .;
   __m_dtcm_total_end__ = ORIGIN(DTCM) + LENGTH(DTCM);
 
+  /* Cacheable OCRAM (OCRAM1) */
+  __cacheable_ocram_start__ = ORIGIN(OCRAM1);
+  __cacheable_ocram_end__   = ORIGIN(OCRAM1) + LENGTH(OCRAM1);
+
+  .cacheable_ocram (NOLOAD) :
+  {
+      . = ALIGN(64);
+      __cacheable_ocram__ = .;
+      *(.cacheable_ocram*)  /* Place matching objects here */
+      . = ALIGN(64);
+  } > OCRAM1
+
+  /* Record symbols for range of unused OCRAM1 */
+  . = ALIGN(32);
+  __m_ocram1_used_end__ = .;
+  __m_ocram1_total_end__ = ORIGIN(OCRAM1) + LENGTH(OCRAM1);
+
   /* Noncacheable OCRAM (OCRAM2) */
   __noncacheable_ocram_start__ = ORIGIN(OCRAM2);
   __noncacheable_ocram_end__   = ORIGIN(OCRAM2) + LENGTH(OCRAM2);
