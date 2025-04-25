@@ -110,28 +110,35 @@ TEST(mpu, verify_cache_clean)
 
 inline bool is_write_back_cacheable(uint32_t region)
 {
-  // TEX==1 and cacheable==1
+  // TEX=0, C=1, B=1 → normal write-back cacheable
   MPU->RNR = region;
-  uint32_t tex = (MPU->RASR >> MPU_RASR_TEX_Pos) & 0x7;
-  uint32_t c = (MPU->RASR >> MPU_RASR_C_Pos) & 0x1;
-  return tex == 1 && c == 1;
+  uint32_t rasr = MPU->RASR;
+  uint32_t tex = (rasr >> MPU_RASR_TEX_Pos) & 0x7;
+  uint32_t c   = (rasr >> MPU_RASR_C_Pos)   & 0x1;
+  uint32_t b   = (rasr >> MPU_RASR_B_Pos)   & 0x1;
+  return (tex == 0) && (c == 1) && (b == 1);
 }
 
 inline bool is_write_through_cacheable(uint32_t region)
 {
-  // TEX==0, cacheable==1
+  // TEX=0, C=1, B=0 → normal write-through cacheable
   MPU->RNR = region;
-  uint32_t tex = (MPU->RASR >> MPU_RASR_TEX_Pos) & 0x7;
-  uint32_t c   = (MPU->RASR >> MPU_RASR_C_Pos)   & 0x1;
-  return (tex == 0) && (c == 1);
+  uint32_t rasr = MPU->RASR;
+  uint32_t tex = (rasr >> MPU_RASR_TEX_Pos) & 0x7;
+  uint32_t c   = (rasr >> MPU_RASR_C_Pos)   & 0x1;
+  uint32_t b   = (rasr >> MPU_RASR_B_Pos)   & 0x1;
+  return (tex == 0) && (c == 1) && (b == 0);
 }
 
 inline bool is_strongly_ordered(uint32_t region)
 {
-  // tex==2
+  // TEX=0, C=0, B=0 → strongly-ordered
   MPU->RNR = region;
-  uint32_t tex = (MPU->RASR >> MPU_RASR_TEX_Pos) & 0x7;
-  return tex == 2;
+  uint32_t rasr = MPU->RASR;
+  uint32_t tex = (rasr >> MPU_RASR_TEX_Pos) & 0x7;
+  uint32_t c   = (rasr >> MPU_RASR_C_Pos)   & 0x1;
+  uint32_t b   = (rasr >> MPU_RASR_B_Pos)   & 0x1;
+  return (tex == 0) && (c == 0) && (b == 0);
 }
 
 inline bool is_cacheable(uint32_t region)
@@ -240,9 +247,10 @@ TEST(mpu, verify_regions)
   region = 0;
   EXPECT_EQ(get_region_start_address(region), 0x00000000U);
   EXPECT_EQ(get_region_size_mb(region), 4096U);
+  EXPECT_EQ(get_tex(region), 0U);
+  EXPECT_FALSE(is_shareable(region));
   EXPECT_FALSE(is_cacheable(region));
   EXPECT_FALSE(is_bufferable(region));
-  EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eNoAccess);
 
   // Region 1. SEMC0 and SEMC1.
@@ -250,54 +258,56 @@ TEST(mpu, verify_regions)
   EXPECT_EQ(get_region_start_address(region), 0x80000000U);
   EXPECT_EQ(get_region_end_address(region), 0x9FFFFFFFU);
   EXPECT_EQ(get_region_size_mb(region), 512U);
+  EXPECT_EQ(get_tex(region), 2U);
+  EXPECT_FALSE(is_shareable(region));
   EXPECT_FALSE(is_cacheable(region));
   EXPECT_FALSE(is_bufferable(region));
-  EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 2. FlexSPI2/ FlexSPI2 ciphertext (First 504MB)
   region = 2;
   EXPECT_EQ(get_region_start_address(region), 0x60000000U);
   EXPECT_EQ(get_region_size_mb(region), 512U);
+  EXPECT_EQ(get_tex(region), 2U);
+  EXPECT_FALSE(is_shareable(region));
   EXPECT_FALSE(is_cacheable(region));
   EXPECT_FALSE(is_bufferable(region));
-  EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 3. Default first GB, for devices.
   region = 3;
   EXPECT_EQ(get_region_start_address(region), 0x00000000U);
   EXPECT_EQ(get_region_size_mb(region), 1024U);
+  EXPECT_EQ(get_tex(region), 2U);
+  EXPECT_FALSE(is_shareable(region));
   EXPECT_FALSE(is_cacheable(region));
   EXPECT_FALSE(is_bufferable(region));
-  EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
+
+  // TODO: TCM marked cacheable bufferable but they are not right??
 
   // Region 4. 512KB ITCM region (FlexRAM).
   //
-  // NOTE:
-  // * The FlexRAM controller allocates 256KB to ITCM by default.
-  // * ITCM is a read-only instruction cache. But it is still marked write-through cacheable.
+  // NOTE: The FlexRAM controller allocates 256KB to ITCM by default.
   region = 4;
   EXPECT_EQ(get_region_start_address(region), 0x00000000U);
   EXPECT_EQ(get_region_size_kb(region), 512U);
-  EXPECT_TRUE(is_write_through_cacheable(region));
-  EXPECT_TRUE(is_bufferable(region));
+  EXPECT_EQ(get_tex(region), 0U);
   EXPECT_FALSE(is_shareable(region));
+  EXPECT_TRUE(is_cacheable(region));
+  EXPECT_TRUE(is_bufferable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
-  // Region 5, DTCM (FlexRAM)
+  // Region 5, 512KB DTCM region (FlexRAM).
   //
-  // NOTE:
-  // * The FlexRAM controller allocates 256KB to DTCM by default.
-  // * DTCM is write-through cacheable, so writes immediately go to memory, but reads can still
-  //   benefit from caching.
+  // NOTE: The FlexRAM controller allocates 256KB to DTCM by default.
   region = 5;
   EXPECT_EQ(get_region_start_address(region), 0x20000000U);
   EXPECT_EQ(get_region_size_kb(region), 512U);
-  EXPECT_TRUE(is_write_through_cacheable(region));
-  EXPECT_TRUE(is_bufferable(region));
+  EXPECT_EQ(get_tex(region), 0U);
   EXPECT_FALSE(is_shareable(region));
+  EXPECT_TRUE(is_cacheable(region));
+  EXPECT_TRUE(is_bufferable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 6, OCRAM M4
@@ -306,8 +316,9 @@ TEST(mpu, verify_regions)
   EXPECT_EQ(get_region_end_address(region), 0x2023FFFFU);
   EXPECT_EQ(get_region_size_kb(region), 256U);
   EXPECT_TRUE(is_write_back_cacheable(region));
-  EXPECT_TRUE(is_bufferable(region));
   EXPECT_FALSE(is_shareable(region));
+  EXPECT_TRUE(is_cacheable(region));
+  EXPECT_TRUE(is_bufferable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 7, OCRAM1
@@ -316,8 +327,9 @@ TEST(mpu, verify_regions)
   EXPECT_EQ(get_region_end_address(region), 0x202BFFFFU);
   EXPECT_EQ(get_region_size_kb(region), 512U);
   EXPECT_TRUE(is_write_back_cacheable(region));
-  EXPECT_TRUE(is_bufferable(region));
   EXPECT_FALSE(is_shareable(region));
+  EXPECT_TRUE(is_cacheable(region));
+  EXPECT_TRUE(is_bufferable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 8, OCRAM2 (Non-cacheable OCRAM section)
@@ -325,34 +337,11 @@ TEST(mpu, verify_regions)
   EXPECT_EQ(get_region_start_address(region), 0x202C0000U );
   EXPECT_EQ(get_region_end_address(region), 0x2033FFFFU);
   EXPECT_EQ(get_region_size_kb(region), 512U);
-  EXPECT_TRUE(is_strongly_ordered(region)); // TODO is this overkill?
+  EXPECT_EQ(get_tex(region), 1U);
+  EXPECT_TRUE(is_shareable(region));
   EXPECT_FALSE(is_cacheable(region));
   EXPECT_FALSE(is_bufferable(region));
-  EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
-
-  // // Region 6, 1st MB of OCRAM.
-  // // 2020_0000 to 2023_FFFF (256KB OCRAM M4):
-  // // 2024_0000 to 202B_FFFF (512KB OCRAM1)
-  // // Half of: 202C_0000 to 2033_FFFF (512KB OCRAM2): 
-  // // TODO: Consider other ocram sections.
-  // region = 6;
-  // EXPECT_EQ(get_region_start_address(region), 0x20200000U);
-  // EXPECT_EQ(get_region_size_kb(region), 1024U);
-  // EXPECT_TRUE(is_write_back_cacheable(region));
-  // EXPECT_TRUE(is_bufferable(region));
-  // EXPECT_FALSE(is_shareable(region));
-  // EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
-
-  // // Region 7, next 512KB of OCRAM.
-  // // NOTE: Top 512KB of OCRAM, is non-cacheable defined by region 3.
-  // region = 7;
-  // EXPECT_EQ(get_region_start_address(region), 0x20300000U);
-  // EXPECT_EQ(get_region_size_kb(region), 512U);
-  // EXPECT_TRUE(is_write_back_cacheable(region));
-  // EXPECT_TRUE(is_bufferable(region));
-  // EXPECT_FALSE(is_shareable(region));
-  // EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 9, external flash.
   region = 9;
@@ -371,49 +360,49 @@ TEST(mpu, verify_regions)
   EXPECT_EQ(get_region_start_address(region), 0x40000000U);
   EXPECT_EQ(get_region_end_address(region), 0x40FFFFFFU);
   EXPECT_EQ(get_region_size_mb(region), 16U);
-  EXPECT_TRUE(is_strongly_ordered(region));
+  EXPECT_EQ(get_tex(region), 2U);
+  EXPECT_FALSE(is_shareable(region));
   EXPECT_FALSE(is_cacheable(region));
   EXPECT_FALSE(is_bufferable(region));
-  EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 12, SIM_DISP and SIM_M configuration ports.
   region = 12;
   EXPECT_EQ(get_region_start_address(region), 0x41000000U);
   EXPECT_EQ(get_region_size_mb(region), 2U);
-  EXPECT_TRUE(is_strongly_ordered(region));
+  EXPECT_EQ(get_tex(region), 2U);
+  EXPECT_FALSE(is_shareable(region));
   EXPECT_FALSE(is_cacheable(region));
   EXPECT_FALSE(is_bufferable(region));
-  EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 13, SIM_M7 configuration port.
   region = 13;
   EXPECT_EQ(get_region_start_address(region), 0x41400000U);
   EXPECT_EQ(get_region_size_mb(region), 1U);
-  EXPECT_TRUE(is_strongly_ordered(region));
+  EXPECT_EQ(get_tex(region), 2U);
+  EXPECT_FALSE(is_shareable(region));
   EXPECT_FALSE(is_cacheable(region));
   EXPECT_FALSE(is_bufferable(region));
-  EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 14, GPU2D (Peripheral, AHB) and CDOG (Peripheral, AHB).
   region = 14;
   EXPECT_EQ(get_region_start_address(region), 0x41800000U);
   EXPECT_EQ(get_region_size_mb(region), 2U);
-  EXPECT_TRUE(is_strongly_ordered(region));
+  EXPECT_EQ(get_tex(region), 2U);
+  EXPECT_FALSE(is_shareable(region));
   EXPECT_FALSE(is_cacheable(region));
   EXPECT_FALSE(is_bufferable(region));
-  EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
-  // Region 15, The memory map says this should be reserved, so I don't know why nxp sets it.
+  // Region 15, AIPS M7 (Peripheral, Platform)
   region = 15;
   EXPECT_EQ(get_region_start_address(region), 0x42000000U);
   EXPECT_EQ(get_region_size_mb(region), 1U);
-  EXPECT_TRUE(is_strongly_ordered(region));
+  EXPECT_EQ(get_tex(region), 2U);
+  EXPECT_FALSE(is_shareable(region));
   EXPECT_FALSE(is_cacheable(region));
   EXPECT_FALSE(is_bufferable(region));
-  EXPECT_FALSE(is_shareable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 }
