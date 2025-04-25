@@ -12,6 +12,7 @@
 #include "registers/codegen/dmamux0.hpp"
 
 #include "utils/dtcm_allocator.hpp"
+#include "utils/ocram1_allocator.hpp"
 #include "utils/ocram2_allocator.hpp"
 
 // #define DMA0_BASE 0x40070000
@@ -82,32 +83,38 @@ void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
     erq.bits.ERQ1 = nDMA0::ERQ::eERQ1::eDISABLE;
 }
 
-// Define a test memory address in SRAM (must align with region size for MPU).
-#define TEST_ADDR    ((uint32_t*)0x20200000)
-
 TEST(mpu, verify_cache_clean)
 {
-  volatile uint32_t *ptr = TEST_ADDR;
-  
-  // Write a new value to the memory location (update stays in cache)
-  uint32_t old_value = *ptr; // Read the initial value from RAM (likely loads into cache)
-  uint32_t new_value = ~old_value; // Invert bits of old value to get a distinct new value
+  // Allocate a uint32_t in the write-back cacheable region (OCRAM1).
+  volatile uint32_t *ptr = Ocram1Allocator::instance().allocate<uint32_t>();
+  ASSERT_NE(ptr, nullptr);
 
-  *ptr = new_value; // Write new value - goes to D-cache (write-back mode keeps it in cache, not RAM)
-  __DMB(); // Data memory barrier to ensure write completes to cache
+  // === 1) Invalidate any old cache contents so that *ptr truly comes from RAM ===
+  SCB_InvalidateDCache_by_Addr(const_cast<uint32_t*>(ptr), sizeof(*ptr));
+  __DSB(); 
+  __ISB();
 
-  // Use a DMA to read the memory location directly from RAM to confirm old value is still there.
+  // Read the “old” value and cache it
+  uint32_t old_value = *ptr;
+
+  // === 2) Write a new value into that cache line (stays in D-cache, not RAM) ===
+  uint32_t new_value = ~old_value;
+  *ptr = new_value;
+  __DSB();    // make sure the store completes to the cache
+
+  // === 3) DMA-read directly from RAM; must still see old_value ===
   uint32_t ram_read_val = 0;
-  DMA_ReadWord((uint32_t *)ptr, &ram_read_val);
+  DMA_ReadWord(ptr, &ram_read_val);
   EXPECT_EQ(ram_read_val, old_value);
 
-  // Clean the D-Cache to write back the updated value to RAM
-  SCB_CleanDCache_by_Addr(ptr, sizeof(ptr)); // Flush cache line for our address to RAM
-  __DSB();  // Data sync barrier to ensure cache clean completes
+  // === 4) Clean (flush) that cache line back to RAM ===
+  SCB_CleanDCache_by_Addr(const_cast<uint32_t*>(ptr), sizeof(*ptr));
+  __DSB();
+  __ISB();
 
-  // Read RAM again to verify it now contains the updated value.
+  // === 5) DMA-read again; now RAM must have new_value ===
   uint32_t ram_read_val_after = 0;
-  DMA_ReadWord(ptr, &ram_read_val_after); // Read from RAM via DMA again
+  DMA_ReadWord(ptr, &ram_read_val_after);
   EXPECT_EQ(ram_read_val_after, new_value);
 }
 
