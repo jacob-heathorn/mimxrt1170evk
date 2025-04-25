@@ -119,7 +119,6 @@ TEST(mpu, verify_dtcm_non_cacheable)
     // Pick a distinct value and write it
     const uint32_t new_value = 0xA5A5A5A5;
     *ptr = new_value;           // Goes straight into DTCM, bypassing D-cache
-    __DMB();                    // Ensure the store has completed
 
     // Read it back via DMA (which also bypasses D-cache)
     uint32_t dma_read = 0;
