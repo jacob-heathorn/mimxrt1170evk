@@ -154,6 +154,14 @@ TEST(mpu, verify_ocram2_non_cacheable)
     EXPECT_EQ(dma_read, new_value);
 }
 
+static inline bool is_executable(uint32_t region)
+{
+    MPU->RNR = region;  // select MPU region
+    // XN == 0 → executable, XN == 1 → execute-never
+    uint32_t xn = (MPU->RASR >> MPU_RASR_XN_Pos) & 0x1;
+    return (xn == 0);
+}
+
 inline bool is_write_back_cacheable(uint32_t region)
 {
   // TEX=0, C=1, B=1 → normal write-back cacheable
@@ -338,10 +346,11 @@ TEST(mpu, verify_regions)
   region = 4;
   EXPECT_EQ(get_region_start_address(region), 0x00000000U);
   EXPECT_EQ(get_region_size_kb(region), 512U);
+  EXPECT_TRUE(is_executable(region));
   EXPECT_EQ(get_tex(region), 0U);
   EXPECT_FALSE(is_shareable(region));
-  EXPECT_TRUE(is_cacheable(region));
-  EXPECT_TRUE(is_bufferable(region));
+  EXPECT_FALSE(is_cacheable(region));
+  EXPECT_FALSE(is_bufferable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 5, 512KB DTCM region (FlexRAM).
@@ -350,10 +359,11 @@ TEST(mpu, verify_regions)
   region = 5;
   EXPECT_EQ(get_region_start_address(region), 0x20000000U);
   EXPECT_EQ(get_region_size_kb(region), 512U);
+  EXPECT_FALSE(is_executable(region));
   EXPECT_EQ(get_tex(region), 0U);
   EXPECT_FALSE(is_shareable(region));
-  EXPECT_TRUE(is_cacheable(region));
-  EXPECT_TRUE(is_bufferable(region));
+  EXPECT_FALSE(is_cacheable(region));
+  EXPECT_FALSE(is_bufferable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
   // Region 6, OCRAM M4
