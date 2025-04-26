@@ -338,8 +338,6 @@ TEST(mpu, verify_regions)
   EXPECT_FALSE(is_bufferable(region));
   EXPECT_EQ(get_memory_access(region), eMemoryAccess::eFullAccess);
 
-  // TODO: TCM marked cacheable bufferable but they are not right??
-
   // Region 4. 512KB ITCM region (FlexRAM).
   //
   // NOTE: The FlexRAM controller allocates 256KB to ITCM by default.
