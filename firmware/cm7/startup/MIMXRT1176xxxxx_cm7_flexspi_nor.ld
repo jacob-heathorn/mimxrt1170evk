@@ -40,7 +40,7 @@ MEMORY
   m_ivt                 (RX)  : ORIGIN = 0x30001000, LENGTH = 0x00001000
   m_interrupts          (RX)  : ORIGIN = 0x30002000, LENGTH = 0x00000400
   m_text                (RX)  : ORIGIN = 0x30002400, LENGTH = TEXT_SIZE
-  m_qacode              (RX)  : ORIGIN = 0x00000000, LENGTH = 0x00040000  /* ITCM: 256/512 KB FlexRam*/
+  ITCM                  (RX)  : ORIGIN = 0x00000000, LENGTH = 0x00040000  /* ITCM: 256/512 KB FlexRam*/
   DTCM                  (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00040000  /* DTCM: 256/512 KB FlexRam*/
   OCRAM_M4              (RW)  : ORIGIN = 0x20200000, LENGTH = 0x00040000
   OCRAM1                (RW)  : ORIGIN = 0x20240000, LENGTH = 0x00080000
@@ -216,7 +216,7 @@ SECTIONS
     *(CodeQuickAccess)
     . = ALIGN(128);
     __ram_function_end__ = .;
-  } > m_qacode
+  } > ITCM
 
   __NDATA_ROM = __ram_function_flash_start + (__ram_function_end__ - __ram_function_start__);
   .ncache.init : AT(__NDATA_ROM)
