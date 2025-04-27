@@ -23,7 +23,7 @@ private:
     {
         // Allocate tx buffer from non-cacheable OCRAM.
         Ocram2Allocator& ocram2 = Ocram2Allocator::instance();
-        this->tx_buffer_ = reinterpret_cast<uint8_t *>(ocram2.allocate(tx_buffer_size_));
+        this->tx_buffer_ = reinterpret_cast<uint8_t *>(ocram2.allocate(tx_buffer_size_, 4));
         assert(tx_buffer_ != nullptr);
 
         // 1. Enable Clocks
@@ -123,80 +123,91 @@ private:
         ctrl.bits.RWU = nLPUART1::CTRL::eRWU::eNO_EFFECT;
         ctrl.bits.RE = nLPUART1::CTRL::eRE::eENABLED;
         ctrl.bits.TE = nLPUART1::CTRL::eTE::eDISABLED;  // Disable TX until DMA ready
+
+
+        auto &citer = nDMA0::TCD_CITER_ELINKNO<0>::ref();
+        citer.bits.CITER = 0;
+        citer.bits.ELINK = 0;
+        auto &biter = nDMA0::TCD_BITER_ELINKNO<0>::ref();
+        biter.bits.BITER = 0;
+        biter.bits.ELINK = 0;
     }
 
 public:
-    void write(const uint8_t *buffer, uint16_t size)
-    {
+    void write(const uint8_t *buffer, uint16_t size) {
+        // References to DMA and UART registers
         auto &csr = nDMA0::TCD_CSR<0>::ref();
         auto &citer = nDMA0::TCD_CITER_ELINKNO<0>::ref();
         auto &biter = nDMA0::TCD_BITER_ELINKNO<0>::ref();
         auto &doff = nDMA0::TCD_DOFF<0>::ref();
         auto &soff = nDMA0::TCD_SOFF<0>::ref();
-        auto &nbytes = nDMA0::TCD_NBYTES_MLOFFNO<0>::ref();
         auto &saddr = nDMA0::TCD_SADDR<0>::ref();
         auto &daddr = nDMA0::TCD_DADDR<0>::ref();
         auto &attr = nDMA0::TCD_ATTR<0>::ref();
+        auto &nbytes = nDMA0::TCD_NBYTES_MLNO<0>::ref();
+        auto &es = nDMA0::ES::ref();
         auto &erq = nDMA0::ERQ::ref();
         auto &serq = nDMA0::SERQ::ref();
+        auto &chcfg0 = nDMAMUX0::CHCFG_0::ref();
+        auto &ctrl = nLPUART1::CTRL::ref();
+        auto &baud = nLPUART1::BAUD::ref();
+        //auto &stat = nLPUART1::STAT::ref();
+        auto &lpuart_data = nLPUART1::DATA::ref();
 
-        // TODO check and handle es.
-        auto &es = nDMA0::ES::ref();
+        // 1. Reset DMA error status
         es.Reset();
 
-        // TODO: CITER is not decrimenting properly, it gets stuck at 2, so we check the uart status
-        // instead.
-        //
-        // Wait for UART to finish transmitting.
-        while (!(nLPUART1::STAT::ref().bits.TC == nLPUART1::STAT::eTC::eCOMPLETE)) {}
+        // 2. Wait for UART to finish any ongoing transmission
+        auto &stat = nLPUART1::STAT::ref();
+        while (stat.bits.TC != nLPUART1::STAT::eTC::eCOMPLETE) {}
+        // auto &citer = nDMA0::TCD_CITER_ELINKNO<0>::ref();
+        // while (citer.bits.CITER != 0) {}
 
-        // Move the txBuffer. Do not need to flush the cache because OCRAM2 is non-cacheable.
-        assert(size < tx_buffer_size_);
+        // 3. Disable UART transmitter and DMA requests
+        ctrl.bits.TE = nLPUART1::CTRL::eTE::eDISABLED;
+        baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eDISABLED;
+        erq.bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;
+
+        // 4. Copy data to tx_buffer_ (assuming OCRAM2 is non-cacheable)
+        assert(size <= tx_buffer_size_);
         memcpy(this->tx_buffer_, buffer, size);
-        
-        // Disable DMA requests
-        nDMA0::ERQ::ref().bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;
 
-        // Clear DONE and any pending status
-        csr.bits.DONE = 1;
-        
-        // Configure DMA TCD
-        auto &lpuart_data = nLPUART1::DATA::ref();
+        // 5. Clear cache if necessary (remove if OCRAM2 is non-cacheable)
+        // SCB_CleanDCache_by_Addr(tx_buffer_, tx_buffer_size_);
+        __DSB();
+        __ISB();
+
+        // 6. Configure DMA TCD
+        csr.bits.DONE = 1; // Clear any old "done" flag
+        csr.bits.DREQ = 0; // Prevent auto-disable on major-loop complete
+        csr.bits.INTMAJOR = 1; // Generate interrupt at major complete
+
         saddr.value = (uint32_t)tx_buffer_;
         daddr.value = (uint32_t)&lpuart_data.value;
-        soff.bits.SOFF = 1;  // Increment source by 1 byte
-        doff.bits.DOFF = 0;  // No dest increment
-
-        nbytes.bits.DMLOE = 0;
-        nbytes.bits.SMLOE = 0;
+        soff.bits.SOFF = 1; // Increment source by 1 byte
+        doff.bits.DOFF = 0; // No destination increment
         nbytes.bits.NBYTES = 1; // 1 byte per minor loop
-
-        attr.bits.SSIZE = 0; // 8 bit transfers.
-        attr.bits.DSIZE = 0; // 8 bit transfers.
-
+        attr.bits.SSIZE = 0; // 8-bit source transfers
+        attr.bits.DSIZE = 0; // 8-bit destination transfers
         biter.bits.BITER = size;
         citer.bits.CITER = size;
 
-        csr.bits.INTMAJOR = 1;
-
-        // Configure DMAMUX
-        auto &chcfg0 = nDMAMUX0::CHCFG_0::ref();
-        chcfg0.bits.SOURCE = 8;  // LPUART1 TX (RM Table 4-3)
+        // 7. Configure DMAMUX
+        chcfg0.bits.SOURCE = 8; // LPUART1 TX (RM Table 4-3)
         chcfg0.bits.ENBL = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
 
-        // Enable DMA Channel
+        // 8. Clear any pending DMA requests
+        serq.Reset();
+
+        // 9. Enable UART transmitter and DMA trigger
+        ctrl.bits.TE = nLPUART1::CTRL::eTE::eENABLED;
+        baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eENABLED;
+
+        // 10. Enable DMA channel and trigger transfer
         erq.bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
-        serq.Reset(); // Clear any pending requests
-
-        // 6. Enable UART Transmitter and DMA
-        auto &ctrl = nLPUART1::CTRL::ref();
-        auto &baud = nLPUART1::BAUD::ref();
-        ctrl.bits.TE = nLPUART1::CTRL::eTE::eENABLED;  // Enable TX now
-        baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eENABLED;  // Enable DMA trigger
-
-        // // 7. Start DMA Transfer
-        // nDMA0::SSRT::ref().bits.SSRT = 1; // Trigger DMA
+        nDMA0::SSRT::ref().bits.SSRT = 1; // Trigger DMA
     }
+
 
     int read(uint8_t *buffer, size_t max_length)
     {
@@ -223,6 +234,6 @@ public:
         return (uint8_t)(data.value & 0xFF);
     }
 private:
-    static constexpr uint32_t tx_buffer_size_ = 100;
+    static constexpr uint32_t tx_buffer_size_ = 256;
     uint8_t *tx_buffer_ = nullptr;
 };

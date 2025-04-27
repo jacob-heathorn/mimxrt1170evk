@@ -132,6 +132,24 @@ union TCD_ATTR {
 
 // TCDn_NBYTES_MLOFFNO
 template<uint32_t N>
+union TCD_NBYTES_MLNO {
+  
+  // Bit field definition.
+  struct {
+    uint32_t NBYTES : 32;
+  } bits;
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  TCD_NBYTES_MLNO() = delete;
+  static inline volatile TCD_NBYTES_MLNO &ref() {
+    return *reinterpret_cast<volatile TCD_NBYTES_MLNO*>(k_dma0_base + 0x1008 + (N * 0x20));
+  }
+};
+
+// TCDn_NBYTES_MLOFFNO
+template<uint32_t N>
 union TCD_NBYTES_MLOFFNO {
   
   // Bit field definition.

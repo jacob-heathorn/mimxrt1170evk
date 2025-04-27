@@ -42,6 +42,9 @@ void SystemInitHook(void)
 
 void __pre_main_init()
 {
+  static char linebuf[128];
+  setvbuf(stdout, linebuf, _IOLBF, sizeof(linebuf));
+
   // Initialize MCMGR, install generic event handlers.
   (void)MCMGR_Init();
 

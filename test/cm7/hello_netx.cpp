@@ -95,6 +95,7 @@ int main()
   SDK_DelayAtLeastUs(60000, CLOCK_GetFreq(kCLOCK_CpuClk));
 
   printf("Entering the kernel..\n\r");
+  fflush(stdout);
   tx_kernel_enter();
   return 0;
 }
@@ -114,10 +115,10 @@ void echo_hello()
     for (int i = 0;; ++i) {
         // Send packet
         char msg[64];
-        sprintf(msg, "Hello World %d\n", i);
+        sprintf(msg, "Hello World %d\r\n", i);
 
         if (!socket->send(msg, 5001)) {
-            printf("Failed to send UDP packet\n");
+            printf("Failed to send UDP packet\r\n");
         }
 
         // Try receiving
