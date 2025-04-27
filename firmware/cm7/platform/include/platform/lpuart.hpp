@@ -172,15 +172,10 @@ public:
         assert(size <= tx_buffer_size_);
         memcpy(this->tx_buffer_, buffer, size);
 
-        // 5. Clear cache if necessary (remove if OCRAM2 is non-cacheable)
-        // SCB_CleanDCache_by_Addr(tx_buffer_, tx_buffer_size_);
-        __DSB();
-        __ISB();
-
         // 6. Configure DMA TCD
         csr.bits.DONE = 1; // Clear any old "done" flag
         csr.bits.DREQ = 0; // Prevent auto-disable on major-loop complete
-        csr.bits.INTMAJOR = 1; // Generate interrupt at major complete
+        // csr.bits.INTMAJOR = 1; // Generate interrupt at major complete
 
         saddr.value = (uint32_t)tx_buffer_;
         daddr.value = (uint32_t)&lpuart_data.value;
