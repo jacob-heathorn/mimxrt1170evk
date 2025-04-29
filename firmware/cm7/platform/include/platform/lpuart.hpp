@@ -126,7 +126,7 @@ private:
         ctrl.bits.RE = nLPUART1::CTRL::eRE::eENABLED;
         ctrl.bits.TE = nLPUART1::CTRL::eTE::eDISABLED;  // Disable TX until DMA ready
 
-        // Clear done flag in case it is set.
+        // Set done flag in case we inherit a different state.
         auto &csr      = nDMA0::TCD_CSR<0>::ref();
         csr.bits.DONE = 1;
     }
@@ -134,7 +134,7 @@ private:
 public:
     void write(const uint8_t *buffer, uint16_t size)
     {
-        //─── 0. Handy refs ──────────────────────────────────────────────────────────
+        //─── Handy refs ────────────────────────────────────────────────────────
         auto &csr      = nDMA0::TCD_CSR<0>::ref();
         auto &citer    = nDMA0::TCD_CITER_ELINKNO<0>::ref();
         auto &biter    = nDMA0::TCD_BITER_ELINKNO<0>::ref();
