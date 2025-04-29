@@ -310,7 +310,6 @@ Reset_Handler:
  *      linker script.
  *      __etext: End of code section, i.e., begin of data sections to copy from.
  *      __data_start__/__data_end__: RAM address range that data should be
- *      __noncachedata_start__/__noncachedata_end__ : none cachable region
  *      __ram_function_start__/__ram_function_end__ : ramfunction region
  *      copied to. Both must be aligned to 4 bytes boundary.  */
 
@@ -362,38 +361,6 @@ Reset_Handler:
     blt    .LC_ramfunc_copy_start
 #endif
 #endif /* __STARTUP_INITIALIZE_RAMFUNCTION */
-#ifdef __STARTUP_INITIALIZE_NONCACHEDATA
-    ldr    r2, =__noncachedata_start__
-    ldr    r3, =__noncachedata_init_end__
-#ifdef __PERFORMANCE_IMPLEMENTATION
-/* Here are two copies of loop implementations. First one favors performance
- * and the second one favors code size. Default uses the second one.
- * Define macro "__PERFORMANCE_IMPLEMENTATION" in project to use the first one */
-    subs    r3, r2
-    ble    .LC3
-.LC2:
-    subs    r3, #4
-    ldr    r0, [r1, r3]
-    str    r0, [r2, r3]
-    bgt    .LC2
-.LC3:
-#else  /* code size implemenation */
-.LC2:
-    cmp     r2, r3
-    ittt    lt
-    ldrlt   r0, [r1], #4
-    strlt   r0, [r2], #4
-    blt    .LC2
-#endif
-/* zero inited ncache section initialization */
-    ldr r3, =__noncachedata_end__
-    movs    r0,0
-.LC4:
-    cmp    r2,r3
-    itt    lt
-    strlt   r0,[r2],#4
-    blt    .LC4
-#endif /* __STARTUP_INITIALIZE_NONCACHEDATA */
 
 #ifdef __STARTUP_CLEAR_BSS
 /*     This part of work usually is done in C library startup code. Otherwise,

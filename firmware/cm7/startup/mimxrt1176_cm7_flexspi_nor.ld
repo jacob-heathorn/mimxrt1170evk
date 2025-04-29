@@ -218,23 +218,7 @@ SECTIONS
     __ram_function_end__ = .;
   } > ITCM
 
-  __NDATA_ROM = __ram_function_flash_start + (__ram_function_end__ - __ram_function_start__);
-  .ncache.init : AT(__NDATA_ROM)
-  {
-    __noncachedata_start__ = .;   /* create a global symbol at ncache data start */
-    *(NonCacheable.init)
-    . = ALIGN(4);
-    __noncachedata_init_end__ = .;   /* create a global symbol at initialized ncache data end */
-  } > DTCM
-  . = __noncachedata_init_end__;
-  .ncache :
-  {
-    *(NonCacheable)
-    . = ALIGN(4);
-    __noncachedata_end__ = .;     /* define a global symbol at ncache data end */
-  } > DTCM
-
-  __DATA_END = __NDATA_ROM + (__noncachedata_init_end__ - __noncachedata_start__);
+  __DATA_END = ORIGIN(DTCM) + LENGTH(DTCM);
   text_end = ORIGIN(m_text) + LENGTH(m_text);
   ASSERT(__DATA_END <= text_end, "region m_text overflowed with text and data")
 

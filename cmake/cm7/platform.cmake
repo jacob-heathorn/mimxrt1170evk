@@ -93,7 +93,6 @@ function(add_platform_flags target)
     -ffreestanding
     -fno-builtin
     -D__STARTUP_CLEAR_BSS
-    -D__STARTUP_INITIALIZE_NONCACHEDATA
   )
 
 endfunction()
