@@ -126,13 +126,7 @@ private:
         ctrl.bits.RE = nLPUART1::CTRL::eRE::eENABLED;
         ctrl.bits.TE = nLPUART1::CTRL::eTE::eDISABLED;  // Disable TX until DMA ready
 
-
-        auto &citer = nDMA0::TCD_CITER_ELINKNO<0>::ref();
-        citer.bits.CITER = 0;
-        citer.bits.ELINK = 0;
-        auto &biter = nDMA0::TCD_BITER_ELINKNO<0>::ref();
-        biter.bits.BITER = 0;
-        biter.bits.ELINK = 0;
+        // Clear done flag in case it is set.
         auto &csr      = nDMA0::TCD_CSR<0>::ref();
         csr.bits.DONE = 1;
     }
@@ -158,7 +152,7 @@ public:
         auto &baud     = nLPUART1::BAUD::ref();
         auto &ldata    = nLPUART1::DATA::ref();
 
-        //─── Wait for completion of the previous write ────────────────────────────────────────────
+        //─── Wait for completion of the previous write ─────────────────────────
         while (!csr.bits.DONE) {}
 
         //─── Tear down any ongoing transfer ────────────────────────────────────
@@ -171,15 +165,15 @@ public:
         erq.bits.ERQ0     = nDMA0::ERQ::eERQ0::eDISABLE;
 
         //─── Clear sticky flags ───────────────────────────────────────────────
-        es.Reset();       // clear any eDMA error
+        es.Reset();         // clear any eDMA error
         csr.bits.DONE = 1;  // clear DONE
         csr.bits.DREQ = 1;  // prevent auto-disable on completion
 
-        //─── Copy the data & clean cache ────────────────────────────────────
+        //─── Copy the data (No cache clean necesarry for OCRAM2 ───────────────
         assert(size <= kTxBufferSize);
         memcpy(tx_buffer_, buffer, size);
 
-        //─── Reconfigure the TCD ─────────────────────────────────────────────
+        //─── Reconfigure the TCD ──────────────────────────────────────────────
         saddr.value        = (uint32_t)tx_buffer_;
         soff.bits.SOFF     = 1;          // step source by 1 byte
         daddr.value        = (uint32_t)&ldata.value;
@@ -188,9 +182,11 @@ public:
         attr.bits.SSIZE    = 0;          // 8-bit transfers
         attr.bits.DSIZE    = 0;
         biter.bits.BITER   = size;       // set major-loop count
+        biter.bits.ELINK   = 0;
         citer.bits.CITER   = size;       // must load *after* BITER
+        citer.bits.ELINK   = 0;
 
-        //─── Arm DMAMUX & clear pending requests ────────────────────────────
+        //─── Arm DMAMUX & clear pending requests ─────────────────────────────
         chcfg0.bits.SOURCE = 8;         // LPUART1 TX
         chcfg0.bits.ENBL   = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
         serq.Reset();                   // clear any stale request
