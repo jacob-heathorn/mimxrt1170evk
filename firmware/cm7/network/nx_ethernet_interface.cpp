@@ -11,10 +11,6 @@ extern "C"
 VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 }
 
-
-/* Define packet pool for the demonstration.  */
-#define NX_PACKET_POOL_SIZE ((1536 + sizeof(NX_PACKET)) * 50)
-
 /* Define the IP thread's stack area.  */
 ULONG ip_thread_stack[2 * 1024 / sizeof(ULONG)];
 
@@ -28,10 +24,10 @@ NxEthernetInterface::NxEthernetInterface()
 
   nx_system_initialize();
   // Create a packet pool.
-  void* packet_pool_area = Ocram2Allocator::instance().allocate(NX_PACKET_POOL_SIZE, 64);
+  void* packet_pool_area = Ocram2Allocator::instance().allocate(NxEthernetInterface::kPacketPoolSize, 64);
   assert(packet_pool_area != nullptr);
-  status = nx_packet_pool_create(&pool_, "NetX Main Packet Pool", 1536,
-    (ULONG *)(((int)packet_pool_area + 15) & ~15), NX_PACKET_POOL_SIZE);
+  status = nx_packet_pool_create(&pool_, "NetX Main Packet Pool", NxEthernetInterface::kMaxPacketSize,
+    (ULONG *)(((int)packet_pool_area + 15) & ~15), NxEthernetInterface::kPacketPoolSize);
 
   // Check for pool creation error.
   if (status) {

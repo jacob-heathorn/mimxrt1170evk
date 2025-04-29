@@ -2,12 +2,17 @@
 
 #include "nx_api.h"
 #include "network/ethernet_interface.hpp"
+#include "stdint.h"
 
 class UdpSocket;
 
 class NxEthernetInterface : public EthernetInterface
 {
 public:
+  static constexpr uint32_t kMaxPacketSize = 1536;
+  static constexpr uint32_t kNumPackets = 50;
+  static constexpr uint32_t kPacketPoolSize = ((kMaxPacketSize + sizeof(NX_PACKET)) * kNumPackets);
+
   NxEthernetInterface();
   ~NxEthernetInterface() override = default;
 
