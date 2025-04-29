@@ -42,7 +42,8 @@ void SystemInitHook(void)
 
 void __pre_main_init()
 {
-  static char linebuf[128];
+  // Set the printf buffer size and behavior to flush on newline.
+  static char linebuf[Lpuart1::kTxBufferSize];
   setvbuf(stdout, linebuf, _IOLBF, sizeof(linebuf));
 
   // Initialize MCMGR, install generic event handlers.

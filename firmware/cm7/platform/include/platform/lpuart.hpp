@@ -18,12 +18,14 @@
 class Lpuart1 : public ftl::Singleton<Lpuart1>
 {
     friend class ftl::Singleton<Lpuart1>;
+public:
+    static constexpr uint32_t kTxBufferSize = 128;
 private:
     Lpuart1()
     {
         // Allocate tx buffer from non-cacheable OCRAM.
         Ocram2Allocator& ocram2 = Ocram2Allocator::instance();
-        this->tx_buffer_ = reinterpret_cast<uint8_t *>(ocram2.allocate(tx_buffer_size_, 4));
+        this->tx_buffer_ = reinterpret_cast<uint8_t *>(ocram2.allocate(kTxBufferSize, 4));
         assert(tx_buffer_ != nullptr);
 
         // 1. Enable Clocks
@@ -154,10 +156,12 @@ public:
         auto &chcfg0   = nDMAMUX0::CHCFG_0::ref();
         auto &ctrl     = nLPUART1::CTRL::ref();
         auto &baud     = nLPUART1::BAUD::ref();
-        // auto &stat     = nLPUART1::STAT::ref();
         auto &ldata    = nLPUART1::DATA::ref();
 
-        //─── 1. Tear down any ongoing transfer ────────────────────────────────────
+        //─── Wait for completion of the previous write ────────────────────────────────────────────
+        while (!csr.bits.DONE) {}
+
+        //─── Tear down any ongoing transfer ────────────────────────────────────
         // Disable UART + its DMA trigger
         ctrl.bits.TE      = nLPUART1::CTRL::eTE::eDISABLED;
         baud.bits.TDMAE   = nLPUART1::BAUD::eTDMAE::eDISABLED;
@@ -165,47 +169,37 @@ public:
         chcfg0.bits.ENBL  = nDMAMUX0::CHCFG_0::eENBL::eENBL_0;
         // Disable DMA requests
         erq.bits.ERQ0     = nDMA0::ERQ::eERQ0::eDISABLE;
-        // Optionally wait for the channel to really go idle
-        while (!csr.bits.DONE) { /* spin until last transfer is fully done */ }
 
-        //─── 2. Clear sticky flags ───────────────────────────────────────────────
+        //─── Clear sticky flags ───────────────────────────────────────────────
         es.Reset();       // clear any eDMA error
         csr.bits.DONE = 1;  // clear DONE
         csr.bits.DREQ = 1;  // prevent auto-disable on completion
 
-        //─── 3. Copy your data & clean cache ────────────────────────────────────
-        assert(size <= tx_buffer_size_);
+        //─── Copy the data & clean cache ────────────────────────────────────
+        assert(size <= kTxBufferSize);
         memcpy(tx_buffer_, buffer, size);
-        SCB_CleanDCache_by_Addr(tx_buffer_, tx_buffer_size_);
-        __DSB();
-        __ISB();
 
-        //─── 4. Reconfigure the TCD ─────────────────────────────────────────────
-        saddr.value       = (uint32_t)tx_buffer_;
-        soff.bits.SOFF    = 1;          // step source by 1 byte
-        daddr.value       = (uint32_t)&ldata.value;
-        doff.bits.DOFF    = 0;          // keep dest fixed
-        nbytes.bits.NBYTES= 1;          // 1 byte per minor-loop
-        attr.bits.SSIZE   = 0;          // 8-bit transfers
-        attr.bits.DSIZE   = 0;
-        biter.bits.BITER  = size;       // set major-loop count
-        citer.bits.CITER  = size;       // must load *after* BITER
+        //─── Reconfigure the TCD ─────────────────────────────────────────────
+        saddr.value        = (uint32_t)tx_buffer_;
+        soff.bits.SOFF     = 1;          // step source by 1 byte
+        daddr.value        = (uint32_t)&ldata.value;
+        doff.bits.DOFF     = 0;          // keep dest fixed
+        nbytes.bits.NBYTES = 1;          // 1 byte per minor-loop
+        attr.bits.SSIZE    = 0;          // 8-bit transfers
+        attr.bits.DSIZE    = 0;
+        biter.bits.BITER   = size;       // set major-loop count
+        citer.bits.CITER   = size;       // must load *after* BITER
 
-        //─── 5. Arm DMAMUX & clear pending requests ────────────────────────────
+        //─── Arm DMAMUX & clear pending requests ────────────────────────────
         chcfg0.bits.SOURCE = 8;         // LPUART1 TX
         chcfg0.bits.ENBL   = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
         serq.Reset();                   // clear any stale request
 
-        //─── 6. Enable DMA + UART, then kick it off ─────────────────────────────
+        //─── Enable DMA + UART, then kick it off ─────────────────────────────
         erq.bits.ERQ0     = nDMA0::ERQ::eERQ0::eENABLE;
         ctrl.bits.TE      = nLPUART1::CTRL::eTE::eENABLED;
         baud.bits.TDMAE   = nLPUART1::BAUD::eTDMAE::eENABLED;
-        nDMA0::SSRT::ref().bits.SSRT = 1;  // first trigger
-
-        //─── 7. Wait for completion ────────────────────────────────────────────
-        while (!csr.bits.DONE) {
-            // blocks until the full 'size' bytes have been sent
-        }
+        // nDMA0::SSRT::ref().bits.SSRT = 1;  // first trigger
     }
 
 
@@ -235,6 +229,5 @@ public:
         return (uint8_t)(data.value & 0xFF);
     }
 private:
-    static constexpr uint32_t tx_buffer_size_ = 128;
     uint8_t *tx_buffer_ = nullptr;
 };
