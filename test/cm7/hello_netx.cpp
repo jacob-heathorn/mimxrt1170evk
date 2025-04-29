@@ -9,6 +9,7 @@
 #include "ftl/tx_thread.hpp"
 #include "network/gigabit_ethernet.hpp"
 #include "network/udp_socket.hpp"
+#include "platform/assert_led.hpp"
 
 /*******************************************************************************
  * Definitions
@@ -115,20 +116,22 @@ void echo_hello()
     for (int i = 0;; ++i) {
         // Send packet
         char msg[64];
-        sprintf(msg, "Hello World %d\r\n", i);
+        sprintf(msg, "Hello World %d", i);
 
         if (!socket->send(msg, 5001)) {
             printf("Failed to send UDP packet\r\n");
         }
 
+        tx_thread_sleep(NX_IP_PERIODIC_RATE);  // ~1 second
+
         // Try receiving
         char buf[256];
         size_t received_len = 0;
         if (socket->receive(buf, sizeof(buf) - 1, received_len)) {
-            printf("Received UDP: %s", buf);  // already null-terminated by receive()
+            AssertLed::instance().toggle();
+            printf("Received UDP: %s (%u)\r\n", buf, received_len);  // already null-terminated by receive()
+            // fflush(stdout);
         }
-
-        tx_thread_sleep(NX_IP_PERIODIC_RATE);  // ~1 second
     }
 
     socket->close();  // Unreachable, but good practice

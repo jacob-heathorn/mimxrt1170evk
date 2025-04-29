@@ -131,77 +131,83 @@ private:
         auto &biter = nDMA0::TCD_BITER_ELINKNO<0>::ref();
         biter.bits.BITER = 0;
         biter.bits.ELINK = 0;
+        auto &csr      = nDMA0::TCD_CSR<0>::ref();
+        csr.bits.DONE = 1;
     }
 
 public:
-    void write(const uint8_t *buffer, uint16_t size) {
-        // References to DMA and UART registers
-        auto &csr = nDMA0::TCD_CSR<0>::ref();
-        auto &citer = nDMA0::TCD_CITER_ELINKNO<0>::ref();
-        auto &biter = nDMA0::TCD_BITER_ELINKNO<0>::ref();
-        auto &doff = nDMA0::TCD_DOFF<0>::ref();
-        auto &soff = nDMA0::TCD_SOFF<0>::ref();
-        auto &saddr = nDMA0::TCD_SADDR<0>::ref();
-        auto &daddr = nDMA0::TCD_DADDR<0>::ref();
-        auto &attr = nDMA0::TCD_ATTR<0>::ref();
-        auto &nbytes = nDMA0::TCD_NBYTES_MLNO<0>::ref();
-        auto &es = nDMA0::ES::ref();
-        auto &erq = nDMA0::ERQ::ref();
-        auto &serq = nDMA0::SERQ::ref();
-        auto &chcfg0 = nDMAMUX0::CHCFG_0::ref();
-        auto &ctrl = nLPUART1::CTRL::ref();
-        auto &baud = nLPUART1::BAUD::ref();
-        //auto &stat = nLPUART1::STAT::ref();
-        auto &lpuart_data = nLPUART1::DATA::ref();
+    void write(const uint8_t *buffer, uint16_t size)
+    {
+        //─── 0. Handy refs ──────────────────────────────────────────────────────────
+        auto &csr      = nDMA0::TCD_CSR<0>::ref();
+        auto &citer    = nDMA0::TCD_CITER_ELINKNO<0>::ref();
+        auto &biter    = nDMA0::TCD_BITER_ELINKNO<0>::ref();
+        auto &soff     = nDMA0::TCD_SOFF<0>::ref();
+        auto &doff     = nDMA0::TCD_DOFF<0>::ref();
+        auto &saddr    = nDMA0::TCD_SADDR<0>::ref();
+        auto &daddr    = nDMA0::TCD_DADDR<0>::ref();
+        auto &attr     = nDMA0::TCD_ATTR<0>::ref();
+        auto &nbytes   = nDMA0::TCD_NBYTES_MLNO<0>::ref();
+        auto &es       = nDMA0::ES::ref();
+        auto &erq      = nDMA0::ERQ::ref();
+        auto &serq     = nDMA0::SERQ::ref();
+        auto &chcfg0   = nDMAMUX0::CHCFG_0::ref();
+        auto &ctrl     = nLPUART1::CTRL::ref();
+        auto &baud     = nLPUART1::BAUD::ref();
+        // auto &stat     = nLPUART1::STAT::ref();
+        auto &ldata    = nLPUART1::DATA::ref();
 
-        // 1. Reset DMA error status
-        es.Reset();
+        //─── 1. Tear down any ongoing transfer ────────────────────────────────────
+        // Disable UART + its DMA trigger
+        ctrl.bits.TE      = nLPUART1::CTRL::eTE::eDISABLED;
+        baud.bits.TDMAE   = nLPUART1::BAUD::eTDMAE::eDISABLED;
+        // Disable DMAMUX channel
+        chcfg0.bits.ENBL  = nDMAMUX0::CHCFG_0::eENBL::eENBL_0;
+        // Disable DMA requests
+        erq.bits.ERQ0     = nDMA0::ERQ::eERQ0::eDISABLE;
+        // Optionally wait for the channel to really go idle
+        while (!csr.bits.DONE) { /* spin until last transfer is fully done */ }
 
-        // 2. Wait for UART to finish any ongoing transmission
-        auto &stat = nLPUART1::STAT::ref();
-        while (stat.bits.TC != nLPUART1::STAT::eTC::eCOMPLETE) {}
-        // auto &citer = nDMA0::TCD_CITER_ELINKNO<0>::ref();
-        // while (citer.bits.CITER != 0) {}
+        //─── 2. Clear sticky flags ───────────────────────────────────────────────
+        es.Reset();       // clear any eDMA error
+        csr.bits.DONE = 1;  // clear DONE
+        csr.bits.DREQ = 1;  // prevent auto-disable on completion
 
-        // 3. Disable UART transmitter and DMA requests
-        ctrl.bits.TE = nLPUART1::CTRL::eTE::eDISABLED;
-        baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eDISABLED;
-        erq.bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;
-
-        // 4. Copy data to tx_buffer_ (assuming OCRAM2 is non-cacheable)
+        //─── 3. Copy your data & clean cache ────────────────────────────────────
         assert(size <= tx_buffer_size_);
-        memcpy(this->tx_buffer_, buffer, size);
+        memcpy(tx_buffer_, buffer, size);
+        SCB_CleanDCache_by_Addr(tx_buffer_, tx_buffer_size_);
+        __DSB();
+        __ISB();
 
-        // 6. Configure DMA TCD
-        csr.bits.DONE = 1; // Clear any old "done" flag
-        csr.bits.DREQ = 0; // Prevent auto-disable on major-loop complete
-        // csr.bits.INTMAJOR = 1; // Generate interrupt at major complete
+        //─── 4. Reconfigure the TCD ─────────────────────────────────────────────
+        saddr.value       = (uint32_t)tx_buffer_;
+        soff.bits.SOFF    = 1;          // step source by 1 byte
+        daddr.value       = (uint32_t)&ldata.value;
+        doff.bits.DOFF    = 0;          // keep dest fixed
+        nbytes.bits.NBYTES= 1;          // 1 byte per minor-loop
+        attr.bits.SSIZE   = 0;          // 8-bit transfers
+        attr.bits.DSIZE   = 0;
+        biter.bits.BITER  = size;       // set major-loop count
+        citer.bits.CITER  = size;       // must load *after* BITER
 
-        saddr.value = (uint32_t)tx_buffer_;
-        daddr.value = (uint32_t)&lpuart_data.value;
-        soff.bits.SOFF = 1; // Increment source by 1 byte
-        doff.bits.DOFF = 0; // No destination increment
-        nbytes.bits.NBYTES = 1; // 1 byte per minor loop
-        attr.bits.SSIZE = 0; // 8-bit source transfers
-        attr.bits.DSIZE = 0; // 8-bit destination transfers
-        biter.bits.BITER = size;
-        citer.bits.CITER = size;
+        //─── 5. Arm DMAMUX & clear pending requests ────────────────────────────
+        chcfg0.bits.SOURCE = 8;         // LPUART1 TX
+        chcfg0.bits.ENBL   = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
+        serq.Reset();                   // clear any stale request
 
-        // 7. Configure DMAMUX
-        chcfg0.bits.SOURCE = 8; // LPUART1 TX (RM Table 4-3)
-        chcfg0.bits.ENBL = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
+        //─── 6. Enable DMA + UART, then kick it off ─────────────────────────────
+        erq.bits.ERQ0     = nDMA0::ERQ::eERQ0::eENABLE;
+        ctrl.bits.TE      = nLPUART1::CTRL::eTE::eENABLED;
+        baud.bits.TDMAE   = nLPUART1::BAUD::eTDMAE::eENABLED;
+        nDMA0::SSRT::ref().bits.SSRT = 1;  // first trigger
 
-        // 8. Clear any pending DMA requests
-        serq.Reset();
-
-        // 9. Enable UART transmitter and DMA trigger
-        ctrl.bits.TE = nLPUART1::CTRL::eTE::eENABLED;
-        baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eENABLED;
-
-        // 10. Enable DMA channel and trigger transfer
-        erq.bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
-        nDMA0::SSRT::ref().bits.SSRT = 1; // Trigger DMA
+        //─── 7. Wait for completion ────────────────────────────────────────────
+        while (!csr.bits.DONE) {
+            // blocks until the full 'size' bytes have been sent
+        }
     }
+
 
 
     int read(uint8_t *buffer, size_t max_length)
@@ -229,6 +235,6 @@ public:
         return (uint8_t)(data.value & 0xFF);
     }
 private:
-    static constexpr uint32_t tx_buffer_size_ = 256;
+    static constexpr uint32_t tx_buffer_size_ = 128;
     uint8_t *tx_buffer_ = nullptr;
 };
