@@ -14,11 +14,13 @@ ftl::Mutex shared_mutex;
 
 //--- Free function for Thread1 --------------------------------------------
 void thread_1_function() {
-  for (int i = 0;; ++i) {
-    char msg[64];
-    sprintf(msg, "Hello World %d", i);
-    printf("%s\r\n", msg);
-    // fflush(stdout);
+  while (1) {
+    {
+      ftl::LockGuard<ftl::Mutex> lock(shared_mutex);
+      printf("Thread 1: Hello\n");
+      tx_thread_sleep(50);
+      printf("Thread 1: Finished\n");
+    }
     tx_thread_sleep(100);
   }
 }
@@ -42,10 +44,10 @@ struct Thread2 {
       {
         ftl::LockGuard<ftl::Mutex> lock(shared_mutex);
         printf("Thread 2: Hello\n");
-        tx_thread_sleep(75);
+        tx_thread_sleep(10);
         printf("Thread 2: Finished\n");
       }
-      tx_thread_sleep(150);
+      tx_thread_sleep(10);
     }
   }
 };
@@ -63,15 +65,15 @@ extern "C" void tx_application_define(void* first_unused_memory) {
       1             // Highest priority
   );
 
-  // // Create thread2 using a member function (which takes no argument).
-  // static Thread2 thread2obj;
-  // static ftl::TxThread thread2(
-  //     "Thread 2",
-  //     etl::delegate<void(void)>::create<Thread2, &Thread2::doWork>(thread2obj),
-  //     thread_2_stack,
-  //     STACK_SIZE,
-  //     2             // Lower priority than Thread1
-  // );
+  // Create thread2 using a member function (which takes no argument).
+  static Thread2 thread2obj;
+  static ftl::TxThread thread2(
+      "Thread 2",
+      etl::delegate<void(void)>::create<Thread2, &Thread2::doWork>(thread2obj),
+      thread_2_stack,
+      STACK_SIZE,
+      2             // Lower priority than Thread1
+  );
 }
 
 // main() simply starts the ThreadX kernel which never returns.
