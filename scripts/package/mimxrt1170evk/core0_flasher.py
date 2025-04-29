@@ -21,6 +21,9 @@ class Core0Flasher():
     subprocess.call(args)
     print(f"{forge.helpers.GREEN_CHECK}", flush=True)
 
+    # NOTE: This hacky commented code doesn't appear necessary anymore, can delete it?
+    # When I removed the ncacheable region form linker script and startup it was fixed.
+
     # # This part is kind of a hack. We need to reset the target first, otherwise if we flash with
     # # LinkServer right away, it will sometimes fail and the LinkServer does not appear to expose a
     # # command to reset the target directly. So we launch the GDB server and reset the target with
