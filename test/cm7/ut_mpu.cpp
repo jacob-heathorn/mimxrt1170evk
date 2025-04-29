@@ -23,7 +23,7 @@ void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
     auto &es = nDMA0::ES::ref();
     es.Reset();
     
-    // Step 1: Enable DMAMUX for memory-to-memory transfer (channel 0)
+    // Step 1: Enable DMAMUX for memory-to-memory transfer (channel 1)
     auto &dmamux = nDMAMUX0::CHCFG_1::ref();
     //dmamux.bits.SOURCE = DMAMUX_SOURCE_MEM_TO_MEM;  // Memory-to-memory transfer
     dmamux.bits.ENBL = nDMAMUX0::CHCFG_1::eENBL::eENBL_1;
