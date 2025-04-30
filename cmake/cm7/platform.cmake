@@ -90,7 +90,7 @@ function(add_platform_flags target)
     -MMD
     -MP
     -fno-common
-    -ffreestanding
+    # -ffreestanding
     -fno-builtin
     -D__STARTUP_CLEAR_BSS
   )
