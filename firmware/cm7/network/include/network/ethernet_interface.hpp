@@ -1,6 +1,6 @@
 #pragma once
 
-#include "network/ip_address.hpp"
+#include "network/ipv4.hpp"
 
 class UdpSocket;
 

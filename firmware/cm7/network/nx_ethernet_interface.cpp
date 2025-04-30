@@ -34,10 +34,11 @@ NxEthernetInterface::NxEthernetInterface()
   std::memset(ip_thread_stack, 0, NxEthernetInterface::kIpThreadStackSize);
 
   // TODO from constructor
-  IpAddress ip_address(192, 2, 2, 149);
+  Ipv4Address ip_address(192, 2, 2, 149);
+  Ipv4Mask netmask(255, 255, 255, 0);
 
   status = nx_ip_create(&ip_, "NetX IP Instance 0",
-    ip_address.ToUint32(), 0xFFFFFF00UL, &pool_, nx_link_driver,
+    ip_address.ToUint32(), netmask.ToUint32(), &pool_, nx_link_driver,
       ip_thread_stack, NxEthernetInterface::kIpThreadStackSize, 1);
 
   // Check for IP create errors.
