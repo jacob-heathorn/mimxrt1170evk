@@ -1,5 +1,7 @@
 #pragma once
 
+#include "network/ip_address.hpp"
+
 class UdpSocket;
 
 class EthernetInterface

@@ -9,7 +9,6 @@
 #include "ftl/tx_thread.hpp"
 #include "network/gigabit_ethernet.hpp"
 #include "network/udp_socket.hpp"
-#include "platform/assert_led.hpp"
 
 /*******************************************************************************
  * Definitions
@@ -128,9 +127,7 @@ void echo_hello()
         char buf[256];
         size_t received_len = 0;
         if (socket->receive(buf, sizeof(buf) - 1, received_len)) {
-            AssertLed::instance().toggle();
-            printf("Received UDP: %s (%u)\r\n", buf, received_len);  // already null-terminated by receive()
-            // fflush(stdout);
+            printf("Received UDP: %s (%u)\r\n", buf, received_len);
         }
     }
 
