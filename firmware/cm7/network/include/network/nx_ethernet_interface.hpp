@@ -15,7 +15,7 @@ public:
   static constexpr uint32_t kIpThreadStackSize = 2048;
   static constexpr uint32_t kArpSpaceSize = 1024;
 
-  NxEthernetInterface();
+  NxEthernetInterface(Ipv4Address address, Ipv4Mask mask);
   ~NxEthernetInterface() override = default;
 
   NxEthernetInterface(const NxEthernetInterface&) = delete;

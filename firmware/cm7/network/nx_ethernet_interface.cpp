@@ -12,7 +12,7 @@ extern "C"
 VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 }
 
-NxEthernetInterface::NxEthernetInterface()
+NxEthernetInterface::NxEthernetInterface(Ipv4Address address, Ipv4Mask mask)
 {
   UINT status;
   ULONG error_counter = 0;
@@ -33,12 +33,8 @@ NxEthernetInterface::NxEthernetInterface()
   void *ip_thread_stack = DtcmAllocator::instance().allocate(NxEthernetInterface::kIpThreadStackSize);
   std::memset(ip_thread_stack, 0, NxEthernetInterface::kIpThreadStackSize);
 
-  // TODO from constructor
-  Ipv4Address ip_address(192, 2, 2, 149);
-  Ipv4Mask netmask(255, 255, 255, 0);
-
   status = nx_ip_create(&ip_, "NetX IP Instance 0",
-    ip_address.ToUint32(), netmask.ToUint32(), &pool_, nx_link_driver,
+    address.ToUint32(), mask.ToUint32(), &pool_, nx_link_driver,
       ip_thread_stack, NxEthernetInterface::kIpThreadStackSize, 1);
 
   // Check for IP create errors.
