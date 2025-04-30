@@ -11,12 +11,6 @@ extern "C"
 VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 }
 
-// /* Define the IP thread's stack area.  */
-// ULONG ip_thread_stack[2 * 1024 / sizeof(ULONG)];
-
-/* Define the ARP cache area.  */
-ULONG arp_space_area[1024 / sizeof(ULONG)];
-
 NxEthernetInterface::NxEthernetInterface()
 {
   UINT status;
@@ -39,7 +33,7 @@ NxEthernetInterface::NxEthernetInterface()
   std::memset(ip_thread_stack, 0, NxEthernetInterface::kIpThreadStackSize);
   status = nx_ip_create(&ip_, "NetX IP Instance 0",
     IP_ADDRESS(192, 2, 2, 149), 0xFFFFFF00UL, &pool_, nx_link_driver,
-      (UCHAR *)ip_thread_stack, NxEthernetInterface::kIpThreadStackSize, 1);
+      ip_thread_stack, NxEthernetInterface::kIpThreadStackSize, 1);
 
   // Check for IP create errors.
   if (status) {
@@ -47,7 +41,8 @@ NxEthernetInterface::NxEthernetInterface()
   }
 
   // Enable ARP and supply ARP cache memory for IP Instance 0.
-  status = nx_arp_enable(&ip_, (void *)arp_space_area, sizeof(arp_space_area));
+  void* arp_space_area = Ocram2Allocator::instance().allocate(NxEthernetInterface::kArpSpaceSize);
+  status = nx_arp_enable(&ip_, arp_space_area, NxEthernetInterface::kArpSpaceSize);
 
   // Check for ARP enable errors.
   if (status) {
