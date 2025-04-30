@@ -4,6 +4,7 @@
 #include "nx_api.h"
 #include "fsl_common.h"
 #include "utils/dtcm_allocator.hpp"
+#include "utils/ocram1_allocator.hpp"
 #include "utils/ocram2_allocator.hpp"
 
 extern "C"
@@ -41,7 +42,7 @@ NxEthernetInterface::NxEthernetInterface()
   }
 
   // Enable ARP and supply ARP cache memory for IP Instance 0.
-  void* arp_space_area = Ocram2Allocator::instance().allocate(NxEthernetInterface::kArpSpaceSize);
+  void* arp_space_area = Ocram1Allocator::instance().allocate(NxEthernetInterface::kArpSpaceSize);
   status = nx_arp_enable(&ip_, arp_space_area, NxEthernetInterface::kArpSpaceSize);
 
   // Check for ARP enable errors.
