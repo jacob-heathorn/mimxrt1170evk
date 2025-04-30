@@ -12,6 +12,7 @@ public:
   static constexpr uint32_t kMaxPacketSize = 1536;
   static constexpr uint32_t kNumPackets = 50;
   static constexpr uint32_t kPacketPoolSize = ((kMaxPacketSize + sizeof(NX_PACKET)) * kNumPackets);
+  static constexpr uint32_t kIpThreadStackSize = 2048;
 
   NxEthernetInterface();
   ~NxEthernetInterface() override = default;
