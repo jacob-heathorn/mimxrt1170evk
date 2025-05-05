@@ -11,6 +11,32 @@ public:
     : octets_{ o1, o2, o3, o4 }
   {}
 
+  explicit Ipv4Address(etl::string_view sv)
+  {
+    etl::array<uint8_t,4> tmp{};
+    size_t idx = 0;
+    int    val = 0;
+
+    for (char c : sv) {
+      if (c >= '0' && c <= '9') {
+        val = val * 10 + (c - '0');
+        assert(val <= 255);
+      }
+      else if (c == '.' && idx < 4) {
+        tmp[idx++] = static_cast<uint8_t>(val);
+        val = 0;
+      }
+      else {
+        assert(false && "Invalid character in IPv4 string");
+      }
+    }
+    // must have seen exactly 3 dots
+    assert(idx == 3);
+    tmp[3] = static_cast<uint8_t>(val);
+
+    octets_ = tmp;
+  }
+
 
   constexpr etl::array<uint8_t,4> Octets() const noexcept { return octets_; }
 
