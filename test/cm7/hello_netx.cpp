@@ -117,7 +117,7 @@ void echo_hello()
         char msg[64];
         sprintf(msg, "Hello World %d", i);
 
-        if (!socket->send(msg, 5001)) {
+        if (!socket->send(msg, Ipv4Endpoint("192.2.2.100", 5001))) {
             printf("Failed to send UDP packet\r\n");
         }
 

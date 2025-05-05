@@ -22,8 +22,7 @@ public:
     }
 
     // TODO: dest_ip is hardcoded!
-    bool send(const char* message, uint16_t port) override {
-        ULONG dest_ip = IP_ADDRESS(192, 2, 2, 100);
+    bool send(const char* message, Ipv4Endpoint dest) override {
 
         NX_PACKET* packet;
         if (nx_packet_allocate(interface_.Pool(), &packet, NX_UDP_PACKET, TX_NO_WAIT) != NX_SUCCESS) {
@@ -35,7 +34,7 @@ public:
             return false;
         }
 
-        if (nx_udp_socket_send(&socket_, packet, dest_ip, port) != NX_SUCCESS) {
+        if (nx_udp_socket_send(&socket_, packet, dest.Address().ToUint32(), dest.Port()) != NX_SUCCESS) {
             nx_packet_release(packet);
             return false;
         }
