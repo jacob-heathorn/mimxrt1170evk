@@ -142,7 +142,7 @@ VOID tx_application_define(void *first_unused_memory)
 
     NX_PARAMETER_NOT_USED(first_unused_memory);
 
-    GigabitEthernet::create(Ipv4Address("192.2.2.149"), Ipv4Mask{255, 255, 255, 0});
+    GigabitEthernet::create("192.2.2.149", Ipv4Mask{255, 255, 255, 0});
 
     // Create hello thread.
     static ftl::TxThread thread1(

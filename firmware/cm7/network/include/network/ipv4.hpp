@@ -11,7 +11,8 @@ public:
     : octets_{ o1, o2, o3, o4 }
   {}
 
-  explicit Ipv4Address(etl::string_view sv)
+  Ipv4Address(const char* s) : Ipv4Address(etl::string_view{s}) {}
+  Ipv4Address(etl::string_view sv)
   {
     etl::array<uint8_t,4> tmp{};
     size_t idx = 0;
