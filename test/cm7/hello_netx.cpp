@@ -1,5 +1,5 @@
 #include "fsl_common.h"
-#include "pin_mux.h"
+#include "enet_pin_mux.h"
 #include "fsl_gpio.h"
 #include "stdio.h"
 #include "tx_api.h"

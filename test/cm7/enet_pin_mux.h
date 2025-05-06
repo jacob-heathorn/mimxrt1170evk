@@ -19,28 +19,6 @@
 extern "C" {
 #endif
 
-/*!
- * @brief Calls initialization functions.
- *
- */
-void BOARD_InitBootPins(void);
-
-/* GPIO_AD_25 (coord M15), LPUART1_RXD/J32[2] */
-/* Routed pin properties */
-#define BOARD_INITPINS_LPUART1_RXD_PERIPHERAL                            LPUART1   /*!< Peripheral name */
-#define BOARD_INITPINS_LPUART1_RXD_SIGNAL                                    RXD   /*!< Signal name */
-
-/* GPIO_AD_24 (coord L13), LPUART1_TXD/J31[2] */
-/* Routed pin properties */
-#define BOARD_INITPINS_LPUART1_TXD_PERIPHERAL                            LPUART1   /*!< Peripheral name */
-#define BOARD_INITPINS_LPUART1_TXD_SIGNAL                                    TXD   /*!< Signal name */
-
-/*!
- * @brief Configures pin routing and optionally pin electrical features.
- *
- */
-void BOARD_InitPins(void);                    /* Function assigned for the Cortex-M7F */
-
 /* GPIO_AD_32 (coord K16), ENET_MDC/U7[12]/SD1_CD_B/J15[9] */
 /* Routed pin properties */
 #define BOARD_INITENETPINS_ENET_MDC_PERIPHERAL                              ENET   /*!< Peripheral name */

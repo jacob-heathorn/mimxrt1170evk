@@ -34,7 +34,7 @@ target_compile_options(hello-threadx PRIVATE -Wno-write-strings)
 # Hello netx
 add_executable(hello-netx
   hello_netx.cpp
-  pin_mux.c
+  enet_pin_mux.c
 )
 platformify(hello-netx)
 target_link_libraries(hello-netx PRIVATE network)

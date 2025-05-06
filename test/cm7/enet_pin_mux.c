@@ -17,7 +17,7 @@ board: MIMXRT1170-EVK
 
 #include "fsl_common.h"
 #include "fsl_iomuxc.h"
-#include "pin_mux.h"
+#include "enet_pin_mux.h"
 
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
