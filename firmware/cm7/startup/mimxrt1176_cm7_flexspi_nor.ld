@@ -29,7 +29,6 @@ ENTRY(Reset_Handler)
 
 HEAP_SIZE  = DEFINED(__heap_size__)  ? __heap_size__  : 0x0400;
 STACK_SIZE = DEFINED(__stack_size__) ? __stack_size__ : 0x0400;
-RPMSG_SHMEM_SIZE = DEFINED(__use_shmem__) ? 0x2000 : 0;
 VECTOR_RAM_SIZE = DEFINED(__ram_vector_table__) ? 0x00000400 : 0;
 TEXT_SIZE = DEFINED(__use_flash64MB__) ? 0x03FBDC00 : 0x00FBDC00;
 CORE1IMAGE_START = DEFINED(__use_flash64MB__) ? 0x33FC0000 : 0x30FC0000;
@@ -41,18 +40,17 @@ MEMORY
   m_ivt                 (RX)  : ORIGIN = 0x30001000, LENGTH = 0x00001000
   m_interrupts          (RX)  : ORIGIN = 0x30002000, LENGTH = 0x00000400
   m_text                (RX)  : ORIGIN = 0x30002400, LENGTH = TEXT_SIZE
-  m_qacode              (RX)  : ORIGIN = 0x00000000, LENGTH = 0x00040000  /* ITCM: 256/512 KB FlexRam*/
-  m_data                (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00040000  /* DTCM: 256/512 KB FlexRam*/
-  m_data2               (RW)  : ORIGIN = 0x202C0000 + RPMSG_SHMEM_SIZE, LENGTH = 0x00080000 - RPMSG_SHMEM_SIZE
-  rpmsg_sh_mem          (RW)  : ORIGIN = 0x202C0000, LENGTH = RPMSG_SHMEM_SIZE
+  ITCM                  (RX)  : ORIGIN = 0x00000000, LENGTH = 0x00040000  /* ITCM: 256/512 KB FlexRam*/
+  DTCM                  (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00040000  /* DTCM: 256/512 KB FlexRam*/
+  OCRAM_M4              (RW)  : ORIGIN = 0x20200000, LENGTH = 0x00040000
+  OCRAM1                (RW)  : ORIGIN = 0x20240000, LENGTH = 0x00080000
+  OCRAM2                (RW)  : ORIGIN = 0x202C0000, LENGTH = 0x00080000
   m_core1_image         (RX)  : ORIGIN = CORE1IMAGE_START, LENGTH = 0x00040000
 }
 
 /* Define output sections */
 SECTIONS
 {
-  __NCACHE_REGION_START = ORIGIN(rpmsg_sh_mem);
-  __NCACHE_REGION_SIZE  = LENGTH(rpmsg_sh_mem);
 
   .flash_config :
   {
@@ -81,15 +79,6 @@ SECTIONS
      *(.core1_code*)
      . = ALIGN(4) ;
   } > m_core1_image
-
-  /* NOINIT section for rpmsg_sh_mem */
-  .noinit_rpmsg_sh_mem (NOLOAD) : ALIGN(4)
-  {
-     __RPMSG_SH_MEM_START__ = .;
-     *(.noinit.$rpmsg_sh_mem*)
-     . = ALIGN(4) ;
-     __RPMSG_SH_MEM_END__ = .;
-  } > rpmsg_sh_mem
 
   /* The startup code goes first into internal RAM */
   .interrupts :
@@ -199,7 +188,7 @@ SECTIONS
     . += VECTOR_RAM_SIZE;
     . = ALIGN(4);
     __interrupts_ram_end__ = .; /* Define a global symbol at data end */
-  } > m_data
+  } > DTCM
 
   __VECTOR_RAM = DEFINED(__ram_vector_table__) ? __VECTOR_RAM__ : ORIGIN(m_interrupts);
   __RAM_VECTOR_TABLE_SIZE_BYTES = DEFINED(__ram_vector_table__) ? (__interrupts_ram_end__ - __interrupts_ram_start__) : 0x0;
@@ -216,7 +205,7 @@ SECTIONS
     KEEP(*(.jcr*))
     . = ALIGN(4);
     __data_end__ = .;        /* define a global symbol at data end */
-  } > m_data
+  } > DTCM
 
   __ram_function_flash_start = __DATA_ROM + (__data_end__ - __data_start__); /* Symbol is used by startup for TCM data initialization */
 
@@ -227,25 +216,9 @@ SECTIONS
     *(CodeQuickAccess)
     . = ALIGN(128);
     __ram_function_end__ = .;
-  } > m_qacode
+  } > ITCM
 
-  __NDATA_ROM = __ram_function_flash_start + (__ram_function_end__ - __ram_function_start__);
-  .ncache.init : AT(__NDATA_ROM)
-  {
-    __noncachedata_start__ = .;   /* create a global symbol at ncache data start */
-    *(NonCacheable.init)
-    . = ALIGN(4);
-    __noncachedata_init_end__ = .;   /* create a global symbol at initialized ncache data end */
-  } > m_data
-  . = __noncachedata_init_end__;
-  .ncache :
-  {
-    *(NonCacheable)
-    . = ALIGN(4);
-    __noncachedata_end__ = .;     /* define a global symbol at ncache data end */
-  } > m_data
-
-  __DATA_END = __NDATA_ROM + (__noncachedata_init_end__ - __noncachedata_start__);
+  __DATA_END = ORIGIN(DTCM) + LENGTH(DTCM);
   text_end = ORIGIN(m_text) + LENGTH(m_text);
   ASSERT(__DATA_END <= text_end, "region m_text overflowed with text and data")
 
@@ -263,7 +236,7 @@ SECTIONS
     . = ALIGN(4);
     __bss_end__ = .;
     __END_BSS = .;
-  } > m_data
+  } > DTCM
 
   .heap :
   {
@@ -274,26 +247,60 @@ SECTIONS
     . += HEAP_SIZE;
     __HeapLimit = .;
     __heap_limit = .; /* Add for _sbrk */
-  } > m_data
+  } > DTCM
 
   .stack :
   {
     . = ALIGN(8);
     . += STACK_SIZE;
-  } > m_data
+  } > DTCM
 
   /* Record symbols for range of unused DTCM */
   . = ALIGN(32);
-  __m_data_used_end__ = .;
-  __m_data_total_end__ = ORIGIN(m_data) + LENGTH(m_data);
+  __m_dtcm_used_end__ = .;
+  __m_dtcm_total_end__ = ORIGIN(DTCM) + LENGTH(DTCM);
+
+  /* Cacheable OCRAM (OCRAM1) */
+  __cacheable_ocram_start__ = ORIGIN(OCRAM1);
+  __cacheable_ocram_end__   = ORIGIN(OCRAM1) + LENGTH(OCRAM1);
+
+  .cacheable_ocram (NOLOAD) :
+  {
+      . = ALIGN(64);
+      __cacheable_ocram__ = .;
+      *(.cacheable_ocram*)  /* Place matching objects here */
+      . = ALIGN(64);
+  } > OCRAM1
+
+  /* Record symbols for range of unused OCRAM1 */
+  . = ALIGN(32);
+  __m_ocram1_used_end__ = .;
+  __m_ocram1_total_end__ = ORIGIN(OCRAM1) + LENGTH(OCRAM1);
+
+  /* Noncacheable OCRAM (OCRAM2) */
+  __noncacheable_ocram_start__ = ORIGIN(OCRAM2);
+  __noncacheable_ocram_end__   = ORIGIN(OCRAM2) + LENGTH(OCRAM2);
+
+  .noncacheable_ocram (NOLOAD) :
+  {
+      . = ALIGN(64);
+      __noncacheable_ocram__ = .;
+      *(.noncacheable_ocram*)  /* Place matching objects here */
+      . = ALIGN(64);
+  } > OCRAM2
+
+  /* Record symbols for range of unused OCRAM2 */
+  . = ALIGN(32);
+  __m_ocram2_used_end__ = .;
+  __m_ocram2_total_end__ = ORIGIN(OCRAM2) + LENGTH(OCRAM2);
 
   /* Initializes stack on the end of block */
-  __StackTop   = ORIGIN(m_data) + LENGTH(m_data);
+  __StackTop   = ORIGIN(DTCM) + LENGTH(DTCM);
   __StackLimit = __StackTop - STACK_SIZE;
   PROVIDE(__stack = __StackTop);
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
 
-  ASSERT(__StackLimit >= __HeapLimit, "region m_data overflowed with stack and heap")
+  ASSERT(__StackLimit >= __HeapLimit, "region DTCM overflowed with stack and heap")
 
 }

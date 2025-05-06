@@ -2,7 +2,7 @@
 add_platform_test(ut-simple ut_simple.cpp)
 add_platform_test(ut-memory
   ut_mpu.cpp
-  ut_dtcm_bump_allocator.cpp
+  ut_allocators.cpp
 )
 add_platform_test(ut-threadx
   ut_concurrency.cpp
@@ -30,3 +30,10 @@ add_executable(hello-threadx
 )
 platformify(hello-threadx)
 target_compile_options(hello-threadx PRIVATE -Wno-write-strings)
+
+# Hello netx
+add_executable(hello-netx
+  hello_netx.cpp
+)
+platformify(hello-netx)
+target_link_libraries(hello-netx PRIVATE network)

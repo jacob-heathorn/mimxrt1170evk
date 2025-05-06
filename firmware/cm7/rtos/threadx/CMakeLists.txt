@@ -1,5 +1,4 @@
-set(THREADX_ARCH cortex_m7)
-set(THREADX_TOOLCHAIN gnu)
+# Add threadx repository as a subdirectory
 set(TX_USER_FILE ${CMAKE_CURRENT_SOURCE_DIR}/tx_user.h)
 add_subdirectory(
   $ENV{THREADX_ROOT}
@@ -14,7 +13,6 @@ target_sources(threadx
 )
 
 target_include_directories(threadx PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-
 platformify(threadx)
 
 # Add forge/ftl and forge/threadx subdirectories.

@@ -65,6 +65,16 @@ rip -d0 cm7-debug:hello-threadx && \
 rip -f0 cm7-debug:hello-threadx -s
 ```
 
+# Netx test
+```
+cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
+rip -d0 cm7-debug:hello-netx && \
+rip -f0 cm7-debug:hello-netx -s
+
+ping 192.2.2.149
+socat -v UDP4-RECVFROM:5001,fork EXEC:'/bin/cat'
+```
+
 # Full Repository test suite
 `tox`
 

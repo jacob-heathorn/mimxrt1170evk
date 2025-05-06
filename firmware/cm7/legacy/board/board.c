@@ -11,11 +11,11 @@
 /* MPU configuration. */
 void BOARD_ConfigMPU(void)
 {
-    extern uint32_t __NCACHE_REGION_START[];
-    extern uint32_t __NCACHE_REGION_SIZE[];
-    uint32_t nonCacheStart = (uint32_t)__NCACHE_REGION_START;
-    uint32_t size          = (uint32_t)__NCACHE_REGION_SIZE;
-    volatile uint32_t i = 0;
+    // extern uint32_t __NCACHE_REGION_START[];
+    // extern uint32_t __NCACHE_REGION_SIZE[];
+    // uint32_t nonCacheStart = (uint32_t)__NCACHE_REGION_START;
+    // uint32_t size          = (uint32_t)__NCACHE_REGION_SIZE;
+    // volatile uint32_t i = 0;
 
     /* Disable I cache and D cache */
     if (SCB_CCR_IC_Msk == (SCB_CCR_IC_Msk & SCB->CCR))
@@ -74,82 +74,68 @@ void BOARD_ConfigMPU(void)
      * Refer to Arm errata 1013783-B for more details.
      *
      */
-    /* Region 0 setting: Instruction access disabled, No data access permission. */
+
+    // NXP appears to use tex=2 for device
+    
+    // Region 0. Default for the entire 4GB address space. No access.
     MPU->RBAR = ARM_MPU_RBAR(0, 0x00000000U);
     MPU->RASR = ARM_MPU_RASR(1, ARM_MPU_AP_NONE, 0, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_4GB);
 
-    /* Region 1 setting: Memory with Device type, not shareable, non-cacheable. */
+    // Region 1. SEMC0 and SEMC1.
     MPU->RBAR = ARM_MPU_RBAR(1, 0x80000000U);
     MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 2, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_512MB);
 
-    /* Region 2 setting: Memory with Device type, not shareable,  non-cacheable. */
+    // Region 2. FlexSPI2/FlexSPI2 ciphertext (First 504MB).
     MPU->RBAR = ARM_MPU_RBAR(2, 0x60000000U);
     MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 2, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_512MB);
 
-    /* Region 3 setting: Memory with Device type, not shareable, non-cacheable. */
+    // Region 3. Default first GB, for devices.
     MPU->RBAR = ARM_MPU_RBAR(3, 0x00000000U);
     MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 2, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_1GB);
 
-    /* Region 4 setting: Memory with Normal type, not shareable, outer/inner write back */
+    // Region 4. 512KB ITCM region (FlexRAM).
     MPU->RBAR = ARM_MPU_RBAR(4, 0x00000000U);
-    MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 0, 0, 1, 1, 0, ARM_MPU_REGION_SIZE_512KB);
+    MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 0, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_512KB);
 
-    /* Region 5 setting: Memory with Normal type, not shareable, outer/inner write back */
+    // Region 5, 512KB DTCM region (FlexRAM).
     MPU->RBAR = ARM_MPU_RBAR(5, 0x20000000U);
+    MPU->RASR = ARM_MPU_RASR(1, ARM_MPU_AP_FULL, 0, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_512KB);
+
+    // Region 6, OCRAM M4, write-back cacheable.
+    MPU->RBAR = ARM_MPU_RBAR(6, 0x20200000U);
+    MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 0, 0, 1, 1, 0, ARM_MPU_REGION_SIZE_256KB);
+
+    // Region 7, OCRAM1, write-back cacheable.
+    MPU->RBAR = ARM_MPU_RBAR(7, 0x20240000U);
     MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 0, 0, 1, 1, 0, ARM_MPU_REGION_SIZE_512KB);
 
-    /* Region 6 setting: Memory with Normal type, not shareable, outer/inner write back */
-    MPU->RBAR = ARM_MPU_RBAR(6, 0x20200000U);
-    MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 1, 0, 1, 1, 0, ARM_MPU_REGION_SIZE_1MB);
+    // Region 8, OCRAM2.
+    MPU->RBAR = ARM_MPU_RBAR(8, 0x202C0000U);
+    MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 1, 1, 0, 0, 0, ARM_MPU_REGION_SIZE_512KB);
 
-    /* Region 7 setting: Memory with Normal type, not shareable, outer/inner write back */
-    MPU->RBAR = ARM_MPU_RBAR(7, 0x20300000U);
-    MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 1, 0, 1, 1, 0, ARM_MPU_REGION_SIZE_512KB);
-
-    /* Region 8 setting: Memory with Normal type, not shareable, outer/inner write back. */
-    MPU->RBAR = ARM_MPU_RBAR(8, 0x30000000U);
+    // Region 9, external flash.
+    MPU->RBAR = ARM_MPU_RBAR(9, 0x30000000U);
     MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_RO, 0, 0, 1, 1, 0, ARM_MPU_REGION_SIZE_16MB);
 
-    // NOTE: Not using SDRAM.
-    // /* Region 9 setting: Memory with Normal type, not shareable, outer/inner write back */
-    // MPU->RBAR = ARM_MPU_RBAR(9, 0x80000000U);
-    // MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 0, 0, 1, 1, 0, ARM_MPU_REGION_SIZE_64MB);
+    // Region 10 still available.
 
-    // NOTE: This code was not executing. Not sure exactly it's purpose.
-    while ((size >> i) > 0x1U)
-    {
-        i++;
-    }
-
-    if (i != 0)
-    {
-        /* The MPU region size should be 2^N, 5<=N<=32, region base should be multiples of size. */
-        assert(!(nonCacheStart % size));
-        assert(size == (uint32_t)(1 << i));
-        assert(i >= 5);
-
-        /* Region 10 setting: Memory with Normal type, not shareable, non-cacheable */
-        MPU->RBAR = ARM_MPU_RBAR(10, nonCacheStart);
-        MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 1, 0, 0, 0, 0, i - 1);
-    }
-
-    /* Region 11 setting: Memory with Device type, not shareable, non-cacheable */
+    // Region 11, AIPS (Advanced peripheral bus system).
     MPU->RBAR = ARM_MPU_RBAR(11, 0x40000000);
     MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 2, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_16MB);
 
-    /* Region 12 setting: Memory with Device type, not shareable, non-cacheable */
+    // Region 12, SIM_DISP and SIM_M configuration ports.
     MPU->RBAR = ARM_MPU_RBAR(12, 0x41000000);
     MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 2, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_2MB);
 
-    /* Region 13 setting: Memory with Device type, not shareable, non-cacheable */
+    // Region 13, SIM_M7 configuration port.
     MPU->RBAR = ARM_MPU_RBAR(13, 0x41400000);
     MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 2, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_1MB);
 
-    /* Region 14 setting: Memory with Device type, not shareable, non-cacheable */
+    // Region 14, GPU2D (Peripheral, AHB) and CDOG (Peripheral, AHB).
     MPU->RBAR = ARM_MPU_RBAR(14, 0x41800000);
     MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 2, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_2MB);
 
-    /* Region 15 setting: Memory with Device type, not shareable, non-cacheable */
+    // Region 15, AIPS M7 (Peripheral, Platform).
     MPU->RBAR = ARM_MPU_RBAR(15, 0x42000000);
     MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 2, 0, 0, 0, 0, ARM_MPU_REGION_SIZE_1MB);
 

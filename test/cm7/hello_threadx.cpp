@@ -3,6 +3,7 @@
 #include "ftl/tx_thread.hpp"
 #include "ftl/mutex.hpp"
 #include "etl/delegate.h"
+#include "stdio.h"
 
 // Define a stack size and allocate stacks for each thread.
 #define STACK_SIZE 1024
@@ -17,10 +18,10 @@ void thread_1_function() {
     {
       ftl::LockGuard<ftl::Mutex> lock(shared_mutex);
       printf("Thread 1: Hello\n");
-      tx_thread_sleep(75);
+      tx_thread_sleep(50);
       printf("Thread 1: Finished\n");
     }
-    tx_thread_sleep(150);
+    tx_thread_sleep(100);
   }
 }
 
@@ -43,10 +44,10 @@ struct Thread2 {
       {
         ftl::LockGuard<ftl::Mutex> lock(shared_mutex);
         printf("Thread 2: Hello\n");
-        tx_thread_sleep(75);
+        tx_thread_sleep(10);
         printf("Thread 2: Finished\n");
       }
-      tx_thread_sleep(150);
+      tx_thread_sleep(10);
     }
   }
 };

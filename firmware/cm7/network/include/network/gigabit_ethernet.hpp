@@ -1,0 +1,18 @@
+#pragma once
+
+#include "ftl/singleton.hpp"
+#include "network/nx_ethernet_interface.hpp"
+
+class GigabitEthernet : public NxEthernetInterface, public ftl::Singleton<GigabitEthernet>
+{
+  friend class ftl::Singleton<GigabitEthernet>;
+private:
+  GigabitEthernet(Ipv4Address address, Ipv4Mask mask) : NxEthernetInterface(address, mask) {};
+  ~GigabitEthernet() override = default;
+
+  // Rule of 5
+  GigabitEthernet(const GigabitEthernet&) = delete;
+  GigabitEthernet& operator=(const GigabitEthernet&) = delete;
+  GigabitEthernet(GigabitEthernet&&) = delete;
+  GigabitEthernet& operator=(GigabitEthernet&&) = delete;
+};

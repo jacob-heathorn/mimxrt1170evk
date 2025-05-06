@@ -9,6 +9,8 @@
 #include "platform/lpuart.hpp"
 #include "platform/assert_led.hpp"
 #include "utils/dtcm_allocator.hpp"
+#include "utils/ocram1_allocator.hpp"
+#include "utils/ocram2_allocator.hpp"
 
 extern "C" {
 
@@ -40,6 +42,10 @@ void SystemInitHook(void)
 
 void __pre_main_init()
 {
+  // Set the printf buffer size and behavior to flush on newline.
+  static char linebuf[Lpuart1::kTxBufferSize];
+  setvbuf(stdout, linebuf, _IOLBF, sizeof(linebuf));
+
   // Initialize MCMGR, install generic event handlers.
   (void)MCMGR_Init();
 
@@ -50,6 +56,8 @@ void __pre_main_init()
 
   AssertLed::create();
   DtcmAllocator::create();
+  Ocram1Allocator::create();
+  Ocram2Allocator::create();
   Lpuart1::create();
 }
 

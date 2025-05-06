@@ -9,7 +9,7 @@
 #include "registers/handwritten/dma0.hpp"
 #include "registers/codegen/dmamux0.hpp"
 #include "etl/singleton.h"
-#include "utils/dtcm_allocator.hpp"
+#include "utils/ocram2_allocator.hpp"
 #include "ftl/singleton.hpp"
 
 #include "board.h"
@@ -18,13 +18,14 @@
 class Lpuart1 : public ftl::Singleton<Lpuart1>
 {
     friend class ftl::Singleton<Lpuart1>;
+public:
+    static constexpr uint32_t kTxBufferSize = 128;
 private:
     Lpuart1()
     {
-        // Allocate tx buffer from DTCM. DTCM is write-through cacheable so we con't need to clean
-        // the cache after writing the tx buffer and giving to the dma.
-        DtcmAllocator& dtcm = DtcmAllocator::instance();
-        this->tx_buffer_ = reinterpret_cast<uint8_t *>(dtcm.allocate(tx_buffer_size_));
+        // Allocate tx buffer from non-cacheable OCRAM.
+        Ocram2Allocator& ocram2 = Ocram2Allocator::instance();
+        this->tx_buffer_ = reinterpret_cast<uint8_t *>(ocram2.allocate(kTxBufferSize, 4));
         assert(tx_buffer_ != nullptr);
 
         // 1. Enable Clocks
@@ -124,80 +125,80 @@ private:
         ctrl.bits.RWU = nLPUART1::CTRL::eRWU::eNO_EFFECT;
         ctrl.bits.RE = nLPUART1::CTRL::eRE::eENABLED;
         ctrl.bits.TE = nLPUART1::CTRL::eTE::eDISABLED;  // Disable TX until DMA ready
+
+        // Set done flag in case we inherit a different state.
+        auto &csr      = nDMA0::TCD_CSR<0>::ref();
+        csr.bits.DONE = 1;
     }
 
 public:
     void write(const uint8_t *buffer, uint16_t size)
     {
-        auto &csr = nDMA0::TCD_CSR<0>::ref();
-        auto &citer = nDMA0::TCD_CITER_ELINKNO<0>::ref();
-        auto &biter = nDMA0::TCD_BITER_ELINKNO<0>::ref();
-        auto &doff = nDMA0::TCD_DOFF<0>::ref();
-        auto &soff = nDMA0::TCD_SOFF<0>::ref();
-        auto &nbytes = nDMA0::TCD_NBYTES_MLOFFNO<0>::ref();
-        auto &saddr = nDMA0::TCD_SADDR<0>::ref();
-        auto &daddr = nDMA0::TCD_DADDR<0>::ref();
-        auto &attr = nDMA0::TCD_ATTR<0>::ref();
-        auto &erq = nDMA0::ERQ::ref();
-        auto &serq = nDMA0::SERQ::ref();
+        //─── Handy refs ────────────────────────────────────────────────────────
+        auto &csr      = nDMA0::TCD_CSR<0>::ref();
+        auto &citer    = nDMA0::TCD_CITER_ELINKNO<0>::ref();
+        auto &biter    = nDMA0::TCD_BITER_ELINKNO<0>::ref();
+        auto &soff     = nDMA0::TCD_SOFF<0>::ref();
+        auto &doff     = nDMA0::TCD_DOFF<0>::ref();
+        auto &saddr    = nDMA0::TCD_SADDR<0>::ref();
+        auto &daddr    = nDMA0::TCD_DADDR<0>::ref();
+        auto &attr     = nDMA0::TCD_ATTR<0>::ref();
+        auto &nbytes   = nDMA0::TCD_NBYTES_MLNO<0>::ref();
+        auto &es       = nDMA0::ES::ref();
+        auto &erq      = nDMA0::ERQ::ref();
+        auto &serq     = nDMA0::SERQ::ref();
+        auto &chcfg0   = nDMAMUX0::CHCFG_0::ref();
+        auto &ctrl     = nLPUART1::CTRL::ref();
+        auto &baud     = nLPUART1::BAUD::ref();
+        auto &ldata    = nLPUART1::DATA::ref();
 
-        // TODO check and handle es.
-        auto &es = nDMA0::ES::ref();
-        es.Reset();
+        //─── Wait for completion of the previous write ─────────────────────────
+        while (!csr.bits.DONE) {}
 
-        // TODO: CITER is not decrimenting properly, it gets stuck at 2, so we check the uart status
-        // instead.
-        //
-        // Wait for UART to finish transmitting.
-        while (!(nLPUART1::STAT::ref().bits.TC == nLPUART1::STAT::eTC::eCOMPLETE)) {}
-
-        // Move the txBuffer. Do not need to flush the cache for DTCM write.
-        assert(size < tx_buffer_size_);
-        memcpy(this->tx_buffer_, buffer, size);
-        
+        //─── Tear down any ongoing transfer ────────────────────────────────────
+        // Disable UART + its DMA trigger
+        ctrl.bits.TE      = nLPUART1::CTRL::eTE::eDISABLED;
+        baud.bits.TDMAE   = nLPUART1::BAUD::eTDMAE::eDISABLED;
+        // Disable DMAMUX channel
+        chcfg0.bits.ENBL  = nDMAMUX0::CHCFG_0::eENBL::eENBL_0;
         // Disable DMA requests
-        nDMA0::ERQ::ref().bits.ERQ0 = nDMA0::ERQ::eERQ0::eDISABLE;
+        erq.bits.ERQ0     = nDMA0::ERQ::eERQ0::eDISABLE;
 
-        // Clear DONE and any pending status
-        csr.bits.DONE = 1;
-        
-        // Configure DMA TCD
-        auto &lpuart_data = nLPUART1::DATA::ref();
-        saddr.value = (uint32_t)tx_buffer_;
-        daddr.value = (uint32_t)&lpuart_data.value;
-        soff.bits.SOFF = 1;  // Increment source by 1 byte
-        doff.bits.DOFF = 0;  // No dest increment
+        //─── Clear sticky flags ───────────────────────────────────────────────
+        es.Reset();         // clear any eDMA error
+        csr.bits.DONE = 1;  // clear DONE
+        csr.bits.DREQ = 1;  // prevent auto-disable on completion
 
-        nbytes.bits.DMLOE = 0;
-        nbytes.bits.SMLOE = 0;
-        nbytes.bits.NBYTES = 1; // 1 byte per minor loop
+        //─── Copy the data (No cache clean necesarry for OCRAM2 ───────────────
+        assert(size <= kTxBufferSize);
+        memcpy(tx_buffer_, buffer, size);
 
-        attr.bits.SSIZE = 0; // 8 bit transfers.
-        attr.bits.DSIZE = 0; // 8 bit transfers.
+        //─── Reconfigure the TCD ──────────────────────────────────────────────
+        saddr.value        = (uint32_t)tx_buffer_;
+        soff.bits.SOFF     = 1;          // step source by 1 byte
+        daddr.value        = (uint32_t)&ldata.value;
+        doff.bits.DOFF     = 0;          // keep dest fixed
+        nbytes.bits.NBYTES = 1;          // 1 byte per minor-loop
+        attr.bits.SSIZE    = 0;          // 8-bit transfers
+        attr.bits.DSIZE    = 0;
+        biter.bits.BITER   = size;       // set major-loop count
+        biter.bits.ELINK   = 0;
+        citer.bits.CITER   = size;       // must load *after* BITER
+        citer.bits.ELINK   = 0;
 
-        biter.bits.BITER = size;
-        citer.bits.CITER = size;
+        //─── Arm DMAMUX & clear pending requests ─────────────────────────────
+        chcfg0.bits.SOURCE = 8;         // LPUART1 TX
+        chcfg0.bits.ENBL   = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
+        serq.Reset();                   // clear any stale request
 
-        csr.bits.INTMAJOR = 1;
-
-        // Configure DMAMUX
-        auto &chcfg0 = nDMAMUX0::CHCFG_0::ref();
-        chcfg0.bits.SOURCE = 8;  // LPUART1 TX (RM Table 4-3)
-        chcfg0.bits.ENBL = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
-
-        // Enable DMA Channel
-        erq.bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
-        serq.Reset(); // Clear any pending requests
-
-        // 6. Enable UART Transmitter and DMA
-        auto &ctrl = nLPUART1::CTRL::ref();
-        auto &baud = nLPUART1::BAUD::ref();
-        ctrl.bits.TE = nLPUART1::CTRL::eTE::eENABLED;  // Enable TX now
-        baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eENABLED;  // Enable DMA trigger
-
-        // // 7. Start DMA Transfer
-        // nDMA0::SSRT::ref().bits.SSRT = 1; // Trigger DMA
+        //─── Enable DMA + UART, then kick it off ─────────────────────────────
+        erq.bits.ERQ0     = nDMA0::ERQ::eERQ0::eENABLE;
+        ctrl.bits.TE      = nLPUART1::CTRL::eTE::eENABLED;
+        baud.bits.TDMAE   = nLPUART1::BAUD::eTDMAE::eENABLED;
+        // nDMA0::SSRT::ref().bits.SSRT = 1;  // first trigger
     }
+
+
 
     int read(uint8_t *buffer, size_t max_length)
     {
@@ -224,6 +225,5 @@ public:
         return (uint8_t)(data.value & 0xFF);
     }
 private:
-    static constexpr uint32_t tx_buffer_size_ = 100;
     uint8_t *tx_buffer_ = nullptr;
 };

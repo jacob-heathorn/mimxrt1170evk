@@ -7,12 +7,7 @@
 extern "C" {
     int _write(int fd, const char* ptr, int len) {
         (void)fd;  // Ignore file descriptor
-
         Lpuart1::instance().write(reinterpret_cast<const uint8_t*>(ptr), len);
-
-        // for (int i = 0; i < len; i++) {
-        //     DbgConsole_Putchar(ptr[i]);  // Replace with your board’s UART function
-        // }
         return len;
     }
 
@@ -57,4 +52,15 @@ extern "C" {
             // Infinite loop to halt execution
         }
     }
+
+    int _kill(int pid, int sig) {
+        (void)pid;
+        (void)sig;
+        return 0;
+    }
+    
+    int _getpid(void) {
+        return 1;
+    }
+
 }

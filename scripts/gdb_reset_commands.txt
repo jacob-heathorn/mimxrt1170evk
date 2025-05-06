@@ -1,0 +1,4 @@
+target remote localhost:2400
+monitor reset
+disconnect
+exit
