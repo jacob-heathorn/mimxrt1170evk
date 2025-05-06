@@ -1,5 +1,3 @@
-// #define BOARD_NETWORK_USE_100M_ENET_PORT (0U)
-
 #include "fsl_common.h"
 #include "pin_mux.h"
 #include "fsl_gpio.h"
@@ -17,34 +15,6 @@
 #define STACK_SIZE 2048
 uint8_t thread_1_stack[STACK_SIZE];
 
-// /* Define packet pool for the demonstration.  */
-// #define NX_PACKET_POOL_SIZE ((1536 + sizeof(NX_PACKET)) * 50)
-
-/*******************************************************************************
- * Variables
- ******************************************************************************/
-/* Define the ThreadX and NetX object control blocks...  */
-// NX_PACKET_POOL pool_0;
-// NX_IP ip_0;
-
-// /* Define the IP thread's stack area.  */
-// ULONG ip_thread_stack[2 * 1024 / sizeof(ULONG)];
-
-// AT_NONCACHEABLE_SECTION_ALIGN(ULONG packet_pool_area[NX_PACKET_POOL_SIZE / 4 + 4], 64);
-
-// /* Define the ARP cache area.  */
-// ULONG arp_space_area[1024 / sizeof(ULONG)];
-
-// /* Define an error counter.  */
-// ULONG error_counter;
-
-/*******************************************************************************
- * Prototypes
- ******************************************************************************/
-// extern "C"
-// {
-// VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
-// }
 
 /*******************************************************************************
  * Code
