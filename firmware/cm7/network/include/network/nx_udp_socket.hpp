@@ -13,7 +13,7 @@ public:
 
     bool open() override {
         UINT status = nx_udp_socket_create(interface_.Ip(), &socket_, name_,
-            NX_IP_NORMAL, NX_FRAGMENT_OKAY, NX_IP_TIME_TO_LIVE, 512);
+            NX_IP_NORMAL, NX_DONT_FRAGMENT, NX_IP_TIME_TO_LIVE, 512);
         return status == NX_SUCCESS;
     }
 
