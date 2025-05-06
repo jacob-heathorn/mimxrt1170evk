@@ -34,7 +34,7 @@ public:
             return false;
         }
 
-        if (nx_udp_socket_send(&socket_, packet, dest.Address().ToUint32(), dest.Port()) != NX_SUCCESS) {
+        if (nx_udp_socket_send(&socket_, packet, dest.address().ToUint32(), dest.port()) != NX_SUCCESS) {
             nx_packet_release(packet);
             return false;
         }
@@ -42,12 +42,23 @@ public:
         return true;
     }
 
-    bool receive(char* buffer, size_t buffer_len, size_t& out_len) override {
+    bool receive(char* buffer, size_t buffer_len, size_t& out_len, Ipv4Endpoint *const peer) override {
         NX_PACKET* packet;
         UINT status = nx_udp_socket_receive(&socket_, &packet, NX_NO_WAIT);
         if (status != NX_SUCCESS) {
             return false;
         }
+        
+        // Extract the peer’s address:
+        ULONG   source_ip;
+        UINT    source_port;
+        UINT    info_status = nx_udp_source_extract(packet, &source_ip, &source_port);
+        if (info_status != NX_SUCCESS) {
+            nx_packet_release(packet);
+            return false;
+        }
+        peer->set_address(Ipv4Address(source_ip));
+        peer->set_port(source_port);
 
         // Ensure we don't overflow the buffer
         ULONG data_len = packet->nx_packet_length;

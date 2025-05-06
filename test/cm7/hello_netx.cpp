@@ -126,8 +126,9 @@ void echo_hello()
         // Try receiving
         char buf[256];
         size_t received_len = 0;
-        if (socket->receive(buf, sizeof(buf) - 1, received_len)) {
-            printf("Received UDP: %s (%u)\r\n", buf, received_len);
+        Ipv4Endpoint peer{};
+        if (socket->receive(buf, sizeof(buf) - 1, received_len, &peer)) {
+            printf("Received UDP: '%s' from %s\r\n", buf, peer.ToString().begin());
         }
     }
 

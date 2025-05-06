@@ -38,6 +38,16 @@ public:
     octets_ = tmp;
   }
 
+  explicit constexpr Ipv4Address(uint32_t addr_network_order) noexcept
+    : octets_ {
+        // top byte is octets_[0], then shift down
+        static_cast<uint8_t>(addr_network_order >> 24),
+        static_cast<uint8_t>(addr_network_order >> 16),
+        static_cast<uint8_t>(addr_network_order >>  8),
+        static_cast<uint8_t>(addr_network_order      )
+      }
+  {}
+
 
   constexpr etl::array<uint8_t,4> Octets() const noexcept { return octets_; }
 

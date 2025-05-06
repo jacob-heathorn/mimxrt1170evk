@@ -4,6 +4,8 @@
 
 class Ipv4Endpoint {
 public:
+  Ipv4Endpoint() = default;
+
   // 1) Main ctor: Ipv4Address + port
   constexpr Ipv4Endpoint(Ipv4Address addr, uint16_t port) noexcept
     : address_(addr), port_(port)
@@ -18,17 +20,19 @@ public:
   {}
 
   // Accessors
-  constexpr Ipv4Address   Address() const noexcept { return address_; }
-  constexpr uint16_t       Port()    const noexcept { return port_;    }
+  constexpr Ipv4Address address() const noexcept { return address_; }
+  constexpr void set_address(const Ipv4Address address) noexcept { address_ = address; }
+  constexpr uint16_t port()    const noexcept { return port_;    }
+  constexpr void set_port(const uint16_t port) noexcept { port_ = port; }
 
   etl::string<21> ToString() const {
     etl::string<21> s;
     etl::string_stream ss(s);
-    ss << Address().ToString() << ":" << Port();
+    ss << address().ToString() << ":" << port();
     return s;
   }
 
 private:
-  Ipv4Address address_;
-  uint16_t    port_;
+  Ipv4Address address_ = {"0.0.0.0"};
+  uint16_t    port_ = 0;
 };
