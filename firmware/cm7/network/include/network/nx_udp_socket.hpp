@@ -11,9 +11,9 @@ public:
     // TODO give it the NxEthernetInterface?
     NxUdpSocket(NxEthernetInterface &interface) : interface_{interface} {}
 
-    bool open() override {
+    bool open(size_t recieve_queue_len) override {
         UINT status = nx_udp_socket_create(interface_.Ip(), &socket_, name_,
-            NX_IP_NORMAL, NX_DONT_FRAGMENT, NX_IP_TIME_TO_LIVE, 512);
+            NX_IP_NORMAL, NX_DONT_FRAGMENT, NX_IP_TIME_TO_LIVE, recieve_queue_len);
         return status == NX_SUCCESS;
     }
 
