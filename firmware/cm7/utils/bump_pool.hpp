@@ -2,7 +2,6 @@
 
 #include <atomic>
 #include <cstddef>
-#include <mutex>
 #include <new>       // for placement new
 #include <utility>   // for std::forward
 
@@ -165,5 +164,5 @@ class BumpPool {
 
   ftl::BumpAllocator&        allocator_;
   ftl::Mutex            allocatorMutex_;  // only used when bump‑allocating
-  std::atomic<Node*>    head_{nullptr};    // free‑list head
+  std::atomic<Node*>    head_{nullptr};   // free‑list head
 };
