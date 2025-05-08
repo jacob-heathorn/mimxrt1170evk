@@ -79,30 +79,77 @@ class BumpPool {
 
   // Pop head_ lock‑free, return nullptr if empty
   Node* popNode_() noexcept {
+    // 1) Take a snapshot of the current head of the free-list
     Node* head = head_.load(std::memory_order_acquire);
+    
+    // 2) As long as there is at least one node in the list...
     while (head) {
+      // 2a) Cache the next node pointer before we attempt removal
       Node* nxt = head->next;
+  
+      // 2b) Attempt to atomically replace head_ with its next node
+      //    - expected: head (our snapshot)
+      //    - desired:  nxt (the node after head)
+      // On success (returns true): we have removed 'head' from the list
+      // On failure (returns false): 'head' is updated to the new head_.retry
       if (head_.compare_exchange_weak(
-            head, nxt,
-            std::memory_order_acquire,
-            std::memory_order_relaxed)) {
+            head,            // expected old head (updated on failure)
+            nxt,             // new head we want to install
+            std::memory_order_acquire,  // on success: acquire barrier
+            std::memory_order_relaxed)) // on failure: no ordering needed
+      {
+        // 3) Successful pop: detach the node from the list
         head->next = nullptr;
         return head;
       }
+      // Failure path: head now holds the latest head_.loop continues
     }
+    
+    // 4) Empty list: nothing to pop
     return nullptr;
   }
 
   // Push node onto head_ lock‑free
   void pushNode_(Node* node) noexcept {
+    // 1) Grab a _snapshot_ of the current head of the free‑list.
+    //    We don’t need any special ordering here, because we’re
+    //    just preparing our new node’s next pointer.
     Node* head = head_.load(std::memory_order_relaxed);
+  
+    // 2) Loop until we successfully install `node` as the new head.
     do {
+      // 2a) Point our new node at what used to be the head.
+      //     At this point, `node->next` = snapshot-of-head.
       node->next = head;
+  
+      // 2b) Try to atomically swing head_ from the old `head` pointer
+      //     to our `node`.  Two cases:
+      //
+      //     — Success:
+      //         head_ still equals the snapshot in `head`,
+      //         so we install `node`, return true,
+      //         and exit the loop.
+      //
+      //     — Failure (could be spurious or because another thread
+      //       raced in and changed head_):
+      //         * compare_exchange_weak updates `head` with the
+      //           current head_.load(), so that `head` now points
+      //           at whoever “won” the race.
+      //         * It returns false, so we fall through and loop again.
+      //
     } while (!head_.compare_exchange_weak(
-               head, node,
-               std::memory_order_release,
-               std::memory_order_relaxed));
+                 head,                // expected old head (updated on failure)
+                 node,                // desired new head
+                 std::memory_order_release,  // on success: publish node->next + prior writes
+                 std::memory_order_relaxed)); // on failure: no extra fences
+  
+    // 3) At this point, `node` has been atomically installed
+    //    as the new head of the free‑list, and anyone popping
+    //    will see it (with acquire semantics on their side).
   }
+
+  static_assert(std::atomic<Node*>::is_always_lock_free,
+    "Pointer atomics must be always lock-free");
 
   ftl::BumpAllocator&        allocator_;
   ftl::Mutex            allocatorMutex_;  // only used when bump‑allocating
