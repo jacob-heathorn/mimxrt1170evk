@@ -9,9 +9,21 @@
 #include "ftl/bump_allocator.hpp"
 #include "ftl/mutex.hpp"
 
-//----------------------------------------------------------------
-// BumpPool: a thread‑safe pool of Ts built on a bump allocator.
-//----------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
+// BumpPool: a fast, fixed‑capacity object pool backed by a bump allocator.
+// 
+// Thread safety is achieved with two mechanisms:
+//  1) A mutex around the bump‑allocation step (i.e. when grabbing new memory from the allocator).
+//  2) A lock‑free singly‑linked free‑list (using atomics) for already‑allocated nodes, so that
+//     acquire/release never blocks once the steady‑state pool is filled.
+//
+// In practice, you preallocate N objects up front. After that point, both `acquire()` and
+// `release()` run purely on atomic push/pop, giving you deterministic, low‑latency behavior without
+// context switches.
+//
+// Usage scenario: once your app has needed at most N live objects at once, it will never allocate
+// again — all further gets/puts are lock‑free.
+//
 template <typename T>
 class BumpPool {
  public:

@@ -80,6 +80,10 @@ uint8_t thread_2_stack[STACK_SIZE];
 TEST(BumpPoolThreadSafety, AcquireReleaseConcurrently) {
     auto &dtcm = DtcmAllocator::instance();
     BumpPool<CountingType> pool(dtcm, 2);
+    BumpPool<double> pool2(dtcm, 5);
+    (void)pool2;
+
+    // printf("Sizeof bumpPool: %u\r\n", sizeof(pool2));
 
     // Reset counters
     CountingType::ctor_count = 0;
