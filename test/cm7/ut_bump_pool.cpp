@@ -3,7 +3,7 @@
 
 #include "ftl/mutex.hpp"
 #include "ftl/tx_thread.hpp"
-#include "utils/bump_pool.hpp"
+#include "ftl/bump_pool.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "etl/delegate.h"
 
