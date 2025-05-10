@@ -20,6 +20,15 @@ static BumpPool<NxUdpSocket> &NxUdpSocketBumpPool()
   return socket_bump_pool;
 }
 
+struct NxUdpSocketReleaser : BumpPoolReleaser
+{
+  void release(UdpSocket* s) const override
+  {
+    auto &pool = NxUdpSocketBumpPool();
+    pool.release(static_cast<NxUdpSocket*>(s));
+  }
+}kNxUdpSocketReleaser;
+
 NxEthernetInterface::NxEthernetInterface(Ipv4Address address, Ipv4Mask mask)
 {
   UINT status;
@@ -99,15 +108,9 @@ void NxEthernetInterface::WaitUntilReady()
 
 std::unique_ptr<UdpSocket, EthernetInterface::UdpSocketDeleter> NxEthernetInterface::CreateUdpSocket()
 {
-  static EthernetInterface::UdpSocketDeleter socket_deleter{this};
+  static EthernetInterface::UdpSocketDeleter socket_deleter{&kNxUdpSocketReleaser};
   std::unique_ptr<NxUdpSocket, decltype(socket_deleter)> 
     socket_ptr(NxUdpSocketBumpPool().acquire(*this), socket_deleter);
 
   return socket_ptr;
-}
-
-void NxEthernetInterface::ReclaimUdpSocket(UdpSocket* s)
-{
-  auto &pool = NxUdpSocketBumpPool();
-  pool.release(static_cast<NxUdpSocket*>(s));
 }

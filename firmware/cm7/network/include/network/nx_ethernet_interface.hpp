@@ -31,10 +31,7 @@ public:
 
   std::unique_ptr<UdpSocket, EthernetInterface::UdpSocketDeleter> CreateUdpSocket() override;
 
-  void ReclaimUdpSocket(UdpSocket* s) override;
-
 private:
   NX_PACKET_POOL pool_{};
   NX_IP ip_ {};
 };
-

@@ -85,6 +85,8 @@ void echo_hello()
             assert(false && "Failed to open or bind UDP socket");
         }
         
+        tx_thread_sleep(1);
+        
         // Send packet
         char msg[64];
         sprintf(msg, "Hello World %d", i);

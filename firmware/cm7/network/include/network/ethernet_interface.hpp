@@ -8,15 +8,20 @@ class UdpSocket;
 class EthernetInterface;
 
 
+struct BumpPoolReleaser
+{
+  virtual void release(UdpSocket* s) const = 0;
+};
+
 class EthernetInterface
 {
   public:
   struct UdpSocketDeleter
   {
-    EthernetInterface* owner;
+    BumpPoolReleaser* releaser = nullptr;
 
     void operator()(UdpSocket* s) const {
-      owner->ReclaimUdpSocket(s);
+      releaser->release(s);
     }
   };
 
@@ -30,7 +35,4 @@ class EthernetInterface
     EthernetInterface& operator=(EthernetInterface&&) = delete;
 
     virtual std::unique_ptr<UdpSocket, UdpSocketDeleter> CreateUdpSocket() = 0;
-
-  protected:
-    virtual void ReclaimUdpSocket(UdpSocket* s) = 0;
 };
