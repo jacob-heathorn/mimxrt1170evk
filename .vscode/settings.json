@@ -123,6 +123,7 @@
     "fsl_common_arm.h": "c",
     "charconv": "cpp",
     "format": "cpp",
-    "text_encoding": "cpp"
+    "text_encoding": "cpp",
+    "socket": "cpp"
 },
 }

@@ -29,7 +29,9 @@ public:
   // Waits for the stack to be fully ready.
   void WaitUntilReady();
 
-  UdpSocket *CreateUdpSocket() override;
+  std::unique_ptr<UdpSocket, EthernetInterface::UdpSocketDeleter> CreateUdpSocket() override;
+
+  void ReclaimUdpSocket(UdpSocket* s) override;
 
 private:
   NX_PACKET_POOL pool_{};

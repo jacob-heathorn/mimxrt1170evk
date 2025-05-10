@@ -76,13 +76,15 @@ void echo_hello()
     GigabitEthernet::instance().WaitUntilReady();
     printf("Starting Hello World loop...\r\n");
 
-    UdpSocket* socket = GigabitEthernet::instance().CreateUdpSocket();
-
-    if (!socket->open() || !socket->bind()) {
-        assert(false && "Failed to open or bind UDP socket");
-    }
-
     for (int i = 0;; ++i) {
+        // Try creating and destroying it in the loop to execise the full socket and smart pointer
+        // functionality
+        auto socket = GigabitEthernet::instance().CreateUdpSocket();
+
+        if (!socket->open() || !socket->bind()) {
+            assert(false && "Failed to open or bind UDP socket");
+        }
+        
         // Send packet
         char msg[64];
         sprintf(msg, "Hello World %d", i);
@@ -101,8 +103,6 @@ void echo_hello()
             printf("Received UDP: '%s' from %s\r\n", buf, peer.ToString().begin());
         }
     }
-
-    socket->close();  // Unreachable, but good practice
 }
 
 /* Define what the initial system looks like.  */

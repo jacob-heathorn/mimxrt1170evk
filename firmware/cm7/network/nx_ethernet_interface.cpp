@@ -6,10 +6,18 @@
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
 #include "utils/ocram2_allocator.hpp"
+#include "ftl/bump_pool.hpp"
 
 extern "C"
 {
 VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
+}
+
+// TODO reconsider
+static BumpPool<NxUdpSocket> &NxUdpSocketBumpPool() 
+{
+  static BumpPool<NxUdpSocket> socket_bump_pool(DtcmAllocator::instance(), 1);
+  return socket_bump_pool;
 }
 
 NxEthernetInterface::NxEthernetInterface(Ipv4Address address, Ipv4Mask mask)
@@ -89,8 +97,17 @@ void NxEthernetInterface::WaitUntilReady()
   }
 }
 
-UdpSocket *NxEthernetInterface::CreateUdpSocket()
+std::unique_ptr<UdpSocket, EthernetInterface::UdpSocketDeleter> NxEthernetInterface::CreateUdpSocket()
 {
-  auto *socket = DtcmAllocator::instance().allocate<NxUdpSocket>(*this);
-  return socket;
+  static EthernetInterface::UdpSocketDeleter socket_deleter{this};
+  std::unique_ptr<NxUdpSocket, decltype(socket_deleter)> 
+    socket_ptr(NxUdpSocketBumpPool().acquire(*this), socket_deleter);
+
+  return socket_ptr;
+}
+
+void NxEthernetInterface::ReclaimUdpSocket(UdpSocket* s)
+{
+  auto &pool = NxUdpSocketBumpPool();
+  pool.release(static_cast<NxUdpSocket*>(s));
 }
