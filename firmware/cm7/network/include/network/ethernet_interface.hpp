@@ -23,9 +23,12 @@ struct DelegatingDeleter
   }
 };
 
+using UdpSocketPtr = std::unique_ptr<UdpSocket, DelegatingDeleter<UdpSocket>>;
+
 class EthernetInterface
 {
   public:
+
     EthernetInterface() = default;
     virtual ~EthernetInterface() = default;
 
@@ -34,5 +37,5 @@ class EthernetInterface
     EthernetInterface(EthernetInterface&&) = delete;
     EthernetInterface& operator=(EthernetInterface&&) = delete;
 
-    virtual std::unique_ptr<UdpSocket, DelegatingDeleter<UdpSocket>> CreateUdpSocket() = 0;
+    virtual UdpSocketPtr CreateUdpSocket() = 0;
 };

@@ -79,7 +79,7 @@ void echo_hello()
     for (int i = 0;; ++i) {
         // Try creating and destroying it in the loop to execise the full socket and smart pointer
         // functionality
-        auto socket = GigabitEthernet::instance().CreateUdpSocket();
+        UdpSocketPtr socket = GigabitEthernet::instance().CreateUdpSocket();
 
         if (!socket->open() || !socket->bind()) {
             assert(false && "Failed to open or bind UDP socket");

@@ -106,7 +106,7 @@ void NxEthernetInterface::WaitUntilReady()
   }
 }
 
-std::unique_ptr<UdpSocket, DelegatingDeleter<UdpSocket>> NxEthernetInterface::CreateUdpSocket()
+UdpSocketPtr NxEthernetInterface::CreateUdpSocket()
 {
   DelegatingDeleter<UdpSocket> socket_deleter{&kNxUdpSocketDeleter};
   std::unique_ptr<NxUdpSocket, decltype(socket_deleter)> 
