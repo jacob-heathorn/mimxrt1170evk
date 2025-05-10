@@ -29,7 +29,7 @@ public:
   // Waits for the stack to be fully ready.
   void WaitUntilReady();
 
-  std::unique_ptr<UdpSocket, EthernetInterface::UdpSocketDeleter> CreateUdpSocket() override;
+  std::unique_ptr<UdpSocket, DelegatingDeleter<UdpSocket>> CreateUdpSocket() override;
 
 private:
   NX_PACKET_POOL pool_{};

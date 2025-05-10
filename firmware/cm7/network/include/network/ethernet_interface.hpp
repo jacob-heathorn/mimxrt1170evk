@@ -8,23 +8,23 @@ class UdpSocket;
 class EthernetInterface;
 
 
-struct BumpPoolReleaser
+template <typename T>
+struct PolymorphicDeleter
 {
-  virtual void release(UdpSocket* s) const = 0;
+  virtual void operator()(T* s) const = 0;
+};
+
+template <typename T>
+struct DelegatingDeleter
+{
+  PolymorphicDeleter<T> *polymorphic_deleter_ = nullptr;
+  void operator()(T* s) const {
+    polymorphic_deleter_->operator()(s);
+  }
 };
 
 class EthernetInterface
 {
-  public:
-  struct UdpSocketDeleter
-  {
-    BumpPoolReleaser* releaser = nullptr;
-
-    void operator()(UdpSocket* s) const {
-      releaser->release(s);
-    }
-  };
-
   public:
     EthernetInterface() = default;
     virtual ~EthernetInterface() = default;
@@ -34,5 +34,5 @@ class EthernetInterface
     EthernetInterface(EthernetInterface&&) = delete;
     EthernetInterface& operator=(EthernetInterface&&) = delete;
 
-    virtual std::unique_ptr<UdpSocket, UdpSocketDeleter> CreateUdpSocket() = 0;
+    virtual std::unique_ptr<UdpSocket, DelegatingDeleter<UdpSocket>> CreateUdpSocket() = 0;
 };

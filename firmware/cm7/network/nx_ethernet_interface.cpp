@@ -20,14 +20,14 @@ static BumpPool<NxUdpSocket> &NxUdpSocketBumpPool()
   return socket_bump_pool;
 }
 
-struct NxUdpSocketReleaser : BumpPoolReleaser
+struct NxUdpSocketDeleter : PolymorphicDeleter<UdpSocket>
 {
-  void release(UdpSocket* s) const override
+  void operator()(UdpSocket* s) const override
   {
     auto &pool = NxUdpSocketBumpPool();
     pool.release(static_cast<NxUdpSocket*>(s));
   }
-}kNxUdpSocketReleaser;
+}kNxUdpSocketDeleter;
 
 NxEthernetInterface::NxEthernetInterface(Ipv4Address address, Ipv4Mask mask)
 {
@@ -106,11 +106,10 @@ void NxEthernetInterface::WaitUntilReady()
   }
 }
 
-std::unique_ptr<UdpSocket, EthernetInterface::UdpSocketDeleter> NxEthernetInterface::CreateUdpSocket()
+std::unique_ptr<UdpSocket, DelegatingDeleter<UdpSocket>> NxEthernetInterface::CreateUdpSocket()
 {
-  static EthernetInterface::UdpSocketDeleter socket_deleter{&kNxUdpSocketReleaser};
+  DelegatingDeleter<UdpSocket> socket_deleter{&kNxUdpSocketDeleter};
   std::unique_ptr<NxUdpSocket, decltype(socket_deleter)> 
     socket_ptr(NxUdpSocketBumpPool().acquire(*this), socket_deleter);
-
   return socket_ptr;
 }
