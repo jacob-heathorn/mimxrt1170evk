@@ -27,13 +27,19 @@ template <typename T>
 class DelegatingDeleter
 {
 public:
-  PolymorphicDeleter<T> *polymorphic_deleter_ = nullptr;
+  // TODO reference
+  explicit DelegatingDeleter(PolymorphicDeleter<T> *polymorphic_deleter)
+    : polymorphic_deleter_{polymorphic_deleter} {}
+
+  ~DelegatingDeleter() = default;
+  
   void operator()(T* s) const {
     polymorphic_deleter_->operator()(s);
   }
   DelegatingDeleter(const DelegatingDeleter&) = default;
   DelegatingDeleter(DelegatingDeleter&&) noexcept = default;
 private:
+  PolymorphicDeleter<T> *polymorphic_deleter_ = nullptr;
   DelegatingDeleter& operator=(const DelegatingDeleter&) = delete;
   DelegatingDeleter& operator=(DelegatingDeleter&&) noexcept = delete;
 };
