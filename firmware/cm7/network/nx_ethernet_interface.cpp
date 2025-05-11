@@ -13,12 +13,13 @@ extern "C"
 VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 }
 
-// TODO allocator.
 template <typename D, typename B = D>
 class UniqueBumpPool : PolymorphicDeleter<UdpSocket> {
 public:
   explicit UniqueBumpPool(ftl::BumpAllocator& allocator, std::size_t initialSize = 1)
    : bump_pool_{allocator, initialSize} {}
+  
+   ~UniqueBumpPool() = default;
 
   void operator()(B* s) override
   {
@@ -31,6 +32,11 @@ public:
     return { bump_pool_.acquire(std::forward<Args>(args)...), deleter };
   }
 private:
+  UniqueBumpPool(const UniqueBumpPool&) = delete;
+  UniqueBumpPool& operator=(const UniqueBumpPool&) = delete;
+  UniqueBumpPool(UniqueBumpPool&&) noexcept = delete;
+  UniqueBumpPool& operator=(UniqueBumpPool&&) noexcept = delete;
+  
   BumpPool<D> bump_pool_;
 };
 

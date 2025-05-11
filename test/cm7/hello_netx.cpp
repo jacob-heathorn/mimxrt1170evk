@@ -1,3 +1,5 @@
+#include <utility>
+
 #include "fsl_common.h"
 #include "enet_pin_mux.h"
 #include "fsl_gpio.h"
@@ -79,7 +81,8 @@ void echo_hello()
     for (int i = 0;; ++i) {
         // Try creating and destroying it in the loop to execise the full socket and smart pointer
         // functionality
-        UdpSocketPtr socket = GigabitEthernet::instance().CreateUdpSocket();
+        UdpSocketPtr socket1 = GigabitEthernet::instance().CreateUdpSocket();
+        UdpSocketPtr socket = std::move(socket1);
 
         if (!socket->open() || !socket->bind()) {
             assert(false && "Failed to open or bind UDP socket");
