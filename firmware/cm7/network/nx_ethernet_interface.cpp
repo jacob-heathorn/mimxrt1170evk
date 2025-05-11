@@ -17,6 +17,9 @@ VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 template <typename D, typename B = D>
 class UniqueBumpPool : PolymorphicDeleter<UdpSocket> {
 public:
+  explicit UniqueBumpPool(ftl::BumpAllocator& allocator, std::size_t initialSize = 1)
+   : bump_pool_{allocator, initialSize} {}
+
   void operator()(B* s) override
   {
     bump_pool_.release(static_cast<D*>(s));
@@ -28,7 +31,7 @@ public:
     return { bump_pool_.acquire(std::forward<Args>(args)...), deleter };
   }
 private:
-  BumpPool<D> bump_pool_{DtcmAllocator::instance(), 1};
+  BumpPool<D> bump_pool_;
 };
 
 NxEthernetInterface::NxEthernetInterface(Ipv4Address address, Ipv4Mask mask)
@@ -110,6 +113,6 @@ void NxEthernetInterface::WaitUntilReady()
 
 UdpSocketPtr NxEthernetInterface::CreateUdpSocket()
 {
-  static UniqueBumpPool<NxUdpSocket, UdpSocket> pool{};
+  static UniqueBumpPool<NxUdpSocket, UdpSocket> pool{DtcmAllocator::instance()};
   return pool.acquire(*this);
 }
