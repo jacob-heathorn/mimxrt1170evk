@@ -27,8 +27,7 @@ template <typename T>
 class DelegatingDeleter
 {
 public:
-  // TODO reference
-  explicit DelegatingDeleter(PolymorphicDeleter<T> *polymorphic_deleter)
+  explicit DelegatingDeleter(PolymorphicDeleter<T> *const polymorphic_deleter)
     : polymorphic_deleter_{polymorphic_deleter} {}
 
   ~DelegatingDeleter() = default;
