@@ -11,7 +11,7 @@ class EthernetInterface;
 template <typename T>
 struct PolymorphicDeleter
 {
-  virtual void operator()(T* s) const = 0;
+  virtual void operator()(T* s) = 0;
 };
 
 template <typename T>

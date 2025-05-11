@@ -13,21 +13,21 @@ extern "C"
 VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 }
 
-// TODO reconsider
-static BumpPool<NxUdpSocket> &NxUdpSocketBumpPool() 
-{
-  static BumpPool<NxUdpSocket> socket_bump_pool(DtcmAllocator::instance(), 1);
-  return socket_bump_pool;
-}
 
-struct NxUdpSocketDeleter : PolymorphicDeleter<UdpSocket>
-{
-  void operator()(UdpSocket* s) const override
+class NxUdpSocketPool : PolymorphicDeleter<UdpSocket> {
+public:
+  void operator()(UdpSocket* s) override
   {
-    auto &pool = NxUdpSocketBumpPool();
-    pool.release(static_cast<NxUdpSocket*>(s));
+    socket_bump_pool_.release(static_cast<NxUdpSocket*>(s));
   }
-}kNxUdpSocketDeleter;
+
+  UdpSocketPtr acquire(NxEthernetInterface &interface) {
+    DelegatingDeleter<UdpSocket> socket_deleter{this};
+    return { socket_bump_pool_.acquire(interface), socket_deleter };
+  }
+private:
+  BumpPool<NxUdpSocket> socket_bump_pool_{DtcmAllocator::instance(), 1};
+};
 
 NxEthernetInterface::NxEthernetInterface(Ipv4Address address, Ipv4Mask mask)
 {
@@ -108,8 +108,6 @@ void NxEthernetInterface::WaitUntilReady()
 
 UdpSocketPtr NxEthernetInterface::CreateUdpSocket()
 {
-  DelegatingDeleter<UdpSocket> socket_deleter{&kNxUdpSocketDeleter};
-  std::unique_ptr<NxUdpSocket, decltype(socket_deleter)> 
-    socket_ptr(NxUdpSocketBumpPool().acquire(*this), socket_deleter);
-  return socket_ptr;
+  static NxUdpSocketPool pool{};
+  return pool.acquire(*this);
 }

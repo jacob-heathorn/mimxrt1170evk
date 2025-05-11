@@ -8,7 +8,6 @@
 
 class NxUdpSocket : public UdpSocket {
 public:
-    // TODO give it the NxEthernetInterface?
     NxUdpSocket(NxEthernetInterface &interface) : interface_{interface} {}
     virtual ~NxUdpSocket() override 
     {
