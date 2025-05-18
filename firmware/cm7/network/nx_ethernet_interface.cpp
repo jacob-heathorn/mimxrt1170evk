@@ -18,8 +18,14 @@ class UniqueBumpPool : PolymorphicDeleter<UdpSocket> {
 public:
   explicit UniqueBumpPool(ftl::BumpAllocator& allocator, std::size_t initialSize = 1)
    : bump_pool_{allocator, initialSize} {}
-  
-   ~UniqueBumpPool() = default;
+
+  ~UniqueBumpPool() = default;
+
+  // No copying or moving.
+  UniqueBumpPool(const UniqueBumpPool&) = delete;            // Delete copy constructor
+  UniqueBumpPool& operator=(const UniqueBumpPool&) = delete; // Delete copy assignment operator
+  UniqueBumpPool(UniqueBumpPool&&) = delete;                 // Delete move constructor
+  UniqueBumpPool& operator=(UniqueBumpPool&&) = delete;      // Delete move assignment operator
 
   void operator()(B* s) override
   {
@@ -32,11 +38,6 @@ public:
     return { bump_pool_.acquire(std::forward<Args>(args)...), deleter };
   }
 private:
-  UniqueBumpPool(const UniqueBumpPool&) = delete;
-  UniqueBumpPool& operator=(const UniqueBumpPool&) = delete;
-  UniqueBumpPool(UniqueBumpPool&&) noexcept = delete;
-  UniqueBumpPool& operator=(UniqueBumpPool&&) noexcept = delete;
-  
   BumpPool<D> bump_pool_;
 };
 
