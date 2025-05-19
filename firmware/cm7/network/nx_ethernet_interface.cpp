@@ -6,11 +6,13 @@
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
 #include "utils/ocram2_allocator.hpp"
+#include "ftl/unique_bump_pool.hpp"
 
 extern "C"
 {
 VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 }
+
 
 NxEthernetInterface::NxEthernetInterface(Ipv4Address address, Ipv4Mask mask)
 {
@@ -89,8 +91,8 @@ void NxEthernetInterface::WaitUntilReady()
   }
 }
 
-UdpSocket *NxEthernetInterface::CreateUdpSocket()
+UdpSocketPtr NxEthernetInterface::CreateUdpSocket()
 {
-  auto *socket = DtcmAllocator::instance().allocate<NxUdpSocket>(*this);
-  return socket;
+  static UniqueBumpPool<NxUdpSocket, UdpSocket> pool{DtcmAllocator::instance()};
+  return pool.acquire(*this);
 }

@@ -29,10 +29,9 @@ public:
   // Waits for the stack to be fully ready.
   void WaitUntilReady();
 
-  UdpSocket *CreateUdpSocket() override;
+  UdpSocketPtr CreateUdpSocket() override;
 
 private:
   NX_PACKET_POOL pool_{};
   NX_IP ip_ {};
 };
-

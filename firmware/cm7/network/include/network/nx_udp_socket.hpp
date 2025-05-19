@@ -8,13 +8,21 @@
 
 class NxUdpSocket : public UdpSocket {
 public:
-    // TODO give it the NxEthernetInterface?
     NxUdpSocket(NxEthernetInterface &interface) : interface_{interface} {}
+    virtual ~NxUdpSocket() override 
+    {
+        this->close();
+    }
 
     bool open(size_t recieve_queue_len) override {
         UINT status = nx_udp_socket_create(interface_.Ip(), &socket_, name_,
             NX_IP_NORMAL, NX_DONT_FRAGMENT, NX_IP_TIME_TO_LIVE, recieve_queue_len);
         return status == NX_SUCCESS;
+    }
+
+    bool is_open() const noexcept {
+        // `nx_udp_socket_ip_ptr` is null if create() never succeeded
+        return (socket_.nx_udp_socket_ip_ptr != NX_NULL);
     }
 
     bool bind(uint16_t port = 0) override {
@@ -83,8 +91,11 @@ public:
     }
 
     void close() override {
-        nx_udp_socket_unbind(&socket_);
-        nx_udp_socket_delete(&socket_);
+        if (is_open())
+        {
+            nx_udp_socket_unbind(&socket_);
+            nx_udp_socket_delete(&socket_);
+        }
     }
 
 private:

@@ -155,6 +155,10 @@ public:
         //─── Wait for completion of the previous write ─────────────────────────
         while (!csr.bits.DONE) {}
 
+        //─── Wait for UART shift register to empty ─────────────────────────────
+        auto &stat = nLPUART1::STAT::ref();
+        while (stat.bits.TC != nLPUART1::STAT::eTC::eCOMPLETE) {}
+
         //─── Tear down any ongoing transfer ────────────────────────────────────
         // Disable UART + its DMA trigger
         ctrl.bits.TE      = nLPUART1::CTRL::eTE::eDISABLED;
