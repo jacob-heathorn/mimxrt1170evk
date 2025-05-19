@@ -14,31 +14,37 @@ VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 }
 
 template <typename D, typename B = D>
-class UniqueBumpPool : PolymorphicDeleter<UdpSocket> {
+class UniqueBumpPool
+  : public BumpPool<D>              // get all the pool logic “for free”
+  , public PolymorphicDeleter<B>    // satisfy the polymorphic-deleter interface
+{
 public:
-  explicit UniqueBumpPool(ftl::BumpAllocator& allocator, std::size_t initialSize = 1)
-   : bump_pool_{allocator, initialSize} {}
+  // Inherit the pool’s constructor(s):
+  using BumpPool<D>::BumpPool;
 
-  ~UniqueBumpPool() = default;
+  // We still want no copies or moves:
+  UniqueBumpPool(const UniqueBumpPool&)            = delete;
+  UniqueBumpPool& operator=(const UniqueBumpPool&) = delete;
+  UniqueBumpPool(UniqueBumpPool&&)                 = delete;
+  UniqueBumpPool& operator=(UniqueBumpPool&&)      = delete;
 
-  // No copying or moving.
-  UniqueBumpPool(const UniqueBumpPool&) = delete;            // Delete copy constructor
-  UniqueBumpPool& operator=(const UniqueBumpPool&) = delete; // Delete copy assignment operator
-  UniqueBumpPool(UniqueBumpPool&&) = delete;                 // Delete move constructor
-  UniqueBumpPool& operator=(UniqueBumpPool&&) = delete;      // Delete move assignment operator
-
-  void operator()(B* s) override
+  // PolymorphicDeleter<B> requires us to override operator():
+  void operator()(B* ptr) override
   {
-    bump_pool_.release(static_cast<D*>(s));
+    // call the pool’s release, casting back to D*
+    BumpPool<D>::release(static_cast<D*>(ptr));
   }
 
+  // Acquire returns a unique_ptr that uses *this* as its deleter.
   template <typename... Args>
-  std::unique_ptr<B, DelegatingDeleter<B>> acquire(Args&&... args) {
-    DelegatingDeleter<B> deleter{this};
-    return { bump_pool_.acquire(std::forward<Args>(args)...), deleter };
+  std::unique_ptr<B, DelegatingDeleter<B>> acquire(Args&&... args)
+  {
+    // Note: unique_ptr will copy/move your deleter (UniqueBumpPool) by value
+    return {
+      BumpPool<D>::acquire(std::forward<Args>(args)...),
+      DelegatingDeleter<B>{this}
+    };
   }
-private:
-  BumpPool<D> bump_pool_;
 };
 
 NxEthernetInterface::NxEthernetInterface(Ipv4Address address, Ipv4Mask mask)
