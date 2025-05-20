@@ -1,6 +1,6 @@
 repositories:
   forge:
-    tag: 6205937f88e2da89036479d3f79cf713ad4e7552
+    tag: f143ba3994639f83580161a92625fcfb7f66ba71
     url: https://github.com/jacob-heathorn/forge.git
   netxduo:
     tag: v6.4.2_rel
