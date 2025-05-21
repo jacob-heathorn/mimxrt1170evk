@@ -106,7 +106,7 @@ void echo_hello()
         // Ipv4Endpoint peer{};
         ftl::UdpFrame frame = socket->receive();
         if (frame) {
-            printf("Received UDP: '%s' from %s\r\n", (char*)frame.payload(), "TODO");
+            printf("Received UDP: '%s' from TOOD:%u\r\n", (char*)frame.payload(), frame.getSourcePort());
         }
         else
         {

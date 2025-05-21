@@ -58,27 +58,25 @@ public:
             return ftl::UdpFrame();  // Return empty frame.
         }
         
-        // // Extract the peer’s address:
-        // ULONG   source_ip;
-        // UINT    source_port;
-        // UINT    info_status = nx_udp_source_extract(packet, &source_ip, &source_port);
-        // if (info_status != NX_SUCCESS) {
-        //     nx_packet_release(packet);
-        //     return false;
-        // }
+        // Extract the peer’s address:
+        ULONG   source_ip;
+        UINT    source_port;
+        UINT    info_status = nx_udp_source_extract(packet, &source_ip, &source_port);
+        if (info_status != NX_SUCCESS) {
+            nx_packet_release(packet);
+            return ftl::UdpFrame();  // Return empty frame.
+        }
+
         // peer->set_address(Ipv4Address(source_ip));
         // peer->set_port(source_port);
 
-        // Ensure we don't overflow the buffer
+        // Create a new udp frame with the received size.
         ULONG data_len = packet->nx_packet_length;
-        // if (data_len > buffer_len) {
-        //     // Drop the packet if too large
-        //     nx_packet_release(packet);
-        //     return false;
-        // }
-        
-        // TODO provide an etl::string version of payload, don't null terminate.
         auto frame = ftl::UdpFrame(data_len + 1);
+
+        // Set the source port.
+        frame.setSourcePort(source_port);
+        // TOOD set destination port
 
         // Copy the payload into the provided buffer
         ULONG copied = 0;
