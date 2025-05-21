@@ -88,7 +88,7 @@ void echo_hello()
             assert(false && "Failed to open or bind UDP socket");
         }
         
-        tx_thread_sleep(1);
+        //tx_thread_sleep(1);
         
         // Send packet
         char msg[64];
@@ -105,8 +105,12 @@ void echo_hello()
         // size_t received_len = 0;
         // Ipv4Endpoint peer{};
         ftl::UdpFrame frame = socket->receive();
-        if (frame.getLength() > 0) {
+        if (frame) {
             printf("Received UDP: '%s' from %s\r\n", (char*)frame.payload(), "TODO");
+        }
+        else
+        {
+            printf("Received returned empty frame \r\n");
         }
     }
 }

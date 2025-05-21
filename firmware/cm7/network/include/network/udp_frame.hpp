@@ -22,6 +22,9 @@ public:
     explicit UdpFrame(std::size_t payloadSize)
         : DataFrame(HeaderSize + payloadSize) {}
 
+    // Default constructs an empty data frame.
+    UdpFrame() = default;
+
     // --- Header setters ---
     void setSourcePort(uint16_t port) noexcept {
         set<uint16_t>(SourcePortOffset, port);

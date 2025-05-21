@@ -52,12 +52,10 @@ public:
 
     //char* buffer, size_t buffer_len, size_t& out_len, Ipv4Endpoint *const peer
     ftl::UdpFrame receive() override {
-        ftl::UdpFrame frame(0);
-
         NX_PACKET* packet;
         UINT status = nx_udp_socket_receive(&socket_, &packet, NX_NO_WAIT);
         if (status != NX_SUCCESS) {
-            return frame;
+            return ftl::UdpFrame();  // Return empty frame.
         }
         
         // // Extract the peer’s address:
@@ -80,15 +78,14 @@ public:
         // }
         
         // TODO provide an etl::string version of payload, don't null terminate.
-        frame = ftl::UdpFrame(data_len + 1);
+        auto frame = ftl::UdpFrame(data_len + 1);
 
         // Copy the payload into the provided buffer
         ULONG copied = 0;
         status = nx_packet_data_extract_offset(packet, 0, frame.payload(), data_len, &copied);
         if (status != NX_SUCCESS || copied == 0) {
             nx_packet_release(packet);
-            frame = ftl::UdpFrame(0);
-            return frame;
+            return ftl::UdpFrame();  // Return empty frame.
         }
 
         frame.payload()[copied] = '\0'; // Null terminate for convenience if it's a string
