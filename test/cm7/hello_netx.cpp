@@ -78,6 +78,10 @@ void echo_hello()
     GigabitEthernet::instance().WaitUntilReady();
     printf("Starting Hello World loop...\r\n");
 
+    {
+        ftl::DataFrame frame(10);
+    }
+
     for (int i = 0;; ++i) {
         // Try creating and destroying it in the loop to execise the full socket and smart pointer
         // functionality
