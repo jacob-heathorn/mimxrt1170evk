@@ -19,44 +19,41 @@ public:
     static constexpr std::size_t HeaderSize = ChecksumOffset + sizeof(uint16_t);
 
     // Construct with payload size => allocates header + payload
-    explicit UdpFrame(std::size_t payloadSize)
-        : DataFrame(HeaderSize + payloadSize) {}
+    explicit UdpFrame(std::size_t payloadSize) : DataFrame(HeaderSize + payloadSize) {
+      setLength();
+    }
 
     // Default constructs an empty data frame.
     UdpFrame() = default;
 
     // --- Header setters ---
     void setSourcePort(uint16_t port) noexcept {
-        set<uint16_t>(SourcePortOffset, port);
+        set<uint16_t>(SourcePortOffset, htons(port));
     }
 
     void setDestinationPort(uint16_t port) noexcept {
-        set<uint16_t>(DestinationPortOffset, port);
-    }
-
-    void setLength(uint16_t length) noexcept {
-        set<uint16_t>(LengthOffset, length);
+        set<uint16_t>(DestinationPortOffset, htons(port));
     }
 
     void setChecksum(uint16_t checksum) noexcept {
-        set<uint16_t>(ChecksumOffset, checksum);
+        set<uint16_t>(ChecksumOffset, htons(checksum));
     }
 
     // --- Header getters ---
     uint16_t getSourcePort() const noexcept {
-        return get<uint16_t>(SourcePortOffset);
+        return ntohs(get<uint16_t>(SourcePortOffset));
     }
 
     uint16_t getDestinationPort() const noexcept {
-        return get<uint16_t>(DestinationPortOffset);
+        return ntohs(get<uint16_t>(DestinationPortOffset));
     }
 
     uint16_t getLength() const noexcept {
-        return get<uint16_t>(LengthOffset);
+      return ntohs(get<uint16_t>(LengthOffset));
     }
 
     uint16_t getChecksum() const noexcept {
-        return get<uint16_t>(ChecksumOffset);
+        return ntohs(get<uint16_t>(ChecksumOffset));
     }
 
     // --- Payload accessors ---
@@ -67,9 +64,12 @@ public:
     std::size_t payloadSize() const noexcept {
         return size() - HeaderSize;
     }
+private:
+  void setLength() noexcept {
+    set<uint16_t>(LengthOffset, htons(HeaderSize + payloadSize()));
+  }
 };
 
 static_assert(sizeof(UdpFrame) == sizeof(DataFrame));
 
 } // namespace ftl
-

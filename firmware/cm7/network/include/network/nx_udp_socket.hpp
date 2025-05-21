@@ -50,44 +50,56 @@ public:
         return true;
     }
 
-    //char* buffer, size_t buffer_len, size_t& out_len, Ipv4Endpoint *const peer
+    
     ftl::UdpFrame receive() override {
         NX_PACKET* packet;
         UINT status = nx_udp_socket_receive(&socket_, &packet, NX_NO_WAIT);
         if (status != NX_SUCCESS) {
-            return ftl::UdpFrame();  // Return empty frame.
+            return {};  // Empty frame
         }
-        
-        // Extract the peer’s address:
-        ULONG   source_ip;
-        UINT    source_port;
-        UINT    info_status = nx_udp_source_extract(packet, &source_ip, &source_port);
-        if (info_status != NX_SUCCESS) {
+
+        // 1) Source port (and IP if you want)
+        ULONG source_ip;
+        UINT source_port;
+        if (nx_udp_source_extract(packet, &source_ip, &source_port) != NX_SUCCESS) {
             nx_packet_release(packet);
-            return ftl::UdpFrame();  // Return empty frame.
+            return {};
         }
 
-        // peer->set_address(Ipv4Address(source_ip));
-        // peer->set_port(source_port);
+        // 2) Destination (local) port
+        UINT local_port;
+        if (nx_udp_socket_port_get(&socket_, &local_port) != NX_SUCCESS) {
+            nx_packet_release(packet);
+            return {};
+        }
 
-        // Create a new udp frame with the received size.
-        ULONG data_len = packet->nx_packet_length;
-        auto frame = ftl::UdpFrame(data_len + 1);
+        // 3) Pull out the payload length
+        ULONG data_len = packet->nx_packet_length; 
 
-        // Set the source port.
+        // 4) Build a new UdpFrame big enough for header + payload
+        ftl::UdpFrame frame(data_len+1);
+
+        // 5) Fill in the UDP header (in network byte order)
         frame.setSourcePort(source_port);
-        // TOOD set destination port
+        frame.setDestinationPort(local_port);
 
-        // Copy the payload into the provided buffer
+        // If you want, you can re‐compute the checksum here; for now zero it:
+        frame.setChecksum( 0 );
+
+        // 6) Copy the payload
         ULONG copied = 0;
-        status = nx_packet_data_extract_offset(packet, 0, frame.payload(), data_len, &copied);
-        if (status != NX_SUCCESS || copied == 0) {
-            nx_packet_release(packet);
-            return ftl::UdpFrame();  // Return empty frame.
+        status = nx_packet_data_extract_offset(packet,
+                                            0,
+                                            frame.payload(),
+                                            data_len,
+                                            &copied);
+        nx_packet_release(packet);
+        frame.payload()[copied] = '\0'; // Null terminate for convenience if it's a string
+
+        if (status != NX_SUCCESS || copied != data_len) {
+            return {};  // something went wrong
         }
 
-        frame.payload()[copied] = '\0'; // Null terminate for convenience if it's a string
-        nx_packet_release(packet);
         return frame;
     }
 
