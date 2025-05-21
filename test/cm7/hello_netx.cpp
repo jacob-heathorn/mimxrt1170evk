@@ -79,7 +79,7 @@ void echo_hello()
     printf("Starting Hello World loop...\r\n");
 
     {
-        ftl::DataFrame frame(10);
+        ftl::UdpFrame frame(10);
     }
 
     for (int i = 0;; ++i) {
