@@ -2,6 +2,7 @@
 
 #include "stdint.h"
 #include "network/ipv4_endpoint.hpp"
+#include "network/udp_frame.hpp"
 
 class EthernetInterface;
 

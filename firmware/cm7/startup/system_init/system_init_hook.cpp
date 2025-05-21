@@ -11,6 +11,10 @@
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
 #include "utils/ocram2_allocator.hpp"
+#include "ftl/data_frame.hpp"
+
+// Statically initialize the data frame pool with the DTCM allocator.
+ftl::BufferBumpPool ftl::DataFrame::kPool{ DtcmAllocator::instance() };
 
 extern "C" {
 

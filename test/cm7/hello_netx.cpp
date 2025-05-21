@@ -113,8 +113,6 @@ void echo_hello()
 /* Define what the initial system looks like.  */
 VOID tx_application_define(void *first_unused_memory)
 {
-    
-    // UINT status;
 
     NX_PARAMETER_NOT_USED(first_unused_memory);
 
