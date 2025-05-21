@@ -106,7 +106,12 @@ void echo_hello()
         // Ipv4Endpoint peer{};
         ftl::UdpFrame frame = socket->receive();
         if (frame) {
-            printf("Received UDP: '%s' from TOOD:%u (%u)\r\n", (char*)frame.payload(), frame.getSourcePort(), frame.getLength());
+            auto view = frame.payloadStringView();
+            printf("Received UDP: '%.*s' from TODO:%u (len=%u)\r\n",
+                int(view.length()),  // max chars to print
+                view.data(),
+                frame.getSourcePort(),
+                frame.getLength());
         }
         else
         {

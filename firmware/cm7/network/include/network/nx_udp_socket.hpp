@@ -76,10 +76,10 @@ public:
         // 3) Pull out the payload length
         ULONG data_len = packet->nx_packet_length; 
 
-        // 4) Build a new UdpFrame big enough for header + payload
-        ftl::UdpFrame frame(data_len+1);
+        // Create a new udp frame
+        ftl::UdpFrame frame(data_len);
 
-        // 5) Fill in the UDP header (in network byte order)
+        // Fill in the UDP header
         frame.setSourcePort(source_port);
         frame.setDestinationPort(local_port);
 
@@ -94,7 +94,6 @@ public:
                                             data_len,
                                             &copied);
         nx_packet_release(packet);
-        frame.payload()[copied] = '\0'; // Null terminate for convenience if it's a string
 
         if (status != NX_SUCCESS || copied != data_len) {
             return {};  // something went wrong

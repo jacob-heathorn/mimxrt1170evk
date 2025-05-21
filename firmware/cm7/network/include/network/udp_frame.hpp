@@ -2,6 +2,8 @@
 
 #include <cstddef>
 #include <cstdint>
+
+#include "etl/string.h"
 #include "ftl/data_frame.hpp"
 
 namespace ftl {
@@ -59,6 +61,16 @@ public:
     // --- Payload accessors ---
     uint8_t* payload() noexcept {
         return front() + HeaderSize;
+    }
+
+    const uint8_t* payload() const noexcept {
+        return front() + HeaderSize;
+    }
+
+    // Returns the payload interpreted as characters in an etl::string_view
+    etl::string_view payloadStringView() const noexcept {
+      const char* data = reinterpret_cast<const char*>(payload());
+      return etl::string_view{ data, payloadSize() };
     }
 
     std::size_t payloadSize() const noexcept {
