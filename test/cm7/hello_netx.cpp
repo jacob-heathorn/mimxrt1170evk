@@ -78,10 +78,6 @@ void echo_hello()
     GigabitEthernet::instance().WaitUntilReady();
     printf("Starting Hello World loop...\r\n");
 
-    {
-        ftl::UdpFrame frame(10);
-    }
-
     for (int i = 0;; ++i) {
         // Try creating and destroying it in the loop to execise the full socket and smart pointer
         // functionality
@@ -105,11 +101,12 @@ void echo_hello()
         tx_thread_sleep(NX_IP_PERIODIC_RATE);  // ~1 second
 
         // Try receiving
-        char buf[256];
-        size_t received_len = 0;
-        Ipv4Endpoint peer{};
-        if (socket->receive(buf, sizeof(buf) - 1, received_len, &peer)) {
-            printf("Received UDP: '%s' from %s\r\n", buf, peer.ToString().begin());
+        // char buf[256];
+        // size_t received_len = 0;
+        // Ipv4Endpoint peer{};
+        ftl::UdpFrame frame = socket->receive();
+        if (frame.getLength() > 0) {
+            printf("Received UDP: '%s' from %s\r\n", (char*)frame.payload(), "TODO");
         }
     }
 }

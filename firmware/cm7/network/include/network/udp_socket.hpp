@@ -19,6 +19,6 @@ public:
   virtual bool open(size_t recieve_queue_len = 1) = 0;
   virtual bool bind(uint16_t port = 0) = 0;
   virtual bool send(const char* message, Ipv4Endpoint dest) = 0;
-  virtual bool receive(char* buffer, size_t buffer_len, size_t& out_len, Ipv4Endpoint *const peer) = 0;
+  virtual ftl::UdpFrame receive() = 0;
   virtual void close() = 0;
 };

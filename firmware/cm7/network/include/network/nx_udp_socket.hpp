@@ -50,44 +50,50 @@ public:
         return true;
     }
 
-    bool receive(char* buffer, size_t buffer_len, size_t& out_len, Ipv4Endpoint *const peer) override {
+    //char* buffer, size_t buffer_len, size_t& out_len, Ipv4Endpoint *const peer
+    ftl::UdpFrame receive() override {
+        ftl::UdpFrame frame(0);
+
         NX_PACKET* packet;
         UINT status = nx_udp_socket_receive(&socket_, &packet, NX_NO_WAIT);
         if (status != NX_SUCCESS) {
-            return false;
+            return frame;
         }
         
-        // Extract the peer’s address:
-        ULONG   source_ip;
-        UINT    source_port;
-        UINT    info_status = nx_udp_source_extract(packet, &source_ip, &source_port);
-        if (info_status != NX_SUCCESS) {
-            nx_packet_release(packet);
-            return false;
-        }
-        peer->set_address(Ipv4Address(source_ip));
-        peer->set_port(source_port);
+        // // Extract the peer’s address:
+        // ULONG   source_ip;
+        // UINT    source_port;
+        // UINT    info_status = nx_udp_source_extract(packet, &source_ip, &source_port);
+        // if (info_status != NX_SUCCESS) {
+        //     nx_packet_release(packet);
+        //     return false;
+        // }
+        // peer->set_address(Ipv4Address(source_ip));
+        // peer->set_port(source_port);
 
         // Ensure we don't overflow the buffer
         ULONG data_len = packet->nx_packet_length;
-        if (data_len > buffer_len) {
-            // Drop the packet if too large
-            nx_packet_release(packet);
-            return false;
-        }
+        // if (data_len > buffer_len) {
+        //     // Drop the packet if too large
+        //     nx_packet_release(packet);
+        //     return false;
+        // }
+        
+        // TODO provide an etl::string version of payload, don't null terminate.
+        frame = ftl::UdpFrame(data_len + 1);
 
         // Copy the payload into the provided buffer
         ULONG copied = 0;
-        status = nx_packet_data_extract_offset(packet, 0, buffer, data_len, &copied);
+        status = nx_packet_data_extract_offset(packet, 0, frame.payload(), data_len, &copied);
         if (status != NX_SUCCESS || copied == 0) {
             nx_packet_release(packet);
-            return false;
+            frame = ftl::UdpFrame(0);
+            return frame;
         }
 
-        out_len = copied;
-        buffer[copied] = '\0'; // Null terminate for convenience if it's a string
+        frame.payload()[copied] = '\0'; // Null terminate for convenience if it's a string
         nx_packet_release(packet);
-        return true;
+        return frame;
     }
 
     void close() override {
