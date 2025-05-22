@@ -8,7 +8,10 @@
 #include "nx_api.h"
 #include "ftl/tx_thread.hpp"
 #include "network/gigabit_ethernet.hpp"
-#include "network/udp_socket.hpp"
+#include "ftl/ipv4/udp/socket.hpp"
+
+using namespace ftl::ipv4;
+
 
 /*******************************************************************************
  * Definitions
@@ -74,6 +77,7 @@ int main()
 
 void echo_hello()
 {
+
     printf("Waiting for link...\r\n");
     GigabitEthernet::instance().WaitUntilReady();
     printf("Starting Hello World loop...\r\n");
@@ -81,26 +85,26 @@ void echo_hello()
     for (int i = 0;; ++i) {
         // Try creating and destroying it in the loop to execise the full socket and smart pointer
         // functionality
-        UdpSocketPtr socket1 = GigabitEthernet::instance().CreateUdpSocket();
-        UdpSocketPtr socket = std::move(socket1);
+        udp::SocketPtr socket1 = GigabitEthernet::instance().CreateUdpSocket();
+        udp::SocketPtr socket = std::move(socket1);
 
         if (!socket->open() || !socket->bind()) {
             assert(false && "Failed to open or bind UDP socket");
         }
         
         // Send packet
-        ftl::UdpPayload msg(64);
+        udp::Payload msg(64);
         sprintf((char *)msg.data(), "Hello World %d", i);
 
-        if (!socket->send(std::move(msg), Ipv4Endpoint("192.2.2.100", 5001))) {
+        if (!socket->send(std::move(msg), Endpoint("192.2.2.100", 5001))) {
             printf("Failed to send UDP packet\r\n");
         }
 
         tx_thread_sleep(NX_IP_PERIODIC_RATE);  // ~1 second
 
         // Try receiving
-        Ipv4Endpoint peer{};
-        ftl::UdpPayload payload = socket->receive(&peer);
+        Endpoint peer{};
+        udp::Payload payload = socket->receive(&peer);
         if (payload) {
             printf("Received UDP: '%s' from %s (len=%u)\r\n",
                 payload.string_view().data(),
@@ -120,7 +124,7 @@ VOID tx_application_define(void *first_unused_memory)
 
     NX_PARAMETER_NOT_USED(first_unused_memory);
 
-    GigabitEthernet::create("192.2.2.149", Ipv4Mask{255, 255, 255, 0});
+    GigabitEthernet::create("192.2.2.149", Mask{255, 255, 255, 0});
 
     // Create hello thread.
     static ftl::TxThread thread1(

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "network/udp_socket.hpp"
+#include "ftl/ipv4/udp/socket.hpp"
 #include "network/nx_ethernet_interface.hpp"
 
 #include "nx_api.h"
 #include <cstring>
 
-class NxUdpSocket : public UdpSocket {
+class NxUdpSocket : public ftl::ipv4::udp::Socket {
 public:
     NxUdpSocket(NxEthernetInterface &interface) : interface_{interface} {}
     virtual ~NxUdpSocket() override 
@@ -29,7 +29,7 @@ public:
         return nx_udp_socket_bind(&socket_, port, TX_NO_WAIT) == NX_SUCCESS;
     }
 
-    bool send(ftl::UdpPayload payload, const Ipv4Endpoint dest) override {
+    bool send(ftl::ipv4::udp::Payload payload, const ftl::ipv4::Endpoint dest) override {
 
         NX_PACKET* packet;
         if (nx_packet_allocate(interface_.Pool(), &packet, NX_UDP_PACKET, TX_NO_WAIT) != NX_SUCCESS) {
@@ -50,7 +50,7 @@ public:
     }
 
     
-    ftl::UdpPayload receive(Ipv4Endpoint *const peer) override {
+    ftl::ipv4::udp::Payload receive(ftl::ipv4::Endpoint *const peer) override {
         NX_PACKET* packet;
         UINT status = nx_udp_socket_receive(&socket_, &packet, NX_NO_WAIT);
         if (status != NX_SUCCESS) {
@@ -64,11 +64,11 @@ public:
             nx_packet_release(packet);
             return {};
         }
-        peer->set_address(Ipv4Address(source_ip));
+        peer->set_address(ftl::ipv4::Address(source_ip));
         peer->set_port(source_port);
 
         // Create a new udp payload with the exact length
-        ftl::UdpPayload payload(packet->nx_packet_length);
+        ftl::ipv4::udp::Payload payload(packet->nx_packet_length);
 
         // 6) Copy the payload
         ULONG copied = 0;

@@ -7,7 +7,7 @@ class GigabitEthernet : public NxEthernetInterface, public ftl::Singleton<Gigabi
 {
   friend class ftl::Singleton<GigabitEthernet>;
 private:
-  GigabitEthernet(Ipv4Address address, Ipv4Mask mask) : NxEthernetInterface(address, mask) {};
+  GigabitEthernet(ftl::ipv4::Address address, ftl::ipv4::Mask mask) : NxEthernetInterface(address, mask) {};
   ~GigabitEthernet() override = default;
 
   // Rule of 5
