@@ -8,8 +8,8 @@
 
 class NxUdpSocket : public ftl::ipv4::udp::Socket {
 public:
-    NxUdpSocket(NxEthernetInterface &interface) 
-      : interface_{interface} 
+    NxUdpSocket(NxEthernetInterface &interface)
+      : interface_{interface}
     {}
 
     virtual ~NxUdpSocket() override {
@@ -39,37 +39,22 @@ public:
         return nx_udp_socket_bind(&socket_, port, TX_NO_WAIT) == NX_SUCCESS;
     }
 
-    // /// Join the given multicast group on the specified local interface.
-    // /// If local_interface_ip is 0.0.0.0, NetX will pick the default interface.
-    // bool joinMulticastGroup(
-    //     const ftl::ipv4::Address &group,
-    //     const ftl::ipv4::Address &local_interface_ip = ftl::ipv4::Address{0, 0, 0, 0})
-    // {
-    //     UINT status = nx_udp_socket_multicast_join(
-    //         &socket_,
-    //         group.ToUint32(), 
-    //         local_interface_ip.ToUint32()
-    //     );
-    //     return status == NX_SUCCESS;
-    // }
+    bool join_multicast_group(const ftl::ipv4::Address &group) override
+    {
+        UINT status = nx_igmp_multicast_join( this->interface_.Ip(), group.ToUint32() );
+        return status == NX_SUCCESS;
+    }
 
-    // /// Leave the given multicast group on the specified local interface.
-    // bool leaveMulticastGroup(
-    //     const ftl::ipv4::Address &group,
-    //     const ftl::ipv4::Address &local_interface_ip = ftl::ipv4::Address{0, 0, 0, 0})
-    // {
-    //     UINT status = nx_udp_socket_multicast_leave(
-    //         &socket_,
-    //         group.ToUint32(), 
-    //         local_interface_ip.ToUint32()
-    //     );
-    //     return status == NX_SUCCESS;
-    // }
+    bool leave_multicast_group(const ftl::ipv4::Address &group) override
+    {
+        UINT status = nx_igmp_multicast_leave( this->interface_.Ip(), group.ToUint32() );
+        return status == NX_SUCCESS;
+    }
 
     // /// Change the TTL (hop‐limit) for outgoing packets on this socket.
     // bool setTimeToLive(uint8_t ttl) {
     //     UINT status = nx_udp_socket_time_to_live_set(
-    //         &socket_, 
+    //         &socket_,
     //         static_cast<UINT>(ttl)
     //     );
     //     return status == NX_SUCCESS;

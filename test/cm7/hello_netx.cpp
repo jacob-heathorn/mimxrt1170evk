@@ -85,16 +85,17 @@ void echo_hello()
     for (int i = 0;; ++i) {
         // Try creating and destroying it in the loop to execise the full socket and smart pointer
         // functionality
-        udp::SocketPtr socket1 = GigabitEthernet::instance().CreateUdpSocket();
-        udp::SocketPtr socket = std::move(socket1);
+        udp::SocketPtr socket = GigabitEthernet::instance().CreateUdpSocket();
 
-        if (!socket->open() || !socket->bind()) {
+        socket->join_multicast_group("224.1.0.1");
+
+        if (!socket->open() || !socket->bind(5010)) {
             assert(false && "Failed to open or bind UDP socket");
         }
         
         // Send packet
-        udp::Payload msg(64);
-        sprintf((char *)msg.data(), "Hello World %d", i);
+        udp::Payload msg(strlen("Hello World") + 2);
+        sprintf((char *)msg.data(), "Hello World %d", i % 10);
 
         if (!socket->send(std::move(msg), Endpoint("192.2.2.100", 5001))) {
             printf("Failed to send UDP packet\r\n");
@@ -103,18 +104,19 @@ void echo_hello()
         tx_thread_sleep(NX_IP_PERIODIC_RATE);  // ~1 second
 
         // Try receiving
-        Endpoint peer{};
-        udp::Payload payload = socket->receive(&peer);
-        if (payload) {
-            printf("Received UDP: '%s' from %s (len=%u)\r\n",
-                payload.string_view().data(),
-                peer.ToString().data(),
-                payload.size());
+        udp::Payload payload;
+        do {
+            Endpoint peer{};
+            payload = socket->receive(&peer);
+            if (payload) {
+                printf("Received UDP: '%.*s' from %s (len=%u)\r\n",
+                    payload.size(),    // precision for the %s
+                    payload.string_view().data(),
+                    peer.ToString().data(),
+                    payload.size());
+            }
         }
-        else
-        {
-            printf("Received returned empty frame \r\n");
-        }
+        while (payload);
     }
 }
 
