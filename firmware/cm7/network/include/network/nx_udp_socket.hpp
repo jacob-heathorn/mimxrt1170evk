@@ -58,6 +58,8 @@ public:
             return {};  // Empty frame
         }
 
+        ftl::UdpPayload payload(1);
+
         // 1) Source port (and IP if you want)
         ULONG source_ip;
         UINT source_port;
