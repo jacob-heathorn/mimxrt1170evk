@@ -88,13 +88,11 @@ void echo_hello()
             assert(false && "Failed to open or bind UDP socket");
         }
         
-        //tx_thread_sleep(1);
-        
         // Send packet
-        char msg[64];
-        sprintf(msg, "Hello World %d", i);
+        ftl::UdpPayload msg(64);
+        sprintf((char *)msg.data(), "Hello World %d", i);
 
-        if (!socket->send(msg, Ipv4Endpoint("192.2.2.100", 5001))) {
+        if (!socket->send(std::move(msg), Ipv4Endpoint("192.2.2.100", 5001))) {
             printf("Failed to send UDP packet\r\n");
         }
 
@@ -104,10 +102,8 @@ void echo_hello()
         Ipv4Endpoint peer{};
         ftl::UdpPayload payload = socket->receive(&peer);
         if (payload) {
-            auto view = payload.string_view();
-            printf("Received UDP: '%.*s' from %s (len=%u)\r\n",
-                int(view.length()),  // max chars to print
-                view.data(),
+            printf("Received UDP: '%s' from %s (len=%u)\r\n",
+                payload.string_view().data(),
                 peer.ToString().data(),
                 payload.size());
         }

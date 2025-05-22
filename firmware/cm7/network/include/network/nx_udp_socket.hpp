@@ -29,15 +29,14 @@ public:
         return nx_udp_socket_bind(&socket_, port, TX_NO_WAIT) == NX_SUCCESS;
     }
 
-    // TODO: dest_ip is hardcoded!
-    bool send(const char* message, Ipv4Endpoint dest) override {
+    bool send(ftl::UdpPayload payload, const Ipv4Endpoint dest) override {
 
         NX_PACKET* packet;
         if (nx_packet_allocate(interface_.Pool(), &packet, NX_UDP_PACKET, TX_NO_WAIT) != NX_SUCCESS) {
             return false;
         }
 
-        if (nx_packet_data_append(packet, (void*)message, strlen(message), interface_.Pool(), TX_NO_WAIT) != NX_SUCCESS) {
+        if (nx_packet_data_append(packet, (void*)payload.data(), payload.size(), interface_.Pool(), TX_NO_WAIT) != NX_SUCCESS) {
             nx_packet_release(packet);
             return false;
         }
