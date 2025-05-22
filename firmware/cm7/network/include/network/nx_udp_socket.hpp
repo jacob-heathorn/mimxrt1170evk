@@ -8,20 +8,30 @@
 
 class NxUdpSocket : public ftl::ipv4::udp::Socket {
 public:
-    NxUdpSocket(NxEthernetInterface &interface) : interface_{interface} {}
-    virtual ~NxUdpSocket() override 
-    {
-        this->close();
+    NxUdpSocket(NxEthernetInterface &interface) 
+      : interface_{interface} 
+    {}
+
+    virtual ~NxUdpSocket() override {
+        close();
     }
 
-    bool open(size_t recieve_queue_len) override {
-        UINT status = nx_udp_socket_create(interface_.Ip(), &socket_, name_,
-            NX_IP_NORMAL, NX_DONT_FRAGMENT, NX_IP_TIME_TO_LIVE, recieve_queue_len);
+    // --- basic unicast setup ---
+
+    bool open(size_t receive_queue_len = 1) override {
+        UINT status = nx_udp_socket_create(
+            interface_.Ip(),            // NX_IP*
+            &socket_,                   // NX_UDP_SOCKET*
+            name_,                      // socket name
+            NX_IP_NORMAL,               // type‐of‐service
+            NX_DONT_FRAGMENT,           // fragmentation
+            NX_IP_TIME_TO_LIVE,         // default TTL
+            receive_queue_len           // max queued packets
+        );
         return status == NX_SUCCESS;
     }
 
-    bool is_open() const noexcept {
-        // `nx_udp_socket_ip_ptr` is null if create() never succeeded
+    bool is_open() const noexcept override {
         return (socket_.nx_udp_socket_ip_ptr != NX_NULL);
     }
 
@@ -29,19 +39,61 @@ public:
         return nx_udp_socket_bind(&socket_, port, TX_NO_WAIT) == NX_SUCCESS;
     }
 
-    bool send(ftl::ipv4::udp::Payload payload, const ftl::ipv4::Endpoint dest) override {
+    // /// Join the given multicast group on the specified local interface.
+    // /// If local_interface_ip is 0.0.0.0, NetX will pick the default interface.
+    // bool joinMulticastGroup(
+    //     const ftl::ipv4::Address &group,
+    //     const ftl::ipv4::Address &local_interface_ip = ftl::ipv4::Address{0, 0, 0, 0})
+    // {
+    //     UINT status = nx_udp_socket_multicast_join(
+    //         &socket_,
+    //         group.ToUint32(), 
+    //         local_interface_ip.ToUint32()
+    //     );
+    //     return status == NX_SUCCESS;
+    // }
 
+    // /// Leave the given multicast group on the specified local interface.
+    // bool leaveMulticastGroup(
+    //     const ftl::ipv4::Address &group,
+    //     const ftl::ipv4::Address &local_interface_ip = ftl::ipv4::Address{0, 0, 0, 0})
+    // {
+    //     UINT status = nx_udp_socket_multicast_leave(
+    //         &socket_,
+    //         group.ToUint32(), 
+    //         local_interface_ip.ToUint32()
+    //     );
+    //     return status == NX_SUCCESS;
+    // }
+
+    // /// Change the TTL (hop‐limit) for outgoing packets on this socket.
+    // bool setTimeToLive(uint8_t ttl) {
+    //     UINT status = nx_udp_socket_time_to_live_set(
+    //         &socket_, 
+    //         static_cast<UINT>(ttl)
+    //     );
+    //     return status == NX_SUCCESS;
+    // }
+
+    // --- unicast send/recv remain the same ---
+
+    bool send(ftl::ipv4::udp::Payload payload,
+              const ftl::ipv4::Endpoint dest) override
+    {
         NX_PACKET* packet;
-        if (nx_packet_allocate(interface_.Pool(), &packet, NX_UDP_PACKET, TX_NO_WAIT) != NX_SUCCESS) {
+        if (nx_packet_allocate(interface_.Pool(), &packet, NX_UDP_PACKET, TX_NO_WAIT) != NX_SUCCESS)
             return false;
-        }
 
-        if (nx_packet_data_append(packet, (void*)payload.data(), payload.size(), interface_.Pool(), TX_NO_WAIT) != NX_SUCCESS) {
+        if (nx_packet_data_append(packet, payload.data(), payload.size(),
+                                  interface_.Pool(), TX_NO_WAIT) != NX_SUCCESS)
+        {
             nx_packet_release(packet);
             return false;
         }
 
-        if (nx_udp_socket_send(&socket_, packet, dest.address().ToUint32(), dest.port()) != NX_SUCCESS) {
+        if (nx_udp_socket_send(&socket_, packet,
+                               dest.address().ToUint32(), dest.port()) != NX_SUCCESS)
+        {
             nx_packet_release(packet);
             return false;
         }
@@ -49,17 +101,14 @@ public:
         return true;
     }
 
-    
     ftl::ipv4::udp::Payload receive(ftl::ipv4::Endpoint *const peer) override {
         NX_PACKET* packet;
-        UINT status = nx_udp_socket_receive(&socket_, &packet, NX_NO_WAIT);
-        if (status != NX_SUCCESS) {
-            return {};  // Empty frame
-        }
+        if (nx_udp_socket_receive(&socket_, &packet, NX_NO_WAIT) != NX_SUCCESS)
+            return {};  // no data
 
-        // Source port and IP. (TODO use)
+        // extract source
         ULONG source_ip;
-        UINT source_port;
+        UINT  source_port;
         if (nx_udp_source_extract(packet, &source_ip, &source_port) != NX_SUCCESS) {
             nx_packet_release(packet);
             return {};
@@ -67,28 +116,22 @@ public:
         peer->set_address(ftl::ipv4::Address(source_ip));
         peer->set_port(source_port);
 
-        // Create a new udp payload with the exact length
+        // copy out
         ftl::ipv4::udp::Payload payload(packet->nx_packet_length);
-
-        // 6) Copy the payload
         ULONG copied = 0;
-        status = nx_packet_data_extract_offset(packet,
-                                            0,
-                                            payload.data(),
-                                            payload.size(),
-                                            &copied);
+        UINT status = nx_packet_data_extract_offset(
+            packet, 0, payload.data(), payload.size(), &copied
+        );
         nx_packet_release(packet);
 
-        if (status != NX_SUCCESS || copied != payload.size()) {
-            return {};  // something went wrong
-        }
+        if (status != NX_SUCCESS || copied != payload.size())
+            return {};
 
         return payload;
     }
 
     void close() override {
-        if (is_open())
-        {
+        if (is_open()) {
             nx_udp_socket_unbind(&socket_);
             nx_udp_socket_delete(&socket_);
         }
@@ -96,6 +139,6 @@ public:
 
 private:
     NxEthernetInterface &interface_;
-    NX_UDP_SOCKET socket_{};
-    char* name_ = "UdpSocket"; // TODO make unique or pass to interface.
+    NX_UDP_SOCKET       socket_{};
+    char*               name_ = "NxUdpSocket";
 };
