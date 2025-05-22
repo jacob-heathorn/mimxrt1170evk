@@ -20,11 +20,20 @@ public:
   explicit UdpPayload(std::size_t size)
       : DataFrame(size)
   {}
+  UdpPayload() = default;
+
+  using DataFrame::size;
+  using DataFrame::operator bool;
 
   // Access the UDP payload pointer
   uint8_t* data() noexcept { return front() + kPayloadOffset; }
   const uint8_t* data() const noexcept { return front() + kPayloadOffset; }
-  using DataFrame::size;  // expose base size() without redefinition
+
+  // Returns the payload interpreted as characters in an etl::string_view
+  etl::string_view payloadStringView() const noexcept {
+    const char* data = reinterpret_cast<const char*>(this->data());
+    return etl::string_view{ data, this->size() };
+  }
 };
 
 static_assert(sizeof(UdpPayload) == sizeof(DataFrame));

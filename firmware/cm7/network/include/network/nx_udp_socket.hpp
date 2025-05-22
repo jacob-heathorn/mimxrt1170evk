@@ -51,16 +51,14 @@ public:
     }
 
     
-    ftl::UdpFrame receive() override {
+    ftl::UdpPayload receive() override {
         NX_PACKET* packet;
         UINT status = nx_udp_socket_receive(&socket_, &packet, NX_NO_WAIT);
         if (status != NX_SUCCESS) {
             return {};  // Empty frame
         }
 
-        ftl::UdpPayload payload(1);
-
-        // 1) Source port (and IP if you want)
+        // Source port and IP. (TODO use)
         ULONG source_ip;
         UINT source_port;
         if (nx_udp_source_extract(packet, &source_ip, &source_port) != NX_SUCCESS) {
@@ -68,40 +66,23 @@ public:
             return {};
         }
 
-        // 2) Destination (local) port
-        UINT local_port;
-        if (nx_udp_socket_port_get(&socket_, &local_port) != NX_SUCCESS) {
-            nx_packet_release(packet);
-            return {};
-        }
-
-        // 3) Pull out the payload length
-        ULONG data_len = packet->nx_packet_length; 
-
-        // Create a new udp frame
-        ftl::UdpFrame frame(data_len);
-
-        // Fill in the UDP header
-        frame.setSourcePort(source_port);
-        frame.setDestinationPort(local_port);
-
-        // If you want, you can re‐compute the checksum here; for now zero it:
-        frame.setChecksum( 0 );
+        // Create a new udp payload with the exact length
+        ftl::UdpPayload payload(packet->nx_packet_length);
 
         // 6) Copy the payload
         ULONG copied = 0;
         status = nx_packet_data_extract_offset(packet,
                                             0,
-                                            frame.payload(),
-                                            data_len,
+                                            payload.data(),
+                                            payload.size(),
                                             &copied);
         nx_packet_release(packet);
 
-        if (status != NX_SUCCESS || copied != data_len) {
+        if (status != NX_SUCCESS || copied != payload.size()) {
             return {};  // something went wrong
         }
 
-        return frame;
+        return payload;
     }
 
     void close() override {

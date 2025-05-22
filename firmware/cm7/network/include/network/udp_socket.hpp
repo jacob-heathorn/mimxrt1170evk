@@ -2,7 +2,6 @@
 
 #include "stdint.h"
 #include "network/ipv4_endpoint.hpp"
-#include "network/udp_frame.hpp"
 #include "network/udp_payload.hpp"
 
 class EthernetInterface;
@@ -20,6 +19,6 @@ public:
   virtual bool open(size_t recieve_queue_len = 1) = 0;
   virtual bool bind(uint16_t port = 0) = 0;
   virtual bool send(const char* message, Ipv4Endpoint dest) = 0;
-  virtual ftl::UdpFrame receive() = 0;
+  virtual ftl::UdpPayload receive() = 0;
   virtual void close() = 0;
 };
