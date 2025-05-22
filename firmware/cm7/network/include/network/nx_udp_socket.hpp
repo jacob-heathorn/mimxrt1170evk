@@ -51,7 +51,7 @@ public:
     }
 
     
-    ftl::UdpPayload receive() override {
+    ftl::UdpPayload receive(Ipv4Endpoint *const peer) override {
         NX_PACKET* packet;
         UINT status = nx_udp_socket_receive(&socket_, &packet, NX_NO_WAIT);
         if (status != NX_SUCCESS) {
@@ -65,6 +65,8 @@ public:
             nx_packet_release(packet);
             return {};
         }
+        peer->set_address(Ipv4Address(source_ip));
+        peer->set_port(source_port);
 
         // Create a new udp payload with the exact length
         ftl::UdpPayload payload(packet->nx_packet_length);

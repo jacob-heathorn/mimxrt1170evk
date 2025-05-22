@@ -101,16 +101,14 @@ void echo_hello()
         tx_thread_sleep(NX_IP_PERIODIC_RATE);  // ~1 second
 
         // Try receiving
-        // char buf[256];
-        // size_t received_len = 0;
-        // Ipv4Endpoint peer{};
-        ftl::UdpPayload payload = socket->receive();
+        Ipv4Endpoint peer{};
+        ftl::UdpPayload payload = socket->receive(&peer);
         if (payload) {
             auto view = payload.payloadStringView();
-            printf("Received UDP: '%.*s' from TODO:%u (len=%u)\r\n",
+            printf("Received UDP: '%.*s' from %s (len=%u)\r\n",
                 int(view.length()),  // max chars to print
                 view.data(),
-                0,
+                peer.ToString().data(),
                 payload.size());
         }
         else
