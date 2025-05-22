@@ -30,7 +30,7 @@ public:
   const uint8_t* data() const noexcept { return front() + kPayloadOffset; }
 
   // Returns the payload interpreted as characters in an etl::string_view
-  etl::string_view payloadStringView() const noexcept {
+  etl::string_view string_view() const noexcept {
     const char* data = reinterpret_cast<const char*>(this->data());
     return etl::string_view{ data, this->size() };
   }

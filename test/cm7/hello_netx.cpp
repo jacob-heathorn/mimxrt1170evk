@@ -104,7 +104,7 @@ void echo_hello()
         Ipv4Endpoint peer{};
         ftl::UdpPayload payload = socket->receive(&peer);
         if (payload) {
-            auto view = payload.payloadStringView();
+            auto view = payload.string_view();
             printf("Received UDP: '%.*s' from %s (len=%u)\r\n",
                 int(view.length()),  // max chars to print
                 view.data(),
