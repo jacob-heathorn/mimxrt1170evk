@@ -89,15 +89,21 @@ void echo_hello()
 
         socket->join_multicast_group("224.1.0.1");
 
-        if (!socket->open() || !socket->bind(5010)) {
+        if (!socket->open(2) || !socket->bind(5010)) {
             assert(false && "Failed to open or bind UDP socket");
         }
         
-        // Send packet
-        udp::Payload msg(strlen("Hello World") + 2);
-        sprintf((char *)msg.data(), "Hello World %d", i % 10);
+        // Send unicast message.
+        udp::Payload msg1(strlen("Hello unicast") + 2);
+        sprintf((char *)msg1.data(), "Hello unicast %d", i % 10);
+        if (!socket->send(std::move(msg1), Endpoint("192.2.2.100", 5001))) {
+            printf("Failed to send UDP packet\r\n");
+        }
 
-        if (!socket->send(std::move(msg), Endpoint("192.2.2.100", 5001))) {
+        // Send multicast message.
+        udp::Payload msg2(strlen("Hello multicast") + 2);
+        sprintf((char *)msg2.data(), "Hello multicast %d", i % 10);
+        if (!socket->send(std::move(msg2), Endpoint("224.1.0.2", 5002))) {
             printf("Failed to send UDP packet\r\n");
         }
 

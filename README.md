@@ -72,7 +72,8 @@ rip -d0 cm7-debug:hello-netx && \
 rip -f0 cm7-debug:hello-netx -s
 
 ping 192.2.2.149
-socat -v UDP4-RECVFROM:5001,fork EXEC:'/bin/cat'
+socat -v UDP4-RECVFROM:5001,fork EXEC:'/bin/cat' # echo unicast
+socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.2.2.100,fork EXEC:'/bin/cat' # echo multicast
 ```
 
 # Full Repository test suite
