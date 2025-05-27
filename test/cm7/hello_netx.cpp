@@ -44,33 +44,10 @@ void BOARD_InitModuleClock(void)
     CLOCK_SetRootClock(kCLOCK_Root_Bus, &rootCfg); /* Generate 198M bus clock. */
 }
 
-void IOMUXC_SelectENETClock(void)
-{
-    IOMUXC_GPR->GPR5 |= IOMUXC_GPR_GPR5_ENET1G_RGMII_EN_MASK; // bit1:iomuxc_gpr_enet_clk_dir
-
-    // Wait 1 ms for stabilizing clock.
-    SDK_DelayAtLeastUs(1000, CLOCK_GetFreq(kCLOCK_CpuClk));
-}
 
 int main()
 {
-  // Init board hardware.
-  gpio_pin_config_t gpio_config = {kGPIO_DigitalOutput, 0, kGPIO_NoIntmode};
-
-  BOARD_InitModuleClock();
-  IOMUXC_SelectENETClock();
-
-  BOARD_InitEnet1GPins();
-  GPIO_PinInit(GPIO11, 14, &gpio_config);
-  /* For a complete PHY reset of RTL8211FDI-CG, this pin must be asserted low for at least 20ms. And
-    * wait for a further 60ms(for internal circuits settling time) before accessing the PHY register */
-  GPIO_WritePinOutput(GPIO11, 14, 0);
-  SDK_DelayAtLeastUs(20000, CLOCK_GetFreq(kCLOCK_CpuClk));
-  GPIO_WritePinOutput(GPIO11, 14, 1);
-  SDK_DelayAtLeastUs(60000, CLOCK_GetFreq(kCLOCK_CpuClk));
-
   printf("Entering the kernel..\n\r");
-  fflush(stdout);
   tx_kernel_enter();
   return 0;
 }
@@ -129,10 +106,26 @@ void echo_hello()
 /* Define what the initial system looks like.  */
 VOID tx_application_define(void *first_unused_memory)
 {
-
     NX_PARAMETER_NOT_USED(first_unused_memory);
 
+    // Set up the etherenet interface
     GigabitEthernet::create("192.2.2.149", Mask{255, 255, 255, 0});
+
+    // Init board hardware.
+    gpio_pin_config_t gpio_config = {kGPIO_DigitalOutput, 0, kGPIO_NoIntmode};
+
+    BOARD_InitModuleClock();
+    GigabitEthernet::instance().IomuxcSelectEnetClock();
+    //   IOMUXC_SelectENETClock();
+
+    BOARD_InitEnet1GPins();
+    GPIO_PinInit(GPIO11, 14, &gpio_config);
+    /* For a complete PHY reset of RTL8211FDI-CG, this pin must be asserted low for at least 20ms. And
+        * wait for a further 60ms(for internal circuits settling time) before accessing the PHY register */
+    GPIO_WritePinOutput(GPIO11, 14, 0);
+    SDK_DelayAtLeastUs(20000, CLOCK_GetFreq(kCLOCK_CpuClk));
+    GPIO_WritePinOutput(GPIO11, 14, 1);
+    SDK_DelayAtLeastUs(60000, CLOCK_GetFreq(kCLOCK_CpuClk));
 
     // Create hello thread.
     static ftl::TxThread thread1(

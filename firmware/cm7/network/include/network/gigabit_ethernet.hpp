@@ -15,4 +15,14 @@ private:
   GigabitEthernet& operator=(const GigabitEthernet&) = delete;
   GigabitEthernet(GigabitEthernet&&) = delete;
   GigabitEthernet& operator=(GigabitEthernet&&) = delete;
+
+
+public:
+  void IomuxcSelectEnetClock() {
+    IOMUXC_GPR->GPR5 |= IOMUXC_GPR_GPR5_ENET1G_RGMII_EN_MASK; // bit1:iomuxc_gpr_enet_clk_dir
+
+    // Wait 1 ms for stabilizing clock.
+    SDK_DelayAtLeastUs(1000, CLOCK_GetFreq(kCLOCK_CpuClk));
+  }
+
 };
