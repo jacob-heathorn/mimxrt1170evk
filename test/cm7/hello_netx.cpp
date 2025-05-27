@@ -1,14 +1,11 @@
 #include <utility>
 
-#include "fsl_common.h"
-#include "enet_pin_mux.h"
-#include "fsl_gpio.h"
 #include "stdio.h"
 #include "tx_api.h"
-#include "nx_api.h"
+
 #include "ftl/tx_thread.hpp"
-#include "network/gigabit_ethernet.hpp"
 #include "ftl/ipv4/udp/socket.hpp"
+#include "network/gigabit_ethernet.hpp"
 
 using namespace ftl::ipv4;
 
