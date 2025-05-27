@@ -15,7 +15,7 @@
 //------------------------------------------------------------------------------
 TEST(BumpPoolTest, UniquePtrAutomaticRelease) {
   auto &dtcm = DtcmAllocator::instance();  
-  BumpPool<int> pool(dtcm, /*initialSize=*/1);
+  ftl::BumpPool<int> pool(dtcm, /*initialSize=*/1);
 
   // Initially exactly one free slot, none in use
   EXPECT_EQ(pool.FreeSize(), 1u);

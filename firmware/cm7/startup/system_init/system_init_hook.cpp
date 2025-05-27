@@ -11,6 +11,7 @@
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
 #include "utils/ocram2_allocator.hpp"
+#include "ftl/data_frame.hpp"
 
 extern "C" {
 
@@ -59,6 +60,8 @@ void __pre_main_init()
   Ocram1Allocator::create();
   Ocram2Allocator::create();
   Lpuart1::create();
+
+  ftl::DataFrame::initialize(DtcmAllocator::instance());
 }
 
 void __post_main()

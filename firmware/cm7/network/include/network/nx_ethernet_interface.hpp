@@ -1,12 +1,13 @@
 #pragma once
 
 #include "nx_api.h"
-#include "network/ethernet_interface.hpp"
 #include "stdint.h"
+
+#include "ftl/ethernet/interface.hpp"
 
 class UdpSocket;
 
-class NxEthernetInterface : public EthernetInterface
+class NxEthernetInterface : public ftl::ethernet::Interface
 {
 public:
   static constexpr uint32_t kMaxPacketSize = 1536;
@@ -15,7 +16,7 @@ public:
   static constexpr uint32_t kIpThreadStackSize = 2048;
   static constexpr uint32_t kArpSpaceSize = 1024;
 
-  NxEthernetInterface(Ipv4Address address, Ipv4Mask mask);
+  NxEthernetInterface(ftl::ipv4::Address address, ftl::ipv4::Mask mask);
   ~NxEthernetInterface() override = default;
 
   NxEthernetInterface(const NxEthernetInterface&) = delete;
@@ -29,7 +30,7 @@ public:
   // Waits for the stack to be fully ready.
   void WaitUntilReady();
 
-  UdpSocketPtr CreateUdpSocket() override;
+  ftl::ipv4::udp::SocketPtr CreateUdpSocket() override;
 
 private:
   NX_PACKET_POOL pool_{};

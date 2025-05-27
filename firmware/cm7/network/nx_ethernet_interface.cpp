@@ -14,7 +14,7 @@ VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 }
 
 
-NxEthernetInterface::NxEthernetInterface(Ipv4Address address, Ipv4Mask mask)
+NxEthernetInterface::NxEthernetInterface(ftl::ipv4::Address address, ftl::ipv4::Mask mask)
 {
   UINT status;
   ULONG error_counter = 0;
@@ -91,8 +91,8 @@ void NxEthernetInterface::WaitUntilReady()
   }
 }
 
-UdpSocketPtr NxEthernetInterface::CreateUdpSocket()
+ftl::ipv4::udp::SocketPtr NxEthernetInterface::CreateUdpSocket()
 {
-  static UniqueBumpPool<NxUdpSocket, UdpSocket> pool{DtcmAllocator::instance()};
+  static ftl::UniqueBumpPool<NxUdpSocket, ftl::ipv4::udp::Socket> pool{DtcmAllocator::instance()};
   return pool.acquire(*this);
 }
