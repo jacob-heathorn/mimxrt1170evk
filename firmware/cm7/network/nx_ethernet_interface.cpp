@@ -93,6 +93,6 @@ void NxEthernetInterface::WaitUntilReady()
 
 ftl::ipv4::udp::SocketPtr NxEthernetInterface::CreateUdpSocket()
 {
-  static UniqueBumpPool<NxUdpSocket, ftl::ipv4::udp::Socket> pool{DtcmAllocator::instance()};
+  static ftl::UniqueBumpPool<NxUdpSocket, ftl::ipv4::udp::Socket> pool{DtcmAllocator::instance()};
   return pool.acquire(*this);
 }
