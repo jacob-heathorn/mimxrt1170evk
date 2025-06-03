@@ -41,14 +41,14 @@ void echo_hello()
         
         // Send unicast message.
         udp::Payload msg1(strlen("Hello unicast") + 2);
-        sprintf((char *)msg1.data(), "Hello unicast %d", i % 10);
+        sprintf((char *)msg1.front(), "Hello unicast %d", i % 10);
         if (!socket->send(std::move(msg1), Endpoint("192.2.2.100", 5001))) {
             printf("Failed to send UDP packet\r\n");
         }
 
         // Send multicast message.
         udp::Payload msg2(strlen("Hello multicast") + 2);
-        sprintf((char *)msg2.data(), "Hello multicast %d", i % 10);
+        sprintf((char *)msg2.front(), "Hello multicast %d", i % 10);
         if (!socket->send(std::move(msg2), Endpoint("224.1.0.2", 5002))) {
             printf("Failed to send UDP packet\r\n");
         }

@@ -15,6 +15,7 @@ VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 
 
 NxEthernetInterface::NxEthernetInterface(ftl::ipv4::Address address, ftl::ipv4::Mask mask)
+  : ftl::ethernet::Interface(address, mask)
 {
   UINT status;
   ULONG error_counter = 0;

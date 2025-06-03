@@ -69,7 +69,7 @@ public:
         if (nx_packet_allocate(interface_.Pool(), &packet, NX_UDP_PACKET, TX_NO_WAIT) != NX_SUCCESS)
             return false;
 
-        if (nx_packet_data_append(packet, payload.data(), payload.size(),
+        if (nx_packet_data_append(packet, payload.front(), payload.size(),
                                   interface_.Pool(), TX_NO_WAIT) != NX_SUCCESS)
         {
             nx_packet_release(packet);
@@ -105,7 +105,7 @@ public:
         ftl::ipv4::udp::Payload payload(packet->nx_packet_length);
         ULONG copied = 0;
         UINT status = nx_packet_data_extract_offset(
-            packet, 0, payload.data(), payload.size(), &copied
+            packet, 0, payload.front(), payload.size(), &copied
         );
         nx_packet_release(packet);
 
