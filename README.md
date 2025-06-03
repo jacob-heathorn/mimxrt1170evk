@@ -77,6 +77,15 @@ socat -v UDP4-RECVFROM:5001,fork EXEC:'/bin/cat' # echo unicast
 socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.2.2.100,fork EXEC:'/bin/cat' # echo multicast
 ```
 
+# Cyphal test
+```
+cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
+rip -d0 cm7-debug:hello-cyphal && \
+rip -f0 cm7-debug:hello-cyphal -s
+```
+
+
+
 # Full Repository test suite
 `tox`
 

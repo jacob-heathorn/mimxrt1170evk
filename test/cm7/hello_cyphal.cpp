@@ -9,7 +9,6 @@
 
 #include "cyphal/udp_frame.hpp"
 #include "cyphal/publisher.hpp"
-#include "utils/dtcm_allocator.hpp"
 
 #include <uavcan/node/Heartbeat_1_0.hpp>
 
@@ -18,7 +17,7 @@ using namespace ftl::ipv4;
 // The port number is defined in the Cyphal/UDP Specification.
 static constexpr uint16_t kCyphalUdpPort = 9382U;
 
-static constexpr uint16_t kSourceNodeId = 1001;
+static constexpr uint16_t kSourceNodeId = 1002;
 
 #define STACK_SIZE 2048
 uint8_t thread_1_stack[STACK_SIZE];
@@ -36,13 +35,8 @@ void cyphal_publisher_thread()
     GigabitEthernet::instance().WaitUntilReady();
     printf("Starting Cyphal publisher...\r\n");
 
-    // Create an allocator for the data frame
-    static constexpr size_t POOL_MEMORY_SIZE = 16 * 1024;
-    static uint8_t buffer[POOL_MEMORY_SIZE] __attribute__((section(".dtcm_data")));
-    ftl::BumpAllocator allocator(buffer, POOL_MEMORY_SIZE);
-
-    // Initialize data frame class with the memory allocator.
-    ftl::DataFrame::initialize(allocator);
+    // DataFrame is already initialized with DtcmAllocator in system init
+    // No need to reinitialize it here
 
     // Create UDP socket for Cyphal
     udp::SocketPtr socket = GigabitEthernet::instance().CreateUdpSocket();
