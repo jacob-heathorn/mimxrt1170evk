@@ -6,3 +6,4 @@
 /scripts/package/.venv
 /.pycache
 /.tox
+/.claude
