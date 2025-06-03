@@ -71,7 +71,7 @@ void cyphal_publisher_thread()
         printf("Published heartbeat #%lu (uptime=%lu)\r\n", count++, msg.uptime);
         
         tx_thread_sleep(NX_IP_PERIODIC_RATE);  // ~1 second
-        msg.uptime += 1'000'000;  // Increment uptime by 1 second in microseconds
+        msg.uptime += 1;  // Increment uptime by 1 second
     }
 }
 
