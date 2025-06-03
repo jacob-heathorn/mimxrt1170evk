@@ -43,5 +43,5 @@ target_link_libraries(hello-netx PRIVATE network)
 add_executable(hello-cyphal
   hello_cyphal.cpp
 )
-platformify(hello-netx)
-target_link_libraries(hello-cyphal PRIVATE microcyphal)
+platformify(hello-cyphal)
+target_link_libraries(hello-cyphal PRIVATE network microcyphal)
