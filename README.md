@@ -77,6 +77,23 @@ socat -v UDP4-RECVFROM:5001,fork EXEC:'/bin/cat' # echo unicast
 socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.2.2.100,fork EXEC:'/bin/cat' # echo multicast
 ```
 
+# Cyphal test
+```
+cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
+rip -d0 cm7-debug:hello-cyphal && \
+rip -f0 cm7-debug:hello-cyphal -s
+
+# Monitor all Cyphal/UDP traffic
+yakut mon
+
+# Or subscribe specifically to heartbeat messages
+export UAVCAN__UDP__IFACE=192.2.2.100
+export UAVCAN__NODE__ID=1000
+yakut sub uavcan.node.heartbeat
+```
+
+
+
 # Full Repository test suite
 `tox`
 
