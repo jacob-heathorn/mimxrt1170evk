@@ -25,6 +25,7 @@
   * Cortext-Debug
   * Flake8
   * Nix
+  * direnv
   * Pylance
   * Python
 8) Run the setup script `setup`
