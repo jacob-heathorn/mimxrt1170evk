@@ -22,9 +22,8 @@ ENV_VARS = [
 ]
 
 
-@nox.session
-def tests(session):
-  """Run the pytest test suite."""
+def common_install(session):
+  """Common installation steps for all sessions."""
   # Pass through environment variables
   for var in ENV_VARS:
     if var in os.environ:
@@ -40,11 +39,17 @@ def tests(session):
   forge_package_path = os.path.join(forge_root, "scripts", "package")
   session.install("-e", forge_package_path)
 
-  # Install test dependencies
-  session.install("pytest", "pytest-cov")
-
   # Install the package in editable mode
   session.install("-e", ".")
+
+
+@nox.session
+def tests(session):
+  """Run the pytest test suite."""
+  common_install(session)
+
+  # Install test dependencies
+  session.install("pytest", "pytest-cov")
 
   # Set coverage file location
   session.env["COVERAGE_FILE"] = "../../.pycache/.coverage"
@@ -62,26 +67,10 @@ def tests(session):
 @nox.session
 def lint(session):
   """Run flake8 and mypy linting."""
-  # Pass through environment variables
-  for var in ENV_VARS:
-    if var in os.environ:
-      session.env[var] = os.environ[var]
-
-  # Change to package directory
-  session.chdir("scripts/package")
-
-  # Install forge from FORGE_ROOT
-  forge_root = os.environ.get("FORGE_ROOT")
-  if not forge_root:
-    session.error("FORGE_ROOT environment variable must be set")
-  forge_package_path = os.path.join(forge_root, "scripts", "package")
-  session.install("-e", forge_package_path)
+  common_install(session)
 
   # Install lint dependencies
   session.install("flake8", "mypy")
-
-  # Install the package in editable mode
-  session.install("-e", ".")
 
   # Run flake8 with configuration
   session.run(
@@ -105,16 +94,9 @@ def lint(session):
 @nox.session
 def dev(session):
   """Create a development environment with all dependencies."""
-  session.chdir("scripts/package")
+  common_install(session)
   
-  # Install forge from FORGE_ROOT
-  forge_root = os.environ.get("FORGE_ROOT")
-  if not forge_root:
-    session.error("FORGE_ROOT environment variable must be set")
-  forge_package_path = os.path.join(forge_root, "scripts", "package")
-  session.install("-e", forge_package_path)
-  
-  session.install("-e", ".")
+  # Install all development dependencies
   session.install("pytest", "pytest-cov", "flake8", "mypy")
 
   session.log(f"Development environment created at: {session.bin}")
