@@ -95,8 +95,8 @@ def lint(session):
 def dev(session):
   """Create a development environment with all dependencies."""
   common_install(session)
-  
+
   # Install all development dependencies
-  session.install("pytest", "pytest-cov", "flake8", "mypy")
+  session.install("pytest", "pytest-cov", "flake8", "mypy", "autopep8")
 
   session.log(f"Development environment created at: {session.bin}")
