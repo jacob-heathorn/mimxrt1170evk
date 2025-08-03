@@ -37,7 +37,7 @@ semver = ">=3.0.1"
 
 [package.source]
 type = "directory"
-url = "../../../../.local/share/gordion/dependencies/L2hvbWUvamFjb2IvZW1iZWRkZWQvbWlteHJ0MTE3MGV2aw/forge/scripts/package"
+url = "../../../forge/scripts/package"
 
 [[package]]
 name = "gitdb"
@@ -331,4 +331,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "64f6f1a74204ae72b24073103027a8f06e698b9f64416ecd46099ac622e6871d"
+content-hash = "14a8708c00a3f2cd4cde226ac2fc7ee3b889e4dad1c997adebc5c12cb8ba8c2d"
