@@ -44,6 +44,17 @@ def common_install(session):
 
 
 @nox.session
+def dev(session):
+  """Create a development environment with all dependencies."""
+  common_install(session)
+
+  # Install all development dependencies
+  session.install("pytest", "pytest-cov", "flake8", "mypy", "autopep8")
+
+  session.log(f"Development environment created at: {session.bin}")
+
+
+@nox.session
 def tests(session):
   """Run the pytest test suite."""
   common_install(session)
@@ -89,14 +100,3 @@ def lint(session):
       "--cache-dir=../../.pycache",
       "--package=mimxrt1170evk"
   )
-
-
-@nox.session
-def dev(session):
-  """Create a development environment with all dependencies."""
-  common_install(session)
-
-  # Install all development dependencies
-  session.install("pytest", "pytest-cov", "flake8", "mypy", "autopep8")
-
-  session.log(f"Development environment created at: {session.bin}")
