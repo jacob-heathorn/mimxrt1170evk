@@ -28,7 +28,7 @@
   * direnv
   * Pylance
   * Python
-8) Run the setup script `setup`
+8) Create the dev environment: `nox -s dev`
 9) Connect mimxrt1170evk to power, and USB to your computer.
 
 
