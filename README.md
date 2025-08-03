@@ -2,7 +2,7 @@
 
 1) Clone this repository: `git clone https://github.com/jacob-heathorn/mimxrt1170evk.git`
 2) Install gordion: TODO
-3) Update the gordion dependencies: `gordion -u`
+3) Update the gordion dependencies: `gor -u`
 4) Install direnv:
   * `sudo apt install direnv`
   * Add the following to your .bashrc: `eval "$(direnv hook bash)"`
@@ -15,6 +15,7 @@
   * Download:
     https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER
   * chmod +x and run the download.
+  * Confirm install location: `ls /usr/local/LinkServer/LinkServer`
 7) Install vscode extensions:
   * autopep8
   * Better Jinja
@@ -24,7 +25,6 @@
   * Cortext-Debug
   * Flake8
   * Nix
-  * direnv (cab404)
   * Pylance
   * Python
 8) Run the setup script `setup`
