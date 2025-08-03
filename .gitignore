@@ -2,8 +2,7 @@
 /.vscode/launch.json
 /.vscode/tasks.json
 /.direnv/
-/scripts/package/pyproject.toml
 /scripts/package/.venv
 /.pycache
-/.tox
+/.nox
 /.claude

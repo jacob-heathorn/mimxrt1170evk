@@ -96,7 +96,7 @@ yakut sub uavcan.node.heartbeat
 
 
 # Full Repository test suite
-`tox`
+`nox`
 
 # Serial Terminal
 device: `/dev/ttyACM0`

@@ -44,11 +44,11 @@ rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4
 
 ```bash
 # Full test suite (Python linting + embedded tests)
-tox
+nox
 
 # Individual test environments
-tox -e pytest  # Python package tests
-tox -e lint    # Code linting and type checking
+nox -s tests  # Python package tests
+nox -s lint   # Code linting and type checking
 
 # CTest (from build directory)
 cd .bin/cm7-debug && ctest -V
