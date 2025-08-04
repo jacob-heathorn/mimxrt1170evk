@@ -30,7 +30,6 @@
 8) Create the dev environment: `nox -s dev`
 9) Connect mimxrt1170evk to power, and USB to your computer.
 
-
 # Build
 `cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug`
 
@@ -43,6 +42,9 @@
 # ctest
 `cd .bin/cm7-debug`
 `ctest -V`
+
+# Full Repository test suite
+`nox`
 
 # Hello World Test
 ```bash
@@ -77,23 +79,45 @@ socat -v UDP4-RECVFROM:5001,fork EXEC:'/bin/cat' # echo unicast
 socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.2.2.100,fork EXEC:'/bin/cat' # echo multicast
 ```
 
+# Setup cyphal tools and wireshark
+```bash
+sudo apt update
+sudo apt install wireshark
+
+# Copy lua script 
+# from: https://github.com/OpenCyphal/wireshark_plugins/tree/main
+# to: /usr/lib/x86_64-linux-gnu/wireshark/plugins
+
+# Instal yakut
+pipx install 'yakut[transport-udp]'
+
+# Add to .bashrc
+export CYPHAL_PATH="$HOME/path/to/public_regulated_data_types:$CYPHAL_PATH"
+export UAVCAN__UDP__IFACE="192.2.2.2"
+export UAVCAN__NODE__ID=42
+
+# Connect ethernet from computer to dev board
+# Set the local ethernet interface to 192.2.2.1 and netmask 255.255.255.0
+
+```
+
 # Cyphal test
 ```bash
-cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
-rip -d0 cm7-debug:hello-cyphal && \
-rip -f0 cm7-debug:hello-cyphal -s
+
+# See previous section for setup.
 
 # Monitor all Cyphal/UDP traffic
 yakut mon
+
+cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
+rip -d0 cm7-debug:hello-cyphal && \
+rip -f0 cm7-debug:hello-cyphal -s
 
 # Or subscribe specifically to heartbeat messages
 export UAVCAN__UDP__IFACE=192.2.2.100
 export UAVCAN__NODE__ID=1000
 yakut sub uavcan.node.heartbeat
 ```
-
-# Full Repository test suite
-`nox`
 
 # Serial Terminal
 device: `/dev/ttyACM0`
