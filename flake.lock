@@ -5,16 +5,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1743004919,
-        "narHash": "sha256-RWFYIXMSAiErUSsUTWCq+bP+OJO7PTFhXeBJn+KIn/0=",
-        "ref": "3dc4577b006d33e5e63e1f97c8b8e2b108e372a6",
-        "rev": "25458d3785fe3a33d9f8761545471060111a4557",
-        "revCount": 35,
+        "lastModified": 1754284804,
+        "narHash": "sha256-hlm8G1Z5MEqQNQ7c2FP6hBlP/mHWIuFZlhmnatFZNgo=",
+        "ref": "refs/heads/develop",
+        "rev": "855d52dcb53f989d22b5ad251f655b442bc2569b",
+        "revCount": 44,
         "type": "git",
         "url": "https://github.com/jacob-heathorn/forge"
       },
       "original": {
-        "rev": "25458d3785fe3a33d9f8761545471060111a4557",
+        "rev": "855d52dcb53f989d22b5ad251f655b442bc2569b",
         "type": "git",
         "url": "https://github.com/jacob-heathorn/forge"
       }
