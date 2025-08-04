@@ -109,6 +109,7 @@ rip -g1  # CM7 registers
 ```
 
 # Problems Debugging
+```bash
 sudo lsof -i :2400
 sudo lsof -i :2401
 
@@ -117,4 +118,4 @@ pkill LinkServer
 Unplug/Replug usb
 
 Reboot device
-
+```
