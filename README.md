@@ -10,7 +10,6 @@
   * `direnv allow .`
 5) Install nix:
   * `sh <(curl -L https://nixos.org/nix/install) --daemon`
-  * TODO: enable nix-direnv (I forgot)
 6) Install LinkServer from NXP:
   * Download:
     https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER
