@@ -46,28 +46,28 @@
 `ctest -V`
 
 # Hello World Test
-```
+```bash
 cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
 rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4 && \
 rip -f0 cm7-debug:hello-world-cm7 -s
 ```
 
 # Echo test
-```
+```bash
 cmake --workflow --preset cm7-debug && \
 rip -d0 cm7-debug:echo && \
 rip -f0 cm7-debug:echo
 ```
 
 # Threadx test
-```
+```bash
 cmake --workflow --preset cm7-debug && \
 rip -d0 cm7-debug:hello-threadx && \
 rip -f0 cm7-debug:hello-threadx -s
 ```
 
 # Netx test
-```
+```bash
 cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
 rip -d0 cm7-debug:hello-netx && \
 rip -f0 cm7-debug:hello-netx -s
@@ -79,7 +79,7 @@ socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.2.2.100,fo
 ```
 
 # Cyphal test
-```
+```bash
 cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
 rip -d0 cm7-debug:hello-cyphal && \
 rip -f0 cm7-debug:hello-cyphal -s
@@ -93,8 +93,6 @@ export UAVCAN__NODE__ID=1000
 yakut sub uavcan.node.heartbeat
 ```
 
-
-
 # Full Repository test suite
 `nox`
 
@@ -102,6 +100,13 @@ yakut sub uavcan.node.heartbeat
 device: `/dev/ttyACM0`
 baud: `115200`
 
+# Development commands
+
+```bash
+# Generate register files from SVD
+rip -g0  # CM4 registers
+rip -g1  # CM7 registers
+```
 
 # Problems Debugging
 sudo lsof -i :2400
