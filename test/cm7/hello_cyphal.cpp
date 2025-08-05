@@ -4,18 +4,14 @@
 #include "tx_api.h"
 
 #include "ftl/tx_thread.hpp"
-#include "ftl/ipv4/udp/socket.hpp"
 #include "network/gigabit_ethernet.hpp"
 
-#include "cyphal/udp_frame.hpp"
-#include "cyphal/publisher.hpp"
+#include "cyphal/udp_transport.hpp"
+#include "cyphal/udp_publisher.hpp"
 
 #include <uavcan/node/Heartbeat_1_0.hpp>
 
 using namespace ftl::ipv4;
-
-// The port number is defined in the Cyphal/UDP Specification.
-static constexpr uint16_t kCyphalUdpPort = 9382U;
 
 static constexpr uint16_t kSourceNodeId = 1002;
 
@@ -35,27 +31,14 @@ void cyphal_publisher_thread()
     GigabitEthernet::instance().WaitUntilReady();
     printf("Starting Cyphal publisher...\r\n");
 
-    // DataFrame is already initialized with DtcmAllocator in system init
-    // No need to reinitialize it here
-
-    // Create UDP socket for Cyphal
-    udp::SocketPtr socket = GigabitEthernet::instance().CreateUdpSocket();
-    
-    if (!socket->open(4)) {
-        printf("Failed to open socket\r\n");
-        assert(false);
-    }
-    
-    if (!socket->bind(kCyphalUdpPort)) {
-        printf("Failed to bind to port %u\r\n", kCyphalUdpPort);
-        assert(false);
-    }
+    // Create UDP transport for Cyphal
+    cyphal::UdpTransport transport(GigabitEthernet::instance());
 
     // Create Cyphal publisher for Heartbeat messages
     cyphal::UdpPublisher<uavcan::node::Heartbeat_1_0> publisher(
         uavcan::node::Heartbeat_1_0::_traits_::FixedPortId,
-        std::move(socket), 
-        kSourceNodeId
+        kSourceNodeId,
+        transport
     );
 
     uavcan::node::Heartbeat_1_0 msg{};
