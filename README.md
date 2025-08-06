@@ -1,7 +1,7 @@
 # Setup Instructions
 
 1) Clone this repository: `git clone https://github.com/jacob-heathorn/mimxrt1170evk.git`
-2) Install gordion: TODO
+2) Install gordion: `pipx install gordion`
 3) Update the gordion dependencies: `gor -u`
 4) Install direnv:
   * `sudo apt install direnv`
