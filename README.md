@@ -131,4 +131,3 @@ Unplug/Replug usb
 
 Reboot device
 ```
- 
