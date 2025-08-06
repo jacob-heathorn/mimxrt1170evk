@@ -15,18 +15,7 @@
     https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER
   * chmod +x and run the download.
   * Confirm install location: `ls /usr/local/LinkServer/LinkServer`
-7) Install vscode extensions:
-  * autopep8
-  * Better Jinja
-  * C/C++
-  * CMake Language Support
-  * CMake Tools
-  * Cortext-Debug
-  * Flake8
-  * Nix
-  * direnv
-  * Pylance
-  * Python
+7) Install the workspace recommended VSCode extensions.
 8) Create the dev environment: `nox -s dev`
 9) Connect mimxrt1170evk to power, and USB to your computer.
 
