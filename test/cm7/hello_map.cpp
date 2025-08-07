@@ -1,8 +1,8 @@
 #include <cstdio>
-#include <map>
 #include "tx_api.h"
 #include "ftl/tx_thread.hpp"
-#include "ftl/bump_pool_allocator.hpp"
+#include "ftl/map.hpp"
+#include "ftl/bump_pool_allocator2.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "etl/delegate.h"
 
@@ -15,14 +15,11 @@ void map_test_function() {
     // Get the DTCM bump allocator singleton
     auto& allocator = DtcmAllocator::instance();
     
-    // Map uses std::_Rb_tree_node internally, so we need to initialize the pool for that type
-    using NodeType = std::_Rb_tree_node<std::pair<const int, int>>;
-    ftl::BumpPoolAllocator<NodeType>::initializePool(allocator);
+    // Create the pool allocator
+    ftl::BumpPoolAllocator2 poolAlloc(allocator);
     
-    using MapType = std::map<int, int, std::less<int>, 
-                             ftl::BumpPoolAllocator<std::pair<const int, int>>>;
-    
-    MapType myMap;
+    // Create map with the pool allocator
+    ftl::Map<int, int> myMap(poolAlloc);
     
     printf("\n=== Inserting elements ===\n\n");
     
