@@ -1,9 +1,15 @@
 #include <cstdio>
 #include <map>
+#include "tx_api.h"
+#include "ftl/tx_thread.hpp"
 #include "ftl/bump_pool_allocator.hpp"
 #include "utils/dtcm_allocator.hpp"
+#include "etl/delegate.h"
 
-int main() {
+#define STACK_SIZE 2048
+uint8_t map_test_stack[STACK_SIZE];
+
+void map_test_function() {
     printf("=== Creating map with DTCM allocator ===\n\n");
     
     // Get the DTCM bump allocator singleton
@@ -42,5 +48,23 @@ int main() {
     
     printf("\n=== Map going out of scope (cleanup) ===\n\n");
     
+    printf("\n=== Test completed successfully! ===\n\n");
+}
+
+extern "C" void tx_application_define(void* first_unused_memory) {
+    (void)first_unused_memory;
+    
+    // Create thread for map test
+    static ftl::TxThread map_thread(
+        "Map Test Thread",
+        etl::delegate<void(void)>::create<map_test_function>(),
+        map_test_stack,
+        STACK_SIZE,
+        1  // Priority
+    );
+}
+
+int main() {
+    tx_kernel_enter();
     return 0;
 }
