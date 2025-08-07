@@ -45,3 +45,10 @@ add_executable(hello-cyphal
 )
 platformify(hello-cyphal)
 target_link_libraries(hello-cyphal PRIVATE network microcyphal)
+
+# Hello map
+add_executable(hello-map
+  hello_map.cpp
+)
+platformify(hello-map)
+target_link_libraries(hello-map PRIVATE stdc++ m)
