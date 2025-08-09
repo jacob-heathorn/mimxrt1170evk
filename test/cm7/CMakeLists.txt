@@ -39,12 +39,19 @@ add_executable(hello-netx
 platformify(hello-netx)
 target_link_libraries(hello-netx PRIVATE network)
 
-# Hello cyphal
-add_executable(hello-cyphal
-  hello_cyphal.cpp
+# Hello publisher
+add_executable(hello-publisher
+  hello_publisher.cpp
 )
-platformify(hello-cyphal)
-target_link_libraries(hello-cyphal PRIVATE network microcyphal)
+platformify(hello-publisher)
+target_link_libraries(hello-publisher PRIVATE network microcyphal)
+
+# Hello subscriber
+add_executable(hello-subscriber
+  hello_subscriber.cpp
+)
+platformify(hello-subscriber)
+target_link_libraries(hello-subscriber PRIVATE network microcyphal)
 
 # Hello map
 add_executable(hello-map

@@ -90,7 +90,7 @@ export UAVCAN__NODE__ID=42
 
 ```
 
-# Cyphal test
+# Cyphal publisher test
 ```bash
 
 # See previous section for setup.
@@ -99,8 +99,8 @@ export UAVCAN__NODE__ID=42
 yakut mon
 
 cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
-rip -d0 cm7-debug:hello-cyphal && \
-rip -f0 cm7-debug:hello-cyphal -s
+rip -d0 cm7-debug:hello-publisher && \
+rip -f0 cm7-debug:hello-publisher -s
 
 # Or subscribe specifically to heartbeat messages
 export UAVCAN__UDP__IFACE=192.2.2.100
