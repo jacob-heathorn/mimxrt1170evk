@@ -62,10 +62,10 @@ cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
 rip -d0 cm7-debug:hello-netx && \
 rip -f0 cm7-debug:hello-netx -s
 
-# Set up local ethernet interface (192.2.2.100) and mask (255.255.255.0)
+# Set up local ethernet interface (192.2.2.1) and mask (255.255.255.0)
 ping 192.2.2.149
 socat -v UDP4-RECVFROM:5001,fork EXEC:'/bin/cat' # echo unicast
-socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.2.2.100,fork EXEC:'/bin/cat' # echo multicast
+socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.2.2.1,fork EXEC:'/bin/cat' # echo multicast
 ```
 
 # Setup cyphal tools and wireshark
