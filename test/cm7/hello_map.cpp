@@ -2,7 +2,7 @@
 #include "tx_api.h"
 #include "ftl/tx_thread.hpp"
 #include "ftl/map.hpp"
-#include "ftl/bump_pool_allocator2.hpp"
+#include "ftl/bump_pool_allocation_strategy.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "etl/delegate.h"
 
@@ -10,16 +10,18 @@
 uint8_t map_test_stack[STACK_SIZE];
 
 void map_test_function() {
-    printf("=== Creating map with DTCM allocator ===\n\n");
+    printf("=== Creating map with bump pool allocation strategy ===\n\n");
     
     // Get the DTCM bump allocator singleton
-    auto& allocator = DtcmAllocator::instance();
+    auto& dtcm_allocator = DtcmAllocator::instance();
     
-    // Create the pool allocator
-    ftl::BumpPoolAllocator2 poolAlloc(allocator);
+    // Create the bump pool allocation strategy for map nodes
+    // Pre-allocate space for 10 nodes initially
+    using MapNodeType = ftl::Map<int, int>::Node;
+    ftl::BumpPoolAllocationStrategy<MapNodeType> strategy(dtcm_allocator, 10);
     
-    // Create map with the pool allocator
-    ftl::Map<int, int> myMap(poolAlloc);
+    // Create map with the allocation strategy
+    ftl::Map<int, int> myMap(strategy);
     
     printf("\n=== Inserting elements ===\n\n");
     
