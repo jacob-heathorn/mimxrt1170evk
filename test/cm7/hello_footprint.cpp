@@ -88,7 +88,7 @@ void footprint_test_function() {
     (void)strategy2;
 
     ftl::BumpPoolAllocationStrategy<int64_t> strategy3(DtcmAllocator::instance(), 1);
-    (void)strategy2;
+    (void)strategy3;
 
     // Print sizes of fundamental components
     printf("Base component sizes:\n");
