@@ -53,3 +53,9 @@ add_executable(hello-subscriber
 platformify(hello-subscriber)
 target_link_libraries(hello-subscriber PRIVATE network microcyphal)
 
+# Hello footprint
+add_executable(hello-footprint
+  hello_footprint.cpp
+)
+platformify(hello-footprint)
+target_link_libraries(hello-footprint PRIVATE stdc++ m)
