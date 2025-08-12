@@ -6,12 +6,14 @@
 #include "core_cm7.h"
 #include "cachel1_armv7.h"
 #include <cstdio>
+#include <array>
 #include "platform/lpuart.hpp"
 #include "platform/assert_led.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
 #include "utils/ocram2_allocator.hpp"
-#include "ftl/data_frame.hpp"
+#include "ftl/ipv4/udp/payload.hpp"
+#include "ftl/allocator/bump_pool_buffer_strategy.hpp"
 
 extern "C" {
 
@@ -61,7 +63,10 @@ void __pre_main_init()
   Ocram2Allocator::create();
   Lpuart1::create();
 
-  ftl::DataFrame::initialize(DtcmAllocator::instance());
+  // Initialize Payload with buffer strategy for UDP frames
+  static std::array<std::size_t, 8> buffer_sizes = {32, 64, 128, 256, 512, 1024, 2048, 4096};
+  static ftl::allocator::BumpPoolBufferStrategy<8> buffer_strategy(DtcmAllocator::instance(), buffer_sizes);
+  ftl::ipv4::udp::Payload::initialize(buffer_strategy);
 }
 
 void __post_main()

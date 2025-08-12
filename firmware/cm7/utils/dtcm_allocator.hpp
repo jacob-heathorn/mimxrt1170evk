@@ -2,7 +2,7 @@
 
 #include <cstddef>
 #include <stdint.h>
-#include "ftl/bump_allocator.hpp"
+#include "ftl/allocator/bump_allocator.hpp"
 #include "ftl/singleton.hpp"
 
 extern "C" {

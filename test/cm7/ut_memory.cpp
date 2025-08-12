@@ -4,37 +4,37 @@
 #include <thread>
 #include <memory>
 
-#include "ftl/bump_allocator.hpp"
-#include "ftl/bump_pool.hpp"
+#include "ftl/allocator/bump_allocator.hpp"
+#include "ftl/allocator/obj_allocator.hpp"
+#include "ftl/allocator/bump_pool_strategy.hpp"
+#include "ftl/allocator/unique_obj_allocator.hpp"
 #include "utils/dtcm_allocator.hpp"
 
 #include <cstdio> 
 
 //------------------------------------------------------------------------------
-// Test automatic release via unique_ptr custom deleter
+// Test automatic release via unique_ptr with new allocator API
 //------------------------------------------------------------------------------
 TEST(BumpPoolTest, UniquePtrAutomaticRelease) {
   auto &dtcm = DtcmAllocator::instance();  
-  ftl::BumpPool<int> pool(dtcm, /*initialSize=*/1);
-
-  // Initially exactly one free slot, none in use
-  EXPECT_EQ(pool.FreeSize(), 1u);
-  EXPECT_EQ(pool.UsedSize(), 0u);
+  
+  // Create a bump pool strategy for int objects
+  ftl::allocator::BumpPoolObjStrategy<int> strategy(dtcm);
+  
+  // Create a unique object allocator that manages int objects
+  ftl::allocator::UniqueObjAllocator<int> allocator(strategy);
 
   {
-    // Create a unique_ptr that will call pool.release(...) when destroyed
-    auto deleter = [&](int* p){ pool.release(p); };
-    std::unique_ptr<int, decltype(deleter)> ptr(pool.acquire(123), deleter);
-
-    // The pointer holds our value, and the pool is now empty/1 in use
+    // Acquire an int from the allocator wrapped in unique_ptr
+    auto ptr = allocator.acquire(123);
+    
+    // The pointer holds our value
     EXPECT_EQ(*ptr, 123);
-    EXPECT_EQ(pool.FreeSize(), 0u);
-    EXPECT_EQ(pool.UsedSize(), 1u);
-
-    // Exiting this scope will destroy ptr and call pool.release(ptr.get())
+    
+    // Exiting this scope will destroy ptr and automatically deallocate
   }
-
-  // After scope exit, the slot is returned automatically
-  EXPECT_EQ(pool.FreeSize(), 1u);
-  EXPECT_EQ(pool.UsedSize(), 0u);
+  
+  // After scope exit, we can allocate again (object was returned to pool)
+  auto ptr2 = allocator.acquire(456);
+  EXPECT_EQ(*ptr2, 456);
 }

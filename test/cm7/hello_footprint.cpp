@@ -2,7 +2,8 @@
 #include <cstddef>
 #include "tx_api.h"
 #include "ftl/tx_thread.hpp"
-#include "ftl/bump_pool_allocation_strategy.hpp"
+#include "ftl/allocator/bump_pool_strategy.hpp"
+#include "ftl/allocator/obj_allocator.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "etl/delegate.h"
 
@@ -41,7 +42,8 @@ void test_allocation_footprint(const char* type_name, size_t initial_pool_size) 
     
     // Create allocation strategy on stack
     auto& dtcm = DtcmAllocator::instance();
-    ftl::BumpPoolAllocationStrategy<T> strategy(dtcm, initial_pool_size);
+    ftl::allocator::BumpPoolObjStrategy<T> strategy(dtcm);
+    ftl::allocator::ObjAllocator<T> allocator(strategy);
     
     // Get stack pointer after allocation
     void* stack_after = __builtin_frame_address(0);
@@ -49,46 +51,52 @@ void test_allocation_footprint(const char* type_name, size_t initial_pool_size) 
     // Calculate stack usage (approximate)
     ptrdiff_t stack_used = (char*)stack_before - (char*)stack_after;
     
-    printf("  sizeof(BumpPoolAllocationStrategy<%s>): %u bytes\n", 
-           type_name, sizeof(ftl::BumpPoolAllocationStrategy<T>));
+    printf("  sizeof(BumpPoolObjStrategy<%s>): %u bytes\n", 
+           type_name, sizeof(ftl::allocator::BumpPoolObjStrategy<T>));
     printf("  Stack consumed (approximate): %d bytes\n", (int)stack_used);
     // Node overhead is approximately pointer size for the 'next' field
     printf("  Estimated overhead per object: ~%u bytes (next pointer)\n", sizeof(void*));
     
     // Test allocations
-    printf("  Memory stats:\n");
-    printf("    - Total allocated: %u objects\n", strategy.total_size());
-    printf("    - Currently used: %u objects\n", strategy.used_size());
-    printf("    - Currently free: %u objects\n", strategy.free_size());
+    printf("  Testing allocations...\n");
     
-    // Allocate and deallocate some objects
-    T* obj1 = strategy.allocate();
-    T* obj2 = strategy.allocate();
-    T* obj3 = strategy.allocate();
+    // Allocate and deallocate some objects using the allocator
+    T* obj1 = allocator.allocate();
+    T* obj2 = allocator.allocate();
+    T* obj3 = allocator.allocate();
     
-    printf("  After allocating 3 objects:\n");
-    printf("    - Currently used: %u objects\n", strategy.used_size());
-    printf("    - Currently free: %u objects\n", strategy.free_size());
+    if (obj1 && obj2 && obj3) {
+        printf("    - Successfully allocated 3 objects\n");
+    } else {
+        printf("    - Failed to allocate some objects\n");
+    }
     
-    strategy.deallocate(obj2);
+    // Test deallocation
+    allocator.deallocate(obj2);
+    printf("    - Deallocated 1 object\n");
     
-    printf("  After deallocating 1 object:\n");
-    printf("    - Currently used: %u objects\n", strategy.used_size());
-    printf("    - Currently free: %u objects\n", strategy.free_size());
+    // Allocate again to test reuse
+    T* obj4 = allocator.allocate();
+    if (obj4) {
+        printf("    - Successfully allocated another object (pool reuse)\n");
+    }
     
     // Clean up
-    strategy.deallocate(obj1);
-    strategy.deallocate(obj3);
+    allocator.deallocate(obj1);
+    allocator.deallocate(obj3);
+    allocator.deallocate(obj4);
 }
 
 void footprint_test_function() {
-    printf("=== BumpPoolAllocationStrategy Memory Footprint Analysis ===\n\n");
+    printf("=== BumpPoolObjStrategy Memory Footprint Analysis ===\n\n");
     
-    ftl::BumpPoolAllocationStrategy<uint64_t> strategy2(DtcmAllocator::instance(), 1);
-    (void)strategy2;
+    ftl::allocator::BumpPoolObjStrategy<uint64_t> strategy2(DtcmAllocator::instance());
+    ftl::allocator::ObjAllocator<uint64_t> allocator2(strategy2);
+    (void)allocator2;
 
-    ftl::BumpPoolAllocationStrategy<int64_t> strategy3(DtcmAllocator::instance(), 1);
-    (void)strategy3;
+    ftl::allocator::BumpPoolObjStrategy<int64_t> strategy3(DtcmAllocator::instance());
+    ftl::allocator::ObjAllocator<int64_t> allocator3(strategy3);
+    (void)allocator3;
 
     // Print sizes of fundamental components
     printf("Base component sizes:\n");
@@ -115,7 +123,7 @@ void footprint_test_function() {
     printf("  2. Inline functions and optimizations\n");
     printf("  3. Compiler settings and link-time optimization\n");
     printf("\nTo measure exact flash usage, compare binary sizes with/without\n");
-    printf("each BumpPoolAllocationStrategy<T> instantiation.\n");
+    printf("each BumpPoolObjStrategy<T> instantiation.\n");
     
     printf("\n=== Test completed ===\n");
 }

@@ -4,8 +4,9 @@
 #include "tx_api.h"
 
 #include "ftl/tx_thread.hpp"
-#include "ftl/bump_pool_allocation_strategy.hpp"
-#include "ftl/data_frame.hpp"
+#include "ftl/allocator/bump_pool_strategy.hpp"
+#include "ftl/allocator/bump_pool_buffer_strategy.hpp"
+#include "ftl/ipv4/udp/payload.hpp"
 #include "network/gigabit_ethernet.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
