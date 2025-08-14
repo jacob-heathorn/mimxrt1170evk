@@ -7,10 +7,10 @@
 #include "ftl/tx_thread.hpp"
 #include "ftl/allocator/bump_pool_strategy.hpp"
 #include "ftl/allocator/bump_pool_buffer_strategy.hpp"
+#include "ftl/allocator/buffer_allocator.hpp"
 #include "ftl/ipv4/udp/payload.hpp"
 #include "network/gigabit_ethernet.hpp"
 #include "utils/dtcm_allocator.hpp"
-#include "utils/ocram1_allocator.hpp"
 
 #include "cyphal/udp_transport.hpp"
 #include "cyphal/udp_subscriber.hpp"
@@ -38,14 +38,24 @@ void cyphal_subscriber_thread()
     printf("Starting Cyphal subscriber...\r\n");
 
     // Initialize Payload with buffer strategy for UDP frames
-    auto& frame_allocator = Ocram1Allocator::instance();
-    static std::array<std::size_t, 8> buffer_sizes = {32, 64, 128, 256, 512, 1024, 2048, 4096};
-    static ftl::allocator::BumpPoolBufferStrategy<8> buffer_strategy(frame_allocator, buffer_sizes);
-    ftl::ipv4::udp::Payload::initialize(buffer_strategy);
+    // Create individual strategies for each buffer size
+    static ftl::allocator::BumpPoolBufferStrategy strategy_32(DtcmAllocator::instance(), 32);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_64(DtcmAllocator::instance(), 64);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_128(DtcmAllocator::instance(), 128);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_256(DtcmAllocator::instance(), 256);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_512(DtcmAllocator::instance(), 512);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_1024(DtcmAllocator::instance(), 1024);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_1500(DtcmAllocator::instance(), 1500);
     
-    // Create BumpPoolObjStrategy for duplicate detection map nodes
-    auto& dup_allocator = DtcmAllocator::instance();
-    static ftl::allocator::BumpPoolObjStrategy<cyphal::LastTransferIdAllocator::NodeType> node_strategy(dup_allocator);
+    // Create a BufferAllocator with all strategies
+    static ftl::allocator::BufferAllocator buffer_allocator(
+        strategy_32, strategy_64, strategy_128, strategy_256,
+        strategy_512, strategy_1024, strategy_1500);
+    
+    ftl::ipv4::udp::Payload::initialize(buffer_allocator);
+    
+    // Initialize BumpPoolObjStrategy for Cyphal duplicate detection map nodes
+    static ftl::allocator::BumpPoolObjStrategy<cyphal::LastTransferIdAllocator::NodeType> node_strategy(DtcmAllocator::instance());
     cyphal::LastTransferIdAllocator::initialize(node_strategy);
 
     // Create UDP transport for Cyphal
