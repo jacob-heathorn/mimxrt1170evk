@@ -6,6 +6,7 @@
 #include "ftl/tx_thread.hpp"
 #include "ftl/allocator/bump_pool_strategy.hpp"
 #include "ftl/allocator/bump_pool_buffer_strategy.hpp"
+#include "ftl/allocator/buffer_allocator.hpp"
 #include "ftl/ipv4/udp/payload.hpp"
 #include "network/gigabit_ethernet.hpp"
 #include "utils/dtcm_allocator.hpp"
@@ -13,6 +14,7 @@
 
 #include "cyphal/udp_transport.hpp"
 #include "cyphal/udp_publisher.hpp"
+#include "cyphal/udp_subscriber.hpp"
 
 #include <uavcan/node/Heartbeat_1_0.hpp>
 
@@ -32,6 +34,27 @@ int main()
 
 void cyphal_publisher_thread()
 {
+    // Initialize Payload with buffer strategy for UDP frames
+    // Create individual strategies for each buffer size
+    static ftl::allocator::BumpPoolBufferStrategy strategy_32(DtcmAllocator::instance(), 32);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_64(DtcmAllocator::instance(), 64);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_128(DtcmAllocator::instance(), 128);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_256(DtcmAllocator::instance(), 256);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_512(DtcmAllocator::instance(), 512);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_1024(DtcmAllocator::instance(), 1024);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_1500(DtcmAllocator::instance(), 1500);
+    
+    // Create a BufferAllocator with all strategies
+    static ftl::allocator::BufferAllocator buffer_allocator(
+        strategy_32, strategy_64, strategy_128, strategy_256,
+        strategy_512, strategy_1024, strategy_1500);
+    
+    ftl::ipv4::udp::Payload::initialize(buffer_allocator);
+    
+    // Initialize BumpPoolObjStrategy for Cyphal duplicate detection map nodes
+    static ftl::allocator::BumpPoolObjStrategy<cyphal::LastTransferIdAllocator::NodeType> node_strategy(DtcmAllocator::instance());
+    cyphal::LastTransferIdAllocator::initialize(node_strategy);
+
     printf("Waiting for link...\r\n");
     GigabitEthernet::instance().WaitUntilReady();
     printf("Starting Cyphal publisher...\r\n");
