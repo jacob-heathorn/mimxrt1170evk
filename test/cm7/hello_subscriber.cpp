@@ -39,18 +39,10 @@ void cyphal_subscriber_thread()
 
     // Initialize Payload with buffer strategy for UDP frames
     // Create individual strategies for each buffer size
-    static ftl::allocator::BumpPoolBufferStrategy strategy_32(DtcmAllocator::instance(), 32);
     static ftl::allocator::BumpPoolBufferStrategy strategy_64(DtcmAllocator::instance(), 64);
-    static ftl::allocator::BumpPoolBufferStrategy strategy_128(DtcmAllocator::instance(), 128);
-    static ftl::allocator::BumpPoolBufferStrategy strategy_256(DtcmAllocator::instance(), 256);
-    static ftl::allocator::BumpPoolBufferStrategy strategy_512(DtcmAllocator::instance(), 512);
-    static ftl::allocator::BumpPoolBufferStrategy strategy_1024(DtcmAllocator::instance(), 1024);
-    static ftl::allocator::BumpPoolBufferStrategy strategy_1500(DtcmAllocator::instance(), 1500);
     
     // Create a BufferAllocator with all strategies
-    static ftl::allocator::BufferAllocator buffer_allocator(
-        strategy_32, strategy_64, strategy_128, strategy_256,
-        strategy_512, strategy_1024, strategy_1500);
+    static ftl::allocator::BufferAllocator buffer_allocator(strategy_64);
     
     ftl::ipv4::udp::Payload::initialize(buffer_allocator);
     
