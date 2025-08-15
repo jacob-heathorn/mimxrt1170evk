@@ -62,10 +62,10 @@ cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
 rip -d0 cm7-debug:hello-netx && \
 rip -f0 cm7-debug:hello-netx -s
 
-# Set up local ethernet interface (192.2.2.1) and mask (255.255.255.0)
-ping 192.2.2.149
+# Set up local ethernet interface (192.0.2.1) and mask (255.255.255.0)
+ping 192.0.2.149
 socat -v UDP4-RECVFROM:5001,fork EXEC:'/bin/cat' # echo unicast
-socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.2.2.1,fork EXEC:'/bin/cat' # echo multicast
+socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.0.2.1,fork EXEC:'/bin/cat' # echo multicast
 ```
 
 # Setup cyphal tools and wireshark
@@ -82,11 +82,11 @@ pipx install 'yakut[transport-udp]'
 
 # Add to .bashrc
 export CYPHAL_PATH="$HOME/path/to/public_regulated_data_types:$CYPHAL_PATH"
-export UAVCAN__UDP__IFACE="192.2.2.2"
+export UAVCAN__UDP__IFACE="192.0.2.2"
 export UAVCAN__NODE__ID=42
 
 # Connect ethernet from computer to dev board
-# Set the local ethernet interface to 192.2.2.1 and netmask 255.255.255.0
+# Set the local ethernet interface to 192.0.2.1 and netmask 255.255.255.0
 
 ```
 
@@ -109,7 +109,7 @@ rip -d0 cm7-debug:hello-subscriber && \
 rip -f0 cm7-debug:hello-subscriber -s
 
 # Or subscribe specifically to heartbeat messages
-export UAVCAN__UDP__IFACE=192.2.2.100
+export UAVCAN__UDP__IFACE=192.0.2.100
 export UAVCAN__NODE__ID=1000
 yakut sub uavcan.node.heartbeat
 ```

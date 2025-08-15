@@ -87,7 +87,7 @@ VOID tx_application_define(void *first_unused_memory)
     static ftl::allocator::BumpPoolObjStrategy<NxUdpSocket> socket_strategy(DtcmAllocator::instance());
     
     // Set up the ethernet interface
-    GigabitEthernet::create("192.2.2.150", Mask{255, 255, 255, 0}, socket_strategy);
+    GigabitEthernet::create("192.0.2.150", Mask{255, 255, 255, 0}, socket_strategy);
 
     // Create Cyphal subscriber thread.
     static ftl::TxThread thread1(

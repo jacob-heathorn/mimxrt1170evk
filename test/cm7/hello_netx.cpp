@@ -48,7 +48,7 @@ void echo_hello()
         // Send unicast message.
         udp::Payload msg1(strlen("Hello unicast") + 2);
         sprintf((char *)msg1.front(), "Hello unicast %d", i % 10);
-        if (!socket->send(std::move(msg1), Endpoint("192.2.2.1", 5001))) {
+        if (!socket->send(std::move(msg1), Endpoint("192.0.2.1", 5001))) {
             printf("Failed to send UDP packet\r\n");
         }
 
@@ -103,7 +103,7 @@ VOID tx_application_define(void *first_unused_memory)
     static ftl::allocator::BumpPoolObjStrategy<NxUdpSocket> socket_strategy(DtcmAllocator::instance());
     
     // Set up the etherenet interface
-    GigabitEthernet::create("192.2.2.149", Mask{255, 255, 255, 0}, socket_strategy);
+    GigabitEthernet::create("192.0.2.149", Mask{255, 255, 255, 0}, socket_strategy);
 
     // Create hello thread.
     static ftl::TxThread thread1(
