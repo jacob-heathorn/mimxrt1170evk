@@ -48,7 +48,7 @@ void echo_hello()
         // Send unicast message.
         udp::Payload msg1(strlen("Hello unicast") + 2);
         sprintf((char *)msg1.front(), "Hello unicast %d", i % 10);
-        if (!socket->send(std::move(msg1), Endpoint("192.2.2.100", 5001))) {
+        if (!socket->send(std::move(msg1), Endpoint("192.2.2.1", 5001))) {
             printf("Failed to send UDP packet\r\n");
         }
 
