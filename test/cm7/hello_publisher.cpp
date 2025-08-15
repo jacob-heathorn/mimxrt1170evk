@@ -9,6 +9,7 @@
 #include "ftl/allocator/buffer_allocator.hpp"
 #include "ftl/ipv4/udp/payload.hpp"
 #include "network/gigabit_ethernet.hpp"
+#include "network/nx_udp_socket.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
 
@@ -83,8 +84,11 @@ VOID tx_application_define(void *first_unused_memory)
 {
     NX_PARAMETER_NOT_USED(first_unused_memory);
 
+    // Set up socket allocation strategy
+    static ftl::allocator::BumpPoolObjStrategy<NxUdpSocket> socket_strategy(DtcmAllocator::instance());
+    
     // Set up the ethernet interface
-    GigabitEthernet::create("192.2.2.149", Mask{255, 255, 255, 0});
+    GigabitEthernet::create("192.2.2.149", Mask{255, 255, 255, 0}, socket_strategy);
 
     // Create Cyphal publisher thread.
     static ftl::TxThread thread1(

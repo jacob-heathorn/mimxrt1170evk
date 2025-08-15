@@ -5,11 +5,13 @@
 
 #include "ftl/tx_thread.hpp"
 #include "ftl/allocator/bump_pool_buffer_strategy.hpp"
+#include "ftl/allocator/bump_pool_obj_strategy.hpp"
 #include "ftl/allocator/buffer_allocator.hpp"
 #include "ftl/ipv4/udp/payload.hpp"
 #include "ftl/ipv4/udp/socket.hpp"
 #include "network/gigabit_ethernet.hpp"
 #include "utils/dtcm_allocator.hpp"
+#include "network/nx_udp_socket.hpp"
 
 using namespace ftl::ipv4;
 
@@ -97,8 +99,11 @@ VOID tx_application_define(void *first_unused_memory)
 {
     NX_PARAMETER_NOT_USED(first_unused_memory);
 
+    // Set up socket allocation strategy
+    static ftl::allocator::BumpPoolObjStrategy<NxUdpSocket> socket_strategy(DtcmAllocator::instance());
+    
     // Set up the etherenet interface
-    GigabitEthernet::create("192.2.2.149", Mask{255, 255, 255, 0});
+    GigabitEthernet::create("192.2.2.149", Mask{255, 255, 255, 0}, socket_strategy);
 
     // Create hello thread.
     static ftl::TxThread thread1(

@@ -15,8 +15,10 @@ VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 }
 
 
-NxEthernetInterface::NxEthernetInterface(ftl::ipv4::Address address, ftl::ipv4::Mask mask)
-  : ftl::ethernet::Interface(address, mask)
+NxEthernetInterface::NxEthernetInterface(ftl::ipv4::Address address, ftl::ipv4::Mask mask,
+                                         ftl::allocator::IObjStrategy<NxUdpSocket>& socket_strategy)
+  : ftl::ethernet::Interface(address, mask),
+    socket_allocator_(socket_strategy)
 {
   UINT status;
   ULONG error_counter = 0;
@@ -95,7 +97,5 @@ void NxEthernetInterface::WaitUntilReady()
 
 ftl::ipv4::udp::SocketPtr NxEthernetInterface::CreateUdpSocket()
 {
-  static ftl::allocator::BumpPoolObjStrategy<NxUdpSocket> strategy{DtcmAllocator::instance()};
-  static ftl::allocator::ObjAllocator<NxUdpSocket> allocator{strategy};
-  return allocator.make_unique<ftl::ipv4::udp::Socket>(*this);
+  return socket_allocator_.make_unique<ftl::ipv4::udp::Socket>(*this);
 }

@@ -4,8 +4,10 @@
 #include "stdint.h"
 
 #include "ftl/ethernet/interface.hpp"
+#include "ftl/allocator/strategy.hpp"
+#include "ftl/allocator/obj_allocator.hpp"
 
-class UdpSocket;
+class NxUdpSocket;
 
 class NxEthernetInterface : public ftl::ethernet::Interface
 {
@@ -16,7 +18,8 @@ public:
   static constexpr uint32_t kIpThreadStackSize = 2048;
   static constexpr uint32_t kArpSpaceSize = 1024;
 
-  NxEthernetInterface(ftl::ipv4::Address address, ftl::ipv4::Mask mask);
+  NxEthernetInterface(ftl::ipv4::Address address, ftl::ipv4::Mask mask,
+                      ftl::allocator::IObjStrategy<NxUdpSocket>& socket_strategy);
   ~NxEthernetInterface() override = default;
 
   NxEthernetInterface(const NxEthernetInterface&) = delete;
@@ -35,4 +38,5 @@ public:
 private:
   NX_PACKET_POOL pool_{};
   NX_IP ip_ {};
+  ftl::allocator::ObjAllocator<NxUdpSocket> socket_allocator_;
 };
