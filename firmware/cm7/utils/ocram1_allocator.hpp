@@ -14,7 +14,7 @@ extern "C" {
 class Ocram1Allocator : public ftl::BumpAllocator, public ftl::Singleton<Ocram1Allocator> {
   friend class ftl::Singleton<Ocram1Allocator>;
 private:
-  Ocram1Allocator(): ftl::BumpAllocator(start(), size()) {}
+  Ocram1Allocator(): ftl::BumpAllocator(start(), size(), true /*cache_align*/) {}
 public:
   // Returns a pointer to the beginning of the memory block.
   static uint8_t* start() { return __m_ocram1_used_end__; }
