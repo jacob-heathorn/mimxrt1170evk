@@ -2,7 +2,7 @@
 #include <cstddef>
 #include "tx_api.h"
 #include "ftl/tx_thread.hpp"
-#include "ftl/allocator/bump_pool_strategy.hpp"
+#include "ftl/allocator/bump_pool_obj_strategy.hpp"
 #include "ftl/allocator/obj_allocator.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "etl/delegate.h"

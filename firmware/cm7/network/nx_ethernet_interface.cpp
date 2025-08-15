@@ -6,8 +6,8 @@
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
 #include "utils/ocram2_allocator.hpp"
-#include "ftl/allocator/unique_obj_allocator.hpp"
-#include "ftl/allocator/bump_pool_strategy.hpp"
+#include "ftl/allocator/obj_allocator.hpp"
+#include "ftl/allocator/bump_pool_obj_strategy.hpp"
 
 extern "C"
 {
@@ -96,6 +96,6 @@ void NxEthernetInterface::WaitUntilReady()
 ftl::ipv4::udp::SocketPtr NxEthernetInterface::CreateUdpSocket()
 {
   static ftl::allocator::BumpPoolObjStrategy<NxUdpSocket> strategy{DtcmAllocator::instance()};
-  static ftl::allocator::UniqueObjAllocator<NxUdpSocket, ftl::ipv4::udp::Socket> allocator{strategy};
-  return allocator.acquire(*this);
+  static ftl::allocator::ObjAllocator<NxUdpSocket> allocator{strategy};
+  return allocator.make_unique<ftl::ipv4::udp::Socket>(*this);
 }

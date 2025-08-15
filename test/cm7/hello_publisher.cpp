@@ -4,7 +4,7 @@
 #include "tx_api.h"
 
 #include "ftl/tx_thread.hpp"
-#include "ftl/allocator/bump_pool_strategy.hpp"
+#include "ftl/allocator/bump_pool_obj_strategy.hpp"
 #include "ftl/allocator/bump_pool_buffer_strategy.hpp"
 #include "ftl/allocator/buffer_allocator.hpp"
 #include "ftl/ipv4/udp/payload.hpp"
