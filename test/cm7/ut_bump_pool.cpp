@@ -1,15 +1,10 @@
 #include <gtest/gtest.h>
 
-#include <atomic>
-#include <thread>
-#include <memory>
 
-#include "ftl/allocator/bump_allocator.hpp"
 #include "ftl/allocator/obj_allocator.hpp"
 #include "ftl/allocator/bump_pool_obj_strategy.hpp"
 #include "utils/dtcm_allocator.hpp"
 
-#include <cstdio> 
 
 //------------------------------------------------------------------------------
 // Test automatic release via unique_ptr with new allocator API
