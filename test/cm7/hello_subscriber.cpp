@@ -38,19 +38,6 @@ void cyphal_subscriber_thread()
     GigabitEthernet::instance().WaitUntilReady();
     printf("Starting Cyphal subscriber...\r\n");
 
-    // Initialize Payload with buffer strategy for UDP frames
-    // Create individual strategies for each buffer size
-    static ftl::allocator::BumpPoolBufferStrategy strategy_64(DtcmAllocator::instance(), 64);
-    
-    // Create a BufferAllocator with all strategies
-    static ftl::allocator::BufferAllocator buffer_allocator(strategy_64);
-    
-    ftl::ipv4::udp::Payload::initialize(buffer_allocator);
-    
-    // Initialize BumpPoolObjStrategy for Cyphal duplicate detection map nodes
-    static ftl::allocator::BumpPoolObjStrategy<cyphal::LastTransferIdAllocator::NodeType> node_strategy(DtcmAllocator::instance());
-    cyphal::LastTransferIdAllocator::initialize(node_strategy);
-
     // Create UDP transport for Cyphal
     cyphal::UdpTransport transport(GigabitEthernet::instance());
 
@@ -86,6 +73,15 @@ void cyphal_subscriber_thread()
 VOID tx_application_define(void *first_unused_memory)
 {
     NX_PARAMETER_NOT_USED(first_unused_memory);
+
+    // Initialize buffer strategy for UDP payloads
+    static ftl::allocator::BumpPoolBufferStrategy strategy_64(DtcmAllocator::instance(), 64);
+    static ftl::allocator::BufferAllocator buffer_allocator(strategy_64);
+    ftl::ipv4::udp::Payload::initialize(buffer_allocator);
+    
+    // Initialize strategy for Cyphal duplicate detection map nodes
+    static ftl::allocator::BumpPoolObjStrategy<cyphal::LastTransferIdAllocator::NodeType> node_strategy(DtcmAllocator::instance());
+    cyphal::LastTransferIdAllocator::initialize(node_strategy);
 
     // Set up socket allocation strategy
     static ftl::allocator::BumpPoolObjStrategy<NxUdpSocket> socket_strategy(DtcmAllocator::instance());
