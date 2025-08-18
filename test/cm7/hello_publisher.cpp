@@ -77,9 +77,10 @@ VOID tx_application_define(void *first_unused_memory)
     static ftl::allocator::BufferAllocator buffer_allocator(strategy_64);
     ftl::ipv4::udp::Payload::initialize(buffer_allocator);
     
-    // Initialize strategy for Cyphal duplicate detection map nodes
+    // Initialize strategy and allocator for Cyphal duplicate detection map nodes
     static ftl::allocator::BumpPoolObjStrategy<cyphal::LastTransferIdAllocator::NodeType> node_strategy(DtcmAllocator::instance());
-    cyphal::LastTransferIdAllocator::initialize(node_strategy);
+    static ftl::allocator::ObjAllocator<cyphal::LastTransferIdAllocator::NodeType> node_allocator(node_strategy);
+    cyphal::LastTransferIdAllocator::initialize(node_allocator);
 
     // Set up socket allocation strategy
     static ftl::allocator::BumpPoolObjStrategy<NxUdpSocket> socket_strategy(DtcmAllocator::instance());
