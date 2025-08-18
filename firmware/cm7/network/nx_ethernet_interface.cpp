@@ -16,9 +16,9 @@ VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 
 
 NxEthernetInterface::NxEthernetInterface(ftl::ipv4::Address address, ftl::ipv4::Mask mask,
-                                         ftl::allocator::IObjStrategy<NxUdpSocket>& socket_strategy)
+                                         ftl::allocator::ObjAllocator<NxUdpSocket>& socket_allocator)
   : ftl::ethernet::Interface(address, mask),
-    socket_allocator_(socket_strategy)
+    socket_allocator_(socket_allocator)
 {
   UINT status;
   ULONG error_counter = 0;

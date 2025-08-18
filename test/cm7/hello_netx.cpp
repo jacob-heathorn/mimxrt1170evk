@@ -99,11 +99,12 @@ VOID tx_application_define(void *first_unused_memory)
     
     ftl::ipv4::udp::Payload::initialize(buffer_allocator);
 
-    // Set up socket allocation strategy
+    // Set up socket allocation strategy and allocator
     static ftl::allocator::BumpPoolObjStrategy<NxUdpSocket> socket_strategy(DtcmAllocator::instance());
+    static ftl::allocator::ObjAllocator<NxUdpSocket> socket_allocator(socket_strategy);
     
     // Set up the etherenet interface
-    GigabitEthernet::create("192.0.2.149", Mask{255, 255, 255, 0}, socket_strategy);
+    GigabitEthernet::create("192.0.2.149", Mask{255, 255, 255, 0}, socket_allocator);
 
     // Create hello thread.
     static ftl::TxThread thread1(
