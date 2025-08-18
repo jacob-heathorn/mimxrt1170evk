@@ -43,21 +43,3 @@ void* operator new[](std::size_t size) {
   (void)size;
   dynamic_alloc_forbidden();
 }
-
-// Placement new operators (these are safe - they don't allocate)
-void* operator new(std::size_t, void* ptr) noexcept {
-  return ptr;
-}
-
-void* operator new[](std::size_t, void* ptr) noexcept {
-  return ptr;
-}
-
-// Placement delete operators (required to match placement new)
-void operator delete(void*, void*) noexcept {
-  // Nothing to do - placement delete doesn't free memory
-}
-
-void operator delete[](void*, void*) noexcept {
-  // Nothing to do - placement delete doesn't free memory
-}
