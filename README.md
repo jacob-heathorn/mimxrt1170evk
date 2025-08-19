@@ -1,3 +1,15 @@
+# Mimxrt1170evk
+
+A modern C++ embedded software development platform with the mimxrt1170evk hardware.
+
+The primary purpose of this repository is to exemplify ideas oulined here:
+https://jacob-heathorn.github.io/embedded-framework/
+
+The secondary purpose is to provide an environment to develop microcyphal (https://github.com/jacob-heathorn/microcyphal) on embedded hardware. See the cyphal pub/sub example.
+
+NOTE: This is not yet safety-critical ready. Some of the HAL still needs to be handwritten and we need to implement proper error handling to replace asserts.
+
+
 # Setup Instructions
 
 1) Clone this repository: `git clone https://github.com/jacob-heathorn/mimxrt1170evk.git`
