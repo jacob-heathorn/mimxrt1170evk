@@ -7,8 +7,10 @@ https://jacob-heathorn.github.io/embedded-framework/
 
 This platform demonstrates cyphal (https://github.com/jacob-heathorn/microcyphal) on ThreadX.
 
-NOTE: This is not yet ready for safety-critical applications. Some of the HAL still needs to be handwritten and we need to implement proper error handling to replace asserts.
-
+NOTE: This is not yet ready for safety-critical applications
+* Some of the HAL still needs to be handwritten.
+* We need to implement proper error handling to replace asserts.
+* Bump pools can be replaced by fixed pools for safety-critical memory management.
 
 # Setup Instructions
 
