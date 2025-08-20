@@ -13,6 +13,7 @@ NOTE: This is not yet ready for safety-critical applications
 * Bump pools can be replaced by fixed pools for safety-critical memory management.
 
 # Setup Instructions
+The has only been tested in Ubuntu 24.04
 
 1) Clone this repository: `git clone https://github.com/jacob-heathorn/mimxrt1170evk.git`
 2) Install gordion: `pipx install gordion`
