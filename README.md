@@ -156,3 +156,5 @@ Copyright (c) 2025 Jacob Heathorn
 
 This project is released under the **Academic Use License** (see [LICENSE](./LICENSE)).
 For **commercial licensing**, please contact: <jacob.heathorn@gmail.com>.
+
+TODO: Handwrite ethernet, and other drivers to replace the NXP provided HAL.
