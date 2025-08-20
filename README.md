@@ -41,6 +41,7 @@ NOTE: This is not yet ready for safety-critical applications
 
 # Debug
 `rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4`
+Debug in VSCode (F5)
 
 # ctest
 `cd .bin/cm7-debug`
@@ -138,18 +139,6 @@ baud: `115200`
 # Generate register files from SVD
 rip -g0  # CM4 registers
 rip -g1  # CM7 registers
-```
-
-# Problems Debugging
-```bash
-sudo lsof -i :2400
-sudo lsof -i :2401
-
-pkill LinkServer
-
-Unplug/Replug usb
-
-Reboot device
 ```
 
 # Copyright & Licensing
