@@ -5,7 +5,7 @@ A modern C++ embedded software development platform with the mimxrt1170evk hardw
 Inspired by ideas outlined here:
 https://jacob-heathorn.github.io/embedded-framework/
 
-This platform demos cyphal (https://github.com/jacob-heathorn/microcyphal) on ThreadX.
+This platform demonstrates cyphal (https://github.com/jacob-heathorn/microcyphal) on ThreadX.
 
 NOTE: This is not yet ready for safety-critical applications. Some of the HAL still needs to be handwritten and we need to implement proper error handling to replace asserts.
 
