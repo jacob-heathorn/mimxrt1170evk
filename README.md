@@ -1,4 +1,16 @@
+# Mimxrt1170evk
+
+A modern C++ embedded software development platform on the NXP MIMXRT1170-EVK hardware.
+
+This platform demonstrates cyphal (https://github.com/jacob-heathorn/microcyphal) on ThreadX.
+
+NOTE: This is not yet ready for safety-critical applications
+* Some of the HAL still needs to be handwritten.
+* We need to implement proper error handling to replace asserts.
+* Bump pools can be replaced by fixed pools for safety-critical memory management.
+
 # Setup Instructions
+The has only been tested in Ubuntu 24.04
 
 1) Clone this repository: `git clone https://github.com/jacob-heathorn/mimxrt1170evk.git`
 2) Install gordion: `pipx install gordion`
@@ -27,6 +39,7 @@
 
 # Debug
 `rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4`
+Debug in VSCode (F5)
 
 # ctest
 `cd .bin/cm7-debug`
@@ -62,10 +75,10 @@ cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
 rip -d0 cm7-debug:hello-netx && \
 rip -f0 cm7-debug:hello-netx -s
 
-# Set up local ethernet interface (192.2.2.100) and mask (255.255.255.0)
-ping 192.2.2.149
+# Set up local ethernet interface (192.0.2.1) and mask (255.255.255.0)
+ping 192.0.2.149
 socat -v UDP4-RECVFROM:5001,fork EXEC:'/bin/cat' # echo unicast
-socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.2.2.100,fork EXEC:'/bin/cat' # echo multicast
+socat -v UDP4-RECVFROM:5002,reuseaddr,ip-add-membership=224.1.0.2:192.0.2.1,fork EXEC:'/bin/cat' # echo multicast
 ```
 
 # Setup cyphal tools and wireshark
@@ -82,15 +95,15 @@ pipx install 'yakut[transport-udp]'
 
 # Add to .bashrc
 export CYPHAL_PATH="$HOME/path/to/public_regulated_data_types:$CYPHAL_PATH"
-export UAVCAN__UDP__IFACE="192.2.2.2"
+export UAVCAN__UDP__IFACE="192.0.2.2"
 export UAVCAN__NODE__ID=42
 
 # Connect ethernet from computer to dev board
-# Set the local ethernet interface to 192.2.2.1 and netmask 255.255.255.0
+# Set the local ethernet interface to 192.0.2.1 and netmask 255.255.255.0
 
 ```
 
-# Cyphal test
+# Cyphal pub/sub
 ```bash
 
 # See previous section for setup.
@@ -98,12 +111,18 @@ export UAVCAN__NODE__ID=42
 # Monitor all Cyphal/UDP traffic
 yakut mon
 
+# Run Publisher
 cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
-rip -d0 cm7-debug:hello-cyphal && \
-rip -f0 cm7-debug:hello-cyphal -s
+rip -d0 cm7-debug:hello-publisher && \
+rip -f0 cm7-debug:hello-publisher -s
+
+# Run Subscriber
+cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
+rip -d0 cm7-debug:hello-subscriber && \
+rip -f0 cm7-debug:hello-subscriber -s
 
 # Or subscribe specifically to heartbeat messages
-export UAVCAN__UDP__IFACE=192.2.2.100
+export UAVCAN__UDP__IFACE=192.0.2.100
 export UAVCAN__NODE__ID=1000
 yakut sub uavcan.node.heartbeat
 ```
@@ -120,14 +139,11 @@ rip -g0  # CM4 registers
 rip -g1  # CM7 registers
 ```
 
-# Problems Debugging
-```bash
-sudo lsof -i :2400
-sudo lsof -i :2401
+# Copyright & Licensing
 
-pkill LinkServer
+Copyright (c) 2025 Jacob Heathorn
 
-Unplug/Replug usb
+This project is released under the **Academic Use License** (see [LICENSE](./LICENSE)).
+For **commercial licensing**, please contact: <jacob.heathorn@gmail.com>.
 
-Reboot device
-```
+TODO: Handwrite ethernet, and other drivers to replace the NXP provided HAL.

@@ -7,8 +7,9 @@
 #include "fsl_gpio.h"
 
 
-GigabitEthernet::GigabitEthernet(ftl::ipv4::Address address, ftl::ipv4::Mask mask)
-  : NxEthernetInterface(address, mask)
+GigabitEthernet::GigabitEthernet(ftl::ipv4::Address address, ftl::ipv4::Mask mask,
+                                 ftl::allocator::ObjAllocator<NxUdpSocket>& socket_allocator)
+  : NxEthernetInterface(address, mask, socket_allocator)
 {
   // Init board hardware.
   gpio_pin_config_t gpio_config = {kGPIO_DigitalOutput, 0, kGPIO_NoIntmode};

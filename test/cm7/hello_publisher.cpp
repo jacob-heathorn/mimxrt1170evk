@@ -4,10 +4,18 @@
 #include "tx_api.h"
 
 #include "ftl/tx_thread.hpp"
+#include "ftl/allocator/bump_pool_obj_strategy.hpp"
+#include "ftl/allocator/bump_pool_buffer_strategy.hpp"
+#include "ftl/allocator/buffer_allocator.hpp"
+#include "ftl/ipv4/udp/payload.hpp"
 #include "network/gigabit_ethernet.hpp"
+#include "network/nx_udp_socket.hpp"
+#include "utils/dtcm_allocator.hpp"
+#include "utils/ocram1_allocator.hpp"
 
 #include "cyphal/udp_transport.hpp"
 #include "cyphal/udp_publisher.hpp"
+#include "cyphal/udp_subscriber.hpp"
 
 #include <uavcan/node/Heartbeat_1_0.hpp>
 
@@ -27,6 +35,7 @@ int main()
 
 void cyphal_publisher_thread()
 {
+
     printf("Waiting for link...\r\n");
     GigabitEthernet::instance().WaitUntilReady();
     printf("Starting Cyphal publisher...\r\n");
@@ -63,8 +72,22 @@ VOID tx_application_define(void *first_unused_memory)
 {
     NX_PARAMETER_NOT_USED(first_unused_memory);
 
+    // Initialize buffer strategy for UDP payloads
+    static ftl::allocator::BumpPoolBufferStrategy strategy_64(DtcmAllocator::instance(), 64);
+    static ftl::allocator::BufferAllocator buffer_allocator(strategy_64);
+    ftl::ipv4::udp::Payload::initialize(buffer_allocator);
+    
+    // Initialize strategy and allocator for Cyphal duplicate detection map nodes
+    static ftl::allocator::BumpPoolObjStrategy<cyphal::LastTransferIdAllocator::NodeType> node_strategy(DtcmAllocator::instance());
+    static ftl::allocator::ObjAllocator<cyphal::LastTransferIdAllocator::NodeType> node_allocator(node_strategy);
+    cyphal::LastTransferIdAllocator::initialize(node_allocator);
+
+    // Set up socket allocation strategy and allocator
+    static ftl::allocator::BumpPoolObjStrategy<NxUdpSocket> socket_strategy(DtcmAllocator::instance());
+    static ftl::allocator::ObjAllocator<NxUdpSocket> socket_allocator(socket_strategy);
+    
     // Set up the ethernet interface
-    GigabitEthernet::create("192.2.2.149", Mask{255, 255, 255, 0});
+    GigabitEthernet::create("192.0.2.149", Mask{255, 255, 255, 0}, socket_allocator);
 
     // Create Cyphal publisher thread.
     static ftl::TxThread thread1(

@@ -6,7 +6,8 @@
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
 #include "utils/ocram2_allocator.hpp"
-#include "ftl/unique_bump_pool.hpp"
+#include "ftl/allocator/obj_allocator.hpp"
+#include "ftl/allocator/bump_pool_obj_strategy.hpp"
 
 extern "C"
 {
@@ -14,8 +15,10 @@ VOID nx_link_driver(NX_IP_DRIVER *driver_req_ptr);
 }
 
 
-NxEthernetInterface::NxEthernetInterface(ftl::ipv4::Address address, ftl::ipv4::Mask mask)
-  : ftl::ethernet::Interface(address, mask)
+NxEthernetInterface::NxEthernetInterface(ftl::ipv4::Address address, ftl::ipv4::Mask mask,
+                                         ftl::allocator::ObjAllocator<NxUdpSocket>& socket_allocator)
+  : ftl::ethernet::Interface(address, mask),
+    socket_allocator_(socket_allocator)
 {
   UINT status;
   ULONG error_counter = 0;
@@ -94,6 +97,5 @@ void NxEthernetInterface::WaitUntilReady()
 
 ftl::ipv4::udp::SocketPtr NxEthernetInterface::CreateUdpSocket()
 {
-  static ftl::UniqueBumpPool<NxUdpSocket, ftl::ipv4::udp::Socket> pool{DtcmAllocator::instance()};
-  return pool.acquire(*this);
+  return socket_allocator_.make_unique<ftl::ipv4::udp::Socket>(*this);
 }
