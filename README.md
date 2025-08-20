@@ -1,6 +1,6 @@
 # Mimxrt1170evk
 
-A modern C++ embedded software development platform on the mimxrt1170evk hardware.
+A modern C++ embedded software development platform on the NXP MIMXRT1170-EVK hardware.
 
 Inspired by ideas outlined here:
 https://jacob-heathorn.github.io/embedded-framework/
