@@ -2,12 +2,12 @@
 
 A modern C++ embedded software development platform with the mimxrt1170evk hardware.
 
-The primary purpose of this repository is to exemplify ideas oulined here:
+Inspired by ideas outlined here:
 https://jacob-heathorn.github.io/embedded-framework/
 
-The secondary purpose is to provide an environment to develop microcyphal (https://github.com/jacob-heathorn/microcyphal) on embedded hardware. See the cyphal pub/sub example.
+This platform demos cyphal (https://github.com/jacob-heathorn/microcyphal) on ThreadX.
 
-NOTE: This is not yet safety-critical ready. Some of the HAL still needs to be handwritten and we need to implement proper error handling to replace asserts.
+NOTE: This is not yet ready for safety-critical applications. Some of the HAL still needs to be handwritten and we need to implement proper error handling to replace asserts.
 
 
 # Setup Instructions
