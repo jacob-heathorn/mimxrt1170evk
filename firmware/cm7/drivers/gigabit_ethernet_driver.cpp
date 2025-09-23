@@ -1,4 +1,5 @@
 #include "gigabit_ethernet_driver.hpp"
+#include <cstdio>
 #include "registers/codegen/enet_1g.hpp"
 #include "registers/codegen/iomuxc_gpr.hpp"
 #include "registers/codegen/ccm.hpp"
@@ -23,18 +24,30 @@ GigabitEthernetDriver::~GigabitEthernetDriver() {
 }
 
 bool GigabitEthernetDriver::Initialize() {
+    printf("[ETH] Starting initialization\n");
+
+    printf("[ETH] Initializing clock...\n");
     InitClock();
+
+    printf("[ETH] Initializing pins...\n");
     InitPins();
+
+    printf("[ETH] Resetting PHY...\n");
     ResetPhy();
 
+    printf("[ETH] Initializing PHY...\n");
     if (!InitPhy()) {
+        printf("[ETH] ERROR: PHY initialization failed\n");
         return false;
     }
 
+    printf("[ETH] Initializing MAC...\n");
     if (!InitMac()) {
+        printf("[ETH] ERROR: MAC initialization failed\n");
         return false;
     }
 
+    printf("[ETH] Initialization complete\n");
     return true;
 }
 
@@ -75,63 +88,90 @@ void GigabitEthernetDriver::ResetPhy() {
 }
 
 bool GigabitEthernetDriver::InitPhy() {
+    printf("[PHY] Setting MDIO clock speed\n");
     nENET_1G::MSCR::ref().bits.MII_SPEED = 0x18;
 
+    printf("[PHY] Reading PHY ID registers\n");
     uint16_t phyId1 = MdioRead(kPhyAddr, 0x02);
-    [[maybe_unused]] uint16_t phyId2 = MdioRead(kPhyAddr, 0x03);
+    uint16_t phyId2 = MdioRead(kPhyAddr, 0x03);
+    printf("[PHY] PHY ID: 0x%04X:0x%04X\n", phyId1, phyId2);
 
     if (phyId1 != 0x001C) {
+        printf("[PHY] ERROR: Unexpected PHY ID1 (expected 0x001C, got 0x%04X)\n", phyId1);
         return false;
     }
 
+    printf("[PHY] Performing PHY software reset\n");
     MdioWrite(kPhyAddr, 0x00, 0x8000);
     SDK_DelayAtLeastUs(10000, CLOCK_GetFreq(kCLOCK_CpuClk));
 
+    printf("[PHY] Checking reset status\n");
     uint16_t status = MdioRead(kPhyAddr, 0x00);
+    printf("[PHY] Control register after reset: 0x%04X\n", status);
     if (status & 0x8000) {
+        printf("[PHY] ERROR: PHY reset not completed (bit still set)\n");
         return false;
     }
 
+    printf("[PHY] Enabling auto-negotiation\n");
     MdioWrite(kPhyAddr, 0x00, 0x1000);
 
+    printf("[PHY] PHY initialization successful\n");
     return true;
 }
 
 bool GigabitEthernetDriver::InitMac() {
+    printf("[MAC] Performing MAC reset\n");
     nENET_1G::ECR::ref().bits.RESET = 1;
-    while (nENET_1G::ECR::ref().bits.RESET) {
+    uint32_t timeout = 10000;
+    while (nENET_1G::ECR::ref().bits.RESET && timeout--) {
+        __asm__("nop");
+    }
+    if (timeout == 0) {
+        printf("[MAC] ERROR: MAC reset timeout\n");
+        return false;
     }
 
+    printf("[MAC] Clearing interrupt flags\n");
     nENET_1G::EIR::ref().value = 0xFFFFFFFF;
     nENET_1G::EIMR::ref().value = 0;
 
+    printf("[MAC] Configuring RX/TX control registers\n");
     nENET_1G::RCR::ref().value = 0x05EE0104;
     nENET_1G::TCR::ref().value = 0x00000004;
 
+    printf("[MAC] Setting MAC address\n");
     nENET_1G::PALR::ref().value = 0x12345678;
     nENET_1G::PAUR::ref().value = 0x00008808;
 
+    printf("[MAC] Initializing buffer descriptors\n");
     memset(tx_bd_, 0, sizeof(BufferDescriptor));
     memset(rx_bd_, 0, sizeof(BufferDescriptor));
 
     tx_bd_->control = kBdTxWrap;
     tx_bd_->buffer = (uint32_t)tx_buffer_;
+    printf("[MAC] TX BD at 0x%08lX, buffer at 0x%08lX\n", (unsigned long)tx_bd_, (unsigned long)tx_buffer_);
 
     rx_bd_->control = kBdRxEmpty | kBdRxWrap;
     rx_bd_->buffer = (uint32_t)rx_buffer_;
+    printf("[MAC] RX BD at 0x%08lX, buffer at 0x%08lX\n", (unsigned long)rx_bd_, (unsigned long)rx_buffer_);
 
     nENET_1G::TDSR::ref().value = (uint32_t)tx_bd_;
     nENET_1G::RDSR::ref().value = (uint32_t)rx_bd_;
 
     nENET_1G::MRBR::ref().value = kMaxFrameSize;
 
+    printf("[MAC] Configuring ECR register\n");
     nENET_1G::ECR::ref().bits.DBSWP = nENET_1G::ECR::eDBSWP::eONE;
     nENET_1G::ECR::ref().bits.EN1588 = nENET_1G::ECR::eEN1588::eZERO;
 
+    printf("[MAC] Enabling MAC\n");
     nENET_1G::ECR::ref().bits.ETHEREN = nENET_1G::ECR::eETHEREN::eONE;
 
+    printf("[MAC] Activating RX descriptor\n");
     nENET_1G::RDAR::ref().bits.RDAR = 1;
 
+    printf("[MAC] MAC initialization successful\n");
     return true;
 }
 
@@ -204,6 +244,9 @@ bool GigabitEthernetDriver::WaitForMdio() {
     uint32_t timeout = 10000;
     while (!(nENET_1G::EIR::ref().bits.MII) && timeout--) {
         __asm__("nop");
+    }
+    if (timeout == 0) {
+        printf("[MDIO] ERROR: MDIO operation timeout\n");
     }
     return timeout > 0;
 }
