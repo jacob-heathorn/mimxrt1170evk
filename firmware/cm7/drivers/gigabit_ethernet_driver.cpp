@@ -340,7 +340,8 @@ bool GigabitEthernetDriver::InitMac() {
     nENET_1G::ECR::ref().value |= (1 << 1) | (1 << 3);  // ETHEREN | DBSWP
     printf("[MAC] ECR final: 0x%08lX\n", (unsigned long)nENET_1G::ECR::ref().value);
 
-    printf("[MAC] Activating RX descriptor\n");
+    // CRITICAL: Set RDAR AFTER enabling ETHEREN (from nx_driver_imxrt.c line 1982)
+    printf("[MAC] Activating RX descriptor (must be after ETHEREN)\n");
     nENET_1G::RDAR::ref().bits.RDAR = 1;
 
     printf("[MAC] MAC initialization successful\n");
@@ -369,7 +370,8 @@ bool GigabitEthernetDriver::SendPacket(const uint8_t* buffer, size_t length) {
 
     // Set up the buffer descriptor
     tx_bd_->length = length;
-    tx_bd_->control = kBdTxReady | kBdTxLast | kBdTxWrap;
+    // Include TC (Transmit CRC) bit at bit 10 - MAC should append CRC
+    tx_bd_->control = kBdTxReady | kBdTxLast | kBdTxWrap | (1 << 10);
 
     // Clear any previous TX interrupt flags
     nENET_1G::EIR::ref().bits.TXF = 1;
