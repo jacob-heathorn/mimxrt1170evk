@@ -3,7 +3,7 @@
 #include "drivers/gigabit_ethernet_driver.hpp"
 
 static void PrintBuffer(const uint8_t* buffer, size_t length) {
-    printf("Packet content (%d bytes):\n", length);
+    printf("Packet content (%zu bytes):\n", length);
     for (size_t i = 0; i < length; i++) {
         printf("%02X ", buffer[i]);
         if ((i + 1) % 16 == 0) {

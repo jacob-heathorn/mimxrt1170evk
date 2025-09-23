@@ -103,18 +103,56 @@ bool GigabitEthernetDriver::InitPhy() {
 
     printf("[PHY] Performing PHY software reset\n");
     MdioWrite(kPhyAddr, 0x00, 0x8000);
-    SDK_DelayAtLeastUs(10000, CLOCK_GetFreq(kCLOCK_CpuClk));
 
-    printf("[PHY] Checking reset status\n");
-    uint16_t status = MdioRead(kPhyAddr, 0x00);
+    printf("[PHY] Waiting for reset to complete...\n");
+    uint32_t reset_timeout = 100000;
+    uint16_t status;
+    do {
+        status = MdioRead(kPhyAddr, 0x00);
+        reset_timeout--;
+    } while ((status & 0x8000) != 0 && reset_timeout > 0);
+
     printf("[PHY] Control register after reset: 0x%04X\n", status);
     if (status & 0x8000) {
-        printf("[PHY] ERROR: PHY reset not completed (bit still set)\n");
+        printf("[PHY] ERROR: PHY reset timeout (bit still set after %lu attempts)\n", 100000UL - (unsigned long)reset_timeout);
         return false;
     }
+    printf("[PHY] Reset completed successfully after %lu attempts\n", 100000UL - (unsigned long)reset_timeout);
+
+    // Configure RGMII delays (based on RTL8211F driver)
+    printf("[PHY] Configuring RGMII delays\n");
+
+    // Page select register to access RGMII delay page
+    MdioWrite(kPhyAddr, 0x1F, 0xD08);
+
+    // Enable TX delay (register 0x11, bit 8)
+    uint16_t tx_delay = MdioRead(kPhyAddr, 0x11);
+    tx_delay |= 0x0100;
+    MdioWrite(kPhyAddr, 0x11, tx_delay);
+
+    // Enable RX delay (register 0x15, bit 3)
+    uint16_t rx_delay = MdioRead(kPhyAddr, 0x15);
+    rx_delay |= 0x0008;
+    MdioWrite(kPhyAddr, 0x15, rx_delay);
+
+    // Return to page 0
+    MdioWrite(kPhyAddr, 0x1F, 0x0000);
 
     printf("[PHY] Enabling auto-negotiation\n");
-    MdioWrite(kPhyAddr, 0x00, 0x1000);
+    MdioWrite(kPhyAddr, 0x00, 0x1140);  // Auto-neg + 1000Mbps + Full duplex
+
+    // Wait a bit for link to come up
+    printf("[PHY] Waiting for link...\n");
+    SDK_DelayAtLeastUs(100000, CLOCK_GetFreq(kCLOCK_CpuClk));
+
+    // Check link status
+    uint16_t status_reg = MdioRead(kPhyAddr, 0x01);  // Basic Status Register
+    printf("[PHY] Status register: 0x%04X\n", status_reg);
+    if (!(status_reg & 0x0004)) {  // Link status bit
+        printf("[PHY] WARNING: Link is down\n");
+    } else {
+        printf("[PHY] Link is up\n");
+    }
 
     printf("[PHY] PHY initialization successful\n");
     return true;
@@ -137,8 +175,15 @@ bool GigabitEthernetDriver::InitMac() {
     nENET_1G::EIMR::ref().value = 0;
 
     printf("[MAC] Configuring RX/TX control registers\n");
-    nENET_1G::RCR::ref().value = 0x05EE0104;
+    // RCR: RGMII mode, MII mode, promiscuous mode, max frame length
+    // Bit 30: GRS=0, Bit 6: RGMII_EN=1, Bit 2: MII_MODE=1, Bit 3: PROM=1, Bit 14-15: MAX_FL
+    nENET_1G::RCR::ref().value = 0x05EE0144;
+
+    // TCR: Full duplex, FDEN=1 (bit 2)
     nENET_1G::TCR::ref().value = 0x00000004;
+
+    // Set TFWR to a reasonable threshold (store and forward)
+    nENET_1G::TFWR::ref().value = 0x00000000;  // Store and forward mode
 
     printf("[MAC] Setting MAC address\n");
     nENET_1G::PALR::ref().value = 0x12345678;
@@ -161,12 +206,19 @@ bool GigabitEthernetDriver::InitMac() {
 
     nENET_1G::MRBR::ref().value = kMaxFrameSize;
 
-    printf("[MAC] Configuring ECR register\n");
-    nENET_1G::ECR::ref().bits.DBSWP = nENET_1G::ECR::eDBSWP::eONE;
-    nENET_1G::ECR::ref().bits.EN1588 = nENET_1G::ECR::eEN1588::eZERO;
+    printf("[MAC] Configuring ECR register (pre-enable)\n");
+    // Based on nx_driver_imxrt.c: Set SPEED for gigabit but NOT ETHEREN yet
+    // The ECR register gets configured in two steps:
+    // 1. First set SPEED during enet_init_imx (line 1631)
+    // 2. Later OR in ETHEREN|DBSWP during hardware_enable (line 1977)
+    uint32_t ecr_val = (1 << 5);  // SPEED bit for gigabit
+    nENET_1G::ECR::ref().value = ecr_val;
+    printf("[MAC] ECR pre-configured: 0x%08lX\n", (unsigned long)ecr_val);
 
-    printf("[MAC] Enabling MAC\n");
-    nENET_1G::ECR::ref().bits.ETHEREN = nENET_1G::ECR::eETHEREN::eONE;
+    printf("[MAC] Enabling MAC (ETHEREN | DBSWP)\n");
+    // From nx_driver_imxrt.c line 1977: OR in ETHEREN and DBSWP, preserving SPEED
+    nENET_1G::ECR::ref().value |= (1 << 1) | (1 << 3);  // ETHEREN | DBSWP
+    printf("[MAC] ECR final: 0x%08lX\n", (unsigned long)nENET_1G::ECR::ref().value);
 
     printf("[MAC] Activating RX descriptor\n");
     nENET_1G::RDAR::ref().bits.RDAR = 1;
@@ -177,26 +229,57 @@ bool GigabitEthernetDriver::InitMac() {
 
 bool GigabitEthernetDriver::SendPacket(const uint8_t* buffer, size_t length) {
     if (length > kMaxFrameSize) {
+        printf("[TX] ERROR: Packet too large (%zu > %lu)\n", length, (unsigned long)kMaxFrameSize);
         return false;
+    }
+
+    // Wait for previous transmission to complete
+    uint32_t wait_timeout = 10000;
+    while ((tx_bd_->control & kBdTxReady) && wait_timeout--) {
+        __asm__("nop");
     }
 
     if (tx_bd_->control & kBdTxReady) {
+        printf("[TX] ERROR: TX buffer still busy\n");
         return false;
     }
 
+    // Copy packet data
     memcpy(tx_buffer_, buffer, length);
 
+    // Set up the buffer descriptor
     tx_bd_->length = length;
-    tx_bd_->control |= (kBdTxReady | kBdTxLast | kBdTxWrap);
+    tx_bd_->control = kBdTxReady | kBdTxLast | kBdTxWrap;
 
+    // Clear any previous TX interrupt flags
+    nENET_1G::EIR::ref().bits.TXF = 1;
+
+    // Trigger transmission
     nENET_1G::TDAR::ref().bits.TDAR = 1;
 
+    // Wait for transmission to complete
     uint32_t timeout = 100000;
     while ((tx_bd_->control & kBdTxReady) && timeout--) {
         __asm__("nop");
     }
 
-    return timeout > 0;
+    if (timeout == 0) {
+        printf("[TX] ERROR: Transmission timeout\n");
+        return false;
+    }
+
+    // Check for transmission errors in the buffer descriptor
+    // Bit 15: Ready, Bit 11: Last, Bit 10: TC, Bit 9: ABC
+    if (tx_bd_->control & 0x8000) {
+        // Still ready means transmission didn't complete
+        printf("[TX] ERROR: Transmission didn't complete (BD control: 0x%04X)\n", tx_bd_->control);
+        printf("[TX] ECR: 0x%08lX, EIR: 0x%08lX\n",
+               (unsigned long)nENET_1G::ECR::ref().value,
+               (unsigned long)nENET_1G::EIR::ref().value);
+        return false;
+    }
+
+    return true;
 }
 
 void GigabitEthernetDriver::MdioWrite(uint8_t phyAddr, uint8_t regAddr, uint16_t data) {
