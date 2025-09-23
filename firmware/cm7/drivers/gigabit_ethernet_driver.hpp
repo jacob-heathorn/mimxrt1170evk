@@ -56,4 +56,7 @@ private:
     BufferDescriptor* rx_bd_;
     uint8_t* tx_buffer_;
     uint8_t* rx_buffer_;
+
+    uint32_t phy_speed_;  // Negotiated speed (10, 100, 1000)
+    bool phy_duplex_full_;  // Negotiated duplex
 };

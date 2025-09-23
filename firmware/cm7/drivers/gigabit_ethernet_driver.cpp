@@ -138,20 +138,94 @@ bool GigabitEthernetDriver::InitPhy() {
     // Return to page 0
     MdioWrite(kPhyAddr, 0x1F, 0x0000);
 
-    printf("[PHY] Enabling auto-negotiation\n");
-    MdioWrite(kPhyAddr, 0x00, 0x1140);  // Auto-neg + 1000Mbps + Full duplex
+    // Configure auto-negotiation advertisement registers
+    printf("[PHY] Configuring auto-negotiation advertisement\n");
 
-    // Wait a bit for link to come up
-    printf("[PHY] Waiting for link...\n");
-    SDK_DelayAtLeastUs(100000, CLOCK_GetFreq(kCLOCK_CpuClk));
+    // Set 1000BASE-T advertisement (register 9)
+    // Advertise 1000BASE-T full duplex (bit 9) and half duplex (bit 8)
+    MdioWrite(kPhyAddr, 0x09, 0x0300);
 
-    // Check link status
-    uint16_t status_reg = MdioRead(kPhyAddr, 0x01);  // Basic Status Register
-    printf("[PHY] Status register: 0x%04X\n", status_reg);
-    if (!(status_reg & 0x0004)) {  // Link status bit
-        printf("[PHY] WARNING: Link is down\n");
-    } else {
-        printf("[PHY] Link is up\n");
+    // Set 100/10 BASE-T advertisement (register 4)
+    // Advertise 100BASE-TX Full/Half, 10BASE-T Full/Half, 802.3
+    MdioWrite(kPhyAddr, 0x04, 0x01E1);
+
+    printf("[PHY] Starting auto-negotiation\n");
+    // Enable and restart auto-negotiation
+    MdioWrite(kPhyAddr, 0x00, 0x1340);  // Auto-neg enable + restart + full duplex + 1000Mbps
+
+    // Wait for auto-negotiation to complete
+    printf("[PHY] Waiting for auto-negotiation...\n");
+    uint32_t autoneg_timeout = 50000;  // About 5 seconds
+    uint16_t status_reg;
+    do {
+        status_reg = MdioRead(kPhyAddr, 0x01);  // Basic Status Register
+        if (status_reg & 0x0020) {  // Auto-negotiation complete bit
+            break;
+        }
+        SDK_DelayAtLeastUs(100, CLOCK_GetFreq(kCLOCK_CpuClk));
+        autoneg_timeout--;
+    } while (autoneg_timeout > 0);
+
+    printf("[PHY] Basic Status Register (0x01): 0x%04X\n", status_reg);
+    printf("[PHY]   Link status: %s\n", (status_reg & 0x0004) ? "UP" : "DOWN");
+    printf("[PHY]   Auto-neg complete: %s\n", (status_reg & 0x0020) ? "YES" : "NO");
+    printf("[PHY]   Auto-neg ability: %s\n", (status_reg & 0x0008) ? "YES" : "NO");
+
+    // Read more PHY status registers for debugging
+    uint16_t ctrl_reg = MdioRead(kPhyAddr, 0x00);  // Control Register
+    printf("[PHY] Control Register (0x00): 0x%04X\n", ctrl_reg);
+
+    // Read PHY Specific Status Register (vendor specific)
+    uint16_t phy_status = MdioRead(kPhyAddr, 0x1A);  // RTL8211F specific status
+    printf("[PHY] PHY Specific Status (0x1A): 0x%04X\n", phy_status);
+    printf("[PHY]   Speed: ");
+    switch ((phy_status >> 4) & 0x03) {
+        case 0: printf("10 Mbps\n"); break;
+        case 1: printf("100 Mbps\n"); break;
+        case 2: printf("1000 Mbps\n"); break;
+        default: printf("Reserved\n"); break;
+    }
+    printf("[PHY]   Duplex: %s\n", (phy_status & 0x0008) ? "Full" : "Half");
+    printf("[PHY]   Link (vendor): %s\n", (phy_status & 0x0004) ? "UP" : "DOWN");
+
+    // Read auto-negotiation advertisement and link partner ability
+    uint16_t anar = MdioRead(kPhyAddr, 0x04);  // Auto-Negotiation Advertisement
+    uint16_t anlpar = MdioRead(kPhyAddr, 0x05);  // Link Partner Ability
+    printf("[PHY] Auto-Neg Advertisement (0x04): 0x%04X\n", anar);
+    printf("[PHY] Link Partner Ability (0x05): 0x%04X\n", anlpar);
+
+    // Read 1000BASE-T registers
+    uint16_t gbcr = MdioRead(kPhyAddr, 0x09);  // 1000BASE-T Control
+    uint16_t gbsr = MdioRead(kPhyAddr, 0x0A);  // 1000BASE-T Status
+    printf("[PHY] 1000BASE-T Control (0x09): 0x%04X\n", gbcr);
+    printf("[PHY] 1000BASE-T Status (0x0A): 0x%04X\n", gbsr);
+
+    // Determine actual link speed from PHY specific status
+    uint8_t speed_bits = (phy_status >> 4) & 0x03;
+    switch (speed_bits) {
+        case 0: phy_speed_ = 10; break;
+        case 1: phy_speed_ = 100; break;
+        case 2: phy_speed_ = 1000; break;
+        default:
+            printf("[PHY] ERROR: Invalid PHY speed value in status register: 0x%X\n", speed_bits);
+            printf("[PHY] This should be 0 (10M), 1 (100M), or 2 (1000M)\n");
+            return false;
+    }
+    phy_duplex_full_ = (phy_status & 0x0008) ? true : false;
+
+    printf("[PHY] Negotiated: %lu Mbps %s duplex\n", (unsigned long)phy_speed_, phy_duplex_full_ ? "Full" : "Half");
+
+    // Check for link status discrepancy
+    bool basic_link = (status_reg & 0x0004) != 0;
+    bool vendor_link = (phy_status & 0x0004) != 0;
+
+    if (basic_link != vendor_link) {
+        printf("[PHY] WARNING: Link status mismatch - Basic:%s, Vendor:%s\n",
+               basic_link ? "UP" : "DOWN", vendor_link ? "UP" : "DOWN");
+        // Trust the vendor-specific register
+        if (vendor_link) {
+            printf("[PHY] Using vendor link status: UP\n");
+        }
     }
 
     printf("[PHY] PHY initialization successful\n");
@@ -174,16 +248,44 @@ bool GigabitEthernetDriver::InitMac() {
     nENET_1G::EIR::ref().value = 0xFFFFFFFF;
     nENET_1G::EIMR::ref().value = 0;
 
+    // Clear and enable MIB counters
+    printf("[MAC] Clearing and enabling MIB counters\n");
+    nENET_1G::MIBC::ref().bits.MIB_CLEAR = nENET_1G::MIBC::eMIB_CLEAR::eONE;
+    nENET_1G::MIBC::ref().bits.MIB_CLEAR = nENET_1G::MIBC::eMIB_CLEAR::eZERO;
+    nENET_1G::MIBC::ref().bits.MIB_DIS = nENET_1G::MIBC::eMIB_DIS::eZERO;  // Enable MIB
+
     printf("[MAC] Configuring RX/TX control registers\n");
-    // RCR: RGMII mode, MII mode, promiscuous mode, max frame length
-    // Bit 30: GRS=0, Bit 6: RGMII_EN=1, Bit 2: MII_MODE=1, Bit 3: PROM=1, Bit 14-15: MAX_FL
-    nENET_1G::RCR::ref().value = 0x05EE0144;
+    // Based on nx_driver_imxrt.c: Configure RCR based on PHY speed
+    uint32_t rcr = (1522 << 16) |  // MAX_FL (14+1500+4+CRC)
+                   (1 << 2) |       // MII_MODE
+                   (1 << 4);        // CRCFWD (no CRC pad required)
+
+    // Only set RGMII_EN for gigabit mode
+    if (phy_speed_ == 1000) {
+        rcr |= (1 << 6);  // RGMII_EN for RGMII mode at 1000Mbps
+    }
+    // For 10/100 Mbps in RGMII mode, RGMII_EN should be 0
+
+    nENET_1G::RCR::ref().value = rcr;
+    printf("[MAC] RCR configured: 0x%08lX\n", (unsigned long)rcr);
 
     // TCR: Full duplex, FDEN=1 (bit 2)
     nENET_1G::TCR::ref().value = 0x00000004;
 
-    // Set TFWR to a reasonable threshold (store and forward)
-    nENET_1G::TFWR::ref().value = 0x00000000;  // Store and forward mode
+    // Set TFWR to store and forward (same as nx_driver_imxrt.c)
+    nENET_1G::TFWR::ref().bits.STRFWD = nENET_1G::TFWR::eSTRFWD::eONE;  // Store and forward mode
+    printf("[MAC] TFWR configured for store-and-forward mode\n");
+
+    // Configure QOS for round-robin TX scheduling (from nx_driver_imxrt.c line 1639)
+    nENET_1G::QOS::ref().bits.TX_SCHEME = nENET_1G::QOS::eTX_SCHEME::eRR;  // Round-robin scheme
+    printf("[MAC] QOS configured for round-robin TX scheduling\n");
+
+    // Configure TACC and RACC (from nx_driver_imxrt.c lines 1684-1687)
+    // SHIFT16 enables padding removal
+    nENET_1G::TACC::ref().bits.SHIFT16 = nENET_1G::TACC::eSHIFT16::eONE;
+    nENET_1G::RACC::ref().bits.SHIFT16 = nENET_1G::RACC::eSHIFT16::eONE;
+    nENET_1G::RACC::ref().bits.LINEDIS = nENET_1G::RACC::eLINEDIS::eONE;  // Discard bad frames
+    printf("[MAC] TACC/RACC configured\n");
 
     printf("[MAC] Setting MAC address\n");
     nENET_1G::PALR::ref().value = 0x12345678;
@@ -207,11 +309,18 @@ bool GigabitEthernetDriver::InitMac() {
     nENET_1G::MRBR::ref().value = kMaxFrameSize;
 
     printf("[MAC] Configuring ECR register (pre-enable)\n");
-    // Based on nx_driver_imxrt.c: Set SPEED for gigabit but NOT ETHEREN yet
+    // Based on nx_driver_imxrt.c: Set SPEED based on PHY negotiation
     // The ECR register gets configured in two steps:
-    // 1. First set SPEED during enet_init_imx (line 1631)
-    // 2. Later OR in ETHEREN|DBSWP during hardware_enable (line 1977)
-    uint32_t ecr_val = (1 << 5);  // SPEED bit for gigabit
+    // 1. First set SPEED during enet_init_imx
+    // 2. Later OR in ETHEREN|DBSWP during hardware_enable
+    uint32_t ecr_val = 0;
+    if (phy_speed_ == 1000) {
+        ecr_val |= (1 << 5);  // SPEED bit for gigabit
+        printf("[MAC] Configuring for 1000 Mbps\n");
+    } else {
+        // For 10/100 Mbps, SPEED bit = 0
+        printf("[MAC] Configuring for %lu Mbps\n", (unsigned long)phy_speed_);
+    }
     nENET_1G::ECR::ref().value = ecr_val;
     printf("[MAC] ECR pre-configured: 0x%08lX\n", (unsigned long)ecr_val);
 
@@ -276,6 +385,19 @@ bool GigabitEthernetDriver::SendPacket(const uint8_t* buffer, size_t length) {
         printf("[TX] ECR: 0x%08lX, EIR: 0x%08lX\n",
                (unsigned long)nENET_1G::ECR::ref().value,
                (unsigned long)nENET_1G::EIR::ref().value);
+
+        // Check more status registers for debugging
+        printf("[TX] MIBC: 0x%08lX (MIB control)\n", (unsigned long)nENET_1G::MIBC::ref().value);
+        printf("[TX] RMON_T_PACKETS: 0x%08lX\n", (unsigned long)nENET_1G::RMON_T_PACKETS::ref().value);
+        printf("[TX] IEEE_T_FRAME_OK: 0x%08lX\n", (unsigned long)nENET_1G::IEEE_T_FRAME_OK::ref().value);
+        printf("[TX] TDAR: 0x%08lX\n", (unsigned long)nENET_1G::TDAR::ref().value);
+        printf("[TX] TDSR: 0x%08lX\n", (unsigned long)nENET_1G::TDSR::ref().value);
+
+        // Check if MAC is actually enabled
+        if (!(nENET_1G::ECR::ref().value & 0x02)) {
+            printf("[TX] ERROR: MAC is not enabled!\n");
+        }
+
         return false;
     }
 
