@@ -55,6 +55,13 @@ rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4 && \
 rip -f0 cm7-debug:hello-world-cm7 -s
 ```
 
+# Ethernet Driver Test
+```bash
+cmake --workflow --preset cm7-debug && \
+rip -d0 cm7-debug:hello-ethernet && \
+rip -f0 cm7-debug:hello-ethernet -s
+```
+
 # Echo test
 ```bash
 cmake --workflow --preset cm7-debug && \

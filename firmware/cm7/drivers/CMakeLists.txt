@@ -8,4 +8,5 @@ target_sources(cm7_drivers
   PRIVATE
     ${SOURCE_FILES}
 )
+target_link_libraries(cm7_drivers PRIVATE drivers)
 platformify(cm7_drivers)

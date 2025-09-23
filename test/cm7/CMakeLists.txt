@@ -53,3 +53,10 @@ add_executable(hello-subscriber
 platformify(hello-subscriber)
 target_link_libraries(hello-subscriber PRIVATE network microcyphal)
 
+# Hello ethernet
+add_executable(hello-ethernet
+  hello_ethernet.cpp
+)
+platformify(hello-ethernet)
+target_link_libraries(hello-ethernet PRIVATE cm7_drivers)
+
