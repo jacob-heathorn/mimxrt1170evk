@@ -288,8 +288,19 @@ bool GigabitEthernetDriver::InitMac() {
     printf("[MAC] TACC/RACC configured\n");
 
     printf("[MAC] Setting MAC address\n");
-    nENET_1G::PALR::ref().value = 0x12345678;
-    nENET_1G::PAUR::ref().value = 0x00008808;
+    // Set MAC address: 00:11:22:33:44:56 (same as nx_driver default)
+    // PALR = MAC[0]<<24 | MAC[1]<<16 | MAC[2]<<8 | MAC[3]
+    // PAUR = (MAC[4]<<8 | MAC[5]) << 16
+    uint8_t mac_addr[6] = {0x00, 0x11, 0x22, 0x33, 0x44, 0x56};
+    uint32_t palr = ((uint32_t)mac_addr[0] << 24) |
+                    ((uint32_t)mac_addr[1] << 16) |
+                    ((uint32_t)mac_addr[2] << 8) |
+                    ((uint32_t)mac_addr[3]);
+    uint32_t paur = ((uint32_t)mac_addr[4] << 8) | ((uint32_t)mac_addr[5]);
+    nENET_1G::PALR::ref().value = palr;
+    nENET_1G::PAUR::ref().value = paur << 16;  // PADDR2 field is at bits 31:16
+    printf("[MAC] MAC address set to: %02X:%02X:%02X:%02X:%02X:%02X\n",
+           mac_addr[0], mac_addr[1], mac_addr[2], mac_addr[3], mac_addr[4], mac_addr[5]);
 
     printf("[MAC] Initializing buffer descriptors\n");
     memset(tx_bd_, 0, sizeof(BufferDescriptor));

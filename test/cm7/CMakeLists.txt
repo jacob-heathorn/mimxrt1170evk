@@ -60,3 +60,10 @@ add_executable(hello-ethernet
 platformify(hello-ethernet)
 target_link_libraries(hello-ethernet PRIVATE cm7_drivers)
 
+# Hello ethernet NX (using NetX driver directly)
+add_executable(hello-ethernet-nx
+  hello_ethernet_nx.cpp
+)
+platformify(hello-ethernet-nx)
+target_link_libraries(hello-ethernet-nx PRIVATE network)
+

@@ -25,13 +25,13 @@ static void BuildTestPacket(uint8_t* buffer, size_t* length) {
     buffer[4] = 0xFF;
     buffer[5] = 0xFF;
 
-    // Source MAC
-    buffer[6] = 0x12;
-    buffer[7] = 0x34;
-    buffer[8] = 0x56;
-    buffer[9] = 0x78;
-    buffer[10] = 0x88;
-    buffer[11] = 0x08;
+    // Source MAC (should match what driver configures: 00:11:22:33:44:56)
+    buffer[6] = 0x00;
+    buffer[7] = 0x11;
+    buffer[8] = 0x22;
+    buffer[9] = 0x33;
+    buffer[10] = 0x44;
+    buffer[11] = 0x56;
 
     // EtherType (0x0800 = IPv4, but we'll use a custom type for testing)
     buffer[12] = 0x88;
