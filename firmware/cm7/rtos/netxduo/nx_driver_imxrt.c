@@ -44,6 +44,15 @@
 // #include "fsl_debug_console.h"
 #include "nx_driver_imxrt.h"
 
+/* C++ driver interface */
+#ifdef __cplusplus
+extern "C" {
+#endif
+int gigabit_ethernet_driver_send(void* packet_ptr);
+#ifdef __cplusplus
+}
+#endif
+
 #ifndef BOARD_NETWORK_USE_100M_ENET_PORT
 #define BOARD_NETWORK_USE_100M_ENET_PORT    1
 #endif
@@ -2082,6 +2091,10 @@ ULONG          bd_count = 0;
 UCHAR          remainder = 0;
 UCHAR*         src_addr;
 
+    /* Call into C++ driver skeleton (currently does nothing) */
+    gigabit_ethernet_driver_send(packet_ptr);
+
+    /* Continue with existing implementation for now */
     /* Pick up the first BD. */
     curIdx = nx_driver_information.nx_driver_information_transmit_current_index;
 

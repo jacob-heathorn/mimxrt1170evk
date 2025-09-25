@@ -12,6 +12,7 @@
 #include "network/gigabit_ethernet.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "network/nx_udp_socket.hpp"
+#include "gigabit_ethernet_driver.h"
 
 using namespace ftl::ipv4;
 
@@ -102,7 +103,10 @@ VOID tx_application_define(void *first_unused_memory)
     // Set up socket allocation strategy and allocator
     static ftl::allocator::BumpPoolObjStrategy<NxUdpSocket> socket_strategy(DtcmAllocator::instance());
     static ftl::allocator::ObjAllocator<NxUdpSocket> socket_allocator(socket_strategy);
-    
+
+    // Initialize the GigabitEthernetDriver singleton
+    GigabitEthernetDriver::create();
+
     // Set up the etherenet interface
     GigabitEthernet::create("192.0.2.149", Mask{255, 255, 255, 0}, socket_allocator);
 
