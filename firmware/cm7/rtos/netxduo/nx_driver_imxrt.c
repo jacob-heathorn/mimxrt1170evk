@@ -2956,3 +2956,28 @@ VOID  nx_driver_imx_ethernet_isr(VOID)
 }
 
 /****** DRIVER SPECIFIC ****** Start of part/vendor specific internal driver functions.  */
+
+/* Helper function for C++ code to get driver TX info */
+void get_driver_tx_info(void **tx_descriptors, UINT *current_index,
+                        UINT *num_descriptors, UINT *buffers_in_use)
+{
+    if (tx_descriptors) {
+        *tx_descriptors = nx_driver_information.nx_driver_information_dma_tx_descriptors;
+    }
+    if (current_index) {
+        *current_index = nx_driver_information.nx_driver_information_transmit_current_index;
+    }
+    if (num_descriptors) {
+        *num_descriptors = NX_DRIVER_TX_DESCRIPTORS;
+    }
+    if (buffers_in_use) {
+        *buffers_in_use = nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use;
+    }
+}
+
+/* Helper to update driver TX state after external send */
+void update_driver_tx_info(UINT new_current_index, UINT new_buffers_in_use)
+{
+    nx_driver_information.nx_driver_information_transmit_current_index = new_current_index;
+    nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use = new_buffers_in_use;
+}

@@ -1,6 +1,12 @@
-#include "fsl_enet.h"
 #include <string.h>
 #include <stdint.h>
+#include "fsl_enet.h"
+
+/* Only include NetXDuo headers if available */
+#ifdef NX_INCLUDE_USER_DEFINE_FILE
+#include "nx_api.h"
+#include "nx_driver_imxrt.h"
+#endif
 
 /**
  * Send raw ethernet packet using static buffer
@@ -14,22 +20,17 @@
  * @param buffers_in_use Pointer to buffers in use counter
  * @return 0 on success, -1 on error
  */
-/* Use UINT type to match NetXDuo definitions */
-#ifndef UINT
-typedef unsigned int UINT;
-#endif
-
 int nx_driver_send_raw_packet_static(
     const uint8_t *data,
     size_t length,
     void *tx_descriptors,
-    UINT *current_index,
-    UINT num_descriptors,
-    UINT *buffers_in_use)
+    unsigned int *current_index,
+    unsigned int num_descriptors,
+    unsigned int *buffers_in_use)
 {
     static uint8_t tx_buffer[1536] __attribute__((aligned(8)));
     enet_tx_bd_struct_t *tx_bd_array = (enet_tx_bd_struct_t *)tx_descriptors;
-    UINT curIdx;
+    unsigned int curIdx;
 
     /* Validate parameters */
     if (!data || length < 14 || length > sizeof(tx_buffer)) {
@@ -77,4 +78,15 @@ int nx_driver_send_raw_packet_static(
     }
 
     return 0;
+}
+
+/* Helper function stub - should be implemented in the actual driver file */
+__attribute__((weak)) void get_driver_tx_info(void **tx_descriptors, unsigned int *current_index,
+                        unsigned int *num_descriptors, unsigned int *buffers_in_use)
+{
+    /* This is a weak symbol - the actual implementation should be in nx_driver_imxrt.c */
+    (void)tx_descriptors;
+    (void)current_index;
+    (void)num_descriptors;
+    (void)buffers_in_use;
 }

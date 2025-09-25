@@ -41,9 +41,9 @@ int nx_driver_send_raw_packet_static(
     const uint8_t *data,
     size_t length,
     void *tx_descriptors,
-    UINT *current_index,
-    UINT num_descriptors,
-    UINT *buffers_in_use);
+    unsigned int *current_index,
+    unsigned int num_descriptors,
+    unsigned int *buffers_in_use);
 
 /**
  * Example usage for sending a custom ethernet frame:
