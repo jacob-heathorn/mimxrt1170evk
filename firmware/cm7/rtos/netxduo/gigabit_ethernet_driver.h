@@ -10,6 +10,10 @@ public:
     GigabitEthernetDriver();
     ~GigabitEthernetDriver();
 
+    // Initialize the driver (skeleton function for now)
+    // Will eventually contain hardware initialization logic
+    int initialize();
+
     // Send a packet (skeleton function for now)
     // packet_ptr will eventually be NX_PACKET* but using void* for C compatibility
     int send(void* packet_ptr);
@@ -26,6 +30,9 @@ private:
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+// C wrapper function for initialize
+int gigabit_ethernet_driver_initialize();
 
 // C wrapper function for send
 int gigabit_ethernet_driver_send(void* packet_ptr);

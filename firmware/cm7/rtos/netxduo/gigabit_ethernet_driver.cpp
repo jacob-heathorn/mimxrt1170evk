@@ -9,6 +9,16 @@ GigabitEthernetDriver::~GigabitEthernetDriver() {
     // Destructor - will be expanded later
 }
 
+int GigabitEthernetDriver::initialize() {
+    // Skeleton initialize function - currently does nothing
+    // Will eventually handle hardware initialization
+
+    printf("GigabitEthernetDriver::initialize\n");
+
+    // For now, just return success
+    return 0;  // Return success
+}
+
 int GigabitEthernetDriver::send(void* packet_ptr) {
     // Skeleton send function - currently does nothing
     // Will eventually handle packet transmission
@@ -26,6 +36,10 @@ int GigabitEthernetDriver::send(void* packet_ptr) {
 
 // C interface functions for calling from nx_driver_imxrt.c
 extern "C" {
+
+int gigabit_ethernet_driver_initialize() {
+    return GigabitEthernetDriver::instance().initialize();
+}
 
 int gigabit_ethernet_driver_send(void* packet_ptr) {
     return GigabitEthernetDriver::instance().send(packet_ptr);

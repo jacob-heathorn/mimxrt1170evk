@@ -48,6 +48,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+int gigabit_ethernet_driver_initialize();
 int gigabit_ethernet_driver_send(void* packet_ptr);
 #ifdef __cplusplus
 }
@@ -1838,6 +1839,9 @@ UINT                i;
     }
 
     enet_init();
+
+    /* Call into C++ driver skeleton initialize (currently does nothing) */
+    gigabit_ethernet_driver_initialize();
 
     /* Initialize TX Descriptors list: Ring Mode.  */
 
