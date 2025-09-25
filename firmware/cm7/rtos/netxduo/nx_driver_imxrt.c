@@ -43,6 +43,7 @@
 #include "fsl_phy.h"
 // #include "fsl_debug_console.h"
 #include "nx_driver_imxrt.h"
+#include "nx_driver_generic_send.h"
 
 #ifndef BOARD_NETWORK_USE_100M_ENET_PORT
 #define BOARD_NETWORK_USE_100M_ENET_PORT    1
@@ -158,7 +159,9 @@ static VOID         _nx_driver_capability_set(NX_IP_DRIVER *driver_req_ptr);
 static UINT         _nx_driver_hardware_initialize(NX_IP_DRIVER *driver_req_ptr);
 static UINT         _nx_driver_hardware_enable(NX_IP_DRIVER *driver_req_ptr);
 static UINT         _nx_driver_hardware_disable(NX_IP_DRIVER *driver_req_ptr);
+#if 0 /* COMMENTED OUT FOR TESTING - Using nx_driver_send_raw_packet_static instead */
 static UINT         _nx_driver_hardware_packet_send(NX_PACKET *packet_ptr);
+#endif
 static UINT         _nx_driver_hardware_multicast_join(NX_IP_DRIVER *driver_req_ptr);
 static UINT         _nx_driver_hardware_multicast_leave(NX_IP_DRIVER *driver_req_ptr);
 static UINT         _nx_driver_hardware_get_status(NX_IP_DRIVER *driver_req_ptr);
@@ -822,7 +825,30 @@ UINT            status;
     }
 
     /* Transmit the packet through the Ethernet controller low level access routine. */
+
+    /* ORIGINAL CODE - COMMENTED OUT FOR TESTING:
     status = _nx_driver_hardware_packet_send(packet_ptr);
+    */
+
+    /* TESTING: Using our new generic send function instead of _nx_driver_hardware_packet_send */
+    {
+        /* Extract the ethernet frame data from the packet */
+        uint8_t *frame_data = packet_ptr->nx_packet_prepend_ptr - 2;  /* Account for 2-byte alignment offset */
+        size_t frame_length = packet_ptr->nx_packet_length + 2;  /* Include the alignment bytes */
+
+        /* Send using our static buffer function - pass all required parameters */
+        int send_result = nx_driver_send_raw_packet_static(
+            frame_data,
+            frame_length,
+            nx_driver_information.nx_driver_information_dma_tx_descriptors,
+            &nx_driver_information.nx_driver_information_transmit_current_index,
+            NX_DRIVER_TX_DESCRIPTORS,
+            &nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use);
+
+        /* Convert result to NX status */
+        status = (send_result == 0) ? NX_SUCCESS : NX_DRIVER_ERROR;
+    }
+    /* END OF TEST CODE */
 
     /* Determine if there was an error.  */
     if (status != NX_SUCCESS)
@@ -2073,6 +2099,7 @@ static UINT  _nx_driver_hardware_disable(NX_IP_DRIVER *driver_req_ptr)
 /*  02-01-2018     Yuxin Zhou               Initial Version 5.0           */
 /*                                                                        */
 /**************************************************************************/
+#if 0 /* COMMENTED OUT FOR TESTING - Using nx_driver_send_raw_packet_static instead */
 static UINT  _nx_driver_hardware_packet_send(NX_PACKET *packet_ptr)
 {
 
@@ -2177,6 +2204,7 @@ UCHAR*         src_addr;
 
     return(NX_SUCCESS);
 }
+#endif /* END OF COMMENTED OUT _nx_driver_hardware_packet_send */
 
 
 /**************************************************************************/

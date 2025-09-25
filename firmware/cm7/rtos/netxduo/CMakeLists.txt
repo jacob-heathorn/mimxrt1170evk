@@ -18,6 +18,8 @@ target_sources(netxduo
     nx_driver_imxrt_irq.c
     nx_driver_imxrt.c
     nx_driver_imxrt.h
+    nx_driver_generic_send.c
+    nx_driver_generic_send.h
 )
 target_compile_options(netxduo PUBLIC
   -Wno-write-strings
