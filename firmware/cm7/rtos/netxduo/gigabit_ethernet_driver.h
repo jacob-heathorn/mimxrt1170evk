@@ -42,6 +42,10 @@ public:
     // Get transmit packets array (for bulk operations)
     NX_PACKET** get_transmit_packets() { return transmit_packets_; }
 
+    // Get/Set number of transmit buffers in use
+    unsigned int get_number_of_transmit_buffers_in_use() const { return number_of_transmit_buffers_in_use_; }
+    void set_number_of_transmit_buffers_in_use(unsigned int count) { number_of_transmit_buffers_in_use_ = count; }
+
 private:
     // Constants - must match nx_driver_imxrt.h
     static constexpr unsigned int TX_DESCRIPTOR_COUNT = 64;  // NX_DRIVER_TX_DESCRIPTORS
@@ -58,6 +62,9 @@ private:
 
     // Array to track NX_PACKET pointers for each TX descriptor
     NX_PACKET* transmit_packets_[TX_DESCRIPTOR_COUNT];
+
+    // Number of transmit buffers currently in use
+    unsigned int number_of_transmit_buffers_in_use_;
 };
 
 // C interface for calling from nx_driver_imxrt.c
@@ -82,6 +89,10 @@ void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index);
 void* gigabit_ethernet_driver_get_transmit_packet(unsigned int index);
 void gigabit_ethernet_driver_set_transmit_packet(unsigned int index, void* packet);
 void** gigabit_ethernet_driver_get_transmit_packets();
+
+// C wrapper functions for number of transmit buffers in use
+unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();
+void gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(unsigned int count);
 
 #ifdef __cplusplus
 }

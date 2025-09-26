@@ -158,8 +158,7 @@ typedef struct NX_DRIVER_INFORMATION_STRUCT
     /* Transmit release index.  */
     UINT                nx_driver_information_transmit_release_index;
 
-    /* Define the number of transmit buffers in use.  */
-    UINT                nx_driver_information_number_of_transmit_buffers_in_use;
+    /* number_of_transmit_buffers_in_use has been moved to GigabitEthernetDriver class */
 
     /* Define the Ethernet RX & TX DMA Descriptors.  */
     UCHAR               nx_driver_information_dma_rx_descriptors_area[sizeof(enet_rx_bd_struct_t) * NX_DRIVER_RX_DESCRIPTORS + 16];

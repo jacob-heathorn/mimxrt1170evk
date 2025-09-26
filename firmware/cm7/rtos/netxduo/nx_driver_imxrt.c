@@ -56,6 +56,8 @@ void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index);
 void* gigabit_ethernet_driver_get_transmit_packet(unsigned int index);
 void gigabit_ethernet_driver_set_transmit_packet(unsigned int index, void* packet);
 void** gigabit_ethernet_driver_get_transmit_packets();
+unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();
+void gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(unsigned int count);
 #ifdef __cplusplus
 }
 #endif
@@ -1846,7 +1848,7 @@ UINT                i;
     nx_driver_information.nx_driver_information_transmit_release_index = 0;
 
     /* Clear the number of buffers in use counter.  */
-    nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use = 0;
+    gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(0);
 
     /* Make sure there are receive packets... otherwise, return an error.  */
     if (nx_driver_information.nx_driver_information_packet_pool_ptr == NULL)
@@ -2164,7 +2166,8 @@ UCHAR*         src_addr;
     gigabit_ethernet_driver_set_transmit_current_index((curIdx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1));
 
     /* Increment the transmit buffers in use count.  */
-    nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use += bd_count + 1;
+    gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(
+        gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use() + bd_count + 1);
 
     /* Set OWN bit to indicate BDs are ready.  */
     for (; bd_count > 0; bd_count--)
@@ -2506,7 +2509,7 @@ static UINT  _nx_driver_hardware_get_status(NX_IP_DRIVER *driver_req_ptr)
 static VOID  _nx_driver_hardware_packet_transmitted(VOID)
 {
 
-ULONG numOfBuf =  nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use;
+ULONG numOfBuf =  gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();
 ULONG idx =       nx_driver_information.nx_driver_information_transmit_release_index;
 
 
@@ -2541,7 +2544,7 @@ ULONG idx =       nx_driver_information.nx_driver_information_transmit_release_i
 
             /* Update the transmit relesae index and number of buffers in use.  */
             idx = (idx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
-            nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use = numOfBuf;
+            gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(numOfBuf);
             nx_driver_information.nx_driver_information_transmit_release_index = idx;
         }
         else
@@ -2790,14 +2793,14 @@ ULONG idx;
     if (nx_driver_information.nx_driver_information_state >= NX_DRIVER_STATE_INITIALIZED)
     {
 
-        numOfBuf = nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use;
+        numOfBuf = gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();
         idx =      nx_driver_information.nx_driver_information_transmit_release_index;
 
         /* Reset indices.  */
         nx_driver_information.nx_driver_information_receive_current_index = 0;
         gigabit_ethernet_driver_set_transmit_current_index(0);
         nx_driver_information.nx_driver_information_transmit_release_index = 0;
-        nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use = 0;
+        gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(0);
 
         /* Release transmit packets if any.  */
         while (numOfBuf--)

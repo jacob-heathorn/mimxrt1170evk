@@ -3,7 +3,7 @@
 #include <cstring>
 #include "fsl_enet.h"
 
-GigabitEthernetDriver::GigabitEthernetDriver() : transmit_current_index_(0) {
+GigabitEthernetDriver::GigabitEthernetDriver() : transmit_current_index_(0), number_of_transmit_buffers_in_use_(0) {
     // Constructor - initialize transmit index and clear packets array
     for (unsigned int i = 0; i < TX_DESCRIPTOR_COUNT; i++) {
         transmit_packets_[i] = nullptr;
@@ -17,8 +17,9 @@ GigabitEthernetDriver::~GigabitEthernetDriver() {
 int GigabitEthernetDriver::initialize() {
     printf("GigabitEthernetDriver::initialize\n");
 
-    // Initialize the transmit current index and clear packets array
+    // Initialize the transmit current index, buffers in use count, and clear packets array
     transmit_current_index_ = 0;
+    number_of_transmit_buffers_in_use_ = 0;
     for (unsigned int i = 0; i < TX_DESCRIPTOR_COUNT; i++) {
         transmit_packets_[i] = nullptr;
     }
@@ -106,6 +107,14 @@ void gigabit_ethernet_driver_set_transmit_packet(unsigned int index, void* packe
 
 void** gigabit_ethernet_driver_get_transmit_packets() {
     return reinterpret_cast<void**>(GigabitEthernetDriver::instance().get_transmit_packets());
+}
+
+unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use() {
+    return GigabitEthernetDriver::instance().get_number_of_transmit_buffers_in_use();
+}
+
+void gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(unsigned int count) {
+    GigabitEthernetDriver::instance().set_number_of_transmit_buffers_in_use(count);
 }
 
 } // extern "C"
