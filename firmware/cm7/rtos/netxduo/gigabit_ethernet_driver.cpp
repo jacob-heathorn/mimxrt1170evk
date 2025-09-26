@@ -222,9 +222,6 @@ bool gigabit_ethernet_driver_send(void* packet_ptr) {
 // TODO: These are temporary while bridging, and should be removed
 //
 //
-void* gigabit_ethernet_driver_get_tx_descriptors() {
-    return GigabitEthernetDriver::instance().get_tx_descriptors();
-}
 
 unsigned int gigabit_ethernet_driver_get_transmit_current_index() {
     return GigabitEthernetDriver::instance().get_transmit_current_index();
@@ -240,10 +237,6 @@ void* gigabit_ethernet_driver_get_transmit_packet(unsigned int index) {
 
 void gigabit_ethernet_driver_set_transmit_packet(unsigned int index, void* packet) {
     GigabitEthernetDriver::instance().set_transmit_packet(index, static_cast<NX_PACKET*>(packet));
-}
-
-void** gigabit_ethernet_driver_get_transmit_packets() {
-    return reinterpret_cast<void**>(GigabitEthernetDriver::instance().get_transmit_packets());
 }
 
 unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use() {

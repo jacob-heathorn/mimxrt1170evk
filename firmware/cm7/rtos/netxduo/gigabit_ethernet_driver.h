@@ -31,9 +31,6 @@ public:
     // This is called when the PHY detects a link status change
     void handle_link_mode_change(unsigned int link_speed, unsigned int link_duplex);
 
-    // Get the TX descriptors pointer (for C code access)
-    enet_tx_bd_struct_t* get_tx_descriptors() { return tx_descriptors_; }
-
     // Get/Set transmit current index
     unsigned int get_transmit_current_index() const { return transmit_current_index_; }
     void set_transmit_current_index(unsigned int index) { transmit_current_index_ = index; }
@@ -47,9 +44,6 @@ public:
             transmit_packets_[index] = packet;
         }
     }
-
-    // Get transmit packets array (for bulk operations)
-    NX_PACKET** get_transmit_packets() { return transmit_packets_; }
 
     // Get/Set number of transmit buffers in use
     unsigned int get_number_of_transmit_buffers_in_use() const { return number_of_transmit_buffers_in_use_; }
@@ -99,9 +93,6 @@ bool gigabit_ethernet_driver_send(void* packet_ptr);
 // C wrapper function for processing transmitted packets
 void gigabit_ethernet_driver_process_transmitted_packets();
 
-// C wrapper function to get TX descriptors
-void* gigabit_ethernet_driver_get_tx_descriptors();
-
 // C wrapper functions for transmit current index
 unsigned int gigabit_ethernet_driver_get_transmit_current_index();
 void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index);
@@ -109,7 +100,6 @@ void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index);
 // C wrapper functions for transmit packets
 void* gigabit_ethernet_driver_get_transmit_packet(unsigned int index);
 void gigabit_ethernet_driver_set_transmit_packet(unsigned int index, void* packet);
-void** gigabit_ethernet_driver_get_transmit_packets();
 
 // C wrapper functions for number of transmit buffers in use
 unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();

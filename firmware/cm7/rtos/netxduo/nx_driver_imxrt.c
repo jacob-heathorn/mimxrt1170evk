@@ -51,12 +51,10 @@ extern "C" {
 #endif
 int gigabit_ethernet_driver_initialize();
 bool gigabit_ethernet_driver_send(void* packet_ptr);
-void* gigabit_ethernet_driver_get_tx_descriptors();
 unsigned int gigabit_ethernet_driver_get_transmit_current_index();
 void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index);
 void* gigabit_ethernet_driver_get_transmit_packet(unsigned int index);
 void gigabit_ethernet_driver_set_transmit_packet(unsigned int index, void* packet);
-void** gigabit_ethernet_driver_get_transmit_packets();
 unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();
 void gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(unsigned int count);
 unsigned int gigabit_ethernet_driver_get_transmit_release_index();
@@ -66,17 +64,6 @@ void gigabit_ethernet_driver_process_transmitted_packets();
 }
 #endif
 
-/* Helper function to get TX descriptors */
-static inline enet_tx_bd_struct_t* get_tx_descriptors(void)
-{
-    return (enet_tx_bd_struct_t*)gigabit_ethernet_driver_get_tx_descriptors();
-}
-
-/* Helper function to get transmit packets array */
-static inline NX_PACKET** get_transmit_packets(void)
-{
-    return (NX_PACKET**)gigabit_ethernet_driver_get_transmit_packets();
-}
 
 #ifndef BOARD_NETWORK_USE_100M_ENET_PORT
 #define BOARD_NETWORK_USE_100M_ENET_PORT    1
