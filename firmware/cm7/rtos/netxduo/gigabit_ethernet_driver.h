@@ -3,7 +3,7 @@
 
 #include "ftl/singleton.hpp"
 #include "fsl_enet.h"
-#include "tx_buffer_descriptor.h"
+#include "tx_buffer_descriptor_ring.h"
 
 // Forward declaration for NX_PACKET (it's a typedef in nx_api.h)
 typedef struct NX_PACKET_STRUCT NX_PACKET;
@@ -36,8 +36,8 @@ private:
     // Constants - must match nx_driver_imxrt.h
     static constexpr unsigned int TX_DESCRIPTOR_COUNT = 64;  // NX_DRIVER_TX_DESCRIPTORS
 
-    // Pointer to TX descriptors (allocated from OCRAM2)
-    TxBufferDescriptor* tx_descriptors_;
+    // Pointer to TX descriptor ring (allocated from OCRAM2)
+    TxBufferDescriptorRing<TX_DESCRIPTOR_COUNT>* tx_descriptor_ring_;
 
     // Current transmit descriptor index
     unsigned int transmit_current_index_;

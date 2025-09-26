@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../../firmware/cm7/rtos/netxduo/tx_buffer_descriptor.h"
+#include "../../firmware/cm7/rtos/netxduo/tx_buffer_descriptor_ring.h"
 #include "../../firmware/cm7/utils/ocram2_allocator.hpp"
 #include <cstring>
 #include <new>
@@ -257,6 +258,111 @@ TEST(TxBufferDescriptorArrayTest, MultipleDescriptors) {
     for (int i = 0; i < count; i++) {
         descriptors[i].~TxBufferDescriptor();
     }
+}
+
+TEST(TxBufferDescriptorRingTest, RingOperations) {
+    // Test ring allocation and initialization
+    const size_t RING_SIZE = 8;  // Must be power of 2
+    size_t ring_bytes = sizeof(TxBufferDescriptorRing<RING_SIZE>);
+    void* mem = Ocram2Allocator::instance().allocate(ring_bytes, 64);
+    ASSERT_NE(mem, nullptr);
+
+    // Create ring using placement new
+    auto* ring = TxBufferDescriptorRing<RING_SIZE>::createAt(mem);
+
+    // Verify ring is aligned
+    EXPECT_TRUE(TxBufferDescriptorRing<RING_SIZE>::isAligned(ring, 64));
+
+    // Check ring size
+    EXPECT_EQ(ring->size(), RING_SIZE);
+
+    // Verify all descriptors are initialized
+    for (size_t i = 0; i < RING_SIZE; i++) {
+        EXPECT_FALSE((*ring)[i].isReady());
+        EXPECT_TRUE((*ring)[i].isTransmitCRC());
+        EXPECT_EQ((*ring)[i].getLength(), 0u);
+    }
+
+    // Verify wrap bit is set on last descriptor
+    EXPECT_TRUE((*ring)[RING_SIZE - 1].isWrap());
+
+    // Verify wrap bit is not set on other descriptors
+    for (size_t i = 0; i < RING_SIZE - 1; i++) {
+        EXPECT_FALSE((*ring)[i].isWrap());
+    }
+
+    // Test nextIndex function
+    EXPECT_EQ(ring->nextIndex(0), 1u);
+    EXPECT_EQ(ring->nextIndex(RING_SIZE - 1), 0u);  // Wrap around
+
+    // Test prevIndex function
+    EXPECT_EQ(ring->prevIndex(1), 0u);
+    EXPECT_EQ(ring->prevIndex(0), RING_SIZE - 1u);  // Wrap around
+
+    // Test setting values
+    (*ring)[0].setLength(1500);
+    (*ring)[0].setBuffer(0x20000000);
+    (*ring)[0].setReady(true);
+
+    EXPECT_EQ((*ring)[0].getLength(), 1500u);
+    EXPECT_EQ((*ring)[0].getBuffer(), 0x20000000u);
+    EXPECT_TRUE((*ring)[0].isReady());
+
+    // Test reset
+    ring->reset();
+    EXPECT_FALSE((*ring)[0].isReady());
+    EXPECT_EQ((*ring)[0].getLength(), 0u);
+    EXPECT_TRUE((*ring)[RING_SIZE - 1].isWrap());  // Wrap bit should be preserved
+
+    // Test getBaseAddress
+    uint32_t base = ring->getBaseAddress();
+    EXPECT_NE(base, 0u);
+
+    // Clean up
+    ring->~TxBufferDescriptorRing<RING_SIZE>();
+}
+
+TEST(TxBufferDescriptorRingTest, SimulateTransmission) {
+    // Test simulating packet transmission through ring
+    const size_t RING_SIZE = 4;
+    size_t ring_bytes = sizeof(TxBufferDescriptorRing<RING_SIZE>);
+    void* mem = Ocram2Allocator::instance().allocate(ring_bytes, 64);
+    ASSERT_NE(mem, nullptr);
+
+    auto* ring = TxBufferDescriptorRing<RING_SIZE>::createAt(mem);
+
+    // Simulate adding packets
+    size_t current_idx = 0;
+
+    // Add first packet
+    (*ring)[current_idx].setLength(1024);
+    (*ring)[current_idx].setBuffer(0x20000000);
+    (*ring)[current_idx].setLast(true);
+    (*ring)[current_idx].setReady(true);
+    current_idx = ring->nextIndex(current_idx);
+
+    // Add second packet
+    (*ring)[current_idx].setLength(512);
+    (*ring)[current_idx].setBuffer(0x20001000);
+    (*ring)[current_idx].setLast(true);
+    (*ring)[current_idx].setReady(true);
+    current_idx = ring->nextIndex(current_idx);
+
+    // Verify packets are ready
+    EXPECT_TRUE((*ring)[0].isReady());
+    EXPECT_TRUE((*ring)[1].isReady());
+    EXPECT_FALSE((*ring)[2].isReady());
+
+    // Simulate hardware clearing ready bits after transmission
+    (*ring)[0].setReady(false);
+    (*ring)[1].setReady(false);
+
+    // Verify ready bits cleared
+    EXPECT_FALSE((*ring)[0].isReady());
+    EXPECT_FALSE((*ring)[1].isReady());
+
+    // Clean up
+    ring->~TxBufferDescriptorRing<RING_SIZE>();
 }
 
 TEST(TxBufferDescriptorArrayTest, ChainedPackets) {
