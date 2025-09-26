@@ -50,6 +50,7 @@ extern "C" {
 #endif
 int gigabit_ethernet_driver_initialize();
 int gigabit_ethernet_driver_send(void* packet_ptr);
+void* gigabit_ethernet_driver_get_tx_descriptors();
 #ifdef __cplusplus
 }
 #endif
@@ -1840,8 +1841,12 @@ UINT                i;
 
     enet_init();
 
-    /* Call into C++ driver skeleton initialize (currently does nothing) */
+    /* Call into C++ driver to initialize TX descriptors */
     gigabit_ethernet_driver_initialize();
+
+    /* Get the TX descriptors from the C++ driver */
+    nx_driver_information.nx_driver_information_dma_tx_descriptors =
+        (enet_tx_bd_struct_t*)gigabit_ethernet_driver_get_tx_descriptors();
 
     /* Initialize TX Descriptors list: Ring Mode.  */
 
@@ -1850,32 +1855,11 @@ UINT                i;
 #error "Number of Buffer Descriptors must be power of 2"
 #endif
 
-    nx_driver_information.nx_driver_information_dma_tx_descriptors = (enet_tx_bd_struct_t*)(((UINT)nx_driver_information.nx_driver_information_dma_tx_descriptors_area + 15) & (~15));
-
-    /* Fill each DMATxDesc descriptor with the right values.  */
+    /* Initialize the transmit packet tracking array */
     for(i = 0; i < NX_DRIVER_TX_DESCRIPTORS; i++)
     {
-
-        /* Initialize tx descriptors.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[i].control = ENET_BUFFDESCRIPTOR_TX_TRANMITCRC_MASK;
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[i].length = 0;
-
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-#ifdef IMX_CHECKSUM_OFFLOAD
-        /* Enable tx interrupt & checksum offload.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[i].controlExtend1 = ENET_BUFFDESCRIPTOR_TX_INTERRUPT_MASK | 0x0800 | 0x1000;
-  #else
-
-        /* Enable tx interrupt.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[i].controlExtend1 = ENET_BUFFDESCRIPTOR_TX_INTERRUPT_MASK;
-  #endif
-#endif
         nx_driver_information.nx_driver_information_transmit_packets[i] = NX_NULL;
-
     }
-
-    /* Put the Wrap indicaiton on the last descriptor.  */
-    nx_driver_information.nx_driver_information_dma_tx_descriptors[NX_DRIVER_TX_DESCRIPTORS - 1].control |= ENET_BUFFDESCRIPTOR_TX_WRAP_MASK;
 
     /* Set Transmit Descriptor List Address Register */
     EXAMPLE_ENET->TDSR = (ULONG) nx_driver_information.nx_driver_information_dma_tx_descriptors;
