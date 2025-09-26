@@ -267,3 +267,39 @@ void gigabit_ethernet_driver_process_transmitted_packets() {
 }
 
 } // extern "C"
+
+void GigabitEthernetDriver::handle_link_mode_change(unsigned int link_speed, unsigned int link_duplex) {
+    /****************************************************************************
+     * Handle Ethernet link mode change (speed/duplex change)
+     *
+     * This function is called when the PHY detects a change in link status,
+     * such as when:
+     * - Ethernet cable is plugged/unplugged
+     * - Link partner changes speed/duplex settings
+     * - Auto-negotiation completes with different parameters
+     * - Link quality issues cause renegotiation
+     *
+     * The function needs to:
+     * 1. Stop the Ethernet controller temporarily
+     * 2. Reconfigure hardware for new link mode (speed/duplex)
+     * 3. Clean up any in-flight packets
+     * 4. Reset TX/RX indices and descriptors
+     * 5. Restart the Ethernet controller
+     *
+     * @param link_speed  New link speed (e.g., 10M, 100M, 1G)
+     * @param link_duplex New duplex mode (half/full)
+     ****************************************************************************/
+
+    // TODO: Implement link mode change handling
+    // - Stop ENET_1G controller (ECR register)
+    // - Configure speed settings (RCR register for RMII mode)
+    // - Configure duplex settings (RCR/TCR registers)
+    // - Release any pending TX packets
+    // - Reset TX/RX indices
+    // - Re-initialize descriptor registers (TDSR, RDSR, MRBR)
+    // - Restart ENET_1G controller if previously enabled
+
+    // For now, just log the change
+    printf("GigabitEthernetDriver: Link mode change - Speed: %u, Duplex: %u\n",
+           link_speed, link_duplex);
+}

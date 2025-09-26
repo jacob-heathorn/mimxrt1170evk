@@ -27,6 +27,10 @@ public:
     // This is called from the deferred processing routine
     void process_transmitted_packets();
 
+    // Handle link mode change (speed/duplex change)
+    // This is called when the PHY detects a link status change
+    void handle_link_mode_change(unsigned int link_speed, unsigned int link_duplex);
+
     // Get the TX descriptors pointer (for C code access)
     enet_tx_bd_struct_t* get_tx_descriptors() { return tx_descriptors_; }
 
