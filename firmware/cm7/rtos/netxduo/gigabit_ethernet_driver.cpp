@@ -223,22 +223,6 @@ bool gigabit_ethernet_driver_send(void* packet_ptr) {
 //
 //
 
-unsigned int gigabit_ethernet_driver_get_transmit_current_index() {
-    return GigabitEthernetDriver::instance().get_transmit_current_index();
-}
-
-void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index) {
-    GigabitEthernetDriver::instance().set_transmit_current_index(index);
-}
-
-void* gigabit_ethernet_driver_get_transmit_packet(unsigned int index) {
-    return GigabitEthernetDriver::instance().get_transmit_packet(index);
-}
-
-void gigabit_ethernet_driver_set_transmit_packet(unsigned int index, void* packet) {
-    GigabitEthernetDriver::instance().set_transmit_packet(index, static_cast<NX_PACKET*>(packet));
-}
-
 unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use() {
     return GigabitEthernetDriver::instance().get_number_of_transmit_buffers_in_use();
 }
