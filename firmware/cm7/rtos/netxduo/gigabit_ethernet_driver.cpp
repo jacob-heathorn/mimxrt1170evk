@@ -3,8 +3,8 @@
 #include <cstring>
 #include "fsl_enet.h"
 
-GigabitEthernetDriver::GigabitEthernetDriver() {
-    // Constructor - will be expanded later
+GigabitEthernetDriver::GigabitEthernetDriver() : transmit_current_index_(0) {
+    // Constructor - initialize transmit index
 }
 
 GigabitEthernetDriver::~GigabitEthernetDriver() {
@@ -13,6 +13,9 @@ GigabitEthernetDriver::~GigabitEthernetDriver() {
 
 int GigabitEthernetDriver::initialize() {
     printf("GigabitEthernetDriver::initialize\n");
+
+    // Initialize the transmit current index
+    transmit_current_index_ = 0;
 
     // Align TX descriptors to 16-byte boundary (hardware requirement)
     // This is the same alignment logic from nx_driver_imxrt.c
@@ -72,8 +75,19 @@ int gigabit_ethernet_driver_send(void* packet_ptr) {
     return GigabitEthernetDriver::instance().send(packet_ptr);
 }
 
+// TODO: These are temporary while bridging, and should be removed
+//
+//
 void* gigabit_ethernet_driver_get_tx_descriptors() {
     return GigabitEthernetDriver::instance().get_tx_descriptors();
+}
+
+unsigned int gigabit_ethernet_driver_get_transmit_current_index() {
+    return GigabitEthernetDriver::instance().get_transmit_current_index();
+}
+
+void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index) {
+    GigabitEthernetDriver::instance().set_transmit_current_index(index);
 }
 
 } // extern "C"

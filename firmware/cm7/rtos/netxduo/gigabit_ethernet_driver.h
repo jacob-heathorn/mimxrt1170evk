@@ -22,6 +22,10 @@ public:
     // Get the TX descriptors pointer (for C code access)
     enet_tx_bd_struct_t* get_tx_descriptors() { return tx_descriptors_; }
 
+    // Get/Set transmit current index
+    unsigned int get_transmit_current_index() const { return transmit_current_index_; }
+    void set_transmit_current_index(unsigned int index) { transmit_current_index_ = index; }
+
 private:
     // Constants - must match nx_driver_imxrt.h
     static constexpr unsigned int TX_DESCRIPTOR_COUNT = 64;  // NX_DRIVER_TX_DESCRIPTORS
@@ -32,6 +36,9 @@ private:
 
     // Aligned pointer to TX descriptors
     enet_tx_bd_struct_t* tx_descriptors_;
+
+    // Current transmit descriptor index
+    unsigned int transmit_current_index_;
 };
 
 // C interface for calling from nx_driver_imxrt.c
@@ -47,6 +54,10 @@ int gigabit_ethernet_driver_send(void* packet_ptr);
 
 // C wrapper function to get TX descriptors
 void* gigabit_ethernet_driver_get_tx_descriptors();
+
+// C wrapper functions for transmit current index
+unsigned int gigabit_ethernet_driver_get_transmit_current_index();
+void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index);
 
 #ifdef __cplusplus
 }

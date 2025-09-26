@@ -51,6 +51,8 @@ extern "C" {
 int gigabit_ethernet_driver_initialize();
 int gigabit_ethernet_driver_send(void* packet_ptr);
 void* gigabit_ethernet_driver_get_tx_descriptors();
+unsigned int gigabit_ethernet_driver_get_transmit_current_index();
+void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index);
 #ifdef __cplusplus
 }
 #endif
@@ -1831,7 +1833,7 @@ UINT                i;
 
     /* Setup indices.  */
     nx_driver_information.nx_driver_information_receive_current_index = 0;
-    nx_driver_information.nx_driver_information_transmit_current_index = 0;
+    /* transmit_current_index is initialized in GigabitEthernetDriver::initialize() */
     nx_driver_information.nx_driver_information_transmit_release_index = 0;
 
     /* Clear the number of buffers in use counter.  */
@@ -2086,7 +2088,7 @@ UCHAR*         src_addr;
 
     /* Continue with existing implementation for now */
     /* Pick up the first BD. */
-    curIdx = nx_driver_information.nx_driver_information_transmit_current_index;
+    curIdx = gigabit_ethernet_driver_get_transmit_current_index();
 
     /* Check if it is a free descriptor.  */
     if ((get_tx_descriptors()[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || nx_driver_information.nx_driver_information_transmit_packets[curIdx])
@@ -2154,7 +2156,7 @@ UCHAR*         src_addr;
     nx_driver_information.nx_driver_information_transmit_packets[curIdx] = packet_ptr;
 
     /* Set the current index to the next descriptor.  */
-    nx_driver_information.nx_driver_information_transmit_current_index = (curIdx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
+    gigabit_ethernet_driver_set_transmit_current_index((curIdx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1));
 
     /* Increment the transmit buffers in use count.  */
     nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use += bd_count + 1;
@@ -2787,7 +2789,7 @@ ULONG idx;
 
         /* Reset indices.  */
         nx_driver_information.nx_driver_information_receive_current_index = 0;
-        nx_driver_information.nx_driver_information_transmit_current_index = 0;
+        gigabit_ethernet_driver_set_transmit_current_index(0);
         nx_driver_information.nx_driver_information_transmit_release_index = 0;
         nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use = 0;
 

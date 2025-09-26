@@ -153,7 +153,7 @@ typedef struct NX_DRIVER_INFORMATION_STRUCT
 
     /* Indices to current receive/transmit descriptors.  */
     UINT                nx_driver_information_receive_current_index;
-    UINT                nx_driver_information_transmit_current_index;
+    /* transmit_current_index has been moved to GigabitEthernetDriver class */
 
     /* Transmit release index.  */
     UINT                nx_driver_information_transmit_release_index;
