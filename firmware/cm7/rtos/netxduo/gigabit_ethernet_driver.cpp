@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <cstring>
 #include "fsl_enet.h"
+#include "nx_api.h"  // For NX_PACKET structure
 
 GigabitEthernetDriver::GigabitEthernetDriver() : transmit_current_index_(0), number_of_transmit_buffers_in_use_(0) {
     // Constructor - initialize transmit index and clear packets array
@@ -56,19 +57,96 @@ int GigabitEthernetDriver::initialize() {
     return 0;  // Return success
 }
 
-int GigabitEthernetDriver::send(void* packet_ptr) {
-    // Skeleton send function - currently does nothing
-    // Will eventually handle packet transmission
-
+bool GigabitEthernetDriver::send(void* packet_ptr) {
     printf("GigabitEthernetDriver::send\n");
 
-    // For now, just return success
-    (void)packet_ptr;  // Suppress unused parameter warning
+    NX_PACKET* packet = static_cast<NX_PACKET*>(packet_ptr);
+    if (!packet) {
+        return false;
+    }
 
-    // Uncomment for debug:
-    // printf("GigabitEthernetDriver::send() called\n");
+    // Pick up the first BD
+    unsigned int curIdx = transmit_current_index_;
 
-    return 0;  // Return success
+    // Check if it is a free descriptor
+    if ((tx_descriptors_[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || transmit_packets_[curIdx]) {
+        // Buffer is still owned by device
+        return false;
+    }
+
+    // Set the buffer size
+    tx_descriptors_[curIdx].length = (packet->nx_packet_append_ptr - packet->nx_packet_prepend_ptr + 2);
+
+    // Handle alignment requirement (8-byte alignment)
+    uint8_t remainder = static_cast<uint8_t>(reinterpret_cast<uintptr_t>(packet->nx_packet_prepend_ptr - 2) & 0x07);
+    if (remainder) {
+        uint8_t* src_addr = packet->nx_packet_prepend_ptr;
+        // Make sure transmit BD buffer is 8-byte aligned
+        packet->nx_packet_prepend_ptr -= remainder;
+        memmove(packet->nx_packet_prepend_ptr, src_addr, tx_descriptors_[curIdx].length);
+    }
+
+    // Set the buffer pointer
+    tx_descriptors_[curIdx].buffer = reinterpret_cast<uint32_t>(packet->nx_packet_prepend_ptr - 2);
+
+    // Clear the first descriptor's LAST bit
+    tx_descriptors_[curIdx].control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
+
+    // Handle chained packets
+    unsigned int bd_count = 0;
+    NX_PACKET* pktIdx = packet->nx_packet_next;
+    while (pktIdx != nullptr) {
+        // Move to next descriptor
+        curIdx = (curIdx + 1) & (TX_DESCRIPTOR_COUNT - 1);
+
+        // Check if it is a free descriptor
+        if ((tx_descriptors_[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || transmit_packets_[curIdx]) {
+            // No more descriptor available
+            return false;
+        }
+
+        // Set the buffer pointer
+        tx_descriptors_[curIdx].buffer = reinterpret_cast<uint32_t>(pktIdx->nx_packet_prepend_ptr);
+
+        // Set the buffer size
+        tx_descriptors_[curIdx].length = (pktIdx->nx_packet_append_ptr - pktIdx->nx_packet_prepend_ptr);
+
+        // Clear the descriptor's LAST bit
+        tx_descriptors_[curIdx].control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
+
+        // Increment the BD count
+        bd_count++;
+
+        // Move to next packet in chain
+        pktIdx = pktIdx->nx_packet_next;
+    }
+
+    // Set the last descriptor's LAST and READY bits
+    tx_descriptors_[curIdx].control |= (ENET_BUFFDESCRIPTOR_TX_LAST_MASK | ENET_BUFFDESCRIPTOR_TX_READY_MASK);
+
+    // Save the packet pointer for later release
+    transmit_packets_[curIdx] = packet;
+
+    // Set the current index to the next descriptor
+    transmit_current_index_ = (curIdx + 1) & (TX_DESCRIPTOR_COUNT - 1);
+
+    // Increment the transmit buffers in use count
+    number_of_transmit_buffers_in_use_ += bd_count + 1;
+
+    // Set READY bit to indicate BDs are ready (in reverse order)
+    for (; bd_count > 0; bd_count--) {
+        // Move to previous BD
+        curIdx = (curIdx - 1) & (TX_DESCRIPTOR_COUNT - 1);
+        // Set this BD's READY bit
+        tx_descriptors_[curIdx].control |= ENET_BUFFDESCRIPTOR_TX_READY_MASK;
+    }
+
+    // Resume DMA transmission if suspended (using ENET_1G for gigabit)
+    if (!ENET_1G->TDAR) {
+        ENET_1G->TDAR = ENET_TDAR_TDAR_MASK;
+    }
+
+    return true;
 }
 
 // C interface functions for calling from nx_driver_imxrt.c
@@ -78,7 +156,7 @@ int gigabit_ethernet_driver_initialize() {
     return GigabitEthernetDriver::instance().initialize();
 }
 
-int gigabit_ethernet_driver_send(void* packet_ptr) {
+bool gigabit_ethernet_driver_send(void* packet_ptr) {
     return GigabitEthernetDriver::instance().send(packet_ptr);
 }
 

@@ -18,9 +18,10 @@ public:
     // Will eventually contain hardware initialization logic
     int initialize();
 
-    // Send a packet (skeleton function for now)
+    // Send a packet
     // packet_ptr will eventually be NX_PACKET* but using void* for C compatibility
-    int send(void* packet_ptr);
+    // Returns true on success, false on error
+    bool send(void* packet_ptr);
 
     // Get the TX descriptors pointer (for C code access)
     enet_tx_bd_struct_t* get_tx_descriptors() { return tx_descriptors_; }
@@ -72,11 +73,13 @@ private:
 extern "C" {
 #endif
 
+#include <stdbool.h>  // For bool type in C
+
 // C wrapper function for initialize
 int gigabit_ethernet_driver_initialize();
 
-// C wrapper function for send
-int gigabit_ethernet_driver_send(void* packet_ptr);
+// C wrapper function for send (returns true on success, false on error)
+bool gigabit_ethernet_driver_send(void* packet_ptr);
 
 // C wrapper function to get TX descriptors
 void* gigabit_ethernet_driver_get_tx_descriptors();

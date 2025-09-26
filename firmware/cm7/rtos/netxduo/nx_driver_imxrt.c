@@ -43,13 +43,14 @@
 #include "fsl_phy.h"
 // #include "fsl_debug_console.h"
 #include "nx_driver_imxrt.h"
+#include <stdbool.h>  // For bool type in C
 
 /* C++ driver interface */
 #ifdef __cplusplus
 extern "C" {
 #endif
 int gigabit_ethernet_driver_initialize();
-int gigabit_ethernet_driver_send(void* packet_ptr);
+bool gigabit_ethernet_driver_send(void* packet_ptr);
 void* gigabit_ethernet_driver_get_tx_descriptors();
 unsigned int gigabit_ethernet_driver_get_transmit_current_index();
 void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index);
@@ -2083,112 +2084,9 @@ static UINT  _nx_driver_hardware_disable(NX_IP_DRIVER *driver_req_ptr)
 /**************************************************************************/
 static UINT  _nx_driver_hardware_packet_send(NX_PACKET *packet_ptr)
 {
-
-ULONG          curIdx;
-NX_PACKET      *pktIdx;
-ULONG          bd_count = 0;
-UCHAR          remainder = 0;
-UCHAR*         src_addr;
-
-    /* Call into C++ driver skeleton (currently does nothing) */
-    gigabit_ethernet_driver_send(packet_ptr);
-
-    /* Continue with existing implementation for now */
-    /* Pick up the first BD. */
-    curIdx = gigabit_ethernet_driver_get_transmit_current_index();
-
-    /* Check if it is a free descriptor.  */
-    if ((get_tx_descriptors()[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || gigabit_ethernet_driver_get_transmit_packet(curIdx))
-    {
-        /* Buffer is still owned by device.  */
-        return(NX_DRIVER_ERROR);
-    }
-    /* Set the buffer size.  */
-    get_tx_descriptors()[curIdx].length = (packet_ptr -> nx_packet_append_ptr - packet_ptr->nx_packet_prepend_ptr + 2);
-
-    remainder = (UCHAR )((ULONG)(packet_ptr->nx_packet_prepend_ptr - 2)& 0x07);
-
-    if(remainder)
-    {
-      src_addr = packet_ptr->nx_packet_prepend_ptr;
-
-      /*make sure transmit BD buffer 8byte aligment*/
-      packet_ptr->nx_packet_prepend_ptr -= remainder;
-
-      memmove(packet_ptr->nx_packet_prepend_ptr,src_addr,get_tx_descriptors()[curIdx].length);
-    }
-
-    /* Find the Buffer, set the Buffer pointer. */
-    get_tx_descriptors()[curIdx].buffer = (uint32_t)(packet_ptr->nx_packet_prepend_ptr - 2);
-
-    /* Clear the first Descriptor's LS bit.  */
-    get_tx_descriptors()[curIdx].control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
-
-    /* Find next packet.  */
-    for (pktIdx = packet_ptr -> nx_packet_next;
-         pktIdx != NX_NULL;
-         pktIdx = pktIdx -> nx_packet_next)
-    {
-
-        /* Move to next descriptor.  */
-        curIdx = (curIdx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
-
-        /* Check if it is a free descriptor.  */
-        if ((get_tx_descriptors()[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || gigabit_ethernet_driver_get_transmit_packet(curIdx))
-        {
-
-            /* No more descriptor available, return driver error status.  */
-            return(NX_DRIVER_ERROR);
-        }
-
-
-        /* Find the Buffer, set the Buffer pointer.  */
-        get_tx_descriptors()[curIdx].buffer = (uint32_t)(pktIdx->nx_packet_prepend_ptr);
-
-        /* Set the buffer size.  */
-        get_tx_descriptors()[curIdx].length = (pktIdx -> nx_packet_append_ptr - pktIdx->nx_packet_prepend_ptr);
-
-        /* Clear the descriptor's LS bit.  */
-        get_tx_descriptors()[curIdx].control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
-
-        /* Increment the BD count.  */
-        bd_count++;
-
-    }
-
-    /* Set the last Descriptor's LS & IC & OWN bit.  */
-    get_tx_descriptors()[curIdx].control |= (ENET_BUFFDESCRIPTOR_TX_LAST_MASK | ENET_BUFFDESCRIPTOR_TX_READY_MASK);
-
-    /* Save the pkt pointer to release.  */
-    gigabit_ethernet_driver_set_transmit_packet(curIdx, packet_ptr);
-
-    /* Set the current index to the next descriptor.  */
-    gigabit_ethernet_driver_set_transmit_current_index((curIdx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1));
-
-    /* Increment the transmit buffers in use count.  */
-    gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(
-        gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use() + bd_count + 1);
-
-    /* Set OWN bit to indicate BDs are ready.  */
-    for (; bd_count > 0; bd_count--)
-    {
-
-        /* Set OWN bit in reverse order, move to prevous BD.  */
-        curIdx = (curIdx - 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
-
-        /* Set this BD's OWN bit.  */
-        get_tx_descriptors()[curIdx].control |= ENET_BUFFDESCRIPTOR_TX_READY_MASK;
-    }
-
-    /* If the DMA transmission is suspended, resume transmission.  */
-    if (!EXAMPLE_ENET->TDAR)
-    {
-
-        /* Resume DMA transmission. */
-        EXAMPLE_ENET->TDAR = ENET_TDAR_TDAR_MASK;
-    }
-
-    return(NX_SUCCESS);
+    /* Call the C++ driver to handle packet transmission */
+    /* Convert boolean result to NetX return codes (NX_SUCCESS=0, NX_DRIVER_ERROR=90) */
+    return gigabit_ethernet_driver_send(packet_ptr) ? NX_SUCCESS : NX_DRIVER_ERROR;
 }
 
 
