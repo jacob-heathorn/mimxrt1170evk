@@ -4,8 +4,11 @@
 #include "fsl_enet.h"
 #include "nx_api.h"  // For NX_PACKET structure
 
-GigabitEthernetDriver::GigabitEthernetDriver() : transmit_current_index_(0), number_of_transmit_buffers_in_use_(0) {
-    // Constructor - initialize transmit index and clear packets array
+GigabitEthernetDriver::GigabitEthernetDriver() :
+    transmit_current_index_(0),
+    number_of_transmit_buffers_in_use_(0),
+    transmit_release_index_(0) {
+    // Constructor - initialize transmit indices and clear packets array
     for (unsigned int i = 0; i < TX_DESCRIPTOR_COUNT; i++) {
         transmit_packets_[i] = nullptr;
     }
@@ -18,8 +21,9 @@ GigabitEthernetDriver::~GigabitEthernetDriver() {
 int GigabitEthernetDriver::initialize() {
     printf("GigabitEthernetDriver::initialize\n");
 
-    // Initialize the transmit current index, buffers in use count, and clear packets array
+    // Initialize the transmit indices, buffers in use count, and clear packets array
     transmit_current_index_ = 0;
+    transmit_release_index_ = 0;
     number_of_transmit_buffers_in_use_ = 0;
     for (unsigned int i = 0; i < TX_DESCRIPTOR_COUNT; i++) {
         transmit_packets_[i] = nullptr;
@@ -51,8 +55,15 @@ int GigabitEthernetDriver::initialize() {
     // Put the Wrap indication on the last descriptor
     tx_descriptors_[TX_DESCRIPTOR_COUNT - 1].control |= ENET_BUFFDESCRIPTOR_TX_WRAP_MASK;
 
-    printf("GigabitEthernetDriver: Initialized %u TX descriptors at %p\n",
-           TX_DESCRIPTOR_COUNT, static_cast<void*>(tx_descriptors_));
+    // Make sure Number of Buffer Descriptors is power of 2
+    static_assert((TX_DESCRIPTOR_COUNT & (TX_DESCRIPTOR_COUNT - 1)) == 0,
+                  "Number of Buffer Descriptors must be power of 2");
+
+    // Set Transmit Descriptor List Address Register
+    ENET_1G->TDSR = reinterpret_cast<uint32_t>(tx_descriptors_);
+
+    printf("GigabitEthernetDriver: Initialized %u TX descriptors at %p, TDSR set to 0x%08lX\n",
+           TX_DESCRIPTOR_COUNT, static_cast<void*>(tx_descriptors_), ENET_1G->TDSR);
 
     return 0;  // Return success
 }
@@ -193,6 +204,14 @@ unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use() {
 
 void gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(unsigned int count) {
     GigabitEthernetDriver::instance().set_number_of_transmit_buffers_in_use(count);
+}
+
+unsigned int gigabit_ethernet_driver_get_transmit_release_index() {
+    return GigabitEthernetDriver::instance().get_transmit_release_index();
+}
+
+void gigabit_ethernet_driver_set_transmit_release_index(unsigned int index) {
+    GigabitEthernetDriver::instance().set_transmit_release_index(index);
 }
 
 } // extern "C"

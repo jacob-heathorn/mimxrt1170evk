@@ -59,6 +59,8 @@ void gigabit_ethernet_driver_set_transmit_packet(unsigned int index, void* packe
 void** gigabit_ethernet_driver_get_transmit_packets();
 unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();
 void gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(unsigned int count);
+unsigned int gigabit_ethernet_driver_get_transmit_release_index();
+void gigabit_ethernet_driver_set_transmit_release_index(unsigned int index);
 #ifdef __cplusplus
 }
 #endif
@@ -1852,6 +1854,7 @@ UINT                i;
 
     /* Call base Ethernet initialization */
     enet_init();
+    gigabit_ethernet_driver_initialize();
 
     /******************** RX Initialization ********************/
 
@@ -1903,30 +1906,6 @@ UINT                i;
 
     /* Set Receive Descriptor List Address Register.  */
     EXAMPLE_ENET->RDSR = (ULONG) nx_driver_information.nx_driver_information_dma_rx_descriptors;
-
-    /******************** TX Initialization ********************/
-
-    /* Setup TX indices.  */
-    /* transmit_current_index is initialized in GigabitEthernetDriver::initialize() */
-    nx_driver_information.nx_driver_information_transmit_release_index = 0;
-
-    /* Clear the number of buffers in use counter.  */
-    gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(0);
-
-    /* Call into C++ driver to initialize TX descriptors */
-    gigabit_ethernet_driver_initialize();
-
-    /* Initialize TX Descriptors list: Ring Mode.  */
-
-    /* Make sure Number of Buffer Descriptors is power of 2 */
-#if (NX_DRIVER_TX_DESCRIPTORS & (NX_DRIVER_TX_DESCRIPTORS - 1)) != 0
-#error "Number of Buffer Descriptors must be power of 2"
-#endif
-
-    /* Transmit packet tracking array is initialized in GigabitEthernetDriver::initialize() */
-
-    /* Set Transmit Descriptor List Address Register */
-    EXAMPLE_ENET->TDSR = (ULONG) get_tx_descriptors();
 
     /******************** Multicast Initialization ********************/
 
@@ -2411,7 +2390,7 @@ static VOID  _nx_driver_hardware_packet_transmitted(VOID)
 {
 
 ULONG numOfBuf =  gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();
-ULONG idx =       nx_driver_information.nx_driver_information_transmit_release_index;
+ULONG idx =       gigabit_ethernet_driver_get_transmit_release_index();
 
 
     /* Loop through buffers in use.  */
@@ -2446,7 +2425,7 @@ ULONG idx =       nx_driver_information.nx_driver_information_transmit_release_i
             /* Update the transmit relesae index and number of buffers in use.  */
             idx = (idx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
             gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(numOfBuf);
-            nx_driver_information.nx_driver_information_transmit_release_index = idx;
+            gigabit_ethernet_driver_set_transmit_release_index(idx);
         }
         else
         {
@@ -2695,12 +2674,12 @@ ULONG idx;
     {
 
         numOfBuf = gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();
-        idx =      nx_driver_information.nx_driver_information_transmit_release_index;
+        idx =      gigabit_ethernet_driver_get_transmit_release_index();
 
         /* Reset indices.  */
         nx_driver_information.nx_driver_information_receive_current_index = 0;
         gigabit_ethernet_driver_set_transmit_current_index(0);
-        nx_driver_information.nx_driver_information_transmit_release_index = 0;
+        gigabit_ethernet_driver_set_transmit_release_index(0);
         gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(0);
 
         /* Release transmit packets if any.  */
