@@ -3,6 +3,7 @@
 #include <cstring>
 #include "fsl_enet.h"
 #include "nx_api.h"  // For NX_PACKET structure
+#include "utils/ocram2_allocator.hpp"
 
 // Macro to remove Ethernet header from packet
 #define NX_DRIVER_ETHERNET_FRAME_SIZE 14
@@ -13,6 +14,7 @@
 }
 
 GigabitEthernetDriver::GigabitEthernetDriver() :
+    tx_descriptors_(nullptr),
     transmit_current_index_(0),
     number_of_transmit_buffers_in_use_(0),
     transmit_release_index_(0) {
@@ -37,41 +39,42 @@ int GigabitEthernetDriver::initialize() {
         transmit_packets_[i] = nullptr;
     }
 
-    // Align TX descriptors to 16-byte boundary (hardware requirement)
-    // This is the same alignment logic from nx_driver_imxrt.c
-    uintptr_t addr = reinterpret_cast<uintptr_t>(tx_descriptors_area_);
-    addr = (addr + 15) & (~15);  // Align to 16-byte boundary
-    tx_descriptors_ = reinterpret_cast<enet_tx_bd_struct_t*>(addr);
+    // Allocate TX descriptors from OCRAM2 (non-cacheable, 16-byte aligned)
+    //
+    // NXP driver suggests minimum 8-byte, recommended 64-byte (ENET_BUFF_ALIGNMENT)
+    // TODO: Confirm above statment in RM
+    size_t descriptor_size = sizeof(TxBufferDescriptor) * TX_DESCRIPTOR_COUNT;
+    void* mem = Ocram2Allocator::instance().allocate(descriptor_size, 64);
+    if (!mem) {
+        printf("GigabitEthernetDriver: Failed to allocate TX descriptors\n");
+        return -1;
+    }
+
+    // Placement new to construct TxBufferDescriptor objects
+    tx_descriptors_ = static_cast<TxBufferDescriptor*>(mem);
+    for (unsigned int i = 0; i < TX_DESCRIPTOR_COUNT; i++) {
+        new (&tx_descriptors_[i]) TxBufferDescriptor();
+    }
 
     // Initialize TX descriptors (moved from _nx_driver_hardware_initialize)
     for (unsigned int i = 0; i < TX_DESCRIPTOR_COUNT; i++) {
-        // Initialize tx descriptors
-        tx_descriptors_[i].control = ENET_BUFFDESCRIPTOR_TX_TRANMITCRC_MASK;
-        tx_descriptors_[i].length = 0;
-
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-#ifdef IMX_CHECKSUM_OFFLOAD
-        // Enable tx interrupt & checksum offload
-        tx_descriptors_[i].controlExtend1 = ENET_BUFFDESCRIPTOR_TX_INTERRUPT_MASK | 0x0800 | 0x1000;
-#else
-        // Enable tx interrupt
-        tx_descriptors_[i].controlExtend1 = ENET_BUFFDESCRIPTOR_TX_INTERRUPT_MASK;
-#endif
-#endif
+        // Reset initializes with CRC enabled and length = 0
+        tx_descriptors_[i].reset();
     }
 
     // Put the Wrap indication on the last descriptor
-    tx_descriptors_[TX_DESCRIPTOR_COUNT - 1].control |= ENET_BUFFDESCRIPTOR_TX_WRAP_MASK;
+    tx_descriptors_[TX_DESCRIPTOR_COUNT - 1].setWrap(true);
 
     // Make sure Number of Buffer Descriptors is power of 2
     static_assert((TX_DESCRIPTOR_COUNT & (TX_DESCRIPTOR_COUNT - 1)) == 0,
                   "Number of Buffer Descriptors must be power of 2");
 
     // Set Transmit Descriptor List Address Register
-    ENET_1G->TDSR = reinterpret_cast<uint32_t>(tx_descriptors_);
+    // Point to the raw memory of the first descriptor
+    ENET_1G->TDSR = reinterpret_cast<uint32_t>(tx_descriptors_[0].getRawMemory());
 
     printf("GigabitEthernetDriver: Initialized %u TX descriptors at %p, TDSR set to 0x%08lX\n",
-           TX_DESCRIPTOR_COUNT, static_cast<void*>(tx_descriptors_), ENET_1G->TDSR);
+           TX_DESCRIPTOR_COUNT, const_cast<void*>(tx_descriptors_[0].getRawMemory()), ENET_1G->TDSR);
 
     return 0;  // Return success
 }
@@ -88,13 +91,13 @@ bool GigabitEthernetDriver::send(void* packet_ptr) {
     unsigned int curIdx = transmit_current_index_;
 
     // Check if it is a free descriptor
-    if ((tx_descriptors_[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || transmit_packets_[curIdx]) {
+    if (tx_descriptors_[curIdx].isReady() || transmit_packets_[curIdx]) {
         // Buffer is still owned by device
         return false;
     }
 
     // Set the buffer size
-    tx_descriptors_[curIdx].length = (packet->nx_packet_append_ptr - packet->nx_packet_prepend_ptr + 2);
+    tx_descriptors_[curIdx].setLength(packet->nx_packet_append_ptr - packet->nx_packet_prepend_ptr + 2);
 
     // Handle alignment requirement (8-byte alignment)
     uint8_t remainder = static_cast<uint8_t>(reinterpret_cast<uintptr_t>(packet->nx_packet_prepend_ptr - 2) & 0x07);
@@ -102,14 +105,14 @@ bool GigabitEthernetDriver::send(void* packet_ptr) {
         uint8_t* src_addr = packet->nx_packet_prepend_ptr;
         // Make sure transmit BD buffer is 8-byte aligned
         packet->nx_packet_prepend_ptr -= remainder;
-        memmove(packet->nx_packet_prepend_ptr, src_addr, tx_descriptors_[curIdx].length);
+        memmove(packet->nx_packet_prepend_ptr, src_addr, tx_descriptors_[curIdx].getLength());
     }
 
     // Set the buffer pointer
-    tx_descriptors_[curIdx].buffer = reinterpret_cast<uint32_t>(packet->nx_packet_prepend_ptr - 2);
+    tx_descriptors_[curIdx].setBuffer(reinterpret_cast<uint32_t>(packet->nx_packet_prepend_ptr - 2));
 
     // Clear the first descriptor's LAST bit
-    tx_descriptors_[curIdx].control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
+    tx_descriptors_[curIdx].setLast(false);
 
     // Handle chained packets
     unsigned int bd_count = 0;
@@ -119,19 +122,19 @@ bool GigabitEthernetDriver::send(void* packet_ptr) {
         curIdx = (curIdx + 1) & (TX_DESCRIPTOR_COUNT - 1);
 
         // Check if it is a free descriptor
-        if ((tx_descriptors_[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || transmit_packets_[curIdx]) {
+        if (tx_descriptors_[curIdx].isReady() || transmit_packets_[curIdx]) {
             // No more descriptor available
             return false;
         }
 
         // Set the buffer pointer
-        tx_descriptors_[curIdx].buffer = reinterpret_cast<uint32_t>(pktIdx->nx_packet_prepend_ptr);
+        tx_descriptors_[curIdx].setBuffer(reinterpret_cast<uint32_t>(pktIdx->nx_packet_prepend_ptr));
 
         // Set the buffer size
-        tx_descriptors_[curIdx].length = (pktIdx->nx_packet_append_ptr - pktIdx->nx_packet_prepend_ptr);
+        tx_descriptors_[curIdx].setLength(pktIdx->nx_packet_append_ptr - pktIdx->nx_packet_prepend_ptr);
 
         // Clear the descriptor's LAST bit
-        tx_descriptors_[curIdx].control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
+        tx_descriptors_[curIdx].setLast(false);
 
         // Increment the BD count
         bd_count++;
@@ -141,7 +144,8 @@ bool GigabitEthernetDriver::send(void* packet_ptr) {
     }
 
     // Set the last descriptor's LAST and READY bits
-    tx_descriptors_[curIdx].control |= (ENET_BUFFDESCRIPTOR_TX_LAST_MASK | ENET_BUFFDESCRIPTOR_TX_READY_MASK);
+    tx_descriptors_[curIdx].setLast(true);
+    tx_descriptors_[curIdx].setReady(true);
 
     // Save the packet pointer for later release
     transmit_packets_[curIdx] = packet;
@@ -157,7 +161,7 @@ bool GigabitEthernetDriver::send(void* packet_ptr) {
         // Move to previous BD
         curIdx = (curIdx - 1) & (TX_DESCRIPTOR_COUNT - 1);
         // Set this BD's READY bit
-        tx_descriptors_[curIdx].control |= ENET_BUFFDESCRIPTOR_TX_READY_MASK;
+        tx_descriptors_[curIdx].setReady(true);
     }
 
     // Resume DMA transmission if suspended (using ENET_1G for gigabit)
@@ -182,7 +186,7 @@ void GigabitEthernetDriver::process_transmitted_packets() {
         }
 
         // Determine if the packet has been transmitted
-        if ((tx_descriptors_[idx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) == 0) {
+        if (!tx_descriptors_[idx].isReady()) {
             // Yes, packet has been transmitted
 
             // Get the packet

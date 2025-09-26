@@ -1,411 +1,306 @@
-#include <cstdio>
-#include <cstring>
-#include <cassert>
-#include "fsl_enet.h"
+#include "gtest/gtest.h"
 #include "../../firmware/cm7/rtos/netxduo/tx_buffer_descriptor.h"
+#include "../../firmware/cm7/utils/ocram2_allocator.hpp"
+#include <cstring>
+#include <new>
 
-// Test helper macros
-#define TEST_ASSERT(condition) \
-    do { \
-        if (!(condition)) { \
-            printf("FAIL: %s:%d - %s\n", __FILE__, __LINE__, #condition); \
-            return false; \
-        } \
-    } while (0)
+// Test fixture for TxBufferDescriptor tests
+class TxBufferDescriptorTest : public ::testing::Test {
+protected:
+    TxBufferDescriptor* txbd_ptr = nullptr;
 
-#define RUN_TEST(test_func) \
-    do { \
-        printf("Running %s... ", #test_func); \
-        if (test_func()) { \
-            printf("PASS\n"); \
-            passed++; \
-        } else { \
-            printf("FAIL\n"); \
-            failed++; \
-        } \
-        total++; \
-    } while (0)
+    void SetUp() override {
+        // Allocate TxBufferDescriptor from OCRAM2 with 16-byte alignment
+        void* mem = Ocram2Allocator::instance().allocate(sizeof(TxBufferDescriptor), 16);
+        ASSERT_NE(mem, nullptr);
 
-// Test functions
-bool test_constructor_initialization() {
-    TxBufferDescriptor txbd;
+        // Placement new to construct TxBufferDescriptor
+        txbd_ptr = new (mem) TxBufferDescriptor();
+    }
 
+    void TearDown() override {
+        // Manually call destructor (placement new requires manual destructor call)
+        if (txbd_ptr) {
+            txbd_ptr->~TxBufferDescriptor();
+            // Note: We don't deallocate from bump allocator
+        }
+    }
+
+    // Helper to get reference
+    TxBufferDescriptor& txbd() { return *txbd_ptr; }
+};
+
+TEST_F(TxBufferDescriptorTest, ConstructorInitialization) {
     // Check that descriptor is initialized with CRC enabled
-    TEST_ASSERT(txbd.isTransmitCRC() == true);
-    TEST_ASSERT(txbd.isReady() == false);
-    TEST_ASSERT(txbd.isWrap() == false);
-    TEST_ASSERT(txbd.isLast() == false);
-    TEST_ASSERT(txbd.getLength() == 0);
-    TEST_ASSERT(txbd.getBuffer() == 0);
-
-    return true;
+    EXPECT_TRUE(txbd().isTransmitCRC());
+    EXPECT_FALSE(txbd().isReady());
+    EXPECT_FALSE(txbd().isWrap());
+    EXPECT_FALSE(txbd().isLast());
+    EXPECT_EQ(txbd().getLength(), 0u);
+    EXPECT_EQ(txbd().getBuffer(), 0u);
 }
 
-bool test_control_bits() {
-    TxBufferDescriptor txbd;
+TEST_F(TxBufferDescriptorTest, ReadyBit) {
+    txbd().setReady(true);
+    EXPECT_TRUE(txbd().isReady());
 
-    // Test Ready bit
-    txbd.setReady(true);
-    TEST_ASSERT(txbd.isReady() == true);
-    txbd.setReady(false);
-    TEST_ASSERT(txbd.isReady() == false);
-
-    // Test Wrap bit
-    txbd.setWrap(true);
-    TEST_ASSERT(txbd.isWrap() == true);
-    txbd.setWrap(false);
-    TEST_ASSERT(txbd.isWrap() == false);
-
-    // Test Last bit
-    txbd.setLast(true);
-    TEST_ASSERT(txbd.isLast() == true);
-    txbd.setLast(false);
-    TEST_ASSERT(txbd.isLast() == false);
-
-    // Test Transmit CRC bit
-    txbd.setTransmitCRC(false);
-    TEST_ASSERT(txbd.isTransmitCRC() == false);
-    txbd.setTransmitCRC(true);
-    TEST_ASSERT(txbd.isTransmitCRC() == true);
-
-    return true;
+    txbd().setReady(false);
+    EXPECT_FALSE(txbd().isReady());
 }
 
-bool test_software_owner_bits() {
-    TxBufferDescriptor txbd;
+TEST_F(TxBufferDescriptorTest, WrapBit) {
+    txbd().setWrap(true);
+    EXPECT_TRUE(txbd().isWrap());
 
+    txbd().setWrap(false);
+    EXPECT_FALSE(txbd().isWrap());
+}
+
+TEST_F(TxBufferDescriptorTest, LastBit) {
+    txbd().setLast(true);
+    EXPECT_TRUE(txbd().isLast());
+
+    txbd().setLast(false);
+    EXPECT_FALSE(txbd().isLast());
+}
+
+TEST_F(TxBufferDescriptorTest, TransmitCRCBit) {
+    txbd().setTransmitCRC(false);
+    EXPECT_FALSE(txbd().isTransmitCRC());
+
+    txbd().setTransmitCRC(true);
+    EXPECT_TRUE(txbd().isTransmitCRC());
+}
+
+TEST_F(TxBufferDescriptorTest, SoftwareOwnerBits) {
     // Test Software Owner 1
-    txbd.setSoftwareOwner1(true);
-    TEST_ASSERT(txbd.isSoftwareOwner1() == true);
-    txbd.setSoftwareOwner1(false);
-    TEST_ASSERT(txbd.isSoftwareOwner1() == false);
+    txbd().setSoftwareOwner1(true);
+    EXPECT_TRUE(txbd().isSoftwareOwner1());
+
+    txbd().setSoftwareOwner1(false);
+    EXPECT_FALSE(txbd().isSoftwareOwner1());
 
     // Test Software Owner 2
-    txbd.setSoftwareOwner2(true);
-    TEST_ASSERT(txbd.isSoftwareOwner2() == true);
-    txbd.setSoftwareOwner2(false);
-    TEST_ASSERT(txbd.isSoftwareOwner2() == false);
+    txbd().setSoftwareOwner2(true);
+    EXPECT_TRUE(txbd().isSoftwareOwner2());
 
-    return true;
+    txbd().setSoftwareOwner2(false);
+    EXPECT_FALSE(txbd().isSoftwareOwner2());
 }
 
-bool test_length_and_buffer() {
-    TxBufferDescriptor txbd;
+TEST_F(TxBufferDescriptorTest, Length) {
+    txbd().setLength(1234);
+    EXPECT_EQ(txbd().getLength(), 1234u);
 
-    // Test length
-    txbd.setLength(1234);
-    TEST_ASSERT(txbd.getLength() == 1234);
+    txbd().setLength(65535);
+    EXPECT_EQ(txbd().getLength(), 65535u);
 
-    txbd.setLength(65535);
-    TEST_ASSERT(txbd.getLength() == 65535);
+    txbd().setLength(0);
+    EXPECT_EQ(txbd().getLength(), 0u);
+}
 
-    // Test buffer address
-    txbd.setBuffer(0xDEADBEEF);
-    TEST_ASSERT(txbd.getBuffer() == 0xDEADBEEF);
+TEST_F(TxBufferDescriptorTest, BufferAddress) {
+    txbd().setBuffer(0xDEADBEEF);
+    EXPECT_EQ(txbd().getBuffer(), 0xDEADBEEFu);
 
     // Test buffer pointer
     void* testPtr = reinterpret_cast<void*>(0x12345678);
-    txbd.setBuffer(testPtr);
-    TEST_ASSERT(txbd.getBufferPtr() == testPtr);
+    txbd().setBuffer(testPtr);
+    EXPECT_EQ(txbd().getBufferPtr(), testPtr);
 
-    return true;
+    txbd().setBuffer(nullptr);
+    EXPECT_EQ(txbd().getBufferPtr(), nullptr);
 }
 
-bool test_direct_control_access() {
-    TxBufferDescriptor txbd;
-
-    // Test direct control field access
+TEST_F(TxBufferDescriptorTest, DirectControlAccess) {
     uint16_t testControl = 0xABCD;
-    txbd.setControl(testControl);
-    TEST_ASSERT(txbd.getControl() == testControl);
+    txbd().setControl(testControl);
+    EXPECT_EQ(txbd().getControl(), testControl);
 
     // Verify individual bits still work
-    txbd.setControl(ENET_BUFFDESCRIPTOR_TX_READY_MASK | ENET_BUFFDESCRIPTOR_TX_WRAP_MASK);
-    TEST_ASSERT(txbd.isReady() == true);
-    TEST_ASSERT(txbd.isWrap() == true);
-    TEST_ASSERT(txbd.isLast() == false);
-
-    return true;
+    txbd().setControl(TX_BD_READY_MASK | TX_BD_WRAP_MASK);
+    EXPECT_TRUE(txbd().isReady());
+    EXPECT_TRUE(txbd().isWrap());
+    EXPECT_FALSE(txbd().isLast());
 }
 
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-bool test_extended_control() {
-    TxBufferDescriptor txbd;
-
-    // Test interrupt enable
-    txbd.setInterrupt(true);
-    TEST_ASSERT(txbd.isInterrupt() == true);
-    txbd.setInterrupt(false);
-    TEST_ASSERT(txbd.isInterrupt() == false);
-
-    // Test timestamp enable
-    txbd.setTimestamp(true);
-    TEST_ASSERT(txbd.isTimestamp() == true);
-    txbd.setTimestamp(false);
-    TEST_ASSERT(txbd.isTimestamp() == false);
-
-    // Test IP checksum
-    txbd.setIPChecksum(true);
-    TEST_ASSERT(txbd.isIPChecksum() == true);
-    txbd.setIPChecksum(false);
-    TEST_ASSERT(txbd.isIPChecksum() == false);
-
-    // Test protocol checksum
-    txbd.setProtocolChecksum(true);
-    TEST_ASSERT(txbd.isProtocolChecksum() == true);
-    txbd.setProtocolChecksum(false);
-    TEST_ASSERT(txbd.isProtocolChecksum() == false);
-
-    return true;
-}
-
-bool test_error_flags() {
-    TxBufferDescriptor txbd;
-
-    // Test transmit error
-    txbd.setTransmitError(true);
-    TEST_ASSERT(txbd.hasTransmitError() == true);
-    txbd.setTransmitError(false);
-    TEST_ASSERT(txbd.hasTransmitError() == false);
-
-    // Test underflow error
-    txbd.setUnderflowError(true);
-    TEST_ASSERT(txbd.hasUnderflowError() == true);
-    txbd.setUnderflowError(false);
-    TEST_ASSERT(txbd.hasUnderflowError() == false);
-
-    // Test excess collision error
-    txbd.setExcessCollisionError(true);
-    TEST_ASSERT(txbd.hasExcessCollisionError() == true);
-    txbd.setExcessCollisionError(false);
-    TEST_ASSERT(txbd.hasExcessCollisionError() == false);
-
-    // Test frame error
-    txbd.setFrameError(true);
-    TEST_ASSERT(txbd.hasFrameError() == true);
-    txbd.setFrameError(false);
-    TEST_ASSERT(txbd.hasFrameError() == false);
-
-    // Test late collision error
-    txbd.setLateCollisionError(true);
-    TEST_ASSERT(txbd.hasLateCollisionError() == true);
-    txbd.setLateCollisionError(false);
-    TEST_ASSERT(txbd.hasLateCollisionError() == false);
-
-    // Test overflow error
-    txbd.setOverflowError(true);
-    TEST_ASSERT(txbd.hasOverflowError() == true);
-    txbd.setOverflowError(false);
-    TEST_ASSERT(txbd.hasOverflowError() == false);
-
-    // Test timestamp error
-    txbd.setTimestampError(true);
-    TEST_ASSERT(txbd.hasTimestampError() == true);
-    txbd.setTimestampError(false);
-    TEST_ASSERT(txbd.hasTimestampError() == false);
-
-    return true;
-}
-
-bool test_extended_control_direct() {
-    TxBufferDescriptor txbd;
-
-    // Test direct extended control 0 access
-    uint16_t testExtend0 = 0x1234;
-    txbd.setControlExtend0(testExtend0);
-    TEST_ASSERT(txbd.getControlExtend0() == testExtend0);
-
-    // Test direct extended control 1 access
-    uint16_t testExtend1 = 0x5678;
-    txbd.setControlExtend1(testExtend1);
-    TEST_ASSERT(txbd.getControlExtend1() == testExtend1);
-
-    return true;
-}
-#endif
-
-bool test_reset() {
-    TxBufferDescriptor txbd;
-
+TEST_F(TxBufferDescriptorTest, Reset) {
     // Set various fields
-    txbd.setReady(true);
-    txbd.setWrap(true);
-    txbd.setLast(true);
-    txbd.setLength(0x1234);
-    txbd.setBuffer(0xABCDEF00);
+    txbd().setReady(true);
+    txbd().setWrap(true);
+    txbd().setLast(true);
+    txbd().setLength(0x1234);
+    txbd().setBuffer(0xABCDEF00);
 
     // Reset
-    txbd.reset();
+    txbd().reset();
 
     // Check reset state
-    TEST_ASSERT(txbd.isReady() == false);
-    TEST_ASSERT(txbd.isWrap() == false);
-    TEST_ASSERT(txbd.isLast() == false);
-    TEST_ASSERT(txbd.isTransmitCRC() == true);  // Should be set after reset
-    TEST_ASSERT(txbd.getLength() == 0);
-    TEST_ASSERT(txbd.getBuffer() == 0);
-
-    return true;
+    EXPECT_FALSE(txbd().isReady());
+    EXPECT_FALSE(txbd().isWrap());
+    EXPECT_FALSE(txbd().isLast());
+    EXPECT_TRUE(txbd().isTransmitCRC());  // Should be set after reset
+    EXPECT_EQ(txbd().getLength(), 0u);
+    EXPECT_EQ(txbd().getBuffer(), 0u);
 }
 
-bool test_legacy_compatibility() {
-    TxBufferDescriptor txbd;
-    enet_tx_bd_struct_t legacy;
-
-    // Initialize legacy struct
-    memset(&legacy, 0, sizeof(legacy));
-    legacy.length = 1500;
-    legacy.control = ENET_BUFFDESCRIPTOR_TX_READY_MASK | ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
-    legacy.buffer = 0x20000000;
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-    legacy.controlExtend0 = 0x1111;
-    legacy.controlExtend1 = 0x2222;
-#endif
-
-    // Copy from legacy
-    txbd.copyFrom(legacy);
-
-    // Verify copy
-    TEST_ASSERT(txbd.getLength() == 1500);
-    TEST_ASSERT(txbd.isReady() == true);
-    TEST_ASSERT(txbd.isLast() == true);
-    TEST_ASSERT(txbd.getBuffer() == 0x20000000);
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-    TEST_ASSERT(txbd.getControlExtend0() == 0x1111);
-    TEST_ASSERT(txbd.getControlExtend1() == 0x2222);
-#endif
-
-    // Test equivalence
-    TEST_ASSERT(txbd.isEquivalentTo(legacy) == true);
-
-    // Copy back to legacy
-    enet_tx_bd_struct_t legacy2;
-    memset(&legacy2, 0xFF, sizeof(legacy2));  // Fill with different pattern
-    txbd.copyTo(legacy2);
-
-    // Verify copy back
-    TEST_ASSERT(legacy2.length == legacy.length);
-    TEST_ASSERT(legacy2.control == legacy.control);
-    TEST_ASSERT(legacy2.buffer == legacy.buffer);
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-    TEST_ASSERT(legacy2.controlExtend0 == legacy.controlExtend0);
-    TEST_ASSERT(legacy2.controlExtend1 == legacy.controlExtend1);
-#endif
-
-    return true;
-}
-
-bool test_memory_layout() {
-    TxBufferDescriptor txbd;
-    enet_tx_bd_struct_t legacy;
-
-    // Verify size matches
-    TEST_ASSERT(sizeof(txbd) >= sizeof(legacy));
-
+TEST_F(TxBufferDescriptorTest, MemoryLayout) {
     // Get raw memory pointer
-    volatile uint16_t* raw = txbd.getRawMemory();
-    TEST_ASSERT(raw != nullptr);
+    volatile void* raw = txbd().getRawMemory();
+    ASSERT_NE(raw, nullptr);
 
-    // Test alignment
-    uintptr_t addr = reinterpret_cast<uintptr_t>(&txbd);
-    TEST_ASSERT((addr & 0xF) == 0);  // Should be 16-byte aligned
+    // Test alignment - should be 16-byte aligned from OCRAM2 allocation
+    uintptr_t addr = reinterpret_cast<uintptr_t>(txbd_ptr);
+    EXPECT_EQ(addr & 0xF, 0u);  // Should be 16-byte aligned
 
     // Set values through class interface
-    txbd.setLength(0x1234);
-    txbd.setControl(0x5678);
-    txbd.setBuffer(0xABCDEF00);
+    txbd().setLength(0x1234);
+    txbd().setControl(0x5678);
+    txbd().setBuffer(0xABCDEF00);
 
     // Verify through raw memory access
-    TEST_ASSERT(raw[0] == 0x1234);  // length
-    TEST_ASSERT(raw[1] == 0x5678);  // control
-    uint32_t* raw32 = reinterpret_cast<uint32_t*>(&raw[2]);
-    TEST_ASSERT(*raw32 == 0xABCDEF00);  // buffer
+    volatile uint16_t* raw16 = static_cast<volatile uint16_t*>(raw);
+    EXPECT_EQ(raw16[0], 0x1234u);  // length
+    EXPECT_EQ(raw16[1], 0x5678u);  // control
 
-    return true;
+    volatile uint32_t* raw32 = reinterpret_cast<volatile uint32_t*>(&raw16[2]);
+    EXPECT_EQ(*raw32, 0xABCDEF00u);  // buffer
 }
 
-bool test_combined_operations() {
-    TxBufferDescriptor txbd;
+TEST_F(TxBufferDescriptorTest, ComparisonOperators) {
+    // Allocate second descriptor from OCRAM2
+    void* mem2 = Ocram2Allocator::instance().allocate(sizeof(TxBufferDescriptor), 16);
+    ASSERT_NE(mem2, nullptr);
+    TxBufferDescriptor* txbd2 = new (mem2) TxBufferDescriptor();
 
+    // Initially should be equal (both reset with CRC enabled)
+    EXPECT_EQ(txbd(), *txbd2);
+    EXPECT_FALSE(txbd() != *txbd2);
+
+    // Change one field
+    txbd2->setLength(100);
+    EXPECT_NE(txbd(), *txbd2);
+    EXPECT_TRUE(txbd() != *txbd2);
+
+    // Make them equal again
+    txbd().setLength(100);
+    EXPECT_EQ(txbd(), *txbd2);
+
+    // Change control
+    txbd2->setReady(true);
+    EXPECT_NE(txbd(), *txbd2);
+
+    // Change buffer
+    txbd().setReady(true);
+    EXPECT_EQ(txbd(), *txbd2);
+    txbd2->setBuffer(0x1000);
+    EXPECT_NE(txbd(), *txbd2);
+
+    // Clean up
+    txbd2->~TxBufferDescriptor();
+}
+
+TEST_F(TxBufferDescriptorTest, CombinedOperations) {
     // Simulate typical usage pattern
-    txbd.reset();
-    txbd.setLength(1514);
-    txbd.setBuffer(reinterpret_cast<void*>(0x20001000));
-    txbd.setLast(true);
-    txbd.setTransmitCRC(true);
-
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-    txbd.setInterrupt(true);
-#ifdef IMX_CHECKSUM_OFFLOAD
-    txbd.setIPChecksum(true);
-    txbd.setProtocolChecksum(true);
-#endif
-#endif
+    txbd().reset();
+    txbd().setLength(1514);
+    txbd().setBuffer(reinterpret_cast<void*>(0x20001000));
+    txbd().setLast(true);
+    txbd().setTransmitCRC(true);
 
     // Set ready last (typical pattern)
-    txbd.setReady(true);
+    txbd().setReady(true);
 
     // Verify state
-    TEST_ASSERT(txbd.getLength() == 1514);
-    TEST_ASSERT(txbd.getBuffer() == 0x20001000);
-    TEST_ASSERT(txbd.isLast() == true);
-    TEST_ASSERT(txbd.isTransmitCRC() == true);
-    TEST_ASSERT(txbd.isReady() == true);
-
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-    TEST_ASSERT(txbd.isInterrupt() == true);
-#ifdef IMX_CHECKSUM_OFFLOAD
-    TEST_ASSERT(txbd.isIPChecksum() == true);
-    TEST_ASSERT(txbd.isProtocolChecksum() == true);
-#endif
-#endif
+    EXPECT_EQ(txbd().getLength(), 1514u);
+    EXPECT_EQ(txbd().getBuffer(), 0x20001000u);
+    EXPECT_TRUE(txbd().isLast());
+    EXPECT_TRUE(txbd().isTransmitCRC());
+    EXPECT_TRUE(txbd().isReady());
 
     // Simulate hardware clearing ready bit after transmission
-    txbd.setReady(false);
-    TEST_ASSERT(txbd.isReady() == false);
-
-    return true;
+    txbd().setReady(false);
+    EXPECT_FALSE(txbd().isReady());
 }
 
-// Main test runner
-int main() {
-    printf("\n=== TX Buffer Descriptor Unit Tests ===\n\n");
+TEST(TxBufferDescriptorArrayTest, MultipleDescriptors) {
+    // Test array of descriptors (as would be used in driver)
+    const int count = 4;
+    // Allocate array from OCRAM2
+    void* mem = Ocram2Allocator::instance().allocate(sizeof(TxBufferDescriptor) * count, 16);
+    ASSERT_NE(mem, nullptr);
+    TxBufferDescriptor* descriptors = static_cast<TxBufferDescriptor*>(mem);
 
-    int passed = 0;
-    int failed = 0;
-    int total = 0;
-
-    // Run basic tests
-    RUN_TEST(test_constructor_initialization);
-    RUN_TEST(test_control_bits);
-    RUN_TEST(test_software_owner_bits);
-    RUN_TEST(test_length_and_buffer);
-    RUN_TEST(test_direct_control_access);
-
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-    // Run extended mode tests
-    RUN_TEST(test_extended_control);
-    RUN_TEST(test_error_flags);
-    RUN_TEST(test_extended_control_direct);
-#endif
-
-    // Run common tests
-    RUN_TEST(test_reset);
-    RUN_TEST(test_legacy_compatibility);
-    RUN_TEST(test_memory_layout);
-    RUN_TEST(test_combined_operations);
-
-    // Print summary
-    printf("\n=== Test Summary ===\n");
-    printf("Total:  %d\n", total);
-    printf("Passed: %d\n", passed);
-    printf("Failed: %d\n", failed);
-
-    if (failed == 0) {
-        printf("\n✓ All tests passed!\n");
-    } else {
-        printf("\n✗ Some tests failed.\n");
+    // Construct in place
+    for (int i = 0; i < count; i++) {
+        new (&descriptors[i]) TxBufferDescriptor();
     }
 
-    return failed;
+    // Initialize all descriptors
+    for (int i = 0; i < count; i++) {
+        descriptors[i].reset();
+        descriptors[i].setLength(1024 + i);
+        descriptors[i].setBuffer(0x20000000 + (i * 0x1000));
+    }
+
+    // Set wrap on last descriptor
+    descriptors[count - 1].setWrap(true);
+
+    // Verify each descriptor
+    for (int i = 0; i < count; i++) {
+        EXPECT_EQ(descriptors[i].getLength(), static_cast<uint16_t>(1024 + i));
+        EXPECT_EQ(descriptors[i].getBuffer(), static_cast<uint32_t>(0x20000000 + (i * 0x1000)));
+        EXPECT_EQ(descriptors[i].isWrap(), (i == count - 1));
+    }
+
+    // Clean up
+    for (int i = 0; i < count; i++) {
+        descriptors[i].~TxBufferDescriptor();
+    }
+}
+
+TEST(TxBufferDescriptorArrayTest, ChainedPackets) {
+    // Simulate chained packet descriptors
+    const int chainSize = 3;
+    void* mem = Ocram2Allocator::instance().allocate(sizeof(TxBufferDescriptor) * chainSize, 16);
+    ASSERT_NE(mem, nullptr);
+    TxBufferDescriptor* chain = static_cast<TxBufferDescriptor*>(mem);
+
+    // Construct in place
+    for (int i = 0; i < chainSize; i++) {
+        new (&chain[i]) TxBufferDescriptor();
+    }
+
+    // First descriptor
+    chain[0].setLength(1500);
+    chain[0].setBuffer(reinterpret_cast<void*>(0x20000000));
+    chain[0].setLast(false);  // Not last in chain
+    chain[0].setReady(true);
+
+    // Middle descriptor
+    chain[1].setLength(1500);
+    chain[1].setBuffer(reinterpret_cast<void*>(0x20001000));
+    chain[1].setLast(false);  // Not last in chain
+    chain[1].setReady(true);
+
+    // Last descriptor
+    chain[2].setLength(500);
+    chain[2].setBuffer(reinterpret_cast<void*>(0x20002000));
+    chain[2].setLast(true);   // Last in chain
+    chain[2].setReady(true);
+
+    // Verify chain setup
+    EXPECT_FALSE(chain[0].isLast());
+    EXPECT_FALSE(chain[1].isLast());
+    EXPECT_TRUE(chain[2].isLast());
+
+    // All should be ready
+    for (int i = 0; i < 3; i++) {
+        EXPECT_TRUE(chain[i].isReady());
+    }
+
+    // Clean up
+    for (int i = 0; i < chainSize; i++) {
+        chain[i].~TxBufferDescriptor();
+    }
 }

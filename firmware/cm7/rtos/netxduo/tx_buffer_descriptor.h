@@ -2,12 +2,23 @@
 #define TX_BUFFER_DESCRIPTOR_H
 
 #include <cstdint>
-#include "fsl_enet.h"
+
+// Control and status bit masks for transmit buffer descriptor
+#define TX_BD_READY_MASK       0x8000U  // Ready bit mask
+#define TX_BD_SOFTOWNER1_MASK  0x4000U  // Software owner one mask
+#define TX_BD_WRAP_MASK        0x2000U  // Wrap buffer descriptor mask
+#define TX_BD_SOFTOWNER2_MASK  0x1000U  // Software owner two mask
+#define TX_BD_LAST_MASK        0x0800U  // Last BD of the frame mask
+#define TX_BD_TRANSMITCRC_MASK 0x0400U  // Transmit CRC mask
 
 // Following layout from RM:
 // 60.3.11.2 Legacy transmit buffer descriptor
 //
-// TODO: Consider upgrading to 60.3.12 Enhanced buffer descriptors
+// C++ class for Ethernet transmit buffer descriptor
+// Note: Hardware requires minimum 8-byte (64-bit) alignment for DMA access per NXP driver
+// TODO: Verify exact alignment requirement in i.MX RT1170 Reference Manual section 60.3.11
+// Currently using 16-byte alignment, NXP recommends ENET_BUFF_ALIGNMENT (64-byte)
+// Alignment is handled by allocating from OCRAM2 with proper alignment
 class TxBufferDescriptor {
 public:
     TxBufferDescriptor();
@@ -46,146 +57,81 @@ public:
     void setControl(uint16_t control);
     uint16_t getControl() const;
 
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-    // Extended control management
-    void setInterrupt(bool enable);
-    bool isInterrupt() const;
-
-    void setTimestamp(bool enable);
-    bool isTimestamp() const;
-
-    void setProtocolChecksum(bool enable);
-    bool isProtocolChecksum() const;
-
-    void setIPChecksum(bool enable);
-    bool isIPChecksum() const;
-
-    // Error flags (extend0)
-    void setTransmitError(bool error);
-    bool hasTransmitError() const;
-
-    void setUnderflowError(bool error);
-    bool hasUnderflowError() const;
-
-    void setExcessCollisionError(bool error);
-    bool hasExcessCollisionError() const;
-
-    void setFrameError(bool error);
-    bool hasFrameError() const;
-
-    void setLateCollisionError(bool error);
-    bool hasLateCollisionError() const;
-
-    void setOverflowError(bool error);
-    bool hasOverflowError() const;
-
-    void setTimestampError(bool error);
-    bool hasTimestampError() const;
-
-    // Extended control direct access
-    void setControlExtend0(uint16_t control);
-    uint16_t getControlExtend0() const;
-
-    void setControlExtend1(uint16_t control);
-    uint16_t getControlExtend1() const;
-
-#if defined(FSL_FEATURE_ENET_HAS_AVB) && FSL_FEATURE_ENET_HAS_AVB
-    void setTxLaunchTime(uint32_t time);
-    uint32_t getTxLaunchTime() const;
-#endif
-#endif
-
     // Reset descriptor to initial state
     void reset();
 
-    // Comparison with legacy struct for testing
-    bool isEquivalentTo(const enet_tx_bd_struct_t& legacy) const;
-
-    // Copy from legacy struct for migration
-    void copyFrom(const enet_tx_bd_struct_t& src);
-
-    // Copy to legacy struct for compatibility
-    void copyTo(enet_tx_bd_struct_t& dst) const;
-
     // Get raw memory layout (for hardware access)
-    volatile uint16_t* getRawMemory();
-    const volatile uint16_t* getRawMemory() const;
+    volatile void* getRawMemory();
+    const volatile void* getRawMemory() const;
+
+    // Comparison operators
+    bool operator==(const TxBufferDescriptor& other) const;
+    bool operator!=(const TxBufferDescriptor& other) const;
+
+    // Static helper to verify array base alignment for DMA
+    static bool isArrayAligned(const TxBufferDescriptor* array_base) {
+        uintptr_t addr = reinterpret_cast<uintptr_t>(array_base);
+        return (addr & 0xF) == 0;
+    }
 
 private:
     // Memory layout matching hardware requirements
-    // Layout: [length:16][control:16][buffer:32][extend0:16][extend1:16]...
-    alignas(16) struct {
+    // Layout: [length:16][control:16][buffer:32]
+    // Total: 8 bytes (legacy descriptor size)
+    struct {
         uint16_t length;
         uint16_t control;
         uint32_t buffer;
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-        uint16_t controlExtend0;
-        uint16_t controlExtend1;
-#if defined(FSL_FEATURE_ENET_HAS_AVB) && FSL_FEATURE_ENET_HAS_AVB
-        uint16_t txLaunchTimeLow;
-        uint16_t txLaunchTimeHigh;
-#else
-        uint16_t reserved0;
-        uint16_t reserved1;
-#endif
-        uint16_t reserved2;
-        uint16_t reserved3;
-        uint32_t timestamp;
-        uint16_t reserved4;
-        uint16_t reserved5;
-        uint16_t reserved6;
-        uint16_t reserved7;
-#endif
     } data_;
 };
 
 // Inline implementations for performance
 inline void TxBufferDescriptor::setReady(bool ready) {
     if (ready) {
-        data_.control |= ENET_BUFFDESCRIPTOR_TX_READY_MASK;
+        data_.control |= TX_BD_READY_MASK;
     } else {
-        data_.control &= ~ENET_BUFFDESCRIPTOR_TX_READY_MASK;
+        data_.control &= ~TX_BD_READY_MASK;
     }
 }
 
 inline bool TxBufferDescriptor::isReady() const {
-    return (data_.control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) != 0;
+    return (data_.control & TX_BD_READY_MASK) != 0;
 }
 
 inline void TxBufferDescriptor::setWrap(bool wrap) {
     if (wrap) {
-        data_.control |= ENET_BUFFDESCRIPTOR_TX_WRAP_MASK;
+        data_.control |= TX_BD_WRAP_MASK;
     } else {
-        data_.control &= ~ENET_BUFFDESCRIPTOR_TX_WRAP_MASK;
+        data_.control &= ~TX_BD_WRAP_MASK;
     }
 }
 
 inline bool TxBufferDescriptor::isWrap() const {
-    return (data_.control & ENET_BUFFDESCRIPTOR_TX_WRAP_MASK) != 0;
+    return (data_.control & TX_BD_WRAP_MASK) != 0;
 }
 
 inline void TxBufferDescriptor::setLast(bool last) {
     if (last) {
-        data_.control |= ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
+        data_.control |= TX_BD_LAST_MASK;
     } else {
-        data_.control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
+        data_.control &= ~TX_BD_LAST_MASK;
     }
 }
 
 inline bool TxBufferDescriptor::isLast() const {
-    return (data_.control & ENET_BUFFDESCRIPTOR_TX_LAST_MASK) != 0;
+    return (data_.control & TX_BD_LAST_MASK) != 0;
 }
 
 inline void TxBufferDescriptor::setTransmitCRC(bool enable) {
     if (enable) {
-        data_.control |= ENET_BUFFDESCRIPTOR_TX_TRANMITCRC_MASK;
+        data_.control |= TX_BD_TRANSMITCRC_MASK;
     } else {
-        data_.control &= ~ENET_BUFFDESCRIPTOR_TX_TRANMITCRC_MASK;
+        data_.control &= ~TX_BD_TRANSMITCRC_MASK;
     }
 }
 
 inline bool TxBufferDescriptor::isTransmitCRC() const {
-    return (data_.control & ENET_BUFFDESCRIPTOR_TX_TRANMITCRC_MASK) != 0;
+    return (data_.control & TX_BD_TRANSMITCRC_MASK) != 0;
 }
 
 inline void TxBufferDescriptor::setLength(uint16_t length) {
@@ -220,66 +166,12 @@ inline uint16_t TxBufferDescriptor::getControl() const {
     return data_.control;
 }
 
-inline volatile uint16_t* TxBufferDescriptor::getRawMemory() {
-    return reinterpret_cast<volatile uint16_t*>(&data_);
+inline volatile void* TxBufferDescriptor::getRawMemory() {
+    return reinterpret_cast<volatile void*>(&data_);
 }
 
-inline const volatile uint16_t* TxBufferDescriptor::getRawMemory() const {
-    return reinterpret_cast<const volatile uint16_t*>(&data_);
+inline const volatile void* TxBufferDescriptor::getRawMemory() const {
+    return reinterpret_cast<const volatile void*>(&data_);
 }
-
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-inline void TxBufferDescriptor::setControlExtend0(uint16_t control) {
-    data_.controlExtend0 = control;
-}
-
-inline uint16_t TxBufferDescriptor::getControlExtend0() const {
-    return data_.controlExtend0;
-}
-
-inline void TxBufferDescriptor::setControlExtend1(uint16_t control) {
-    data_.controlExtend1 = control;
-}
-
-inline uint16_t TxBufferDescriptor::getControlExtend1() const {
-    return data_.controlExtend1;
-}
-
-inline void TxBufferDescriptor::setInterrupt(bool enable) {
-    if (enable) {
-        data_.controlExtend1 |= ENET_BUFFDESCRIPTOR_TX_INTERRUPT_MASK;
-    } else {
-        data_.controlExtend1 &= ~ENET_BUFFDESCRIPTOR_TX_INTERRUPT_MASK;
-    }
-}
-
-inline bool TxBufferDescriptor::isInterrupt() const {
-    return (data_.controlExtend1 & ENET_BUFFDESCRIPTOR_TX_INTERRUPT_MASK) != 0;
-}
-
-inline void TxBufferDescriptor::setIPChecksum(bool enable) {
-    if (enable) {
-        data_.controlExtend1 |= ENET_BUFFDESCRIPTOR_TX_IPCHECKSUM_MASK;
-    } else {
-        data_.controlExtend1 &= ~ENET_BUFFDESCRIPTOR_TX_IPCHECKSUM_MASK;
-    }
-}
-
-inline bool TxBufferDescriptor::isIPChecksum() const {
-    return (data_.controlExtend1 & ENET_BUFFDESCRIPTOR_TX_IPCHECKSUM_MASK) != 0;
-}
-
-inline void TxBufferDescriptor::setProtocolChecksum(bool enable) {
-    if (enable) {
-        data_.controlExtend1 |= ENET_BUFFDESCRIPTOR_TX_PROTOCHECKSUM_MASK;
-    } else {
-        data_.controlExtend1 &= ~ENET_BUFFDESCRIPTOR_TX_PROTOCHECKSUM_MASK;
-    }
-}
-
-inline bool TxBufferDescriptor::isProtocolChecksum() const {
-    return (data_.controlExtend1 & ENET_BUFFDESCRIPTOR_TX_PROTOCHECKSUM_MASK) != 0;
-}
-#endif
 
 #endif // TX_BUFFER_DESCRIPTOR_H

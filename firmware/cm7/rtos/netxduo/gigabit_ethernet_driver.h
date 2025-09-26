@@ -3,6 +3,7 @@
 
 #include "ftl/singleton.hpp"
 #include "fsl_enet.h"
+#include "tx_buffer_descriptor.h"
 
 // Forward declaration for NX_PACKET (it's a typedef in nx_api.h)
 typedef struct NX_PACKET_STRUCT NX_PACKET;
@@ -35,12 +36,8 @@ private:
     // Constants - must match nx_driver_imxrt.h
     static constexpr unsigned int TX_DESCRIPTOR_COUNT = 64;  // NX_DRIVER_TX_DESCRIPTORS
 
-    // TX descriptor storage (with alignment padding)
-    // The +16 allows for 16-byte alignment requirement
-    alignas(16) uint8_t tx_descriptors_area_[sizeof(enet_tx_bd_struct_t) * TX_DESCRIPTOR_COUNT + 16];
-
-    // Aligned pointer to TX descriptors
-    enet_tx_bd_struct_t* tx_descriptors_;
+    // Pointer to TX descriptors (allocated from OCRAM2)
+    TxBufferDescriptor* tx_descriptors_;
 
     // Current transmit descriptor index
     unsigned int transmit_current_index_;
