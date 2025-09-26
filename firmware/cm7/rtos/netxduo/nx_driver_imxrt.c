@@ -55,6 +55,12 @@ void* gigabit_ethernet_driver_get_tx_descriptors();
 }
 #endif
 
+/* Helper function to get TX descriptors */
+static inline enet_tx_bd_struct_t* get_tx_descriptors(void)
+{
+    return (enet_tx_bd_struct_t*)gigabit_ethernet_driver_get_tx_descriptors();
+}
+
 #ifndef BOARD_NETWORK_USE_100M_ENET_PORT
 #define BOARD_NETWORK_USE_100M_ENET_PORT    1
 #endif
@@ -1844,10 +1850,6 @@ UINT                i;
     /* Call into C++ driver to initialize TX descriptors */
     gigabit_ethernet_driver_initialize();
 
-    /* Get the TX descriptors from the C++ driver */
-    nx_driver_information.nx_driver_information_dma_tx_descriptors =
-        (enet_tx_bd_struct_t*)gigabit_ethernet_driver_get_tx_descriptors();
-
     /* Initialize TX Descriptors list: Ring Mode.  */
 
     /* Make sure Number of Buffer Descriptors is power of 2 */
@@ -1862,7 +1864,7 @@ UINT                i;
     }
 
     /* Set Transmit Descriptor List Address Register */
-    EXAMPLE_ENET->TDSR = (ULONG) nx_driver_information.nx_driver_information_dma_tx_descriptors;
+    EXAMPLE_ENET->TDSR = (ULONG) get_tx_descriptors();
 
     /* Initialize RX Descriptors list: Ring Mode  */
 
@@ -2087,13 +2089,13 @@ UCHAR*         src_addr;
     curIdx = nx_driver_information.nx_driver_information_transmit_current_index;
 
     /* Check if it is a free descriptor.  */
-    if ((nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || nx_driver_information.nx_driver_information_transmit_packets[curIdx])
+    if ((get_tx_descriptors()[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || nx_driver_information.nx_driver_information_transmit_packets[curIdx])
     {
         /* Buffer is still owned by device.  */
         return(NX_DRIVER_ERROR);
     }
     /* Set the buffer size.  */
-    nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].length = (packet_ptr -> nx_packet_append_ptr - packet_ptr->nx_packet_prepend_ptr + 2);
+    get_tx_descriptors()[curIdx].length = (packet_ptr -> nx_packet_append_ptr - packet_ptr->nx_packet_prepend_ptr + 2);
 
     remainder = (UCHAR )((ULONG)(packet_ptr->nx_packet_prepend_ptr - 2)& 0x07);
 
@@ -2104,14 +2106,14 @@ UCHAR*         src_addr;
       /*make sure transmit BD buffer 8byte aligment*/
       packet_ptr->nx_packet_prepend_ptr -= remainder;
 
-      memmove(packet_ptr->nx_packet_prepend_ptr,src_addr,nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].length);
+      memmove(packet_ptr->nx_packet_prepend_ptr,src_addr,get_tx_descriptors()[curIdx].length);
     }
 
     /* Find the Buffer, set the Buffer pointer. */
-    nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].buffer = (uint32_t)(packet_ptr->nx_packet_prepend_ptr - 2);
+    get_tx_descriptors()[curIdx].buffer = (uint32_t)(packet_ptr->nx_packet_prepend_ptr - 2);
 
     /* Clear the first Descriptor's LS bit.  */
-    nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
+    get_tx_descriptors()[curIdx].control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
 
     /* Find next packet.  */
     for (pktIdx = packet_ptr -> nx_packet_next;
@@ -2123,7 +2125,7 @@ UCHAR*         src_addr;
         curIdx = (curIdx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
 
         /* Check if it is a free descriptor.  */
-        if ((nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || nx_driver_information.nx_driver_information_transmit_packets[curIdx])
+        if ((get_tx_descriptors()[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || nx_driver_information.nx_driver_information_transmit_packets[curIdx])
         {
 
             /* No more descriptor available, return driver error status.  */
@@ -2132,13 +2134,13 @@ UCHAR*         src_addr;
 
 
         /* Find the Buffer, set the Buffer pointer.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].buffer = (uint32_t)(pktIdx->nx_packet_prepend_ptr);
+        get_tx_descriptors()[curIdx].buffer = (uint32_t)(pktIdx->nx_packet_prepend_ptr);
 
         /* Set the buffer size.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].length = (pktIdx -> nx_packet_append_ptr - pktIdx->nx_packet_prepend_ptr);
+        get_tx_descriptors()[curIdx].length = (pktIdx -> nx_packet_append_ptr - pktIdx->nx_packet_prepend_ptr);
 
         /* Clear the descriptor's LS bit.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
+        get_tx_descriptors()[curIdx].control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
 
         /* Increment the BD count.  */
         bd_count++;
@@ -2146,7 +2148,7 @@ UCHAR*         src_addr;
     }
 
     /* Set the last Descriptor's LS & IC & OWN bit.  */
-    nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].control |= (ENET_BUFFDESCRIPTOR_TX_LAST_MASK | ENET_BUFFDESCRIPTOR_TX_READY_MASK);
+    get_tx_descriptors()[curIdx].control |= (ENET_BUFFDESCRIPTOR_TX_LAST_MASK | ENET_BUFFDESCRIPTOR_TX_READY_MASK);
 
     /* Save the pkt pointer to release.  */
     nx_driver_information.nx_driver_information_transmit_packets[curIdx] = packet_ptr;
@@ -2165,7 +2167,7 @@ UCHAR*         src_addr;
         curIdx = (curIdx - 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
 
         /* Set this BD's OWN bit.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].control |= ENET_BUFFDESCRIPTOR_TX_READY_MASK;
+        get_tx_descriptors()[curIdx].control |= ENET_BUFFDESCRIPTOR_TX_READY_MASK;
     }
 
     /* If the DMA transmission is suspended, resume transmission.  */
@@ -2515,7 +2517,7 @@ ULONG idx =       nx_driver_information.nx_driver_information_transmit_release_i
         }
 
         /* Determine if the packet has been transmitted.  */
-        if ((nx_driver_information.nx_driver_information_dma_tx_descriptors[idx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) == 0)
+        if ((get_tx_descriptors()[idx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) == 0)
         {
 
             /* Yes, packet has been transmitted.  */
@@ -2818,7 +2820,7 @@ ULONG idx;
     }
 
     /* Set Transmit Descriptor List Address Register */
-    EXAMPLE_ENET->TDSR = (ULONG) nx_driver_information.nx_driver_information_dma_tx_descriptors;
+    EXAMPLE_ENET->TDSR = (ULONG) get_tx_descriptors();
 
     /* Configure the Receive Buffer Size Register.  */
     EXAMPLE_ENET->MRBR = nx_driver_information.nx_driver_information_rx_buffer_size;

@@ -163,10 +163,9 @@ typedef struct NX_DRIVER_INFORMATION_STRUCT
 
     /* Define the Ethernet RX & TX DMA Descriptors.  */
     UCHAR               nx_driver_information_dma_rx_descriptors_area[sizeof(enet_rx_bd_struct_t) * NX_DRIVER_RX_DESCRIPTORS + 16];
-    UCHAR               nx_driver_information_dma_tx_descriptors_area[sizeof(enet_tx_bd_struct_t) * NX_DRIVER_TX_DESCRIPTORS + 16];
+    /* TX descriptors have been moved to GigabitEthernetDriver class */
 
     enet_rx_bd_struct_t                *nx_driver_information_dma_rx_descriptors;
-    enet_tx_bd_struct_t                *nx_driver_information_dma_tx_descriptors;
 
     /* Define the association between buffer descriptors and NetX packets.  */
     NX_PACKET           *nx_driver_information_transmit_packets[NX_DRIVER_TX_DESCRIPTORS];
