@@ -268,7 +268,7 @@ TEST(TxBufferDescriptorRingTest, RingOperations) {
     ASSERT_NE(mem, nullptr);
 
     // Create ring using placement new
-    auto* ring = TxBufferDescriptorRing<RING_SIZE>::createAt(mem);
+    auto* ring = new (mem) TxBufferDescriptorRing<RING_SIZE>();
 
     // Verify ring is aligned
     EXPECT_TRUE(TxBufferDescriptorRing<RING_SIZE>::isAligned(ring, 64));
@@ -329,7 +329,7 @@ TEST(TxBufferDescriptorRingTest, SimulateTransmission) {
     void* mem = Ocram2Allocator::instance().allocate(ring_bytes, 64);
     ASSERT_NE(mem, nullptr);
 
-    auto* ring = TxBufferDescriptorRing<RING_SIZE>::createAt(mem);
+    auto* ring = new (mem) TxBufferDescriptorRing<RING_SIZE>();
 
     // Simulate adding packets
     size_t current_idx = 0;

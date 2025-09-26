@@ -4,6 +4,7 @@
 #include "tx_buffer_descriptor.h"
 #include <cstddef>
 #include <cassert>
+#include <array>
 #include <new>
 
 // Template class for a ring of TX buffer descriptors
@@ -15,20 +16,13 @@ public:
     static_assert(N > 0, "Ring size must be greater than 0");
 
     TxBufferDescriptorRing() {
-        // Initialize all descriptors
-        for (size_t i = 0; i < N; i++) {
-            new (&descriptors_[i]) TxBufferDescriptor();
-        }
-
+        // std::array default-constructs all elements
         // Set wrap bit on last descriptor
         descriptors_[N - 1].setWrap(true);
     }
 
     ~TxBufferDescriptorRing() {
-        // Destroy all descriptors
-        for (size_t i = 0; i < N; i++) {
-            descriptors_[i].~TxBufferDescriptor();
-        }
+        // std::array automatically destructs all elements
     }
 
     // Array access operators
@@ -101,14 +95,9 @@ public:
         return (addr & (alignment - 1)) == 0;
     }
 
-    // Static factory method to create from pre-allocated memory
-    static TxBufferDescriptorRing* createAt(void* memory) {
-        return new (memory) TxBufferDescriptorRing();
-    }
-
 private:
     // Array of descriptors - must be contiguous for DMA
-    TxBufferDescriptor descriptors_[N];
+    std::array<TxBufferDescriptor, N> descriptors_;
 };
 
 #endif // TX_BUFFER_DESCRIPTOR_RING_H

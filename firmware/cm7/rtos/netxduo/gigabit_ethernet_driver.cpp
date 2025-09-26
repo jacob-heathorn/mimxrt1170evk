@@ -50,7 +50,7 @@ int GigabitEthernetDriver::initialize() {
     }
 
     // Placement new to construct TxBufferDescriptorRing
-    tx_descriptor_ring_ = TxBufferDescriptorRing<TX_DESCRIPTOR_COUNT>::createAt(mem);
+    tx_descriptor_ring_ = new (mem) TxBufferDescriptorRing<TX_DESCRIPTOR_COUNT>();
 
     // Ring constructor already initializes descriptors and sets wrap bit
 
