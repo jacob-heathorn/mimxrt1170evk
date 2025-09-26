@@ -219,26 +219,6 @@ bool gigabit_ethernet_driver_send(void* packet_ptr) {
     return GigabitEthernetDriver::instance().send(packet_ptr);
 }
 
-// TODO: These are temporary while bridging, and should be removed
-//
-//
-
-unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use() {
-    return GigabitEthernetDriver::instance().get_number_of_transmit_buffers_in_use();
-}
-
-void gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(unsigned int count) {
-    GigabitEthernetDriver::instance().set_number_of_transmit_buffers_in_use(count);
-}
-
-unsigned int gigabit_ethernet_driver_get_transmit_release_index() {
-    return GigabitEthernetDriver::instance().get_transmit_release_index();
-}
-
-void gigabit_ethernet_driver_set_transmit_release_index(unsigned int index) {
-    GigabitEthernetDriver::instance().set_transmit_release_index(index);
-}
-
 void gigabit_ethernet_driver_process_transmitted_packets() {
     GigabitEthernetDriver::instance().process_transmitted_packets();
 }

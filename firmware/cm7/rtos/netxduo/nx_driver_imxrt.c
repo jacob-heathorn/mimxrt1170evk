@@ -51,10 +51,6 @@ extern "C" {
 #endif
 int gigabit_ethernet_driver_initialize();
 bool gigabit_ethernet_driver_send(void* packet_ptr);
-unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();
-void gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(unsigned int count);
-unsigned int gigabit_ethernet_driver_get_transmit_release_index();
-void gigabit_ethernet_driver_set_transmit_release_index(unsigned int index);
 void gigabit_ethernet_driver_process_transmitted_packets();
 #ifdef __cplusplus
 }

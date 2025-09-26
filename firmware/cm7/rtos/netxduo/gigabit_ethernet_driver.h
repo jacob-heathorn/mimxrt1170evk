@@ -31,14 +31,6 @@ public:
     // This is called when the PHY detects a link status change
     void handle_link_mode_change(unsigned int link_speed, unsigned int link_duplex);
 
-    // Get/Set number of transmit buffers in use
-    unsigned int get_number_of_transmit_buffers_in_use() const { return number_of_transmit_buffers_in_use_; }
-    void set_number_of_transmit_buffers_in_use(unsigned int count) { number_of_transmit_buffers_in_use_ = count; }
-
-    // Get/Set transmit release index
-    unsigned int get_transmit_release_index() const { return transmit_release_index_; }
-    void set_transmit_release_index(unsigned int index) { transmit_release_index_ = index; }
-
 private:
     // Constants - must match nx_driver_imxrt.h
     static constexpr unsigned int TX_DESCRIPTOR_COUNT = 64;  // NX_DRIVER_TX_DESCRIPTORS
@@ -79,13 +71,6 @@ bool gigabit_ethernet_driver_send(void* packet_ptr);
 // C wrapper function for processing transmitted packets
 void gigabit_ethernet_driver_process_transmitted_packets();
 
-// C wrapper functions for number of transmit buffers in use
-unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();
-void gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(unsigned int count);
-
-// C wrapper functions for transmit release index
-unsigned int gigabit_ethernet_driver_get_transmit_release_index();
-void gigabit_ethernet_driver_set_transmit_release_index(unsigned int index);
 
 #ifdef __cplusplus
 }
