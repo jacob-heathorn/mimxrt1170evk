@@ -1843,23 +1843,75 @@ UINT                i;
     /* Default to successful return.  */
     driver_req_ptr -> nx_ip_driver_status =  NX_SUCCESS;
 
-    /* Setup indices.  */
+    /* Make sure there are receive packets... otherwise, return an error.  */
+    if (nx_driver_information.nx_driver_information_packet_pool_ptr == NULL)
+    {
+        /* There must be receive packets. If not, return an error!  */
+        return(NX_DRIVER_ERROR);
+    }
+
+    /* Call base Ethernet initialization */
+    enet_init();
+
+    /******************** RX Initialization ********************/
+
+    /* Setup RX index.  */
     nx_driver_information.nx_driver_information_receive_current_index = 0;
+
+    /* Initialize RX Descriptors list: Ring Mode  */
+
+    /* Make sure Number of Buffer Descriptors is power of 2 */
+#if (NX_DRIVER_RX_DESCRIPTORS & (NX_DRIVER_RX_DESCRIPTORS - 1)) != 0
+#error "Number of Buffer Descriptors must be power of 2"
+#endif
+
+    nx_driver_information.nx_driver_information_dma_rx_descriptors = (enet_rx_bd_struct_t*)(((UINT)nx_driver_information.nx_driver_information_dma_rx_descriptors_area + 15) & (~15));
+
+    /* Fill each DMARxDesc descriptor with the right values */
+    for(i = 0; i < NX_DRIVER_RX_DESCRIPTORS; i++)
+    {
+        nx_driver_information.nx_driver_information_dma_rx_descriptors[i].length = 0;
+
+        /* Allocate a packet for the receive buffers.  */
+        if (nx_packet_allocate(nx_driver_information.nx_driver_information_packet_pool_ptr, &packet_ptr,
+                               NX_RECEIVE_PACKET, NX_NO_WAIT) == NX_SUCCESS)
+        {
+            nx_driver_information.nx_driver_information_dma_rx_descriptors[i].control = ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
+
+#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
+            nx_driver_information.nx_driver_information_dma_rx_descriptors[i].controlExtend2 = 0x0000;
+            nx_driver_information.nx_driver_information_dma_rx_descriptors[i].controlExtend1 = ENET_BUFFDESCRIPTOR_RX_BROADCAST_MASK;
+#endif
+            nx_driver_information.nx_driver_information_dma_rx_descriptors[i].buffer = (uint32_t)packet_ptr->nx_packet_prepend_ptr;
+            nx_driver_information.nx_driver_information_receive_packets[i] = packet_ptr;
+        }
+        else
+        {
+            /* Cannot allocate packets from the packet pool. */
+            return(NX_DRIVER_ERROR);
+        }
+    }
+
+    /* Put the Wrap indication on the last descriptor.  */
+    nx_driver_information.nx_driver_information_dma_rx_descriptors[NX_DRIVER_RX_DESCRIPTORS - 1].control |= ENET_BUFFDESCRIPTOR_RX_WRAP_MASK | ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
+
+    /* Save the size of one rx buffer.  */
+    nx_driver_information.nx_driver_information_rx_buffer_size = packet_ptr -> nx_packet_data_end - packet_ptr -> nx_packet_data_start;
+
+    /* Configure the Receive Buffer Size Register.  */
+    EXAMPLE_ENET->MRBR = nx_driver_information.nx_driver_information_rx_buffer_size;
+
+    /* Set Receive Descriptor List Address Register.  */
+    EXAMPLE_ENET->RDSR = (ULONG) nx_driver_information.nx_driver_information_dma_rx_descriptors;
+
+    /******************** TX Initialization ********************/
+
+    /* Setup TX indices.  */
     /* transmit_current_index is initialized in GigabitEthernetDriver::initialize() */
     nx_driver_information.nx_driver_information_transmit_release_index = 0;
 
     /* Clear the number of buffers in use counter.  */
     gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(0);
-
-    /* Make sure there are receive packets... otherwise, return an error.  */
-    if (nx_driver_information.nx_driver_information_packet_pool_ptr == NULL)
-    {
-
-        /* There must be receive packets. If not, return an error!  */
-        return(NX_DRIVER_ERROR);
-    }
-
-    enet_init();
 
     /* Call into C++ driver to initialize TX descriptors */
     gigabit_ethernet_driver_initialize();
@@ -1876,56 +1928,7 @@ UINT                i;
     /* Set Transmit Descriptor List Address Register */
     EXAMPLE_ENET->TDSR = (ULONG) get_tx_descriptors();
 
-    /* Initialize RX Descriptors list: Ring Mode  */
-
-    /* Make sure Number of Buffer Descriptors is power of 2 */
-#if (NX_DRIVER_RX_DESCRIPTORS & (NX_DRIVER_RX_DESCRIPTORS - 1)) != 0
-#error "Number of Buffer Descriptors must be power of 2"
-#endif
-
-    nx_driver_information.nx_driver_information_dma_rx_descriptors = (enet_rx_bd_struct_t*)(((UINT)nx_driver_information.nx_driver_information_dma_rx_descriptors_area + 15) & (~15));
-
-    /* Fill each DMARxDesc descriptor with the right values */
-    for(i = 0; i < NX_DRIVER_RX_DESCRIPTORS; i++)
-    {
-
-        nx_driver_information.nx_driver_information_dma_rx_descriptors[i].length = 0;
-
-        /* Allocate a packet for the receive buffers.  */
-        if (nx_packet_allocate(nx_driver_information.nx_driver_information_packet_pool_ptr, &packet_ptr,
-                               NX_RECEIVE_PACKET, NX_NO_WAIT) == NX_SUCCESS)
-        {
-
-            nx_driver_information.nx_driver_information_dma_rx_descriptors[i].control = ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-	    nx_driver_information.nx_driver_information_dma_rx_descriptors[i].controlExtend2 = 0x0000;
-	    nx_driver_information.nx_driver_information_dma_rx_descriptors[i].controlExtend1 = ENET_BUFFDESCRIPTOR_RX_BROADCAST_MASK;
-#endif
-            nx_driver_information.nx_driver_information_dma_rx_descriptors[i].buffer = (uint32_t)packet_ptr->nx_packet_prepend_ptr;
-            nx_driver_information.nx_driver_information_receive_packets[i] = packet_ptr;
-
-        }
-        else
-        {
-
-            /* Cannot allocate packets from the packet pool. */
-            return(NX_DRIVER_ERROR);
-        }
-
-    }
-
-    /* Put the Wrap indicaiton on the last descriptor.  */
-    nx_driver_information.nx_driver_information_dma_rx_descriptors[NX_DRIVER_RX_DESCRIPTORS - 1].control |= ENET_BUFFDESCRIPTOR_RX_WRAP_MASK | ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-
-    /* Save the size of one rx buffer.  */
-    nx_driver_information.nx_driver_information_rx_buffer_size = packet_ptr -> nx_packet_data_end - packet_ptr -> nx_packet_data_start;
-
-    /* Configure the Receive Buffer Size Register.  */
-    EXAMPLE_ENET->MRBR = nx_driver_information.nx_driver_information_rx_buffer_size;
-
-    /* Set Receive Descriptor List Address Register.  */
-    EXAMPLE_ENET->RDSR = (ULONG) nx_driver_information.nx_driver_information_dma_rx_descriptors;
+    /******************** Multicast Initialization ********************/
 
     for (i = 0; i < 64; i++)
     {
