@@ -4,7 +4,10 @@
 #include "fsl_enet.h"
 
 GigabitEthernetDriver::GigabitEthernetDriver() : transmit_current_index_(0) {
-    // Constructor - initialize transmit index
+    // Constructor - initialize transmit index and clear packets array
+    for (unsigned int i = 0; i < TX_DESCRIPTOR_COUNT; i++) {
+        transmit_packets_[i] = nullptr;
+    }
 }
 
 GigabitEthernetDriver::~GigabitEthernetDriver() {
@@ -14,8 +17,11 @@ GigabitEthernetDriver::~GigabitEthernetDriver() {
 int GigabitEthernetDriver::initialize() {
     printf("GigabitEthernetDriver::initialize\n");
 
-    // Initialize the transmit current index
+    // Initialize the transmit current index and clear packets array
     transmit_current_index_ = 0;
+    for (unsigned int i = 0; i < TX_DESCRIPTOR_COUNT; i++) {
+        transmit_packets_[i] = nullptr;
+    }
 
     // Align TX descriptors to 16-byte boundary (hardware requirement)
     // This is the same alignment logic from nx_driver_imxrt.c
@@ -88,6 +94,18 @@ unsigned int gigabit_ethernet_driver_get_transmit_current_index() {
 
 void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index) {
     GigabitEthernetDriver::instance().set_transmit_current_index(index);
+}
+
+void* gigabit_ethernet_driver_get_transmit_packet(unsigned int index) {
+    return GigabitEthernetDriver::instance().get_transmit_packet(index);
+}
+
+void gigabit_ethernet_driver_set_transmit_packet(unsigned int index, void* packet) {
+    GigabitEthernetDriver::instance().set_transmit_packet(index, static_cast<NX_PACKET*>(packet));
+}
+
+void** gigabit_ethernet_driver_get_transmit_packets() {
+    return reinterpret_cast<void**>(GigabitEthernetDriver::instance().get_transmit_packets());
 }
 
 } // extern "C"

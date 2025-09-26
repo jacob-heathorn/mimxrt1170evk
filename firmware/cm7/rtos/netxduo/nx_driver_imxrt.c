@@ -53,6 +53,9 @@ int gigabit_ethernet_driver_send(void* packet_ptr);
 void* gigabit_ethernet_driver_get_tx_descriptors();
 unsigned int gigabit_ethernet_driver_get_transmit_current_index();
 void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index);
+void* gigabit_ethernet_driver_get_transmit_packet(unsigned int index);
+void gigabit_ethernet_driver_set_transmit_packet(unsigned int index, void* packet);
+void** gigabit_ethernet_driver_get_transmit_packets();
 #ifdef __cplusplus
 }
 #endif
@@ -61,6 +64,12 @@ void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index);
 static inline enet_tx_bd_struct_t* get_tx_descriptors(void)
 {
     return (enet_tx_bd_struct_t*)gigabit_ethernet_driver_get_tx_descriptors();
+}
+
+/* Helper function to get transmit packets array */
+static inline NX_PACKET** get_transmit_packets(void)
+{
+    return (NX_PACKET**)gigabit_ethernet_driver_get_transmit_packets();
 }
 
 #ifndef BOARD_NETWORK_USE_100M_ENET_PORT
@@ -1859,11 +1868,7 @@ UINT                i;
 #error "Number of Buffer Descriptors must be power of 2"
 #endif
 
-    /* Initialize the transmit packet tracking array */
-    for(i = 0; i < NX_DRIVER_TX_DESCRIPTORS; i++)
-    {
-        nx_driver_information.nx_driver_information_transmit_packets[i] = NX_NULL;
-    }
+    /* Transmit packet tracking array is initialized in GigabitEthernetDriver::initialize() */
 
     /* Set Transmit Descriptor List Address Register */
     EXAMPLE_ENET->TDSR = (ULONG) get_tx_descriptors();
@@ -2091,7 +2096,7 @@ UCHAR*         src_addr;
     curIdx = gigabit_ethernet_driver_get_transmit_current_index();
 
     /* Check if it is a free descriptor.  */
-    if ((get_tx_descriptors()[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || nx_driver_information.nx_driver_information_transmit_packets[curIdx])
+    if ((get_tx_descriptors()[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || gigabit_ethernet_driver_get_transmit_packet(curIdx))
     {
         /* Buffer is still owned by device.  */
         return(NX_DRIVER_ERROR);
@@ -2127,7 +2132,7 @@ UCHAR*         src_addr;
         curIdx = (curIdx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
 
         /* Check if it is a free descriptor.  */
-        if ((get_tx_descriptors()[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || nx_driver_information.nx_driver_information_transmit_packets[curIdx])
+        if ((get_tx_descriptors()[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || gigabit_ethernet_driver_get_transmit_packet(curIdx))
         {
 
             /* No more descriptor available, return driver error status.  */
@@ -2153,7 +2158,7 @@ UCHAR*         src_addr;
     get_tx_descriptors()[curIdx].control |= (ENET_BUFFDESCRIPTOR_TX_LAST_MASK | ENET_BUFFDESCRIPTOR_TX_READY_MASK);
 
     /* Save the pkt pointer to release.  */
-    nx_driver_information.nx_driver_information_transmit_packets[curIdx] = packet_ptr;
+    gigabit_ethernet_driver_set_transmit_packet(curIdx, packet_ptr);
 
     /* Set the current index to the next descriptor.  */
     gigabit_ethernet_driver_set_transmit_current_index((curIdx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1));
@@ -2510,7 +2515,7 @@ ULONG idx =       nx_driver_information.nx_driver_information_transmit_release_i
     {
 
         /* If no packet, just examine the next packet.  */
-        if (nx_driver_information.nx_driver_information_transmit_packets[idx] == NX_NULL)
+        if (gigabit_ethernet_driver_get_transmit_packet(idx) == NX_NULL)
         {
 
             /* No packet in use, skip to next.  */
@@ -2525,13 +2530,14 @@ ULONG idx =       nx_driver_information.nx_driver_information_transmit_release_i
             /* Yes, packet has been transmitted.  */
 
             /* Remove the Ethernet header and release the packet.  */
-            NX_DRIVER_ETHERNET_HEADER_REMOVE(nx_driver_information.nx_driver_information_transmit_packets[idx]);
+            NX_PACKET* packet = (NX_PACKET*)gigabit_ethernet_driver_get_transmit_packet(idx);
+            NX_DRIVER_ETHERNET_HEADER_REMOVE(packet);
 
             /* Release the packet.  */
-            nx_packet_transmit_release(nx_driver_information.nx_driver_information_transmit_packets[idx]);
+            nx_packet_transmit_release(packet);
 
             /* Clear the entry in the in-use array.  */
-            nx_driver_information.nx_driver_information_transmit_packets[idx] = NX_NULL;
+            gigabit_ethernet_driver_set_transmit_packet(idx, NX_NULL);
 
             /* Update the transmit relesae index and number of buffers in use.  */
             idx = (idx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
@@ -2798,7 +2804,7 @@ ULONG idx;
         {
 
             /* If no packet, just examine the next packet.  */
-            if (nx_driver_information.nx_driver_information_transmit_packets[idx] == NX_NULL)
+            if (gigabit_ethernet_driver_get_transmit_packet(idx) == NX_NULL)
             {
 
                 /* No packet in use, skip to next.  */
@@ -2807,10 +2813,11 @@ ULONG idx;
             }
 
             /* Remove the Ethernet header and release the packet.  */
-            NX_DRIVER_ETHERNET_HEADER_REMOVE(nx_driver_information.nx_driver_information_transmit_packets[idx]);
+            NX_PACKET* packet2 = (NX_PACKET*)gigabit_ethernet_driver_get_transmit_packet(idx);
+            NX_DRIVER_ETHERNET_HEADER_REMOVE(packet2);
 
             /* Release the packet.  */
-            nx_packet_transmit_release(nx_driver_information.nx_driver_information_transmit_packets[idx]);
+            nx_packet_transmit_release(packet2);
         }
 
         /* Free receive descriptors.  */

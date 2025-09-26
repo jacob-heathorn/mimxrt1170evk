@@ -4,6 +4,9 @@
 #include "ftl/singleton.hpp"
 #include "fsl_enet.h"
 
+// Forward declaration for NX_PACKET (it's a typedef in nx_api.h)
+typedef struct NX_PACKET_STRUCT NX_PACKET;
+
 // C++ driver class for Gigabit Ethernet
 class GigabitEthernetDriver : public ftl::Singleton<GigabitEthernetDriver> {
 public:
@@ -26,6 +29,19 @@ public:
     unsigned int get_transmit_current_index() const { return transmit_current_index_; }
     void set_transmit_current_index(unsigned int index) { transmit_current_index_ = index; }
 
+    // Get/Set transmit packet at index
+    NX_PACKET* get_transmit_packet(unsigned int index) {
+        return (index < TX_DESCRIPTOR_COUNT) ? transmit_packets_[index] : nullptr;
+    }
+    void set_transmit_packet(unsigned int index, NX_PACKET* packet) {
+        if (index < TX_DESCRIPTOR_COUNT) {
+            transmit_packets_[index] = packet;
+        }
+    }
+
+    // Get transmit packets array (for bulk operations)
+    NX_PACKET** get_transmit_packets() { return transmit_packets_; }
+
 private:
     // Constants - must match nx_driver_imxrt.h
     static constexpr unsigned int TX_DESCRIPTOR_COUNT = 64;  // NX_DRIVER_TX_DESCRIPTORS
@@ -39,6 +55,9 @@ private:
 
     // Current transmit descriptor index
     unsigned int transmit_current_index_;
+
+    // Array to track NX_PACKET pointers for each TX descriptor
+    NX_PACKET* transmit_packets_[TX_DESCRIPTOR_COUNT];
 };
 
 // C interface for calling from nx_driver_imxrt.c
@@ -58,6 +77,11 @@ void* gigabit_ethernet_driver_get_tx_descriptors();
 // C wrapper functions for transmit current index
 unsigned int gigabit_ethernet_driver_get_transmit_current_index();
 void gigabit_ethernet_driver_set_transmit_current_index(unsigned int index);
+
+// C wrapper functions for transmit packets
+void* gigabit_ethernet_driver_get_transmit_packet(unsigned int index);
+void gigabit_ethernet_driver_set_transmit_packet(unsigned int index, void* packet);
+void** gigabit_ethernet_driver_get_transmit_packets();
 
 #ifdef __cplusplus
 }
