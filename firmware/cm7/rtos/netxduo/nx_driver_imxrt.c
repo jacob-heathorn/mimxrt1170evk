@@ -61,6 +61,7 @@ unsigned int gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();
 void gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(unsigned int count);
 unsigned int gigabit_ethernet_driver_get_transmit_release_index();
 void gigabit_ethernet_driver_set_transmit_release_index(unsigned int index);
+void gigabit_ethernet_driver_process_transmitted_packets();
 #ifdef __cplusplus
 }
 #endif
@@ -2388,52 +2389,8 @@ static UINT  _nx_driver_hardware_get_status(NX_IP_DRIVER *driver_req_ptr)
 /**************************************************************************/
 static VOID  _nx_driver_hardware_packet_transmitted(VOID)
 {
-
-ULONG numOfBuf =  gigabit_ethernet_driver_get_number_of_transmit_buffers_in_use();
-ULONG idx =       gigabit_ethernet_driver_get_transmit_release_index();
-
-
-    /* Loop through buffers in use.  */
-    while (numOfBuf--)
-    {
-
-        /* If no packet, just examine the next packet.  */
-        if (gigabit_ethernet_driver_get_transmit_packet(idx) == NX_NULL)
-        {
-
-            /* No packet in use, skip to next.  */
-            idx = (idx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
-            continue;
-        }
-
-        /* Determine if the packet has been transmitted.  */
-        if ((get_tx_descriptors()[idx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) == 0)
-        {
-
-            /* Yes, packet has been transmitted.  */
-
-            /* Remove the Ethernet header and release the packet.  */
-            NX_PACKET* packet = (NX_PACKET*)gigabit_ethernet_driver_get_transmit_packet(idx);
-            NX_DRIVER_ETHERNET_HEADER_REMOVE(packet);
-
-            /* Release the packet.  */
-            nx_packet_transmit_release(packet);
-
-            /* Clear the entry in the in-use array.  */
-            gigabit_ethernet_driver_set_transmit_packet(idx, NX_NULL);
-
-            /* Update the transmit relesae index and number of buffers in use.  */
-            idx = (idx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
-            gigabit_ethernet_driver_set_number_of_transmit_buffers_in_use(numOfBuf);
-            gigabit_ethernet_driver_set_transmit_release_index(idx);
-        }
-        else
-        {
-
-            /* Get out of the loop!  */
-            break;
-        }
-    }
+    /* Call the C++ driver to process transmitted packets */
+    gigabit_ethernet_driver_process_transmitted_packets();
 }
 
 

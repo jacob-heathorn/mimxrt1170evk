@@ -23,6 +23,10 @@ public:
     // Returns true on success, false on error
     bool send(void* packet_ptr);
 
+    // Process transmitted packets - check for completed transmissions and release packets
+    // This is called from the deferred processing routine
+    void process_transmitted_packets();
+
     // Get the TX descriptors pointer (for C code access)
     enet_tx_bd_struct_t* get_tx_descriptors() { return tx_descriptors_; }
 
@@ -87,6 +91,9 @@ int gigabit_ethernet_driver_initialize();
 
 // C wrapper function for send (returns true on success, false on error)
 bool gigabit_ethernet_driver_send(void* packet_ptr);
+
+// C wrapper function for processing transmitted packets
+void gigabit_ethernet_driver_process_transmitted_packets();
 
 // C wrapper function to get TX descriptors
 void* gigabit_ethernet_driver_get_tx_descriptors();

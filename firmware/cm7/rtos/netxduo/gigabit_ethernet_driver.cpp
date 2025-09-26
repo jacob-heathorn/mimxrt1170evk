@@ -4,6 +4,14 @@
 #include "fsl_enet.h"
 #include "nx_api.h"  // For NX_PACKET structure
 
+// Macro to remove Ethernet header from packet
+#define NX_DRIVER_ETHERNET_FRAME_SIZE 14
+#define NX_DRIVER_ETHERNET_HEADER_REMOVE(p) \
+{ \
+    (p)->nx_packet_prepend_ptr += NX_DRIVER_ETHERNET_FRAME_SIZE; \
+    (p)->nx_packet_length -= NX_DRIVER_ETHERNET_FRAME_SIZE; \
+}
+
 GigabitEthernetDriver::GigabitEthernetDriver() :
     transmit_current_index_(0),
     number_of_transmit_buffers_in_use_(0),
@@ -160,6 +168,46 @@ bool GigabitEthernetDriver::send(void* packet_ptr) {
     return true;
 }
 
+void GigabitEthernetDriver::process_transmitted_packets() {
+    unsigned int numOfBuf = number_of_transmit_buffers_in_use_;
+    unsigned int idx = transmit_release_index_;
+
+    // Loop through buffers in use
+    while (numOfBuf--) {
+        // If no packet, just examine the next packet
+        if (transmit_packets_[idx] == nullptr) {
+            // No packet in use, skip to next
+            idx = (idx + 1) & (TX_DESCRIPTOR_COUNT - 1);
+            continue;
+        }
+
+        // Determine if the packet has been transmitted
+        if ((tx_descriptors_[idx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) == 0) {
+            // Yes, packet has been transmitted
+
+            // Get the packet
+            NX_PACKET* packet = transmit_packets_[idx];
+
+            // Remove the Ethernet header and release the packet
+            NX_DRIVER_ETHERNET_HEADER_REMOVE(packet);
+
+            // Release the packet
+            nx_packet_transmit_release(packet);
+
+            // Clear the entry in the in-use array
+            transmit_packets_[idx] = nullptr;
+
+            // Update the transmit release index and number of buffers in use
+            idx = (idx + 1) & (TX_DESCRIPTOR_COUNT - 1);
+            number_of_transmit_buffers_in_use_ = numOfBuf;
+            transmit_release_index_ = idx;
+        } else {
+            // Packet not yet transmitted, get out of the loop
+            break;
+        }
+    }
+}
+
 // C interface functions for calling from nx_driver_imxrt.c
 extern "C" {
 
@@ -212,6 +260,10 @@ unsigned int gigabit_ethernet_driver_get_transmit_release_index() {
 
 void gigabit_ethernet_driver_set_transmit_release_index(unsigned int index) {
     GigabitEthernetDriver::instance().set_transmit_release_index(index);
+}
+
+void gigabit_ethernet_driver_process_transmitted_packets() {
+    GigabitEthernetDriver::instance().process_transmitted_packets();
 }
 
 } // extern "C"
