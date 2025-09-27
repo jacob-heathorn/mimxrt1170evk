@@ -4,6 +4,7 @@
 #include "ftl/singleton.hpp"
 #include "fsl_enet.h"
 #include "detail/tx_descriptor_ring.h"
+#include "detail/tx_frame.h"
 #include "ethernet_frame.hpp"
 #include "nx_api.h"
 #include "etl/queue.h"
@@ -43,7 +44,7 @@ private:
     // Queue of TxFrame objects pending transmission
     // TxFrames own their data and can release the original NX_PACKET immediately
     // Using ETL queue with fixed size matching kNumTxDescriptors
-    etl::queue<ethernet::TxFrame, ethernet::detail::kNumTxDescriptors> tx_frame_queue_;
+    etl::queue<ethernet::detail::TxFrame, ethernet::detail::kNumTxDescriptors> tx_frame_queue_;
 };
 
 // C interface for calling from nx_driver_imxrt.c

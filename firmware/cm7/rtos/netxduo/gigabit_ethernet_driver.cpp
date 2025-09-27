@@ -26,7 +26,7 @@
 
 GigabitEthernetDriver::GigabitEthernetDriver() {
     // Initialize TxFrame with the descriptor ring
-    ethernet::TxFrame::initialize(&tx_descriptor_ring_);
+    ethernet::detail::TxFrame::initialize(&tx_descriptor_ring_);
 
     // Initialize ethernet::Frame allocator strategies with varying sizes
     // Similar to how UDP datagrams are set up in hello_netx
@@ -79,7 +79,7 @@ bool GigabitEthernetDriver::send(ethernet::Frame&& frame) {
     }
 
     // Create TxFrame which acquires descriptor and takes ownership of the frame
-    ethernet::TxFrame tx_frame = ethernet::TxFrame::create(std::move(frame));
+    ethernet::detail::TxFrame tx_frame = ethernet::detail::TxFrame::create(std::move(frame));
 
     // Check if frame was successfully created
     if (!tx_frame) {
