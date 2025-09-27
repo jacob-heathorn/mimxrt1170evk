@@ -90,18 +90,13 @@ private:
     static constexpr unsigned int TX_DESCRIPTOR_COUNT = 64;  // NX_DRIVER_TX_DESCRIPTORS
 
     // Pointer to TX descriptor ring (allocated from OCRAM2)
+    // Ring manages its own head/tail indices for queue-like behavior
     TxBufferDescriptorRing<TX_DESCRIPTOR_COUNT>* tx_descriptor_ring_;
-
-    // Current transmit descriptor index
-    unsigned int transmit_current_index_;
 
     // Queue of TxFrame objects pending transmission
     // TxFrames own their data and can release the original NX_PACKET immediately
     // Using ETL queue with fixed size matching TX_DESCRIPTOR_COUNT
     etl::queue<ftl::unique_ptr<TxFrame>, TX_DESCRIPTOR_COUNT> tx_frame_queue_;
-
-    // Number of transmit buffers currently in use
-    unsigned int number_of_transmit_buffers_in_use_;
 };
 
 // C interface for calling from nx_driver_imxrt.c

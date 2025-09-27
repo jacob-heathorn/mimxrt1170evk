@@ -23,10 +23,8 @@
 }
 
 GigabitEthernetDriver::GigabitEthernetDriver() :
-    tx_descriptor_ring_(nullptr),
-    transmit_current_index_(0),
-    number_of_transmit_buffers_in_use_(0) {
-    // Constructor - initialize transmit index and queue
+    tx_descriptor_ring_(nullptr) {
+    // Constructor - initialize descriptor ring pointer
 }
 
 GigabitEthernetDriver::~GigabitEthernetDriver() {
@@ -36,9 +34,6 @@ GigabitEthernetDriver::~GigabitEthernetDriver() {
 int GigabitEthernetDriver::initialize() {
     printf("GigabitEthernetDriver::initialize\n");
 
-    // Initialize the transmit index and buffers in use count
-    transmit_current_index_ = 0;
-    number_of_transmit_buffers_in_use_ = 0;
     // Clear the queue if it has any leftover frames
     tx_frame_queue_.clear();
 
@@ -86,23 +81,32 @@ bool GigabitEthernetDriver::send(NX_PACKET* packet) {
     static ftl::allocator::BumpPoolObjStrategy<TxFrame> tx_frame_strategy(DtcmAllocator::instance());
     static ftl::allocator::ObjAllocator<TxFrame> tx_frame_allocator(tx_frame_strategy);
 
-    // Pick up the next free descriptor
-    unsigned int curIdx = transmit_current_index_;
+    // Get the next available descriptor from the ring
+    TxBufferDescriptor* descriptor = tx_descriptor_ring_->acquire_front();
+    if (!descriptor) {
+        // Ring is full, cannot send
+        assert(false && "Ethernet Tx descriptor ring is full");
+        return false;
+    }
 
-    // Check if descriptor is free
-    if ((*tx_descriptor_ring_)[curIdx].isReady()) {
-        // Descriptor is still owned by hardware
+    printf("Descriptor address %p\n", descriptor);
+
+    // Check if descriptor is free (hardware cleared READY bit)
+    if (descriptor->isReady()) {
+        // Descriptor is still owned by hardware, ring state is inconsistent
+        // This shouldn't happen if ring is properly managed
+        assert(false && "Ring returned descriptor still owned by hardware");
         return false;
     }
 
     // Create TxFrame which copies the packet data
     // Uses custom allocator with DTCM memory
-    auto tx_frame = tx_frame_allocator.make_unique((*tx_descriptor_ring_)[curIdx], packet);
+    auto tx_frame = tx_frame_allocator.make_unique(*descriptor, packet);
 
     // Mark frame ready for transmission
     tx_frame->markReadyForTransmission();
 
-    // Queue the frame (ETL queue doesn't have emplace, use push)
+    // Queue the frame
     if (!tx_frame_queue_.full()) {
         tx_frame_queue_.push(std::move(tx_frame));
     } else {
@@ -117,11 +121,7 @@ bool GigabitEthernetDriver::send(NX_PACKET* packet) {
     // Release the original packet immediately since TxFrame owns the data now
     nx_packet_transmit_release(packet);
 
-    // Set the current index to the next descriptor
-    transmit_current_index_ = (curIdx + 1) & (TX_DESCRIPTOR_COUNT - 1);
-
-    // Increment the transmit buffers in use count (just one descriptor for non-chained packets)
-    number_of_transmit_buffers_in_use_++;
+    // Descriptor is now in use, tracked by the ring's internal count
 
     // Resume DMA transmission if suspended (using ENET_1G for gigabit)
     if (!ENET_1G->TDAR) {
@@ -141,10 +141,8 @@ void GigabitEthernetDriver::process_transmitted_packets() {
             // Frame destructor will clean up the Payload buffer
             tx_frame_queue_.pop();
 
-            // Decrement buffers in use count
-            if (number_of_transmit_buffers_in_use_ > 0) {
-                number_of_transmit_buffers_in_use_--;
-            }
+            // Release the descriptor back to the ring
+            tx_descriptor_ring_->release_back();
         } else {
             // Front frame not yet transmitted, stop processing
             // (frames are processed in order)

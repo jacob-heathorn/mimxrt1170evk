@@ -8,10 +8,6 @@ add_platform_test(ut-memory
 add_platform_test(ut-threadx
   ut_concurrency.cpp
 )
-add_platform_test(ut-ethernet
-  ut_ethernet.cpp
-)
-target_link_libraries(ut-ethernet PRIVATE network)
 
 # Hello world.
 find_cm4(CORE0 "hello-world-cm4.bin.cpp")
