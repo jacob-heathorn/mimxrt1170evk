@@ -53,6 +53,9 @@ extern "C" {
 int gigabit_ethernet_driver_initialize();
 bool gigabit_ethernet_driver_send(void* packet_ptr);
 void gigabit_ethernet_driver_process_transmitted_packets();
+void gigabit_ethernet_driver_process_received_packets(void* packet_pool,
+                                                       void* ip_ptr,
+                                                       void (*callback)(void*, void*));
 #ifdef __cplusplus
 }
 #endif
@@ -1809,7 +1812,6 @@ static void enet_init(void)
 static UINT  _nx_driver_hardware_initialize(NX_IP_DRIVER *driver_req_ptr)
 {
 
-NX_PACKET           *packet_ptr;
 UINT                i;
 
     /* Default to successful return.  */
@@ -1838,44 +1840,18 @@ UINT                i;
 #error "Number of Buffer Descriptors must be power of 2"
 #endif
 
-    nx_driver_information.nx_driver_information_dma_rx_descriptors = (enet_rx_bd_struct_t*)(((UINT)nx_driver_information.nx_driver_information_dma_rx_descriptors_area + 15) & (~15));
-
-    /* Fill each DMARxDesc descriptor with the right values */
-    for(i = 0; i < NX_DRIVER_RX_DESCRIPTORS; i++)
-    {
-        nx_driver_information.nx_driver_information_dma_rx_descriptors[i].length = 0;
-
-        /* Allocate a packet for the receive buffers.  */
-        if (nx_packet_allocate(nx_driver_information.nx_driver_information_packet_pool_ptr, &packet_ptr,
-                               NX_RECEIVE_PACKET, NX_NO_WAIT) == NX_SUCCESS)
-        {
-            nx_driver_information.nx_driver_information_dma_rx_descriptors[i].control = ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-            nx_driver_information.nx_driver_information_dma_rx_descriptors[i].controlExtend2 = 0x0000;
-            nx_driver_information.nx_driver_information_dma_rx_descriptors[i].controlExtend1 = ENET_BUFFDESCRIPTOR_RX_BROADCAST_MASK;
-#endif
-            nx_driver_information.nx_driver_information_dma_rx_descriptors[i].buffer = (uint32_t)packet_ptr->nx_packet_prepend_ptr;
-            nx_driver_information.nx_driver_information_receive_packets[i] = packet_ptr;
-        }
-        else
-        {
-            /* Cannot allocate packets from the packet pool. */
-            return(NX_DRIVER_ERROR);
-        }
-    }
-
-    /* Put the Wrap indication on the last descriptor.  */
-    nx_driver_information.nx_driver_information_dma_rx_descriptors[NX_DRIVER_RX_DESCRIPTORS - 1].control |= ENET_BUFFDESCRIPTOR_RX_WRAP_MASK | ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-
-    /* Save the size of one rx buffer.  */
-    nx_driver_information.nx_driver_information_rx_buffer_size = packet_ptr -> nx_packet_data_end - packet_ptr -> nx_packet_data_start;
+    /* RX descriptor setup is now handled by the C++ driver */
+    /* The C++ driver will:
+     * - Allocate RX descriptors from OCRAM2 with proper alignment
+     * - Initialize ethernet::Frame buffers for each descriptor
+     * - Set RDSR register to point to the descriptor ring
+     */
 
     /* Configure the Receive Buffer Size Register.  */
-    EXAMPLE_ENET->MRBR = nx_driver_information.nx_driver_information_rx_buffer_size;
+    /* Each buffer is 1536 bytes + 2 bytes padding = 1538 bytes */
+    EXAMPLE_ENET->MRBR = 1538;
 
-    /* Set Receive Descriptor List Address Register.  */
-    EXAMPLE_ENET->RDSR = (ULONG) nx_driver_information.nx_driver_information_dma_rx_descriptors;
+    /* Note: RDSR is set by the C++ driver in gigabit_ethernet_driver_initialize() */
 
     /******************** Multicast Initialization ********************/
 
@@ -2411,88 +2387,11 @@ static VOID  _nx_driver_hardware_packet_transmitted(VOID)
 /**************************************************************************/
 static VOID  _nx_driver_hardware_packet_received(VOID)
 {
-
-NX_PACKET     *packet_ptr;
-NX_PACKET     *received_packet_ptr;
-ULONG          idx;
-
-    /* Process all descriptors owned by CPU.  */
-    for (idx = nx_driver_information.nx_driver_information_receive_current_index;
-        (nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control & ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK) == 0;
-         idx = (idx + 1) & (NX_DRIVER_RX_DESCRIPTORS - 1))
-    {
-
-        /* Check if this BD is marked as the last (and only) BD of a frame.  */
-        if (nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control & ENET_BUFFDESCRIPTOR_RX_LAST_MASK)
-        {
-            /* Get the received packet.  */
-            received_packet_ptr = nx_driver_information.nx_driver_information_receive_packets[idx];
-
-            /* Set packet length (subtract 2-byte padding).  */
-            received_packet_ptr->nx_packet_length = (nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].length) - 2;
-
-            /* Skip the 2-byte padding.  */
-            received_packet_ptr->nx_packet_prepend_ptr += 2;
-
-            /* Set append pointer to the end of received data.  */
-            received_packet_ptr->nx_packet_append_ptr = received_packet_ptr->nx_packet_prepend_ptr + received_packet_ptr->nx_packet_length;
-
-            /* Ensure no chaining - single buffer only.  */
-            received_packet_ptr->nx_packet_next = NX_NULL;
-
-            /* Allocate a new packet for this descriptor.  */
-            if (nx_packet_allocate(nx_driver_information.nx_driver_information_packet_pool_ptr, &packet_ptr,
-                                      NX_RECEIVE_PACKET, NX_NO_WAIT) == NX_SUCCESS)
-            {
-                /* Assign the new packet to the descriptor.  */
-                nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].buffer = (uint32_t)(packet_ptr->nx_packet_prepend_ptr);
-                nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control |= ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-                nx_driver_information.nx_driver_information_receive_packets[idx] = packet_ptr;
-
-                /* Transfer the received packet to NetX.  */
-                _nx_driver_transfer_to_netx(nx_driver_information.nx_driver_information_ip_ptr, received_packet_ptr);
-            }
-            else
-            {
-                /* Allocation failed, reuse the same packet buffer.  */
-                received_packet_ptr->nx_packet_prepend_ptr = received_packet_ptr->nx_packet_data_start;
-                received_packet_ptr->nx_packet_append_ptr = received_packet_ptr->nx_packet_data_start;
-                nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control |= ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-            }
-
-            /* Update the current receive index.  */
-            nx_driver_information.nx_driver_information_receive_current_index = (idx + 1) & (NX_DRIVER_RX_DESCRIPTORS - 1);
-        }
-        else
-        {
-            /* This is an intermediate buffer descriptor (packet spans multiple buffers).
-               We don't support chained packets - this should never happen if buffers are
-               sized appropriately for the maximum frame size. */
-            assert(false && "Received packet requires chaining - not supported. Increase buffer size.");
-
-            /* Reset the packet buffer for reuse.  */
-            nx_driver_information.nx_driver_information_receive_packets[idx]->nx_packet_prepend_ptr =
-                nx_driver_information.nx_driver_information_receive_packets[idx]->nx_packet_data_start;
-            nx_driver_information.nx_driver_information_receive_packets[idx]->nx_packet_append_ptr =
-                nx_driver_information.nx_driver_information_receive_packets[idx]->nx_packet_data_start;
-            nx_driver_information.nx_driver_information_receive_packets[idx]->nx_packet_next = NX_NULL;
-
-            /* Mark descriptor as empty for hardware to use.  */
-            nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control |= ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-
-            /* Update the current receive index.  */
-            nx_driver_information.nx_driver_information_receive_current_index = (idx + 1) & (NX_DRIVER_RX_DESCRIPTORS - 1);
-        }
-    }
-
-    /* If Rx DMA is in suspended state, resume it.  */
-    if (!EXAMPLE_ENET->RDAR)
-    {
-
-        /* Resume DMA reception */
-        EXAMPLE_ENET->RDAR = ENET_RDAR_RDAR_MASK;
-    }
-
+    /* Use the C++ driver to process received packets */
+    gigabit_ethernet_driver_process_received_packets(
+        nx_driver_information.nx_driver_information_packet_pool_ptr,
+        nx_driver_information.nx_driver_information_ip_ptr,
+        (void (*)(void*, void*))_nx_driver_transfer_to_netx);
 }
 
 
