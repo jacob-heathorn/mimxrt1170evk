@@ -52,10 +52,10 @@ public:
     // Will eventually contain hardware initialization logic
     int initialize();
 
-    // Send a packet
-    // packet_ptr will eventually be NX_PACKET* but using void* for C compatibility
+    // Send a packet (does not support chained packets)
+    // Caller must ensure packet->nx_packet_next == nullptr
     // Returns true on success, false on error
-    bool send(void* packet_ptr);
+    bool send(NX_PACKET* packet);
 
     // Process transmitted packets - check for completed transmissions and release packets
     // This is called from the deferred processing routine
@@ -96,6 +96,7 @@ extern "C" {
 int gigabit_ethernet_driver_initialize();
 
 // C wrapper function for send (returns true on success, false on error)
+// Note: packet must not be chained (nx_packet_next must be NULL)
 bool gigabit_ethernet_driver_send(void* packet_ptr);
 
 // C wrapper function for processing transmitted packets

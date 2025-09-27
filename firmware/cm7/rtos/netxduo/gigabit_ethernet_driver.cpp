@@ -68,13 +68,15 @@ int GigabitEthernetDriver::initialize() {
     return 0;  // Return success
 }
 
-bool GigabitEthernetDriver::send(void* packet_ptr) {
+bool GigabitEthernetDriver::send(NX_PACKET* packet) {
     printf("GigabitEthernetDriver::send\n");
 
-    NX_PACKET* packet = static_cast<NX_PACKET*>(packet_ptr);
     if (!packet) {
         return false;
     }
+
+    // This driver does not support chained packets
+    assert(packet->nx_packet_next == nullptr && "Driver does not support chained packets");
 
     // Pick up the first BD
     unsigned int curIdx = transmit_current_index_;
@@ -107,42 +109,10 @@ bool GigabitEthernetDriver::send(void* packet_ptr) {
     // Set the buffer pointer
     (*tx_descriptor_ring_)[curIdx].setBuffer(reinterpret_cast<uint32_t>(packet->nx_packet_prepend_ptr - 2));
 
-    // Clear the first descriptor's LAST bit
-    (*tx_descriptor_ring_)[curIdx].setLast(false);
-
-    // Handle chained packets
-    unsigned int bd_count = 0;
-    NX_PACKET* pktIdx = packet->nx_packet_next;
-    printf("Not chained\n");
-    while (pktIdx != nullptr) {
-        printf("chained!\n");
-        // Move to next descriptor
-        curIdx = (curIdx + 1) & (TX_DESCRIPTOR_COUNT - 1);
-
-        // Check if it is a free descriptor
-        if ((*tx_descriptor_ring_)[curIdx].isReady() || transmit_packets_[curIdx]) {
-            // No more descriptor available
-            return false;
-        }
-
-        // Set the buffer pointer
-        (*tx_descriptor_ring_)[curIdx].setBuffer(reinterpret_cast<uint32_t>(pktIdx->nx_packet_prepend_ptr));
-
-        // Set the buffer size
-        (*tx_descriptor_ring_)[curIdx].setLength(pktIdx->nx_packet_append_ptr - pktIdx->nx_packet_prepend_ptr);
-
-        // Clear the descriptor's LAST bit
-        (*tx_descriptor_ring_)[curIdx].setLast(false);
-
-        // Increment the BD count
-        bd_count++;
-
-        // Move to next packet in chain
-        pktIdx = pktIdx->nx_packet_next;
-    }
-
-    // Set the last descriptor's LAST and READY bits
+    // Set the descriptor's LAST bit (single packet, not chained)
     (*tx_descriptor_ring_)[curIdx].setLast(true);
+
+    // Set the descriptor's READY bit
     (*tx_descriptor_ring_)[curIdx].setReady(true);
 
     // Save the packet pointer for later release
@@ -151,16 +121,8 @@ bool GigabitEthernetDriver::send(void* packet_ptr) {
     // Set the current index to the next descriptor
     transmit_current_index_ = (curIdx + 1) & (TX_DESCRIPTOR_COUNT - 1);
 
-    // Increment the transmit buffers in use count
-    number_of_transmit_buffers_in_use_ += bd_count + 1;
-
-    // Set READY bit to indicate BDs are ready (in reverse order)
-    for (; bd_count > 0; bd_count--) {
-        // Move to previous BD
-        curIdx = (curIdx - 1) & (TX_DESCRIPTOR_COUNT - 1);
-        // Set this BD's READY bit
-        (*tx_descriptor_ring_)[curIdx].setReady(true);
-    }
+    // Increment the transmit buffers in use count (just one descriptor for non-chained packets)
+    number_of_transmit_buffers_in_use_++;
 
     // Resume DMA transmission if suspended (using ENET_1G for gigabit)
     if (!ENET_1G->TDAR) {
@@ -218,7 +180,8 @@ int gigabit_ethernet_driver_initialize() {
 }
 
 bool gigabit_ethernet_driver_send(void* packet_ptr) {
-    return GigabitEthernetDriver::instance().send(packet_ptr);
+    NX_PACKET* packet = static_cast<NX_PACKET*>(packet_ptr);
+    return GigabitEthernetDriver::instance().send(packet);
 }
 
 void gigabit_ethernet_driver_process_transmitted_packets() {

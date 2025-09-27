@@ -44,6 +44,7 @@
 // #include "fsl_debug_console.h"
 #include "nx_driver_imxrt.h"
 #include <stdbool.h>  // For bool type in C
+#include <assert.h>   // For assert
 
 /* C++ driver interface */
 #ifdef __cplusplus
@@ -2045,6 +2046,11 @@ static UINT  _nx_driver_hardware_disable(NX_IP_DRIVER *driver_req_ptr)
 /**************************************************************************/
 static UINT  _nx_driver_hardware_packet_send(NX_PACKET *packet_ptr)
 {
+    /* The C++ GigabitEthernetDriver does not support chained packets.
+       Ensure the packet is not chained before passing to the driver. */
+    assert(packet_ptr->nx_packet_next == NX_NULL &&
+           "GigabitEthernetDriver does not support chained packets");
+
     /* Call the C++ driver to handle packet transmission */
     /* Convert boolean result to NetX return codes (NX_SUCCESS=0, NX_DRIVER_ERROR=90) */
     return gigabit_ethernet_driver_send(packet_ptr) ? NX_SUCCESS : NX_DRIVER_ERROR;
