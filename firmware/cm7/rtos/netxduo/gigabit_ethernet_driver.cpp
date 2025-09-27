@@ -24,9 +24,21 @@
     (p)->nx_packet_length -= NX_DRIVER_ETHERNET_FRAME_SIZE; \
 }
 
-GigabitEthernetDriver::GigabitEthernetDriver() :
-    tx_descriptor_ring_(nullptr) {
-    // Constructor - initialize descriptor ring pointer
+GigabitEthernetDriver::GigabitEthernetDriver() {
+    // Allocate TX descriptor ring from OCRAM2 (non-cacheable, 64-byte aligned)
+    // Using templated allocate for proper construction
+    tx_descriptor_ring_ = Ocram2Allocator::instance().allocate<TxBufferDescriptorRing>();
+
+    if (!tx_descriptor_ring_) {
+        printf("GigabitEthernetDriver: Failed to allocate TX descriptor ring\n");
+        assert(false && "Failed to allocate TX descriptor ring");
+    }
+
+    // Initialize TxFrame with the descriptor ring
+    ethernet::TxFrame::initialize(tx_descriptor_ring_);
+
+    printf("GigabitEthernetDriver: Allocated TX descriptor ring with %zu descriptors at %p\n",
+           kNumTxDescriptors, static_cast<const void*>(tx_descriptor_ring_));
 
     // Initialize ethernet::Frame allocator strategies with varying sizes
     // Similar to how UDP datagrams are set up in hello_netx
@@ -64,34 +76,15 @@ int GigabitEthernetDriver::initialize() {
     // Clear the queue if it has any leftover frames
     tx_frame_queue_.clear();
 
-    // Allocate TX descriptor ring from OCRAM2 (non-cacheable, 64-byte aligned)
-    // NXP driver suggests minimum 8-byte, recommended 64-byte (ENET_BUFF_ALIGNMENT)
-    // TODO: Confirm above statement in RM
-    size_t ring_size = sizeof(TxBufferDescriptorRing);
-    void* mem = Ocram2Allocator::instance().allocate(ring_size, 64);
-    if (!mem) {
-        printf("GigabitEthernetDriver: Failed to allocate TX descriptor ring\n");
-        return -1;
-    }
-
-    // Placement new to construct TxBufferDescriptorRing
-    tx_descriptor_ring_ = new (mem) TxBufferDescriptorRing();
-
-    // Ring constructor already initializes descriptors and sets wrap bit
-
     // Make sure Number of Buffer Descriptors is power of 2
     static_assert((kNumTxDescriptors & (kNumTxDescriptors - 1)) == 0,
                   "Number of Buffer Descriptors must be power of 2");
 
-    // Initialize TxFrame with the descriptor ring
-    ethernet::TxFrame::initialize(tx_descriptor_ring_);
-
     // Set Transmit Descriptor List Address Register
-    // Point to the base of the descriptor ring
+    // Point to the base of the descriptor ring (allocated in constructor)
     ENET_1G->TDSR = tx_descriptor_ring_->getBaseAddress();
 
-    printf("GigabitEthernetDriver: Initialized TX descriptor ring with %zu descriptors at %p, TDSR set to 0x%08lX\n",
-           kNumTxDescriptors, const_cast<const void*>(tx_descriptor_ring_->getRawMemory()), ENET_1G->TDSR);
+    printf("GigabitEthernetDriver: TDSR set to 0x%08lX\n", ENET_1G->TDSR);
 
     return 0;  // Return success
 }
