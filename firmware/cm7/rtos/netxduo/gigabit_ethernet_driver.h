@@ -4,9 +4,42 @@
 #include "ftl/singleton.hpp"
 #include "fsl_enet.h"
 #include "tx_buffer_descriptor_ring.h"
+#include "ftl/ipv4/udp/payload.hpp"
+#include "nx_api.h"
+#include <cstring>
+#include <cassert>
 
-// Forward declaration for NX_PACKET (it's a typedef in nx_api.h)
-typedef struct NX_PACKET_STRUCT NX_PACKET;
+
+// TODO: Rename ftl::ipv4::udp::Payload to something more generic (not UDP-specific)
+// For now using Payload as a runtime-sized buffer for Ethernet frames
+class TxFrame {
+    public:
+        TxFrame(TxBufferDescriptor &descriptor, NX_PACKET* packet)
+            : descriptor_(&descriptor) {
+            // Assumes packet is not chained (nx_packet_next == nullptr)
+            // Calculate frame size from packet pointers
+            size_t frame_size = packet->nx_packet_append_ptr - packet->nx_packet_prepend_ptr;
+
+            // Allocate with 2-byte padding at the start for hardware requirement
+            data_frame_ = ftl::ipv4::udp::Payload(frame_size + 2);
+
+            // Assert that Payload allocator returned 8-byte aligned memory
+            // This is required for DMA to work correctly
+            assert((reinterpret_cast<uintptr_t>(data_frame_.front()) & 0x7) == 0 &&
+                   "Payload buffer must be 8-byte aligned for DMA");
+
+            // Copy packet data starting at offset 2
+            std::memcpy(data_frame_.front() + 2, packet->nx_packet_prepend_ptr, frame_size);
+
+            // Configure descriptor to point to start of buffer (with 2-byte padding)
+            descriptor_->setBuffer(data_frame_.front());
+            descriptor_->setLength(frame_size + 2);
+        }
+
+    private:
+        ftl::ipv4::udp::Payload data_frame_;  // Local buffer for frame data
+        TxBufferDescriptor* descriptor_;
+};
 
 // C++ driver class for Gigabit Ethernet
 class GigabitEthernetDriver : public ftl::Singleton<GigabitEthernetDriver> {

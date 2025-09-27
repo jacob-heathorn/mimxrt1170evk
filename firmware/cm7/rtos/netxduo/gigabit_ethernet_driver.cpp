@@ -85,6 +85,13 @@ bool GigabitEthernetDriver::send(void* packet_ptr) {
         return false;
     }
 
+    /// Temporary code
+    TxBufferDescriptor dummy{};
+    TxFrame frame(dummy, packet);
+    (void)frame;
+
+    ///
+
     // Set the buffer size
     (*tx_descriptor_ring_)[curIdx].setLength(packet->nx_packet_append_ptr - packet->nx_packet_prepend_ptr + 2);
 
@@ -106,7 +113,9 @@ bool GigabitEthernetDriver::send(void* packet_ptr) {
     // Handle chained packets
     unsigned int bd_count = 0;
     NX_PACKET* pktIdx = packet->nx_packet_next;
+    printf("Not chained\n");
     while (pktIdx != nullptr) {
+        printf("chained!\n");
         // Move to next descriptor
         curIdx = (curIdx + 1) & (TX_DESCRIPTOR_COUNT - 1);
 
