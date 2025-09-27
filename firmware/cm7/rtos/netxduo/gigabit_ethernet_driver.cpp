@@ -4,7 +4,7 @@
 #include "fsl_enet.h"
 #include "nx_api.h"  // For NX_PACKET structure
 #include "utils/ocram2_allocator.hpp"
-#include "utils/dtcm_allocator.hpp"  // For TxFrame allocation
+#include "utils/dtcm_allocator.hpp"
 #include "ftl/allocator/bump_pool_buffer_strategy.hpp"
 #include "ftl/allocator/buffer_allocator.hpp"
 
@@ -103,10 +103,11 @@ bool GigabitEthernetDriver::send(NX_PACKET* packet) {
     // This driver does not support chained packets
     assert(packet->nx_packet_next == nullptr && "Driver does not support chained packets");
 
-    // Static TxFrame allocator using DTCM memory
-    // BumpPoolObjStrategy takes only the allocator
-    static ftl::allocator::BumpPoolObjStrategy<ethernet::TxFrame> tx_frame_strategy(DtcmAllocator::instance());
-    static ftl::allocator::ObjAllocator<ethernet::TxFrame> tx_frame_allocator(tx_frame_strategy);
+    // Check if queue has space
+    if (tx_frame_queue_.full()) {
+        // Queue is full, cannot send
+        return false;
+    }
 
     // Get the next available descriptor from the ring
     TxBufferDescriptor* descriptor = tx_descriptor_ring_->acquire_front();
@@ -115,8 +116,6 @@ bool GigabitEthernetDriver::send(NX_PACKET* packet) {
         assert(false && "Ethernet Tx descriptor ring is full");
         return false;
     }
-
-    printf("Descriptor address %p\n", descriptor);
 
     // Check if descriptor is free (hardware cleared READY bit)
     if (descriptor->isReady()) {
@@ -127,19 +126,13 @@ bool GigabitEthernetDriver::send(NX_PACKET* packet) {
     }
 
     // Create TxFrame which copies the packet data
-    // Uses custom allocator with DTCM memory
-    auto tx_frame = tx_frame_allocator.make_unique(*descriptor, packet);
+    ethernet::TxFrame tx_frame(*descriptor, packet);
 
     // Mark frame ready for transmission
-    tx_frame->markReadyForTransmission();
+    tx_frame.markReadyForTransmission();
 
-    // Queue the frame
-    if (!tx_frame_queue_.full()) {
-        tx_frame_queue_.push(std::move(tx_frame));
-    } else {
-        // Queue is full, cannot send
-        return false;
-    }
+    // Move the frame into the queue
+    tx_frame_queue_.push(std::move(tx_frame));
 
     // Remove the Ethernet header that was added by _nx_driver_packet_send()
     // before releasing the packet back to the pool
@@ -163,9 +156,9 @@ void GigabitEthernetDriver::process_transmitted_packets() {
     while (!tx_frame_queue_.empty()) {
         // Check if the front frame has completed transmission
         // ETL queue uses front() to access without removing
-        if (tx_frame_queue_.front()->isTransmissionComplete()) {
+        if (tx_frame_queue_.front().isTransmissionComplete()) {
             // Transmission complete - remove frame from queue
-            // Frame destructor will clean up the Payload buffer
+            // Frame destructor will clean up the Frame buffer
             tx_frame_queue_.pop();
 
             // Release the descriptor back to the ring

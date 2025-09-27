@@ -63,6 +63,27 @@ public:
         return !descriptor_->isReady();
     }
 
+    // Move constructor
+    TxFrame(TxFrame&& other) noexcept
+        : data_frame_(std::move(other.data_frame_)),
+          descriptor_(other.descriptor_) {
+        other.descriptor_ = nullptr;
+    }
+
+    // Move assignment operator
+    TxFrame& operator=(TxFrame&& other) noexcept {
+        if (this != &other) {
+            data_frame_ = std::move(other.data_frame_);
+            descriptor_ = other.descriptor_;
+            other.descriptor_ = nullptr;
+        }
+        return *this;
+    }
+
+    // Delete copy operations
+    TxFrame(const TxFrame&) = delete;
+    TxFrame& operator=(const TxFrame&) = delete;
+
     // Mark descriptor as ready for transmission
     void markReadyForTransmission() {
         descriptor_->setReady(true);

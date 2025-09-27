@@ -5,9 +5,6 @@
 #include "fsl_enet.h"
 #include "tx_buffer_descriptor_ring.h"
 #include "ethernet_frame.hpp"
-#include "ftl/allocator/obj_allocator.hpp"
-#include "ftl/allocator/bump_pool_obj_strategy.hpp"
-#include "ftl/memory.hpp"  // For ftl::unique_ptr
 #include "nx_api.h"
 #include "etl/queue.h"
 #include <cstring>
@@ -48,7 +45,7 @@ private:
     // Queue of TxFrame objects pending transmission
     // TxFrames own their data and can release the original NX_PACKET immediately
     // Using ETL queue with fixed size matching TX_DESCRIPTOR_COUNT
-    etl::queue<ftl::unique_ptr<ethernet::TxFrame>, TX_DESCRIPTOR_COUNT> tx_frame_queue_;
+    etl::queue<ethernet::TxFrame, TX_DESCRIPTOR_COUNT> tx_frame_queue_;
 };
 
 // C interface for calling from nx_driver_imxrt.c
