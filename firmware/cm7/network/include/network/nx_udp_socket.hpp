@@ -62,7 +62,7 @@ public:
 
     // --- unicast send/recv remain the same ---
 
-    bool send(ftl::ipv4::udp::Payload payload,
+    bool send(ftl::ipv4::udp::Payload&& payload,
               const ftl::ipv4::Endpoint dest) override
     {
         NX_PACKET* packet;
