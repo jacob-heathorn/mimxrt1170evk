@@ -96,15 +96,8 @@ int GigabitEthernetDriver::initialize() {
     return 0;  // Return success
 }
 
-bool GigabitEthernetDriver::send(NX_PACKET* packet) {
+bool GigabitEthernetDriver::send(ethernet::Frame&& frame) {
     printf("GigabitEthernetDriver::send\n");
-
-    if (!packet) {
-        return false;
-    }
-
-    // This driver does not support chained packets
-    assert(packet->nx_packet_next == nullptr && "Driver does not support chained packets");
 
     // Check if queue has space
     if (tx_frame_queue_.full()) {
@@ -112,8 +105,8 @@ bool GigabitEthernetDriver::send(NX_PACKET* packet) {
         return false;
     }
 
-    // Create TxFrame which acquires descriptor and copies the packet data
-    ethernet::TxFrame tx_frame = ethernet::TxFrame::create(packet);
+    // Create TxFrame which acquires descriptor and takes ownership of the frame
+    ethernet::TxFrame tx_frame = ethernet::TxFrame::create(std::move(frame));
 
     // Check if frame was successfully created
     if (!tx_frame) {
@@ -126,13 +119,6 @@ bool GigabitEthernetDriver::send(NX_PACKET* packet) {
 
     // Move the frame into the queue
     tx_frame_queue_.push(std::move(tx_frame));
-
-    // Remove the Ethernet header that was added by _nx_driver_packet_send()
-    // before releasing the packet back to the pool
-    NX_DRIVER_ETHERNET_HEADER_REMOVE(packet);
-
-    // Release the original packet immediately since TxFrame owns the data now
-    nx_packet_transmit_release(packet);
 
     // Descriptor is now in use, tracked by the ring's internal count
 
@@ -170,7 +156,26 @@ int gigabit_ethernet_driver_initialize() {
 
 bool gigabit_ethernet_driver_send(void* packet_ptr) {
     NX_PACKET* packet = static_cast<NX_PACKET*>(packet_ptr);
-    return GigabitEthernetDriver::instance().send(packet);
+
+    // This driver does not support chained packets
+    assert(packet->nx_packet_next == nullptr && "Driver does not support chained packets");
+
+    // Create ethernet::Frame from NX_PACKET (with 2-byte padding)
+    ethernet::Frame frame(packet);
+
+    // Pass the frame to the driver
+    bool success = GigabitEthernetDriver::instance().send(std::move(frame));
+
+    if (success) {
+        // Remove the Ethernet header that was added by _nx_driver_packet_send()
+        // before releasing the packet back to the pool
+        NX_DRIVER_ETHERNET_HEADER_REMOVE(packet);
+
+        // Release the original packet immediately since Frame has copied the data
+        nx_packet_transmit_release(packet);
+    }
+
+    return success;
 }
 
 void gigabit_ethernet_driver_process_transmitted_packets() {

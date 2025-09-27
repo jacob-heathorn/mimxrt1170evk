@@ -21,10 +21,9 @@ public:
     // Will eventually contain hardware initialization logic
     int initialize();
 
-    // Send a packet (does not support chained packets)
-    // Caller must ensure packet->nx_packet_next == nullptr
+    // Send a frame (takes ownership of the frame)
     // Returns true on success, false on error
-    bool send(NX_PACKET* packet);
+    bool send(ethernet::Frame&& frame);
 
     // Process transmitted packets - check for completed transmissions and release packets
     // This is called from the deferred processing routine

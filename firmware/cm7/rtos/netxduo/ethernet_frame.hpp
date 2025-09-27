@@ -18,6 +18,21 @@ public:
         : DataFrame(size) {
     }
 
+    // Construct from NX_PACKET - copies data with 2-byte padding for hardware
+    explicit Frame(NX_PACKET* packet) {
+        // Assumes packet is not chained (nx_packet_next == nullptr)
+        assert(packet->nx_packet_next == nullptr && "Frame does not support chained packets");
+
+        // Calculate frame size from packet pointers
+        size_t frame_size = packet->nx_packet_append_ptr - packet->nx_packet_prepend_ptr;
+
+        // Allocate with 2-byte padding at the start for hardware requirement
+        *this = Frame(frame_size + 2);
+
+        // Copy packet data starting at offset 2
+        std::memcpy(front() + 2, packet->nx_packet_prepend_ptr, frame_size);
+    }
+
     Frame() = default;
 
     // Movable but not copyable
@@ -37,12 +52,11 @@ public:
         tx_descriptor_ring_ = ring;
     }
 
-    // Create a TxFrame by acquiring a descriptor and copying data from NX_PACKET
+    // Create a TxFrame by acquiring a descriptor and moving an ethernet::Frame
     // Returns a TxFrame that may be empty if no descriptor available
     // Use operator bool() to check if frame is valid
-    // After creation, the original NX_PACKET can be released immediately
-    // as TxFrame owns its own copy of the data
-    static TxFrame create(NX_PACKET* packet) {
+    // Takes ownership of the Frame data
+    static TxFrame create(ethernet::Frame&& frame) {
         // Acquire descriptor from the ring (at back/tail)
         TxBufferDescriptor* descriptor = tx_descriptor_ring_->acquire_back();
         if (!descriptor) {
@@ -56,7 +70,7 @@ public:
             return TxFrame();  // Return empty frame
         }
 
-        return TxFrame(*descriptor, packet);
+        return TxFrame(*descriptor, std::move(frame));
     }
 
     // Check if frame is valid (has a descriptor)
@@ -119,28 +133,15 @@ private:
     TxFrame() : descriptor_(nullptr) {}
 
     // Private constructor - use create() method instead
-    TxFrame(TxBufferDescriptor &descriptor, NX_PACKET* packet)
-        : descriptor_(&descriptor) {
-        // Assumes packet is not chained (nx_packet_next == nullptr)
-        assert(packet->nx_packet_next == nullptr && "TxFrame does not support chained packets");
-
-        // Calculate frame size from packet pointers
-        size_t frame_size = packet->nx_packet_append_ptr - packet->nx_packet_prepend_ptr;
-
-        // Allocate with 2-byte padding at the start for hardware requirement
-        data_frame_ = Frame(frame_size + 2);
-
-        // Assert that Frame allocator returned 8-byte aligned memory
-        // This is required for DMA to work correctly
+    TxFrame(TxBufferDescriptor &descriptor, ethernet::Frame&& frame)
+        : data_frame_(std::move(frame)), descriptor_(&descriptor) {
+        // Assert that Frame buffer is 8-byte aligned for DMA
         assert((reinterpret_cast<uintptr_t>(data_frame_.front()) & 0x7) == 0 &&
                "Frame buffer must be 8-byte aligned for DMA");
 
-        // Copy packet data starting at offset 2
-        std::memcpy(data_frame_.front() + 2, packet->nx_packet_prepend_ptr, frame_size);
-
-        // Configure descriptor to point to start of buffer (with 2-byte padding)
+        // Configure descriptor to point to the frame buffer
         descriptor_->setBuffer(data_frame_.front());
-        descriptor_->setLength(frame_size + 2);
+        descriptor_->setLength(data_frame_.size());
     }
     Frame data_frame_;                // Owns the frame data
     TxBufferDescriptor* descriptor_;  // Non-owning pointer to descriptor
