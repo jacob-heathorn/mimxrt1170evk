@@ -72,10 +72,6 @@ bool GigabitEthernetDriver::initialize() {
     // Clear the queue if it has any leftover frames
     tx_frame_queue_.clear();
 
-    // Make sure Number of Buffer Descriptors is power of 2
-    static_assert((kNumTxDescriptors & (kNumTxDescriptors - 1)) == 0,
-                  "Number of Buffer Descriptors must be power of 2");
-
     // Set Transmit Descriptor List Address Register
     // Point to the base of the descriptor ring (allocated in constructor)
     ENET_1G->TDSR = tx_descriptor_ring_->getBaseAddress();

@@ -1,5 +1,5 @@
-#ifndef TX_BUFFER_DESCRIPTOR_RING_H
-#define TX_BUFFER_DESCRIPTOR_RING_H
+#pragma once
+
 
 #include "tx_buffer_descriptor.h"
 #include <cstddef>
@@ -23,9 +23,7 @@ public:
         descriptors_[kNumTxDescriptors - 1].setWrap(true);
     }
 
-    ~TxBufferDescriptorRing() {
-        // std::array automatically destructs all elements
-    }
+    ~TxBufferDescriptorRing() = default;
 
     // Array access operators
     TxBufferDescriptor& operator[](size_t index) {
@@ -140,5 +138,3 @@ private:
     size_t tail_index_;  // Index of next descriptor to use
     size_t count_;       // Number of descriptors currently in use
 };
-
-#endif // TX_BUFFER_DESCRIPTOR_RING_H
