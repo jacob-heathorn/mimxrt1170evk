@@ -66,11 +66,7 @@ GigabitEthernetDriver::GigabitEthernetDriver() {
     ethernet::Frame::initialize(buffer_allocator);
 }
 
-GigabitEthernetDriver::~GigabitEthernetDriver() {
-    // Destructor - will be expanded later
-}
-
-int GigabitEthernetDriver::initialize() {
+bool GigabitEthernetDriver::initialize() {
     printf("GigabitEthernetDriver::initialize\n");
 
     // Clear the queue if it has any leftover frames
@@ -86,7 +82,7 @@ int GigabitEthernetDriver::initialize() {
 
     printf("GigabitEthernetDriver: TDSR set to 0x%08lX\n", ENET_1G->TDSR);
 
-    return 0;  // Return success
+    return true;  // Return success
 }
 
 bool GigabitEthernetDriver::send(ethernet::Frame&& frame) {
@@ -142,7 +138,8 @@ void GigabitEthernetDriver::process_transmitted_packets() {
 extern "C" {
 
 int gigabit_ethernet_driver_initialize() {
-    return GigabitEthernetDriver::instance().initialize();
+    // Convert bool to int for C interface (0 = success, -1 = error)
+    return GigabitEthernetDriver::instance().initialize() ? 0 : -1;
 }
 
 bool gigabit_ethernet_driver_send(void* packet_ptr) {

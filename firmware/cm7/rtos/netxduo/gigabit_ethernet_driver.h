@@ -15,11 +15,13 @@ class GigabitEthernetDriver : public ftl::Singleton<GigabitEthernetDriver> {
 public:
     // Constructor - public for ftl::Singleton
     GigabitEthernetDriver();
-    ~GigabitEthernetDriver();
+    // Destructor deleted - singleton lives for entire program
+    ~GigabitEthernetDriver() = delete;
 
     // Initialize the driver (skeleton function for now)
     // Will eventually contain hardware initialization logic
-    int initialize();
+    // Returns true on success, false on error
+    bool initialize();
 
     // Send a frame (takes ownership of the frame)
     // Returns true on success, false on error
