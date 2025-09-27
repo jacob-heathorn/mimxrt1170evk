@@ -153,9 +153,7 @@ static VOID         _nx_driver_packet_send(NX_IP_DRIVER *driver_req_ptr);
 static VOID         _nx_driver_multicast_join(NX_IP_DRIVER *driver_req_ptr);
 static VOID         _nx_driver_multicast_leave(NX_IP_DRIVER *driver_req_ptr);
 static VOID         _nx_driver_get_status(NX_IP_DRIVER *driver_req_ptr);
-#ifdef NX_DRIVER_ENABLE_DEFERRED
 static VOID         _nx_driver_deferred_processing(NX_IP_DRIVER *driver_req_ptr);
-#endif
 static VOID         _nx_driver_transfer_to_netx(NX_IP *ip_ptr, NX_PACKET *packet_ptr);
 #ifdef NX_DIRVER_INTERNAL_TRANSMIT_QUEUE
 static VOID         _nx_driver_transmit_packet_enqueue(NX_PACKET *packet_ptr)
@@ -319,7 +317,6 @@ VOID  nx_link_driver(NX_IP_DRIVER *driver_req_ptr)
         _nx_driver_get_status(driver_req_ptr);
         break;
     }
-#ifdef NX_DRIVER_ENABLE_DEFERRED
     case NX_LINK_DEFERRED_PROCESSING:
     {
 
@@ -329,7 +326,6 @@ VOID  nx_link_driver(NX_IP_DRIVER *driver_req_ptr)
         _nx_driver_deferred_processing(driver_req_ptr);
         break;
     }
-#endif
 #ifdef NX_ENABLE_INTERFACE_CAPABILITY
     case NX_INTERFACE_CAPABILITY_GET:
     {
@@ -1197,7 +1193,6 @@ UINT        status;
 
 
 
-#ifdef NX_DRIVER_ENABLE_DEFERRED
 /**************************************************************************/
 /*                                                                        */
 /*  FUNCTION                                               RELEASE        */
@@ -1275,7 +1270,6 @@ ULONG       deferred_events;
     /* Mark request as successful.  */
     driver_req_ptr->nx_ip_driver_status =  NX_SUCCESS;
 }
-#endif
 
 
 /**************************************************************************/
@@ -1353,11 +1347,7 @@ USHORT    packet_type;
             packet_ptr -> nx_packet_length - NX_DRIVER_ETHERNET_FRAME_SIZE;
 
         /* Route to the ip receive function.  */
-#ifdef NX_DRIVER_ENABLE_DEFERRED
         _nx_ip_packet_deferred_receive(ip_ptr, packet_ptr);
-#else
-        _nx_ip_packet_receive(ip_ptr, packet_ptr);
-#endif
     }
     else if (packet_type == NX_DRIVER_ETHERNET_ARP)
     {
@@ -2553,22 +2543,14 @@ VOID  nx_driver_imx_ethernet_isr(VOID)
   if(status & ENET_EIR_RXF_MASK )
   {
     /* Receive packet interrupt.  */
-#ifdef NX_DRIVER_ENABLE_DEFERRED
 
     /* Set the receive packet interrupt.  */
     nx_driver_information.nx_driver_information_deferred_events |= NX_DRIVER_DEFERRED_PACKET_RECEIVED;
-#else
-
-    /* Process received packet(s).  */
-    _nx_driver_hardware_packet_received();
-#endif
 
 
-#ifdef NX_DRIVER_ENABLE_DEFERRED
 
     /* Call NetX deferred driver processing.  */
     _nx_ip_driver_deferred_processing(nx_driver_information.nx_driver_information_ip_ptr);
-#endif
 
     /* Clear the Ethernet DMA Rx IT pending bits */
     EXAMPLE_ENET->EIR = ENET_EIR_RXF_MASK;
@@ -2578,21 +2560,13 @@ VOID  nx_driver_imx_ethernet_isr(VOID)
 
      EXAMPLE_ENET->TDAR = ENET_TDAR_TDAR_MASK;
 
-#ifdef NX_DRIVER_ENABLE_DEFERRED
 
     /* Set the transmit complete bit.  */
     nx_driver_information.nx_driver_information_deferred_events |= NX_DRIVER_DEFERRED_PACKET_TRANSMITTED;
-#else
 
-    /* Process transmitted packet(s).  */
-    _nx_driver_hardware_packet_transmitted();
-#endif
-
-#ifdef NX_DRIVER_ENABLE_DEFERRED
 
     /* Call NetX deferred driver processing.  */
     _nx_ip_driver_deferred_processing(nx_driver_information.nx_driver_information_ip_ptr);
-#endif
 
     /* Clear the Eth DMA Tx IT pending bit.  */
     EXAMPLE_ENET->EIR = ENET_EIR_TXF_MASK;
