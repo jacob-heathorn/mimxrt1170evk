@@ -132,8 +132,14 @@ bool gigabit_ethernet_driver_send(void* packet_ptr) {
     // This driver does not support chained packets
     assert(packet->nx_packet_next == nullptr && "Driver does not support chained packets");
 
-    // Create ethernet::Frame from NX_PACKET (with 2-byte padding)
-    ethernet::Frame frame(packet);
+    // Calculate frame size from packet pointers
+    size_t packet_size = packet->nx_packet_append_ptr - packet->nx_packet_prepend_ptr;
+
+    // Create ethernet::Frame with 2-byte padding for hardware requirement
+    ethernet::Frame frame(packet_size + 2);
+
+    // Copy packet data starting at offset 2
+    std::memcpy(frame.front() + 2, packet->nx_packet_prepend_ptr, packet_size);
 
     // Pass the frame to the driver
     bool success = GigabitEthernetDriver::instance().send(std::move(frame));
