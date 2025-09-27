@@ -36,9 +36,9 @@ public:
     void handle_link_mode_change(unsigned int link_speed, unsigned int link_duplex);
 
 private:
-    // Pointer to TX descriptor ring (allocated from OCRAM2)
+    // TX descriptor ring (internally allocates from OCRAM2 with 64-byte alignment)
     // Ring manages its own head/tail indices for queue-like behavior
-    ethernet::detail::TxDescriptorRing* tx_descriptor_ring_;
+    ethernet::detail::TxDescriptorRing tx_descriptor_ring_{};
 
     // Queue of TxFrame objects pending transmission
     // TxFrames own their data and can release the original NX_PACKET immediately

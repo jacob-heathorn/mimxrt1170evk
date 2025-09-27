@@ -25,20 +25,8 @@
 }
 
 GigabitEthernetDriver::GigabitEthernetDriver() {
-    // Allocate TX descriptor ring from OCRAM2 (non-cacheable, 64-byte aligned)
-    // Using templated allocate for proper construction
-    tx_descriptor_ring_ = Ocram2Allocator::instance().allocate<ethernet::detail::TxDescriptorRing>();
-
-    if (!tx_descriptor_ring_) {
-        printf("GigabitEthernetDriver: Failed to allocate TX descriptor ring\n");
-        assert(false && "Failed to allocate TX descriptor ring");
-    }
-
     // Initialize TxFrame with the descriptor ring
-    ethernet::TxFrame::initialize(tx_descriptor_ring_);
-
-    printf("GigabitEthernetDriver: Allocated TX descriptor ring with %zu descriptors at %p\n",
-           ethernet::detail::kNumTxDescriptors, static_cast<const void*>(tx_descriptor_ring_));
+    ethernet::TxFrame::initialize(&tx_descriptor_ring_);
 
     // Initialize ethernet::Frame allocator strategies with varying sizes
     // Similar to how UDP datagrams are set up in hello_netx
@@ -74,7 +62,7 @@ bool GigabitEthernetDriver::initialize() {
 
     // Set Transmit Descriptor List Address Register
     // Point to the base of the descriptor ring (allocated in constructor)
-    ENET_1G->TDSR = tx_descriptor_ring_->getBaseAddress();
+    ENET_1G->TDSR = tx_descriptor_ring_.getBaseAddress();
 
     printf("GigabitEthernetDriver: TDSR set to 0x%08lX\n", ENET_1G->TDSR);
 

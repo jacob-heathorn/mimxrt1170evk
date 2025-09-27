@@ -1,9 +1,9 @@
 #pragma once
 
 #include "tx_descriptor.h"
+#include "utils/ocram2_allocator.hpp"
 #include <cstddef>
 #include <cassert>
-#include <array>
 #include <new>
 
 namespace ethernet {
@@ -19,13 +19,9 @@ public:
     static_assert((kNumTxDescriptors & (kNumTxDescriptors - 1)) == 0, "Ring size must be power of 2");
     static_assert(kNumTxDescriptors > 0, "Ring size must be greater than 0");
 
-    TxDescriptorRing() : head_index_(0), tail_index_(0), count_(0) {
-        // std::array default-constructs all elements
-        // Set wrap bit on last descriptor
-        descriptors_[kNumTxDescriptors - 1].setWrap(true);
-    }
+    TxDescriptorRing();
 
-    ~TxDescriptorRing() = default;
+    ~TxDescriptorRing();
 
     // Get the size of the ring
     constexpr size_t size() const { return kNumTxDescriptors; }
@@ -63,8 +59,8 @@ public:
     uint32_t getBaseAddress() const;
 
 private:
-    // Array of descriptors - must be contiguous for DMA
-    std::array<TxDescriptor, kNumTxDescriptors> descriptors_;
+    // Pointer to array of descriptors allocated from OCRAM2 (64-byte aligned for DMA)
+    TxDescriptor* descriptors_;
 
     // Ring buffer management
     size_t head_index_;  // Index of oldest descriptor in use

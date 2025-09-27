@@ -1,7 +1,42 @@
 #include "tx_descriptor_ring.h"
+#include <cstring>
+#include <cstdio>
 
 namespace ethernet {
 namespace detail {
+
+TxDescriptorRing::TxDescriptorRing() : head_index_(0), tail_index_(0), count_(0) {
+    // Allocate descriptor array from OCRAM2 with 64-byte alignment for DMA
+    constexpr size_t alignment = 64;
+    void* raw_memory = Ocram2Allocator::instance().allocate(
+        sizeof(TxDescriptor) * kNumTxDescriptors, alignment);
+
+    if (!raw_memory) {
+        printf("TxDescriptorRing: Failed to allocate descriptor array\n");
+        assert(false && "Failed to allocate descriptor array");
+    }
+
+    // Verify alignment
+    assert((reinterpret_cast<uintptr_t>(raw_memory) & (alignment - 1)) == 0 &&
+           "Descriptor array must be 64-byte aligned for DMA");
+
+    // Use placement new to construct each descriptor
+    descriptors_ = static_cast<TxDescriptor*>(raw_memory);
+    for (size_t i = 0; i < kNumTxDescriptors; ++i) {
+        new (&descriptors_[i]) TxDescriptor();
+    }
+
+    // Set wrap bit on last descriptor
+    descriptors_[kNumTxDescriptors - 1].setWrap(true);
+
+    printf("TxDescriptorRing: Allocated %zu descriptors at %p (64-byte aligned)\n",
+           kNumTxDescriptors, static_cast<void*>(descriptors_));
+}
+
+TxDescriptorRing::~TxDescriptorRing() {
+    // Note: We don't deallocate from Ocram2Allocator as it's a bump allocator
+    // and memory is not freed until program termination
+}
 
 TxDescriptor* TxDescriptorRing::acquire_back() {
     if (full()) {
