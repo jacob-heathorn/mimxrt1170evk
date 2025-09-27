@@ -33,14 +33,17 @@ GigabitEthernetDriver::GigabitEthernetDriver() :
     // Maximum frame size is 1536 bytes (matching NX_PACKET max size)
 
     // Set up buffer strategies for different frame sizes
+    // Use OCRAM2 (non-cacheable) for DMA compatibility - same as NX_PACKET pool
+    // Require 8-byte alignment for Ethernet DMA
     //
     // TODO: Consider exposing these strategies through the interface.
-    static ftl::allocator::BumpPoolBufferStrategy strategy_64(DtcmAllocator::instance(), 64);
-    static ftl::allocator::BumpPoolBufferStrategy strategy_128(DtcmAllocator::instance(), 128);
-    static ftl::allocator::BumpPoolBufferStrategy strategy_256(DtcmAllocator::instance(), 256);
-    static ftl::allocator::BumpPoolBufferStrategy strategy_512(DtcmAllocator::instance(), 512);
-    static ftl::allocator::BumpPoolBufferStrategy strategy_1024(DtcmAllocator::instance(), 1024);
-    static ftl::allocator::BumpPoolBufferStrategy strategy_1536(DtcmAllocator::instance(), 1536);
+    constexpr size_t dma_alignment = 8;
+    static ftl::allocator::BumpPoolBufferStrategy strategy_64(Ocram2Allocator::instance(), 64, dma_alignment);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_128(Ocram2Allocator::instance(), 128, dma_alignment);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_256(Ocram2Allocator::instance(), 256, dma_alignment);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_512(Ocram2Allocator::instance(), 512, dma_alignment);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_1024(Ocram2Allocator::instance(), 1024, dma_alignment);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_1536(Ocram2Allocator::instance(), 1536, dma_alignment);
 
     // Create a BufferAllocator with all strategies
     static ftl::allocator::BufferAllocator buffer_allocator(
