@@ -1,5 +1,5 @@
-#ifndef GIGABIT_ETHERNET_DRIVER_H
-#define GIGABIT_ETHERNET_DRIVER_H
+#pragma once
+
 
 #include "ftl/singleton.hpp"
 #include "fsl_enet.h"
@@ -67,5 +67,3 @@ void gigabit_ethernet_driver_process_transmitted_packets();
 #ifdef __cplusplus
 }
 #endif
-
-#endif // GIGABIT_ETHERNET_DRIVER_H
