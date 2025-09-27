@@ -37,15 +37,36 @@ public:
         tx_descriptor_ring_ = ring;
     }
 
-    // Create a TxFrame by copying data from NX_PACKET
+    // Create a TxFrame by acquiring a descriptor and copying data from NX_PACKET
+    // Returns a TxFrame that may be empty if no descriptor available
+    // Use operator bool() to check if frame is valid
     // After creation, the original NX_PACKET can be released immediately
     // as TxFrame owns its own copy of the data
-    static TxFrame create(TxBufferDescriptor &descriptor, NX_PACKET* packet) {
-        return TxFrame(descriptor, packet);
+    static TxFrame create(NX_PACKET* packet) {
+        // Acquire descriptor from the ring
+        TxBufferDescriptor* descriptor = tx_descriptor_ring_->acquire_front();
+        if (!descriptor) {
+            return TxFrame();  // Return empty frame
+        }
+
+        // Check if descriptor is free (hardware cleared READY bit)
+        if (descriptor->isReady()) {
+            // Descriptor still owned by hardware - should not happen with proper ring management
+            assert(false && "Ring returned descriptor still owned by hardware");
+            return TxFrame();  // Return empty frame
+        }
+
+        return TxFrame(*descriptor, packet);
+    }
+
+    // Check if frame is valid (has a descriptor)
+    explicit operator bool() const {
+        return descriptor_ != nullptr;
     }
 
     // Check if transmission is complete (descriptor READY bit cleared by hardware)
     bool isTransmissionComplete() const {
+        assert(descriptor_ && "Cannot check transmission on empty frame");
         return !descriptor_->isReady();
     }
 
@@ -56,9 +77,26 @@ public:
         other.descriptor_ = nullptr;
     }
 
+    // Destructor - releases descriptor back to ring if owned
+    ~TxFrame() {
+        if (descriptor_) {
+            // Assert that we're releasing the oldest descriptor (at head of ring)
+            assert(tx_descriptor_ring_->head() == descriptor_ && "Releasing descriptor out of order");
+            // Release the descriptor back to the ring
+            tx_descriptor_ring_->release_back();
+            descriptor_ = nullptr;
+        }
+    }
+
     // Move assignment operator
     TxFrame& operator=(TxFrame&& other) noexcept {
         if (this != &other) {
+            // Release current descriptor if owned
+            if (descriptor_) {
+                // Assert that we're releasing the oldest descriptor (at head of ring)
+                assert(tx_descriptor_ring_->head() == descriptor_ && "Releasing descriptor out of order");
+                tx_descriptor_ring_->release_back();
+            }
             data_frame_ = std::move(other.data_frame_);
             descriptor_ = other.descriptor_;
             other.descriptor_ = nullptr;
@@ -77,6 +115,9 @@ public:
     }
 
 private:
+    // Default constructor for empty frame
+    TxFrame() : descriptor_(nullptr) {}
+
     // Private constructor - use create() method instead
     TxFrame(TxBufferDescriptor &descriptor, NX_PACKET* packet)
         : descriptor_(&descriptor) {
@@ -105,7 +146,11 @@ private:
     TxBufferDescriptor* descriptor_;  // Non-owning pointer to descriptor
 
     // Static pointer to TX descriptor ring (set via initialize())
-    static inline void* tx_descriptor_ring_ = nullptr;
+    static inline TxBufferDescriptorRing* tx_descriptor_ring_ = nullptr;
 };
+
+// Ensure TxFrame size is exactly Frame size plus one pointer
+static_assert(sizeof(TxFrame) == sizeof(Frame) + sizeof(TxBufferDescriptor*),
+              "TxFrame size must be Frame size plus one pointer");
 
 } // namespace ethernet

@@ -83,6 +83,9 @@ int GigabitEthernetDriver::initialize() {
     static_assert((TX_DESCRIPTOR_COUNT & (TX_DESCRIPTOR_COUNT - 1)) == 0,
                   "Number of Buffer Descriptors must be power of 2");
 
+    // Initialize TxFrame with the descriptor ring
+    ethernet::TxFrame::initialize(tx_descriptor_ring_);
+
     // Set Transmit Descriptor List Address Register
     // Point to the base of the descriptor ring
     ENET_1G->TDSR = tx_descriptor_ring_->getBaseAddress();
@@ -109,24 +112,14 @@ bool GigabitEthernetDriver::send(NX_PACKET* packet) {
         return false;
     }
 
-    // Get the next available descriptor from the ring
-    TxBufferDescriptor* descriptor = tx_descriptor_ring_->acquire_front();
-    if (!descriptor) {
-        // Ring is full, cannot send
-        assert(false && "Ethernet Tx descriptor ring is full");
+    // Create TxFrame which acquires descriptor and copies the packet data
+    ethernet::TxFrame tx_frame = ethernet::TxFrame::create(packet);
+
+    // Check if frame was successfully created
+    if (!tx_frame) {
+        // No descriptor available
         return false;
     }
-
-    // Check if descriptor is free (hardware cleared READY bit)
-    if (descriptor->isReady()) {
-        // Descriptor is still owned by hardware, ring state is inconsistent
-        // This shouldn't happen if ring is properly managed
-        assert(false && "Ring returned descriptor still owned by hardware");
-        return false;
-    }
-
-    // Create TxFrame which copies the packet data
-    ethernet::TxFrame tx_frame = ethernet::TxFrame::create(*descriptor, packet);
 
     // Mark frame ready for transmission
     tx_frame.markReadyForTransmission();
@@ -158,11 +151,8 @@ void GigabitEthernetDriver::process_transmitted_packets() {
         // ETL queue uses front() to access without removing
         if (tx_frame_queue_.front().isTransmissionComplete()) {
             // Transmission complete - remove frame from queue
-            // Frame destructor will clean up the Frame buffer
+            // Frame destructor will clean up the Frame buffer and release descriptor
             tx_frame_queue_.pop();
-
-            // Release the descriptor back to the ring
-            tx_descriptor_ring_->release_back();
         } else {
             // Front frame not yet transmitted, stop processing
             // (frames are processed in order)
