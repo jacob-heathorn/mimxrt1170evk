@@ -7,18 +7,20 @@
 #include <array>
 #include <new>
 
-// Template class for a ring of TX buffer descriptors
-// N must be a power of 2 for efficient modulo operations
-template<size_t N>
+// Number of TX descriptors - must match nx_driver_imxrt.h
+constexpr size_t kNumTxDescriptors = 64;
+
+// Class for a ring of TX buffer descriptors
+// Size must be a power of 2 for efficient modulo operations
 class TxBufferDescriptorRing {
 public:
-    static_assert((N & (N - 1)) == 0, "Ring size must be power of 2");
-    static_assert(N > 0, "Ring size must be greater than 0");
+    static_assert((kNumTxDescriptors & (kNumTxDescriptors - 1)) == 0, "Ring size must be power of 2");
+    static_assert(kNumTxDescriptors > 0, "Ring size must be greater than 0");
 
     TxBufferDescriptorRing() : head_index_(0), tail_index_(0), count_(0) {
         // std::array default-constructs all elements
         // Set wrap bit on last descriptor
-        descriptors_[N - 1].setWrap(true);
+        descriptors_[kNumTxDescriptors - 1].setWrap(true);
     }
 
     ~TxBufferDescriptorRing() {
@@ -27,18 +29,18 @@ public:
 
     // Array access operators
     TxBufferDescriptor& operator[](size_t index) {
-        assert(index < N);
+        assert(index < kNumTxDescriptors);
         return descriptors_[index];
     }
 
     const TxBufferDescriptor& operator[](size_t index) const {
-        assert(index < N);
+        assert(index < kNumTxDescriptors);
         return descriptors_[index];
     }
 
     // Get descriptor at index with bounds checking
     TxBufferDescriptor& at(size_t index) {
-        if (index >= N) {
+        if (index >= kNumTxDescriptors) {
             // In embedded, we can't throw exceptions, so assert
             assert(false && "Index out of bounds");
         }
@@ -46,19 +48,19 @@ public:
     }
 
     const TxBufferDescriptor& at(size_t index) const {
-        if (index >= N) {
+        if (index >= kNumTxDescriptors) {
             assert(false && "Index out of bounds");
         }
         return descriptors_[index];
     }
 
     // Get the size of the ring
-    constexpr size_t size() const { return N; }
+    constexpr size_t size() const { return kNumTxDescriptors; }
 
     // Resource management interface for descriptor ring
 
     // Check if ring is full
-    bool full() const { return count_ == N; }
+    bool full() const { return count_ == kNumTxDescriptors; }
 
     // Check if ring is empty
     bool empty() const { return count_ == 0; }
@@ -73,7 +75,7 @@ public:
             return nullptr;
         }
         TxBufferDescriptor* desc = &descriptors_[tail_index_];
-        tail_index_ = (tail_index_ + 1) & (N - 1);
+        tail_index_ = (tail_index_ + 1) & (kNumTxDescriptors - 1);
         count_++;
         return desc;
     }
@@ -90,18 +92,18 @@ public:
     // Release the oldest descriptor (at head) after transmission completes
     void release_back() {
         if (!empty()) {
-            head_index_ = (head_index_ + 1) & (N - 1);
+            head_index_ = (head_index_ + 1) & (kNumTxDescriptors - 1);
             count_--;
         }
     }
 
     // Reset all descriptors to initial state
     void reset() {
-        for (size_t i = 0; i < N; i++) {
+        for (size_t i = 0; i < kNumTxDescriptors; i++) {
             descriptors_[i].reset();
         }
         // Re-set wrap bit on last descriptor
-        descriptors_[N - 1].setWrap(true);
+        descriptors_[kNumTxDescriptors - 1].setWrap(true);
         // Reset queue indices
         head_index_ = 0;
         tail_index_ = 0;
@@ -131,7 +133,7 @@ public:
 
 private:
     // Array of descriptors - must be contiguous for DMA
-    std::array<TxBufferDescriptor, N> descriptors_;
+    std::array<TxBufferDescriptor, kNumTxDescriptors> descriptors_;
 
     // Ring buffer management
     size_t head_index_;  // Index of oldest descriptor in use

@@ -40,7 +40,7 @@ private:
 
     // Pointer to TX descriptor ring (allocated from OCRAM2)
     // Ring manages its own head/tail indices for queue-like behavior
-    TxBufferDescriptorRing<TX_DESCRIPTOR_COUNT>* tx_descriptor_ring_;
+    TxBufferDescriptorRing* tx_descriptor_ring_;
 
     // Queue of TxFrame objects pending transmission
     // TxFrames own their data and can release the original NX_PACKET immediately

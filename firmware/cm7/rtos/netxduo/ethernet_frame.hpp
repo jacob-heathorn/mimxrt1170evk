@@ -2,6 +2,7 @@
 
 #include "ftl/allocator/data_frame.hpp"
 #include "tx_buffer_descriptor.h"
+#include "tx_buffer_descriptor_ring.h"
 #include "nx_api.h"
 #include <cstring>
 #include <cassert>
@@ -31,6 +32,11 @@ public:
 // Owns the frame data and manages the associated descriptor
 class TxFrame {
 public:
+    // Initialize TxFrame with TX descriptor ring pointer
+    static void initialize(TxBufferDescriptorRing* ring) {
+        tx_descriptor_ring_ = ring;
+    }
+
     // Constructs a TxFrame by copying data from NX_PACKET
     // After construction, the original NX_PACKET can be released immediately
     // as TxFrame owns its own copy of the data
@@ -93,6 +99,9 @@ public:
 private:
     Frame data_frame_;                // Owns the frame data
     TxBufferDescriptor* descriptor_;  // Non-owning pointer to descriptor
+
+    // Static pointer to TX descriptor ring (set via initialize())
+    static inline void* tx_descriptor_ring_ = nullptr;
 };
 
 } // namespace ethernet

@@ -67,7 +67,7 @@ int GigabitEthernetDriver::initialize() {
     // Allocate TX descriptor ring from OCRAM2 (non-cacheable, 64-byte aligned)
     // NXP driver suggests minimum 8-byte, recommended 64-byte (ENET_BUFF_ALIGNMENT)
     // TODO: Confirm above statement in RM
-    size_t ring_size = sizeof(TxBufferDescriptorRing<TX_DESCRIPTOR_COUNT>);
+    size_t ring_size = sizeof(TxBufferDescriptorRing);
     void* mem = Ocram2Allocator::instance().allocate(ring_size, 64);
     if (!mem) {
         printf("GigabitEthernetDriver: Failed to allocate TX descriptor ring\n");
@@ -75,7 +75,7 @@ int GigabitEthernetDriver::initialize() {
     }
 
     // Placement new to construct TxBufferDescriptorRing
-    tx_descriptor_ring_ = new (mem) TxBufferDescriptorRing<TX_DESCRIPTOR_COUNT>();
+    tx_descriptor_ring_ = new (mem) TxBufferDescriptorRing();
 
     // Ring constructor already initializes descriptors and sets wrap bit
 
