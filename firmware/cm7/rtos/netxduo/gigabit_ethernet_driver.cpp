@@ -4,6 +4,15 @@
 #include "fsl_enet.h"
 #include "nx_api.h"  // For NX_PACKET structure
 #include "utils/ocram2_allocator.hpp"
+#include "utils/dtcm_allocator.hpp"  // For TxFrame allocation
+
+// Macro to remove Ethernet header from packet before releasing to pool
+#define NX_DRIVER_ETHERNET_FRAME_SIZE 14
+#define NX_DRIVER_ETHERNET_HEADER_REMOVE(p) \
+{ \
+    (p)->nx_packet_prepend_ptr += NX_DRIVER_ETHERNET_FRAME_SIZE; \
+    (p)->nx_packet_length -= NX_DRIVER_ETHERNET_FRAME_SIZE; \
+}
 
 // Macro to remove Ethernet header from packet
 #define NX_DRIVER_ETHERNET_FRAME_SIZE 14
@@ -16,12 +25,8 @@
 GigabitEthernetDriver::GigabitEthernetDriver() :
     tx_descriptor_ring_(nullptr),
     transmit_current_index_(0),
-    number_of_transmit_buffers_in_use_(0),
-    transmit_release_index_(0) {
-    // Constructor - initialize transmit indices and clear packets array
-    for (unsigned int i = 0; i < TX_DESCRIPTOR_COUNT; i++) {
-        transmit_packets_[i] = nullptr;
-    }
+    number_of_transmit_buffers_in_use_(0) {
+    // Constructor - initialize transmit index and queue
 }
 
 GigabitEthernetDriver::~GigabitEthernetDriver() {
@@ -31,13 +36,11 @@ GigabitEthernetDriver::~GigabitEthernetDriver() {
 int GigabitEthernetDriver::initialize() {
     printf("GigabitEthernetDriver::initialize\n");
 
-    // Initialize the transmit indices, buffers in use count, and clear packets array
+    // Initialize the transmit index and buffers in use count
     transmit_current_index_ = 0;
-    transmit_release_index_ = 0;
     number_of_transmit_buffers_in_use_ = 0;
-    for (unsigned int i = 0; i < TX_DESCRIPTOR_COUNT; i++) {
-        transmit_packets_[i] = nullptr;
-    }
+    // Clear the queue if it has any leftover frames
+    tx_frame_queue_.clear();
 
     // Allocate TX descriptor ring from OCRAM2 (non-cacheable, 64-byte aligned)
     // NXP driver suggests minimum 8-byte, recommended 64-byte (ENET_BUFF_ALIGNMENT)
@@ -78,45 +81,41 @@ bool GigabitEthernetDriver::send(NX_PACKET* packet) {
     // This driver does not support chained packets
     assert(packet->nx_packet_next == nullptr && "Driver does not support chained packets");
 
-    // Pick up the first BD
+    // Static TxFrame allocator using DTCM memory
+    // BumpPoolObjStrategy takes only the allocator
+    static ftl::allocator::BumpPoolObjStrategy<TxFrame> tx_frame_strategy(DtcmAllocator::instance());
+    static ftl::allocator::ObjAllocator<TxFrame> tx_frame_allocator(tx_frame_strategy);
+
+    // Pick up the next free descriptor
     unsigned int curIdx = transmit_current_index_;
 
-    // Check if it is a free descriptor
-    if ((*tx_descriptor_ring_)[curIdx].isReady() || transmit_packets_[curIdx]) {
-        // Buffer is still owned by device
+    // Check if descriptor is free
+    if ((*tx_descriptor_ring_)[curIdx].isReady()) {
+        // Descriptor is still owned by hardware
         return false;
     }
 
-    /// Temporary code
-    TxBufferDescriptor dummy{};
-    TxFrame frame(dummy, packet);
-    (void)frame;
+    // Create TxFrame which copies the packet data
+    // Uses custom allocator with DTCM memory
+    auto tx_frame = tx_frame_allocator.make_unique((*tx_descriptor_ring_)[curIdx], packet);
 
-    ///
+    // Mark frame ready for transmission
+    tx_frame->markReadyForTransmission();
 
-    // Set the buffer size
-    (*tx_descriptor_ring_)[curIdx].setLength(packet->nx_packet_append_ptr - packet->nx_packet_prepend_ptr + 2);
-
-    // Handle alignment requirement (8-byte alignment)
-    uint8_t remainder = static_cast<uint8_t>(reinterpret_cast<uintptr_t>(packet->nx_packet_prepend_ptr - 2) & 0x07);
-    if (remainder) {
-        uint8_t* src_addr = packet->nx_packet_prepend_ptr;
-        // Make sure transmit BD buffer is 8-byte aligned
-        packet->nx_packet_prepend_ptr -= remainder;
-        memmove(packet->nx_packet_prepend_ptr, src_addr, (*tx_descriptor_ring_)[curIdx].getLength());
+    // Queue the frame (ETL queue doesn't have emplace, use push)
+    if (!tx_frame_queue_.full()) {
+        tx_frame_queue_.push(std::move(tx_frame));
+    } else {
+        // Queue is full, cannot send
+        return false;
     }
 
-    // Set the buffer pointer
-    (*tx_descriptor_ring_)[curIdx].setBuffer(reinterpret_cast<uint32_t>(packet->nx_packet_prepend_ptr - 2));
+    // Remove the Ethernet header that was added by _nx_driver_packet_send()
+    // before releasing the packet back to the pool
+    NX_DRIVER_ETHERNET_HEADER_REMOVE(packet);
 
-    // Set the descriptor's LAST bit (single packet, not chained)
-    (*tx_descriptor_ring_)[curIdx].setLast(true);
-
-    // Set the descriptor's READY bit
-    (*tx_descriptor_ring_)[curIdx].setReady(true);
-
-    // Save the packet pointer for later release
-    transmit_packets_[curIdx] = packet;
+    // Release the original packet immediately since TxFrame owns the data now
+    nx_packet_transmit_release(packet);
 
     // Set the current index to the next descriptor
     transmit_current_index_ = (curIdx + 1) & (TX_DESCRIPTOR_COUNT - 1);
@@ -133,40 +132,22 @@ bool GigabitEthernetDriver::send(NX_PACKET* packet) {
 }
 
 void GigabitEthernetDriver::process_transmitted_packets() {
-    unsigned int numOfBuf = number_of_transmit_buffers_in_use_;
-    unsigned int idx = transmit_release_index_;
+    // Process completed transmissions in queue order
+    while (!tx_frame_queue_.empty()) {
+        // Check if the front frame has completed transmission
+        // ETL queue uses front() to access without removing
+        if (tx_frame_queue_.front()->isTransmissionComplete()) {
+            // Transmission complete - remove frame from queue
+            // Frame destructor will clean up the Payload buffer
+            tx_frame_queue_.pop();
 
-    // Loop through buffers in use
-    while (numOfBuf--) {
-        // If no packet, just examine the next packet
-        if (transmit_packets_[idx] == nullptr) {
-            // No packet in use, skip to next
-            idx = (idx + 1) & (TX_DESCRIPTOR_COUNT - 1);
-            continue;
-        }
-
-        // Determine if the packet has been transmitted
-        if (!(*tx_descriptor_ring_)[idx].isReady()) {
-            // Yes, packet has been transmitted
-
-            // Get the packet
-            NX_PACKET* packet = transmit_packets_[idx];
-
-            // Remove the Ethernet header and release the packet
-            NX_DRIVER_ETHERNET_HEADER_REMOVE(packet);
-
-            // Release the packet
-            nx_packet_transmit_release(packet);
-
-            // Clear the entry in the in-use array
-            transmit_packets_[idx] = nullptr;
-
-            // Update the transmit release index and number of buffers in use
-            idx = (idx + 1) & (TX_DESCRIPTOR_COUNT - 1);
-            number_of_transmit_buffers_in_use_ = numOfBuf;
-            transmit_release_index_ = idx;
+            // Decrement buffers in use count
+            if (number_of_transmit_buffers_in_use_ > 0) {
+                number_of_transmit_buffers_in_use_--;
+            }
         } else {
-            // Packet not yet transmitted, get out of the loop
+            // Front frame not yet transmitted, stop processing
+            // (frames are processed in order)
             break;
         }
     }
