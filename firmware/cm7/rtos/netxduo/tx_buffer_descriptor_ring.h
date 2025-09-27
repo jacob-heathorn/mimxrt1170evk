@@ -7,7 +7,7 @@
 #include <array>
 #include <new>
 
-// Number of TX descriptors - must match nx_driver_imxrt.h
+// Number of TX descriptors
 constexpr size_t kNumTxDescriptors = 64;
 
 // Class for a ring of TX buffer descriptors

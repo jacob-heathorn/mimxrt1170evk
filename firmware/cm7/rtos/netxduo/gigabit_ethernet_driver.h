@@ -34,17 +34,14 @@ public:
     void handle_link_mode_change(unsigned int link_speed, unsigned int link_duplex);
 
 private:
-    // Constants - must match nx_driver_imxrt.h
-    static constexpr unsigned int TX_DESCRIPTOR_COUNT = 64;  // NX_DRIVER_TX_DESCRIPTORS
-
     // Pointer to TX descriptor ring (allocated from OCRAM2)
     // Ring manages its own head/tail indices for queue-like behavior
     TxBufferDescriptorRing* tx_descriptor_ring_;
 
     // Queue of TxFrame objects pending transmission
     // TxFrames own their data and can release the original NX_PACKET immediately
-    // Using ETL queue with fixed size matching TX_DESCRIPTOR_COUNT
-    etl::queue<ethernet::TxFrame, TX_DESCRIPTOR_COUNT> tx_frame_queue_;
+    // Using ETL queue with fixed size matching kNumTxDescriptors
+    etl::queue<ethernet::TxFrame, kNumTxDescriptors> tx_frame_queue_;
 };
 
 // C interface for calling from nx_driver_imxrt.c

@@ -80,7 +80,7 @@ int GigabitEthernetDriver::initialize() {
     // Ring constructor already initializes descriptors and sets wrap bit
 
     // Make sure Number of Buffer Descriptors is power of 2
-    static_assert((TX_DESCRIPTOR_COUNT & (TX_DESCRIPTOR_COUNT - 1)) == 0,
+    static_assert((kNumTxDescriptors & (kNumTxDescriptors - 1)) == 0,
                   "Number of Buffer Descriptors must be power of 2");
 
     // Initialize TxFrame with the descriptor ring
@@ -90,8 +90,8 @@ int GigabitEthernetDriver::initialize() {
     // Point to the base of the descriptor ring
     ENET_1G->TDSR = tx_descriptor_ring_->getBaseAddress();
 
-    printf("GigabitEthernetDriver: Initialized TX descriptor ring with %u descriptors at %p, TDSR set to 0x%08lX\n",
-           TX_DESCRIPTOR_COUNT, const_cast<const void*>(tx_descriptor_ring_->getRawMemory()), ENET_1G->TDSR);
+    printf("GigabitEthernetDriver: Initialized TX descriptor ring with %zu descriptors at %p, TDSR set to 0x%08lX\n",
+           kNumTxDescriptors, const_cast<const void*>(tx_descriptor_ring_->getRawMemory()), ENET_1G->TDSR);
 
     return 0;  // Return success
 }
@@ -119,8 +119,6 @@ bool GigabitEthernetDriver::send(ethernet::Frame&& frame) {
 
     // Move the frame into the queue
     tx_frame_queue_.push(std::move(tx_frame));
-
-    // Descriptor is now in use, tracked by the ring's internal count
 
     // Resume DMA transmission if suspended (using ENET_1G for gigabit)
     if (!ENET_1G->TDAR) {
