@@ -1,8 +1,8 @@
 #pragma once
 
 #include "ftl/allocator/data_frame.hpp"
-#include "tx_buffer_descriptor.h"
-#include "tx_buffer_descriptor_ring.h"
+#include "detail/tx_descriptor.h"
+#include "detail/tx_descriptor_ring.h"
 #include "nx_api.h"
 #include <cstring>
 #include <cassert>
@@ -48,7 +48,7 @@ public:
 class TxFrame {
 public:
     // Initialize TxFrame with TX descriptor ring pointer
-    static void initialize(TxBufferDescriptorRing* ring) {
+    static void initialize(detail::TxDescriptorRing* ring) {
         tx_descriptor_ring_ = ring;
     }
 
@@ -58,7 +58,7 @@ public:
     // Takes ownership of the Frame data
     static TxFrame create(ethernet::Frame&& frame) {
         // Acquire descriptor from the ring (at back/tail)
-        TxBufferDescriptor* descriptor = tx_descriptor_ring_->acquire_back();
+        detail::TxDescriptor* descriptor = tx_descriptor_ring_->acquire_back();
         if (!descriptor) {
             return TxFrame();  // Return empty frame
         }
@@ -133,7 +133,7 @@ private:
     TxFrame() : descriptor_(nullptr) {}
 
     // Private constructor - use create() method instead
-    TxFrame(TxBufferDescriptor &descriptor, ethernet::Frame&& frame)
+    TxFrame(detail::TxDescriptor &descriptor, ethernet::Frame&& frame)
         : data_frame_(std::move(frame)), descriptor_(&descriptor) {
         // Assert that Frame buffer is 8-byte aligned for DMA
         assert((reinterpret_cast<uintptr_t>(data_frame_.front()) & 0x7) == 0 &&
@@ -143,15 +143,15 @@ private:
         descriptor_->setBuffer(data_frame_.front());
         descriptor_->setLength(data_frame_.size());
     }
-    Frame data_frame_;                // Owns the frame data
-    TxBufferDescriptor* descriptor_;  // Non-owning pointer to descriptor
+    Frame data_frame_;                  // Owns the frame data
+    detail::TxDescriptor* descriptor_;  // Non-owning pointer to descriptor
 
     // Static pointer to TX descriptor ring (set via initialize())
-    static inline TxBufferDescriptorRing* tx_descriptor_ring_ = nullptr;
+    static inline detail::TxDescriptorRing* tx_descriptor_ring_ = nullptr;
 };
 
 // Ensure TxFrame size is exactly Frame size plus one pointer
-static_assert(sizeof(TxFrame) == sizeof(Frame) + sizeof(TxBufferDescriptor*),
+static_assert(sizeof(TxFrame) == sizeof(Frame) + sizeof(detail::TxDescriptor*),
               "TxFrame size must be Frame size plus one pointer");
 
 } // namespace ethernet

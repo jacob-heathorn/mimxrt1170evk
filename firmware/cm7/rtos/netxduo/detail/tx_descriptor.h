@@ -1,7 +1,9 @@
-#ifndef TX_BUFFER_DESCRIPTOR_H
-#define TX_BUFFER_DESCRIPTOR_H
+#pragma once
 
 #include <cstdint>
+
+namespace ethernet {
+namespace detail {
 
 // Control and status bit masks for transmit buffer descriptor
 #define TX_BD_READY_MASK       0x8000U  // Ready bit mask
@@ -19,9 +21,9 @@
 // TODO: Verify exact alignment requirement in i.MX RT1170 Reference Manual section 60.3.11
 // Currently using 16-byte alignment, NXP recommends ENET_BUFF_ALIGNMENT (64-byte)
 // Alignment is handled by allocating from OCRAM2 with proper alignment
-class TxBufferDescriptor {
+class TxDescriptor {
 public:
-    TxBufferDescriptor();
+    TxDescriptor();
 
     // Control field management
     void setReady(bool ready);
@@ -65,11 +67,11 @@ public:
     const volatile void* getRawMemory() const;
 
     // Comparison operators
-    bool operator==(const TxBufferDescriptor& other) const;
-    bool operator!=(const TxBufferDescriptor& other) const;
+    bool operator==(const TxDescriptor& other) const;
+    bool operator!=(const TxDescriptor& other) const;
 
     // Static helper to verify array base alignment for DMA
-    static bool isArrayAligned(const TxBufferDescriptor* array_base) {
+    static bool isArrayAligned(const TxDescriptor* array_base) {
         uintptr_t addr = reinterpret_cast<uintptr_t>(array_base);
         return (addr & 0xF) == 0;
     }
@@ -86,7 +88,7 @@ private:
 };
 
 // Inline implementations for performance
-inline void TxBufferDescriptor::setReady(bool ready) {
+inline void TxDescriptor::setReady(bool ready) {
     if (ready) {
         data_.control |= TX_BD_READY_MASK;
     } else {
@@ -94,11 +96,11 @@ inline void TxBufferDescriptor::setReady(bool ready) {
     }
 }
 
-inline bool TxBufferDescriptor::isReady() const {
+inline bool TxDescriptor::isReady() const {
     return (data_.control & TX_BD_READY_MASK) != 0;
 }
 
-inline void TxBufferDescriptor::setWrap(bool wrap) {
+inline void TxDescriptor::setWrap(bool wrap) {
     if (wrap) {
         data_.control |= TX_BD_WRAP_MASK;
     } else {
@@ -106,11 +108,11 @@ inline void TxBufferDescriptor::setWrap(bool wrap) {
     }
 }
 
-inline bool TxBufferDescriptor::isWrap() const {
+inline bool TxDescriptor::isWrap() const {
     return (data_.control & TX_BD_WRAP_MASK) != 0;
 }
 
-inline void TxBufferDescriptor::setLast(bool last) {
+inline void TxDescriptor::setLast(bool last) {
     if (last) {
         data_.control |= TX_BD_LAST_MASK;
     } else {
@@ -118,11 +120,11 @@ inline void TxBufferDescriptor::setLast(bool last) {
     }
 }
 
-inline bool TxBufferDescriptor::isLast() const {
+inline bool TxDescriptor::isLast() const {
     return (data_.control & TX_BD_LAST_MASK) != 0;
 }
 
-inline void TxBufferDescriptor::setTransmitCRC(bool enable) {
+inline void TxDescriptor::setTransmitCRC(bool enable) {
     if (enable) {
         data_.control |= TX_BD_TRANSMITCRC_MASK;
     } else {
@@ -130,48 +132,49 @@ inline void TxBufferDescriptor::setTransmitCRC(bool enable) {
     }
 }
 
-inline bool TxBufferDescriptor::isTransmitCRC() const {
+inline bool TxDescriptor::isTransmitCRC() const {
     return (data_.control & TX_BD_TRANSMITCRC_MASK) != 0;
 }
 
-inline void TxBufferDescriptor::setLength(uint16_t length) {
+inline void TxDescriptor::setLength(uint16_t length) {
     data_.length = length;
 }
 
-inline uint16_t TxBufferDescriptor::getLength() const {
+inline uint16_t TxDescriptor::getLength() const {
     return data_.length;
 }
 
-inline void TxBufferDescriptor::setBuffer(uint32_t buffer) {
+inline void TxDescriptor::setBuffer(uint32_t buffer) {
     data_.buffer = buffer;
 }
 
-inline void TxBufferDescriptor::setBuffer(void* buffer) {
+inline void TxDescriptor::setBuffer(void* buffer) {
     data_.buffer = reinterpret_cast<uint32_t>(buffer);
 }
 
-inline uint32_t TxBufferDescriptor::getBuffer() const {
+inline uint32_t TxDescriptor::getBuffer() const {
     return data_.buffer;
 }
 
-inline void* TxBufferDescriptor::getBufferPtr() const {
+inline void* TxDescriptor::getBufferPtr() const {
     return reinterpret_cast<void*>(data_.buffer);
 }
 
-inline void TxBufferDescriptor::setControl(uint16_t control) {
+inline void TxDescriptor::setControl(uint16_t control) {
     data_.control = control;
 }
 
-inline uint16_t TxBufferDescriptor::getControl() const {
+inline uint16_t TxDescriptor::getControl() const {
     return data_.control;
 }
 
-inline volatile void* TxBufferDescriptor::getRawMemory() {
+inline volatile void* TxDescriptor::getRawMemory() {
     return reinterpret_cast<volatile void*>(&data_);
 }
 
-inline const volatile void* TxBufferDescriptor::getRawMemory() const {
+inline const volatile void* TxDescriptor::getRawMemory() const {
     return reinterpret_cast<const volatile void*>(&data_);
 }
 
-#endif // TX_BUFFER_DESCRIPTOR_H
+} // namespace detail
+} // namespace ethernet

@@ -3,7 +3,7 @@
 
 #include "ftl/singleton.hpp"
 #include "fsl_enet.h"
-#include "tx_buffer_descriptor_ring.h"
+#include "detail/tx_descriptor_ring.h"
 #include "ethernet_frame.hpp"
 #include "nx_api.h"
 #include "etl/queue.h"
@@ -38,12 +38,12 @@ public:
 private:
     // Pointer to TX descriptor ring (allocated from OCRAM2)
     // Ring manages its own head/tail indices for queue-like behavior
-    TxBufferDescriptorRing* tx_descriptor_ring_;
+    ethernet::detail::TxDescriptorRing* tx_descriptor_ring_;
 
     // Queue of TxFrame objects pending transmission
     // TxFrames own their data and can release the original NX_PACKET immediately
     // Using ETL queue with fixed size matching kNumTxDescriptors
-    etl::queue<ethernet::TxFrame, kNumTxDescriptors> tx_frame_queue_;
+    etl::queue<ethernet::TxFrame, ethernet::detail::kNumTxDescriptors> tx_frame_queue_;
 };
 
 // C interface for calling from nx_driver_imxrt.c
