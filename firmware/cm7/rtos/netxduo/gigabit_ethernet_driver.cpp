@@ -126,7 +126,7 @@ bool GigabitEthernetDriver::send(NX_PACKET* packet) {
     }
 
     // Create TxFrame which copies the packet data
-    ethernet::TxFrame tx_frame(*descriptor, packet);
+    ethernet::TxFrame tx_frame = ethernet::TxFrame::create(*descriptor, packet);
 
     // Mark frame ready for transmission
     tx_frame.markReadyForTransmission();
