@@ -5,6 +5,8 @@
 #include "nx_api.h"  // For NX_PACKET structure
 #include "utils/ocram2_allocator.hpp"
 #include "utils/dtcm_allocator.hpp"  // For TxFrame allocation
+#include "ftl/allocator/bump_pool_buffer_strategy.hpp"
+#include "ftl/allocator/buffer_allocator.hpp"
 
 // Macro to remove Ethernet header from packet before releasing to pool
 #define NX_DRIVER_ETHERNET_FRAME_SIZE 14
@@ -25,6 +27,28 @@
 GigabitEthernetDriver::GigabitEthernetDriver() :
     tx_descriptor_ring_(nullptr) {
     // Constructor - initialize descriptor ring pointer
+
+    // Initialize ethernet::Frame allocator strategies with varying sizes
+    // Similar to how UDP datagrams are set up in hello_netx
+    // Maximum frame size is 1536 bytes (matching NX_PACKET max size)
+
+    // Set up buffer strategies for different frame sizes
+    //
+    // TODO: Consider exposing these strategies through the interface.
+    static ftl::allocator::BumpPoolBufferStrategy strategy_64(DtcmAllocator::instance(), 64);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_128(DtcmAllocator::instance(), 128);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_256(DtcmAllocator::instance(), 256);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_512(DtcmAllocator::instance(), 512);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_1024(DtcmAllocator::instance(), 1024);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_1536(DtcmAllocator::instance(), 1536);
+
+    // Create a BufferAllocator with all strategies
+    static ftl::allocator::BufferAllocator buffer_allocator(
+        strategy_64, strategy_128, strategy_256,
+        strategy_512, strategy_1024, strategy_1536);
+
+    // Initialize ethernet::Frame with the buffer allocator
+    ethernet::Frame::initialize(buffer_allocator);
 }
 
 GigabitEthernetDriver::~GigabitEthernetDriver() {
@@ -78,8 +102,8 @@ bool GigabitEthernetDriver::send(NX_PACKET* packet) {
 
     // Static TxFrame allocator using DTCM memory
     // BumpPoolObjStrategy takes only the allocator
-    static ftl::allocator::BumpPoolObjStrategy<TxFrame> tx_frame_strategy(DtcmAllocator::instance());
-    static ftl::allocator::ObjAllocator<TxFrame> tx_frame_allocator(tx_frame_strategy);
+    static ftl::allocator::BumpPoolObjStrategy<ethernet::TxFrame> tx_frame_strategy(DtcmAllocator::instance());
+    static ftl::allocator::ObjAllocator<ethernet::TxFrame> tx_frame_allocator(tx_frame_strategy);
 
     // Get the next available descriptor from the ring
     TxBufferDescriptor* descriptor = tx_descriptor_ring_->acquire_front();
