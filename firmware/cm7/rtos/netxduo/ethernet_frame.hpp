@@ -43,8 +43,8 @@ public:
     // After creation, the original NX_PACKET can be released immediately
     // as TxFrame owns its own copy of the data
     static TxFrame create(NX_PACKET* packet) {
-        // Acquire descriptor from the ring
-        TxBufferDescriptor* descriptor = tx_descriptor_ring_->acquire_front();
+        // Acquire descriptor from the ring (at back/tail)
+        TxBufferDescriptor* descriptor = tx_descriptor_ring_->acquire_back();
         if (!descriptor) {
             return TxFrame();  // Return empty frame
         }
@@ -80,10 +80,10 @@ public:
     // Destructor - releases descriptor back to ring if owned
     ~TxFrame() {
         if (descriptor_) {
-            // Assert that we're releasing the oldest descriptor (at head of ring)
+            // Assert that we're releasing the oldest descriptor (at front/head of ring)
             assert(tx_descriptor_ring_->head() == descriptor_ && "Releasing descriptor out of order");
-            // Release the descriptor back to the ring
-            tx_descriptor_ring_->release_back();
+            // Release the descriptor back to the ring (from front/head)
+            tx_descriptor_ring_->release_front();
             descriptor_ = nullptr;
         }
     }
@@ -93,9 +93,9 @@ public:
         if (this != &other) {
             // Release current descriptor if owned
             if (descriptor_) {
-                // Assert that we're releasing the oldest descriptor (at head of ring)
+                // Assert that we're releasing the oldest descriptor (at front/head of ring)
                 assert(tx_descriptor_ring_->head() == descriptor_ && "Releasing descriptor out of order");
-                tx_descriptor_ring_->release_back();
+                tx_descriptor_ring_->release_front();
             }
             data_frame_ = std::move(other.data_frame_);
             descriptor_ = other.descriptor_;

@@ -68,9 +68,9 @@ public:
     // Get number of descriptors in use
     size_t count() const { return count_; }
 
-    // Acquire the next available descriptor for transmission
+    // Acquire the next available descriptor for transmission (at back/tail)
     // Returns nullptr if ring is full
-    TxBufferDescriptor* acquire_front() {
+    TxBufferDescriptor* acquire_back() {
         if (full()) {
             return nullptr;
         }
@@ -89,8 +89,8 @@ public:
         return &descriptors_[head_index_];
     }
 
-    // Release the oldest descriptor (at head) after transmission completes
-    void release_back() {
+    // Release the oldest descriptor (at front/head) after transmission completes
+    void release_front() {
         if (!empty()) {
             head_index_ = (head_index_ + 1) & (kNumTxDescriptors - 1);
             count_--;
