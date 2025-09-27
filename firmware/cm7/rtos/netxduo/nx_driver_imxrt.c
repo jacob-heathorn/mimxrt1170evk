@@ -2391,7 +2391,8 @@ static VOID  _nx_driver_hardware_packet_transmitted(VOID)
 /*  DESCRIPTION                                                           */
 /*                                                                        */
 /*    This function processes packets received by the ethernet            */
-/*    controller.                                                         */
+/*    controller. Note: This driver does not support chained packets.     */
+/*    Each packet must fit within a single buffer descriptor.             */
 /*                                                                        */
 /*  INPUT                                                                 */
 /*                                                                        */
@@ -2422,107 +2423,75 @@ static VOID  _nx_driver_hardware_packet_received(VOID)
 {
 
 NX_PACKET     *packet_ptr;
-ULONG          bd_count = 0;
-INT            i;
+NX_PACKET     *received_packet_ptr;
 ULONG          idx;
-ULONG          temp_idx;
-ULONG          first_idx = nx_driver_information.nx_driver_information_receive_current_index;
-NX_PACKET     *received_packet_ptr = nx_driver_information.nx_driver_information_receive_packets[first_idx];
 
-
-    /* Find out the BDs that owned by CPU.  */
-    for (first_idx = idx = nx_driver_information.nx_driver_information_receive_current_index;
+    /* Process all descriptors owned by CPU.  */
+    for (idx = nx_driver_information.nx_driver_information_receive_current_index;
         (nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control & ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK) == 0;
          idx = (idx + 1) & (NX_DRIVER_RX_DESCRIPTORS - 1))
     {
 
-        /* Is the BD marked as the end of a frame?  */
+        /* Check if this BD is marked as the last (and only) BD of a frame.  */
         if (nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control & ENET_BUFFDESCRIPTOR_RX_LAST_MASK)
         {
+            /* Get the received packet.  */
+            received_packet_ptr = nx_driver_information.nx_driver_information_receive_packets[idx];
 
-            /* Yes, this BD is the last BD in the frame, set the last NX_PACKET's nx_packet_next to NULL.  */
-            nx_driver_information.nx_driver_information_receive_packets[idx] -> nx_packet_next = NX_NULL;
+            /* Set packet length (subtract 2-byte padding).  */
+            received_packet_ptr->nx_packet_length = (nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].length) - 2;
 
-            /* Store the length of the packet in the first NX_PACKET.  */
+            /* Skip the 2-byte padding.  */
+            received_packet_ptr->nx_packet_prepend_ptr += 2;
 
-            nx_driver_information.nx_driver_information_receive_packets[first_idx] -> nx_packet_length = (nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].length) - 2;
+            /* Set append pointer to the end of received data.  */
+            received_packet_ptr->nx_packet_append_ptr = received_packet_ptr->nx_packet_prepend_ptr + received_packet_ptr->nx_packet_length;
 
-            nx_driver_information.nx_driver_information_receive_packets[first_idx] -> nx_packet_prepend_ptr += 2;
+            /* Ensure no chaining - single buffer only.  */
+            received_packet_ptr->nx_packet_next = NX_NULL;
 
-            /* Adjust nx_packet_append_ptr with the size of the data in this buffer.  */
-            nx_driver_information.nx_driver_information_receive_packets[idx] -> nx_packet_append_ptr = nx_driver_information.nx_driver_information_receive_packets[idx]->nx_packet_prepend_ptr
-                                                                                                     + nx_driver_information.nx_driver_information_receive_packets[first_idx]->nx_packet_length
-                                                                                                     - bd_count * nx_driver_information.nx_driver_information_rx_buffer_size
-                                                                                                     + (bd_count > 0 ? 2 : 0);
-
-            /* Allocate new NX_PACKETs for BDs.  */
-            for (i = bd_count; i >= 0; i--)
+            /* Allocate a new packet for this descriptor.  */
+            if (nx_packet_allocate(nx_driver_information.nx_driver_information_packet_pool_ptr, &packet_ptr,
+                                      NX_RECEIVE_PACKET, NX_NO_WAIT) == NX_SUCCESS)
             {
+                /* Assign the new packet to the descriptor.  */
+                nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].buffer = (uint32_t)(packet_ptr->nx_packet_prepend_ptr);
+                nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control |= ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
+                nx_driver_information.nx_driver_information_receive_packets[idx] = packet_ptr;
 
-                temp_idx = (first_idx + i) & (NX_DRIVER_RX_DESCRIPTORS - 1);
-
-                /* Allocate a new packet from the packet pool.  */
-                if (nx_packet_allocate(nx_driver_information.nx_driver_information_packet_pool_ptr, &packet_ptr,
-                                          NX_RECEIVE_PACKET, NX_NO_WAIT) == NX_SUCCESS)
-                {
-
-                    /* Adjust the new packet and assign it to the BD.  */
-
-                    nx_driver_information.nx_driver_information_dma_rx_descriptors[temp_idx].buffer = (uint32_t)(packet_ptr->nx_packet_prepend_ptr);
-                    nx_driver_information.nx_driver_information_dma_rx_descriptors[temp_idx].control |= ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-                    nx_driver_information.nx_driver_information_receive_packets[temp_idx] = packet_ptr;
-                }
-                else
-                {
-
-                    /* Allocation failed, get out of the loop.  */
-                    break;
-                }
-            }
-
-            if (i >= 0)
-            {
-
-                /* At least one packet allocation was failed, release the received packet.  */
-                nx_packet_release(nx_driver_information.nx_driver_information_receive_packets[temp_idx] -> nx_packet_next);
-
-                for (; i >= 0; i--)
-                {
-
-                    /* Free up the BD to ready state. */
-                    temp_idx = (first_idx + i) & (NX_DRIVER_RX_DESCRIPTORS - 1);
-                    nx_driver_information.nx_driver_information_dma_rx_descriptors[temp_idx].control |= ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-                    nx_driver_information.nx_driver_information_receive_packets[temp_idx] -> nx_packet_prepend_ptr = nx_driver_information.nx_driver_information_receive_packets[temp_idx] -> nx_packet_data_start;
-                }
+                /* Transfer the received packet to NetX.  */
+                _nx_driver_transfer_to_netx(nx_driver_information.nx_driver_information_ip_ptr, received_packet_ptr);
             }
             else
             {
-
-                /* Transfer the packet to NetX.  */
-                _nx_driver_transfer_to_netx(nx_driver_information.nx_driver_information_ip_ptr, received_packet_ptr);
+                /* Allocation failed, reuse the same packet buffer.  */
+                received_packet_ptr->nx_packet_prepend_ptr = received_packet_ptr->nx_packet_data_start;
+                received_packet_ptr->nx_packet_append_ptr = received_packet_ptr->nx_packet_data_start;
+                nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control |= ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
             }
 
-            /* Set the first BD index for the next packet.  */
-            first_idx = (idx + 1) & (NX_DRIVER_RX_DESCRIPTORS - 1);
-
             /* Update the current receive index.  */
-            nx_driver_information.nx_driver_information_receive_current_index = first_idx;
-
-            received_packet_ptr = nx_driver_information.nx_driver_information_receive_packets[first_idx];
-
-            bd_count = 0;
-
+            nx_driver_information.nx_driver_information_receive_current_index = (idx + 1) & (NX_DRIVER_RX_DESCRIPTORS - 1);
         }
         else
         {
+            /* This is an intermediate buffer descriptor (packet spans multiple buffers).
+               We don't support chained packets - this should never happen if buffers are
+               sized appropriately for the maximum frame size. */
+            assert(false && "Received packet requires chaining - not supported. Increase buffer size.");
 
-            /* This BD is not the last BD of a frame. It is a intermediate descriptor.  */
+            /* Reset the packet buffer for reuse.  */
+            nx_driver_information.nx_driver_information_receive_packets[idx]->nx_packet_prepend_ptr =
+                nx_driver_information.nx_driver_information_receive_packets[idx]->nx_packet_data_start;
+            nx_driver_information.nx_driver_information_receive_packets[idx]->nx_packet_append_ptr =
+                nx_driver_information.nx_driver_information_receive_packets[idx]->nx_packet_data_start;
+            nx_driver_information.nx_driver_information_receive_packets[idx]->nx_packet_next = NX_NULL;
 
-            nx_driver_information.nx_driver_information_receive_packets[idx] -> nx_packet_next = nx_driver_information.nx_driver_information_receive_packets[(idx + 1) & (NX_DRIVER_RX_DESCRIPTORS - 1)];
+            /* Mark descriptor as empty for hardware to use.  */
+            nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control |= ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
 
-            nx_driver_information.nx_driver_information_receive_packets[idx] -> nx_packet_append_ptr = nx_driver_information.nx_driver_information_receive_packets[idx] -> nx_packet_data_end;
-
-            bd_count++;
+            /* Update the current receive index.  */
+            nx_driver_information.nx_driver_information_receive_current_index = (idx + 1) & (NX_DRIVER_RX_DESCRIPTORS - 1);
         }
     }
 
