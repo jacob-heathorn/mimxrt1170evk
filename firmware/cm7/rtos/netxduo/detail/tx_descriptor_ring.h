@@ -4,6 +4,7 @@
 #include "utils/ocram2_allocator.hpp"
 #include <cstddef>
 #include <cassert>
+#include <cstdio>
 #include <new>
 
 namespace ethernet {
@@ -54,9 +55,38 @@ public:
     static_assert((kNumTxDescriptors & (kNumTxDescriptors - 1)) == 0, "Ring size must be power of 2");
     static_assert(kNumTxDescriptors > 0, "Ring size must be greater than 0");
 
-    TxDescriptorRing();
+    TxDescriptorRing() : head_index_(0), tail_index_(0), count_(0) {
+        // Allocate descriptor array from OCRAM2 with 64-byte alignment for DMA
+        constexpr size_t alignment = 64;
+        void* raw_memory = Ocram2Allocator::instance().allocate(
+            sizeof(TxDescriptor) * kNumTxDescriptors, alignment);
 
-    ~TxDescriptorRing();
+        if (!raw_memory) {
+            printf("TxDescriptorRing: Failed to allocate descriptor array\n");
+            assert(false && "Failed to allocate descriptor array");
+        }
+
+        // Verify alignment
+        assert((reinterpret_cast<uintptr_t>(raw_memory) & (alignment - 1)) == 0 &&
+               "Descriptor array must be 64-byte aligned for DMA");
+
+        // Use placement new to construct each descriptor
+        descriptors_ = static_cast<TxDescriptor*>(raw_memory);
+        for (size_t i = 0; i < kNumTxDescriptors; ++i) {
+            new (&descriptors_[i]) TxDescriptor();
+        }
+
+        // Set wrap bit on last descriptor
+        descriptors_[kNumTxDescriptors - 1].setWrap(true);
+
+        printf("TxDescriptorRing: Allocated %zu descriptors at %p (64-byte aligned)\n",
+               kNumTxDescriptors, static_cast<void*>(descriptors_));
+    }
+
+    ~TxDescriptorRing() {
+        // Note: We don't deallocate from Ocram2Allocator as it's a bump allocator
+        // and memory is not freed until program termination
+    }
 
     // Get the size of the ring
     constexpr size_t size() const { return kNumTxDescriptors; }
@@ -74,24 +104,50 @@ public:
 
     // Acquire the next available descriptor for transmission (at back/tail)
     // Returns nullptr if ring is full
-    TxDescriptor* acquire_back();
-
+    TxDescriptor* acquire_back() {
+        if (full()) {
+            return nullptr;
+        }
+        TxDescriptor* desc = &descriptors_[tail_index_];
+        tail_index_ = (tail_index_ + 1) & (kNumTxDescriptors - 1);
+        count_++;
+        return desc;
+    }
 
     // Get the oldest descriptor (at head) without releasing
     // Returns nullptr if empty
-    TxDescriptor* head();
-
+    TxDescriptor* head() {
+        if (empty()) {
+            return nullptr;
+        }
+        return &descriptors_[head_index_];
+    }
 
     // Release the oldest descriptor (at front/head) after transmission completes
-    void release_front();
-
+    void release_front() {
+        if (!empty()) {
+            head_index_ = (head_index_ + 1) & (kNumTxDescriptors - 1);
+            count_--;
+        }
+    }
 
     // Reset all descriptors to initial state
-    void reset();
-
+    void reset() {
+        for (size_t i = 0; i < kNumTxDescriptors; i++) {
+            descriptors_[i].reset();
+        }
+        // Re-set wrap bit on last descriptor
+        descriptors_[kNumTxDescriptors - 1].setWrap(true);
+        // Reset queue indices
+        head_index_ = 0;
+        tail_index_ = 0;
+        count_ = 0;
+    }
 
     // Get physical address for TDSR register
-    uint32_t getBaseAddress() const;
+    uint32_t getBaseAddress() const {
+        return reinterpret_cast<uint32_t>(descriptors_[0].getRawMemory());
+    }
 
 private:
     // Pointer to array of descriptors allocated from OCRAM2 (64-byte aligned for DMA)

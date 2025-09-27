@@ -11,8 +11,6 @@ target_sources(network
     ${header_files}
   PRIVATE
     ${source_files}
-    ${CMAKE_CURRENT_SOURCE_DIR}/../rtos/netxduo/detail/tx_descriptor.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../rtos/netxduo/detail/tx_descriptor_ring.cpp
 )
 platformify(network)
 target_link_libraries(network PUBLIC 
