@@ -5,6 +5,7 @@
  */
 
 #include "fsl_phyrtl8211f.h"
+#include <assert.h>
 
 /*******************************************************************************
  * Definitions
@@ -68,14 +69,7 @@
  * Prototypes
  ******************************************************************************/
 
-static status_t PHY_RTL8211F_MMD_SetDevice(phy_handle_t *handle,
-                                           uint8_t device,
-                                           uint16_t addr,
-                                           phy_mmd_access_mode_t mode);
-static inline status_t PHY_RTL8211F_MMD_ReadData(phy_handle_t *handle, uint16_t *pData);
-static inline status_t PHY_RTL8211F_MMD_WriteData(phy_handle_t *handle, uint16_t data);
-static status_t PHY_RTL8211F_MMD_Read(phy_handle_t *handle, uint8_t device, uint16_t addr, uint16_t *pData);
-static status_t PHY_RTL8211F_MMD_Write(phy_handle_t *handle, uint8_t device, uint16_t addr, uint16_t data);
+// MMD function prototypes removed - no longer needed after removing EEE support
 
 /*******************************************************************************
  * Variables
@@ -183,26 +177,8 @@ status_t PHY_RTL8211F_Init(phy_handle_t *handle, const phy_config_t *config)
         return result;
     }
 
-    /* Energy Efficient Ethernet configuration */
-    if (config->enableEEE)
-    {
-        /* Get capabilities */
-        result = PHY_RTL8211F_MMD_Read(handle, PHY_MDIO_MMD_PCS, PHY_MDIO_PCS_EEE_CAP, &regValue);
-        if (result == kStatus_Success)
-        {
-            /* Enable EEE for 100TX and 1000T */
-            result = PHY_RTL8211F_MMD_Write(handle, PHY_MDIO_MMD_AN, PHY_MDIO_AN_EEE_ADV,
-                                            regValue & (PHY_MDIO_EEE_1000T | PHY_MDIO_EEE_100TX));
-        }
-    }
-    else
-    {
-        result = PHY_RTL8211F_MMD_Write(handle, PHY_MDIO_MMD_AN, PHY_MDIO_AN_EEE_ADV, 0);
-    }
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
+    /* EEE not supported - assert if enabled */
+    assert(!config->enableEEE && "EEE (Energy Efficient Ethernet) is not supported");
 
     /* Set INT pin as interrupt mode. */
     result = PHY_RTL8211F_WRITE(handle, PHY_PAGE_SELECT_REG, PHY_PAGE_INTR_PIN_ADDR);
@@ -517,61 +493,4 @@ status_t PHY_RTL8211F_ClearInterrupt(phy_handle_t *handle)
     return PHY_RTL8211F_READ(handle, PHY_INSR_REG, &regValue);
 }
 
-static status_t PHY_RTL8211F_MMD_SetDevice(phy_handle_t *handle,
-                                           uint8_t device,
-                                           uint16_t addr,
-                                           phy_mmd_access_mode_t mode)
-{
-    status_t result = kStatus_Success;
-
-    /* Set Function mode of address access(b00) and device address. */
-    result = PHY_RTL8211F_WRITE(handle, PHY_MMD_ACCESS_CONTROL_REG, device);
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
-
-    /* Set register address. */
-    result = PHY_RTL8211F_WRITE(handle, PHY_MMD_ACCESS_DATA_REG, addr);
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
-
-    /* Set Function mode of data access(b01~11) and device address. */
-    result = PHY_RTL8211F_WRITE(handle, PHY_MMD_ACCESS_CONTROL_REG, (uint16_t)mode | (uint16_t)device);
-    return result;
-}
-
-static inline status_t PHY_RTL8211F_MMD_ReadData(phy_handle_t *handle, uint16_t *pData)
-{
-    return PHY_RTL8211F_READ(handle, PHY_MMD_ACCESS_DATA_REG, pData);
-}
-
-static inline status_t PHY_RTL8211F_MMD_WriteData(phy_handle_t *handle, uint16_t data)
-{
-    return PHY_RTL8211F_WRITE(handle, PHY_MMD_ACCESS_DATA_REG, data);
-}
-
-static status_t PHY_RTL8211F_MMD_Read(phy_handle_t *handle, uint8_t device, uint16_t addr, uint16_t *pData)
-{
-    status_t result = kStatus_Success;
-    result          = PHY_RTL8211F_MMD_SetDevice(handle, device, addr, kPHY_MMDAccessNoPostIncrement);
-    if (result == kStatus_Success)
-    {
-        result = PHY_RTL8211F_MMD_ReadData(handle, pData);
-    }
-    return result;
-}
-
-static status_t PHY_RTL8211F_MMD_Write(phy_handle_t *handle, uint8_t device, uint16_t addr, uint16_t data)
-{
-    status_t result = kStatus_Success;
-
-    result = PHY_RTL8211F_MMD_SetDevice(handle, device, addr, kPHY_MMDAccessNoPostIncrement);
-    if (result == kStatus_Success)
-    {
-        result = PHY_RTL8211F_MMD_WriteData(handle, data);
-    }
-    return result;
-}
+// MMD functions removed - no longer needed after removing EEE support
