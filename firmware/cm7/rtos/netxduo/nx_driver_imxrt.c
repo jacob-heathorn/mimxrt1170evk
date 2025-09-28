@@ -53,9 +53,7 @@ extern "C" {
 int gigabit_ethernet_driver_initialize();
 bool gigabit_ethernet_driver_send(void* packet_ptr);
 void gigabit_ethernet_driver_process_transmitted_packets();
-void gigabit_ethernet_driver_process_received_packets(void* packet_pool,
-                                                       void* ip_ptr,
-                                                       void (*callback)(void*, void*));
+bool gigabit_ethernet_driver_receive(void* packet_pool, void** packet_ptr);
 #ifdef __cplusplus
 }
 #endif
@@ -2387,11 +2385,18 @@ static VOID  _nx_driver_hardware_packet_transmitted(VOID)
 /**************************************************************************/
 static VOID  _nx_driver_hardware_packet_received(VOID)
 {
-    /* Use the C++ driver to process received packets */
-    gigabit_ethernet_driver_process_received_packets(
+    NX_PACKET *packet_ptr;
+
+    /* Use the C++ driver to receive packets one at a time */
+    /* The C++ driver allocates the NX_PACKET and fills it with received data */
+    while (gigabit_ethernet_driver_receive(
         nx_driver_information.nx_driver_information_packet_pool_ptr,
-        nx_driver_information.nx_driver_information_ip_ptr,
-        (void (*)(void*, void*))_nx_driver_transfer_to_netx);
+        (void**)&packet_ptr)) {
+
+        /* Transfer the received packet to NetX */
+        /* NetX takes ownership of the packet - do NOT release it here */
+        _nx_driver_transfer_to_netx(nx_driver_information.nx_driver_information_ip_ptr, packet_ptr);
+    }
 }
 
 

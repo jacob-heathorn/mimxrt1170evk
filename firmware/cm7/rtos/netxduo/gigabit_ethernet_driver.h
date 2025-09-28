@@ -37,14 +37,11 @@ public:
     // This is called when the PHY detects a link status change
     void handle_link_mode_change(unsigned int link_speed, unsigned int link_duplex);
 
-    // Process received packets - check for received frames and process them
-    // This is called from the deferred processing routine
-    // The callback is invoked for each received frame converted to NX_PACKET
-    // Callback signature: void(NX_IP* ip_ptr, NX_PACKET* packet_ptr)
-    // packet_pool and ip_ptr are needed to allocate NX_PACKETs
-    void process_received_packets(NX_PACKET_POOL* packet_pool,
-                                   NX_IP* ip_ptr,
-                                   void (*callback)(NX_IP*, NX_PACKET*));
+    // Receive a single packet
+    // Returns true if a packet was received and stored in packet_ptr
+    // Returns false if no packet available or on error
+    // Caller owns the returned NX_PACKET and must release it
+    bool receive(NX_PACKET_POOL* packet_pool, NX_PACKET** packet_ptr);
 
     // Initialize RX buffers - must be called during initialization
     // Allocates ethernet::Frame buffers for each RX descriptor
@@ -89,13 +86,11 @@ bool gigabit_ethernet_driver_send(void* packet_ptr);
 // C wrapper function for processing transmitted packets
 void gigabit_ethernet_driver_process_transmitted_packets();
 
-// C wrapper function for processing received packets
+// C wrapper function for receiving a single packet
 // packet_pool: NX_PACKET_POOL for allocating packets
-// ip_ptr: NX_IP pointer for the network interface
-// callback: Function to call with each received packet
-void gigabit_ethernet_driver_process_received_packets(void* packet_pool,
-                                                       void* ip_ptr,
-                                                       void (*callback)(void*, void*));
+// packet_ptr: Pointer to store the received NX_PACKET
+// Returns true if packet received, false if no packet available
+bool gigabit_ethernet_driver_receive(void* packet_pool, void** packet_ptr);
 
 #ifdef __cplusplus
 }
