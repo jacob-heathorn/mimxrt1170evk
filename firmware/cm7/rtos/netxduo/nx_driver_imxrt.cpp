@@ -1695,8 +1695,8 @@ static void enet_init(void)
             count = PHY_AUTONEGO_TIMEOUT_COUNT;
             do
             {
-                PHY_GetAutoNegotiationStatus(&phyHandle, &autonego);
-                PHY_GetLinkStatus(&phyHandle, &link);
+                PHY_RTL8211F_GetAutoNegotiationStatus(&phyHandle, &autonego);
+                PHY_RTL8211F_GetLinkStatus(&phyHandle, &link);
                 if (autonego && link)
                 {
                     break;
@@ -1710,7 +1710,7 @@ static void enet_init(void)
     } while (!(link && autonego));
 
 
-    PHY_GetLinkSpeedDuplex(&phyHandle, &speed, &duplex);
+    PHY_RTL8211F_GetLinkSpeedDuplex(&phyHandle, &speed, &duplex);
     econf.speed = speed;
     econf.duplex = duplex;
 
