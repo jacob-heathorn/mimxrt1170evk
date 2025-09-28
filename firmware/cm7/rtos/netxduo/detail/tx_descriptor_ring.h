@@ -27,31 +27,11 @@ public:
     static_assert(kNumTxDescriptors > 0, "Ring size must be greater than 0");
 
     TxDescriptorRing() : descriptors_(nullptr), current_index_(0) {
-        // Allocate descriptor array from OCRAM2 with 64-byte alignment for DMA
-        constexpr size_t alignment = 64;
-        void* raw_memory = Ocram2Allocator::instance().allocate(
-            sizeof(TxDescriptor) * kNumTxDescriptors, alignment);
+        // Allocate descriptors
+        allocateDescriptors();
 
-        if (!raw_memory) {
-            printf("TxDescriptorRing: Failed to allocate descriptor array\n");
-            assert(false && "Failed to allocate descriptor array");
-        }
-
-        // Verify alignment
-        assert((reinterpret_cast<uintptr_t>(raw_memory) & (alignment - 1)) == 0 &&
-               "Descriptor array must be 64-byte aligned for DMA");
-
-        // Use placement new to construct each descriptor
-        descriptors_ = static_cast<TxDescriptor*>(raw_memory);
-        for (size_t i = 0; i < kNumTxDescriptors; ++i) {
-            new (&descriptors_[i]) TxDescriptor();
-        }
-
-        // Set wrap bit on last descriptor
-        descriptors_[kNumTxDescriptors - 1].setWrap(true);
-
-        printf("TxDescriptorRing: Allocated %zu descriptors at %p (64-byte aligned)\n",
-               kNumTxDescriptors, static_cast<void*>(descriptors_));
+        // Reset descriptors to initial state
+        reset();
     }
 
     ~TxDescriptorRing() {
@@ -103,6 +83,35 @@ public:
     }
 
 private:
+    // Allocate descriptors from OCRAM2 with proper alignment
+    void allocateDescriptors() {
+        // Allocate descriptor array from OCRAM2 with 64-byte alignment for DMA
+        constexpr size_t alignment = 64;
+        void* raw_memory = Ocram2Allocator::instance().allocate(
+            sizeof(TxDescriptor) * kNumTxDescriptors, alignment);
+
+        if (!raw_memory) {
+            printf("TxDescriptorRing: Failed to allocate descriptor array\n");
+            assert(false && "Failed to allocate descriptor array");
+        }
+
+        // Verify alignment
+        assert((reinterpret_cast<uintptr_t>(raw_memory) & (alignment - 1)) == 0 &&
+               "Descriptor array must be 64-byte aligned for DMA");
+
+        // Use placement new to construct each descriptor
+        descriptors_ = static_cast<TxDescriptor*>(raw_memory);
+        for (size_t i = 0; i < kNumTxDescriptors; ++i) {
+            new (&descriptors_[i]) TxDescriptor();
+        }
+
+        // Set wrap bit on last descriptor
+        descriptors_[kNumTxDescriptors - 1].setWrap(true);
+
+        printf("TxDescriptorRing: Allocated %zu descriptors at %p (64-byte aligned)\n",
+               kNumTxDescriptors, static_cast<void*>(descriptors_));
+    }
+
     // Pointer to array of descriptors allocated from OCRAM2 (64-byte aligned for DMA)
     TxDescriptor* descriptors_;
 
