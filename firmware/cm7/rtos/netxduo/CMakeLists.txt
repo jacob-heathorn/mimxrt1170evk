@@ -26,6 +26,8 @@ target_sources(netxduo
     detail/tx_frame.h
     detail/rx_descriptor.h
     detail/rx_descriptor_ring.h
+    detail/mdio.h
+    detail/mdio.cpp
 )
 target_compile_options(netxduo PUBLIC
   -Wno-write-strings

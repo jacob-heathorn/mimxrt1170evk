@@ -48,6 +48,7 @@
 /* C++ driver interface */
 #include "gigabit_ethernet_driver.h"
 #include "ethernet_frame.hpp"
+#include "detail/mdio.h"
 #include <cstring>  // For std::memcpy
 
 
@@ -1567,20 +1568,17 @@ typedef struct
 
 extern "C" VOID nx_driver_imx_ethernet_isr(VOID);
 
-static void MDIO_Init(void)
-{
-    (void)CLOCK_EnableClock(s_enetClock[ENET_GetInstance(EXAMPLE_ENET)]);
-    ENET_SetSMI(EXAMPLE_ENET, EXAMPLE_CLOCK_FREQ, false);
-}
-
+// MDIO wrapper functions for PHY driver compatibility
 static status_t MDIO_Write(uint8_t phyAddr, uint8_t regAddr, uint16_t data)
 {
-    return ENET_MDIOWrite(EXAMPLE_ENET, phyAddr, regAddr, data);
+    ethernet::detail::Mdio::write(phyAddr, regAddr, data);
+    return kStatus_Success;
 }
 
 static status_t MDIO_Read(uint8_t phyAddr, uint8_t regAddr, uint16_t *pData)
 {
-    return ENET_MDIORead(EXAMPLE_ENET, phyAddr, regAddr, pData);
+    *pData = ethernet::detail::Mdio::read(phyAddr, regAddr);
+    return kStatus_Success;
 }
 
 static void enet_init_imx(ENET_CONFIG_IMX *config)
@@ -1702,7 +1700,7 @@ static void enet_init(void)
     g_phy_resource.read  = MDIO_Read;
     g_phy_resource.write = MDIO_Write;
 
-    MDIO_Init();
+    ethernet::detail::Mdio::initialize();
 
 #if defined(BOARD_NETWORK_USE_100M_ENET_PORT) && (BOARD_NETWORK_USE_100M_ENET_PORT == 1)
     econf.interface = kENET_RmiiMode;
