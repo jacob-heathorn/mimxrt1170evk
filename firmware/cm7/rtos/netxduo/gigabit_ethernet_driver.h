@@ -46,6 +46,10 @@ public:
     // Set MAC address for the ethernet interface
     void setMacAddress(const std::array<uint8_t, 6>& macAddr);
 
+    // Configure MAC with address and other settings
+    // This will be expanded to include more configuration later
+    void configureMac(const std::array<uint8_t, 6>& macAddr);
+
 private:
     // Reset the driver - clears TX queue and resets TX/RX descriptor rings
     // Returns true on success, false on error

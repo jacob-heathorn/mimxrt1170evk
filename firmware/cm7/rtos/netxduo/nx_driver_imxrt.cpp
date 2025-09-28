@@ -1510,11 +1510,7 @@ extern "C" VOID nx_driver_imx_ethernet_isr(VOID);
 
 static void enet_init(void)
 {
-    volatile uint32_t rcr = 0;
-    volatile uint32_t ecr = 0;
-    volatile uint32_t tcr = 0;
-
-    /* Set the Physical Address for the selected FEC */
+    /* Configure MAC with address and settings */
     std::array<uint8_t, 6> macArray{{
         _nx_driver_hardware_address[0],
         _nx_driver_hardware_address[1],
@@ -1523,7 +1519,11 @@ static void enet_init(void)
         _nx_driver_hardware_address[4],
         _nx_driver_hardware_address[5]
     }};
-    GigabitEthernetDriver::instance().setMacAddress(macArray);
+    GigabitEthernetDriver::instance().configureMac(macArray);
+
+    volatile uint32_t rcr = 0;
+    volatile uint32_t ecr = 0;
+    volatile uint32_t tcr = 0;
 
     /* Mask all FEC interrupts */
     EXAMPLE_ENET->EIMR = 0;
