@@ -68,8 +68,11 @@ void EthernetMac::mdioWrite(uint8_t phyAddr, uint8_t regAddr, uint16_t data) {
 }
 
 uint16_t EthernetMac::mdioRead(uint8_t phyAddr, uint8_t regAddr) {
+    // Get reference to EIR register
+    volatile auto& eir = nENET_1G::EIR::ref();
+
     // Clear the MII interrupt flag (write 1 to clear)
-    EXAMPLE_ENET->EIR = ENET_EIR_MII_MASK;
+    eir.bits.MII = 1;
 
     // Build and write the MMFR register value for a read operation
     // ST=01b (bits 31-30), OP=10b (bits 29-28), PA (bits 27-23), RA (bits 22-18), TA=10b (bits 17-16)
@@ -85,7 +88,7 @@ uint16_t EthernetMac::mdioRead(uint8_t phyAddr, uint8_t regAddr) {
     constexpr uint32_t timeout = 100000;  // Timeout counter
     uint32_t counter = timeout;
     while (counter > 0) {
-        if (EXAMPLE_ENET->EIR & ENET_EIR_MII_MASK) {
+        if (eir.bits.MII) {
             break;  // Transaction complete
         }
         counter--;
@@ -98,7 +101,7 @@ uint16_t EthernetMac::mdioRead(uint8_t phyAddr, uint8_t regAddr) {
     uint16_t data = (uint16_t)(EXAMPLE_ENET->MMFR & ENET_MMFR_DATA_MASK);
 
     // Clear the MII interrupt flag
-    EXAMPLE_ENET->EIR = ENET_EIR_MII_MASK;
+    eir.bits.MII = 1;
 
     return data;
 }
