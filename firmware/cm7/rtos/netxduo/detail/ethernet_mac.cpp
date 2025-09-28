@@ -68,10 +68,38 @@ void EthernetMac::mdioWrite(uint8_t phyAddr, uint8_t regAddr, uint16_t data) {
 }
 
 uint16_t EthernetMac::mdioRead(uint8_t phyAddr, uint8_t regAddr) {
-    uint16_t data = 0;
-    // Use FSL driver to read from PHY register
-    // Return value ignored to match existing behavior
-    (void)ENET_MDIORead(EXAMPLE_ENET, phyAddr, regAddr, &data);
+    // Clear the MII interrupt flag (write 1 to clear)
+    EXAMPLE_ENET->EIR = ENET_EIR_MII_MASK;
+
+    // Build and write the MMFR register value for a read operation
+    // ST=01b (bits 31-30), OP=10b (bits 29-28), PA (bits 27-23), RA (bits 22-18), TA=10b (bits 17-16)
+    uint32_t mmfr = ENET_MMFR_ST(1) |        // Start of frame = 01b
+                    ENET_MMFR_OP(2) |        // Operation = 10b (read)
+                    ENET_MMFR_PA(phyAddr) |  // PHY address
+                    ENET_MMFR_RA(regAddr) |  // Register address
+                    ENET_MMFR_TA(2);         // Turnaround = 10b
+
+    EXAMPLE_ENET->MMFR = mmfr;
+
+    // Wait for MDIO transaction to complete (poll MII interrupt flag)
+    constexpr uint32_t timeout = 100000;  // Timeout counter
+    uint32_t counter = timeout;
+    while (counter > 0) {
+        if (EXAMPLE_ENET->EIR & ENET_EIR_MII_MASK) {
+            break;  // Transaction complete
+        }
+        counter--;
+    }
+
+    // TODO: Implement proper error handling instead of assert
+    // For now, just read the data even if timeout occurred
+
+    // Read the data from the MMFR register
+    uint16_t data = (uint16_t)(EXAMPLE_ENET->MMFR & ENET_MMFR_DATA_MASK);
+
+    // Clear the MII interrupt flag
+    EXAMPLE_ENET->EIR = ENET_EIR_MII_MASK;
+
     return data;
 }
 
