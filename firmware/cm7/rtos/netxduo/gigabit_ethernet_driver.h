@@ -50,9 +50,12 @@ public:
     ethernet::detail::RxDescriptorRing& get_rx_ring() { return rx_descriptor_ring_; }
 
 private:
-    // Initialize the driver - sets up TX/RX descriptor rings
+    // Reset the driver - clears TX queue and resets TX/RX descriptor rings
     // Returns true on success, false on error
-    bool initialize();
+    bool reset();
+
+    // Set up frame pools for ethernet::Frame allocator
+    void setupFramePools();
 
     // TX descriptor ring (internally allocates from OCRAM2 with 64-byte alignment)
     // Ring manages its own head/tail indices for queue-like behavior

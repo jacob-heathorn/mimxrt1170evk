@@ -33,6 +33,14 @@ GigabitEthernetDriver::GigabitEthernetDriver() {
     // Initialize TxFrame with the descriptor ring
     ethernet::detail::TxFrame::initialize(&tx_descriptor_ring_);
 
+    // Set up frame pools
+    setupFramePools();
+
+    // Reset the driver
+    reset();
+}
+
+void GigabitEthernetDriver::setupFramePools() {
     // Initialize ethernet::Frame allocator strategies with varying sizes
     // Similar to how UDP datagrams are set up in hello_netx
     // Maximum frame size: 1538 (1536+2 byte padding) bytes
@@ -58,23 +66,15 @@ GigabitEthernetDriver::GigabitEthernetDriver() {
 
     // Initialize ethernet::Frame with the buffer allocator
     ethernet::Frame::initialize(buffer_allocator);
-
-    // Initialize the driver
-    initialize();
 }
 
-bool GigabitEthernetDriver::initialize() {
-    printf("GigabitEthernetDriver::initialize\n");
-
+bool GigabitEthernetDriver::reset() {
     // Clear the queue if it has any leftover frames
     tx_frame_queue_.clear();
 
     // Set Transmit Descriptor List Address Register
     // Point to the base of the descriptor ring (allocated in constructor)
     ENET_1G->TDSR = tx_descriptor_ring_.getBaseAddress();
-
-    printf("GigabitEthernetDriver: TDSR set to 0x%08lX\n", ENET_1G->TDSR);
-
 
     // Reset RX descriptor ring to ensure clean state
     // This is important for warm boot scenarios or re-initialization
@@ -83,8 +83,6 @@ bool GigabitEthernetDriver::initialize() {
     // Set Receive Descriptor List Address Register
     // Point to the base of the RX descriptor ring
     ENET_1G->RDSR = rx_descriptor_ring_.getBaseAddress();
-
-    printf("GigabitEthernetDriver: RDSR set to 0x%08lX\n", ENET_1G->RDSR);
 
     return true;  // Return success
 }
