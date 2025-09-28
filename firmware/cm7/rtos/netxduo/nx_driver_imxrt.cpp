@@ -1525,12 +1525,6 @@ static void enet_init(void)
     volatile uint32_t ecr = 0;
     volatile uint32_t tcr = 0;
 
-    /* Mask all FEC interrupts */
-    EXAMPLE_ENET->EIMR = 0;
-
-    /* Clear all FEC interrupt events */
-    EXAMPLE_ENET->EIR = 0xFFFFFFFF;
-
     /* Initialize the Receive Control Register */
     rcr = ENET_RCR_MAX_FL(14+1500+4) /*ethernet frame head + max data+crc*/
         | ENET_RCR_MII_MODE_MASK /*always*/

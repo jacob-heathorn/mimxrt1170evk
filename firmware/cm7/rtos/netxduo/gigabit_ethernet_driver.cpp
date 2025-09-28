@@ -289,16 +289,18 @@ void GigabitEthernetDriver::handle_link_mode_change(unsigned int link_speed, uns
            link_speed, link_duplex);
 }
 
-void GigabitEthernetDriver::setMacAddress(const std::array<uint8_t, 6>& macAddr) {
+void GigabitEthernetDriver::configureMac(const std::array<uint8_t, 6>& macAddr) {
+    // Configure MAC address
     // Delegate to GigabitMac which handles the low-level register operations
     // This includes clearing hash registers and setting the MAC address
     ethernet::detail::GigabitMac::instance().setAddress(macAddr);
-}
 
-void GigabitEthernetDriver::configureMac(const std::array<uint8_t, 6>& macAddr) {
-    // Configure MAC address
-    setMacAddress(macAddr);
+    // Mask all FEC interrupts
+    nENET_1G::EIMR::ref().value = 0;
+
+    // Clear all FEC interrupt events
+    nENET_1G::EIR::ref().value = 0xFFFFFFFF;
 
     // TODO: Additional MAC configuration will be added here later
-    // such as interrupt masks, buffer sizes, etc.
+    // such as buffer sizes, etc.
 }

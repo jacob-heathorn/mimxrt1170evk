@@ -43,9 +43,6 @@ public:
     // Get current link duplex
     ethernet::detail::PhyDuplex getLinkDuplex() const { return link_duplex_; }
 
-    // Set MAC address for the ethernet interface
-    void setMacAddress(const std::array<uint8_t, 6>& macAddr);
-
     // Configure MAC with address and other settings
     // This will be expanded to include more configuration later
     void configureMac(const std::array<uint8_t, 6>& macAddr);
