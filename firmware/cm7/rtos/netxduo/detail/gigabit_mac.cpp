@@ -2,6 +2,7 @@
 #include "drivers/clock/clock_control.h"
 
 #include "registers/codegen/enet_1g.hpp"
+#include <cassert>
 
 // Ethernet MAC constants
 namespace {
@@ -77,6 +78,9 @@ void GigabitMac::mdioWrite(uint8_t phyAddr, uint8_t regAddr, uint16_t data) {
         counter--;
     }
 
+    // TODO: Implement proper error handling for MDIO timeout
+    assert(counter > 0 && "MDIO write operation timed out");
+
     // Clear the MDIO access complete event
     eir.bits.MII = 1;
 }
@@ -110,8 +114,8 @@ uint16_t GigabitMac::mdioRead(uint8_t phyAddr, uint8_t regAddr) {
         counter--;
     }
 
-    // TODO: Implement proper error handling instead of assert
-    // For now, just read the data even if timeout occurred
+    // TODO: Implement proper error handling for MDIO timeout
+    assert(counter > 0 && "MDIO read operation timed out");
 
     // Read the data from the MMFR register
     uint16_t data = mmfr.bits.DATA;
