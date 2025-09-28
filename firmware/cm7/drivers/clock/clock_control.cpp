@@ -36,8 +36,3 @@ uint32_t ClockControl::getBusClockFreq() {
     // TODO: Replace with direct CCM clock root register read
     return CLOCK_GetRootClockFreq(kCLOCK_Root_Bus);
 }
-
-uint32_t ClockControl::getMdioClockFreq() {
-    // MDIO uses the bus clock
-    return getBusClockFreq();
-}

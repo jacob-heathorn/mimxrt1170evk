@@ -11,10 +11,6 @@ constexpr uint32_t kNanosecondsPerSecond = 1000000000U; // For timing calculatio
 constexpr uint32_t kMdioMinHoldTimeNs = 10U;           // Minimum 10ns hold time
 constexpr uint32_t kMdioTimeoutCycles = 100000U;       // Timeout for MDIO operations
 
-// Clock frequency (from platform)
-inline uint32_t GetMdioClockFreq() {
-    return ClockControl::getMdioClockFreq();
-}
 } // anonymous namespace
 
 namespace ethernet {
@@ -30,7 +26,7 @@ void GigabitMac::mdioInit() {
     volatile auto& mscr = nENET_1G::MSCR::ref();
 
     // Get current clock frequency
-    const uint32_t clockFreq = GetMdioClockFreq();
+    const uint32_t clockFreq = ClockControl::getBusClockFreq();
 
     // Calculate the MII speed which controls the frequency of the MDC
     // Use (param + N - 1) / N to increase accuracy with rounding
