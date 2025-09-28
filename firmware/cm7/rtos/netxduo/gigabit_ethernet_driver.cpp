@@ -2,7 +2,6 @@
 #include <cstdio>
 #include <cstring>
 #include "fsl_enet.h"
-#include "nx_api.h"  // For NX_PACKET structure
 #include "utils/ocram2_allocator.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "ftl/allocator/bump_pool_buffer_strategy.hpp"
