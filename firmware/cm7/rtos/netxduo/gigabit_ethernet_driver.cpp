@@ -7,6 +7,7 @@
 #include "utils/dtcm_allocator.hpp"
 #include "ftl/allocator/bump_pool_buffer_strategy.hpp"
 #include "ftl/allocator/buffer_allocator.hpp"
+#include "detail/gigabit_mac.h"
 
 // Macro to remove Ethernet header from packet before releasing to pool
 #define NX_DRIVER_ETHERNET_FRAME_SIZE 14
@@ -25,6 +26,9 @@
 }
 
 GigabitEthernetDriver::GigabitEthernetDriver() {
+    // Create the GigabitMac singleton instance.
+    ethernet::detail::GigabitMac::create();
+
     // Initialize TxFrame with the descriptor ring
     ethernet::detail::TxFrame::initialize(&tx_descriptor_ring_);
 

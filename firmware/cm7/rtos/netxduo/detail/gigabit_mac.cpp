@@ -1,6 +1,5 @@
-#include "ethernet_mac.h"
-#include "fsl_enet.h"
-#include "fsl_clock.h"
+#include "gigabit_mac.h"
+#include "fsl_clock.h"  // TODO: Replace with direct clock control when available
 
 // Undefine conflicting macros from FSL headers before including register definitions
 #ifdef CMP1
@@ -18,35 +17,43 @@
 
 #include "registers/codegen/enet_1g.hpp"
 
-// Hardware definitions (from nx_driver_imxrt.cpp)
-#define EXAMPLE_ENET       ENET_1G
-#define MDIO_CLOCK_FREQ    CLOCK_GetRootClockFreq(kCLOCK_Root_Bus)
+// Ethernet MAC constants
+namespace {
+// MDIO interface constants
+constexpr uint32_t kMdcFrequency = 2500000U;           // 2.5 MHz MDC clock
+constexpr uint32_t kNanosecondsPerSecond = 1000000000U; // For timing calculations
+constexpr uint32_t kMdioMinHoldTimeNs = 10U;           // Minimum 10ns hold time
+constexpr uint32_t kMdioTimeoutCycles = 100000U;       // Timeout for MDIO operations
+
+// Clock frequency (from platform)
+inline uint32_t GetMdioClockFreq() {
+    return CLOCK_GetRootClockFreq(kCLOCK_Root_Bus);
+}
+} // anonymous namespace
 
 namespace ethernet {
 namespace detail {
 
-void EthernetMac::mdioInit() {
-    // Enable ENET clock (s_enetClock is extern from fsl_enet.h)
-    // TODO: Replace with direct clock control when available
-    (void)CLOCK_EnableClock(s_enetClock[ENET_GetInstance(EXAMPLE_ENET)]);
+GigabitMac::GigabitMac() {
+    // Enable ENET_1G peripheral clock
+    // TODO: Replace with direct clock control register access when available
+    CLOCK_EnableClock(kCLOCK_Enet_1g);
+}
 
+void GigabitMac::mdioInit() {
     // Configure SMI (Serial Management Interface) for MDIO
-    // Implementation based on ENET_SetSMI but using C++ register access
-
-    // Constants from FSL driver
-    constexpr uint32_t MDC_FREQUENCY = 2500000U;  // 2.5 MHz MDC clock
-    constexpr uint32_t NANOSECOND_ONE_SECOND = 1000000000U;
-
-    // Get reference to MSCR register
     volatile auto& mscr = nENET_1G::MSCR::ref();
+
+    // Get current clock frequency
+    const uint32_t clockFreq = GetMdioClockFreq();
 
     // Calculate the MII speed which controls the frequency of the MDC
     // Use (param + N - 1) / N to increase accuracy with rounding
-    uint32_t speed = (MDIO_CLOCK_FREQ + 2U * MDC_FREQUENCY - 1U) / (2U * MDC_FREQUENCY) - 1U;
+    const uint32_t speed = (clockFreq + 2U * kMdcFrequency - 1U) / (2U * kMdcFrequency) - 1U;
 
     // Calculate the hold time on the MDIO output (minimum 10ns)
-    uint32_t holdTime = (10U + NANOSECOND_ONE_SECOND / MDIO_CLOCK_FREQ - 1U) /
-                        (NANOSECOND_ONE_SECOND / MDIO_CLOCK_FREQ) - 1U;
+    const uint32_t holdTime = (kMdioMinHoldTimeNs + kNanosecondsPerSecond / clockFreq - 1U) /
+                              (kNanosecondsPerSecond / clockFreq) - 1U;
 
     // Build MSCR value locally for atomic write
     nENET_1G::MSCR mscr_val{};
@@ -59,7 +66,7 @@ void EthernetMac::mdioInit() {
     mscr.value = mscr_val.value;
 }
 
-void EthernetMac::mdioWrite(uint8_t phyAddr, uint8_t regAddr, uint16_t data) {
+void GigabitMac::mdioWrite(uint8_t phyAddr, uint8_t regAddr, uint16_t data) {
     // Get references to registers
     volatile auto& mmfr = nENET_1G::MMFR::ref();
     volatile auto& eir = nENET_1G::EIR::ref();
@@ -81,8 +88,7 @@ void EthernetMac::mdioWrite(uint8_t phyAddr, uint8_t regAddr, uint16_t data) {
     mmfr.value = mmfr_val.value;
 
     // Wait for MDIO transaction to complete (poll MII interrupt flag)
-    constexpr uint32_t timeout = 100000;  // Timeout counter
-    uint32_t counter = timeout;
+    uint32_t counter = kMdioTimeoutCycles;
     while (counter > 0) {
         if (eir.bits.MII) {
             break;  // Transaction complete
@@ -94,7 +100,7 @@ void EthernetMac::mdioWrite(uint8_t phyAddr, uint8_t regAddr, uint16_t data) {
     eir.bits.MII = 1;
 }
 
-uint16_t EthernetMac::mdioRead(uint8_t phyAddr, uint8_t regAddr) {
+uint16_t GigabitMac::mdioRead(uint8_t phyAddr, uint8_t regAddr) {
     // Get references to registers
     volatile auto& mmfr = nENET_1G::MMFR::ref();
     volatile auto& eir = nENET_1G::EIR::ref();
@@ -115,8 +121,7 @@ uint16_t EthernetMac::mdioRead(uint8_t phyAddr, uint8_t regAddr) {
     mmfr.value = mmfr_val.value;
 
     // Wait for MDIO transaction to complete (poll MII interrupt flag)
-    constexpr uint32_t timeout = 100000;  // Timeout counter
-    uint32_t counter = timeout;
+    uint32_t counter = kMdioTimeoutCycles;
     while (counter > 0) {
         if (eir.bits.MII) {
             break;  // Transaction complete

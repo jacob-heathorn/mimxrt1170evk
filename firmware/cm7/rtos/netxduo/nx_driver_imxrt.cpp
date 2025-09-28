@@ -48,7 +48,7 @@
 /* C++ driver interface */
 #include "gigabit_ethernet_driver.h"
 #include "ethernet_frame.hpp"
-#include "detail/ethernet_mac.h"
+#include "detail/gigabit_mac.h"
 #include <cstring>  // For std::memcpy
 
 
@@ -1571,13 +1571,13 @@ extern "C" VOID nx_driver_imx_ethernet_isr(VOID);
 // MDIO wrapper functions for PHY driver compatibility
 static status_t MDIO_Write(uint8_t phyAddr, uint8_t regAddr, uint16_t data)
 {
-    ethernet::detail::EthernetMac::mdioWrite(phyAddr, regAddr, data);
+    ethernet::detail::GigabitMac::instance().mdioWrite(phyAddr, regAddr, data);
     return kStatus_Success;
 }
 
 static status_t MDIO_Read(uint8_t phyAddr, uint8_t regAddr, uint16_t *pData)
 {
-    *pData = ethernet::detail::EthernetMac::mdioRead(phyAddr, regAddr);
+    *pData = ethernet::detail::GigabitMac::instance().mdioRead(phyAddr, regAddr);
     return kStatus_Success;
 }
 
@@ -1700,7 +1700,7 @@ static void enet_init(void)
     g_phy_resource.read  = MDIO_Read;
     g_phy_resource.write = MDIO_Write;
 
-    ethernet::detail::EthernetMac::mdioInit();
+    ethernet::detail::GigabitMac::instance().mdioInit();
 
 #if defined(BOARD_NETWORK_USE_100M_ENET_PORT) && (BOARD_NETWORK_USE_100M_ENET_PORT == 1)
     econf.interface = kENET_RmiiMode;
