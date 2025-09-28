@@ -7,7 +7,7 @@
 #include "ftl/allocator/buffer_allocator.hpp"
 #include "detail/gigabit_mac.h"
 #include "detail/phyrtl8211f.h"
-#include "fsl_enet.h"
+#include "registers/codegen/enet_1g.hpp"
 
 // PHY configuration constants
 constexpr uint8_t kPhyAddress = 0x01;  // PHY address for ENET port 1
@@ -65,7 +65,7 @@ bool GigabitEthernetDriver::reset() {
 
     // Set Transmit Descriptor List Address Register
     // Point to the base of the descriptor ring (allocated in constructor)
-    ENET_1G->TDSR = tx_descriptor_ring_.getBaseAddress();
+    nENET_1G::TDSR::ref().value = tx_descriptor_ring_.getBaseAddress();
 
     // Reset RX descriptor ring to ensure clean state
     // This is important for warm boot scenarios or re-initialization
@@ -73,7 +73,7 @@ bool GigabitEthernetDriver::reset() {
 
     // Set Receive Descriptor List Address Register
     // Point to the base of the RX descriptor ring
-    ENET_1G->RDSR = rx_descriptor_ring_.getBaseAddress();
+    nENET_1G::RDSR::ref().value = rx_descriptor_ring_.getBaseAddress();
 
     return true;  // Return success
 }
@@ -165,9 +165,9 @@ bool GigabitEthernetDriver::send(ethernet::Frame&& frame) {
     // Move the frame into the queue
     tx_frame_queue_.push(std::move(tx_frame));
 
-    // Resume DMA transmission if suspended (using ENET_1G for gigabit)
-    if (!ENET_1G->TDAR) {
-        ENET_1G->TDAR = ENET_TDAR_TDAR_MASK;
+    // Resume DMA transmission if suspended
+    if (!nENET_1G::TDAR::ref().value) {
+        nENET_1G::TDAR::ref().value = 1;  // Set TDAR bit to resume transmission
     }
 
     return true;
@@ -246,8 +246,8 @@ ethernet::Frame GigabitEthernetDriver::receive() {
     rx_descriptor_ring_.release(desc);
 
     // Resume DMA reception if it was suspended
-    if (!ENET_1G->RDAR) {
-        ENET_1G->RDAR = ENET_RDAR_RDAR_MASK;
+    if (!nENET_1G::RDAR::ref().value) {
+        nENET_1G::RDAR::ref().value = 1;  // Set RDAR bit to resume reception
     }
 
     return frame;
