@@ -1668,11 +1668,7 @@ static void enet_init(void)
 
     ethernet::detail::GigabitMac::instance().mdioInit();
 
-#if defined(BOARD_NETWORK_USE_100M_ENET_PORT) && (BOARD_NETWORK_USE_100M_ENET_PORT == 1)
-    econf.interface = kENET_RmiiMode;
-#else
     econf.interface = kENET_RgmiiMode;
-#endif
 
     econf.neg = 0; /*autoneg on */
     econf.mac[0] = _nx_driver_hardware_address[0];
@@ -1711,10 +1707,6 @@ static void enet_init(void)
         }
     } while (!(link && autonego));
 
-#if PHY_STABILITY_DELAY_US
-    /* Wait a moment for PHY status to be stable. */
-    SDK_DelayAtLeastUs(PHY_STABILITY_DELAY_US, SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY);
-#endif
 
     PHY_GetLinkSpeedDuplex(&phyHandle, &speed, &duplex);
     econf.speed = speed;
