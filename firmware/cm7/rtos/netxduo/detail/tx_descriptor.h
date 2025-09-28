@@ -35,7 +35,7 @@ public:
     }
 
     // Control field management
-    void setReady(bool ready);
+    void setReady();  // Software can only set READY=1 (hand to hardware)
     bool isReady() const;
 
     void setWrap(bool wrap);
@@ -124,12 +124,8 @@ private:
 };
 
 // Inline implementations for performance
-inline void TxDescriptor::setReady(bool ready) {
-    if (ready) {
-        control_ |= TX_BD_READY_MASK;
-    } else {
-        control_ &= ~TX_BD_READY_MASK;
-    }
+inline void TxDescriptor::setReady() {
+    control_ |= TX_BD_READY_MASK;  // Software can only set READY=1
 }
 
 inline bool TxDescriptor::isReady() const {

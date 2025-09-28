@@ -71,7 +71,7 @@ public:
         __DSB();  // Data Synchronization Barrier (ARM specific)
 
         // Return descriptor to hardware (mark as empty)
-        desc->setEmpty(true);
+        desc->setEmpty();
 
         // Move to next descriptor
         current_index_ = (current_index_ + 1) & (kNumRxDescriptors - 1);
@@ -89,7 +89,7 @@ public:
             descriptors_[i].setBuffer(buffers_[i]);
 
             // Mark as empty (ready for hardware)
-            descriptors_[i].setEmpty(true);
+            descriptors_[i].setEmpty();
         }
         // Re-set wrap bit on last descriptor
         descriptors_[kNumRxDescriptors - 1].setWrap(true);

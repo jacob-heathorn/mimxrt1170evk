@@ -82,7 +82,7 @@ public:
         __DSB();
 
         // Mark descriptor as ready for hardware to process
-        desc->setReady(true);
+        desc->setReady();  // Sets READY=1
         desc->setLast(true);  // Single frame, not chained
     }
 

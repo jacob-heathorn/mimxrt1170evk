@@ -37,13 +37,9 @@ public:
         return (control_ & EMPTY_MASK) != 0;
     }
 
-    // Set empty bit (return buffer to DMA)
-    void setEmpty(bool empty) {
-        if (empty) {
-            control_ |= EMPTY_MASK;
-        } else {
-            control_ &= ~EMPTY_MASK;
-        }
+    // Set empty bit (return buffer to hardware)
+    void setEmpty() {
+        control_ |= EMPTY_MASK;  // Software can only set EMPTY=1
     }
 
     // Check if this is the last buffer of a frame
