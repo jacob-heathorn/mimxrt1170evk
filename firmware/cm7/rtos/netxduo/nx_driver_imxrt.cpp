@@ -1508,7 +1508,7 @@ NX_PACKET   *packet_ptr;
 extern "C" VOID nx_driver_imx_ethernet_isr(VOID);
 
 
-static void enet_init_imx(enet_mii_mode_t interface, phy_speed_t speed, phy_duplex_t duplex, uint8_t mac[6])
+static void enet_init_imx(enet_mii_mode_t interface, ethernet::detail::PhySpeed speed, ethernet::detail::PhyDuplex duplex, uint8_t mac[6])
 {
     volatile uint32_t rcr = 0;
     volatile uint32_t ecr = 0;
@@ -1540,7 +1540,7 @@ static void enet_init_imx(enet_mii_mode_t interface, phy_speed_t speed, phy_dupl
         rcr &= ~ENET_RCR_RGMII_EN_MASK;
     }
 
-    if( speed == kPHY_Speed1000M )
+    if( speed == ethernet::detail::PhySpeed::e1000M )
     {
         ecr |= ENET_ECR_SPEED_MASK;
     }
@@ -1558,24 +1558,22 @@ static void enet_init_imx(enet_mii_mode_t interface, phy_speed_t speed, phy_dupl
         rcr |= ENET_RCR_RMII_MODE_MASK;
 
         /*only set speed in RMII mode*/
-        if( speed == kPHY_Speed10M )
+        if( speed == ethernet::detail::PhySpeed::e10M )
         {
             rcr |= ENET_RCR_RMII_10T_MASK;
         }
     }/*no need to configure MAC MII interface*/
 
     /* Set the duplex */
-    switch (duplex)
+    if (duplex == ethernet::detail::PhyDuplex::eHalf)
     {
-        case kENET_MiiHalfDuplex:
-            rcr |= ENET_RCR_DRT_MASK;
-            tcr &= (uint32_t)~ENET_TCR_FDEN_MASK;
-            break;
-        case kENET_MiiFullDuplex:
-        default:
-            rcr &= ~ENET_RCR_DRT_MASK;
-            tcr |= ENET_TCR_FDEN_MASK;
-            break;
+        rcr |= ENET_RCR_DRT_MASK;
+        tcr &= (uint32_t)~ENET_TCR_FDEN_MASK;
+    }
+    else  // Full duplex
+    {
+        rcr &= ~ENET_RCR_DRT_MASK;
+        tcr |= ENET_TCR_FDEN_MASK;
     }
 
     // Checksum offload
@@ -1598,8 +1596,8 @@ static void enet_init_imx(enet_mii_mode_t interface, phy_speed_t speed, phy_dupl
 static void enet_init(void)
 {
     // Get the negotiated speed/duplex from the driver (PHY was already initialized in constructor)
-    phy_speed_t speed = GigabitEthernetDriver::instance().getLinkSpeed();
-    phy_duplex_t duplex = GigabitEthernetDriver::instance().getLinkDuplex();
+    ethernet::detail::PhySpeed speed = GigabitEthernetDriver::instance().getLinkSpeed();
+    ethernet::detail::PhyDuplex duplex = GigabitEthernetDriver::instance().getLinkDuplex();
 
     // Configure MAC with MAC address and negotiated speed/duplex
     enet_init_imx(kENET_RgmiiMode, speed, duplex, _nx_driver_hardware_address);

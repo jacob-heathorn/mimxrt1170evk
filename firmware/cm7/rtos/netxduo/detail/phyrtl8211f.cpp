@@ -1,7 +1,37 @@
 #include "phyrtl8211f.h"
 #include "gigabit_mac.h"
 #include <cassert>
+#include <cstddef>
 
+/*! @brief Defines the PHY basic registers. */
+#define PHY_ID1_REG                (0x02U)  /*!< The PHY ID1 register. */
+#define PHY_BASICCONTROL_REG       (0x00U)  /*!< The PHY basic control register. */
+#define PHY_BASICSTATUS_REG        (0x01U)  /*!< The PHY basic status register. */
+#define PHY_AUTONEG_ADVERTISE_REG  (0x04U)  /*!< The PHY auto-negotiation advertisement register. */
+#define PHY_1000BASET_CONTROL_REG  (0x09U)  /*!< The PHY 1000BASE-T control register. */
+
+/*! @brief Defines the mask flag in basic control register. */
+#define PHY_BCTL_RESET_MASK         ((uint16_t)0x8000U) /*!< The PHY reset mask. */
+#define PHY_BCTL_AUTONEG_MASK       ((uint16_t)0x1000U) /*!< The PHY auto-negotiation mask. */
+#define PHY_BCTL_RESTART_AUTONEG_MASK ((uint16_t)0x0200U) /*!< The PHY restart auto-negotiation mask. */
+#define PHY_BCTL_ISOLATE_MASK       ((uint16_t)0x0400U) /*!< The PHY isolate mask. */
+#define PHY_BCTL_SPEED0_MASK        ((uint16_t)0x2000U) /*!< The PHY speed bit 0 mask. */
+#define PHY_BCTL_SPEED1_MASK        ((uint16_t)0x0040U) /*!< The PHY speed bit 1 mask. */
+#define PHY_BCTL_DUPLEX_MASK        ((uint16_t)0x0100U) /*!< The PHY duplex mask. */
+#define PHY_BCTL_LOOP_MASK          ((uint16_t)0x4000U) /*!< The PHY loop mask. */
+
+/*! @brief Defines the mask flag in basic status register. */
+#define PHY_BSTATUS_AUTONEGCOMP_MASK ((uint16_t)0x0020U) /*!< The PHY auto-negotiation complete mask. */
+
+/*! @brief Defines the mask flag in auto-negotiation advertise register. */
+#define PHY_100BASETX_FULLDUPLEX_MASK ((uint16_t)0x0100U) /*!< The PHY 100BASE-TX full duplex mask. */
+#define PHY_100BASETX_HALFDUPLEX_MASK ((uint16_t)0x0080U) /*!< The PHY 100BASE-TX half duplex mask. */
+#define PHY_10BASETX_FULLDUPLEX_MASK  ((uint16_t)0x0040U) /*!< The PHY 10BASE-TX full duplex mask. */
+#define PHY_10BASETX_HALFDUPLEX_MASK  ((uint16_t)0x0020U) /*!< The PHY 10BASE-TX half duplex mask. */
+#define PHY_IEEE802_3_SELECTOR_MASK   ((uint16_t)0x0001U) /*!< The PHY IEEE802.3 selector mask. */
+
+/*! @brief Defines the mask flag in 1000BASE-T control register. */
+#define PHY_1000BASET_FULLDUPLEX_MASK ((uint16_t)0x0200U) /*!< The PHY 1000BASE-T full duplex mask. */
 
 /*! @brief Defines the PHY RTL8211F vendor defined registers. */
 #define PHY_SPECIFIC_STATUS_REG (0x1AU) /*!< The PHY specific status register. */
@@ -119,14 +149,14 @@ bool PhyRtl8211f::initialize()
         mac_.mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, regValue);
 
         /* Disable the auto-negotiation and set default speed/duplex. */
-        if (!setLinkSpeedDuplex(kPHY_Speed1000M, kPHY_FullDuplex))
+        if (!setLinkSpeedDuplex(PhySpeed::e1000M, PhyDuplex::eFull))
         {
             return false;
         }
     }
 
     // Enable link interrupt (active low)
-    return enableLinkInterrupt(kPHY_IntrActiveLow);
+    return enableLinkInterrupt(PhyInterruptType::eActiveLow);
 }
 
 bool PhyRtl8211f::getAutoNegotiationStatus(bool *status)
@@ -167,50 +197,50 @@ bool PhyRtl8211f::getLinkStatus(bool *status)
     return true;
 }
 
-bool PhyRtl8211f::getLinkSpeedDuplex(phy_speed_t *speed, phy_duplex_t *duplex)
+bool PhyRtl8211f::getLinkSpeedDuplex(PhySpeed *speed, PhyDuplex *duplex)
 {
-    assert(!((speed == NULL) && (duplex == NULL)));
+    assert(!((speed == nullptr) && (duplex == nullptr)));
 
     uint16_t regValue;
 
     /* Read the status register. */
     regValue = mac_.mdioRead(phyAddr_, PHY_SPECIFIC_STATUS_REG);
 
-    if (speed != NULL)
+    if (speed != nullptr)
     {
         switch ((regValue & PHY_SSTATUS_LINKSPEED_MASK) >> PHY_SSTATUS_LINKSPEED_SHIFT)
         {
-            case (uint16_t)kPHY_Speed10M:
-                *speed = kPHY_Speed10M;
+            case 0:  // 10M
+                *speed = PhySpeed::e10M;
                 break;
-            case (uint16_t)kPHY_Speed100M:
-                *speed = kPHY_Speed100M;
+            case 1:  // 100M
+                *speed = PhySpeed::e100M;
                 break;
-            case (uint16_t)kPHY_Speed1000M:
-                *speed = kPHY_Speed1000M;
+            case 2:  // 1000M
+                *speed = PhySpeed::e1000M;
                 break;
             default:
-                *speed = kPHY_Speed10M;
+                *speed = PhySpeed::e10M;
                 break;
         }
     }
 
-    if (duplex != NULL)
+    if (duplex != nullptr)
     {
         if ((regValue & PHY_SSTATUS_LINKDUPLEX_MASK) != 0U)
         {
-            *duplex = kPHY_FullDuplex;
+            *duplex = PhyDuplex::eFull;
         }
         else
         {
-            *duplex = kPHY_HalfDuplex;
+            *duplex = PhyDuplex::eHalf;
         }
     }
 
     return true;
 }
 
-bool PhyRtl8211f::setLinkSpeedDuplex(phy_speed_t speed, phy_duplex_t duplex)
+bool PhyRtl8211f::setLinkSpeedDuplex(PhySpeed speed, PhyDuplex duplex)
 {
     uint16_t regValue;
 
@@ -218,12 +248,12 @@ bool PhyRtl8211f::setLinkSpeedDuplex(phy_speed_t speed, phy_duplex_t duplex)
 
     /* Disable the auto-negotiation and set according to user-defined configuration. */
     regValue &= ~PHY_BCTL_AUTONEG_MASK;
-    if (speed == kPHY_Speed1000M)
+    if (speed == PhySpeed::e1000M)
     {
         regValue &= PHY_BCTL_SPEED0_MASK;
         regValue |= PHY_BCTL_SPEED1_MASK;
     }
-    else if (speed == kPHY_Speed100M)
+    else if (speed == PhySpeed::e100M)
     {
         regValue |= PHY_BCTL_SPEED0_MASK;
         regValue &= ~PHY_BCTL_SPEED1_MASK;
@@ -233,7 +263,7 @@ bool PhyRtl8211f::setLinkSpeedDuplex(phy_speed_t speed, phy_duplex_t duplex)
         regValue &= ~PHY_BCTL_SPEED0_MASK;
         regValue &= ~PHY_BCTL_SPEED1_MASK;
     }
-    if (duplex == kPHY_FullDuplex)
+    if (duplex == PhyDuplex::eFull)
     {
         regValue |= PHY_BCTL_DUPLEX_MASK;
     }
@@ -246,21 +276,21 @@ bool PhyRtl8211f::setLinkSpeedDuplex(phy_speed_t speed, phy_duplex_t duplex)
     return true;
 }
 
-bool PhyRtl8211f::enableLoopback(phy_loop_t mode, phy_speed_t speed, bool enable)
+bool PhyRtl8211f::enableLoopback(PhyLoopback mode, PhySpeed speed, bool enable)
 {
     /* This PHY only supports local loopback. */
-    assert(mode == kPHY_LocalLoop);
+    assert(mode == PhyLoopback::eLocal);
 
     uint16_t regValue;
 
     /* Set the loop mode. */
     if (enable)
     {
-        if (speed == kPHY_Speed1000M)
+        if (speed == PhySpeed::e1000M)
         {
             regValue = PHY_BCTL_SPEED1_MASK | PHY_BCTL_DUPLEX_MASK | PHY_BCTL_LOOP_MASK;
         }
-        else if (speed == kPHY_Speed100M)
+        else if (speed == PhySpeed::e100M)
         {
             regValue = PHY_BCTL_SPEED0_MASK | PHY_BCTL_DUPLEX_MASK | PHY_BCTL_LOOP_MASK;
         }
@@ -280,9 +310,9 @@ bool PhyRtl8211f::enableLoopback(phy_loop_t mode, phy_speed_t speed, bool enable
     return true;
 }
 
-bool PhyRtl8211f::enableLinkInterrupt(phy_interrupt_type_t type)
+bool PhyRtl8211f::enableLinkInterrupt(PhyInterruptType type)
 {
-    assert(type != kPHY_IntrActiveHigh);
+    assert(type != PhyInterruptType::eActiveHigh);
 
     uint16_t regValue;
 
@@ -292,7 +322,7 @@ bool PhyRtl8211f::enableLinkInterrupt(phy_interrupt_type_t type)
     regValue = mac_.mdioRead(phyAddr_, PHY_INER_REG);
 
     /* Enable/Disable link up+down interrupt. */
-    if (type != kPHY_IntrDisable)
+    if (type != PhyInterruptType::eDisable)
     {
         regValue |= PHY_INER_LINKSTATUS_CHANGE_MASK;
     }

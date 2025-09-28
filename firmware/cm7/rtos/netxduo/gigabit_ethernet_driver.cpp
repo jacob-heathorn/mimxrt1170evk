@@ -1,13 +1,13 @@
 #include "gigabit_ethernet_driver.h"
 #include <cstdio>
 #include <cstring>
-#include "fsl_enet.h"
 #include "utils/ocram2_allocator.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "ftl/allocator/bump_pool_buffer_strategy.hpp"
 #include "ftl/allocator/buffer_allocator.hpp"
 #include "detail/gigabit_mac.h"
 #include "detail/phyrtl8211f.h"
+#include "fsl_enet.h"
 
 // PHY configuration constants
 constexpr uint8_t kPhyAddress = 0x01;  // PHY address for ENET port 1
@@ -86,9 +86,9 @@ void GigabitEthernetDriver::setupPhyAndWaitForLink() {
             // Wait for link to come up
             if (waitForLink(&link_speed_, &link_duplex_)) {
                 printf("PHY Link is up - Speed: %s, Duplex: %s\r\n",
-                       (link_speed_ == kPHY_Speed1000M) ? "1000M" :
-                       (link_speed_ == kPHY_Speed100M) ? "100M" : "10M",
-                       (link_duplex_ == kPHY_FullDuplex) ? "Full" : "Half");
+                       (link_speed_ == ethernet::detail::PhySpeed::e1000M) ? "1000M" :
+                       (link_speed_ == ethernet::detail::PhySpeed::e100M) ? "100M" : "10M",
+                       (link_duplex_ == ethernet::detail::PhyDuplex::eFull) ? "Full" : "Half");
                 break;
             }
         }
@@ -110,7 +110,7 @@ bool GigabitEthernetDriver::initializePhy(uint8_t phyAddress, bool autoNegotiati
     return ethernet::detail::PhyRtl8211f::instance().initialize();
 }
 
-bool GigabitEthernetDriver::waitForLink(phy_speed_t* speed, phy_duplex_t* duplex) {
+bool GigabitEthernetDriver::waitForLink(ethernet::detail::PhySpeed* speed, ethernet::detail::PhyDuplex* duplex) {
     constexpr uint32_t PHY_AUTONEGO_TIMEOUT_COUNT = 100000;
     bool link = false;
     bool autonego = false;

@@ -38,10 +38,10 @@ public:
     ethernet::Frame receive();
 
     // Get current link speed
-    phy_speed_t getLinkSpeed() const { return link_speed_; }
+    ethernet::detail::PhySpeed getLinkSpeed() const { return link_speed_; }
 
     // Get current link duplex
-    phy_duplex_t getLinkDuplex() const { return link_duplex_; }
+    ethernet::detail::PhyDuplex getLinkDuplex() const { return link_duplex_; }
 
     // Set MAC address for the ethernet interface
     void setMacAddress(const std::array<uint8_t, 6>& macAddr);
@@ -64,7 +64,7 @@ private:
 
     // Wait for PHY link to be up
     // Returns true when link is up with auto-negotiation complete
-    bool waitForLink(phy_speed_t* speed, phy_duplex_t* duplex);
+    bool waitForLink(ethernet::detail::PhySpeed* speed, ethernet::detail::PhyDuplex* duplex);
 
     // TX descriptor ring (internally allocates from OCRAM2 with 64-byte alignment)
     // Ring manages its own head/tail indices for queue-like behavior
@@ -80,6 +80,6 @@ private:
     ethernet::detail::RxDescriptorRing rx_descriptor_ring_{};
 
     // PHY link speed and duplex settings (set during PHY initialization)
-    phy_speed_t link_speed_{};
-    phy_duplex_t link_duplex_{};
+    ethernet::detail::PhySpeed link_speed_{};
+    ethernet::detail::PhyDuplex link_duplex_{};
 };
