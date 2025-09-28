@@ -301,6 +301,58 @@ void GigabitEthernetDriver::configureMac(const std::array<uint8_t, 6>& macAddr) 
     // Clear all FEC interrupt events
     nENET_1G::EIR::ref().value = 0xFFFFFFFF;
 
-    // TODO: Additional MAC configuration will be added here later
-    // such as buffer sizes, etc.
+    // Build up register values using union structures
+    nENET_1G::RCR rcr_val = {};
+    nENET_1G::ECR ecr_val = {};
+    nENET_1G::TCR tcr_val = {};
+
+    // Initialize the Receive Control Register
+    rcr_val.bits.MAX_FL = 14 + 1500 + 4;  // ethernet frame head + max data + crc
+    rcr_val.bits.MII_MODE = nENET_1G::RCR::eMII_MODE::eONE;  // always set
+    rcr_val.bits.CRCFWD = nENET_1G::RCR::eCRCFWD::eONE;  // strip CRC from received frames
+    rcr_val.bits.RGMII_EN = nENET_1G::RCR::eRGMII_EN::eONE;  // RGMII mode (always used)
+
+    // Get the negotiated speed from the driver and configure speed register
+    if (getLinkSpeed() == ethernet::detail::PhySpeed::e1000M) {
+        ecr_val.bits.SPEED = nENET_1G::ECR::eSPEED::eONE;  // 1000 Mbps
+    } else {
+        ecr_val.bits.SPEED = nENET_1G::ECR::eSPEED::eZERO;  // 10/100 Mbps
+    }
+
+    // Use Round-robin scheme for legacy buffer descriptor mode
+    nENET_1G::QOS::ref().bits.TX_SCHEME = nENET_1G::QOS::eTX_SCHEME::eRR;  // Round-robin
+
+    // Set the duplex - get from driver and configure
+    if (getLinkDuplex() == ethernet::detail::PhyDuplex::eHalf) {
+        rcr_val.bits.DRT = nENET_1G::RCR::eDRT::eONE;  // Disable receive on transmit
+        tcr_val.bits.FDEN = nENET_1G::TCR::eFDEN::eZERO;  // Half duplex
+    } else {  // Full duplex
+        rcr_val.bits.DRT = nENET_1G::RCR::eDRT::eZERO;  // Full duplex
+        tcr_val.bits.FDEN = nENET_1G::TCR::eFDEN::eONE;  // Full duplex
+    }
+
+    // Checksum offload - Transmit
+    nENET_1G::TACC tacc_val = {};
+    tacc_val.bits.SHIFT16 = nENET_1G::TACC::eSHIFT16::eONE;
+    tacc_val.bits.IPCHK = nENET_1G::TACC::eIPCHK::eONE;
+    tacc_val.bits.PROCHK = nENET_1G::TACC::ePROCHK::eONE;
+    nENET_1G::TACC::ref().value = tacc_val.value;
+
+    // Transmit FIFO Watermark
+    nENET_1G::TFWR tfwr_val = {};
+    tfwr_val.bits.STRFWD = nENET_1G::TFWR::eSTRFWD::eONE;
+    nENET_1G::TFWR::ref().value = tfwr_val.value;
+
+    // Checksum offload - Receive
+    nENET_1G::RACC racc_val = {};
+    racc_val.bits.SHIFT16 = nENET_1G::RACC::eSHIFT16::eONE;
+    racc_val.bits.LINEDIS = nENET_1G::RACC::eLINEDIS::eONE;
+    racc_val.bits.PRODIS = nENET_1G::RACC::ePRODIS::eONE;
+    racc_val.bits.IPDIS = nENET_1G::RACC::eIPDIS::eONE;
+    nENET_1G::RACC::ref().value = racc_val.value;
+
+    // Write the main control registers all at once
+    nENET_1G::RCR::ref().value = rcr_val.value;
+    nENET_1G::ECR::ref().value = ecr_val.value;
+    nENET_1G::TCR::ref().value = tcr_val.value;
 }

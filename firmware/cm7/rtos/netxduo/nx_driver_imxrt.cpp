@@ -1510,7 +1510,7 @@ extern "C" VOID nx_driver_imx_ethernet_isr(VOID);
 
 static void enet_init(void)
 {
-    /* Configure MAC with address and settings */
+    /* Configure MAC with address and all settings */
     std::array<uint8_t, 6> macArray{{
         _nx_driver_hardware_address[0],
         _nx_driver_hardware_address[1],
@@ -1519,61 +1519,15 @@ static void enet_init(void)
         _nx_driver_hardware_address[4],
         _nx_driver_hardware_address[5]
     }};
+
+    // This now handles all MAC configuration including:
+    // - MAC address setting
+    // - Interrupt masking and clearing
+    // - RCR, ECR, TCR configuration based on PHY link speed/duplex
+    // - QOS round-robin scheme
+    // - Checksum offload configuration (TACC, RACC)
+    // - Transmit FIFO watermark (TFWR)
     GigabitEthernetDriver::instance().configureMac(macArray);
-
-    volatile uint32_t rcr = 0;
-    volatile uint32_t ecr = 0;
-    volatile uint32_t tcr = 0;
-
-    /* Initialize the Receive Control Register */
-    rcr = ENET_RCR_MAX_FL(14+1500+4) /*ethernet frame head + max data+crc*/
-        | ENET_RCR_MII_MODE_MASK /*always*/
-        | ENET_RCR_CRCFWD_MASK;  /*no CRC pad required*/
-
-    // Configure for RGMII mode (hardcoded as we always use RGMII)
-    rcr |= ENET_RCR_RGMII_EN_MASK;
-
-    // Get the negotiated speed from the driver and configure speed register
-    if( GigabitEthernetDriver::instance().getLinkSpeed() == ethernet::detail::PhySpeed::e1000M )
-    {
-        ecr |= ENET_ECR_SPEED_MASK;
-    }
-    else
-    {
-        ecr &= ~ENET_ECR_SPEED_MASK;
-    }
-
-    /* use Round-robin scheme for legacy buffer descriptor mode */
-    EXAMPLE_ENET->QOS |= ENET_QOS_TX_SCHEME(1);
-
-    /* Set the duplex - get from driver and configure */
-    if (GigabitEthernetDriver::instance().getLinkDuplex() == ethernet::detail::PhyDuplex::eHalf)
-    {
-        rcr |= ENET_RCR_DRT_MASK;
-        tcr &= (uint32_t)~ENET_TCR_FDEN_MASK;
-    }
-    else  // Full duplex
-    {
-        rcr &= ~ENET_RCR_DRT_MASK;
-        tcr |= ENET_TCR_FDEN_MASK;
-    }
-
-    // Checksum offload
-    EXAMPLE_ENET->TACC = ENET_TACC_SHIFT16_MASK |
-                ENET_TACC_IPCHK_MASK   |
-                ENET_TACC_PROCHK_MASK;
-
-    EXAMPLE_ENET->TFWR = ENET_TFWR_STRFWD_MASK;
-
-    EXAMPLE_ENET->RACC = ENET_RACC_SHIFT16_MASK |
-                ENET_RACC_LINEDIS_MASK |
-                ENET_RACC_PRODIS_MASK  |
-                ENET_RACC_IPDIS_MASK;
-
-    // Set the registers
-    EXAMPLE_ENET->RCR = rcr;
-    EXAMPLE_ENET->ECR = ecr;
-    EXAMPLE_ENET->TCR = tcr;
 }
 
 /**************************************************************************/
