@@ -63,11 +63,6 @@
 #define EXAMPLE_ENET        ENET_1G
 #define EXAMPLE_INT         ENET_1G_IRQn
 
-phy_rtl8211f_resource_t g_phy_resource;
-
-
-#define EXAMPLE_PHY_RESOURCE    (&g_phy_resource)
-
 #define MDIO_CLOCK_FREQ         CLOCK_GetRootClockFreq(kCLOCK_Root_Bus)
 #define EXAMPLE_CLOCK_FREQ      MDIO_CLOCK_FREQ
 
@@ -1532,18 +1527,6 @@ typedef struct
 
 extern "C" VOID nx_driver_imx_ethernet_isr(VOID);
 
-// MDIO wrapper functions for PHY driver compatibility
-static status_t MDIO_Write(uint8_t phyAddr, uint8_t regAddr, uint16_t data)
-{
-    ethernet::detail::GigabitMac::instance().mdioWrite(phyAddr, regAddr, data);
-    return kStatus_Success;
-}
-
-static status_t MDIO_Read(uint8_t phyAddr, uint8_t regAddr, uint16_t *pData)
-{
-    *pData = ethernet::detail::GigabitMac::instance().mdioRead(phyAddr, regAddr);
-    return kStatus_Success;
-}
 
 static void enet_init_imx(ENET_CONFIG_IMX *config)
 {
@@ -1661,9 +1644,6 @@ static void enet_init(void)
     phy_duplex_t duplex;
     ENET_CONFIG_IMX econf;
 
-    g_phy_resource.read  = MDIO_Read;
-    g_phy_resource.write = MDIO_Write;
-
     ethernet::detail::GigabitMac::instance().mdioInit();
 
     econf.interface = kENET_RgmiiMode;
@@ -1678,7 +1658,6 @@ static void enet_init(void)
 
     phyConfig.phyAddr  = EXAMPLE_PHY_ADDRESS;
     phyConfig.autoNeg  = true;
-    phyConfig.resource = EXAMPLE_PHY_RESOURCE;
 
     /* Initialize PHY and wait auto-negotiation over. */
     do

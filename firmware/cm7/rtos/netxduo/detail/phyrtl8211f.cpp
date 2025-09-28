@@ -67,9 +67,8 @@ status_t PHY_RTL8211F_Init(phy_handle_t *handle, const phy_config_t *config)
     uint16_t regValue = 0U;
     status_t result;
 
-    /* Assign PHY address and operation resource. */
+    /* Assign PHY address. */
     handle->phyAddr  = config->phyAddr;
-    handle->resource = config->resource;
 
     /* Check PHY ID. */
     do
