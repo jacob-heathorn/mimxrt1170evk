@@ -61,8 +61,6 @@
 
 #define EXAMPLE_PHY_ADDRESS BOARD_ENET1_PHY_ADDRESS
 #define EXAMPLE_ENET        ENET_1G
-/* PHY operations. */
-#define EXAMPLE_PHY_OPS     (&phyrtl8211f_ops)
 #define EXAMPLE_INT         ENET_1G_IRQn
 
 phy_rtl8211f_resource_t g_phy_resource;
@@ -1680,14 +1678,12 @@ static void enet_init(void)
 
     phyConfig.phyAddr  = EXAMPLE_PHY_ADDRESS;
     phyConfig.autoNeg  = true;
-    phyConfig.ops      = EXAMPLE_PHY_OPS;
     phyConfig.resource = EXAMPLE_PHY_RESOURCE;
 
     /* Initialize PHY and wait auto-negotiation over. */
     do
     {
         // Inline PHY_Init - directly call PHY_RTL8211F_Init
-        phyHandle.ops = &phyrtl8211f_ops;
         status = PHY_RTL8211F_Init(&phyHandle, &phyConfig);
         if (status == kStatus_Success)
         {

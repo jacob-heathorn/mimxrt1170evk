@@ -61,33 +61,6 @@
 #define PHY_READID_TIMEOUT_COUNT 1000U
 
 
-/*******************************************************************************
- * Prototypes
- ******************************************************************************/
-
-// MMD function prototypes removed - no longer needed after removing EEE support
-
-/*******************************************************************************
- * Variables
- ******************************************************************************/
-
-const phy_operations_t phyrtl8211f_ops = {.phyInit             = PHY_RTL8211F_Init,
-                                          .phyWrite            = PHY_RTL8211F_Write,
-                                          .phyRead             = PHY_RTL8211F_Read,
-                                          .phyWriteC45         = nullptr,  // Not supported for RTL8211F
-                                          .phyReadC45          = nullptr,  // Not supported for RTL8211F
-                                          .getAutoNegoStatus   = PHY_RTL8211F_GetAutoNegotiationStatus,
-                                          .getLinkStatus       = PHY_RTL8211F_GetLinkStatus,
-                                          .getLinkSpeedDuplex  = PHY_RTL8211F_GetLinkSpeedDuplex,
-                                          .setLinkSpeedDuplex  = PHY_RTL8211F_SetLinkSpeedDuplex,
-                                          .enableLoopback      = PHY_RTL8211F_EnableLoopback,
-                                          .enableLinkInterrupt = PHY_RTL8211F_EnableLinkInterrupt,
-                                          .clearInterrupt      = PHY_RTL8211F_ClearInterrupt};
-
-/*******************************************************************************
- * Code
- ******************************************************************************/
-
 status_t PHY_RTL8211F_Init(phy_handle_t *handle, const phy_config_t *config)
 {
     uint32_t counter  = PHY_READID_TIMEOUT_COUNT;

@@ -27,8 +27,6 @@ typedef struct _phy_rtl8211f_resource
     mdioRead read;
 } phy_rtl8211f_resource_t;
 
-extern const phy_operations_t phyrtl8211f_ops;
-
 /*******************************************************************************
  * API
  ******************************************************************************/
