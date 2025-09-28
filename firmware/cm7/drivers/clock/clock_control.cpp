@@ -32,7 +32,7 @@ void ClockControl::disableEthernetClock() {
 }
 
 uint32_t ClockControl::getBusClockFreq() {
-    // Get the bus clock frequency
+    // Get the bus clock frequency (IPS/IPG clock - used for MDIO clock generation)
     // TODO: Replace with direct CCM clock root register read
     return CLOCK_GetRootClockFreq(kCLOCK_Root_Bus);
 }

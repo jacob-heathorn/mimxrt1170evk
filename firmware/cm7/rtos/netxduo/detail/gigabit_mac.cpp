@@ -25,7 +25,7 @@ void GigabitMac::mdioInit() {
     // Configure SMI (Serial Management Interface) for MDIO
     volatile auto& mscr = nENET_1G::MSCR::ref();
 
-    // Get current clock frequency
+    // Get IPS bus clock frequency (MDC is generated from IPS bus clock per ref manual section 60.3.15.3)
     const uint32_t clockFreq = ClockControl::getBusClockFreq();
 
     // Calculate the MII speed which controls the frequency of the MDC
