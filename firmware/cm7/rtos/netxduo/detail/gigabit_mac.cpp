@@ -22,6 +22,35 @@ GigabitMac::GigabitMac() {
     ClockControl::enableGigabitEthernetClock();
 }
 
+void GigabitMac::setAddress(const std::array<uint8_t, 6>& macAddr) {
+    // Clear the Individual and Group Address Hash registers
+    // IALR/IAUR: Individual (unicast) Address hash registers
+    // GALR/GAUR: Group (multicast) Address hash registers
+    // These are used for hardware filtering of multicast/unicast addresses
+    nENET_1G::IALR::ref().value = 0;
+    nENET_1G::IAUR::ref().value = 0;
+    nENET_1G::GALR::ref().value = 0;
+    nENET_1G::GAUR::ref().value = 0;
+
+    // Set MAC address in the ENET_1G registers
+    // PALR: Physical Address Lower Register (bytes 0-3)
+    // PAUR: Physical Address Upper Register (bytes 4-5)
+
+    uint32_t address;
+
+    // Set physical address lower register (bytes 3-0 in big-endian order)
+    address = (uint32_t)(((uint32_t)macAddr[0] << 24U) |
+                        ((uint32_t)macAddr[1] << 16U) |
+                        ((uint32_t)macAddr[2] << 8U) |
+                        (uint32_t)macAddr[3]);
+    nENET_1G::PALR::ref().value = address;
+
+    // Set physical address upper register (bytes 5-4)
+    address = (uint32_t)(((uint32_t)macAddr[4] << 8U) |
+                        (uint32_t)macAddr[5]);
+    nENET_1G::PAUR::ref().value = address << 16U;  // PAUR[31:16] contains MAC address bytes 5-4
+}
+
 void GigabitMac::mdioInit() {
     // Configure SMI (Serial Management Interface) for MDIO
     volatile auto& mscr = nENET_1G::MSCR::ref();

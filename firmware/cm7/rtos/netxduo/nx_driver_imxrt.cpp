@@ -1514,12 +1514,6 @@ static void enet_init_imx(enet_mii_mode_t interface, phy_speed_t speed, phy_dupl
     volatile uint32_t ecr = 0;
     volatile uint32_t tcr = 0;
 
-    /* Clear the Individual and Group Address Hash registers */
-    EXAMPLE_ENET->IALR/*(ch)*/ = 0;
-    EXAMPLE_ENET->IAUR/*(ch)*/ = 0;
-    EXAMPLE_ENET->GALR/*(ch)*/ = 0;
-    EXAMPLE_ENET->GAUR/*(ch)*/ = 0;
-
     /* Set the Physical Address for the selected FEC */
     /*enet_set_address(config->ch, mac);*/
     std::array<uint8_t, 6> macArray{{mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]}};

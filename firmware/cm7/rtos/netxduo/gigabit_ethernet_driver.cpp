@@ -14,21 +14,6 @@
 constexpr uint8_t kPhyAddress = 0x01;  // PHY address for ENET port 1
 constexpr bool kAutoNegotiation = true;  // Enable auto-negotiation
 
-// Macro to remove Ethernet header from packet before releasing to pool
-#define NX_DRIVER_ETHERNET_FRAME_SIZE 14
-#define NX_DRIVER_ETHERNET_HEADER_REMOVE(p) \
-{ \
-    (p)->nx_packet_prepend_ptr += NX_DRIVER_ETHERNET_FRAME_SIZE; \
-    (p)->nx_packet_length -= NX_DRIVER_ETHERNET_FRAME_SIZE; \
-}
-
-// Macro to remove Ethernet header from packet
-#define NX_DRIVER_ETHERNET_FRAME_SIZE 14
-#define NX_DRIVER_ETHERNET_HEADER_REMOVE(p) \
-{ \
-    (p)->nx_packet_prepend_ptr += NX_DRIVER_ETHERNET_FRAME_SIZE; \
-    (p)->nx_packet_length -= NX_DRIVER_ETHERNET_FRAME_SIZE; \
-}
 
 GigabitEthernetDriver::GigabitEthernetDriver() {
     // Create the GigabitMac singleton instance.
@@ -308,23 +293,9 @@ void GigabitEthernetDriver::handle_link_mode_change(unsigned int link_speed, uns
 }
 
 void GigabitEthernetDriver::setMacAddress(const std::array<uint8_t, 6>& macAddr) {
-    // Set MAC address in the ENET_1G registers
-    // PALR: Physical Address Lower Register (bytes 0-3)
-    // PAUR: Physical Address Upper Register (bytes 4-5)
-
-    uint32_t address;
-
-    // Set physical address lower register (bytes 3-0 in big-endian order)
-    address = (uint32_t)(((uint32_t)macAddr[0] << 24U) |
-                        ((uint32_t)macAddr[1] << 16U) |
-                        ((uint32_t)macAddr[2] << 8U) |
-                        (uint32_t)macAddr[3]);
-    ENET_1G->PALR = address;
-
-    // Set physical address upper register (bytes 5-4)
-    address = (uint32_t)(((uint32_t)macAddr[4] << 8U) |
-                        (uint32_t)macAddr[5]);
-    ENET_1G->PAUR = address << 16U;  // PAUR[31:16] contains MAC address bytes 5-4
+    // Delegate to GigabitMac which handles the low-level register operations
+    // This includes clearing hash registers and setting the MAC address
+    ethernet::detail::GigabitMac::instance().setAddress(macAddr);
 }
 
 

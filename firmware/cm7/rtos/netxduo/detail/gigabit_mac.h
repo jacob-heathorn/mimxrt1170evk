@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <array>
 #include "ftl/singleton.hpp"
 
 namespace ethernet {
@@ -18,6 +19,9 @@ public:
 
     // Initialize MDIO interface
     void mdioInit();
+
+    // Set MAC address and clear hash registers
+    void setAddress(const std::array<uint8_t, 6>& macAddr);
 
     // MDIO operations (part of MAC controller)
     void mdioWrite(uint8_t phyAddr, uint8_t regAddr, uint16_t data);
