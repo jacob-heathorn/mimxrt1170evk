@@ -173,11 +173,40 @@ void gigabit_ethernet_driver_process_transmitted_packets() {
 }
 
 bool gigabit_ethernet_driver_receive(void* packet_pool, void** packet_ptr) {
-    // Cast void pointer to proper type
-    NX_PACKET_POOL* pool = static_cast<NX_PACKET_POOL*>(packet_pool);
-    NX_PACKET** packet = reinterpret_cast<NX_PACKET**>(packet_ptr);
+    // Get the next received frame from the driver
+    ethernet::Frame frame = GigabitEthernetDriver::instance().receive();
 
-    return GigabitEthernetDriver::instance().receive(pool, packet);
+    // Check if we got a valid frame
+    if (!frame) {
+        return false;  // No frame available or error
+    }
+
+    // Allocate an NX_PACKET for this received frame
+    NX_PACKET_POOL* pool = static_cast<NX_PACKET_POOL*>(packet_pool);
+    NX_PACKET* packet;
+    UINT status = nx_packet_allocate(pool, &packet, NX_RECEIVE_PACKET, NX_NO_WAIT);
+
+    if (status != NX_SUCCESS) {
+        // Failed to allocate packet
+        return false;
+    }
+
+    // Ensure packet buffer is large enough
+    if (static_cast<size_t>(packet->nx_packet_data_end - packet->nx_packet_prepend_ptr) < frame.size()) {
+        // Packet buffer too small - this shouldn't happen with proper configuration
+        nx_packet_release(packet);
+        return false;
+    }
+
+    // Copy the frame data to the NX_PACKET
+    std::memcpy(packet->nx_packet_prepend_ptr, frame.front(), frame.size());
+    packet->nx_packet_length = frame.size();
+    packet->nx_packet_append_ptr = packet->nx_packet_prepend_ptr + frame.size();
+
+    // Return the packet pointer
+    *reinterpret_cast<NX_PACKET**>(packet_ptr) = packet;
+
+    return true;
 }
 
 } // extern "C"
@@ -210,16 +239,16 @@ bool GigabitEthernetDriver::initialize_rx_buffers() {
     return true;
 }
 
-bool GigabitEthernetDriver::receive(NX_PACKET_POOL* packet_pool, NX_PACKET** packet_ptr) {
+ethernet::Frame GigabitEthernetDriver::receive() {
     // Check if there's a packet available
     if (!rx_descriptor_ring_.hasReceivedPacket()) {
-        return false;
+        return ethernet::Frame();  // Return empty frame
     }
 
     // Get the next descriptor
     auto* desc = rx_descriptor_ring_.getNextDescriptor();
     if (!desc) {
-        return false;
+        return ethernet::Frame();  // Return empty frame
     }
 
     // Check if this is a complete frame (not chained)
@@ -228,14 +257,14 @@ bool GigabitEthernetDriver::receive(NX_PACKET_POOL* packet_pool, NX_PACKET** pac
         assert(false && "Received packet requires chaining - not supported. Increase buffer size.");
         // Release descriptor immediately back to hardware
         rx_descriptor_ring_.releaseCurrentDescriptor();
-        return false;
+        return ethernet::Frame();  // Return empty frame
     }
 
     // Check for errors
     if (desc->hasError()) {
         // Error in received packet - skip it
         rx_descriptor_ring_.releaseCurrentDescriptor();
-        return false;
+        return ethernet::Frame();  // Return empty frame
     }
 
     // Get buffer and length from descriptor
@@ -246,35 +275,23 @@ bool GigabitEthernetDriver::receive(NX_PACKET_POOL* packet_pool, NX_PACKET** pac
     if (length <= 2) {
         // Invalid length
         rx_descriptor_ring_.releaseCurrentDescriptor();
-        return false;
+        return ethernet::Frame();  // Return empty frame
     }
 
     const uint8_t* data = static_cast<const uint8_t*>(buffer) + 2;
     size_t frame_length = length - 2;
 
-    // Allocate an NX_PACKET for this received frame
-    UINT status = nx_packet_allocate(packet_pool, packet_ptr, NX_RECEIVE_PACKET, NX_NO_WAIT);
+    // Create ethernet::Frame with the received data
+    ethernet::Frame frame(frame_length);
 
-    if (status != NX_SUCCESS) {
-        // Failed to allocate packet - release descriptor and return
+    if (!frame) {
+        // Failed to allocate frame
         rx_descriptor_ring_.releaseCurrentDescriptor();
-        return false;
+        return ethernet::Frame();  // Return empty frame
     }
 
-    // Ensure packet buffer is large enough
-    if (static_cast<size_t>((*packet_ptr)->nx_packet_data_end - (*packet_ptr)->nx_packet_prepend_ptr) < frame_length) {
-        // Packet buffer too small - this shouldn't happen with proper configuration
-        nx_packet_release(*packet_ptr);
-        *packet_ptr = nullptr;
-        rx_descriptor_ring_.releaseCurrentDescriptor();
-        return false;
-    }
-
-    // Copy the received data to the NX_PACKET
-    // This is a simple memcpy from descriptor buffer to NX_PACKET
-    std::memcpy((*packet_ptr)->nx_packet_prepend_ptr, data, frame_length);
-    (*packet_ptr)->nx_packet_length = frame_length;
-    (*packet_ptr)->nx_packet_append_ptr = (*packet_ptr)->nx_packet_prepend_ptr + frame_length;
+    // Copy the received data to the frame
+    std::memcpy(frame.front(), data, frame_length);
 
     // IMPORTANT: Release descriptor back to hardware immediately after copy
     // This maintains FIFO order - descriptors are always processed and released in order
@@ -285,7 +302,7 @@ bool GigabitEthernetDriver::receive(NX_PACKET_POOL* packet_pool, NX_PACKET** pac
         ENET_1G->RDAR = ENET_RDAR_RDAR_MASK;
     }
 
-    return true;
+    return frame;
 }
 
 void GigabitEthernetDriver::handle_link_mode_change(unsigned int link_speed, unsigned int link_duplex) {

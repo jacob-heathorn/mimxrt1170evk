@@ -38,10 +38,9 @@ public:
     void handle_link_mode_change(unsigned int link_speed, unsigned int link_duplex);
 
     // Receive a single packet
-    // Returns true if a packet was received and stored in packet_ptr
-    // Returns false if no packet available or on error
-    // Caller owns the returned NX_PACKET and must release it
-    bool receive(NX_PACKET_POOL* packet_pool, NX_PACKET** packet_ptr);
+    // Returns an ethernet::Frame with the received data
+    // Returns an empty frame (operator bool() returns false) if no packet available or on error
+    ethernet::Frame receive();
 
     // Initialize RX buffers - must be called during initialization
     // Allocates ethernet::Frame buffers for each RX descriptor
