@@ -1,20 +1,6 @@
 #include "gigabit_mac.h"
 #include "drivers/clock/clock_control.h"
 
-// Undefine conflicting macros from FSL headers before including register definitions
-#ifdef CMP1
-#undef CMP1
-#endif
-#ifdef CMP2
-#undef CMP2
-#endif
-#ifdef CMP3
-#undef CMP3
-#endif
-#ifdef CMP4
-#undef CMP4
-#endif
-
 #include "registers/codegen/enet_1g.hpp"
 
 // Ethernet MAC constants
