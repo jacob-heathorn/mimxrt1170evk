@@ -17,49 +17,14 @@ constexpr size_t kNumRxDescriptors = 64;
 // Size of each RX buffer (max Ethernet frame + 2-byte hardware padding)
 constexpr size_t kRxBufferSize = 1536 + 2;
 
-// RX Descriptor Ring for i.MX RT1170 Gigabit Ethernet DMA
+// RX Descriptor Ring for i.MX RT1170 Gigabit Ethernet
 //
-// This class manages a circular ring of receive buffer descriptors for the
-// ENET_1G peripheral's DMA engine. The hardware and software work together
-// using a producer-consumer model:
-//
-// Hardware/Software Interaction:
-// ------------------------------
-// 1. Software (Producer): Provides empty buffers by setting EMPTY bit
-// 2. Hardware (Consumer): Fills buffers with received data and clears EMPTY bit
-// 3. The RDSR register points to the base of this descriptor array
-// 4. Hardware walks the ring sequentially, wrapping at the WRAP bit
-//
-// Memory Requirements:
-// -------------------
-// - Descriptors must be in non-cacheable memory (OCRAM2) for coherent DMA access
-// - The descriptor array requires 64-byte alignment for optimal DMA performance
-// - Each descriptor is 8 bytes (16-bit length, 16-bit control, 32-bit buffer ptr)
-// - Total memory: 64 descriptors × 8 bytes = 512 bytes
-//
-// Ring Management:
-// ---------------
-// - Uses current_index_ to track next descriptor to process
-// - Hardware uses the WRAP bit on last descriptor to detect ring boundary
-// - Ring size is power of 2 (64) for efficient modulo via bitwise AND
-// - All descriptors start as EMPTY (owned by hardware)
-//
-// Buffer Management:
-// -----------------
-// - Each descriptor points to a pre-allocated receive buffer
-// - Buffers must be large enough for maximum Ethernet frame (1536 bytes)
-// - Buffers must be 8-byte aligned for DMA access
-// - Software must provide new buffers after processing received frames
-//
-// Synchronization:
-// ---------------
-// - EMPTY bit provides ownership: 1=hardware owns, 0=software owns
-// - Software must only read descriptors when EMPTY=0
-// - After processing, software sets EMPTY=1 to return buffer to hardware
-// - Software triggers DMA via RDAR register if it was suspended
-//
-// Note: This implementation assumes single-threaded access from the
-//       driver context. Additional synchronization needed for multi-threaded use.
+// Manages a circular ring of receive descriptors and buffers for DMA.
+// - Software provides buffers to hardware by setting EMPTY=1
+// - Hardware fills buffers with received data and clears EMPTY
+// - Software acquires filled descriptors when EMPTY=0
+// - Uses single current_index_ to track next descriptor to process
+// - Descriptors and buffers in OCRAM2 (non-cacheable) with 64-byte alignment
 class RxDescriptorRing {
 public:
     static_assert((kNumRxDescriptors & (kNumRxDescriptors - 1)) == 0, "Ring size must be power of 2");

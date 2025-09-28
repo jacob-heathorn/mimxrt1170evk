@@ -8,33 +8,12 @@ namespace detail {
 
 // RX Buffer Descriptor for i.MX RT1170 Gigabit Ethernet
 //
-// This class represents a single receive buffer descriptor used by the
-// ENET_1G DMA engine. The hardware uses these descriptors to write
-// received Ethernet frames into memory buffers.
+// 8-byte hardware descriptor:
+// - Offset 0x0: Received frame length (16 bits) - set by hardware
+// - Offset 0x2: Control/Status (16 bits) - EMPTY, WRAP, error flags
+// - Offset 0x4: Buffer address (32 bits)
 //
-// Memory Layout (8 bytes total):
-// - Bytes 0-1: Length of received data
-// - Bytes 2-3: Control/status flags
-// - Bytes 4-7: Buffer pointer (physical address)
-//
-// Control Bits (from fsl_enet.h):
-// - EMPTY (bit 15): 1=buffer empty (owned by DMA), 0=buffer full (owned by CPU)
-// - WRAP  (bit 13): 1=last descriptor in ring, wrap to start
-// - LAST  (bit 11): 1=last buffer of frame (for single-buffer frames)
-// - MISS  (bit 8):  1=frame truncated due to no buffers
-// - BC    (bit 7):  1=broadcast frame received
-// - MC    (bit 6):  1=multicast frame received
-// - LG    (bit 5):  1=frame length violation
-// - NO    (bit 4):  1=non-octet aligned frame
-// - CR    (bit 2):  1=CRC error
-// - OV    (bit 1):  1=FIFO overrun
-// - TR    (bit 0):  1=frame truncated
-//
-// DMA Behavior:
-// - Hardware writes received data to buffer pointed to by buffer_
-// - Hardware updates length_ with actual bytes received
-// - Hardware clears EMPTY bit when frame received
-// - Software must set EMPTY bit after processing to return buffer to DMA
+// Software sets EMPTY=1 to give buffer to hardware, hardware clears after RX.
 class RxDescriptor {
 public:
     // Control bit masks

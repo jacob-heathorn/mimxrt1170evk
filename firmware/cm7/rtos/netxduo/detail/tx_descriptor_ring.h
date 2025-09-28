@@ -13,43 +13,14 @@ namespace detail {
 // Number of TX descriptors
 constexpr size_t kNumTxDescriptors = 64;
 
-// TX Descriptor Ring for i.MX RT1170 Gigabit Ethernet DMA
+// TX Descriptor Ring for i.MX RT1170 Gigabit Ethernet
 //
-// This class manages a circular ring of transmit buffer descriptors for the
-// ENET_1G peripheral's DMA engine. The hardware and software work together
-// using a producer-consumer model:
-//
-// Hardware/Software Interaction:
-// ------------------------------
-// 1. Software (Producer): Prepares descriptors with TX data and sets READY bit
-// 2. Hardware (Consumer): Processes READY descriptors and clears READY bit
-// 3. The TDSR register points to the base of this descriptor array
-// 4. Hardware walks the ring sequentially, wrapping at the WRAP bit
-//
-// Memory Requirements:
-// -------------------
-// - Descriptors must be in non-cacheable memory (OCRAM2) for coherent DMA access
-// - The descriptor array requires 64-byte alignment for optimal DMA performance
-// - Each descriptor is 8 bytes (16-bit length, 16-bit control, 32-bit buffer ptr)
-// - Total memory: 64 descriptors × 8 bytes = 512 bytes
-//
-// Ring Management:
-// ---------------
-// - Uses current_index_ to track next descriptor to check/acquire
-// - Software checks if descriptor at current_index_ is available (READY=0)
-// - If available, returns it and advances index; otherwise returns nullptr
-// - Hardware uses the WRAP bit on last descriptor to detect ring boundary
-// - Ring size is power of 2 (64) for efficient modulo via bitwise AND
-//
-// Synchronization:
-// ---------------
-// - READY bit provides ownership: 1=hardware owns, 0=software owns
-// - Software must only modify descriptors when READY=0
-// - After setting READY=1, software triggers DMA via TDAR register
-// - Software polls READY bit to detect transmission completion
-//
-// Note: This implementation assumes single-threaded access from the
-//       driver context. Additional synchronization needed for multi-threaded use.
+// Manages a circular ring of transmit descriptors for DMA.
+// - Software acquires descriptors when READY=0 (not owned by hardware)
+// - Software sets READY=1 to hand descriptor to hardware for transmission
+// - Hardware processes descriptors and clears READY after transmission
+// - Uses single current_index_ to track next descriptor to check
+// - Descriptors in OCRAM2 (non-cacheable) with 64-byte alignment for DMA
 class TxDescriptorRing {
 public:
     static_assert((kNumTxDescriptors & (kNumTxDescriptors - 1)) == 0, "Ring size must be power of 2");

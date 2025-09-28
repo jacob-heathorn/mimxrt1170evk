@@ -13,39 +13,14 @@ namespace detail {
 #define TX_BD_LAST_MASK        0x0800U  // Last BD of the frame mask
 #define TX_BD_TRANSMITCRC_MASK 0x0400U  // Transmit CRC mask
 
-// TX Buffer Descriptor for i.MX RT1170 Gigabit Ethernet DMA
+// TX Buffer Descriptor for i.MX RT1170 Gigabit Ethernet
 //
-// This class represents a single transmit buffer descriptor as defined in
-// the i.MX RT1170 Reference Manual section 60.3.11.2 (Legacy format).
+// 8-byte hardware descriptor (Legacy format, RM section 60.3.11.2):
+// - Offset 0x0: Frame length (16 bits)
+// - Offset 0x2: Control/Status (16 bits) - READY, WRAP, LAST, etc.
+// - Offset 0x4: Buffer address (32 bits)
 //
-// Hardware Descriptor Format (8 bytes total):
-// ------------------------------------------
-// Offset 0x0: [15:0]  Frame Length - Number of bytes to transmit
-// Offset 0x2: [15:0]  Control/Status bits:
-//             [15]    R (Ready) - 1=owned by DMA, 0=owned by software
-//             [14]    TO1 (Software Owner 1) - For software use
-//             [13]    W (Wrap) - 1=last descriptor in ring
-//             [12]    TO2 (Software Owner 2) - For software use
-//             [11]    L (Last) - 1=last descriptor of frame
-//             [10]    TC (Transmit CRC) - 1=append CRC
-//             [9:0]   Reserved/Status bits set by hardware
-// Offset 0x4: [31:0]  Buffer Address - Physical address of data buffer
-//
-// DMA Operation:
-// -------------
-// 1. Software prepares descriptor: sets buffer address, length, control bits
-// 2. Software sets READY bit to transfer ownership to hardware
-// 3. Hardware reads descriptor, transmits data, clears READY bit
-// 4. Software checks READY bit to detect completion
-//
-// Memory Requirements:
-// -------------------
-// - Descriptors must be in non-cacheable memory for coherent DMA access
-// - Descriptor arrays require 64-byte alignment for optimal DMA performance
-// - Data buffers pointed to by descriptors must be 8-byte aligned
-//
-// Note: This implementation uses direct member fields (not a struct wrapper)
-//       to minimize indirection and match the exact hardware layout.
+// Software sets READY=1 to hand to hardware, hardware clears after TX.
 class TxDescriptor {
 public:
     TxDescriptor() {
