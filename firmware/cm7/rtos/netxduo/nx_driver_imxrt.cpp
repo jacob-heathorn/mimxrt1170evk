@@ -51,7 +51,7 @@
 #include "detail/gigabit_mac.h"
 #include <cstring>  // For std::memcpy
 
-#include "fsl_phyrtl8211f.h"
+#include "detail/phyrtl8211f.h"
 
 /****** DRIVER SPECIFIC ****** End of part/vendor specific include file area!  */
 

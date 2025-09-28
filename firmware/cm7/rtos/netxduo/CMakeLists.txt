@@ -28,6 +28,8 @@ target_sources(netxduo
     detail/rx_descriptor_ring.h
     detail/gigabit_mac.h
     detail/gigabit_mac.cpp
+    detail/phyrtl8211f.h
+    detail/phyrtl8211f.cpp
 )
 target_compile_options(netxduo PUBLIC
   -Wno-write-strings
