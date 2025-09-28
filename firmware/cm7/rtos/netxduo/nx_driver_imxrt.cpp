@@ -1718,9 +1718,11 @@ UINT                i;
         return(NX_DRIVER_ERROR);
     }
 
-    /* Call base Ethernet initialization */
+    // Create the GigabitEthernetDriver singleton - constructor now calls initialize().
+    GigabitEthernetDriver::create();
+
+    // Call base Ethernet initialization
     enet_init();
-    GigabitEthernetDriver::instance().initialize();
 
     /******************** RX Initialization ********************/
 

@@ -21,11 +21,6 @@ public:
     // Destructor deleted - singleton lives for entire program
     ~GigabitEthernetDriver() = delete;
 
-    // Initialize the driver (skeleton function for now)
-    // Will eventually contain hardware initialization logic
-    // Returns true on success, false on error
-    bool initialize();
-
     // Initialize PHY with auto-negotiation
     // Returns kStatus_Success on success
     status_t initializePhy(uint8_t phyAddress, bool autoNegotiation);
@@ -55,6 +50,10 @@ public:
     ethernet::detail::RxDescriptorRing& get_rx_ring() { return rx_descriptor_ring_; }
 
 private:
+    // Initialize the driver - sets up TX/RX descriptor rings
+    // Returns true on success, false on error
+    bool initialize();
+
     // TX descriptor ring (internally allocates from OCRAM2 with 64-byte alignment)
     // Ring manages its own head/tail indices for queue-like behavior
     ethernet::detail::TxDescriptorRing tx_descriptor_ring_{};

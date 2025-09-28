@@ -58,6 +58,9 @@ GigabitEthernetDriver::GigabitEthernetDriver() {
 
     // Initialize ethernet::Frame with the buffer allocator
     ethernet::Frame::initialize(buffer_allocator);
+
+    // Initialize the driver
+    initialize();
 }
 
 bool GigabitEthernetDriver::initialize() {
