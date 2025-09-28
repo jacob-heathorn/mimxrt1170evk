@@ -27,11 +27,36 @@ namespace detail {
 
 void EthernetMac::mdioInit() {
     // Enable ENET clock (s_enetClock is extern from fsl_enet.h)
+    // TODO: Replace with direct clock control when available
     (void)CLOCK_EnableClock(s_enetClock[ENET_GetInstance(EXAMPLE_ENET)]);
 
     // Configure SMI (Serial Management Interface) for MDIO
-    // false = disable preamble suppression
-    ENET_SetSMI(EXAMPLE_ENET, MDIO_CLOCK_FREQ, false);
+    // Implementation based on ENET_SetSMI but using C++ register access
+
+    // Constants from FSL driver
+    constexpr uint32_t MDC_FREQUENCY = 2500000U;  // 2.5 MHz MDC clock
+    constexpr uint32_t NANOSECOND_ONE_SECOND = 1000000000U;
+
+    // Get reference to MSCR register
+    volatile auto& mscr = nENET_1G::MSCR::ref();
+
+    // Calculate the MII speed which controls the frequency of the MDC
+    // Use (param + N - 1) / N to increase accuracy with rounding
+    uint32_t speed = (MDIO_CLOCK_FREQ + 2U * MDC_FREQUENCY - 1U) / (2U * MDC_FREQUENCY) - 1U;
+
+    // Calculate the hold time on the MDIO output (minimum 10ns)
+    uint32_t holdTime = (10U + NANOSECOND_ONE_SECOND / MDIO_CLOCK_FREQ - 1U) /
+                        (NANOSECOND_ONE_SECOND / MDIO_CLOCK_FREQ) - 1U;
+
+    // Build MSCR value locally for atomic write
+    nENET_1G::MSCR mscr_val{};
+    mscr_val.value = 0;
+    mscr_val.bits.MII_SPEED = speed;
+    mscr_val.bits.HOLDTIME = static_cast<nENET_1G::MSCR::eHOLDTIME>(holdTime);
+    mscr_val.bits.DIS_PRE = nENET_1G::MSCR::eDIS_PRE::eZERO;  // Preamble enabled
+
+    // Write the complete value atomically
+    mscr.value = mscr_val.value;
 }
 
 void EthernetMac::mdioWrite(uint8_t phyAddr, uint8_t regAddr, uint16_t data) {
