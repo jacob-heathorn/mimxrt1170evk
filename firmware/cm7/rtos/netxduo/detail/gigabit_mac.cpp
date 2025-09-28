@@ -1,5 +1,5 @@
 #include "gigabit_mac.h"
-#include "fsl_clock.h"  // TODO: Replace with direct clock control when available
+#include "drivers/clock/clock_control.h"
 
 // Undefine conflicting macros from FSL headers before including register definitions
 #ifdef CMP1
@@ -27,7 +27,7 @@ constexpr uint32_t kMdioTimeoutCycles = 100000U;       // Timeout for MDIO opera
 
 // Clock frequency (from platform)
 inline uint32_t GetMdioClockFreq() {
-    return CLOCK_GetRootClockFreq(kCLOCK_Root_Bus);
+    return ClockControl::getMdioClockFreq();
 }
 } // anonymous namespace
 
@@ -36,8 +36,7 @@ namespace detail {
 
 GigabitMac::GigabitMac() {
     // Enable ENET_1G peripheral clock
-    // TODO: Replace with direct clock control register access when available
-    CLOCK_EnableClock(kCLOCK_Enet_1g);
+    ClockControl::enableGigabitEthernetClock();
 }
 
 void GigabitMac::mdioInit() {
