@@ -58,13 +58,6 @@ public:
             return TxFrame();  // Return empty frame
         }
 
-        // Check if descriptor is free (hardware cleared READY bit)
-        if (descriptor->isReady()) {
-            // Descriptor still owned by hardware - should not happen with proper ring management
-            assert(false && "Ring returned descriptor still owned by hardware");
-            return TxFrame();  // Return empty frame
-        }
-
         return TxFrame(*descriptor, std::move(frame));
     }
 
@@ -86,23 +79,15 @@ public:
         other.descriptor_ = nullptr;
     }
 
-    // Destructor - releases descriptor back to ring if owned
+    // Destructor - descriptor already released to hardware in markReadyForTransmission
     ~TxFrame() {
-        if (descriptor_) {
-            // Release the descriptor back to the ring
-            tx_descriptor_ring_->release(descriptor_);
-            descriptor_ = nullptr;
-        }
+        // Nothing to do - descriptor was already given to hardware
+        descriptor_ = nullptr;
     }
 
     // Move assignment operator
     TxFrame& operator=(TxFrame&& other) noexcept {
         if (this != &other) {
-            // Release current descriptor if owned
-            if (descriptor_) {
-                // Release the descriptor
-                tx_descriptor_ring_->release(descriptor_);
-            }
             data_frame_ = std::move(other.data_frame_);
             descriptor_ = other.descriptor_;
             other.descriptor_ = nullptr;
@@ -116,14 +101,10 @@ public:
 
     // Mark descriptor as ready for transmission
     void markReadyForTransmission() {
-        // Memory barrier to ensure all descriptor and buffer setup is complete
-        // before marking the descriptor as ready for DMA. This prevents CPU
-        // reordering that could cause the READY bit to be set before the
-        // buffer pointer, length, or frame data are fully written.
-        __DSB();  // Data Synchronization Barrier (ARM specific)
+        assert(descriptor_ && "Cannot mark empty frame for transmission");
 
-        descriptor_->setReady(true);
-        descriptor_->setLast(true);  // Single frame, not chained
+        // Release the descriptor to hardware (sets READY bit)
+        tx_descriptor_ring_->release(descriptor_);
     }
 
 private:

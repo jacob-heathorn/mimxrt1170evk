@@ -35,9 +35,9 @@ constexpr size_t kNumTxDescriptors = 64;
 //
 // Ring Management:
 // ---------------
-// - Uses head/tail indices for software's view of the ring
-// - head_index_: Points to oldest descriptor still being transmitted
-// - tail_index_: Points to next free descriptor to use
+// - Uses current_index_ to track next descriptor to check/acquire
+// - Software checks if descriptor at current_index_ is available (READY=0)
+// - If available, returns it and advances index; otherwise returns nullptr
 // - Hardware uses the WRAP bit on last descriptor to detect ring boundary
 // - Ring size is power of 2 (64) for efficient modulo via bitwise AND
 //
@@ -55,7 +55,7 @@ public:
     static_assert((kNumTxDescriptors & (kNumTxDescriptors - 1)) == 0, "Ring size must be power of 2");
     static_assert(kNumTxDescriptors > 0, "Ring size must be greater than 0");
 
-    TxDescriptorRing() : head_index_(0), tail_index_(0), count_(0) {
+    TxDescriptorRing() : descriptors_(nullptr), current_index_(0) {
         // Allocate descriptor array from OCRAM2 with 64-byte alignment for DMA
         constexpr size_t alignment = 64;
         void* raw_memory = Ocram2Allocator::instance().allocate(
@@ -89,27 +89,30 @@ public:
     }
 
     // Acquire the next available descriptor for transmission
-    // Returns nullptr if ring is full
+    // Returns descriptor if available (READY bit clear), nullptr otherwise
     TxDescriptor* acquire() {
-        if (count_ == kNumTxDescriptors) {
-            return nullptr;  // Ring is full
+        // Check if descriptor at current index is available (not owned by hardware)
+        if (descriptors_[current_index_].isReady()) {
+            return nullptr;  // Descriptor still owned by hardware
         }
-        TxDescriptor* desc = &descriptors_[tail_index_];
-        tail_index_ = (tail_index_ + 1) & (kNumTxDescriptors - 1);
-        count_++;
+
+        TxDescriptor* desc = &descriptors_[current_index_];
+        current_index_ = (current_index_ + 1) & (kNumTxDescriptors - 1);
         return desc;
     }
 
-    // Release a descriptor after transmission completes
-    // The descriptor must be the oldest one (at head of queue)
+    // Release a descriptor back to hardware after setting it up
+    // Just marks the descriptor as ready for transmission
     void release(TxDescriptor* desc) {
         assert(desc != nullptr);
-        assert(count_ > 0 && "Releasing from empty ring");
-        assert(desc == &descriptors_[head_index_] &&
-               "Must release descriptors in order - releasing wrong descriptor");
 
-        head_index_ = (head_index_ + 1) & (kNumTxDescriptors - 1);
-        count_--;
+        // Memory barrier to ensure all descriptor setup is complete
+        // before marking as ready for hardware
+        __DSB();
+
+        // Mark descriptor as ready for hardware to process
+        desc->setReady(true);
+        desc->setLast(true);  // Single frame, not chained
     }
 
     // Reset all descriptors to initial state
@@ -119,10 +122,8 @@ public:
         }
         // Re-set wrap bit on last descriptor
         descriptors_[kNumTxDescriptors - 1].setWrap(true);
-        // Reset queue indices
-        head_index_ = 0;
-        tail_index_ = 0;
-        count_ = 0;
+        // Reset current index
+        current_index_ = 0;
     }
 
     // Get physical address for TDSR register
@@ -134,10 +135,8 @@ private:
     // Pointer to array of descriptors allocated from OCRAM2 (64-byte aligned for DMA)
     TxDescriptor* descriptors_;
 
-    // Ring buffer management
-    size_t head_index_;  // Index of oldest descriptor in use
-    size_t tail_index_;  // Index of next descriptor to use
-    size_t count_;       // Number of descriptors currently in use
+    // Current descriptor index for acquiring next available descriptor
+    size_t current_index_;
 };
 
 } // namespace detail
