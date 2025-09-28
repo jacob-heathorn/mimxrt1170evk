@@ -307,7 +307,7 @@ void GigabitEthernetDriver::handle_link_mode_change(unsigned int link_speed, uns
            link_speed, link_duplex);
 }
 
-void GigabitEthernetDriver::setMacAddress(const uint8_t* macAddr) {
+void GigabitEthernetDriver::setMacAddress(const std::array<uint8_t, 6>& macAddr) {
     // Set MAC address in the ENET_1G registers
     // PALR: Physical Address Lower Register (bytes 0-3)
     // PAUR: Physical Address Upper Register (bytes 4-5)

@@ -47,6 +47,7 @@
 
 /* C++ driver interface */
 #include "gigabit_ethernet_driver.h"
+#include <array>
 #include "ethernet_frame.hpp"
 #include <cstring>  // For std::memcpy
 
@@ -78,15 +79,7 @@ AT_NONCACHEABLE_SECTION(static NX_DRIVER_INFORMATION   nx_driver_information);
 
 /* Define driver specific ethernet hardware address.  */
 
-#ifndef NX_DRIVER_ETHERNET_MAC
 UCHAR   _nx_driver_hardware_address[] = {0x00, 0x11, 0x22, 0x33, 0x44, 0x56};
-#else
-UCHAR   _nx_driver_hardware_address[] = NX_DRIVER_ETHERNET_MAC;
-#endif
-
-/*! @brief Enet PHY interface handler. */
-// PHY handle no longer needed - using singleton
-
 
 /****** DRIVER SPECIFIC ****** End of part/vendor specific data area!  */
 
@@ -1529,7 +1522,8 @@ static void enet_init_imx(enet_mii_mode_t interface, phy_speed_t speed, phy_dupl
 
     /* Set the Physical Address for the selected FEC */
     /*enet_set_address(config->ch, mac);*/
-    GigabitEthernetDriver::instance().setMacAddress(mac);
+    std::array<uint8_t, 6> macArray{{mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]}};
+    GigabitEthernetDriver::instance().setMacAddress(macArray);
 
     /* Mask all FEC interrupts */
     EXAMPLE_ENET->EIMR/*(ch)*/ = 0;/*FSL:ENET_EIMR_MASK_ALL_MASK;*/

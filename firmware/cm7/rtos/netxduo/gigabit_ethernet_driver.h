@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include <array>
 #include "ftl/singleton.hpp"
 #include "fsl_enet.h"
 #include "detail/phyrtl8211f.h"
@@ -48,7 +48,7 @@ public:
     phy_duplex_t getLinkDuplex() const { return link_duplex_; }
 
     // Set MAC address for the ethernet interface
-    void setMacAddress(const uint8_t* macAddr);
+    void setMacAddress(const std::array<uint8_t, 6>& macAddr);
 
 private:
     // Reset the driver - clears TX queue and resets TX/RX descriptor rings
