@@ -89,7 +89,7 @@ UCHAR   _nx_driver_hardware_address[] = NX_DRIVER_ETHERNET_MAC;
 #endif
 
 /*! @brief Enet PHY interface handler. */
-static phy_handle_t phyHandle;
+// PHY handle no longer needed - using singleton
 
 
 /****** DRIVER SPECIFIC ****** End of part/vendor specific data area!  */
@@ -1635,7 +1635,6 @@ static void enet_init_imx(ENET_CONFIG_IMX *config)
 
 static void enet_init(void)
 {
-    phy_config_t phyConfig = {};
     bool link              = false;
     bool autonego          = false;
     uint32_t count         = 0;
@@ -1645,6 +1644,9 @@ static void enet_init(void)
     ENET_CONFIG_IMX econf;
 
     ethernet::detail::GigabitMac::instance().mdioInit();
+
+    // Create PHY singleton with address and auto-negotiation enabled
+    ethernet::detail::PhyRtl8211f::create(EXAMPLE_PHY_ADDRESS, true);
 
     econf.interface = kENET_RgmiiMode;
 
@@ -1656,22 +1658,18 @@ static void enet_init(void)
     econf.mac[4] = _nx_driver_hardware_address[4];
     econf.mac[5] = _nx_driver_hardware_address[5];
 
-    phyConfig.phyAddr  = EXAMPLE_PHY_ADDRESS;
-    phyConfig.autoNeg  = true;
-
     /* Initialize PHY and wait auto-negotiation over. */
     do
     {
-        // Inline PHY_Init - directly call PHY_RTL8211F_Init
-        status = PHY_RTL8211F_Init(&phyHandle, &phyConfig);
+        status = ethernet::detail::PhyRtl8211f::instance().init();
         if (status == kStatus_Success)
         {
             /* Wait for auto-negotiation success and link up */
             count = PHY_AUTONEGO_TIMEOUT_COUNT;
             do
             {
-                PHY_RTL8211F_GetAutoNegotiationStatus(&phyHandle, &autonego);
-                PHY_RTL8211F_GetLinkStatus(&phyHandle, &link);
+                ethernet::detail::PhyRtl8211f::instance().getAutoNegotiationStatus(&autonego);
+                ethernet::detail::PhyRtl8211f::instance().getLinkStatus(&link);
                 if (autonego && link)
                 {
                     break;
@@ -1685,7 +1683,7 @@ static void enet_init(void)
     } while (!(link && autonego));
 
 
-    PHY_RTL8211F_GetLinkSpeedDuplex(&phyHandle, &speed, &duplex);
+    ethernet::detail::PhyRtl8211f::instance().getLinkSpeedDuplex(&speed, &duplex);
     econf.speed = speed;
     econf.duplex = duplex;
 
