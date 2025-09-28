@@ -8,7 +8,6 @@
 #include "detail/tx_frame.h"
 #include "detail/rx_descriptor_ring.h"
 #include "ethernet_frame.hpp"
-#include "nx_api.h"
 #include "etl/queue.h"
 #include <cstring>
 #include <cassert>
@@ -37,9 +36,6 @@ public:
     // Returns an ethernet::Frame with the received data
     // Returns an empty frame (operator bool() returns false) if no packet available or on error
     ethernet::Frame receive();
-
-    // Get RX descriptor ring for buffer management
-    ethernet::detail::RxDescriptorRing& get_rx_ring() { return rx_descriptor_ring_; }
 
     // Get current link speed
     phy_speed_t getLinkSpeed() const { return link_speed_; }
@@ -75,7 +71,6 @@ private:
     ethernet::detail::TxDescriptorRing tx_descriptor_ring_{};
 
     // Queue of TxFrame objects pending transmission
-    // TxFrames own their data and can release the original NX_PACKET immediately
     // Using ETL queue with fixed size matching kNumTxDescriptors
     etl::queue<ethernet::detail::TxFrame, ethernet::detail::kNumTxDescriptors> tx_frame_queue_;
 
@@ -88,5 +83,3 @@ private:
     phy_speed_t link_speed_{};
     phy_duplex_t link_duplex_{};
 };
-
-// No C interface needed - nx_driver_imxrt.cpp is now C++ and can directly use the class

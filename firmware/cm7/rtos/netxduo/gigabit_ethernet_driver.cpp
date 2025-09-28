@@ -39,7 +39,7 @@ void GigabitEthernetDriver::setupFramePools() {
     // Minimum frame size: 64 (bytes on the wire)
 
     // Set up buffer strategies for different frame sizes
-    // Use OCRAM2 (non-cacheable) for DMA compatibility - same as NX_PACKET pool
+    // Use OCRAM2 (non-cacheable) for DMA compatibility
     // Require 8-byte alignment for Ethernet DMA
     //
     // TODO: Consider exposing these strategies through the interface.
@@ -295,7 +295,3 @@ void GigabitEthernetDriver::setMacAddress(const std::array<uint8_t, 6>& macAddr)
     // This includes clearing hash registers and setting the MAC address
     ethernet::detail::GigabitMac::instance().setAddress(macAddr);
 }
-
-
-
-// Direct C++ interface - no C wrapper functions needed since nx_driver_imxrt.cpp is now C++
