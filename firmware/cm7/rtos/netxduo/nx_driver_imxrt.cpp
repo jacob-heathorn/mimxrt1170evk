@@ -51,42 +51,9 @@
 #include "detail/gigabit_mac.h"
 #include <cstring>  // For std::memcpy
 
-
-#ifndef BOARD_NETWORK_USE_100M_ENET_PORT
-#define BOARD_NETWORK_USE_100M_ENET_PORT    1
-#endif
-
-#if defined(BOARD_NETWORK_USE_100M_ENET_PORT) && (BOARD_NETWORK_USE_100M_ENET_PORT == 1)
-#ifdef FSL_PHYRTL8201
-#include "fsl_phyrtl8201.h"
-#else
-#include "fsl_phyksz8081.h"
-#endif
-#else
 #include "fsl_phyrtl8211f.h"
-#endif
-
-//#endif
 
 /****** DRIVER SPECIFIC ****** End of part/vendor specific include file area!  */
-
-#if defined(BOARD_NETWORK_USE_100M_ENET_PORT) && (BOARD_NETWORK_USE_100M_ENET_PORT == 1)
-
-#define EXAMPLE_PHY_ADDRESS BOARD_ENET0_PHY_ADDRESS
-#define EXAMPLE_ENET        ENET
-/* PHY operations. */
-#define EXAMPLE_INT         ENET_IRQn
-#ifdef FSL_PHYRTL8201
-#define EXAMPLE_PHY_OPS     (&phyrtl8201_ops)
-
-phy_rtl8201_resource_t g_phy_resource;
-#else
-#define EXAMPLE_PHY_OPS     (&phyksz8081_ops)
-
-phy_ksz8081_resource_t g_phy_resource;
-#endif
-
-#else
 
 #if !defined(FSL_FEATURE_ENET_HAS_AVB) || FSL_FEATURE_ENET_HAS_AVB < 1
 #error "This board has no 1G Ethernet port."
@@ -100,7 +67,6 @@ phy_ksz8081_resource_t g_phy_resource;
 
 phy_rtl8211f_resource_t g_phy_resource;
 
-#endif
 
 #define EXAMPLE_PHY_RESOURCE    (&g_phy_resource)
 
