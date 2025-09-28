@@ -81,39 +81,35 @@ public:
         // and memory is not freed until program termination
     }
 
-    // Get the size of the ring
-    constexpr size_t size() const { return kNumRxDescriptors; }
-
-    // Get descriptor at index
-    RxDescriptor& operator[](size_t index) {
-        assert(index < kNumRxDescriptors);
-        return descriptors_[index];
+    // Acquire the next descriptor that has been filled by hardware
+    // Returns pointer to descriptor if available, nullptr otherwise
+    // Caller must check isLast() and hasError() on the descriptor
+    // Caller must call release() after processing
+    RxDescriptor* acquire() {
+        // Check if current descriptor is owned by CPU (EMPTY bit cleared by hardware)
+        if (descriptors_[current_index_].isEmpty()) {
+            return nullptr;  // No packet available
+        }
+        return &descriptors_[current_index_];
     }
 
-    const RxDescriptor& operator[](size_t index) const {
-        assert(index < kNumRxDescriptors);
-        return descriptors_[index];
-    }
+    // Release a descriptor back to hardware after processing
+    // The descriptor will be marked as empty (ready for hardware to use)
+    void release(RxDescriptor* desc) {
+        assert(desc != nullptr);
+        assert(desc == &descriptors_[current_index_] &&
+               "Must release descriptors in order - releasing wrong descriptor");
 
-    // Get current descriptor being processed
-    RxDescriptor& current() {
-        return descriptors_[current_index_];
-    }
+        // Memory barrier to ensure all memory operations complete before
+        // releasing descriptor to hardware. This prevents CPU reordering
+        // that could cause the EMPTY bit to be set before data is copied.
+        __DSB();  // Data Synchronization Barrier (ARM specific)
 
-    // Get current index
-    size_t getCurrentIndex() const {
-        return current_index_;
-    }
+        // Return descriptor to hardware (mark as empty)
+        desc->setEmpty(true);
 
-    // Advance to next descriptor
-    void advance() {
+        // Move to next descriptor
         current_index_ = (current_index_ + 1) & (kNumRxDescriptors - 1);
-    }
-
-    // Set buffer for descriptor at index
-    void setBuffer(size_t index, void* buffer) {
-        assert(index < kNumRxDescriptors);
-        descriptors_[index].setBuffer(buffer);
     }
 
     // Reset all descriptors to initial state with their buffers
@@ -139,38 +135,6 @@ public:
     // Get physical address for RDSR register
     uint32_t getBaseAddress() const {
         return reinterpret_cast<uint32_t>(descriptors_[0].getRawMemory());
-    }
-
-    // Check if there's a received packet available
-    bool hasReceivedPacket() const {
-        // Check if current descriptor is owned by CPU (EMPTY bit cleared by hardware)
-        return !descriptors_[current_index_].isEmpty();
-    }
-
-    // Get the next received descriptor
-    // Returns nullptr if no packet available
-    // Caller must check isLast() and hasError() on the descriptor
-    // Caller must call releaseCurrentDescriptor() after processing
-    RxDescriptor* getNextDescriptor() {
-        if (!hasReceivedPacket()) {
-            return nullptr;
-        }
-        return &descriptors_[current_index_];
-    }
-
-    // Release the current descriptor back to hardware
-    // Must be called after processing a descriptor from getNextDescriptor()
-    void releaseCurrentDescriptor() {
-        // Memory barrier to ensure all memory operations complete before
-        // releasing descriptor to hardware. This prevents CPU reordering
-        // that could cause the EMPTY bit to be set before data is copied.
-        __DSB();  // Data Synchronization Barrier (ARM specific)
-
-        // Return descriptor to hardware (mark as empty)
-        descriptors_[current_index_].setEmpty(true);
-
-        // Move to next descriptor
-        advance();
     }
 
 private:

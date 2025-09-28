@@ -131,30 +131,25 @@ void GigabitEthernetDriver::process_transmitted_packets() {
 }
 
 ethernet::Frame GigabitEthernetDriver::receive() {
-    // Check if there's a packet available
-    if (!rx_descriptor_ring_.hasReceivedPacket()) {
-        return ethernet::Frame();  // Return empty frame
-    }
-
-    // Get the next descriptor
-    auto* desc = rx_descriptor_ring_.getNextDescriptor();
+    // Acquire the next descriptor that has been filled by hardware
+    auto* desc = rx_descriptor_ring_.acquire();
     if (!desc) {
-        return ethernet::Frame();  // Return empty frame
+        return ethernet::Frame();  // No packet available
     }
 
     // Check if this is a complete frame (not chained)
     if (!desc->isLast()) {
         // Chained packet - not supported
-        assert(false && "Received packet requires chaining - not supported. Increase buffer size.");
+        printf("Received packet requires chaining - not supported.\n");
         // Release descriptor immediately back to hardware
-        rx_descriptor_ring_.releaseCurrentDescriptor();
+        rx_descriptor_ring_.release(desc);
         return ethernet::Frame();  // Return empty frame
     }
 
     // Check for errors
     if (desc->hasError()) {
         // Error in received packet - skip it
-        rx_descriptor_ring_.releaseCurrentDescriptor();
+        rx_descriptor_ring_.release(desc);
         return ethernet::Frame();  // Return empty frame
     }
 
@@ -165,7 +160,7 @@ ethernet::Frame GigabitEthernetDriver::receive() {
     // Skip 2-byte padding at the beginning
     if (length <= 2) {
         // Invalid length
-        rx_descriptor_ring_.releaseCurrentDescriptor();
+        rx_descriptor_ring_.release(desc);
         return ethernet::Frame();  // Return empty frame
     }
 
@@ -177,7 +172,7 @@ ethernet::Frame GigabitEthernetDriver::receive() {
 
     if (!frame) {
         // Failed to allocate frame
-        rx_descriptor_ring_.releaseCurrentDescriptor();
+        rx_descriptor_ring_.release(desc);
         return ethernet::Frame();  // Return empty frame
     }
 
@@ -188,7 +183,7 @@ ethernet::Frame GigabitEthernetDriver::receive() {
     // This maintains FIFO order - descriptors are always processed and released in order
     // Note: releaseCurrentDescriptor() includes a memory barrier to ensure the
     // memcpy completes before the descriptor is returned to hardware
-    rx_descriptor_ring_.releaseCurrentDescriptor();
+    rx_descriptor_ring_.release(desc);
 
     // Resume DMA reception if it was suspended
     if (!ENET_1G->RDAR) {
