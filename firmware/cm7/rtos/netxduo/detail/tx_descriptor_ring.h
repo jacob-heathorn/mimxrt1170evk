@@ -67,6 +67,7 @@ public:
     }
 
     // Reset all descriptors to initial state
+    // TODO: This may race with hardware DMA - should disable ENET TX first
     void reset() {
         for (size_t i = 0; i < kNumTxDescriptors; i++) {
             descriptors_[i].reset();

@@ -78,8 +78,7 @@ public:
     }
 
     // Reset all descriptors to initial state with their buffers
-    // This can be used after link changes or error recovery
-    // Called from the ethernet driver initialize function
+    // TODO: This may race with hardware DMA - should disable ENET RX first
     void reset() {
         for (size_t i = 0; i < kNumRxDescriptors; i++) {
             // Reset descriptor to default state
