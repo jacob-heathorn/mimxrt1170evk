@@ -14,7 +14,7 @@ constexpr uint8_t kPhyAddress = 0x01;  // PHY address for ENET port 1
 constexpr bool kAutoNegotiation = true;  // Enable auto-negotiation
 
 
-GigabitEthernetDriver::GigabitEthernetDriver() {
+GigabitEthernetDriver::GigabitEthernetDriver(const std::array<uint8_t, 6>& macAddr) {
     // Create the GigabitMac singleton instance.
     ethernet::detail::GigabitMac::create();
 
@@ -29,6 +29,9 @@ GigabitEthernetDriver::GigabitEthernetDriver() {
 
     // Initialize PHY and wait for link
     setupPhyAndWaitForLink();
+
+    // Configure MAC with the provided address
+    configureMac(macAddr);
 }
 
 void GigabitEthernetDriver::setupFramePools() {

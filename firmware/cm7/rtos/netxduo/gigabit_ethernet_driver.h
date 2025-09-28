@@ -16,7 +16,8 @@
 class GigabitEthernetDriver : public ftl::Singleton<GigabitEthernetDriver> {
 public:
     // Constructor - public for ftl::Singleton
-    GigabitEthernetDriver();
+    // Takes MAC address to configure during initialization
+    GigabitEthernetDriver(const std::array<uint8_t, 6>& macAddr);
     // Destructor deleted - singleton lives for entire program
     ~GigabitEthernetDriver() = delete;
 

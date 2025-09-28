@@ -1508,27 +1508,6 @@ NX_PACKET   *packet_ptr;
 extern "C" VOID nx_driver_imx_ethernet_isr(VOID);
 
 
-static void enet_init(void)
-{
-    /* Configure MAC with address and all settings */
-    std::array<uint8_t, 6> macArray{{
-        _nx_driver_hardware_address[0],
-        _nx_driver_hardware_address[1],
-        _nx_driver_hardware_address[2],
-        _nx_driver_hardware_address[3],
-        _nx_driver_hardware_address[4],
-        _nx_driver_hardware_address[5]
-    }};
-
-    // This now handles all MAC configuration including:
-    // - MAC address setting
-    // - Interrupt masking and clearing
-    // - RCR, ECR, TCR configuration based on PHY link speed/duplex
-    // - QOS round-robin scheme
-    // - Checksum offload configuration (TACC, RACC)
-    // - Transmit FIFO watermark (TFWR)
-    GigabitEthernetDriver::instance().configureMac(macArray);
-}
 
 /**************************************************************************/
 /*                                                                        */
@@ -1585,11 +1564,17 @@ UINT                i;
         return(NX_DRIVER_ERROR);
     }
 
-    // Create the GigabitEthernetDriver singleton - constructor now calls initialize().
-    GigabitEthernetDriver::create();
-
-    // Call base Ethernet initialization
-    enet_init();
+    // Create the GigabitEthernetDriver singleton with MAC address
+    // The constructor will initialize PHY and configure MAC
+    std::array<uint8_t, 6> macArray{{
+        _nx_driver_hardware_address[0],
+        _nx_driver_hardware_address[1],
+        _nx_driver_hardware_address[2],
+        _nx_driver_hardware_address[3],
+        _nx_driver_hardware_address[4],
+        _nx_driver_hardware_address[5]
+    }};
+    GigabitEthernetDriver::create(macArray);
 
     /******************** RX Initialization ********************/
 
