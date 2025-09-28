@@ -1686,7 +1686,9 @@ static void enet_init(void)
     /* Initialize PHY and wait auto-negotiation over. */
     do
     {
-        status = PHY_Init(&phyHandle, &phyConfig);
+        // Inline PHY_Init - directly call PHY_RTL8211F_Init
+        phyHandle.ops = &phyrtl8211f_ops;
+        status = PHY_RTL8211F_Init(&phyHandle, &phyConfig);
         if (status == kStatus_Success)
         {
             /* Wait for auto-negotiation success and link up */
