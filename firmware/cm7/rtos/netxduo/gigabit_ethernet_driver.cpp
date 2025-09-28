@@ -307,6 +307,26 @@ void GigabitEthernetDriver::handle_link_mode_change(unsigned int link_speed, uns
            link_speed, link_duplex);
 }
 
+void GigabitEthernetDriver::setMacAddress(const uint8_t* macAddr) {
+    // Set MAC address in the ENET_1G registers
+    // PALR: Physical Address Lower Register (bytes 0-3)
+    // PAUR: Physical Address Upper Register (bytes 4-5)
+
+    uint32_t address;
+
+    // Set physical address lower register (bytes 3-0 in big-endian order)
+    address = (uint32_t)(((uint32_t)macAddr[0] << 24U) |
+                        ((uint32_t)macAddr[1] << 16U) |
+                        ((uint32_t)macAddr[2] << 8U) |
+                        (uint32_t)macAddr[3]);
+    ENET_1G->PALR = address;
+
+    // Set physical address upper register (bytes 5-4)
+    address = (uint32_t)(((uint32_t)macAddr[4] << 8U) |
+                        (uint32_t)macAddr[5]);
+    ENET_1G->PAUR = address << 16U;  // PAUR[31:16] contains MAC address bytes 5-4
+}
+
 
 
 // Direct C++ interface - no C wrapper functions needed since nx_driver_imxrt.cpp is now C++

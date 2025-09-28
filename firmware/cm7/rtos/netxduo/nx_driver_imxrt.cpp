@@ -1529,7 +1529,7 @@ static void enet_init_imx(enet_mii_mode_t interface, phy_speed_t speed, phy_dupl
 
     /* Set the Physical Address for the selected FEC */
     /*enet_set_address(config->ch, mac);*/
-    ENET_SetMacAddr(EXAMPLE_ENET, mac);
+    GigabitEthernetDriver::instance().setMacAddress(mac);
 
     /* Mask all FEC interrupts */
     EXAMPLE_ENET->EIMR/*(ch)*/ = 0;/*FSL:ENET_EIMR_MASK_ALL_MASK;*/

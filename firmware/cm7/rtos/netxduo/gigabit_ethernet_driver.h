@@ -47,6 +47,9 @@ public:
     // Get current link duplex
     phy_duplex_t getLinkDuplex() const { return link_duplex_; }
 
+    // Set MAC address for the ethernet interface
+    void setMacAddress(const uint8_t* macAddr);
+
 private:
     // Reset the driver - clears TX queue and resets TX/RX descriptor rings
     // Returns true on success, false on error
