@@ -301,6 +301,24 @@ void GigabitEthernetDriver::configureMac(const std::array<uint8_t, 6>& macAddr) 
     // Clear all FEC interrupt events
     nENET_1G::EIR::ref().value = 0xFFFFFFFF;
 
+    // Checksum offload - Transmit
+    nENET_1G::TACC tacc_val = { .value = nENET_1G::TACC::ref().value };
+    tacc_val.bits.SHIFT16 = nENET_1G::TACC::eSHIFT16::eONE;
+    tacc_val.bits.IPCHK = nENET_1G::TACC::eIPCHK::eONE;
+    tacc_val.bits.PROCHK = nENET_1G::TACC::ePROCHK::eONE;
+    nENET_1G::TACC::ref().value = tacc_val.value;
+
+    // Transmit FIFO Watermark
+    nENET_1G::TFWR::ref().bits.STRFWD = nENET_1G::TFWR::eSTRFWD::eONE;
+
+    // Checksum offload - Receive
+    nENET_1G::RACC racc_val = {};
+    racc_val.bits.SHIFT16 = nENET_1G::RACC::eSHIFT16::eONE;
+    racc_val.bits.LINEDIS = nENET_1G::RACC::eLINEDIS::eONE;
+    racc_val.bits.PRODIS = nENET_1G::RACC::ePRODIS::eONE;
+    racc_val.bits.IPDIS = nENET_1G::RACC::eIPDIS::eONE;
+    nENET_1G::RACC::ref().value = racc_val.value;
+
     // Build up register values using union structures
     nENET_1G::RCR rcr_val = {};
     nENET_1G::ECR ecr_val = {};
@@ -330,24 +348,6 @@ void GigabitEthernetDriver::configureMac(const std::array<uint8_t, 6>& macAddr) 
         rcr_val.bits.DRT = nENET_1G::RCR::eDRT::eZERO;  // Full duplex
         tcr_val.bits.FDEN = nENET_1G::TCR::eFDEN::eONE;  // Full duplex
     }
-
-    // Checksum offload - Transmit
-    nENET_1G::TACC tacc_val = {.value = nENET_1G::TACC::ref().value};
-    tacc_val.bits.SHIFT16 = nENET_1G::TACC::eSHIFT16::eONE;
-    tacc_val.bits.IPCHK = nENET_1G::TACC::eIPCHK::eONE;
-    tacc_val.bits.PROCHK = nENET_1G::TACC::ePROCHK::eONE;
-    nENET_1G::TACC::ref().value = tacc_val.value;
-
-    // Transmit FIFO Watermark
-    nENET_1G::TFWR::ref().bits.STRFWD = nENET_1G::TFWR::eSTRFWD::eONE;
-
-    // Checksum offload - Receive
-    nENET_1G::RACC racc_val = {};
-    racc_val.bits.SHIFT16 = nENET_1G::RACC::eSHIFT16::eONE;
-    racc_val.bits.LINEDIS = nENET_1G::RACC::eLINEDIS::eONE;
-    racc_val.bits.PRODIS = nENET_1G::RACC::ePRODIS::eONE;
-    racc_val.bits.IPDIS = nENET_1G::RACC::eIPDIS::eONE;
-    nENET_1G::RACC::ref().value = racc_val.value;
 
     // Write the main control registers all at once
     nENET_1G::RCR::ref().value = rcr_val.value;
