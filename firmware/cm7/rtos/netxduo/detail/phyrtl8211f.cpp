@@ -144,18 +144,6 @@ status_t PhyRtl8211f::initialize()
     return result;
 }
 
-status_t PhyRtl8211f::write(uint8_t phyReg, uint16_t data)
-{
-    mac_.mdioWrite(phyAddr_, phyReg, data);
-    return kStatus_Success;
-}
-
-status_t PhyRtl8211f::read(uint8_t phyReg, uint16_t *pData)
-{
-    *pData = mac_.mdioRead(phyAddr_, phyReg);
-    return kStatus_Success;
-}
-
 status_t PhyRtl8211f::getAutoNegotiationStatus(bool *status)
 {
     assert(status);

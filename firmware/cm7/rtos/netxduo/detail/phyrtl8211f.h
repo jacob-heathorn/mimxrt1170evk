@@ -23,8 +23,6 @@ public:
 
     // PHY operations
     status_t initialize();
-    status_t write(uint8_t phyReg, uint16_t data);
-    status_t read(uint8_t phyReg, uint16_t* pData);
     status_t getAutoNegotiationStatus(bool* status);
     status_t getLinkStatus(bool* status);
     status_t getLinkSpeedDuplex(phy_speed_t* speed, phy_duplex_t* duplex);
