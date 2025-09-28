@@ -332,7 +332,7 @@ void GigabitEthernetDriver::configureMac(const std::array<uint8_t, 6>& macAddr) 
     }
 
     // Checksum offload - Transmit
-    nENET_1G::TACC tacc_val = {};
+    nENET_1G::TACC tacc_val = {.value = nENET_1G::TACC::ref().value};
     tacc_val.bits.SHIFT16 = nENET_1G::TACC::eSHIFT16::eONE;
     tacc_val.bits.IPCHK = nENET_1G::TACC::eIPCHK::eONE;
     tacc_val.bits.PROCHK = nENET_1G::TACC::ePROCHK::eONE;
