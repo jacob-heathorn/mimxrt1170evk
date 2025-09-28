@@ -1508,37 +1508,40 @@ NX_PACKET   *packet_ptr;
 extern "C" VOID nx_driver_imx_ethernet_isr(VOID);
 
 
-static void enet_init_imx(enet_mii_mode_t interface, ethernet::detail::PhySpeed speed, ethernet::detail::PhyDuplex duplex, uint8_t mac[6])
+static void enet_init(void)
 {
+    // Get the negotiated speed/duplex from the driver (PHY was already initialized in constructor)
+    ethernet::detail::PhySpeed speed = GigabitEthernetDriver::instance().getLinkSpeed();
+    ethernet::detail::PhyDuplex duplex = GigabitEthernetDriver::instance().getLinkDuplex();
+
     volatile uint32_t rcr = 0;
     volatile uint32_t ecr = 0;
     volatile uint32_t tcr = 0;
 
     /* Set the Physical Address for the selected FEC */
-    /*enet_set_address(config->ch, mac);*/
-    std::array<uint8_t, 6> macArray{{mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]}};
+    std::array<uint8_t, 6> macArray{{
+        _nx_driver_hardware_address[0],
+        _nx_driver_hardware_address[1],
+        _nx_driver_hardware_address[2],
+        _nx_driver_hardware_address[3],
+        _nx_driver_hardware_address[4],
+        _nx_driver_hardware_address[5]
+    }};
     GigabitEthernetDriver::instance().setMacAddress(macArray);
 
     /* Mask all FEC interrupts */
-    EXAMPLE_ENET->EIMR/*(ch)*/ = 0;/*FSL:ENET_EIMR_MASK_ALL_MASK;*/
+    EXAMPLE_ENET->EIMR = 0;
 
     /* Clear all FEC interrupt events */
-    EXAMPLE_ENET->EIR/*(ch)*/ = 0xFFFFFFFF;/*FSL:ENET_EIR_CLEAR_ALL_MASK;*/
+    EXAMPLE_ENET->EIR = 0xFFFFFFFF;
 
     /* Initialize the Receive Control Register */
     rcr = ENET_RCR_MAX_FL(14+1500+4) /*ethernet frame head + max data+crc*/
         | ENET_RCR_MII_MODE_MASK /*always*/
         | ENET_RCR_CRCFWD_MASK;  /*no CRC pad required*/
 
-    // FSL_FEATURE_ENET_INSTANCE_HAS_AVBn
-    if ( interface == kENET_RgmiiMode )
-    {
-        rcr |= ENET_RCR_RGMII_EN_MASK;
-    }
-    else
-    {
-        rcr &= ~ENET_RCR_RGMII_EN_MASK;
-    }
+    // Configure for RGMII mode (hardcoded as we always use RGMII)
+    rcr |= ENET_RCR_RGMII_EN_MASK;
 
     if( speed == ethernet::detail::PhySpeed::e1000M )
     {
@@ -1551,18 +1554,6 @@ static void enet_init_imx(enet_mii_mode_t interface, ethernet::detail::PhySpeed 
 
     /* use Round-robin scheme for legacy buffer descriptor mode */
     EXAMPLE_ENET->QOS |= ENET_QOS_TX_SCHEME(1);
-
-
-    if ( interface == kENET_RmiiMode )
-    {
-        rcr |= ENET_RCR_RMII_MODE_MASK;
-
-        /*only set speed in RMII mode*/
-        if( speed == ethernet::detail::PhySpeed::e10M )
-        {
-            rcr |= ENET_RCR_RMII_10T_MASK;
-        }
-    }/*no need to configure MAC MII interface*/
 
     /* Set the duplex */
     if (duplex == ethernet::detail::PhyDuplex::eHalf)
@@ -1587,20 +1578,11 @@ static void enet_init_imx(enet_mii_mode_t interface, ethernet::detail::PhySpeed 
                 ENET_RACC_LINEDIS_MASK |
                 ENET_RACC_PRODIS_MASK  |
                 ENET_RACC_IPDIS_MASK;
-    //
+
+    // Set the registers
     EXAMPLE_ENET->RCR = rcr;
     EXAMPLE_ENET->ECR = ecr;
     EXAMPLE_ENET->TCR = tcr;
-}
-
-static void enet_init(void)
-{
-    // Get the negotiated speed/duplex from the driver (PHY was already initialized in constructor)
-    ethernet::detail::PhySpeed speed = GigabitEthernetDriver::instance().getLinkSpeed();
-    ethernet::detail::PhyDuplex duplex = GigabitEthernetDriver::instance().getLinkDuplex();
-
-    // Configure MAC with MAC address and negotiated speed/duplex
-    enet_init_imx(kENET_RgmiiMode, speed, duplex, _nx_driver_hardware_address);
 }
 
 /**************************************************************************/
