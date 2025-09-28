@@ -21,14 +21,6 @@ public:
     // Destructor deleted - singleton lives for entire program
     ~GigabitEthernetDriver() = delete;
 
-    // Initialize PHY with auto-negotiation
-    // Returns kStatus_Success on success
-    status_t initializePhy(uint8_t phyAddress, bool autoNegotiation);
-
-    // Wait for PHY link to be up
-    // Returns true when link is up with auto-negotiation complete
-    bool waitForLink(phy_speed_t* speed, phy_duplex_t* duplex);
-
     // Send a frame (takes ownership of the frame)
     // Returns true on success, false on error
     bool send(ethernet::Frame&& frame);
@@ -49,6 +41,12 @@ public:
     // Get RX descriptor ring for buffer management
     ethernet::detail::RxDescriptorRing& get_rx_ring() { return rx_descriptor_ring_; }
 
+    // Get current link speed
+    phy_speed_t getLinkSpeed() const { return link_speed_; }
+
+    // Get current link duplex
+    phy_duplex_t getLinkDuplex() const { return link_duplex_; }
+
 private:
     // Reset the driver - clears TX queue and resets TX/RX descriptor rings
     // Returns true on success, false on error
@@ -56,6 +54,18 @@ private:
 
     // Set up frame pools for ethernet::Frame allocator
     void setupFramePools();
+
+    // Initialize and configure PHY, wait for link
+    // This will retry until successful
+    void setupPhyAndWaitForLink();
+
+    // Initialize PHY with auto-negotiation
+    // Returns kStatus_Success on success
+    status_t initializePhy(uint8_t phyAddress, bool autoNegotiation);
+
+    // Wait for PHY link to be up
+    // Returns true when link is up with auto-negotiation complete
+    bool waitForLink(phy_speed_t* speed, phy_duplex_t* duplex);
 
     // TX descriptor ring (internally allocates from OCRAM2 with 64-byte alignment)
     // Ring manages its own head/tail indices for queue-like behavior
@@ -70,6 +80,10 @@ private:
     // Ring manages its own current index for processing received packets
     // Buffers are allocated and managed internally by the ring
     ethernet::detail::RxDescriptorRing rx_descriptor_ring_{};
+
+    // PHY link speed and duplex settings (set during PHY initialization)
+    phy_speed_t link_speed_{};
+    phy_duplex_t link_duplex_{};
 };
 
 // No C interface needed - nx_driver_imxrt.cpp is now C++ and can directly use the class

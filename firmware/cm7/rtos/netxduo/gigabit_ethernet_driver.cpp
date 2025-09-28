@@ -10,6 +10,10 @@
 #include "detail/gigabit_mac.h"
 #include "detail/phyrtl8211f.h"
 
+// PHY configuration constants
+constexpr uint8_t kPhyAddress = 0x01;  // PHY address for ENET port 1
+constexpr bool kAutoNegotiation = true;  // Enable auto-negotiation
+
 // Macro to remove Ethernet header from packet before releasing to pool
 #define NX_DRIVER_ETHERNET_FRAME_SIZE 14
 #define NX_DRIVER_ETHERNET_HEADER_REMOVE(p) \
@@ -38,6 +42,9 @@ GigabitEthernetDriver::GigabitEthernetDriver() {
 
     // Reset the driver
     reset();
+
+    // Initialize PHY and wait for link
+    setupPhyAndWaitForLink();
 }
 
 void GigabitEthernetDriver::setupFramePools() {
@@ -85,6 +92,25 @@ bool GigabitEthernetDriver::reset() {
     ENET_1G->RDSR = rx_descriptor_ring_.getBaseAddress();
 
     return true;  // Return success
+}
+
+void GigabitEthernetDriver::setupPhyAndWaitForLink() {
+    status_t status;
+
+    // Keep trying to initialize PHY and establish link
+    do {
+        status = initializePhy(kPhyAddress, kAutoNegotiation);
+        if (status == kStatus_Success) {
+            // Wait for link to come up
+            if (waitForLink(&link_speed_, &link_duplex_)) {
+                printf("PHY Link is up - Speed: %s, Duplex: %s\r\n",
+                       (link_speed_ == kPHY_Speed1000M) ? "1000M" :
+                       (link_speed_ == kPHY_Speed100M) ? "100M" : "10M",
+                       (link_duplex_ == kPHY_FullDuplex) ? "Full" : "Half");
+                break;
+            }
+        }
+    } while (true);
 }
 
 status_t GigabitEthernetDriver::initializePhy(uint8_t phyAddress, bool autoNegotiation) {

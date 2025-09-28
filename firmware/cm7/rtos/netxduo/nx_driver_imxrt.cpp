@@ -56,7 +56,6 @@
 #error "This board has no 1G Ethernet port."
 #endif
 
-#define EXAMPLE_PHY_ADDRESS BOARD_ENET1_PHY_ADDRESS
 #define EXAMPLE_ENET        ENET_1G
 #define EXAMPLE_INT         ENET_1G_IRQn
 
@@ -1632,21 +1631,11 @@ static void enet_init_imx(ENET_CONFIG_IMX *config)
 
 static void enet_init(void)
 {
-    status_t status;
-    phy_speed_t speed;
-    phy_duplex_t duplex;
     ENET_CONFIG_IMX econf;
 
-    // Initialize PHY through GigabitEthernetDriver
-    do {
-        status = GigabitEthernetDriver::instance().initializePhy(EXAMPLE_PHY_ADDRESS, true);
-        if (status == kStatus_Success) {
-            // Wait for link to come up
-            if (GigabitEthernetDriver::instance().waitForLink(&speed, &duplex)) {
-                break;
-            }
-        }
-    } while (true);
+    // Get the negotiated speed/duplex from the driver (PHY was already initialized in constructor)
+    phy_speed_t speed = GigabitEthernetDriver::instance().getLinkSpeed();
+    phy_duplex_t duplex = GigabitEthernetDriver::instance().getLinkDuplex();
 
     // Configure MAC with MAC address and negotiated speed/duplex
     econf.interface = kENET_RgmiiMode;
