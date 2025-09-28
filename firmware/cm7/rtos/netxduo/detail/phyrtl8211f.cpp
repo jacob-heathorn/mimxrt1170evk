@@ -1,16 +1,7 @@
-/*
- * Copyright 2020-2023 NXP
- *
- * SPDX-License-Identifier: BSD-3-Clause
- */
-
 #include "phyrtl8211f.h"
 #include "gigabit_mac.h"
 #include <cassert>
 
-/*******************************************************************************
- * Definitions
- ******************************************************************************/
 
 /*! @brief Defines the PHY RTL8211F vendor defined registers. */
 #define PHY_SPECIFIC_STATUS_REG (0x1AU) /*!< The PHY specific status register. */
@@ -56,12 +47,10 @@ PhyRtl8211f::PhyRtl8211f(GigabitMac& mac, uint8_t phyAddr, bool autoNeg)
 {
 }
 
-status_t PhyRtl8211f::initialize()
+bool PhyRtl8211f::initialize()
 {
     uint32_t counter  = PHY_READID_TIMEOUT_COUNT;
     uint16_t regValue = 0U;
-    status_t result;
-
     /* Check PHY ID. */
     do
     {
@@ -71,7 +60,7 @@ status_t PhyRtl8211f::initialize()
 
     if (counter == 0U)
     {
-        return kStatus_Fail;
+        return false;
     }
 
     /* Reset PHY. */
@@ -105,10 +94,9 @@ status_t PhyRtl8211f::initialize()
     /* Restore to default page 0 */
     mac_.mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, 0);
 
-    result = clearInterrupt();
-    if (result != kStatus_Success)
+    if (!clearInterrupt())
     {
-        return result;
+        return false;
     }
 
     if (autoNeg_)
@@ -131,20 +119,17 @@ status_t PhyRtl8211f::initialize()
         mac_.mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, regValue);
 
         /* Disable the auto-negotiation and set default speed/duplex. */
-        result = setLinkSpeedDuplex(kPHY_Speed1000M, kPHY_FullDuplex);
-        if (result != kStatus_Success)
+        if (!setLinkSpeedDuplex(kPHY_Speed1000M, kPHY_FullDuplex))
         {
-            return result;
+            return false;
         }
     }
 
     // Enable link interrupt (active low)
-    result = enableLinkInterrupt(kPHY_IntrActiveLow);
-
-    return result;
+    return enableLinkInterrupt(kPHY_IntrActiveLow);
 }
 
-status_t PhyRtl8211f::getAutoNegotiationStatus(bool *status)
+bool PhyRtl8211f::getAutoNegotiationStatus(bool *status)
 {
     assert(status);
 
@@ -158,10 +143,10 @@ status_t PhyRtl8211f::getAutoNegotiationStatus(bool *status)
     {
         *status = true;
     }
-    return kStatus_Success;
+    return true;
 }
 
-status_t PhyRtl8211f::getLinkStatus(bool *status)
+bool PhyRtl8211f::getLinkStatus(bool *status)
 {
     assert(status);
 
@@ -179,10 +164,10 @@ status_t PhyRtl8211f::getLinkStatus(bool *status)
         /* Link down. */
         *status = false;
     }
-    return kStatus_Success;
+    return true;
 }
 
-status_t PhyRtl8211f::getLinkSpeedDuplex(phy_speed_t *speed, phy_duplex_t *duplex)
+bool PhyRtl8211f::getLinkSpeedDuplex(phy_speed_t *speed, phy_duplex_t *duplex)
 {
     assert(!((speed == NULL) && (duplex == NULL)));
 
@@ -222,10 +207,10 @@ status_t PhyRtl8211f::getLinkSpeedDuplex(phy_speed_t *speed, phy_duplex_t *duple
         }
     }
 
-    return kStatus_Success;
+    return true;
 }
 
-status_t PhyRtl8211f::setLinkSpeedDuplex(phy_speed_t speed, phy_duplex_t duplex)
+bool PhyRtl8211f::setLinkSpeedDuplex(phy_speed_t speed, phy_duplex_t duplex)
 {
     uint16_t regValue;
 
@@ -258,10 +243,10 @@ status_t PhyRtl8211f::setLinkSpeedDuplex(phy_speed_t speed, phy_duplex_t duplex)
     }
     mac_.mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, regValue);
 
-    return kStatus_Success;
+    return true;
 }
 
-status_t PhyRtl8211f::enableLoopback(phy_loop_t mode, phy_speed_t speed, bool enable)
+bool PhyRtl8211f::enableLoopback(phy_loop_t mode, phy_speed_t speed, bool enable)
 {
     /* This PHY only supports local loopback. */
     assert(mode == kPHY_LocalLoop);
@@ -292,10 +277,10 @@ status_t PhyRtl8211f::enableLoopback(phy_loop_t mode, phy_speed_t speed, bool en
         regValue &= ~PHY_BCTL_LOOP_MASK;
         mac_.mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, (regValue | PHY_BCTL_RESTART_AUTONEG_MASK));
     }
-    return kStatus_Success;
+    return true;
 }
 
-status_t PhyRtl8211f::enableLinkInterrupt(phy_interrupt_type_t type)
+bool PhyRtl8211f::enableLinkInterrupt(phy_interrupt_type_t type)
 {
     assert(type != kPHY_IntrActiveHigh);
 
@@ -320,16 +305,16 @@ status_t PhyRtl8211f::enableLinkInterrupt(phy_interrupt_type_t type)
     /* Restore to default page 0 */
     mac_.mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, 0);
 
-    return kStatus_Success;
+    return true;
 }
 
-status_t PhyRtl8211f::clearInterrupt()
+bool PhyRtl8211f::clearInterrupt()
 {
     /* Found both read reg 0x1D from page 0 or page 0xA42 are useful. But datasheet
        describes it's in page 0xA42. Here use simpler implementation. */
     // Reading the interrupt status register clears it
     mac_.mdioRead(phyAddr_, PHY_INSR_REG);
-    return kStatus_Success;
+    return true;
 }
 
 } // namespace detail

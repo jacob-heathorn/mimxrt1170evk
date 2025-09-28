@@ -80,12 +80,10 @@ bool GigabitEthernetDriver::reset() {
 }
 
 void GigabitEthernetDriver::setupPhyAndWaitForLink() {
-    status_t status;
-
     // Keep trying to initialize PHY and establish link
     do {
-        status = initializePhy(kPhyAddress, kAutoNegotiation);
-        if (status == kStatus_Success) {
+        bool success = initializePhy(kPhyAddress, kAutoNegotiation);
+        if (success) {
             // Wait for link to come up
             if (waitForLink(&link_speed_, &link_duplex_)) {
                 printf("PHY Link is up - Speed: %s, Duplex: %s\r\n",
@@ -98,7 +96,7 @@ void GigabitEthernetDriver::setupPhyAndWaitForLink() {
     } while (true);
 }
 
-status_t GigabitEthernetDriver::initializePhy(uint8_t phyAddress, bool autoNegotiation) {
+bool GigabitEthernetDriver::initializePhy(uint8_t phyAddress, bool autoNegotiation) {
     // Initialize MDIO interface
     ethernet::detail::GigabitMac::instance().mdioInit();
 

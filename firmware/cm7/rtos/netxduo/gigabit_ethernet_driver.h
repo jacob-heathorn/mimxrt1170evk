@@ -1,8 +1,8 @@
 #pragma once
 
 #include <array>
+#include <cstdint>
 #include "ftl/singleton.hpp"
-#include "fsl_enet.h"
 #include "detail/phyrtl8211f.h"
 #include "detail/tx_descriptor_ring.h"
 #include "detail/tx_frame.h"
@@ -63,8 +63,8 @@ private:
     void setupPhyAndWaitForLink();
 
     // Initialize PHY with auto-negotiation
-    // Returns kStatus_Success on success
-    status_t initializePhy(uint8_t phyAddress, bool autoNegotiation);
+    // Returns true on success, false on failure
+    bool initializePhy(uint8_t phyAddress, bool autoNegotiation);
 
     // Wait for PHY link to be up
     // Returns true when link is up with auto-negotiation complete
