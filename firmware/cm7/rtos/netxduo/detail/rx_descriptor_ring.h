@@ -65,35 +65,15 @@ public:
     static_assert((kNumRxDescriptors & (kNumRxDescriptors - 1)) == 0, "Ring size must be power of 2");
     static_assert(kNumRxDescriptors > 0, "Ring size must be greater than 0");
 
-    RxDescriptorRing() : buffers_{}, current_index_(0) {
-        // Allocate descriptor array from OCRAM2 with 64-byte alignment for DMA
-        constexpr size_t alignment = 64;
-        void* raw_memory = Ocram2Allocator::instance().allocate(
-            sizeof(RxDescriptor) * kNumRxDescriptors, alignment);
+    RxDescriptorRing() : descriptors_(nullptr), buffers_{}, current_index_(0) {
+        // Allocate descriptors
+        allocateDescriptors();
 
-        if (!raw_memory) {
-            printf("RxDescriptorRing: Failed to allocate descriptor array\n");
-            assert(false && "Failed to allocate descriptor array");
-        }
+        // Allocate buffers
+        allocateBuffers();
 
-        // Verify alignment
-        assert((reinterpret_cast<uintptr_t>(raw_memory) & (alignment - 1)) == 0 &&
-               "Descriptor array must be 64-byte aligned for DMA");
-
-        // Use placement new to construct each descriptor
-        descriptors_ = static_cast<RxDescriptor*>(raw_memory);
-        for (size_t i = 0; i < kNumRxDescriptors; ++i) {
-            new (&descriptors_[i]) RxDescriptor();
-        }
-
-        // Set wrap bit on last descriptor
-        descriptors_[kNumRxDescriptors - 1].setWrap(true);
-
-        printf("RxDescriptorRing: Allocated %zu descriptors at %p (64-byte aligned)\n",
-               kNumRxDescriptors, static_cast<void*>(descriptors_));
-
-        // Allocate and configure buffers for all descriptors
-        allocateAndConfigureBuffers();
+        // Connect buffers to descriptors and mark them as ready
+        reset();
     }
 
     ~RxDescriptorRing() {
@@ -138,6 +118,7 @@ public:
 
     // Reset all descriptors to initial state with their buffers
     // This can be used after link changes or error recovery
+    // Called from the ethernet driver initialize function
     void reset() {
         for (size_t i = 0; i < kNumRxDescriptors; i++) {
             // Reset descriptor to default state
@@ -193,10 +174,39 @@ public:
     }
 
 private:
-    // Allocate and configure buffers for all descriptors
-    void allocateAndConfigureBuffers() {
+    // Allocate descriptors from OCRAM2 with proper alignment
+    void allocateDescriptors() {
+        // Allocate descriptor array from OCRAM2 with 64-byte alignment for DMA
+        constexpr size_t alignment = 64;
+        void* raw_memory = Ocram2Allocator::instance().allocate(
+            sizeof(RxDescriptor) * kNumRxDescriptors, alignment);
+
+        if (!raw_memory) {
+            printf("RxDescriptorRing: Failed to allocate descriptor array\n");
+            assert(false && "Failed to allocate descriptor array");
+        }
+
+        // Verify alignment
+        assert((reinterpret_cast<uintptr_t>(raw_memory) & (alignment - 1)) == 0 &&
+               "Descriptor array must be 64-byte aligned for DMA");
+
+        // Use placement new to construct each descriptor
+        descriptors_ = static_cast<RxDescriptor*>(raw_memory);
+        for (size_t i = 0; i < kNumRxDescriptors; ++i) {
+            new (&descriptors_[i]) RxDescriptor();
+        }
+
+        // Set wrap bit on last descriptor
+        descriptors_[kNumRxDescriptors - 1].setWrap(true);
+
+        printf("RxDescriptorRing: Allocated %zu descriptors at %p (64-byte aligned)\n",
+               kNumRxDescriptors, static_cast<void*>(descriptors_));
+    }
+
+    // Allocate RX buffers from OCRAM2 with proper alignment
+    void allocateBuffers() {
         constexpr size_t alignment = 64;  // DMA requires 64-byte alignment (empirically)
-        // TODO: Find this in the RM
+        // TODO: Confirm this in the RM
 
         for (size_t i = 0; i < kNumRxDescriptors; ++i) {
             // Allocate buffer from OCRAM2 (non-cacheable for DMA)
@@ -209,12 +219,6 @@ private:
 
             // Store buffer pointer as uint8_t*
             buffers_[i] = static_cast<uint8_t*>(raw_buffer);
-
-            // Configure descriptor with buffer
-            descriptors_[i].setBuffer(buffers_[i]);
-
-            // Mark descriptor as empty (ready for hardware to use)
-            descriptors_[i].setEmpty(true);
         }
 
         printf("RxDescriptorRing: Allocated %zu RX buffers of %zu bytes each\n",
