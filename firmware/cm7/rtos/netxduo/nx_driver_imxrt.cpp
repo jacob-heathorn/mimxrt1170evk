@@ -1512,19 +1512,10 @@ NX_PACKET   *packet_ptr;
 
 /****** DRIVER SPECIFIC ****** Start of part/vendor specific internal driver functions.  */
 
-typedef struct
-{
-    enet_mii_mode_t      interface;     /* Transceiver mode  */
-    uint8_t              neg;           /* FEC autoneg */
-    phy_speed_t          speed;         /* Ethernet Speed           */
-    phy_duplex_t         duplex;        /* Ethernet Duplex          */
-    uint8_t              mac[6];        /* Ethernet Address         */
-} ENET_CONFIG_IMX;
-
 extern "C" VOID nx_driver_imx_ethernet_isr(VOID);
 
 
-static void enet_init_imx(ENET_CONFIG_IMX *config)
+static void enet_init_imx(enet_mii_mode_t interface, phy_speed_t speed, phy_duplex_t duplex, uint8_t mac[6])
 {
     volatile uint32_t rcr = 0;
     volatile uint32_t ecr = 0;
@@ -1537,8 +1528,8 @@ static void enet_init_imx(ENET_CONFIG_IMX *config)
     EXAMPLE_ENET->GAUR/*(ch)*/ = 0;
 
     /* Set the Physical Address for the selected FEC */
-    /*enet_set_address(config->ch, config->mac);*/
-    ENET_SetMacAddr(EXAMPLE_ENET,config->mac);
+    /*enet_set_address(config->ch, mac);*/
+    ENET_SetMacAddr(EXAMPLE_ENET, mac);
 
     /* Mask all FEC interrupts */
     EXAMPLE_ENET->EIMR/*(ch)*/ = 0;/*FSL:ENET_EIMR_MASK_ALL_MASK;*/
@@ -1552,7 +1543,7 @@ static void enet_init_imx(ENET_CONFIG_IMX *config)
         | ENET_RCR_CRCFWD_MASK;  /*no CRC pad required*/
 
     // FSL_FEATURE_ENET_INSTANCE_HAS_AVBn
-    if ( config->interface == kENET_RgmiiMode )
+    if ( interface == kENET_RgmiiMode )
     {
         rcr |= ENET_RCR_RGMII_EN_MASK;
     }
@@ -1561,7 +1552,7 @@ static void enet_init_imx(ENET_CONFIG_IMX *config)
         rcr &= ~ENET_RCR_RGMII_EN_MASK;
     }
 
-    if( config->speed == kPHY_Speed1000M )
+    if( speed == kPHY_Speed1000M )
     {
         ecr |= ENET_ECR_SPEED_MASK;
     }
@@ -1574,19 +1565,19 @@ static void enet_init_imx(ENET_CONFIG_IMX *config)
     EXAMPLE_ENET->QOS |= ENET_QOS_TX_SCHEME(1);
 
 
-    if ( config->interface == kENET_RmiiMode )
+    if ( interface == kENET_RmiiMode )
     {
         rcr |= ENET_RCR_RMII_MODE_MASK;
 
         /*only set speed in RMII mode*/
-        if( config->speed == kPHY_Speed10M )
+        if( speed == kPHY_Speed10M )
         {
             rcr |= ENET_RCR_RMII_10T_MASK;
         }
     }/*no need to configure MAC MII interface*/
 
     /* Set the duplex */
-    switch (config->duplex)
+    switch (duplex)
     {
         case kENET_MiiHalfDuplex:
             rcr |= ENET_RCR_DRT_MASK;
@@ -1618,25 +1609,12 @@ static void enet_init_imx(ENET_CONFIG_IMX *config)
 
 static void enet_init(void)
 {
-    ENET_CONFIG_IMX econf;
-
     // Get the negotiated speed/duplex from the driver (PHY was already initialized in constructor)
     phy_speed_t speed = GigabitEthernetDriver::instance().getLinkSpeed();
     phy_duplex_t duplex = GigabitEthernetDriver::instance().getLinkDuplex();
 
     // Configure MAC with MAC address and negotiated speed/duplex
-    econf.interface = kENET_RgmiiMode;
-    econf.neg = 0; /*autoneg on */
-    econf.mac[0] = _nx_driver_hardware_address[0];
-    econf.mac[1] = _nx_driver_hardware_address[1];
-    econf.mac[2] = _nx_driver_hardware_address[2];
-    econf.mac[3] = _nx_driver_hardware_address[3];
-    econf.mac[4] = _nx_driver_hardware_address[4];
-    econf.mac[5] = _nx_driver_hardware_address[5];
-    econf.speed = speed;
-    econf.duplex = duplex;
-
-    enet_init_imx(&econf);
+    enet_init_imx(kENET_RgmiiMode, speed, duplex, _nx_driver_hardware_address);
 }
 
 /**************************************************************************/
