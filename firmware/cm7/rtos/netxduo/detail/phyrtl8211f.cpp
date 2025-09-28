@@ -60,11 +60,6 @@
 /*! @brief Defines the timeout macro. */
 #define PHY_READID_TIMEOUT_COUNT 1000U
 
-/*! @brief Defines the PHY resource interface. */
-#define PHY_RTL8211F_WRITE(handle, regAddr, data) \
-    ((phy_rtl8211f_resource_t *)(handle)->resource)->write((handle)->phyAddr, regAddr, data)
-#define PHY_RTL8211F_READ(handle, regAddr, pData) \
-    ((phy_rtl8211f_resource_t *)(handle)->resource)->read((handle)->phyAddr, regAddr, pData)
 
 /*******************************************************************************
  * Prototypes
@@ -188,141 +183,131 @@ status_t PHY_RTL8211F_Init(phy_handle_t *handle, const phy_config_t *config)
 
 status_t PHY_RTL8211F_Write(phy_handle_t *handle, uint8_t phyReg, uint16_t data)
 {
-    return PHY_RTL8211F_WRITE(handle, phyReg, data);
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, phyReg, data);
+    return kStatus_Success;
 }
 
 status_t PHY_RTL8211F_Read(phy_handle_t *handle, uint8_t phyReg, uint16_t *pData)
 {
-    return PHY_RTL8211F_READ(handle, phyReg, pData);
+    *pData = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, phyReg);
+    return kStatus_Success;
 }
 
 status_t PHY_RTL8211F_GetAutoNegotiationStatus(phy_handle_t *handle, bool *status)
 {
     assert(status);
 
-    status_t result;
     uint16_t regValue;
 
     *status = false;
 
     /* Check auto negotiation complete. */
-    result = PHY_RTL8211F_READ(handle, PHY_BASICSTATUS_REG, &regValue);
-    if (result == kStatus_Success)
+    regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_BASICSTATUS_REG);
+    if ((regValue & PHY_BSTATUS_AUTONEGCOMP_MASK) != 0U)
     {
-        if ((regValue & PHY_BSTATUS_AUTONEGCOMP_MASK) != 0U)
-        {
-            *status = true;
-        }
+        *status = true;
     }
-    return result;
+    return kStatus_Success;
 }
 
 status_t PHY_RTL8211F_GetLinkStatus(phy_handle_t *handle, bool *status)
 {
     assert(status);
 
-    status_t result;
     uint16_t regValue;
 
     /* Read the basic status register. */
-    result = PHY_RTL8211F_READ(handle, PHY_SPECIFIC_STATUS_REG, &regValue);
-    if (result == kStatus_Success)
+    regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_SPECIFIC_STATUS_REG);
+    if ((PHY_SSTATUS_LINKSTATUS_MASK & regValue) != 0U)
     {
-        if ((PHY_SSTATUS_LINKSTATUS_MASK & regValue) != 0U)
-        {
-            /* Link up. */
-            *status = true;
-        }
-        else
-        {
-            /* Link down. */
-            *status = false;
-        }
+        /* Link up. */
+        *status = true;
     }
-    return result;
+    else
+    {
+        /* Link down. */
+        *status = false;
+    }
+    return kStatus_Success;
 }
 
 status_t PHY_RTL8211F_GetLinkSpeedDuplex(phy_handle_t *handle, phy_speed_t *speed, phy_duplex_t *duplex)
 {
     assert(!((speed == NULL) && (duplex == NULL)));
 
-    status_t result;
     uint16_t regValue;
 
     /* Read the status register. */
-    result = PHY_RTL8211F_READ(handle, PHY_SPECIFIC_STATUS_REG, &regValue);
-    if (result == kStatus_Success)
-    {
-        if (speed != NULL)
-        {
-            switch ((regValue & PHY_SSTATUS_LINKSPEED_MASK) >> PHY_SSTATUS_LINKSPEED_SHIFT)
-            {
-                case (uint16_t)kPHY_Speed10M:
-                    *speed = kPHY_Speed10M;
-                    break;
-                case (uint16_t)kPHY_Speed100M:
-                    *speed = kPHY_Speed100M;
-                    break;
-                case (uint16_t)kPHY_Speed1000M:
-                    *speed = kPHY_Speed1000M;
-                    break;
-                default:
-                    *speed = kPHY_Speed10M;
-                    break;
-            }
-        }
+    regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_SPECIFIC_STATUS_REG);
 
-        if (duplex != NULL)
+    if (speed != NULL)
+    {
+        switch ((regValue & PHY_SSTATUS_LINKSPEED_MASK) >> PHY_SSTATUS_LINKSPEED_SHIFT)
         {
-            if ((regValue & PHY_SSTATUS_LINKDUPLEX_MASK) != 0U)
-            {
-                *duplex = kPHY_FullDuplex;
-            }
-            else
-            {
-                *duplex = kPHY_HalfDuplex;
-            }
+            case (uint16_t)kPHY_Speed10M:
+                *speed = kPHY_Speed10M;
+                break;
+            case (uint16_t)kPHY_Speed100M:
+                *speed = kPHY_Speed100M;
+                break;
+            case (uint16_t)kPHY_Speed1000M:
+                *speed = kPHY_Speed1000M;
+                break;
+            default:
+                *speed = kPHY_Speed10M;
+                break;
         }
     }
-    return result;
+
+    if (duplex != NULL)
+    {
+        if ((regValue & PHY_SSTATUS_LINKDUPLEX_MASK) != 0U)
+        {
+            *duplex = kPHY_FullDuplex;
+        }
+        else
+        {
+            *duplex = kPHY_HalfDuplex;
+        }
+    }
+
+    return kStatus_Success;
 }
 
 status_t PHY_RTL8211F_SetLinkSpeedDuplex(phy_handle_t *handle, phy_speed_t speed, phy_duplex_t duplex)
 {
-    status_t result;
     uint16_t regValue;
 
-    result = PHY_RTL8211F_READ(handle, PHY_BASICCONTROL_REG, &regValue);
-    if (result == kStatus_Success)
+    regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_BASICCONTROL_REG);
+
+    /* Disable the auto-negotiation and set according to user-defined configuration. */
+    regValue &= ~PHY_BCTL_AUTONEG_MASK;
+    if (speed == kPHY_Speed1000M)
     {
-        /* Disable the auto-negotiation and set according to user-defined configuration. */
-        regValue &= ~PHY_BCTL_AUTONEG_MASK;
-        if (speed == kPHY_Speed1000M)
-        {
-            regValue &= PHY_BCTL_SPEED0_MASK;
-            regValue |= PHY_BCTL_SPEED1_MASK;
-        }
-        else if (speed == kPHY_Speed100M)
-        {
-            regValue |= PHY_BCTL_SPEED0_MASK;
-            regValue &= ~PHY_BCTL_SPEED1_MASK;
-        }
-        else
-        {
-            regValue &= ~PHY_BCTL_SPEED0_MASK;
-            regValue &= ~PHY_BCTL_SPEED1_MASK;
-        }
-        if (duplex == kPHY_FullDuplex)
-        {
-            regValue |= PHY_BCTL_DUPLEX_MASK;
-        }
-        else
-        {
-            regValue &= ~PHY_BCTL_DUPLEX_MASK;
-        }
-        result = PHY_RTL8211F_WRITE(handle, PHY_BASICCONTROL_REG, regValue);
+        regValue &= PHY_BCTL_SPEED0_MASK;
+        regValue |= PHY_BCTL_SPEED1_MASK;
     }
-    return result;
+    else if (speed == kPHY_Speed100M)
+    {
+        regValue |= PHY_BCTL_SPEED0_MASK;
+        regValue &= ~PHY_BCTL_SPEED1_MASK;
+    }
+    else
+    {
+        regValue &= ~PHY_BCTL_SPEED0_MASK;
+        regValue &= ~PHY_BCTL_SPEED1_MASK;
+    }
+    if (duplex == kPHY_FullDuplex)
+    {
+        regValue |= PHY_BCTL_DUPLEX_MASK;
+    }
+    else
+    {
+        regValue &= ~PHY_BCTL_DUPLEX_MASK;
+    }
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_BASICCONTROL_REG, regValue);
+
+    return kStatus_Success;
 }
 
 status_t PHY_RTL8211F_EnableLoopback(phy_handle_t *handle, phy_loop_t mode, phy_speed_t speed, bool enable)
@@ -330,7 +315,6 @@ status_t PHY_RTL8211F_EnableLoopback(phy_handle_t *handle, phy_loop_t mode, phy_
     /* This PHY only supports local loopback. */
     assert(mode == kPHY_LocalLoop);
 
-    status_t result;
     uint16_t regValue;
 
     /* Set the loop mode. */
@@ -348,40 +332,28 @@ status_t PHY_RTL8211F_EnableLoopback(phy_handle_t *handle, phy_loop_t mode, phy_
         {
             regValue = PHY_BCTL_DUPLEX_MASK | PHY_BCTL_LOOP_MASK;
         }
-        result = PHY_RTL8211F_WRITE(handle, PHY_BASICCONTROL_REG, regValue);
+        ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_BASICCONTROL_REG, regValue);
     }
     else
     {
         /* First read the current status in control register. */
-        result = PHY_RTL8211F_READ(handle, PHY_BASICCONTROL_REG, &regValue);
-        if (result == kStatus_Success)
-        {
-            regValue &= ~PHY_BCTL_LOOP_MASK;
-            result = PHY_RTL8211F_WRITE(handle, PHY_BASICCONTROL_REG, (regValue | PHY_BCTL_RESTART_AUTONEG_MASK));
-        }
+        regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_BASICCONTROL_REG);
+        regValue &= ~PHY_BCTL_LOOP_MASK;
+        ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_BASICCONTROL_REG, (regValue | PHY_BCTL_RESTART_AUTONEG_MASK));
     }
-    return result;
+    return kStatus_Success;
 }
 
 status_t PHY_RTL8211F_EnableLinkInterrupt(phy_handle_t *handle, phy_interrupt_type_t type)
 {
     assert(type != kPHY_IntrActiveHigh);
 
-    status_t result;
     uint16_t regValue;
 
-    result = PHY_Write(handle, PHY_PAGE_SELECT_REG, PHY_PAGE_INTR_ADDR);
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_PAGE_SELECT_REG, PHY_PAGE_INTR_ADDR);
 
     /* Read operation will clear pending interrupt before enable interrupt. */
-    result = PHY_RTL8211F_READ(handle, PHY_INER_REG, &regValue);
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
+    regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_INER_REG);
 
     /* Enable/Disable link up+down interrupt. */
     if (type != kPHY_IntrDisable)
@@ -392,29 +364,21 @@ status_t PHY_RTL8211F_EnableLinkInterrupt(phy_handle_t *handle, phy_interrupt_ty
     {
         regValue &= ~PHY_INER_LINKSTATUS_CHANGE_MASK;
     }
-    result = PHY_RTL8211F_WRITE(handle, PHY_INER_REG, regValue);
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_INER_REG, regValue);
 
     /* Restore to default page 0 */
-    result = PHY_Write(handle, PHY_PAGE_SELECT_REG, 0);
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_PAGE_SELECT_REG, 0);
 
-    return result;
+    return kStatus_Success;
 }
 
 status_t PHY_RTL8211F_ClearInterrupt(phy_handle_t *handle)
 {
-    uint16_t regValue;
-
     /* Found both read reg 0x1D from page 0 or page 0xA42 are useful. But datasheet
        describes it's in page 0xA42. Here use simpler implementation. */
-    return PHY_RTL8211F_READ(handle, PHY_INSR_REG, &regValue);
+    // Reading the interrupt status register clears it
+    ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_INSR_REG);
+    return kStatus_Success;
 }
 
 // MMD functions removed - no longer needed after removing EEE support
