@@ -1510,10 +1510,6 @@ extern "C" VOID nx_driver_imx_ethernet_isr(VOID);
 
 static void enet_init(void)
 {
-    // Get the negotiated speed/duplex from the driver (PHY was already initialized in constructor)
-    ethernet::detail::PhySpeed speed = GigabitEthernetDriver::instance().getLinkSpeed();
-    ethernet::detail::PhyDuplex duplex = GigabitEthernetDriver::instance().getLinkDuplex();
-
     volatile uint32_t rcr = 0;
     volatile uint32_t ecr = 0;
     volatile uint32_t tcr = 0;
@@ -1543,7 +1539,8 @@ static void enet_init(void)
     // Configure for RGMII mode (hardcoded as we always use RGMII)
     rcr |= ENET_RCR_RGMII_EN_MASK;
 
-    if( speed == ethernet::detail::PhySpeed::e1000M )
+    // Get the negotiated speed from the driver and configure speed register
+    if( GigabitEthernetDriver::instance().getLinkSpeed() == ethernet::detail::PhySpeed::e1000M )
     {
         ecr |= ENET_ECR_SPEED_MASK;
     }
@@ -1555,8 +1552,8 @@ static void enet_init(void)
     /* use Round-robin scheme for legacy buffer descriptor mode */
     EXAMPLE_ENET->QOS |= ENET_QOS_TX_SCHEME(1);
 
-    /* Set the duplex */
-    if (duplex == ethernet::detail::PhyDuplex::eHalf)
+    /* Set the duplex - get from driver and configure */
+    if (GigabitEthernetDriver::instance().getLinkDuplex() == ethernet::detail::PhyDuplex::eHalf)
     {
         rcr |= ENET_RCR_DRT_MASK;
         tcr &= (uint32_t)~ENET_TCR_FDEN_MASK;
