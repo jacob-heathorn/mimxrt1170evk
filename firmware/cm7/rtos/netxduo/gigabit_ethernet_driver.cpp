@@ -30,20 +30,20 @@ GigabitEthernetDriver::GigabitEthernetDriver() {
 
     // Initialize ethernet::Frame allocator strategies with varying sizes
     // Similar to how UDP datagrams are set up in hello_netx
-    // Maximum frame size is 1536 bytes (matching NX_PACKET max size)
+    // Maximum frame size is 1538 (1536+2 byte padding) bytes
 
     // Set up buffer strategies for different frame sizes
     // Use OCRAM2 (non-cacheable) for DMA compatibility - same as NX_PACKET pool
     // Require 8-byte alignment for Ethernet DMA
     //
     // TODO: Consider exposing these strategies through the interface.
-    constexpr size_t dma_alignment = 8;
+    constexpr size_t dma_alignment = 64;
     static ftl::allocator::BumpPoolBufferStrategy strategy_64(Ocram2Allocator::instance(), 64, dma_alignment);
     static ftl::allocator::BumpPoolBufferStrategy strategy_128(Ocram2Allocator::instance(), 128, dma_alignment);
     static ftl::allocator::BumpPoolBufferStrategy strategy_256(Ocram2Allocator::instance(), 256, dma_alignment);
     static ftl::allocator::BumpPoolBufferStrategy strategy_512(Ocram2Allocator::instance(), 512, dma_alignment);
     static ftl::allocator::BumpPoolBufferStrategy strategy_1024(Ocram2Allocator::instance(), 1024, dma_alignment);
-    static ftl::allocator::BumpPoolBufferStrategy strategy_1536(Ocram2Allocator::instance(), 1536, dma_alignment);
+    static ftl::allocator::BumpPoolBufferStrategy strategy_1536(Ocram2Allocator::instance(), 1538, dma_alignment);
 
     // Create a BufferAllocator with all strategies
     static ftl::allocator::BufferAllocator buffer_allocator(
@@ -66,17 +66,18 @@ bool GigabitEthernetDriver::initialize() {
 
     printf("GigabitEthernetDriver: TDSR set to 0x%08lX\n", ENET_1G->TDSR);
 
+
+    // Reset RX descriptor ring to ensure clean state
+    // This is important for warm boot scenarios or re-initialization
+    rx_descriptor_ring_.reset();
+
     // Set Receive Descriptor List Address Register
     // Point to the base of the RX descriptor ring
     ENET_1G->RDSR = rx_descriptor_ring_.getBaseAddress();
 
     printf("GigabitEthernetDriver: RDSR set to 0x%08lX\n", ENET_1G->RDSR);
 
-    // Initialize RX buffers
-    if (!initialize_rx_buffers()) {
-        printf("GigabitEthernetDriver: Failed to initialize RX buffers\n");
-        return false;
-    }
+    // RX buffers are already allocated and configured in RxDescriptorRing constructor
 
     return true;  // Return success
 }
@@ -210,34 +211,6 @@ bool gigabit_ethernet_driver_receive(void* packet_pool, void** packet_ptr) {
 }
 
 } // extern "C"
-
-bool GigabitEthernetDriver::initialize_rx_buffers() {
-    // Allocate ethernet::Frame buffers for each RX descriptor
-    // Each buffer needs to be large enough for maximum Ethernet frame (1536 bytes)
-    // Plus 2 bytes padding that hardware adds at the beginning
-    constexpr size_t buffer_size = 1536 + 2;
-
-    for (size_t i = 0; i < ethernet::detail::kNumRxDescriptors; ++i) {
-        // Allocate a frame for this descriptor
-        rx_buffers_[i] = ethernet::Frame(buffer_size);
-
-        if (!rx_buffers_[i]) {
-            printf("GigabitEthernetDriver: Failed to allocate RX buffer %zu\n", i);
-            return false;
-        }
-
-        // Set the buffer in the descriptor
-        rx_descriptor_ring_[i].setBuffer(rx_buffers_[i].front());
-
-        // Mark descriptor as empty (ready for hardware to use)
-        rx_descriptor_ring_[i].setEmpty(true);
-    }
-
-    printf("GigabitEthernetDriver: Initialized %zu RX buffers\n",
-           ethernet::detail::kNumRxDescriptors);
-
-    return true;
-}
 
 ethernet::Frame GigabitEthernetDriver::receive() {
     // Check if there's a packet available

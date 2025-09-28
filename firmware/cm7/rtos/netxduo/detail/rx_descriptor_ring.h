@@ -6,12 +6,16 @@
 #include <cassert>
 #include <cstdio>
 #include <new>
+#include <array>
 
 namespace ethernet {
 namespace detail {
 
 // Number of RX descriptors (must match NX_DRIVER_RX_DESCRIPTORS in nx_driver_imxrt.h)
 constexpr size_t kNumRxDescriptors = 64;
+
+// Size of each RX buffer (max Ethernet frame + 2-byte hardware padding)
+constexpr size_t kRxBufferSize = 1536 + 2;
 
 // RX Descriptor Ring for i.MX RT1170 Gigabit Ethernet DMA
 //
@@ -61,7 +65,7 @@ public:
     static_assert((kNumRxDescriptors & (kNumRxDescriptors - 1)) == 0, "Ring size must be power of 2");
     static_assert(kNumRxDescriptors > 0, "Ring size must be greater than 0");
 
-    RxDescriptorRing() : current_index_(0) {
+    RxDescriptorRing() : buffers_{}, current_index_(0) {
         // Allocate descriptor array from OCRAM2 with 64-byte alignment for DMA
         constexpr size_t alignment = 64;
         void* raw_memory = Ocram2Allocator::instance().allocate(
@@ -87,6 +91,9 @@ public:
 
         printf("RxDescriptorRing: Allocated %zu descriptors at %p (64-byte aligned)\n",
                kNumRxDescriptors, static_cast<void*>(descriptors_));
+
+        // Allocate and configure buffers for all descriptors
+        allocateAndConfigureBuffers();
     }
 
     ~RxDescriptorRing() {
@@ -129,10 +136,18 @@ public:
         descriptors_[index].setBuffer(buffer);
     }
 
-    // Reset all descriptors to initial state (all empty)
+    // Reset all descriptors to initial state with their buffers
+    // This can be used after link changes or error recovery
     void reset() {
         for (size_t i = 0; i < kNumRxDescriptors; i++) {
+            // Reset descriptor to default state
             descriptors_[i].reset();
+
+            // Reconfigure with existing buffer
+            descriptors_[i].setBuffer(buffers_[i]);
+
+            // Mark as empty (ready for hardware)
+            descriptors_[i].setEmpty(true);
         }
         // Re-set wrap bit on last descriptor
         descriptors_[kNumRxDescriptors - 1].setWrap(true);
@@ -178,8 +193,39 @@ public:
     }
 
 private:
+    // Allocate and configure buffers for all descriptors
+    void allocateAndConfigureBuffers() {
+        constexpr size_t alignment = 64;  // DMA requires 64-byte alignment (empirically)
+        // TODO: Find this in the RM
+
+        for (size_t i = 0; i < kNumRxDescriptors; ++i) {
+            // Allocate buffer from OCRAM2 (non-cacheable for DMA)
+            void* raw_buffer = Ocram2Allocator::instance().allocate(kRxBufferSize, alignment);
+
+            if (!raw_buffer) {
+                printf("RxDescriptorRing: Failed to allocate RX buffer %zu\n", i);
+                assert(false && "Failed to allocate RX buffer");
+            }
+
+            // Store buffer pointer as uint8_t*
+            buffers_[i] = static_cast<uint8_t*>(raw_buffer);
+
+            // Configure descriptor with buffer
+            descriptors_[i].setBuffer(buffers_[i]);
+
+            // Mark descriptor as empty (ready for hardware to use)
+            descriptors_[i].setEmpty(true);
+        }
+
+        printf("RxDescriptorRing: Allocated %zu RX buffers of %zu bytes each\n",
+               kNumRxDescriptors, kRxBufferSize);
+    }
+
     // Pointer to array of descriptors allocated from OCRAM2 (64-byte aligned for DMA)
     RxDescriptor* descriptors_;
+
+    // Array of buffer pointers (allocated from OCRAM2)
+    std::array<uint8_t*, kNumRxDescriptors> buffers_;
 
     // Current descriptor index for processing received packets
     size_t current_index_;

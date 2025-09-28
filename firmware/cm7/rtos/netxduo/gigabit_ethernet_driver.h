@@ -42,10 +42,6 @@ public:
     // Returns an empty frame (operator bool() returns false) if no packet available or on error
     ethernet::Frame receive();
 
-    // Initialize RX buffers - must be called during initialization
-    // Allocates ethernet::Frame buffers for each RX descriptor
-    bool initialize_rx_buffers();
-
     // Get RX descriptor ring for buffer management
     ethernet::detail::RxDescriptorRing& get_rx_ring() { return rx_descriptor_ring_; }
 
@@ -61,11 +57,8 @@ private:
 
     // RX descriptor ring (internally allocates from OCRAM2 with 64-byte alignment)
     // Ring manages its own current index for processing received packets
+    // Buffers are allocated and managed internally by the ring
     ethernet::detail::RxDescriptorRing rx_descriptor_ring_{};
-
-    // Array of ethernet::Frame objects used as RX buffers
-    // These are allocated and assigned to RX descriptors during initialization
-    ethernet::Frame rx_buffers_[ethernet::detail::kNumRxDescriptors];
 };
 
 // C interface for calling from nx_driver_imxrt.c
