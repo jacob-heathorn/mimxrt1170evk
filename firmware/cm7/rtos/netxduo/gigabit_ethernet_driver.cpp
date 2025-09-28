@@ -339,9 +339,7 @@ void GigabitEthernetDriver::configureMac(const std::array<uint8_t, 6>& macAddr) 
     nENET_1G::TACC::ref().value = tacc_val.value;
 
     // Transmit FIFO Watermark
-    nENET_1G::TFWR tfwr_val = {};
-    tfwr_val.bits.STRFWD = nENET_1G::TFWR::eSTRFWD::eONE;
-    nENET_1G::TFWR::ref().value = tfwr_val.value;
+    nENET_1G::TFWR::ref().bits.STRFWD = nENET_1G::TFWR::eSTRFWD::eONE;
 
     // Checksum offload - Receive
     nENET_1G::RACC racc_val = {};
