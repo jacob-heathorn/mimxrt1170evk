@@ -165,6 +165,11 @@ public:
     // Release the current descriptor back to hardware
     // Must be called after processing a descriptor from getNextDescriptor()
     void releaseCurrentDescriptor() {
+        // Memory barrier to ensure all memory operations complete before
+        // releasing descriptor to hardware. This prevents CPU reordering
+        // that could cause the EMPTY bit to be set before data is copied.
+        __DSB();  // Data Synchronization Barrier (ARM specific)
+
         // Return descriptor to hardware (mark as empty)
         descriptors_[current_index_].setEmpty(true);
 

@@ -295,6 +295,8 @@ ethernet::Frame GigabitEthernetDriver::receive() {
 
     // IMPORTANT: Release descriptor back to hardware immediately after copy
     // This maintains FIFO order - descriptors are always processed and released in order
+    // Note: releaseCurrentDescriptor() includes a memory barrier to ensure the
+    // memcpy completes before the descriptor is returned to hardware
     rx_descriptor_ring_.releaseCurrentDescriptor();
 
     // Resume DMA reception if it was suspended

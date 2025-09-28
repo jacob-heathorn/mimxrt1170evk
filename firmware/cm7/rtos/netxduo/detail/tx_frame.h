@@ -119,6 +119,12 @@ public:
 
     // Mark descriptor as ready for transmission
     void markReadyForTransmission() {
+        // Memory barrier to ensure all descriptor and buffer setup is complete
+        // before marking the descriptor as ready for DMA. This prevents CPU
+        // reordering that could cause the READY bit to be set before the
+        // buffer pointer, length, or frame data are fully written.
+        __DSB();  // Data Synchronization Barrier (ARM specific)
+
         descriptor_->setReady(true);
         descriptor_->setLast(true);  // Single frame, not chained
     }
