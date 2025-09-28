@@ -163,7 +163,6 @@ union ASRCTR {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRCTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRCTR &ref() { return *reinterpret_cast<volatile ASRCTR*>(0x40414000); }
 };
@@ -259,7 +258,6 @@ union ASRIER {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRIER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRIER &ref() { return *reinterpret_cast<volatile ASRIER*>(0x40414004); }
 };
@@ -389,7 +387,6 @@ union ASRCNCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRCNCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRCNCR &ref() { return *reinterpret_cast<volatile ASRCNCR*>(0x4041400C); }
 };
@@ -544,7 +541,6 @@ union ASRCFG {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRCFG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRCFG &ref() { return *reinterpret_cast<volatile ASRCFG*>(0x40414010); }
 };
@@ -788,7 +784,6 @@ union ASRCSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRCSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRCSR &ref() { return *reinterpret_cast<volatile ASRCSR*>(0x40414014); }
 };
@@ -820,7 +815,6 @@ union ASRCDR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRCDR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRCDR1 &ref() { return *reinterpret_cast<volatile ASRCDR1*>(0x40414018); }
 };
@@ -844,7 +838,6 @@ union ASRCDR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRCDR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRCDR2 &ref() { return *reinterpret_cast<volatile ASRCDR2*>(0x4041401C); }
 };
@@ -1080,7 +1073,6 @@ union ASRSTR {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRSTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRSTR &ref() { return *reinterpret_cast<volatile ASRSTR*>(0x40414020); }
 };
@@ -1098,7 +1090,6 @@ union ASRPM1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRPM1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRPM1 &ref() { return *reinterpret_cast<volatile ASRPM1*>(0x40414040); }
 };
@@ -1115,7 +1106,6 @@ union ASRPM2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRPM2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRPM2 &ref() { return *reinterpret_cast<volatile ASRPM2*>(0x40414044); }
 };
@@ -1132,7 +1122,6 @@ union ASRPM3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRPM3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRPM3 &ref() { return *reinterpret_cast<volatile ASRPM3*>(0x40414048); }
 };
@@ -1149,7 +1138,6 @@ union ASRPM4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRPM4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRPM4 &ref() { return *reinterpret_cast<volatile ASRPM4*>(0x4041404C); }
 };
@@ -1166,7 +1154,6 @@ union ASRPM5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRPM5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRPM5 &ref() { return *reinterpret_cast<volatile ASRPM5*>(0x40414050); }
 };
@@ -1187,7 +1174,6 @@ union ASRTFR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRTFR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRTFR1 &ref() { return *reinterpret_cast<volatile ASRTFR1*>(0x40414054); }
 };
@@ -1215,7 +1201,6 @@ union ASRCCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRCCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRCCR &ref() { return *reinterpret_cast<volatile ASRCCR*>(0x4041405C); }
 };
@@ -1233,7 +1218,6 @@ union ASRDIA {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRDIA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRDIA &ref() { return *reinterpret_cast<volatile ASRDIA*>(0x40414060); }
 };
@@ -1251,7 +1235,6 @@ union ASRDOA {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRDOA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRDOA &ref() { return *reinterpret_cast<volatile ASRDOA*>(0x40414064); }
 };
@@ -1269,7 +1252,6 @@ union ASRDIB {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRDIB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRDIB &ref() { return *reinterpret_cast<volatile ASRDIB*>(0x40414068); }
 };
@@ -1287,7 +1269,6 @@ union ASRDOB {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRDOB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRDOB &ref() { return *reinterpret_cast<volatile ASRDOB*>(0x4041406C); }
 };
@@ -1305,7 +1286,6 @@ union ASRDIC {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRDIC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRDIC &ref() { return *reinterpret_cast<volatile ASRDIC*>(0x40414070); }
 };
@@ -1323,7 +1303,6 @@ union ASRDOC {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRDOC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRDOC &ref() { return *reinterpret_cast<volatile ASRDOC*>(0x40414074); }
 };
@@ -1341,7 +1320,6 @@ union ASRIDRHA {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRIDRHA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRIDRHA &ref() { return *reinterpret_cast<volatile ASRIDRHA*>(0x40414080); }
 };
@@ -1359,7 +1337,6 @@ union ASRIDRLA {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRIDRLA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRIDRLA &ref() { return *reinterpret_cast<volatile ASRIDRLA*>(0x40414084); }
 };
@@ -1377,7 +1354,6 @@ union ASRIDRHB {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRIDRHB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRIDRHB &ref() { return *reinterpret_cast<volatile ASRIDRHB*>(0x40414088); }
 };
@@ -1395,7 +1371,6 @@ union ASRIDRLB {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRIDRLB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRIDRLB &ref() { return *reinterpret_cast<volatile ASRIDRLB*>(0x4041408C); }
 };
@@ -1413,7 +1388,6 @@ union ASRIDRHC {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRIDRHC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRIDRHC &ref() { return *reinterpret_cast<volatile ASRIDRHC*>(0x40414090); }
 };
@@ -1431,7 +1405,6 @@ union ASRIDRLC {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRIDRLC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRIDRLC &ref() { return *reinterpret_cast<volatile ASRIDRLC*>(0x40414094); }
 };
@@ -1449,7 +1422,6 @@ union ASR76K {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASR76K() = delete;
   inline void Reset() volatile { this->value = 0x00000A47; }
   static inline volatile ASR76K &ref() { return *reinterpret_cast<volatile ASR76K*>(0x40414098); }
 };
@@ -1467,7 +1439,6 @@ union ASR56K {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASR56K() = delete;
   inline void Reset() volatile { this->value = 0x00000DF3; }
   static inline volatile ASR56K &ref() { return *reinterpret_cast<volatile ASR56K*>(0x4041409C); }
 };
@@ -1549,7 +1520,6 @@ union ASRMCRA {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRMCRA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRMCRA &ref() { return *reinterpret_cast<volatile ASRMCRA*>(0x404140A0); }
 };
@@ -1591,7 +1561,6 @@ union ASRFSTA {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRFSTA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRFSTA &ref() { return *reinterpret_cast<volatile ASRFSTA*>(0x404140A4); }
 };
@@ -1673,7 +1642,6 @@ union ASRMCRB {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRMCRB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRMCRB &ref() { return *reinterpret_cast<volatile ASRMCRB*>(0x404140A8); }
 };
@@ -1715,7 +1683,6 @@ union ASRFSTB {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRFSTB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRFSTB &ref() { return *reinterpret_cast<volatile ASRFSTB*>(0x404140AC); }
 };
@@ -1797,7 +1764,6 @@ union ASRMCRC {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRMCRC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRMCRC &ref() { return *reinterpret_cast<volatile ASRMCRC*>(0x404140B0); }
 };
@@ -1839,7 +1805,6 @@ union ASRFSTC {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRFSTC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRFSTC &ref() { return *reinterpret_cast<volatile ASRFSTC*>(0x404140B4); }
 };
@@ -1908,7 +1873,6 @@ union ASRMCR1A {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRMCR1A() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRMCR1A &ref() { return *reinterpret_cast<volatile ASRMCR1A*>(0x404140C0); }
 };
@@ -1976,7 +1940,6 @@ union ASRMCR1B {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRMCR1B() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRMCR1B &ref() { return *reinterpret_cast<volatile ASRMCR1B*>(0x404140C4); }
 };
@@ -2044,7 +2007,6 @@ union ASRMCR1C {
   // Full 32-bit register value.
   uint32_t value;
 
-  ASRMCR1C() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ASRMCR1C &ref() { return *reinterpret_cast<volatile ASRMCR1C*>(0x404140C8); }
 };

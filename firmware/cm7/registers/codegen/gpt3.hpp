@@ -235,7 +235,6 @@ union CR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CR &ref() { return *reinterpret_cast<volatile CR*>(0x400F4000); }
 };
@@ -275,7 +274,6 @@ union PR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PR &ref() { return *reinterpret_cast<volatile PR*>(0x400F4004); }
 };
@@ -351,7 +349,6 @@ union SR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SR &ref() { return *reinterpret_cast<volatile SR*>(0x400F4008); }
 };
@@ -427,7 +424,6 @@ union IR {
   // Full 32-bit register value.
   uint32_t value;
 
-  IR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile IR &ref() { return *reinterpret_cast<volatile IR*>(0x400F400C); }
 };
@@ -444,7 +440,6 @@ union OCR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCR1() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
   static inline volatile OCR1 &ref() { return *reinterpret_cast<volatile OCR1*>(0x400F4010); }
 };
@@ -460,7 +455,6 @@ union OCR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCR2() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
   static inline volatile OCR2 &ref() { return *reinterpret_cast<volatile OCR2*>(0x400F4014); }
 };
@@ -476,7 +470,6 @@ union OCR3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCR3() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
   static inline volatile OCR3 &ref() { return *reinterpret_cast<volatile OCR3*>(0x400F4018); }
 };
@@ -493,7 +486,6 @@ union ICR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ICR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ICR1 &ref() { return *reinterpret_cast<volatile ICR1*>(0x400F401C); }
 };
@@ -509,7 +501,6 @@ union ICR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ICR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ICR2 &ref() { return *reinterpret_cast<volatile ICR2*>(0x400F4020); }
 };
@@ -526,7 +517,6 @@ union CNT {
   // Full 32-bit register value.
   uint32_t value;
 
-  CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CNT &ref() { return *reinterpret_cast<volatile CNT*>(0x400F4024); }
 };

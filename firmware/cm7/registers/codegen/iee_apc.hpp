@@ -23,7 +23,6 @@ union REGION0_TOP_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION0_TOP_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION0_TOP_ADDR &ref() { return *reinterpret_cast<volatile REGION0_TOP_ADDR*>(0x40068000); }
 };
@@ -41,7 +40,6 @@ union REGION0_BOT_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION0_BOT_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION0_BOT_ADDR &ref() { return *reinterpret_cast<volatile REGION0_BOT_ADDR*>(0x40068004); }
 };
@@ -77,7 +75,6 @@ union REGION0_RDC_D0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION0_RDC_D0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION0_RDC_D0 &ref() { return *reinterpret_cast<volatile REGION0_RDC_D0*>(0x40068008); }
 };
@@ -113,7 +110,6 @@ union REGION0_RDC_D1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION0_RDC_D1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION0_RDC_D1 &ref() { return *reinterpret_cast<volatile REGION0_RDC_D1*>(0x4006800C); }
 };
@@ -131,7 +127,6 @@ union REGION1_TOP_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION1_TOP_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION1_TOP_ADDR &ref() { return *reinterpret_cast<volatile REGION1_TOP_ADDR*>(0x40068010); }
 };
@@ -149,7 +144,6 @@ union REGION1_BOT_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION1_BOT_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION1_BOT_ADDR &ref() { return *reinterpret_cast<volatile REGION1_BOT_ADDR*>(0x40068014); }
 };
@@ -185,7 +179,6 @@ union REGION1_RDC_D0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION1_RDC_D0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION1_RDC_D0 &ref() { return *reinterpret_cast<volatile REGION1_RDC_D0*>(0x40068018); }
 };
@@ -221,7 +214,6 @@ union REGION1_RDC_D1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION1_RDC_D1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION1_RDC_D1 &ref() { return *reinterpret_cast<volatile REGION1_RDC_D1*>(0x4006801C); }
 };
@@ -239,7 +231,6 @@ union REGION2_TOP_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION2_TOP_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION2_TOP_ADDR &ref() { return *reinterpret_cast<volatile REGION2_TOP_ADDR*>(0x40068020); }
 };
@@ -257,7 +248,6 @@ union REGION2_BOT_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION2_BOT_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION2_BOT_ADDR &ref() { return *reinterpret_cast<volatile REGION2_BOT_ADDR*>(0x40068024); }
 };
@@ -293,7 +283,6 @@ union REGION2_RDC_D0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION2_RDC_D0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION2_RDC_D0 &ref() { return *reinterpret_cast<volatile REGION2_RDC_D0*>(0x40068028); }
 };
@@ -329,7 +318,6 @@ union REGION2_RDC_D1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION2_RDC_D1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION2_RDC_D1 &ref() { return *reinterpret_cast<volatile REGION2_RDC_D1*>(0x4006802C); }
 };
@@ -347,7 +335,6 @@ union REGION3_TOP_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION3_TOP_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION3_TOP_ADDR &ref() { return *reinterpret_cast<volatile REGION3_TOP_ADDR*>(0x40068030); }
 };
@@ -365,7 +352,6 @@ union REGION3_BOT_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION3_BOT_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION3_BOT_ADDR &ref() { return *reinterpret_cast<volatile REGION3_BOT_ADDR*>(0x40068034); }
 };
@@ -401,7 +387,6 @@ union REGION3_RDC_D0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION3_RDC_D0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION3_RDC_D0 &ref() { return *reinterpret_cast<volatile REGION3_RDC_D0*>(0x40068038); }
 };
@@ -437,7 +422,6 @@ union REGION3_RDC_D1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION3_RDC_D1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION3_RDC_D1 &ref() { return *reinterpret_cast<volatile REGION3_RDC_D1*>(0x4006803C); }
 };
@@ -455,7 +439,6 @@ union REGION4_TOP_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION4_TOP_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION4_TOP_ADDR &ref() { return *reinterpret_cast<volatile REGION4_TOP_ADDR*>(0x40068040); }
 };
@@ -473,7 +456,6 @@ union REGION4_BOT_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION4_BOT_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION4_BOT_ADDR &ref() { return *reinterpret_cast<volatile REGION4_BOT_ADDR*>(0x40068044); }
 };
@@ -509,7 +491,6 @@ union REGION4_RDC_D0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION4_RDC_D0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION4_RDC_D0 &ref() { return *reinterpret_cast<volatile REGION4_RDC_D0*>(0x40068048); }
 };
@@ -545,7 +526,6 @@ union REGION4_RDC_D1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION4_RDC_D1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION4_RDC_D1 &ref() { return *reinterpret_cast<volatile REGION4_RDC_D1*>(0x4006804C); }
 };
@@ -563,7 +543,6 @@ union REGION5_TOP_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION5_TOP_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION5_TOP_ADDR &ref() { return *reinterpret_cast<volatile REGION5_TOP_ADDR*>(0x40068050); }
 };
@@ -581,7 +560,6 @@ union REGION5_BOT_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION5_BOT_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION5_BOT_ADDR &ref() { return *reinterpret_cast<volatile REGION5_BOT_ADDR*>(0x40068054); }
 };
@@ -617,7 +595,6 @@ union REGION5_RDC_D0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION5_RDC_D0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION5_RDC_D0 &ref() { return *reinterpret_cast<volatile REGION5_RDC_D0*>(0x40068058); }
 };
@@ -653,7 +630,6 @@ union REGION5_RDC_D1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION5_RDC_D1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION5_RDC_D1 &ref() { return *reinterpret_cast<volatile REGION5_RDC_D1*>(0x4006805C); }
 };
@@ -671,7 +647,6 @@ union REGION6_TOP_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION6_TOP_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION6_TOP_ADDR &ref() { return *reinterpret_cast<volatile REGION6_TOP_ADDR*>(0x40068060); }
 };
@@ -689,7 +664,6 @@ union REGION6_BOT_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION6_BOT_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION6_BOT_ADDR &ref() { return *reinterpret_cast<volatile REGION6_BOT_ADDR*>(0x40068064); }
 };
@@ -725,7 +699,6 @@ union REGION6_RDC_D0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION6_RDC_D0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION6_RDC_D0 &ref() { return *reinterpret_cast<volatile REGION6_RDC_D0*>(0x40068068); }
 };
@@ -761,7 +734,6 @@ union REGION6_RDC_D1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION6_RDC_D1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION6_RDC_D1 &ref() { return *reinterpret_cast<volatile REGION6_RDC_D1*>(0x4006806C); }
 };
@@ -779,7 +751,6 @@ union REGION7_TOP_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION7_TOP_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION7_TOP_ADDR &ref() { return *reinterpret_cast<volatile REGION7_TOP_ADDR*>(0x40068070); }
 };
@@ -797,7 +768,6 @@ union REGION7_BOT_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION7_BOT_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION7_BOT_ADDR &ref() { return *reinterpret_cast<volatile REGION7_BOT_ADDR*>(0x40068074); }
 };
@@ -833,7 +803,6 @@ union REGION7_RDC_D0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION7_RDC_D0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION7_RDC_D0 &ref() { return *reinterpret_cast<volatile REGION7_RDC_D0*>(0x40068078); }
 };
@@ -869,7 +838,6 @@ union REGION7_RDC_D1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  REGION7_RDC_D1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REGION7_RDC_D1 &ref() { return *reinterpret_cast<volatile REGION7_RDC_D1*>(0x4006807C); }
 };

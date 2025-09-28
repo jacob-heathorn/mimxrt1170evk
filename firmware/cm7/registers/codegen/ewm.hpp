@@ -61,7 +61,6 @@ union CTRL {
   // Full 8-bit register value.
   uint8_t value;
 
-  CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x4002C000); }
 };
@@ -78,7 +77,6 @@ union SERV {
   // Full 8-bit register value.
   uint8_t value;
 
-  SERV() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SERV &ref() { return *reinterpret_cast<volatile SERV*>(0x4002C001); }
 };
@@ -95,7 +93,6 @@ union CMPL {
   // Full 8-bit register value.
   uint8_t value;
 
-  CMPL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CMPL &ref() { return *reinterpret_cast<volatile CMPL*>(0x4002C002); }
 };
@@ -112,7 +109,6 @@ union CMPH {
   // Full 8-bit register value.
   uint8_t value;
 
-  CMPH() = delete;
   inline void Reset() volatile { this->value = 0x000000FF; }
   static inline volatile CMPH &ref() { return *reinterpret_cast<volatile CMPH*>(0x4002C003); }
 };
@@ -130,7 +126,6 @@ union CLKCTRL {
   // Full 8-bit register value.
   uint8_t value;
 
-  CLKCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLKCTRL &ref() { return *reinterpret_cast<volatile CLKCTRL*>(0x4002C004); }
 };
@@ -147,7 +142,6 @@ union CLKPRESCALER {
   // Full 8-bit register value.
   uint8_t value;
 
-  CLKPRESCALER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLKPRESCALER &ref() { return *reinterpret_cast<volatile CLKPRESCALER*>(0x4002C005); }
 };

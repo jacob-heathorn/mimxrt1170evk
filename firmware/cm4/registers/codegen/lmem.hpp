@@ -112,7 +112,6 @@ union PCCCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PCCCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PCCCR &ref() { return *reinterpret_cast<volatile PCCCR*>(0xE0082000); }
 };
@@ -204,7 +203,6 @@ union PCCLCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PCCLCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PCCLCR &ref() { return *reinterpret_cast<volatile PCCLCR*>(0xE0082004); }
 };
@@ -231,7 +229,6 @@ union PCCSAR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PCCSAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PCCSAR &ref() { return *reinterpret_cast<volatile PCCSAR*>(0xE0082008); }
 };
@@ -248,7 +245,6 @@ union PCCCVR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PCCCVR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PCCCVR &ref() { return *reinterpret_cast<volatile PCCCVR*>(0xE008200C); }
 };
@@ -355,7 +351,6 @@ union PSCCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PSCCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PSCCR &ref() { return *reinterpret_cast<volatile PSCCR*>(0xE0082800); }
 };
@@ -447,7 +442,6 @@ union PSCLCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PSCLCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PSCLCR &ref() { return *reinterpret_cast<volatile PSCLCR*>(0xE0082804); }
 };
@@ -474,7 +468,6 @@ union PSCSAR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PSCSAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PSCSAR &ref() { return *reinterpret_cast<volatile PSCSAR*>(0xE0082808); }
 };
@@ -491,7 +484,6 @@ union PSCCVR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PSCCVR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PSCCVR &ref() { return *reinterpret_cast<volatile PSCCVR*>(0xE008280C); }
 };

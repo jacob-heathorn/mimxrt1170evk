@@ -40,7 +40,6 @@ union KPCR {
   // Full 16-bit register value.
   uint16_t value;
 
-  KPCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile KPCR &ref() { return *reinterpret_cast<volatile KPCR*>(0x400E0000); }
 };
@@ -117,7 +116,6 @@ union KPSR {
   // Full 16-bit register value.
   uint16_t value;
 
-  KPSR() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
   static inline volatile KPSR &ref() { return *reinterpret_cast<volatile KPSR*>(0x400E0002); }
 };
@@ -152,7 +150,6 @@ union KDDR {
   // Full 16-bit register value.
   uint16_t value;
 
-  KDDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile KDDR &ref() { return *reinterpret_cast<volatile KDDR*>(0x400E0004); }
 };
@@ -171,7 +168,6 @@ union KPDR {
   // Full 16-bit register value.
   uint16_t value;
 
-  KPDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile KPDR &ref() { return *reinterpret_cast<volatile KPDR*>(0x400E0006); }
 };

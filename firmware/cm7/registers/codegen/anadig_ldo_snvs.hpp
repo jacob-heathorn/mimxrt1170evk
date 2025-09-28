@@ -58,7 +58,6 @@ union PMU_LDO_LPSR_ANA {
   // Full 32-bit register value.
   uint32_t value;
 
-  PMU_LDO_LPSR_ANA() = delete;
   inline void Reset() volatile { this->value = 0x00000108; }
   static inline volatile PMU_LDO_LPSR_ANA &ref() { return *reinterpret_cast<volatile PMU_LDO_LPSR_ANA*>(0x40C84510); }
 };
@@ -76,7 +75,6 @@ union PMU_LDO_LPSR_DIG_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  PMU_LDO_LPSR_DIG_2() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile PMU_LDO_LPSR_DIG_2 &ref() { return *reinterpret_cast<volatile PMU_LDO_LPSR_DIG_2*>(0x40C84520); }
 };
@@ -184,7 +182,6 @@ union PMU_LDO_LPSR_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  PMU_LDO_LPSR_DIG() = delete;
   inline void Reset() volatile { this->value = 0x01301C05; }
   static inline volatile PMU_LDO_LPSR_DIG &ref() { return *reinterpret_cast<volatile PMU_LDO_LPSR_DIG*>(0x40C84530); }
 };

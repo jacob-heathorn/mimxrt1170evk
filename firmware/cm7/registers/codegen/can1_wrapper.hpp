@@ -23,7 +23,6 @@ union GFWR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GFWR() = delete;
   inline void Reset() volatile { this->value = 0x0000007F; }
   static inline volatile GFWR &ref() { return *reinterpret_cast<volatile GFWR*>(0x400C49E0); }
 };

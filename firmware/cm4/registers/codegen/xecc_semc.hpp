@@ -61,7 +61,6 @@ union ECC_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  ECC_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ECC_CTRL &ref() { return *reinterpret_cast<volatile ECC_CTRL*>(0x40024000); }
 };
@@ -98,7 +97,6 @@ union ERR_STATUS {
   // Full 32-bit register value.
   uint32_t value;
 
-  ERR_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ERR_STATUS &ref() { return *reinterpret_cast<volatile ERR_STATUS*>(0x40024004); }
 };
@@ -135,7 +133,6 @@ union ERR_STAT_EN {
   // Full 32-bit register value.
   uint32_t value;
 
-  ERR_STAT_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ERR_STAT_EN &ref() { return *reinterpret_cast<volatile ERR_STAT_EN*>(0x40024008); }
 };
@@ -172,7 +169,6 @@ union ERR_SIG_EN {
   // Full 32-bit register value.
   uint32_t value;
 
-  ERR_SIG_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ERR_SIG_EN &ref() { return *reinterpret_cast<volatile ERR_SIG_EN*>(0x4002400C); }
 };
@@ -189,7 +185,6 @@ union ERR_DATA_INJ {
   // Full 32-bit register value.
   uint32_t value;
 
-  ERR_DATA_INJ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ERR_DATA_INJ &ref() { return *reinterpret_cast<volatile ERR_DATA_INJ*>(0x40024010); }
 };
@@ -206,7 +201,6 @@ union ERR_ECC_INJ {
   // Full 32-bit register value.
   uint32_t value;
 
-  ERR_ECC_INJ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ERR_ECC_INJ &ref() { return *reinterpret_cast<volatile ERR_ECC_INJ*>(0x40024014); }
 };
@@ -223,7 +217,6 @@ union SINGLE_ERR_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SINGLE_ERR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SINGLE_ERR_ADDR &ref() { return *reinterpret_cast<volatile SINGLE_ERR_ADDR*>(0x40024018); }
 };
@@ -240,7 +233,6 @@ union SINGLE_ERR_DATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  SINGLE_ERR_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SINGLE_ERR_DATA &ref() { return *reinterpret_cast<volatile SINGLE_ERR_DATA*>(0x4002401C); }
 };
@@ -257,7 +249,6 @@ union SINGLE_ERR_ECC {
   // Full 32-bit register value.
   uint32_t value;
 
-  SINGLE_ERR_ECC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SINGLE_ERR_ECC &ref() { return *reinterpret_cast<volatile SINGLE_ERR_ECC*>(0x40024020); }
 };
@@ -274,7 +265,6 @@ union SINGLE_ERR_POS {
   // Full 32-bit register value.
   uint32_t value;
 
-  SINGLE_ERR_POS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SINGLE_ERR_POS &ref() { return *reinterpret_cast<volatile SINGLE_ERR_POS*>(0x40024024); }
 };
@@ -293,7 +283,6 @@ union SINGLE_ERR_BIT_FIELD {
   // Full 32-bit register value.
   uint32_t value;
 
-  SINGLE_ERR_BIT_FIELD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SINGLE_ERR_BIT_FIELD &ref() { return *reinterpret_cast<volatile SINGLE_ERR_BIT_FIELD*>(0x40024028); }
 };
@@ -310,7 +299,6 @@ union MULTI_ERR_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  MULTI_ERR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MULTI_ERR_ADDR &ref() { return *reinterpret_cast<volatile MULTI_ERR_ADDR*>(0x4002402C); }
 };
@@ -327,7 +315,6 @@ union MULTI_ERR_DATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  MULTI_ERR_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MULTI_ERR_DATA &ref() { return *reinterpret_cast<volatile MULTI_ERR_DATA*>(0x40024030); }
 };
@@ -344,7 +331,6 @@ union MULTI_ERR_ECC {
   // Full 32-bit register value.
   uint32_t value;
 
-  MULTI_ERR_ECC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MULTI_ERR_ECC &ref() { return *reinterpret_cast<volatile MULTI_ERR_ECC*>(0x40024034); }
 };
@@ -363,7 +349,6 @@ union MULTI_ERR_BIT_FIELD {
   // Full 32-bit register value.
   uint32_t value;
 
-  MULTI_ERR_BIT_FIELD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MULTI_ERR_BIT_FIELD &ref() { return *reinterpret_cast<volatile MULTI_ERR_BIT_FIELD*>(0x40024038); }
 };
@@ -380,7 +365,6 @@ union ECC_BASE_ADDR0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ECC_BASE_ADDR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ECC_BASE_ADDR0 &ref() { return *reinterpret_cast<volatile ECC_BASE_ADDR0*>(0x4002403C); }
 };
@@ -397,7 +381,6 @@ union ECC_END_ADDR0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ECC_END_ADDR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ECC_END_ADDR0 &ref() { return *reinterpret_cast<volatile ECC_END_ADDR0*>(0x40024040); }
 };
@@ -414,7 +397,6 @@ union ECC_BASE_ADDR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ECC_BASE_ADDR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ECC_BASE_ADDR1 &ref() { return *reinterpret_cast<volatile ECC_BASE_ADDR1*>(0x40024044); }
 };
@@ -431,7 +413,6 @@ union ECC_END_ADDR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ECC_END_ADDR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ECC_END_ADDR1 &ref() { return *reinterpret_cast<volatile ECC_END_ADDR1*>(0x40024048); }
 };
@@ -448,7 +429,6 @@ union ECC_BASE_ADDR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ECC_BASE_ADDR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ECC_BASE_ADDR2 &ref() { return *reinterpret_cast<volatile ECC_BASE_ADDR2*>(0x4002404C); }
 };
@@ -465,7 +445,6 @@ union ECC_END_ADDR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ECC_END_ADDR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ECC_END_ADDR2 &ref() { return *reinterpret_cast<volatile ECC_END_ADDR2*>(0x40024050); }
 };
@@ -482,7 +461,6 @@ union ECC_BASE_ADDR3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ECC_BASE_ADDR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ECC_BASE_ADDR3 &ref() { return *reinterpret_cast<volatile ECC_BASE_ADDR3*>(0x40024054); }
 };
@@ -499,7 +477,6 @@ union ECC_END_ADDR3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ECC_END_ADDR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ECC_END_ADDR3 &ref() { return *reinterpret_cast<volatile ECC_END_ADDR3*>(0x40024058); }
 };

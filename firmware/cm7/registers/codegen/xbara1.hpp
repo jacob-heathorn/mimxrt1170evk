@@ -24,7 +24,6 @@ union XBARA1_SEL0 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL0 &ref() { return *reinterpret_cast<volatile XBARA1_SEL0*>(0x4003C000); }
 };
@@ -43,7 +42,6 @@ union XBARA1_SEL1 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL1 &ref() { return *reinterpret_cast<volatile XBARA1_SEL1*>(0x4003C002); }
 };
@@ -62,7 +60,6 @@ union XBARA1_SEL2 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL2 &ref() { return *reinterpret_cast<volatile XBARA1_SEL2*>(0x4003C004); }
 };
@@ -81,7 +78,6 @@ union XBARA1_SEL3 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL3 &ref() { return *reinterpret_cast<volatile XBARA1_SEL3*>(0x4003C006); }
 };
@@ -100,7 +96,6 @@ union XBARA1_SEL4 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL4 &ref() { return *reinterpret_cast<volatile XBARA1_SEL4*>(0x4003C008); }
 };
@@ -119,7 +114,6 @@ union XBARA1_SEL5 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL5 &ref() { return *reinterpret_cast<volatile XBARA1_SEL5*>(0x4003C00A); }
 };
@@ -138,7 +132,6 @@ union XBARA1_SEL6 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL6 &ref() { return *reinterpret_cast<volatile XBARA1_SEL6*>(0x4003C00C); }
 };
@@ -157,7 +150,6 @@ union XBARA1_SEL7 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL7 &ref() { return *reinterpret_cast<volatile XBARA1_SEL7*>(0x4003C00E); }
 };
@@ -176,7 +168,6 @@ union XBARA1_SEL8 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL8 &ref() { return *reinterpret_cast<volatile XBARA1_SEL8*>(0x4003C010); }
 };
@@ -195,7 +186,6 @@ union XBARA1_SEL9 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL9 &ref() { return *reinterpret_cast<volatile XBARA1_SEL9*>(0x4003C012); }
 };
@@ -214,7 +204,6 @@ union XBARA1_SEL10 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL10 &ref() { return *reinterpret_cast<volatile XBARA1_SEL10*>(0x4003C014); }
 };
@@ -233,7 +222,6 @@ union XBARA1_SEL11 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL11 &ref() { return *reinterpret_cast<volatile XBARA1_SEL11*>(0x4003C016); }
 };
@@ -252,7 +240,6 @@ union XBARA1_SEL12 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL12 &ref() { return *reinterpret_cast<volatile XBARA1_SEL12*>(0x4003C018); }
 };
@@ -271,7 +258,6 @@ union XBARA1_SEL13 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL13 &ref() { return *reinterpret_cast<volatile XBARA1_SEL13*>(0x4003C01A); }
 };
@@ -290,7 +276,6 @@ union XBARA1_SEL14 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL14 &ref() { return *reinterpret_cast<volatile XBARA1_SEL14*>(0x4003C01C); }
 };
@@ -309,7 +294,6 @@ union XBARA1_SEL15 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL15 &ref() { return *reinterpret_cast<volatile XBARA1_SEL15*>(0x4003C01E); }
 };
@@ -328,7 +312,6 @@ union XBARA1_SEL16 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL16 &ref() { return *reinterpret_cast<volatile XBARA1_SEL16*>(0x4003C020); }
 };
@@ -347,7 +330,6 @@ union XBARA1_SEL17 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL17 &ref() { return *reinterpret_cast<volatile XBARA1_SEL17*>(0x4003C022); }
 };
@@ -366,7 +348,6 @@ union XBARA1_SEL18 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL18 &ref() { return *reinterpret_cast<volatile XBARA1_SEL18*>(0x4003C024); }
 };
@@ -385,7 +366,6 @@ union XBARA1_SEL19 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL19 &ref() { return *reinterpret_cast<volatile XBARA1_SEL19*>(0x4003C026); }
 };
@@ -404,7 +384,6 @@ union XBARA1_SEL20 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL20 &ref() { return *reinterpret_cast<volatile XBARA1_SEL20*>(0x4003C028); }
 };
@@ -423,7 +402,6 @@ union XBARA1_SEL21 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL21 &ref() { return *reinterpret_cast<volatile XBARA1_SEL21*>(0x4003C02A); }
 };
@@ -442,7 +420,6 @@ union XBARA1_SEL22 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL22 &ref() { return *reinterpret_cast<volatile XBARA1_SEL22*>(0x4003C02C); }
 };
@@ -461,7 +438,6 @@ union XBARA1_SEL23 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL23 &ref() { return *reinterpret_cast<volatile XBARA1_SEL23*>(0x4003C02E); }
 };
@@ -480,7 +456,6 @@ union XBARA1_SEL24 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL24 &ref() { return *reinterpret_cast<volatile XBARA1_SEL24*>(0x4003C030); }
 };
@@ -499,7 +474,6 @@ union XBARA1_SEL25 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL25 &ref() { return *reinterpret_cast<volatile XBARA1_SEL25*>(0x4003C032); }
 };
@@ -518,7 +492,6 @@ union XBARA1_SEL26 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL26 &ref() { return *reinterpret_cast<volatile XBARA1_SEL26*>(0x4003C034); }
 };
@@ -537,7 +510,6 @@ union XBARA1_SEL27 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL27 &ref() { return *reinterpret_cast<volatile XBARA1_SEL27*>(0x4003C036); }
 };
@@ -556,7 +528,6 @@ union XBARA1_SEL28 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL28 &ref() { return *reinterpret_cast<volatile XBARA1_SEL28*>(0x4003C038); }
 };
@@ -575,7 +546,6 @@ union XBARA1_SEL29 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL29 &ref() { return *reinterpret_cast<volatile XBARA1_SEL29*>(0x4003C03A); }
 };
@@ -594,7 +564,6 @@ union XBARA1_SEL30 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL30 &ref() { return *reinterpret_cast<volatile XBARA1_SEL30*>(0x4003C03C); }
 };
@@ -613,7 +582,6 @@ union XBARA1_SEL31 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL31 &ref() { return *reinterpret_cast<volatile XBARA1_SEL31*>(0x4003C03E); }
 };
@@ -632,7 +600,6 @@ union XBARA1_SEL32 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL32 &ref() { return *reinterpret_cast<volatile XBARA1_SEL32*>(0x4003C040); }
 };
@@ -651,7 +618,6 @@ union XBARA1_SEL33 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL33 &ref() { return *reinterpret_cast<volatile XBARA1_SEL33*>(0x4003C042); }
 };
@@ -670,7 +636,6 @@ union XBARA1_SEL34 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL34 &ref() { return *reinterpret_cast<volatile XBARA1_SEL34*>(0x4003C044); }
 };
@@ -689,7 +654,6 @@ union XBARA1_SEL35 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL35 &ref() { return *reinterpret_cast<volatile XBARA1_SEL35*>(0x4003C046); }
 };
@@ -708,7 +672,6 @@ union XBARA1_SEL36 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL36 &ref() { return *reinterpret_cast<volatile XBARA1_SEL36*>(0x4003C048); }
 };
@@ -727,7 +690,6 @@ union XBARA1_SEL37 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL37 &ref() { return *reinterpret_cast<volatile XBARA1_SEL37*>(0x4003C04A); }
 };
@@ -746,7 +708,6 @@ union XBARA1_SEL38 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL38 &ref() { return *reinterpret_cast<volatile XBARA1_SEL38*>(0x4003C04C); }
 };
@@ -765,7 +726,6 @@ union XBARA1_SEL39 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL39 &ref() { return *reinterpret_cast<volatile XBARA1_SEL39*>(0x4003C04E); }
 };
@@ -784,7 +744,6 @@ union XBARA1_SEL40 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL40 &ref() { return *reinterpret_cast<volatile XBARA1_SEL40*>(0x4003C050); }
 };
@@ -803,7 +762,6 @@ union XBARA1_SEL41 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL41 &ref() { return *reinterpret_cast<volatile XBARA1_SEL41*>(0x4003C052); }
 };
@@ -822,7 +780,6 @@ union XBARA1_SEL42 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL42 &ref() { return *reinterpret_cast<volatile XBARA1_SEL42*>(0x4003C054); }
 };
@@ -841,7 +798,6 @@ union XBARA1_SEL43 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL43 &ref() { return *reinterpret_cast<volatile XBARA1_SEL43*>(0x4003C056); }
 };
@@ -860,7 +816,6 @@ union XBARA1_SEL44 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL44 &ref() { return *reinterpret_cast<volatile XBARA1_SEL44*>(0x4003C058); }
 };
@@ -879,7 +834,6 @@ union XBARA1_SEL45 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL45 &ref() { return *reinterpret_cast<volatile XBARA1_SEL45*>(0x4003C05A); }
 };
@@ -898,7 +852,6 @@ union XBARA1_SEL46 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL46 &ref() { return *reinterpret_cast<volatile XBARA1_SEL46*>(0x4003C05C); }
 };
@@ -917,7 +870,6 @@ union XBARA1_SEL47 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL47 &ref() { return *reinterpret_cast<volatile XBARA1_SEL47*>(0x4003C05E); }
 };
@@ -936,7 +888,6 @@ union XBARA1_SEL48 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL48 &ref() { return *reinterpret_cast<volatile XBARA1_SEL48*>(0x4003C060); }
 };
@@ -955,7 +906,6 @@ union XBARA1_SEL49 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL49 &ref() { return *reinterpret_cast<volatile XBARA1_SEL49*>(0x4003C062); }
 };
@@ -974,7 +924,6 @@ union XBARA1_SEL50 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL50 &ref() { return *reinterpret_cast<volatile XBARA1_SEL50*>(0x4003C064); }
 };
@@ -993,7 +942,6 @@ union XBARA1_SEL51 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL51 &ref() { return *reinterpret_cast<volatile XBARA1_SEL51*>(0x4003C066); }
 };
@@ -1012,7 +960,6 @@ union XBARA1_SEL52 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL52 &ref() { return *reinterpret_cast<volatile XBARA1_SEL52*>(0x4003C068); }
 };
@@ -1031,7 +978,6 @@ union XBARA1_SEL53 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL53 &ref() { return *reinterpret_cast<volatile XBARA1_SEL53*>(0x4003C06A); }
 };
@@ -1050,7 +996,6 @@ union XBARA1_SEL54 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL54 &ref() { return *reinterpret_cast<volatile XBARA1_SEL54*>(0x4003C06C); }
 };
@@ -1069,7 +1014,6 @@ union XBARA1_SEL55 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL55 &ref() { return *reinterpret_cast<volatile XBARA1_SEL55*>(0x4003C06E); }
 };
@@ -1088,7 +1032,6 @@ union XBARA1_SEL56 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL56 &ref() { return *reinterpret_cast<volatile XBARA1_SEL56*>(0x4003C070); }
 };
@@ -1107,7 +1050,6 @@ union XBARA1_SEL57 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL57 &ref() { return *reinterpret_cast<volatile XBARA1_SEL57*>(0x4003C072); }
 };
@@ -1126,7 +1068,6 @@ union XBARA1_SEL58 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL58 &ref() { return *reinterpret_cast<volatile XBARA1_SEL58*>(0x4003C074); }
 };
@@ -1145,7 +1086,6 @@ union XBARA1_SEL59 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL59 &ref() { return *reinterpret_cast<volatile XBARA1_SEL59*>(0x4003C076); }
 };
@@ -1164,7 +1104,6 @@ union XBARA1_SEL60 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL60 &ref() { return *reinterpret_cast<volatile XBARA1_SEL60*>(0x4003C078); }
 };
@@ -1183,7 +1122,6 @@ union XBARA1_SEL61 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL61 &ref() { return *reinterpret_cast<volatile XBARA1_SEL61*>(0x4003C07A); }
 };
@@ -1202,7 +1140,6 @@ union XBARA1_SEL62 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL62 &ref() { return *reinterpret_cast<volatile XBARA1_SEL62*>(0x4003C07C); }
 };
@@ -1221,7 +1158,6 @@ union XBARA1_SEL63 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL63 &ref() { return *reinterpret_cast<volatile XBARA1_SEL63*>(0x4003C07E); }
 };
@@ -1240,7 +1176,6 @@ union XBARA1_SEL64 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL64() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL64 &ref() { return *reinterpret_cast<volatile XBARA1_SEL64*>(0x4003C080); }
 };
@@ -1259,7 +1194,6 @@ union XBARA1_SEL65 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL65() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL65 &ref() { return *reinterpret_cast<volatile XBARA1_SEL65*>(0x4003C082); }
 };
@@ -1278,7 +1212,6 @@ union XBARA1_SEL66 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL66() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL66 &ref() { return *reinterpret_cast<volatile XBARA1_SEL66*>(0x4003C084); }
 };
@@ -1297,7 +1230,6 @@ union XBARA1_SEL67 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL67() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL67 &ref() { return *reinterpret_cast<volatile XBARA1_SEL67*>(0x4003C086); }
 };
@@ -1316,7 +1248,6 @@ union XBARA1_SEL68 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL68() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL68 &ref() { return *reinterpret_cast<volatile XBARA1_SEL68*>(0x4003C088); }
 };
@@ -1335,7 +1266,6 @@ union XBARA1_SEL69 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL69() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL69 &ref() { return *reinterpret_cast<volatile XBARA1_SEL69*>(0x4003C08A); }
 };
@@ -1354,7 +1284,6 @@ union XBARA1_SEL70 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL70() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL70 &ref() { return *reinterpret_cast<volatile XBARA1_SEL70*>(0x4003C08C); }
 };
@@ -1373,7 +1302,6 @@ union XBARA1_SEL71 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL71() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL71 &ref() { return *reinterpret_cast<volatile XBARA1_SEL71*>(0x4003C08E); }
 };
@@ -1392,7 +1320,6 @@ union XBARA1_SEL72 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL72() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL72 &ref() { return *reinterpret_cast<volatile XBARA1_SEL72*>(0x4003C090); }
 };
@@ -1411,7 +1338,6 @@ union XBARA1_SEL73 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL73() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL73 &ref() { return *reinterpret_cast<volatile XBARA1_SEL73*>(0x4003C092); }
 };
@@ -1430,7 +1356,6 @@ union XBARA1_SEL74 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL74() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL74 &ref() { return *reinterpret_cast<volatile XBARA1_SEL74*>(0x4003C094); }
 };
@@ -1449,7 +1374,6 @@ union XBARA1_SEL75 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL75() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL75 &ref() { return *reinterpret_cast<volatile XBARA1_SEL75*>(0x4003C096); }
 };
@@ -1468,7 +1392,6 @@ union XBARA1_SEL76 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL76() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL76 &ref() { return *reinterpret_cast<volatile XBARA1_SEL76*>(0x4003C098); }
 };
@@ -1487,7 +1410,6 @@ union XBARA1_SEL77 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL77() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL77 &ref() { return *reinterpret_cast<volatile XBARA1_SEL77*>(0x4003C09A); }
 };
@@ -1506,7 +1428,6 @@ union XBARA1_SEL78 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL78() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL78 &ref() { return *reinterpret_cast<volatile XBARA1_SEL78*>(0x4003C09C); }
 };
@@ -1525,7 +1446,6 @@ union XBARA1_SEL79 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL79() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL79 &ref() { return *reinterpret_cast<volatile XBARA1_SEL79*>(0x4003C09E); }
 };
@@ -1544,7 +1464,6 @@ union XBARA1_SEL80 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL80() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL80 &ref() { return *reinterpret_cast<volatile XBARA1_SEL80*>(0x4003C0A0); }
 };
@@ -1563,7 +1482,6 @@ union XBARA1_SEL81 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL81() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL81 &ref() { return *reinterpret_cast<volatile XBARA1_SEL81*>(0x4003C0A2); }
 };
@@ -1582,7 +1500,6 @@ union XBARA1_SEL82 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL82() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL82 &ref() { return *reinterpret_cast<volatile XBARA1_SEL82*>(0x4003C0A4); }
 };
@@ -1601,7 +1518,6 @@ union XBARA1_SEL83 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL83() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL83 &ref() { return *reinterpret_cast<volatile XBARA1_SEL83*>(0x4003C0A6); }
 };
@@ -1620,7 +1536,6 @@ union XBARA1_SEL84 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL84() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL84 &ref() { return *reinterpret_cast<volatile XBARA1_SEL84*>(0x4003C0A8); }
 };
@@ -1639,7 +1554,6 @@ union XBARA1_SEL85 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL85() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL85 &ref() { return *reinterpret_cast<volatile XBARA1_SEL85*>(0x4003C0AA); }
 };
@@ -1658,7 +1572,6 @@ union XBARA1_SEL86 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL86() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL86 &ref() { return *reinterpret_cast<volatile XBARA1_SEL86*>(0x4003C0AC); }
 };
@@ -1677,7 +1590,6 @@ union XBARA1_SEL87 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_SEL87() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_SEL87 &ref() { return *reinterpret_cast<volatile XBARA1_SEL87*>(0x4003C0AE); }
 };
@@ -1782,7 +1694,6 @@ union XBARA1_CTRL0 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_CTRL0 &ref() { return *reinterpret_cast<volatile XBARA1_CTRL0*>(0x4003C0B0); }
 };
@@ -1887,7 +1798,6 @@ union XBARA1_CTRL1 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARA1_CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARA1_CTRL1 &ref() { return *reinterpret_cast<volatile XBARA1_CTRL1*>(0x4003C0B2); }
 };

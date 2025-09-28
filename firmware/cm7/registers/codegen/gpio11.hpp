@@ -22,7 +22,6 @@ union DR {
   // Full 32-bit register value.
   uint32_t value;
 
-  DR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DR &ref() { return *reinterpret_cast<volatile DR*>(0x40C6C000); }
 };
@@ -39,7 +38,6 @@ union GDIR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GDIR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GDIR &ref() { return *reinterpret_cast<volatile GDIR*>(0x40C6C004); }
 };
@@ -56,7 +54,6 @@ union PSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PSR &ref() { return *reinterpret_cast<volatile PSR*>(0x40C6C008); }
 };
@@ -295,7 +292,6 @@ union ICR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ICR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ICR1 &ref() { return *reinterpret_cast<volatile ICR1*>(0x40C6C00C); }
 };
@@ -534,7 +530,6 @@ union ICR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ICR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ICR2 &ref() { return *reinterpret_cast<volatile ICR2*>(0x40C6C010); }
 };
@@ -551,7 +546,6 @@ union IMR {
   // Full 32-bit register value.
   uint32_t value;
 
-  IMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile IMR &ref() { return *reinterpret_cast<volatile IMR*>(0x40C6C014); }
 };
@@ -568,7 +562,6 @@ union ISR {
   // Full 32-bit register value.
   uint32_t value;
 
-  ISR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ISR &ref() { return *reinterpret_cast<volatile ISR*>(0x40C6C018); }
 };
@@ -585,7 +578,6 @@ union EDGE_SEL {
   // Full 32-bit register value.
   uint32_t value;
 
-  EDGE_SEL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile EDGE_SEL &ref() { return *reinterpret_cast<volatile EDGE_SEL*>(0x40C6C01C); }
 };
@@ -602,7 +594,6 @@ union DR_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  DR_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DR_SET &ref() { return *reinterpret_cast<volatile DR_SET*>(0x40C6C084); }
 };
@@ -619,7 +610,6 @@ union DR_CLEAR {
   // Full 32-bit register value.
   uint32_t value;
 
-  DR_CLEAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DR_CLEAR &ref() { return *reinterpret_cast<volatile DR_CLEAR*>(0x40C6C088); }
 };
@@ -636,7 +626,6 @@ union DR_TOGGLE {
   // Full 32-bit register value.
   uint32_t value;
 
-  DR_TOGGLE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DR_TOGGLE &ref() { return *reinterpret_cast<volatile DR_TOGGLE*>(0x40C6C08C); }
 };

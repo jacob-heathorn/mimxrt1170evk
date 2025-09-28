@@ -121,7 +121,6 @@ union CONTROL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x50092492; }
   static inline volatile CONTROL &ref() { return *reinterpret_cast<volatile CONTROL*>(0x41900000); }
 };
@@ -138,7 +137,6 @@ union RELOAD {
   // Full 32-bit register value.
   uint32_t value;
 
-  RELOAD() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
   static inline volatile RELOAD &ref() { return *reinterpret_cast<volatile RELOAD*>(0x41900004); }
 };
@@ -155,7 +153,6 @@ union INSTRUCTION_TIMER {
   // Full 32-bit register value.
   uint32_t value;
 
-  INSTRUCTION_TIMER() = delete;
   inline void Reset() volatile { this->value = 0xFFFFFFFF; }
   static inline volatile INSTRUCTION_TIMER &ref() { return *reinterpret_cast<volatile INSTRUCTION_TIMER*>(0x41900008); }
 };
@@ -172,7 +169,6 @@ union SECURE_COUNTER {
   // Full 32-bit register value.
   uint32_t value;
 
-  SECURE_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SECURE_COUNTER &ref() { return *reinterpret_cast<volatile SECURE_COUNTER*>(0x4190000C); }
 };
@@ -196,7 +192,6 @@ union STATUS {
   // Full 32-bit register value.
   uint32_t value;
 
-  STATUS() = delete;
   inline void Reset() volatile { this->value = 0x50000000; }
   static inline volatile STATUS &ref() { return *reinterpret_cast<volatile STATUS*>(0x41900010); }
 };
@@ -218,7 +213,6 @@ union STATUS2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  STATUS2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STATUS2 &ref() { return *reinterpret_cast<volatile STATUS2*>(0x41900014); }
 };
@@ -305,7 +299,6 @@ union FLAGS {
   // Full 32-bit register value.
   uint32_t value;
 
-  FLAGS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile FLAGS &ref() { return *reinterpret_cast<volatile FLAGS*>(0x41900018); }
 };
@@ -322,7 +315,6 @@ union PERSISTENT {
   // Full 32-bit register value.
   uint32_t value;
 
-  PERSISTENT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PERSISTENT &ref() { return *reinterpret_cast<volatile PERSISTENT*>(0x4190001C); }
 };
@@ -339,7 +331,6 @@ union START {
   // Full 32-bit register value.
   uint32_t value;
 
-  START() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile START &ref() { return *reinterpret_cast<volatile START*>(0x41900020); }
 };
@@ -356,7 +347,6 @@ union STOP {
   // Full 32-bit register value.
   uint32_t value;
 
-  STOP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STOP &ref() { return *reinterpret_cast<volatile STOP*>(0x41900024); }
 };
@@ -373,7 +363,6 @@ union RESTART {
   // Full 32-bit register value.
   uint32_t value;
 
-  RESTART() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RESTART &ref() { return *reinterpret_cast<volatile RESTART*>(0x41900028); }
 };
@@ -390,7 +379,6 @@ union ADD {
   // Full 32-bit register value.
   uint32_t value;
 
-  ADD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ADD &ref() { return *reinterpret_cast<volatile ADD*>(0x4190002C); }
 };
@@ -407,7 +395,6 @@ union ADD1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ADD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ADD1 &ref() { return *reinterpret_cast<volatile ADD1*>(0x41900030); }
 };
@@ -424,7 +411,6 @@ union ADD16 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ADD16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ADD16 &ref() { return *reinterpret_cast<volatile ADD16*>(0x41900034); }
 };
@@ -441,7 +427,6 @@ union ADD256 {
   // Full 32-bit register value.
   uint32_t value;
 
-  ADD256() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ADD256 &ref() { return *reinterpret_cast<volatile ADD256*>(0x41900038); }
 };
@@ -458,7 +443,6 @@ union SUB {
   // Full 32-bit register value.
   uint32_t value;
 
-  SUB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SUB &ref() { return *reinterpret_cast<volatile SUB*>(0x4190003C); }
 };
@@ -475,7 +459,6 @@ union SUB1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SUB1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SUB1 &ref() { return *reinterpret_cast<volatile SUB1*>(0x41900040); }
 };
@@ -492,7 +475,6 @@ union SUB16 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SUB16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SUB16 &ref() { return *reinterpret_cast<volatile SUB16*>(0x41900044); }
 };
@@ -509,7 +491,6 @@ union SUB256 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SUB256() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SUB256 &ref() { return *reinterpret_cast<volatile SUB256*>(0x41900048); }
 };

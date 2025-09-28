@@ -203,7 +203,6 @@ union HPLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HPLR &ref() { return *reinterpret_cast<volatile HPLR*>(0x40C90000); }
 };
@@ -325,7 +324,6 @@ union HPCOMR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPCOMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HPCOMR &ref() { return *reinterpret_cast<volatile HPCOMR*>(0x40C90004); }
 };
@@ -468,7 +466,6 @@ union HPCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HPCR &ref() { return *reinterpret_cast<volatile HPCR*>(0x40C90008); }
 };
@@ -545,7 +542,6 @@ union HPSICR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPSICR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HPSICR &ref() { return *reinterpret_cast<volatile HPSICR*>(0x40C9000C); }
 };
@@ -626,7 +622,6 @@ union HPSVCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPSVCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HPSVCR &ref() { return *reinterpret_cast<volatile HPSVCR*>(0x40C90010); }
 };
@@ -729,7 +724,6 @@ union HPSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPSR() = delete;
   inline void Reset() volatile { this->value = 0x8000B000; }
   static inline volatile HPSR &ref() { return *reinterpret_cast<volatile HPSR*>(0x40C90014); }
 };
@@ -818,7 +812,6 @@ union HPSVSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPSVSR() = delete;
   inline void Reset() volatile { this->value = 0x80000000; }
   static inline volatile HPSVSR &ref() { return *reinterpret_cast<volatile HPSVSR*>(0x40C90018); }
 };
@@ -835,7 +828,6 @@ union HPHACIVR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPHACIVR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HPHACIVR &ref() { return *reinterpret_cast<volatile HPHACIVR*>(0x40C9001C); }
 };
@@ -852,7 +844,6 @@ union HPHACR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPHACR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HPHACR &ref() { return *reinterpret_cast<volatile HPHACR*>(0x40C90020); }
 };
@@ -870,7 +861,6 @@ union HPRTCMR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPRTCMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HPRTCMR &ref() { return *reinterpret_cast<volatile HPRTCMR*>(0x40C90024); }
 };
@@ -887,7 +877,6 @@ union HPRTCLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPRTCLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HPRTCLR &ref() { return *reinterpret_cast<volatile HPRTCLR*>(0x40C90028); }
 };
@@ -905,7 +894,6 @@ union HPTAMR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPTAMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HPTAMR &ref() { return *reinterpret_cast<volatile HPTAMR*>(0x40C9002C); }
 };
@@ -922,7 +910,6 @@ union HPTALR {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPTALR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HPTALR &ref() { return *reinterpret_cast<volatile HPTALR*>(0x40C90030); }
 };
@@ -1089,7 +1076,6 @@ union LPLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPLR &ref() { return *reinterpret_cast<volatile LPLR*>(0x40C90034); }
 };
@@ -1215,7 +1201,6 @@ union LPCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCR() = delete;
   inline void Reset() volatile { this->value = 0x00000020; }
   static inline volatile LPCR &ref() { return *reinterpret_cast<volatile LPCR*>(0x40C90038); }
 };
@@ -1276,7 +1261,6 @@ union LPMKCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPMKCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPMKCR &ref() { return *reinterpret_cast<volatile LPMKCR*>(0x40C9003C); }
 };
@@ -1343,7 +1327,6 @@ union LPSVCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPSVCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPSVCR &ref() { return *reinterpret_cast<volatile LPSVCR*>(0x40C90040); }
 };
@@ -1396,7 +1379,6 @@ union LPTGFCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPTGFCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPTGFCR &ref() { return *reinterpret_cast<volatile LPTGFCR*>(0x40C90044); }
 };
@@ -1548,7 +1530,6 @@ union LPTDCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPTDCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPTDCR &ref() { return *reinterpret_cast<volatile LPTDCR*>(0x40C90048); }
 };
@@ -1725,7 +1706,6 @@ union LPSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPSR() = delete;
   inline void Reset() volatile { this->value = 0x00000008; }
   static inline volatile LPSR &ref() { return *reinterpret_cast<volatile LPSR*>(0x40C9004C); }
 };
@@ -1743,7 +1723,6 @@ union LPSRTCMR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPSRTCMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPSRTCMR &ref() { return *reinterpret_cast<volatile LPSRTCMR*>(0x40C90050); }
 };
@@ -1760,7 +1739,6 @@ union LPSRTCLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPSRTCLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPSRTCLR &ref() { return *reinterpret_cast<volatile LPSRTCLR*>(0x40C90054); }
 };
@@ -1777,7 +1755,6 @@ union LPTAR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPTAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPTAR &ref() { return *reinterpret_cast<volatile LPTAR*>(0x40C90058); }
 };
@@ -1796,7 +1773,6 @@ union LPSMCMR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPSMCMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPSMCMR &ref() { return *reinterpret_cast<volatile LPSMCMR*>(0x40C9005C); }
 };
@@ -1813,7 +1789,6 @@ union LPSMCLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPSMCLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPSMCLR &ref() { return *reinterpret_cast<volatile LPSMCLR*>(0x40C90060); }
 };
@@ -1830,7 +1805,6 @@ union LPLVDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPLVDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPLVDR &ref() { return *reinterpret_cast<volatile LPLVDR*>(0x40C90064); }
 };
@@ -1847,7 +1821,6 @@ union LPGPR0_legacy_alias {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR0_legacy_alias() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPGPR0_legacy_alias &ref() { return *reinterpret_cast<volatile LPGPR0_legacy_alias*>(0x40C90068); }
 };
@@ -1864,7 +1837,6 @@ union LPZMKR_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPZMKR_0 &ref() { return *reinterpret_cast<volatile LPZMKR_0*>(0x40C9006C); }
 };
@@ -1880,7 +1852,6 @@ union LPZMKR_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPZMKR_1 &ref() { return *reinterpret_cast<volatile LPZMKR_1*>(0x40C90070); }
 };
@@ -1896,7 +1867,6 @@ union LPZMKR_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPZMKR_2 &ref() { return *reinterpret_cast<volatile LPZMKR_2*>(0x40C90074); }
 };
@@ -1912,7 +1882,6 @@ union LPZMKR_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPZMKR_3 &ref() { return *reinterpret_cast<volatile LPZMKR_3*>(0x40C90078); }
 };
@@ -1928,7 +1897,6 @@ union LPZMKR_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPZMKR_4 &ref() { return *reinterpret_cast<volatile LPZMKR_4*>(0x40C9007C); }
 };
@@ -1944,7 +1912,6 @@ union LPZMKR_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPZMKR_5 &ref() { return *reinterpret_cast<volatile LPZMKR_5*>(0x40C90080); }
 };
@@ -1960,7 +1927,6 @@ union LPZMKR_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPZMKR_6 &ref() { return *reinterpret_cast<volatile LPZMKR_6*>(0x40C90084); }
 };
@@ -1976,7 +1942,6 @@ union LPZMKR_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPZMKR_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPZMKR_7 &ref() { return *reinterpret_cast<volatile LPZMKR_7*>(0x40C90088); }
 };
@@ -1993,7 +1958,6 @@ union LPGPR_alias_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR_alias_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPGPR_alias_0 &ref() { return *reinterpret_cast<volatile LPGPR_alias_0*>(0x40C90090); }
 };
@@ -2009,7 +1973,6 @@ union LPGPR_alias_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR_alias_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPGPR_alias_1 &ref() { return *reinterpret_cast<volatile LPGPR_alias_1*>(0x40C90094); }
 };
@@ -2025,7 +1988,6 @@ union LPGPR_alias_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR_alias_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPGPR_alias_2 &ref() { return *reinterpret_cast<volatile LPGPR_alias_2*>(0x40C90098); }
 };
@@ -2041,7 +2003,6 @@ union LPGPR_alias_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR_alias_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPGPR_alias_3 &ref() { return *reinterpret_cast<volatile LPGPR_alias_3*>(0x40C9009C); }
 };
@@ -2218,7 +2179,6 @@ union LPTDC2R {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPTDC2R() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPTDC2R &ref() { return *reinterpret_cast<volatile LPTDC2R*>(0x40C900A0); }
 };
@@ -2314,7 +2274,6 @@ union LPTDSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPTDSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPTDSR &ref() { return *reinterpret_cast<volatile LPTDSR*>(0x40C900A4); }
 };
@@ -2377,7 +2336,6 @@ union LPTGF1CR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPTGF1CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPTGF1CR &ref() { return *reinterpret_cast<volatile LPTGF1CR*>(0x40C900A8); }
 };
@@ -2440,7 +2398,6 @@ union LPTGF2CR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPTGF2CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPTGF2CR &ref() { return *reinterpret_cast<volatile LPTGF2CR*>(0x40C900AC); }
 };
@@ -2459,7 +2416,6 @@ union LPAT1CR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPAT1CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPAT1CR &ref() { return *reinterpret_cast<volatile LPAT1CR*>(0x40C900C0); }
 };
@@ -2478,7 +2434,6 @@ union LPAT2CR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPAT2CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPAT2CR &ref() { return *reinterpret_cast<volatile LPAT2CR*>(0x40C900C4); }
 };
@@ -2497,7 +2452,6 @@ union LPAT3CR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPAT3CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPAT3CR &ref() { return *reinterpret_cast<volatile LPAT3CR*>(0x40C900C8); }
 };
@@ -2516,7 +2470,6 @@ union LPAT4CR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPAT4CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPAT4CR &ref() { return *reinterpret_cast<volatile LPAT4CR*>(0x40C900CC); }
 };
@@ -2535,7 +2488,6 @@ union LPAT5CR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPAT5CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPAT5CR &ref() { return *reinterpret_cast<volatile LPAT5CR*>(0x40C900D0); }
 };
@@ -2652,7 +2604,6 @@ union LPATCTLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPATCTLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPATCTLR &ref() { return *reinterpret_cast<volatile LPATCTLR*>(0x40C900E0); }
 };
@@ -2682,7 +2633,6 @@ union LPATCLKR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPATCLKR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPATCLKR &ref() { return *reinterpret_cast<volatile LPATCLKR*>(0x40C900E4); }
 };
@@ -2721,7 +2671,6 @@ union LPATRC1R {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPATRC1R() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPATRC1R &ref() { return *reinterpret_cast<volatile LPATRC1R*>(0x40C900E8); }
 };
@@ -2742,7 +2691,6 @@ union LPATRC2R {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPATRC2R() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPATRC2R &ref() { return *reinterpret_cast<volatile LPATRC2R*>(0x40C900EC); }
 };
@@ -2759,7 +2707,6 @@ union LPGPR_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPGPR_0 &ref() { return *reinterpret_cast<volatile LPGPR_0*>(0x40C90100); }
 };
@@ -2775,7 +2722,6 @@ union LPGPR_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPGPR_1 &ref() { return *reinterpret_cast<volatile LPGPR_1*>(0x40C90104); }
 };
@@ -2791,7 +2737,6 @@ union LPGPR_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPGPR_2 &ref() { return *reinterpret_cast<volatile LPGPR_2*>(0x40C90108); }
 };
@@ -2807,7 +2752,6 @@ union LPGPR_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPGPR_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPGPR_3 &ref() { return *reinterpret_cast<volatile LPGPR_3*>(0x40C9010C); }
 };
@@ -2828,7 +2772,6 @@ union HPVIDR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPVIDR1() = delete;
   inline void Reset() volatile { this->value = 0x003E0103; }
   static inline volatile HPVIDR1 &ref() { return *reinterpret_cast<volatile HPVIDR1*>(0x40C90BF8); }
 };
@@ -2849,7 +2792,6 @@ union HPVIDR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  HPVIDR2() = delete;
   inline void Reset() volatile { this->value = 0x06000500; }
   static inline volatile HPVIDR2 &ref() { return *reinterpret_cast<volatile HPVIDR2*>(0x40C90BFC); }
 };

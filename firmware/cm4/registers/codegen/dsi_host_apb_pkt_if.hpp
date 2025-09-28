@@ -22,7 +22,6 @@ union TX_PAYLOAD {
   // Full 32-bit register value.
   uint32_t value;
 
-  TX_PAYLOAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TX_PAYLOAD &ref() { return *reinterpret_cast<volatile TX_PAYLOAD*>(0x4080C280); }
 };
@@ -40,7 +39,6 @@ union PKT_CONTROL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PKT_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PKT_CONTROL &ref() { return *reinterpret_cast<volatile PKT_CONTROL*>(0x4080C284); }
 };
@@ -66,7 +64,6 @@ union SEND_PACKET {
   // Full 32-bit register value.
   uint32_t value;
 
-  SEND_PACKET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEND_PACKET &ref() { return *reinterpret_cast<volatile SEND_PACKET*>(0x4080C288); }
 };
@@ -84,7 +81,6 @@ union PKT_STATUS {
   // Full 32-bit register value.
   uint32_t value;
 
-  PKT_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PKT_STATUS &ref() { return *reinterpret_cast<volatile PKT_STATUS*>(0x4080C28C); }
 };
@@ -102,7 +98,6 @@ union PKT_FIFO_WR_LEVEL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PKT_FIFO_WR_LEVEL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PKT_FIFO_WR_LEVEL &ref() { return *reinterpret_cast<volatile PKT_FIFO_WR_LEVEL*>(0x4080C290); }
 };
@@ -120,7 +115,6 @@ union PKT_FIFO_RD_LEVEL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PKT_FIFO_RD_LEVEL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PKT_FIFO_RD_LEVEL &ref() { return *reinterpret_cast<volatile PKT_FIFO_RD_LEVEL*>(0x4080C294); }
 };
@@ -137,7 +131,6 @@ union PKT_RX_PAYLOAD {
   // Full 32-bit register value.
   uint32_t value;
 
-  PKT_RX_PAYLOAD() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PKT_RX_PAYLOAD &ref() { return *reinterpret_cast<volatile PKT_RX_PAYLOAD*>(0x4080C298); }
 };
@@ -155,7 +148,6 @@ union PKT_RX_PKT_HEADER {
   // Full 32-bit register value.
   uint32_t value;
 
-  PKT_RX_PKT_HEADER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PKT_RX_PKT_HEADER &ref() { return *reinterpret_cast<volatile PKT_RX_PKT_HEADER*>(0x4080C29C); }
 };
@@ -172,7 +164,6 @@ union IRQ_STATUS {
   // Full 32-bit register value.
   uint32_t value;
 
-  IRQ_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile IRQ_STATUS &ref() { return *reinterpret_cast<volatile IRQ_STATUS*>(0x4080C2A0); }
 };
@@ -190,7 +181,6 @@ union IRQ_STATUS2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  IRQ_STATUS2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile IRQ_STATUS2 &ref() { return *reinterpret_cast<volatile IRQ_STATUS2*>(0x4080C2A4); }
 };
@@ -207,7 +197,6 @@ union IRQ_MASK {
   // Full 32-bit register value.
   uint32_t value;
 
-  IRQ_MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile IRQ_MASK &ref() { return *reinterpret_cast<volatile IRQ_MASK*>(0x4080C2A8); }
 };
@@ -225,7 +214,6 @@ union IRQ_MASK2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  IRQ_MASK2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile IRQ_MASK2 &ref() { return *reinterpret_cast<volatile IRQ_MASK2*>(0x4080C2AC); }
 };

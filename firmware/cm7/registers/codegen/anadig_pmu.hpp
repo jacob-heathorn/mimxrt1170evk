@@ -39,7 +39,6 @@ union PMU_LDO_PLL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PMU_LDO_PLL() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile PMU_LDO_PLL &ref() { return *reinterpret_cast<volatile PMU_LDO_PLL*>(0x40C84500); }
 };
@@ -68,7 +67,6 @@ union PMU_BIAS_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PMU_BIAS_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PMU_BIAS_CTRL &ref() { return *reinterpret_cast<volatile PMU_BIAS_CTRL*>(0x40C84550); }
 };
@@ -173,7 +171,6 @@ union PMU_BIAS_CTRL2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  PMU_BIAS_CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PMU_BIAS_CTRL2 &ref() { return *reinterpret_cast<volatile PMU_BIAS_CTRL2*>(0x40C84560); }
 };
@@ -207,7 +204,6 @@ union PMU_REF_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PMU_REF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PMU_REF_CTRL &ref() { return *reinterpret_cast<volatile PMU_REF_CTRL*>(0x40C84570); }
 };
@@ -226,7 +222,6 @@ union PMU_POWER_DETECT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PMU_POWER_DETECT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PMU_POWER_DETECT_CTRL &ref() { return *reinterpret_cast<volatile PMU_POWER_DETECT_CTRL*>(0x40C84580); }
 };
@@ -402,7 +397,6 @@ union LDO_PLL_ENABLE_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_PLL_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_PLL_ENABLE_SP &ref() { return *reinterpret_cast<volatile LDO_PLL_ENABLE_SP*>(0x40C84600); }
 };
@@ -578,7 +572,6 @@ union LDO_LPSR_ANA_ENABLE_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_ANA_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_ANA_ENABLE_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_ENABLE_SP*>(0x40C84610); }
 };
@@ -754,7 +747,6 @@ union LDO_LPSR_ANA_LP_MODE_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_ANA_LP_MODE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_ANA_LP_MODE_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_LP_MODE_SP*>(0x40C84620); }
 };
@@ -930,7 +922,6 @@ union LDO_LPSR_ANA_TRACKING_EN_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_ANA_TRACKING_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_ANA_TRACKING_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_TRACKING_EN_SP*>(0x40C84630); }
 };
@@ -1106,7 +1097,6 @@ union LDO_LPSR_ANA_BYPASS_EN_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_ANA_BYPASS_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_ANA_BYPASS_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_BYPASS_EN_SP*>(0x40C84640); }
 };
@@ -1282,7 +1272,6 @@ union LDO_LPSR_ANA_STBY_EN_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_ANA_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_ANA_STBY_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_STBY_EN_SP*>(0x40C84650); }
 };
@@ -1458,7 +1447,6 @@ union LDO_LPSR_DIG_ENABLE_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_DIG_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_DIG_ENABLE_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_ENABLE_SP*>(0x40C84660); }
 };
@@ -1481,7 +1469,6 @@ union LDO_LPSR_DIG_TRG_SP0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_DIG_TRG_SP0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_DIG_TRG_SP0 &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP0*>(0x40C84670); }
 };
@@ -1504,7 +1491,6 @@ union LDO_LPSR_DIG_TRG_SP1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_DIG_TRG_SP1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_DIG_TRG_SP1 &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP1*>(0x40C84680); }
 };
@@ -1527,7 +1513,6 @@ union LDO_LPSR_DIG_TRG_SP2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_DIG_TRG_SP2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_DIG_TRG_SP2 &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP2*>(0x40C84690); }
 };
@@ -1550,7 +1535,6 @@ union LDO_LPSR_DIG_TRG_SP3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_DIG_TRG_SP3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_DIG_TRG_SP3 &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP3*>(0x40C846A0); }
 };
@@ -1726,7 +1710,6 @@ union LDO_LPSR_DIG_LP_MODE_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_DIG_LP_MODE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_DIG_LP_MODE_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_LP_MODE_SP*>(0x40C846B0); }
 };
@@ -1902,7 +1885,6 @@ union LDO_LPSR_DIG_TRACKING_EN_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_DIG_TRACKING_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_DIG_TRACKING_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRACKING_EN_SP*>(0x40C846C0); }
 };
@@ -2078,7 +2060,6 @@ union LDO_LPSR_DIG_BYPASS_EN_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_DIG_BYPASS_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_DIG_BYPASS_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_BYPASS_EN_SP*>(0x40C846D0); }
 };
@@ -2254,7 +2235,6 @@ union LDO_LPSR_DIG_STBY_EN_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  LDO_LPSR_DIG_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LDO_LPSR_DIG_STBY_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_STBY_EN_SP*>(0x40C846E0); }
 };
@@ -2430,7 +2410,6 @@ union BANDGAP_ENABLE_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  BANDGAP_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BANDGAP_ENABLE_SP &ref() { return *reinterpret_cast<volatile BANDGAP_ENABLE_SP*>(0x40C846F0); }
 };
@@ -2606,7 +2585,6 @@ union FBB_M7_ENABLE_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  FBB_M7_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile FBB_M7_ENABLE_SP &ref() { return *reinterpret_cast<volatile FBB_M7_ENABLE_SP*>(0x40C84700); }
 };
@@ -2782,7 +2760,6 @@ union RBB_SOC_ENABLE_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  RBB_SOC_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RBB_SOC_ENABLE_SP &ref() { return *reinterpret_cast<volatile RBB_SOC_ENABLE_SP*>(0x40C84710); }
 };
@@ -2958,7 +2935,6 @@ union RBB_LPSR_ENABLE_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  RBB_LPSR_ENABLE_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RBB_LPSR_ENABLE_SP &ref() { return *reinterpret_cast<volatile RBB_LPSR_ENABLE_SP*>(0x40C84720); }
 };
@@ -3134,7 +3110,6 @@ union BANDGAP_STBY_EN_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  BANDGAP_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BANDGAP_STBY_EN_SP &ref() { return *reinterpret_cast<volatile BANDGAP_STBY_EN_SP*>(0x40C84730); }
 };
@@ -3310,7 +3285,6 @@ union PLL_LDO_STBY_EN_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  PLL_LDO_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PLL_LDO_STBY_EN_SP &ref() { return *reinterpret_cast<volatile PLL_LDO_STBY_EN_SP*>(0x40C84740); }
 };
@@ -3486,7 +3460,6 @@ union FBB_M7_STBY_EN_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  FBB_M7_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile FBB_M7_STBY_EN_SP &ref() { return *reinterpret_cast<volatile FBB_M7_STBY_EN_SP*>(0x40C84750); }
 };
@@ -3662,7 +3635,6 @@ union RBB_SOC_STBY_EN_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  RBB_SOC_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RBB_SOC_STBY_EN_SP &ref() { return *reinterpret_cast<volatile RBB_SOC_STBY_EN_SP*>(0x40C84760); }
 };
@@ -3838,7 +3810,6 @@ union RBB_LPSR_STBY_EN_SP {
   // Full 32-bit register value.
   uint32_t value;
 
-  RBB_LPSR_STBY_EN_SP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RBB_LPSR_STBY_EN_SP &ref() { return *reinterpret_cast<volatile RBB_LPSR_STBY_EN_SP*>(0x40C84770); }
 };
@@ -3862,7 +3833,6 @@ union FBB_M7_CONFIGURE {
   // Full 32-bit register value.
   uint32_t value;
 
-  FBB_M7_CONFIGURE() = delete;
   inline void Reset() volatile { this->value = 0x00002F11; }
   static inline volatile FBB_M7_CONFIGURE &ref() { return *reinterpret_cast<volatile FBB_M7_CONFIGURE*>(0x40C84780); }
 };
@@ -3886,7 +3856,6 @@ union RBB_LPSR_CONFIGURE {
   // Full 32-bit register value.
   uint32_t value;
 
-  RBB_LPSR_CONFIGURE() = delete;
   inline void Reset() volatile { this->value = 0x00003022; }
   static inline volatile RBB_LPSR_CONFIGURE &ref() { return *reinterpret_cast<volatile RBB_LPSR_CONFIGURE*>(0x40C84790); }
 };
@@ -3910,7 +3879,6 @@ union RBB_SOC_CONFIGURE {
   // Full 32-bit register value.
   uint32_t value;
 
-  RBB_SOC_CONFIGURE() = delete;
   inline void Reset() volatile { this->value = 0x00000044; }
   static inline volatile RBB_SOC_CONFIGURE &ref() { return *reinterpret_cast<volatile RBB_SOC_CONFIGURE*>(0x40C847A0); }
 };
@@ -3932,7 +3900,6 @@ union REFTOP_OTP_TRIM_VALUE {
   // Full 32-bit register value.
   uint32_t value;
 
-  REFTOP_OTP_TRIM_VALUE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile REFTOP_OTP_TRIM_VALUE &ref() { return *reinterpret_cast<volatile REFTOP_OTP_TRIM_VALUE*>(0x40C847B0); }
 };
@@ -3952,7 +3919,6 @@ union LPSR_1P8_LDO_OTP_TRIM_VALUE {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPSR_1P8_LDO_OTP_TRIM_VALUE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPSR_1P8_LDO_OTP_TRIM_VALUE &ref() { return *reinterpret_cast<volatile LPSR_1P8_LDO_OTP_TRIM_VALUE*>(0x40C847D0); }
 };

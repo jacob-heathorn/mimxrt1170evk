@@ -61,7 +61,6 @@ union VID_MUX_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  VID_MUX_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VID_MUX_CTRL &ref() { return *reinterpret_cast<volatile VID_MUX_CTRL*>(0x40818000); }
 };
@@ -85,7 +84,6 @@ union VID_MUX_CTRL_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  VID_MUX_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VID_MUX_CTRL_SET &ref() { return *reinterpret_cast<volatile VID_MUX_CTRL_SET*>(0x40818004); }
 };
@@ -109,7 +107,6 @@ union VID_MUX_CTRL_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  VID_MUX_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VID_MUX_CTRL_CLR &ref() { return *reinterpret_cast<volatile VID_MUX_CTRL_CLR*>(0x40818008); }
 };
@@ -133,7 +130,6 @@ union VID_MUX_CTRL_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  VID_MUX_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VID_MUX_CTRL_TOG &ref() { return *reinterpret_cast<volatile VID_MUX_CTRL_TOG*>(0x4081800C); }
 };
@@ -199,7 +195,6 @@ union PLM_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PLM_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PLM_CTRL &ref() { return *reinterpret_cast<volatile PLM_CTRL*>(0x40818020); }
 };
@@ -225,7 +220,6 @@ union PLM_CTRL_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  PLM_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PLM_CTRL_SET &ref() { return *reinterpret_cast<volatile PLM_CTRL_SET*>(0x40818024); }
 };
@@ -251,7 +245,6 @@ union PLM_CTRL_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PLM_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PLM_CTRL_CLR &ref() { return *reinterpret_cast<volatile PLM_CTRL_CLR*>(0x40818028); }
 };
@@ -277,7 +270,6 @@ union PLM_CTRL_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  PLM_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PLM_CTRL_TOG &ref() { return *reinterpret_cast<volatile PLM_CTRL_TOG*>(0x4081802C); }
 };
@@ -303,7 +295,6 @@ union YUV420_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  YUV420_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile YUV420_CTRL &ref() { return *reinterpret_cast<volatile YUV420_CTRL*>(0x40818030); }
 };
@@ -321,7 +312,6 @@ union YUV420_CTRL_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  YUV420_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile YUV420_CTRL_SET &ref() { return *reinterpret_cast<volatile YUV420_CTRL_SET*>(0x40818034); }
 };
@@ -339,7 +329,6 @@ union YUV420_CTRL_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  YUV420_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile YUV420_CTRL_CLR &ref() { return *reinterpret_cast<volatile YUV420_CTRL_CLR*>(0x40818038); }
 };
@@ -357,7 +346,6 @@ union YUV420_CTRL_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  YUV420_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile YUV420_CTRL_TOG &ref() { return *reinterpret_cast<volatile YUV420_CTRL_TOG*>(0x4081803C); }
 };
@@ -375,7 +363,6 @@ union CFG_DT_DISABLE {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_DT_DISABLE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_DT_DISABLE &ref() { return *reinterpret_cast<volatile CFG_DT_DISABLE*>(0x40818050); }
 };
@@ -393,7 +380,6 @@ union CFG_DT_DISABLE_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_DT_DISABLE_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_DT_DISABLE_SET &ref() { return *reinterpret_cast<volatile CFG_DT_DISABLE_SET*>(0x40818054); }
 };
@@ -411,7 +397,6 @@ union CFG_DT_DISABLE_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_DT_DISABLE_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_DT_DISABLE_CLR &ref() { return *reinterpret_cast<volatile CFG_DT_DISABLE_CLR*>(0x40818058); }
 };
@@ -429,7 +414,6 @@ union CFG_DT_DISABLE_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_DT_DISABLE_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_DT_DISABLE_TOG &ref() { return *reinterpret_cast<volatile CFG_DT_DISABLE_TOG*>(0x4081805C); }
 };
@@ -465,7 +449,6 @@ union MIPI_DSI_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIPI_DSI_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MIPI_DSI_CTRL &ref() { return *reinterpret_cast<volatile MIPI_DSI_CTRL*>(0x40818070); }
 };
@@ -485,7 +468,6 @@ union MIPI_DSI_CTRL_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIPI_DSI_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MIPI_DSI_CTRL_SET &ref() { return *reinterpret_cast<volatile MIPI_DSI_CTRL_SET*>(0x40818074); }
 };
@@ -505,7 +487,6 @@ union MIPI_DSI_CTRL_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIPI_DSI_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MIPI_DSI_CTRL_CLR &ref() { return *reinterpret_cast<volatile MIPI_DSI_CTRL_CLR*>(0x40818078); }
 };
@@ -525,7 +506,6 @@ union MIPI_DSI_CTRL_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIPI_DSI_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MIPI_DSI_CTRL_TOG &ref() { return *reinterpret_cast<volatile MIPI_DSI_CTRL_TOG*>(0x4081807C); }
 };

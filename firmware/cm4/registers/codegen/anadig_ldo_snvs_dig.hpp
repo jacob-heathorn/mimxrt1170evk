@@ -27,7 +27,6 @@ union PMU_LDO_SNVS_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  PMU_LDO_SNVS_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile PMU_LDO_SNVS_DIG &ref() { return *reinterpret_cast<volatile PMU_LDO_SNVS_DIG*>(0x40C84540); }
 };

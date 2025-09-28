@@ -69,7 +69,6 @@ union RDC_SEMAPHORE2_GATE0 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE0 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE0*>(0x40CCC000); }
 };
@@ -132,7 +131,6 @@ union RDC_SEMAPHORE2_GATE1 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE1 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE1*>(0x40CCC001); }
 };
@@ -195,7 +193,6 @@ union RDC_SEMAPHORE2_GATE2 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE2 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE2*>(0x40CCC002); }
 };
@@ -258,7 +255,6 @@ union RDC_SEMAPHORE2_GATE3 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE3 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE3*>(0x40CCC003); }
 };
@@ -321,7 +317,6 @@ union RDC_SEMAPHORE2_GATE4 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE4 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE4*>(0x40CCC004); }
 };
@@ -384,7 +379,6 @@ union RDC_SEMAPHORE2_GATE5 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE5 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE5*>(0x40CCC005); }
 };
@@ -447,7 +441,6 @@ union RDC_SEMAPHORE2_GATE6 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE6 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE6*>(0x40CCC006); }
 };
@@ -510,7 +503,6 @@ union RDC_SEMAPHORE2_GATE7 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE7 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE7*>(0x40CCC007); }
 };
@@ -573,7 +565,6 @@ union RDC_SEMAPHORE2_GATE8 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE8 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE8*>(0x40CCC008); }
 };
@@ -636,7 +627,6 @@ union RDC_SEMAPHORE2_GATE9 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE9 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE9*>(0x40CCC009); }
 };
@@ -699,7 +689,6 @@ union RDC_SEMAPHORE2_GATE10 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE10 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE10*>(0x40CCC00A); }
 };
@@ -762,7 +751,6 @@ union RDC_SEMAPHORE2_GATE11 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE11 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE11*>(0x40CCC00B); }
 };
@@ -825,7 +813,6 @@ union RDC_SEMAPHORE2_GATE12 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE12 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE12*>(0x40CCC00C); }
 };
@@ -888,7 +875,6 @@ union RDC_SEMAPHORE2_GATE13 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE13 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE13*>(0x40CCC00D); }
 };
@@ -951,7 +937,6 @@ union RDC_SEMAPHORE2_GATE14 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE14 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE14*>(0x40CCC00E); }
 };
@@ -1014,7 +999,6 @@ union RDC_SEMAPHORE2_GATE15 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE15 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE15*>(0x40CCC00F); }
 };
@@ -1077,7 +1061,6 @@ union RDC_SEMAPHORE2_GATE16 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE16 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE16*>(0x40CCC010); }
 };
@@ -1140,7 +1123,6 @@ union RDC_SEMAPHORE2_GATE17 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE17 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE17*>(0x40CCC011); }
 };
@@ -1203,7 +1185,6 @@ union RDC_SEMAPHORE2_GATE18 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE18 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE18*>(0x40CCC012); }
 };
@@ -1266,7 +1247,6 @@ union RDC_SEMAPHORE2_GATE19 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE19 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE19*>(0x40CCC013); }
 };
@@ -1329,7 +1309,6 @@ union RDC_SEMAPHORE2_GATE20 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE20 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE20*>(0x40CCC014); }
 };
@@ -1392,7 +1371,6 @@ union RDC_SEMAPHORE2_GATE21 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE21 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE21*>(0x40CCC015); }
 };
@@ -1455,7 +1433,6 @@ union RDC_SEMAPHORE2_GATE22 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE22 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE22*>(0x40CCC016); }
 };
@@ -1518,7 +1495,6 @@ union RDC_SEMAPHORE2_GATE23 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE23 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE23*>(0x40CCC017); }
 };
@@ -1581,7 +1557,6 @@ union RDC_SEMAPHORE2_GATE24 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE24 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE24*>(0x40CCC018); }
 };
@@ -1644,7 +1619,6 @@ union RDC_SEMAPHORE2_GATE25 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE25 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE25*>(0x40CCC019); }
 };
@@ -1707,7 +1681,6 @@ union RDC_SEMAPHORE2_GATE26 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE26 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE26*>(0x40CCC01A); }
 };
@@ -1770,7 +1743,6 @@ union RDC_SEMAPHORE2_GATE27 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE27 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE27*>(0x40CCC01B); }
 };
@@ -1833,7 +1805,6 @@ union RDC_SEMAPHORE2_GATE28 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE28 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE28*>(0x40CCC01C); }
 };
@@ -1896,7 +1867,6 @@ union RDC_SEMAPHORE2_GATE29 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE29 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE29*>(0x40CCC01D); }
 };
@@ -1959,7 +1929,6 @@ union RDC_SEMAPHORE2_GATE30 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE30 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE30*>(0x40CCC01E); }
 };
@@ -2022,7 +1991,6 @@ union RDC_SEMAPHORE2_GATE31 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE31 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE31*>(0x40CCC01F); }
 };
@@ -2085,7 +2053,6 @@ union RDC_SEMAPHORE2_GATE32 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE32 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE32*>(0x40CCC020); }
 };
@@ -2148,7 +2115,6 @@ union RDC_SEMAPHORE2_GATE33 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE33 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE33*>(0x40CCC021); }
 };
@@ -2211,7 +2177,6 @@ union RDC_SEMAPHORE2_GATE34 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE34 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE34*>(0x40CCC022); }
 };
@@ -2274,7 +2239,6 @@ union RDC_SEMAPHORE2_GATE35 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE35 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE35*>(0x40CCC023); }
 };
@@ -2337,7 +2301,6 @@ union RDC_SEMAPHORE2_GATE36 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE36 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE36*>(0x40CCC024); }
 };
@@ -2400,7 +2363,6 @@ union RDC_SEMAPHORE2_GATE37 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE37 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE37*>(0x40CCC025); }
 };
@@ -2463,7 +2425,6 @@ union RDC_SEMAPHORE2_GATE38 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE38 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE38*>(0x40CCC026); }
 };
@@ -2526,7 +2487,6 @@ union RDC_SEMAPHORE2_GATE39 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE39 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE39*>(0x40CCC027); }
 };
@@ -2589,7 +2549,6 @@ union RDC_SEMAPHORE2_GATE40 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE40 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE40*>(0x40CCC028); }
 };
@@ -2652,7 +2611,6 @@ union RDC_SEMAPHORE2_GATE41 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE41 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE41*>(0x40CCC029); }
 };
@@ -2715,7 +2673,6 @@ union RDC_SEMAPHORE2_GATE42 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE42 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE42*>(0x40CCC02A); }
 };
@@ -2778,7 +2735,6 @@ union RDC_SEMAPHORE2_GATE43 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE43 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE43*>(0x40CCC02B); }
 };
@@ -2841,7 +2797,6 @@ union RDC_SEMAPHORE2_GATE44 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE44 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE44*>(0x40CCC02C); }
 };
@@ -2904,7 +2859,6 @@ union RDC_SEMAPHORE2_GATE45 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE45 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE45*>(0x40CCC02D); }
 };
@@ -2967,7 +2921,6 @@ union RDC_SEMAPHORE2_GATE46 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE46 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE46*>(0x40CCC02E); }
 };
@@ -3030,7 +2983,6 @@ union RDC_SEMAPHORE2_GATE47 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE47 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE47*>(0x40CCC02F); }
 };
@@ -3093,7 +3045,6 @@ union RDC_SEMAPHORE2_GATE48 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE48 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE48*>(0x40CCC030); }
 };
@@ -3156,7 +3107,6 @@ union RDC_SEMAPHORE2_GATE49 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE49 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE49*>(0x40CCC031); }
 };
@@ -3219,7 +3169,6 @@ union RDC_SEMAPHORE2_GATE50 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE50 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE50*>(0x40CCC032); }
 };
@@ -3282,7 +3231,6 @@ union RDC_SEMAPHORE2_GATE51 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE51 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE51*>(0x40CCC033); }
 };
@@ -3345,7 +3293,6 @@ union RDC_SEMAPHORE2_GATE52 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE52 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE52*>(0x40CCC034); }
 };
@@ -3408,7 +3355,6 @@ union RDC_SEMAPHORE2_GATE53 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE53 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE53*>(0x40CCC035); }
 };
@@ -3471,7 +3417,6 @@ union RDC_SEMAPHORE2_GATE54 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE54 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE54*>(0x40CCC036); }
 };
@@ -3534,7 +3479,6 @@ union RDC_SEMAPHORE2_GATE55 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE55 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE55*>(0x40CCC037); }
 };
@@ -3597,7 +3541,6 @@ union RDC_SEMAPHORE2_GATE56 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE56 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE56*>(0x40CCC038); }
 };
@@ -3660,7 +3603,6 @@ union RDC_SEMAPHORE2_GATE57 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE57 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE57*>(0x40CCC039); }
 };
@@ -3723,7 +3665,6 @@ union RDC_SEMAPHORE2_GATE58 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE58 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE58*>(0x40CCC03A); }
 };
@@ -3786,7 +3727,6 @@ union RDC_SEMAPHORE2_GATE59 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE59 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE59*>(0x40CCC03B); }
 };
@@ -3849,7 +3789,6 @@ union RDC_SEMAPHORE2_GATE60 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE60 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE60*>(0x40CCC03C); }
 };
@@ -3912,7 +3851,6 @@ union RDC_SEMAPHORE2_GATE61 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE61 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE61*>(0x40CCC03D); }
 };
@@ -3975,7 +3913,6 @@ union RDC_SEMAPHORE2_GATE62 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE62 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE62*>(0x40CCC03E); }
 };
@@ -4038,7 +3975,6 @@ union RDC_SEMAPHORE2_GATE63 {
   // Full 8-bit register value.
   uint8_t value;
 
-  RDC_SEMAPHORE2_GATE63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_GATE63 &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_GATE63*>(0x40CCC03F); }
 };
@@ -4072,7 +4008,6 @@ union RDC_SEMAPHORE2_RSTGT_R {
   // Full 16-bit register value.
   uint16_t value;
 
-  RDC_SEMAPHORE2_RSTGT_R() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_RSTGT_R &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_RSTGT_R*>(0x40CCC042); }
 };
@@ -4091,7 +4026,6 @@ union RDC_SEMAPHORE2_RSTGT_W {
   // Full 16-bit register value.
   uint16_t value;
 
-  RDC_SEMAPHORE2_RSTGT_W() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RDC_SEMAPHORE2_RSTGT_W &ref() { return *reinterpret_cast<volatile RDC_SEMAPHORE2_RSTGT_W*>(0x40CCC042); }
 };

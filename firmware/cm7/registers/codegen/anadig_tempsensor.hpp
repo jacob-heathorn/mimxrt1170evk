@@ -26,7 +26,6 @@ union TEMPSENSOR {
   // Full 32-bit register value.
   uint32_t value;
 
-  TEMPSENSOR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TEMPSENSOR &ref() { return *reinterpret_cast<volatile TEMPSENSOR*>(0x40C84400); }
 };
@@ -45,7 +44,6 @@ union TEMPSNS_OTP_TRIM_VALUE {
   // Full 32-bit register value.
   uint32_t value;
 
-  TEMPSNS_OTP_TRIM_VALUE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TEMPSNS_OTP_TRIM_VALUE &ref() { return *reinterpret_cast<volatile TEMPSNS_OTP_TRIM_VALUE*>(0x40C84430); }
 };

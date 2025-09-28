@@ -130,7 +130,6 @@ union CR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CR() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
   static inline volatile CR &ref() { return *reinterpret_cast<volatile CR*>(0x40C14000); }
 };
@@ -269,7 +268,6 @@ union ES {
   // Full 32-bit register value.
   uint32_t value;
 
-  ES() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ES &ref() { return *reinterpret_cast<volatile ES*>(0x40C14004); }
 };
@@ -604,7 +602,6 @@ union ERQ {
   // Full 32-bit register value.
   uint32_t value;
 
-  ERQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ERQ &ref() { return *reinterpret_cast<volatile ERQ*>(0x40C1400C); }
 };
@@ -939,7 +936,6 @@ union EEI {
   // Full 32-bit register value.
   uint32_t value;
 
-  EEI() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile EEI &ref() { return *reinterpret_cast<volatile EEI*>(0x40C14014); }
 };
@@ -977,7 +973,6 @@ union CEEI {
   // Full 8-bit register value.
   uint8_t value;
 
-  CEEI() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CEEI &ref() { return *reinterpret_cast<volatile CEEI*>(0x40C14018); }
 };
@@ -1015,7 +1010,6 @@ union SEEI {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEEI() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEEI &ref() { return *reinterpret_cast<volatile SEEI*>(0x40C14019); }
 };
@@ -1053,7 +1047,6 @@ union CERQ {
   // Full 8-bit register value.
   uint8_t value;
 
-  CERQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CERQ &ref() { return *reinterpret_cast<volatile CERQ*>(0x40C1401A); }
 };
@@ -1091,7 +1084,6 @@ union SERQ {
   // Full 8-bit register value.
   uint8_t value;
 
-  SERQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SERQ &ref() { return *reinterpret_cast<volatile SERQ*>(0x40C1401B); }
 };
@@ -1129,7 +1121,6 @@ union CDNE {
   // Full 8-bit register value.
   uint8_t value;
 
-  CDNE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CDNE &ref() { return *reinterpret_cast<volatile CDNE*>(0x40C1401C); }
 };
@@ -1167,7 +1158,6 @@ union SSRT {
   // Full 8-bit register value.
   uint8_t value;
 
-  SSRT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SSRT &ref() { return *reinterpret_cast<volatile SSRT*>(0x40C1401D); }
 };
@@ -1205,7 +1195,6 @@ union CERR {
   // Full 8-bit register value.
   uint8_t value;
 
-  CERR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CERR &ref() { return *reinterpret_cast<volatile CERR*>(0x40C1401E); }
 };
@@ -1243,7 +1232,6 @@ union CINT {
   // Full 8-bit register value.
   uint8_t value;
 
-  CINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CINT &ref() { return *reinterpret_cast<volatile CINT*>(0x40C1401F); }
 };
@@ -1578,7 +1566,6 @@ union INT {
   // Full 32-bit register value.
   uint32_t value;
 
-  INT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile INT &ref() { return *reinterpret_cast<volatile INT*>(0x40C14024); }
 };
@@ -1913,7 +1900,6 @@ union ERR {
   // Full 32-bit register value.
   uint32_t value;
 
-  ERR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ERR &ref() { return *reinterpret_cast<volatile ERR*>(0x40C1402C); }
 };
@@ -2248,7 +2234,6 @@ union HRS {
   // Full 32-bit register value.
   uint32_t value;
 
-  HRS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HRS &ref() { return *reinterpret_cast<volatile HRS*>(0x40C14034); }
 };
@@ -2583,7 +2568,6 @@ union EARS {
   // Full 32-bit register value.
   uint32_t value;
 
-  EARS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile EARS &ref() { return *reinterpret_cast<volatile EARS*>(0x40C14044); }
 };
@@ -2622,7 +2606,6 @@ union DCHPRI3 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI3() = delete;
   inline void Reset() volatile { this->value = 0x00000003; }
   static inline volatile DCHPRI3 &ref() { return *reinterpret_cast<volatile DCHPRI3*>(0x40C14100); }
 };
@@ -2661,7 +2644,6 @@ union DCHPRI2 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI2() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile DCHPRI2 &ref() { return *reinterpret_cast<volatile DCHPRI2*>(0x40C14101); }
 };
@@ -2700,7 +2682,6 @@ union DCHPRI1 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI1() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile DCHPRI1 &ref() { return *reinterpret_cast<volatile DCHPRI1*>(0x40C14102); }
 };
@@ -2739,7 +2720,6 @@ union DCHPRI0 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DCHPRI0 &ref() { return *reinterpret_cast<volatile DCHPRI0*>(0x40C14103); }
 };
@@ -2778,7 +2758,6 @@ union DCHPRI7 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI7() = delete;
   inline void Reset() volatile { this->value = 0x00000007; }
   static inline volatile DCHPRI7 &ref() { return *reinterpret_cast<volatile DCHPRI7*>(0x40C14104); }
 };
@@ -2817,7 +2796,6 @@ union DCHPRI6 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI6() = delete;
   inline void Reset() volatile { this->value = 0x00000006; }
   static inline volatile DCHPRI6 &ref() { return *reinterpret_cast<volatile DCHPRI6*>(0x40C14105); }
 };
@@ -2856,7 +2834,6 @@ union DCHPRI5 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI5() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile DCHPRI5 &ref() { return *reinterpret_cast<volatile DCHPRI5*>(0x40C14106); }
 };
@@ -2895,7 +2872,6 @@ union DCHPRI4 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI4() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile DCHPRI4 &ref() { return *reinterpret_cast<volatile DCHPRI4*>(0x40C14107); }
 };
@@ -2934,7 +2910,6 @@ union DCHPRI11 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI11() = delete;
   inline void Reset() volatile { this->value = 0x0000000B; }
   static inline volatile DCHPRI11 &ref() { return *reinterpret_cast<volatile DCHPRI11*>(0x40C14108); }
 };
@@ -2973,7 +2948,6 @@ union DCHPRI10 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI10() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
   static inline volatile DCHPRI10 &ref() { return *reinterpret_cast<volatile DCHPRI10*>(0x40C14109); }
 };
@@ -3012,7 +2986,6 @@ union DCHPRI9 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI9() = delete;
   inline void Reset() volatile { this->value = 0x00000009; }
   static inline volatile DCHPRI9 &ref() { return *reinterpret_cast<volatile DCHPRI9*>(0x40C1410A); }
 };
@@ -3051,7 +3024,6 @@ union DCHPRI8 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI8() = delete;
   inline void Reset() volatile { this->value = 0x00000008; }
   static inline volatile DCHPRI8 &ref() { return *reinterpret_cast<volatile DCHPRI8*>(0x40C1410B); }
 };
@@ -3090,7 +3062,6 @@ union DCHPRI15 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI15() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
   static inline volatile DCHPRI15 &ref() { return *reinterpret_cast<volatile DCHPRI15*>(0x40C1410C); }
 };
@@ -3129,7 +3100,6 @@ union DCHPRI14 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI14() = delete;
   inline void Reset() volatile { this->value = 0x0000000E; }
   static inline volatile DCHPRI14 &ref() { return *reinterpret_cast<volatile DCHPRI14*>(0x40C1410D); }
 };
@@ -3168,7 +3138,6 @@ union DCHPRI13 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI13() = delete;
   inline void Reset() volatile { this->value = 0x0000000D; }
   static inline volatile DCHPRI13 &ref() { return *reinterpret_cast<volatile DCHPRI13*>(0x40C1410E); }
 };
@@ -3207,7 +3176,6 @@ union DCHPRI12 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI12() = delete;
   inline void Reset() volatile { this->value = 0x0000000C; }
   static inline volatile DCHPRI12 &ref() { return *reinterpret_cast<volatile DCHPRI12*>(0x40C1410F); }
 };
@@ -3246,7 +3214,6 @@ union DCHPRI19 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI19() = delete;
   inline void Reset() volatile { this->value = 0x00000013; }
   static inline volatile DCHPRI19 &ref() { return *reinterpret_cast<volatile DCHPRI19*>(0x40C14110); }
 };
@@ -3285,7 +3252,6 @@ union DCHPRI18 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI18() = delete;
   inline void Reset() volatile { this->value = 0x00000012; }
   static inline volatile DCHPRI18 &ref() { return *reinterpret_cast<volatile DCHPRI18*>(0x40C14111); }
 };
@@ -3324,7 +3290,6 @@ union DCHPRI17 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI17() = delete;
   inline void Reset() volatile { this->value = 0x00000011; }
   static inline volatile DCHPRI17 &ref() { return *reinterpret_cast<volatile DCHPRI17*>(0x40C14112); }
 };
@@ -3363,7 +3328,6 @@ union DCHPRI16 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI16() = delete;
   inline void Reset() volatile { this->value = 0x00000010; }
   static inline volatile DCHPRI16 &ref() { return *reinterpret_cast<volatile DCHPRI16*>(0x40C14113); }
 };
@@ -3402,7 +3366,6 @@ union DCHPRI23 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI23() = delete;
   inline void Reset() volatile { this->value = 0x00000017; }
   static inline volatile DCHPRI23 &ref() { return *reinterpret_cast<volatile DCHPRI23*>(0x40C14114); }
 };
@@ -3441,7 +3404,6 @@ union DCHPRI22 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI22() = delete;
   inline void Reset() volatile { this->value = 0x00000016; }
   static inline volatile DCHPRI22 &ref() { return *reinterpret_cast<volatile DCHPRI22*>(0x40C14115); }
 };
@@ -3480,7 +3442,6 @@ union DCHPRI21 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI21() = delete;
   inline void Reset() volatile { this->value = 0x00000015; }
   static inline volatile DCHPRI21 &ref() { return *reinterpret_cast<volatile DCHPRI21*>(0x40C14116); }
 };
@@ -3519,7 +3480,6 @@ union DCHPRI20 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI20() = delete;
   inline void Reset() volatile { this->value = 0x00000014; }
   static inline volatile DCHPRI20 &ref() { return *reinterpret_cast<volatile DCHPRI20*>(0x40C14117); }
 };
@@ -3558,7 +3518,6 @@ union DCHPRI27 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI27() = delete;
   inline void Reset() volatile { this->value = 0x0000001B; }
   static inline volatile DCHPRI27 &ref() { return *reinterpret_cast<volatile DCHPRI27*>(0x40C14118); }
 };
@@ -3597,7 +3556,6 @@ union DCHPRI26 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI26() = delete;
   inline void Reset() volatile { this->value = 0x0000001A; }
   static inline volatile DCHPRI26 &ref() { return *reinterpret_cast<volatile DCHPRI26*>(0x40C14119); }
 };
@@ -3636,7 +3594,6 @@ union DCHPRI25 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI25() = delete;
   inline void Reset() volatile { this->value = 0x00000019; }
   static inline volatile DCHPRI25 &ref() { return *reinterpret_cast<volatile DCHPRI25*>(0x40C1411A); }
 };
@@ -3675,7 +3632,6 @@ union DCHPRI24 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI24() = delete;
   inline void Reset() volatile { this->value = 0x00000018; }
   static inline volatile DCHPRI24 &ref() { return *reinterpret_cast<volatile DCHPRI24*>(0x40C1411B); }
 };
@@ -3714,7 +3670,6 @@ union DCHPRI31 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI31() = delete;
   inline void Reset() volatile { this->value = 0x0000001F; }
   static inline volatile DCHPRI31 &ref() { return *reinterpret_cast<volatile DCHPRI31*>(0x40C1411C); }
 };
@@ -3753,7 +3708,6 @@ union DCHPRI30 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI30() = delete;
   inline void Reset() volatile { this->value = 0x0000001E; }
   static inline volatile DCHPRI30 &ref() { return *reinterpret_cast<volatile DCHPRI30*>(0x40C1411D); }
 };
@@ -3792,7 +3746,6 @@ union DCHPRI29 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI29() = delete;
   inline void Reset() volatile { this->value = 0x0000001D; }
   static inline volatile DCHPRI29 &ref() { return *reinterpret_cast<volatile DCHPRI29*>(0x40C1411E); }
 };
@@ -3831,7 +3784,6 @@ union DCHPRI28 {
   // Full 8-bit register value.
   uint8_t value;
 
-  DCHPRI28() = delete;
   inline void Reset() volatile { this->value = 0x0000001C; }
   static inline volatile DCHPRI28 &ref() { return *reinterpret_cast<volatile DCHPRI28*>(0x40C1411F); }
 };

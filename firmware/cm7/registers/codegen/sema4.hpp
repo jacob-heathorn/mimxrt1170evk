@@ -35,7 +35,6 @@ union SEMA4_Gate0 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate0 &ref() { return *reinterpret_cast<volatile SEMA4_Gate0*>(0x40CC8000); }
 };
@@ -64,7 +63,6 @@ union SEMA4_Gate1 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate1 &ref() { return *reinterpret_cast<volatile SEMA4_Gate1*>(0x40CC8001); }
 };
@@ -93,7 +91,6 @@ union SEMA4_Gate2 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate2 &ref() { return *reinterpret_cast<volatile SEMA4_Gate2*>(0x40CC8002); }
 };
@@ -122,7 +119,6 @@ union SEMA4_Gate3 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate3 &ref() { return *reinterpret_cast<volatile SEMA4_Gate3*>(0x40CC8003); }
 };
@@ -151,7 +147,6 @@ union SEMA4_Gate4 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate4 &ref() { return *reinterpret_cast<volatile SEMA4_Gate4*>(0x40CC8004); }
 };
@@ -180,7 +175,6 @@ union SEMA4_Gate5 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate5 &ref() { return *reinterpret_cast<volatile SEMA4_Gate5*>(0x40CC8005); }
 };
@@ -209,7 +203,6 @@ union SEMA4_Gate6 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate6 &ref() { return *reinterpret_cast<volatile SEMA4_Gate6*>(0x40CC8006); }
 };
@@ -238,7 +231,6 @@ union SEMA4_Gate7 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate7 &ref() { return *reinterpret_cast<volatile SEMA4_Gate7*>(0x40CC8007); }
 };
@@ -267,7 +259,6 @@ union SEMA4_Gate8 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate8 &ref() { return *reinterpret_cast<volatile SEMA4_Gate8*>(0x40CC8008); }
 };
@@ -296,7 +287,6 @@ union SEMA4_Gate9 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate9 &ref() { return *reinterpret_cast<volatile SEMA4_Gate9*>(0x40CC8009); }
 };
@@ -325,7 +315,6 @@ union SEMA4_Gate10 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate10 &ref() { return *reinterpret_cast<volatile SEMA4_Gate10*>(0x40CC800A); }
 };
@@ -354,7 +343,6 @@ union SEMA4_Gate11 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate11 &ref() { return *reinterpret_cast<volatile SEMA4_Gate11*>(0x40CC800B); }
 };
@@ -383,7 +371,6 @@ union SEMA4_Gate12 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate12 &ref() { return *reinterpret_cast<volatile SEMA4_Gate12*>(0x40CC800C); }
 };
@@ -412,7 +399,6 @@ union SEMA4_Gate13 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate13 &ref() { return *reinterpret_cast<volatile SEMA4_Gate13*>(0x40CC800D); }
 };
@@ -441,7 +427,6 @@ union SEMA4_Gate14 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate14 &ref() { return *reinterpret_cast<volatile SEMA4_Gate14*>(0x40CC800E); }
 };
@@ -470,7 +455,6 @@ union SEMA4_Gate15 {
   // Full 8-bit register value.
   uint8_t value;
 
-  SEMA4_Gate15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_Gate15 &ref() { return *reinterpret_cast<volatile SEMA4_Gate15*>(0x40CC800F); }
 };
@@ -645,7 +629,6 @@ union SEMA4_CP0INE {
   // Full 16-bit register value.
   uint16_t value;
 
-  SEMA4_CP0INE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_CP0INE &ref() { return *reinterpret_cast<volatile SEMA4_CP0INE*>(0x40CC8040); }
 };
@@ -819,7 +802,6 @@ union SEMA4_CP1INE {
   // Full 16-bit register value.
   uint16_t value;
 
-  SEMA4_CP1INE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_CP1INE &ref() { return *reinterpret_cast<volatile SEMA4_CP1INE*>(0x40CC8048); }
 };
@@ -866,7 +848,6 @@ union SEMA4_CP0NTF {
   // Full 16-bit register value.
   uint16_t value;
 
-  SEMA4_CP0NTF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_CP0NTF &ref() { return *reinterpret_cast<volatile SEMA4_CP0NTF*>(0x40CC8080); }
 };
@@ -912,7 +893,6 @@ union SEMA4_CP1NTF {
   // Full 16-bit register value.
   uint16_t value;
 
-  SEMA4_CP1NTF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_CP1NTF &ref() { return *reinterpret_cast<volatile SEMA4_CP1NTF*>(0x40CC8088); }
 };
@@ -931,7 +911,6 @@ union SEMA4_RSTGT {
   // Full 16-bit register value.
   uint16_t value;
 
-  SEMA4_RSTGT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_RSTGT &ref() { return *reinterpret_cast<volatile SEMA4_RSTGT*>(0x40CC8100); }
 };
@@ -950,7 +929,6 @@ union SEMA4_RSTNTF {
   // Full 16-bit register value.
   uint16_t value;
 
-  SEMA4_RSTNTF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SEMA4_RSTNTF &ref() { return *reinterpret_cast<volatile SEMA4_RSTNTF*>(0x40CC8104); }
 };

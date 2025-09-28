@@ -27,7 +27,6 @@ union SCB_ACTLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_ACTLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_ACTLR &ref() { return *reinterpret_cast<volatile SCB_ACTLR*>(0xE000E008); }
 };
@@ -51,7 +50,6 @@ union SCB_CPUID {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_CPUID() = delete;
   inline void Reset() volatile { this->value = 0x410FC240; }
   static inline volatile SCB_CPUID &ref() { return *reinterpret_cast<volatile SCB_CPUID*>(0xE000ED00); }
 };
@@ -146,7 +144,6 @@ union SCB_ICSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_ICSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_ICSR &ref() { return *reinterpret_cast<volatile SCB_ICSR*>(0xE000ED04); }
 };
@@ -164,7 +161,6 @@ union SCB_VTOR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_VTOR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_VTOR &ref() { return *reinterpret_cast<volatile SCB_VTOR*>(0xE000ED08); }
 };
@@ -209,7 +205,6 @@ union SCB_AIRCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_AIRCR() = delete;
   inline void Reset() volatile { this->value = 0xFA050000; }
   static inline volatile SCB_AIRCR &ref() { return *reinterpret_cast<volatile SCB_AIRCR*>(0xE000ED0C); }
 };
@@ -257,7 +252,6 @@ union SCB_SCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_SCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_SCR &ref() { return *reinterpret_cast<volatile SCB_SCR*>(0xE000ED10); }
 };
@@ -335,7 +329,6 @@ union SCB_CCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_CCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_CCR &ref() { return *reinterpret_cast<volatile SCB_CCR*>(0xE000ED14); }
 };
@@ -357,7 +350,6 @@ union SCB_SHPR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_SHPR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_SHPR1 &ref() { return *reinterpret_cast<volatile SCB_SHPR1*>(0xE000ED18); }
 };
@@ -375,7 +367,6 @@ union SCB_SHPR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_SHPR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_SHPR2 &ref() { return *reinterpret_cast<volatile SCB_SHPR2*>(0xE000ED1C); }
 };
@@ -395,7 +386,6 @@ union SCB_SHPR3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_SHPR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_SHPR3 &ref() { return *reinterpret_cast<volatile SCB_SHPR3*>(0xE000ED20); }
 };
@@ -554,7 +544,6 @@ union SCB_SHCSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_SHCSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_SHCSR &ref() { return *reinterpret_cast<volatile SCB_SHCSR*>(0xE000ED24); }
 };
@@ -764,7 +753,6 @@ union SCB_CFSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_CFSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_CFSR &ref() { return *reinterpret_cast<volatile SCB_CFSR*>(0xE000ED28); }
 };
@@ -803,7 +791,6 @@ union SCB_HFSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_HFSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_HFSR &ref() { return *reinterpret_cast<volatile SCB_HFSR*>(0xE000ED2C); }
 };
@@ -869,7 +856,6 @@ union SCB_DFSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_DFSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_DFSR &ref() { return *reinterpret_cast<volatile SCB_DFSR*>(0xE000ED30); }
 };
@@ -886,7 +872,6 @@ union SCB_MMFAR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_MMFAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_MMFAR &ref() { return *reinterpret_cast<volatile SCB_MMFAR*>(0xE000ED34); }
 };
@@ -903,7 +888,6 @@ union SCB_BFAR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_BFAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_BFAR &ref() { return *reinterpret_cast<volatile SCB_BFAR*>(0xE000ED38); }
 };
@@ -920,7 +904,6 @@ union SCB_AFSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_AFSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_AFSR &ref() { return *reinterpret_cast<volatile SCB_AFSR*>(0xE000ED3C); }
 };
@@ -961,7 +944,6 @@ union SCB_CPACR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_CPACR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_CPACR &ref() { return *reinterpret_cast<volatile SCB_CPACR*>(0xE000ED88); }
 };
@@ -1069,7 +1051,6 @@ union SCB_FPCCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_FPCCR() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
   static inline volatile SCB_FPCCR &ref() { return *reinterpret_cast<volatile SCB_FPCCR*>(0xE000EF34); }
 };
@@ -1087,7 +1068,6 @@ union SCB_FPCAR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_FPCAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_FPCAR &ref() { return *reinterpret_cast<volatile SCB_FPCAR*>(0xE000EF38); }
 };
@@ -1148,7 +1128,6 @@ union SCB_FPDSCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCB_FPDSCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCB_FPDSCR &ref() { return *reinterpret_cast<volatile SCB_FPDSCR*>(0xE000EF3C); }
 };

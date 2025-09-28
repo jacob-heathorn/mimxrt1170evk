@@ -52,7 +52,6 @@ union CM_AUTHEN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000F00; }
   static inline volatile CM_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile CM_AUTHEN_CTRL*>(0x40C00004); }
 };
@@ -105,7 +104,6 @@ union CM_INT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_INT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000007; }
   static inline volatile CM_INT_CTRL &ref() { return *reinterpret_cast<volatile CM_INT_CTRL*>(0x40C00008); }
 };
@@ -146,7 +144,6 @@ union CM_MISC {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_MISC() = delete;
   inline void Reset() volatile { this->value = 0x00000006; }
   static inline volatile CM_MISC &ref() { return *reinterpret_cast<volatile CM_MISC*>(0x40C0000C); }
 };
@@ -187,7 +184,6 @@ union CM_MODE_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_MODE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_MODE_CTRL &ref() { return *reinterpret_cast<volatile CM_MODE_CTRL*>(0x40C00010); }
 };
@@ -231,7 +227,6 @@ union CM_MODE_STAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_MODE_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_MODE_STAT &ref() { return *reinterpret_cast<volatile CM_MODE_STAT*>(0x40C00014); }
 };
@@ -248,7 +243,6 @@ union CM_IRQ_WAKEUP_MASK_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_MASK_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_MASK_0 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_0*>(0x40C00100); }
 };
@@ -265,7 +259,6 @@ union CM_IRQ_WAKEUP_MASK_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_MASK_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_MASK_1 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_1*>(0x40C00104); }
 };
@@ -282,7 +275,6 @@ union CM_IRQ_WAKEUP_MASK_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_MASK_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_MASK_2 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_2*>(0x40C00108); }
 };
@@ -299,7 +291,6 @@ union CM_IRQ_WAKEUP_MASK_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_MASK_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_MASK_3 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_3*>(0x40C0010C); }
 };
@@ -316,7 +307,6 @@ union CM_IRQ_WAKEUP_MASK_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_MASK_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_MASK_4 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_4*>(0x40C00110); }
 };
@@ -333,7 +323,6 @@ union CM_IRQ_WAKEUP_MASK_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_MASK_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_MASK_5 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_5*>(0x40C00114); }
 };
@@ -350,7 +339,6 @@ union CM_IRQ_WAKEUP_MASK_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_MASK_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_MASK_6 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_6*>(0x40C00118); }
 };
@@ -367,7 +355,6 @@ union CM_IRQ_WAKEUP_MASK_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_MASK_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_MASK_7 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_MASK_7*>(0x40C0011C); }
 };
@@ -393,7 +380,6 @@ union CM_NON_IRQ_WAKEUP_MASK {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_NON_IRQ_WAKEUP_MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile CM_NON_IRQ_WAKEUP_MASK &ref() { return *reinterpret_cast<volatile CM_NON_IRQ_WAKEUP_MASK*>(0x40C00140); }
 };
@@ -418,7 +404,6 @@ union CM_IRQ_WAKEUP_STAT_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_STAT_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_STAT_0 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_0*>(0x40C00150); }
 };
@@ -443,7 +428,6 @@ union CM_IRQ_WAKEUP_STAT_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_STAT_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_STAT_1 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_1*>(0x40C00154); }
 };
@@ -468,7 +452,6 @@ union CM_IRQ_WAKEUP_STAT_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_STAT_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_STAT_2 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_2*>(0x40C00158); }
 };
@@ -493,7 +476,6 @@ union CM_IRQ_WAKEUP_STAT_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_STAT_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_STAT_3 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_3*>(0x40C0015C); }
 };
@@ -518,7 +500,6 @@ union CM_IRQ_WAKEUP_STAT_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_STAT_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_STAT_4 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_4*>(0x40C00160); }
 };
@@ -543,7 +524,6 @@ union CM_IRQ_WAKEUP_STAT_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_STAT_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_STAT_5 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_5*>(0x40C00164); }
 };
@@ -568,7 +548,6 @@ union CM_IRQ_WAKEUP_STAT_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_STAT_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_STAT_6 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_6*>(0x40C00168); }
 };
@@ -593,7 +572,6 @@ union CM_IRQ_WAKEUP_STAT_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_IRQ_WAKEUP_STAT_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_IRQ_WAKEUP_STAT_7 &ref() { return *reinterpret_cast<volatile CM_IRQ_WAKEUP_STAT_7*>(0x40C0016C); }
 };
@@ -619,7 +597,6 @@ union CM_NON_IRQ_WAKEUP_STAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_NON_IRQ_WAKEUP_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_NON_IRQ_WAKEUP_STAT &ref() { return *reinterpret_cast<volatile CM_NON_IRQ_WAKEUP_STAT*>(0x40C00190); }
 };
@@ -654,7 +631,6 @@ union CM_SLEEP_SSAR_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SLEEP_SSAR_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile CM_SLEEP_SSAR_CTRL &ref() { return *reinterpret_cast<volatile CM_SLEEP_SSAR_CTRL*>(0x40C00200); }
 };
@@ -689,7 +665,6 @@ union CM_SLEEP_LPCG_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SLEEP_LPCG_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile CM_SLEEP_LPCG_CTRL &ref() { return *reinterpret_cast<volatile CM_SLEEP_LPCG_CTRL*>(0x40C00208); }
 };
@@ -724,7 +699,6 @@ union CM_SLEEP_PLL_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SLEEP_PLL_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile CM_SLEEP_PLL_CTRL &ref() { return *reinterpret_cast<volatile CM_SLEEP_PLL_CTRL*>(0x40C00210); }
 };
@@ -759,7 +733,6 @@ union CM_SLEEP_ISO_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SLEEP_ISO_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile CM_SLEEP_ISO_CTRL &ref() { return *reinterpret_cast<volatile CM_SLEEP_ISO_CTRL*>(0x40C00218); }
 };
@@ -794,7 +767,6 @@ union CM_SLEEP_RESET_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SLEEP_RESET_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile CM_SLEEP_RESET_CTRL &ref() { return *reinterpret_cast<volatile CM_SLEEP_RESET_CTRL*>(0x40C00220); }
 };
@@ -829,7 +801,6 @@ union CM_SLEEP_POWER_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SLEEP_POWER_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile CM_SLEEP_POWER_CTRL &ref() { return *reinterpret_cast<volatile CM_SLEEP_POWER_CTRL*>(0x40C00228); }
 };
@@ -864,7 +835,6 @@ union CM_WAKEUP_POWER_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_WAKEUP_POWER_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile CM_WAKEUP_POWER_CTRL &ref() { return *reinterpret_cast<volatile CM_WAKEUP_POWER_CTRL*>(0x40C00290); }
 };
@@ -899,7 +869,6 @@ union CM_WAKEUP_RESET_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_WAKEUP_RESET_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile CM_WAKEUP_RESET_CTRL &ref() { return *reinterpret_cast<volatile CM_WAKEUP_RESET_CTRL*>(0x40C00298); }
 };
@@ -934,7 +903,6 @@ union CM_WAKEUP_ISO_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_WAKEUP_ISO_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile CM_WAKEUP_ISO_CTRL &ref() { return *reinterpret_cast<volatile CM_WAKEUP_ISO_CTRL*>(0x40C002A0); }
 };
@@ -969,7 +937,6 @@ union CM_WAKEUP_PLL_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_WAKEUP_PLL_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile CM_WAKEUP_PLL_CTRL &ref() { return *reinterpret_cast<volatile CM_WAKEUP_PLL_CTRL*>(0x40C002A8); }
 };
@@ -1004,7 +971,6 @@ union CM_WAKEUP_LPCG_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_WAKEUP_LPCG_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile CM_WAKEUP_LPCG_CTRL &ref() { return *reinterpret_cast<volatile CM_WAKEUP_LPCG_CTRL*>(0x40C002B0); }
 };
@@ -1039,7 +1005,6 @@ union CM_WAKEUP_SSAR_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_WAKEUP_SSAR_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile CM_WAKEUP_SSAR_CTRL &ref() { return *reinterpret_cast<volatile CM_WAKEUP_SSAR_CTRL*>(0x40C002B8); }
 };
@@ -1077,7 +1042,6 @@ union CM_SP_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_SP_CTRL &ref() { return *reinterpret_cast<volatile CM_SP_CTRL*>(0x40C00300); }
 };
@@ -1099,7 +1063,6 @@ union CM_SP_STAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_SP_STAT &ref() { return *reinterpret_cast<volatile CM_SP_STAT*>(0x40C00304); }
 };
@@ -1117,7 +1080,6 @@ union CM_RUN_MODE_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_RUN_MODE_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_RUN_MODE_MAPPING &ref() { return *reinterpret_cast<volatile CM_RUN_MODE_MAPPING*>(0x40C00310); }
 };
@@ -1135,7 +1097,6 @@ union CM_WAIT_MODE_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_WAIT_MODE_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_WAIT_MODE_MAPPING &ref() { return *reinterpret_cast<volatile CM_WAIT_MODE_MAPPING*>(0x40C00314); }
 };
@@ -1153,7 +1114,6 @@ union CM_STOP_MODE_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_STOP_MODE_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_STOP_MODE_MAPPING &ref() { return *reinterpret_cast<volatile CM_STOP_MODE_MAPPING*>(0x40C00318); }
 };
@@ -1171,7 +1131,6 @@ union CM_SUSPEND_MODE_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SUSPEND_MODE_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SUSPEND_MODE_MAPPING &ref() { return *reinterpret_cast<volatile CM_SUSPEND_MODE_MAPPING*>(0x40C0031C); }
 };
@@ -1189,7 +1148,6 @@ union CM_SP0_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP0_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP0_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP0_MAPPING*>(0x40C00320); }
 };
@@ -1207,7 +1165,6 @@ union CM_SP1_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP1_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP1_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP1_MAPPING*>(0x40C00324); }
 };
@@ -1225,7 +1182,6 @@ union CM_SP2_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP2_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP2_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP2_MAPPING*>(0x40C00328); }
 };
@@ -1243,7 +1199,6 @@ union CM_SP3_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP3_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP3_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP3_MAPPING*>(0x40C0032C); }
 };
@@ -1261,7 +1216,6 @@ union CM_SP4_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP4_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP4_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP4_MAPPING*>(0x40C00330); }
 };
@@ -1279,7 +1233,6 @@ union CM_SP5_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP5_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP5_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP5_MAPPING*>(0x40C00334); }
 };
@@ -1297,7 +1250,6 @@ union CM_SP6_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP6_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP6_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP6_MAPPING*>(0x40C00338); }
 };
@@ -1315,7 +1267,6 @@ union CM_SP7_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP7_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP7_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP7_MAPPING*>(0x40C0033C); }
 };
@@ -1333,7 +1284,6 @@ union CM_SP8_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP8_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP8_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP8_MAPPING*>(0x40C00340); }
 };
@@ -1351,7 +1301,6 @@ union CM_SP9_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP9_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP9_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP9_MAPPING*>(0x40C00344); }
 };
@@ -1369,7 +1318,6 @@ union CM_SP10_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP10_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP10_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP10_MAPPING*>(0x40C00348); }
 };
@@ -1387,7 +1335,6 @@ union CM_SP11_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP11_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP11_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP11_MAPPING*>(0x40C0034C); }
 };
@@ -1405,7 +1352,6 @@ union CM_SP12_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP12_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP12_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP12_MAPPING*>(0x40C00350); }
 };
@@ -1423,7 +1369,6 @@ union CM_SP13_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP13_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP13_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP13_MAPPING*>(0x40C00354); }
 };
@@ -1441,7 +1386,6 @@ union CM_SP14_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP14_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP14_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP14_MAPPING*>(0x40C00358); }
 };
@@ -1459,7 +1403,6 @@ union CM_SP15_MAPPING {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_SP15_MAPPING() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile CM_SP15_MAPPING &ref() { return *reinterpret_cast<volatile CM_SP15_MAPPING*>(0x40C0035C); }
 };
@@ -1486,7 +1429,6 @@ union CM_STBY_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM_STBY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM_STBY_CTRL &ref() { return *reinterpret_cast<volatile CM_STBY_CTRL*>(0x40C00380); }
 };

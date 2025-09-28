@@ -130,7 +130,6 @@ union LCDIF_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
   static inline volatile LCDIF_CTRL &ref() { return *reinterpret_cast<volatile LCDIF_CTRL*>(0x40804000); }
 };
@@ -255,7 +254,6 @@ union LCDIF_CTRL_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
   static inline volatile LCDIF_CTRL_SET &ref() { return *reinterpret_cast<volatile LCDIF_CTRL_SET*>(0x40804004); }
 };
@@ -380,7 +378,6 @@ union LCDIF_CTRL_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
   static inline volatile LCDIF_CTRL_CLR &ref() { return *reinterpret_cast<volatile LCDIF_CTRL_CLR*>(0x40804008); }
 };
@@ -505,7 +502,6 @@ union LCDIF_CTRL_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
   static inline volatile LCDIF_CTRL_TOG &ref() { return *reinterpret_cast<volatile LCDIF_CTRL_TOG*>(0x4080400C); }
 };
@@ -598,7 +594,6 @@ union LCDIF_CTRL1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x000F0000; }
   static inline volatile LCDIF_CTRL1 &ref() { return *reinterpret_cast<volatile LCDIF_CTRL1*>(0x40804010); }
 };
@@ -691,7 +686,6 @@ union LCDIF_CTRL1_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CTRL1_SET() = delete;
   inline void Reset() volatile { this->value = 0x000F0000; }
   static inline volatile LCDIF_CTRL1_SET &ref() { return *reinterpret_cast<volatile LCDIF_CTRL1_SET*>(0x40804014); }
 };
@@ -784,7 +778,6 @@ union LCDIF_CTRL1_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CTRL1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x000F0000; }
   static inline volatile LCDIF_CTRL1_CLR &ref() { return *reinterpret_cast<volatile LCDIF_CTRL1_CLR*>(0x40804018); }
 };
@@ -877,7 +870,6 @@ union LCDIF_CTRL1_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CTRL1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x000F0000; }
   static inline volatile LCDIF_CTRL1_TOG &ref() { return *reinterpret_cast<volatile LCDIF_CTRL1_TOG*>(0x4080401C); }
 };
@@ -950,7 +942,6 @@ union LCDIF_CTRL2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00200000; }
   static inline volatile LCDIF_CTRL2 &ref() { return *reinterpret_cast<volatile LCDIF_CTRL2*>(0x40804020); }
 };
@@ -1023,7 +1014,6 @@ union LCDIF_CTRL2_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CTRL2_SET() = delete;
   inline void Reset() volatile { this->value = 0x00200000; }
   static inline volatile LCDIF_CTRL2_SET &ref() { return *reinterpret_cast<volatile LCDIF_CTRL2_SET*>(0x40804024); }
 };
@@ -1096,7 +1086,6 @@ union LCDIF_CTRL2_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CTRL2_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00200000; }
   static inline volatile LCDIF_CTRL2_CLR &ref() { return *reinterpret_cast<volatile LCDIF_CTRL2_CLR*>(0x40804028); }
 };
@@ -1169,7 +1158,6 @@ union LCDIF_CTRL2_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CTRL2_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00200000; }
   static inline volatile LCDIF_CTRL2_TOG &ref() { return *reinterpret_cast<volatile LCDIF_CTRL2_TOG*>(0x4080402C); }
 };
@@ -1188,7 +1176,6 @@ union LCDIF_TRANSFER_COUNT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_TRANSFER_COUNT() = delete;
   inline void Reset() volatile { this->value = 0x00010000; }
   static inline volatile LCDIF_TRANSFER_COUNT &ref() { return *reinterpret_cast<volatile LCDIF_TRANSFER_COUNT*>(0x40804030); }
 };
@@ -1205,7 +1192,6 @@ union LCDIF_CUR_BUF {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CUR_BUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_CUR_BUF &ref() { return *reinterpret_cast<volatile LCDIF_CUR_BUF*>(0x40804040); }
 };
@@ -1222,7 +1208,6 @@ union LCDIF_NEXT_BUF {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_NEXT_BUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_NEXT_BUF &ref() { return *reinterpret_cast<volatile LCDIF_NEXT_BUF*>(0x40804050); }
 };
@@ -1269,7 +1254,6 @@ union LCDIF_VDCTRL0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_VDCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_VDCTRL0 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL0*>(0x40804070); }
 };
@@ -1316,7 +1300,6 @@ union LCDIF_VDCTRL0_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_VDCTRL0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_VDCTRL0_SET &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL0_SET*>(0x40804074); }
 };
@@ -1363,7 +1346,6 @@ union LCDIF_VDCTRL0_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_VDCTRL0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_VDCTRL0_CLR &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL0_CLR*>(0x40804078); }
 };
@@ -1410,7 +1392,6 @@ union LCDIF_VDCTRL0_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_VDCTRL0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_VDCTRL0_TOG &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL0_TOG*>(0x4080407C); }
 };
@@ -1427,7 +1408,6 @@ union LCDIF_VDCTRL1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_VDCTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_VDCTRL1 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL1*>(0x40804080); }
 };
@@ -1446,7 +1426,6 @@ union LCDIF_VDCTRL2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_VDCTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_VDCTRL2 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL2*>(0x40804090); }
 };
@@ -1470,7 +1449,6 @@ union LCDIF_VDCTRL3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_VDCTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_VDCTRL3 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL3*>(0x408040A0); }
 };
@@ -1492,7 +1470,6 @@ union LCDIF_VDCTRL4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_VDCTRL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_VDCTRL4 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL4*>(0x408040B0); }
 };
@@ -1509,7 +1486,6 @@ union LCDIF_BM_ERROR_STAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_BM_ERROR_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_BM_ERROR_STAT &ref() { return *reinterpret_cast<volatile LCDIF_BM_ERROR_STAT*>(0x40804190); }
 };
@@ -1526,7 +1502,6 @@ union LCDIF_CRC_STAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_CRC_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_CRC_STAT &ref() { return *reinterpret_cast<volatile LCDIF_CRC_STAT*>(0x408041A0); }
 };
@@ -1556,7 +1531,6 @@ union LCDIF_STAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_STAT() = delete;
   inline void Reset() volatile { this->value = 0x95000000; }
   static inline volatile LCDIF_STAT &ref() { return *reinterpret_cast<volatile LCDIF_STAT*>(0x408041B0); }
 };
@@ -1575,7 +1549,6 @@ union LCDIF_THRES {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_THRES() = delete;
   inline void Reset() volatile { this->value = 0x0100000F; }
   static inline volatile LCDIF_THRES &ref() { return *reinterpret_cast<volatile LCDIF_THRES*>(0x40804200); }
 };
@@ -1596,7 +1569,6 @@ union LCDIF_PIGEONCTRL0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEONCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEONCTRL0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0*>(0x40804380); }
 };
@@ -1617,7 +1589,6 @@ union LCDIF_PIGEONCTRL0_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEONCTRL0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEONCTRL0_SET &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0_SET*>(0x40804384); }
 };
@@ -1638,7 +1609,6 @@ union LCDIF_PIGEONCTRL0_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEONCTRL0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEONCTRL0_CLR &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0_CLR*>(0x40804388); }
 };
@@ -1659,7 +1629,6 @@ union LCDIF_PIGEONCTRL0_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEONCTRL0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEONCTRL0_TOG &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0_TOG*>(0x4080438C); }
 };
@@ -1680,7 +1649,6 @@ union LCDIF_PIGEONCTRL1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEONCTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEONCTRL1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1*>(0x40804390); }
 };
@@ -1701,7 +1669,6 @@ union LCDIF_PIGEONCTRL1_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEONCTRL1_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEONCTRL1_SET &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1_SET*>(0x40804394); }
 };
@@ -1722,7 +1689,6 @@ union LCDIF_PIGEONCTRL1_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEONCTRL1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEONCTRL1_CLR &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1_CLR*>(0x40804398); }
 };
@@ -1743,7 +1709,6 @@ union LCDIF_PIGEONCTRL1_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEONCTRL1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEONCTRL1_TOG &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1_TOG*>(0x4080439C); }
 };
@@ -1763,7 +1728,6 @@ union LCDIF_PIGEONCTRL2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEONCTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEONCTRL2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2*>(0x408043A0); }
 };
@@ -1783,7 +1747,6 @@ union LCDIF_PIGEONCTRL2_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEONCTRL2_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEONCTRL2_SET &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2_SET*>(0x408043A4); }
 };
@@ -1803,7 +1766,6 @@ union LCDIF_PIGEONCTRL2_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEONCTRL2_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEONCTRL2_CLR &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2_CLR*>(0x408043A8); }
 };
@@ -1823,7 +1785,6 @@ union LCDIF_PIGEONCTRL2_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEONCTRL2_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEONCTRL2_TOG &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2_TOG*>(0x408043AC); }
 };
@@ -1912,7 +1873,6 @@ union LCDIF_PIGEON_0_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_0_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_0_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_0_0*>(0x40804800); }
 };
@@ -1943,7 +1903,6 @@ union LCDIF_PIGEON_0_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_0_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_0_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_0_1*>(0x40804810); }
 };
@@ -1981,7 +1940,6 @@ union LCDIF_PIGEON_0_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_0_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_0_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_0_2*>(0x40804820); }
 };
@@ -2070,7 +2028,6 @@ union LCDIF_PIGEON_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_1_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_1_0*>(0x40804840); }
 };
@@ -2101,7 +2058,6 @@ union LCDIF_PIGEON_1_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_1_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_1_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_1_1*>(0x40804850); }
 };
@@ -2139,7 +2095,6 @@ union LCDIF_PIGEON_1_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_1_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_1_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_1_2*>(0x40804860); }
 };
@@ -2228,7 +2183,6 @@ union LCDIF_PIGEON_2_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_2_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_2_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_2_0*>(0x40804880); }
 };
@@ -2259,7 +2213,6 @@ union LCDIF_PIGEON_2_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_2_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_2_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_2_1*>(0x40804890); }
 };
@@ -2297,7 +2250,6 @@ union LCDIF_PIGEON_2_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_2_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_2_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_2_2*>(0x408048A0); }
 };
@@ -2386,7 +2338,6 @@ union LCDIF_PIGEON_3_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_3_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_3_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_3_0*>(0x408048C0); }
 };
@@ -2417,7 +2368,6 @@ union LCDIF_PIGEON_3_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_3_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_3_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_3_1*>(0x408048D0); }
 };
@@ -2455,7 +2405,6 @@ union LCDIF_PIGEON_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_3_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_3_2*>(0x408048E0); }
 };
@@ -2544,7 +2493,6 @@ union LCDIF_PIGEON_4_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_4_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_4_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_4_0*>(0x40804900); }
 };
@@ -2575,7 +2523,6 @@ union LCDIF_PIGEON_4_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_4_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_4_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_4_1*>(0x40804910); }
 };
@@ -2613,7 +2560,6 @@ union LCDIF_PIGEON_4_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_4_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_4_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_4_2*>(0x40804920); }
 };
@@ -2702,7 +2648,6 @@ union LCDIF_PIGEON_5_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_5_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_5_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_5_0*>(0x40804940); }
 };
@@ -2733,7 +2678,6 @@ union LCDIF_PIGEON_5_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_5_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_5_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_5_1*>(0x40804950); }
 };
@@ -2771,7 +2715,6 @@ union LCDIF_PIGEON_5_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_5_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_5_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_5_2*>(0x40804960); }
 };
@@ -2860,7 +2803,6 @@ union LCDIF_PIGEON_6_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_6_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_6_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_6_0*>(0x40804980); }
 };
@@ -2891,7 +2833,6 @@ union LCDIF_PIGEON_6_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_6_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_6_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_6_1*>(0x40804990); }
 };
@@ -2929,7 +2870,6 @@ union LCDIF_PIGEON_6_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_6_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_6_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_6_2*>(0x408049A0); }
 };
@@ -3018,7 +2958,6 @@ union LCDIF_PIGEON_7_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_7_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_7_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_7_0*>(0x408049C0); }
 };
@@ -3049,7 +2988,6 @@ union LCDIF_PIGEON_7_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_7_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_7_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_7_1*>(0x408049D0); }
 };
@@ -3087,7 +3025,6 @@ union LCDIF_PIGEON_7_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_7_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_7_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_7_2*>(0x408049E0); }
 };
@@ -3176,7 +3113,6 @@ union LCDIF_PIGEON_8_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_8_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_8_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_8_0*>(0x40804A00); }
 };
@@ -3207,7 +3143,6 @@ union LCDIF_PIGEON_8_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_8_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_8_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_8_1*>(0x40804A10); }
 };
@@ -3245,7 +3180,6 @@ union LCDIF_PIGEON_8_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_8_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_8_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_8_2*>(0x40804A20); }
 };
@@ -3334,7 +3268,6 @@ union LCDIF_PIGEON_9_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_9_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_9_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_9_0*>(0x40804A40); }
 };
@@ -3365,7 +3298,6 @@ union LCDIF_PIGEON_9_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_9_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_9_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_9_1*>(0x40804A50); }
 };
@@ -3403,7 +3335,6 @@ union LCDIF_PIGEON_9_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_9_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_9_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_9_2*>(0x40804A60); }
 };
@@ -3492,7 +3423,6 @@ union LCDIF_PIGEON_10_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_10_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_10_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_10_0*>(0x40804A80); }
 };
@@ -3523,7 +3453,6 @@ union LCDIF_PIGEON_10_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_10_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_10_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_10_1*>(0x40804A90); }
 };
@@ -3561,7 +3490,6 @@ union LCDIF_PIGEON_10_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_10_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_10_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_10_2*>(0x40804AA0); }
 };
@@ -3650,7 +3578,6 @@ union LCDIF_PIGEON_11_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_11_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_11_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_11_0*>(0x40804AC0); }
 };
@@ -3681,7 +3608,6 @@ union LCDIF_PIGEON_11_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_11_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_11_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_11_1*>(0x40804AD0); }
 };
@@ -3719,7 +3645,6 @@ union LCDIF_PIGEON_11_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_PIGEON_11_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_PIGEON_11_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_11_2*>(0x40804AE0); }
 };
@@ -3737,7 +3662,6 @@ union LCDIF_LUT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_LUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LCDIF_LUT_CTRL &ref() { return *reinterpret_cast<volatile LCDIF_LUT_CTRL*>(0x40804B00); }
 };
@@ -3755,7 +3679,6 @@ union LCDIF_LUT0_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_LUT0_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_LUT0_ADDR &ref() { return *reinterpret_cast<volatile LCDIF_LUT0_ADDR*>(0x40804B10); }
 };
@@ -3772,7 +3695,6 @@ union LCDIF_LUT0_DATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_LUT0_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_LUT0_DATA &ref() { return *reinterpret_cast<volatile LCDIF_LUT0_DATA*>(0x40804B20); }
 };
@@ -3790,7 +3712,6 @@ union LCDIF_LUT1_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_LUT1_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_LUT1_ADDR &ref() { return *reinterpret_cast<volatile LCDIF_LUT1_ADDR*>(0x40804B30); }
 };
@@ -3807,7 +3728,6 @@ union LCDIF_LUT1_DATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  LCDIF_LUT1_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LCDIF_LUT1_DATA &ref() { return *reinterpret_cast<volatile LCDIF_LUT1_DATA*>(0x40804B40); }
 };

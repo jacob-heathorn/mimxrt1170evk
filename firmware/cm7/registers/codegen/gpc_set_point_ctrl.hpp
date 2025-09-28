@@ -52,7 +52,6 @@ union SP_AUTHEN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000F00; }
   static inline volatile SP_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile SP_AUTHEN_CTRL*>(0x40C02004); }
 };
@@ -72,7 +71,6 @@ union SP_INT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_INT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile SP_INT_CTRL &ref() { return *reinterpret_cast<volatile SP_INT_CTRL*>(0x40C02008); }
 };
@@ -103,7 +101,6 @@ union SP_CPU_REQ {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_CPU_REQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SP_CPU_REQ &ref() { return *reinterpret_cast<volatile SP_CPU_REQ*>(0x40C02010); }
 };
@@ -127,7 +124,6 @@ union SP_SYS_STAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_SYS_STAT() = delete;
   inline void Reset() volatile { this->value = 0x0000FFFF; }
   static inline volatile SP_SYS_STAT &ref() { return *reinterpret_cast<volatile SP_SYS_STAT*>(0x40C02014); }
 };
@@ -145,7 +141,6 @@ union SP_ROSC_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_ROSC_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SP_ROSC_CTRL &ref() { return *reinterpret_cast<volatile SP_ROSC_CTRL*>(0x40C0201C); }
 };
@@ -176,7 +171,6 @@ union SP_PRIORITY_0_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_PRIORITY_0_7() = delete;
   inline void Reset() volatile { this->value = 0x76543210; }
   static inline volatile SP_PRIORITY_0_7 &ref() { return *reinterpret_cast<volatile SP_PRIORITY_0_7*>(0x40C02040); }
 };
@@ -207,7 +201,6 @@ union SP_PRIORITY_8_15 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_PRIORITY_8_15() = delete;
   inline void Reset() volatile { this->value = 0xFEDCBA98; }
   static inline volatile SP_PRIORITY_8_15 &ref() { return *reinterpret_cast<volatile SP_PRIORITY_8_15*>(0x40C02044); }
 };
@@ -242,7 +235,6 @@ union SP_SSAR_SAVE_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_SSAR_SAVE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_SSAR_SAVE_CTRL &ref() { return *reinterpret_cast<volatile SP_SSAR_SAVE_CTRL*>(0x40C02100); }
 };
@@ -277,7 +269,6 @@ union SP_LPCG_OFF_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_LPCG_OFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_LPCG_OFF_CTRL &ref() { return *reinterpret_cast<volatile SP_LPCG_OFF_CTRL*>(0x40C02110); }
 };
@@ -312,7 +303,6 @@ union SP_GROUP_DOWN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_GROUP_DOWN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_GROUP_DOWN_CTRL &ref() { return *reinterpret_cast<volatile SP_GROUP_DOWN_CTRL*>(0x40C02120); }
 };
@@ -347,7 +337,6 @@ union SP_ROOT_DOWN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_ROOT_DOWN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_ROOT_DOWN_CTRL &ref() { return *reinterpret_cast<volatile SP_ROOT_DOWN_CTRL*>(0x40C02130); }
 };
@@ -382,7 +371,6 @@ union SP_PLL_OFF_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_PLL_OFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_PLL_OFF_CTRL &ref() { return *reinterpret_cast<volatile SP_PLL_OFF_CTRL*>(0x40C02140); }
 };
@@ -417,7 +405,6 @@ union SP_ISO_ON_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_ISO_ON_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_ISO_ON_CTRL &ref() { return *reinterpret_cast<volatile SP_ISO_ON_CTRL*>(0x40C02150); }
 };
@@ -452,7 +439,6 @@ union SP_RESET_EARLY_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_RESET_EARLY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_RESET_EARLY_CTRL &ref() { return *reinterpret_cast<volatile SP_RESET_EARLY_CTRL*>(0x40C02160); }
 };
@@ -487,7 +473,6 @@ union SP_POWER_OFF_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_POWER_OFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_POWER_OFF_CTRL &ref() { return *reinterpret_cast<volatile SP_POWER_OFF_CTRL*>(0x40C02170); }
 };
@@ -522,7 +507,6 @@ union SP_BIAS_OFF_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_BIAS_OFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_BIAS_OFF_CTRL &ref() { return *reinterpret_cast<volatile SP_BIAS_OFF_CTRL*>(0x40C02180); }
 };
@@ -557,7 +541,6 @@ union SP_BG_PLDO_OFF_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_BG_PLDO_OFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_BG_PLDO_OFF_CTRL &ref() { return *reinterpret_cast<volatile SP_BG_PLDO_OFF_CTRL*>(0x40C02190); }
 };
@@ -592,7 +575,6 @@ union SP_LDO_PRE_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_LDO_PRE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_LDO_PRE_CTRL &ref() { return *reinterpret_cast<volatile SP_LDO_PRE_CTRL*>(0x40C021A0); }
 };
@@ -627,7 +609,6 @@ union SP_DCDC_DOWN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_DCDC_DOWN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_DCDC_DOWN_CTRL &ref() { return *reinterpret_cast<volatile SP_DCDC_DOWN_CTRL*>(0x40C021B0); }
 };
@@ -662,7 +643,6 @@ union SP_DCDC_UP_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_DCDC_UP_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_DCDC_UP_CTRL &ref() { return *reinterpret_cast<volatile SP_DCDC_UP_CTRL*>(0x40C02200); }
 };
@@ -697,7 +677,6 @@ union SP_LDO_POST_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_LDO_POST_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_LDO_POST_CTRL &ref() { return *reinterpret_cast<volatile SP_LDO_POST_CTRL*>(0x40C02210); }
 };
@@ -732,7 +711,6 @@ union SP_BG_PLDO_ON_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_BG_PLDO_ON_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_BG_PLDO_ON_CTRL &ref() { return *reinterpret_cast<volatile SP_BG_PLDO_ON_CTRL*>(0x40C02220); }
 };
@@ -767,7 +745,6 @@ union SP_BIAS_ON_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_BIAS_ON_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_BIAS_ON_CTRL &ref() { return *reinterpret_cast<volatile SP_BIAS_ON_CTRL*>(0x40C02230); }
 };
@@ -802,7 +779,6 @@ union SP_POWER_ON_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_POWER_ON_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_POWER_ON_CTRL &ref() { return *reinterpret_cast<volatile SP_POWER_ON_CTRL*>(0x40C02240); }
 };
@@ -837,7 +813,6 @@ union SP_RESET_LATE_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_RESET_LATE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_RESET_LATE_CTRL &ref() { return *reinterpret_cast<volatile SP_RESET_LATE_CTRL*>(0x40C02250); }
 };
@@ -872,7 +847,6 @@ union SP_ISO_OFF_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_ISO_OFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_ISO_OFF_CTRL &ref() { return *reinterpret_cast<volatile SP_ISO_OFF_CTRL*>(0x40C02260); }
 };
@@ -907,7 +881,6 @@ union SP_PLL_ON_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_PLL_ON_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_PLL_ON_CTRL &ref() { return *reinterpret_cast<volatile SP_PLL_ON_CTRL*>(0x40C02270); }
 };
@@ -942,7 +915,6 @@ union SP_ROOT_UP_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_ROOT_UP_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_ROOT_UP_CTRL &ref() { return *reinterpret_cast<volatile SP_ROOT_UP_CTRL*>(0x40C02280); }
 };
@@ -977,7 +949,6 @@ union SP_GROUP_UP_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_GROUP_UP_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_GROUP_UP_CTRL &ref() { return *reinterpret_cast<volatile SP_GROUP_UP_CTRL*>(0x40C02290); }
 };
@@ -1012,7 +983,6 @@ union SP_LPCG_ON_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_LPCG_ON_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_LPCG_ON_CTRL &ref() { return *reinterpret_cast<volatile SP_LPCG_ON_CTRL*>(0x40C022A0); }
 };
@@ -1047,7 +1017,6 @@ union SP_SSAR_RESTORE_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SP_SSAR_RESTORE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile SP_SSAR_RESTORE_CTRL &ref() { return *reinterpret_cast<volatile SP_SSAR_RESTORE_CTRL*>(0x40C022B0); }
 };

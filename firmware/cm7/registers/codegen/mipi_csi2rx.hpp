@@ -31,7 +31,6 @@ union CFG_NUM_LANES {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_NUM_LANES() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_NUM_LANES &ref() { return *reinterpret_cast<volatile CFG_NUM_LANES*>(0x40810100); }
 };
@@ -49,7 +48,6 @@ union CFG_DISABLE_DATA_LANES {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_DISABLE_DATA_LANES() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
   static inline volatile CFG_DISABLE_DATA_LANES &ref() { return *reinterpret_cast<volatile CFG_DISABLE_DATA_LANES*>(0x40810104); }
 };
@@ -67,7 +65,6 @@ union BIT_ERR {
   // Full 32-bit register value.
   uint32_t value;
 
-  BIT_ERR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BIT_ERR &ref() { return *reinterpret_cast<volatile BIT_ERR*>(0x40810108); }
 };
@@ -85,7 +82,6 @@ union IRQ_STATUS {
   // Full 32-bit register value.
   uint32_t value;
 
-  IRQ_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile IRQ_STATUS &ref() { return *reinterpret_cast<volatile IRQ_STATUS*>(0x4081010C); }
 };
@@ -103,7 +99,6 @@ union IRQ_MASK {
   // Full 32-bit register value.
   uint32_t value;
 
-  IRQ_MASK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile IRQ_MASK &ref() { return *reinterpret_cast<volatile IRQ_MASK*>(0x40810110); }
 };
@@ -121,7 +116,6 @@ union ULPS_STATUS {
   // Full 32-bit register value.
   uint32_t value;
 
-  ULPS_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ULPS_STATUS &ref() { return *reinterpret_cast<volatile ULPS_STATUS*>(0x40810114); }
 };
@@ -139,7 +133,6 @@ union PPI_ERRSOT_HS {
   // Full 32-bit register value.
   uint32_t value;
 
-  PPI_ERRSOT_HS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PPI_ERRSOT_HS &ref() { return *reinterpret_cast<volatile PPI_ERRSOT_HS*>(0x40810118); }
 };
@@ -157,7 +150,6 @@ union PPI_ERRSOTSYNC_HS {
   // Full 32-bit register value.
   uint32_t value;
 
-  PPI_ERRSOTSYNC_HS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PPI_ERRSOTSYNC_HS &ref() { return *reinterpret_cast<volatile PPI_ERRSOTSYNC_HS*>(0x4081011C); }
 };
@@ -175,7 +167,6 @@ union PPI_ERRESC {
   // Full 32-bit register value.
   uint32_t value;
 
-  PPI_ERRESC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PPI_ERRESC &ref() { return *reinterpret_cast<volatile PPI_ERRESC*>(0x40810120); }
 };
@@ -193,7 +184,6 @@ union PPI_ERRSYNCESC {
   // Full 32-bit register value.
   uint32_t value;
 
-  PPI_ERRSYNCESC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PPI_ERRSYNCESC &ref() { return *reinterpret_cast<volatile PPI_ERRSYNCESC*>(0x40810124); }
 };
@@ -211,7 +201,6 @@ union PPI_ERRCONTROL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PPI_ERRCONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PPI_ERRCONTROL &ref() { return *reinterpret_cast<volatile PPI_ERRCONTROL*>(0x40810128); }
 };
@@ -250,7 +239,6 @@ union CFG_DISABLE_PAYLOAD_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_DISABLE_PAYLOAD_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_DISABLE_PAYLOAD_0 &ref() { return *reinterpret_cast<volatile CFG_DISABLE_PAYLOAD_0*>(0x4081012C); }
 };
@@ -285,7 +273,6 @@ union CFG_DISABLE_PAYLOAD_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_DISABLE_PAYLOAD_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_DISABLE_PAYLOAD_1 &ref() { return *reinterpret_cast<volatile CFG_DISABLE_PAYLOAD_1*>(0x40810130); }
 };

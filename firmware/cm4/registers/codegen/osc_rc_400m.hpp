@@ -24,7 +24,6 @@ union CTRL0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL0 &ref() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
 };
@@ -43,7 +42,6 @@ union CTRL0_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL0_SET &ref() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
 };
@@ -62,7 +60,6 @@ union CTRL0_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL0_CLR &ref() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
 };
@@ -81,7 +78,6 @@ union CTRL0_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL0_TOG &ref() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
 };
@@ -104,7 +100,6 @@ union CTRL1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL1 &ref() { return *reinterpret_cast<volatile CTRL1*>(0x00000010); }
 };
@@ -127,7 +122,6 @@ union CTRL1_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL1_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL1_SET &ref() { return *reinterpret_cast<volatile CTRL1_SET*>(0x00000014); }
 };
@@ -150,7 +144,6 @@ union CTRL1_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL1_CLR &ref() { return *reinterpret_cast<volatile CTRL1_CLR*>(0x00000018); }
 };
@@ -173,7 +166,6 @@ union CTRL1_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL1_TOG &ref() { return *reinterpret_cast<volatile CTRL1_TOG*>(0x0000001C); }
 };
@@ -224,7 +216,6 @@ union CTRL2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL2 &ref() { return *reinterpret_cast<volatile CTRL2*>(0x00000020); }
 };
@@ -251,7 +242,6 @@ union CTRL2_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL2_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL2_SET &ref() { return *reinterpret_cast<volatile CTRL2_SET*>(0x00000024); }
 };
@@ -278,7 +268,6 @@ union CTRL2_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL2_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL2_CLR &ref() { return *reinterpret_cast<volatile CTRL2_CLR*>(0x00000028); }
 };
@@ -305,7 +294,6 @@ union CTRL2_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL2_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL2_TOG &ref() { return *reinterpret_cast<volatile CTRL2_TOG*>(0x0000002C); }
 };
@@ -355,7 +343,6 @@ union CTRL3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL3 &ref() { return *reinterpret_cast<volatile CTRL3*>(0x00000030); }
 };
@@ -381,7 +368,6 @@ union CTRL3_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL3_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL3_SET &ref() { return *reinterpret_cast<volatile CTRL3_SET*>(0x00000034); }
 };
@@ -407,7 +393,6 @@ union CTRL3_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL3_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL3_CLR &ref() { return *reinterpret_cast<volatile CTRL3_CLR*>(0x00000038); }
 };
@@ -433,7 +418,6 @@ union CTRL3_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL3_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL3_TOG &ref() { return *reinterpret_cast<volatile CTRL3_TOG*>(0x0000003C); }
 };
@@ -459,7 +443,6 @@ union STAT0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT0 &ref() { return *reinterpret_cast<volatile STAT0*>(0x00000050); }
 };
@@ -477,7 +460,6 @@ union STAT0_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT0_SET &ref() { return *reinterpret_cast<volatile STAT0_SET*>(0x00000054); }
 };
@@ -495,7 +477,6 @@ union STAT0_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT0_CLR &ref() { return *reinterpret_cast<volatile STAT0_CLR*>(0x00000058); }
 };
@@ -513,7 +494,6 @@ union STAT0_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT0_TOG &ref() { return *reinterpret_cast<volatile STAT0_TOG*>(0x0000005C); }
 };
@@ -531,7 +511,6 @@ union STAT1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT1 &ref() { return *reinterpret_cast<volatile STAT1*>(0x00000060); }
 };
@@ -549,7 +528,6 @@ union STAT1_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT1_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT1_SET &ref() { return *reinterpret_cast<volatile STAT1_SET*>(0x00000064); }
 };
@@ -567,7 +545,6 @@ union STAT1_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT1_CLR &ref() { return *reinterpret_cast<volatile STAT1_CLR*>(0x00000068); }
 };
@@ -585,7 +562,6 @@ union STAT1_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT1_TOG &ref() { return *reinterpret_cast<volatile STAT1_TOG*>(0x0000006C); }
 };
@@ -603,7 +579,6 @@ union STAT2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT2 &ref() { return *reinterpret_cast<volatile STAT2*>(0x00000070); }
 };
@@ -621,7 +596,6 @@ union STAT2_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT2_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT2_SET &ref() { return *reinterpret_cast<volatile STAT2_SET*>(0x00000074); }
 };
@@ -639,7 +613,6 @@ union STAT2_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT2_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT2_CLR &ref() { return *reinterpret_cast<volatile STAT2_CLR*>(0x00000078); }
 };
@@ -657,7 +630,6 @@ union STAT2_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT2_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT2_TOG &ref() { return *reinterpret_cast<volatile STAT2_TOG*>(0x0000007C); }
 };

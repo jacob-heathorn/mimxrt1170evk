@@ -157,7 +157,6 @@ union CS {
   // Full 32-bit register value.
   uint32_t value;
 
-  CS() = delete;
   inline void Reset() volatile { this->value = 0x00002180; }
   static inline volatile CS &ref() { return *reinterpret_cast<volatile CS*>(0x40038000); }
 };
@@ -177,7 +176,6 @@ union CNT {
   // Full 32-bit register value.
   uint32_t value;
 
-  CNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CNT &ref() { return *reinterpret_cast<volatile CNT*>(0x40038004); }
 };
@@ -197,7 +195,6 @@ union TOVAL {
   // Full 32-bit register value.
   uint32_t value;
 
-  TOVAL() = delete;
   inline void Reset() volatile { this->value = 0x00007D00; }
   static inline volatile TOVAL &ref() { return *reinterpret_cast<volatile TOVAL*>(0x40038008); }
 };
@@ -217,7 +214,6 @@ union WIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  WIN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile WIN &ref() { return *reinterpret_cast<volatile WIN*>(0x4003800C); }
 };
