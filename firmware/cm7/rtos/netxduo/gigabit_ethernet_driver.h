@@ -61,7 +61,7 @@ private:
     ethernet::detail::RxDescriptorRing rx_descriptor_ring_{};
 };
 
-// C interface for calling from nx_driver_imxrt.c
+// C interface for calling from nx_driver_imxrt.cpp
 #ifdef __cplusplus
 extern "C" {
 #endif

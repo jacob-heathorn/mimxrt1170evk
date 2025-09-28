@@ -16,7 +16,7 @@ target_sources(netxduo
   PUBLIC
     nx_user.h
     nx_driver_imxrt_irq.c
-    nx_driver_imxrt.c
+    nx_driver_imxrt.cpp
     nx_driver_imxrt.h
     gigabit_ethernet_driver.cpp
     gigabit_ethernet_driver.h

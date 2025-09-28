@@ -43,20 +43,15 @@
 #include "fsl_phy.h"
 // #include "fsl_debug_console.h"
 #include "nx_driver_imxrt.h"
-#include <stdbool.h>  // For bool type in C
-#include <assert.h>   // For assert
+#include <cassert>   // For assert in C++
 
 /* C++ driver interface */
-#ifdef __cplusplus
 extern "C" {
-#endif
 int gigabit_ethernet_driver_initialize();
 bool gigabit_ethernet_driver_send(void* packet_ptr);
 void gigabit_ethernet_driver_process_transmitted_packets();
 bool gigabit_ethernet_driver_receive(void* packet_pool, void** packet_ptr);
-#ifdef __cplusplus
 }
-#endif
 
 
 #ifndef BOARD_NETWORK_USE_100M_ENET_PORT
@@ -1573,7 +1568,7 @@ typedef struct
     uint8_t              mac[6];        /* Ethernet Address         */
 } ENET_CONFIG_IMX;
 
-VOID nx_driver_imx_ethernet_isr(VOID);
+extern "C" VOID nx_driver_imx_ethernet_isr(VOID);
 
 static void MDIO_Init(void)
 {
@@ -1698,7 +1693,7 @@ static void enet_init_imx(ENET_CONFIG_IMX *config)
 
 static void enet_init(void)
 {
-    phy_config_t phyConfig = {0};
+    phy_config_t phyConfig = {};
     bool link              = false;
     bool autonego          = false;
     uint32_t count         = 0;
@@ -2439,7 +2434,7 @@ static VOID  _nx_driver_hardware_packet_received(VOID)
 /*  02-01-2018     Yuxin Zhou               Initial Version 5.0           */
 /*                                                                        */
 /**************************************************************************/
-VOID  nx_driver_imx_ethernet_isr(VOID)
+extern "C" VOID  nx_driver_imx_ethernet_isr(VOID)
 {
   UINT status;
   status = EXAMPLE_ENET->EIR;

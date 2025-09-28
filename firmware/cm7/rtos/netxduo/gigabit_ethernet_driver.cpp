@@ -235,7 +235,7 @@ void GigabitEthernetDriver::handle_link_mode_change(unsigned int link_speed, uns
 // Extern C interface
 // ==========================================================================================
 
-// C interface functions for calling from nx_driver_imxrt.c
+// C interface functions for calling from nx_driver_imxrt.cpp
 extern "C" {
 
 int gigabit_ethernet_driver_initialize() {
