@@ -1551,31 +1551,28 @@ static void enet_init_imx(ENET_CONFIG_IMX *config)
         | ENET_RCR_MII_MODE_MASK /*always*/
         | ENET_RCR_CRCFWD_MASK;  /*no CRC pad required*/
 
-#if defined(FSL_FEATURE_ENET_HAS_AVB) && FSL_FEATURE_ENET_HAS_AVB
-    if (FSL_FEATURE_ENET_INSTANCE_HAS_AVBn(EXAMPLE_ENET) == 1)
+    // FSL_FEATURE_ENET_INSTANCE_HAS_AVBn
+    if ( config->interface == kENET_RgmiiMode )
     {
-        if ( config->interface == kENET_RgmiiMode )
-        {
-            rcr |= ENET_RCR_RGMII_EN_MASK;
-        }
-        else
-        {
-            rcr &= ~ENET_RCR_RGMII_EN_MASK;
-        }
-
-        if( config->speed == kPHY_Speed1000M )
-        {
-            ecr |= ENET_ECR_SPEED_MASK;
-        }
-        else
-        {
-            ecr &= ~ENET_ECR_SPEED_MASK;
-        }
-
-        /* use Round-robin scheme for legacy buffer descriptor mode */
-        EXAMPLE_ENET->QOS |= ENET_QOS_TX_SCHEME(1);
+        rcr |= ENET_RCR_RGMII_EN_MASK;
     }
-#endif
+    else
+    {
+        rcr &= ~ENET_RCR_RGMII_EN_MASK;
+    }
+
+    if( config->speed == kPHY_Speed1000M )
+    {
+        ecr |= ENET_ECR_SPEED_MASK;
+    }
+    else
+    {
+        ecr &= ~ENET_ECR_SPEED_MASK;
+    }
+
+    /* use Round-robin scheme for legacy buffer descriptor mode */
+    EXAMPLE_ENET->QOS |= ENET_QOS_TX_SCHEME(1);
+
 
     if ( config->interface == kENET_RmiiMode )
     {
@@ -1602,11 +1599,7 @@ static void enet_init_imx(ENET_CONFIG_IMX *config)
             break;
     }
 
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-    ecr |= ENET_ECR_EN1588_MASK;
-#endif
-
-#ifdef IMX_CHECKSUM_OFFLOAD
+    // Checksum offload
     EXAMPLE_ENET->TACC = ENET_TACC_SHIFT16_MASK |
                 ENET_TACC_IPCHK_MASK   |
                 ENET_TACC_PROCHK_MASK;
@@ -1617,13 +1610,7 @@ static void enet_init_imx(ENET_CONFIG_IMX *config)
                 ENET_RACC_LINEDIS_MASK |
                 ENET_RACC_PRODIS_MASK  |
                 ENET_RACC_IPDIS_MASK;
-#else
-    EXAMPLE_ENET->TACC = ENET_TACC_SHIFT16_MASK;
-
-    EXAMPLE_ENET->RACC = ENET_RACC_SHIFT16_MASK |
-                ENET_RACC_LINEDIS_MASK;
-#endif
-
+    //
     EXAMPLE_ENET->RCR = rcr;
     EXAMPLE_ENET->ECR = ecr;
     EXAMPLE_ENET->TCR = tcr;
