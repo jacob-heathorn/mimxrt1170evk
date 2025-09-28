@@ -43,19 +43,16 @@ void EthernetMac::mdioWrite(uint8_t phyAddr, uint8_t regAddr, uint16_t data) {
     // Clear the MDIO access complete event (write 1 to clear)
     EXAMPLE_ENET->EIR = ENET_EIR_MII_MASK;
 
-    // Build complete MMFR value using designated initializer
-    uint32_t mmfr_value = 0;
+    // Reset the MMFR register first
+    mmfr.Reset();
 
-    // Build value using bit shifts matching the MMFR register layout
-    mmfr_value |= (1U << 30);           // ST = 01b (bits 31:30)
-    mmfr_value |= (1U << 28);           // OP = 01b for write (bits 29:28)
-    mmfr_value |= (phyAddr << 23);      // PA (bits 27:23)
-    mmfr_value |= (regAddr << 18);      // RA (bits 22:18)
-    mmfr_value |= (2U << 16);           // TA = 10b (bits 17:16)
-    mmfr_value |= data;                 // DATA (bits 15:0)
-
-    // Write entire MMFR register in one operation
-    mmfr.value = mmfr_value;
+    // Write the bits one at a time
+    mmfr.bits.ST = 1;        // Start of frame = 01b
+    mmfr.bits.OP = 1;        // Operation = 01b (write)
+    mmfr.bits.PA = phyAddr;  // PHY address
+    mmfr.bits.RA = regAddr;  // Register address
+    mmfr.bits.TA = 2;        // Turnaround = 10b
+    mmfr.bits.DATA = data;   // Data to write
 
     // Wait for MDIO transaction to complete (poll MII interrupt flag)
     constexpr uint32_t timeout = 100000;  // Timeout counter
