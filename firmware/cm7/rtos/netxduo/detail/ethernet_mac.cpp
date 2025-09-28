@@ -2,6 +2,22 @@
 #include "fsl_enet.h"
 #include "fsl_clock.h"
 
+// Undefine conflicting macros from FSL headers before including register definitions
+#ifdef CMP1
+#undef CMP1
+#endif
+#ifdef CMP2
+#undef CMP2
+#endif
+#ifdef CMP3
+#undef CMP3
+#endif
+#ifdef CMP4
+#undef CMP4
+#endif
+
+#include "registers/codegen/enet_1g.hpp"
+
 // Hardware definitions (from nx_driver_imxrt.cpp)
 #define EXAMPLE_ENET       ENET_1G
 #define MDIO_CLOCK_FREQ    CLOCK_GetRootClockFreq(kCLOCK_Root_Bus)
