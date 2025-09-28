@@ -5,6 +5,7 @@
  */
 
 #include "phyrtl8211f.h"
+#include "gigabit_mac.h"
 #include <cassert>
 
 /*******************************************************************************
@@ -105,11 +106,7 @@ status_t PHY_RTL8211F_Init(phy_handle_t *handle, const phy_config_t *config)
     /* Check PHY ID. */
     do
     {
-        result = PHY_RTL8211F_READ(handle, PHY_ID1_REG, &regValue);
-        if (result != kStatus_Success)
-        {
-            return result;
-        }
+        regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_ID1_REG);
         counter--;
     } while ((regValue != PHY_CONTROL_ID1) && (counter != 0U));
 
@@ -119,95 +116,38 @@ status_t PHY_RTL8211F_Init(phy_handle_t *handle, const phy_config_t *config)
     }
 
     /* Reset PHY. */
-    result = PHY_RTL8211F_WRITE(handle, PHY_BASICCONTROL_REG, PHY_BCTL_RESET_MASK);
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_BASICCONTROL_REG, PHY_BCTL_RESET_MASK);
 
     do
     {
-        result = PHY_RTL8211F_READ(handle, PHY_BASICCONTROL_REG, &regValue);
-        if (result != kStatus_Success)
-        {
-            return result;
-        }
+        regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_BASICCONTROL_REG);
     } while ((regValue & PHY_BCTL_RESET_MASK) != 0U);
 
     /* The RGMII specifies output TXC/RXC and TXD/RXD without any clock skew. Need to add skew on clock line
        to make sure the other side sample right data. This can also be done in PCB traces. */
-    result = PHY_RTL8211F_WRITE(handle, PHY_PAGE_SELECT_REG, PHY_PAGE_RGMII_TXRX_DELAY_ADDR);
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_PAGE_SELECT_REG, PHY_PAGE_RGMII_TXRX_DELAY_ADDR);
     /* Set Tx Delay. */
-    result = PHY_RTL8211F_READ(handle, PHY_RGMII_TX_DELAY_REG, &regValue);
-    if (result == kStatus_Success)
-    {
-        regValue |= PHY_RGMII_TX_DELAY_MASK;
-        result = PHY_RTL8211F_WRITE(handle, PHY_RGMII_TX_DELAY_REG, regValue);
-        if (result != kStatus_Success)
-        {
-            return result;
-        }
-    }
-    else
-    {
-        return result;
-    }
+    regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_RGMII_TX_DELAY_REG);
+    regValue |= PHY_RGMII_TX_DELAY_MASK;
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_RGMII_TX_DELAY_REG, regValue);
 
     /* Set Rx Delay. */
-    result = PHY_RTL8211F_READ(handle, PHY_RGMII_RX_DELAY_REG, &regValue);
-    if (result == kStatus_Success)
-    {
-        regValue |= PHY_RGMII_RX_DELAY_MASK;
-        result = PHY_RTL8211F_WRITE(handle, PHY_RGMII_RX_DELAY_REG, regValue);
-        if (result != kStatus_Success)
-        {
-            return result;
-        }
-    }
-    else
-    {
-        return result;
-    }
+    regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_RGMII_RX_DELAY_REG);
+    regValue |= PHY_RGMII_RX_DELAY_MASK;
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_RGMII_RX_DELAY_REG, regValue);
     /* Restore to default page 0 */
-    result = PHY_RTL8211F_WRITE(handle, PHY_PAGE_SELECT_REG, 0x0);
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_PAGE_SELECT_REG, 0x0);
 
     /* EEE not supported - assert if enabled */
     assert(!config->enableEEE && "EEE (Energy Efficient Ethernet) is not supported");
 
     /* Set INT pin as interrupt mode. */
-    result = PHY_RTL8211F_WRITE(handle, PHY_PAGE_SELECT_REG, PHY_PAGE_INTR_PIN_ADDR);
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
-    result = PHY_RTL8211F_READ(handle, PHY_PAGE_INTR_PIN_REG, &regValue);
-    if (result == kStatus_Success)
-    {
-        regValue &= ~PHY_PAGE_INTR_PIN_MASK;
-        result = PHY_RTL8211F_WRITE(handle, PHY_PAGE_INTR_PIN_REG, regValue);
-        if (result != kStatus_Success)
-        {
-            return result;
-        }
-    }
-    else
-    {
-        return result;
-    }
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_PAGE_SELECT_REG, PHY_PAGE_INTR_PIN_ADDR);
+    regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_PAGE_INTR_PIN_REG);
+    regValue &= ~PHY_PAGE_INTR_PIN_MASK;
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_PAGE_INTR_PIN_REG, regValue);
     /* Restore to default page 0 */
-    result = PHY_RTL8211F_WRITE(handle, PHY_PAGE_SELECT_REG, 0);
-    if (result != kStatus_Success)
-    {
-        return result;
-    }
+    ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_PAGE_SELECT_REG, 0);
 
     result = PHY_RTL8211F_ClearInterrupt(handle);
     if (result != kStatus_Success)
@@ -218,49 +158,31 @@ status_t PHY_RTL8211F_Init(phy_handle_t *handle, const phy_config_t *config)
     if (config->autoNeg)
     {
         /* Set the auto-negotiation. */
-        result = PHY_RTL8211F_WRITE(handle, PHY_AUTONEG_ADVERTISE_REG,
+        ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_AUTONEG_ADVERTISE_REG,
                                     PHY_100BASETX_FULLDUPLEX_MASK | PHY_100BASETX_HALFDUPLEX_MASK |
                                         PHY_10BASETX_FULLDUPLEX_MASK | PHY_10BASETX_HALFDUPLEX_MASK |
                                         PHY_IEEE802_3_SELECTOR_MASK);
-        if (result == kStatus_Success)
-        {
-            result = PHY_RTL8211F_WRITE(handle, PHY_1000BASET_CONTROL_REG, PHY_1000BASET_FULLDUPLEX_MASK);
-            if (result == kStatus_Success)
-            {
-                result = PHY_RTL8211F_READ(handle, PHY_BASICCONTROL_REG, &regValue);
-                if (result == kStatus_Success)
-                {
-                    result = PHY_RTL8211F_WRITE(handle, PHY_BASICCONTROL_REG,
-                                                (regValue | PHY_BCTL_AUTONEG_MASK | PHY_BCTL_RESTART_AUTONEG_MASK));
-                }
-            }
-        }
+        ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_1000BASET_CONTROL_REG, PHY_1000BASET_FULLDUPLEX_MASK);
+        regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_BASICCONTROL_REG);
+        ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_BASICCONTROL_REG,
+                                    (regValue | PHY_BCTL_AUTONEG_MASK | PHY_BCTL_RESTART_AUTONEG_MASK));
     }
     else
     {
         /* Disable isolate mode */
-        result = PHY_RTL8211F_READ(handle, PHY_BASICCONTROL_REG, &regValue);
-        if (result != kStatus_Success)
-        {
-            return result;
-        }
+        regValue = ethernet::detail::GigabitMac::instance().mdioRead(handle->phyAddr, PHY_BASICCONTROL_REG);
         regValue &= ~PHY_BCTL_ISOLATE_MASK;
-        result = PHY_RTL8211F_WRITE(handle, PHY_BASICCONTROL_REG, regValue);
-        if (result != kStatus_Success)
-        {
-            return result;
-        }
+        ethernet::detail::GigabitMac::instance().mdioWrite(handle->phyAddr, PHY_BASICCONTROL_REG, regValue);
 
         /* Disable the auto-negotiation and set user-defined speed/duplex configuration. */
         result = PHY_RTL8211F_SetLinkSpeedDuplex(handle, config->speed, config->duplex);
-    }
-    if (result != kStatus_Success)
-    {
-        return result;
+        if (result != kStatus_Success)
+        {
+            return result;
+        }
     }
 
     result = PHY_RTL8211F_EnableLinkInterrupt(handle, config->intrType);
-
     return result;
 }
 
