@@ -48,10 +48,7 @@
 /* C++ driver interface */
 #include "gigabit_ethernet_driver.h"
 #include "ethernet_frame.hpp"
-#include "detail/gigabit_mac.h"
 #include <cstring>  // For std::memcpy
-
-#include "detail/phyrtl8211f.h"
 
 /****** DRIVER SPECIFIC ****** End of part/vendor specific include file area!  */
 
@@ -1635,21 +1632,24 @@ static void enet_init_imx(ENET_CONFIG_IMX *config)
 
 static void enet_init(void)
 {
-    bool link              = false;
-    bool autonego          = false;
-    uint32_t count         = 0;
     status_t status;
     phy_speed_t speed;
     phy_duplex_t duplex;
     ENET_CONFIG_IMX econf;
 
-    ethernet::detail::GigabitMac::instance().mdioInit();
+    // Initialize PHY through GigabitEthernetDriver
+    do {
+        status = GigabitEthernetDriver::instance().initializePhy(EXAMPLE_PHY_ADDRESS, true);
+        if (status == kStatus_Success) {
+            // Wait for link to come up
+            if (GigabitEthernetDriver::instance().waitForLink(&speed, &duplex)) {
+                break;
+            }
+        }
+    } while (true);
 
-    // Create PHY singleton with MAC reference, address and auto-negotiation enabled
-    ethernet::detail::PhyRtl8211f::create(ethernet::detail::GigabitMac::instance(), EXAMPLE_PHY_ADDRESS, true);
-
+    // Configure MAC with MAC address and negotiated speed/duplex
     econf.interface = kENET_RgmiiMode;
-
     econf.neg = 0; /*autoneg on */
     econf.mac[0] = _nx_driver_hardware_address[0];
     econf.mac[1] = _nx_driver_hardware_address[1];
@@ -1657,37 +1657,10 @@ static void enet_init(void)
     econf.mac[3] = _nx_driver_hardware_address[3];
     econf.mac[4] = _nx_driver_hardware_address[4];
     econf.mac[5] = _nx_driver_hardware_address[5];
-
-    /* Initialize PHY and wait auto-negotiation over. */
-    do
-    {
-        status = ethernet::detail::PhyRtl8211f::instance().initialize();
-        if (status == kStatus_Success)
-        {
-            /* Wait for auto-negotiation success and link up */
-            count = PHY_AUTONEGO_TIMEOUT_COUNT;
-            do
-            {
-                ethernet::detail::PhyRtl8211f::instance().getAutoNegotiationStatus(&autonego);
-                ethernet::detail::PhyRtl8211f::instance().getLinkStatus(&link);
-                if (autonego && link)
-                {
-                    break;
-                }
-            } while (--count);
-            if (!autonego)
-            {
-                printf("PHY Auto-negotiation failed. Please check the cable connection and link partner setting.\r\n");
-            }
-        }
-    } while (!(link && autonego));
-
-
-    ethernet::detail::PhyRtl8211f::instance().getLinkSpeedDuplex(&speed, &duplex);
     econf.speed = speed;
     econf.duplex = duplex;
 
-   enet_init_imx(&econf);
+    enet_init_imx(&econf);
 }
 
 /**************************************************************************/

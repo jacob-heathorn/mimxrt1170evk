@@ -8,6 +8,7 @@
 #include "ftl/allocator/bump_pool_buffer_strategy.hpp"
 #include "ftl/allocator/buffer_allocator.hpp"
 #include "detail/gigabit_mac.h"
+#include "detail/phyrtl8211f.h"
 
 // Macro to remove Ethernet header from packet before releasing to pool
 #define NX_DRIVER_ETHERNET_FRAME_SIZE 14
@@ -83,6 +84,52 @@ bool GigabitEthernetDriver::initialize() {
     printf("GigabitEthernetDriver: RDSR set to 0x%08lX\n", ENET_1G->RDSR);
 
     return true;  // Return success
+}
+
+status_t GigabitEthernetDriver::initializePhy(uint8_t phyAddress, bool autoNegotiation) {
+    // Initialize MDIO interface
+    ethernet::detail::GigabitMac::instance().mdioInit();
+
+    // Create PHY singleton with MAC reference, address and auto-negotiation setting
+    ethernet::detail::PhyRtl8211f::create(
+        ethernet::detail::GigabitMac::instance(),
+        phyAddress,
+        autoNegotiation
+    );
+
+    // Initialize the PHY
+    return ethernet::detail::PhyRtl8211f::instance().initialize();
+}
+
+bool GigabitEthernetDriver::waitForLink(phy_speed_t* speed, phy_duplex_t* duplex) {
+    constexpr uint32_t PHY_AUTONEGO_TIMEOUT_COUNT = 100000;
+    bool link = false;
+    bool autonego = false;
+    uint32_t count = PHY_AUTONEGO_TIMEOUT_COUNT;
+
+    // Wait for auto-negotiation success and link up
+    do {
+        ethernet::detail::PhyRtl8211f::instance().getAutoNegotiationStatus(&autonego);
+        ethernet::detail::PhyRtl8211f::instance().getLinkStatus(&link);
+        if (autonego && link) {
+            break;
+        }
+    } while (--count);
+
+    if (!autonego) {
+        printf("PHY Auto-negotiation failed. Please check the cable connection and link partner setting.\r\n");
+        return false;
+    }
+
+    if (!link) {
+        printf("PHY Link is down. Please check the cable connection.\r\n");
+        return false;
+    }
+
+    // Get the negotiated speed and duplex
+    ethernet::detail::PhyRtl8211f::instance().getLinkSpeedDuplex(speed, duplex);
+
+    return true;
 }
 
 bool GigabitEthernetDriver::send(ethernet::Frame&& frame) {

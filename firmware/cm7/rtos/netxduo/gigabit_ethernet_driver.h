@@ -3,6 +3,7 @@
 
 #include "ftl/singleton.hpp"
 #include "fsl_enet.h"
+#include "detail/phyrtl8211f.h"
 #include "detail/tx_descriptor_ring.h"
 #include "detail/tx_frame.h"
 #include "detail/rx_descriptor_ring.h"
@@ -24,6 +25,14 @@ public:
     // Will eventually contain hardware initialization logic
     // Returns true on success, false on error
     bool initialize();
+
+    // Initialize PHY with auto-negotiation
+    // Returns kStatus_Success on success
+    status_t initializePhy(uint8_t phyAddress, bool autoNegotiation);
+
+    // Wait for PHY link to be up
+    // Returns true when link is up with auto-negotiation complete
+    bool waitForLink(phy_speed_t* speed, phy_duplex_t* duplex);
 
     // Send a frame (takes ownership of the frame)
     // Returns true on success, false on error
