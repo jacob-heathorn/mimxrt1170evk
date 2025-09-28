@@ -13,13 +13,16 @@
 namespace ethernet {
 namespace detail {
 
+// Forward declaration
+class GigabitMac;
+
 class PhyRtl8211f : public ftl::Singleton<PhyRtl8211f> {
 public:
-    PhyRtl8211f(uint8_t phyAddr, bool autoNeg);
+    PhyRtl8211f(GigabitMac& mac, uint8_t phyAddr, bool autoNeg);
     ~PhyRtl8211f() = delete;
 
     // PHY operations
-    status_t init();
+    status_t initialize();
     status_t write(uint8_t phyReg, uint16_t data);
     status_t read(uint8_t phyReg, uint16_t* pData);
     status_t getAutoNegotiationStatus(bool* status);
@@ -31,6 +34,7 @@ public:
     status_t clearInterrupt();
 
 private:
+    GigabitMac& mac_;
     uint8_t phyAddr_ = 0;
     bool autoNeg_ = true;
 };

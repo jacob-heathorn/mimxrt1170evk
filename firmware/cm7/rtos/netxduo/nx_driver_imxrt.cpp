@@ -1645,8 +1645,8 @@ static void enet_init(void)
 
     ethernet::detail::GigabitMac::instance().mdioInit();
 
-    // Create PHY singleton with address and auto-negotiation enabled
-    ethernet::detail::PhyRtl8211f::create(EXAMPLE_PHY_ADDRESS, true);
+    // Create PHY singleton with MAC reference, address and auto-negotiation enabled
+    ethernet::detail::PhyRtl8211f::create(ethernet::detail::GigabitMac::instance(), EXAMPLE_PHY_ADDRESS, true);
 
     econf.interface = kENET_RgmiiMode;
 
@@ -1661,7 +1661,7 @@ static void enet_init(void)
     /* Initialize PHY and wait auto-negotiation over. */
     do
     {
-        status = ethernet::detail::PhyRtl8211f::instance().init();
+        status = ethernet::detail::PhyRtl8211f::instance().initialize();
         if (status == kStatus_Success)
         {
             /* Wait for auto-negotiation success and link up */

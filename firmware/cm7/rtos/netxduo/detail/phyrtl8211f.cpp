@@ -49,13 +49,14 @@
 namespace ethernet {
 namespace detail {
 
-PhyRtl8211f::PhyRtl8211f(uint8_t phyAddr, bool autoNeg)
-    : phyAddr_(phyAddr)
+PhyRtl8211f::PhyRtl8211f(GigabitMac& mac, uint8_t phyAddr, bool autoNeg)
+    : mac_(mac)
+    , phyAddr_(phyAddr)
     , autoNeg_(autoNeg)
 {
 }
 
-status_t PhyRtl8211f::init()
+status_t PhyRtl8211f::initialize()
 {
     uint32_t counter  = PHY_READID_TIMEOUT_COUNT;
     uint16_t regValue = 0U;
@@ -64,7 +65,7 @@ status_t PhyRtl8211f::init()
     /* Check PHY ID. */
     do
     {
-        regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_ID1_REG);
+        regValue = mac_.mdioRead(phyAddr_, PHY_ID1_REG);
         counter--;
     } while ((regValue != PHY_CONTROL_ID1) && (counter != 0U));
 
@@ -74,35 +75,35 @@ status_t PhyRtl8211f::init()
     }
 
     /* Reset PHY. */
-    GigabitMac::instance().mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, PHY_BCTL_RESET_MASK);
+    mac_.mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, PHY_BCTL_RESET_MASK);
 
     do
     {
-        regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_BASICCONTROL_REG);
+        regValue = mac_.mdioRead(phyAddr_, PHY_BASICCONTROL_REG);
     } while ((regValue & PHY_BCTL_RESET_MASK) != 0U);
 
     /* The RGMII specifies output TXC/RXC and TXD/RXD without any clock skew. Need to add skew on clock line
        to make sure the other side sample right data. This can also be done in PCB traces. */
-    GigabitMac::instance().mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, PHY_PAGE_RGMII_TXRX_DELAY_ADDR);
+    mac_.mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, PHY_PAGE_RGMII_TXRX_DELAY_ADDR);
     /* Set Tx Delay. */
-    regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_RGMII_TX_DELAY_REG);
+    regValue = mac_.mdioRead(phyAddr_, PHY_RGMII_TX_DELAY_REG);
     regValue |= PHY_RGMII_TX_DELAY_MASK;
-    GigabitMac::instance().mdioWrite(phyAddr_, PHY_RGMII_TX_DELAY_REG, regValue);
+    mac_.mdioWrite(phyAddr_, PHY_RGMII_TX_DELAY_REG, regValue);
 
     /* Set Rx Delay. */
-    regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_RGMII_RX_DELAY_REG);
+    regValue = mac_.mdioRead(phyAddr_, PHY_RGMII_RX_DELAY_REG);
     regValue |= PHY_RGMII_RX_DELAY_MASK;
-    GigabitMac::instance().mdioWrite(phyAddr_, PHY_RGMII_RX_DELAY_REG, regValue);
+    mac_.mdioWrite(phyAddr_, PHY_RGMII_RX_DELAY_REG, regValue);
     /* Restore to default page 0 */
-    GigabitMac::instance().mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, 0x0);
+    mac_.mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, 0x0);
 
     /* Set INT pin as interrupt mode. */
-    GigabitMac::instance().mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, PHY_PAGE_INTR_PIN_ADDR);
-    regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_PAGE_INTR_PIN_REG);
+    mac_.mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, PHY_PAGE_INTR_PIN_ADDR);
+    regValue = mac_.mdioRead(phyAddr_, PHY_PAGE_INTR_PIN_REG);
     regValue &= ~PHY_PAGE_INTR_PIN_MASK;
-    GigabitMac::instance().mdioWrite(phyAddr_, PHY_PAGE_INTR_PIN_REG, regValue);
+    mac_.mdioWrite(phyAddr_, PHY_PAGE_INTR_PIN_REG, regValue);
     /* Restore to default page 0 */
-    GigabitMac::instance().mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, 0);
+    mac_.mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, 0);
 
     result = clearInterrupt();
     if (result != kStatus_Success)
@@ -113,21 +114,21 @@ status_t PhyRtl8211f::init()
     if (autoNeg_)
     {
         /* Set the auto-negotiation. */
-        GigabitMac::instance().mdioWrite(phyAddr_, PHY_AUTONEG_ADVERTISE_REG,
+        mac_.mdioWrite(phyAddr_, PHY_AUTONEG_ADVERTISE_REG,
                                     PHY_100BASETX_FULLDUPLEX_MASK | PHY_100BASETX_HALFDUPLEX_MASK |
                                         PHY_10BASETX_FULLDUPLEX_MASK | PHY_10BASETX_HALFDUPLEX_MASK |
                                         PHY_IEEE802_3_SELECTOR_MASK);
-        GigabitMac::instance().mdioWrite(phyAddr_, PHY_1000BASET_CONTROL_REG, PHY_1000BASET_FULLDUPLEX_MASK);
-        regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_BASICCONTROL_REG);
-        GigabitMac::instance().mdioWrite(phyAddr_, PHY_BASICCONTROL_REG,
+        mac_.mdioWrite(phyAddr_, PHY_1000BASET_CONTROL_REG, PHY_1000BASET_FULLDUPLEX_MASK);
+        regValue = mac_.mdioRead(phyAddr_, PHY_BASICCONTROL_REG);
+        mac_.mdioWrite(phyAddr_, PHY_BASICCONTROL_REG,
                                     (regValue | PHY_BCTL_AUTONEG_MASK | PHY_BCTL_RESTART_AUTONEG_MASK));
     }
     else
     {
         /* Disable isolate mode */
-        regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_BASICCONTROL_REG);
+        regValue = mac_.mdioRead(phyAddr_, PHY_BASICCONTROL_REG);
         regValue &= ~PHY_BCTL_ISOLATE_MASK;
-        GigabitMac::instance().mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, regValue);
+        mac_.mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, regValue);
 
         /* Disable the auto-negotiation and set default speed/duplex. */
         result = setLinkSpeedDuplex(kPHY_Speed1000M, kPHY_FullDuplex);
@@ -145,13 +146,13 @@ status_t PhyRtl8211f::init()
 
 status_t PhyRtl8211f::write(uint8_t phyReg, uint16_t data)
 {
-    GigabitMac::instance().mdioWrite(phyAddr_, phyReg, data);
+    mac_.mdioWrite(phyAddr_, phyReg, data);
     return kStatus_Success;
 }
 
 status_t PhyRtl8211f::read(uint8_t phyReg, uint16_t *pData)
 {
-    *pData = GigabitMac::instance().mdioRead(phyAddr_, phyReg);
+    *pData = mac_.mdioRead(phyAddr_, phyReg);
     return kStatus_Success;
 }
 
@@ -164,7 +165,7 @@ status_t PhyRtl8211f::getAutoNegotiationStatus(bool *status)
     *status = false;
 
     /* Check auto negotiation complete. */
-    regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_BASICSTATUS_REG);
+    regValue = mac_.mdioRead(phyAddr_, PHY_BASICSTATUS_REG);
     if ((regValue & PHY_BSTATUS_AUTONEGCOMP_MASK) != 0U)
     {
         *status = true;
@@ -179,7 +180,7 @@ status_t PhyRtl8211f::getLinkStatus(bool *status)
     uint16_t regValue;
 
     /* Read the basic status register. */
-    regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_SPECIFIC_STATUS_REG);
+    regValue = mac_.mdioRead(phyAddr_, PHY_SPECIFIC_STATUS_REG);
     if ((PHY_SSTATUS_LINKSTATUS_MASK & regValue) != 0U)
     {
         /* Link up. */
@@ -200,7 +201,7 @@ status_t PhyRtl8211f::getLinkSpeedDuplex(phy_speed_t *speed, phy_duplex_t *duple
     uint16_t regValue;
 
     /* Read the status register. */
-    regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_SPECIFIC_STATUS_REG);
+    regValue = mac_.mdioRead(phyAddr_, PHY_SPECIFIC_STATUS_REG);
 
     if (speed != NULL)
     {
@@ -240,7 +241,7 @@ status_t PhyRtl8211f::setLinkSpeedDuplex(phy_speed_t speed, phy_duplex_t duplex)
 {
     uint16_t regValue;
 
-    regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_BASICCONTROL_REG);
+    regValue = mac_.mdioRead(phyAddr_, PHY_BASICCONTROL_REG);
 
     /* Disable the auto-negotiation and set according to user-defined configuration. */
     regValue &= ~PHY_BCTL_AUTONEG_MASK;
@@ -267,7 +268,7 @@ status_t PhyRtl8211f::setLinkSpeedDuplex(phy_speed_t speed, phy_duplex_t duplex)
     {
         regValue &= ~PHY_BCTL_DUPLEX_MASK;
     }
-    GigabitMac::instance().mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, regValue);
+    mac_.mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, regValue);
 
     return kStatus_Success;
 }
@@ -294,14 +295,14 @@ status_t PhyRtl8211f::enableLoopback(phy_loop_t mode, phy_speed_t speed, bool en
         {
             regValue = PHY_BCTL_DUPLEX_MASK | PHY_BCTL_LOOP_MASK;
         }
-        GigabitMac::instance().mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, regValue);
+        mac_.mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, regValue);
     }
     else
     {
         /* First read the current status in control register. */
-        regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_BASICCONTROL_REG);
+        regValue = mac_.mdioRead(phyAddr_, PHY_BASICCONTROL_REG);
         regValue &= ~PHY_BCTL_LOOP_MASK;
-        GigabitMac::instance().mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, (regValue | PHY_BCTL_RESTART_AUTONEG_MASK));
+        mac_.mdioWrite(phyAddr_, PHY_BASICCONTROL_REG, (regValue | PHY_BCTL_RESTART_AUTONEG_MASK));
     }
     return kStatus_Success;
 }
@@ -312,10 +313,10 @@ status_t PhyRtl8211f::enableLinkInterrupt(phy_interrupt_type_t type)
 
     uint16_t regValue;
 
-    GigabitMac::instance().mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, PHY_PAGE_INTR_ADDR);
+    mac_.mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, PHY_PAGE_INTR_ADDR);
 
     /* Read operation will clear pending interrupt before enable interrupt. */
-    regValue = GigabitMac::instance().mdioRead(phyAddr_, PHY_INER_REG);
+    regValue = mac_.mdioRead(phyAddr_, PHY_INER_REG);
 
     /* Enable/Disable link up+down interrupt. */
     if (type != kPHY_IntrDisable)
@@ -326,10 +327,10 @@ status_t PhyRtl8211f::enableLinkInterrupt(phy_interrupt_type_t type)
     {
         regValue &= ~PHY_INER_LINKSTATUS_CHANGE_MASK;
     }
-    GigabitMac::instance().mdioWrite(phyAddr_, PHY_INER_REG, regValue);
+    mac_.mdioWrite(phyAddr_, PHY_INER_REG, regValue);
 
     /* Restore to default page 0 */
-    GigabitMac::instance().mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, 0);
+    mac_.mdioWrite(phyAddr_, PHY_PAGE_SELECT_REG, 0);
 
     return kStatus_Success;
 }
@@ -339,7 +340,7 @@ status_t PhyRtl8211f::clearInterrupt()
     /* Found both read reg 0x1D from page 0 or page 0xA42 are useful. But datasheet
        describes it's in page 0xA42. Here use simpler implementation. */
     // Reading the interrupt status register clears it
-    GigabitMac::instance().mdioRead(phyAddr_, PHY_INSR_REG);
+    mac_.mdioRead(phyAddr_, PHY_INSR_REG);
     return kStatus_Success;
 }
 
