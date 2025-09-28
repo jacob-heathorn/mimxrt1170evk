@@ -30,7 +30,8 @@ GigabitEthernetDriver::GigabitEthernetDriver() {
 
     // Initialize ethernet::Frame allocator strategies with varying sizes
     // Similar to how UDP datagrams are set up in hello_netx
-    // Maximum frame size is 1538 (1536+2 byte padding) bytes
+    // Maximum frame size: 1538 (1536+2 byte padding) bytes
+    // Minimum frame size: 64 (bytes on the wire)
 
     // Set up buffer strategies for different frame sizes
     // Use OCRAM2 (non-cacheable) for DMA compatibility - same as NX_PACKET pool
