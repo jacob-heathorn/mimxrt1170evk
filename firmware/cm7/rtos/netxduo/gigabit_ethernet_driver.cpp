@@ -226,7 +226,7 @@ bool GigabitEthernetDriver::receive(NX_PACKET_POOL* packet_pool, NX_PACKET** pac
     if (!desc->isLast()) {
         // Chained packet - not supported
         assert(false && "Received packet requires chaining - not supported. Increase buffer size.");
-        // Release descriptor and return false
+        // Release descriptor immediately back to hardware
         rx_descriptor_ring_.releaseCurrentDescriptor();
         return false;
     }
@@ -256,7 +256,7 @@ bool GigabitEthernetDriver::receive(NX_PACKET_POOL* packet_pool, NX_PACKET** pac
     UINT status = nx_packet_allocate(packet_pool, packet_ptr, NX_RECEIVE_PACKET, NX_NO_WAIT);
 
     if (status != NX_SUCCESS) {
-        // Failed to allocate packet
+        // Failed to allocate packet - release descriptor and return
         rx_descriptor_ring_.releaseCurrentDescriptor();
         return false;
     }
@@ -271,11 +271,13 @@ bool GigabitEthernetDriver::receive(NX_PACKET_POOL* packet_pool, NX_PACKET** pac
     }
 
     // Copy the received data to the NX_PACKET
+    // This is a simple memcpy from descriptor buffer to NX_PACKET
     std::memcpy((*packet_ptr)->nx_packet_prepend_ptr, data, frame_length);
     (*packet_ptr)->nx_packet_length = frame_length;
     (*packet_ptr)->nx_packet_append_ptr = (*packet_ptr)->nx_packet_prepend_ptr + frame_length;
 
-    // Release descriptor back to hardware
+    // IMPORTANT: Release descriptor back to hardware immediately after copy
+    // This maintains FIFO order - descriptors are always processed and released in order
     rx_descriptor_ring_.releaseCurrentDescriptor();
 
     // Resume DMA reception if it was suspended
