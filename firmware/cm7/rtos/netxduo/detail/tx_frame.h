@@ -52,8 +52,8 @@ public:
     // Use operator bool() to check if frame is valid
     // Takes ownership of the Frame data
     static TxFrame create(ethernet::Frame&& frame) {
-        // Acquire descriptor from the ring (at back/tail)
-        TxDescriptor* descriptor = tx_descriptor_ring_->acquire_back();
+        // Acquire descriptor from the ring
+        TxDescriptor* descriptor = tx_descriptor_ring_->acquire();
         if (!descriptor) {
             return TxFrame();  // Return empty frame
         }
@@ -89,10 +89,8 @@ public:
     // Destructor - releases descriptor back to ring if owned
     ~TxFrame() {
         if (descriptor_) {
-            // Assert that we're releasing the oldest descriptor (at front/head of ring)
-            assert(tx_descriptor_ring_->head() == descriptor_ && "Releasing descriptor out of order");
-            // Release the descriptor back to the ring (from front/head)
-            tx_descriptor_ring_->release_front();
+            // Release the descriptor back to the ring
+            tx_descriptor_ring_->release(descriptor_);
             descriptor_ = nullptr;
         }
     }
@@ -102,9 +100,8 @@ public:
         if (this != &other) {
             // Release current descriptor if owned
             if (descriptor_) {
-                // Assert that we're releasing the oldest descriptor (at front/head of ring)
-                assert(tx_descriptor_ring_->head() == descriptor_ && "Releasing descriptor out of order");
-                tx_descriptor_ring_->release_front();
+                // Release the descriptor
+                tx_descriptor_ring_->release(descriptor_);
             }
             data_frame_ = std::move(other.data_frame_);
             descriptor_ = other.descriptor_;

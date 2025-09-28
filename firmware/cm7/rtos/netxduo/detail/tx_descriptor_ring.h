@@ -88,25 +88,11 @@ public:
         // and memory is not freed until program termination
     }
 
-    // Get the size of the ring
-    constexpr size_t size() const { return kNumTxDescriptors; }
-
-    // Resource management interface for descriptor ring
-
-    // Check if ring is full
-    bool full() const { return count_ == kNumTxDescriptors; }
-
-    // Check if ring is empty
-    bool empty() const { return count_ == 0; }
-
-    // Get number of descriptors in use
-    size_t count() const { return count_; }
-
-    // Acquire the next available descriptor for transmission (at back/tail)
+    // Acquire the next available descriptor for transmission
     // Returns nullptr if ring is full
-    TxDescriptor* acquire_back() {
-        if (full()) {
-            return nullptr;
+    TxDescriptor* acquire() {
+        if (count_ == kNumTxDescriptors) {
+            return nullptr;  // Ring is full
         }
         TxDescriptor* desc = &descriptors_[tail_index_];
         tail_index_ = (tail_index_ + 1) & (kNumTxDescriptors - 1);
@@ -114,21 +100,16 @@ public:
         return desc;
     }
 
-    // Get the oldest descriptor (at head) without releasing
-    // Returns nullptr if empty
-    TxDescriptor* head() {
-        if (empty()) {
-            return nullptr;
-        }
-        return &descriptors_[head_index_];
-    }
+    // Release a descriptor after transmission completes
+    // The descriptor must be the oldest one (at head of queue)
+    void release(TxDescriptor* desc) {
+        assert(desc != nullptr);
+        assert(count_ > 0 && "Releasing from empty ring");
+        assert(desc == &descriptors_[head_index_] &&
+               "Must release descriptors in order - releasing wrong descriptor");
 
-    // Release the oldest descriptor (at front/head) after transmission completes
-    void release_front() {
-        if (!empty()) {
-            head_index_ = (head_index_ + 1) & (kNumTxDescriptors - 1);
-            count_--;
-        }
+        head_index_ = (head_index_ + 1) & (kNumTxDescriptors - 1);
+        count_--;
     }
 
     // Reset all descriptors to initial state
