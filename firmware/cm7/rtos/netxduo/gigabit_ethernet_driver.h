@@ -61,29 +61,4 @@ private:
     ethernet::detail::RxDescriptorRing rx_descriptor_ring_{};
 };
 
-// C interface for calling from nx_driver_imxrt.cpp
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-#include <stdbool.h>  // For bool type in C
-
-// C wrapper function for initialize
-int gigabit_ethernet_driver_initialize();
-
-// C wrapper function for send (returns true on success, false on error)
-// Note: packet must not be chained (nx_packet_next must be NULL)
-bool gigabit_ethernet_driver_send(void* packet_ptr);
-
-// C wrapper function for processing transmitted packets
-void gigabit_ethernet_driver_process_transmitted_packets();
-
-// C wrapper function for receiving a single packet
-// packet_pool: NX_PACKET_POOL for allocating packets
-// packet_ptr: Pointer to store the received NX_PACKET
-// Returns true if packet received, false if no packet available
-bool gigabit_ethernet_driver_receive(void* packet_pool, void** packet_ptr);
-
-#ifdef __cplusplus
-}
-#endif
+// No C interface needed - nx_driver_imxrt.cpp is now C++ and can directly use the class

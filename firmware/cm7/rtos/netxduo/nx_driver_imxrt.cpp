@@ -46,12 +46,9 @@
 #include <cassert>   // For assert in C++
 
 /* C++ driver interface */
-extern "C" {
-int gigabit_ethernet_driver_initialize();
-bool gigabit_ethernet_driver_send(void* packet_ptr);
-void gigabit_ethernet_driver_process_transmitted_packets();
-bool gigabit_ethernet_driver_receive(void* packet_pool, void** packet_ptr);
-}
+#include "gigabit_ethernet_driver.h"
+#include "ethernet_frame.hpp"
+#include <cstring>  // For std::memcpy
 
 
 #ifndef BOARD_NETWORK_USE_100M_ENET_PORT
@@ -1819,7 +1816,7 @@ UINT                i;
 
     /* Call base Ethernet initialization */
     enet_init();
-    gigabit_ethernet_driver_initialize();
+    GigabitEthernetDriver::instance().initialize();
 
     /******************** RX Initialization ********************/
 
@@ -2010,9 +2007,34 @@ static UINT  _nx_driver_hardware_packet_send(NX_PACKET *packet_ptr)
     assert(packet_ptr->nx_packet_next == NX_NULL &&
            "GigabitEthernetDriver does not support chained packets");
 
-    /* Call the C++ driver to handle packet transmission */
-    /* Convert boolean result to NetX return codes (NX_SUCCESS=0, NX_DRIVER_ERROR=90) */
-    return gigabit_ethernet_driver_send(packet_ptr) ? NX_SUCCESS : NX_DRIVER_ERROR;
+    /* Convert NX_PACKET to ethernet::Frame and send via C++ driver */
+    NX_PACKET* packet = static_cast<NX_PACKET*>(packet_ptr);
+
+    // This driver does not support chained packets
+    assert(packet->nx_packet_next == nullptr && "Driver does not support chained packets");
+
+    // Calculate frame size from packet pointers
+    size_t packet_size = packet->nx_packet_append_ptr - packet->nx_packet_prepend_ptr;
+
+    // Create ethernet::Frame with 2-byte padding for hardware requirement
+    ethernet::Frame frame(packet_size + 2);
+
+    // Copy packet data starting at offset 2
+    std::memcpy(frame.front() + 2, packet->nx_packet_prepend_ptr, packet_size);
+
+    // Pass the frame to the driver
+    bool success = GigabitEthernetDriver::instance().send(std::move(frame));
+
+    if (success) {
+        // Remove the Ethernet header that was added by _nx_driver_packet_send()
+        // before releasing the packet back to the pool
+        NX_DRIVER_ETHERNET_HEADER_REMOVE(packet);
+
+        // Release the original packet immediately since Frame has copied the data
+        nx_packet_transmit_release(packet);
+    }
+
+    return success ? NX_SUCCESS : NX_DRIVER_ERROR;
 }
 
 
@@ -2333,7 +2355,7 @@ static UINT  _nx_driver_hardware_get_status(NX_IP_DRIVER *driver_req_ptr)
 static VOID  _nx_driver_hardware_packet_transmitted(VOID)
 {
     /* Call the C++ driver to process transmitted packets */
-    gigabit_ethernet_driver_process_transmitted_packets();
+    GigabitEthernetDriver::instance().process_transmitted_packets();
 }
 
 
@@ -2383,14 +2405,41 @@ static VOID  _nx_driver_hardware_packet_received(VOID)
     NX_PACKET *packet_ptr;
 
     /* Use the C++ driver to receive packets one at a time */
-    /* The C++ driver allocates the NX_PACKET and fills it with received data */
-    while (gigabit_ethernet_driver_receive(
-        nx_driver_information.nx_driver_information_packet_pool_ptr,
-        (void**)&packet_ptr)) {
+    /* Get frames from the driver and convert to NX_PACKET */
+    ethernet::Frame frame = GigabitEthernetDriver::instance().receive();
+    while (frame) {
+        // Allocate an NX_PACKET for this received frame
+        UINT status = nx_packet_allocate(
+            nx_driver_information.nx_driver_information_packet_pool_ptr,
+            &packet_ptr,
+            NX_RECEIVE_PACKET,
+            NX_NO_WAIT);
+
+        if (status != NX_SUCCESS) {
+            // Failed to allocate packet - drop the frame
+            frame = GigabitEthernetDriver::instance().receive();
+            continue;
+        }
+
+        // Ensure packet buffer is large enough
+        if (static_cast<size_t>(packet_ptr->nx_packet_data_end - packet_ptr->nx_packet_prepend_ptr) < frame.size()) {
+            // Packet buffer too small - this shouldn't happen with proper configuration
+            nx_packet_release(packet_ptr);
+            frame = GigabitEthernetDriver::instance().receive();
+            continue;
+        }
+
+        // Copy the frame data to the NX_PACKET
+        std::memcpy(packet_ptr->nx_packet_prepend_ptr, frame.front(), frame.size());
+        packet_ptr->nx_packet_length = frame.size();
+        packet_ptr->nx_packet_append_ptr = packet_ptr->nx_packet_prepend_ptr + frame.size();
 
         /* Transfer the received packet to NetX */
         /* NetX takes ownership of the packet - do NOT release it here */
         _nx_driver_transfer_to_netx(nx_driver_information.nx_driver_information_ip_ptr, packet_ptr);
+
+        // Get the next frame
+        frame = GigabitEthernetDriver::instance().receive();
     }
 }
 
