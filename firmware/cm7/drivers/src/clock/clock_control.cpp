@@ -1,4 +1,4 @@
-#include "clock_control.h"
+#include "drivers/clock/clock_control.h"
 #include "fsl_clock.h"
 
 // TODO: Modernize clock control implementation to remove dependency on fsl_clock.h

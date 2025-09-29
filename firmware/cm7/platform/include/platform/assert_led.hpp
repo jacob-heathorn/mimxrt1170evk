@@ -1,7 +1,7 @@
 # pragma once
 
 #include "ftl/singleton.hpp"
-#include "drivers/gpio.hpp"
+#include "drivers/gpio/gpio.hpp"
 #include "utils/dtcm_allocator.hpp"
 
 
