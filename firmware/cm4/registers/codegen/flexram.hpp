@@ -44,7 +44,6 @@ union TCM_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  TCM_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TCM_CTRL &ref() { return *reinterpret_cast<volatile TCM_CTRL*>(0x40028000); }
 };
@@ -73,7 +72,6 @@ union OCRAM_MAGIC_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCRAM_MAGIC_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OCRAM_MAGIC_ADDR &ref() { return *reinterpret_cast<volatile OCRAM_MAGIC_ADDR*>(0x40028004); }
 };
@@ -102,7 +100,6 @@ union DTCM_MAGIC_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  DTCM_MAGIC_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DTCM_MAGIC_ADDR &ref() { return *reinterpret_cast<volatile DTCM_MAGIC_ADDR*>(0x40028008); }
 };
@@ -131,7 +128,6 @@ union ITCM_MAGIC_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  ITCM_MAGIC_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ITCM_MAGIC_ADDR &ref() { return *reinterpret_cast<volatile ITCM_MAGIC_ADDR*>(0x4002800C); }
 };
@@ -328,7 +324,6 @@ union INT_STATUS {
   // Full 32-bit register value.
   uint32_t value;
 
-  INT_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile INT_STATUS &ref() { return *reinterpret_cast<volatile INT_STATUS*>(0x40028010); }
 };
@@ -525,7 +520,6 @@ union INT_STAT_EN {
   // Full 32-bit register value.
   uint32_t value;
 
-  INT_STAT_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile INT_STAT_EN &ref() { return *reinterpret_cast<volatile INT_STAT_EN*>(0x40028014); }
 };
@@ -722,7 +716,6 @@ union INT_SIG_EN {
   // Full 32-bit register value.
   uint32_t value;
 
-  INT_SIG_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile INT_SIG_EN &ref() { return *reinterpret_cast<volatile INT_SIG_EN*>(0x40028018); }
 };
@@ -743,7 +736,6 @@ union OCRAM_ECC_SINGLE_ERROR_INFO {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCRAM_ECC_SINGLE_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OCRAM_ECC_SINGLE_ERROR_INFO &ref() { return *reinterpret_cast<volatile OCRAM_ECC_SINGLE_ERROR_INFO*>(0x4002801C); }
 };
@@ -760,7 +752,6 @@ union OCRAM_ECC_SINGLE_ERROR_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCRAM_ECC_SINGLE_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OCRAM_ECC_SINGLE_ERROR_ADDR &ref() { return *reinterpret_cast<volatile OCRAM_ECC_SINGLE_ERROR_ADDR*>(0x40028020); }
 };
@@ -777,7 +768,6 @@ union OCRAM_ECC_SINGLE_ERROR_DATA_LSB {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCRAM_ECC_SINGLE_ERROR_DATA_LSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OCRAM_ECC_SINGLE_ERROR_DATA_LSB &ref() { return *reinterpret_cast<volatile OCRAM_ECC_SINGLE_ERROR_DATA_LSB*>(0x40028024); }
 };
@@ -794,7 +784,6 @@ union OCRAM_ECC_SINGLE_ERROR_DATA_MSB {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCRAM_ECC_SINGLE_ERROR_DATA_MSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OCRAM_ECC_SINGLE_ERROR_DATA_MSB &ref() { return *reinterpret_cast<volatile OCRAM_ECC_SINGLE_ERROR_DATA_MSB*>(0x40028028); }
 };
@@ -813,7 +802,6 @@ union OCRAM_ECC_MULTI_ERROR_INFO {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCRAM_ECC_MULTI_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OCRAM_ECC_MULTI_ERROR_INFO &ref() { return *reinterpret_cast<volatile OCRAM_ECC_MULTI_ERROR_INFO*>(0x4002802C); }
 };
@@ -830,7 +818,6 @@ union OCRAM_ECC_MULTI_ERROR_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCRAM_ECC_MULTI_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OCRAM_ECC_MULTI_ERROR_ADDR &ref() { return *reinterpret_cast<volatile OCRAM_ECC_MULTI_ERROR_ADDR*>(0x40028030); }
 };
@@ -847,7 +834,6 @@ union OCRAM_ECC_MULTI_ERROR_DATA_LSB {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCRAM_ECC_MULTI_ERROR_DATA_LSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OCRAM_ECC_MULTI_ERROR_DATA_LSB &ref() { return *reinterpret_cast<volatile OCRAM_ECC_MULTI_ERROR_DATA_LSB*>(0x40028034); }
 };
@@ -864,7 +850,6 @@ union OCRAM_ECC_MULTI_ERROR_DATA_MSB {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCRAM_ECC_MULTI_ERROR_DATA_MSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OCRAM_ECC_MULTI_ERROR_DATA_MSB &ref() { return *reinterpret_cast<volatile OCRAM_ECC_MULTI_ERROR_DATA_MSB*>(0x40028038); }
 };
@@ -891,7 +876,6 @@ union ITCM_ECC_SINGLE_ERROR_INFO {
   // Full 32-bit register value.
   uint32_t value;
 
-  ITCM_ECC_SINGLE_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ITCM_ECC_SINGLE_ERROR_INFO &ref() { return *reinterpret_cast<volatile ITCM_ECC_SINGLE_ERROR_INFO*>(0x4002803C); }
 };
@@ -908,7 +892,6 @@ union ITCM_ECC_SINGLE_ERROR_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  ITCM_ECC_SINGLE_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ITCM_ECC_SINGLE_ERROR_ADDR &ref() { return *reinterpret_cast<volatile ITCM_ECC_SINGLE_ERROR_ADDR*>(0x40028040); }
 };
@@ -925,7 +908,6 @@ union ITCM_ECC_SINGLE_ERROR_DATA_LSB {
   // Full 32-bit register value.
   uint32_t value;
 
-  ITCM_ECC_SINGLE_ERROR_DATA_LSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ITCM_ECC_SINGLE_ERROR_DATA_LSB &ref() { return *reinterpret_cast<volatile ITCM_ECC_SINGLE_ERROR_DATA_LSB*>(0x40028044); }
 };
@@ -942,7 +924,6 @@ union ITCM_ECC_SINGLE_ERROR_DATA_MSB {
   // Full 32-bit register value.
   uint32_t value;
 
-  ITCM_ECC_SINGLE_ERROR_DATA_MSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ITCM_ECC_SINGLE_ERROR_DATA_MSB &ref() { return *reinterpret_cast<volatile ITCM_ECC_SINGLE_ERROR_DATA_MSB*>(0x40028048); }
 };
@@ -969,7 +950,6 @@ union ITCM_ECC_MULTI_ERROR_INFO {
   // Full 32-bit register value.
   uint32_t value;
 
-  ITCM_ECC_MULTI_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ITCM_ECC_MULTI_ERROR_INFO &ref() { return *reinterpret_cast<volatile ITCM_ECC_MULTI_ERROR_INFO*>(0x4002804C); }
 };
@@ -986,7 +966,6 @@ union ITCM_ECC_MULTI_ERROR_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  ITCM_ECC_MULTI_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ITCM_ECC_MULTI_ERROR_ADDR &ref() { return *reinterpret_cast<volatile ITCM_ECC_MULTI_ERROR_ADDR*>(0x40028050); }
 };
@@ -1003,7 +982,6 @@ union ITCM_ECC_MULTI_ERROR_DATA_LSB {
   // Full 32-bit register value.
   uint32_t value;
 
-  ITCM_ECC_MULTI_ERROR_DATA_LSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ITCM_ECC_MULTI_ERROR_DATA_LSB &ref() { return *reinterpret_cast<volatile ITCM_ECC_MULTI_ERROR_DATA_LSB*>(0x40028054); }
 };
@@ -1020,7 +998,6 @@ union ITCM_ECC_MULTI_ERROR_DATA_MSB {
   // Full 32-bit register value.
   uint32_t value;
 
-  ITCM_ECC_MULTI_ERROR_DATA_MSB() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ITCM_ECC_MULTI_ERROR_DATA_MSB &ref() { return *reinterpret_cast<volatile ITCM_ECC_MULTI_ERROR_DATA_MSB*>(0x40028058); }
 };
@@ -1047,7 +1024,6 @@ union D0TCM_ECC_SINGLE_ERROR_INFO {
   // Full 32-bit register value.
   uint32_t value;
 
-  D0TCM_ECC_SINGLE_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile D0TCM_ECC_SINGLE_ERROR_INFO &ref() { return *reinterpret_cast<volatile D0TCM_ECC_SINGLE_ERROR_INFO*>(0x4002805C); }
 };
@@ -1064,7 +1040,6 @@ union D0TCM_ECC_SINGLE_ERROR_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  D0TCM_ECC_SINGLE_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile D0TCM_ECC_SINGLE_ERROR_ADDR &ref() { return *reinterpret_cast<volatile D0TCM_ECC_SINGLE_ERROR_ADDR*>(0x40028060); }
 };
@@ -1081,7 +1056,6 @@ union D0TCM_ECC_SINGLE_ERROR_DATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  D0TCM_ECC_SINGLE_ERROR_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile D0TCM_ECC_SINGLE_ERROR_DATA &ref() { return *reinterpret_cast<volatile D0TCM_ECC_SINGLE_ERROR_DATA*>(0x40028064); }
 };
@@ -1108,7 +1082,6 @@ union D0TCM_ECC_MULTI_ERROR_INFO {
   // Full 32-bit register value.
   uint32_t value;
 
-  D0TCM_ECC_MULTI_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile D0TCM_ECC_MULTI_ERROR_INFO &ref() { return *reinterpret_cast<volatile D0TCM_ECC_MULTI_ERROR_INFO*>(0x40028068); }
 };
@@ -1125,7 +1098,6 @@ union D0TCM_ECC_MULTI_ERROR_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  D0TCM_ECC_MULTI_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile D0TCM_ECC_MULTI_ERROR_ADDR &ref() { return *reinterpret_cast<volatile D0TCM_ECC_MULTI_ERROR_ADDR*>(0x4002806C); }
 };
@@ -1142,7 +1114,6 @@ union D0TCM_ECC_MULTI_ERROR_DATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  D0TCM_ECC_MULTI_ERROR_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile D0TCM_ECC_MULTI_ERROR_DATA &ref() { return *reinterpret_cast<volatile D0TCM_ECC_MULTI_ERROR_DATA*>(0x40028070); }
 };
@@ -1169,7 +1140,6 @@ union D1TCM_ECC_SINGLE_ERROR_INFO {
   // Full 32-bit register value.
   uint32_t value;
 
-  D1TCM_ECC_SINGLE_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile D1TCM_ECC_SINGLE_ERROR_INFO &ref() { return *reinterpret_cast<volatile D1TCM_ECC_SINGLE_ERROR_INFO*>(0x40028074); }
 };
@@ -1186,7 +1156,6 @@ union D1TCM_ECC_SINGLE_ERROR_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  D1TCM_ECC_SINGLE_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile D1TCM_ECC_SINGLE_ERROR_ADDR &ref() { return *reinterpret_cast<volatile D1TCM_ECC_SINGLE_ERROR_ADDR*>(0x40028078); }
 };
@@ -1203,7 +1172,6 @@ union D1TCM_ECC_SINGLE_ERROR_DATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  D1TCM_ECC_SINGLE_ERROR_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile D1TCM_ECC_SINGLE_ERROR_DATA &ref() { return *reinterpret_cast<volatile D1TCM_ECC_SINGLE_ERROR_DATA*>(0x4002807C); }
 };
@@ -1230,7 +1198,6 @@ union D1TCM_ECC_MULTI_ERROR_INFO {
   // Full 32-bit register value.
   uint32_t value;
 
-  D1TCM_ECC_MULTI_ERROR_INFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile D1TCM_ECC_MULTI_ERROR_INFO &ref() { return *reinterpret_cast<volatile D1TCM_ECC_MULTI_ERROR_INFO*>(0x40028080); }
 };
@@ -1247,7 +1214,6 @@ union D1TCM_ECC_MULTI_ERROR_ADDR {
   // Full 32-bit register value.
   uint32_t value;
 
-  D1TCM_ECC_MULTI_ERROR_ADDR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile D1TCM_ECC_MULTI_ERROR_ADDR &ref() { return *reinterpret_cast<volatile D1TCM_ECC_MULTI_ERROR_ADDR*>(0x40028084); }
 };
@@ -1264,7 +1230,6 @@ union D1TCM_ECC_MULTI_ERROR_DATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  D1TCM_ECC_MULTI_ERROR_DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile D1TCM_ECC_MULTI_ERROR_DATA &ref() { return *reinterpret_cast<volatile D1TCM_ECC_MULTI_ERROR_DATA*>(0x40028088); }
 };
@@ -1293,7 +1258,6 @@ union FLEXRAM_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  FLEXRAM_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile FLEXRAM_CTRL &ref() { return *reinterpret_cast<volatile FLEXRAM_CTRL*>(0x40028108); }
 };
@@ -1318,7 +1282,6 @@ union OCRAM_PIPELINE_STATUS {
   // Full 32-bit register value.
   uint32_t value;
 
-  OCRAM_PIPELINE_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OCRAM_PIPELINE_STATUS &ref() { return *reinterpret_cast<volatile OCRAM_PIPELINE_STATUS*>(0x4002810C); }
 };

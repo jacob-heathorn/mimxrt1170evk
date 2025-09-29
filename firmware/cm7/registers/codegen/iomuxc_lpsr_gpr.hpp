@@ -52,7 +52,6 @@ union GPR0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR0() = delete;
   inline void Reset() volatile { this->value = 0x00000400; }
   static inline volatile GPR0 &ref() { return *reinterpret_cast<volatile GPR0*>(0x40C0C000); }
 };
@@ -98,7 +97,6 @@ union GPR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR1() = delete;
   inline void Reset() volatile { this->value = 0x00000020; }
   static inline volatile GPR1 &ref() { return *reinterpret_cast<volatile GPR1*>(0x40C0C004); }
 };
@@ -126,7 +124,6 @@ union GPR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR2 &ref() { return *reinterpret_cast<volatile GPR2*>(0x40C0C008); }
 };
@@ -154,7 +151,6 @@ union GPR3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR3 &ref() { return *reinterpret_cast<volatile GPR3*>(0x40C0C00C); }
 };
@@ -182,7 +178,6 @@ union GPR4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR4 &ref() { return *reinterpret_cast<volatile GPR4*>(0x40C0C010); }
 };
@@ -210,7 +205,6 @@ union GPR5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR5 &ref() { return *reinterpret_cast<volatile GPR5*>(0x40C0C014); }
 };
@@ -238,7 +232,6 @@ union GPR6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR6 &ref() { return *reinterpret_cast<volatile GPR6*>(0x40C0C018); }
 };
@@ -266,7 +259,6 @@ union GPR7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR7 &ref() { return *reinterpret_cast<volatile GPR7*>(0x40C0C01C); }
 };
@@ -294,7 +286,6 @@ union GPR8 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR8 &ref() { return *reinterpret_cast<volatile GPR8*>(0x40C0C020); }
 };
@@ -322,7 +313,6 @@ union GPR9 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR9 &ref() { return *reinterpret_cast<volatile GPR9*>(0x40C0C024); }
 };
@@ -350,7 +340,6 @@ union GPR10 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR10 &ref() { return *reinterpret_cast<volatile GPR10*>(0x40C0C028); }
 };
@@ -378,7 +367,6 @@ union GPR11 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR11 &ref() { return *reinterpret_cast<volatile GPR11*>(0x40C0C02C); }
 };
@@ -406,7 +394,6 @@ union GPR12 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR12 &ref() { return *reinterpret_cast<volatile GPR12*>(0x40C0C030); }
 };
@@ -434,7 +421,6 @@ union GPR13 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR13 &ref() { return *reinterpret_cast<volatile GPR13*>(0x40C0C034); }
 };
@@ -462,7 +448,6 @@ union GPR14 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR14 &ref() { return *reinterpret_cast<volatile GPR14*>(0x40C0C038); }
 };
@@ -490,7 +475,6 @@ union GPR15 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR15 &ref() { return *reinterpret_cast<volatile GPR15*>(0x40C0C03C); }
 };
@@ -518,7 +502,6 @@ union GPR16 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR16 &ref() { return *reinterpret_cast<volatile GPR16*>(0x40C0C040); }
 };
@@ -546,7 +529,6 @@ union GPR17 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR17 &ref() { return *reinterpret_cast<volatile GPR17*>(0x40C0C044); }
 };
@@ -575,7 +557,6 @@ union GPR18 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR18 &ref() { return *reinterpret_cast<volatile GPR18*>(0x40C0C048); }
 };
@@ -604,7 +585,6 @@ union GPR19 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR19 &ref() { return *reinterpret_cast<volatile GPR19*>(0x40C0C04C); }
 };
@@ -633,7 +613,6 @@ union GPR20 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR20 &ref() { return *reinterpret_cast<volatile GPR20*>(0x40C0C050); }
 };
@@ -662,7 +641,6 @@ union GPR21 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR21 &ref() { return *reinterpret_cast<volatile GPR21*>(0x40C0C054); }
 };
@@ -691,7 +669,6 @@ union GPR22 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR22 &ref() { return *reinterpret_cast<volatile GPR22*>(0x40C0C058); }
 };
@@ -720,7 +697,6 @@ union GPR23 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR23 &ref() { return *reinterpret_cast<volatile GPR23*>(0x40C0C05C); }
 };
@@ -749,7 +725,6 @@ union GPR24 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR24 &ref() { return *reinterpret_cast<volatile GPR24*>(0x40C0C060); }
 };
@@ -788,7 +763,6 @@ union GPR25 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR25 &ref() { return *reinterpret_cast<volatile GPR25*>(0x40C0C064); }
 };
@@ -835,7 +809,6 @@ union GPR26 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR26() = delete;
   inline void Reset() volatile { this->value = 0x00004000; }
   static inline volatile GPR26 &ref() { return *reinterpret_cast<volatile GPR26*>(0x40C0C068); }
 };
@@ -886,7 +859,6 @@ union GPR33 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR33 &ref() { return *reinterpret_cast<volatile GPR33*>(0x40C0C084); }
 };
@@ -976,7 +948,6 @@ union GPR34 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR34() = delete;
   inline void Reset() volatile { this->value = 0x00000E00; }
   static inline volatile GPR34 &ref() { return *reinterpret_cast<volatile GPR34*>(0x40C0C088); }
 };
@@ -1281,7 +1252,6 @@ union GPR35 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR35 &ref() { return *reinterpret_cast<volatile GPR35*>(0x40C0C08C); }
 };
@@ -1595,7 +1565,6 @@ union GPR36 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR36 &ref() { return *reinterpret_cast<volatile GPR36*>(0x40C0C090); }
 };
@@ -1909,7 +1878,6 @@ union GPR37 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR37 &ref() { return *reinterpret_cast<volatile GPR37*>(0x40C0C094); }
 };
@@ -2223,7 +2191,6 @@ union GPR38 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR38 &ref() { return *reinterpret_cast<volatile GPR38*>(0x40C0C098); }
 };
@@ -2438,7 +2405,6 @@ union GPR39 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR39 &ref() { return *reinterpret_cast<volatile GPR39*>(0x40C0C09C); }
 };
@@ -2517,7 +2483,6 @@ union GPR40 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR40 &ref() { return *reinterpret_cast<volatile GPR40*>(0x40C0C0A0); }
 };
@@ -2570,7 +2535,6 @@ union GPR41 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR41 &ref() { return *reinterpret_cast<volatile GPR41*>(0x40C0C0A4); }
 };

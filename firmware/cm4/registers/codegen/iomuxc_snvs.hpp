@@ -42,7 +42,6 @@ union SW_MUX_CTL_PAD_WAKEUP_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_WAKEUP_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile SW_MUX_CTL_PAD_WAKEUP_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_WAKEUP_DIG*>(0x40C94000); }
 };
@@ -79,7 +78,6 @@ union SW_MUX_CTL_PAD_PMIC_ON_REQ_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_PMIC_ON_REQ_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SW_MUX_CTL_PAD_PMIC_ON_REQ_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_PMIC_ON_REQ_DIG*>(0x40C94004); }
 };
@@ -116,7 +114,6 @@ union SW_MUX_CTL_PAD_PMIC_STBY_REQ_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_PMIC_STBY_REQ_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SW_MUX_CTL_PAD_PMIC_STBY_REQ_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_PMIC_STBY_REQ_DIG*>(0x40C94008); }
 };
@@ -153,7 +150,6 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_00_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_GPIO_SNVS_00_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile SW_MUX_CTL_PAD_GPIO_SNVS_00_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_SNVS_00_DIG*>(0x40C9400C); }
 };
@@ -190,7 +186,6 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_01_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_GPIO_SNVS_01_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile SW_MUX_CTL_PAD_GPIO_SNVS_01_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_SNVS_01_DIG*>(0x40C94010); }
 };
@@ -227,7 +222,6 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_02_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_GPIO_SNVS_02_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile SW_MUX_CTL_PAD_GPIO_SNVS_02_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_SNVS_02_DIG*>(0x40C94014); }
 };
@@ -264,7 +258,6 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_03_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_GPIO_SNVS_03_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile SW_MUX_CTL_PAD_GPIO_SNVS_03_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_SNVS_03_DIG*>(0x40C94018); }
 };
@@ -301,7 +294,6 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_04_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_GPIO_SNVS_04_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile SW_MUX_CTL_PAD_GPIO_SNVS_04_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_SNVS_04_DIG*>(0x40C9401C); }
 };
@@ -338,7 +330,6 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_05_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_GPIO_SNVS_05_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile SW_MUX_CTL_PAD_GPIO_SNVS_05_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_SNVS_05_DIG*>(0x40C94020); }
 };
@@ -375,7 +366,6 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_06_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_GPIO_SNVS_06_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile SW_MUX_CTL_PAD_GPIO_SNVS_06_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_SNVS_06_DIG*>(0x40C94024); }
 };
@@ -412,7 +402,6 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_07_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_GPIO_SNVS_07_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile SW_MUX_CTL_PAD_GPIO_SNVS_07_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_SNVS_07_DIG*>(0x40C94028); }
 };
@@ -449,7 +438,6 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_08_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_GPIO_SNVS_08_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile SW_MUX_CTL_PAD_GPIO_SNVS_08_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_SNVS_08_DIG*>(0x40C9402C); }
 };
@@ -486,7 +474,6 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_09_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_MUX_CTL_PAD_GPIO_SNVS_09_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile SW_MUX_CTL_PAD_GPIO_SNVS_09_DIG &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_SNVS_09_DIG*>(0x40C94030); }
 };
@@ -551,7 +538,6 @@ union SW_PAD_CTL_PAD_TEST_MODE_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_TEST_MODE_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000006; }
   static inline volatile SW_PAD_CTL_PAD_TEST_MODE_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_TEST_MODE_DIG*>(0x40C94034); }
 };
@@ -616,7 +602,6 @@ union SW_PAD_CTL_PAD_POR_B_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_POR_B_DIG() = delete;
   inline void Reset() volatile { this->value = 0x0000000E; }
   static inline volatile SW_PAD_CTL_PAD_POR_B_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_POR_B_DIG*>(0x40C94038); }
 };
@@ -681,7 +666,6 @@ union SW_PAD_CTL_PAD_ONOFF_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_ONOFF_DIG() = delete;
   inline void Reset() volatile { this->value = 0x0000000E; }
   static inline volatile SW_PAD_CTL_PAD_ONOFF_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_ONOFF_DIG*>(0x40C9403C); }
 };
@@ -757,7 +741,6 @@ union SW_PAD_CTL_PAD_WAKEUP_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_WAKEUP_DIG() = delete;
   inline void Reset() volatile { this->value = 0x0000000E; }
   static inline volatile SW_PAD_CTL_PAD_WAKEUP_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_WAKEUP_DIG*>(0x40C94040); }
 };
@@ -833,7 +816,6 @@ union SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
   static inline volatile SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG*>(0x40C94044); }
 };
@@ -909,7 +891,6 @@ union SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
   static inline volatile SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG*>(0x40C94048); }
 };
@@ -985,7 +966,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG*>(0x40C9404C); }
 };
@@ -1061,7 +1041,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG*>(0x40C94050); }
 };
@@ -1137,7 +1116,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG*>(0x40C94054); }
 };
@@ -1213,7 +1191,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG*>(0x40C94058); }
 };
@@ -1289,7 +1266,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG*>(0x40C9405C); }
 };
@@ -1365,7 +1341,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG*>(0x40C94060); }
 };
@@ -1441,7 +1416,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG*>(0x40C94064); }
 };
@@ -1517,7 +1491,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG*>(0x40C94068); }
 };
@@ -1593,7 +1566,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG*>(0x40C9406C); }
 };
@@ -1669,7 +1641,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_09_DIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SW_PAD_CTL_PAD_GPIO_SNVS_09_DIG() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile SW_PAD_CTL_PAD_GPIO_SNVS_09_DIG &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_SNVS_09_DIG*>(0x40C94070); }
 };

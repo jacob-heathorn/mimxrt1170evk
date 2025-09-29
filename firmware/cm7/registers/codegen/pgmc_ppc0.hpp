@@ -36,7 +36,6 @@ union PPC_AUTHEN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PPC_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000F00; }
   static inline volatile PPC_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile PPC_AUTHEN_CTRL*>(0x40C8B004); }
 };
@@ -79,7 +78,6 @@ union PPC_MODE {
   // Full 32-bit register value.
   uint32_t value;
 
-  PPC_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PPC_MODE &ref() { return *reinterpret_cast<volatile PPC_MODE*>(0x40C8B010); }
 };
@@ -107,7 +105,6 @@ union PPC_STBY_CM_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PPC_STBY_CM_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PPC_STBY_CM_CTRL &ref() { return *reinterpret_cast<volatile PPC_STBY_CM_CTRL*>(0x40C8B014); }
 };
@@ -126,7 +123,6 @@ union PPC_STBY_SP_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PPC_STBY_SP_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PPC_STBY_SP_CTRL &ref() { return *reinterpret_cast<volatile PPC_STBY_SP_CTRL*>(0x40C8B018); }
 };

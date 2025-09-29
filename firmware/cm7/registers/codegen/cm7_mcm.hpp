@@ -176,7 +176,6 @@ union ISCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  ISCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ISCR &ref() { return *reinterpret_cast<volatile ISCR*>(0xE0080010); }
 };

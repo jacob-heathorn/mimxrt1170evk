@@ -1,4 +1,4 @@
-#include "drivers/gpio.hpp"
+#include "drivers/gpio/gpio.hpp"
 #include <cassert>
 
 template <uint32_t GPIO_NUM>

@@ -84,7 +84,6 @@ union CONTROL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00010000; }
   static inline volatile CONTROL &ref() { return *reinterpret_cast<volatile CONTROL*>(0x40438800); }
 };
@@ -113,7 +112,6 @@ union CLOCK {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK() = delete;
   inline void Reset() volatile { this->value = 0x000000C1; }
   static inline volatile CLOCK &ref() { return *reinterpret_cast<volatile CLOCK*>(0x40438804); }
 };
@@ -188,7 +186,6 @@ union STATUS {
   // Full 32-bit register value.
   uint32_t value;
 
-  STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STATUS &ref() { return *reinterpret_cast<volatile STATUS*>(0x40438808); }
 };
@@ -214,7 +211,6 @@ union SIGNAL_OVERRIDE {
   // Full 32-bit register value.
   uint32_t value;
 
-  SIGNAL_OVERRIDE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SIGNAL_OVERRIDE &ref() { return *reinterpret_cast<volatile SIGNAL_OVERRIDE*>(0x4043880C); }
 };
@@ -259,7 +255,6 @@ union TIMER0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMER0() = delete;
   inline void Reset() volatile { this->value = 0x00100000; }
   static inline volatile TIMER0 &ref() { return *reinterpret_cast<volatile TIMER0*>(0x40438810); }
 };
@@ -328,7 +323,6 @@ union TIMER1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMER1() = delete;
   inline void Reset() volatile { this->value = 0x000A0028; }
   static inline volatile TIMER1 &ref() { return *reinterpret_cast<volatile TIMER1*>(0x40438814); }
 };
@@ -397,7 +391,6 @@ union TIMER2_BC11 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMER2_BC11() = delete;
   inline void Reset() volatile { this->value = 0x00280001; }
   static inline volatile TIMER2_BC11 &ref() { return *reinterpret_cast<volatile TIMER2_BC11*>(0x40438818); }
 };
@@ -466,7 +459,6 @@ union TIMER2_BC12 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMER2_BC12() = delete;
   inline void Reset() volatile { this->value = 0x00010028; }
   static inline volatile TIMER2_BC12 &ref() { return *reinterpret_cast<volatile TIMER2_BC12*>(0x40438818); }
 };

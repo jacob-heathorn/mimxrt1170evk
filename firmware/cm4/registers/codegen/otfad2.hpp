@@ -94,7 +94,6 @@ union CR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CR &ref() { return *reinterpret_cast<volatile CR*>(0x400D0C00); }
 };
@@ -261,7 +260,6 @@ union SR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SR() = delete;
   inline void Reset() volatile { this->value = 0x00000040; }
   static inline volatile SR &ref() { return *reinterpret_cast<volatile SR*>(0x400D0C04); }
 };

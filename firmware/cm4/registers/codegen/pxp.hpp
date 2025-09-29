@@ -133,7 +133,6 @@ union PXP_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_CTRL() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
   static inline volatile PXP_CTRL &ref() { return *reinterpret_cast<volatile PXP_CTRL*>(0x40814000); }
 };
@@ -261,7 +260,6 @@ union PXP_CTRL_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
   static inline volatile PXP_CTRL_SET &ref() { return *reinterpret_cast<volatile PXP_CTRL_SET*>(0x40814004); }
 };
@@ -389,7 +387,6 @@ union PXP_CTRL_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
   static inline volatile PXP_CTRL_CLR &ref() { return *reinterpret_cast<volatile PXP_CTRL_CLR*>(0x40814008); }
 };
@@ -517,7 +514,6 @@ union PXP_CTRL_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0xC0000000; }
   static inline volatile PXP_CTRL_TOG &ref() { return *reinterpret_cast<volatile PXP_CTRL_TOG*>(0x4081400C); }
 };
@@ -581,7 +577,6 @@ union PXP_STAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_STAT &ref() { return *reinterpret_cast<volatile PXP_STAT*>(0x40814010); }
 };
@@ -645,7 +640,6 @@ union PXP_STAT_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_STAT_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_STAT_SET &ref() { return *reinterpret_cast<volatile PXP_STAT_SET*>(0x40814014); }
 };
@@ -709,7 +703,6 @@ union PXP_STAT_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_STAT_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_STAT_CLR &ref() { return *reinterpret_cast<volatile PXP_STAT_CLR*>(0x40814018); }
 };
@@ -773,7 +766,6 @@ union PXP_STAT_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_STAT_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_STAT_TOG &ref() { return *reinterpret_cast<volatile PXP_STAT_TOG*>(0x4081401C); }
 };
@@ -856,7 +848,6 @@ union PXP_OUT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_OUT_CTRL &ref() { return *reinterpret_cast<volatile PXP_OUT_CTRL*>(0x40814020); }
 };
@@ -939,7 +930,6 @@ union PXP_OUT_CTRL_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_OUT_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_OUT_CTRL_SET &ref() { return *reinterpret_cast<volatile PXP_OUT_CTRL_SET*>(0x40814024); }
 };
@@ -1022,7 +1012,6 @@ union PXP_OUT_CTRL_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_OUT_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_OUT_CTRL_CLR &ref() { return *reinterpret_cast<volatile PXP_OUT_CTRL_CLR*>(0x40814028); }
 };
@@ -1105,7 +1094,6 @@ union PXP_OUT_CTRL_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_OUT_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_OUT_CTRL_TOG &ref() { return *reinterpret_cast<volatile PXP_OUT_CTRL_TOG*>(0x4081402C); }
 };
@@ -1122,7 +1110,6 @@ union PXP_OUT_BUF {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_OUT_BUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_OUT_BUF &ref() { return *reinterpret_cast<volatile PXP_OUT_BUF*>(0x40814030); }
 };
@@ -1139,7 +1126,6 @@ union PXP_OUT_BUF2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_OUT_BUF2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_OUT_BUF2 &ref() { return *reinterpret_cast<volatile PXP_OUT_BUF2*>(0x40814040); }
 };
@@ -1157,7 +1143,6 @@ union PXP_OUT_PITCH {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_OUT_PITCH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_OUT_PITCH &ref() { return *reinterpret_cast<volatile PXP_OUT_PITCH*>(0x40814050); }
 };
@@ -1178,7 +1163,6 @@ union PXP_OUT_LRC {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_OUT_LRC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_OUT_LRC &ref() { return *reinterpret_cast<volatile PXP_OUT_LRC*>(0x40814060); }
 };
@@ -1199,7 +1183,6 @@ union PXP_OUT_PS_ULC {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_OUT_PS_ULC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_OUT_PS_ULC &ref() { return *reinterpret_cast<volatile PXP_OUT_PS_ULC*>(0x40814070); }
 };
@@ -1220,7 +1203,6 @@ union PXP_OUT_PS_LRC {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_OUT_PS_LRC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_OUT_PS_LRC &ref() { return *reinterpret_cast<volatile PXP_OUT_PS_LRC*>(0x40814080); }
 };
@@ -1241,7 +1223,6 @@ union PXP_OUT_AS_ULC {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_OUT_AS_ULC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_OUT_AS_ULC &ref() { return *reinterpret_cast<volatile PXP_OUT_AS_ULC*>(0x40814090); }
 };
@@ -1262,7 +1243,6 @@ union PXP_OUT_AS_LRC {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_OUT_AS_LRC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_OUT_AS_LRC &ref() { return *reinterpret_cast<volatile PXP_OUT_AS_LRC*>(0x408140A0); }
 };
@@ -1359,7 +1339,6 @@ union PXP_PS_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_PS_CTRL &ref() { return *reinterpret_cast<volatile PXP_PS_CTRL*>(0x408140B0); }
 };
@@ -1456,7 +1435,6 @@ union PXP_PS_CTRL_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_CTRL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_PS_CTRL_SET &ref() { return *reinterpret_cast<volatile PXP_PS_CTRL_SET*>(0x408140B4); }
 };
@@ -1553,7 +1531,6 @@ union PXP_PS_CTRL_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_CTRL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_PS_CTRL_CLR &ref() { return *reinterpret_cast<volatile PXP_PS_CTRL_CLR*>(0x408140B8); }
 };
@@ -1650,7 +1627,6 @@ union PXP_PS_CTRL_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_CTRL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_PS_CTRL_TOG &ref() { return *reinterpret_cast<volatile PXP_PS_CTRL_TOG*>(0x408140BC); }
 };
@@ -1667,7 +1643,6 @@ union PXP_PS_BUF {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_BUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_PS_BUF &ref() { return *reinterpret_cast<volatile PXP_PS_BUF*>(0x408140C0); }
 };
@@ -1684,7 +1659,6 @@ union PXP_PS_UBUF {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_UBUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_PS_UBUF &ref() { return *reinterpret_cast<volatile PXP_PS_UBUF*>(0x408140D0); }
 };
@@ -1701,7 +1675,6 @@ union PXP_PS_VBUF {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_VBUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_PS_VBUF &ref() { return *reinterpret_cast<volatile PXP_PS_VBUF*>(0x408140E0); }
 };
@@ -1719,7 +1692,6 @@ union PXP_PS_PITCH {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_PITCH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_PS_PITCH &ref() { return *reinterpret_cast<volatile PXP_PS_PITCH*>(0x408140F0); }
 };
@@ -1737,7 +1709,6 @@ union PXP_PS_BACKGROUND {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_BACKGROUND() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_PS_BACKGROUND &ref() { return *reinterpret_cast<volatile PXP_PS_BACKGROUND*>(0x40814100); }
 };
@@ -1758,7 +1729,6 @@ union PXP_PS_SCALE {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_SCALE() = delete;
   inline void Reset() volatile { this->value = 0x10001000; }
   static inline volatile PXP_PS_SCALE &ref() { return *reinterpret_cast<volatile PXP_PS_SCALE*>(0x40814110); }
 };
@@ -1779,7 +1749,6 @@ union PXP_PS_OFFSET {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_OFFSET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_PS_OFFSET &ref() { return *reinterpret_cast<volatile PXP_PS_OFFSET*>(0x40814120); }
 };
@@ -1797,7 +1766,6 @@ union PXP_PS_CLRKEYLOW {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_CLRKEYLOW() = delete;
   inline void Reset() volatile { this->value = 0x00FFFFFF; }
   static inline volatile PXP_PS_CLRKEYLOW &ref() { return *reinterpret_cast<volatile PXP_PS_CLRKEYLOW*>(0x40814130); }
 };
@@ -1815,7 +1783,6 @@ union PXP_PS_CLRKEYHIGH {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PS_CLRKEYHIGH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_PS_CLRKEYHIGH &ref() { return *reinterpret_cast<volatile PXP_PS_CLRKEYHIGH*>(0x40814140); }
 };
@@ -1924,7 +1891,6 @@ union PXP_AS_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_AS_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_AS_CTRL &ref() { return *reinterpret_cast<volatile PXP_AS_CTRL*>(0x40814150); }
 };
@@ -1941,7 +1907,6 @@ union PXP_AS_BUF {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_AS_BUF() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_AS_BUF &ref() { return *reinterpret_cast<volatile PXP_AS_BUF*>(0x40814160); }
 };
@@ -1959,7 +1924,6 @@ union PXP_AS_PITCH {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_AS_PITCH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_AS_PITCH &ref() { return *reinterpret_cast<volatile PXP_AS_PITCH*>(0x40814170); }
 };
@@ -1977,7 +1941,6 @@ union PXP_AS_CLRKEYLOW {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_AS_CLRKEYLOW() = delete;
   inline void Reset() volatile { this->value = 0x00FFFFFF; }
   static inline volatile PXP_AS_CLRKEYLOW &ref() { return *reinterpret_cast<volatile PXP_AS_CLRKEYLOW*>(0x40814180); }
 };
@@ -1995,7 +1958,6 @@ union PXP_AS_CLRKEYHIGH {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_AS_CLRKEYHIGH() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_AS_CLRKEYHIGH &ref() { return *reinterpret_cast<volatile PXP_AS_CLRKEYHIGH*>(0x40814190); }
 };
@@ -2029,7 +1991,6 @@ union PXP_CSC1_COEF0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_CSC1_COEF0() = delete;
   inline void Reset() volatile { this->value = 0x04000000; }
   static inline volatile PXP_CSC1_COEF0 &ref() { return *reinterpret_cast<volatile PXP_CSC1_COEF0*>(0x408141A0); }
 };
@@ -2050,7 +2011,6 @@ union PXP_CSC1_COEF1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_CSC1_COEF1() = delete;
   inline void Reset() volatile { this->value = 0x01230208; }
   static inline volatile PXP_CSC1_COEF1 &ref() { return *reinterpret_cast<volatile PXP_CSC1_COEF1*>(0x408141B0); }
 };
@@ -2071,7 +2031,6 @@ union PXP_CSC1_COEF2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_CSC1_COEF2() = delete;
   inline void Reset() volatile { this->value = 0x079B076C; }
   static inline volatile PXP_CSC1_COEF2 &ref() { return *reinterpret_cast<volatile PXP_CSC1_COEF2*>(0x408141C0); }
 };
@@ -2102,7 +2061,6 @@ union PXP_POWER {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_POWER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_POWER &ref() { return *reinterpret_cast<volatile PXP_POWER*>(0x40814320); }
 };
@@ -2122,7 +2080,6 @@ union PXP_NEXT {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_NEXT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_NEXT &ref() { return *reinterpret_cast<volatile PXP_NEXT*>(0x40814400); }
 };
@@ -2249,7 +2206,6 @@ union PXP_PORTER_DUFF_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PXP_PORTER_DUFF_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PXP_PORTER_DUFF_CTRL &ref() { return *reinterpret_cast<volatile PXP_PORTER_DUFF_CTRL*>(0x40814440); }
 };

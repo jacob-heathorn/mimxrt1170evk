@@ -36,7 +36,6 @@ union CPC_AUTHEN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CPC_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000F00; }
   static inline volatile CPC_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile CPC_AUTHEN_CTRL*>(0x40C89404); }
 };
@@ -62,7 +61,6 @@ union CPC_CORE_MODE {
   // Full 32-bit register value.
   uint32_t value;
 
-  CPC_CORE_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CPC_CORE_MODE &ref() { return *reinterpret_cast<volatile CPC_CORE_MODE*>(0x40C89410); }
 };
@@ -94,7 +92,6 @@ union CPC_CORE_POWER_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CPC_CORE_POWER_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CPC_CORE_POWER_CTRL &ref() { return *reinterpret_cast<volatile CPC_CORE_POWER_CTRL*>(0x40C89414); }
 };
@@ -112,7 +109,6 @@ union CPC_FLAG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CPC_FLAG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CPC_FLAG &ref() { return *reinterpret_cast<volatile CPC_FLAG*>(0x40C8942C); }
 };
@@ -140,7 +136,6 @@ union CPC_CACHE_MODE {
   // Full 32-bit register value.
   uint32_t value;
 
-  CPC_CACHE_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CPC_CACHE_MODE &ref() { return *reinterpret_cast<volatile CPC_CACHE_MODE*>(0x40C89440); }
 };
@@ -166,7 +161,6 @@ union CPC_CACHE_CM_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CPC_CACHE_CM_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00003330; }
   static inline volatile CPC_CACHE_CM_CTRL &ref() { return *reinterpret_cast<volatile CPC_CACHE_CM_CTRL*>(0x40C89444); }
 };
@@ -197,7 +191,6 @@ union CPC_CACHE_SP_CTRL_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CPC_CACHE_SP_CTRL_0() = delete;
   inline void Reset() volatile { this->value = 0x33333333; }
   static inline volatile CPC_CACHE_SP_CTRL_0 &ref() { return *reinterpret_cast<volatile CPC_CACHE_SP_CTRL_0*>(0x40C89448); }
 };
@@ -228,7 +221,6 @@ union CPC_CACHE_SP_CTRL_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CPC_CACHE_SP_CTRL_1() = delete;
   inline void Reset() volatile { this->value = 0x33333333; }
   static inline volatile CPC_CACHE_SP_CTRL_1 &ref() { return *reinterpret_cast<volatile CPC_CACHE_SP_CTRL_1*>(0x40C8944C); }
 };
@@ -256,7 +248,6 @@ union CPC_LMEM_MODE {
   // Full 32-bit register value.
   uint32_t value;
 
-  CPC_LMEM_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CPC_LMEM_MODE &ref() { return *reinterpret_cast<volatile CPC_LMEM_MODE*>(0x40C894C0); }
 };
@@ -282,7 +273,6 @@ union CPC_LMEM_CM_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CPC_LMEM_CM_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CPC_LMEM_CM_CTRL &ref() { return *reinterpret_cast<volatile CPC_LMEM_CM_CTRL*>(0x40C894C4); }
 };
@@ -313,7 +303,6 @@ union CPC_LMEM_SP_CTRL_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CPC_LMEM_SP_CTRL_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CPC_LMEM_SP_CTRL_0 &ref() { return *reinterpret_cast<volatile CPC_LMEM_SP_CTRL_0*>(0x40C894C8); }
 };
@@ -344,7 +333,6 @@ union CPC_LMEM_SP_CTRL_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CPC_LMEM_SP_CTRL_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CPC_LMEM_SP_CTRL_1 &ref() { return *reinterpret_cast<volatile CPC_LMEM_SP_CTRL_1*>(0x40C894CC); }
 };

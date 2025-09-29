@@ -31,7 +31,6 @@ union CFG_NUM_LANES {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_NUM_LANES() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_NUM_LANES &ref() { return *reinterpret_cast<volatile CFG_NUM_LANES*>(0x4080C000); }
 };
@@ -57,7 +56,6 @@ union CFG_NONCONTINUOUS_CLK {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_NONCONTINUOUS_CLK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_NONCONTINUOUS_CLK &ref() { return *reinterpret_cast<volatile CFG_NONCONTINUOUS_CLK*>(0x4080C004); }
 };
@@ -75,7 +73,6 @@ union CFG_T_PRE {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_T_PRE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_T_PRE &ref() { return *reinterpret_cast<volatile CFG_T_PRE*>(0x4080C008); }
 };
@@ -93,7 +90,6 @@ union CFG_T_POST {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_T_POST() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_T_POST &ref() { return *reinterpret_cast<volatile CFG_T_POST*>(0x4080C00C); }
 };
@@ -111,7 +107,6 @@ union CFG_TX_GAP {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_TX_GAP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_TX_GAP &ref() { return *reinterpret_cast<volatile CFG_TX_GAP*>(0x4080C010); }
 };
@@ -137,7 +132,6 @@ union CFG_AUTOINSERT_EOTP {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_AUTOINSERT_EOTP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_AUTOINSERT_EOTP &ref() { return *reinterpret_cast<volatile CFG_AUTOINSERT_EOTP*>(0x4080C014); }
 };
@@ -155,7 +149,6 @@ union CFG_EXTRA_CMDS_AFTER_EOTP {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_EXTRA_CMDS_AFTER_EOTP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_EXTRA_CMDS_AFTER_EOTP &ref() { return *reinterpret_cast<volatile CFG_EXTRA_CMDS_AFTER_EOTP*>(0x4080C018); }
 };
@@ -173,7 +166,6 @@ union CFG_HTX_TO_COUNT {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_HTX_TO_COUNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_HTX_TO_COUNT &ref() { return *reinterpret_cast<volatile CFG_HTX_TO_COUNT*>(0x4080C01C); }
 };
@@ -191,7 +183,6 @@ union CFG_LRX_H_TO_COUNT {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_LRX_H_TO_COUNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_LRX_H_TO_COUNT &ref() { return *reinterpret_cast<volatile CFG_LRX_H_TO_COUNT*>(0x4080C020); }
 };
@@ -209,7 +200,6 @@ union CFG_BTA_H_TO_COUNT {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_BTA_H_TO_COUNT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_BTA_H_TO_COUNT &ref() { return *reinterpret_cast<volatile CFG_BTA_H_TO_COUNT*>(0x4080C024); }
 };
@@ -227,7 +217,6 @@ union CFG_TWAKEUP {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_TWAKEUP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_TWAKEUP &ref() { return *reinterpret_cast<volatile CFG_TWAKEUP*>(0x4080C028); }
 };
@@ -244,7 +233,6 @@ union CFG_STATUS_OUT {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG_STATUS_OUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_STATUS_OUT &ref() { return *reinterpret_cast<volatile CFG_STATUS_OUT*>(0x4080C02C); }
 };
@@ -262,7 +250,6 @@ union RX_ERROR_STATUS {
   // Full 32-bit register value.
   uint32_t value;
 
-  RX_ERROR_STATUS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RX_ERROR_STATUS &ref() { return *reinterpret_cast<volatile RX_ERROR_STATUS*>(0x4080C030); }
 };

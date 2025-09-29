@@ -36,7 +36,6 @@ union CLOCK_GROUP0_CONTROL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_CONTROL &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONTROL*>(0x40CC4000); }
 };
@@ -59,7 +58,6 @@ union CLOCK_GROUP0_CONTROL_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_CONTROL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_CONTROL_SET &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONTROL_SET*>(0x40CC4004); }
 };
@@ -82,7 +80,6 @@ union CLOCK_GROUP0_CONTROL_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_CONTROL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_CONTROL_CLR &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONTROL_CLR*>(0x40CC4008); }
 };
@@ -105,7 +102,6 @@ union CLOCK_GROUP0_CONTROL_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_CONTROL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_CONTROL_TOG &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONTROL_TOG*>(0x40CC400C); }
 };
@@ -186,7 +182,6 @@ union CLOCK_GROUP0_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_STATUS0 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_STATUS0*>(0x40CC4020); }
 };
@@ -247,7 +242,6 @@ union CLOCK_GROUP0_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_STATUS1 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_STATUS1*>(0x40CC4024); }
 };
@@ -274,7 +268,6 @@ union CLOCK_GROUP0_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_CONFIG &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_CONFIG*>(0x40CC402C); }
 };
@@ -358,7 +351,6 @@ union CLOCK_GROUP0_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_AUTHEN &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_AUTHEN*>(0x40CC4030); }
 };
@@ -394,7 +386,6 @@ union CLOCK_GROUP0_AUTHEN_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_AUTHEN_SET &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_AUTHEN_SET*>(0x40CC4034); }
 };
@@ -430,7 +421,6 @@ union CLOCK_GROUP0_AUTHEN_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_AUTHEN_CLR*>(0x40CC4038); }
 };
@@ -466,7 +456,6 @@ union CLOCK_GROUP0_AUTHEN_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_AUTHEN_TOG*>(0x40CC403C); }
 };
@@ -513,7 +502,6 @@ union CLOCK_GROUP0_SETPOINT0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT0 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT0*>(0x40CC4040); }
 };
@@ -560,7 +548,6 @@ union CLOCK_GROUP0_SETPOINT1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT1 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT1*>(0x40CC4044); }
 };
@@ -607,7 +594,6 @@ union CLOCK_GROUP0_SETPOINT2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT2 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT2*>(0x40CC4048); }
 };
@@ -654,7 +640,6 @@ union CLOCK_GROUP0_SETPOINT3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT3 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT3*>(0x40CC404C); }
 };
@@ -701,7 +686,6 @@ union CLOCK_GROUP0_SETPOINT4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT4 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT4*>(0x40CC4050); }
 };
@@ -748,7 +732,6 @@ union CLOCK_GROUP0_SETPOINT5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT5 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT5*>(0x40CC4054); }
 };
@@ -795,7 +778,6 @@ union CLOCK_GROUP0_SETPOINT6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT6 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT6*>(0x40CC4058); }
 };
@@ -842,7 +824,6 @@ union CLOCK_GROUP0_SETPOINT7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT7 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT7*>(0x40CC405C); }
 };
@@ -889,7 +870,6 @@ union CLOCK_GROUP0_SETPOINT8 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT8 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT8*>(0x40CC4060); }
 };
@@ -936,7 +916,6 @@ union CLOCK_GROUP0_SETPOINT9 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT9 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT9*>(0x40CC4064); }
 };
@@ -983,7 +962,6 @@ union CLOCK_GROUP0_SETPOINT10 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT10 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT10*>(0x40CC4068); }
 };
@@ -1030,7 +1008,6 @@ union CLOCK_GROUP0_SETPOINT11 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT11 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT11*>(0x40CC406C); }
 };
@@ -1077,7 +1054,6 @@ union CLOCK_GROUP0_SETPOINT12 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT12 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT12*>(0x40CC4070); }
 };
@@ -1124,7 +1100,6 @@ union CLOCK_GROUP0_SETPOINT13 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT13 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT13*>(0x40CC4074); }
 };
@@ -1171,7 +1146,6 @@ union CLOCK_GROUP0_SETPOINT14 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT14 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT14*>(0x40CC4078); }
 };
@@ -1218,7 +1192,6 @@ union CLOCK_GROUP0_SETPOINT15 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP0_SETPOINT15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP0_SETPOINT15 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP0_SETPOINT15*>(0x40CC407C); }
 };
@@ -1249,7 +1222,6 @@ union CLOCK_GROUP1_CONTROL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_CONTROL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_CONTROL &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONTROL*>(0x40CC4080); }
 };
@@ -1272,7 +1244,6 @@ union CLOCK_GROUP1_CONTROL_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_CONTROL_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_CONTROL_SET &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONTROL_SET*>(0x40CC4084); }
 };
@@ -1295,7 +1266,6 @@ union CLOCK_GROUP1_CONTROL_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_CONTROL_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_CONTROL_CLR &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONTROL_CLR*>(0x40CC4088); }
 };
@@ -1318,7 +1288,6 @@ union CLOCK_GROUP1_CONTROL_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_CONTROL_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_CONTROL_TOG &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONTROL_TOG*>(0x40CC408C); }
 };
@@ -1399,7 +1368,6 @@ union CLOCK_GROUP1_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_STATUS0 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_STATUS0*>(0x40CC40A0); }
 };
@@ -1460,7 +1428,6 @@ union CLOCK_GROUP1_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_STATUS1 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_STATUS1*>(0x40CC40A4); }
 };
@@ -1487,7 +1454,6 @@ union CLOCK_GROUP1_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_CONFIG &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_CONFIG*>(0x40CC40AC); }
 };
@@ -1571,7 +1537,6 @@ union CLOCK_GROUP1_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_AUTHEN &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_AUTHEN*>(0x40CC40B0); }
 };
@@ -1607,7 +1572,6 @@ union CLOCK_GROUP1_AUTHEN_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_AUTHEN_SET &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_AUTHEN_SET*>(0x40CC40B4); }
 };
@@ -1643,7 +1607,6 @@ union CLOCK_GROUP1_AUTHEN_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_AUTHEN_CLR*>(0x40CC40B8); }
 };
@@ -1679,7 +1642,6 @@ union CLOCK_GROUP1_AUTHEN_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_AUTHEN_TOG*>(0x40CC40BC); }
 };
@@ -1726,7 +1688,6 @@ union CLOCK_GROUP1_SETPOINT0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT0 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT0*>(0x40CC40C0); }
 };
@@ -1773,7 +1734,6 @@ union CLOCK_GROUP1_SETPOINT1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT1 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT1*>(0x40CC40C4); }
 };
@@ -1820,7 +1780,6 @@ union CLOCK_GROUP1_SETPOINT2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT2 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT2*>(0x40CC40C8); }
 };
@@ -1867,7 +1826,6 @@ union CLOCK_GROUP1_SETPOINT3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT3 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT3*>(0x40CC40CC); }
 };
@@ -1914,7 +1872,6 @@ union CLOCK_GROUP1_SETPOINT4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT4 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT4*>(0x40CC40D0); }
 };
@@ -1961,7 +1918,6 @@ union CLOCK_GROUP1_SETPOINT5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT5 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT5*>(0x40CC40D4); }
 };
@@ -2008,7 +1964,6 @@ union CLOCK_GROUP1_SETPOINT6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT6 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT6*>(0x40CC40D8); }
 };
@@ -2055,7 +2010,6 @@ union CLOCK_GROUP1_SETPOINT7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT7 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT7*>(0x40CC40DC); }
 };
@@ -2102,7 +2056,6 @@ union CLOCK_GROUP1_SETPOINT8 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT8 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT8*>(0x40CC40E0); }
 };
@@ -2149,7 +2102,6 @@ union CLOCK_GROUP1_SETPOINT9 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT9 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT9*>(0x40CC40E4); }
 };
@@ -2196,7 +2148,6 @@ union CLOCK_GROUP1_SETPOINT10 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT10 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT10*>(0x40CC40E8); }
 };
@@ -2243,7 +2194,6 @@ union CLOCK_GROUP1_SETPOINT11 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT11 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT11*>(0x40CC40EC); }
 };
@@ -2290,7 +2240,6 @@ union CLOCK_GROUP1_SETPOINT12 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT12 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT12*>(0x40CC40F0); }
 };
@@ -2337,7 +2286,6 @@ union CLOCK_GROUP1_SETPOINT13 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT13 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT13*>(0x40CC40F4); }
 };
@@ -2384,7 +2332,6 @@ union CLOCK_GROUP1_SETPOINT14 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT14 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT14*>(0x40CC40F8); }
 };
@@ -2431,7 +2378,6 @@ union CLOCK_GROUP1_SETPOINT15 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CLOCK_GROUP1_SETPOINT15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CLOCK_GROUP1_SETPOINT15 &ref() { return *reinterpret_cast<volatile CLOCK_GROUP1_SETPOINT15*>(0x40CC40FC); }
 };
@@ -2448,7 +2394,6 @@ union GPR_PRIVATE1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE1 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1*>(0x40CC4C20); }
 };
@@ -2465,7 +2410,6 @@ union GPR_PRIVATE1_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE1_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE1_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_SET*>(0x40CC4C24); }
 };
@@ -2482,7 +2426,6 @@ union GPR_PRIVATE1_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE1_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE1_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_CLR*>(0x40CC4C28); }
 };
@@ -2499,7 +2442,6 @@ union GPR_PRIVATE1_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE1_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE1_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_TOG*>(0x40CC4C2C); }
 };
@@ -2589,7 +2531,6 @@ union GPR_PRIVATE1_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE1_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE1_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_AUTHEN*>(0x40CC4C30); }
 };
@@ -2623,7 +2564,6 @@ union GPR_PRIVATE1_AUTHEN_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE1_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE1_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_AUTHEN_SET*>(0x40CC4C34); }
 };
@@ -2657,7 +2597,6 @@ union GPR_PRIVATE1_AUTHEN_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE1_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE1_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_AUTHEN_CLR*>(0x40CC4C38); }
 };
@@ -2691,7 +2630,6 @@ union GPR_PRIVATE1_AUTHEN_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE1_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE1_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE1_AUTHEN_TOG*>(0x40CC4C3C); }
 };
@@ -2708,7 +2646,6 @@ union GPR_PRIVATE2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE2 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2*>(0x40CC4C40); }
 };
@@ -2725,7 +2662,6 @@ union GPR_PRIVATE2_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE2_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE2_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_SET*>(0x40CC4C44); }
 };
@@ -2742,7 +2678,6 @@ union GPR_PRIVATE2_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE2_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE2_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_CLR*>(0x40CC4C48); }
 };
@@ -2759,7 +2694,6 @@ union GPR_PRIVATE2_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE2_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE2_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_TOG*>(0x40CC4C4C); }
 };
@@ -2849,7 +2783,6 @@ union GPR_PRIVATE2_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE2_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE2_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_AUTHEN*>(0x40CC4C50); }
 };
@@ -2883,7 +2816,6 @@ union GPR_PRIVATE2_AUTHEN_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE2_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE2_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_AUTHEN_SET*>(0x40CC4C54); }
 };
@@ -2917,7 +2849,6 @@ union GPR_PRIVATE2_AUTHEN_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE2_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE2_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_AUTHEN_CLR*>(0x40CC4C58); }
 };
@@ -2951,7 +2882,6 @@ union GPR_PRIVATE2_AUTHEN_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE2_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE2_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE2_AUTHEN_TOG*>(0x40CC4C5C); }
 };
@@ -2968,7 +2898,6 @@ union GPR_PRIVATE3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE3 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3*>(0x40CC4C60); }
 };
@@ -2985,7 +2914,6 @@ union GPR_PRIVATE3_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE3_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE3_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_SET*>(0x40CC4C64); }
 };
@@ -3002,7 +2930,6 @@ union GPR_PRIVATE3_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE3_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE3_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_CLR*>(0x40CC4C68); }
 };
@@ -3019,7 +2946,6 @@ union GPR_PRIVATE3_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE3_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE3_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_TOG*>(0x40CC4C6C); }
 };
@@ -3109,7 +3035,6 @@ union GPR_PRIVATE3_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE3_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE3_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_AUTHEN*>(0x40CC4C70); }
 };
@@ -3143,7 +3068,6 @@ union GPR_PRIVATE3_AUTHEN_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE3_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE3_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_AUTHEN_SET*>(0x40CC4C74); }
 };
@@ -3177,7 +3101,6 @@ union GPR_PRIVATE3_AUTHEN_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE3_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE3_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_AUTHEN_CLR*>(0x40CC4C78); }
 };
@@ -3211,7 +3134,6 @@ union GPR_PRIVATE3_AUTHEN_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE3_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE3_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE3_AUTHEN_TOG*>(0x40CC4C7C); }
 };
@@ -3228,7 +3150,6 @@ union GPR_PRIVATE4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE4 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4*>(0x40CC4C80); }
 };
@@ -3245,7 +3166,6 @@ union GPR_PRIVATE4_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE4_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE4_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_SET*>(0x40CC4C84); }
 };
@@ -3262,7 +3182,6 @@ union GPR_PRIVATE4_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE4_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE4_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_CLR*>(0x40CC4C88); }
 };
@@ -3279,7 +3198,6 @@ union GPR_PRIVATE4_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE4_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE4_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_TOG*>(0x40CC4C8C); }
 };
@@ -3369,7 +3287,6 @@ union GPR_PRIVATE4_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE4_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE4_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_AUTHEN*>(0x40CC4C90); }
 };
@@ -3403,7 +3320,6 @@ union GPR_PRIVATE4_AUTHEN_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE4_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE4_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_AUTHEN_SET*>(0x40CC4C94); }
 };
@@ -3437,7 +3353,6 @@ union GPR_PRIVATE4_AUTHEN_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE4_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE4_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_AUTHEN_CLR*>(0x40CC4C98); }
 };
@@ -3471,7 +3386,6 @@ union GPR_PRIVATE4_AUTHEN_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE4_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE4_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE4_AUTHEN_TOG*>(0x40CC4C9C); }
 };
@@ -3488,7 +3402,6 @@ union GPR_PRIVATE5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE5 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5*>(0x40CC4CA0); }
 };
@@ -3505,7 +3418,6 @@ union GPR_PRIVATE5_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE5_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE5_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_SET*>(0x40CC4CA4); }
 };
@@ -3522,7 +3434,6 @@ union GPR_PRIVATE5_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE5_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE5_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_CLR*>(0x40CC4CA8); }
 };
@@ -3539,7 +3450,6 @@ union GPR_PRIVATE5_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE5_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE5_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_TOG*>(0x40CC4CAC); }
 };
@@ -3629,7 +3539,6 @@ union GPR_PRIVATE5_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE5_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE5_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_AUTHEN*>(0x40CC4CB0); }
 };
@@ -3663,7 +3572,6 @@ union GPR_PRIVATE5_AUTHEN_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE5_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE5_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_AUTHEN_SET*>(0x40CC4CB4); }
 };
@@ -3697,7 +3605,6 @@ union GPR_PRIVATE5_AUTHEN_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE5_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE5_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_AUTHEN_CLR*>(0x40CC4CB8); }
 };
@@ -3731,7 +3638,6 @@ union GPR_PRIVATE5_AUTHEN_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE5_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE5_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE5_AUTHEN_TOG*>(0x40CC4CBC); }
 };
@@ -3748,7 +3654,6 @@ union GPR_PRIVATE6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE6 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6*>(0x40CC4CC0); }
 };
@@ -3765,7 +3670,6 @@ union GPR_PRIVATE6_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE6_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE6_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_SET*>(0x40CC4CC4); }
 };
@@ -3782,7 +3686,6 @@ union GPR_PRIVATE6_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE6_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE6_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_CLR*>(0x40CC4CC8); }
 };
@@ -3799,7 +3702,6 @@ union GPR_PRIVATE6_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE6_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE6_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_TOG*>(0x40CC4CCC); }
 };
@@ -3889,7 +3791,6 @@ union GPR_PRIVATE6_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE6_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE6_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_AUTHEN*>(0x40CC4CD0); }
 };
@@ -3923,7 +3824,6 @@ union GPR_PRIVATE6_AUTHEN_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE6_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE6_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_AUTHEN_SET*>(0x40CC4CD4); }
 };
@@ -3957,7 +3857,6 @@ union GPR_PRIVATE6_AUTHEN_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE6_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE6_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_AUTHEN_CLR*>(0x40CC4CD8); }
 };
@@ -3991,7 +3890,6 @@ union GPR_PRIVATE6_AUTHEN_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE6_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE6_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE6_AUTHEN_TOG*>(0x40CC4CDC); }
 };
@@ -4008,7 +3906,6 @@ union GPR_PRIVATE7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE7 &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7*>(0x40CC4CE0); }
 };
@@ -4025,7 +3922,6 @@ union GPR_PRIVATE7_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE7_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE7_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_SET*>(0x40CC4CE4); }
 };
@@ -4042,7 +3938,6 @@ union GPR_PRIVATE7_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE7_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE7_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_CLR*>(0x40CC4CE8); }
 };
@@ -4059,7 +3954,6 @@ union GPR_PRIVATE7_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE7_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE7_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_TOG*>(0x40CC4CEC); }
 };
@@ -4149,7 +4043,6 @@ union GPR_PRIVATE7_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE7_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE7_AUTHEN &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_AUTHEN*>(0x40CC4CF0); }
 };
@@ -4183,7 +4076,6 @@ union GPR_PRIVATE7_AUTHEN_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE7_AUTHEN_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE7_AUTHEN_SET &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_AUTHEN_SET*>(0x40CC4CF4); }
 };
@@ -4217,7 +4109,6 @@ union GPR_PRIVATE7_AUTHEN_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE7_AUTHEN_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE7_AUTHEN_CLR &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_AUTHEN_CLR*>(0x40CC4CF8); }
 };
@@ -4251,7 +4142,6 @@ union GPR_PRIVATE7_AUTHEN_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR_PRIVATE7_AUTHEN_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR_PRIVATE7_AUTHEN_TOG &ref() { return *reinterpret_cast<volatile GPR_PRIVATE7_AUTHEN_TOG*>(0x40CC4CFC); }
 };
@@ -4277,7 +4167,6 @@ union LPCG0_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG0_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG0_DIRECT &ref() { return *reinterpret_cast<volatile LPCG0_DIRECT*>(0x40CC6000); }
 };
@@ -4377,7 +4266,6 @@ union LPCG0_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG0_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG0_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG0_DOMAIN*>(0x40CC6004); }
 };
@@ -4480,7 +4368,6 @@ union LPCG0_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG0_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG0_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG0_STATUS0*>(0x40CC6010); }
 };
@@ -4676,7 +4563,6 @@ union LPCG0_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG0_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG0_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG0_STATUS1*>(0x40CC6014); }
 };
@@ -4703,7 +4589,6 @@ union LPCG0_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG0_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG0_CONFIG &ref() { return *reinterpret_cast<volatile LPCG0_CONFIG*>(0x40CC6018); }
 };
@@ -4805,7 +4690,6 @@ union LPCG0_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG0_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG0_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG0_AUTHEN*>(0x40CC601C); }
 };
@@ -4831,7 +4715,6 @@ union LPCG1_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG1_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG1_DIRECT &ref() { return *reinterpret_cast<volatile LPCG1_DIRECT*>(0x40CC6020); }
 };
@@ -4931,7 +4814,6 @@ union LPCG1_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG1_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG1_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG1_DOMAIN*>(0x40CC6024); }
 };
@@ -5034,7 +4916,6 @@ union LPCG1_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG1_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG1_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG1_STATUS0*>(0x40CC6030); }
 };
@@ -5230,7 +5111,6 @@ union LPCG1_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG1_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG1_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG1_STATUS1*>(0x40CC6034); }
 };
@@ -5257,7 +5137,6 @@ union LPCG1_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG1_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG1_CONFIG &ref() { return *reinterpret_cast<volatile LPCG1_CONFIG*>(0x40CC6038); }
 };
@@ -5359,7 +5238,6 @@ union LPCG1_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG1_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG1_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG1_AUTHEN*>(0x40CC603C); }
 };
@@ -5385,7 +5263,6 @@ union LPCG2_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG2_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG2_DIRECT &ref() { return *reinterpret_cast<volatile LPCG2_DIRECT*>(0x40CC6040); }
 };
@@ -5485,7 +5362,6 @@ union LPCG2_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG2_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG2_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG2_DOMAIN*>(0x40CC6044); }
 };
@@ -5504,7 +5380,6 @@ union LPCG2_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG2_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG2_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG2_SETPOINT*>(0x40CC6048); }
 };
@@ -5607,7 +5482,6 @@ union LPCG2_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG2_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG2_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG2_STATUS0*>(0x40CC6050); }
 };
@@ -5803,7 +5677,6 @@ union LPCG2_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG2_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG2_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG2_STATUS1*>(0x40CC6054); }
 };
@@ -5830,7 +5703,6 @@ union LPCG2_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG2_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG2_CONFIG &ref() { return *reinterpret_cast<volatile LPCG2_CONFIG*>(0x40CC6058); }
 };
@@ -5932,7 +5804,6 @@ union LPCG2_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG2_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG2_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG2_AUTHEN*>(0x40CC605C); }
 };
@@ -5958,7 +5829,6 @@ union LPCG3_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG3_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG3_DIRECT &ref() { return *reinterpret_cast<volatile LPCG3_DIRECT*>(0x40CC6060); }
 };
@@ -6058,7 +5928,6 @@ union LPCG3_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG3_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG3_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG3_DOMAIN*>(0x40CC6064); }
 };
@@ -6077,7 +5946,6 @@ union LPCG3_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG3_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG3_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG3_SETPOINT*>(0x40CC6068); }
 };
@@ -6180,7 +6048,6 @@ union LPCG3_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG3_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG3_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG3_STATUS0*>(0x40CC6070); }
 };
@@ -6376,7 +6243,6 @@ union LPCG3_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG3_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG3_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG3_STATUS1*>(0x40CC6074); }
 };
@@ -6403,7 +6269,6 @@ union LPCG3_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG3_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG3_CONFIG &ref() { return *reinterpret_cast<volatile LPCG3_CONFIG*>(0x40CC6078); }
 };
@@ -6505,7 +6370,6 @@ union LPCG3_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG3_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG3_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG3_AUTHEN*>(0x40CC607C); }
 };
@@ -6531,7 +6395,6 @@ union LPCG4_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG4_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG4_DIRECT &ref() { return *reinterpret_cast<volatile LPCG4_DIRECT*>(0x40CC6080); }
 };
@@ -6631,7 +6494,6 @@ union LPCG4_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG4_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG4_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG4_DOMAIN*>(0x40CC6084); }
 };
@@ -6650,7 +6512,6 @@ union LPCG4_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG4_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG4_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG4_SETPOINT*>(0x40CC6088); }
 };
@@ -6753,7 +6614,6 @@ union LPCG4_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG4_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG4_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG4_STATUS0*>(0x40CC6090); }
 };
@@ -6949,7 +6809,6 @@ union LPCG4_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG4_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG4_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG4_STATUS1*>(0x40CC6094); }
 };
@@ -6976,7 +6835,6 @@ union LPCG4_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG4_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG4_CONFIG &ref() { return *reinterpret_cast<volatile LPCG4_CONFIG*>(0x40CC6098); }
 };
@@ -7078,7 +6936,6 @@ union LPCG4_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG4_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG4_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG4_AUTHEN*>(0x40CC609C); }
 };
@@ -7104,7 +6961,6 @@ union LPCG5_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG5_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG5_DIRECT &ref() { return *reinterpret_cast<volatile LPCG5_DIRECT*>(0x40CC60A0); }
 };
@@ -7204,7 +7060,6 @@ union LPCG5_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG5_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG5_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG5_DOMAIN*>(0x40CC60A4); }
 };
@@ -7223,7 +7078,6 @@ union LPCG5_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG5_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG5_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG5_SETPOINT*>(0x40CC60A8); }
 };
@@ -7326,7 +7180,6 @@ union LPCG5_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG5_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG5_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG5_STATUS0*>(0x40CC60B0); }
 };
@@ -7522,7 +7375,6 @@ union LPCG5_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG5_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG5_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG5_STATUS1*>(0x40CC60B4); }
 };
@@ -7549,7 +7401,6 @@ union LPCG5_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG5_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG5_CONFIG &ref() { return *reinterpret_cast<volatile LPCG5_CONFIG*>(0x40CC60B8); }
 };
@@ -7651,7 +7502,6 @@ union LPCG5_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG5_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG5_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG5_AUTHEN*>(0x40CC60BC); }
 };
@@ -7677,7 +7527,6 @@ union LPCG6_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG6_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG6_DIRECT &ref() { return *reinterpret_cast<volatile LPCG6_DIRECT*>(0x40CC60C0); }
 };
@@ -7777,7 +7626,6 @@ union LPCG6_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG6_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG6_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG6_DOMAIN*>(0x40CC60C4); }
 };
@@ -7796,7 +7644,6 @@ union LPCG6_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG6_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG6_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG6_SETPOINT*>(0x40CC60C8); }
 };
@@ -7899,7 +7746,6 @@ union LPCG6_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG6_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG6_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG6_STATUS0*>(0x40CC60D0); }
 };
@@ -8095,7 +7941,6 @@ union LPCG6_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG6_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG6_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG6_STATUS1*>(0x40CC60D4); }
 };
@@ -8122,7 +7967,6 @@ union LPCG6_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG6_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG6_CONFIG &ref() { return *reinterpret_cast<volatile LPCG6_CONFIG*>(0x40CC60D8); }
 };
@@ -8224,7 +8068,6 @@ union LPCG6_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG6_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG6_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG6_AUTHEN*>(0x40CC60DC); }
 };
@@ -8250,7 +8093,6 @@ union LPCG7_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG7_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG7_DIRECT &ref() { return *reinterpret_cast<volatile LPCG7_DIRECT*>(0x40CC60E0); }
 };
@@ -8350,7 +8192,6 @@ union LPCG7_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG7_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG7_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG7_DOMAIN*>(0x40CC60E4); }
 };
@@ -8369,7 +8210,6 @@ union LPCG7_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG7_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG7_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG7_SETPOINT*>(0x40CC60E8); }
 };
@@ -8472,7 +8312,6 @@ union LPCG7_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG7_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG7_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG7_STATUS0*>(0x40CC60F0); }
 };
@@ -8668,7 +8507,6 @@ union LPCG7_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG7_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG7_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG7_STATUS1*>(0x40CC60F4); }
 };
@@ -8695,7 +8533,6 @@ union LPCG7_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG7_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG7_CONFIG &ref() { return *reinterpret_cast<volatile LPCG7_CONFIG*>(0x40CC60F8); }
 };
@@ -8797,7 +8634,6 @@ union LPCG7_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG7_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG7_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG7_AUTHEN*>(0x40CC60FC); }
 };
@@ -8823,7 +8659,6 @@ union LPCG8_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG8_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG8_DIRECT &ref() { return *reinterpret_cast<volatile LPCG8_DIRECT*>(0x40CC6100); }
 };
@@ -8923,7 +8758,6 @@ union LPCG8_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG8_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG8_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG8_DOMAIN*>(0x40CC6104); }
 };
@@ -8942,7 +8776,6 @@ union LPCG8_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG8_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG8_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG8_SETPOINT*>(0x40CC6108); }
 };
@@ -9045,7 +8878,6 @@ union LPCG8_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG8_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG8_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG8_STATUS0*>(0x40CC6110); }
 };
@@ -9241,7 +9073,6 @@ union LPCG8_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG8_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG8_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG8_STATUS1*>(0x40CC6114); }
 };
@@ -9268,7 +9099,6 @@ union LPCG8_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG8_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG8_CONFIG &ref() { return *reinterpret_cast<volatile LPCG8_CONFIG*>(0x40CC6118); }
 };
@@ -9370,7 +9200,6 @@ union LPCG8_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG8_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG8_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG8_AUTHEN*>(0x40CC611C); }
 };
@@ -9396,7 +9225,6 @@ union LPCG9_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG9_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG9_DIRECT &ref() { return *reinterpret_cast<volatile LPCG9_DIRECT*>(0x40CC6120); }
 };
@@ -9496,7 +9324,6 @@ union LPCG9_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG9_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG9_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG9_DOMAIN*>(0x40CC6124); }
 };
@@ -9515,7 +9342,6 @@ union LPCG9_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG9_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG9_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG9_SETPOINT*>(0x40CC6128); }
 };
@@ -9618,7 +9444,6 @@ union LPCG9_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG9_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG9_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG9_STATUS0*>(0x40CC6130); }
 };
@@ -9814,7 +9639,6 @@ union LPCG9_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG9_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG9_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG9_STATUS1*>(0x40CC6134); }
 };
@@ -9841,7 +9665,6 @@ union LPCG9_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG9_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG9_CONFIG &ref() { return *reinterpret_cast<volatile LPCG9_CONFIG*>(0x40CC6138); }
 };
@@ -9943,7 +9766,6 @@ union LPCG9_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG9_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG9_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG9_AUTHEN*>(0x40CC613C); }
 };
@@ -9969,7 +9791,6 @@ union LPCG10_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG10_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG10_DIRECT &ref() { return *reinterpret_cast<volatile LPCG10_DIRECT*>(0x40CC6140); }
 };
@@ -10069,7 +9890,6 @@ union LPCG10_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG10_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG10_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG10_DOMAIN*>(0x40CC6144); }
 };
@@ -10088,7 +9908,6 @@ union LPCG10_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG10_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG10_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG10_SETPOINT*>(0x40CC6148); }
 };
@@ -10191,7 +10010,6 @@ union LPCG10_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG10_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG10_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG10_STATUS0*>(0x40CC6150); }
 };
@@ -10387,7 +10205,6 @@ union LPCG10_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG10_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG10_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG10_STATUS1*>(0x40CC6154); }
 };
@@ -10414,7 +10231,6 @@ union LPCG10_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG10_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG10_CONFIG &ref() { return *reinterpret_cast<volatile LPCG10_CONFIG*>(0x40CC6158); }
 };
@@ -10516,7 +10332,6 @@ union LPCG10_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG10_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG10_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG10_AUTHEN*>(0x40CC615C); }
 };
@@ -10542,7 +10357,6 @@ union LPCG11_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG11_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG11_DIRECT &ref() { return *reinterpret_cast<volatile LPCG11_DIRECT*>(0x40CC6160); }
 };
@@ -10642,7 +10456,6 @@ union LPCG11_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG11_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG11_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG11_DOMAIN*>(0x40CC6164); }
 };
@@ -10661,7 +10474,6 @@ union LPCG11_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG11_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG11_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG11_SETPOINT*>(0x40CC6168); }
 };
@@ -10764,7 +10576,6 @@ union LPCG11_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG11_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG11_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG11_STATUS0*>(0x40CC6170); }
 };
@@ -10960,7 +10771,6 @@ union LPCG11_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG11_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG11_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG11_STATUS1*>(0x40CC6174); }
 };
@@ -10987,7 +10797,6 @@ union LPCG11_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG11_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG11_CONFIG &ref() { return *reinterpret_cast<volatile LPCG11_CONFIG*>(0x40CC6178); }
 };
@@ -11089,7 +10898,6 @@ union LPCG11_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG11_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG11_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG11_AUTHEN*>(0x40CC617C); }
 };
@@ -11115,7 +10923,6 @@ union LPCG12_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG12_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG12_DIRECT &ref() { return *reinterpret_cast<volatile LPCG12_DIRECT*>(0x40CC6180); }
 };
@@ -11215,7 +11022,6 @@ union LPCG12_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG12_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG12_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG12_DOMAIN*>(0x40CC6184); }
 };
@@ -11234,7 +11040,6 @@ union LPCG12_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG12_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG12_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG12_SETPOINT*>(0x40CC6188); }
 };
@@ -11337,7 +11142,6 @@ union LPCG12_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG12_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG12_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG12_STATUS0*>(0x40CC6190); }
 };
@@ -11533,7 +11337,6 @@ union LPCG12_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG12_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG12_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG12_STATUS1*>(0x40CC6194); }
 };
@@ -11560,7 +11363,6 @@ union LPCG12_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG12_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG12_CONFIG &ref() { return *reinterpret_cast<volatile LPCG12_CONFIG*>(0x40CC6198); }
 };
@@ -11662,7 +11464,6 @@ union LPCG12_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG12_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG12_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG12_AUTHEN*>(0x40CC619C); }
 };
@@ -11688,7 +11489,6 @@ union LPCG13_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG13_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG13_DIRECT &ref() { return *reinterpret_cast<volatile LPCG13_DIRECT*>(0x40CC61A0); }
 };
@@ -11788,7 +11588,6 @@ union LPCG13_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG13_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG13_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG13_DOMAIN*>(0x40CC61A4); }
 };
@@ -11891,7 +11690,6 @@ union LPCG13_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG13_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG13_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG13_STATUS0*>(0x40CC61B0); }
 };
@@ -12087,7 +11885,6 @@ union LPCG13_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG13_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG13_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG13_STATUS1*>(0x40CC61B4); }
 };
@@ -12114,7 +11911,6 @@ union LPCG13_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG13_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG13_CONFIG &ref() { return *reinterpret_cast<volatile LPCG13_CONFIG*>(0x40CC61B8); }
 };
@@ -12216,7 +12012,6 @@ union LPCG13_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG13_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG13_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG13_AUTHEN*>(0x40CC61BC); }
 };
@@ -12242,7 +12037,6 @@ union LPCG14_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG14_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG14_DIRECT &ref() { return *reinterpret_cast<volatile LPCG14_DIRECT*>(0x40CC61C0); }
 };
@@ -12342,7 +12136,6 @@ union LPCG14_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG14_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG14_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG14_DOMAIN*>(0x40CC61C4); }
 };
@@ -12361,7 +12154,6 @@ union LPCG14_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG14_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG14_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG14_SETPOINT*>(0x40CC61C8); }
 };
@@ -12464,7 +12256,6 @@ union LPCG14_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG14_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG14_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG14_STATUS0*>(0x40CC61D0); }
 };
@@ -12660,7 +12451,6 @@ union LPCG14_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG14_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG14_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG14_STATUS1*>(0x40CC61D4); }
 };
@@ -12687,7 +12477,6 @@ union LPCG14_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG14_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG14_CONFIG &ref() { return *reinterpret_cast<volatile LPCG14_CONFIG*>(0x40CC61D8); }
 };
@@ -12789,7 +12578,6 @@ union LPCG14_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG14_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG14_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG14_AUTHEN*>(0x40CC61DC); }
 };
@@ -12815,7 +12603,6 @@ union LPCG15_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG15_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG15_DIRECT &ref() { return *reinterpret_cast<volatile LPCG15_DIRECT*>(0x40CC61E0); }
 };
@@ -12915,7 +12702,6 @@ union LPCG15_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG15_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG15_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG15_DOMAIN*>(0x40CC61E4); }
 };
@@ -12934,7 +12720,6 @@ union LPCG15_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG15_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG15_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG15_SETPOINT*>(0x40CC61E8); }
 };
@@ -13037,7 +12822,6 @@ union LPCG15_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG15_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG15_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG15_STATUS0*>(0x40CC61F0); }
 };
@@ -13233,7 +13017,6 @@ union LPCG15_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG15_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG15_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG15_STATUS1*>(0x40CC61F4); }
 };
@@ -13260,7 +13043,6 @@ union LPCG15_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG15_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG15_CONFIG &ref() { return *reinterpret_cast<volatile LPCG15_CONFIG*>(0x40CC61F8); }
 };
@@ -13362,7 +13144,6 @@ union LPCG15_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG15_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG15_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG15_AUTHEN*>(0x40CC61FC); }
 };
@@ -13388,7 +13169,6 @@ union LPCG16_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG16_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG16_DIRECT &ref() { return *reinterpret_cast<volatile LPCG16_DIRECT*>(0x40CC6200); }
 };
@@ -13488,7 +13268,6 @@ union LPCG16_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG16_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG16_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG16_DOMAIN*>(0x40CC6204); }
 };
@@ -13507,7 +13286,6 @@ union LPCG16_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG16_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG16_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG16_SETPOINT*>(0x40CC6208); }
 };
@@ -13610,7 +13388,6 @@ union LPCG16_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG16_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG16_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG16_STATUS0*>(0x40CC6210); }
 };
@@ -13806,7 +13583,6 @@ union LPCG16_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG16_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG16_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG16_STATUS1*>(0x40CC6214); }
 };
@@ -13833,7 +13609,6 @@ union LPCG16_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG16_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG16_CONFIG &ref() { return *reinterpret_cast<volatile LPCG16_CONFIG*>(0x40CC6218); }
 };
@@ -13935,7 +13710,6 @@ union LPCG16_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG16_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG16_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG16_AUTHEN*>(0x40CC621C); }
 };
@@ -13961,7 +13735,6 @@ union LPCG17_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG17_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG17_DIRECT &ref() { return *reinterpret_cast<volatile LPCG17_DIRECT*>(0x40CC6220); }
 };
@@ -14061,7 +13834,6 @@ union LPCG17_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG17_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG17_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG17_DOMAIN*>(0x40CC6224); }
 };
@@ -14080,7 +13852,6 @@ union LPCG17_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG17_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG17_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG17_SETPOINT*>(0x40CC6228); }
 };
@@ -14183,7 +13954,6 @@ union LPCG17_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG17_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG17_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG17_STATUS0*>(0x40CC6230); }
 };
@@ -14379,7 +14149,6 @@ union LPCG17_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG17_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG17_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG17_STATUS1*>(0x40CC6234); }
 };
@@ -14406,7 +14175,6 @@ union LPCG17_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG17_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG17_CONFIG &ref() { return *reinterpret_cast<volatile LPCG17_CONFIG*>(0x40CC6238); }
 };
@@ -14508,7 +14276,6 @@ union LPCG17_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG17_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG17_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG17_AUTHEN*>(0x40CC623C); }
 };
@@ -14534,7 +14301,6 @@ union LPCG18_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG18_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG18_DIRECT &ref() { return *reinterpret_cast<volatile LPCG18_DIRECT*>(0x40CC6240); }
 };
@@ -14634,7 +14400,6 @@ union LPCG18_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG18_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG18_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG18_DOMAIN*>(0x40CC6244); }
 };
@@ -14653,7 +14418,6 @@ union LPCG18_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG18_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG18_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG18_SETPOINT*>(0x40CC6248); }
 };
@@ -14756,7 +14520,6 @@ union LPCG18_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG18_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG18_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG18_STATUS0*>(0x40CC6250); }
 };
@@ -14952,7 +14715,6 @@ union LPCG18_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG18_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG18_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG18_STATUS1*>(0x40CC6254); }
 };
@@ -14979,7 +14741,6 @@ union LPCG18_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG18_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG18_CONFIG &ref() { return *reinterpret_cast<volatile LPCG18_CONFIG*>(0x40CC6258); }
 };
@@ -15081,7 +14842,6 @@ union LPCG18_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG18_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG18_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG18_AUTHEN*>(0x40CC625C); }
 };
@@ -15107,7 +14867,6 @@ union LPCG19_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG19_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG19_DIRECT &ref() { return *reinterpret_cast<volatile LPCG19_DIRECT*>(0x40CC6260); }
 };
@@ -15207,7 +14966,6 @@ union LPCG19_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG19_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG19_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG19_DOMAIN*>(0x40CC6264); }
 };
@@ -15226,7 +14984,6 @@ union LPCG19_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG19_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG19_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG19_SETPOINT*>(0x40CC6268); }
 };
@@ -15329,7 +15086,6 @@ union LPCG19_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG19_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG19_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG19_STATUS0*>(0x40CC6270); }
 };
@@ -15525,7 +15281,6 @@ union LPCG19_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG19_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG19_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG19_STATUS1*>(0x40CC6274); }
 };
@@ -15552,7 +15307,6 @@ union LPCG19_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG19_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG19_CONFIG &ref() { return *reinterpret_cast<volatile LPCG19_CONFIG*>(0x40CC6278); }
 };
@@ -15654,7 +15408,6 @@ union LPCG19_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG19_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG19_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG19_AUTHEN*>(0x40CC627C); }
 };
@@ -15680,7 +15433,6 @@ union LPCG20_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG20_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG20_DIRECT &ref() { return *reinterpret_cast<volatile LPCG20_DIRECT*>(0x40CC6280); }
 };
@@ -15780,7 +15532,6 @@ union LPCG20_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG20_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG20_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG20_DOMAIN*>(0x40CC6284); }
 };
@@ -15883,7 +15634,6 @@ union LPCG20_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG20_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG20_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG20_STATUS0*>(0x40CC6290); }
 };
@@ -16079,7 +15829,6 @@ union LPCG20_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG20_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG20_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG20_STATUS1*>(0x40CC6294); }
 };
@@ -16106,7 +15855,6 @@ union LPCG20_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG20_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG20_CONFIG &ref() { return *reinterpret_cast<volatile LPCG20_CONFIG*>(0x40CC6298); }
 };
@@ -16208,7 +15956,6 @@ union LPCG20_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG20_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG20_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG20_AUTHEN*>(0x40CC629C); }
 };
@@ -16234,7 +15981,6 @@ union LPCG21_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG21_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG21_DIRECT &ref() { return *reinterpret_cast<volatile LPCG21_DIRECT*>(0x40CC62A0); }
 };
@@ -16334,7 +16080,6 @@ union LPCG21_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG21_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG21_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG21_DOMAIN*>(0x40CC62A4); }
 };
@@ -16437,7 +16182,6 @@ union LPCG21_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG21_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG21_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG21_STATUS0*>(0x40CC62B0); }
 };
@@ -16633,7 +16377,6 @@ union LPCG21_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG21_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG21_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG21_STATUS1*>(0x40CC62B4); }
 };
@@ -16660,7 +16403,6 @@ union LPCG21_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG21_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG21_CONFIG &ref() { return *reinterpret_cast<volatile LPCG21_CONFIG*>(0x40CC62B8); }
 };
@@ -16762,7 +16504,6 @@ union LPCG21_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG21_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG21_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG21_AUTHEN*>(0x40CC62BC); }
 };
@@ -16788,7 +16529,6 @@ union LPCG22_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG22_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG22_DIRECT &ref() { return *reinterpret_cast<volatile LPCG22_DIRECT*>(0x40CC62C0); }
 };
@@ -16888,7 +16628,6 @@ union LPCG22_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG22_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG22_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG22_DOMAIN*>(0x40CC62C4); }
 };
@@ -16991,7 +16730,6 @@ union LPCG22_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG22_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG22_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG22_STATUS0*>(0x40CC62D0); }
 };
@@ -17187,7 +16925,6 @@ union LPCG22_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG22_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG22_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG22_STATUS1*>(0x40CC62D4); }
 };
@@ -17214,7 +16951,6 @@ union LPCG22_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG22_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG22_CONFIG &ref() { return *reinterpret_cast<volatile LPCG22_CONFIG*>(0x40CC62D8); }
 };
@@ -17316,7 +17052,6 @@ union LPCG22_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG22_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG22_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG22_AUTHEN*>(0x40CC62DC); }
 };
@@ -17342,7 +17077,6 @@ union LPCG23_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG23_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG23_DIRECT &ref() { return *reinterpret_cast<volatile LPCG23_DIRECT*>(0x40CC62E0); }
 };
@@ -17442,7 +17176,6 @@ union LPCG23_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG23_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG23_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG23_DOMAIN*>(0x40CC62E4); }
 };
@@ -17545,7 +17278,6 @@ union LPCG23_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG23_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG23_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG23_STATUS0*>(0x40CC62F0); }
 };
@@ -17741,7 +17473,6 @@ union LPCG23_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG23_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG23_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG23_STATUS1*>(0x40CC62F4); }
 };
@@ -17768,7 +17499,6 @@ union LPCG23_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG23_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG23_CONFIG &ref() { return *reinterpret_cast<volatile LPCG23_CONFIG*>(0x40CC62F8); }
 };
@@ -17870,7 +17600,6 @@ union LPCG23_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG23_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG23_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG23_AUTHEN*>(0x40CC62FC); }
 };
@@ -17896,7 +17625,6 @@ union LPCG24_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG24_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG24_DIRECT &ref() { return *reinterpret_cast<volatile LPCG24_DIRECT*>(0x40CC6300); }
 };
@@ -17996,7 +17724,6 @@ union LPCG24_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG24_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG24_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG24_DOMAIN*>(0x40CC6304); }
 };
@@ -18015,7 +17742,6 @@ union LPCG24_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG24_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG24_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG24_SETPOINT*>(0x40CC6308); }
 };
@@ -18118,7 +17844,6 @@ union LPCG24_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG24_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG24_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG24_STATUS0*>(0x40CC6310); }
 };
@@ -18314,7 +18039,6 @@ union LPCG24_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG24_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG24_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG24_STATUS1*>(0x40CC6314); }
 };
@@ -18341,7 +18065,6 @@ union LPCG24_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG24_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG24_CONFIG &ref() { return *reinterpret_cast<volatile LPCG24_CONFIG*>(0x40CC6318); }
 };
@@ -18443,7 +18166,6 @@ union LPCG24_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG24_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG24_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG24_AUTHEN*>(0x40CC631C); }
 };
@@ -18469,7 +18191,6 @@ union LPCG25_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG25_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG25_DIRECT &ref() { return *reinterpret_cast<volatile LPCG25_DIRECT*>(0x40CC6320); }
 };
@@ -18569,7 +18290,6 @@ union LPCG25_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG25_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG25_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG25_DOMAIN*>(0x40CC6324); }
 };
@@ -18588,7 +18308,6 @@ union LPCG25_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG25_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG25_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG25_SETPOINT*>(0x40CC6328); }
 };
@@ -18691,7 +18410,6 @@ union LPCG25_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG25_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG25_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG25_STATUS0*>(0x40CC6330); }
 };
@@ -18887,7 +18605,6 @@ union LPCG25_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG25_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG25_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG25_STATUS1*>(0x40CC6334); }
 };
@@ -18914,7 +18631,6 @@ union LPCG25_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG25_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG25_CONFIG &ref() { return *reinterpret_cast<volatile LPCG25_CONFIG*>(0x40CC6338); }
 };
@@ -19016,7 +18732,6 @@ union LPCG25_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG25_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG25_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG25_AUTHEN*>(0x40CC633C); }
 };
@@ -19042,7 +18757,6 @@ union LPCG26_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG26_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG26_DIRECT &ref() { return *reinterpret_cast<volatile LPCG26_DIRECT*>(0x40CC6340); }
 };
@@ -19142,7 +18856,6 @@ union LPCG26_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG26_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG26_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG26_DOMAIN*>(0x40CC6344); }
 };
@@ -19161,7 +18874,6 @@ union LPCG26_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG26_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG26_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG26_SETPOINT*>(0x40CC6348); }
 };
@@ -19264,7 +18976,6 @@ union LPCG26_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG26_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG26_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG26_STATUS0*>(0x40CC6350); }
 };
@@ -19460,7 +19171,6 @@ union LPCG26_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG26_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG26_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG26_STATUS1*>(0x40CC6354); }
 };
@@ -19487,7 +19197,6 @@ union LPCG26_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG26_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG26_CONFIG &ref() { return *reinterpret_cast<volatile LPCG26_CONFIG*>(0x40CC6358); }
 };
@@ -19589,7 +19298,6 @@ union LPCG26_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG26_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG26_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG26_AUTHEN*>(0x40CC635C); }
 };
@@ -19615,7 +19323,6 @@ union LPCG27_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG27_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG27_DIRECT &ref() { return *reinterpret_cast<volatile LPCG27_DIRECT*>(0x40CC6360); }
 };
@@ -19715,7 +19422,6 @@ union LPCG27_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG27_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG27_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG27_DOMAIN*>(0x40CC6364); }
 };
@@ -19734,7 +19440,6 @@ union LPCG27_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG27_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG27_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG27_SETPOINT*>(0x40CC6368); }
 };
@@ -19837,7 +19542,6 @@ union LPCG27_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG27_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG27_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG27_STATUS0*>(0x40CC6370); }
 };
@@ -20033,7 +19737,6 @@ union LPCG27_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG27_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG27_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG27_STATUS1*>(0x40CC6374); }
 };
@@ -20060,7 +19763,6 @@ union LPCG27_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG27_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG27_CONFIG &ref() { return *reinterpret_cast<volatile LPCG27_CONFIG*>(0x40CC6378); }
 };
@@ -20162,7 +19864,6 @@ union LPCG27_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG27_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG27_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG27_AUTHEN*>(0x40CC637C); }
 };
@@ -20188,7 +19889,6 @@ union LPCG28_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG28_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG28_DIRECT &ref() { return *reinterpret_cast<volatile LPCG28_DIRECT*>(0x40CC6380); }
 };
@@ -20288,7 +19988,6 @@ union LPCG28_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG28_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG28_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG28_DOMAIN*>(0x40CC6384); }
 };
@@ -20307,7 +20006,6 @@ union LPCG28_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG28_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG28_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG28_SETPOINT*>(0x40CC6388); }
 };
@@ -20410,7 +20108,6 @@ union LPCG28_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG28_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG28_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG28_STATUS0*>(0x40CC6390); }
 };
@@ -20606,7 +20303,6 @@ union LPCG28_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG28_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG28_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG28_STATUS1*>(0x40CC6394); }
 };
@@ -20633,7 +20329,6 @@ union LPCG28_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG28_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG28_CONFIG &ref() { return *reinterpret_cast<volatile LPCG28_CONFIG*>(0x40CC6398); }
 };
@@ -20735,7 +20430,6 @@ union LPCG28_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG28_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG28_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG28_AUTHEN*>(0x40CC639C); }
 };
@@ -20761,7 +20455,6 @@ union LPCG29_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG29_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG29_DIRECT &ref() { return *reinterpret_cast<volatile LPCG29_DIRECT*>(0x40CC63A0); }
 };
@@ -20861,7 +20554,6 @@ union LPCG29_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG29_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG29_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG29_DOMAIN*>(0x40CC63A4); }
 };
@@ -20880,7 +20572,6 @@ union LPCG29_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG29_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG29_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG29_SETPOINT*>(0x40CC63A8); }
 };
@@ -20983,7 +20674,6 @@ union LPCG29_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG29_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG29_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG29_STATUS0*>(0x40CC63B0); }
 };
@@ -21179,7 +20869,6 @@ union LPCG29_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG29_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG29_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG29_STATUS1*>(0x40CC63B4); }
 };
@@ -21206,7 +20895,6 @@ union LPCG29_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG29_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG29_CONFIG &ref() { return *reinterpret_cast<volatile LPCG29_CONFIG*>(0x40CC63B8); }
 };
@@ -21308,7 +20996,6 @@ union LPCG29_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG29_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG29_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG29_AUTHEN*>(0x40CC63BC); }
 };
@@ -21334,7 +21021,6 @@ union LPCG30_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG30_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG30_DIRECT &ref() { return *reinterpret_cast<volatile LPCG30_DIRECT*>(0x40CC63C0); }
 };
@@ -21434,7 +21120,6 @@ union LPCG30_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG30_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG30_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG30_DOMAIN*>(0x40CC63C4); }
 };
@@ -21453,7 +21138,6 @@ union LPCG30_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG30_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG30_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG30_SETPOINT*>(0x40CC63C8); }
 };
@@ -21556,7 +21240,6 @@ union LPCG30_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG30_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG30_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG30_STATUS0*>(0x40CC63D0); }
 };
@@ -21752,7 +21435,6 @@ union LPCG30_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG30_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG30_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG30_STATUS1*>(0x40CC63D4); }
 };
@@ -21779,7 +21461,6 @@ union LPCG30_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG30_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG30_CONFIG &ref() { return *reinterpret_cast<volatile LPCG30_CONFIG*>(0x40CC63D8); }
 };
@@ -21881,7 +21562,6 @@ union LPCG30_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG30_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG30_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG30_AUTHEN*>(0x40CC63DC); }
 };
@@ -21907,7 +21587,6 @@ union LPCG31_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG31_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG31_DIRECT &ref() { return *reinterpret_cast<volatile LPCG31_DIRECT*>(0x40CC63E0); }
 };
@@ -22007,7 +21686,6 @@ union LPCG31_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG31_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG31_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG31_DOMAIN*>(0x40CC63E4); }
 };
@@ -22026,7 +21704,6 @@ union LPCG31_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG31_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG31_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG31_SETPOINT*>(0x40CC63E8); }
 };
@@ -22129,7 +21806,6 @@ union LPCG31_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG31_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG31_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG31_STATUS0*>(0x40CC63F0); }
 };
@@ -22325,7 +22001,6 @@ union LPCG31_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG31_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG31_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG31_STATUS1*>(0x40CC63F4); }
 };
@@ -22352,7 +22027,6 @@ union LPCG31_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG31_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG31_CONFIG &ref() { return *reinterpret_cast<volatile LPCG31_CONFIG*>(0x40CC63F8); }
 };
@@ -22454,7 +22128,6 @@ union LPCG31_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG31_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG31_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG31_AUTHEN*>(0x40CC63FC); }
 };
@@ -22480,7 +22153,6 @@ union LPCG32_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG32_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG32_DIRECT &ref() { return *reinterpret_cast<volatile LPCG32_DIRECT*>(0x40CC6400); }
 };
@@ -22580,7 +22252,6 @@ union LPCG32_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG32_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG32_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG32_DOMAIN*>(0x40CC6404); }
 };
@@ -22599,7 +22270,6 @@ union LPCG32_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG32_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG32_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG32_SETPOINT*>(0x40CC6408); }
 };
@@ -22702,7 +22372,6 @@ union LPCG32_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG32_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG32_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG32_STATUS0*>(0x40CC6410); }
 };
@@ -22898,7 +22567,6 @@ union LPCG32_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG32_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG32_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG32_STATUS1*>(0x40CC6414); }
 };
@@ -22925,7 +22593,6 @@ union LPCG32_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG32_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG32_CONFIG &ref() { return *reinterpret_cast<volatile LPCG32_CONFIG*>(0x40CC6418); }
 };
@@ -23027,7 +22694,6 @@ union LPCG32_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG32_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG32_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG32_AUTHEN*>(0x40CC641C); }
 };
@@ -23053,7 +22719,6 @@ union LPCG33_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG33_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG33_DIRECT &ref() { return *reinterpret_cast<volatile LPCG33_DIRECT*>(0x40CC6420); }
 };
@@ -23153,7 +22818,6 @@ union LPCG33_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG33_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG33_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG33_DOMAIN*>(0x40CC6424); }
 };
@@ -23172,7 +22836,6 @@ union LPCG33_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG33_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG33_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG33_SETPOINT*>(0x40CC6428); }
 };
@@ -23275,7 +22938,6 @@ union LPCG33_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG33_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG33_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG33_STATUS0*>(0x40CC6430); }
 };
@@ -23471,7 +23133,6 @@ union LPCG33_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG33_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG33_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG33_STATUS1*>(0x40CC6434); }
 };
@@ -23498,7 +23159,6 @@ union LPCG33_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG33_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG33_CONFIG &ref() { return *reinterpret_cast<volatile LPCG33_CONFIG*>(0x40CC6438); }
 };
@@ -23600,7 +23260,6 @@ union LPCG33_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG33_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG33_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG33_AUTHEN*>(0x40CC643C); }
 };
@@ -23626,7 +23285,6 @@ union LPCG34_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG34_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG34_DIRECT &ref() { return *reinterpret_cast<volatile LPCG34_DIRECT*>(0x40CC6440); }
 };
@@ -23726,7 +23384,6 @@ union LPCG34_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG34_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG34_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG34_DOMAIN*>(0x40CC6444); }
 };
@@ -23745,7 +23402,6 @@ union LPCG34_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG34_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG34_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG34_SETPOINT*>(0x40CC6448); }
 };
@@ -23848,7 +23504,6 @@ union LPCG34_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG34_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG34_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG34_STATUS0*>(0x40CC6450); }
 };
@@ -24044,7 +23699,6 @@ union LPCG34_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG34_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG34_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG34_STATUS1*>(0x40CC6454); }
 };
@@ -24071,7 +23725,6 @@ union LPCG34_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG34_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG34_CONFIG &ref() { return *reinterpret_cast<volatile LPCG34_CONFIG*>(0x40CC6458); }
 };
@@ -24173,7 +23826,6 @@ union LPCG34_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG34_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG34_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG34_AUTHEN*>(0x40CC645C); }
 };
@@ -24199,7 +23851,6 @@ union LPCG35_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG35_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG35_DIRECT &ref() { return *reinterpret_cast<volatile LPCG35_DIRECT*>(0x40CC6460); }
 };
@@ -24299,7 +23950,6 @@ union LPCG35_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG35_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG35_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG35_DOMAIN*>(0x40CC6464); }
 };
@@ -24318,7 +23968,6 @@ union LPCG35_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG35_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG35_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG35_SETPOINT*>(0x40CC6468); }
 };
@@ -24421,7 +24070,6 @@ union LPCG35_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG35_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG35_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG35_STATUS0*>(0x40CC6470); }
 };
@@ -24617,7 +24265,6 @@ union LPCG35_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG35_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG35_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG35_STATUS1*>(0x40CC6474); }
 };
@@ -24644,7 +24291,6 @@ union LPCG35_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG35_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG35_CONFIG &ref() { return *reinterpret_cast<volatile LPCG35_CONFIG*>(0x40CC6478); }
 };
@@ -24746,7 +24392,6 @@ union LPCG35_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG35_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG35_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG35_AUTHEN*>(0x40CC647C); }
 };
@@ -24772,7 +24417,6 @@ union LPCG36_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG36_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG36_DIRECT &ref() { return *reinterpret_cast<volatile LPCG36_DIRECT*>(0x40CC6480); }
 };
@@ -24872,7 +24516,6 @@ union LPCG36_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG36_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG36_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG36_DOMAIN*>(0x40CC6484); }
 };
@@ -24891,7 +24534,6 @@ union LPCG36_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG36_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG36_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG36_SETPOINT*>(0x40CC6488); }
 };
@@ -24994,7 +24636,6 @@ union LPCG36_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG36_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG36_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG36_STATUS0*>(0x40CC6490); }
 };
@@ -25190,7 +24831,6 @@ union LPCG36_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG36_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG36_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG36_STATUS1*>(0x40CC6494); }
 };
@@ -25217,7 +24857,6 @@ union LPCG36_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG36_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG36_CONFIG &ref() { return *reinterpret_cast<volatile LPCG36_CONFIG*>(0x40CC6498); }
 };
@@ -25319,7 +24958,6 @@ union LPCG36_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG36_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG36_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG36_AUTHEN*>(0x40CC649C); }
 };
@@ -25345,7 +24983,6 @@ union LPCG37_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG37_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG37_DIRECT &ref() { return *reinterpret_cast<volatile LPCG37_DIRECT*>(0x40CC64A0); }
 };
@@ -25445,7 +25082,6 @@ union LPCG37_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG37_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG37_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG37_DOMAIN*>(0x40CC64A4); }
 };
@@ -25464,7 +25100,6 @@ union LPCG37_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG37_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG37_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG37_SETPOINT*>(0x40CC64A8); }
 };
@@ -25567,7 +25202,6 @@ union LPCG37_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG37_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG37_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG37_STATUS0*>(0x40CC64B0); }
 };
@@ -25763,7 +25397,6 @@ union LPCG37_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG37_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG37_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG37_STATUS1*>(0x40CC64B4); }
 };
@@ -25790,7 +25423,6 @@ union LPCG37_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG37_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG37_CONFIG &ref() { return *reinterpret_cast<volatile LPCG37_CONFIG*>(0x40CC64B8); }
 };
@@ -25892,7 +25524,6 @@ union LPCG37_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG37_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG37_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG37_AUTHEN*>(0x40CC64BC); }
 };
@@ -25918,7 +25549,6 @@ union LPCG38_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG38_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG38_DIRECT &ref() { return *reinterpret_cast<volatile LPCG38_DIRECT*>(0x40CC64C0); }
 };
@@ -26018,7 +25648,6 @@ union LPCG38_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG38_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG38_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG38_DOMAIN*>(0x40CC64C4); }
 };
@@ -26037,7 +25666,6 @@ union LPCG38_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG38_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG38_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG38_SETPOINT*>(0x40CC64C8); }
 };
@@ -26140,7 +25768,6 @@ union LPCG38_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG38_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG38_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG38_STATUS0*>(0x40CC64D0); }
 };
@@ -26336,7 +25963,6 @@ union LPCG38_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG38_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG38_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG38_STATUS1*>(0x40CC64D4); }
 };
@@ -26363,7 +25989,6 @@ union LPCG38_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG38_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG38_CONFIG &ref() { return *reinterpret_cast<volatile LPCG38_CONFIG*>(0x40CC64D8); }
 };
@@ -26465,7 +26090,6 @@ union LPCG38_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG38_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG38_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG38_AUTHEN*>(0x40CC64DC); }
 };
@@ -26491,7 +26115,6 @@ union LPCG39_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG39_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG39_DIRECT &ref() { return *reinterpret_cast<volatile LPCG39_DIRECT*>(0x40CC64E0); }
 };
@@ -26591,7 +26214,6 @@ union LPCG39_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG39_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG39_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG39_DOMAIN*>(0x40CC64E4); }
 };
@@ -26610,7 +26232,6 @@ union LPCG39_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG39_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG39_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG39_SETPOINT*>(0x40CC64E8); }
 };
@@ -26713,7 +26334,6 @@ union LPCG39_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG39_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG39_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG39_STATUS0*>(0x40CC64F0); }
 };
@@ -26909,7 +26529,6 @@ union LPCG39_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG39_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG39_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG39_STATUS1*>(0x40CC64F4); }
 };
@@ -26936,7 +26555,6 @@ union LPCG39_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG39_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG39_CONFIG &ref() { return *reinterpret_cast<volatile LPCG39_CONFIG*>(0x40CC64F8); }
 };
@@ -27038,7 +26656,6 @@ union LPCG39_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG39_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG39_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG39_AUTHEN*>(0x40CC64FC); }
 };
@@ -27064,7 +26681,6 @@ union LPCG40_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG40_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG40_DIRECT &ref() { return *reinterpret_cast<volatile LPCG40_DIRECT*>(0x40CC6500); }
 };
@@ -27164,7 +26780,6 @@ union LPCG40_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG40_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG40_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG40_DOMAIN*>(0x40CC6504); }
 };
@@ -27183,7 +26798,6 @@ union LPCG40_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG40_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG40_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG40_SETPOINT*>(0x40CC6508); }
 };
@@ -27286,7 +26900,6 @@ union LPCG40_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG40_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG40_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG40_STATUS0*>(0x40CC6510); }
 };
@@ -27482,7 +27095,6 @@ union LPCG40_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG40_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG40_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG40_STATUS1*>(0x40CC6514); }
 };
@@ -27509,7 +27121,6 @@ union LPCG40_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG40_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG40_CONFIG &ref() { return *reinterpret_cast<volatile LPCG40_CONFIG*>(0x40CC6518); }
 };
@@ -27611,7 +27222,6 @@ union LPCG40_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG40_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG40_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG40_AUTHEN*>(0x40CC651C); }
 };
@@ -27637,7 +27247,6 @@ union LPCG41_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG41_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG41_DIRECT &ref() { return *reinterpret_cast<volatile LPCG41_DIRECT*>(0x40CC6520); }
 };
@@ -27737,7 +27346,6 @@ union LPCG41_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG41_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG41_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG41_DOMAIN*>(0x40CC6524); }
 };
@@ -27840,7 +27448,6 @@ union LPCG41_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG41_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG41_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG41_STATUS0*>(0x40CC6530); }
 };
@@ -28036,7 +27643,6 @@ union LPCG41_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG41_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG41_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG41_STATUS1*>(0x40CC6534); }
 };
@@ -28063,7 +27669,6 @@ union LPCG41_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG41_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG41_CONFIG &ref() { return *reinterpret_cast<volatile LPCG41_CONFIG*>(0x40CC6538); }
 };
@@ -28165,7 +27770,6 @@ union LPCG41_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG41_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG41_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG41_AUTHEN*>(0x40CC653C); }
 };
@@ -28191,7 +27795,6 @@ union LPCG42_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG42_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG42_DIRECT &ref() { return *reinterpret_cast<volatile LPCG42_DIRECT*>(0x40CC6540); }
 };
@@ -28291,7 +27894,6 @@ union LPCG42_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG42_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG42_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG42_DOMAIN*>(0x40CC6544); }
 };
@@ -28394,7 +27996,6 @@ union LPCG42_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG42_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG42_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG42_STATUS0*>(0x40CC6550); }
 };
@@ -28590,7 +28191,6 @@ union LPCG42_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG42_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG42_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG42_STATUS1*>(0x40CC6554); }
 };
@@ -28617,7 +28217,6 @@ union LPCG42_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG42_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG42_CONFIG &ref() { return *reinterpret_cast<volatile LPCG42_CONFIG*>(0x40CC6558); }
 };
@@ -28719,7 +28318,6 @@ union LPCG42_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG42_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG42_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG42_AUTHEN*>(0x40CC655C); }
 };
@@ -28745,7 +28343,6 @@ union LPCG43_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG43_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG43_DIRECT &ref() { return *reinterpret_cast<volatile LPCG43_DIRECT*>(0x40CC6560); }
 };
@@ -28845,7 +28442,6 @@ union LPCG43_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG43_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG43_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG43_DOMAIN*>(0x40CC6564); }
 };
@@ -28864,7 +28460,6 @@ union LPCG43_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG43_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG43_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG43_SETPOINT*>(0x40CC6568); }
 };
@@ -28967,7 +28562,6 @@ union LPCG43_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG43_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG43_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG43_STATUS0*>(0x40CC6570); }
 };
@@ -29163,7 +28757,6 @@ union LPCG43_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG43_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG43_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG43_STATUS1*>(0x40CC6574); }
 };
@@ -29190,7 +28783,6 @@ union LPCG43_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG43_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG43_CONFIG &ref() { return *reinterpret_cast<volatile LPCG43_CONFIG*>(0x40CC6578); }
 };
@@ -29292,7 +28884,6 @@ union LPCG43_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG43_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG43_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG43_AUTHEN*>(0x40CC657C); }
 };
@@ -29318,7 +28909,6 @@ union LPCG44_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG44_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG44_DIRECT &ref() { return *reinterpret_cast<volatile LPCG44_DIRECT*>(0x40CC6580); }
 };
@@ -29418,7 +29008,6 @@ union LPCG44_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG44_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG44_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG44_DOMAIN*>(0x40CC6584); }
 };
@@ -29437,7 +29026,6 @@ union LPCG44_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG44_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG44_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG44_SETPOINT*>(0x40CC6588); }
 };
@@ -29540,7 +29128,6 @@ union LPCG44_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG44_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG44_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG44_STATUS0*>(0x40CC6590); }
 };
@@ -29736,7 +29323,6 @@ union LPCG44_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG44_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG44_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG44_STATUS1*>(0x40CC6594); }
 };
@@ -29763,7 +29349,6 @@ union LPCG44_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG44_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG44_CONFIG &ref() { return *reinterpret_cast<volatile LPCG44_CONFIG*>(0x40CC6598); }
 };
@@ -29865,7 +29450,6 @@ union LPCG44_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG44_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG44_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG44_AUTHEN*>(0x40CC659C); }
 };
@@ -29891,7 +29475,6 @@ union LPCG45_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG45_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG45_DIRECT &ref() { return *reinterpret_cast<volatile LPCG45_DIRECT*>(0x40CC65A0); }
 };
@@ -29991,7 +29574,6 @@ union LPCG45_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG45_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG45_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG45_DOMAIN*>(0x40CC65A4); }
 };
@@ -30010,7 +29592,6 @@ union LPCG45_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG45_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG45_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG45_SETPOINT*>(0x40CC65A8); }
 };
@@ -30113,7 +29694,6 @@ union LPCG45_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG45_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG45_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG45_STATUS0*>(0x40CC65B0); }
 };
@@ -30309,7 +29889,6 @@ union LPCG45_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG45_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG45_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG45_STATUS1*>(0x40CC65B4); }
 };
@@ -30336,7 +29915,6 @@ union LPCG45_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG45_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG45_CONFIG &ref() { return *reinterpret_cast<volatile LPCG45_CONFIG*>(0x40CC65B8); }
 };
@@ -30438,7 +30016,6 @@ union LPCG45_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG45_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG45_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG45_AUTHEN*>(0x40CC65BC); }
 };
@@ -30464,7 +30041,6 @@ union LPCG46_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG46_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG46_DIRECT &ref() { return *reinterpret_cast<volatile LPCG46_DIRECT*>(0x40CC65C0); }
 };
@@ -30564,7 +30140,6 @@ union LPCG46_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG46_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG46_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG46_DOMAIN*>(0x40CC65C4); }
 };
@@ -30583,7 +30158,6 @@ union LPCG46_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG46_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG46_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG46_SETPOINT*>(0x40CC65C8); }
 };
@@ -30686,7 +30260,6 @@ union LPCG46_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG46_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG46_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG46_STATUS0*>(0x40CC65D0); }
 };
@@ -30882,7 +30455,6 @@ union LPCG46_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG46_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG46_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG46_STATUS1*>(0x40CC65D4); }
 };
@@ -30909,7 +30481,6 @@ union LPCG46_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG46_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG46_CONFIG &ref() { return *reinterpret_cast<volatile LPCG46_CONFIG*>(0x40CC65D8); }
 };
@@ -31011,7 +30582,6 @@ union LPCG46_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG46_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG46_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG46_AUTHEN*>(0x40CC65DC); }
 };
@@ -31037,7 +30607,6 @@ union LPCG47_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG47_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG47_DIRECT &ref() { return *reinterpret_cast<volatile LPCG47_DIRECT*>(0x40CC65E0); }
 };
@@ -31137,7 +30706,6 @@ union LPCG47_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG47_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG47_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG47_DOMAIN*>(0x40CC65E4); }
 };
@@ -31156,7 +30724,6 @@ union LPCG47_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG47_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG47_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG47_SETPOINT*>(0x40CC65E8); }
 };
@@ -31259,7 +30826,6 @@ union LPCG47_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG47_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG47_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG47_STATUS0*>(0x40CC65F0); }
 };
@@ -31455,7 +31021,6 @@ union LPCG47_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG47_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG47_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG47_STATUS1*>(0x40CC65F4); }
 };
@@ -31482,7 +31047,6 @@ union LPCG47_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG47_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG47_CONFIG &ref() { return *reinterpret_cast<volatile LPCG47_CONFIG*>(0x40CC65F8); }
 };
@@ -31584,7 +31148,6 @@ union LPCG47_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG47_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG47_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG47_AUTHEN*>(0x40CC65FC); }
 };
@@ -31610,7 +31173,6 @@ union LPCG48_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG48_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG48_DIRECT &ref() { return *reinterpret_cast<volatile LPCG48_DIRECT*>(0x40CC6600); }
 };
@@ -31710,7 +31272,6 @@ union LPCG48_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG48_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG48_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG48_DOMAIN*>(0x40CC6604); }
 };
@@ -31729,7 +31290,6 @@ union LPCG48_SETPOINT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG48_SETPOINT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG48_SETPOINT &ref() { return *reinterpret_cast<volatile LPCG48_SETPOINT*>(0x40CC6608); }
 };
@@ -31832,7 +31392,6 @@ union LPCG48_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG48_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG48_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG48_STATUS0*>(0x40CC6610); }
 };
@@ -32028,7 +31587,6 @@ union LPCG48_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG48_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG48_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG48_STATUS1*>(0x40CC6614); }
 };
@@ -32055,7 +31613,6 @@ union LPCG48_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG48_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG48_CONFIG &ref() { return *reinterpret_cast<volatile LPCG48_CONFIG*>(0x40CC6618); }
 };
@@ -32157,7 +31714,6 @@ union LPCG48_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG48_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG48_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG48_AUTHEN*>(0x40CC661C); }
 };
@@ -32183,7 +31739,6 @@ union LPCG49_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG49_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG49_DIRECT &ref() { return *reinterpret_cast<volatile LPCG49_DIRECT*>(0x40CC6620); }
 };
@@ -32283,7 +31838,6 @@ union LPCG49_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG49_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG49_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG49_DOMAIN*>(0x40CC6624); }
 };
@@ -32386,7 +31940,6 @@ union LPCG49_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG49_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG49_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG49_STATUS0*>(0x40CC6630); }
 };
@@ -32582,7 +32135,6 @@ union LPCG49_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG49_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG49_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG49_STATUS1*>(0x40CC6634); }
 };
@@ -32609,7 +32161,6 @@ union LPCG49_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG49_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG49_CONFIG &ref() { return *reinterpret_cast<volatile LPCG49_CONFIG*>(0x40CC6638); }
 };
@@ -32711,7 +32262,6 @@ union LPCG49_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG49_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG49_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG49_AUTHEN*>(0x40CC663C); }
 };
@@ -32737,7 +32287,6 @@ union LPCG50_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG50_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG50_DIRECT &ref() { return *reinterpret_cast<volatile LPCG50_DIRECT*>(0x40CC6640); }
 };
@@ -32837,7 +32386,6 @@ union LPCG50_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG50_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG50_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG50_DOMAIN*>(0x40CC6644); }
 };
@@ -32940,7 +32488,6 @@ union LPCG50_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG50_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG50_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG50_STATUS0*>(0x40CC6650); }
 };
@@ -33136,7 +32683,6 @@ union LPCG50_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG50_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG50_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG50_STATUS1*>(0x40CC6654); }
 };
@@ -33163,7 +32709,6 @@ union LPCG50_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG50_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG50_CONFIG &ref() { return *reinterpret_cast<volatile LPCG50_CONFIG*>(0x40CC6658); }
 };
@@ -33265,7 +32810,6 @@ union LPCG50_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG50_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG50_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG50_AUTHEN*>(0x40CC665C); }
 };
@@ -33291,7 +32835,6 @@ union LPCG51_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG51_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG51_DIRECT &ref() { return *reinterpret_cast<volatile LPCG51_DIRECT*>(0x40CC6660); }
 };
@@ -33391,7 +32934,6 @@ union LPCG51_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG51_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG51_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG51_DOMAIN*>(0x40CC6664); }
 };
@@ -33494,7 +33036,6 @@ union LPCG51_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG51_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG51_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG51_STATUS0*>(0x40CC6670); }
 };
@@ -33690,7 +33231,6 @@ union LPCG51_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG51_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG51_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG51_STATUS1*>(0x40CC6674); }
 };
@@ -33717,7 +33257,6 @@ union LPCG51_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG51_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG51_CONFIG &ref() { return *reinterpret_cast<volatile LPCG51_CONFIG*>(0x40CC6678); }
 };
@@ -33819,7 +33358,6 @@ union LPCG51_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG51_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG51_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG51_AUTHEN*>(0x40CC667C); }
 };
@@ -33845,7 +33383,6 @@ union LPCG52_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG52_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG52_DIRECT &ref() { return *reinterpret_cast<volatile LPCG52_DIRECT*>(0x40CC6680); }
 };
@@ -33945,7 +33482,6 @@ union LPCG52_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG52_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG52_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG52_DOMAIN*>(0x40CC6684); }
 };
@@ -34048,7 +33584,6 @@ union LPCG52_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG52_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG52_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG52_STATUS0*>(0x40CC6690); }
 };
@@ -34244,7 +33779,6 @@ union LPCG52_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG52_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG52_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG52_STATUS1*>(0x40CC6694); }
 };
@@ -34271,7 +33805,6 @@ union LPCG52_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG52_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG52_CONFIG &ref() { return *reinterpret_cast<volatile LPCG52_CONFIG*>(0x40CC6698); }
 };
@@ -34373,7 +33906,6 @@ union LPCG52_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG52_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG52_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG52_AUTHEN*>(0x40CC669C); }
 };
@@ -34399,7 +33931,6 @@ union LPCG53_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG53_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG53_DIRECT &ref() { return *reinterpret_cast<volatile LPCG53_DIRECT*>(0x40CC66A0); }
 };
@@ -34499,7 +34030,6 @@ union LPCG53_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG53_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG53_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG53_DOMAIN*>(0x40CC66A4); }
 };
@@ -34602,7 +34132,6 @@ union LPCG53_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG53_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG53_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG53_STATUS0*>(0x40CC66B0); }
 };
@@ -34798,7 +34327,6 @@ union LPCG53_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG53_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG53_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG53_STATUS1*>(0x40CC66B4); }
 };
@@ -34825,7 +34353,6 @@ union LPCG53_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG53_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG53_CONFIG &ref() { return *reinterpret_cast<volatile LPCG53_CONFIG*>(0x40CC66B8); }
 };
@@ -34927,7 +34454,6 @@ union LPCG53_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG53_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG53_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG53_AUTHEN*>(0x40CC66BC); }
 };
@@ -34953,7 +34479,6 @@ union LPCG54_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG54_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG54_DIRECT &ref() { return *reinterpret_cast<volatile LPCG54_DIRECT*>(0x40CC66C0); }
 };
@@ -35053,7 +34578,6 @@ union LPCG54_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG54_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG54_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG54_DOMAIN*>(0x40CC66C4); }
 };
@@ -35156,7 +34680,6 @@ union LPCG54_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG54_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG54_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG54_STATUS0*>(0x40CC66D0); }
 };
@@ -35352,7 +34875,6 @@ union LPCG54_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG54_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG54_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG54_STATUS1*>(0x40CC66D4); }
 };
@@ -35379,7 +34901,6 @@ union LPCG54_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG54_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG54_CONFIG &ref() { return *reinterpret_cast<volatile LPCG54_CONFIG*>(0x40CC66D8); }
 };
@@ -35481,7 +35002,6 @@ union LPCG54_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG54_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG54_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG54_AUTHEN*>(0x40CC66DC); }
 };
@@ -35507,7 +35027,6 @@ union LPCG55_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG55_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG55_DIRECT &ref() { return *reinterpret_cast<volatile LPCG55_DIRECT*>(0x40CC66E0); }
 };
@@ -35607,7 +35126,6 @@ union LPCG55_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG55_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG55_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG55_DOMAIN*>(0x40CC66E4); }
 };
@@ -35710,7 +35228,6 @@ union LPCG55_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG55_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG55_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG55_STATUS0*>(0x40CC66F0); }
 };
@@ -35906,7 +35423,6 @@ union LPCG55_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG55_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG55_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG55_STATUS1*>(0x40CC66F4); }
 };
@@ -35933,7 +35449,6 @@ union LPCG55_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG55_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG55_CONFIG &ref() { return *reinterpret_cast<volatile LPCG55_CONFIG*>(0x40CC66F8); }
 };
@@ -36035,7 +35550,6 @@ union LPCG55_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG55_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG55_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG55_AUTHEN*>(0x40CC66FC); }
 };
@@ -36061,7 +35575,6 @@ union LPCG56_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG56_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG56_DIRECT &ref() { return *reinterpret_cast<volatile LPCG56_DIRECT*>(0x40CC6700); }
 };
@@ -36161,7 +35674,6 @@ union LPCG56_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG56_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG56_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG56_DOMAIN*>(0x40CC6704); }
 };
@@ -36264,7 +35776,6 @@ union LPCG56_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG56_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG56_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG56_STATUS0*>(0x40CC6710); }
 };
@@ -36460,7 +35971,6 @@ union LPCG56_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG56_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG56_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG56_STATUS1*>(0x40CC6714); }
 };
@@ -36487,7 +35997,6 @@ union LPCG56_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG56_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG56_CONFIG &ref() { return *reinterpret_cast<volatile LPCG56_CONFIG*>(0x40CC6718); }
 };
@@ -36589,7 +36098,6 @@ union LPCG56_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG56_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG56_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG56_AUTHEN*>(0x40CC671C); }
 };
@@ -36615,7 +36123,6 @@ union LPCG57_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG57_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG57_DIRECT &ref() { return *reinterpret_cast<volatile LPCG57_DIRECT*>(0x40CC6720); }
 };
@@ -36715,7 +36222,6 @@ union LPCG57_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG57_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG57_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG57_DOMAIN*>(0x40CC6724); }
 };
@@ -36818,7 +36324,6 @@ union LPCG57_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG57_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG57_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG57_STATUS0*>(0x40CC6730); }
 };
@@ -37014,7 +36519,6 @@ union LPCG57_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG57_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG57_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG57_STATUS1*>(0x40CC6734); }
 };
@@ -37041,7 +36545,6 @@ union LPCG57_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG57_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG57_CONFIG &ref() { return *reinterpret_cast<volatile LPCG57_CONFIG*>(0x40CC6738); }
 };
@@ -37143,7 +36646,6 @@ union LPCG57_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG57_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG57_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG57_AUTHEN*>(0x40CC673C); }
 };
@@ -37169,7 +36671,6 @@ union LPCG58_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG58_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG58_DIRECT &ref() { return *reinterpret_cast<volatile LPCG58_DIRECT*>(0x40CC6740); }
 };
@@ -37269,7 +36770,6 @@ union LPCG58_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG58_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG58_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG58_DOMAIN*>(0x40CC6744); }
 };
@@ -37372,7 +36872,6 @@ union LPCG58_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG58_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG58_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG58_STATUS0*>(0x40CC6750); }
 };
@@ -37568,7 +37067,6 @@ union LPCG58_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG58_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG58_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG58_STATUS1*>(0x40CC6754); }
 };
@@ -37595,7 +37093,6 @@ union LPCG58_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG58_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG58_CONFIG &ref() { return *reinterpret_cast<volatile LPCG58_CONFIG*>(0x40CC6758); }
 };
@@ -37697,7 +37194,6 @@ union LPCG58_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG58_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG58_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG58_AUTHEN*>(0x40CC675C); }
 };
@@ -37723,7 +37219,6 @@ union LPCG59_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG59_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG59_DIRECT &ref() { return *reinterpret_cast<volatile LPCG59_DIRECT*>(0x40CC6760); }
 };
@@ -37823,7 +37318,6 @@ union LPCG59_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG59_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG59_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG59_DOMAIN*>(0x40CC6764); }
 };
@@ -37926,7 +37420,6 @@ union LPCG59_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG59_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG59_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG59_STATUS0*>(0x40CC6770); }
 };
@@ -38122,7 +37615,6 @@ union LPCG59_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG59_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG59_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG59_STATUS1*>(0x40CC6774); }
 };
@@ -38149,7 +37641,6 @@ union LPCG59_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG59_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG59_CONFIG &ref() { return *reinterpret_cast<volatile LPCG59_CONFIG*>(0x40CC6778); }
 };
@@ -38251,7 +37742,6 @@ union LPCG59_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG59_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG59_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG59_AUTHEN*>(0x40CC677C); }
 };
@@ -38277,7 +37767,6 @@ union LPCG60_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG60_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG60_DIRECT &ref() { return *reinterpret_cast<volatile LPCG60_DIRECT*>(0x40CC6780); }
 };
@@ -38377,7 +37866,6 @@ union LPCG60_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG60_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG60_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG60_DOMAIN*>(0x40CC6784); }
 };
@@ -38480,7 +37968,6 @@ union LPCG60_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG60_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG60_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG60_STATUS0*>(0x40CC6790); }
 };
@@ -38676,7 +38163,6 @@ union LPCG60_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG60_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG60_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG60_STATUS1*>(0x40CC6794); }
 };
@@ -38703,7 +38189,6 @@ union LPCG60_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG60_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG60_CONFIG &ref() { return *reinterpret_cast<volatile LPCG60_CONFIG*>(0x40CC6798); }
 };
@@ -38805,7 +38290,6 @@ union LPCG60_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG60_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG60_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG60_AUTHEN*>(0x40CC679C); }
 };
@@ -38831,7 +38315,6 @@ union LPCG61_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG61_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG61_DIRECT &ref() { return *reinterpret_cast<volatile LPCG61_DIRECT*>(0x40CC67A0); }
 };
@@ -38931,7 +38414,6 @@ union LPCG61_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG61_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG61_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG61_DOMAIN*>(0x40CC67A4); }
 };
@@ -39034,7 +38516,6 @@ union LPCG61_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG61_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG61_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG61_STATUS0*>(0x40CC67B0); }
 };
@@ -39230,7 +38711,6 @@ union LPCG61_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG61_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG61_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG61_STATUS1*>(0x40CC67B4); }
 };
@@ -39257,7 +38737,6 @@ union LPCG61_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG61_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG61_CONFIG &ref() { return *reinterpret_cast<volatile LPCG61_CONFIG*>(0x40CC67B8); }
 };
@@ -39359,7 +38838,6 @@ union LPCG61_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG61_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG61_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG61_AUTHEN*>(0x40CC67BC); }
 };
@@ -39385,7 +38863,6 @@ union LPCG62_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG62_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG62_DIRECT &ref() { return *reinterpret_cast<volatile LPCG62_DIRECT*>(0x40CC67C0); }
 };
@@ -39485,7 +38962,6 @@ union LPCG62_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG62_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG62_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG62_DOMAIN*>(0x40CC67C4); }
 };
@@ -39588,7 +39064,6 @@ union LPCG62_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG62_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG62_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG62_STATUS0*>(0x40CC67D0); }
 };
@@ -39784,7 +39259,6 @@ union LPCG62_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG62_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG62_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG62_STATUS1*>(0x40CC67D4); }
 };
@@ -39811,7 +39285,6 @@ union LPCG62_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG62_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG62_CONFIG &ref() { return *reinterpret_cast<volatile LPCG62_CONFIG*>(0x40CC67D8); }
 };
@@ -39913,7 +39386,6 @@ union LPCG62_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG62_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG62_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG62_AUTHEN*>(0x40CC67DC); }
 };
@@ -39939,7 +39411,6 @@ union LPCG63_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG63_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG63_DIRECT &ref() { return *reinterpret_cast<volatile LPCG63_DIRECT*>(0x40CC67E0); }
 };
@@ -40039,7 +39510,6 @@ union LPCG63_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG63_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG63_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG63_DOMAIN*>(0x40CC67E4); }
 };
@@ -40142,7 +39612,6 @@ union LPCG63_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG63_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG63_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG63_STATUS0*>(0x40CC67F0); }
 };
@@ -40338,7 +39807,6 @@ union LPCG63_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG63_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG63_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG63_STATUS1*>(0x40CC67F4); }
 };
@@ -40365,7 +39833,6 @@ union LPCG63_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG63_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG63_CONFIG &ref() { return *reinterpret_cast<volatile LPCG63_CONFIG*>(0x40CC67F8); }
 };
@@ -40467,7 +39934,6 @@ union LPCG63_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG63_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG63_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG63_AUTHEN*>(0x40CC67FC); }
 };
@@ -40493,7 +39959,6 @@ union LPCG64_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG64_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG64_DIRECT &ref() { return *reinterpret_cast<volatile LPCG64_DIRECT*>(0x40CC6800); }
 };
@@ -40593,7 +40058,6 @@ union LPCG64_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG64_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG64_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG64_DOMAIN*>(0x40CC6804); }
 };
@@ -40696,7 +40160,6 @@ union LPCG64_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG64_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG64_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG64_STATUS0*>(0x40CC6810); }
 };
@@ -40892,7 +40355,6 @@ union LPCG64_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG64_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG64_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG64_STATUS1*>(0x40CC6814); }
 };
@@ -40919,7 +40381,6 @@ union LPCG64_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG64_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG64_CONFIG &ref() { return *reinterpret_cast<volatile LPCG64_CONFIG*>(0x40CC6818); }
 };
@@ -41021,7 +40482,6 @@ union LPCG64_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG64_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG64_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG64_AUTHEN*>(0x40CC681C); }
 };
@@ -41047,7 +40507,6 @@ union LPCG65_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG65_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG65_DIRECT &ref() { return *reinterpret_cast<volatile LPCG65_DIRECT*>(0x40CC6820); }
 };
@@ -41147,7 +40606,6 @@ union LPCG65_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG65_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG65_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG65_DOMAIN*>(0x40CC6824); }
 };
@@ -41250,7 +40708,6 @@ union LPCG65_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG65_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG65_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG65_STATUS0*>(0x40CC6830); }
 };
@@ -41446,7 +40903,6 @@ union LPCG65_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG65_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG65_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG65_STATUS1*>(0x40CC6834); }
 };
@@ -41473,7 +40929,6 @@ union LPCG65_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG65_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG65_CONFIG &ref() { return *reinterpret_cast<volatile LPCG65_CONFIG*>(0x40CC6838); }
 };
@@ -41575,7 +41030,6 @@ union LPCG65_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG65_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG65_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG65_AUTHEN*>(0x40CC683C); }
 };
@@ -41601,7 +41055,6 @@ union LPCG66_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG66_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG66_DIRECT &ref() { return *reinterpret_cast<volatile LPCG66_DIRECT*>(0x40CC6840); }
 };
@@ -41701,7 +41154,6 @@ union LPCG66_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG66_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG66_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG66_DOMAIN*>(0x40CC6844); }
 };
@@ -41804,7 +41256,6 @@ union LPCG66_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG66_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG66_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG66_STATUS0*>(0x40CC6850); }
 };
@@ -42000,7 +41451,6 @@ union LPCG66_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG66_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG66_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG66_STATUS1*>(0x40CC6854); }
 };
@@ -42027,7 +41477,6 @@ union LPCG66_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG66_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG66_CONFIG &ref() { return *reinterpret_cast<volatile LPCG66_CONFIG*>(0x40CC6858); }
 };
@@ -42129,7 +41578,6 @@ union LPCG66_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG66_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG66_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG66_AUTHEN*>(0x40CC685C); }
 };
@@ -42155,7 +41603,6 @@ union LPCG67_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG67_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG67_DIRECT &ref() { return *reinterpret_cast<volatile LPCG67_DIRECT*>(0x40CC6860); }
 };
@@ -42255,7 +41702,6 @@ union LPCG67_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG67_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG67_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG67_DOMAIN*>(0x40CC6864); }
 };
@@ -42358,7 +41804,6 @@ union LPCG67_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG67_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG67_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG67_STATUS0*>(0x40CC6870); }
 };
@@ -42554,7 +41999,6 @@ union LPCG67_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG67_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG67_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG67_STATUS1*>(0x40CC6874); }
 };
@@ -42581,7 +42025,6 @@ union LPCG67_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG67_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG67_CONFIG &ref() { return *reinterpret_cast<volatile LPCG67_CONFIG*>(0x40CC6878); }
 };
@@ -42683,7 +42126,6 @@ union LPCG67_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG67_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG67_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG67_AUTHEN*>(0x40CC687C); }
 };
@@ -42709,7 +42151,6 @@ union LPCG68_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG68_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG68_DIRECT &ref() { return *reinterpret_cast<volatile LPCG68_DIRECT*>(0x40CC6880); }
 };
@@ -42809,7 +42250,6 @@ union LPCG68_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG68_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG68_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG68_DOMAIN*>(0x40CC6884); }
 };
@@ -42912,7 +42352,6 @@ union LPCG68_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG68_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG68_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG68_STATUS0*>(0x40CC6890); }
 };
@@ -43108,7 +42547,6 @@ union LPCG68_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG68_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG68_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG68_STATUS1*>(0x40CC6894); }
 };
@@ -43135,7 +42573,6 @@ union LPCG68_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG68_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG68_CONFIG &ref() { return *reinterpret_cast<volatile LPCG68_CONFIG*>(0x40CC6898); }
 };
@@ -43237,7 +42674,6 @@ union LPCG68_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG68_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG68_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG68_AUTHEN*>(0x40CC689C); }
 };
@@ -43263,7 +42699,6 @@ union LPCG69_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG69_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG69_DIRECT &ref() { return *reinterpret_cast<volatile LPCG69_DIRECT*>(0x40CC68A0); }
 };
@@ -43363,7 +42798,6 @@ union LPCG69_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG69_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG69_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG69_DOMAIN*>(0x40CC68A4); }
 };
@@ -43466,7 +42900,6 @@ union LPCG69_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG69_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG69_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG69_STATUS0*>(0x40CC68B0); }
 };
@@ -43662,7 +43095,6 @@ union LPCG69_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG69_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG69_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG69_STATUS1*>(0x40CC68B4); }
 };
@@ -43689,7 +43121,6 @@ union LPCG69_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG69_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG69_CONFIG &ref() { return *reinterpret_cast<volatile LPCG69_CONFIG*>(0x40CC68B8); }
 };
@@ -43791,7 +43222,6 @@ union LPCG69_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG69_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG69_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG69_AUTHEN*>(0x40CC68BC); }
 };
@@ -43817,7 +43247,6 @@ union LPCG70_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG70_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG70_DIRECT &ref() { return *reinterpret_cast<volatile LPCG70_DIRECT*>(0x40CC68C0); }
 };
@@ -43917,7 +43346,6 @@ union LPCG70_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG70_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG70_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG70_DOMAIN*>(0x40CC68C4); }
 };
@@ -44020,7 +43448,6 @@ union LPCG70_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG70_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG70_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG70_STATUS0*>(0x40CC68D0); }
 };
@@ -44216,7 +43643,6 @@ union LPCG70_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG70_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG70_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG70_STATUS1*>(0x40CC68D4); }
 };
@@ -44243,7 +43669,6 @@ union LPCG70_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG70_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG70_CONFIG &ref() { return *reinterpret_cast<volatile LPCG70_CONFIG*>(0x40CC68D8); }
 };
@@ -44345,7 +43770,6 @@ union LPCG70_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG70_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG70_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG70_AUTHEN*>(0x40CC68DC); }
 };
@@ -44371,7 +43795,6 @@ union LPCG71_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG71_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG71_DIRECT &ref() { return *reinterpret_cast<volatile LPCG71_DIRECT*>(0x40CC68E0); }
 };
@@ -44471,7 +43894,6 @@ union LPCG71_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG71_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG71_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG71_DOMAIN*>(0x40CC68E4); }
 };
@@ -44574,7 +43996,6 @@ union LPCG71_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG71_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG71_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG71_STATUS0*>(0x40CC68F0); }
 };
@@ -44770,7 +44191,6 @@ union LPCG71_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG71_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG71_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG71_STATUS1*>(0x40CC68F4); }
 };
@@ -44797,7 +44217,6 @@ union LPCG71_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG71_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG71_CONFIG &ref() { return *reinterpret_cast<volatile LPCG71_CONFIG*>(0x40CC68F8); }
 };
@@ -44899,7 +44318,6 @@ union LPCG71_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG71_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG71_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG71_AUTHEN*>(0x40CC68FC); }
 };
@@ -44925,7 +44343,6 @@ union LPCG72_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG72_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG72_DIRECT &ref() { return *reinterpret_cast<volatile LPCG72_DIRECT*>(0x40CC6900); }
 };
@@ -45025,7 +44442,6 @@ union LPCG72_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG72_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG72_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG72_DOMAIN*>(0x40CC6904); }
 };
@@ -45128,7 +44544,6 @@ union LPCG72_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG72_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG72_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG72_STATUS0*>(0x40CC6910); }
 };
@@ -45324,7 +44739,6 @@ union LPCG72_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG72_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG72_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG72_STATUS1*>(0x40CC6914); }
 };
@@ -45351,7 +44765,6 @@ union LPCG72_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG72_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG72_CONFIG &ref() { return *reinterpret_cast<volatile LPCG72_CONFIG*>(0x40CC6918); }
 };
@@ -45453,7 +44866,6 @@ union LPCG72_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG72_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG72_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG72_AUTHEN*>(0x40CC691C); }
 };
@@ -45479,7 +44891,6 @@ union LPCG73_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG73_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG73_DIRECT &ref() { return *reinterpret_cast<volatile LPCG73_DIRECT*>(0x40CC6920); }
 };
@@ -45579,7 +44990,6 @@ union LPCG73_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG73_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG73_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG73_DOMAIN*>(0x40CC6924); }
 };
@@ -45682,7 +45092,6 @@ union LPCG73_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG73_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG73_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG73_STATUS0*>(0x40CC6930); }
 };
@@ -45878,7 +45287,6 @@ union LPCG73_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG73_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG73_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG73_STATUS1*>(0x40CC6934); }
 };
@@ -45905,7 +45313,6 @@ union LPCG73_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG73_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG73_CONFIG &ref() { return *reinterpret_cast<volatile LPCG73_CONFIG*>(0x40CC6938); }
 };
@@ -46007,7 +45414,6 @@ union LPCG73_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG73_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG73_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG73_AUTHEN*>(0x40CC693C); }
 };
@@ -46033,7 +45439,6 @@ union LPCG74_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG74_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG74_DIRECT &ref() { return *reinterpret_cast<volatile LPCG74_DIRECT*>(0x40CC6940); }
 };
@@ -46133,7 +45538,6 @@ union LPCG74_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG74_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG74_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG74_DOMAIN*>(0x40CC6944); }
 };
@@ -46236,7 +45640,6 @@ union LPCG74_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG74_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG74_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG74_STATUS0*>(0x40CC6950); }
 };
@@ -46432,7 +45835,6 @@ union LPCG74_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG74_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG74_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG74_STATUS1*>(0x40CC6954); }
 };
@@ -46459,7 +45861,6 @@ union LPCG74_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG74_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG74_CONFIG &ref() { return *reinterpret_cast<volatile LPCG74_CONFIG*>(0x40CC6958); }
 };
@@ -46561,7 +45962,6 @@ union LPCG74_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG74_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG74_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG74_AUTHEN*>(0x40CC695C); }
 };
@@ -46587,7 +45987,6 @@ union LPCG75_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG75_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG75_DIRECT &ref() { return *reinterpret_cast<volatile LPCG75_DIRECT*>(0x40CC6960); }
 };
@@ -46687,7 +46086,6 @@ union LPCG75_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG75_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG75_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG75_DOMAIN*>(0x40CC6964); }
 };
@@ -46790,7 +46188,6 @@ union LPCG75_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG75_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG75_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG75_STATUS0*>(0x40CC6970); }
 };
@@ -46986,7 +46383,6 @@ union LPCG75_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG75_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG75_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG75_STATUS1*>(0x40CC6974); }
 };
@@ -47013,7 +46409,6 @@ union LPCG75_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG75_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG75_CONFIG &ref() { return *reinterpret_cast<volatile LPCG75_CONFIG*>(0x40CC6978); }
 };
@@ -47115,7 +46510,6 @@ union LPCG75_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG75_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG75_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG75_AUTHEN*>(0x40CC697C); }
 };
@@ -47141,7 +46535,6 @@ union LPCG76_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG76_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG76_DIRECT &ref() { return *reinterpret_cast<volatile LPCG76_DIRECT*>(0x40CC6980); }
 };
@@ -47241,7 +46634,6 @@ union LPCG76_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG76_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG76_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG76_DOMAIN*>(0x40CC6984); }
 };
@@ -47344,7 +46736,6 @@ union LPCG76_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG76_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG76_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG76_STATUS0*>(0x40CC6990); }
 };
@@ -47540,7 +46931,6 @@ union LPCG76_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG76_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG76_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG76_STATUS1*>(0x40CC6994); }
 };
@@ -47567,7 +46957,6 @@ union LPCG76_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG76_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG76_CONFIG &ref() { return *reinterpret_cast<volatile LPCG76_CONFIG*>(0x40CC6998); }
 };
@@ -47669,7 +47058,6 @@ union LPCG76_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG76_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG76_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG76_AUTHEN*>(0x40CC699C); }
 };
@@ -47695,7 +47083,6 @@ union LPCG77_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG77_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG77_DIRECT &ref() { return *reinterpret_cast<volatile LPCG77_DIRECT*>(0x40CC69A0); }
 };
@@ -47795,7 +47182,6 @@ union LPCG77_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG77_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG77_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG77_DOMAIN*>(0x40CC69A4); }
 };
@@ -47898,7 +47284,6 @@ union LPCG77_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG77_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG77_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG77_STATUS0*>(0x40CC69B0); }
 };
@@ -48094,7 +47479,6 @@ union LPCG77_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG77_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG77_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG77_STATUS1*>(0x40CC69B4); }
 };
@@ -48121,7 +47505,6 @@ union LPCG77_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG77_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG77_CONFIG &ref() { return *reinterpret_cast<volatile LPCG77_CONFIG*>(0x40CC69B8); }
 };
@@ -48223,7 +47606,6 @@ union LPCG77_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG77_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG77_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG77_AUTHEN*>(0x40CC69BC); }
 };
@@ -48249,7 +47631,6 @@ union LPCG78_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG78_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG78_DIRECT &ref() { return *reinterpret_cast<volatile LPCG78_DIRECT*>(0x40CC69C0); }
 };
@@ -48349,7 +47730,6 @@ union LPCG78_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG78_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG78_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG78_DOMAIN*>(0x40CC69C4); }
 };
@@ -48452,7 +47832,6 @@ union LPCG78_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG78_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG78_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG78_STATUS0*>(0x40CC69D0); }
 };
@@ -48648,7 +48027,6 @@ union LPCG78_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG78_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG78_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG78_STATUS1*>(0x40CC69D4); }
 };
@@ -48675,7 +48053,6 @@ union LPCG78_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG78_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG78_CONFIG &ref() { return *reinterpret_cast<volatile LPCG78_CONFIG*>(0x40CC69D8); }
 };
@@ -48777,7 +48154,6 @@ union LPCG78_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG78_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG78_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG78_AUTHEN*>(0x40CC69DC); }
 };
@@ -48803,7 +48179,6 @@ union LPCG79_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG79_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG79_DIRECT &ref() { return *reinterpret_cast<volatile LPCG79_DIRECT*>(0x40CC69E0); }
 };
@@ -48903,7 +48278,6 @@ union LPCG79_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG79_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG79_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG79_DOMAIN*>(0x40CC69E4); }
 };
@@ -49006,7 +48380,6 @@ union LPCG79_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG79_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG79_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG79_STATUS0*>(0x40CC69F0); }
 };
@@ -49202,7 +48575,6 @@ union LPCG79_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG79_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG79_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG79_STATUS1*>(0x40CC69F4); }
 };
@@ -49229,7 +48601,6 @@ union LPCG79_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG79_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG79_CONFIG &ref() { return *reinterpret_cast<volatile LPCG79_CONFIG*>(0x40CC69F8); }
 };
@@ -49331,7 +48702,6 @@ union LPCG79_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG79_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG79_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG79_AUTHEN*>(0x40CC69FC); }
 };
@@ -49357,7 +48727,6 @@ union LPCG80_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG80_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG80_DIRECT &ref() { return *reinterpret_cast<volatile LPCG80_DIRECT*>(0x40CC6A00); }
 };
@@ -49457,7 +48826,6 @@ union LPCG80_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG80_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG80_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG80_DOMAIN*>(0x40CC6A04); }
 };
@@ -49560,7 +48928,6 @@ union LPCG80_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG80_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG80_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG80_STATUS0*>(0x40CC6A10); }
 };
@@ -49756,7 +49123,6 @@ union LPCG80_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG80_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG80_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG80_STATUS1*>(0x40CC6A14); }
 };
@@ -49783,7 +49149,6 @@ union LPCG80_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG80_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG80_CONFIG &ref() { return *reinterpret_cast<volatile LPCG80_CONFIG*>(0x40CC6A18); }
 };
@@ -49885,7 +49250,6 @@ union LPCG80_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG80_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG80_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG80_AUTHEN*>(0x40CC6A1C); }
 };
@@ -49911,7 +49275,6 @@ union LPCG81_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG81_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG81_DIRECT &ref() { return *reinterpret_cast<volatile LPCG81_DIRECT*>(0x40CC6A20); }
 };
@@ -50011,7 +49374,6 @@ union LPCG81_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG81_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG81_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG81_DOMAIN*>(0x40CC6A24); }
 };
@@ -50114,7 +49476,6 @@ union LPCG81_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG81_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG81_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG81_STATUS0*>(0x40CC6A30); }
 };
@@ -50310,7 +49671,6 @@ union LPCG81_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG81_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG81_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG81_STATUS1*>(0x40CC6A34); }
 };
@@ -50337,7 +49697,6 @@ union LPCG81_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG81_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG81_CONFIG &ref() { return *reinterpret_cast<volatile LPCG81_CONFIG*>(0x40CC6A38); }
 };
@@ -50439,7 +49798,6 @@ union LPCG81_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG81_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG81_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG81_AUTHEN*>(0x40CC6A3C); }
 };
@@ -50465,7 +49823,6 @@ union LPCG82_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG82_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG82_DIRECT &ref() { return *reinterpret_cast<volatile LPCG82_DIRECT*>(0x40CC6A40); }
 };
@@ -50565,7 +49922,6 @@ union LPCG82_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG82_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG82_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG82_DOMAIN*>(0x40CC6A44); }
 };
@@ -50668,7 +50024,6 @@ union LPCG82_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG82_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG82_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG82_STATUS0*>(0x40CC6A50); }
 };
@@ -50864,7 +50219,6 @@ union LPCG82_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG82_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG82_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG82_STATUS1*>(0x40CC6A54); }
 };
@@ -50891,7 +50245,6 @@ union LPCG82_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG82_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG82_CONFIG &ref() { return *reinterpret_cast<volatile LPCG82_CONFIG*>(0x40CC6A58); }
 };
@@ -50993,7 +50346,6 @@ union LPCG82_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG82_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG82_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG82_AUTHEN*>(0x40CC6A5C); }
 };
@@ -51019,7 +50371,6 @@ union LPCG83_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG83_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG83_DIRECT &ref() { return *reinterpret_cast<volatile LPCG83_DIRECT*>(0x40CC6A60); }
 };
@@ -51119,7 +50470,6 @@ union LPCG83_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG83_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG83_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG83_DOMAIN*>(0x40CC6A64); }
 };
@@ -51222,7 +50572,6 @@ union LPCG83_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG83_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG83_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG83_STATUS0*>(0x40CC6A70); }
 };
@@ -51418,7 +50767,6 @@ union LPCG83_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG83_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG83_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG83_STATUS1*>(0x40CC6A74); }
 };
@@ -51445,7 +50793,6 @@ union LPCG83_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG83_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG83_CONFIG &ref() { return *reinterpret_cast<volatile LPCG83_CONFIG*>(0x40CC6A78); }
 };
@@ -51547,7 +50894,6 @@ union LPCG83_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG83_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG83_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG83_AUTHEN*>(0x40CC6A7C); }
 };
@@ -51573,7 +50919,6 @@ union LPCG84_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG84_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG84_DIRECT &ref() { return *reinterpret_cast<volatile LPCG84_DIRECT*>(0x40CC6A80); }
 };
@@ -51673,7 +51018,6 @@ union LPCG84_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG84_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG84_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG84_DOMAIN*>(0x40CC6A84); }
 };
@@ -51776,7 +51120,6 @@ union LPCG84_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG84_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG84_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG84_STATUS0*>(0x40CC6A90); }
 };
@@ -51972,7 +51315,6 @@ union LPCG84_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG84_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG84_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG84_STATUS1*>(0x40CC6A94); }
 };
@@ -51999,7 +51341,6 @@ union LPCG84_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG84_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG84_CONFIG &ref() { return *reinterpret_cast<volatile LPCG84_CONFIG*>(0x40CC6A98); }
 };
@@ -52101,7 +51442,6 @@ union LPCG84_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG84_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG84_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG84_AUTHEN*>(0x40CC6A9C); }
 };
@@ -52127,7 +51467,6 @@ union LPCG85_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG85_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG85_DIRECT &ref() { return *reinterpret_cast<volatile LPCG85_DIRECT*>(0x40CC6AA0); }
 };
@@ -52227,7 +51566,6 @@ union LPCG85_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG85_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG85_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG85_DOMAIN*>(0x40CC6AA4); }
 };
@@ -52330,7 +51668,6 @@ union LPCG85_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG85_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG85_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG85_STATUS0*>(0x40CC6AB0); }
 };
@@ -52526,7 +51863,6 @@ union LPCG85_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG85_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG85_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG85_STATUS1*>(0x40CC6AB4); }
 };
@@ -52553,7 +51889,6 @@ union LPCG85_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG85_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG85_CONFIG &ref() { return *reinterpret_cast<volatile LPCG85_CONFIG*>(0x40CC6AB8); }
 };
@@ -52655,7 +51990,6 @@ union LPCG85_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG85_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG85_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG85_AUTHEN*>(0x40CC6ABC); }
 };
@@ -52681,7 +52015,6 @@ union LPCG86_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG86_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG86_DIRECT &ref() { return *reinterpret_cast<volatile LPCG86_DIRECT*>(0x40CC6AC0); }
 };
@@ -52781,7 +52114,6 @@ union LPCG86_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG86_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG86_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG86_DOMAIN*>(0x40CC6AC4); }
 };
@@ -52884,7 +52216,6 @@ union LPCG86_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG86_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG86_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG86_STATUS0*>(0x40CC6AD0); }
 };
@@ -53080,7 +52411,6 @@ union LPCG86_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG86_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG86_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG86_STATUS1*>(0x40CC6AD4); }
 };
@@ -53107,7 +52437,6 @@ union LPCG86_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG86_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG86_CONFIG &ref() { return *reinterpret_cast<volatile LPCG86_CONFIG*>(0x40CC6AD8); }
 };
@@ -53209,7 +52538,6 @@ union LPCG86_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG86_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG86_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG86_AUTHEN*>(0x40CC6ADC); }
 };
@@ -53235,7 +52563,6 @@ union LPCG87_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG87_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG87_DIRECT &ref() { return *reinterpret_cast<volatile LPCG87_DIRECT*>(0x40CC6AE0); }
 };
@@ -53335,7 +52662,6 @@ union LPCG87_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG87_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG87_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG87_DOMAIN*>(0x40CC6AE4); }
 };
@@ -53438,7 +52764,6 @@ union LPCG87_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG87_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG87_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG87_STATUS0*>(0x40CC6AF0); }
 };
@@ -53634,7 +52959,6 @@ union LPCG87_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG87_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG87_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG87_STATUS1*>(0x40CC6AF4); }
 };
@@ -53661,7 +52985,6 @@ union LPCG87_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG87_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG87_CONFIG &ref() { return *reinterpret_cast<volatile LPCG87_CONFIG*>(0x40CC6AF8); }
 };
@@ -53763,7 +53086,6 @@ union LPCG87_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG87_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG87_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG87_AUTHEN*>(0x40CC6AFC); }
 };
@@ -53789,7 +53111,6 @@ union LPCG88_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG88_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG88_DIRECT &ref() { return *reinterpret_cast<volatile LPCG88_DIRECT*>(0x40CC6B00); }
 };
@@ -53889,7 +53210,6 @@ union LPCG88_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG88_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG88_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG88_DOMAIN*>(0x40CC6B04); }
 };
@@ -53992,7 +53312,6 @@ union LPCG88_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG88_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG88_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG88_STATUS0*>(0x40CC6B10); }
 };
@@ -54188,7 +53507,6 @@ union LPCG88_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG88_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG88_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG88_STATUS1*>(0x40CC6B14); }
 };
@@ -54215,7 +53533,6 @@ union LPCG88_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG88_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG88_CONFIG &ref() { return *reinterpret_cast<volatile LPCG88_CONFIG*>(0x40CC6B18); }
 };
@@ -54317,7 +53634,6 @@ union LPCG88_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG88_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG88_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG88_AUTHEN*>(0x40CC6B1C); }
 };
@@ -54343,7 +53659,6 @@ union LPCG89_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG89_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG89_DIRECT &ref() { return *reinterpret_cast<volatile LPCG89_DIRECT*>(0x40CC6B20); }
 };
@@ -54443,7 +53758,6 @@ union LPCG89_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG89_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG89_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG89_DOMAIN*>(0x40CC6B24); }
 };
@@ -54546,7 +53860,6 @@ union LPCG89_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG89_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG89_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG89_STATUS0*>(0x40CC6B30); }
 };
@@ -54742,7 +54055,6 @@ union LPCG89_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG89_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG89_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG89_STATUS1*>(0x40CC6B34); }
 };
@@ -54769,7 +54081,6 @@ union LPCG89_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG89_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG89_CONFIG &ref() { return *reinterpret_cast<volatile LPCG89_CONFIG*>(0x40CC6B38); }
 };
@@ -54871,7 +54182,6 @@ union LPCG89_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG89_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG89_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG89_AUTHEN*>(0x40CC6B3C); }
 };
@@ -54897,7 +54207,6 @@ union LPCG90_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG90_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG90_DIRECT &ref() { return *reinterpret_cast<volatile LPCG90_DIRECT*>(0x40CC6B40); }
 };
@@ -54997,7 +54306,6 @@ union LPCG90_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG90_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG90_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG90_DOMAIN*>(0x40CC6B44); }
 };
@@ -55100,7 +54408,6 @@ union LPCG90_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG90_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG90_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG90_STATUS0*>(0x40CC6B50); }
 };
@@ -55296,7 +54603,6 @@ union LPCG90_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG90_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG90_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG90_STATUS1*>(0x40CC6B54); }
 };
@@ -55323,7 +54629,6 @@ union LPCG90_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG90_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG90_CONFIG &ref() { return *reinterpret_cast<volatile LPCG90_CONFIG*>(0x40CC6B58); }
 };
@@ -55425,7 +54730,6 @@ union LPCG90_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG90_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG90_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG90_AUTHEN*>(0x40CC6B5C); }
 };
@@ -55451,7 +54755,6 @@ union LPCG91_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG91_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG91_DIRECT &ref() { return *reinterpret_cast<volatile LPCG91_DIRECT*>(0x40CC6B60); }
 };
@@ -55551,7 +54854,6 @@ union LPCG91_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG91_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG91_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG91_DOMAIN*>(0x40CC6B64); }
 };
@@ -55654,7 +54956,6 @@ union LPCG91_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG91_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG91_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG91_STATUS0*>(0x40CC6B70); }
 };
@@ -55850,7 +55151,6 @@ union LPCG91_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG91_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG91_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG91_STATUS1*>(0x40CC6B74); }
 };
@@ -55877,7 +55177,6 @@ union LPCG91_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG91_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG91_CONFIG &ref() { return *reinterpret_cast<volatile LPCG91_CONFIG*>(0x40CC6B78); }
 };
@@ -55979,7 +55278,6 @@ union LPCG91_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG91_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG91_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG91_AUTHEN*>(0x40CC6B7C); }
 };
@@ -56005,7 +55303,6 @@ union LPCG92_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG92_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG92_DIRECT &ref() { return *reinterpret_cast<volatile LPCG92_DIRECT*>(0x40CC6B80); }
 };
@@ -56105,7 +55402,6 @@ union LPCG92_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG92_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG92_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG92_DOMAIN*>(0x40CC6B84); }
 };
@@ -56208,7 +55504,6 @@ union LPCG92_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG92_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG92_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG92_STATUS0*>(0x40CC6B90); }
 };
@@ -56404,7 +55699,6 @@ union LPCG92_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG92_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG92_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG92_STATUS1*>(0x40CC6B94); }
 };
@@ -56431,7 +55725,6 @@ union LPCG92_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG92_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG92_CONFIG &ref() { return *reinterpret_cast<volatile LPCG92_CONFIG*>(0x40CC6B98); }
 };
@@ -56533,7 +55826,6 @@ union LPCG92_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG92_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG92_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG92_AUTHEN*>(0x40CC6B9C); }
 };
@@ -56559,7 +55851,6 @@ union LPCG93_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG93_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG93_DIRECT &ref() { return *reinterpret_cast<volatile LPCG93_DIRECT*>(0x40CC6BA0); }
 };
@@ -56659,7 +55950,6 @@ union LPCG93_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG93_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG93_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG93_DOMAIN*>(0x40CC6BA4); }
 };
@@ -56762,7 +56052,6 @@ union LPCG93_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG93_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG93_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG93_STATUS0*>(0x40CC6BB0); }
 };
@@ -56958,7 +56247,6 @@ union LPCG93_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG93_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG93_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG93_STATUS1*>(0x40CC6BB4); }
 };
@@ -56985,7 +56273,6 @@ union LPCG93_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG93_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG93_CONFIG &ref() { return *reinterpret_cast<volatile LPCG93_CONFIG*>(0x40CC6BB8); }
 };
@@ -57087,7 +56374,6 @@ union LPCG93_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG93_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG93_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG93_AUTHEN*>(0x40CC6BBC); }
 };
@@ -57113,7 +56399,6 @@ union LPCG94_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG94_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG94_DIRECT &ref() { return *reinterpret_cast<volatile LPCG94_DIRECT*>(0x40CC6BC0); }
 };
@@ -57213,7 +56498,6 @@ union LPCG94_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG94_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG94_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG94_DOMAIN*>(0x40CC6BC4); }
 };
@@ -57316,7 +56600,6 @@ union LPCG94_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG94_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG94_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG94_STATUS0*>(0x40CC6BD0); }
 };
@@ -57512,7 +56795,6 @@ union LPCG94_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG94_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG94_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG94_STATUS1*>(0x40CC6BD4); }
 };
@@ -57539,7 +56821,6 @@ union LPCG94_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG94_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG94_CONFIG &ref() { return *reinterpret_cast<volatile LPCG94_CONFIG*>(0x40CC6BD8); }
 };
@@ -57641,7 +56922,6 @@ union LPCG94_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG94_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG94_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG94_AUTHEN*>(0x40CC6BDC); }
 };
@@ -57667,7 +56947,6 @@ union LPCG95_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG95_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG95_DIRECT &ref() { return *reinterpret_cast<volatile LPCG95_DIRECT*>(0x40CC6BE0); }
 };
@@ -57767,7 +57046,6 @@ union LPCG95_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG95_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG95_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG95_DOMAIN*>(0x40CC6BE4); }
 };
@@ -57870,7 +57148,6 @@ union LPCG95_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG95_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG95_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG95_STATUS0*>(0x40CC6BF0); }
 };
@@ -58066,7 +57343,6 @@ union LPCG95_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG95_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG95_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG95_STATUS1*>(0x40CC6BF4); }
 };
@@ -58093,7 +57369,6 @@ union LPCG95_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG95_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG95_CONFIG &ref() { return *reinterpret_cast<volatile LPCG95_CONFIG*>(0x40CC6BF8); }
 };
@@ -58195,7 +57470,6 @@ union LPCG95_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG95_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG95_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG95_AUTHEN*>(0x40CC6BFC); }
 };
@@ -58221,7 +57495,6 @@ union LPCG96_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG96_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG96_DIRECT &ref() { return *reinterpret_cast<volatile LPCG96_DIRECT*>(0x40CC6C00); }
 };
@@ -58321,7 +57594,6 @@ union LPCG96_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG96_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG96_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG96_DOMAIN*>(0x40CC6C04); }
 };
@@ -58424,7 +57696,6 @@ union LPCG96_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG96_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG96_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG96_STATUS0*>(0x40CC6C10); }
 };
@@ -58620,7 +57891,6 @@ union LPCG96_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG96_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG96_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG96_STATUS1*>(0x40CC6C14); }
 };
@@ -58647,7 +57917,6 @@ union LPCG96_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG96_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG96_CONFIG &ref() { return *reinterpret_cast<volatile LPCG96_CONFIG*>(0x40CC6C18); }
 };
@@ -58749,7 +58018,6 @@ union LPCG96_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG96_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG96_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG96_AUTHEN*>(0x40CC6C1C); }
 };
@@ -58775,7 +58043,6 @@ union LPCG97_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG97_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG97_DIRECT &ref() { return *reinterpret_cast<volatile LPCG97_DIRECT*>(0x40CC6C20); }
 };
@@ -58875,7 +58142,6 @@ union LPCG97_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG97_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG97_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG97_DOMAIN*>(0x40CC6C24); }
 };
@@ -58978,7 +58244,6 @@ union LPCG97_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG97_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG97_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG97_STATUS0*>(0x40CC6C30); }
 };
@@ -59174,7 +58439,6 @@ union LPCG97_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG97_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG97_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG97_STATUS1*>(0x40CC6C34); }
 };
@@ -59201,7 +58465,6 @@ union LPCG97_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG97_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG97_CONFIG &ref() { return *reinterpret_cast<volatile LPCG97_CONFIG*>(0x40CC6C38); }
 };
@@ -59303,7 +58566,6 @@ union LPCG97_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG97_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG97_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG97_AUTHEN*>(0x40CC6C3C); }
 };
@@ -59329,7 +58591,6 @@ union LPCG98_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG98_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG98_DIRECT &ref() { return *reinterpret_cast<volatile LPCG98_DIRECT*>(0x40CC6C40); }
 };
@@ -59429,7 +58690,6 @@ union LPCG98_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG98_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG98_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG98_DOMAIN*>(0x40CC6C44); }
 };
@@ -59532,7 +58792,6 @@ union LPCG98_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG98_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG98_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG98_STATUS0*>(0x40CC6C50); }
 };
@@ -59728,7 +58987,6 @@ union LPCG98_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG98_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG98_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG98_STATUS1*>(0x40CC6C54); }
 };
@@ -59755,7 +59013,6 @@ union LPCG98_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG98_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG98_CONFIG &ref() { return *reinterpret_cast<volatile LPCG98_CONFIG*>(0x40CC6C58); }
 };
@@ -59857,7 +59114,6 @@ union LPCG98_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG98_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG98_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG98_AUTHEN*>(0x40CC6C5C); }
 };
@@ -59883,7 +59139,6 @@ union LPCG99_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG99_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG99_DIRECT &ref() { return *reinterpret_cast<volatile LPCG99_DIRECT*>(0x40CC6C60); }
 };
@@ -59983,7 +59238,6 @@ union LPCG99_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG99_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG99_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG99_DOMAIN*>(0x40CC6C64); }
 };
@@ -60086,7 +59340,6 @@ union LPCG99_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG99_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG99_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG99_STATUS0*>(0x40CC6C70); }
 };
@@ -60282,7 +59535,6 @@ union LPCG99_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG99_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG99_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG99_STATUS1*>(0x40CC6C74); }
 };
@@ -60309,7 +59561,6 @@ union LPCG99_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG99_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG99_CONFIG &ref() { return *reinterpret_cast<volatile LPCG99_CONFIG*>(0x40CC6C78); }
 };
@@ -60411,7 +59662,6 @@ union LPCG99_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG99_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG99_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG99_AUTHEN*>(0x40CC6C7C); }
 };
@@ -60437,7 +59687,6 @@ union LPCG100_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG100_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG100_DIRECT &ref() { return *reinterpret_cast<volatile LPCG100_DIRECT*>(0x40CC6C80); }
 };
@@ -60537,7 +59786,6 @@ union LPCG100_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG100_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG100_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG100_DOMAIN*>(0x40CC6C84); }
 };
@@ -60640,7 +59888,6 @@ union LPCG100_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG100_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG100_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG100_STATUS0*>(0x40CC6C90); }
 };
@@ -60836,7 +60083,6 @@ union LPCG100_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG100_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG100_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG100_STATUS1*>(0x40CC6C94); }
 };
@@ -60863,7 +60109,6 @@ union LPCG100_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG100_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG100_CONFIG &ref() { return *reinterpret_cast<volatile LPCG100_CONFIG*>(0x40CC6C98); }
 };
@@ -60965,7 +60210,6 @@ union LPCG100_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG100_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG100_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG100_AUTHEN*>(0x40CC6C9C); }
 };
@@ -60991,7 +60235,6 @@ union LPCG101_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG101_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG101_DIRECT &ref() { return *reinterpret_cast<volatile LPCG101_DIRECT*>(0x40CC6CA0); }
 };
@@ -61091,7 +60334,6 @@ union LPCG101_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG101_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG101_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG101_DOMAIN*>(0x40CC6CA4); }
 };
@@ -61194,7 +60436,6 @@ union LPCG101_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG101_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG101_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG101_STATUS0*>(0x40CC6CB0); }
 };
@@ -61390,7 +60631,6 @@ union LPCG101_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG101_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG101_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG101_STATUS1*>(0x40CC6CB4); }
 };
@@ -61417,7 +60657,6 @@ union LPCG101_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG101_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG101_CONFIG &ref() { return *reinterpret_cast<volatile LPCG101_CONFIG*>(0x40CC6CB8); }
 };
@@ -61519,7 +60758,6 @@ union LPCG101_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG101_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG101_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG101_AUTHEN*>(0x40CC6CBC); }
 };
@@ -61545,7 +60783,6 @@ union LPCG102_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG102_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG102_DIRECT &ref() { return *reinterpret_cast<volatile LPCG102_DIRECT*>(0x40CC6CC0); }
 };
@@ -61645,7 +60882,6 @@ union LPCG102_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG102_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG102_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG102_DOMAIN*>(0x40CC6CC4); }
 };
@@ -61748,7 +60984,6 @@ union LPCG102_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG102_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG102_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG102_STATUS0*>(0x40CC6CD0); }
 };
@@ -61944,7 +61179,6 @@ union LPCG102_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG102_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG102_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG102_STATUS1*>(0x40CC6CD4); }
 };
@@ -61971,7 +61205,6 @@ union LPCG102_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG102_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG102_CONFIG &ref() { return *reinterpret_cast<volatile LPCG102_CONFIG*>(0x40CC6CD8); }
 };
@@ -62073,7 +61306,6 @@ union LPCG102_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG102_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG102_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG102_AUTHEN*>(0x40CC6CDC); }
 };
@@ -62099,7 +61331,6 @@ union LPCG103_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG103_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG103_DIRECT &ref() { return *reinterpret_cast<volatile LPCG103_DIRECT*>(0x40CC6CE0); }
 };
@@ -62199,7 +61430,6 @@ union LPCG103_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG103_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG103_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG103_DOMAIN*>(0x40CC6CE4); }
 };
@@ -62302,7 +61532,6 @@ union LPCG103_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG103_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG103_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG103_STATUS0*>(0x40CC6CF0); }
 };
@@ -62498,7 +61727,6 @@ union LPCG103_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG103_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG103_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG103_STATUS1*>(0x40CC6CF4); }
 };
@@ -62525,7 +61753,6 @@ union LPCG103_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG103_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG103_CONFIG &ref() { return *reinterpret_cast<volatile LPCG103_CONFIG*>(0x40CC6CF8); }
 };
@@ -62627,7 +61854,6 @@ union LPCG103_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG103_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG103_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG103_AUTHEN*>(0x40CC6CFC); }
 };
@@ -62653,7 +61879,6 @@ union LPCG104_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG104_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG104_DIRECT &ref() { return *reinterpret_cast<volatile LPCG104_DIRECT*>(0x40CC6D00); }
 };
@@ -62753,7 +61978,6 @@ union LPCG104_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG104_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG104_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG104_DOMAIN*>(0x40CC6D04); }
 };
@@ -62856,7 +62080,6 @@ union LPCG104_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG104_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG104_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG104_STATUS0*>(0x40CC6D10); }
 };
@@ -63052,7 +62275,6 @@ union LPCG104_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG104_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG104_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG104_STATUS1*>(0x40CC6D14); }
 };
@@ -63079,7 +62301,6 @@ union LPCG104_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG104_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG104_CONFIG &ref() { return *reinterpret_cast<volatile LPCG104_CONFIG*>(0x40CC6D18); }
 };
@@ -63181,7 +62402,6 @@ union LPCG104_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG104_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG104_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG104_AUTHEN*>(0x40CC6D1C); }
 };
@@ -63207,7 +62427,6 @@ union LPCG105_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG105_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG105_DIRECT &ref() { return *reinterpret_cast<volatile LPCG105_DIRECT*>(0x40CC6D20); }
 };
@@ -63307,7 +62526,6 @@ union LPCG105_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG105_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG105_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG105_DOMAIN*>(0x40CC6D24); }
 };
@@ -63410,7 +62628,6 @@ union LPCG105_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG105_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG105_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG105_STATUS0*>(0x40CC6D30); }
 };
@@ -63606,7 +62823,6 @@ union LPCG105_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG105_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG105_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG105_STATUS1*>(0x40CC6D34); }
 };
@@ -63633,7 +62849,6 @@ union LPCG105_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG105_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG105_CONFIG &ref() { return *reinterpret_cast<volatile LPCG105_CONFIG*>(0x40CC6D38); }
 };
@@ -63735,7 +62950,6 @@ union LPCG105_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG105_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG105_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG105_AUTHEN*>(0x40CC6D3C); }
 };
@@ -63761,7 +62975,6 @@ union LPCG106_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG106_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG106_DIRECT &ref() { return *reinterpret_cast<volatile LPCG106_DIRECT*>(0x40CC6D40); }
 };
@@ -63861,7 +63074,6 @@ union LPCG106_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG106_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG106_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG106_DOMAIN*>(0x40CC6D44); }
 };
@@ -63964,7 +63176,6 @@ union LPCG106_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG106_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG106_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG106_STATUS0*>(0x40CC6D50); }
 };
@@ -64160,7 +63371,6 @@ union LPCG106_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG106_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG106_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG106_STATUS1*>(0x40CC6D54); }
 };
@@ -64187,7 +63397,6 @@ union LPCG106_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG106_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG106_CONFIG &ref() { return *reinterpret_cast<volatile LPCG106_CONFIG*>(0x40CC6D58); }
 };
@@ -64289,7 +63498,6 @@ union LPCG106_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG106_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG106_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG106_AUTHEN*>(0x40CC6D5C); }
 };
@@ -64315,7 +63523,6 @@ union LPCG107_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG107_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG107_DIRECT &ref() { return *reinterpret_cast<volatile LPCG107_DIRECT*>(0x40CC6D60); }
 };
@@ -64415,7 +63622,6 @@ union LPCG107_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG107_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG107_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG107_DOMAIN*>(0x40CC6D64); }
 };
@@ -64518,7 +63724,6 @@ union LPCG107_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG107_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG107_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG107_STATUS0*>(0x40CC6D70); }
 };
@@ -64714,7 +63919,6 @@ union LPCG107_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG107_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG107_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG107_STATUS1*>(0x40CC6D74); }
 };
@@ -64741,7 +63945,6 @@ union LPCG107_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG107_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG107_CONFIG &ref() { return *reinterpret_cast<volatile LPCG107_CONFIG*>(0x40CC6D78); }
 };
@@ -64843,7 +64046,6 @@ union LPCG107_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG107_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG107_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG107_AUTHEN*>(0x40CC6D7C); }
 };
@@ -64869,7 +64071,6 @@ union LPCG108_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG108_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG108_DIRECT &ref() { return *reinterpret_cast<volatile LPCG108_DIRECT*>(0x40CC6D80); }
 };
@@ -64969,7 +64170,6 @@ union LPCG108_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG108_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG108_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG108_DOMAIN*>(0x40CC6D84); }
 };
@@ -65072,7 +64272,6 @@ union LPCG108_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG108_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG108_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG108_STATUS0*>(0x40CC6D90); }
 };
@@ -65268,7 +64467,6 @@ union LPCG108_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG108_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG108_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG108_STATUS1*>(0x40CC6D94); }
 };
@@ -65295,7 +64493,6 @@ union LPCG108_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG108_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG108_CONFIG &ref() { return *reinterpret_cast<volatile LPCG108_CONFIG*>(0x40CC6D98); }
 };
@@ -65397,7 +64594,6 @@ union LPCG108_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG108_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG108_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG108_AUTHEN*>(0x40CC6D9C); }
 };
@@ -65423,7 +64619,6 @@ union LPCG109_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG109_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG109_DIRECT &ref() { return *reinterpret_cast<volatile LPCG109_DIRECT*>(0x40CC6DA0); }
 };
@@ -65523,7 +64718,6 @@ union LPCG109_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG109_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG109_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG109_DOMAIN*>(0x40CC6DA4); }
 };
@@ -65626,7 +64820,6 @@ union LPCG109_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG109_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG109_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG109_STATUS0*>(0x40CC6DB0); }
 };
@@ -65822,7 +65015,6 @@ union LPCG109_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG109_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG109_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG109_STATUS1*>(0x40CC6DB4); }
 };
@@ -65849,7 +65041,6 @@ union LPCG109_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG109_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG109_CONFIG &ref() { return *reinterpret_cast<volatile LPCG109_CONFIG*>(0x40CC6DB8); }
 };
@@ -65951,7 +65142,6 @@ union LPCG109_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG109_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG109_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG109_AUTHEN*>(0x40CC6DBC); }
 };
@@ -65977,7 +65167,6 @@ union LPCG110_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG110_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG110_DIRECT &ref() { return *reinterpret_cast<volatile LPCG110_DIRECT*>(0x40CC6DC0); }
 };
@@ -66077,7 +65266,6 @@ union LPCG110_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG110_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG110_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG110_DOMAIN*>(0x40CC6DC4); }
 };
@@ -66180,7 +65368,6 @@ union LPCG110_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG110_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG110_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG110_STATUS0*>(0x40CC6DD0); }
 };
@@ -66376,7 +65563,6 @@ union LPCG110_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG110_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG110_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG110_STATUS1*>(0x40CC6DD4); }
 };
@@ -66403,7 +65589,6 @@ union LPCG110_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG110_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG110_CONFIG &ref() { return *reinterpret_cast<volatile LPCG110_CONFIG*>(0x40CC6DD8); }
 };
@@ -66505,7 +65690,6 @@ union LPCG110_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG110_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG110_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG110_AUTHEN*>(0x40CC6DDC); }
 };
@@ -66531,7 +65715,6 @@ union LPCG111_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG111_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG111_DIRECT &ref() { return *reinterpret_cast<volatile LPCG111_DIRECT*>(0x40CC6DE0); }
 };
@@ -66631,7 +65814,6 @@ union LPCG111_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG111_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG111_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG111_DOMAIN*>(0x40CC6DE4); }
 };
@@ -66734,7 +65916,6 @@ union LPCG111_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG111_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG111_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG111_STATUS0*>(0x40CC6DF0); }
 };
@@ -66930,7 +66111,6 @@ union LPCG111_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG111_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG111_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG111_STATUS1*>(0x40CC6DF4); }
 };
@@ -66957,7 +66137,6 @@ union LPCG111_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG111_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG111_CONFIG &ref() { return *reinterpret_cast<volatile LPCG111_CONFIG*>(0x40CC6DF8); }
 };
@@ -67059,7 +66238,6 @@ union LPCG111_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG111_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG111_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG111_AUTHEN*>(0x40CC6DFC); }
 };
@@ -67085,7 +66263,6 @@ union LPCG112_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG112_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG112_DIRECT &ref() { return *reinterpret_cast<volatile LPCG112_DIRECT*>(0x40CC6E00); }
 };
@@ -67185,7 +66362,6 @@ union LPCG112_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG112_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG112_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG112_DOMAIN*>(0x40CC6E04); }
 };
@@ -67288,7 +66464,6 @@ union LPCG112_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG112_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG112_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG112_STATUS0*>(0x40CC6E10); }
 };
@@ -67484,7 +66659,6 @@ union LPCG112_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG112_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG112_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG112_STATUS1*>(0x40CC6E14); }
 };
@@ -67511,7 +66685,6 @@ union LPCG112_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG112_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG112_CONFIG &ref() { return *reinterpret_cast<volatile LPCG112_CONFIG*>(0x40CC6E18); }
 };
@@ -67613,7 +66786,6 @@ union LPCG112_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG112_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG112_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG112_AUTHEN*>(0x40CC6E1C); }
 };
@@ -67639,7 +66811,6 @@ union LPCG113_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG113_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG113_DIRECT &ref() { return *reinterpret_cast<volatile LPCG113_DIRECT*>(0x40CC6E20); }
 };
@@ -67739,7 +66910,6 @@ union LPCG113_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG113_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG113_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG113_DOMAIN*>(0x40CC6E24); }
 };
@@ -67842,7 +67012,6 @@ union LPCG113_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG113_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG113_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG113_STATUS0*>(0x40CC6E30); }
 };
@@ -68038,7 +67207,6 @@ union LPCG113_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG113_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG113_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG113_STATUS1*>(0x40CC6E34); }
 };
@@ -68065,7 +67233,6 @@ union LPCG113_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG113_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG113_CONFIG &ref() { return *reinterpret_cast<volatile LPCG113_CONFIG*>(0x40CC6E38); }
 };
@@ -68167,7 +67334,6 @@ union LPCG113_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG113_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG113_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG113_AUTHEN*>(0x40CC6E3C); }
 };
@@ -68193,7 +67359,6 @@ union LPCG114_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG114_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG114_DIRECT &ref() { return *reinterpret_cast<volatile LPCG114_DIRECT*>(0x40CC6E40); }
 };
@@ -68293,7 +67458,6 @@ union LPCG114_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG114_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG114_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG114_DOMAIN*>(0x40CC6E44); }
 };
@@ -68396,7 +67560,6 @@ union LPCG114_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG114_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG114_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG114_STATUS0*>(0x40CC6E50); }
 };
@@ -68592,7 +67755,6 @@ union LPCG114_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG114_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG114_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG114_STATUS1*>(0x40CC6E54); }
 };
@@ -68619,7 +67781,6 @@ union LPCG114_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG114_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG114_CONFIG &ref() { return *reinterpret_cast<volatile LPCG114_CONFIG*>(0x40CC6E58); }
 };
@@ -68721,7 +67882,6 @@ union LPCG114_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG114_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG114_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG114_AUTHEN*>(0x40CC6E5C); }
 };
@@ -68747,7 +67907,6 @@ union LPCG115_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG115_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG115_DIRECT &ref() { return *reinterpret_cast<volatile LPCG115_DIRECT*>(0x40CC6E60); }
 };
@@ -68847,7 +68006,6 @@ union LPCG115_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG115_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG115_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG115_DOMAIN*>(0x40CC6E64); }
 };
@@ -68950,7 +68108,6 @@ union LPCG115_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG115_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG115_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG115_STATUS0*>(0x40CC6E70); }
 };
@@ -69146,7 +68303,6 @@ union LPCG115_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG115_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG115_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG115_STATUS1*>(0x40CC6E74); }
 };
@@ -69173,7 +68329,6 @@ union LPCG115_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG115_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG115_CONFIG &ref() { return *reinterpret_cast<volatile LPCG115_CONFIG*>(0x40CC6E78); }
 };
@@ -69275,7 +68430,6 @@ union LPCG115_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG115_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG115_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG115_AUTHEN*>(0x40CC6E7C); }
 };
@@ -69301,7 +68455,6 @@ union LPCG116_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG116_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG116_DIRECT &ref() { return *reinterpret_cast<volatile LPCG116_DIRECT*>(0x40CC6E80); }
 };
@@ -69401,7 +68554,6 @@ union LPCG116_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG116_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG116_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG116_DOMAIN*>(0x40CC6E84); }
 };
@@ -69504,7 +68656,6 @@ union LPCG116_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG116_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG116_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG116_STATUS0*>(0x40CC6E90); }
 };
@@ -69700,7 +68851,6 @@ union LPCG116_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG116_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG116_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG116_STATUS1*>(0x40CC6E94); }
 };
@@ -69727,7 +68877,6 @@ union LPCG116_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG116_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG116_CONFIG &ref() { return *reinterpret_cast<volatile LPCG116_CONFIG*>(0x40CC6E98); }
 };
@@ -69829,7 +68978,6 @@ union LPCG116_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG116_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG116_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG116_AUTHEN*>(0x40CC6E9C); }
 };
@@ -69855,7 +69003,6 @@ union LPCG117_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG117_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG117_DIRECT &ref() { return *reinterpret_cast<volatile LPCG117_DIRECT*>(0x40CC6EA0); }
 };
@@ -69955,7 +69102,6 @@ union LPCG117_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG117_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG117_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG117_DOMAIN*>(0x40CC6EA4); }
 };
@@ -70058,7 +69204,6 @@ union LPCG117_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG117_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG117_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG117_STATUS0*>(0x40CC6EB0); }
 };
@@ -70254,7 +69399,6 @@ union LPCG117_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG117_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG117_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG117_STATUS1*>(0x40CC6EB4); }
 };
@@ -70281,7 +69425,6 @@ union LPCG117_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG117_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG117_CONFIG &ref() { return *reinterpret_cast<volatile LPCG117_CONFIG*>(0x40CC6EB8); }
 };
@@ -70383,7 +69526,6 @@ union LPCG117_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG117_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG117_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG117_AUTHEN*>(0x40CC6EBC); }
 };
@@ -70409,7 +69551,6 @@ union LPCG118_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG118_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG118_DIRECT &ref() { return *reinterpret_cast<volatile LPCG118_DIRECT*>(0x40CC6EC0); }
 };
@@ -70509,7 +69650,6 @@ union LPCG118_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG118_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG118_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG118_DOMAIN*>(0x40CC6EC4); }
 };
@@ -70612,7 +69752,6 @@ union LPCG118_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG118_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG118_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG118_STATUS0*>(0x40CC6ED0); }
 };
@@ -70808,7 +69947,6 @@ union LPCG118_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG118_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG118_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG118_STATUS1*>(0x40CC6ED4); }
 };
@@ -70835,7 +69973,6 @@ union LPCG118_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG118_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG118_CONFIG &ref() { return *reinterpret_cast<volatile LPCG118_CONFIG*>(0x40CC6ED8); }
 };
@@ -70937,7 +70074,6 @@ union LPCG118_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG118_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG118_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG118_AUTHEN*>(0x40CC6EDC); }
 };
@@ -70963,7 +70099,6 @@ union LPCG119_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG119_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG119_DIRECT &ref() { return *reinterpret_cast<volatile LPCG119_DIRECT*>(0x40CC6EE0); }
 };
@@ -71063,7 +70198,6 @@ union LPCG119_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG119_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG119_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG119_DOMAIN*>(0x40CC6EE4); }
 };
@@ -71166,7 +70300,6 @@ union LPCG119_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG119_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG119_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG119_STATUS0*>(0x40CC6EF0); }
 };
@@ -71362,7 +70495,6 @@ union LPCG119_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG119_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG119_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG119_STATUS1*>(0x40CC6EF4); }
 };
@@ -71389,7 +70521,6 @@ union LPCG119_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG119_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG119_CONFIG &ref() { return *reinterpret_cast<volatile LPCG119_CONFIG*>(0x40CC6EF8); }
 };
@@ -71491,7 +70622,6 @@ union LPCG119_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG119_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG119_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG119_AUTHEN*>(0x40CC6EFC); }
 };
@@ -71517,7 +70647,6 @@ union LPCG120_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG120_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG120_DIRECT &ref() { return *reinterpret_cast<volatile LPCG120_DIRECT*>(0x40CC6F00); }
 };
@@ -71617,7 +70746,6 @@ union LPCG120_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG120_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG120_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG120_DOMAIN*>(0x40CC6F04); }
 };
@@ -71720,7 +70848,6 @@ union LPCG120_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG120_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG120_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG120_STATUS0*>(0x40CC6F10); }
 };
@@ -71916,7 +71043,6 @@ union LPCG120_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG120_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG120_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG120_STATUS1*>(0x40CC6F14); }
 };
@@ -71943,7 +71069,6 @@ union LPCG120_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG120_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG120_CONFIG &ref() { return *reinterpret_cast<volatile LPCG120_CONFIG*>(0x40CC6F18); }
 };
@@ -72045,7 +71170,6 @@ union LPCG120_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG120_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG120_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG120_AUTHEN*>(0x40CC6F1C); }
 };
@@ -72071,7 +71195,6 @@ union LPCG121_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG121_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG121_DIRECT &ref() { return *reinterpret_cast<volatile LPCG121_DIRECT*>(0x40CC6F20); }
 };
@@ -72171,7 +71294,6 @@ union LPCG121_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG121_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG121_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG121_DOMAIN*>(0x40CC6F24); }
 };
@@ -72274,7 +71396,6 @@ union LPCG121_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG121_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG121_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG121_STATUS0*>(0x40CC6F30); }
 };
@@ -72470,7 +71591,6 @@ union LPCG121_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG121_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG121_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG121_STATUS1*>(0x40CC6F34); }
 };
@@ -72497,7 +71617,6 @@ union LPCG121_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG121_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG121_CONFIG &ref() { return *reinterpret_cast<volatile LPCG121_CONFIG*>(0x40CC6F38); }
 };
@@ -72599,7 +71718,6 @@ union LPCG121_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG121_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG121_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG121_AUTHEN*>(0x40CC6F3C); }
 };
@@ -72625,7 +71743,6 @@ union LPCG122_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG122_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG122_DIRECT &ref() { return *reinterpret_cast<volatile LPCG122_DIRECT*>(0x40CC6F40); }
 };
@@ -72725,7 +71842,6 @@ union LPCG122_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG122_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG122_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG122_DOMAIN*>(0x40CC6F44); }
 };
@@ -72828,7 +71944,6 @@ union LPCG122_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG122_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG122_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG122_STATUS0*>(0x40CC6F50); }
 };
@@ -73024,7 +72139,6 @@ union LPCG122_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG122_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG122_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG122_STATUS1*>(0x40CC6F54); }
 };
@@ -73051,7 +72165,6 @@ union LPCG122_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG122_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG122_CONFIG &ref() { return *reinterpret_cast<volatile LPCG122_CONFIG*>(0x40CC6F58); }
 };
@@ -73153,7 +72266,6 @@ union LPCG122_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG122_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG122_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG122_AUTHEN*>(0x40CC6F5C); }
 };
@@ -73179,7 +72291,6 @@ union LPCG123_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG123_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG123_DIRECT &ref() { return *reinterpret_cast<volatile LPCG123_DIRECT*>(0x40CC6F60); }
 };
@@ -73279,7 +72390,6 @@ union LPCG123_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG123_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG123_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG123_DOMAIN*>(0x40CC6F64); }
 };
@@ -73382,7 +72492,6 @@ union LPCG123_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG123_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG123_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG123_STATUS0*>(0x40CC6F70); }
 };
@@ -73578,7 +72687,6 @@ union LPCG123_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG123_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG123_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG123_STATUS1*>(0x40CC6F74); }
 };
@@ -73605,7 +72713,6 @@ union LPCG123_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG123_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG123_CONFIG &ref() { return *reinterpret_cast<volatile LPCG123_CONFIG*>(0x40CC6F78); }
 };
@@ -73707,7 +72814,6 @@ union LPCG123_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG123_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG123_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG123_AUTHEN*>(0x40CC6F7C); }
 };
@@ -73733,7 +72839,6 @@ union LPCG124_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG124_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG124_DIRECT &ref() { return *reinterpret_cast<volatile LPCG124_DIRECT*>(0x40CC6F80); }
 };
@@ -73833,7 +72938,6 @@ union LPCG124_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG124_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG124_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG124_DOMAIN*>(0x40CC6F84); }
 };
@@ -73936,7 +73040,6 @@ union LPCG124_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG124_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG124_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG124_STATUS0*>(0x40CC6F90); }
 };
@@ -74132,7 +73235,6 @@ union LPCG124_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG124_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG124_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG124_STATUS1*>(0x40CC6F94); }
 };
@@ -74159,7 +73261,6 @@ union LPCG124_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG124_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG124_CONFIG &ref() { return *reinterpret_cast<volatile LPCG124_CONFIG*>(0x40CC6F98); }
 };
@@ -74261,7 +73362,6 @@ union LPCG124_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG124_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG124_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG124_AUTHEN*>(0x40CC6F9C); }
 };
@@ -74287,7 +73387,6 @@ union LPCG125_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG125_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG125_DIRECT &ref() { return *reinterpret_cast<volatile LPCG125_DIRECT*>(0x40CC6FA0); }
 };
@@ -74387,7 +73486,6 @@ union LPCG125_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG125_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG125_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG125_DOMAIN*>(0x40CC6FA4); }
 };
@@ -74490,7 +73588,6 @@ union LPCG125_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG125_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG125_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG125_STATUS0*>(0x40CC6FB0); }
 };
@@ -74686,7 +73783,6 @@ union LPCG125_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG125_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG125_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG125_STATUS1*>(0x40CC6FB4); }
 };
@@ -74713,7 +73809,6 @@ union LPCG125_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG125_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG125_CONFIG &ref() { return *reinterpret_cast<volatile LPCG125_CONFIG*>(0x40CC6FB8); }
 };
@@ -74815,7 +73910,6 @@ union LPCG125_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG125_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG125_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG125_AUTHEN*>(0x40CC6FBC); }
 };
@@ -74841,7 +73935,6 @@ union LPCG126_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG126_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG126_DIRECT &ref() { return *reinterpret_cast<volatile LPCG126_DIRECT*>(0x40CC6FC0); }
 };
@@ -74941,7 +74034,6 @@ union LPCG126_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG126_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG126_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG126_DOMAIN*>(0x40CC6FC4); }
 };
@@ -75044,7 +74136,6 @@ union LPCG126_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG126_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG126_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG126_STATUS0*>(0x40CC6FD0); }
 };
@@ -75240,7 +74331,6 @@ union LPCG126_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG126_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG126_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG126_STATUS1*>(0x40CC6FD4); }
 };
@@ -75267,7 +74357,6 @@ union LPCG126_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG126_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG126_CONFIG &ref() { return *reinterpret_cast<volatile LPCG126_CONFIG*>(0x40CC6FD8); }
 };
@@ -75369,7 +74458,6 @@ union LPCG126_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG126_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG126_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG126_AUTHEN*>(0x40CC6FDC); }
 };
@@ -75395,7 +74483,6 @@ union LPCG127_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG127_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG127_DIRECT &ref() { return *reinterpret_cast<volatile LPCG127_DIRECT*>(0x40CC6FE0); }
 };
@@ -75495,7 +74582,6 @@ union LPCG127_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG127_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG127_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG127_DOMAIN*>(0x40CC6FE4); }
 };
@@ -75598,7 +74684,6 @@ union LPCG127_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG127_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG127_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG127_STATUS0*>(0x40CC6FF0); }
 };
@@ -75794,7 +74879,6 @@ union LPCG127_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG127_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG127_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG127_STATUS1*>(0x40CC6FF4); }
 };
@@ -75821,7 +74905,6 @@ union LPCG127_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG127_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG127_CONFIG &ref() { return *reinterpret_cast<volatile LPCG127_CONFIG*>(0x40CC6FF8); }
 };
@@ -75923,7 +75006,6 @@ union LPCG127_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG127_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG127_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG127_AUTHEN*>(0x40CC6FFC); }
 };
@@ -75949,7 +75031,6 @@ union LPCG128_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG128_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG128_DIRECT &ref() { return *reinterpret_cast<volatile LPCG128_DIRECT*>(0x40CC7000); }
 };
@@ -76049,7 +75130,6 @@ union LPCG128_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG128_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG128_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG128_DOMAIN*>(0x40CC7004); }
 };
@@ -76152,7 +75232,6 @@ union LPCG128_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG128_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG128_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG128_STATUS0*>(0x40CC7010); }
 };
@@ -76348,7 +75427,6 @@ union LPCG128_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG128_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG128_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG128_STATUS1*>(0x40CC7014); }
 };
@@ -76375,7 +75453,6 @@ union LPCG128_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG128_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG128_CONFIG &ref() { return *reinterpret_cast<volatile LPCG128_CONFIG*>(0x40CC7018); }
 };
@@ -76477,7 +75554,6 @@ union LPCG128_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG128_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG128_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG128_AUTHEN*>(0x40CC701C); }
 };
@@ -76503,7 +75579,6 @@ union LPCG129_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG129_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG129_DIRECT &ref() { return *reinterpret_cast<volatile LPCG129_DIRECT*>(0x40CC7020); }
 };
@@ -76603,7 +75678,6 @@ union LPCG129_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG129_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG129_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG129_DOMAIN*>(0x40CC7024); }
 };
@@ -76706,7 +75780,6 @@ union LPCG129_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG129_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG129_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG129_STATUS0*>(0x40CC7030); }
 };
@@ -76902,7 +75975,6 @@ union LPCG129_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG129_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG129_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG129_STATUS1*>(0x40CC7034); }
 };
@@ -76929,7 +76001,6 @@ union LPCG129_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG129_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG129_CONFIG &ref() { return *reinterpret_cast<volatile LPCG129_CONFIG*>(0x40CC7038); }
 };
@@ -77031,7 +76102,6 @@ union LPCG129_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG129_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG129_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG129_AUTHEN*>(0x40CC703C); }
 };
@@ -77057,7 +76127,6 @@ union LPCG130_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG130_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG130_DIRECT &ref() { return *reinterpret_cast<volatile LPCG130_DIRECT*>(0x40CC7040); }
 };
@@ -77157,7 +76226,6 @@ union LPCG130_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG130_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG130_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG130_DOMAIN*>(0x40CC7044); }
 };
@@ -77260,7 +76328,6 @@ union LPCG130_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG130_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG130_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG130_STATUS0*>(0x40CC7050); }
 };
@@ -77456,7 +76523,6 @@ union LPCG130_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG130_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG130_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG130_STATUS1*>(0x40CC7054); }
 };
@@ -77483,7 +76549,6 @@ union LPCG130_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG130_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG130_CONFIG &ref() { return *reinterpret_cast<volatile LPCG130_CONFIG*>(0x40CC7058); }
 };
@@ -77585,7 +76650,6 @@ union LPCG130_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG130_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG130_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG130_AUTHEN*>(0x40CC705C); }
 };
@@ -77611,7 +76675,6 @@ union LPCG131_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG131_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG131_DIRECT &ref() { return *reinterpret_cast<volatile LPCG131_DIRECT*>(0x40CC7060); }
 };
@@ -77711,7 +76774,6 @@ union LPCG131_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG131_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG131_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG131_DOMAIN*>(0x40CC7064); }
 };
@@ -77814,7 +76876,6 @@ union LPCG131_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG131_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG131_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG131_STATUS0*>(0x40CC7070); }
 };
@@ -78010,7 +77071,6 @@ union LPCG131_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG131_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG131_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG131_STATUS1*>(0x40CC7074); }
 };
@@ -78037,7 +77097,6 @@ union LPCG131_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG131_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG131_CONFIG &ref() { return *reinterpret_cast<volatile LPCG131_CONFIG*>(0x40CC7078); }
 };
@@ -78139,7 +77198,6 @@ union LPCG131_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG131_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG131_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG131_AUTHEN*>(0x40CC707C); }
 };
@@ -78165,7 +77223,6 @@ union LPCG132_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG132_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG132_DIRECT &ref() { return *reinterpret_cast<volatile LPCG132_DIRECT*>(0x40CC7080); }
 };
@@ -78265,7 +77322,6 @@ union LPCG132_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG132_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG132_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG132_DOMAIN*>(0x40CC7084); }
 };
@@ -78368,7 +77424,6 @@ union LPCG132_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG132_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG132_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG132_STATUS0*>(0x40CC7090); }
 };
@@ -78564,7 +77619,6 @@ union LPCG132_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG132_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG132_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG132_STATUS1*>(0x40CC7094); }
 };
@@ -78591,7 +77645,6 @@ union LPCG132_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG132_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG132_CONFIG &ref() { return *reinterpret_cast<volatile LPCG132_CONFIG*>(0x40CC7098); }
 };
@@ -78693,7 +77746,6 @@ union LPCG132_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG132_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG132_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG132_AUTHEN*>(0x40CC709C); }
 };
@@ -78719,7 +77771,6 @@ union LPCG133_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG133_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG133_DIRECT &ref() { return *reinterpret_cast<volatile LPCG133_DIRECT*>(0x40CC70A0); }
 };
@@ -78819,7 +77870,6 @@ union LPCG133_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG133_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG133_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG133_DOMAIN*>(0x40CC70A4); }
 };
@@ -78922,7 +77972,6 @@ union LPCG133_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG133_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG133_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG133_STATUS0*>(0x40CC70B0); }
 };
@@ -79118,7 +78167,6 @@ union LPCG133_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG133_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG133_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG133_STATUS1*>(0x40CC70B4); }
 };
@@ -79145,7 +78193,6 @@ union LPCG133_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG133_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG133_CONFIG &ref() { return *reinterpret_cast<volatile LPCG133_CONFIG*>(0x40CC70B8); }
 };
@@ -79247,7 +78294,6 @@ union LPCG133_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG133_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG133_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG133_AUTHEN*>(0x40CC70BC); }
 };
@@ -79273,7 +78319,6 @@ union LPCG134_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG134_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG134_DIRECT &ref() { return *reinterpret_cast<volatile LPCG134_DIRECT*>(0x40CC70C0); }
 };
@@ -79373,7 +78418,6 @@ union LPCG134_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG134_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG134_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG134_DOMAIN*>(0x40CC70C4); }
 };
@@ -79476,7 +78520,6 @@ union LPCG134_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG134_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG134_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG134_STATUS0*>(0x40CC70D0); }
 };
@@ -79672,7 +78715,6 @@ union LPCG134_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG134_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG134_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG134_STATUS1*>(0x40CC70D4); }
 };
@@ -79699,7 +78741,6 @@ union LPCG134_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG134_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG134_CONFIG &ref() { return *reinterpret_cast<volatile LPCG134_CONFIG*>(0x40CC70D8); }
 };
@@ -79801,7 +78842,6 @@ union LPCG134_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG134_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG134_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG134_AUTHEN*>(0x40CC70DC); }
 };
@@ -79827,7 +78867,6 @@ union LPCG135_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG135_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG135_DIRECT &ref() { return *reinterpret_cast<volatile LPCG135_DIRECT*>(0x40CC70E0); }
 };
@@ -79927,7 +78966,6 @@ union LPCG135_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG135_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG135_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG135_DOMAIN*>(0x40CC70E4); }
 };
@@ -80030,7 +79068,6 @@ union LPCG135_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG135_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG135_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG135_STATUS0*>(0x40CC70F0); }
 };
@@ -80226,7 +79263,6 @@ union LPCG135_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG135_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG135_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG135_STATUS1*>(0x40CC70F4); }
 };
@@ -80253,7 +79289,6 @@ union LPCG135_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG135_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG135_CONFIG &ref() { return *reinterpret_cast<volatile LPCG135_CONFIG*>(0x40CC70F8); }
 };
@@ -80355,7 +79390,6 @@ union LPCG135_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG135_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG135_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG135_AUTHEN*>(0x40CC70FC); }
 };
@@ -80381,7 +79415,6 @@ union LPCG136_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG136_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG136_DIRECT &ref() { return *reinterpret_cast<volatile LPCG136_DIRECT*>(0x40CC7100); }
 };
@@ -80481,7 +79514,6 @@ union LPCG136_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG136_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG136_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG136_DOMAIN*>(0x40CC7104); }
 };
@@ -80584,7 +79616,6 @@ union LPCG136_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG136_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG136_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG136_STATUS0*>(0x40CC7110); }
 };
@@ -80780,7 +79811,6 @@ union LPCG136_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG136_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG136_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG136_STATUS1*>(0x40CC7114); }
 };
@@ -80807,7 +79837,6 @@ union LPCG136_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG136_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG136_CONFIG &ref() { return *reinterpret_cast<volatile LPCG136_CONFIG*>(0x40CC7118); }
 };
@@ -80909,7 +79938,6 @@ union LPCG136_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG136_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG136_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG136_AUTHEN*>(0x40CC711C); }
 };
@@ -80935,7 +79963,6 @@ union LPCG137_DIRECT {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG137_DIRECT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile LPCG137_DIRECT &ref() { return *reinterpret_cast<volatile LPCG137_DIRECT*>(0x40CC7120); }
 };
@@ -81035,7 +80062,6 @@ union LPCG137_DOMAIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG137_DOMAIN() = delete;
   inline void Reset() volatile { this->value = 0x00010001; }
   static inline volatile LPCG137_DOMAIN &ref() { return *reinterpret_cast<volatile LPCG137_DOMAIN*>(0x40CC7124); }
 };
@@ -81138,7 +80164,6 @@ union LPCG137_STATUS0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG137_STATUS0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG137_STATUS0 &ref() { return *reinterpret_cast<volatile LPCG137_STATUS0*>(0x40CC7130); }
 };
@@ -81334,7 +80359,6 @@ union LPCG137_STATUS1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG137_STATUS1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG137_STATUS1 &ref() { return *reinterpret_cast<volatile LPCG137_STATUS1*>(0x40CC7134); }
 };
@@ -81361,7 +80385,6 @@ union LPCG137_CONFIG {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG137_CONFIG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG137_CONFIG &ref() { return *reinterpret_cast<volatile LPCG137_CONFIG*>(0x40CC7138); }
 };
@@ -81463,7 +80486,6 @@ union LPCG137_AUTHEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  LPCG137_AUTHEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LPCG137_AUTHEN &ref() { return *reinterpret_cast<volatile LPCG137_AUTHEN*>(0x40CC713C); }
 };

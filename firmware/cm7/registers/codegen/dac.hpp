@@ -38,7 +38,6 @@ union VERID {
   // Full 32-bit register value.
   uint32_t value;
 
-  VERID() = delete;
   inline void Reset() volatile { this->value = 0x01000000; }
   static inline volatile VERID &ref() { return *reinterpret_cast<volatile VERID*>(0x40064000); }
 };
@@ -76,7 +75,6 @@ union PARAM {
   // Full 32-bit register value.
   uint32_t value;
 
-  PARAM() = delete;
   inline void Reset() volatile { this->value = 0x00000003; }
   static inline volatile PARAM &ref() { return *reinterpret_cast<volatile PARAM*>(0x40064004); }
 };
@@ -94,7 +92,6 @@ union DATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  DATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DATA &ref() { return *reinterpret_cast<volatile DATA*>(0x40064008); }
 };
@@ -286,7 +283,6 @@ union CR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CR() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile CR &ref() { return *reinterpret_cast<volatile CR*>(0x4006400C); }
 };
@@ -307,7 +303,6 @@ union PTR {
   // Full 32-bit register value.
   uint32_t value;
 
-  PTR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PTR &ref() { return *reinterpret_cast<volatile PTR*>(0x40064010); }
 };
@@ -393,7 +388,6 @@ union CR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CR2 &ref() { return *reinterpret_cast<volatile CR2*>(0x40064014); }
 };

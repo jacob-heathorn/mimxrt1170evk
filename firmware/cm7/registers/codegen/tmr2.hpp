@@ -22,7 +22,6 @@ union COMP10 {
   // Full 16-bit register value.
   uint16_t value;
 
-  COMP10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile COMP10 &ref() { return *reinterpret_cast<volatile COMP10*>(0x40160000); }
 };
@@ -39,7 +38,6 @@ union COMP20 {
   // Full 16-bit register value.
   uint16_t value;
 
-  COMP20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile COMP20 &ref() { return *reinterpret_cast<volatile COMP20*>(0x40160002); }
 };
@@ -56,7 +54,6 @@ union CAPT0 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CAPT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CAPT0 &ref() { return *reinterpret_cast<volatile CAPT0*>(0x40160004); }
 };
@@ -73,7 +70,6 @@ union LOAD0 {
   // Full 16-bit register value.
   uint16_t value;
 
-  LOAD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LOAD0 &ref() { return *reinterpret_cast<volatile LOAD0*>(0x40160006); }
 };
@@ -90,7 +86,6 @@ union HOLD0 {
   // Full 16-bit register value.
   uint16_t value;
 
-  HOLD0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HOLD0 &ref() { return *reinterpret_cast<volatile HOLD0*>(0x40160008); }
 };
@@ -107,7 +102,6 @@ union CNTR0 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CNTR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CNTR0 &ref() { return *reinterpret_cast<volatile CNTR0*>(0x4016000A); }
 };
@@ -258,7 +252,6 @@ union CTRL0 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL0 &ref() { return *reinterpret_cast<volatile CTRL0*>(0x4016000C); }
 };
@@ -331,7 +324,6 @@ union SCTRL0 {
   // Full 16-bit register value.
   uint16_t value;
 
-  SCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCTRL0 &ref() { return *reinterpret_cast<volatile SCTRL0*>(0x4016000E); }
 };
@@ -348,7 +340,6 @@ union CMPLD10 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CMPLD10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CMPLD10 &ref() { return *reinterpret_cast<volatile CMPLD10*>(0x40160010); }
 };
@@ -365,7 +356,6 @@ union CMPLD20 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CMPLD20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CMPLD20 &ref() { return *reinterpret_cast<volatile CMPLD20*>(0x40160012); }
 };
@@ -478,7 +468,6 @@ union CSCTRL0 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CSCTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSCTRL0 &ref() { return *reinterpret_cast<volatile CSCTRL0*>(0x40160014); }
 };
@@ -498,7 +487,6 @@ union FILT0 {
   // Full 16-bit register value.
   uint16_t value;
 
-  FILT0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile FILT0 &ref() { return *reinterpret_cast<volatile FILT0*>(0x40160016); }
 };
@@ -520,7 +508,6 @@ union DMA0 {
   // Full 16-bit register value.
   uint16_t value;
 
-  DMA0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DMA0 &ref() { return *reinterpret_cast<volatile DMA0*>(0x40160018); }
 };
@@ -546,7 +533,6 @@ union ENBL {
   // Full 16-bit register value.
   uint16_t value;
 
-  ENBL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
   static inline volatile ENBL &ref() { return *reinterpret_cast<volatile ENBL*>(0x4016001E); }
 };
@@ -563,7 +549,6 @@ union COMP11 {
   // Full 16-bit register value.
   uint16_t value;
 
-  COMP11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile COMP11 &ref() { return *reinterpret_cast<volatile COMP11*>(0x40160020); }
 };
@@ -580,7 +565,6 @@ union COMP21 {
   // Full 16-bit register value.
   uint16_t value;
 
-  COMP21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile COMP21 &ref() { return *reinterpret_cast<volatile COMP21*>(0x40160022); }
 };
@@ -597,7 +581,6 @@ union CAPT1 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CAPT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CAPT1 &ref() { return *reinterpret_cast<volatile CAPT1*>(0x40160024); }
 };
@@ -614,7 +597,6 @@ union LOAD1 {
   // Full 16-bit register value.
   uint16_t value;
 
-  LOAD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LOAD1 &ref() { return *reinterpret_cast<volatile LOAD1*>(0x40160026); }
 };
@@ -631,7 +613,6 @@ union HOLD1 {
   // Full 16-bit register value.
   uint16_t value;
 
-  HOLD1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HOLD1 &ref() { return *reinterpret_cast<volatile HOLD1*>(0x40160028); }
 };
@@ -648,7 +629,6 @@ union CNTR1 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CNTR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CNTR1 &ref() { return *reinterpret_cast<volatile CNTR1*>(0x4016002A); }
 };
@@ -799,7 +779,6 @@ union CTRL1 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL1 &ref() { return *reinterpret_cast<volatile CTRL1*>(0x4016002C); }
 };
@@ -872,7 +851,6 @@ union SCTRL1 {
   // Full 16-bit register value.
   uint16_t value;
 
-  SCTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCTRL1 &ref() { return *reinterpret_cast<volatile SCTRL1*>(0x4016002E); }
 };
@@ -889,7 +867,6 @@ union CMPLD11 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CMPLD11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CMPLD11 &ref() { return *reinterpret_cast<volatile CMPLD11*>(0x40160030); }
 };
@@ -906,7 +883,6 @@ union CMPLD21 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CMPLD21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CMPLD21 &ref() { return *reinterpret_cast<volatile CMPLD21*>(0x40160032); }
 };
@@ -1019,7 +995,6 @@ union CSCTRL1 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CSCTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSCTRL1 &ref() { return *reinterpret_cast<volatile CSCTRL1*>(0x40160034); }
 };
@@ -1039,7 +1014,6 @@ union FILT1 {
   // Full 16-bit register value.
   uint16_t value;
 
-  FILT1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile FILT1 &ref() { return *reinterpret_cast<volatile FILT1*>(0x40160036); }
 };
@@ -1061,7 +1035,6 @@ union DMA1 {
   // Full 16-bit register value.
   uint16_t value;
 
-  DMA1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DMA1 &ref() { return *reinterpret_cast<volatile DMA1*>(0x40160038); }
 };
@@ -1078,7 +1051,6 @@ union COMP12 {
   // Full 16-bit register value.
   uint16_t value;
 
-  COMP12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile COMP12 &ref() { return *reinterpret_cast<volatile COMP12*>(0x40160040); }
 };
@@ -1095,7 +1067,6 @@ union COMP22 {
   // Full 16-bit register value.
   uint16_t value;
 
-  COMP22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile COMP22 &ref() { return *reinterpret_cast<volatile COMP22*>(0x40160042); }
 };
@@ -1112,7 +1083,6 @@ union CAPT2 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CAPT2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CAPT2 &ref() { return *reinterpret_cast<volatile CAPT2*>(0x40160044); }
 };
@@ -1129,7 +1099,6 @@ union LOAD2 {
   // Full 16-bit register value.
   uint16_t value;
 
-  LOAD2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LOAD2 &ref() { return *reinterpret_cast<volatile LOAD2*>(0x40160046); }
 };
@@ -1146,7 +1115,6 @@ union HOLD2 {
   // Full 16-bit register value.
   uint16_t value;
 
-  HOLD2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HOLD2 &ref() { return *reinterpret_cast<volatile HOLD2*>(0x40160048); }
 };
@@ -1163,7 +1131,6 @@ union CNTR2 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CNTR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CNTR2 &ref() { return *reinterpret_cast<volatile CNTR2*>(0x4016004A); }
 };
@@ -1314,7 +1281,6 @@ union CTRL2 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL2 &ref() { return *reinterpret_cast<volatile CTRL2*>(0x4016004C); }
 };
@@ -1387,7 +1353,6 @@ union SCTRL2 {
   // Full 16-bit register value.
   uint16_t value;
 
-  SCTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCTRL2 &ref() { return *reinterpret_cast<volatile SCTRL2*>(0x4016004E); }
 };
@@ -1404,7 +1369,6 @@ union CMPLD12 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CMPLD12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CMPLD12 &ref() { return *reinterpret_cast<volatile CMPLD12*>(0x40160050); }
 };
@@ -1421,7 +1385,6 @@ union CMPLD22 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CMPLD22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CMPLD22 &ref() { return *reinterpret_cast<volatile CMPLD22*>(0x40160052); }
 };
@@ -1534,7 +1497,6 @@ union CSCTRL2 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CSCTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSCTRL2 &ref() { return *reinterpret_cast<volatile CSCTRL2*>(0x40160054); }
 };
@@ -1554,7 +1516,6 @@ union FILT2 {
   // Full 16-bit register value.
   uint16_t value;
 
-  FILT2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile FILT2 &ref() { return *reinterpret_cast<volatile FILT2*>(0x40160056); }
 };
@@ -1576,7 +1537,6 @@ union DMA2 {
   // Full 16-bit register value.
   uint16_t value;
 
-  DMA2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DMA2 &ref() { return *reinterpret_cast<volatile DMA2*>(0x40160058); }
 };
@@ -1593,7 +1553,6 @@ union COMP13 {
   // Full 16-bit register value.
   uint16_t value;
 
-  COMP13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile COMP13 &ref() { return *reinterpret_cast<volatile COMP13*>(0x40160060); }
 };
@@ -1610,7 +1569,6 @@ union COMP23 {
   // Full 16-bit register value.
   uint16_t value;
 
-  COMP23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile COMP23 &ref() { return *reinterpret_cast<volatile COMP23*>(0x40160062); }
 };
@@ -1627,7 +1585,6 @@ union CAPT3 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CAPT3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CAPT3 &ref() { return *reinterpret_cast<volatile CAPT3*>(0x40160064); }
 };
@@ -1644,7 +1601,6 @@ union LOAD3 {
   // Full 16-bit register value.
   uint16_t value;
 
-  LOAD3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LOAD3 &ref() { return *reinterpret_cast<volatile LOAD3*>(0x40160066); }
 };
@@ -1661,7 +1617,6 @@ union HOLD3 {
   // Full 16-bit register value.
   uint16_t value;
 
-  HOLD3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HOLD3 &ref() { return *reinterpret_cast<volatile HOLD3*>(0x40160068); }
 };
@@ -1678,7 +1633,6 @@ union CNTR3 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CNTR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CNTR3 &ref() { return *reinterpret_cast<volatile CNTR3*>(0x4016006A); }
 };
@@ -1829,7 +1783,6 @@ union CTRL3 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL3 &ref() { return *reinterpret_cast<volatile CTRL3*>(0x4016006C); }
 };
@@ -1902,7 +1855,6 @@ union SCTRL3 {
   // Full 16-bit register value.
   uint16_t value;
 
-  SCTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCTRL3 &ref() { return *reinterpret_cast<volatile SCTRL3*>(0x4016006E); }
 };
@@ -1919,7 +1871,6 @@ union CMPLD13 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CMPLD13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CMPLD13 &ref() { return *reinterpret_cast<volatile CMPLD13*>(0x40160070); }
 };
@@ -1936,7 +1887,6 @@ union CMPLD23 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CMPLD23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CMPLD23 &ref() { return *reinterpret_cast<volatile CMPLD23*>(0x40160072); }
 };
@@ -2049,7 +1999,6 @@ union CSCTRL3 {
   // Full 16-bit register value.
   uint16_t value;
 
-  CSCTRL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSCTRL3 &ref() { return *reinterpret_cast<volatile CSCTRL3*>(0x40160074); }
 };
@@ -2069,7 +2018,6 @@ union FILT3 {
   // Full 16-bit register value.
   uint16_t value;
 
-  FILT3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile FILT3 &ref() { return *reinterpret_cast<volatile FILT3*>(0x40160076); }
 };
@@ -2091,7 +2039,6 @@ union DMA3 {
   // Full 16-bit register value.
   uint16_t value;
 
-  DMA3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DMA3 &ref() { return *reinterpret_cast<volatile DMA3*>(0x40160078); }
 };

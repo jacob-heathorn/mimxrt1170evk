@@ -116,7 +116,6 @@ union WCR {
   // Full 16-bit register value.
   uint16_t value;
 
-  WCR() = delete;
   inline void Reset() volatile { this->value = 0x00000030; }
   static inline volatile WCR &ref() { return *reinterpret_cast<volatile WCR*>(0x40034000); }
 };
@@ -141,7 +140,6 @@ union WSR {
   // Full 16-bit register value.
   uint16_t value;
 
-  WSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile WSR &ref() { return *reinterpret_cast<volatile WSR*>(0x40034002); }
 };
@@ -188,7 +186,6 @@ union WRSR {
   // Full 16-bit register value.
   uint16_t value;
 
-  WRSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile WRSR &ref() { return *reinterpret_cast<volatile WRSR*>(0x40034004); }
 };
@@ -238,7 +235,6 @@ union WICR {
   // Full 16-bit register value.
   uint16_t value;
 
-  WICR() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile WICR &ref() { return *reinterpret_cast<volatile WICR*>(0x40034006); }
 };
@@ -264,7 +260,6 @@ union WMCR {
   // Full 16-bit register value.
   uint16_t value;
 
-  WMCR() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile WMCR &ref() { return *reinterpret_cast<volatile WMCR*>(0x40034008); }
 };

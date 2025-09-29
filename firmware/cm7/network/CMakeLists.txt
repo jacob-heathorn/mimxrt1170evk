@@ -1,5 +1,8 @@
 add_library(network STATIC)
-target_include_directories(network PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
+target_include_directories(network PUBLIC
+  ${CMAKE_CURRENT_LIST_DIR}/include
+  ${CMAKE_CURRENT_LIST_DIR}/../rtos/netxduo
+)
 
 file(GLOB header_files "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
 file(GLOB source_files "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")

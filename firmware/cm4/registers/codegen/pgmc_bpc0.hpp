@@ -52,7 +52,6 @@ union BPC_AUTHEN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  BPC_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000F00; }
   static inline volatile BPC_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile BPC_AUTHEN_CTRL*>(0x40C88004); }
 };
@@ -95,7 +94,6 @@ union BPC_MODE {
   // Full 32-bit register value.
   uint32_t value;
 
-  BPC_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BPC_MODE &ref() { return *reinterpret_cast<volatile BPC_MODE*>(0x40C88010); }
 };
@@ -129,7 +127,6 @@ union BPC_POWER_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  BPC_POWER_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BPC_POWER_CTRL &ref() { return *reinterpret_cast<volatile BPC_POWER_CTRL*>(0x40C88014); }
 };
@@ -147,7 +144,6 @@ union BPC_FLAG {
   // Full 32-bit register value.
   uint32_t value;
 
-  BPC_FLAG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BPC_FLAG &ref() { return *reinterpret_cast<volatile BPC_FLAG*>(0x40C8802C); }
 };
@@ -173,7 +169,6 @@ union BPC_SSAR_SAVE_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  BPC_SSAR_SAVE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BPC_SSAR_SAVE_CTRL &ref() { return *reinterpret_cast<volatile BPC_SSAR_SAVE_CTRL*>(0x40C88040); }
 };
@@ -193,7 +188,6 @@ union BPC_SSAR_RESTORE_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  BPC_SSAR_RESTORE_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BPC_SSAR_RESTORE_CTRL &ref() { return *reinterpret_cast<volatile BPC_SSAR_RESTORE_CTRL*>(0x40C88044); }
 };

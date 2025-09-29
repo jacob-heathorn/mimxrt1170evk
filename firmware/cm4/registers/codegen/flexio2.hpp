@@ -38,7 +38,6 @@ union VERID {
   // Full 32-bit register value.
   uint32_t value;
 
-  VERID() = delete;
   inline void Reset() volatile { this->value = 0x02000001; }
   static inline volatile VERID &ref() { return *reinterpret_cast<volatile VERID*>(0x400B0000); }
 };
@@ -61,7 +60,6 @@ union PARAM {
   // Full 32-bit register value.
   uint32_t value;
 
-  PARAM() = delete;
   inline void Reset() volatile { this->value = 0x02200808; }
   static inline volatile PARAM &ref() { return *reinterpret_cast<volatile PARAM*>(0x400B0004); }
 };
@@ -127,7 +125,6 @@ union CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x400B0008); }
 };
@@ -144,7 +141,6 @@ union PIN {
   // Full 32-bit register value.
   uint32_t value;
 
-  PIN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PIN &ref() { return *reinterpret_cast<volatile PIN*>(0x400B000C); }
 };
@@ -162,7 +158,6 @@ union SHIFTSTAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTSTAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTSTAT &ref() { return *reinterpret_cast<volatile SHIFTSTAT*>(0x400B0010); }
 };
@@ -180,7 +175,6 @@ union SHIFTERR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTERR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTERR &ref() { return *reinterpret_cast<volatile SHIFTERR*>(0x400B0014); }
 };
@@ -198,7 +192,6 @@ union TIMSTAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMSTAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMSTAT &ref() { return *reinterpret_cast<volatile TIMSTAT*>(0x400B0018); }
 };
@@ -216,7 +209,6 @@ union SHIFTSIEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTSIEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTSIEN &ref() { return *reinterpret_cast<volatile SHIFTSIEN*>(0x400B0020); }
 };
@@ -234,7 +226,6 @@ union SHIFTEIEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTEIEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTEIEN &ref() { return *reinterpret_cast<volatile SHIFTEIEN*>(0x400B0024); }
 };
@@ -252,7 +243,6 @@ union TIMIEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMIEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMIEN &ref() { return *reinterpret_cast<volatile TIMIEN*>(0x400B0028); }
 };
@@ -270,7 +260,6 @@ union SHIFTSDEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTSDEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTSDEN &ref() { return *reinterpret_cast<volatile SHIFTSDEN*>(0x400B0030); }
 };
@@ -288,7 +277,6 @@ union TIMERSDEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMERSDEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMERSDEN &ref() { return *reinterpret_cast<volatile TIMERSDEN*>(0x400B0038); }
 };
@@ -306,7 +294,6 @@ union SHIFTSTATE {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTSTATE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTSTATE &ref() { return *reinterpret_cast<volatile SHIFTSTATE*>(0x400B0040); }
 };
@@ -383,7 +370,6 @@ union SHIFTCTL_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCTL_0 &ref() { return *reinterpret_cast<volatile SHIFTCTL_0*>(0x400B0080); }
 };
@@ -459,7 +445,6 @@ union SHIFTCTL_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCTL_1 &ref() { return *reinterpret_cast<volatile SHIFTCTL_1*>(0x400B0084); }
 };
@@ -535,7 +520,6 @@ union SHIFTCTL_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCTL_2 &ref() { return *reinterpret_cast<volatile SHIFTCTL_2*>(0x400B0088); }
 };
@@ -611,7 +595,6 @@ union SHIFTCTL_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCTL_3 &ref() { return *reinterpret_cast<volatile SHIFTCTL_3*>(0x400B008C); }
 };
@@ -687,7 +670,6 @@ union SHIFTCTL_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCTL_4 &ref() { return *reinterpret_cast<volatile SHIFTCTL_4*>(0x400B0090); }
 };
@@ -763,7 +745,6 @@ union SHIFTCTL_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCTL_5 &ref() { return *reinterpret_cast<volatile SHIFTCTL_5*>(0x400B0094); }
 };
@@ -839,7 +820,6 @@ union SHIFTCTL_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCTL_6 &ref() { return *reinterpret_cast<volatile SHIFTCTL_6*>(0x400B0098); }
 };
@@ -915,7 +895,6 @@ union SHIFTCTL_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCTL_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCTL_7 &ref() { return *reinterpret_cast<volatile SHIFTCTL_7*>(0x400B009C); }
 };
@@ -982,7 +961,6 @@ union SHIFTCFG_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCFG_0 &ref() { return *reinterpret_cast<volatile SHIFTCFG_0*>(0x400B0100); }
 };
@@ -1048,7 +1026,6 @@ union SHIFTCFG_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCFG_1 &ref() { return *reinterpret_cast<volatile SHIFTCFG_1*>(0x400B0104); }
 };
@@ -1114,7 +1091,6 @@ union SHIFTCFG_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCFG_2 &ref() { return *reinterpret_cast<volatile SHIFTCFG_2*>(0x400B0108); }
 };
@@ -1180,7 +1156,6 @@ union SHIFTCFG_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCFG_3 &ref() { return *reinterpret_cast<volatile SHIFTCFG_3*>(0x400B010C); }
 };
@@ -1246,7 +1221,6 @@ union SHIFTCFG_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCFG_4 &ref() { return *reinterpret_cast<volatile SHIFTCFG_4*>(0x400B0110); }
 };
@@ -1312,7 +1286,6 @@ union SHIFTCFG_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCFG_5 &ref() { return *reinterpret_cast<volatile SHIFTCFG_5*>(0x400B0114); }
 };
@@ -1378,7 +1351,6 @@ union SHIFTCFG_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCFG_6 &ref() { return *reinterpret_cast<volatile SHIFTCFG_6*>(0x400B0118); }
 };
@@ -1444,7 +1416,6 @@ union SHIFTCFG_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTCFG_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTCFG_7 &ref() { return *reinterpret_cast<volatile SHIFTCFG_7*>(0x400B011C); }
 };
@@ -1461,7 +1432,6 @@ union SHIFTBUF_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUF_0 &ref() { return *reinterpret_cast<volatile SHIFTBUF_0*>(0x400B0200); }
 };
@@ -1477,7 +1447,6 @@ union SHIFTBUF_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUF_1 &ref() { return *reinterpret_cast<volatile SHIFTBUF_1*>(0x400B0204); }
 };
@@ -1493,7 +1462,6 @@ union SHIFTBUF_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUF_2 &ref() { return *reinterpret_cast<volatile SHIFTBUF_2*>(0x400B0208); }
 };
@@ -1509,7 +1477,6 @@ union SHIFTBUF_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUF_3 &ref() { return *reinterpret_cast<volatile SHIFTBUF_3*>(0x400B020C); }
 };
@@ -1525,7 +1492,6 @@ union SHIFTBUF_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUF_4 &ref() { return *reinterpret_cast<volatile SHIFTBUF_4*>(0x400B0210); }
 };
@@ -1541,7 +1507,6 @@ union SHIFTBUF_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUF_5 &ref() { return *reinterpret_cast<volatile SHIFTBUF_5*>(0x400B0214); }
 };
@@ -1557,7 +1522,6 @@ union SHIFTBUF_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUF_6 &ref() { return *reinterpret_cast<volatile SHIFTBUF_6*>(0x400B0218); }
 };
@@ -1573,7 +1537,6 @@ union SHIFTBUF_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUF_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUF_7 &ref() { return *reinterpret_cast<volatile SHIFTBUF_7*>(0x400B021C); }
 };
@@ -1590,7 +1553,6 @@ union SHIFTBUFBIS_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBIS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_0*>(0x400B0280); }
 };
@@ -1606,7 +1568,6 @@ union SHIFTBUFBIS_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBIS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_1*>(0x400B0284); }
 };
@@ -1622,7 +1583,6 @@ union SHIFTBUFBIS_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBIS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_2*>(0x400B0288); }
 };
@@ -1638,7 +1598,6 @@ union SHIFTBUFBIS_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBIS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_3*>(0x400B028C); }
 };
@@ -1654,7 +1613,6 @@ union SHIFTBUFBIS_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBIS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_4*>(0x400B0290); }
 };
@@ -1670,7 +1628,6 @@ union SHIFTBUFBIS_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBIS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_5*>(0x400B0294); }
 };
@@ -1686,7 +1643,6 @@ union SHIFTBUFBIS_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBIS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_6*>(0x400B0298); }
 };
@@ -1702,7 +1658,6 @@ union SHIFTBUFBIS_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBIS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBIS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFBIS_7*>(0x400B029C); }
 };
@@ -1719,7 +1674,6 @@ union SHIFTBUFBYS_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBYS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_0*>(0x400B0300); }
 };
@@ -1735,7 +1689,6 @@ union SHIFTBUFBYS_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBYS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_1*>(0x400B0304); }
 };
@@ -1751,7 +1704,6 @@ union SHIFTBUFBYS_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBYS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_2*>(0x400B0308); }
 };
@@ -1767,7 +1719,6 @@ union SHIFTBUFBYS_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBYS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_3*>(0x400B030C); }
 };
@@ -1783,7 +1734,6 @@ union SHIFTBUFBYS_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBYS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_4*>(0x400B0310); }
 };
@@ -1799,7 +1749,6 @@ union SHIFTBUFBYS_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBYS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_5*>(0x400B0314); }
 };
@@ -1815,7 +1764,6 @@ union SHIFTBUFBYS_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBYS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_6*>(0x400B0318); }
 };
@@ -1831,7 +1779,6 @@ union SHIFTBUFBYS_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBYS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBYS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFBYS_7*>(0x400B031C); }
 };
@@ -1848,7 +1795,6 @@ union SHIFTBUFBBS_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBBS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_0*>(0x400B0380); }
 };
@@ -1864,7 +1810,6 @@ union SHIFTBUFBBS_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBBS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_1*>(0x400B0384); }
 };
@@ -1880,7 +1825,6 @@ union SHIFTBUFBBS_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBBS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_2*>(0x400B0388); }
 };
@@ -1896,7 +1840,6 @@ union SHIFTBUFBBS_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBBS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_3*>(0x400B038C); }
 };
@@ -1912,7 +1855,6 @@ union SHIFTBUFBBS_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBBS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_4*>(0x400B0390); }
 };
@@ -1928,7 +1870,6 @@ union SHIFTBUFBBS_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBBS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_5*>(0x400B0394); }
 };
@@ -1944,7 +1885,6 @@ union SHIFTBUFBBS_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBBS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_6*>(0x400B0398); }
 };
@@ -1960,7 +1900,6 @@ union SHIFTBUFBBS_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFBBS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFBBS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFBBS_7*>(0x400B039C); }
 };
@@ -2069,7 +2008,6 @@ union TIMCTL_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCTL_0 &ref() { return *reinterpret_cast<volatile TIMCTL_0*>(0x400B0400); }
 };
@@ -2177,7 +2115,6 @@ union TIMCTL_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCTL_1 &ref() { return *reinterpret_cast<volatile TIMCTL_1*>(0x400B0404); }
 };
@@ -2285,7 +2222,6 @@ union TIMCTL_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCTL_2 &ref() { return *reinterpret_cast<volatile TIMCTL_2*>(0x400B0408); }
 };
@@ -2393,7 +2329,6 @@ union TIMCTL_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCTL_3 &ref() { return *reinterpret_cast<volatile TIMCTL_3*>(0x400B040C); }
 };
@@ -2501,7 +2436,6 @@ union TIMCTL_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCTL_4 &ref() { return *reinterpret_cast<volatile TIMCTL_4*>(0x400B0410); }
 };
@@ -2609,7 +2543,6 @@ union TIMCTL_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCTL_5 &ref() { return *reinterpret_cast<volatile TIMCTL_5*>(0x400B0414); }
 };
@@ -2717,7 +2650,6 @@ union TIMCTL_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCTL_6 &ref() { return *reinterpret_cast<volatile TIMCTL_6*>(0x400B0418); }
 };
@@ -2825,7 +2757,6 @@ union TIMCTL_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCTL_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCTL_7 &ref() { return *reinterpret_cast<volatile TIMCTL_7*>(0x400B041C); }
 };
@@ -2970,7 +2901,6 @@ union TIMCFG_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCFG_0 &ref() { return *reinterpret_cast<volatile TIMCFG_0*>(0x400B0480); }
 };
@@ -3114,7 +3044,6 @@ union TIMCFG_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCFG_1 &ref() { return *reinterpret_cast<volatile TIMCFG_1*>(0x400B0484); }
 };
@@ -3258,7 +3187,6 @@ union TIMCFG_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCFG_2 &ref() { return *reinterpret_cast<volatile TIMCFG_2*>(0x400B0488); }
 };
@@ -3402,7 +3330,6 @@ union TIMCFG_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCFG_3 &ref() { return *reinterpret_cast<volatile TIMCFG_3*>(0x400B048C); }
 };
@@ -3546,7 +3473,6 @@ union TIMCFG_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCFG_4 &ref() { return *reinterpret_cast<volatile TIMCFG_4*>(0x400B0490); }
 };
@@ -3690,7 +3616,6 @@ union TIMCFG_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCFG_5 &ref() { return *reinterpret_cast<volatile TIMCFG_5*>(0x400B0494); }
 };
@@ -3834,7 +3759,6 @@ union TIMCFG_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCFG_6 &ref() { return *reinterpret_cast<volatile TIMCFG_6*>(0x400B0498); }
 };
@@ -3978,7 +3902,6 @@ union TIMCFG_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCFG_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCFG_7 &ref() { return *reinterpret_cast<volatile TIMCFG_7*>(0x400B049C); }
 };
@@ -3996,7 +3919,6 @@ union TIMCMP_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCMP_0 &ref() { return *reinterpret_cast<volatile TIMCMP_0*>(0x400B0500); }
 };
@@ -4013,7 +3935,6 @@ union TIMCMP_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCMP_1 &ref() { return *reinterpret_cast<volatile TIMCMP_1*>(0x400B0504); }
 };
@@ -4030,7 +3951,6 @@ union TIMCMP_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCMP_2 &ref() { return *reinterpret_cast<volatile TIMCMP_2*>(0x400B0508); }
 };
@@ -4047,7 +3967,6 @@ union TIMCMP_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCMP_3 &ref() { return *reinterpret_cast<volatile TIMCMP_3*>(0x400B050C); }
 };
@@ -4064,7 +3983,6 @@ union TIMCMP_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCMP_4 &ref() { return *reinterpret_cast<volatile TIMCMP_4*>(0x400B0510); }
 };
@@ -4081,7 +3999,6 @@ union TIMCMP_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCMP_5 &ref() { return *reinterpret_cast<volatile TIMCMP_5*>(0x400B0514); }
 };
@@ -4098,7 +4015,6 @@ union TIMCMP_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCMP_6 &ref() { return *reinterpret_cast<volatile TIMCMP_6*>(0x400B0518); }
 };
@@ -4115,7 +4031,6 @@ union TIMCMP_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TIMCMP_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TIMCMP_7 &ref() { return *reinterpret_cast<volatile TIMCMP_7*>(0x400B051C); }
 };
@@ -4132,7 +4047,6 @@ union SHIFTBUFNBS_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNBS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_0*>(0x400B0680); }
 };
@@ -4148,7 +4062,6 @@ union SHIFTBUFNBS_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNBS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_1*>(0x400B0684); }
 };
@@ -4164,7 +4077,6 @@ union SHIFTBUFNBS_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNBS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_2*>(0x400B0688); }
 };
@@ -4180,7 +4092,6 @@ union SHIFTBUFNBS_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNBS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_3*>(0x400B068C); }
 };
@@ -4196,7 +4107,6 @@ union SHIFTBUFNBS_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNBS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_4*>(0x400B0690); }
 };
@@ -4212,7 +4122,6 @@ union SHIFTBUFNBS_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNBS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_5*>(0x400B0694); }
 };
@@ -4228,7 +4137,6 @@ union SHIFTBUFNBS_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNBS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_6*>(0x400B0698); }
 };
@@ -4244,7 +4152,6 @@ union SHIFTBUFNBS_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNBS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNBS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFNBS_7*>(0x400B069C); }
 };
@@ -4261,7 +4168,6 @@ union SHIFTBUFHWS_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFHWS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_0*>(0x400B0700); }
 };
@@ -4277,7 +4183,6 @@ union SHIFTBUFHWS_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFHWS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_1*>(0x400B0704); }
 };
@@ -4293,7 +4198,6 @@ union SHIFTBUFHWS_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFHWS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_2*>(0x400B0708); }
 };
@@ -4309,7 +4213,6 @@ union SHIFTBUFHWS_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFHWS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_3*>(0x400B070C); }
 };
@@ -4325,7 +4228,6 @@ union SHIFTBUFHWS_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFHWS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_4*>(0x400B0710); }
 };
@@ -4341,7 +4243,6 @@ union SHIFTBUFHWS_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFHWS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_5*>(0x400B0714); }
 };
@@ -4357,7 +4258,6 @@ union SHIFTBUFHWS_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFHWS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_6*>(0x400B0718); }
 };
@@ -4373,7 +4273,6 @@ union SHIFTBUFHWS_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFHWS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFHWS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFHWS_7*>(0x400B071C); }
 };
@@ -4390,7 +4289,6 @@ union SHIFTBUFNIS_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNIS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_0*>(0x400B0780); }
 };
@@ -4406,7 +4304,6 @@ union SHIFTBUFNIS_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNIS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_1*>(0x400B0784); }
 };
@@ -4422,7 +4319,6 @@ union SHIFTBUFNIS_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNIS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_2*>(0x400B0788); }
 };
@@ -4438,7 +4334,6 @@ union SHIFTBUFNIS_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNIS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_3*>(0x400B078C); }
 };
@@ -4454,7 +4349,6 @@ union SHIFTBUFNIS_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNIS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_4*>(0x400B0790); }
 };
@@ -4470,7 +4364,6 @@ union SHIFTBUFNIS_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNIS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_5*>(0x400B0794); }
 };
@@ -4486,7 +4379,6 @@ union SHIFTBUFNIS_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNIS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_6*>(0x400B0798); }
 };
@@ -4502,7 +4394,6 @@ union SHIFTBUFNIS_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFNIS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFNIS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFNIS_7*>(0x400B079C); }
 };
@@ -4519,7 +4410,6 @@ union SHIFTBUFOES_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFOES_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_0*>(0x400B0800); }
 };
@@ -4535,7 +4425,6 @@ union SHIFTBUFOES_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFOES_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_1*>(0x400B0804); }
 };
@@ -4551,7 +4440,6 @@ union SHIFTBUFOES_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFOES_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_2*>(0x400B0808); }
 };
@@ -4567,7 +4455,6 @@ union SHIFTBUFOES_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFOES_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_3*>(0x400B080C); }
 };
@@ -4583,7 +4470,6 @@ union SHIFTBUFOES_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFOES_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_4*>(0x400B0810); }
 };
@@ -4599,7 +4485,6 @@ union SHIFTBUFOES_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFOES_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_5*>(0x400B0814); }
 };
@@ -4615,7 +4500,6 @@ union SHIFTBUFOES_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFOES_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_6*>(0x400B0818); }
 };
@@ -4631,7 +4515,6 @@ union SHIFTBUFOES_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFOES_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFOES_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFOES_7*>(0x400B081C); }
 };
@@ -4648,7 +4531,6 @@ union SHIFTBUFEOS_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFEOS_0 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_0*>(0x400B0880); }
 };
@@ -4664,7 +4546,6 @@ union SHIFTBUFEOS_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFEOS_1 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_1*>(0x400B0884); }
 };
@@ -4680,7 +4561,6 @@ union SHIFTBUFEOS_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFEOS_2 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_2*>(0x400B0888); }
 };
@@ -4696,7 +4576,6 @@ union SHIFTBUFEOS_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFEOS_3 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_3*>(0x400B088C); }
 };
@@ -4712,7 +4591,6 @@ union SHIFTBUFEOS_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFEOS_4 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_4*>(0x400B0890); }
 };
@@ -4728,7 +4606,6 @@ union SHIFTBUFEOS_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFEOS_5 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_5*>(0x400B0894); }
 };
@@ -4744,7 +4621,6 @@ union SHIFTBUFEOS_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFEOS_6 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_6*>(0x400B0898); }
 };
@@ -4760,7 +4636,6 @@ union SHIFTBUFEOS_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SHIFTBUFEOS_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SHIFTBUFEOS_7 &ref() { return *reinterpret_cast<volatile SHIFTBUFEOS_7*>(0x400B089C); }
 };

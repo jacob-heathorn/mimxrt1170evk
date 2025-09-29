@@ -82,7 +82,6 @@ union CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40C82000); }
 };
@@ -136,7 +135,6 @@ union KEYINDEX {
   // Full 32-bit register value.
   uint32_t value;
 
-  KEYINDEX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile KEYINDEX &ref() { return *reinterpret_cast<volatile KEYINDEX*>(0x40C82004); }
 };
@@ -286,7 +284,6 @@ union KEYSIZE {
   // Full 32-bit register value.
   uint32_t value;
 
-  KEYSIZE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile KEYSIZE &ref() { return *reinterpret_cast<volatile KEYSIZE*>(0x40C82008); }
 };
@@ -373,7 +370,6 @@ union STAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile STAT &ref() { return *reinterpret_cast<volatile STAT*>(0x40C82020); }
 };
@@ -429,7 +425,6 @@ union ALLOW {
   // Full 32-bit register value.
   uint32_t value;
 
-  ALLOW() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ALLOW &ref() { return *reinterpret_cast<volatile ALLOW*>(0x40C82028); }
 };
@@ -446,7 +441,6 @@ union KEYINPUT {
   // Full 32-bit register value.
   uint32_t value;
 
-  KEYINPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile KEYINPUT &ref() { return *reinterpret_cast<volatile KEYINPUT*>(0x40C82040); }
 };
@@ -463,7 +457,6 @@ union CODEINPUT {
   // Full 32-bit register value.
   uint32_t value;
 
-  CODEINPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CODEINPUT &ref() { return *reinterpret_cast<volatile CODEINPUT*>(0x40C82044); }
 };
@@ -480,7 +473,6 @@ union CODEOUTPUT {
   // Full 32-bit register value.
   uint32_t value;
 
-  CODEOUTPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CODEOUTPUT &ref() { return *reinterpret_cast<volatile CODEOUTPUT*>(0x40C82048); }
 };
@@ -497,7 +489,6 @@ union KEYOUTINDEX {
   // Full 32-bit register value.
   uint32_t value;
 
-  KEYOUTINDEX() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile KEYOUTINDEX &ref() { return *reinterpret_cast<volatile KEYOUTINDEX*>(0x40C82060); }
 };
@@ -514,7 +505,6 @@ union KEYOUTPUT {
   // Full 32-bit register value.
   uint32_t value;
 
-  KEYOUTPUT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile KEYOUTPUT &ref() { return *reinterpret_cast<volatile KEYOUTPUT*>(0x40C82064); }
 };
@@ -540,7 +530,6 @@ union IFSTAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  IFSTAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile IFSTAT &ref() { return *reinterpret_cast<volatile IFSTAT*>(0x40C820DC); }
 };
@@ -557,7 +546,6 @@ union VERSION {
   // Full 32-bit register value.
   uint32_t value;
 
-  VERSION() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VERSION &ref() { return *reinterpret_cast<volatile VERSION*>(0x40C820FC); }
 };
@@ -644,7 +632,6 @@ union INTEN {
   // Full 32-bit register value.
   uint32_t value;
 
-  INTEN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile INTEN &ref() { return *reinterpret_cast<volatile INTEN*>(0x40C82100); }
 };
@@ -731,7 +718,6 @@ union INTSTAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  INTSTAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile INTSTAT &ref() { return *reinterpret_cast<volatile INTSTAT*>(0x40C82104); }
 };
@@ -780,7 +766,6 @@ union PWRCTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PWRCTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile PWRCTRL &ref() { return *reinterpret_cast<volatile PWRCTRL*>(0x40C82108); }
 };
@@ -816,7 +801,6 @@ union CFG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CFG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG &ref() { return *reinterpret_cast<volatile CFG*>(0x40C8210C); }
 };
@@ -860,7 +844,6 @@ union KEYLOCK {
   // Full 32-bit register value.
   uint32_t value;
 
-  KEYLOCK() = delete;
   inline void Reset() volatile { this->value = 0x0000000A; }
   static inline volatile KEYLOCK &ref() { return *reinterpret_cast<volatile KEYLOCK*>(0x40C82200); }
 };
@@ -904,7 +887,6 @@ union KEYENABLE {
   // Full 32-bit register value.
   uint32_t value;
 
-  KEYENABLE() = delete;
   inline void Reset() volatile { this->value = 0x00000005; }
   static inline volatile KEYENABLE &ref() { return *reinterpret_cast<volatile KEYENABLE*>(0x40C82204); }
 };
@@ -948,7 +930,6 @@ union KEYRESET {
   // Full 32-bit register value.
   uint32_t value;
 
-  KEYRESET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile KEYRESET &ref() { return *reinterpret_cast<volatile KEYRESET*>(0x40C82208); }
 };
@@ -995,7 +976,6 @@ union IDXBLK {
   // Full 32-bit register value.
   uint32_t value;
 
-  IDXBLK() = delete;
   inline void Reset() volatile { this->value = 0xAAAAAAAA; }
   static inline volatile IDXBLK &ref() { return *reinterpret_cast<volatile IDXBLK*>(0x40C8220C); }
 };
@@ -1042,7 +1022,6 @@ union IDXBLK_DP {
   // Full 32-bit register value.
   uint32_t value;
 
-  IDXBLK_DP() = delete;
   inline void Reset() volatile { this->value = 0xAAAAAAAA; }
   static inline volatile IDXBLK_DP &ref() { return *reinterpret_cast<volatile IDXBLK_DP*>(0x40C82210); }
 };
@@ -1059,7 +1038,6 @@ union KEYMASK0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  KEYMASK0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile KEYMASK0 &ref() { return *reinterpret_cast<volatile KEYMASK0*>(0x40C82214); }
 };
@@ -1076,7 +1054,6 @@ union KEYMASK1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  KEYMASK1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile KEYMASK1 &ref() { return *reinterpret_cast<volatile KEYMASK1*>(0x40C82218); }
 };
@@ -1123,7 +1100,6 @@ union IDXBLK_STATUS {
   // Full 32-bit register value.
   uint32_t value;
 
-  IDXBLK_STATUS() = delete;
   inline void Reset() volatile { this->value = 0xAAAAAAAA; }
   static inline volatile IDXBLK_STATUS &ref() { return *reinterpret_cast<volatile IDXBLK_STATUS*>(0x40C82254); }
 };
@@ -1143,7 +1119,6 @@ union IDXBLK_SHIFT {
   // Full 32-bit register value.
   uint32_t value;
 
-  IDXBLK_SHIFT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile IDXBLK_SHIFT &ref() { return *reinterpret_cast<volatile IDXBLK_SHIFT*>(0x40C82258); }
 };

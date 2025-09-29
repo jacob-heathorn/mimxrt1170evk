@@ -120,7 +120,6 @@ union CTRL0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL0 &ref() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
 };
@@ -163,7 +162,6 @@ union CTRL0_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL0_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL0_SET &ref() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
 };
@@ -206,7 +204,6 @@ union CTRL0_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL0_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL0_CLR &ref() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
 };
@@ -249,7 +246,6 @@ union CTRL0_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL0_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL0_TOG &ref() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
 };
@@ -270,7 +266,6 @@ union SPREAD_SPECTRUM {
   // Full 32-bit register value.
   uint32_t value;
 
-  SPREAD_SPECTRUM() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SPREAD_SPECTRUM &ref() { return *reinterpret_cast<volatile SPREAD_SPECTRUM*>(0x00000010); }
 };
@@ -291,7 +286,6 @@ union SPREAD_SPECTRUM_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  SPREAD_SPECTRUM_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SPREAD_SPECTRUM_SET &ref() { return *reinterpret_cast<volatile SPREAD_SPECTRUM_SET*>(0x00000014); }
 };
@@ -312,7 +306,6 @@ union SPREAD_SPECTRUM_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SPREAD_SPECTRUM_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SPREAD_SPECTRUM_CLR &ref() { return *reinterpret_cast<volatile SPREAD_SPECTRUM_CLR*>(0x00000018); }
 };
@@ -333,7 +326,6 @@ union SPREAD_SPECTRUM_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SPREAD_SPECTRUM_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SPREAD_SPECTRUM_TOG &ref() { return *reinterpret_cast<volatile SPREAD_SPECTRUM_TOG*>(0x0000001C); }
 };
@@ -351,7 +343,6 @@ union NUMERATOR {
   // Full 32-bit register value.
   uint32_t value;
 
-  NUMERATOR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NUMERATOR &ref() { return *reinterpret_cast<volatile NUMERATOR*>(0x00000020); }
 };
@@ -369,7 +360,6 @@ union NUMERATOR_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  NUMERATOR_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NUMERATOR_SET &ref() { return *reinterpret_cast<volatile NUMERATOR_SET*>(0x00000024); }
 };
@@ -387,7 +377,6 @@ union NUMERATOR_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  NUMERATOR_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NUMERATOR_CLR &ref() { return *reinterpret_cast<volatile NUMERATOR_CLR*>(0x00000028); }
 };
@@ -405,7 +394,6 @@ union NUMERATOR_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  NUMERATOR_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NUMERATOR_TOG &ref() { return *reinterpret_cast<volatile NUMERATOR_TOG*>(0x0000002C); }
 };
@@ -423,7 +411,6 @@ union DENOMINATOR {
   // Full 32-bit register value.
   uint32_t value;
 
-  DENOMINATOR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DENOMINATOR &ref() { return *reinterpret_cast<volatile DENOMINATOR*>(0x00000030); }
 };
@@ -441,7 +428,6 @@ union DENOMINATOR_SET {
   // Full 32-bit register value.
   uint32_t value;
 
-  DENOMINATOR_SET() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DENOMINATOR_SET &ref() { return *reinterpret_cast<volatile DENOMINATOR_SET*>(0x00000034); }
 };
@@ -459,7 +445,6 @@ union DENOMINATOR_CLR {
   // Full 32-bit register value.
   uint32_t value;
 
-  DENOMINATOR_CLR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DENOMINATOR_CLR &ref() { return *reinterpret_cast<volatile DENOMINATOR_CLR*>(0x00000038); }
 };
@@ -477,7 +462,6 @@ union DENOMINATOR_TOG {
   // Full 32-bit register value.
   uint32_t value;
 
-  DENOMINATOR_TOG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DENOMINATOR_TOG &ref() { return *reinterpret_cast<volatile DENOMINATOR_TOG*>(0x0000003C); }
 };

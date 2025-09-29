@@ -24,7 +24,6 @@ union STBY_AUTHEN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STBY_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile STBY_AUTHEN_CTRL*>(0x40C02804); }
 };
@@ -48,7 +47,6 @@ union STBY_MISC {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_MISC() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STBY_MISC &ref() { return *reinterpret_cast<volatile STBY_MISC*>(0x40C0280C); }
 };
@@ -83,7 +81,6 @@ union STBY_LPCG_IN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_LPCG_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_LPCG_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_LPCG_IN_CTRL*>(0x40C028F0); }
 };
@@ -118,7 +115,6 @@ union STBY_PLL_IN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_PLL_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_PLL_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_PLL_IN_CTRL*>(0x40C02900); }
 };
@@ -153,7 +149,6 @@ union STBY_BIAS_IN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_BIAS_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_BIAS_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_BIAS_IN_CTRL*>(0x40C02910); }
 };
@@ -188,7 +183,6 @@ union STBY_PLDO_IN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_PLDO_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_PLDO_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_PLDO_IN_CTRL*>(0x40C02920); }
 };
@@ -223,7 +217,6 @@ union STBY_BANDGAP_IN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_BANDGAP_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_BANDGAP_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_BANDGAP_IN_CTRL*>(0x40C02928); }
 };
@@ -258,7 +251,6 @@ union STBY_LDO_IN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_LDO_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_LDO_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_LDO_IN_CTRL*>(0x40C02930); }
 };
@@ -293,7 +285,6 @@ union STBY_DCDC_IN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_DCDC_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_DCDC_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_DCDC_IN_CTRL*>(0x40C02940); }
 };
@@ -328,7 +319,6 @@ union STBY_PMIC_IN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_PMIC_IN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_PMIC_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_PMIC_IN_CTRL*>(0x40C02950); }
 };
@@ -363,7 +353,6 @@ union STBY_PMIC_OUT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_PMIC_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_PMIC_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_PMIC_OUT_CTRL*>(0x40C02A00); }
 };
@@ -398,7 +387,6 @@ union STBY_DCDC_OUT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_DCDC_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_DCDC_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_DCDC_OUT_CTRL*>(0x40C02A10); }
 };
@@ -433,7 +421,6 @@ union STBY_LDO_OUT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_LDO_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_LDO_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_LDO_OUT_CTRL*>(0x40C02A20); }
 };
@@ -468,7 +455,6 @@ union STBY_BANDGAP_OUT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_BANDGAP_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_BANDGAP_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_BANDGAP_OUT_CTRL*>(0x40C02A30); }
 };
@@ -503,7 +489,6 @@ union STBY_PLDO_OUT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_PLDO_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_PLDO_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_PLDO_OUT_CTRL*>(0x40C02A38); }
 };
@@ -538,7 +523,6 @@ union STBY_BIAS_OUT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_BIAS_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_BIAS_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_BIAS_OUT_CTRL*>(0x40C02A40); }
 };
@@ -573,7 +557,6 @@ union STBY_PLL_OUT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_PLL_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_PLL_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_PLL_OUT_CTRL*>(0x40C02A50); }
 };
@@ -608,7 +591,6 @@ union STBY_LPCG_OUT_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  STBY_LPCG_OUT_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000004; }
   static inline volatile STBY_LPCG_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_LPCG_OUT_CTRL*>(0x40C02A60); }
 };

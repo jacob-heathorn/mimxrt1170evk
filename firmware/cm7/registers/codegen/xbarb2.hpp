@@ -26,7 +26,6 @@ union XBARB2_SEL0 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARB2_SEL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARB2_SEL0 &ref() { return *reinterpret_cast<volatile XBARB2_SEL0*>(0x40040000); }
 };
@@ -47,7 +46,6 @@ union XBARB2_SEL1 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARB2_SEL1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARB2_SEL1 &ref() { return *reinterpret_cast<volatile XBARB2_SEL1*>(0x40040002); }
 };
@@ -68,7 +66,6 @@ union XBARB2_SEL2 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARB2_SEL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARB2_SEL2 &ref() { return *reinterpret_cast<volatile XBARB2_SEL2*>(0x40040004); }
 };
@@ -89,7 +86,6 @@ union XBARB2_SEL3 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARB2_SEL3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARB2_SEL3 &ref() { return *reinterpret_cast<volatile XBARB2_SEL3*>(0x40040006); }
 };
@@ -110,7 +106,6 @@ union XBARB2_SEL4 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARB2_SEL4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARB2_SEL4 &ref() { return *reinterpret_cast<volatile XBARB2_SEL4*>(0x40040008); }
 };
@@ -131,7 +126,6 @@ union XBARB2_SEL5 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARB2_SEL5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARB2_SEL5 &ref() { return *reinterpret_cast<volatile XBARB2_SEL5*>(0x4004000A); }
 };
@@ -152,7 +146,6 @@ union XBARB2_SEL6 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARB2_SEL6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARB2_SEL6 &ref() { return *reinterpret_cast<volatile XBARB2_SEL6*>(0x4004000C); }
 };
@@ -173,7 +166,6 @@ union XBARB2_SEL7 {
   // Full 16-bit register value.
   uint16_t value;
 
-  XBARB2_SEL7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile XBARB2_SEL7 &ref() { return *reinterpret_cast<volatile XBARB2_SEL7*>(0x4004000E); }
 };

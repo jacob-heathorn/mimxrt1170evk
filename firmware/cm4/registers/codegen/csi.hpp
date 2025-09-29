@@ -268,7 +268,6 @@ union CSI_CR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR1() = delete;
   inline void Reset() volatile { this->value = 0x40000800; }
   static inline volatile CSI_CR1 &ref() { return *reinterpret_cast<volatile CSI_CR1*>(0x40800000); }
 };
@@ -427,7 +426,6 @@ union CSI_CR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR2 &ref() { return *reinterpret_cast<volatile CSI_CR2*>(0x40800004); }
 };
@@ -588,7 +586,6 @@ union CSI_CR3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR3 &ref() { return *reinterpret_cast<volatile CSI_CR3*>(0x40800008); }
 };
@@ -605,7 +602,6 @@ union CSI_STATFIFO {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_STATFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_STATFIFO &ref() { return *reinterpret_cast<volatile CSI_STATFIFO*>(0x4080000C); }
 };
@@ -622,7 +618,6 @@ union CSI_RFIFO {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_RFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_RFIFO &ref() { return *reinterpret_cast<volatile CSI_RFIFO*>(0x40800010); }
 };
@@ -640,7 +635,6 @@ union CSI_RXCNT {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_RXCNT() = delete;
   inline void Reset() volatile { this->value = 0x00009600; }
   static inline volatile CSI_RXCNT &ref() { return *reinterpret_cast<volatile CSI_RXCNT*>(0x40800014); }
 };
@@ -825,7 +819,6 @@ union CSI_SR {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_SR() = delete;
   inline void Reset() volatile { this->value = 0x80004000; }
   static inline volatile CSI_SR &ref() { return *reinterpret_cast<volatile CSI_SR*>(0x40800018); }
 };
@@ -843,7 +836,6 @@ union CSI_DMASA_STATFIFO {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_DMASA_STATFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_DMASA_STATFIFO &ref() { return *reinterpret_cast<volatile CSI_DMASA_STATFIFO*>(0x40800020); }
 };
@@ -860,7 +852,6 @@ union CSI_DMATS_STATFIFO {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_DMATS_STATFIFO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_DMATS_STATFIFO &ref() { return *reinterpret_cast<volatile CSI_DMATS_STATFIFO*>(0x40800024); }
 };
@@ -878,7 +869,6 @@ union CSI_DMASA_FB1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_DMASA_FB1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_DMASA_FB1 &ref() { return *reinterpret_cast<volatile CSI_DMASA_FB1*>(0x40800028); }
 };
@@ -896,7 +886,6 @@ union CSI_DMASA_FB2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_DMASA_FB2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_DMASA_FB2 &ref() { return *reinterpret_cast<volatile CSI_DMASA_FB2*>(0x4080002C); }
 };
@@ -915,7 +904,6 @@ union CSI_FBUF_PARA {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_FBUF_PARA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_FBUF_PARA &ref() { return *reinterpret_cast<volatile CSI_FBUF_PARA*>(0x40800030); }
 };
@@ -934,7 +922,6 @@ union CSI_IMAG_PARA {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_IMAG_PARA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_IMAG_PARA &ref() { return *reinterpret_cast<volatile CSI_IMAG_PARA*>(0x40800034); }
 };
@@ -1090,7 +1077,6 @@ union CSI_CR18 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR18() = delete;
   inline void Reset() volatile { this->value = 0x0002D000; }
   static inline volatile CSI_CR18 &ref() { return *reinterpret_cast<volatile CSI_CR18*>(0x40800048); }
 };
@@ -1108,7 +1094,6 @@ union CSI_CR19 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR19 &ref() { return *reinterpret_cast<volatile CSI_CR19*>(0x4080004C); }
 };
@@ -1194,7 +1179,6 @@ union CSI_CR20 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR20 &ref() { return *reinterpret_cast<volatile CSI_CR20*>(0x40800050); }
 };
@@ -1212,7 +1196,6 @@ union CSI_CR21 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR21 &ref() { return *reinterpret_cast<volatile CSI_CR21*>(0x40800054); }
 };
@@ -1229,7 +1212,6 @@ union CSI_CR22 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR22 &ref() { return *reinterpret_cast<volatile CSI_CR22*>(0x40800058); }
 };
@@ -1246,7 +1228,6 @@ union CSI_CR23 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR23 &ref() { return *reinterpret_cast<volatile CSI_CR23*>(0x4080005C); }
 };
@@ -1263,7 +1244,6 @@ union CSI_CR24 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR24 &ref() { return *reinterpret_cast<volatile CSI_CR24*>(0x40800060); }
 };
@@ -1280,7 +1260,6 @@ union CSI_CR25 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR25 &ref() { return *reinterpret_cast<volatile CSI_CR25*>(0x40800064); }
 };
@@ -1297,7 +1276,6 @@ union CSI_CR26 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR26 &ref() { return *reinterpret_cast<volatile CSI_CR26*>(0x40800068); }
 };
@@ -1314,7 +1292,6 @@ union CSI_CR27 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR27 &ref() { return *reinterpret_cast<volatile CSI_CR27*>(0x4080006C); }
 };
@@ -1331,7 +1308,6 @@ union CSI_CR28 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR28 &ref() { return *reinterpret_cast<volatile CSI_CR28*>(0x40800070); }
 };
@@ -1348,7 +1324,6 @@ union CSI_CR29 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR29 &ref() { return *reinterpret_cast<volatile CSI_CR29*>(0x40800074); }
 };
@@ -1365,7 +1340,6 @@ union CSI_CR30 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR30 &ref() { return *reinterpret_cast<volatile CSI_CR30*>(0x40800078); }
 };
@@ -1382,7 +1356,6 @@ union CSI_CR31 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR31 &ref() { return *reinterpret_cast<volatile CSI_CR31*>(0x4080007C); }
 };
@@ -1399,7 +1372,6 @@ union CSI_CR32 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR32 &ref() { return *reinterpret_cast<volatile CSI_CR32*>(0x40800080); }
 };
@@ -1416,7 +1388,6 @@ union CSI_CR33 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR33 &ref() { return *reinterpret_cast<volatile CSI_CR33*>(0x40800084); }
 };
@@ -1433,7 +1404,6 @@ union CSI_CR34 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR34 &ref() { return *reinterpret_cast<volatile CSI_CR34*>(0x40800088); }
 };
@@ -1450,7 +1420,6 @@ union CSI_CR35 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR35 &ref() { return *reinterpret_cast<volatile CSI_CR35*>(0x4080008C); }
 };
@@ -1467,7 +1436,6 @@ union CSI_CR36 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR36 &ref() { return *reinterpret_cast<volatile CSI_CR36*>(0x40800090); }
 };
@@ -1484,7 +1452,6 @@ union CSI_CR37 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR37 &ref() { return *reinterpret_cast<volatile CSI_CR37*>(0x40800094); }
 };
@@ -1501,7 +1468,6 @@ union CSI_CR38 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR38 &ref() { return *reinterpret_cast<volatile CSI_CR38*>(0x40800098); }
 };
@@ -1518,7 +1484,6 @@ union CSI_CR39 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR39 &ref() { return *reinterpret_cast<volatile CSI_CR39*>(0x4080009C); }
 };
@@ -1535,7 +1500,6 @@ union CSI_CR40 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR40 &ref() { return *reinterpret_cast<volatile CSI_CR40*>(0x408000A0); }
 };
@@ -1552,7 +1516,6 @@ union CSI_CR41 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR41 &ref() { return *reinterpret_cast<volatile CSI_CR41*>(0x408000A4); }
 };
@@ -1569,7 +1532,6 @@ union CSI_CR42 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR42 &ref() { return *reinterpret_cast<volatile CSI_CR42*>(0x408000A8); }
 };
@@ -1586,7 +1548,6 @@ union CSI_CR43 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR43 &ref() { return *reinterpret_cast<volatile CSI_CR43*>(0x408000AC); }
 };
@@ -1603,7 +1564,6 @@ union CSI_CR44 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR44 &ref() { return *reinterpret_cast<volatile CSI_CR44*>(0x408000B0); }
 };
@@ -1620,7 +1580,6 @@ union CSI_CR45 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR45 &ref() { return *reinterpret_cast<volatile CSI_CR45*>(0x408000B4); }
 };
@@ -1637,7 +1596,6 @@ union CSI_CR46 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR46 &ref() { return *reinterpret_cast<volatile CSI_CR46*>(0x408000B8); }
 };
@@ -1654,7 +1612,6 @@ union CSI_CR47 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR47 &ref() { return *reinterpret_cast<volatile CSI_CR47*>(0x408000BC); }
 };
@@ -1671,7 +1628,6 @@ union CSI_CR48 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR48 &ref() { return *reinterpret_cast<volatile CSI_CR48*>(0x408000C0); }
 };
@@ -1688,7 +1644,6 @@ union CSI_CR49 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR49 &ref() { return *reinterpret_cast<volatile CSI_CR49*>(0x408000C4); }
 };
@@ -1705,7 +1660,6 @@ union CSI_CR50 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR50 &ref() { return *reinterpret_cast<volatile CSI_CR50*>(0x408000C8); }
 };
@@ -1722,7 +1676,6 @@ union CSI_CR51 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR51 &ref() { return *reinterpret_cast<volatile CSI_CR51*>(0x408000CC); }
 };
@@ -1739,7 +1692,6 @@ union CSI_CR52 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR52 &ref() { return *reinterpret_cast<volatile CSI_CR52*>(0x408000D0); }
 };
@@ -1756,7 +1708,6 @@ union CSI_CR53 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR53 &ref() { return *reinterpret_cast<volatile CSI_CR53*>(0x408000D4); }
 };
@@ -1773,7 +1724,6 @@ union CSI_CR54 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR54 &ref() { return *reinterpret_cast<volatile CSI_CR54*>(0x408000D8); }
 };
@@ -1790,7 +1740,6 @@ union CSI_CR55 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR55 &ref() { return *reinterpret_cast<volatile CSI_CR55*>(0x408000DC); }
 };
@@ -1807,7 +1756,6 @@ union CSI_CR56 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR56 &ref() { return *reinterpret_cast<volatile CSI_CR56*>(0x408000E0); }
 };
@@ -1824,7 +1772,6 @@ union CSI_CR57 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR57 &ref() { return *reinterpret_cast<volatile CSI_CR57*>(0x408000E4); }
 };
@@ -1841,7 +1788,6 @@ union CSI_CR58 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR58 &ref() { return *reinterpret_cast<volatile CSI_CR58*>(0x408000E8); }
 };
@@ -1858,7 +1804,6 @@ union CSI_CR59 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR59 &ref() { return *reinterpret_cast<volatile CSI_CR59*>(0x408000EC); }
 };
@@ -1875,7 +1820,6 @@ union CSI_CR60 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR60 &ref() { return *reinterpret_cast<volatile CSI_CR60*>(0x408000F0); }
 };
@@ -1892,7 +1836,6 @@ union CSI_CR61 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR61 &ref() { return *reinterpret_cast<volatile CSI_CR61*>(0x408000F4); }
 };
@@ -1909,7 +1852,6 @@ union CSI_CR62 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR62 &ref() { return *reinterpret_cast<volatile CSI_CR62*>(0x408000F8); }
 };
@@ -1926,7 +1868,6 @@ union CSI_CR63 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR63 &ref() { return *reinterpret_cast<volatile CSI_CR63*>(0x408000FC); }
 };
@@ -1943,7 +1884,6 @@ union CSI_CR64 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR64() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR64 &ref() { return *reinterpret_cast<volatile CSI_CR64*>(0x40800100); }
 };
@@ -1960,7 +1900,6 @@ union CSI_CR65 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR65() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR65 &ref() { return *reinterpret_cast<volatile CSI_CR65*>(0x40800104); }
 };
@@ -1977,7 +1916,6 @@ union CSI_CR66 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR66() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR66 &ref() { return *reinterpret_cast<volatile CSI_CR66*>(0x40800108); }
 };
@@ -1994,7 +1932,6 @@ union CSI_CR67 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR67() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR67 &ref() { return *reinterpret_cast<volatile CSI_CR67*>(0x4080010C); }
 };
@@ -2011,7 +1948,6 @@ union CSI_CR68 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR68() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR68 &ref() { return *reinterpret_cast<volatile CSI_CR68*>(0x40800110); }
 };
@@ -2028,7 +1964,6 @@ union CSI_CR69 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR69() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR69 &ref() { return *reinterpret_cast<volatile CSI_CR69*>(0x40800114); }
 };
@@ -2045,7 +1980,6 @@ union CSI_CR70 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR70() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR70 &ref() { return *reinterpret_cast<volatile CSI_CR70*>(0x40800118); }
 };
@@ -2062,7 +1996,6 @@ union CSI_CR71 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR71() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR71 &ref() { return *reinterpret_cast<volatile CSI_CR71*>(0x4080011C); }
 };
@@ -2079,7 +2012,6 @@ union CSI_CR72 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR72() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR72 &ref() { return *reinterpret_cast<volatile CSI_CR72*>(0x40800120); }
 };
@@ -2096,7 +2028,6 @@ union CSI_CR73 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR73() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR73 &ref() { return *reinterpret_cast<volatile CSI_CR73*>(0x40800124); }
 };
@@ -2113,7 +2044,6 @@ union CSI_CR74 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR74() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR74 &ref() { return *reinterpret_cast<volatile CSI_CR74*>(0x40800128); }
 };
@@ -2130,7 +2060,6 @@ union CSI_CR75 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR75() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR75 &ref() { return *reinterpret_cast<volatile CSI_CR75*>(0x4080012C); }
 };
@@ -2147,7 +2076,6 @@ union CSI_CR76 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR76() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR76 &ref() { return *reinterpret_cast<volatile CSI_CR76*>(0x40800130); }
 };
@@ -2164,7 +2092,6 @@ union CSI_CR77 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR77() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR77 &ref() { return *reinterpret_cast<volatile CSI_CR77*>(0x40800134); }
 };
@@ -2181,7 +2108,6 @@ union CSI_CR78 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR78() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR78 &ref() { return *reinterpret_cast<volatile CSI_CR78*>(0x40800138); }
 };
@@ -2198,7 +2124,6 @@ union CSI_CR79 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR79() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR79 &ref() { return *reinterpret_cast<volatile CSI_CR79*>(0x4080013C); }
 };
@@ -2215,7 +2140,6 @@ union CSI_CR80 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR80() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR80 &ref() { return *reinterpret_cast<volatile CSI_CR80*>(0x40800140); }
 };
@@ -2232,7 +2156,6 @@ union CSI_CR81 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR81() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR81 &ref() { return *reinterpret_cast<volatile CSI_CR81*>(0x40800144); }
 };
@@ -2249,7 +2172,6 @@ union CSI_CR82 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR82() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR82 &ref() { return *reinterpret_cast<volatile CSI_CR82*>(0x40800148); }
 };
@@ -2266,7 +2188,6 @@ union CSI_CR83 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR83() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR83 &ref() { return *reinterpret_cast<volatile CSI_CR83*>(0x4080014C); }
 };
@@ -2283,7 +2204,6 @@ union CSI_CR84 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR84() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR84 &ref() { return *reinterpret_cast<volatile CSI_CR84*>(0x40800150); }
 };
@@ -2300,7 +2220,6 @@ union CSI_CR85 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR85() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR85 &ref() { return *reinterpret_cast<volatile CSI_CR85*>(0x40800154); }
 };
@@ -2317,7 +2236,6 @@ union CSI_CR86 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR86() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR86 &ref() { return *reinterpret_cast<volatile CSI_CR86*>(0x40800158); }
 };
@@ -2334,7 +2252,6 @@ union CSI_CR87 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR87() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR87 &ref() { return *reinterpret_cast<volatile CSI_CR87*>(0x4080015C); }
 };
@@ -2351,7 +2268,6 @@ union CSI_CR88 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR88() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR88 &ref() { return *reinterpret_cast<volatile CSI_CR88*>(0x40800160); }
 };
@@ -2368,7 +2284,6 @@ union CSI_CR89 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR89() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR89 &ref() { return *reinterpret_cast<volatile CSI_CR89*>(0x40800164); }
 };
@@ -2385,7 +2300,6 @@ union CSI_CR90 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR90() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR90 &ref() { return *reinterpret_cast<volatile CSI_CR90*>(0x40800168); }
 };
@@ -2402,7 +2316,6 @@ union CSI_CR91 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR91() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR91 &ref() { return *reinterpret_cast<volatile CSI_CR91*>(0x4080016C); }
 };
@@ -2419,7 +2332,6 @@ union CSI_CR92 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR92() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR92 &ref() { return *reinterpret_cast<volatile CSI_CR92*>(0x40800170); }
 };
@@ -2436,7 +2348,6 @@ union CSI_CR93 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR93() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR93 &ref() { return *reinterpret_cast<volatile CSI_CR93*>(0x40800174); }
 };
@@ -2453,7 +2364,6 @@ union CSI_CR94 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR94() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR94 &ref() { return *reinterpret_cast<volatile CSI_CR94*>(0x40800178); }
 };
@@ -2470,7 +2380,6 @@ union CSI_CR95 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR95() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR95 &ref() { return *reinterpret_cast<volatile CSI_CR95*>(0x4080017C); }
 };
@@ -2487,7 +2396,6 @@ union CSI_CR96 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR96() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR96 &ref() { return *reinterpret_cast<volatile CSI_CR96*>(0x40800180); }
 };
@@ -2504,7 +2412,6 @@ union CSI_CR97 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR97() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR97 &ref() { return *reinterpret_cast<volatile CSI_CR97*>(0x40800184); }
 };
@@ -2521,7 +2428,6 @@ union CSI_CR98 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR98() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR98 &ref() { return *reinterpret_cast<volatile CSI_CR98*>(0x40800188); }
 };
@@ -2538,7 +2444,6 @@ union CSI_CR99 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR99() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR99 &ref() { return *reinterpret_cast<volatile CSI_CR99*>(0x4080018C); }
 };
@@ -2555,7 +2460,6 @@ union CSI_CR100 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR100() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR100 &ref() { return *reinterpret_cast<volatile CSI_CR100*>(0x40800190); }
 };
@@ -2572,7 +2476,6 @@ union CSI_CR101 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR101() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR101 &ref() { return *reinterpret_cast<volatile CSI_CR101*>(0x40800194); }
 };
@@ -2589,7 +2492,6 @@ union CSI_CR102 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR102() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR102 &ref() { return *reinterpret_cast<volatile CSI_CR102*>(0x40800198); }
 };
@@ -2606,7 +2508,6 @@ union CSI_CR103 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR103() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR103 &ref() { return *reinterpret_cast<volatile CSI_CR103*>(0x4080019C); }
 };
@@ -2623,7 +2524,6 @@ union CSI_CR104 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR104() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR104 &ref() { return *reinterpret_cast<volatile CSI_CR104*>(0x408001A0); }
 };
@@ -2640,7 +2540,6 @@ union CSI_CR105 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR105() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR105 &ref() { return *reinterpret_cast<volatile CSI_CR105*>(0x408001A4); }
 };
@@ -2657,7 +2556,6 @@ union CSI_CR106 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR106() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR106 &ref() { return *reinterpret_cast<volatile CSI_CR106*>(0x408001A8); }
 };
@@ -2674,7 +2572,6 @@ union CSI_CR107 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR107() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR107 &ref() { return *reinterpret_cast<volatile CSI_CR107*>(0x408001AC); }
 };
@@ -2691,7 +2588,6 @@ union CSI_CR108 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR108() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR108 &ref() { return *reinterpret_cast<volatile CSI_CR108*>(0x408001B0); }
 };
@@ -2708,7 +2604,6 @@ union CSI_CR109 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR109() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR109 &ref() { return *reinterpret_cast<volatile CSI_CR109*>(0x408001B4); }
 };
@@ -2725,7 +2620,6 @@ union CSI_CR110 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR110() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR110 &ref() { return *reinterpret_cast<volatile CSI_CR110*>(0x408001B8); }
 };
@@ -2742,7 +2636,6 @@ union CSI_CR111 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR111() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR111 &ref() { return *reinterpret_cast<volatile CSI_CR111*>(0x408001BC); }
 };
@@ -2759,7 +2652,6 @@ union CSI_CR112 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR112() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR112 &ref() { return *reinterpret_cast<volatile CSI_CR112*>(0x408001C0); }
 };
@@ -2776,7 +2668,6 @@ union CSI_CR113 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR113() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR113 &ref() { return *reinterpret_cast<volatile CSI_CR113*>(0x408001C4); }
 };
@@ -2793,7 +2684,6 @@ union CSI_CR114 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR114() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR114 &ref() { return *reinterpret_cast<volatile CSI_CR114*>(0x408001C8); }
 };
@@ -2810,7 +2700,6 @@ union CSI_CR115 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR115() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR115 &ref() { return *reinterpret_cast<volatile CSI_CR115*>(0x408001CC); }
 };
@@ -2827,7 +2716,6 @@ union CSI_CR116 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR116() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR116 &ref() { return *reinterpret_cast<volatile CSI_CR116*>(0x408001D0); }
 };
@@ -2844,7 +2732,6 @@ union CSI_CR117 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR117() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR117 &ref() { return *reinterpret_cast<volatile CSI_CR117*>(0x408001D4); }
 };
@@ -2861,7 +2748,6 @@ union CSI_CR118 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR118() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR118 &ref() { return *reinterpret_cast<volatile CSI_CR118*>(0x408001D8); }
 };
@@ -2878,7 +2764,6 @@ union CSI_CR119 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR119() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR119 &ref() { return *reinterpret_cast<volatile CSI_CR119*>(0x408001DC); }
 };
@@ -2895,7 +2780,6 @@ union CSI_CR120 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR120() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR120 &ref() { return *reinterpret_cast<volatile CSI_CR120*>(0x408001E0); }
 };
@@ -2912,7 +2796,6 @@ union CSI_CR121 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR121() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR121 &ref() { return *reinterpret_cast<volatile CSI_CR121*>(0x408001E4); }
 };
@@ -2929,7 +2812,6 @@ union CSI_CR122 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR122() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR122 &ref() { return *reinterpret_cast<volatile CSI_CR122*>(0x408001E8); }
 };
@@ -2946,7 +2828,6 @@ union CSI_CR123 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR123() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR123 &ref() { return *reinterpret_cast<volatile CSI_CR123*>(0x408001EC); }
 };
@@ -2963,7 +2844,6 @@ union CSI_CR124 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR124() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR124 &ref() { return *reinterpret_cast<volatile CSI_CR124*>(0x408001F0); }
 };
@@ -2980,7 +2860,6 @@ union CSI_CR125 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR125() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR125 &ref() { return *reinterpret_cast<volatile CSI_CR125*>(0x408001F4); }
 };
@@ -2997,7 +2876,6 @@ union CSI_CR126 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR126() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR126 &ref() { return *reinterpret_cast<volatile CSI_CR126*>(0x408001F8); }
 };
@@ -3014,7 +2892,6 @@ union CSI_CR127 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR127() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR127 &ref() { return *reinterpret_cast<volatile CSI_CR127*>(0x408001FC); }
 };
@@ -3031,7 +2908,6 @@ union CSI_CR128 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR128() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR128 &ref() { return *reinterpret_cast<volatile CSI_CR128*>(0x40800200); }
 };
@@ -3048,7 +2924,6 @@ union CSI_CR129 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR129() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR129 &ref() { return *reinterpret_cast<volatile CSI_CR129*>(0x40800204); }
 };
@@ -3065,7 +2940,6 @@ union CSI_CR130 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR130() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR130 &ref() { return *reinterpret_cast<volatile CSI_CR130*>(0x40800208); }
 };
@@ -3082,7 +2956,6 @@ union CSI_CR131 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR131() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR131 &ref() { return *reinterpret_cast<volatile CSI_CR131*>(0x4080020C); }
 };
@@ -3099,7 +2972,6 @@ union CSI_CR132 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR132() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR132 &ref() { return *reinterpret_cast<volatile CSI_CR132*>(0x40800210); }
 };
@@ -3116,7 +2988,6 @@ union CSI_CR133 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR133() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR133 &ref() { return *reinterpret_cast<volatile CSI_CR133*>(0x40800214); }
 };
@@ -3133,7 +3004,6 @@ union CSI_CR134 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR134() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR134 &ref() { return *reinterpret_cast<volatile CSI_CR134*>(0x40800218); }
 };
@@ -3150,7 +3020,6 @@ union CSI_CR135 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR135() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR135 &ref() { return *reinterpret_cast<volatile CSI_CR135*>(0x4080021C); }
 };
@@ -3167,7 +3036,6 @@ union CSI_CR136 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR136() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR136 &ref() { return *reinterpret_cast<volatile CSI_CR136*>(0x40800220); }
 };
@@ -3184,7 +3052,6 @@ union CSI_CR137 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR137() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR137 &ref() { return *reinterpret_cast<volatile CSI_CR137*>(0x40800224); }
 };
@@ -3201,7 +3068,6 @@ union CSI_CR138 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR138() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR138 &ref() { return *reinterpret_cast<volatile CSI_CR138*>(0x40800228); }
 };
@@ -3218,7 +3084,6 @@ union CSI_CR139 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR139() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR139 &ref() { return *reinterpret_cast<volatile CSI_CR139*>(0x4080022C); }
 };
@@ -3235,7 +3100,6 @@ union CSI_CR140 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR140() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR140 &ref() { return *reinterpret_cast<volatile CSI_CR140*>(0x40800230); }
 };
@@ -3252,7 +3116,6 @@ union CSI_CR141 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR141() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR141 &ref() { return *reinterpret_cast<volatile CSI_CR141*>(0x40800234); }
 };
@@ -3269,7 +3132,6 @@ union CSI_CR142 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR142() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR142 &ref() { return *reinterpret_cast<volatile CSI_CR142*>(0x40800238); }
 };
@@ -3286,7 +3148,6 @@ union CSI_CR143 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR143() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR143 &ref() { return *reinterpret_cast<volatile CSI_CR143*>(0x4080023C); }
 };
@@ -3303,7 +3164,6 @@ union CSI_CR144 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR144() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR144 &ref() { return *reinterpret_cast<volatile CSI_CR144*>(0x40800240); }
 };
@@ -3320,7 +3180,6 @@ union CSI_CR145 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR145() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR145 &ref() { return *reinterpret_cast<volatile CSI_CR145*>(0x40800244); }
 };
@@ -3337,7 +3196,6 @@ union CSI_CR146 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR146() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR146 &ref() { return *reinterpret_cast<volatile CSI_CR146*>(0x40800248); }
 };
@@ -3354,7 +3212,6 @@ union CSI_CR147 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR147() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR147 &ref() { return *reinterpret_cast<volatile CSI_CR147*>(0x4080024C); }
 };
@@ -3371,7 +3228,6 @@ union CSI_CR148 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR148() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR148 &ref() { return *reinterpret_cast<volatile CSI_CR148*>(0x40800250); }
 };
@@ -3388,7 +3244,6 @@ union CSI_CR149 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR149() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR149 &ref() { return *reinterpret_cast<volatile CSI_CR149*>(0x40800254); }
 };
@@ -3405,7 +3260,6 @@ union CSI_CR150 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR150() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR150 &ref() { return *reinterpret_cast<volatile CSI_CR150*>(0x40800258); }
 };
@@ -3422,7 +3276,6 @@ union CSI_CR151 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR151() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR151 &ref() { return *reinterpret_cast<volatile CSI_CR151*>(0x4080025C); }
 };
@@ -3439,7 +3292,6 @@ union CSI_CR152 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR152() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR152 &ref() { return *reinterpret_cast<volatile CSI_CR152*>(0x40800260); }
 };
@@ -3456,7 +3308,6 @@ union CSI_CR153 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR153() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR153 &ref() { return *reinterpret_cast<volatile CSI_CR153*>(0x40800264); }
 };
@@ -3473,7 +3324,6 @@ union CSI_CR154 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR154() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR154 &ref() { return *reinterpret_cast<volatile CSI_CR154*>(0x40800268); }
 };
@@ -3490,7 +3340,6 @@ union CSI_CR155 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR155() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR155 &ref() { return *reinterpret_cast<volatile CSI_CR155*>(0x4080026C); }
 };
@@ -3507,7 +3356,6 @@ union CSI_CR156 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR156() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR156 &ref() { return *reinterpret_cast<volatile CSI_CR156*>(0x40800270); }
 };
@@ -3524,7 +3372,6 @@ union CSI_CR157 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR157() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR157 &ref() { return *reinterpret_cast<volatile CSI_CR157*>(0x40800274); }
 };
@@ -3541,7 +3388,6 @@ union CSI_CR158 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR158() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR158 &ref() { return *reinterpret_cast<volatile CSI_CR158*>(0x40800278); }
 };
@@ -3558,7 +3404,6 @@ union CSI_CR159 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR159() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR159 &ref() { return *reinterpret_cast<volatile CSI_CR159*>(0x4080027C); }
 };
@@ -3575,7 +3420,6 @@ union CSI_CR160 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR160() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR160 &ref() { return *reinterpret_cast<volatile CSI_CR160*>(0x40800280); }
 };
@@ -3592,7 +3436,6 @@ union CSI_CR161 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR161() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR161 &ref() { return *reinterpret_cast<volatile CSI_CR161*>(0x40800284); }
 };
@@ -3609,7 +3452,6 @@ union CSI_CR162 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR162() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR162 &ref() { return *reinterpret_cast<volatile CSI_CR162*>(0x40800288); }
 };
@@ -3626,7 +3468,6 @@ union CSI_CR163 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR163() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR163 &ref() { return *reinterpret_cast<volatile CSI_CR163*>(0x4080028C); }
 };
@@ -3643,7 +3484,6 @@ union CSI_CR164 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR164() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR164 &ref() { return *reinterpret_cast<volatile CSI_CR164*>(0x40800290); }
 };
@@ -3660,7 +3500,6 @@ union CSI_CR165 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR165() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR165 &ref() { return *reinterpret_cast<volatile CSI_CR165*>(0x40800294); }
 };
@@ -3677,7 +3516,6 @@ union CSI_CR166 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR166() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR166 &ref() { return *reinterpret_cast<volatile CSI_CR166*>(0x40800298); }
 };
@@ -3694,7 +3532,6 @@ union CSI_CR167 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR167() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR167 &ref() { return *reinterpret_cast<volatile CSI_CR167*>(0x4080029C); }
 };
@@ -3711,7 +3548,6 @@ union CSI_CR168 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR168() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR168 &ref() { return *reinterpret_cast<volatile CSI_CR168*>(0x408002A0); }
 };
@@ -3728,7 +3564,6 @@ union CSI_CR169 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR169() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR169 &ref() { return *reinterpret_cast<volatile CSI_CR169*>(0x408002A4); }
 };
@@ -3745,7 +3580,6 @@ union CSI_CR170 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR170() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR170 &ref() { return *reinterpret_cast<volatile CSI_CR170*>(0x408002A8); }
 };
@@ -3762,7 +3596,6 @@ union CSI_CR171 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR171() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR171 &ref() { return *reinterpret_cast<volatile CSI_CR171*>(0x408002AC); }
 };
@@ -3779,7 +3612,6 @@ union CSI_CR172 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR172() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR172 &ref() { return *reinterpret_cast<volatile CSI_CR172*>(0x408002B0); }
 };
@@ -3796,7 +3628,6 @@ union CSI_CR173 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR173() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR173 &ref() { return *reinterpret_cast<volatile CSI_CR173*>(0x408002B4); }
 };
@@ -3813,7 +3644,6 @@ union CSI_CR174 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR174() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR174 &ref() { return *reinterpret_cast<volatile CSI_CR174*>(0x408002B8); }
 };
@@ -3830,7 +3660,6 @@ union CSI_CR175 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR175() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR175 &ref() { return *reinterpret_cast<volatile CSI_CR175*>(0x408002BC); }
 };
@@ -3847,7 +3676,6 @@ union CSI_CR176 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR176() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR176 &ref() { return *reinterpret_cast<volatile CSI_CR176*>(0x408002C0); }
 };
@@ -3864,7 +3692,6 @@ union CSI_CR177 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR177() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR177 &ref() { return *reinterpret_cast<volatile CSI_CR177*>(0x408002C4); }
 };
@@ -3881,7 +3708,6 @@ union CSI_CR178 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR178() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR178 &ref() { return *reinterpret_cast<volatile CSI_CR178*>(0x408002C8); }
 };
@@ -3898,7 +3724,6 @@ union CSI_CR179 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR179() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR179 &ref() { return *reinterpret_cast<volatile CSI_CR179*>(0x408002CC); }
 };
@@ -3915,7 +3740,6 @@ union CSI_CR180 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR180() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR180 &ref() { return *reinterpret_cast<volatile CSI_CR180*>(0x408002D0); }
 };
@@ -3932,7 +3756,6 @@ union CSI_CR181 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR181() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR181 &ref() { return *reinterpret_cast<volatile CSI_CR181*>(0x408002D4); }
 };
@@ -3949,7 +3772,6 @@ union CSI_CR182 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR182() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR182 &ref() { return *reinterpret_cast<volatile CSI_CR182*>(0x408002D8); }
 };
@@ -3966,7 +3788,6 @@ union CSI_CR183 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR183() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR183 &ref() { return *reinterpret_cast<volatile CSI_CR183*>(0x408002DC); }
 };
@@ -3983,7 +3804,6 @@ union CSI_CR184 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR184() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR184 &ref() { return *reinterpret_cast<volatile CSI_CR184*>(0x408002E0); }
 };
@@ -4000,7 +3820,6 @@ union CSI_CR185 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR185() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR185 &ref() { return *reinterpret_cast<volatile CSI_CR185*>(0x408002E4); }
 };
@@ -4017,7 +3836,6 @@ union CSI_CR186 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR186() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR186 &ref() { return *reinterpret_cast<volatile CSI_CR186*>(0x408002E8); }
 };
@@ -4034,7 +3852,6 @@ union CSI_CR187 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR187() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR187 &ref() { return *reinterpret_cast<volatile CSI_CR187*>(0x408002EC); }
 };
@@ -4051,7 +3868,6 @@ union CSI_CR188 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR188() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR188 &ref() { return *reinterpret_cast<volatile CSI_CR188*>(0x408002F0); }
 };
@@ -4068,7 +3884,6 @@ union CSI_CR189 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR189() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR189 &ref() { return *reinterpret_cast<volatile CSI_CR189*>(0x408002F4); }
 };
@@ -4085,7 +3900,6 @@ union CSI_CR190 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR190() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR190 &ref() { return *reinterpret_cast<volatile CSI_CR190*>(0x408002F8); }
 };
@@ -4102,7 +3916,6 @@ union CSI_CR191 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR191() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR191 &ref() { return *reinterpret_cast<volatile CSI_CR191*>(0x408002FC); }
 };
@@ -4119,7 +3932,6 @@ union CSI_CR192 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR192() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR192 &ref() { return *reinterpret_cast<volatile CSI_CR192*>(0x40800300); }
 };
@@ -4136,7 +3948,6 @@ union CSI_CR193 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR193() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR193 &ref() { return *reinterpret_cast<volatile CSI_CR193*>(0x40800304); }
 };
@@ -4153,7 +3964,6 @@ union CSI_CR194 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR194() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR194 &ref() { return *reinterpret_cast<volatile CSI_CR194*>(0x40800308); }
 };
@@ -4170,7 +3980,6 @@ union CSI_CR195 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR195() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR195 &ref() { return *reinterpret_cast<volatile CSI_CR195*>(0x4080030C); }
 };
@@ -4187,7 +3996,6 @@ union CSI_CR196 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR196() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR196 &ref() { return *reinterpret_cast<volatile CSI_CR196*>(0x40800310); }
 };
@@ -4204,7 +4012,6 @@ union CSI_CR197 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR197() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR197 &ref() { return *reinterpret_cast<volatile CSI_CR197*>(0x40800314); }
 };
@@ -4221,7 +4028,6 @@ union CSI_CR198 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR198() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR198 &ref() { return *reinterpret_cast<volatile CSI_CR198*>(0x40800318); }
 };
@@ -4238,7 +4044,6 @@ union CSI_CR199 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR199() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR199 &ref() { return *reinterpret_cast<volatile CSI_CR199*>(0x4080031C); }
 };
@@ -4255,7 +4060,6 @@ union CSI_CR200 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR200() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR200 &ref() { return *reinterpret_cast<volatile CSI_CR200*>(0x40800320); }
 };
@@ -4272,7 +4076,6 @@ union CSI_CR201 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR201() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR201 &ref() { return *reinterpret_cast<volatile CSI_CR201*>(0x40800324); }
 };
@@ -4289,7 +4092,6 @@ union CSI_CR202 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR202() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR202 &ref() { return *reinterpret_cast<volatile CSI_CR202*>(0x40800328); }
 };
@@ -4306,7 +4108,6 @@ union CSI_CR203 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR203() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR203 &ref() { return *reinterpret_cast<volatile CSI_CR203*>(0x4080032C); }
 };
@@ -4323,7 +4124,6 @@ union CSI_CR204 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR204() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR204 &ref() { return *reinterpret_cast<volatile CSI_CR204*>(0x40800330); }
 };
@@ -4340,7 +4140,6 @@ union CSI_CR205 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR205() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR205 &ref() { return *reinterpret_cast<volatile CSI_CR205*>(0x40800334); }
 };
@@ -4357,7 +4156,6 @@ union CSI_CR206 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR206() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR206 &ref() { return *reinterpret_cast<volatile CSI_CR206*>(0x40800338); }
 };
@@ -4374,7 +4172,6 @@ union CSI_CR207 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR207() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR207 &ref() { return *reinterpret_cast<volatile CSI_CR207*>(0x4080033C); }
 };
@@ -4391,7 +4188,6 @@ union CSI_CR208 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR208() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR208 &ref() { return *reinterpret_cast<volatile CSI_CR208*>(0x40800340); }
 };
@@ -4408,7 +4204,6 @@ union CSI_CR209 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR209() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR209 &ref() { return *reinterpret_cast<volatile CSI_CR209*>(0x40800344); }
 };
@@ -4425,7 +4220,6 @@ union CSI_CR210 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR210() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR210 &ref() { return *reinterpret_cast<volatile CSI_CR210*>(0x40800348); }
 };
@@ -4442,7 +4236,6 @@ union CSI_CR211 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR211() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR211 &ref() { return *reinterpret_cast<volatile CSI_CR211*>(0x4080034C); }
 };
@@ -4459,7 +4252,6 @@ union CSI_CR212 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR212() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR212 &ref() { return *reinterpret_cast<volatile CSI_CR212*>(0x40800350); }
 };
@@ -4476,7 +4268,6 @@ union CSI_CR213 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR213() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR213 &ref() { return *reinterpret_cast<volatile CSI_CR213*>(0x40800354); }
 };
@@ -4493,7 +4284,6 @@ union CSI_CR214 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR214() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR214 &ref() { return *reinterpret_cast<volatile CSI_CR214*>(0x40800358); }
 };
@@ -4510,7 +4300,6 @@ union CSI_CR215 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR215() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR215 &ref() { return *reinterpret_cast<volatile CSI_CR215*>(0x4080035C); }
 };
@@ -4527,7 +4316,6 @@ union CSI_CR216 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR216() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR216 &ref() { return *reinterpret_cast<volatile CSI_CR216*>(0x40800360); }
 };
@@ -4544,7 +4332,6 @@ union CSI_CR217 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR217() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR217 &ref() { return *reinterpret_cast<volatile CSI_CR217*>(0x40800364); }
 };
@@ -4561,7 +4348,6 @@ union CSI_CR218 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR218() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR218 &ref() { return *reinterpret_cast<volatile CSI_CR218*>(0x40800368); }
 };
@@ -4578,7 +4364,6 @@ union CSI_CR219 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR219() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR219 &ref() { return *reinterpret_cast<volatile CSI_CR219*>(0x4080036C); }
 };
@@ -4595,7 +4380,6 @@ union CSI_CR220 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR220() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR220 &ref() { return *reinterpret_cast<volatile CSI_CR220*>(0x40800370); }
 };
@@ -4612,7 +4396,6 @@ union CSI_CR221 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR221() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR221 &ref() { return *reinterpret_cast<volatile CSI_CR221*>(0x40800374); }
 };
@@ -4629,7 +4412,6 @@ union CSI_CR222 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR222() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR222 &ref() { return *reinterpret_cast<volatile CSI_CR222*>(0x40800378); }
 };
@@ -4646,7 +4428,6 @@ union CSI_CR223 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR223() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR223 &ref() { return *reinterpret_cast<volatile CSI_CR223*>(0x4080037C); }
 };
@@ -4663,7 +4444,6 @@ union CSI_CR224 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR224() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR224 &ref() { return *reinterpret_cast<volatile CSI_CR224*>(0x40800380); }
 };
@@ -4680,7 +4460,6 @@ union CSI_CR225 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR225() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR225 &ref() { return *reinterpret_cast<volatile CSI_CR225*>(0x40800384); }
 };
@@ -4697,7 +4476,6 @@ union CSI_CR226 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR226() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR226 &ref() { return *reinterpret_cast<volatile CSI_CR226*>(0x40800388); }
 };
@@ -4714,7 +4492,6 @@ union CSI_CR227 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR227() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR227 &ref() { return *reinterpret_cast<volatile CSI_CR227*>(0x4080038C); }
 };
@@ -4731,7 +4508,6 @@ union CSI_CR228 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR228() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR228 &ref() { return *reinterpret_cast<volatile CSI_CR228*>(0x40800390); }
 };
@@ -4748,7 +4524,6 @@ union CSI_CR229 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR229() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR229 &ref() { return *reinterpret_cast<volatile CSI_CR229*>(0x40800394); }
 };
@@ -4765,7 +4540,6 @@ union CSI_CR230 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR230() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR230 &ref() { return *reinterpret_cast<volatile CSI_CR230*>(0x40800398); }
 };
@@ -4782,7 +4556,6 @@ union CSI_CR231 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR231() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR231 &ref() { return *reinterpret_cast<volatile CSI_CR231*>(0x4080039C); }
 };
@@ -4799,7 +4572,6 @@ union CSI_CR232 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR232() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR232 &ref() { return *reinterpret_cast<volatile CSI_CR232*>(0x408003A0); }
 };
@@ -4816,7 +4588,6 @@ union CSI_CR233 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR233() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR233 &ref() { return *reinterpret_cast<volatile CSI_CR233*>(0x408003A4); }
 };
@@ -4833,7 +4604,6 @@ union CSI_CR234 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR234() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR234 &ref() { return *reinterpret_cast<volatile CSI_CR234*>(0x408003A8); }
 };
@@ -4850,7 +4620,6 @@ union CSI_CR235 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR235() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR235 &ref() { return *reinterpret_cast<volatile CSI_CR235*>(0x408003AC); }
 };
@@ -4867,7 +4636,6 @@ union CSI_CR236 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR236() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR236 &ref() { return *reinterpret_cast<volatile CSI_CR236*>(0x408003B0); }
 };
@@ -4884,7 +4652,6 @@ union CSI_CR237 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR237() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR237 &ref() { return *reinterpret_cast<volatile CSI_CR237*>(0x408003B4); }
 };
@@ -4901,7 +4668,6 @@ union CSI_CR238 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR238() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR238 &ref() { return *reinterpret_cast<volatile CSI_CR238*>(0x408003B8); }
 };
@@ -4918,7 +4684,6 @@ union CSI_CR239 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR239() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR239 &ref() { return *reinterpret_cast<volatile CSI_CR239*>(0x408003BC); }
 };
@@ -4935,7 +4700,6 @@ union CSI_CR240 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR240() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR240 &ref() { return *reinterpret_cast<volatile CSI_CR240*>(0x408003C0); }
 };
@@ -4952,7 +4716,6 @@ union CSI_CR241 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR241() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR241 &ref() { return *reinterpret_cast<volatile CSI_CR241*>(0x408003C4); }
 };
@@ -4969,7 +4732,6 @@ union CSI_CR242 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR242() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR242 &ref() { return *reinterpret_cast<volatile CSI_CR242*>(0x408003C8); }
 };
@@ -4986,7 +4748,6 @@ union CSI_CR243 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR243() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR243 &ref() { return *reinterpret_cast<volatile CSI_CR243*>(0x408003CC); }
 };
@@ -5003,7 +4764,6 @@ union CSI_CR244 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR244() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR244 &ref() { return *reinterpret_cast<volatile CSI_CR244*>(0x408003D0); }
 };
@@ -5020,7 +4780,6 @@ union CSI_CR245 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR245() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR245 &ref() { return *reinterpret_cast<volatile CSI_CR245*>(0x408003D4); }
 };
@@ -5037,7 +4796,6 @@ union CSI_CR246 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR246() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR246 &ref() { return *reinterpret_cast<volatile CSI_CR246*>(0x408003D8); }
 };
@@ -5054,7 +4812,6 @@ union CSI_CR247 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR247() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR247 &ref() { return *reinterpret_cast<volatile CSI_CR247*>(0x408003DC); }
 };
@@ -5071,7 +4828,6 @@ union CSI_CR248 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR248() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR248 &ref() { return *reinterpret_cast<volatile CSI_CR248*>(0x408003E0); }
 };
@@ -5088,7 +4844,6 @@ union CSI_CR249 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR249() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR249 &ref() { return *reinterpret_cast<volatile CSI_CR249*>(0x408003E4); }
 };
@@ -5105,7 +4860,6 @@ union CSI_CR250 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR250() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR250 &ref() { return *reinterpret_cast<volatile CSI_CR250*>(0x408003E8); }
 };
@@ -5122,7 +4876,6 @@ union CSI_CR251 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR251() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR251 &ref() { return *reinterpret_cast<volatile CSI_CR251*>(0x408003EC); }
 };
@@ -5139,7 +4892,6 @@ union CSI_CR252 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR252() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR252 &ref() { return *reinterpret_cast<volatile CSI_CR252*>(0x408003F0); }
 };
@@ -5156,7 +4908,6 @@ union CSI_CR253 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR253() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR253 &ref() { return *reinterpret_cast<volatile CSI_CR253*>(0x408003F4); }
 };
@@ -5173,7 +4924,6 @@ union CSI_CR254 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR254() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR254 &ref() { return *reinterpret_cast<volatile CSI_CR254*>(0x408003F8); }
 };
@@ -5190,7 +4940,6 @@ union CSI_CR255 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR255() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR255 &ref() { return *reinterpret_cast<volatile CSI_CR255*>(0x408003FC); }
 };
@@ -5207,7 +4956,6 @@ union CSI_CR256 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR256() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR256 &ref() { return *reinterpret_cast<volatile CSI_CR256*>(0x40800400); }
 };
@@ -5224,7 +4972,6 @@ union CSI_CR257 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR257() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR257 &ref() { return *reinterpret_cast<volatile CSI_CR257*>(0x40800404); }
 };
@@ -5241,7 +4988,6 @@ union CSI_CR258 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR258() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR258 &ref() { return *reinterpret_cast<volatile CSI_CR258*>(0x40800408); }
 };
@@ -5258,7 +5004,6 @@ union CSI_CR259 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR259() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR259 &ref() { return *reinterpret_cast<volatile CSI_CR259*>(0x4080040C); }
 };
@@ -5275,7 +5020,6 @@ union CSI_CR260 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR260() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR260 &ref() { return *reinterpret_cast<volatile CSI_CR260*>(0x40800410); }
 };
@@ -5292,7 +5036,6 @@ union CSI_CR261 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR261() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR261 &ref() { return *reinterpret_cast<volatile CSI_CR261*>(0x40800414); }
 };
@@ -5309,7 +5052,6 @@ union CSI_CR262 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR262() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR262 &ref() { return *reinterpret_cast<volatile CSI_CR262*>(0x40800418); }
 };
@@ -5326,7 +5068,6 @@ union CSI_CR263 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR263() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR263 &ref() { return *reinterpret_cast<volatile CSI_CR263*>(0x4080041C); }
 };
@@ -5343,7 +5084,6 @@ union CSI_CR264 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR264() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR264 &ref() { return *reinterpret_cast<volatile CSI_CR264*>(0x40800420); }
 };
@@ -5360,7 +5100,6 @@ union CSI_CR265 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR265() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR265 &ref() { return *reinterpret_cast<volatile CSI_CR265*>(0x40800424); }
 };
@@ -5377,7 +5116,6 @@ union CSI_CR266 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR266() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR266 &ref() { return *reinterpret_cast<volatile CSI_CR266*>(0x40800428); }
 };
@@ -5394,7 +5132,6 @@ union CSI_CR267 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR267() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR267 &ref() { return *reinterpret_cast<volatile CSI_CR267*>(0x4080042C); }
 };
@@ -5411,7 +5148,6 @@ union CSI_CR268 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR268() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR268 &ref() { return *reinterpret_cast<volatile CSI_CR268*>(0x40800430); }
 };
@@ -5428,7 +5164,6 @@ union CSI_CR269 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR269() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR269 &ref() { return *reinterpret_cast<volatile CSI_CR269*>(0x40800434); }
 };
@@ -5445,7 +5180,6 @@ union CSI_CR270 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR270() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR270 &ref() { return *reinterpret_cast<volatile CSI_CR270*>(0x40800438); }
 };
@@ -5462,7 +5196,6 @@ union CSI_CR271 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR271() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR271 &ref() { return *reinterpret_cast<volatile CSI_CR271*>(0x4080043C); }
 };
@@ -5479,7 +5212,6 @@ union CSI_CR272 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR272() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR272 &ref() { return *reinterpret_cast<volatile CSI_CR272*>(0x40800440); }
 };
@@ -5496,7 +5228,6 @@ union CSI_CR273 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR273() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR273 &ref() { return *reinterpret_cast<volatile CSI_CR273*>(0x40800444); }
 };
@@ -5513,7 +5244,6 @@ union CSI_CR274 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR274() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR274 &ref() { return *reinterpret_cast<volatile CSI_CR274*>(0x40800448); }
 };
@@ -5530,7 +5260,6 @@ union CSI_CR275 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR275() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR275 &ref() { return *reinterpret_cast<volatile CSI_CR275*>(0x4080044C); }
 };
@@ -5547,7 +5276,6 @@ union CSI_CR276 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CSI_CR276() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CSI_CR276 &ref() { return *reinterpret_cast<volatile CSI_CR276*>(0x40800450); }
 };

@@ -42,7 +42,6 @@ union MASTER_KEY_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  MASTER_KEY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MASTER_KEY_CTRL &ref() { return *reinterpret_cast<volatile MASTER_KEY_CTRL*>(0x40C80000); }
 };
@@ -79,7 +78,6 @@ union OTFAD1_KEY_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  OTFAD1_KEY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OTFAD1_KEY_CTRL &ref() { return *reinterpret_cast<volatile OTFAD1_KEY_CTRL*>(0x40C80010); }
 };
@@ -116,7 +114,6 @@ union OTFAD2_KEY_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  OTFAD2_KEY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OTFAD2_KEY_CTRL &ref() { return *reinterpret_cast<volatile OTFAD2_KEY_CTRL*>(0x40C80018); }
 };
@@ -142,7 +139,6 @@ union IEE_KEY_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  IEE_KEY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile IEE_KEY_CTRL &ref() { return *reinterpret_cast<volatile IEE_KEY_CTRL*>(0x40C80020); }
 };
@@ -168,7 +164,6 @@ union PUF_KEY_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PUF_KEY_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PUF_KEY_CTRL &ref() { return *reinterpret_cast<volatile PUF_KEY_CTRL*>(0x40C80030); }
 };
@@ -227,7 +222,6 @@ union SLOT0_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SLOT0_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
   static inline volatile SLOT0_CTRL &ref() { return *reinterpret_cast<volatile SLOT0_CTRL*>(0x40C80400); }
 };
@@ -286,7 +280,6 @@ union SLOT1_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SLOT1_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
   static inline volatile SLOT1_CTRL &ref() { return *reinterpret_cast<volatile SLOT1_CTRL*>(0x40C80404); }
 };
@@ -345,7 +338,6 @@ union SLOT2_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SLOT2_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
   static inline volatile SLOT2_CTRL &ref() { return *reinterpret_cast<volatile SLOT2_CTRL*>(0x40C80408); }
 };
@@ -404,7 +396,6 @@ union SLOT3_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SLOT3_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
   static inline volatile SLOT3_CTRL &ref() { return *reinterpret_cast<volatile SLOT3_CTRL*>(0x40C8040C); }
 };
@@ -463,7 +454,6 @@ union SLOT4_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  SLOT4_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x0000000F; }
   static inline volatile SLOT4_CTRL &ref() { return *reinterpret_cast<volatile SLOT4_CTRL*>(0x40C80410); }
 };

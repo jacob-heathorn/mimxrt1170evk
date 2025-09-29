@@ -41,7 +41,6 @@ union MCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  MCR() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile MCR &ref() { return *reinterpret_cast<volatile MCR*>(0x40CB0000); }
 };
@@ -58,7 +57,6 @@ union LTMR64H {
   // Full 32-bit register value.
   uint32_t value;
 
-  LTMR64H() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LTMR64H &ref() { return *reinterpret_cast<volatile LTMR64H*>(0x40CB00E0); }
 };
@@ -75,7 +73,6 @@ union LTMR64L {
   // Full 32-bit register value.
   uint32_t value;
 
-  LTMR64L() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LTMR64L &ref() { return *reinterpret_cast<volatile LTMR64L*>(0x40CB00E4); }
 };

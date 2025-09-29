@@ -124,7 +124,6 @@ union CTRL1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x30001000; }
   static inline volatile CTRL1 &ref() { return *reinterpret_cast<volatile CTRL1*>(0x40430200); }
 };
@@ -178,7 +177,6 @@ union CTRL2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x5F000000; }
   static inline volatile CTRL2 &ref() { return *reinterpret_cast<volatile CTRL2*>(0x40430204); }
 };
@@ -225,7 +223,6 @@ union HSIC_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  HSIC_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x10004084; }
   static inline volatile HSIC_CTRL &ref() { return *reinterpret_cast<volatile HSIC_CTRL*>(0x40430210); }
 };

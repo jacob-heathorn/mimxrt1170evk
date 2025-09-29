@@ -24,77 +24,31 @@
 #define NX_DRIVER_SOURCE
 
 
-/****** DRIVER SPECIFIC ****** Start of part/vendor specific include area.  Include driver-specific include file here!  */
-
-//#ifndef NX_DRIVER_IMXRT1052_H
 
 /* Determine if the driver uses IP deferred processing or direct ISR processing.  */
 
 #define NX_DRIVER_ENABLE_DEFERRED                /* Define this to enable deferred ISR processing.  */
 
-/* #define  ENET_ENHANCEDBUFFERDESCRIPTOR_MODE*/
-/* Determine if the packet transmit queue logic is required for this driver.   */
-
-/* No, not required for this driver.  #define NX_DIRVER_INTERNAL_TRANSMIT_QUEUE   */
 
 /* Include driver specific include file.  */
 #include "fsl_common.h"
 #include "fsl_enet.h"
-#include "fsl_phy.h"
-// #include "fsl_debug_console.h"
 #include "nx_driver_imxrt.h"
+#include <cassert>   // For assert in C++
 
-#ifndef BOARD_NETWORK_USE_100M_ENET_PORT
-#define BOARD_NETWORK_USE_100M_ENET_PORT    1
-#endif
+/* C++ driver interface */
+#include "drivers/ethernet/gigabit_ethernet_driver.h"
+#include <array>
+#include "drivers/ethernet/ethernet_frame.hpp"
+#include <cstring>  // For std::memcpy
 
-#if defined(BOARD_NETWORK_USE_100M_ENET_PORT) && (BOARD_NETWORK_USE_100M_ENET_PORT == 1)
-#ifdef FSL_PHYRTL8201
-#include "fsl_phyrtl8201.h"
-#else
-#include "fsl_phyksz8081.h"
-#endif
-#else
-#include "fsl_phyrtl8211f.h"
-#endif
-
-//#endif
-
-/****** DRIVER SPECIFIC ****** End of part/vendor specific include file area!  */
-
-#if defined(BOARD_NETWORK_USE_100M_ENET_PORT) && (BOARD_NETWORK_USE_100M_ENET_PORT == 1)
-
-#define EXAMPLE_PHY_ADDRESS BOARD_ENET0_PHY_ADDRESS
-#define EXAMPLE_ENET        ENET
-/* PHY operations. */
-#define EXAMPLE_INT         ENET_IRQn
-#ifdef FSL_PHYRTL8201
-#define EXAMPLE_PHY_OPS     (&phyrtl8201_ops)
-
-phy_rtl8201_resource_t g_phy_resource;
-#else
-#define EXAMPLE_PHY_OPS     (&phyksz8081_ops)
-
-phy_ksz8081_resource_t g_phy_resource;
-#endif
-
-#else
 
 #if !defined(FSL_FEATURE_ENET_HAS_AVB) || FSL_FEATURE_ENET_HAS_AVB < 1
 #error "This board has no 1G Ethernet port."
 #endif
 
-#define EXAMPLE_PHY_ADDRESS BOARD_ENET1_PHY_ADDRESS
 #define EXAMPLE_ENET        ENET_1G
-/* PHY operations. */
-#define EXAMPLE_PHY_OPS     (&phyrtl8211f_ops)
 #define EXAMPLE_INT         ENET_1G_IRQn
-
-phy_rtl8211f_resource_t g_phy_resource;
-
-#endif
-
-#define EXAMPLE_PHY_RESOURCE    (&g_phy_resource)
 
 #define MDIO_CLOCK_FREQ         CLOCK_GetRootClockFreq(kCLOCK_Root_Bus)
 #define EXAMPLE_CLOCK_FREQ      MDIO_CLOCK_FREQ
@@ -115,15 +69,7 @@ AT_NONCACHEABLE_SECTION(static NX_DRIVER_INFORMATION   nx_driver_information);
 
 /* Define driver specific ethernet hardware address.  */
 
-#ifndef NX_DRIVER_ETHERNET_MAC
 UCHAR   _nx_driver_hardware_address[] = {0x00, 0x11, 0x22, 0x33, 0x44, 0x56};
-#else
-UCHAR   _nx_driver_hardware_address[] = NX_DRIVER_ETHERNET_MAC;
-#endif
-
-/*! @brief Enet PHY interface handler. */
-static phy_handle_t phyHandle;
-
 
 /****** DRIVER SPECIFIC ****** End of part/vendor specific data area!  */
 
@@ -139,14 +85,9 @@ static VOID         _nx_driver_packet_send(NX_IP_DRIVER *driver_req_ptr);
 static VOID         _nx_driver_multicast_join(NX_IP_DRIVER *driver_req_ptr);
 static VOID         _nx_driver_multicast_leave(NX_IP_DRIVER *driver_req_ptr);
 static VOID         _nx_driver_get_status(NX_IP_DRIVER *driver_req_ptr);
-#ifdef NX_DRIVER_ENABLE_DEFERRED
 static VOID         _nx_driver_deferred_processing(NX_IP_DRIVER *driver_req_ptr);
-#endif
 static VOID         _nx_driver_transfer_to_netx(NX_IP *ip_ptr, NX_PACKET *packet_ptr);
-#ifdef NX_DIRVER_INTERNAL_TRANSMIT_QUEUE
-static VOID         _nx_driver_transmit_packet_enqueue(NX_PACKET *packet_ptr)
-static NX_PACKET    *_nx_driver_transmit_packet_dequeue(VOID)
-#endif
+
 #ifdef NX_ENABLE_INTERFACE_CAPABILITY
 static VOID         _nx_driver_capability_get(NX_IP_DRIVER *driver_req_ptr);
 static VOID         _nx_driver_capability_set(NX_IP_DRIVER *driver_req_ptr);
@@ -156,8 +97,6 @@ static VOID         _nx_driver_capability_set(NX_IP_DRIVER *driver_req_ptr);
    driver-specific.  */
 
 static UINT         _nx_driver_hardware_initialize(NX_IP_DRIVER *driver_req_ptr);
-static UINT         _nx_driver_hardware_enable(NX_IP_DRIVER *driver_req_ptr);
-static UINT         _nx_driver_hardware_disable(NX_IP_DRIVER *driver_req_ptr);
 static UINT         _nx_driver_hardware_packet_send(NX_PACKET *packet_ptr);
 static UINT         _nx_driver_hardware_multicast_join(NX_IP_DRIVER *driver_req_ptr);
 static UINT         _nx_driver_hardware_multicast_leave(NX_IP_DRIVER *driver_req_ptr);
@@ -305,7 +244,6 @@ VOID  nx_link_driver(NX_IP_DRIVER *driver_req_ptr)
         _nx_driver_get_status(driver_req_ptr);
         break;
     }
-#ifdef NX_DRIVER_ENABLE_DEFERRED
     case NX_LINK_DEFERRED_PROCESSING:
     {
 
@@ -315,7 +253,6 @@ VOID  nx_link_driver(NX_IP_DRIVER *driver_req_ptr)
         _nx_driver_deferred_processing(driver_req_ptr);
         break;
     }
-#endif
 #ifdef NX_ENABLE_INTERFACE_CAPABILITY
     case NX_INTERFACE_CAPABILITY_GET:
     {
@@ -464,13 +401,6 @@ UINT            status;
     /* Clear the deferred events for the driver.  */
     nx_driver_information.nx_driver_information_deferred_events =       0;
 
-#ifdef NX_DIRVER_INTERNAL_TRANSMIT_QUEUE
-
-    /* Clear the transmit queue count and head pointer.  */
-    nx_driver_information.nx_driver_transmit_packets_queued =  0;
-    nx_driver_information.nx_driver_transmit_queue_head =      NX_NULL;
-    nx_driver_information.nx_driver_transmit_queue_tail =      NX_NULL;
-#endif
 
     /* Call the hardware-specific ethernet controller initialization.  */
     status =  _nx_driver_hardware_initialize(driver_req_ptr);
@@ -578,8 +508,9 @@ UINT            status;
         return;
     }
 
-    /* Call hardware specific enable.  */
-    status =  _nx_driver_hardware_enable(driver_req_ptr);
+    /* Call C++ driver enable.  */
+    GigabitEthernetDriver::instance().enable();
+    status = NX_SUCCESS;
 
     /* Was the hardware enable successful?  */
     if (status == NX_SUCCESS)
@@ -662,8 +593,9 @@ UINT            status;
         return;
     }
 
-    /* Call hardware specific disable.  */
-    status =  _nx_driver_hardware_disable(driver_req_ptr);
+    /* Call C++ driver disable.  */
+    GigabitEthernetDriver::instance().disable();
+    status = NX_SUCCESS;
 
     /* Was the hardware disable successful?  */
     if (status == NX_SUCCESS)
@@ -1183,7 +1115,6 @@ UINT        status;
 
 
 
-#ifdef NX_DRIVER_ENABLE_DEFERRED
 /**************************************************************************/
 /*                                                                        */
 /*  FUNCTION                                               RELEASE        */
@@ -1261,7 +1192,6 @@ ULONG       deferred_events;
     /* Mark request as successful.  */
     driver_req_ptr->nx_ip_driver_status =  NX_SUCCESS;
 }
-#endif
 
 
 /**************************************************************************/
@@ -1339,11 +1269,7 @@ USHORT    packet_type;
             packet_ptr -> nx_packet_length - NX_DRIVER_ETHERNET_FRAME_SIZE;
 
         /* Route to the ip receive function.  */
-#ifdef NX_DRIVER_ENABLE_DEFERRED
         _nx_ip_packet_deferred_receive(ip_ptr, packet_ptr);
-#else
-        _nx_ip_packet_receive(ip_ptr, packet_ptr);
-#endif
     }
     else if (packet_type == NX_DRIVER_ETHERNET_ARP)
     {
@@ -1381,387 +1307,11 @@ USHORT    packet_type;
 }
 
 
-#ifdef NX_DIRVER_INTERNAL_TRANSMIT_QUEUE
-/**************************************************************************/
-/*                                                                        */
-/*  FUNCTION                                               RELEASE        */
-/*                                                                        */
-/*    _nx_driver_transmit_packet_enqueue                  PORTABLE C      */
-/*                                                           5.0          */
-/*  AUTHOR                                                                */
-/*                                                                        */
-/*    Yuxin Zhou, Microsoft Corporation                                   */
-/*                                                                        */
-/*  DESCRIPTION                                                           */
-/*                                                                        */
-/*    This function queues a transmit packet when the hardware transmit   */
-/*    queue does not have the resources (buffer descriptors, etc.) to     */
-/*    send the packet.  The queue is maintained as a singularly linked-   */
-/*    list with head and tail pointers. The maximum number of packets on  */
-/*    the transmit queue is regulated by the constant                     */
-/*    NX_DRIVER_MAX_TRANSMIT_QUEUE_DEPTH. When this number is exceeded,   */
-/*    the oldest packet is discarded after the new packet is queued.      */
-/*                                                                        */
-/*    Note: that it is assumed further driver interrupts are locked out   */
-/*    during the call to this driver utility.                             */
-/*                                                                        */
-/*  INPUT                                                                 */
-/*                                                                        */
-/*    packet_ptr                            Packet pointer                */
-/*                                                                        */
-/*  OUTPUT                                                                */
-/*                                                                        */
-/*    None                                                                */
-/*                                                                        */
-/*  CALLS                                                                 */
-/*                                                                        */
-/*    _nx_packet_transmit_release           Release packet                */
-/*                                                                        */
-/*  CALLED BY                                                             */
-/*                                                                        */
-/*    _nx_driver_hardware_packet_send       Driver packet send function   */
-/*                                                                        */
-/*  RELEASE HISTORY                                                       */
-/*                                                                        */
-/*    DATE              NAME                      DESCRIPTION             */
-/*                                                                        */
-/*  02-01-2018     Yuxin Zhou               Initial Version 5.0           */
-/*                                                                        */
-/**************************************************************************/
-static VOID _nx_driver_transmit_packet_enqueue(NX_PACKET *packet_ptr)
-{
-
-    /* Determine if there is anything on the queue.  */
-    if (nx_driver_information.nx_driver_transmit_queue_tail)
-    {
-
-        /* Yes, something is on the transmit queue. Simply add the new packet to the
-           tail.  */
-        nx_driver_information.nx_driver_transmit_queue_tail -> nx_packet_queue_next  =  packet_ptr;
-
-        /* Update the tail pointer.  */
-        nx_driver_information.nx_driver_transmit_queue_tail =  packet_ptr;
-    }
-    else
-    {
-
-        /* First packet on the transmit queue.  */
-
-        /* Setup head pointers.  */
-        nx_driver_information.nx_driver_transmit_queue_head =  packet_ptr;
-        nx_driver_information.nx_driver_transmit_queue_tail =  packet_ptr;
-
-        /* Set the packet's next pointer to NULL.  */
-        packet_ptr -> nx_packet_queue_next =  NX_NULL;
-    }
-
-    /* Increment the total packets queued.  */
-    nx_driver_information.nx_driver_transmit_packets_queued++;
-
-    /* Determine if the total packet queued exceeds the driver's maximum transmit
-       queue depth.  */
-    if (nx_driver_information.nx_driver_transmit_packets_queued > NX_DRIVER_MAX_TRANSMIT_QUEUE_DEPTH)
-    {
-
-        /* Yes, remove the head packet (oldest) packet in the transmit queue and release it.  */
-        packet_ptr =  nx_driver_information.nx_driver_transmit_queue_head;
-
-        /* Adjust the head pointer to the next packet.  */
-        nx_driver_information.nx_driver_transmit_queue_head =  packet_ptr -> nx_packet_queue_next;
-
-        /* Decrement the transmit packet queued count.  */
-        nx_driver_information.nx_driver_transmit_packets_queued--;
-
-        /* Remove the ethernet header.  */
-        NX_DRIVER_ETHERNET_HEADER_REMOVE(packet_ptr);
-
-        /* Release the packet.  */
-        nx_packet_transmit_release(packet_ptr);
-    }
-}
-
-
-/**************************************************************************/
-/*                                                                        */
-/*  FUNCTION                                               RELEASE        */
-/*                                                                        */
-/*    _nx_driver_transmit_packet_dequeue                  PORTABLE C      */
-/*                                                           5.0          */
-/*  AUTHOR                                                                */
-/*                                                                        */
-/*    Yuxin Zhou, Microsoft Corporation                                   */
-/*                                                                        */
-/*  DESCRIPTION                                                           */
-/*                                                                        */
-/*    This function removes the oldest transmit packet when the hardware  */
-/*    transmit queue has new resources (usually after a transmit complete */
-/*    interrupt) to send the packet. If there are no packets in the       */
-/*    transmit queue, a NULL is returned.                                 */
-/*                                                                        */
-/*    Note: that it is assumed further driver interrupts are locked out   */
-/*    during the call to this driver utility.                             */
-/*                                                                        */
-/*  INPUT                                                                 */
-/*                                                                        */
-/*    None                                                                */
-/*                                                                        */
-/*  OUTPUT                                                                */
-/*                                                                        */
-/*    packet_ptr                            Packet pointer                */
-/*                                                                        */
-/*  CALLS                                                                 */
-/*                                                                        */
-/*    None                                                                */
-/*                                                                        */
-/*  CALLED BY                                                             */
-/*                                                                        */
-/*    _nx_driver_hardware_packet_send       Driver packet send function   */
-/*                                                                        */
-/*  RELEASE HISTORY                                                       */
-/*                                                                        */
-/*    DATE              NAME                      DESCRIPTION             */
-/*                                                                        */
-/*  02-01-2018     Yuxin Zhou               Initial Version 5.0           */
-/*                                                                        */
-/**************************************************************************/
-static NX_PACKET *_nx_driver_transmit_packet_dequeue(VOID)
-{
-
-NX_PACKET   *packet_ptr;
-
-
-    /* Pickup the head pointer of the tranmit packet queue.  */
-    packet_ptr =  nx_driver_information.nx_driver_transmit_queue_head;
-
-    /* Determine if there is anything on the queue.  */
-    if (packet_ptr)
-    {
-
-        /* Yes, something is on the transmit queue. Simply the packet from the head of the queue.  */
-
-        /* Update the head pointer.  */
-        nx_driver_information.nx_driver_transmit_queue_head =  packet_ptr -> nx_packet_queue_next;
-
-        /* Clear the next pointer in the packet.  */
-        packet_ptr -> nx_packet_queue_next =  NX_NULL;
-
-        /* Decrement the transmit packet queued count.  */
-        nx_driver_information.nx_driver_transmit_packets_queued--;
-    }
-
-    /* Return the packet pointer - NULL if there are no packets queued.  */
-    return(packet_ptr);
-}
-
-#endif
-
-
-
 /****** DRIVER SPECIFIC ****** Start of part/vendor specific internal driver functions.  */
 
-typedef struct
-{
-    enet_mii_mode_t      interface;     /* Transceiver mode  */
-    uint8_t              neg;           /* FEC autoneg */
-    phy_speed_t          speed;         /* Ethernet Speed           */
-    phy_duplex_t         duplex;        /* Ethernet Duplex          */
-    uint8_t              mac[6];        /* Ethernet Address         */
-} ENET_CONFIG_IMX;
+extern "C" VOID nx_driver_imx_ethernet_isr(VOID);
 
-VOID nx_driver_link_mode_changed(VOID);
-VOID nx_driver_imx_ethernet_isr(VOID);
 
-static void MDIO_Init(void)
-{
-    (void)CLOCK_EnableClock(s_enetClock[ENET_GetInstance(EXAMPLE_ENET)]);
-    ENET_SetSMI(EXAMPLE_ENET, EXAMPLE_CLOCK_FREQ, false);
-}
-
-static status_t MDIO_Write(uint8_t phyAddr, uint8_t regAddr, uint16_t data)
-{
-    return ENET_MDIOWrite(EXAMPLE_ENET, phyAddr, regAddr, data);
-}
-
-static status_t MDIO_Read(uint8_t phyAddr, uint8_t regAddr, uint16_t *pData)
-{
-    return ENET_MDIORead(EXAMPLE_ENET, phyAddr, regAddr, pData);
-}
-
-static void enet_init_imx(ENET_CONFIG_IMX *config)
-{
-    volatile uint32_t rcr = 0;
-    volatile uint32_t ecr = 0;
-    volatile uint32_t tcr = 0;
-
-    /* Clear the Individual and Group Address Hash registers */
-    EXAMPLE_ENET->IALR/*(ch)*/ = 0;
-    EXAMPLE_ENET->IAUR/*(ch)*/ = 0;
-    EXAMPLE_ENET->GALR/*(ch)*/ = 0;
-    EXAMPLE_ENET->GAUR/*(ch)*/ = 0;
-
-    /* Set the Physical Address for the selected FEC */
-    /*enet_set_address(config->ch, config->mac);*/
-    ENET_SetMacAddr(EXAMPLE_ENET,config->mac);
-
-    /* Mask all FEC interrupts */
-    EXAMPLE_ENET->EIMR/*(ch)*/ = 0;/*FSL:ENET_EIMR_MASK_ALL_MASK;*/
-
-    /* Clear all FEC interrupt events */
-    EXAMPLE_ENET->EIR/*(ch)*/ = 0xFFFFFFFF;/*FSL:ENET_EIR_CLEAR_ALL_MASK;*/
-
-    /* Initialize the Receive Control Register */
-    rcr = ENET_RCR_MAX_FL(14+1500+4) /*ethernet frame head + max data+crc*/
-        | ENET_RCR_MII_MODE_MASK /*always*/
-        | ENET_RCR_CRCFWD_MASK;  /*no CRC pad required*/
-
-#if defined(FSL_FEATURE_ENET_HAS_AVB) && FSL_FEATURE_ENET_HAS_AVB
-    if (FSL_FEATURE_ENET_INSTANCE_HAS_AVBn(EXAMPLE_ENET) == 1)
-    {
-        if ( config->interface == kENET_RgmiiMode )
-        {
-            rcr |= ENET_RCR_RGMII_EN_MASK;
-        }
-        else
-        {
-            rcr &= ~ENET_RCR_RGMII_EN_MASK;
-        }
-
-        if( config->speed == kPHY_Speed1000M )
-        {
-            ecr |= ENET_ECR_SPEED_MASK;
-        }
-        else
-        {
-            ecr &= ~ENET_ECR_SPEED_MASK;
-        }
-
-        /* use Round-robin scheme for legacy buffer descriptor mode */
-        EXAMPLE_ENET->QOS |= ENET_QOS_TX_SCHEME(1);
-    }
-#endif
-
-    if ( config->interface == kENET_RmiiMode )
-    {
-        rcr |= ENET_RCR_RMII_MODE_MASK;
-
-        /*only set speed in RMII mode*/
-        if( config->speed == kPHY_Speed10M )
-        {
-            rcr |= ENET_RCR_RMII_10T_MASK;
-        }
-    }/*no need to configure MAC MII interface*/
-
-    /* Set the duplex */
-    switch (config->duplex)
-    {
-        case kENET_MiiHalfDuplex:
-            rcr |= ENET_RCR_DRT_MASK;
-            tcr &= (uint32_t)~ENET_TCR_FDEN_MASK;
-            break;
-        case kENET_MiiFullDuplex:
-        default:
-            rcr &= ~ENET_RCR_DRT_MASK;
-            tcr |= ENET_TCR_FDEN_MASK;
-            break;
-    }
-
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-    ecr |= ENET_ECR_EN1588_MASK;
-#endif
-
-#ifdef IMX_CHECKSUM_OFFLOAD
-    EXAMPLE_ENET->TACC = ENET_TACC_SHIFT16_MASK |
-                ENET_TACC_IPCHK_MASK   |
-                ENET_TACC_PROCHK_MASK;
-
-    EXAMPLE_ENET->TFWR = ENET_TFWR_STRFWD_MASK;
-
-    EXAMPLE_ENET->RACC = ENET_RACC_SHIFT16_MASK |
-                ENET_RACC_LINEDIS_MASK |
-                ENET_RACC_PRODIS_MASK  |
-                ENET_RACC_IPDIS_MASK;
-#else
-    EXAMPLE_ENET->TACC = ENET_TACC_SHIFT16_MASK;
-
-    EXAMPLE_ENET->RACC = ENET_RACC_SHIFT16_MASK |
-                ENET_RACC_LINEDIS_MASK;
-#endif
-
-    EXAMPLE_ENET->RCR = rcr;
-    EXAMPLE_ENET->ECR = ecr;
-    EXAMPLE_ENET->TCR = tcr;
-}
-
-static void enet_init(void)
-{
-    phy_config_t phyConfig = {0};
-    bool link              = false;
-    bool autonego          = false;
-    uint32_t count         = 0;
-    status_t status;
-    phy_speed_t speed;
-    phy_duplex_t duplex;
-    ENET_CONFIG_IMX econf;
-
-    g_phy_resource.read  = MDIO_Read;
-    g_phy_resource.write = MDIO_Write;
-
-    MDIO_Init();
-
-#if defined(BOARD_NETWORK_USE_100M_ENET_PORT) && (BOARD_NETWORK_USE_100M_ENET_PORT == 1)
-    econf.interface = kENET_RmiiMode;
-#else
-    econf.interface = kENET_RgmiiMode;
-#endif
-
-    econf.neg = 0; /*autoneg on */
-    econf.mac[0] = _nx_driver_hardware_address[0];
-    econf.mac[1] = _nx_driver_hardware_address[1];
-    econf.mac[2] = _nx_driver_hardware_address[2];
-    econf.mac[3] = _nx_driver_hardware_address[3];
-    econf.mac[4] = _nx_driver_hardware_address[4];
-    econf.mac[5] = _nx_driver_hardware_address[5];
-
-    phyConfig.phyAddr  = EXAMPLE_PHY_ADDRESS;
-    phyConfig.autoNeg  = true;
-    phyConfig.ops      = EXAMPLE_PHY_OPS;
-    phyConfig.resource = EXAMPLE_PHY_RESOURCE;
-
-    /* Initialize PHY and wait auto-negotiation over. */
-    do
-    {
-        status = PHY_Init(&phyHandle, &phyConfig);
-        if (status == kStatus_Success)
-        {
-            /* Wait for auto-negotiation success and link up */
-            count = PHY_AUTONEGO_TIMEOUT_COUNT;
-            do
-            {
-                PHY_GetAutoNegotiationStatus(&phyHandle, &autonego);
-                PHY_GetLinkStatus(&phyHandle, &link);
-                if (autonego && link)
-                {
-                    break;
-                }
-            } while (--count);
-            if (!autonego)
-            {
-                printf("PHY Auto-negotiation failed. Please check the cable connection and link partner setting.\r\n");
-            }
-        }
-    } while (!(link && autonego));
-
-#if PHY_STABILITY_DELAY_US
-    /* Wait a moment for PHY status to be stable. */
-    SDK_DelayAtLeastUs(PHY_STABILITY_DELAY_US, SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY);
-#endif
-
-    PHY_GetLinkSpeedDuplex(&phyHandle, &speed, &duplex);
-    econf.speed = speed;
-    econf.duplex = duplex;
-
-   enet_init_imx(&econf);
-}
 
 /**************************************************************************/
 /*                                                                        */
@@ -1806,66 +1356,34 @@ static void enet_init(void)
 static UINT  _nx_driver_hardware_initialize(NX_IP_DRIVER *driver_req_ptr)
 {
 
-NX_PACKET           *packet_ptr;
 UINT                i;
 
     /* Default to successful return.  */
     driver_req_ptr -> nx_ip_driver_status =  NX_SUCCESS;
 
-    /* Setup indices.  */
-    nx_driver_information.nx_driver_information_receive_current_index = 0;
-    nx_driver_information.nx_driver_information_transmit_current_index = 0;
-    nx_driver_information.nx_driver_information_transmit_release_index = 0;
-
-    /* Clear the number of buffers in use counter.  */
-    nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use = 0;
-
     /* Make sure there are receive packets... otherwise, return an error.  */
     if (nx_driver_information.nx_driver_information_packet_pool_ptr == NULL)
     {
-
         /* There must be receive packets. If not, return an error!  */
         return(NX_DRIVER_ERROR);
     }
 
-    enet_init();
+    // Create the GigabitEthernetDriver singleton with MAC address
+    // The constructor will initialize PHY and configure MAC
+    std::array<uint8_t, 6> macArray{{
+        _nx_driver_hardware_address[0],
+        _nx_driver_hardware_address[1],
+        _nx_driver_hardware_address[2],
+        _nx_driver_hardware_address[3],
+        _nx_driver_hardware_address[4],
+        _nx_driver_hardware_address[5]
+    }};
+    GigabitEthernetDriver::create(macArray);
 
-    /* Initialize TX Descriptors list: Ring Mode.  */
+    /******************** RX Initialization ********************/
 
-    /* Make sure Number of Buffer Descriptors is power of 2 */
-#if (NX_DRIVER_TX_DESCRIPTORS & (NX_DRIVER_TX_DESCRIPTORS - 1)) != 0
-#error "Number of Buffer Descriptors must be power of 2"
-#endif
-
-    nx_driver_information.nx_driver_information_dma_tx_descriptors = (enet_tx_bd_struct_t*)(((UINT)nx_driver_information.nx_driver_information_dma_tx_descriptors_area + 15) & (~15));
-
-    /* Fill each DMATxDesc descriptor with the right values.  */
-    for(i = 0; i < NX_DRIVER_TX_DESCRIPTORS; i++)
-    {
-
-        /* Initialize tx descriptors.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[i].control = ENET_BUFFDESCRIPTOR_TX_TRANMITCRC_MASK;
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[i].length = 0;
-
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-#ifdef IMX_CHECKSUM_OFFLOAD
-        /* Enable tx interrupt & checksum offload.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[i].controlExtend1 = ENET_BUFFDESCRIPTOR_TX_INTERRUPT_MASK | 0x0800 | 0x1000;
-  #else
-
-        /* Enable tx interrupt.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[i].controlExtend1 = ENET_BUFFDESCRIPTOR_TX_INTERRUPT_MASK;
-  #endif
-#endif
-        nx_driver_information.nx_driver_information_transmit_packets[i] = NX_NULL;
-
-    }
-
-    /* Put the Wrap indicaiton on the last descriptor.  */
-    nx_driver_information.nx_driver_information_dma_tx_descriptors[NX_DRIVER_TX_DESCRIPTORS - 1].control |= ENET_BUFFDESCRIPTOR_TX_WRAP_MASK;
-
-    /* Set Transmit Descriptor List Address Register */
-    EXAMPLE_ENET->TDSR = (ULONG) nx_driver_information.nx_driver_information_dma_tx_descriptors;
+    /* Setup RX index.  */
+    nx_driver_information.nx_driver_information_receive_current_index = 0;
 
     /* Initialize RX Descriptors list: Ring Mode  */
 
@@ -1874,49 +1392,20 @@ UINT                i;
 #error "Number of Buffer Descriptors must be power of 2"
 #endif
 
-    nx_driver_information.nx_driver_information_dma_rx_descriptors = (enet_rx_bd_struct_t*)(((UINT)nx_driver_information.nx_driver_information_dma_rx_descriptors_area + 15) & (~15));
-
-    /* Fill each DMARxDesc descriptor with the right values */
-    for(i = 0; i < NX_DRIVER_RX_DESCRIPTORS; i++)
-    {
-
-        nx_driver_information.nx_driver_information_dma_rx_descriptors[i].length = 0;
-
-        /* Allocate a packet for the receive buffers.  */
-        if (nx_packet_allocate(nx_driver_information.nx_driver_information_packet_pool_ptr, &packet_ptr,
-                               NX_RECEIVE_PACKET, NX_NO_WAIT) == NX_SUCCESS)
-        {
-
-            nx_driver_information.nx_driver_information_dma_rx_descriptors[i].control = ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-
-#ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
-	    nx_driver_information.nx_driver_information_dma_rx_descriptors[i].controlExtend2 = 0x0000;
-	    nx_driver_information.nx_driver_information_dma_rx_descriptors[i].controlExtend1 = ENET_BUFFDESCRIPTOR_RX_BROADCAST_MASK;
-#endif
-            nx_driver_information.nx_driver_information_dma_rx_descriptors[i].buffer = (uint32_t)packet_ptr->nx_packet_prepend_ptr;
-            nx_driver_information.nx_driver_information_receive_packets[i] = packet_ptr;
-
-        }
-        else
-        {
-
-            /* Cannot allocate packets from the packet pool. */
-            return(NX_DRIVER_ERROR);
-        }
-
-    }
-
-    /* Put the Wrap indicaiton on the last descriptor.  */
-    nx_driver_information.nx_driver_information_dma_rx_descriptors[NX_DRIVER_RX_DESCRIPTORS - 1].control |= ENET_BUFFDESCRIPTOR_RX_WRAP_MASK | ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-
-    /* Save the size of one rx buffer.  */
-    nx_driver_information.nx_driver_information_rx_buffer_size = packet_ptr -> nx_packet_data_end - packet_ptr -> nx_packet_data_start;
+    /* RX descriptor setup is now handled by the C++ driver */
+    /* The C++ driver will:
+     * - Allocate RX descriptors from OCRAM2 with proper alignment
+     * - Initialize ethernet::Frame buffers for each descriptor
+     * - Set RDSR register to point to the descriptor ring
+     */
 
     /* Configure the Receive Buffer Size Register.  */
-    EXAMPLE_ENET->MRBR = nx_driver_information.nx_driver_information_rx_buffer_size;
+    /* Each buffer is 1536 bytes + 2 bytes padding = 1538 bytes */
+    EXAMPLE_ENET->MRBR = 1538;
 
-    /* Set Receive Descriptor List Address Register.  */
-    EXAMPLE_ENET->RDSR = (ULONG) nx_driver_information.nx_driver_information_dma_rx_descriptors;
+    /* Note: RDSR is set by the C++ driver in gigabit_ethernet_driver_initialize() */
+
+    /******************** Multicast Initialization ********************/
 
     for (i = 0; i < 64; i++)
     {
@@ -1965,24 +1454,6 @@ UINT                i;
 /*  02-01-2018     Yuxin Zhou               Initial Version 5.0           */
 /*                                                                        */
 /**************************************************************************/
-static UINT  _nx_driver_hardware_enable(NX_IP_DRIVER *driver_req_ptr)
-{
-
-    /* Enable Ethernet interrupt.  */
-    EXAMPLE_ENET->EIMR |= ENET_EIMR_RXF_MASK | ENET_EIMR_TXF_MASK;
-
-    /* Start Ethernet.  */
-    /*The buffer descriptor bytes are swapped to support little-endian devices.*/
-    /* The DBSWP field must be written to 1 after reset*/
-    EXAMPLE_ENET->ECR |= ENET_ECR_ETHEREN_MASK | ENET_ECR_DBSWP_MASK;
-
-    EnableIRQ(EXAMPLE_INT);
-
-    /*active rx descriptor*/
-    EXAMPLE_ENET->RDAR = ENET_RDAR_RDAR_MASK;
-    /* Return success!  */
-    return(NX_SUCCESS);
-}
 
 
 /**************************************************************************/
@@ -2022,17 +1493,6 @@ static UINT  _nx_driver_hardware_enable(NX_IP_DRIVER *driver_req_ptr)
 /*  02-01-2018     Yuxin Zhou               Initial Version 5.0           */
 /*                                                                        */
 /**************************************************************************/
-static UINT  _nx_driver_hardware_disable(NX_IP_DRIVER *driver_req_ptr)
-{
-
-    DisableIRQ(EXAMPLE_INT);
-
-    /* Stop the Ethernet.  */
-    EXAMPLE_ENET->ECR &= ~ENET_ECR_ETHEREN_MASK;
-
-    /* Return success!  */
-    return(NX_SUCCESS);
-}
 
 
 /**************************************************************************/
@@ -2075,107 +1535,39 @@ static UINT  _nx_driver_hardware_disable(NX_IP_DRIVER *driver_req_ptr)
 /**************************************************************************/
 static UINT  _nx_driver_hardware_packet_send(NX_PACKET *packet_ptr)
 {
+    /* The C++ GigabitEthernetDriver does not support chained packets.
+       Ensure the packet is not chained before passing to the driver. */
+    assert(packet_ptr->nx_packet_next == NX_NULL &&
+           "GigabitEthernetDriver does not support chained packets");
 
-ULONG          curIdx;
-NX_PACKET      *pktIdx;
-ULONG          bd_count = 0;
-UCHAR          remainder = 0;
-UCHAR*         src_addr;
+    /* Convert NX_PACKET to ethernet::Frame and send via C++ driver */
+    NX_PACKET* packet = static_cast<NX_PACKET*>(packet_ptr);
 
-    /* Pick up the first BD. */
-    curIdx = nx_driver_information.nx_driver_information_transmit_current_index;
+    // This driver does not support chained packets
+    assert(packet->nx_packet_next == nullptr && "Driver does not support chained packets");
 
-    /* Check if it is a free descriptor.  */
-    if ((nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || nx_driver_information.nx_driver_information_transmit_packets[curIdx])
-    {
-        /* Buffer is still owned by device.  */
-        return(NX_DRIVER_ERROR);
-    }
-    /* Set the buffer size.  */
-    nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].length = (packet_ptr -> nx_packet_append_ptr - packet_ptr->nx_packet_prepend_ptr + 2);
+    // Calculate frame size from packet pointers
+    size_t packet_size = packet->nx_packet_append_ptr - packet->nx_packet_prepend_ptr;
 
-    remainder = (UCHAR )((ULONG)(packet_ptr->nx_packet_prepend_ptr - 2)& 0x07);
+    // Create ethernet::Frame with 2-byte padding for hardware requirement
+    ethernet::Frame frame(packet_size + 2);
 
-    if(remainder)
-    {
-      src_addr = packet_ptr->nx_packet_prepend_ptr;
+    // Copy packet data starting at offset 2
+    std::memcpy(frame.front() + 2, packet->nx_packet_prepend_ptr, packet_size);
 
-      /*make sure transmit BD buffer 8byte aligment*/
-      packet_ptr->nx_packet_prepend_ptr -= remainder;
+    // Pass the frame to the driver
+    bool success = GigabitEthernetDriver::instance().send(std::move(frame));
 
-      memmove(packet_ptr->nx_packet_prepend_ptr,src_addr,nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].length);
-    }
+    if (success) {
+        // Remove the Ethernet header that was added by _nx_driver_packet_send()
+        // before releasing the packet back to the pool
+        NX_DRIVER_ETHERNET_HEADER_REMOVE(packet);
 
-    /* Find the Buffer, set the Buffer pointer. */
-    nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].buffer = (uint32_t)(packet_ptr->nx_packet_prepend_ptr - 2);
-
-    /* Clear the first Descriptor's LS bit.  */
-    nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
-
-    /* Find next packet.  */
-    for (pktIdx = packet_ptr -> nx_packet_next;
-         pktIdx != NX_NULL;
-         pktIdx = pktIdx -> nx_packet_next)
-    {
-
-        /* Move to next descriptor.  */
-        curIdx = (curIdx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
-
-        /* Check if it is a free descriptor.  */
-        if ((nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) || nx_driver_information.nx_driver_information_transmit_packets[curIdx])
-        {
-
-            /* No more descriptor available, return driver error status.  */
-            return(NX_DRIVER_ERROR);
-        }
-
-
-        /* Find the Buffer, set the Buffer pointer.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].buffer = (uint32_t)(pktIdx->nx_packet_prepend_ptr);
-
-        /* Set the buffer size.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].length = (pktIdx -> nx_packet_append_ptr - pktIdx->nx_packet_prepend_ptr);
-
-        /* Clear the descriptor's LS bit.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].control &= ~ENET_BUFFDESCRIPTOR_TX_LAST_MASK;
-
-        /* Increment the BD count.  */
-        bd_count++;
-
+        // Release the original packet immediately since Frame has copied the data
+        nx_packet_transmit_release(packet);
     }
 
-    /* Set the last Descriptor's LS & IC & OWN bit.  */
-    nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].control |= (ENET_BUFFDESCRIPTOR_TX_LAST_MASK | ENET_BUFFDESCRIPTOR_TX_READY_MASK);
-
-    /* Save the pkt pointer to release.  */
-    nx_driver_information.nx_driver_information_transmit_packets[curIdx] = packet_ptr;
-
-    /* Set the current index to the next descriptor.  */
-    nx_driver_information.nx_driver_information_transmit_current_index = (curIdx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
-
-    /* Increment the transmit buffers in use count.  */
-    nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use += bd_count + 1;
-
-    /* Set OWN bit to indicate BDs are ready.  */
-    for (; bd_count > 0; bd_count--)
-    {
-
-        /* Set OWN bit in reverse order, move to prevous BD.  */
-        curIdx = (curIdx - 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
-
-        /* Set this BD's OWN bit.  */
-        nx_driver_information.nx_driver_information_dma_tx_descriptors[curIdx].control |= ENET_BUFFDESCRIPTOR_TX_READY_MASK;
-    }
-
-    /* If the DMA transmission is suspended, resume transmission.  */
-    if (!EXAMPLE_ENET->TDAR)
-    {
-
-        /* Resume DMA transmission. */
-        EXAMPLE_ENET->TDAR = ENET_TDAR_TDAR_MASK;
-    }
-
-    return(NX_SUCCESS);
+    return success ? NX_SUCCESS : NX_DRIVER_ERROR;
 }
 
 
@@ -2495,51 +1887,8 @@ static UINT  _nx_driver_hardware_get_status(NX_IP_DRIVER *driver_req_ptr)
 /**************************************************************************/
 static VOID  _nx_driver_hardware_packet_transmitted(VOID)
 {
-
-ULONG numOfBuf =  nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use;
-ULONG idx =       nx_driver_information.nx_driver_information_transmit_release_index;
-
-
-    /* Loop through buffers in use.  */
-    while (numOfBuf--)
-    {
-
-        /* If no packet, just examine the next packet.  */
-        if (nx_driver_information.nx_driver_information_transmit_packets[idx] == NX_NULL)
-        {
-
-            /* No packet in use, skip to next.  */
-            idx = (idx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
-            continue;
-        }
-
-        /* Determine if the packet has been transmitted.  */
-        if ((nx_driver_information.nx_driver_information_dma_tx_descriptors[idx].control & ENET_BUFFDESCRIPTOR_TX_READY_MASK) == 0)
-        {
-
-            /* Yes, packet has been transmitted.  */
-
-            /* Remove the Ethernet header and release the packet.  */
-            NX_DRIVER_ETHERNET_HEADER_REMOVE(nx_driver_information.nx_driver_information_transmit_packets[idx]);
-
-            /* Release the packet.  */
-            nx_packet_transmit_release(nx_driver_information.nx_driver_information_transmit_packets[idx]);
-
-            /* Clear the entry in the in-use array.  */
-            nx_driver_information.nx_driver_information_transmit_packets[idx] = NX_NULL;
-
-            /* Update the transmit relesae index and number of buffers in use.  */
-            idx = (idx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
-            nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use = numOfBuf;
-            nx_driver_information.nx_driver_information_transmit_release_index = idx;
-        }
-        else
-        {
-
-            /* Get out of the loop!  */
-            break;
-        }
-    }
+    /* Call the C++ driver to process transmitted packets */
+    GigabitEthernetDriver::instance().process_transmitted_packets();
 }
 
 
@@ -2556,7 +1905,8 @@ ULONG idx =       nx_driver_information.nx_driver_information_transmit_release_i
 /*  DESCRIPTION                                                           */
 /*                                                                        */
 /*    This function processes packets received by the ethernet            */
-/*    controller.                                                         */
+/*    controller. Note: This driver does not support chained packets.     */
+/*    Each packet must fit within a single buffer descriptor.             */
 /*                                                                        */
 /*  INPUT                                                                 */
 /*                                                                        */
@@ -2585,254 +1935,47 @@ ULONG idx =       nx_driver_information.nx_driver_information_transmit_release_i
 /**************************************************************************/
 static VOID  _nx_driver_hardware_packet_received(VOID)
 {
+    NX_PACKET *packet_ptr;
 
-NX_PACKET     *packet_ptr;
-ULONG          bd_count = 0;
-INT            i;
-ULONG          idx;
-ULONG          temp_idx;
-ULONG          first_idx = nx_driver_information.nx_driver_information_receive_current_index;
-NX_PACKET     *received_packet_ptr = nx_driver_information.nx_driver_information_receive_packets[first_idx];
+    /* Use the C++ driver to receive packets one at a time */
+    /* Get frames from the driver and convert to NX_PACKET */
+    ethernet::Frame frame = GigabitEthernetDriver::instance().receive();
+    while (frame) {
+        // Allocate an NX_PACKET for this received frame
+        UINT status = nx_packet_allocate(
+            nx_driver_information.nx_driver_information_packet_pool_ptr,
+            &packet_ptr,
+            NX_RECEIVE_PACKET,
+            NX_NO_WAIT);
 
-
-    /* Find out the BDs that owned by CPU.  */
-    for (first_idx = idx = nx_driver_information.nx_driver_information_receive_current_index;
-        (nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control & ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK) == 0;
-         idx = (idx + 1) & (NX_DRIVER_RX_DESCRIPTORS - 1))
-    {
-
-        /* Is the BD marked as the end of a frame?  */
-        if (nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control & ENET_BUFFDESCRIPTOR_RX_LAST_MASK)
-        {
-
-            /* Yes, this BD is the last BD in the frame, set the last NX_PACKET's nx_packet_next to NULL.  */
-            nx_driver_information.nx_driver_information_receive_packets[idx] -> nx_packet_next = NX_NULL;
-
-            /* Store the length of the packet in the first NX_PACKET.  */
-
-            nx_driver_information.nx_driver_information_receive_packets[first_idx] -> nx_packet_length = (nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].length) - 2;
-
-            nx_driver_information.nx_driver_information_receive_packets[first_idx] -> nx_packet_prepend_ptr += 2;
-
-            /* Adjust nx_packet_append_ptr with the size of the data in this buffer.  */
-            nx_driver_information.nx_driver_information_receive_packets[idx] -> nx_packet_append_ptr = nx_driver_information.nx_driver_information_receive_packets[idx]->nx_packet_prepend_ptr
-                                                                                                     + nx_driver_information.nx_driver_information_receive_packets[first_idx]->nx_packet_length
-                                                                                                     - bd_count * nx_driver_information.nx_driver_information_rx_buffer_size
-                                                                                                     + (bd_count > 0 ? 2 : 0);
-
-            /* Allocate new NX_PACKETs for BDs.  */
-            for (i = bd_count; i >= 0; i--)
-            {
-
-                temp_idx = (first_idx + i) & (NX_DRIVER_RX_DESCRIPTORS - 1);
-
-                /* Allocate a new packet from the packet pool.  */
-                if (nx_packet_allocate(nx_driver_information.nx_driver_information_packet_pool_ptr, &packet_ptr,
-                                          NX_RECEIVE_PACKET, NX_NO_WAIT) == NX_SUCCESS)
-                {
-
-                    /* Adjust the new packet and assign it to the BD.  */
-
-                    nx_driver_information.nx_driver_information_dma_rx_descriptors[temp_idx].buffer = (uint32_t)(packet_ptr->nx_packet_prepend_ptr);
-                    nx_driver_information.nx_driver_information_dma_rx_descriptors[temp_idx].control |= ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-                    nx_driver_information.nx_driver_information_receive_packets[temp_idx] = packet_ptr;
-                }
-                else
-                {
-
-                    /* Allocation failed, get out of the loop.  */
-                    break;
-                }
-            }
-
-            if (i >= 0)
-            {
-
-                /* At least one packet allocation was failed, release the received packet.  */
-                nx_packet_release(nx_driver_information.nx_driver_information_receive_packets[temp_idx] -> nx_packet_next);
-
-                for (; i >= 0; i--)
-                {
-
-                    /* Free up the BD to ready state. */
-                    temp_idx = (first_idx + i) & (NX_DRIVER_RX_DESCRIPTORS - 1);
-                    nx_driver_information.nx_driver_information_dma_rx_descriptors[temp_idx].control |= ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-                    nx_driver_information.nx_driver_information_receive_packets[temp_idx] -> nx_packet_prepend_ptr = nx_driver_information.nx_driver_information_receive_packets[temp_idx] -> nx_packet_data_start;
-                }
-            }
-            else
-            {
-
-                /* Transfer the packet to NetX.  */
-                _nx_driver_transfer_to_netx(nx_driver_information.nx_driver_information_ip_ptr, received_packet_ptr);
-            }
-
-            /* Set the first BD index for the next packet.  */
-            first_idx = (idx + 1) & (NX_DRIVER_RX_DESCRIPTORS - 1);
-
-            /* Update the current receive index.  */
-            nx_driver_information.nx_driver_information_receive_current_index = first_idx;
-
-            received_packet_ptr = nx_driver_information.nx_driver_information_receive_packets[first_idx];
-
-            bd_count = 0;
-
+        if (status != NX_SUCCESS) {
+            // Failed to allocate packet - drop the frame
+            frame = GigabitEthernetDriver::instance().receive();
+            continue;
         }
-        else
-        {
 
-            /* This BD is not the last BD of a frame. It is a intermediate descriptor.  */
-
-            nx_driver_information.nx_driver_information_receive_packets[idx] -> nx_packet_next = nx_driver_information.nx_driver_information_receive_packets[(idx + 1) & (NX_DRIVER_RX_DESCRIPTORS - 1)];
-
-            nx_driver_information.nx_driver_information_receive_packets[idx] -> nx_packet_append_ptr = nx_driver_information.nx_driver_information_receive_packets[idx] -> nx_packet_data_end;
-
-            bd_count++;
+        // Ensure packet buffer is large enough
+        if (static_cast<size_t>(packet_ptr->nx_packet_data_end - packet_ptr->nx_packet_prepend_ptr) < frame.size()) {
+            // Packet buffer too small - this shouldn't happen with proper configuration
+            nx_packet_release(packet_ptr);
+            frame = GigabitEthernetDriver::instance().receive();
+            continue;
         }
+
+        // Copy the frame data to the NX_PACKET
+        std::memcpy(packet_ptr->nx_packet_prepend_ptr, frame.front(), frame.size());
+        packet_ptr->nx_packet_length = frame.size();
+        packet_ptr->nx_packet_append_ptr = packet_ptr->nx_packet_prepend_ptr + frame.size();
+
+        /* Transfer the received packet to NetX */
+        /* NetX takes ownership of the packet - do NOT release it here */
+        _nx_driver_transfer_to_netx(nx_driver_information.nx_driver_information_ip_ptr, packet_ptr);
+
+        // Get the next frame
+        frame = GigabitEthernetDriver::instance().receive();
     }
-
-    /* If Rx DMA is in suspended state, resume it.  */
-    if (!EXAMPLE_ENET->RDAR)
-    {
-
-        /* Resume DMA reception */
-        EXAMPLE_ENET->RDAR = ENET_RDAR_RDAR_MASK;
-    }
-
 }
 
-/**************************************************************************/
-/*                                                                        */
-/*  FUNCTION                                               RELEASE        */
-/*                                                                        */
-/*    nx_driver_link_mode_changed                         PORTABLE C      */
-/*                                                           5.0          */
-/*  AUTHOR                                                                */
-/*                                                                        */
-/*    Yuxin Zhou, Microsoft Corporation                                   */
-/*                                                                        */
-/*  DESCRIPTION                                                           */
-/*                                                                        */
-/*    This function changes the link mode of the Ethernet.                */
-/*                                                                        */
-/*  INPUT                                                                 */
-/*                                                                        */
-/*    None                                                                */
-/*                                                                        */
-/*  OUTPUT                                                                */
-/*                                                                        */
-/*    None                                                                */
-/*                                                                        */
-/*  CALLS                                                                 */
-/*                                                                        */
-/*    enet_duplex                           Set duplex mode               */
-/*    nx_packet_transmit_release            Release the packet            */
-/*                                                                        */
-/*  CALLED BY                                                             */
-/*                                                                        */
-/*    nx_driver_ethernet_phy_isr                                          */
-/*                                                                        */
-/*  RELEASE HISTORY                                                       */
-/*                                                                        */
-/*    DATE              NAME                      DESCRIPTION             */
-/*                                                                        */
-/*  02-01-2018     Yuxin Zhou               Initial Version 5.0           */
-/*                                                                        */
-/**************************************************************************/
-VOID  nx_driver_link_mode_changed(VOID)
-{
-
-ULONG numOfBuf;
-ULONG idx;
-
-
-    /* Stop the Ethernet.  */
-    EXAMPLE_ENET->ECR &= ~ENET_ECR_ETHEREN_MASK;
-
-    /* Set speed for RMII mode.  */
-    if (nx_driver_information.nx_driver_information_link_speed == kENET_MiiSpeed10M)
-    {
-
-        EXAMPLE_ENET->RCR |= ENET_RCR_RMII_10T_MASK;
-    }
-    else
-    {
-
-        EXAMPLE_ENET->RCR &= ~ENET_RCR_RMII_10T_MASK;
-    }
-
-    /* Set duplex mode.  */
-    /* Set the duplex on the selected FEC controller*/
-    switch (nx_driver_information.nx_driver_information_link_duplex)
-    {
-        case kENET_MiiHalfDuplex:
-            EXAMPLE_ENET->RCR/*(ch)*/ |= ENET_RCR_DRT_MASK;
-            EXAMPLE_ENET->TCR/*(ch)*/ &= (uint32_t)~ENET_TCR_FDEN_MASK;
-            break;
-        case kENET_MiiFullDuplex:
-        default:
-            EXAMPLE_ENET->RCR/*(ch)*/ &= ~ENET_RCR_DRT_MASK;
-            EXAMPLE_ENET->TCR/*(ch)*/ |= ENET_TCR_FDEN_MASK;
-            break;
-    }
-
-    if (nx_driver_information.nx_driver_information_state >= NX_DRIVER_STATE_INITIALIZED)
-    {
-
-        numOfBuf = nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use;
-        idx =      nx_driver_information.nx_driver_information_transmit_release_index;
-
-        /* Reset indices.  */
-        nx_driver_information.nx_driver_information_receive_current_index = 0;
-        nx_driver_information.nx_driver_information_transmit_current_index = 0;
-        nx_driver_information.nx_driver_information_transmit_release_index = 0;
-        nx_driver_information.nx_driver_information_number_of_transmit_buffers_in_use = 0;
-
-        /* Release transmit packets if any.  */
-        while (numOfBuf--)
-        {
-
-            /* If no packet, just examine the next packet.  */
-            if (nx_driver_information.nx_driver_information_transmit_packets[idx] == NX_NULL)
-            {
-
-                /* No packet in use, skip to next.  */
-                idx = (idx + 1) & (NX_DRIVER_TX_DESCRIPTORS - 1);
-                continue;
-            }
-
-            /* Remove the Ethernet header and release the packet.  */
-            NX_DRIVER_ETHERNET_HEADER_REMOVE(nx_driver_information.nx_driver_information_transmit_packets[idx]);
-
-            /* Release the packet.  */
-            nx_packet_transmit_release(nx_driver_information.nx_driver_information_transmit_packets[idx]);
-        }
-
-        /* Free receive descriptors.  */
-        for (idx = 0; idx < NX_DRIVER_RX_DESCRIPTORS; idx++)
-        {
-
-            nx_driver_information.nx_driver_information_dma_rx_descriptors[idx].control |= ENET_BUFFDESCRIPTOR_RX_EMPTY_MASK;
-        }
-    }
-
-    /* Set Transmit Descriptor List Address Register */
-    EXAMPLE_ENET->TDSR = (ULONG) nx_driver_information.nx_driver_information_dma_tx_descriptors;
-
-    /* Configure the Receive Buffer Size Register.  */
-    EXAMPLE_ENET->MRBR = nx_driver_information.nx_driver_information_rx_buffer_size;
-
-    /* Set Receive Descriptor List Address Register.  */
-    EXAMPLE_ENET->RDSR = (ULONG) nx_driver_information.nx_driver_information_dma_rx_descriptors;
-
-    if (nx_driver_information.nx_driver_information_state >= NX_DRIVER_STATE_LINK_ENABLED)
-    {
-
-        /* Enable ethernet & start packet receiving.  */
-        EXAMPLE_ENET->ECR |= ENET_ECR_ETHEREN_MASK;
-        EXAMPLE_ENET->RDAR = ENET_RDAR_RDAR_MASK;
-    }
-}
 
 /**************************************************************************/
 /*                                                                        */
@@ -2873,7 +2016,7 @@ ULONG idx;
 /*  02-01-2018     Yuxin Zhou               Initial Version 5.0           */
 /*                                                                        */
 /**************************************************************************/
-VOID  nx_driver_imx_ethernet_isr(VOID)
+extern "C" VOID  nx_driver_imx_ethernet_isr(VOID)
 {
   UINT status;
   status = EXAMPLE_ENET->EIR;
@@ -2881,22 +2024,14 @@ VOID  nx_driver_imx_ethernet_isr(VOID)
   if(status & ENET_EIR_RXF_MASK )
   {
     /* Receive packet interrupt.  */
-#ifdef NX_DRIVER_ENABLE_DEFERRED
 
     /* Set the receive packet interrupt.  */
     nx_driver_information.nx_driver_information_deferred_events |= NX_DRIVER_DEFERRED_PACKET_RECEIVED;
-#else
-
-    /* Process received packet(s).  */
-    _nx_driver_hardware_packet_received();
-#endif
 
 
-#ifdef NX_DRIVER_ENABLE_DEFERRED
 
     /* Call NetX deferred driver processing.  */
     _nx_ip_driver_deferred_processing(nx_driver_information.nx_driver_information_ip_ptr);
-#endif
 
     /* Clear the Ethernet DMA Rx IT pending bits */
     EXAMPLE_ENET->EIR = ENET_EIR_RXF_MASK;
@@ -2906,21 +2041,13 @@ VOID  nx_driver_imx_ethernet_isr(VOID)
 
      EXAMPLE_ENET->TDAR = ENET_TDAR_TDAR_MASK;
 
-#ifdef NX_DRIVER_ENABLE_DEFERRED
 
     /* Set the transmit complete bit.  */
     nx_driver_information.nx_driver_information_deferred_events |= NX_DRIVER_DEFERRED_PACKET_TRANSMITTED;
-#else
 
-    /* Process transmitted packet(s).  */
-    _nx_driver_hardware_packet_transmitted();
-#endif
-
-#ifdef NX_DRIVER_ENABLE_DEFERRED
 
     /* Call NetX deferred driver processing.  */
     _nx_ip_driver_deferred_processing(nx_driver_information.nx_driver_information_ip_ptr);
-#endif
 
     /* Clear the Eth DMA Tx IT pending bit.  */
     EXAMPLE_ENET->EIR = ENET_EIR_TXF_MASK;

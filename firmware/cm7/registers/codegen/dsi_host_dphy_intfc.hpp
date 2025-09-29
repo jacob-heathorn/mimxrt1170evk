@@ -31,7 +31,6 @@ union PD_TX {
   // Full 32-bit register value.
   uint32_t value;
 
-  PD_TX() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile PD_TX &ref() { return *reinterpret_cast<volatile PD_TX*>(0x4080C300); }
 };
@@ -49,7 +48,6 @@ union M_PRG_HS_PREPARE {
   // Full 32-bit register value.
   uint32_t value;
 
-  M_PRG_HS_PREPARE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile M_PRG_HS_PREPARE &ref() { return *reinterpret_cast<volatile M_PRG_HS_PREPARE*>(0x4080C304); }
 };
@@ -67,7 +65,6 @@ union MC_PRG_HS_PREPARE {
   // Full 32-bit register value.
   uint32_t value;
 
-  MC_PRG_HS_PREPARE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MC_PRG_HS_PREPARE &ref() { return *reinterpret_cast<volatile MC_PRG_HS_PREPARE*>(0x4080C308); }
 };
@@ -85,7 +82,6 @@ union M_PRG_HS_ZERO {
   // Full 32-bit register value.
   uint32_t value;
 
-  M_PRG_HS_ZERO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile M_PRG_HS_ZERO &ref() { return *reinterpret_cast<volatile M_PRG_HS_ZERO*>(0x4080C30C); }
 };
@@ -103,7 +99,6 @@ union MC_PRG_HS_ZERO {
   // Full 32-bit register value.
   uint32_t value;
 
-  MC_PRG_HS_ZERO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MC_PRG_HS_ZERO &ref() { return *reinterpret_cast<volatile MC_PRG_HS_ZERO*>(0x4080C310); }
 };
@@ -121,7 +116,6 @@ union M_PRG_HS_TRAIL {
   // Full 32-bit register value.
   uint32_t value;
 
-  M_PRG_HS_TRAIL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile M_PRG_HS_TRAIL &ref() { return *reinterpret_cast<volatile M_PRG_HS_TRAIL*>(0x4080C314); }
 };
@@ -139,7 +133,6 @@ union MC_PRG_HS_TRAIL {
   // Full 32-bit register value.
   uint32_t value;
 
-  MC_PRG_HS_TRAIL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MC_PRG_HS_TRAIL &ref() { return *reinterpret_cast<volatile MC_PRG_HS_TRAIL*>(0x4080C318); }
 };
@@ -165,7 +158,6 @@ union PD_PLL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PD_PLL() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile PD_PLL &ref() { return *reinterpret_cast<volatile PD_PLL*>(0x4080C31C); }
 };
@@ -183,7 +175,6 @@ union TST {
   // Full 32-bit register value.
   uint32_t value;
 
-  TST() = delete;
   inline void Reset() volatile { this->value = 0x00000025; }
   static inline volatile TST &ref() { return *reinterpret_cast<volatile TST*>(0x4080C320); }
 };
@@ -201,7 +192,6 @@ union CN {
   // Full 32-bit register value.
   uint32_t value;
 
-  CN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CN &ref() { return *reinterpret_cast<volatile CN*>(0x4080C324); }
 };
@@ -219,7 +209,6 @@ union CM {
   // Full 32-bit register value.
   uint32_t value;
 
-  CM() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CM &ref() { return *reinterpret_cast<volatile CM*>(0x4080C328); }
 };
@@ -249,7 +238,6 @@ union CO {
   // Full 32-bit register value.
   uint32_t value;
 
-  CO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CO &ref() { return *reinterpret_cast<volatile CO*>(0x4080C32C); }
 };
@@ -275,7 +263,6 @@ union LOCK {
   // Full 32-bit register value.
   uint32_t value;
 
-  LOCK() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LOCK &ref() { return *reinterpret_cast<volatile LOCK*>(0x4080C330); }
 };
@@ -301,7 +288,6 @@ union LOCK_BYP {
   // Full 32-bit register value.
   uint32_t value;
 
-  LOCK_BYP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile LOCK_BYP &ref() { return *reinterpret_cast<volatile LOCK_BYP*>(0x4080C334); }
 };
@@ -331,7 +317,6 @@ union TX_RCAL {
   // Full 32-bit register value.
   uint32_t value;
 
-  TX_RCAL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TX_RCAL &ref() { return *reinterpret_cast<volatile TX_RCAL*>(0x4080C338); }
 };
@@ -357,7 +342,6 @@ union AUTO_PD_EN {
   // Full 32-bit register value.
   uint32_t value;
 
-  AUTO_PD_EN() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile AUTO_PD_EN &ref() { return *reinterpret_cast<volatile AUTO_PD_EN*>(0x4080C33C); }
 };
@@ -375,7 +359,6 @@ union RXLPRP {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXLPRP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXLPRP &ref() { return *reinterpret_cast<volatile RXLPRP*>(0x4080C340); }
 };
@@ -405,7 +388,6 @@ union RXCDRP {
   // Full 32-bit register value.
   uint32_t value;
 
-  RXCDRP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXCDRP &ref() { return *reinterpret_cast<volatile RXCDRP*>(0x4080C344); }
 };

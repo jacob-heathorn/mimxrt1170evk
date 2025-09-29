@@ -153,23 +153,20 @@ typedef struct NX_DRIVER_INFORMATION_STRUCT
 
     /* Indices to current receive/transmit descriptors.  */
     UINT                nx_driver_information_receive_current_index;
-    UINT                nx_driver_information_transmit_current_index;
+    /* transmit_current_index has been moved to GigabitEthernetDriver class */
 
-    /* Transmit release index.  */
-    UINT                nx_driver_information_transmit_release_index;
+    /* transmit_release_index has been moved to GigabitEthernetDriver class */
 
-    /* Define the number of transmit buffers in use.  */
-    UINT                nx_driver_information_number_of_transmit_buffers_in_use;
+    /* number_of_transmit_buffers_in_use has been moved to GigabitEthernetDriver class */
 
     /* Define the Ethernet RX & TX DMA Descriptors.  */
     UCHAR               nx_driver_information_dma_rx_descriptors_area[sizeof(enet_rx_bd_struct_t) * NX_DRIVER_RX_DESCRIPTORS + 16];
-    UCHAR               nx_driver_information_dma_tx_descriptors_area[sizeof(enet_tx_bd_struct_t) * NX_DRIVER_TX_DESCRIPTORS + 16];
+    /* TX descriptors have been moved to GigabitEthernetDriver class */
 
     enet_rx_bd_struct_t                *nx_driver_information_dma_rx_descriptors;
-    enet_tx_bd_struct_t                *nx_driver_information_dma_tx_descriptors;
 
     /* Define the association between buffer descriptors and NetX packets.  */
-    NX_PACKET           *nx_driver_information_transmit_packets[NX_DRIVER_TX_DESCRIPTORS];
+    /* transmit_packets has been moved to GigabitEthernetDriver class */
     NX_PACKET           *nx_driver_information_receive_packets[NX_DRIVER_RX_DESCRIPTORS];
 
     /* Define the size of a rx buffer size.  */

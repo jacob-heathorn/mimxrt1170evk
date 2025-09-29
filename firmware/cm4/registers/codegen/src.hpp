@@ -41,7 +41,6 @@ union SCR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SCR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SCR &ref() { return *reinterpret_cast<volatile SCR*>(0x40C04000); }
 };
@@ -167,7 +166,6 @@ union SRMR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SRMR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SRMR &ref() { return *reinterpret_cast<volatile SRMR*>(0x40C04004); }
 };
@@ -190,7 +188,6 @@ union SBMR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SBMR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SBMR1 &ref() { return *reinterpret_cast<volatile SBMR1*>(0x40C04008); }
 };
@@ -214,7 +211,6 @@ union SBMR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SBMR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SBMR2 &ref() { return *reinterpret_cast<volatile SBMR2*>(0x40C0400C); }
 };
@@ -531,7 +527,6 @@ union SRSR {
   // Full 32-bit register value.
   uint32_t value;
 
-  SRSR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SRSR &ref() { return *reinterpret_cast<volatile SRSR*>(0x40C04010); }
 };
@@ -548,7 +543,6 @@ union GPR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR1 &ref() { return *reinterpret_cast<volatile GPR1*>(0x40C04014); }
 };
@@ -564,7 +558,6 @@ union GPR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR2 &ref() { return *reinterpret_cast<volatile GPR2*>(0x40C04018); }
 };
@@ -580,7 +573,6 @@ union GPR3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR3 &ref() { return *reinterpret_cast<volatile GPR3*>(0x40C0401C); }
 };
@@ -596,7 +588,6 @@ union GPR4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR4 &ref() { return *reinterpret_cast<volatile GPR4*>(0x40C04020); }
 };
@@ -612,7 +603,6 @@ union GPR5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR5 &ref() { return *reinterpret_cast<volatile GPR5*>(0x40C04024); }
 };
@@ -628,7 +618,6 @@ union GPR6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR6 &ref() { return *reinterpret_cast<volatile GPR6*>(0x40C04028); }
 };
@@ -644,7 +633,6 @@ union GPR7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR7 &ref() { return *reinterpret_cast<volatile GPR7*>(0x40C0402C); }
 };
@@ -660,7 +648,6 @@ union GPR8 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR8 &ref() { return *reinterpret_cast<volatile GPR8*>(0x40C04030); }
 };
@@ -676,7 +663,6 @@ union GPR9 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR9 &ref() { return *reinterpret_cast<volatile GPR9*>(0x40C04034); }
 };
@@ -692,7 +678,6 @@ union GPR10 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR10 &ref() { return *reinterpret_cast<volatile GPR10*>(0x40C04038); }
 };
@@ -708,7 +693,6 @@ union GPR11 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR11 &ref() { return *reinterpret_cast<volatile GPR11*>(0x40C0403C); }
 };
@@ -724,7 +708,6 @@ union GPR12 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR12 &ref() { return *reinterpret_cast<volatile GPR12*>(0x40C04040); }
 };
@@ -740,7 +723,6 @@ union GPR13 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR13 &ref() { return *reinterpret_cast<volatile GPR13*>(0x40C04044); }
 };
@@ -756,7 +738,6 @@ union GPR14 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR14 &ref() { return *reinterpret_cast<volatile GPR14*>(0x40C04048); }
 };
@@ -772,7 +753,6 @@ union GPR15 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR15 &ref() { return *reinterpret_cast<volatile GPR15*>(0x40C0404C); }
 };
@@ -788,7 +768,6 @@ union GPR16 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR16 &ref() { return *reinterpret_cast<volatile GPR16*>(0x40C04050); }
 };
@@ -804,7 +783,6 @@ union GPR17 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR17 &ref() { return *reinterpret_cast<volatile GPR17*>(0x40C04054); }
 };
@@ -820,7 +798,6 @@ union GPR18 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR18 &ref() { return *reinterpret_cast<volatile GPR18*>(0x40C04058); }
 };
@@ -836,7 +813,6 @@ union GPR19 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR19 &ref() { return *reinterpret_cast<volatile GPR19*>(0x40C0405C); }
 };
@@ -852,7 +828,6 @@ union GPR20 {
   // Full 32-bit register value.
   uint32_t value;
 
-  GPR20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile GPR20 &ref() { return *reinterpret_cast<volatile GPR20*>(0x40C04060); }
 };
@@ -907,7 +882,6 @@ union AUTHEN_MEGA {
   // Full 32-bit register value.
   uint32_t value;
 
-  AUTHEN_MEGA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile AUTHEN_MEGA &ref() { return *reinterpret_cast<volatile AUTHEN_MEGA*>(0x40C04200); }
 };
@@ -933,7 +907,6 @@ union CTRL_MEGA {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL_MEGA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL_MEGA &ref() { return *reinterpret_cast<volatile CTRL_MEGA*>(0x40C04204); }
 };
@@ -1109,7 +1082,6 @@ union SETPOINT_MEGA {
   // Full 32-bit register value.
   uint32_t value;
 
-  SETPOINT_MEGA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SETPOINT_MEGA &ref() { return *reinterpret_cast<volatile SETPOINT_MEGA*>(0x40C04208); }
 };
@@ -1205,7 +1177,6 @@ union DOMAIN_MEGA {
   // Full 32-bit register value.
   uint32_t value;
 
-  DOMAIN_MEGA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DOMAIN_MEGA &ref() { return *reinterpret_cast<volatile DOMAIN_MEGA*>(0x40C0420C); }
 };
@@ -1252,7 +1223,6 @@ union STAT_MEGA {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT_MEGA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT_MEGA &ref() { return *reinterpret_cast<volatile STAT_MEGA*>(0x40C04210); }
 };
@@ -1307,7 +1277,6 @@ union AUTHEN_DISPLAY {
   // Full 32-bit register value.
   uint32_t value;
 
-  AUTHEN_DISPLAY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile AUTHEN_DISPLAY &ref() { return *reinterpret_cast<volatile AUTHEN_DISPLAY*>(0x40C04220); }
 };
@@ -1333,7 +1302,6 @@ union CTRL_DISPLAY {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL_DISPLAY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL_DISPLAY &ref() { return *reinterpret_cast<volatile CTRL_DISPLAY*>(0x40C04224); }
 };
@@ -1509,7 +1477,6 @@ union SETPOINT_DISPLAY {
   // Full 32-bit register value.
   uint32_t value;
 
-  SETPOINT_DISPLAY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SETPOINT_DISPLAY &ref() { return *reinterpret_cast<volatile SETPOINT_DISPLAY*>(0x40C04228); }
 };
@@ -1605,7 +1572,6 @@ union DOMAIN_DISPLAY {
   // Full 32-bit register value.
   uint32_t value;
 
-  DOMAIN_DISPLAY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DOMAIN_DISPLAY &ref() { return *reinterpret_cast<volatile DOMAIN_DISPLAY*>(0x40C0422C); }
 };
@@ -1652,7 +1618,6 @@ union STAT_DISPLAY {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT_DISPLAY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT_DISPLAY &ref() { return *reinterpret_cast<volatile STAT_DISPLAY*>(0x40C04230); }
 };
@@ -1707,7 +1672,6 @@ union AUTHEN_WAKEUP {
   // Full 32-bit register value.
   uint32_t value;
 
-  AUTHEN_WAKEUP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile AUTHEN_WAKEUP &ref() { return *reinterpret_cast<volatile AUTHEN_WAKEUP*>(0x40C04240); }
 };
@@ -1733,7 +1697,6 @@ union CTRL_WAKEUP {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL_WAKEUP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL_WAKEUP &ref() { return *reinterpret_cast<volatile CTRL_WAKEUP*>(0x40C04244); }
 };
@@ -1909,7 +1872,6 @@ union SETPOINT_WAKEUP {
   // Full 32-bit register value.
   uint32_t value;
 
-  SETPOINT_WAKEUP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SETPOINT_WAKEUP &ref() { return *reinterpret_cast<volatile SETPOINT_WAKEUP*>(0x40C04248); }
 };
@@ -2005,7 +1967,6 @@ union DOMAIN_WAKEUP {
   // Full 32-bit register value.
   uint32_t value;
 
-  DOMAIN_WAKEUP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DOMAIN_WAKEUP &ref() { return *reinterpret_cast<volatile DOMAIN_WAKEUP*>(0x40C0424C); }
 };
@@ -2052,7 +2013,6 @@ union STAT_WAKEUP {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT_WAKEUP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT_WAKEUP &ref() { return *reinterpret_cast<volatile STAT_WAKEUP*>(0x40C04250); }
 };
@@ -2107,7 +2067,6 @@ union AUTHEN_M4CORE {
   // Full 32-bit register value.
   uint32_t value;
 
-  AUTHEN_M4CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile AUTHEN_M4CORE &ref() { return *reinterpret_cast<volatile AUTHEN_M4CORE*>(0x40C04280); }
 };
@@ -2133,7 +2092,6 @@ union CTRL_M4CORE {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL_M4CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL_M4CORE &ref() { return *reinterpret_cast<volatile CTRL_M4CORE*>(0x40C04284); }
 };
@@ -2309,7 +2267,6 @@ union SETPOINT_M4CORE {
   // Full 32-bit register value.
   uint32_t value;
 
-  SETPOINT_M4CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SETPOINT_M4CORE &ref() { return *reinterpret_cast<volatile SETPOINT_M4CORE*>(0x40C04288); }
 };
@@ -2405,7 +2362,6 @@ union DOMAIN_M4CORE {
   // Full 32-bit register value.
   uint32_t value;
 
-  DOMAIN_M4CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DOMAIN_M4CORE &ref() { return *reinterpret_cast<volatile DOMAIN_M4CORE*>(0x40C0428C); }
 };
@@ -2452,7 +2408,6 @@ union STAT_M4CORE {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT_M4CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT_M4CORE &ref() { return *reinterpret_cast<volatile STAT_M4CORE*>(0x40C04290); }
 };
@@ -2507,7 +2462,6 @@ union AUTHEN_M7CORE {
   // Full 32-bit register value.
   uint32_t value;
 
-  AUTHEN_M7CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile AUTHEN_M7CORE &ref() { return *reinterpret_cast<volatile AUTHEN_M7CORE*>(0x40C042A0); }
 };
@@ -2533,7 +2487,6 @@ union CTRL_M7CORE {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL_M7CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL_M7CORE &ref() { return *reinterpret_cast<volatile CTRL_M7CORE*>(0x40C042A4); }
 };
@@ -2709,7 +2662,6 @@ union SETPOINT_M7CORE {
   // Full 32-bit register value.
   uint32_t value;
 
-  SETPOINT_M7CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SETPOINT_M7CORE &ref() { return *reinterpret_cast<volatile SETPOINT_M7CORE*>(0x40C042A8); }
 };
@@ -2805,7 +2757,6 @@ union DOMAIN_M7CORE {
   // Full 32-bit register value.
   uint32_t value;
 
-  DOMAIN_M7CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DOMAIN_M7CORE &ref() { return *reinterpret_cast<volatile DOMAIN_M7CORE*>(0x40C042AC); }
 };
@@ -2852,7 +2803,6 @@ union STAT_M7CORE {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT_M7CORE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT_M7CORE &ref() { return *reinterpret_cast<volatile STAT_M7CORE*>(0x40C042B0); }
 };
@@ -2907,7 +2857,6 @@ union AUTHEN_M4DEBUG {
   // Full 32-bit register value.
   uint32_t value;
 
-  AUTHEN_M4DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile AUTHEN_M4DEBUG &ref() { return *reinterpret_cast<volatile AUTHEN_M4DEBUG*>(0x40C042C0); }
 };
@@ -2933,7 +2882,6 @@ union CTRL_M4DEBUG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL_M4DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL_M4DEBUG &ref() { return *reinterpret_cast<volatile CTRL_M4DEBUG*>(0x40C042C4); }
 };
@@ -3109,7 +3057,6 @@ union SETPOINT_M4DEBUG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SETPOINT_M4DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SETPOINT_M4DEBUG &ref() { return *reinterpret_cast<volatile SETPOINT_M4DEBUG*>(0x40C042C8); }
 };
@@ -3205,7 +3152,6 @@ union DOMAIN_M4DEBUG {
   // Full 32-bit register value.
   uint32_t value;
 
-  DOMAIN_M4DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DOMAIN_M4DEBUG &ref() { return *reinterpret_cast<volatile DOMAIN_M4DEBUG*>(0x40C042CC); }
 };
@@ -3252,7 +3198,6 @@ union STAT_M4DEBUG {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT_M4DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT_M4DEBUG &ref() { return *reinterpret_cast<volatile STAT_M4DEBUG*>(0x40C042D0); }
 };
@@ -3307,7 +3252,6 @@ union AUTHEN_M7DEBUG {
   // Full 32-bit register value.
   uint32_t value;
 
-  AUTHEN_M7DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile AUTHEN_M7DEBUG &ref() { return *reinterpret_cast<volatile AUTHEN_M7DEBUG*>(0x40C042E0); }
 };
@@ -3333,7 +3277,6 @@ union CTRL_M7DEBUG {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL_M7DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL_M7DEBUG &ref() { return *reinterpret_cast<volatile CTRL_M7DEBUG*>(0x40C042E4); }
 };
@@ -3509,7 +3452,6 @@ union SETPOINT_M7DEBUG {
   // Full 32-bit register value.
   uint32_t value;
 
-  SETPOINT_M7DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SETPOINT_M7DEBUG &ref() { return *reinterpret_cast<volatile SETPOINT_M7DEBUG*>(0x40C042E8); }
 };
@@ -3605,7 +3547,6 @@ union DOMAIN_M7DEBUG {
   // Full 32-bit register value.
   uint32_t value;
 
-  DOMAIN_M7DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DOMAIN_M7DEBUG &ref() { return *reinterpret_cast<volatile DOMAIN_M7DEBUG*>(0x40C042EC); }
 };
@@ -3652,7 +3593,6 @@ union STAT_M7DEBUG {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT_M7DEBUG() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT_M7DEBUG &ref() { return *reinterpret_cast<volatile STAT_M7DEBUG*>(0x40C042F0); }
 };
@@ -3707,7 +3647,6 @@ union AUTHEN_USBPHY1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  AUTHEN_USBPHY1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile AUTHEN_USBPHY1 &ref() { return *reinterpret_cast<volatile AUTHEN_USBPHY1*>(0x40C04300); }
 };
@@ -3733,7 +3672,6 @@ union CTRL_USBPHY1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL_USBPHY1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL_USBPHY1 &ref() { return *reinterpret_cast<volatile CTRL_USBPHY1*>(0x40C04304); }
 };
@@ -3909,7 +3847,6 @@ union SETPOINT_USBPHY1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SETPOINT_USBPHY1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SETPOINT_USBPHY1 &ref() { return *reinterpret_cast<volatile SETPOINT_USBPHY1*>(0x40C04308); }
 };
@@ -4005,7 +3942,6 @@ union DOMAIN_USBPHY1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  DOMAIN_USBPHY1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DOMAIN_USBPHY1 &ref() { return *reinterpret_cast<volatile DOMAIN_USBPHY1*>(0x40C0430C); }
 };
@@ -4052,7 +3988,6 @@ union STAT_USBPHY1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT_USBPHY1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT_USBPHY1 &ref() { return *reinterpret_cast<volatile STAT_USBPHY1*>(0x40C04310); }
 };
@@ -4107,7 +4042,6 @@ union AUTHEN_USBPHY2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  AUTHEN_USBPHY2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile AUTHEN_USBPHY2 &ref() { return *reinterpret_cast<volatile AUTHEN_USBPHY2*>(0x40C04320); }
 };
@@ -4133,7 +4067,6 @@ union CTRL_USBPHY2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL_USBPHY2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL_USBPHY2 &ref() { return *reinterpret_cast<volatile CTRL_USBPHY2*>(0x40C04324); }
 };
@@ -4309,7 +4242,6 @@ union SETPOINT_USBPHY2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  SETPOINT_USBPHY2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile SETPOINT_USBPHY2 &ref() { return *reinterpret_cast<volatile SETPOINT_USBPHY2*>(0x40C04328); }
 };
@@ -4405,7 +4337,6 @@ union DOMAIN_USBPHY2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  DOMAIN_USBPHY2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DOMAIN_USBPHY2 &ref() { return *reinterpret_cast<volatile DOMAIN_USBPHY2*>(0x40C0432C); }
 };
@@ -4452,7 +4383,6 @@ union STAT_USBPHY2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  STAT_USBPHY2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile STAT_USBPHY2 &ref() { return *reinterpret_cast<volatile STAT_USBPHY2*>(0x40C04330); }
 };

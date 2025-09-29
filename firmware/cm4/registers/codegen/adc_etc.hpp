@@ -61,7 +61,6 @@ union CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL() = delete;
   inline void Reset() volatile { this->value = 0x80000000; }
   static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40048000); }
 };
@@ -238,7 +237,6 @@ union DONE0_1_IRQ {
   // Full 32-bit register value.
   uint32_t value;
 
-  DONE0_1_IRQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DONE0_1_IRQ &ref() { return *reinterpret_cast<volatile DONE0_1_IRQ*>(0x40048004); }
 };
@@ -494,7 +492,6 @@ union DONE2_3_ERR_IRQ {
   // Full 32-bit register value.
   uint32_t value;
 
-  DONE2_3_ERR_IRQ() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DONE2_3_ERR_IRQ &ref() { return *reinterpret_cast<volatile DONE2_3_ERR_IRQ*>(0x40048008); }
 };
@@ -671,7 +668,6 @@ union DMA_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  DMA_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile DMA_CTRL &ref() { return *reinterpret_cast<volatile DMA_CTRL*>(0x4004800C); }
 };
@@ -755,7 +751,6 @@ union TRIG0_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG0_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG0_CTRL &ref() { return *reinterpret_cast<volatile TRIG0_CTRL*>(0x40048010); }
 };
@@ -774,7 +769,6 @@ union TRIG0_COUNTER {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG0_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG0_COUNTER &ref() { return *reinterpret_cast<volatile TRIG0_COUNTER*>(0x40048014); }
 };
@@ -981,7 +975,6 @@ union TRIG0_CHAIN_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG0_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG0_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG0_CHAIN_1_0*>(0x40048018); }
 };
@@ -1188,7 +1181,6 @@ union TRIG0_CHAIN_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG0_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG0_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG0_CHAIN_3_2*>(0x4004801C); }
 };
@@ -1395,7 +1387,6 @@ union TRIG0_CHAIN_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG0_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG0_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG0_CHAIN_5_4*>(0x40048020); }
 };
@@ -1602,7 +1593,6 @@ union TRIG0_CHAIN_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG0_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG0_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG0_CHAIN_7_6*>(0x40048024); }
 };
@@ -1623,7 +1613,6 @@ union TRIG0_RESULT_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG0_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG0_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG0_RESULT_1_0*>(0x40048028); }
 };
@@ -1644,7 +1633,6 @@ union TRIG0_RESULT_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG0_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG0_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG0_RESULT_3_2*>(0x4004802C); }
 };
@@ -1665,7 +1653,6 @@ union TRIG0_RESULT_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG0_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG0_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG0_RESULT_5_4*>(0x40048030); }
 };
@@ -1686,7 +1673,6 @@ union TRIG0_RESULT_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG0_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG0_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG0_RESULT_7_6*>(0x40048034); }
 };
@@ -1770,7 +1756,6 @@ union TRIG1_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG1_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG1_CTRL &ref() { return *reinterpret_cast<volatile TRIG1_CTRL*>(0x40048038); }
 };
@@ -1789,7 +1774,6 @@ union TRIG1_COUNTER {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG1_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG1_COUNTER &ref() { return *reinterpret_cast<volatile TRIG1_COUNTER*>(0x4004803C); }
 };
@@ -1996,7 +1980,6 @@ union TRIG1_CHAIN_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG1_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG1_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG1_CHAIN_1_0*>(0x40048040); }
 };
@@ -2203,7 +2186,6 @@ union TRIG1_CHAIN_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG1_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG1_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG1_CHAIN_3_2*>(0x40048044); }
 };
@@ -2410,7 +2392,6 @@ union TRIG1_CHAIN_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG1_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG1_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG1_CHAIN_5_4*>(0x40048048); }
 };
@@ -2617,7 +2598,6 @@ union TRIG1_CHAIN_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG1_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG1_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG1_CHAIN_7_6*>(0x4004804C); }
 };
@@ -2638,7 +2618,6 @@ union TRIG1_RESULT_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG1_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG1_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG1_RESULT_1_0*>(0x40048050); }
 };
@@ -2659,7 +2638,6 @@ union TRIG1_RESULT_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG1_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG1_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG1_RESULT_3_2*>(0x40048054); }
 };
@@ -2680,7 +2658,6 @@ union TRIG1_RESULT_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG1_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG1_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG1_RESULT_5_4*>(0x40048058); }
 };
@@ -2701,7 +2678,6 @@ union TRIG1_RESULT_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG1_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG1_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG1_RESULT_7_6*>(0x4004805C); }
 };
@@ -2785,7 +2761,6 @@ union TRIG2_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG2_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG2_CTRL &ref() { return *reinterpret_cast<volatile TRIG2_CTRL*>(0x40048060); }
 };
@@ -2804,7 +2779,6 @@ union TRIG2_COUNTER {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG2_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG2_COUNTER &ref() { return *reinterpret_cast<volatile TRIG2_COUNTER*>(0x40048064); }
 };
@@ -3011,7 +2985,6 @@ union TRIG2_CHAIN_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG2_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG2_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG2_CHAIN_1_0*>(0x40048068); }
 };
@@ -3218,7 +3191,6 @@ union TRIG2_CHAIN_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG2_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG2_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG2_CHAIN_3_2*>(0x4004806C); }
 };
@@ -3425,7 +3397,6 @@ union TRIG2_CHAIN_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG2_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG2_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG2_CHAIN_5_4*>(0x40048070); }
 };
@@ -3632,7 +3603,6 @@ union TRIG2_CHAIN_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG2_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG2_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG2_CHAIN_7_6*>(0x40048074); }
 };
@@ -3653,7 +3623,6 @@ union TRIG2_RESULT_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG2_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG2_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG2_RESULT_1_0*>(0x40048078); }
 };
@@ -3674,7 +3643,6 @@ union TRIG2_RESULT_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG2_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG2_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG2_RESULT_3_2*>(0x4004807C); }
 };
@@ -3695,7 +3663,6 @@ union TRIG2_RESULT_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG2_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG2_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG2_RESULT_5_4*>(0x40048080); }
 };
@@ -3716,7 +3683,6 @@ union TRIG2_RESULT_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG2_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG2_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG2_RESULT_7_6*>(0x40048084); }
 };
@@ -3800,7 +3766,6 @@ union TRIG3_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG3_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG3_CTRL &ref() { return *reinterpret_cast<volatile TRIG3_CTRL*>(0x40048088); }
 };
@@ -3819,7 +3784,6 @@ union TRIG3_COUNTER {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG3_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG3_COUNTER &ref() { return *reinterpret_cast<volatile TRIG3_COUNTER*>(0x4004808C); }
 };
@@ -4026,7 +3990,6 @@ union TRIG3_CHAIN_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG3_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG3_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG3_CHAIN_1_0*>(0x40048090); }
 };
@@ -4233,7 +4196,6 @@ union TRIG3_CHAIN_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG3_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG3_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG3_CHAIN_3_2*>(0x40048094); }
 };
@@ -4440,7 +4402,6 @@ union TRIG3_CHAIN_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG3_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG3_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG3_CHAIN_5_4*>(0x40048098); }
 };
@@ -4647,7 +4608,6 @@ union TRIG3_CHAIN_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG3_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG3_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG3_CHAIN_7_6*>(0x4004809C); }
 };
@@ -4668,7 +4628,6 @@ union TRIG3_RESULT_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG3_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG3_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG3_RESULT_1_0*>(0x400480A0); }
 };
@@ -4689,7 +4648,6 @@ union TRIG3_RESULT_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG3_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG3_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG3_RESULT_3_2*>(0x400480A4); }
 };
@@ -4710,7 +4668,6 @@ union TRIG3_RESULT_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG3_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG3_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG3_RESULT_5_4*>(0x400480A8); }
 };
@@ -4731,7 +4688,6 @@ union TRIG3_RESULT_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG3_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG3_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG3_RESULT_7_6*>(0x400480AC); }
 };
@@ -4815,7 +4771,6 @@ union TRIG4_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG4_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG4_CTRL &ref() { return *reinterpret_cast<volatile TRIG4_CTRL*>(0x400480B0); }
 };
@@ -4834,7 +4789,6 @@ union TRIG4_COUNTER {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG4_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG4_COUNTER &ref() { return *reinterpret_cast<volatile TRIG4_COUNTER*>(0x400480B4); }
 };
@@ -5041,7 +4995,6 @@ union TRIG4_CHAIN_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG4_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG4_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG4_CHAIN_1_0*>(0x400480B8); }
 };
@@ -5248,7 +5201,6 @@ union TRIG4_CHAIN_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG4_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG4_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG4_CHAIN_3_2*>(0x400480BC); }
 };
@@ -5455,7 +5407,6 @@ union TRIG4_CHAIN_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG4_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG4_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG4_CHAIN_5_4*>(0x400480C0); }
 };
@@ -5662,7 +5613,6 @@ union TRIG4_CHAIN_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG4_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG4_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG4_CHAIN_7_6*>(0x400480C4); }
 };
@@ -5683,7 +5633,6 @@ union TRIG4_RESULT_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG4_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG4_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG4_RESULT_1_0*>(0x400480C8); }
 };
@@ -5704,7 +5653,6 @@ union TRIG4_RESULT_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG4_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG4_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG4_RESULT_3_2*>(0x400480CC); }
 };
@@ -5725,7 +5673,6 @@ union TRIG4_RESULT_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG4_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG4_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG4_RESULT_5_4*>(0x400480D0); }
 };
@@ -5746,7 +5693,6 @@ union TRIG4_RESULT_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG4_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG4_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG4_RESULT_7_6*>(0x400480D4); }
 };
@@ -5830,7 +5776,6 @@ union TRIG5_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG5_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG5_CTRL &ref() { return *reinterpret_cast<volatile TRIG5_CTRL*>(0x400480D8); }
 };
@@ -5849,7 +5794,6 @@ union TRIG5_COUNTER {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG5_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG5_COUNTER &ref() { return *reinterpret_cast<volatile TRIG5_COUNTER*>(0x400480DC); }
 };
@@ -6056,7 +6000,6 @@ union TRIG5_CHAIN_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG5_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG5_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG5_CHAIN_1_0*>(0x400480E0); }
 };
@@ -6263,7 +6206,6 @@ union TRIG5_CHAIN_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG5_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG5_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG5_CHAIN_3_2*>(0x400480E4); }
 };
@@ -6470,7 +6412,6 @@ union TRIG5_CHAIN_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG5_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG5_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG5_CHAIN_5_4*>(0x400480E8); }
 };
@@ -6677,7 +6618,6 @@ union TRIG5_CHAIN_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG5_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG5_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG5_CHAIN_7_6*>(0x400480EC); }
 };
@@ -6698,7 +6638,6 @@ union TRIG5_RESULT_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG5_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG5_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG5_RESULT_1_0*>(0x400480F0); }
 };
@@ -6719,7 +6658,6 @@ union TRIG5_RESULT_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG5_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG5_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG5_RESULT_3_2*>(0x400480F4); }
 };
@@ -6740,7 +6678,6 @@ union TRIG5_RESULT_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG5_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG5_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG5_RESULT_5_4*>(0x400480F8); }
 };
@@ -6761,7 +6698,6 @@ union TRIG5_RESULT_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG5_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG5_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG5_RESULT_7_6*>(0x400480FC); }
 };
@@ -6845,7 +6781,6 @@ union TRIG6_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG6_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG6_CTRL &ref() { return *reinterpret_cast<volatile TRIG6_CTRL*>(0x40048100); }
 };
@@ -6864,7 +6799,6 @@ union TRIG6_COUNTER {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG6_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG6_COUNTER &ref() { return *reinterpret_cast<volatile TRIG6_COUNTER*>(0x40048104); }
 };
@@ -7071,7 +7005,6 @@ union TRIG6_CHAIN_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG6_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG6_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG6_CHAIN_1_0*>(0x40048108); }
 };
@@ -7278,7 +7211,6 @@ union TRIG6_CHAIN_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG6_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG6_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG6_CHAIN_3_2*>(0x4004810C); }
 };
@@ -7485,7 +7417,6 @@ union TRIG6_CHAIN_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG6_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG6_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG6_CHAIN_5_4*>(0x40048110); }
 };
@@ -7692,7 +7623,6 @@ union TRIG6_CHAIN_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG6_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG6_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG6_CHAIN_7_6*>(0x40048114); }
 };
@@ -7713,7 +7643,6 @@ union TRIG6_RESULT_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG6_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG6_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG6_RESULT_1_0*>(0x40048118); }
 };
@@ -7734,7 +7663,6 @@ union TRIG6_RESULT_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG6_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG6_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG6_RESULT_3_2*>(0x4004811C); }
 };
@@ -7755,7 +7683,6 @@ union TRIG6_RESULT_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG6_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG6_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG6_RESULT_5_4*>(0x40048120); }
 };
@@ -7776,7 +7703,6 @@ union TRIG6_RESULT_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG6_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG6_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG6_RESULT_7_6*>(0x40048124); }
 };
@@ -7860,7 +7786,6 @@ union TRIG7_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG7_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG7_CTRL &ref() { return *reinterpret_cast<volatile TRIG7_CTRL*>(0x40048128); }
 };
@@ -7879,7 +7804,6 @@ union TRIG7_COUNTER {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG7_COUNTER() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG7_COUNTER &ref() { return *reinterpret_cast<volatile TRIG7_COUNTER*>(0x4004812C); }
 };
@@ -8086,7 +8010,6 @@ union TRIG7_CHAIN_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG7_CHAIN_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG7_CHAIN_1_0 &ref() { return *reinterpret_cast<volatile TRIG7_CHAIN_1_0*>(0x40048130); }
 };
@@ -8293,7 +8216,6 @@ union TRIG7_CHAIN_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG7_CHAIN_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG7_CHAIN_3_2 &ref() { return *reinterpret_cast<volatile TRIG7_CHAIN_3_2*>(0x40048134); }
 };
@@ -8500,7 +8422,6 @@ union TRIG7_CHAIN_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG7_CHAIN_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG7_CHAIN_5_4 &ref() { return *reinterpret_cast<volatile TRIG7_CHAIN_5_4*>(0x40048138); }
 };
@@ -8707,7 +8628,6 @@ union TRIG7_CHAIN_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG7_CHAIN_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG7_CHAIN_7_6 &ref() { return *reinterpret_cast<volatile TRIG7_CHAIN_7_6*>(0x4004813C); }
 };
@@ -8728,7 +8648,6 @@ union TRIG7_RESULT_1_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG7_RESULT_1_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG7_RESULT_1_0 &ref() { return *reinterpret_cast<volatile TRIG7_RESULT_1_0*>(0x40048140); }
 };
@@ -8749,7 +8668,6 @@ union TRIG7_RESULT_3_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG7_RESULT_3_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG7_RESULT_3_2 &ref() { return *reinterpret_cast<volatile TRIG7_RESULT_3_2*>(0x40048144); }
 };
@@ -8770,7 +8688,6 @@ union TRIG7_RESULT_5_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG7_RESULT_5_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG7_RESULT_5_4 &ref() { return *reinterpret_cast<volatile TRIG7_RESULT_5_4*>(0x40048148); }
 };
@@ -8791,7 +8708,6 @@ union TRIG7_RESULT_7_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  TRIG7_RESULT_7_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TRIG7_RESULT_7_6 &ref() { return *reinterpret_cast<volatile TRIG7_RESULT_7_6*>(0x4004814C); }
 };

@@ -29,7 +29,6 @@ union TYPE {
   // Full 32-bit register value.
   uint32_t value;
 
-  TYPE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile TYPE &ref() { return *reinterpret_cast<volatile TYPE*>(0xE000ED90); }
 };
@@ -75,7 +74,6 @@ union CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0xE000ED94); }
 };
@@ -93,7 +91,6 @@ union RNR {
   // Full 32-bit register value.
   uint32_t value;
 
-  RNR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RNR &ref() { return *reinterpret_cast<volatile RNR*>(0xE000ED98); }
 };
@@ -122,7 +119,6 @@ union RBAR {
   // Full 32-bit register value.
   uint32_t value;
 
-  RBAR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RBAR &ref() { return *reinterpret_cast<volatile RBAR*>(0xE000ED9C); }
 };
@@ -201,7 +197,6 @@ union RASR {
   // Full 32-bit register value.
   uint32_t value;
 
-  RASR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RASR &ref() { return *reinterpret_cast<volatile RASR*>(0xE000EDA0); }
 };
@@ -230,7 +225,6 @@ union RBAR_A1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  RBAR_A1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RBAR_A1 &ref() { return *reinterpret_cast<volatile RBAR_A1*>(0xE000EDA4); }
 };
@@ -309,7 +303,6 @@ union RASR_A1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  RASR_A1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RASR_A1 &ref() { return *reinterpret_cast<volatile RASR_A1*>(0xE000EDA8); }
 };
@@ -338,7 +331,6 @@ union RBAR_A2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  RBAR_A2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RBAR_A2 &ref() { return *reinterpret_cast<volatile RBAR_A2*>(0xE000EDAC); }
 };
@@ -417,7 +409,6 @@ union RASR_A2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  RASR_A2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RASR_A2 &ref() { return *reinterpret_cast<volatile RASR_A2*>(0xE000EDB0); }
 };
@@ -446,7 +437,6 @@ union RBAR_A3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  RBAR_A3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RBAR_A3 &ref() { return *reinterpret_cast<volatile RBAR_A3*>(0xE000EDB4); }
 };
@@ -525,7 +515,6 @@ union RASR_A3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  RASR_A3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RASR_A3 &ref() { return *reinterpret_cast<volatile RASR_A3*>(0xE000EDB8); }
 };

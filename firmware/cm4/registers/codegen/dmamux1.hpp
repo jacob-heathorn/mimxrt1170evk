@@ -53,7 +53,6 @@ union CHCFG_0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_0 &ref() { return *reinterpret_cast<volatile CHCFG_0*>(0x40C18000); }
 };
@@ -100,7 +99,6 @@ union CHCFG_1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_1 &ref() { return *reinterpret_cast<volatile CHCFG_1*>(0x40C18004); }
 };
@@ -147,7 +145,6 @@ union CHCFG_2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_2 &ref() { return *reinterpret_cast<volatile CHCFG_2*>(0x40C18008); }
 };
@@ -194,7 +191,6 @@ union CHCFG_3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_3 &ref() { return *reinterpret_cast<volatile CHCFG_3*>(0x40C1800C); }
 };
@@ -241,7 +237,6 @@ union CHCFG_4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_4 &ref() { return *reinterpret_cast<volatile CHCFG_4*>(0x40C18010); }
 };
@@ -288,7 +283,6 @@ union CHCFG_5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_5 &ref() { return *reinterpret_cast<volatile CHCFG_5*>(0x40C18014); }
 };
@@ -335,7 +329,6 @@ union CHCFG_6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_6 &ref() { return *reinterpret_cast<volatile CHCFG_6*>(0x40C18018); }
 };
@@ -382,7 +375,6 @@ union CHCFG_7 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_7 &ref() { return *reinterpret_cast<volatile CHCFG_7*>(0x40C1801C); }
 };
@@ -429,7 +421,6 @@ union CHCFG_8 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_8 &ref() { return *reinterpret_cast<volatile CHCFG_8*>(0x40C18020); }
 };
@@ -476,7 +467,6 @@ union CHCFG_9 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_9 &ref() { return *reinterpret_cast<volatile CHCFG_9*>(0x40C18024); }
 };
@@ -523,7 +513,6 @@ union CHCFG_10 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_10 &ref() { return *reinterpret_cast<volatile CHCFG_10*>(0x40C18028); }
 };
@@ -570,7 +559,6 @@ union CHCFG_11 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_11 &ref() { return *reinterpret_cast<volatile CHCFG_11*>(0x40C1802C); }
 };
@@ -617,7 +605,6 @@ union CHCFG_12 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_12 &ref() { return *reinterpret_cast<volatile CHCFG_12*>(0x40C18030); }
 };
@@ -664,7 +651,6 @@ union CHCFG_13 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_13 &ref() { return *reinterpret_cast<volatile CHCFG_13*>(0x40C18034); }
 };
@@ -711,7 +697,6 @@ union CHCFG_14 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_14 &ref() { return *reinterpret_cast<volatile CHCFG_14*>(0x40C18038); }
 };
@@ -758,7 +743,6 @@ union CHCFG_15 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_15 &ref() { return *reinterpret_cast<volatile CHCFG_15*>(0x40C1803C); }
 };
@@ -805,7 +789,6 @@ union CHCFG_16 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_16 &ref() { return *reinterpret_cast<volatile CHCFG_16*>(0x40C18040); }
 };
@@ -852,7 +835,6 @@ union CHCFG_17 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_17 &ref() { return *reinterpret_cast<volatile CHCFG_17*>(0x40C18044); }
 };
@@ -899,7 +881,6 @@ union CHCFG_18 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_18 &ref() { return *reinterpret_cast<volatile CHCFG_18*>(0x40C18048); }
 };
@@ -946,7 +927,6 @@ union CHCFG_19 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_19 &ref() { return *reinterpret_cast<volatile CHCFG_19*>(0x40C1804C); }
 };
@@ -993,7 +973,6 @@ union CHCFG_20 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_20 &ref() { return *reinterpret_cast<volatile CHCFG_20*>(0x40C18050); }
 };
@@ -1040,7 +1019,6 @@ union CHCFG_21 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_21 &ref() { return *reinterpret_cast<volatile CHCFG_21*>(0x40C18054); }
 };
@@ -1087,7 +1065,6 @@ union CHCFG_22 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_22 &ref() { return *reinterpret_cast<volatile CHCFG_22*>(0x40C18058); }
 };
@@ -1134,7 +1111,6 @@ union CHCFG_23 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_23 &ref() { return *reinterpret_cast<volatile CHCFG_23*>(0x40C1805C); }
 };
@@ -1181,7 +1157,6 @@ union CHCFG_24 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_24 &ref() { return *reinterpret_cast<volatile CHCFG_24*>(0x40C18060); }
 };
@@ -1228,7 +1203,6 @@ union CHCFG_25 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_25 &ref() { return *reinterpret_cast<volatile CHCFG_25*>(0x40C18064); }
 };
@@ -1275,7 +1249,6 @@ union CHCFG_26 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_26 &ref() { return *reinterpret_cast<volatile CHCFG_26*>(0x40C18068); }
 };
@@ -1322,7 +1295,6 @@ union CHCFG_27 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_27 &ref() { return *reinterpret_cast<volatile CHCFG_27*>(0x40C1806C); }
 };
@@ -1369,7 +1341,6 @@ union CHCFG_28 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_28 &ref() { return *reinterpret_cast<volatile CHCFG_28*>(0x40C18070); }
 };
@@ -1416,7 +1387,6 @@ union CHCFG_29 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_29 &ref() { return *reinterpret_cast<volatile CHCFG_29*>(0x40C18074); }
 };
@@ -1463,7 +1433,6 @@ union CHCFG_30 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_30 &ref() { return *reinterpret_cast<volatile CHCFG_30*>(0x40C18078); }
 };
@@ -1510,7 +1479,6 @@ union CHCFG_31 {
   // Full 32-bit register value.
   uint32_t value;
 
-  CHCFG_31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CHCFG_31 &ref() { return *reinterpret_cast<volatile CHCFG_31*>(0x40C1807C); }
 };

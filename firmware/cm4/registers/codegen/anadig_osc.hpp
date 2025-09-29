@@ -63,7 +63,6 @@ union OSC_48M_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  OSC_48M_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x017901F2; }
   static inline volatile OSC_48M_CTRL &ref() { return *reinterpret_cast<volatile OSC_48M_CTRL*>(0x40C84010); }
 };
@@ -152,7 +151,6 @@ union OSC_24M_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  OSC_24M_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000080; }
   static inline volatile OSC_24M_CTRL &ref() { return *reinterpret_cast<volatile OSC_24M_CTRL*>(0x40C84020); }
 };
@@ -170,7 +168,6 @@ union OSC_400M_CTRL0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  OSC_400M_CTRL0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OSC_400M_CTRL0 &ref() { return *reinterpret_cast<volatile OSC_400M_CTRL0*>(0x40C84040); }
 };
@@ -216,7 +213,6 @@ union OSC_400M_CTRL1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  OSC_400M_CTRL1() = delete;
   inline void Reset() volatile { this->value = 0x00000001; }
   static inline volatile OSC_400M_CTRL1 &ref() { return *reinterpret_cast<volatile OSC_400M_CTRL1*>(0x40C84050); }
 };
@@ -255,7 +251,6 @@ union OSC_400M_CTRL2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  OSC_400M_CTRL2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile OSC_400M_CTRL2 &ref() { return *reinterpret_cast<volatile OSC_400M_CTRL2*>(0x40C84060); }
 };
@@ -314,7 +309,6 @@ union OSC_16M_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  OSC_16M_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000007; }
   static inline volatile OSC_16M_CTRL &ref() { return *reinterpret_cast<volatile OSC_16M_CTRL*>(0x40C840C0); }
 };

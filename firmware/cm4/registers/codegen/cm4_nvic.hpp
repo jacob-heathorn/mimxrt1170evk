@@ -22,7 +22,6 @@ union NVICISER0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISER0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISER0 &ref() { return *reinterpret_cast<volatile NVICISER0*>(0xE000E100); }
 };
@@ -39,7 +38,6 @@ union NVICISER1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISER1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISER1 &ref() { return *reinterpret_cast<volatile NVICISER1*>(0xE000E104); }
 };
@@ -56,7 +54,6 @@ union NVICISER2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISER2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISER2 &ref() { return *reinterpret_cast<volatile NVICISER2*>(0xE000E108); }
 };
@@ -73,7 +70,6 @@ union NVICISER3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISER3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISER3 &ref() { return *reinterpret_cast<volatile NVICISER3*>(0xE000E10C); }
 };
@@ -90,7 +86,6 @@ union NVICISER4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISER4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISER4 &ref() { return *reinterpret_cast<volatile NVICISER4*>(0xE000E110); }
 };
@@ -107,7 +102,6 @@ union NVICISER5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISER5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISER5 &ref() { return *reinterpret_cast<volatile NVICISER5*>(0xE000E114); }
 };
@@ -124,7 +118,6 @@ union NVICISER6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISER6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISER6 &ref() { return *reinterpret_cast<volatile NVICISER6*>(0xE000E118); }
 };
@@ -141,7 +134,6 @@ union NVICICER0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICER0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICER0 &ref() { return *reinterpret_cast<volatile NVICICER0*>(0xE000E180); }
 };
@@ -158,7 +150,6 @@ union NVICICER1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICER1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICER1 &ref() { return *reinterpret_cast<volatile NVICICER1*>(0xE000E184); }
 };
@@ -175,7 +166,6 @@ union NVICICER2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICER2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICER2 &ref() { return *reinterpret_cast<volatile NVICICER2*>(0xE000E188); }
 };
@@ -192,7 +182,6 @@ union NVICICER3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICER3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICER3 &ref() { return *reinterpret_cast<volatile NVICICER3*>(0xE000E18C); }
 };
@@ -209,7 +198,6 @@ union NVICICER4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICER4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICER4 &ref() { return *reinterpret_cast<volatile NVICICER4*>(0xE000E190); }
 };
@@ -226,7 +214,6 @@ union NVICICER5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICER5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICER5 &ref() { return *reinterpret_cast<volatile NVICICER5*>(0xE000E194); }
 };
@@ -243,7 +230,6 @@ union NVICICER6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICER6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICER6 &ref() { return *reinterpret_cast<volatile NVICICER6*>(0xE000E198); }
 };
@@ -260,7 +246,6 @@ union NVICISPR0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISPR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISPR0 &ref() { return *reinterpret_cast<volatile NVICISPR0*>(0xE000E200); }
 };
@@ -277,7 +262,6 @@ union NVICISPR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISPR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISPR1 &ref() { return *reinterpret_cast<volatile NVICISPR1*>(0xE000E204); }
 };
@@ -294,7 +278,6 @@ union NVICISPR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISPR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISPR2 &ref() { return *reinterpret_cast<volatile NVICISPR2*>(0xE000E208); }
 };
@@ -311,7 +294,6 @@ union NVICISPR3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISPR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISPR3 &ref() { return *reinterpret_cast<volatile NVICISPR3*>(0xE000E20C); }
 };
@@ -328,7 +310,6 @@ union NVICISPR4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISPR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISPR4 &ref() { return *reinterpret_cast<volatile NVICISPR4*>(0xE000E210); }
 };
@@ -345,7 +326,6 @@ union NVICISPR5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISPR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISPR5 &ref() { return *reinterpret_cast<volatile NVICISPR5*>(0xE000E214); }
 };
@@ -362,7 +342,6 @@ union NVICISPR6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICISPR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICISPR6 &ref() { return *reinterpret_cast<volatile NVICISPR6*>(0xE000E218); }
 };
@@ -379,7 +358,6 @@ union NVICICPR0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICPR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICPR0 &ref() { return *reinterpret_cast<volatile NVICICPR0*>(0xE000E280); }
 };
@@ -396,7 +374,6 @@ union NVICICPR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICPR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICPR1 &ref() { return *reinterpret_cast<volatile NVICICPR1*>(0xE000E284); }
 };
@@ -413,7 +390,6 @@ union NVICICPR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICPR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICPR2 &ref() { return *reinterpret_cast<volatile NVICICPR2*>(0xE000E288); }
 };
@@ -430,7 +406,6 @@ union NVICICPR3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICPR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICPR3 &ref() { return *reinterpret_cast<volatile NVICICPR3*>(0xE000E28C); }
 };
@@ -447,7 +422,6 @@ union NVICICPR4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICPR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICPR4 &ref() { return *reinterpret_cast<volatile NVICICPR4*>(0xE000E290); }
 };
@@ -464,7 +438,6 @@ union NVICICPR5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICPR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICPR5 &ref() { return *reinterpret_cast<volatile NVICICPR5*>(0xE000E294); }
 };
@@ -481,7 +454,6 @@ union NVICICPR6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICICPR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICICPR6 &ref() { return *reinterpret_cast<volatile NVICICPR6*>(0xE000E298); }
 };
@@ -498,7 +470,6 @@ union NVICIABR0 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICIABR0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIABR0 &ref() { return *reinterpret_cast<volatile NVICIABR0*>(0xE000E300); }
 };
@@ -515,7 +486,6 @@ union NVICIABR1 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICIABR1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIABR1 &ref() { return *reinterpret_cast<volatile NVICIABR1*>(0xE000E304); }
 };
@@ -532,7 +502,6 @@ union NVICIABR2 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICIABR2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIABR2 &ref() { return *reinterpret_cast<volatile NVICIABR2*>(0xE000E308); }
 };
@@ -549,7 +518,6 @@ union NVICIABR3 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICIABR3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIABR3 &ref() { return *reinterpret_cast<volatile NVICIABR3*>(0xE000E30C); }
 };
@@ -566,7 +534,6 @@ union NVICIABR4 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICIABR4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIABR4 &ref() { return *reinterpret_cast<volatile NVICIABR4*>(0xE000E310); }
 };
@@ -583,7 +550,6 @@ union NVICIABR5 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICIABR5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIABR5 &ref() { return *reinterpret_cast<volatile NVICIABR5*>(0xE000E314); }
 };
@@ -600,7 +566,6 @@ union NVICIABR6 {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICIABR6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIABR6 &ref() { return *reinterpret_cast<volatile NVICIABR6*>(0xE000E318); }
 };
@@ -618,7 +583,6 @@ union NVICIP0 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP0() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP0 &ref() { return *reinterpret_cast<volatile NVICIP0*>(0xE000E400); }
 };
@@ -636,7 +600,6 @@ union NVICIP1 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP1 &ref() { return *reinterpret_cast<volatile NVICIP1*>(0xE000E401); }
 };
@@ -654,7 +617,6 @@ union NVICIP2 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP2() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP2 &ref() { return *reinterpret_cast<volatile NVICIP2*>(0xE000E402); }
 };
@@ -672,7 +634,6 @@ union NVICIP3 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP3() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP3 &ref() { return *reinterpret_cast<volatile NVICIP3*>(0xE000E403); }
 };
@@ -690,7 +651,6 @@ union NVICIP4 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP4() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP4 &ref() { return *reinterpret_cast<volatile NVICIP4*>(0xE000E404); }
 };
@@ -708,7 +668,6 @@ union NVICIP5 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP5() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP5 &ref() { return *reinterpret_cast<volatile NVICIP5*>(0xE000E405); }
 };
@@ -726,7 +685,6 @@ union NVICIP6 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP6() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP6 &ref() { return *reinterpret_cast<volatile NVICIP6*>(0xE000E406); }
 };
@@ -744,7 +702,6 @@ union NVICIP7 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP7() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP7 &ref() { return *reinterpret_cast<volatile NVICIP7*>(0xE000E407); }
 };
@@ -762,7 +719,6 @@ union NVICIP8 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP8() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP8 &ref() { return *reinterpret_cast<volatile NVICIP8*>(0xE000E408); }
 };
@@ -780,7 +736,6 @@ union NVICIP9 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP9() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP9 &ref() { return *reinterpret_cast<volatile NVICIP9*>(0xE000E409); }
 };
@@ -798,7 +753,6 @@ union NVICIP10 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP10() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP10 &ref() { return *reinterpret_cast<volatile NVICIP10*>(0xE000E40A); }
 };
@@ -816,7 +770,6 @@ union NVICIP11 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP11() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP11 &ref() { return *reinterpret_cast<volatile NVICIP11*>(0xE000E40B); }
 };
@@ -834,7 +787,6 @@ union NVICIP12 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP12() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP12 &ref() { return *reinterpret_cast<volatile NVICIP12*>(0xE000E40C); }
 };
@@ -852,7 +804,6 @@ union NVICIP13 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP13() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP13 &ref() { return *reinterpret_cast<volatile NVICIP13*>(0xE000E40D); }
 };
@@ -870,7 +821,6 @@ union NVICIP14 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP14() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP14 &ref() { return *reinterpret_cast<volatile NVICIP14*>(0xE000E40E); }
 };
@@ -888,7 +838,6 @@ union NVICIP15 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP15() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP15 &ref() { return *reinterpret_cast<volatile NVICIP15*>(0xE000E40F); }
 };
@@ -906,7 +855,6 @@ union NVICIP16 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP16() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP16 &ref() { return *reinterpret_cast<volatile NVICIP16*>(0xE000E410); }
 };
@@ -924,7 +872,6 @@ union NVICIP17 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP17() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP17 &ref() { return *reinterpret_cast<volatile NVICIP17*>(0xE000E411); }
 };
@@ -942,7 +889,6 @@ union NVICIP18 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP18() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP18 &ref() { return *reinterpret_cast<volatile NVICIP18*>(0xE000E412); }
 };
@@ -960,7 +906,6 @@ union NVICIP19 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP19() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP19 &ref() { return *reinterpret_cast<volatile NVICIP19*>(0xE000E413); }
 };
@@ -978,7 +923,6 @@ union NVICIP20 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP20() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP20 &ref() { return *reinterpret_cast<volatile NVICIP20*>(0xE000E414); }
 };
@@ -996,7 +940,6 @@ union NVICIP21 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP21() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP21 &ref() { return *reinterpret_cast<volatile NVICIP21*>(0xE000E415); }
 };
@@ -1014,7 +957,6 @@ union NVICIP22 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP22() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP22 &ref() { return *reinterpret_cast<volatile NVICIP22*>(0xE000E416); }
 };
@@ -1032,7 +974,6 @@ union NVICIP23 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP23() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP23 &ref() { return *reinterpret_cast<volatile NVICIP23*>(0xE000E417); }
 };
@@ -1050,7 +991,6 @@ union NVICIP24 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP24() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP24 &ref() { return *reinterpret_cast<volatile NVICIP24*>(0xE000E418); }
 };
@@ -1068,7 +1008,6 @@ union NVICIP25 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP25() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP25 &ref() { return *reinterpret_cast<volatile NVICIP25*>(0xE000E419); }
 };
@@ -1086,7 +1025,6 @@ union NVICIP26 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP26() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP26 &ref() { return *reinterpret_cast<volatile NVICIP26*>(0xE000E41A); }
 };
@@ -1104,7 +1042,6 @@ union NVICIP27 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP27() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP27 &ref() { return *reinterpret_cast<volatile NVICIP27*>(0xE000E41B); }
 };
@@ -1122,7 +1059,6 @@ union NVICIP28 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP28() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP28 &ref() { return *reinterpret_cast<volatile NVICIP28*>(0xE000E41C); }
 };
@@ -1140,7 +1076,6 @@ union NVICIP29 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP29() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP29 &ref() { return *reinterpret_cast<volatile NVICIP29*>(0xE000E41D); }
 };
@@ -1158,7 +1093,6 @@ union NVICIP30 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP30() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP30 &ref() { return *reinterpret_cast<volatile NVICIP30*>(0xE000E41E); }
 };
@@ -1176,7 +1110,6 @@ union NVICIP31 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP31() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP31 &ref() { return *reinterpret_cast<volatile NVICIP31*>(0xE000E41F); }
 };
@@ -1194,7 +1127,6 @@ union NVICIP32 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP32() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP32 &ref() { return *reinterpret_cast<volatile NVICIP32*>(0xE000E420); }
 };
@@ -1212,7 +1144,6 @@ union NVICIP33 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP33() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP33 &ref() { return *reinterpret_cast<volatile NVICIP33*>(0xE000E421); }
 };
@@ -1230,7 +1161,6 @@ union NVICIP34 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP34() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP34 &ref() { return *reinterpret_cast<volatile NVICIP34*>(0xE000E422); }
 };
@@ -1248,7 +1178,6 @@ union NVICIP35 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP35() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP35 &ref() { return *reinterpret_cast<volatile NVICIP35*>(0xE000E423); }
 };
@@ -1266,7 +1195,6 @@ union NVICIP36 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP36() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP36 &ref() { return *reinterpret_cast<volatile NVICIP36*>(0xE000E424); }
 };
@@ -1284,7 +1212,6 @@ union NVICIP37 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP37() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP37 &ref() { return *reinterpret_cast<volatile NVICIP37*>(0xE000E425); }
 };
@@ -1302,7 +1229,6 @@ union NVICIP38 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP38() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP38 &ref() { return *reinterpret_cast<volatile NVICIP38*>(0xE000E426); }
 };
@@ -1320,7 +1246,6 @@ union NVICIP39 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP39() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP39 &ref() { return *reinterpret_cast<volatile NVICIP39*>(0xE000E427); }
 };
@@ -1338,7 +1263,6 @@ union NVICIP40 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP40() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP40 &ref() { return *reinterpret_cast<volatile NVICIP40*>(0xE000E428); }
 };
@@ -1356,7 +1280,6 @@ union NVICIP41 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP41() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP41 &ref() { return *reinterpret_cast<volatile NVICIP41*>(0xE000E429); }
 };
@@ -1374,7 +1297,6 @@ union NVICIP42 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP42() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP42 &ref() { return *reinterpret_cast<volatile NVICIP42*>(0xE000E42A); }
 };
@@ -1392,7 +1314,6 @@ union NVICIP43 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP43() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP43 &ref() { return *reinterpret_cast<volatile NVICIP43*>(0xE000E42B); }
 };
@@ -1410,7 +1331,6 @@ union NVICIP44 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP44() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP44 &ref() { return *reinterpret_cast<volatile NVICIP44*>(0xE000E42C); }
 };
@@ -1428,7 +1348,6 @@ union NVICIP45 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP45() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP45 &ref() { return *reinterpret_cast<volatile NVICIP45*>(0xE000E42D); }
 };
@@ -1446,7 +1365,6 @@ union NVICIP46 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP46() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP46 &ref() { return *reinterpret_cast<volatile NVICIP46*>(0xE000E42E); }
 };
@@ -1464,7 +1382,6 @@ union NVICIP47 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP47() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP47 &ref() { return *reinterpret_cast<volatile NVICIP47*>(0xE000E42F); }
 };
@@ -1482,7 +1399,6 @@ union NVICIP48 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP48() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP48 &ref() { return *reinterpret_cast<volatile NVICIP48*>(0xE000E430); }
 };
@@ -1500,7 +1416,6 @@ union NVICIP49 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP49() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP49 &ref() { return *reinterpret_cast<volatile NVICIP49*>(0xE000E431); }
 };
@@ -1518,7 +1433,6 @@ union NVICIP50 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP50() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP50 &ref() { return *reinterpret_cast<volatile NVICIP50*>(0xE000E432); }
 };
@@ -1536,7 +1450,6 @@ union NVICIP51 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP51() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP51 &ref() { return *reinterpret_cast<volatile NVICIP51*>(0xE000E433); }
 };
@@ -1554,7 +1467,6 @@ union NVICIP52 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP52() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP52 &ref() { return *reinterpret_cast<volatile NVICIP52*>(0xE000E434); }
 };
@@ -1572,7 +1484,6 @@ union NVICIP53 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP53() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP53 &ref() { return *reinterpret_cast<volatile NVICIP53*>(0xE000E435); }
 };
@@ -1590,7 +1501,6 @@ union NVICIP54 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP54() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP54 &ref() { return *reinterpret_cast<volatile NVICIP54*>(0xE000E436); }
 };
@@ -1608,7 +1518,6 @@ union NVICIP55 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP55() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP55 &ref() { return *reinterpret_cast<volatile NVICIP55*>(0xE000E437); }
 };
@@ -1626,7 +1535,6 @@ union NVICIP56 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP56() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP56 &ref() { return *reinterpret_cast<volatile NVICIP56*>(0xE000E438); }
 };
@@ -1644,7 +1552,6 @@ union NVICIP57 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP57() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP57 &ref() { return *reinterpret_cast<volatile NVICIP57*>(0xE000E439); }
 };
@@ -1662,7 +1569,6 @@ union NVICIP58 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP58() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP58 &ref() { return *reinterpret_cast<volatile NVICIP58*>(0xE000E43A); }
 };
@@ -1680,7 +1586,6 @@ union NVICIP59 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP59() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP59 &ref() { return *reinterpret_cast<volatile NVICIP59*>(0xE000E43B); }
 };
@@ -1698,7 +1603,6 @@ union NVICIP60 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP60() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP60 &ref() { return *reinterpret_cast<volatile NVICIP60*>(0xE000E43C); }
 };
@@ -1716,7 +1620,6 @@ union NVICIP61 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP61() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP61 &ref() { return *reinterpret_cast<volatile NVICIP61*>(0xE000E43D); }
 };
@@ -1734,7 +1637,6 @@ union NVICIP62 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP62() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP62 &ref() { return *reinterpret_cast<volatile NVICIP62*>(0xE000E43E); }
 };
@@ -1752,7 +1654,6 @@ union NVICIP63 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP63() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP63 &ref() { return *reinterpret_cast<volatile NVICIP63*>(0xE000E43F); }
 };
@@ -1770,7 +1671,6 @@ union NVICIP64 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP64() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP64 &ref() { return *reinterpret_cast<volatile NVICIP64*>(0xE000E440); }
 };
@@ -1788,7 +1688,6 @@ union NVICIP65 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP65() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP65 &ref() { return *reinterpret_cast<volatile NVICIP65*>(0xE000E441); }
 };
@@ -1806,7 +1705,6 @@ union NVICIP66 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP66() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP66 &ref() { return *reinterpret_cast<volatile NVICIP66*>(0xE000E442); }
 };
@@ -1824,7 +1722,6 @@ union NVICIP67 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP67() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP67 &ref() { return *reinterpret_cast<volatile NVICIP67*>(0xE000E443); }
 };
@@ -1842,7 +1739,6 @@ union NVICIP68 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP68() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP68 &ref() { return *reinterpret_cast<volatile NVICIP68*>(0xE000E444); }
 };
@@ -1860,7 +1756,6 @@ union NVICIP69 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP69() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP69 &ref() { return *reinterpret_cast<volatile NVICIP69*>(0xE000E445); }
 };
@@ -1878,7 +1773,6 @@ union NVICIP70 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP70() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP70 &ref() { return *reinterpret_cast<volatile NVICIP70*>(0xE000E446); }
 };
@@ -1896,7 +1790,6 @@ union NVICIP71 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP71() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP71 &ref() { return *reinterpret_cast<volatile NVICIP71*>(0xE000E447); }
 };
@@ -1914,7 +1807,6 @@ union NVICIP72 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP72() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP72 &ref() { return *reinterpret_cast<volatile NVICIP72*>(0xE000E448); }
 };
@@ -1932,7 +1824,6 @@ union NVICIP73 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP73() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP73 &ref() { return *reinterpret_cast<volatile NVICIP73*>(0xE000E449); }
 };
@@ -1950,7 +1841,6 @@ union NVICIP74 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP74() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP74 &ref() { return *reinterpret_cast<volatile NVICIP74*>(0xE000E44A); }
 };
@@ -1968,7 +1858,6 @@ union NVICIP75 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP75() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP75 &ref() { return *reinterpret_cast<volatile NVICIP75*>(0xE000E44B); }
 };
@@ -1986,7 +1875,6 @@ union NVICIP76 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP76() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP76 &ref() { return *reinterpret_cast<volatile NVICIP76*>(0xE000E44C); }
 };
@@ -2004,7 +1892,6 @@ union NVICIP77 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP77() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP77 &ref() { return *reinterpret_cast<volatile NVICIP77*>(0xE000E44D); }
 };
@@ -2022,7 +1909,6 @@ union NVICIP78 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP78() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP78 &ref() { return *reinterpret_cast<volatile NVICIP78*>(0xE000E44E); }
 };
@@ -2040,7 +1926,6 @@ union NVICIP79 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP79() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP79 &ref() { return *reinterpret_cast<volatile NVICIP79*>(0xE000E44F); }
 };
@@ -2058,7 +1943,6 @@ union NVICIP80 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP80() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP80 &ref() { return *reinterpret_cast<volatile NVICIP80*>(0xE000E450); }
 };
@@ -2076,7 +1960,6 @@ union NVICIP81 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP81() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP81 &ref() { return *reinterpret_cast<volatile NVICIP81*>(0xE000E451); }
 };
@@ -2094,7 +1977,6 @@ union NVICIP82 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP82() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP82 &ref() { return *reinterpret_cast<volatile NVICIP82*>(0xE000E452); }
 };
@@ -2112,7 +1994,6 @@ union NVICIP83 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP83() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP83 &ref() { return *reinterpret_cast<volatile NVICIP83*>(0xE000E453); }
 };
@@ -2130,7 +2011,6 @@ union NVICIP84 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP84() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP84 &ref() { return *reinterpret_cast<volatile NVICIP84*>(0xE000E454); }
 };
@@ -2148,7 +2028,6 @@ union NVICIP85 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP85() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP85 &ref() { return *reinterpret_cast<volatile NVICIP85*>(0xE000E455); }
 };
@@ -2166,7 +2045,6 @@ union NVICIP86 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP86() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP86 &ref() { return *reinterpret_cast<volatile NVICIP86*>(0xE000E456); }
 };
@@ -2184,7 +2062,6 @@ union NVICIP87 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP87() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP87 &ref() { return *reinterpret_cast<volatile NVICIP87*>(0xE000E457); }
 };
@@ -2202,7 +2079,6 @@ union NVICIP88 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP88() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP88 &ref() { return *reinterpret_cast<volatile NVICIP88*>(0xE000E458); }
 };
@@ -2220,7 +2096,6 @@ union NVICIP89 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP89() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP89 &ref() { return *reinterpret_cast<volatile NVICIP89*>(0xE000E459); }
 };
@@ -2238,7 +2113,6 @@ union NVICIP90 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP90() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP90 &ref() { return *reinterpret_cast<volatile NVICIP90*>(0xE000E45A); }
 };
@@ -2256,7 +2130,6 @@ union NVICIP91 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP91() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP91 &ref() { return *reinterpret_cast<volatile NVICIP91*>(0xE000E45B); }
 };
@@ -2274,7 +2147,6 @@ union NVICIP92 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP92() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP92 &ref() { return *reinterpret_cast<volatile NVICIP92*>(0xE000E45C); }
 };
@@ -2292,7 +2164,6 @@ union NVICIP93 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP93() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP93 &ref() { return *reinterpret_cast<volatile NVICIP93*>(0xE000E45D); }
 };
@@ -2310,7 +2181,6 @@ union NVICIP94 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP94() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP94 &ref() { return *reinterpret_cast<volatile NVICIP94*>(0xE000E45E); }
 };
@@ -2328,7 +2198,6 @@ union NVICIP95 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP95() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP95 &ref() { return *reinterpret_cast<volatile NVICIP95*>(0xE000E45F); }
 };
@@ -2346,7 +2215,6 @@ union NVICIP96 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP96() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP96 &ref() { return *reinterpret_cast<volatile NVICIP96*>(0xE000E460); }
 };
@@ -2364,7 +2232,6 @@ union NVICIP97 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP97() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP97 &ref() { return *reinterpret_cast<volatile NVICIP97*>(0xE000E461); }
 };
@@ -2382,7 +2249,6 @@ union NVICIP98 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP98() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP98 &ref() { return *reinterpret_cast<volatile NVICIP98*>(0xE000E462); }
 };
@@ -2400,7 +2266,6 @@ union NVICIP99 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP99() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP99 &ref() { return *reinterpret_cast<volatile NVICIP99*>(0xE000E463); }
 };
@@ -2418,7 +2283,6 @@ union NVICIP100 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP100() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP100 &ref() { return *reinterpret_cast<volatile NVICIP100*>(0xE000E464); }
 };
@@ -2436,7 +2300,6 @@ union NVICIP101 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP101() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP101 &ref() { return *reinterpret_cast<volatile NVICIP101*>(0xE000E465); }
 };
@@ -2454,7 +2317,6 @@ union NVICIP102 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP102() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP102 &ref() { return *reinterpret_cast<volatile NVICIP102*>(0xE000E466); }
 };
@@ -2472,7 +2334,6 @@ union NVICIP103 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP103() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP103 &ref() { return *reinterpret_cast<volatile NVICIP103*>(0xE000E467); }
 };
@@ -2490,7 +2351,6 @@ union NVICIP104 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP104() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP104 &ref() { return *reinterpret_cast<volatile NVICIP104*>(0xE000E468); }
 };
@@ -2508,7 +2368,6 @@ union NVICIP105 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP105() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP105 &ref() { return *reinterpret_cast<volatile NVICIP105*>(0xE000E469); }
 };
@@ -2526,7 +2385,6 @@ union NVICIP106 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP106() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP106 &ref() { return *reinterpret_cast<volatile NVICIP106*>(0xE000E46A); }
 };
@@ -2544,7 +2402,6 @@ union NVICIP107 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP107() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP107 &ref() { return *reinterpret_cast<volatile NVICIP107*>(0xE000E46B); }
 };
@@ -2562,7 +2419,6 @@ union NVICIP108 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP108() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP108 &ref() { return *reinterpret_cast<volatile NVICIP108*>(0xE000E46C); }
 };
@@ -2580,7 +2436,6 @@ union NVICIP109 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP109() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP109 &ref() { return *reinterpret_cast<volatile NVICIP109*>(0xE000E46D); }
 };
@@ -2598,7 +2453,6 @@ union NVICIP110 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP110() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP110 &ref() { return *reinterpret_cast<volatile NVICIP110*>(0xE000E46E); }
 };
@@ -2616,7 +2470,6 @@ union NVICIP111 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP111() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP111 &ref() { return *reinterpret_cast<volatile NVICIP111*>(0xE000E46F); }
 };
@@ -2634,7 +2487,6 @@ union NVICIP112 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP112() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP112 &ref() { return *reinterpret_cast<volatile NVICIP112*>(0xE000E470); }
 };
@@ -2652,7 +2504,6 @@ union NVICIP113 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP113() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP113 &ref() { return *reinterpret_cast<volatile NVICIP113*>(0xE000E471); }
 };
@@ -2670,7 +2521,6 @@ union NVICIP114 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP114() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP114 &ref() { return *reinterpret_cast<volatile NVICIP114*>(0xE000E472); }
 };
@@ -2688,7 +2538,6 @@ union NVICIP115 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP115() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP115 &ref() { return *reinterpret_cast<volatile NVICIP115*>(0xE000E473); }
 };
@@ -2706,7 +2555,6 @@ union NVICIP116 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP116() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP116 &ref() { return *reinterpret_cast<volatile NVICIP116*>(0xE000E474); }
 };
@@ -2724,7 +2572,6 @@ union NVICIP117 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP117() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP117 &ref() { return *reinterpret_cast<volatile NVICIP117*>(0xE000E475); }
 };
@@ -2742,7 +2589,6 @@ union NVICIP118 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP118() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP118 &ref() { return *reinterpret_cast<volatile NVICIP118*>(0xE000E476); }
 };
@@ -2760,7 +2606,6 @@ union NVICIP119 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP119() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP119 &ref() { return *reinterpret_cast<volatile NVICIP119*>(0xE000E477); }
 };
@@ -2778,7 +2623,6 @@ union NVICIP120 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP120() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP120 &ref() { return *reinterpret_cast<volatile NVICIP120*>(0xE000E478); }
 };
@@ -2796,7 +2640,6 @@ union NVICIP121 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP121() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP121 &ref() { return *reinterpret_cast<volatile NVICIP121*>(0xE000E479); }
 };
@@ -2814,7 +2657,6 @@ union NVICIP122 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP122() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP122 &ref() { return *reinterpret_cast<volatile NVICIP122*>(0xE000E47A); }
 };
@@ -2832,7 +2674,6 @@ union NVICIP123 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP123() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP123 &ref() { return *reinterpret_cast<volatile NVICIP123*>(0xE000E47B); }
 };
@@ -2850,7 +2691,6 @@ union NVICIP124 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP124() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP124 &ref() { return *reinterpret_cast<volatile NVICIP124*>(0xE000E47C); }
 };
@@ -2868,7 +2708,6 @@ union NVICIP125 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP125() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP125 &ref() { return *reinterpret_cast<volatile NVICIP125*>(0xE000E47D); }
 };
@@ -2886,7 +2725,6 @@ union NVICIP126 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP126() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP126 &ref() { return *reinterpret_cast<volatile NVICIP126*>(0xE000E47E); }
 };
@@ -2904,7 +2742,6 @@ union NVICIP127 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP127() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP127 &ref() { return *reinterpret_cast<volatile NVICIP127*>(0xE000E47F); }
 };
@@ -2922,7 +2759,6 @@ union NVICIP128 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP128() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP128 &ref() { return *reinterpret_cast<volatile NVICIP128*>(0xE000E480); }
 };
@@ -2940,7 +2776,6 @@ union NVICIP129 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP129() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP129 &ref() { return *reinterpret_cast<volatile NVICIP129*>(0xE000E481); }
 };
@@ -2958,7 +2793,6 @@ union NVICIP130 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP130() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP130 &ref() { return *reinterpret_cast<volatile NVICIP130*>(0xE000E482); }
 };
@@ -2976,7 +2810,6 @@ union NVICIP131 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP131() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP131 &ref() { return *reinterpret_cast<volatile NVICIP131*>(0xE000E483); }
 };
@@ -2994,7 +2827,6 @@ union NVICIP132 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP132() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP132 &ref() { return *reinterpret_cast<volatile NVICIP132*>(0xE000E484); }
 };
@@ -3012,7 +2844,6 @@ union NVICIP133 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP133() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP133 &ref() { return *reinterpret_cast<volatile NVICIP133*>(0xE000E485); }
 };
@@ -3030,7 +2861,6 @@ union NVICIP134 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP134() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP134 &ref() { return *reinterpret_cast<volatile NVICIP134*>(0xE000E486); }
 };
@@ -3048,7 +2878,6 @@ union NVICIP135 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP135() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP135 &ref() { return *reinterpret_cast<volatile NVICIP135*>(0xE000E487); }
 };
@@ -3066,7 +2895,6 @@ union NVICIP136 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP136() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP136 &ref() { return *reinterpret_cast<volatile NVICIP136*>(0xE000E488); }
 };
@@ -3084,7 +2912,6 @@ union NVICIP137 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP137() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP137 &ref() { return *reinterpret_cast<volatile NVICIP137*>(0xE000E489); }
 };
@@ -3102,7 +2929,6 @@ union NVICIP138 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP138() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP138 &ref() { return *reinterpret_cast<volatile NVICIP138*>(0xE000E48A); }
 };
@@ -3120,7 +2946,6 @@ union NVICIP139 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP139() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP139 &ref() { return *reinterpret_cast<volatile NVICIP139*>(0xE000E48B); }
 };
@@ -3138,7 +2963,6 @@ union NVICIP140 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP140() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP140 &ref() { return *reinterpret_cast<volatile NVICIP140*>(0xE000E48C); }
 };
@@ -3156,7 +2980,6 @@ union NVICIP141 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP141() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP141 &ref() { return *reinterpret_cast<volatile NVICIP141*>(0xE000E48D); }
 };
@@ -3174,7 +2997,6 @@ union NVICIP142 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP142() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP142 &ref() { return *reinterpret_cast<volatile NVICIP142*>(0xE000E48E); }
 };
@@ -3192,7 +3014,6 @@ union NVICIP143 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP143() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP143 &ref() { return *reinterpret_cast<volatile NVICIP143*>(0xE000E48F); }
 };
@@ -3210,7 +3031,6 @@ union NVICIP144 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP144() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP144 &ref() { return *reinterpret_cast<volatile NVICIP144*>(0xE000E490); }
 };
@@ -3228,7 +3048,6 @@ union NVICIP145 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP145() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP145 &ref() { return *reinterpret_cast<volatile NVICIP145*>(0xE000E491); }
 };
@@ -3246,7 +3065,6 @@ union NVICIP146 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP146() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP146 &ref() { return *reinterpret_cast<volatile NVICIP146*>(0xE000E492); }
 };
@@ -3264,7 +3082,6 @@ union NVICIP147 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP147() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP147 &ref() { return *reinterpret_cast<volatile NVICIP147*>(0xE000E493); }
 };
@@ -3282,7 +3099,6 @@ union NVICIP148 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP148() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP148 &ref() { return *reinterpret_cast<volatile NVICIP148*>(0xE000E494); }
 };
@@ -3300,7 +3116,6 @@ union NVICIP149 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP149() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP149 &ref() { return *reinterpret_cast<volatile NVICIP149*>(0xE000E495); }
 };
@@ -3318,7 +3133,6 @@ union NVICIP150 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP150() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP150 &ref() { return *reinterpret_cast<volatile NVICIP150*>(0xE000E496); }
 };
@@ -3336,7 +3150,6 @@ union NVICIP151 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP151() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP151 &ref() { return *reinterpret_cast<volatile NVICIP151*>(0xE000E497); }
 };
@@ -3354,7 +3167,6 @@ union NVICIP152 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP152() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP152 &ref() { return *reinterpret_cast<volatile NVICIP152*>(0xE000E498); }
 };
@@ -3372,7 +3184,6 @@ union NVICIP153 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP153() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP153 &ref() { return *reinterpret_cast<volatile NVICIP153*>(0xE000E499); }
 };
@@ -3390,7 +3201,6 @@ union NVICIP154 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP154() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP154 &ref() { return *reinterpret_cast<volatile NVICIP154*>(0xE000E49A); }
 };
@@ -3408,7 +3218,6 @@ union NVICIP155 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP155() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP155 &ref() { return *reinterpret_cast<volatile NVICIP155*>(0xE000E49B); }
 };
@@ -3426,7 +3235,6 @@ union NVICIP156 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP156() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP156 &ref() { return *reinterpret_cast<volatile NVICIP156*>(0xE000E49C); }
 };
@@ -3444,7 +3252,6 @@ union NVICIP157 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP157() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP157 &ref() { return *reinterpret_cast<volatile NVICIP157*>(0xE000E49D); }
 };
@@ -3462,7 +3269,6 @@ union NVICIP158 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP158() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP158 &ref() { return *reinterpret_cast<volatile NVICIP158*>(0xE000E49E); }
 };
@@ -3480,7 +3286,6 @@ union NVICIP159 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP159() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP159 &ref() { return *reinterpret_cast<volatile NVICIP159*>(0xE000E49F); }
 };
@@ -3498,7 +3303,6 @@ union NVICIP160 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP160() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP160 &ref() { return *reinterpret_cast<volatile NVICIP160*>(0xE000E4A0); }
 };
@@ -3516,7 +3320,6 @@ union NVICIP161 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP161() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP161 &ref() { return *reinterpret_cast<volatile NVICIP161*>(0xE000E4A1); }
 };
@@ -3534,7 +3337,6 @@ union NVICIP162 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP162() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP162 &ref() { return *reinterpret_cast<volatile NVICIP162*>(0xE000E4A2); }
 };
@@ -3552,7 +3354,6 @@ union NVICIP163 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP163() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP163 &ref() { return *reinterpret_cast<volatile NVICIP163*>(0xE000E4A3); }
 };
@@ -3570,7 +3371,6 @@ union NVICIP164 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP164() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP164 &ref() { return *reinterpret_cast<volatile NVICIP164*>(0xE000E4A4); }
 };
@@ -3588,7 +3388,6 @@ union NVICIP165 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP165() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP165 &ref() { return *reinterpret_cast<volatile NVICIP165*>(0xE000E4A5); }
 };
@@ -3606,7 +3405,6 @@ union NVICIP166 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP166() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP166 &ref() { return *reinterpret_cast<volatile NVICIP166*>(0xE000E4A6); }
 };
@@ -3624,7 +3422,6 @@ union NVICIP167 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP167() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP167 &ref() { return *reinterpret_cast<volatile NVICIP167*>(0xE000E4A7); }
 };
@@ -3642,7 +3439,6 @@ union NVICIP168 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP168() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP168 &ref() { return *reinterpret_cast<volatile NVICIP168*>(0xE000E4A8); }
 };
@@ -3660,7 +3456,6 @@ union NVICIP169 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP169() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP169 &ref() { return *reinterpret_cast<volatile NVICIP169*>(0xE000E4A9); }
 };
@@ -3678,7 +3473,6 @@ union NVICIP170 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP170() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP170 &ref() { return *reinterpret_cast<volatile NVICIP170*>(0xE000E4AA); }
 };
@@ -3696,7 +3490,6 @@ union NVICIP171 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP171() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP171 &ref() { return *reinterpret_cast<volatile NVICIP171*>(0xE000E4AB); }
 };
@@ -3714,7 +3507,6 @@ union NVICIP172 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP172() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP172 &ref() { return *reinterpret_cast<volatile NVICIP172*>(0xE000E4AC); }
 };
@@ -3732,7 +3524,6 @@ union NVICIP173 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP173() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP173 &ref() { return *reinterpret_cast<volatile NVICIP173*>(0xE000E4AD); }
 };
@@ -3750,7 +3541,6 @@ union NVICIP174 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP174() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP174 &ref() { return *reinterpret_cast<volatile NVICIP174*>(0xE000E4AE); }
 };
@@ -3768,7 +3558,6 @@ union NVICIP175 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP175() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP175 &ref() { return *reinterpret_cast<volatile NVICIP175*>(0xE000E4AF); }
 };
@@ -3786,7 +3575,6 @@ union NVICIP176 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP176() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP176 &ref() { return *reinterpret_cast<volatile NVICIP176*>(0xE000E4B0); }
 };
@@ -3804,7 +3592,6 @@ union NVICIP177 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP177() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP177 &ref() { return *reinterpret_cast<volatile NVICIP177*>(0xE000E4B1); }
 };
@@ -3822,7 +3609,6 @@ union NVICIP178 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP178() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP178 &ref() { return *reinterpret_cast<volatile NVICIP178*>(0xE000E4B2); }
 };
@@ -3840,7 +3626,6 @@ union NVICIP179 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP179() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP179 &ref() { return *reinterpret_cast<volatile NVICIP179*>(0xE000E4B3); }
 };
@@ -3858,7 +3643,6 @@ union NVICIP180 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP180() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP180 &ref() { return *reinterpret_cast<volatile NVICIP180*>(0xE000E4B4); }
 };
@@ -3876,7 +3660,6 @@ union NVICIP181 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP181() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP181 &ref() { return *reinterpret_cast<volatile NVICIP181*>(0xE000E4B5); }
 };
@@ -3894,7 +3677,6 @@ union NVICIP182 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP182() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP182 &ref() { return *reinterpret_cast<volatile NVICIP182*>(0xE000E4B6); }
 };
@@ -3912,7 +3694,6 @@ union NVICIP183 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP183() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP183 &ref() { return *reinterpret_cast<volatile NVICIP183*>(0xE000E4B7); }
 };
@@ -3930,7 +3711,6 @@ union NVICIP184 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP184() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP184 &ref() { return *reinterpret_cast<volatile NVICIP184*>(0xE000E4B8); }
 };
@@ -3948,7 +3728,6 @@ union NVICIP185 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP185() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP185 &ref() { return *reinterpret_cast<volatile NVICIP185*>(0xE000E4B9); }
 };
@@ -3966,7 +3745,6 @@ union NVICIP186 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP186() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP186 &ref() { return *reinterpret_cast<volatile NVICIP186*>(0xE000E4BA); }
 };
@@ -3984,7 +3762,6 @@ union NVICIP187 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP187() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP187 &ref() { return *reinterpret_cast<volatile NVICIP187*>(0xE000E4BB); }
 };
@@ -4002,7 +3779,6 @@ union NVICIP188 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP188() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP188 &ref() { return *reinterpret_cast<volatile NVICIP188*>(0xE000E4BC); }
 };
@@ -4020,7 +3796,6 @@ union NVICIP189 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP189() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP189 &ref() { return *reinterpret_cast<volatile NVICIP189*>(0xE000E4BD); }
 };
@@ -4038,7 +3813,6 @@ union NVICIP190 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP190() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP190 &ref() { return *reinterpret_cast<volatile NVICIP190*>(0xE000E4BE); }
 };
@@ -4056,7 +3830,6 @@ union NVICIP191 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP191() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP191 &ref() { return *reinterpret_cast<volatile NVICIP191*>(0xE000E4BF); }
 };
@@ -4074,7 +3847,6 @@ union NVICIP192 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP192() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP192 &ref() { return *reinterpret_cast<volatile NVICIP192*>(0xE000E4C0); }
 };
@@ -4092,7 +3864,6 @@ union NVICIP193 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP193() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP193 &ref() { return *reinterpret_cast<volatile NVICIP193*>(0xE000E4C1); }
 };
@@ -4110,7 +3881,6 @@ union NVICIP194 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP194() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP194 &ref() { return *reinterpret_cast<volatile NVICIP194*>(0xE000E4C2); }
 };
@@ -4128,7 +3898,6 @@ union NVICIP195 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP195() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP195 &ref() { return *reinterpret_cast<volatile NVICIP195*>(0xE000E4C3); }
 };
@@ -4146,7 +3915,6 @@ union NVICIP196 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP196() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP196 &ref() { return *reinterpret_cast<volatile NVICIP196*>(0xE000E4C4); }
 };
@@ -4164,7 +3932,6 @@ union NVICIP197 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP197() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP197 &ref() { return *reinterpret_cast<volatile NVICIP197*>(0xE000E4C5); }
 };
@@ -4182,7 +3949,6 @@ union NVICIP198 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP198() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP198 &ref() { return *reinterpret_cast<volatile NVICIP198*>(0xE000E4C6); }
 };
@@ -4200,7 +3966,6 @@ union NVICIP199 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP199() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP199 &ref() { return *reinterpret_cast<volatile NVICIP199*>(0xE000E4C7); }
 };
@@ -4218,7 +3983,6 @@ union NVICIP200 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP200() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP200 &ref() { return *reinterpret_cast<volatile NVICIP200*>(0xE000E4C8); }
 };
@@ -4236,7 +4000,6 @@ union NVICIP201 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP201() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP201 &ref() { return *reinterpret_cast<volatile NVICIP201*>(0xE000E4C9); }
 };
@@ -4254,7 +4017,6 @@ union NVICIP202 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP202() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP202 &ref() { return *reinterpret_cast<volatile NVICIP202*>(0xE000E4CA); }
 };
@@ -4272,7 +4034,6 @@ union NVICIP203 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP203() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP203 &ref() { return *reinterpret_cast<volatile NVICIP203*>(0xE000E4CB); }
 };
@@ -4290,7 +4051,6 @@ union NVICIP204 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP204() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP204 &ref() { return *reinterpret_cast<volatile NVICIP204*>(0xE000E4CC); }
 };
@@ -4308,7 +4068,6 @@ union NVICIP205 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP205() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP205 &ref() { return *reinterpret_cast<volatile NVICIP205*>(0xE000E4CD); }
 };
@@ -4326,7 +4085,6 @@ union NVICIP206 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP206() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP206 &ref() { return *reinterpret_cast<volatile NVICIP206*>(0xE000E4CE); }
 };
@@ -4344,7 +4102,6 @@ union NVICIP207 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP207() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP207 &ref() { return *reinterpret_cast<volatile NVICIP207*>(0xE000E4CF); }
 };
@@ -4362,7 +4119,6 @@ union NVICIP208 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP208() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP208 &ref() { return *reinterpret_cast<volatile NVICIP208*>(0xE000E4D0); }
 };
@@ -4380,7 +4136,6 @@ union NVICIP209 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP209() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP209 &ref() { return *reinterpret_cast<volatile NVICIP209*>(0xE000E4D1); }
 };
@@ -4398,7 +4153,6 @@ union NVICIP210 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP210() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP210 &ref() { return *reinterpret_cast<volatile NVICIP210*>(0xE000E4D2); }
 };
@@ -4416,7 +4170,6 @@ union NVICIP211 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP211() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP211 &ref() { return *reinterpret_cast<volatile NVICIP211*>(0xE000E4D3); }
 };
@@ -4434,7 +4187,6 @@ union NVICIP212 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP212() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP212 &ref() { return *reinterpret_cast<volatile NVICIP212*>(0xE000E4D4); }
 };
@@ -4452,7 +4204,6 @@ union NVICIP213 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP213() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP213 &ref() { return *reinterpret_cast<volatile NVICIP213*>(0xE000E4D5); }
 };
@@ -4470,7 +4221,6 @@ union NVICIP214 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP214() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP214 &ref() { return *reinterpret_cast<volatile NVICIP214*>(0xE000E4D6); }
 };
@@ -4488,7 +4238,6 @@ union NVICIP215 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP215() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP215 &ref() { return *reinterpret_cast<volatile NVICIP215*>(0xE000E4D7); }
 };
@@ -4506,7 +4255,6 @@ union NVICIP216 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP216() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP216 &ref() { return *reinterpret_cast<volatile NVICIP216*>(0xE000E4D8); }
 };
@@ -4524,7 +4272,6 @@ union NVICIP217 {
   // Full 8-bit register value.
   uint8_t value;
 
-  NVICIP217() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICIP217 &ref() { return *reinterpret_cast<volatile NVICIP217*>(0xE000E4D9); }
 };
@@ -4542,7 +4289,6 @@ union NVICSTIR {
   // Full 32-bit register value.
   uint32_t value;
 
-  NVICSTIR() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile NVICSTIR &ref() { return *reinterpret_cast<volatile NVICSTIR*>(0xE000EF00); }
 };

@@ -22,7 +22,6 @@ union MISC_DIFPROG {
   // Full 32-bit register value.
   uint32_t value;
 
-  MISC_DIFPROG() = delete;
   inline void Reset() volatile { this->value = 0x001170B0; }
   static inline volatile MISC_DIFPROG &ref() { return *reinterpret_cast<volatile MISC_DIFPROG*>(0x40C84800); }
 };
@@ -43,7 +42,6 @@ union VDDSOC_AI_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDSOC_AI_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDSOC_AI_CTRL &ref() { return *reinterpret_cast<volatile VDDSOC_AI_CTRL*>(0x40C84820); }
 };
@@ -60,7 +58,6 @@ union VDDSOC_AI_WDATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDSOC_AI_WDATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDSOC_AI_WDATA &ref() { return *reinterpret_cast<volatile VDDSOC_AI_WDATA*>(0x40C84830); }
 };
@@ -77,7 +74,6 @@ union VDDSOC_AI_RDATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDSOC_AI_RDATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDSOC_AI_RDATA &ref() { return *reinterpret_cast<volatile VDDSOC_AI_RDATA*>(0x40C84840); }
 };
@@ -102,7 +98,6 @@ union VDDSOC2PLL_AI_CTRL_1G {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDSOC2PLL_AI_CTRL_1G() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDSOC2PLL_AI_CTRL_1G &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_CTRL_1G*>(0x40C84850); }
 };
@@ -119,7 +114,6 @@ union VDDSOC2PLL_AI_WDATA_1G {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDSOC2PLL_AI_WDATA_1G() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDSOC2PLL_AI_WDATA_1G &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_WDATA_1G*>(0x40C84860); }
 };
@@ -136,7 +130,6 @@ union VDDSOC2PLL_AI_RDATA_1G {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDSOC2PLL_AI_RDATA_1G() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDSOC2PLL_AI_RDATA_1G &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_RDATA_1G*>(0x40C84870); }
 };
@@ -161,7 +154,6 @@ union VDDSOC2PLL_AI_CTRL_AUDIO {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDSOC2PLL_AI_CTRL_AUDIO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDSOC2PLL_AI_CTRL_AUDIO &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_CTRL_AUDIO*>(0x40C84880); }
 };
@@ -178,7 +170,6 @@ union VDDSOC2PLL_AI_WDATA_AUDIO {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDSOC2PLL_AI_WDATA_AUDIO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDSOC2PLL_AI_WDATA_AUDIO &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_WDATA_AUDIO*>(0x40C84890); }
 };
@@ -195,7 +186,6 @@ union VDDSOC2PLL_AI_RDATA_AUDIO {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDSOC2PLL_AI_RDATA_AUDIO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDSOC2PLL_AI_RDATA_AUDIO &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_RDATA_AUDIO*>(0x40C848A0); }
 };
@@ -220,7 +210,6 @@ union VDDSOC2PLL_AI_CTRL_VIDEO {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDSOC2PLL_AI_CTRL_VIDEO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDSOC2PLL_AI_CTRL_VIDEO &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_CTRL_VIDEO*>(0x40C848B0); }
 };
@@ -237,7 +226,6 @@ union VDDSOC2PLL_AI_WDATA_VIDEO {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDSOC2PLL_AI_WDATA_VIDEO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDSOC2PLL_AI_WDATA_VIDEO &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_WDATA_VIDEO*>(0x40C848C0); }
 };
@@ -254,7 +242,6 @@ union VDDSOC2PLL_AI_RDATA_VIDEO {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDSOC2PLL_AI_RDATA_VIDEO() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDSOC2PLL_AI_RDATA_VIDEO &ref() { return *reinterpret_cast<volatile VDDSOC2PLL_AI_RDATA_VIDEO*>(0x40C848D0); }
 };
@@ -275,7 +262,6 @@ union VDDLPSR_AI_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDLPSR_AI_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDLPSR_AI_CTRL &ref() { return *reinterpret_cast<volatile VDDLPSR_AI_CTRL*>(0x40C848E0); }
 };
@@ -292,7 +278,6 @@ union VDDLPSR_AI_WDATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDLPSR_AI_WDATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDLPSR_AI_WDATA &ref() { return *reinterpret_cast<volatile VDDLPSR_AI_WDATA*>(0x40C848F0); }
 };
@@ -309,7 +294,6 @@ union VDDLPSR_AI_RDATA_REFTOP {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDLPSR_AI_RDATA_REFTOP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDLPSR_AI_RDATA_REFTOP &ref() { return *reinterpret_cast<volatile VDDLPSR_AI_RDATA_REFTOP*>(0x40C84900); }
 };
@@ -326,7 +310,6 @@ union VDDLPSR_AI_RDATA_TMPSNS {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDLPSR_AI_RDATA_TMPSNS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDLPSR_AI_RDATA_TMPSNS &ref() { return *reinterpret_cast<volatile VDDLPSR_AI_RDATA_TMPSNS*>(0x40C84910); }
 };
@@ -351,7 +334,6 @@ union VDDLPSR_AI400M_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDLPSR_AI400M_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDLPSR_AI400M_CTRL &ref() { return *reinterpret_cast<volatile VDDLPSR_AI400M_CTRL*>(0x40C84920); }
 };
@@ -368,7 +350,6 @@ union VDDLPSR_AI400M_WDATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDLPSR_AI400M_WDATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDLPSR_AI400M_WDATA &ref() { return *reinterpret_cast<volatile VDDLPSR_AI400M_WDATA*>(0x40C84930); }
 };
@@ -385,7 +366,6 @@ union VDDLPSR_AI400M_RDATA {
   // Full 32-bit register value.
   uint32_t value;
 
-  VDDLPSR_AI400M_RDATA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VDDLPSR_AI400M_RDATA &ref() { return *reinterpret_cast<volatile VDDLPSR_AI400M_RDATA*>(0x40C84940); }
 };

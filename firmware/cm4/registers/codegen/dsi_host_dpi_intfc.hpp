@@ -23,7 +23,6 @@ union PIXEL_PAYLOAD_SIZE {
   // Full 32-bit register value.
   uint32_t value;
 
-  PIXEL_PAYLOAD_SIZE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PIXEL_PAYLOAD_SIZE &ref() { return *reinterpret_cast<volatile PIXEL_PAYLOAD_SIZE*>(0x4080C200); }
 };
@@ -41,7 +40,6 @@ union PIXEL_FIFO_SEND_LEVEL {
   // Full 32-bit register value.
   uint32_t value;
 
-  PIXEL_FIFO_SEND_LEVEL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PIXEL_FIFO_SEND_LEVEL &ref() { return *reinterpret_cast<volatile PIXEL_FIFO_SEND_LEVEL*>(0x4080C204); }
 };
@@ -75,7 +73,6 @@ union INTERFACE_COLOR_CODING {
   // Full 32-bit register value.
   uint32_t value;
 
-  INTERFACE_COLOR_CODING() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile INTERFACE_COLOR_CODING &ref() { return *reinterpret_cast<volatile INTERFACE_COLOR_CODING*>(0x4080C208); }
 };
@@ -105,7 +102,6 @@ union PIXEL_FORMAT {
   // Full 32-bit register value.
   uint32_t value;
 
-  PIXEL_FORMAT() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile PIXEL_FORMAT &ref() { return *reinterpret_cast<volatile PIXEL_FORMAT*>(0x4080C20C); }
 };
@@ -131,7 +127,6 @@ union VSYNC_POLARITY {
   // Full 32-bit register value.
   uint32_t value;
 
-  VSYNC_POLARITY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VSYNC_POLARITY &ref() { return *reinterpret_cast<volatile VSYNC_POLARITY*>(0x4080C210); }
 };
@@ -157,7 +152,6 @@ union HSYNC_POLARITY {
   // Full 32-bit register value.
   uint32_t value;
 
-  HSYNC_POLARITY() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HSYNC_POLARITY &ref() { return *reinterpret_cast<volatile HSYNC_POLARITY*>(0x4080C214); }
 };
@@ -185,7 +179,6 @@ union VIDEO_MODE {
   // Full 32-bit register value.
   uint32_t value;
 
-  VIDEO_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VIDEO_MODE &ref() { return *reinterpret_cast<volatile VIDEO_MODE*>(0x4080C218); }
 };
@@ -203,7 +196,6 @@ union HFP {
   // Full 32-bit register value.
   uint32_t value;
 
-  HFP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HFP &ref() { return *reinterpret_cast<volatile HFP*>(0x4080C21C); }
 };
@@ -221,7 +213,6 @@ union HBP {
   // Full 32-bit register value.
   uint32_t value;
 
-  HBP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HBP &ref() { return *reinterpret_cast<volatile HBP*>(0x4080C220); }
 };
@@ -239,7 +230,6 @@ union HSA {
   // Full 32-bit register value.
   uint32_t value;
 
-  HSA() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile HSA &ref() { return *reinterpret_cast<volatile HSA*>(0x4080C224); }
 };
@@ -265,7 +255,6 @@ union ENABLE_MULT_PKTS {
   // Full 32-bit register value.
   uint32_t value;
 
-  ENABLE_MULT_PKTS() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile ENABLE_MULT_PKTS &ref() { return *reinterpret_cast<volatile ENABLE_MULT_PKTS*>(0x4080C228); }
 };
@@ -283,7 +272,6 @@ union VBP {
   // Full 32-bit register value.
   uint32_t value;
 
-  VBP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VBP &ref() { return *reinterpret_cast<volatile VBP*>(0x4080C22C); }
 };
@@ -301,7 +289,6 @@ union VFP {
   // Full 32-bit register value.
   uint32_t value;
 
-  VFP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VFP &ref() { return *reinterpret_cast<volatile VFP*>(0x4080C230); }
 };
@@ -327,7 +314,6 @@ union BLLP_MODE {
   // Full 32-bit register value.
   uint32_t value;
 
-  BLLP_MODE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BLLP_MODE &ref() { return *reinterpret_cast<volatile BLLP_MODE*>(0x4080C234); }
 };
@@ -353,7 +339,6 @@ union USE_NULL_PKT_BLLP {
   // Full 32-bit register value.
   uint32_t value;
 
-  USE_NULL_PKT_BLLP() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile USE_NULL_PKT_BLLP &ref() { return *reinterpret_cast<volatile USE_NULL_PKT_BLLP*>(0x4080C238); }
 };
@@ -371,7 +356,6 @@ union VACTIVE {
   // Full 32-bit register value.
   uint32_t value;
 
-  VACTIVE() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile VACTIVE &ref() { return *reinterpret_cast<volatile VACTIVE*>(0x4080C23C); }
 };

@@ -24,7 +24,6 @@ union MIF_AUTHEN_CTRL {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIF_AUTHEN_CTRL() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile MIF_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile MIF_AUTHEN_CTRL*>(0x40C89104); }
 };
@@ -42,7 +41,6 @@ union MIF_MLPL_SLEEP {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIF_MLPL_SLEEP() = delete;
   inline void Reset() volatile { this->value = 0x0000FF00; }
   static inline volatile MIF_MLPL_SLEEP &ref() { return *reinterpret_cast<volatile MIF_MLPL_SLEEP*>(0x40C89110); }
 };
@@ -60,7 +58,6 @@ union MIF_MLPL_IG {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIF_MLPL_IG() = delete;
   inline void Reset() volatile { this->value = 0x00000060; }
   static inline volatile MIF_MLPL_IG &ref() { return *reinterpret_cast<volatile MIF_MLPL_IG*>(0x40C89120); }
 };
@@ -78,7 +75,6 @@ union MIF_MLPL_LS {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIF_MLPL_LS() = delete;
   inline void Reset() volatile { this->value = 0x00000010; }
   static inline volatile MIF_MLPL_LS &ref() { return *reinterpret_cast<volatile MIF_MLPL_LS*>(0x40C89130); }
 };
@@ -96,7 +92,6 @@ union MIF_MLPL_HS {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIF_MLPL_HS() = delete;
   inline void Reset() volatile { this->value = 0x00000002; }
   static inline volatile MIF_MLPL_HS &ref() { return *reinterpret_cast<volatile MIF_MLPL_HS*>(0x40C89140); }
 };
@@ -114,7 +109,6 @@ union MIF_MLPL_STDBY {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIF_MLPL_STDBY() = delete;
   inline void Reset() volatile { this->value = 0x00000040; }
   static inline volatile MIF_MLPL_STDBY &ref() { return *reinterpret_cast<volatile MIF_MLPL_STDBY*>(0x40C89150); }
 };
@@ -132,7 +126,6 @@ union MIF_MLPL_ARR_PDN {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIF_MLPL_ARR_PDN() = delete;
   inline void Reset() volatile { this->value = 0x00000C00; }
   static inline volatile MIF_MLPL_ARR_PDN &ref() { return *reinterpret_cast<volatile MIF_MLPL_ARR_PDN*>(0x40C89160); }
 };
@@ -150,7 +143,6 @@ union MIF_MLPL_PER_PDN {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIF_MLPL_PER_PDN() = delete;
   inline void Reset() volatile { this->value = 0x00004A00; }
   static inline volatile MIF_MLPL_PER_PDN &ref() { return *reinterpret_cast<volatile MIF_MLPL_PER_PDN*>(0x40C89170); }
 };
@@ -170,7 +162,6 @@ union MIF_MLPL_INITN {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIF_MLPL_INITN() = delete;
   inline void Reset() volatile { this->value = 0x000035FF; }
   static inline volatile MIF_MLPL_INITN &ref() { return *reinterpret_cast<volatile MIF_MLPL_INITN*>(0x40C89180); }
 };
@@ -188,7 +179,6 @@ union MIF_MLPL_ISO {
   // Full 32-bit register value.
   uint32_t value;
 
-  MIF_MLPL_ISO() = delete;
   inline void Reset() volatile { this->value = 0x0000CA00; }
   static inline volatile MIF_MLPL_ISO &ref() { return *reinterpret_cast<volatile MIF_MLPL_ISO*>(0x40C891B0); }
 };

@@ -132,7 +132,6 @@ union BFCRT010 {
   // Full 16-bit register value.
   uint16_t value;
 
-  BFCRT010() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BFCRT010 &ref() { return *reinterpret_cast<volatile BFCRT010*>(0x400BC000); }
 };
@@ -259,7 +258,6 @@ union BFCRT230 {
   // Full 16-bit register value.
   uint16_t value;
 
-  BFCRT230() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BFCRT230 &ref() { return *reinterpret_cast<volatile BFCRT230*>(0x400BC002); }
 };
@@ -386,7 +384,6 @@ union BFCRT011 {
   // Full 16-bit register value.
   uint16_t value;
 
-  BFCRT011() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BFCRT011 &ref() { return *reinterpret_cast<volatile BFCRT011*>(0x400BC004); }
 };
@@ -513,7 +510,6 @@ union BFCRT231 {
   // Full 16-bit register value.
   uint16_t value;
 
-  BFCRT231() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BFCRT231 &ref() { return *reinterpret_cast<volatile BFCRT231*>(0x400BC006); }
 };
@@ -640,7 +636,6 @@ union BFCRT012 {
   // Full 16-bit register value.
   uint16_t value;
 
-  BFCRT012() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BFCRT012 &ref() { return *reinterpret_cast<volatile BFCRT012*>(0x400BC008); }
 };
@@ -767,7 +762,6 @@ union BFCRT232 {
   // Full 16-bit register value.
   uint16_t value;
 
-  BFCRT232() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BFCRT232 &ref() { return *reinterpret_cast<volatile BFCRT232*>(0x400BC00A); }
 };
@@ -894,7 +888,6 @@ union BFCRT013 {
   // Full 16-bit register value.
   uint16_t value;
 
-  BFCRT013() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BFCRT013 &ref() { return *reinterpret_cast<volatile BFCRT013*>(0x400BC00C); }
 };
@@ -1021,7 +1014,6 @@ union BFCRT233 {
   // Full 16-bit register value.
   uint16_t value;
 
-  BFCRT233() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile BFCRT233 &ref() { return *reinterpret_cast<volatile BFCRT233*>(0x400BC00E); }
 };
