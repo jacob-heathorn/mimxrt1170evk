@@ -13,7 +13,9 @@
 #include "drivers/ethernet/detail/tx_frame.h"
 #include "drivers/ethernet/detail/rx_descriptor_ring.h"
 
-// TODO: Link mode change not yet implemented.
+// TODO: Missing features
+// 1) Link mode change.
+// 2) Multicast support
 
 // C++ driver class for Gigabit Ethernet
 class GigabitEthernetDriver : public ftl::Singleton<GigabitEthernetDriver> {
@@ -38,7 +40,6 @@ public:
     ethernet::Frame receive();
 
     // Configure MAC with address and other settings
-    // This will be expanded to include more configuration later
     void configureMac(const std::array<uint8_t, 6>& macAddr);
 
     // Enable the Ethernet controller and interrupts
