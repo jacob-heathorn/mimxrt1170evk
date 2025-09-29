@@ -8,6 +8,7 @@
 #include "detail/gigabit_mac.h"
 #include "detail/phyrtl8211f.h"
 #include "registers/codegen/enet_1g.hpp"
+#include "fsl_common.h"  // For EnableIRQ/DisableIRQ through CMSIS
 
 // PHY configuration constants
 constexpr uint8_t kPhyAddress = 0x01;  // PHY address for ENET port 1
@@ -254,6 +255,35 @@ ethernet::Frame GigabitEthernetDriver::receive() {
     }
 
     return frame;
+}
+
+void GigabitEthernetDriver::enable() {
+    // Enable Ethernet interrupts (RX and TX frame interrupts)
+    nENET_1G::EIMR::ref().value |= (1U << 25) | (1U << 27);  // RXF_MASK | TXF_MASK
+
+    // Start Ethernet controller
+    // The buffer descriptor bytes are swapped to support little-endian devices
+    // The DBSWP field must be written to 1 after reset
+    nENET_1G::ECR ecr_val = { .value = nENET_1G::ECR::ref().value };
+    ecr_val.bits.ETHEREN = nENET_1G::ECR::eETHEREN::eONE;  // Enable Ethernet
+    ecr_val.bits.DBSWP = nENET_1G::ECR::eDBSWP::eONE;      // Descriptor byte swapping
+    nENET_1G::ECR::ref().value = ecr_val.value;
+
+    // Enable interrupt at NVIC level
+    EnableIRQ(ENET_1G_IRQn);
+
+    // Activate RX descriptor - tell hardware that descriptors are ready
+    nENET_1G::RDAR::ref().value = 1;
+}
+
+void GigabitEthernetDriver::disable() {
+    // Disable interrupt at NVIC level
+    DisableIRQ(ENET_1G_IRQn);
+
+    // Stop the Ethernet controller
+    nENET_1G::ECR ecr_val = { .value = nENET_1G::ECR::ref().value };
+    ecr_val.bits.ETHEREN = nENET_1G::ECR::eETHEREN::eZERO;  // Disable Ethernet
+    nENET_1G::ECR::ref().value = ecr_val.value;
 }
 
 void GigabitEthernetDriver::configureMac(const std::array<uint8_t, 6>& macAddr) {

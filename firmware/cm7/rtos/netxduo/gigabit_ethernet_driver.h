@@ -40,6 +40,14 @@ public:
     // This will be expanded to include more configuration later
     void configureMac(const std::array<uint8_t, 6>& macAddr);
 
+    // Enable the Ethernet controller and interrupts
+    // Starts the Ethernet hardware and activates RX descriptor processing
+    void enable();
+
+    // Disable the Ethernet controller and interrupts
+    // Stops the Ethernet hardware
+    void disable();
+
 private:
     // Reset the driver - clears TX queue and resets TX/RX descriptor rings
     // Returns true on success, false on error

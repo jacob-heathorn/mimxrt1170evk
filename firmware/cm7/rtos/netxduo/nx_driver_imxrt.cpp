@@ -97,8 +97,6 @@ static VOID         _nx_driver_capability_set(NX_IP_DRIVER *driver_req_ptr);
    driver-specific.  */
 
 static UINT         _nx_driver_hardware_initialize(NX_IP_DRIVER *driver_req_ptr);
-static UINT         _nx_driver_hardware_enable(NX_IP_DRIVER *driver_req_ptr);
-static UINT         _nx_driver_hardware_disable(NX_IP_DRIVER *driver_req_ptr);
 static UINT         _nx_driver_hardware_packet_send(NX_PACKET *packet_ptr);
 static UINT         _nx_driver_hardware_multicast_join(NX_IP_DRIVER *driver_req_ptr);
 static UINT         _nx_driver_hardware_multicast_leave(NX_IP_DRIVER *driver_req_ptr);
@@ -510,8 +508,9 @@ UINT            status;
         return;
     }
 
-    /* Call hardware specific enable.  */
-    status =  _nx_driver_hardware_enable(driver_req_ptr);
+    /* Call C++ driver enable.  */
+    GigabitEthernetDriver::instance().enable();
+    status = NX_SUCCESS;
 
     /* Was the hardware enable successful?  */
     if (status == NX_SUCCESS)
@@ -594,8 +593,9 @@ UINT            status;
         return;
     }
 
-    /* Call hardware specific disable.  */
-    status =  _nx_driver_hardware_disable(driver_req_ptr);
+    /* Call C++ driver disable.  */
+    GigabitEthernetDriver::instance().disable();
+    status = NX_SUCCESS;
 
     /* Was the hardware disable successful?  */
     if (status == NX_SUCCESS)
@@ -1454,24 +1454,6 @@ UINT                i;
 /*  02-01-2018     Yuxin Zhou               Initial Version 5.0           */
 /*                                                                        */
 /**************************************************************************/
-static UINT  _nx_driver_hardware_enable(NX_IP_DRIVER *driver_req_ptr)
-{
-
-    /* Enable Ethernet interrupt.  */
-    EXAMPLE_ENET->EIMR |= ENET_EIMR_RXF_MASK | ENET_EIMR_TXF_MASK;
-
-    /* Start Ethernet.  */
-    /*The buffer descriptor bytes are swapped to support little-endian devices.*/
-    /* The DBSWP field must be written to 1 after reset*/
-    EXAMPLE_ENET->ECR |= ENET_ECR_ETHEREN_MASK | ENET_ECR_DBSWP_MASK;
-
-    EnableIRQ(EXAMPLE_INT);
-
-    /*active rx descriptor*/
-    EXAMPLE_ENET->RDAR = ENET_RDAR_RDAR_MASK;
-    /* Return success!  */
-    return(NX_SUCCESS);
-}
 
 
 /**************************************************************************/
@@ -1511,17 +1493,6 @@ static UINT  _nx_driver_hardware_enable(NX_IP_DRIVER *driver_req_ptr)
 /*  02-01-2018     Yuxin Zhou               Initial Version 5.0           */
 /*                                                                        */
 /**************************************************************************/
-static UINT  _nx_driver_hardware_disable(NX_IP_DRIVER *driver_req_ptr)
-{
-
-    DisableIRQ(EXAMPLE_INT);
-
-    /* Stop the Ethernet.  */
-    EXAMPLE_ENET->ECR &= ~ENET_ECR_ETHEREN_MASK;
-
-    /* Return success!  */
-    return(NX_SUCCESS);
-}
 
 
 /**************************************************************************/
