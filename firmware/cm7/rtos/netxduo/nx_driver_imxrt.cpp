@@ -24,18 +24,11 @@
 #define NX_DRIVER_SOURCE
 
 
-/****** DRIVER SPECIFIC ****** Start of part/vendor specific include area.  Include driver-specific include file here!  */
-
-//#ifndef NX_DRIVER_IMXRT1052_H
 
 /* Determine if the driver uses IP deferred processing or direct ISR processing.  */
 
 #define NX_DRIVER_ENABLE_DEFERRED                /* Define this to enable deferred ISR processing.  */
 
-/* #define  ENET_ENHANCEDBUFFERDESCRIPTOR_MODE*/
-/* Determine if the packet transmit queue logic is required for this driver.   */
-
-/* No, not required for this driver.  #define NX_DIRVER_INTERNAL_TRANSMIT_QUEUE   */
 
 /* Include driver specific include file.  */
 #include "fsl_common.h"
@@ -51,7 +44,6 @@
 #include "ethernet_frame.hpp"
 #include <cstring>  // For std::memcpy
 
-/****** DRIVER SPECIFIC ****** End of part/vendor specific include file area!  */
 
 #if !defined(FSL_FEATURE_ENET_HAS_AVB) || FSL_FEATURE_ENET_HAS_AVB < 1
 #error "This board has no 1G Ethernet port."
@@ -97,10 +89,7 @@ static VOID         _nx_driver_multicast_leave(NX_IP_DRIVER *driver_req_ptr);
 static VOID         _nx_driver_get_status(NX_IP_DRIVER *driver_req_ptr);
 static VOID         _nx_driver_deferred_processing(NX_IP_DRIVER *driver_req_ptr);
 static VOID         _nx_driver_transfer_to_netx(NX_IP *ip_ptr, NX_PACKET *packet_ptr);
-#ifdef NX_DIRVER_INTERNAL_TRANSMIT_QUEUE
-static VOID         _nx_driver_transmit_packet_enqueue(NX_PACKET *packet_ptr)
-static NX_PACKET    *_nx_driver_transmit_packet_dequeue(VOID)
-#endif
+
 #ifdef NX_ENABLE_INTERFACE_CAPABILITY
 static VOID         _nx_driver_capability_get(NX_IP_DRIVER *driver_req_ptr);
 static VOID         _nx_driver_capability_set(NX_IP_DRIVER *driver_req_ptr);
@@ -416,13 +405,6 @@ UINT            status;
     /* Clear the deferred events for the driver.  */
     nx_driver_information.nx_driver_information_deferred_events =       0;
 
-#ifdef NX_DIRVER_INTERNAL_TRANSMIT_QUEUE
-
-    /* Clear the transmit queue count and head pointer.  */
-    nx_driver_information.nx_driver_transmit_packets_queued =  0;
-    nx_driver_information.nx_driver_transmit_queue_head =      NX_NULL;
-    nx_driver_information.nx_driver_transmit_queue_tail =      NX_NULL;
-#endif
 
     /* Call the hardware-specific ethernet controller initialization.  */
     status =  _nx_driver_hardware_initialize(driver_req_ptr);
@@ -1325,182 +1307,6 @@ USHORT    packet_type;
         nx_packet_release(packet_ptr);
     }
 }
-
-
-#ifdef NX_DIRVER_INTERNAL_TRANSMIT_QUEUE
-/**************************************************************************/
-/*                                                                        */
-/*  FUNCTION                                               RELEASE        */
-/*                                                                        */
-/*    _nx_driver_transmit_packet_enqueue                  PORTABLE C      */
-/*                                                           5.0          */
-/*  AUTHOR                                                                */
-/*                                                                        */
-/*    Yuxin Zhou, Microsoft Corporation                                   */
-/*                                                                        */
-/*  DESCRIPTION                                                           */
-/*                                                                        */
-/*    This function queues a transmit packet when the hardware transmit   */
-/*    queue does not have the resources (buffer descriptors, etc.) to     */
-/*    send the packet.  The queue is maintained as a singularly linked-   */
-/*    list with head and tail pointers. The maximum number of packets on  */
-/*    the transmit queue is regulated by the constant                     */
-/*    NX_DRIVER_MAX_TRANSMIT_QUEUE_DEPTH. When this number is exceeded,   */
-/*    the oldest packet is discarded after the new packet is queued.      */
-/*                                                                        */
-/*    Note: that it is assumed further driver interrupts are locked out   */
-/*    during the call to this driver utility.                             */
-/*                                                                        */
-/*  INPUT                                                                 */
-/*                                                                        */
-/*    packet_ptr                            Packet pointer                */
-/*                                                                        */
-/*  OUTPUT                                                                */
-/*                                                                        */
-/*    None                                                                */
-/*                                                                        */
-/*  CALLS                                                                 */
-/*                                                                        */
-/*    _nx_packet_transmit_release           Release packet                */
-/*                                                                        */
-/*  CALLED BY                                                             */
-/*                                                                        */
-/*    _nx_driver_hardware_packet_send       Driver packet send function   */
-/*                                                                        */
-/*  RELEASE HISTORY                                                       */
-/*                                                                        */
-/*    DATE              NAME                      DESCRIPTION             */
-/*                                                                        */
-/*  02-01-2018     Yuxin Zhou               Initial Version 5.0           */
-/*                                                                        */
-/**************************************************************************/
-static VOID _nx_driver_transmit_packet_enqueue(NX_PACKET *packet_ptr)
-{
-
-    /* Determine if there is anything on the queue.  */
-    if (nx_driver_information.nx_driver_transmit_queue_tail)
-    {
-
-        /* Yes, something is on the transmit queue. Simply add the new packet to the
-           tail.  */
-        nx_driver_information.nx_driver_transmit_queue_tail -> nx_packet_queue_next  =  packet_ptr;
-
-        /* Update the tail pointer.  */
-        nx_driver_information.nx_driver_transmit_queue_tail =  packet_ptr;
-    }
-    else
-    {
-
-        /* First packet on the transmit queue.  */
-
-        /* Setup head pointers.  */
-        nx_driver_information.nx_driver_transmit_queue_head =  packet_ptr;
-        nx_driver_information.nx_driver_transmit_queue_tail =  packet_ptr;
-
-        /* Set the packet's next pointer to NULL.  */
-        packet_ptr -> nx_packet_queue_next =  NX_NULL;
-    }
-
-    /* Increment the total packets queued.  */
-    nx_driver_information.nx_driver_transmit_packets_queued++;
-
-    /* Determine if the total packet queued exceeds the driver's maximum transmit
-       queue depth.  */
-    if (nx_driver_information.nx_driver_transmit_packets_queued > NX_DRIVER_MAX_TRANSMIT_QUEUE_DEPTH)
-    {
-
-        /* Yes, remove the head packet (oldest) packet in the transmit queue and release it.  */
-        packet_ptr =  nx_driver_information.nx_driver_transmit_queue_head;
-
-        /* Adjust the head pointer to the next packet.  */
-        nx_driver_information.nx_driver_transmit_queue_head =  packet_ptr -> nx_packet_queue_next;
-
-        /* Decrement the transmit packet queued count.  */
-        nx_driver_information.nx_driver_transmit_packets_queued--;
-
-        /* Remove the ethernet header.  */
-        NX_DRIVER_ETHERNET_HEADER_REMOVE(packet_ptr);
-
-        /* Release the packet.  */
-        nx_packet_transmit_release(packet_ptr);
-    }
-}
-
-
-/**************************************************************************/
-/*                                                                        */
-/*  FUNCTION                                               RELEASE        */
-/*                                                                        */
-/*    _nx_driver_transmit_packet_dequeue                  PORTABLE C      */
-/*                                                           5.0          */
-/*  AUTHOR                                                                */
-/*                                                                        */
-/*    Yuxin Zhou, Microsoft Corporation                                   */
-/*                                                                        */
-/*  DESCRIPTION                                                           */
-/*                                                                        */
-/*    This function removes the oldest transmit packet when the hardware  */
-/*    transmit queue has new resources (usually after a transmit complete */
-/*    interrupt) to send the packet. If there are no packets in the       */
-/*    transmit queue, a NULL is returned.                                 */
-/*                                                                        */
-/*    Note: that it is assumed further driver interrupts are locked out   */
-/*    during the call to this driver utility.                             */
-/*                                                                        */
-/*  INPUT                                                                 */
-/*                                                                        */
-/*    None                                                                */
-/*                                                                        */
-/*  OUTPUT                                                                */
-/*                                                                        */
-/*    packet_ptr                            Packet pointer                */
-/*                                                                        */
-/*  CALLS                                                                 */
-/*                                                                        */
-/*    None                                                                */
-/*                                                                        */
-/*  CALLED BY                                                             */
-/*                                                                        */
-/*    _nx_driver_hardware_packet_send       Driver packet send function   */
-/*                                                                        */
-/*  RELEASE HISTORY                                                       */
-/*                                                                        */
-/*    DATE              NAME                      DESCRIPTION             */
-/*                                                                        */
-/*  02-01-2018     Yuxin Zhou               Initial Version 5.0           */
-/*                                                                        */
-/**************************************************************************/
-static NX_PACKET *_nx_driver_transmit_packet_dequeue(VOID)
-{
-
-NX_PACKET   *packet_ptr;
-
-
-    /* Pickup the head pointer of the tranmit packet queue.  */
-    packet_ptr =  nx_driver_information.nx_driver_transmit_queue_head;
-
-    /* Determine if there is anything on the queue.  */
-    if (packet_ptr)
-    {
-
-        /* Yes, something is on the transmit queue. Simply the packet from the head of the queue.  */
-
-        /* Update the head pointer.  */
-        nx_driver_information.nx_driver_transmit_queue_head =  packet_ptr -> nx_packet_queue_next;
-
-        /* Clear the next pointer in the packet.  */
-        packet_ptr -> nx_packet_queue_next =  NX_NULL;
-
-        /* Decrement the transmit packet queued count.  */
-        nx_driver_information.nx_driver_transmit_packets_queued--;
-    }
-
-    /* Return the packet pointer - NULL if there are no packets queued.  */
-    return(packet_ptr);
-}
-
-#endif
-
 
 
 /****** DRIVER SPECIFIC ****** Start of part/vendor specific internal driver functions.  */
