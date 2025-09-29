@@ -33,8 +33,6 @@
 /* Include driver specific include file.  */
 #include "fsl_common.h"
 #include "fsl_enet.h"
-#include "fsl_phy.h"
-// #include "fsl_debug_console.h"
 #include "nx_driver_imxrt.h"
 #include <cassert>   // For assert in C++
 
