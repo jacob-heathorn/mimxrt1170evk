@@ -10,7 +10,9 @@ class GigabitEthernet : public NxEthernetInterface, public ftl::Singleton<Gigabi
 
   private:
     GigabitEthernet(ftl::ipv4::Address address, ftl::ipv4::Mask mask,
-                    ftl::allocator::ObjAllocator<NxUdpSocket>& socket_allocator);
+                    ftl::allocator::ObjAllocator<NxUdpSocket>& socket_allocator)
+      : NxEthernetInterface(address, mask, socket_allocator) {}
+
     ~GigabitEthernet() override = default;
 
     // Rule of 5
