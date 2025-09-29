@@ -9,6 +9,9 @@
 #include "detail/phyrtl8211f.h"
 #include "registers/codegen/enet_1g.hpp"
 #include "fsl_common.h"  // For EnableIRQ/DisableIRQ through CMSIS
+#include "fsl_iomuxc.h"  // For IOMUXC_SetPinMux
+#include "fsl_gpio.h"    // For GPIO operations
+#include "fsl_clock.h"   // For clock configuration
 
 // PHY configuration constants
 constexpr uint8_t kPhyAddress = 0x01;  // PHY address for ENET port 1
@@ -16,6 +19,13 @@ constexpr bool kAutoNegotiation = true;  // Enable auto-negotiation
 
 
 GigabitEthernetDriver::GigabitEthernetDriver(const std::array<uint8_t, 6>& macAddr) {
+    // Initialize clocks and pins for Gigabit Ethernet
+    initializeClocks();
+    initializePins();
+
+    // Reset the PHY hardware
+    resetPhy();
+
     // Create the GigabitMac singleton instance.
     ethernet::detail::GigabitMac::create();
 
@@ -350,4 +360,91 @@ void GigabitEthernetDriver::configureMac(const std::array<uint8_t, 6>& macAddr) 
     nENET_1G::RCR::ref().value = rcr_val.value;
     nENET_1G::ECR::ref().value = ecr_val.value;
     nENET_1G::TCR::ref().value = tcr_val.value;
+}
+
+void GigabitEthernetDriver::initializePins() {
+    // Enable IOMUXC clock for pin mux configuration
+    CLOCK_EnableClock(kCLOCK_Iomuxc);
+
+    // Configure RGMII RX pins
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B1_00_ENET_1G_RX_EN, 0U);      // RX Enable
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B1_01_ENET_1G_RX_CLK, 0U);     // RX Clock
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B1_02_ENET_1G_RX_DATA00, 0U);  // RX Data 0
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B1_03_ENET_1G_RX_DATA01, 0U);  // RX Data 1
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B1_04_ENET_1G_RX_DATA02, 0U);  // RX Data 2
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B1_05_ENET_1G_RX_DATA03, 0U);  // RX Data 3
+
+    // Configure RGMII TX pins
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B1_06_ENET_1G_TX_DATA03, 0U);  // TX Data 3
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B1_07_ENET_1G_TX_DATA02, 0U);  // TX Data 2
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B1_08_ENET_1G_TX_DATA01, 0U);  // TX Data 1
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B1_09_ENET_1G_TX_DATA00, 0U);  // TX Data 0
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B1_10_ENET_1G_TX_EN, 0U);      // TX Enable
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B1_11_ENET_1G_TX_CLK_IO, 0U);  // TX Clock
+
+    // Configure MDIO/MDC pins
+    IOMUXC_SetPinMux(IOMUXC_GPIO_EMC_B2_19_ENET_1G_MDC, 0U);   // MDC (Management Data Clock)
+    IOMUXC_SetPinMux(IOMUXC_GPIO_EMC_B2_20_ENET_1G_MDIO, 0U);  // MDIO (Management Data I/O)
+
+    // Configure PHY reset pin (GPIO11_IO14)
+    IOMUXC_SetPinMux(IOMUXC_GPIO_DISP_B2_13_GPIO11_IO14, 0U);
+
+    // Initialize GPIO11_14 as output for PHY reset control
+    gpio_pin_config_t gpio_config = {
+        .direction = kGPIO_DigitalOutput,
+        .outputLogic = 0,  // Start with reset asserted (active low)
+        .interruptMode = kGPIO_NoIntmode
+    };
+    GPIO_PinInit(GPIO11, 14, &gpio_config);
+}
+
+void GigabitEthernetDriver::initializeClocks() {
+    // Initialize System PLL1 for Gigabit Ethernet
+    // PLL1 provides 1GHz clock, divided by 2 for 500MHz, divided by 4 for 125MHz RGMII clock
+    const clock_sys_pll1_config_t sysPll1Config = {
+        .pllDiv2En = true,   // Enable divide by 2 output
+        .pllDiv5En = false,  // Disable divide by 5 output
+        .ss = nullptr,       // No spread spectrum
+        .ssEnable = false    // Spread spectrum disabled
+    };
+    CLOCK_InitSysPll1(&sysPll1Config);
+
+    // Configure ENET2 root clock to generate 125MHz for RGMII
+    // Source: System PLL1 Div2 (500MHz), Divide by 4 = 125MHz
+    clock_root_config_t rootCfg = {
+        .clockOff = false,  // Clock enabled
+        .mux = 4,          // Select System PLL1 Div2
+        .div = 4           // Divide by 4 (500MHz / 4 = 125MHz)
+    };
+    CLOCK_SetRootClock(kCLOCK_Root_Enet2, &rootCfg);
+
+    // Configure bus clock for MDIO interface
+    // Select System PLL2 PFD3: 528MHz * 18 / 24 = 396MHz
+    CLOCK_InitPfd(kCLOCK_PllSys2, kCLOCK_Pfd3, 24);
+
+    // Set bus root clock to 198MHz (396MHz / 2)
+    rootCfg.mux = 7;   // Select System PLL2 PFD3
+    rootCfg.div = 2;   // Divide by 2 (396MHz / 2 = 198MHz)
+    CLOCK_SetRootClock(kCLOCK_Root_Bus, &rootCfg);
+
+    // Configure IOMUXC GPR for RGMII mode
+    // Set ENET1G_RGMII_EN to enable RGMII interface mode
+    IOMUXC_GPR->GPR5 |= IOMUXC_GPR_GPR5_ENET1G_RGMII_EN_MASK;
+
+    // Wait 1ms for clock to stabilize
+    SDK_DelayAtLeastUs(1000, CLOCK_GetFreq(kCLOCK_CpuClk));
+}
+
+void GigabitEthernetDriver::resetPhy() {
+    // Assert PHY reset (active low) - GPIO11_IO14
+    GPIO_WritePinOutput(GPIO11, 14, 0);
+
+    // Hold reset low for at least 20ms per RTL8211FDI-CG datasheet
+    SDK_DelayAtLeastUs(20000, CLOCK_GetFreq(kCLOCK_CpuClk));
+
+    // De-assert PHY reset (set high)
+    GPIO_WritePinOutput(GPIO11, 14, 1);
+
+    // Wait 60ms for PHY internal circuits to settle per datasheet
+    SDK_DelayAtLeastUs(60000, CLOCK_GetFreq(kCLOCK_CpuClk));
 }

@@ -49,6 +49,18 @@ public:
     void disable();
 
 private:
+    // Initialize GPIO pins for Gigabit Ethernet RGMII interface
+    // Configures pin mux for all RGMII signals and PHY reset GPIO
+    void initializePins();
+
+    // Initialize clocks for Gigabit Ethernet operation
+    // Sets up PLL, root clocks, and RGMII clock selection
+    void initializeClocks();
+
+    // Reset the PHY hardware
+    // Asserts reset for minimum 20ms, then waits 60ms for PHY to stabilize
+    void resetPhy();
+
     // Reset the driver - clears TX queue and resets TX/RX descriptor rings
     // Returns true on success, false on error
     bool reset();
