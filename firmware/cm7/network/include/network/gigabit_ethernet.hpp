@@ -18,8 +18,4 @@ class GigabitEthernet : public NxEthernetInterface, public ftl::Singleton<Gigabi
     GigabitEthernet& operator=(const GigabitEthernet&) = delete;
     GigabitEthernet(GigabitEthernet&&) = delete;
     GigabitEthernet& operator=(GigabitEthernet&&) = delete;
-
-
-    void InitEnetModuleClock();
-    void IomuxcSelectEnetClock();
 };
