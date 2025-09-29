@@ -38,12 +38,6 @@ public:
     // Returns an empty frame (operator bool() returns false) if no packet available or on error
     ethernet::Frame receive();
 
-    // Get current link speed
-    ethernet::detail::PhySpeed getLinkSpeed() const { return link_speed_; }
-
-    // Get current link duplex
-    ethernet::detail::PhyDuplex getLinkDuplex() const { return link_duplex_; }
-
     // Configure MAC with address and other settings
     // This will be expanded to include more configuration later
     void configureMac(const std::array<uint8_t, 6>& macAddr);

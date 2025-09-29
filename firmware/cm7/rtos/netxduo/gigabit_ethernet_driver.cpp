@@ -334,7 +334,7 @@ void GigabitEthernetDriver::configureMac(const std::array<uint8_t, 6>& macAddr) 
     rcr_val.bits.RGMII_EN = nENET_1G::RCR::eRGMII_EN::eONE;  // RGMII mode (always used)
 
     // Get the negotiated speed from the driver and configure speed register
-    if (getLinkSpeed() == ethernet::detail::PhySpeed::e1000M) {
+    if (link_speed_ == ethernet::detail::PhySpeed::e1000M) {
         ecr_val.bits.SPEED = nENET_1G::ECR::eSPEED::eONE;  // 1000 Mbps
     } else {
         ecr_val.bits.SPEED = nENET_1G::ECR::eSPEED::eZERO;  // 10/100 Mbps
@@ -344,7 +344,7 @@ void GigabitEthernetDriver::configureMac(const std::array<uint8_t, 6>& macAddr) 
     nENET_1G::QOS::ref().bits.TX_SCHEME = nENET_1G::QOS::eTX_SCHEME::eRR;  // Round-robin
 
     // Set the duplex - get from driver and configure
-    if (getLinkDuplex() == ethernet::detail::PhyDuplex::eHalf) {
+    if (link_duplex_ == ethernet::detail::PhyDuplex::eHalf) {
         rcr_val.bits.DRT = nENET_1G::RCR::eDRT::eONE;  // Disable receive on transmit
         tcr_val.bits.FDEN = nENET_1G::TCR::eFDEN::eZERO;  // Half duplex
     } else {  // Full duplex
