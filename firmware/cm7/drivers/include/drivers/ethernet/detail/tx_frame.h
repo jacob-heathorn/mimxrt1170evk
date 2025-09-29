@@ -1,8 +1,8 @@
 #pragma once
 
-#include "tx_descriptor.h"
-#include "tx_descriptor_ring.h"
-#include "../ethernet_frame.hpp"
+#include "drivers/ethernet/detail/tx_descriptor.h"
+#include "drivers/ethernet/detail/tx_descriptor_ring.h"
+#include "drivers/ethernet/ethernet_frame.hpp"
 #include <cassert>
 
 namespace ethernet {

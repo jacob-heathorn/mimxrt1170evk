@@ -12,7 +12,7 @@
 #include "network/gigabit_ethernet.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "network/nx_udp_socket.hpp"
-#include "gigabit_ethernet_driver.h"
+#include "drivers/ethernet/gigabit_ethernet_driver.h"
 
 using namespace ftl::ipv4;
 

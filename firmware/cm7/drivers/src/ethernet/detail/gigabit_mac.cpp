@@ -1,4 +1,4 @@
-#include "gigabit_mac.h"
+#include "drivers/ethernet/detail/gigabit_mac.h"
 #include "drivers/clock/clock_control.h"
 
 #include "registers/codegen/enet_1g.hpp"

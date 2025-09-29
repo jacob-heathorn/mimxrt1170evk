@@ -37,9 +37,9 @@
 #include <cassert>   // For assert in C++
 
 /* C++ driver interface */
-#include "gigabit_ethernet_driver.h"
+#include "drivers/ethernet/gigabit_ethernet_driver.h"
 #include <array>
-#include "ethernet_frame.hpp"
+#include "drivers/ethernet/ethernet_frame.hpp"
 #include <cstring>  // For std::memcpy
 
 

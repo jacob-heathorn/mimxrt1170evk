@@ -3,14 +3,15 @@
 #include <array>
 #include <cstdint>
 #include "ftl/singleton.hpp"
-#include "detail/phyrtl8211f.h"
-#include "detail/tx_descriptor_ring.h"
-#include "detail/tx_frame.h"
-#include "detail/rx_descriptor_ring.h"
-#include "ethernet_frame.hpp"
+#include "drivers/ethernet/ethernet_frame.hpp"
 #include "etl/queue.h"
 #include <cstring>
 #include <cassert>
+
+#include "drivers/ethernet/detail/phyrtl8211f.h"
+#include "drivers/ethernet/detail/tx_descriptor_ring.h"
+#include "drivers/ethernet/detail/tx_frame.h"
+#include "drivers/ethernet/detail/rx_descriptor_ring.h"
 
 // TODO: Link mode change not yet implemented.
 

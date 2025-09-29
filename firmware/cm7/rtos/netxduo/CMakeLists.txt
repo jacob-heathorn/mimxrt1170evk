@@ -18,21 +18,9 @@ target_sources(netxduo
     nx_driver_imxrt_irq.c
     nx_driver_imxrt.cpp
     nx_driver_imxrt.h
-    gigabit_ethernet_driver.cpp
-    gigabit_ethernet_driver.h
-    ethernet_frame.hpp
-    detail/tx_descriptor.h
-    detail/tx_descriptor_ring.h
-    detail/tx_frame.h
-    detail/rx_descriptor.h
-    detail/rx_descriptor_ring.h
-    detail/gigabit_mac.h
-    detail/gigabit_mac.cpp
-    detail/phyrtl8211f.h
-    detail/phyrtl8211f.cpp
 )
 target_compile_options(netxduo PUBLIC
   -Wno-write-strings
   -Wno-cast-align
 )
-target_link_libraries(netxduo PRIVATE drivers)
+target_link_libraries(netxduo PRIVATE cm7_drivers)

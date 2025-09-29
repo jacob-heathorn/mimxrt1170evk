@@ -1,6 +1,6 @@
 #pragma once
 
-#include "tx_descriptor.h"
+#include "drivers/ethernet/detail/tx_descriptor.h"
 #include "utils/ocram2_allocator.hpp"
 extern "C" {
 #include "cmsis_gcc.h"  // For __DSB()

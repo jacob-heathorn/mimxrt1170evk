@@ -1,12 +1,12 @@
-#include "gigabit_ethernet_driver.h"
+#include "drivers/ethernet/gigabit_ethernet_driver.h"
 #include <cstdio>
 #include <cstring>
 #include "utils/ocram2_allocator.hpp"
 #include "utils/dtcm_allocator.hpp"
 #include "ftl/allocator/bump_pool_buffer_strategy.hpp"
 #include "ftl/allocator/buffer_allocator.hpp"
-#include "detail/gigabit_mac.h"
-#include "detail/phyrtl8211f.h"
+#include "drivers/ethernet/detail/gigabit_mac.h"
+#include "drivers/ethernet/detail/phyrtl8211f.h"
 #include "registers/codegen/enet_1g.hpp"
 #include "fsl_common.h"  // For EnableIRQ/DisableIRQ through CMSIS
 #include "fsl_iomuxc.h"  // For IOMUXC_SetPinMux

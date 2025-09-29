@@ -1,5 +1,5 @@
-#include "phyrtl8211f.h"
-#include "gigabit_mac.h"
+#include "drivers/ethernet/detail/phyrtl8211f.h"
+#include "drivers/ethernet/detail/gigabit_mac.h"
 #include <cassert>
 #include <cstddef>
 
