@@ -12,6 +12,8 @@
 #include <cstring>
 #include <cassert>
 
+// TODO: Link mode change not yet implemented.
+
 // C++ driver class for Gigabit Ethernet
 class GigabitEthernetDriver : public ftl::Singleton<GigabitEthernetDriver> {
 public:
@@ -28,10 +30,6 @@ public:
     // Process transmitted packets - check for completed transmissions and release packets
     // This is called from the deferred processing routine
     void process_transmitted_packets();
-
-    // Handle link mode change (speed/duplex change)
-    // This is called when the PHY detects a link status change
-    void handle_link_mode_change(unsigned int link_speed, unsigned int link_duplex);
 
     // Receive a single packet
     // Returns an ethernet::Frame with the received data
