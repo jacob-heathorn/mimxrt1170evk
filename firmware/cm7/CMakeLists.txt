@@ -6,6 +6,7 @@ add_subdirectory(legacy)
 add_subdirectory(network)
 add_subdirectory(startup)
 add_subdirectory(utils)
+add_subdirectory(application)
 
 add_subdirectory(
   $ENV{MICROCYPHAL_ROOT}/firmware
