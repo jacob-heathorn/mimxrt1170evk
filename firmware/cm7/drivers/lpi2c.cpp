@@ -4,20 +4,23 @@
 #include "registers/codegen/iomuxc_lpsr.hpp"
 #include "registers/codegen/lpi2c5.hpp"
 
+namespace lp = regs::lpi2c5;
+
 namespace {
 
 // SCL timing for 400 kHz with functional clock = 24 MHz, PRESCALE = 1.
-// Bit period ≈ (CLKLO + 1) + (CLKHI + 1) + 2 = 60 cycles = 2.5 us.
-// tLOW = 37 cycles = 1.54 us (spec ≥ 1.3 us). tHIGH = 21 cycles = 0.88 us (≥ 0.6 us).
-constexpr uint32_t kClkLo   = 36;
-constexpr uint32_t kClkHi   = 20;
-constexpr uint32_t kSetHold = 18;
-constexpr uint32_t kDataVd  = 15;
-constexpr uint32_t kBusIdle = 100;
-constexpr uint32_t kFilt    = 2;
+constexpr std::uint32_t kClkLo   = 36;
+constexpr std::uint32_t kClkHi   = 20;
+constexpr std::uint32_t kSetHold = 18;
+constexpr std::uint32_t kDataVd  = 15;
+constexpr std::uint32_t kBusIdle = 100;
+constexpr std::uint32_t kFilt    = 2;
 
-constexpr uint8_t kWriteBit = 0;
-constexpr uint8_t kReadBit  = 1;
+constexpr std::uint8_t kWriteBit = 0;
+constexpr std::uint8_t kReadBit  = 1;
+
+// Local alias for the verbose MTDR CMD enumerators.
+using Cmd = lp::MTDR_Fields::eCMD;
 
 }  // namespace
 
@@ -48,62 +51,51 @@ void Lpi2c5::configurePins() {
 }
 
 void Lpi2c5::resetAndConfigureMaster() {
-  auto& mcr = nLPI2C5::MCR::ref();
+  // Disable + reset master logic and FIFOs by writing the combined reset bits,
+  // then clear them in a second write so the master can be re-enabled.
+  lp::MCR::write(lp::MCR_Fields::RST{lp::MCR_Fields::eRST::eRESET},
+                 lp::MCR_Fields::RTF{lp::MCR_Fields::eRTF::eRESET},
+                 lp::MCR_Fields::RRF{lp::MCR_Fields::eRRF::eRESET});
+  lp::MCR::write();  // all zero: clears RST/RTF/RRF and keeps MEN=0
 
-  // Disable + reset master logic and both FIFOs. MCR.RST self-holds until cleared.
-  mcr.value = 0;
-  mcr.bits.RST = nLPI2C5::MCR::eRST::eRESET;
-  mcr.bits.RTF = nLPI2C5::MCR::eRTF::eRESET;
-  mcr.bits.RRF = nLPI2C5::MCR::eRRF::eRESET;
-  mcr.value = 0;
+  lp::MCFGR1::write(
+      lp::MCFGR1_Fields::PRESCALE{lp::MCFGR1_Fields::ePRESCALE::eDIVIDE_BY_1},
+      lp::MCFGR1_Fields::PINCFG  {lp::MCFGR1_Fields::ePINCFG::eOPEN_DRAIN_2_PIN});
 
-  auto& cfg1 = nLPI2C5::MCFGR1::ref();
-  cfg1.value = 0;
-  cfg1.bits.PRESCALE = nLPI2C5::MCFGR1::ePRESCALE::eDIVIDE_BY_1;
-  cfg1.bits.PINCFG   = nLPI2C5::MCFGR1::ePINCFG::eOPEN_DRAIN_2_PIN;
+  lp::MCFGR2::write(lp::MCFGR2_Fields::BUSIDLE{kBusIdle},
+                    lp::MCFGR2_Fields::FILTSCL{static_cast<std::uint8_t>(kFilt)},
+                    lp::MCFGR2_Fields::FILTSDA{static_cast<std::uint8_t>(kFilt)});
 
-  auto& cfg2 = nLPI2C5::MCFGR2::ref();
-  cfg2.value = 0;
-  cfg2.bits.BUSIDLE = kBusIdle;
-  cfg2.bits.FILTSCL = kFilt;
-  cfg2.bits.FILTSDA = kFilt;
-
-  auto& ccr0 = nLPI2C5::MCCR0::ref();
-  ccr0.value = 0;
-  ccr0.bits.CLKLO   = kClkLo;
-  ccr0.bits.CLKHI   = kClkHi;
-  ccr0.bits.SETHOLD = kSetHold;
-  ccr0.bits.DATAVD  = kDataVd;
+  lp::MCCR0::write(lp::MCCR0_Fields::CLKLO  {static_cast<std::uint8_t>(kClkLo)},
+                   lp::MCCR0_Fields::CLKHI  {static_cast<std::uint8_t>(kClkHi)},
+                   lp::MCCR0_Fields::SETHOLD{static_cast<std::uint8_t>(kSetHold)},
+                   lp::MCCR0_Fields::DATAVD {static_cast<std::uint8_t>(kDataVd)});
 
   clearAllFlags();
 
-  mcr.bits.MEN = nLPI2C5::MCR::eMEN::eENABLED;
+  lp::MCR::modify(lp::MCR_Fields::MEN{lp::MCR_Fields::eMEN::eENABLED});
 }
 
 void Lpi2c5::clearAllFlags() {
-  // W1C on the sticky flags.
-  auto& msr = nLPI2C5::MSR::ref();
-  msr.value = 0;
-  msr.bits.EPF  = nLPI2C5::MSR::eEPF::eFLAG;
-  msr.bits.SDF  = nLPI2C5::MSR::eSDF::eFLAG;
-  msr.bits.NDF  = nLPI2C5::MSR::eNDF::eFLAG;
-  msr.bits.ALF  = nLPI2C5::MSR::eALF::eFLAG;
-  msr.bits.FEF  = nLPI2C5::MSR::eFEF::eFLAG;
-  msr.bits.PLTF = nLPI2C5::MSR::ePLTF::eFLAG;
+  lp::MSR::clear<lp::MSR_Fields::EPF>();
+  lp::MSR::clear<lp::MSR_Fields::SDF>();
+  lp::MSR::clear<lp::MSR_Fields::NDF>();
+  lp::MSR::clear<lp::MSR_Fields::ALF>();
+  lp::MSR::clear<lp::MSR_Fields::FEF>();
+  lp::MSR::clear<lp::MSR_Fields::PLTF>();
 }
 
 Lpi2cStatus Lpi2c5::checkErrorFlags() {
-  auto& msr = nLPI2C5::MSR::ref();
-  if (msr.bits.NDF  == nLPI2C5::MSR::eNDF::eFLAG)  return Lpi2cStatus::eNack;
-  if (msr.bits.ALF  == nLPI2C5::MSR::eALF::eFLAG)  return Lpi2cStatus::eArbitrationLost;
-  if (msr.bits.FEF  == nLPI2C5::MSR::eFEF::eFLAG)  return Lpi2cStatus::eFifoError;
-  if (msr.bits.PLTF == nLPI2C5::MSR::ePLTF::eFLAG) return Lpi2cStatus::ePinLowTimeout;
+  auto snap = lp::MSR::read();
+  if (snap.get<lp::MSR_Fields::NDF>()  == lp::MSR_Fields::eNDF::eFLAG)  return Lpi2cStatus::eNack;
+  if (snap.get<lp::MSR_Fields::ALF>()  == lp::MSR_Fields::eALF::eFLAG)  return Lpi2cStatus::eArbitrationLost;
+  if (snap.get<lp::MSR_Fields::FEF>()  == lp::MSR_Fields::eFEF::eFLAG)  return Lpi2cStatus::eFifoError;
+  if (snap.get<lp::MSR_Fields::PLTF>() == lp::MSR_Fields::ePLTF::eFLAG) return Lpi2cStatus::ePinLowTimeout;
   return Lpi2cStatus::eOk;
 }
 
 Lpi2cStatus Lpi2c5::waitTxReady() {
-  auto& msr = nLPI2C5::MSR::ref();
-  while (msr.bits.TDF != nLPI2C5::MSR::eTDF::eENABLED) {
+  while (lp::MSR::read().get<lp::MSR_Fields::TDF>() != lp::MSR_Fields::eTDF::eENABLED) {
     auto err = checkErrorFlags();
     if (err != Lpi2cStatus::eOk) return err;
   }
@@ -111,8 +103,7 @@ Lpi2cStatus Lpi2c5::waitTxReady() {
 }
 
 Lpi2cStatus Lpi2c5::waitRxReady() {
-  auto& msr = nLPI2C5::MSR::ref();
-  while (msr.bits.RDF != nLPI2C5::MSR::eRDF::eENABLED) {
+  while (lp::MSR::read().get<lp::MSR_Fields::RDF>() != lp::MSR_Fields::eRDF::eENABLED) {
     auto err = checkErrorFlags();
     if (err != Lpi2cStatus::eOk) return err;
   }
@@ -120,56 +111,55 @@ Lpi2cStatus Lpi2c5::waitRxReady() {
 }
 
 Lpi2cStatus Lpi2c5::waitStopDetected() {
-  auto& msr = nLPI2C5::MSR::ref();
-  while (msr.bits.SDF != nLPI2C5::MSR::eSDF::eFLAG) {
+  while (lp::MSR::read().get<lp::MSR_Fields::SDF>() != lp::MSR_Fields::eSDF::eFLAG) {
     auto err = checkErrorFlags();
     if (err != Lpi2cStatus::eOk) return err;
   }
-  msr.bits.SDF = nLPI2C5::MSR::eSDF::eFLAG;  // W1C
+  lp::MSR::clear<lp::MSR_Fields::SDF>();
   return Lpi2cStatus::eOk;
 }
 
 namespace {
 
-inline void pushCommand(nLPI2C5::MTDR::eCMD cmd, uint8_t data) {
-  // MTDR layout: CMD in bits [10:8], DATA in bits [7:0].
-  nLPI2C5::MTDR::ref().value =
-      (static_cast<uint32_t>(cmd) << 8) | static_cast<uint32_t>(data);
+inline void pushCommand(Cmd cmd, std::uint8_t data) {
+  lp::MTDR::write(lp::MTDR_Fields::CMD{cmd},
+                  lp::MTDR_Fields::DATA{data});
 }
 
 }  // namespace
 
-Lpi2cStatus Lpi2c5::readRegister(uint8_t addr, uint8_t reg, uint8_t* dst, size_t len) {
+Lpi2cStatus Lpi2c5::readRegister(std::uint8_t addr, std::uint8_t reg,
+                                 std::uint8_t* dst, std::size_t len) {
   if (len == 0 || len > 256) return Lpi2cStatus::eFifoError;
 
   clearAllFlags();
 
   // START + write-address.
   if (auto s = waitTxReady(); s != Lpi2cStatus::eOk) return s;
-  pushCommand(nLPI2C5::MTDR::eCMD::eGENERATE_START_AND_TRANSMIT_ADDRESS_IN_DATA_7_THROUGH_0,
-              static_cast<uint8_t>((addr << 1) | kWriteBit));
+  pushCommand(Cmd::eGENERATE_START_AND_TRANSMIT_ADDRESS_IN_DATA_7_THROUGH_0,
+              static_cast<std::uint8_t>((addr << 1) | kWriteBit));
 
   // TX the register pointer.
   if (auto s = waitTxReady(); s != Lpi2cStatus::eOk) return s;
-  pushCommand(nLPI2C5::MTDR::eCMD::eTRANSMIT_DATA_7_THROUGH_0, reg);
+  pushCommand(Cmd::eTRANSMIT_DATA_7_THROUGH_0, reg);
 
   // Repeated START + read-address.
   if (auto s = waitTxReady(); s != Lpi2cStatus::eOk) return s;
-  pushCommand(nLPI2C5::MTDR::eCMD::eGENERATE_START_AND_TRANSMIT_ADDRESS_IN_DATA_7_THROUGH_0,
-              static_cast<uint8_t>((addr << 1) | kReadBit));
+  pushCommand(Cmd::eGENERATE_START_AND_TRANSMIT_ADDRESS_IN_DATA_7_THROUGH_0,
+              static_cast<std::uint8_t>((addr << 1) | kReadBit));
 
-  // Queue a single RX command for (len - 1) + 1 = len bytes, then STOP.
+  // Receive len bytes.
   if (auto s = waitTxReady(); s != Lpi2cStatus::eOk) return s;
-  pushCommand(nLPI2C5::MTDR::eCMD::eRECEIVE_DATA_7_THROUGH_0_PLUS_ONE,
-              static_cast<uint8_t>(len - 1));
+  pushCommand(Cmd::eRECEIVE_DATA_7_THROUGH_0_PLUS_ONE,
+              static_cast<std::uint8_t>(len - 1));
 
   if (auto s = waitTxReady(); s != Lpi2cStatus::eOk) return s;
-  pushCommand(nLPI2C5::MTDR::eCMD::eGENERATE_STOP_CONDITION, 0);
+  pushCommand(Cmd::eGENERATE_STOP_CONDITION, 0);
 
   // Drain RX FIFO.
-  for (size_t i = 0; i < len; ++i) {
+  for (std::size_t i = 0; i < len; ++i) {
     if (auto s = waitRxReady(); s != Lpi2cStatus::eOk) return s;
-    dst[i] = static_cast<uint8_t>(nLPI2C5::MRDR::ref().bits.DATA);
+    dst[i] = static_cast<std::uint8_t>(lp::MRDR::read().get<lp::MRDR_Fields::DATA>());
   }
 
   return waitStopDetected();
