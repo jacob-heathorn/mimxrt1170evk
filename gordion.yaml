@@ -1,6 +1,6 @@
 repositories:
   microcyphal:
-    tag: b2a719b38bd3196a78e4496c96739bf249e37021
+    tag: 160a5002cf0b403cae0694c522eac1eac0166481
     url: https://github.com/jacob-heathorn/microcyphal.git
   netxduo:
     tag: v6.4.2_rel

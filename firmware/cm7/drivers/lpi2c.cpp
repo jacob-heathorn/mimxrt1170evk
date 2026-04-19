@@ -77,12 +77,8 @@ void Lpi2c5::resetAndConfigureMaster() {
 }
 
 void Lpi2c5::clearAllFlags() {
-  lp::MSR::clear<lp::MSR::EPF>();
-  lp::MSR::clear<lp::MSR::SDF>();
-  lp::MSR::clear<lp::MSR::NDF>();
-  lp::MSR::clear<lp::MSR::ALF>();
-  lp::MSR::clear<lp::MSR::FEF>();
-  lp::MSR::clear<lp::MSR::PLTF>();
+  lp::MSR::clear<lp::MSR::EPF, lp::MSR::SDF, lp::MSR::NDF,
+                 lp::MSR::ALF, lp::MSR::FEF, lp::MSR::PLTF>();
 }
 
 Lpi2cStatus Lpi2c5::checkErrorFlags() {
