@@ -55,6 +55,7 @@ function(add_platform_flags target)
   target_link_options(${target} PRIVATE
     -static                          # Links libraries statically, not dynamically    -Wl,--gc-sections                # Enables garbage collection of unused input sections
     --specs=nano.specs    # Links against a smaller version of C standard library
+    -u _printf_float      # Re-enable %f/%g in nano-specs printf
     # --specs=nosys.specs
     -Wl,--undefined=_sbrk # Keep fsl_sbrk.c implementation
     #-Wl,--undefined=_sbrk -Wl,--start-group -lm -lc -lgcc -lnosys -Wl,--end-group

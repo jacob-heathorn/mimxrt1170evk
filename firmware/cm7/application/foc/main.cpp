@@ -67,12 +67,9 @@ int main() {
       continue;
     }
 
-    const uint16_t angle   = static_cast<uint16_t>((raw[0] & 0x0F) << 8 | raw[1]);
-    const uint32_t deg_x10 = (static_cast<uint32_t>(angle) * 3600u) / kAngleCounts;
-    std::printf("angle=%4u (%3lu.%lu deg)  STATUS=0x%02X  AGC=%u\r\n",
-                angle,
-                static_cast<unsigned long>(deg_x10 / 10),
-                static_cast<unsigned long>(deg_x10 % 10),
+    const uint16_t angle = static_cast<uint16_t>((raw[0] & 0x0F) << 8 | raw[1]);
+    std::printf("angle=%4u (%6.2f deg)  STATUS=0x%02X  AGC=%u\r\n",
+                angle, static_cast<double>(angle * (360.0f / kAngleCounts)),
                 readU8(i2c, kRegStatus), readU8(i2c, kRegAgc));
 
     for (volatile int i = 0; i < 1'000'000; ++i) {}
