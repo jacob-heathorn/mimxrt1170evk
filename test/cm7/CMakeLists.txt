@@ -8,6 +8,7 @@ add_platform_test(ut-memory
 add_platform_test(ut-threadx
   ut_concurrency.cpp
 )
+add_platform_test(ut-mmio ut_mmio.cpp)
 
 # Hello world.
 find_cm4(CORE0 "hello-world-cm4.bin.cpp")
