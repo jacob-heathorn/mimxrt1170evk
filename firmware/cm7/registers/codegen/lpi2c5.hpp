@@ -9,7 +9,7 @@
 namespace regs::lpi2c5 {
 
 // Version ID
-namespace VERID_Fields {
+namespace VERID_fields_ {
 
   enum class eFEATURE : std::uint32_t {
     // Master only, with standard feature set
@@ -23,35 +23,43 @@ namespace VERID_Fields {
   using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Major Version Number
   using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace VERID_Fields
+}  // namespace VERID_fields_
 
-using VERID = ftl::mmio::Register<
+struct VERID : ftl::mmio::Register<
     0x40C34000u,
     0x01010003u,
     ftl::mmio::RO,
-    VERID_Fields::FEATURE,
-    VERID_Fields::MINOR,
-    VERID_Fields::MAJOR>;
+    VERID_fields_::FEATURE,
+    VERID_fields_::MINOR,
+    VERID_fields_::MAJOR> {
+  using eFEATURE = VERID_fields_::eFEATURE;
+  using FEATURE = VERID_fields_::FEATURE;
+  using MINOR = VERID_fields_::MINOR;
+  using MAJOR = VERID_fields_::MAJOR;
+};
 
 // Parameter
-namespace PARAM_Fields {
+namespace PARAM_fields_ {
   // Master Transmit FIFO Size
   using MTXFIFO = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Master Receive FIFO Size
   using MRXFIFO = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace PARAM_Fields
+}  // namespace PARAM_fields_
 
-using PARAM = ftl::mmio::Register<
+struct PARAM : ftl::mmio::Register<
     0x40C34004u,
     0x00000202u,
     ftl::mmio::RO,
-    PARAM_Fields::MTXFIFO,
+    PARAM_fields_::MTXFIFO,
     ftl::mmio::Reserved<4, 4>,
-    PARAM_Fields::MRXFIFO,
-    ftl::mmio::Reserved<20, 12>>;
+    PARAM_fields_::MRXFIFO,
+    ftl::mmio::Reserved<20, 12>> {
+  using MTXFIFO = PARAM_fields_::MTXFIFO;
+  using MRXFIFO = PARAM_fields_::MRXFIFO;
+};
 
 // Master Control
-namespace MCR_Fields {
+namespace MCR_fields_ {
 
   enum class eMEN : std::uint32_t {
     // Master logic is disabled
@@ -106,23 +114,36 @@ namespace MCR_Fields {
   using RTF = ftl::mmio::Field<1, 8, eRTF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Reset Receive FIFO
   using RRF = ftl::mmio::Field<1, 9, eRRF, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace MCR_Fields
+}  // namespace MCR_fields_
 
-using MCR = ftl::mmio::Register<
+struct MCR : ftl::mmio::Register<
     0x40C34010u,
     0x00000000u,
     ftl::mmio::RW,
-    MCR_Fields::MEN,
-    MCR_Fields::RST,
-    MCR_Fields::DOZEN,
-    MCR_Fields::DBGEN,
+    MCR_fields_::MEN,
+    MCR_fields_::RST,
+    MCR_fields_::DOZEN,
+    MCR_fields_::DBGEN,
     ftl::mmio::Reserved<4, 4>,
-    MCR_Fields::RTF,
-    MCR_Fields::RRF,
-    ftl::mmio::Reserved<22, 10>>;
+    MCR_fields_::RTF,
+    MCR_fields_::RRF,
+    ftl::mmio::Reserved<22, 10>> {
+  using eMEN = MCR_fields_::eMEN;
+  using eRST = MCR_fields_::eRST;
+  using eDOZEN = MCR_fields_::eDOZEN;
+  using eDBGEN = MCR_fields_::eDBGEN;
+  using eRTF = MCR_fields_::eRTF;
+  using eRRF = MCR_fields_::eRRF;
+  using MEN = MCR_fields_::MEN;
+  using RST = MCR_fields_::RST;
+  using DOZEN = MCR_fields_::DOZEN;
+  using DBGEN = MCR_fields_::DBGEN;
+  using RTF = MCR_fields_::RTF;
+  using RRF = MCR_fields_::RRF;
+};
 
 // Master Status
-namespace MSR_Fields {
+namespace MSR_fields_ {
 
   enum class eTDF : std::uint32_t {
     // Transmit data is not requested
@@ -222,29 +243,52 @@ namespace MSR_Fields {
   using MBF = ftl::mmio::Field<1, 24, eMBF, ftl::mmio::RO, ftl::mmio::Normal>;
   // Bus Busy Flag
   using BBF = ftl::mmio::Field<1, 25, eBBF, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace MSR_Fields
+}  // namespace MSR_fields_
 
-using MSR = ftl::mmio::Register<
+struct MSR : ftl::mmio::Register<
     0x40C34014u,
     0x00000001u,
     ftl::mmio::RW,
-    MSR_Fields::TDF,
-    MSR_Fields::RDF,
+    MSR_fields_::TDF,
+    MSR_fields_::RDF,
     ftl::mmio::Reserved<6, 2>,
-    MSR_Fields::EPF,
-    MSR_Fields::SDF,
-    MSR_Fields::NDF,
-    MSR_Fields::ALF,
-    MSR_Fields::FEF,
-    MSR_Fields::PLTF,
-    MSR_Fields::DMF,
+    MSR_fields_::EPF,
+    MSR_fields_::SDF,
+    MSR_fields_::NDF,
+    MSR_fields_::ALF,
+    MSR_fields_::FEF,
+    MSR_fields_::PLTF,
+    MSR_fields_::DMF,
     ftl::mmio::Reserved<9, 15>,
-    MSR_Fields::MBF,
-    MSR_Fields::BBF,
-    ftl::mmio::Reserved<6, 26>>;
+    MSR_fields_::MBF,
+    MSR_fields_::BBF,
+    ftl::mmio::Reserved<6, 26>> {
+  using eTDF = MSR_fields_::eTDF;
+  using eRDF = MSR_fields_::eRDF;
+  using eEPF = MSR_fields_::eEPF;
+  using eSDF = MSR_fields_::eSDF;
+  using eNDF = MSR_fields_::eNDF;
+  using eALF = MSR_fields_::eALF;
+  using eFEF = MSR_fields_::eFEF;
+  using ePLTF = MSR_fields_::ePLTF;
+  using eDMF = MSR_fields_::eDMF;
+  using eMBF = MSR_fields_::eMBF;
+  using eBBF = MSR_fields_::eBBF;
+  using TDF = MSR_fields_::TDF;
+  using RDF = MSR_fields_::RDF;
+  using EPF = MSR_fields_::EPF;
+  using SDF = MSR_fields_::SDF;
+  using NDF = MSR_fields_::NDF;
+  using ALF = MSR_fields_::ALF;
+  using FEF = MSR_fields_::FEF;
+  using PLTF = MSR_fields_::PLTF;
+  using DMF = MSR_fields_::DMF;
+  using MBF = MSR_fields_::MBF;
+  using BBF = MSR_fields_::BBF;
+};
 
 // Master Interrupt Enable
-namespace MIER_Fields {
+namespace MIER_fields_ {
 
   enum class eTDIE : std::uint32_t {
     // Disabled
@@ -326,26 +370,45 @@ namespace MIER_Fields {
   using PLTIE = ftl::mmio::Field<1, 13, ePLTIE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Data Match Interrupt Enable
   using DMIE = ftl::mmio::Field<1, 14, eDMIE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace MIER_Fields
+}  // namespace MIER_fields_
 
-using MIER = ftl::mmio::Register<
+struct MIER : ftl::mmio::Register<
     0x40C34018u,
     0x00000000u,
     ftl::mmio::RW,
-    MIER_Fields::TDIE,
-    MIER_Fields::RDIE,
+    MIER_fields_::TDIE,
+    MIER_fields_::RDIE,
     ftl::mmio::Reserved<6, 2>,
-    MIER_Fields::EPIE,
-    MIER_Fields::SDIE,
-    MIER_Fields::NDIE,
-    MIER_Fields::ALIE,
-    MIER_Fields::FEIE,
-    MIER_Fields::PLTIE,
-    MIER_Fields::DMIE,
-    ftl::mmio::Reserved<17, 15>>;
+    MIER_fields_::EPIE,
+    MIER_fields_::SDIE,
+    MIER_fields_::NDIE,
+    MIER_fields_::ALIE,
+    MIER_fields_::FEIE,
+    MIER_fields_::PLTIE,
+    MIER_fields_::DMIE,
+    ftl::mmio::Reserved<17, 15>> {
+  using eTDIE = MIER_fields_::eTDIE;
+  using eRDIE = MIER_fields_::eRDIE;
+  using eEPIE = MIER_fields_::eEPIE;
+  using eSDIE = MIER_fields_::eSDIE;
+  using eNDIE = MIER_fields_::eNDIE;
+  using eALIE = MIER_fields_::eALIE;
+  using eFEIE = MIER_fields_::eFEIE;
+  using ePLTIE = MIER_fields_::ePLTIE;
+  using eDMIE = MIER_fields_::eDMIE;
+  using TDIE = MIER_fields_::TDIE;
+  using RDIE = MIER_fields_::RDIE;
+  using EPIE = MIER_fields_::EPIE;
+  using SDIE = MIER_fields_::SDIE;
+  using NDIE = MIER_fields_::NDIE;
+  using ALIE = MIER_fields_::ALIE;
+  using FEIE = MIER_fields_::FEIE;
+  using PLTIE = MIER_fields_::PLTIE;
+  using DMIE = MIER_fields_::DMIE;
+};
 
 // Master DMA Enable
-namespace MDER_Fields {
+namespace MDER_fields_ {
 
   enum class eTDDE : std::uint32_t {
     // DMA request is disabled
@@ -364,18 +427,23 @@ namespace MDER_Fields {
   using TDDE = ftl::mmio::Field<1, 0, eTDDE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Data DMA Enable
   using RDDE = ftl::mmio::Field<1, 1, eRDDE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace MDER_Fields
+}  // namespace MDER_fields_
 
-using MDER = ftl::mmio::Register<
+struct MDER : ftl::mmio::Register<
     0x40C3401Cu,
     0x00000000u,
     ftl::mmio::RW,
-    MDER_Fields::TDDE,
-    MDER_Fields::RDDE,
-    ftl::mmio::Reserved<30, 2>>;
+    MDER_fields_::TDDE,
+    MDER_fields_::RDDE,
+    ftl::mmio::Reserved<30, 2>> {
+  using eTDDE = MDER_fields_::eTDDE;
+  using eRDDE = MDER_fields_::eRDDE;
+  using TDDE = MDER_fields_::TDDE;
+  using RDDE = MDER_fields_::RDDE;
+};
 
 // Master Configuration 0
-namespace MCFGR0_Fields {
+namespace MCFGR0_fields_ {
 
   enum class eHREN : std::uint32_t {
     // Host request input is disabled
@@ -421,22 +489,33 @@ namespace MCFGR0_Fields {
   using CIRFIFO = ftl::mmio::Field<1, 8, eCIRFIFO, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive Data Match Only
   using RDMO = ftl::mmio::Field<1, 9, eRDMO, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace MCFGR0_Fields
+}  // namespace MCFGR0_fields_
 
-using MCFGR0 = ftl::mmio::Register<
+struct MCFGR0 : ftl::mmio::Register<
     0x40C34020u,
     0x00000000u,
     ftl::mmio::RW,
-    MCFGR0_Fields::HREN,
-    MCFGR0_Fields::HRPOL,
-    MCFGR0_Fields::HRSEL,
+    MCFGR0_fields_::HREN,
+    MCFGR0_fields_::HRPOL,
+    MCFGR0_fields_::HRSEL,
     ftl::mmio::Reserved<5, 3>,
-    MCFGR0_Fields::CIRFIFO,
-    MCFGR0_Fields::RDMO,
-    ftl::mmio::Reserved<22, 10>>;
+    MCFGR0_fields_::CIRFIFO,
+    MCFGR0_fields_::RDMO,
+    ftl::mmio::Reserved<22, 10>> {
+  using eHREN = MCFGR0_fields_::eHREN;
+  using eHRPOL = MCFGR0_fields_::eHRPOL;
+  using eHRSEL = MCFGR0_fields_::eHRSEL;
+  using eCIRFIFO = MCFGR0_fields_::eCIRFIFO;
+  using eRDMO = MCFGR0_fields_::eRDMO;
+  using HREN = MCFGR0_fields_::HREN;
+  using HRPOL = MCFGR0_fields_::HRPOL;
+  using HRSEL = MCFGR0_fields_::HRSEL;
+  using CIRFIFO = MCFGR0_fields_::CIRFIFO;
+  using RDMO = MCFGR0_fields_::RDMO;
+};
 
 // Master Configuration 1
-namespace MCFGR1_Fields {
+namespace MCFGR1_fields_ {
 
   enum class ePRESCALE : std::uint32_t {
     // Divide by 1
@@ -525,77 +604,99 @@ namespace MCFGR1_Fields {
   using MATCFG = ftl::mmio::Field<3, 16, eMATCFG, ftl::mmio::RW, ftl::mmio::Normal>;
   // Pin Configuration
   using PINCFG = ftl::mmio::Field<3, 24, ePINCFG, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace MCFGR1_Fields
+}  // namespace MCFGR1_fields_
 
-using MCFGR1 = ftl::mmio::Register<
+struct MCFGR1 : ftl::mmio::Register<
     0x40C34024u,
     0x00000000u,
     ftl::mmio::RW,
-    MCFGR1_Fields::PRESCALE,
+    MCFGR1_fields_::PRESCALE,
     ftl::mmio::Reserved<5, 3>,
-    MCFGR1_Fields::AUTOSTOP,
-    MCFGR1_Fields::IGNACK,
-    MCFGR1_Fields::TIMECFG,
+    MCFGR1_fields_::AUTOSTOP,
+    MCFGR1_fields_::IGNACK,
+    MCFGR1_fields_::TIMECFG,
     ftl::mmio::Reserved<5, 11>,
-    MCFGR1_Fields::MATCFG,
+    MCFGR1_fields_::MATCFG,
     ftl::mmio::Reserved<5, 19>,
-    MCFGR1_Fields::PINCFG,
-    ftl::mmio::Reserved<5, 27>>;
+    MCFGR1_fields_::PINCFG,
+    ftl::mmio::Reserved<5, 27>> {
+  using ePRESCALE = MCFGR1_fields_::ePRESCALE;
+  using eAUTOSTOP = MCFGR1_fields_::eAUTOSTOP;
+  using eIGNACK = MCFGR1_fields_::eIGNACK;
+  using eTIMECFG = MCFGR1_fields_::eTIMECFG;
+  using eMATCFG = MCFGR1_fields_::eMATCFG;
+  using ePINCFG = MCFGR1_fields_::ePINCFG;
+  using PRESCALE = MCFGR1_fields_::PRESCALE;
+  using AUTOSTOP = MCFGR1_fields_::AUTOSTOP;
+  using IGNACK = MCFGR1_fields_::IGNACK;
+  using TIMECFG = MCFGR1_fields_::TIMECFG;
+  using MATCFG = MCFGR1_fields_::MATCFG;
+  using PINCFG = MCFGR1_fields_::PINCFG;
+};
 
 // Master Configuration 2
-namespace MCFGR2_Fields {
+namespace MCFGR2_fields_ {
   // Bus Idle Timeout
   using BUSIDLE = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Glitch Filter SCL
   using FILTSCL = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Glitch Filter SDA
   using FILTSDA = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace MCFGR2_Fields
+}  // namespace MCFGR2_fields_
 
-using MCFGR2 = ftl::mmio::Register<
+struct MCFGR2 : ftl::mmio::Register<
     0x40C34028u,
     0x00000000u,
     ftl::mmio::RW,
-    MCFGR2_Fields::BUSIDLE,
+    MCFGR2_fields_::BUSIDLE,
     ftl::mmio::Reserved<4, 12>,
-    MCFGR2_Fields::FILTSCL,
+    MCFGR2_fields_::FILTSCL,
     ftl::mmio::Reserved<4, 20>,
-    MCFGR2_Fields::FILTSDA,
-    ftl::mmio::Reserved<4, 28>>;
+    MCFGR2_fields_::FILTSDA,
+    ftl::mmio::Reserved<4, 28>> {
+  using BUSIDLE = MCFGR2_fields_::BUSIDLE;
+  using FILTSCL = MCFGR2_fields_::FILTSCL;
+  using FILTSDA = MCFGR2_fields_::FILTSDA;
+};
 
 // Master Configuration 3
-namespace MCFGR3_Fields {
+namespace MCFGR3_fields_ {
   // Pin Low Timeout
   using PINLOW = ftl::mmio::Field<12, 8, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace MCFGR3_Fields
+}  // namespace MCFGR3_fields_
 
-using MCFGR3 = ftl::mmio::Register<
+struct MCFGR3 : ftl::mmio::Register<
     0x40C3402Cu,
     0x00000000u,
     ftl::mmio::RW,
     ftl::mmio::Reserved<8, 0>,
-    MCFGR3_Fields::PINLOW,
-    ftl::mmio::Reserved<12, 20>>;
+    MCFGR3_fields_::PINLOW,
+    ftl::mmio::Reserved<12, 20>> {
+  using PINLOW = MCFGR3_fields_::PINLOW;
+};
 
 // Master Data Match
-namespace MDMR_Fields {
+namespace MDMR_fields_ {
   // Match 0 Value
   using MATCH0 = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Match 1 Value
   using MATCH1 = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace MDMR_Fields
+}  // namespace MDMR_fields_
 
-using MDMR = ftl::mmio::Register<
+struct MDMR : ftl::mmio::Register<
     0x40C34040u,
     0x00000000u,
     ftl::mmio::RW,
-    MDMR_Fields::MATCH0,
+    MDMR_fields_::MATCH0,
     ftl::mmio::Reserved<8, 8>,
-    MDMR_Fields::MATCH1,
-    ftl::mmio::Reserved<8, 24>>;
+    MDMR_fields_::MATCH1,
+    ftl::mmio::Reserved<8, 24>> {
+  using MATCH0 = MDMR_fields_::MATCH0;
+  using MATCH1 = MDMR_fields_::MATCH1;
+};
 
 // Master Clock Configuration 0
-namespace MCCR0_Fields {
+namespace MCCR0_fields_ {
   // Clock Low Period
   using CLKLO = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Clock High Period
@@ -604,23 +705,28 @@ namespace MCCR0_Fields {
   using SETHOLD = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Data Valid Delay
   using DATAVD = ftl::mmio::Field<6, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace MCCR0_Fields
+}  // namespace MCCR0_fields_
 
-using MCCR0 = ftl::mmio::Register<
+struct MCCR0 : ftl::mmio::Register<
     0x40C34048u,
     0x00000000u,
     ftl::mmio::RW,
-    MCCR0_Fields::CLKLO,
+    MCCR0_fields_::CLKLO,
     ftl::mmio::Reserved<2, 6>,
-    MCCR0_Fields::CLKHI,
+    MCCR0_fields_::CLKHI,
     ftl::mmio::Reserved<2, 14>,
-    MCCR0_Fields::SETHOLD,
+    MCCR0_fields_::SETHOLD,
     ftl::mmio::Reserved<2, 22>,
-    MCCR0_Fields::DATAVD,
-    ftl::mmio::Reserved<2, 30>>;
+    MCCR0_fields_::DATAVD,
+    ftl::mmio::Reserved<2, 30>> {
+  using CLKLO = MCCR0_fields_::CLKLO;
+  using CLKHI = MCCR0_fields_::CLKHI;
+  using SETHOLD = MCCR0_fields_::SETHOLD;
+  using DATAVD = MCCR0_fields_::DATAVD;
+};
 
 // Master Clock Configuration 1
-namespace MCCR1_Fields {
+namespace MCCR1_fields_ {
   // Clock Low Period
   using CLKLO = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Clock High Period
@@ -629,57 +735,68 @@ namespace MCCR1_Fields {
   using SETHOLD = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Data Valid Delay
   using DATAVD = ftl::mmio::Field<6, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace MCCR1_Fields
+}  // namespace MCCR1_fields_
 
-using MCCR1 = ftl::mmio::Register<
+struct MCCR1 : ftl::mmio::Register<
     0x40C34050u,
     0x00000000u,
     ftl::mmio::RW,
-    MCCR1_Fields::CLKLO,
+    MCCR1_fields_::CLKLO,
     ftl::mmio::Reserved<2, 6>,
-    MCCR1_Fields::CLKHI,
+    MCCR1_fields_::CLKHI,
     ftl::mmio::Reserved<2, 14>,
-    MCCR1_Fields::SETHOLD,
+    MCCR1_fields_::SETHOLD,
     ftl::mmio::Reserved<2, 22>,
-    MCCR1_Fields::DATAVD,
-    ftl::mmio::Reserved<2, 30>>;
+    MCCR1_fields_::DATAVD,
+    ftl::mmio::Reserved<2, 30>> {
+  using CLKLO = MCCR1_fields_::CLKLO;
+  using CLKHI = MCCR1_fields_::CLKHI;
+  using SETHOLD = MCCR1_fields_::SETHOLD;
+  using DATAVD = MCCR1_fields_::DATAVD;
+};
 
 // Master FIFO Control
-namespace MFCR_Fields {
+namespace MFCR_fields_ {
   // Transmit FIFO Watermark
   using TXWATER = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Receive FIFO Watermark
   using RXWATER = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace MFCR_Fields
+}  // namespace MFCR_fields_
 
-using MFCR = ftl::mmio::Register<
+struct MFCR : ftl::mmio::Register<
     0x40C34058u,
     0x00000000u,
     ftl::mmio::RW,
-    MFCR_Fields::TXWATER,
+    MFCR_fields_::TXWATER,
     ftl::mmio::Reserved<14, 2>,
-    MFCR_Fields::RXWATER,
-    ftl::mmio::Reserved<14, 18>>;
+    MFCR_fields_::RXWATER,
+    ftl::mmio::Reserved<14, 18>> {
+  using TXWATER = MFCR_fields_::TXWATER;
+  using RXWATER = MFCR_fields_::RXWATER;
+};
 
 // Master FIFO Status
-namespace MFSR_Fields {
+namespace MFSR_fields_ {
   // Transmit FIFO Count
   using TXCOUNT = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Receive FIFO Count
   using RXCOUNT = ftl::mmio::Field<3, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace MFSR_Fields
+}  // namespace MFSR_fields_
 
-using MFSR = ftl::mmio::Register<
+struct MFSR : ftl::mmio::Register<
     0x40C3405Cu,
     0x00000000u,
     ftl::mmio::RO,
-    MFSR_Fields::TXCOUNT,
+    MFSR_fields_::TXCOUNT,
     ftl::mmio::Reserved<13, 3>,
-    MFSR_Fields::RXCOUNT,
-    ftl::mmio::Reserved<13, 19>>;
+    MFSR_fields_::RXCOUNT,
+    ftl::mmio::Reserved<13, 19>> {
+  using TXCOUNT = MFSR_fields_::TXCOUNT;
+  using RXCOUNT = MFSR_fields_::RXCOUNT;
+};
 
 // Master Transmit Data
-namespace MTDR_Fields {
+namespace MTDR_fields_ {
 
   enum class eCMD : std::uint32_t {
     // Transmit DATA[7:0]
@@ -703,18 +820,22 @@ namespace MTDR_Fields {
   using DATA = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::WO, ftl::mmio::Normal>;
   // Command Data
   using CMD = ftl::mmio::Field<3, 8, eCMD, ftl::mmio::WO, ftl::mmio::Normal>;
-}  // namespace MTDR_Fields
+}  // namespace MTDR_fields_
 
-using MTDR = ftl::mmio::Register<
+struct MTDR : ftl::mmio::Register<
     0x40C34060u,
     0x00000000u,
     ftl::mmio::WO,
-    MTDR_Fields::DATA,
-    MTDR_Fields::CMD,
-    ftl::mmio::Reserved<21, 11>>;
+    MTDR_fields_::DATA,
+    MTDR_fields_::CMD,
+    ftl::mmio::Reserved<21, 11>> {
+  using eCMD = MTDR_fields_::eCMD;
+  using DATA = MTDR_fields_::DATA;
+  using CMD = MTDR_fields_::CMD;
+};
 
 // Master Receive Data
-namespace MRDR_Fields {
+namespace MRDR_fields_ {
 
   enum class eRXEMPTY : std::uint32_t {
     // Receive FIFO is not empty
@@ -726,19 +847,23 @@ namespace MRDR_Fields {
   using DATA = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // RX Empty
   using RXEMPTY = ftl::mmio::Field<1, 14, eRXEMPTY, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace MRDR_Fields
+}  // namespace MRDR_fields_
 
-using MRDR = ftl::mmio::Register<
+struct MRDR : ftl::mmio::Register<
     0x40C34070u,
     0x00004000u,
     ftl::mmio::RO,
-    MRDR_Fields::DATA,
+    MRDR_fields_::DATA,
     ftl::mmio::Reserved<6, 8>,
-    MRDR_Fields::RXEMPTY,
-    ftl::mmio::Reserved<17, 15>>;
+    MRDR_fields_::RXEMPTY,
+    ftl::mmio::Reserved<17, 15>> {
+  using eRXEMPTY = MRDR_fields_::eRXEMPTY;
+  using DATA = MRDR_fields_::DATA;
+  using RXEMPTY = MRDR_fields_::RXEMPTY;
+};
 
 // Slave Control
-namespace SCR_Fields {
+namespace SCR_fields_ {
 
   enum class eSEN : std::uint32_t {
     // I2C Slave mode is disabled
@@ -793,24 +918,37 @@ namespace SCR_Fields {
   using RTF = ftl::mmio::Field<1, 8, eRTF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Reset Receive FIFO
   using RRF = ftl::mmio::Field<1, 9, eRRF, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace SCR_Fields
+}  // namespace SCR_fields_
 
-using SCR = ftl::mmio::Register<
+struct SCR : ftl::mmio::Register<
     0x40C34110u,
     0x00000000u,
     ftl::mmio::RW,
-    SCR_Fields::SEN,
-    SCR_Fields::RST,
+    SCR_fields_::SEN,
+    SCR_fields_::RST,
     ftl::mmio::Reserved<2, 2>,
-    SCR_Fields::FILTEN,
-    SCR_Fields::FILTDZ,
+    SCR_fields_::FILTEN,
+    SCR_fields_::FILTDZ,
     ftl::mmio::Reserved<2, 6>,
-    SCR_Fields::RTF,
-    SCR_Fields::RRF,
-    ftl::mmio::Reserved<22, 10>>;
+    SCR_fields_::RTF,
+    SCR_fields_::RRF,
+    ftl::mmio::Reserved<22, 10>> {
+  using eSEN = SCR_fields_::eSEN;
+  using eRST = SCR_fields_::eRST;
+  using eFILTEN = SCR_fields_::eFILTEN;
+  using eFILTDZ = SCR_fields_::eFILTDZ;
+  using eRTF = SCR_fields_::eRTF;
+  using eRRF = SCR_fields_::eRRF;
+  using SEN = SCR_fields_::SEN;
+  using RST = SCR_fields_::RST;
+  using FILTEN = SCR_fields_::FILTEN;
+  using FILTDZ = SCR_fields_::FILTDZ;
+  using RTF = SCR_fields_::RTF;
+  using RRF = SCR_fields_::RRF;
+};
 
 // Slave Status
-namespace SSR_Fields {
+namespace SSR_fields_ {
 
   enum class eTDF : std::uint32_t {
     // Transmit data not requested
@@ -937,32 +1075,61 @@ namespace SSR_Fields {
   using SBF = ftl::mmio::Field<1, 24, eSBF, ftl::mmio::RO, ftl::mmio::Normal>;
   // Bus Busy Flag
   using BBF = ftl::mmio::Field<1, 25, eBBF, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace SSR_Fields
+}  // namespace SSR_fields_
 
-using SSR = ftl::mmio::Register<
+struct SSR : ftl::mmio::Register<
     0x40C34114u,
     0x00000000u,
     ftl::mmio::RW,
-    SSR_Fields::TDF,
-    SSR_Fields::RDF,
-    SSR_Fields::AVF,
-    SSR_Fields::TAF,
+    SSR_fields_::TDF,
+    SSR_fields_::RDF,
+    SSR_fields_::AVF,
+    SSR_fields_::TAF,
     ftl::mmio::Reserved<4, 4>,
-    SSR_Fields::RSF,
-    SSR_Fields::SDF,
-    SSR_Fields::BEF,
-    SSR_Fields::FEF,
-    SSR_Fields::AM0F,
-    SSR_Fields::AM1F,
-    SSR_Fields::GCF,
-    SSR_Fields::SARF,
+    SSR_fields_::RSF,
+    SSR_fields_::SDF,
+    SSR_fields_::BEF,
+    SSR_fields_::FEF,
+    SSR_fields_::AM0F,
+    SSR_fields_::AM1F,
+    SSR_fields_::GCF,
+    SSR_fields_::SARF,
     ftl::mmio::Reserved<8, 16>,
-    SSR_Fields::SBF,
-    SSR_Fields::BBF,
-    ftl::mmio::Reserved<6, 26>>;
+    SSR_fields_::SBF,
+    SSR_fields_::BBF,
+    ftl::mmio::Reserved<6, 26>> {
+  using eTDF = SSR_fields_::eTDF;
+  using eRDF = SSR_fields_::eRDF;
+  using eAVF = SSR_fields_::eAVF;
+  using eTAF = SSR_fields_::eTAF;
+  using eRSF = SSR_fields_::eRSF;
+  using eSDF = SSR_fields_::eSDF;
+  using eBEF = SSR_fields_::eBEF;
+  using eFEF = SSR_fields_::eFEF;
+  using eAM0F = SSR_fields_::eAM0F;
+  using eAM1F = SSR_fields_::eAM1F;
+  using eGCF = SSR_fields_::eGCF;
+  using eSARF = SSR_fields_::eSARF;
+  using eSBF = SSR_fields_::eSBF;
+  using eBBF = SSR_fields_::eBBF;
+  using TDF = SSR_fields_::TDF;
+  using RDF = SSR_fields_::RDF;
+  using AVF = SSR_fields_::AVF;
+  using TAF = SSR_fields_::TAF;
+  using RSF = SSR_fields_::RSF;
+  using SDF = SSR_fields_::SDF;
+  using BEF = SSR_fields_::BEF;
+  using FEF = SSR_fields_::FEF;
+  using AM0F = SSR_fields_::AM0F;
+  using AM1F = SSR_fields_::AM1F;
+  using GCF = SSR_fields_::GCF;
+  using SARF = SSR_fields_::SARF;
+  using SBF = SSR_fields_::SBF;
+  using BBF = SSR_fields_::BBF;
+};
 
 // Slave Interrupt Enable
-namespace SIER_Fields {
+namespace SIER_fields_ {
 
   enum class eTDIE : std::uint32_t {
     // Disabled
@@ -1071,29 +1238,54 @@ namespace SIER_Fields {
   using GCIE = ftl::mmio::Field<1, 14, eGCIE, ftl::mmio::RW, ftl::mmio::Normal>;
   // SMBus Alert Response Interrupt Enable
   using SARIE = ftl::mmio::Field<1, 15, eSARIE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace SIER_Fields
+}  // namespace SIER_fields_
 
-using SIER = ftl::mmio::Register<
+struct SIER : ftl::mmio::Register<
     0x40C34118u,
     0x00000000u,
     ftl::mmio::RW,
-    SIER_Fields::TDIE,
-    SIER_Fields::RDIE,
-    SIER_Fields::AVIE,
-    SIER_Fields::TAIE,
+    SIER_fields_::TDIE,
+    SIER_fields_::RDIE,
+    SIER_fields_::AVIE,
+    SIER_fields_::TAIE,
     ftl::mmio::Reserved<4, 4>,
-    SIER_Fields::RSIE,
-    SIER_Fields::SDIE,
-    SIER_Fields::BEIE,
-    SIER_Fields::FEIE,
-    SIER_Fields::AM0IE,
-    SIER_Fields::AM1IE,
-    SIER_Fields::GCIE,
-    SIER_Fields::SARIE,
-    ftl::mmio::Reserved<16, 16>>;
+    SIER_fields_::RSIE,
+    SIER_fields_::SDIE,
+    SIER_fields_::BEIE,
+    SIER_fields_::FEIE,
+    SIER_fields_::AM0IE,
+    SIER_fields_::AM1IE,
+    SIER_fields_::GCIE,
+    SIER_fields_::SARIE,
+    ftl::mmio::Reserved<16, 16>> {
+  using eTDIE = SIER_fields_::eTDIE;
+  using eRDIE = SIER_fields_::eRDIE;
+  using eAVIE = SIER_fields_::eAVIE;
+  using eTAIE = SIER_fields_::eTAIE;
+  using eRSIE = SIER_fields_::eRSIE;
+  using eSDIE = SIER_fields_::eSDIE;
+  using eBEIE = SIER_fields_::eBEIE;
+  using eFEIE = SIER_fields_::eFEIE;
+  using eAM0IE = SIER_fields_::eAM0IE;
+  using eAM1IE = SIER_fields_::eAM1IE;
+  using eGCIE = SIER_fields_::eGCIE;
+  using eSARIE = SIER_fields_::eSARIE;
+  using TDIE = SIER_fields_::TDIE;
+  using RDIE = SIER_fields_::RDIE;
+  using AVIE = SIER_fields_::AVIE;
+  using TAIE = SIER_fields_::TAIE;
+  using RSIE = SIER_fields_::RSIE;
+  using SDIE = SIER_fields_::SDIE;
+  using BEIE = SIER_fields_::BEIE;
+  using FEIE = SIER_fields_::FEIE;
+  using AM0IE = SIER_fields_::AM0IE;
+  using AM1IE = SIER_fields_::AM1IE;
+  using GCIE = SIER_fields_::GCIE;
+  using SARIE = SIER_fields_::SARIE;
+};
 
 // Slave DMA Enable
-namespace SDER_Fields {
+namespace SDER_fields_ {
 
   enum class eTDDE : std::uint32_t {
     // DMA request is disabled
@@ -1121,19 +1313,26 @@ namespace SDER_Fields {
   using RDDE = ftl::mmio::Field<1, 1, eRDDE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Address Valid DMA Enable
   using AVDE = ftl::mmio::Field<1, 2, eAVDE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace SDER_Fields
+}  // namespace SDER_fields_
 
-using SDER = ftl::mmio::Register<
+struct SDER : ftl::mmio::Register<
     0x40C3411Cu,
     0x00000000u,
     ftl::mmio::RW,
-    SDER_Fields::TDDE,
-    SDER_Fields::RDDE,
-    SDER_Fields::AVDE,
-    ftl::mmio::Reserved<29, 3>>;
+    SDER_fields_::TDDE,
+    SDER_fields_::RDDE,
+    SDER_fields_::AVDE,
+    ftl::mmio::Reserved<29, 3>> {
+  using eTDDE = SDER_fields_::eTDDE;
+  using eRDDE = SDER_fields_::eRDDE;
+  using eAVDE = SDER_fields_::eAVDE;
+  using TDDE = SDER_fields_::TDDE;
+  using RDDE = SDER_fields_::RDDE;
+  using AVDE = SDER_fields_::AVDE;
+};
 
 // Slave Configuration 1
-namespace SCFGR1_Fields {
+namespace SCFGR1_fields_ {
 
   enum class eADRSTALL : std::uint32_t {
     // Clock stretching is disabled
@@ -1245,29 +1444,52 @@ namespace SCFGR1_Fields {
   using HSMEN = ftl::mmio::Field<1, 13, eHSMEN, ftl::mmio::RW, ftl::mmio::Normal>;
   // Address Configuration
   using ADDRCFG = ftl::mmio::Field<3, 16, eADDRCFG, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace SCFGR1_Fields
+}  // namespace SCFGR1_fields_
 
-using SCFGR1 = ftl::mmio::Register<
+struct SCFGR1 : ftl::mmio::Register<
     0x40C34124u,
     0x00000000u,
     ftl::mmio::RW,
-    SCFGR1_Fields::ADRSTALL,
-    SCFGR1_Fields::RXSTALL,
-    SCFGR1_Fields::TXDSTALL,
-    SCFGR1_Fields::ACKSTALL,
+    SCFGR1_fields_::ADRSTALL,
+    SCFGR1_fields_::RXSTALL,
+    SCFGR1_fields_::TXDSTALL,
+    SCFGR1_fields_::ACKSTALL,
     ftl::mmio::Reserved<4, 4>,
-    SCFGR1_Fields::GCEN,
-    SCFGR1_Fields::SAEN,
-    SCFGR1_Fields::TXCFG,
-    SCFGR1_Fields::RXCFG,
-    SCFGR1_Fields::IGNACK,
-    SCFGR1_Fields::HSMEN,
+    SCFGR1_fields_::GCEN,
+    SCFGR1_fields_::SAEN,
+    SCFGR1_fields_::TXCFG,
+    SCFGR1_fields_::RXCFG,
+    SCFGR1_fields_::IGNACK,
+    SCFGR1_fields_::HSMEN,
     ftl::mmio::Reserved<2, 14>,
-    SCFGR1_Fields::ADDRCFG,
-    ftl::mmio::Reserved<13, 19>>;
+    SCFGR1_fields_::ADDRCFG,
+    ftl::mmio::Reserved<13, 19>> {
+  using eADRSTALL = SCFGR1_fields_::eADRSTALL;
+  using eRXSTALL = SCFGR1_fields_::eRXSTALL;
+  using eTXDSTALL = SCFGR1_fields_::eTXDSTALL;
+  using eACKSTALL = SCFGR1_fields_::eACKSTALL;
+  using eGCEN = SCFGR1_fields_::eGCEN;
+  using eSAEN = SCFGR1_fields_::eSAEN;
+  using eTXCFG = SCFGR1_fields_::eTXCFG;
+  using eRXCFG = SCFGR1_fields_::eRXCFG;
+  using eIGNACK = SCFGR1_fields_::eIGNACK;
+  using eHSMEN = SCFGR1_fields_::eHSMEN;
+  using eADDRCFG = SCFGR1_fields_::eADDRCFG;
+  using ADRSTALL = SCFGR1_fields_::ADRSTALL;
+  using RXSTALL = SCFGR1_fields_::RXSTALL;
+  using TXDSTALL = SCFGR1_fields_::TXDSTALL;
+  using ACKSTALL = SCFGR1_fields_::ACKSTALL;
+  using GCEN = SCFGR1_fields_::GCEN;
+  using SAEN = SCFGR1_fields_::SAEN;
+  using TXCFG = SCFGR1_fields_::TXCFG;
+  using RXCFG = SCFGR1_fields_::RXCFG;
+  using IGNACK = SCFGR1_fields_::IGNACK;
+  using HSMEN = SCFGR1_fields_::HSMEN;
+  using ADDRCFG = SCFGR1_fields_::ADDRCFG;
+};
 
 // Slave Configuration 2
-namespace SCFGR2_Fields {
+namespace SCFGR2_fields_ {
   // Clock Hold Time
   using CLKHOLD = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Data Valid Delay
@@ -1276,41 +1498,49 @@ namespace SCFGR2_Fields {
   using FILTSCL = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Glitch Filter SDA
   using FILTSDA = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace SCFGR2_Fields
+}  // namespace SCFGR2_fields_
 
-using SCFGR2 = ftl::mmio::Register<
+struct SCFGR2 : ftl::mmio::Register<
     0x40C34128u,
     0x00000000u,
     ftl::mmio::RW,
-    SCFGR2_Fields::CLKHOLD,
+    SCFGR2_fields_::CLKHOLD,
     ftl::mmio::Reserved<4, 4>,
-    SCFGR2_Fields::DATAVD,
+    SCFGR2_fields_::DATAVD,
     ftl::mmio::Reserved<2, 14>,
-    SCFGR2_Fields::FILTSCL,
+    SCFGR2_fields_::FILTSCL,
     ftl::mmio::Reserved<4, 20>,
-    SCFGR2_Fields::FILTSDA,
-    ftl::mmio::Reserved<4, 28>>;
+    SCFGR2_fields_::FILTSDA,
+    ftl::mmio::Reserved<4, 28>> {
+  using CLKHOLD = SCFGR2_fields_::CLKHOLD;
+  using DATAVD = SCFGR2_fields_::DATAVD;
+  using FILTSCL = SCFGR2_fields_::FILTSCL;
+  using FILTSDA = SCFGR2_fields_::FILTSDA;
+};
 
 // Slave Address Match
-namespace SAMR_Fields {
+namespace SAMR_fields_ {
   // Address 0 Value
   using ADDR0 = ftl::mmio::Field<10, 1, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Address 1 Value
   using ADDR1 = ftl::mmio::Field<10, 17, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace SAMR_Fields
+}  // namespace SAMR_fields_
 
-using SAMR = ftl::mmio::Register<
+struct SAMR : ftl::mmio::Register<
     0x40C34140u,
     0x00000000u,
     ftl::mmio::RW,
     ftl::mmio::Reserved<1, 0>,
-    SAMR_Fields::ADDR0,
+    SAMR_fields_::ADDR0,
     ftl::mmio::Reserved<6, 11>,
-    SAMR_Fields::ADDR1,
-    ftl::mmio::Reserved<5, 27>>;
+    SAMR_fields_::ADDR1,
+    ftl::mmio::Reserved<5, 27>> {
+  using ADDR0 = SAMR_fields_::ADDR0;
+  using ADDR1 = SAMR_fields_::ADDR1;
+};
 
 // Slave Address Status
-namespace SASR_Fields {
+namespace SASR_fields_ {
 
   enum class eANV : std::uint32_t {
     // Received Address (RADDR) is valid
@@ -1322,19 +1552,23 @@ namespace SASR_Fields {
   using RADDR = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
   // Address Not Valid
   using ANV = ftl::mmio::Field<1, 14, eANV, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace SASR_Fields
+}  // namespace SASR_fields_
 
-using SASR = ftl::mmio::Register<
+struct SASR : ftl::mmio::Register<
     0x40C34150u,
     0x00004000u,
     ftl::mmio::RO,
-    SASR_Fields::RADDR,
+    SASR_fields_::RADDR,
     ftl::mmio::Reserved<3, 11>,
-    SASR_Fields::ANV,
-    ftl::mmio::Reserved<17, 15>>;
+    SASR_fields_::ANV,
+    ftl::mmio::Reserved<17, 15>> {
+  using eANV = SASR_fields_::eANV;
+  using RADDR = SASR_fields_::RADDR;
+  using ANV = SASR_fields_::ANV;
+};
 
 // Slave Transmit ACK
-namespace STAR_Fields {
+namespace STAR_fields_ {
 
   enum class eTXNACK : std::uint32_t {
     // Write a Transmit ACK for each received word
@@ -1344,30 +1578,35 @@ namespace STAR_Fields {
   };
   // Transmit NACK
   using TXNACK = ftl::mmio::Field<1, 0, eTXNACK, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace STAR_Fields
+}  // namespace STAR_fields_
 
-using STAR = ftl::mmio::Register<
+struct STAR : ftl::mmio::Register<
     0x40C34154u,
     0x00000000u,
     ftl::mmio::RW,
-    STAR_Fields::TXNACK,
-    ftl::mmio::Reserved<31, 1>>;
+    STAR_fields_::TXNACK,
+    ftl::mmio::Reserved<31, 1>> {
+  using eTXNACK = STAR_fields_::eTXNACK;
+  using TXNACK = STAR_fields_::TXNACK;
+};
 
 // Slave Transmit Data
-namespace STDR_Fields {
+namespace STDR_fields_ {
   // Transmit Data
   using DATA = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::WO, ftl::mmio::Normal>;
-}  // namespace STDR_Fields
+}  // namespace STDR_fields_
 
-using STDR = ftl::mmio::Register<
+struct STDR : ftl::mmio::Register<
     0x40C34160u,
     0x00000000u,
     ftl::mmio::WO,
-    STDR_Fields::DATA,
-    ftl::mmio::Reserved<24, 8>>;
+    STDR_fields_::DATA,
+    ftl::mmio::Reserved<24, 8>> {
+  using DATA = STDR_fields_::DATA;
+};
 
 // Slave Receive Data
-namespace SRDR_Fields {
+namespace SRDR_fields_ {
 
   enum class eRXEMPTY : std::uint32_t {
     // The Receive Data Register is not empty
@@ -1388,16 +1627,22 @@ namespace SRDR_Fields {
   using RXEMPTY = ftl::mmio::Field<1, 14, eRXEMPTY, ftl::mmio::RO, ftl::mmio::Normal>;
   // Start Of Frame
   using SOF = ftl::mmio::Field<1, 15, eSOF, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace SRDR_Fields
+}  // namespace SRDR_fields_
 
-using SRDR = ftl::mmio::Register<
+struct SRDR : ftl::mmio::Register<
     0x40C34170u,
     0x00004000u,
     ftl::mmio::RO,
-    SRDR_Fields::DATA,
+    SRDR_fields_::DATA,
     ftl::mmio::Reserved<6, 8>,
-    SRDR_Fields::RXEMPTY,
-    SRDR_Fields::SOF,
-    ftl::mmio::Reserved<16, 16>>;
+    SRDR_fields_::RXEMPTY,
+    SRDR_fields_::SOF,
+    ftl::mmio::Reserved<16, 16>> {
+  using eRXEMPTY = SRDR_fields_::eRXEMPTY;
+  using eSOF = SRDR_fields_::eSOF;
+  using DATA = SRDR_fields_::DATA;
+  using RXEMPTY = SRDR_fields_::RXEMPTY;
+  using SOF = SRDR_fields_::SOF;
+};
 
 }  // namespace regs::lpi2c5

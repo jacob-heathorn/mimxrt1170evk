@@ -20,7 +20,7 @@ constexpr std::uint8_t kWriteBit = 0;
 constexpr std::uint8_t kReadBit  = 1;
 
 // Local alias for the verbose MTDR CMD enumerators.
-using Cmd = lp::MTDR_Fields::eCMD;
+using Cmd = lp::MTDR::eCMD;
 
 }  // namespace
 
@@ -53,49 +53,49 @@ void Lpi2c5::configurePins() {
 void Lpi2c5::resetAndConfigureMaster() {
   // Disable + reset master logic and FIFOs by writing the combined reset bits,
   // then clear them in a second write so the master can be re-enabled.
-  lp::MCR::write(lp::MCR_Fields::RST{lp::MCR_Fields::eRST::eRESET},
-                 lp::MCR_Fields::RTF{lp::MCR_Fields::eRTF::eRESET},
-                 lp::MCR_Fields::RRF{lp::MCR_Fields::eRRF::eRESET});
+  lp::MCR::write(lp::MCR::RST{lp::MCR::eRST::eRESET},
+                 lp::MCR::RTF{lp::MCR::eRTF::eRESET},
+                 lp::MCR::RRF{lp::MCR::eRRF::eRESET});
   lp::MCR::write();  // all zero: clears RST/RTF/RRF and keeps MEN=0
 
   lp::MCFGR1::write(
-      lp::MCFGR1_Fields::PRESCALE{lp::MCFGR1_Fields::ePRESCALE::eDIVIDE_BY_1},
-      lp::MCFGR1_Fields::PINCFG  {lp::MCFGR1_Fields::ePINCFG::eOPEN_DRAIN_2_PIN});
+      lp::MCFGR1::PRESCALE{lp::MCFGR1::ePRESCALE::eDIVIDE_BY_1},
+      lp::MCFGR1::PINCFG  {lp::MCFGR1::ePINCFG::eOPEN_DRAIN_2_PIN});
 
-  lp::MCFGR2::write(lp::MCFGR2_Fields::BUSIDLE{kBusIdle},
-                    lp::MCFGR2_Fields::FILTSCL{static_cast<std::uint8_t>(kFilt)},
-                    lp::MCFGR2_Fields::FILTSDA{static_cast<std::uint8_t>(kFilt)});
+  lp::MCFGR2::write(lp::MCFGR2::BUSIDLE{kBusIdle},
+                    lp::MCFGR2::FILTSCL{static_cast<std::uint8_t>(kFilt)},
+                    lp::MCFGR2::FILTSDA{static_cast<std::uint8_t>(kFilt)});
 
-  lp::MCCR0::write(lp::MCCR0_Fields::CLKLO  {static_cast<std::uint8_t>(kClkLo)},
-                   lp::MCCR0_Fields::CLKHI  {static_cast<std::uint8_t>(kClkHi)},
-                   lp::MCCR0_Fields::SETHOLD{static_cast<std::uint8_t>(kSetHold)},
-                   lp::MCCR0_Fields::DATAVD {static_cast<std::uint8_t>(kDataVd)});
+  lp::MCCR0::write(lp::MCCR0::CLKLO  {static_cast<std::uint8_t>(kClkLo)},
+                   lp::MCCR0::CLKHI  {static_cast<std::uint8_t>(kClkHi)},
+                   lp::MCCR0::SETHOLD{static_cast<std::uint8_t>(kSetHold)},
+                   lp::MCCR0::DATAVD {static_cast<std::uint8_t>(kDataVd)});
 
   clearAllFlags();
 
-  lp::MCR::modify(lp::MCR_Fields::MEN{lp::MCR_Fields::eMEN::eENABLED});
+  lp::MCR::modify(lp::MCR::MEN{lp::MCR::eMEN::eENABLED});
 }
 
 void Lpi2c5::clearAllFlags() {
-  lp::MSR::clear<lp::MSR_Fields::EPF>();
-  lp::MSR::clear<lp::MSR_Fields::SDF>();
-  lp::MSR::clear<lp::MSR_Fields::NDF>();
-  lp::MSR::clear<lp::MSR_Fields::ALF>();
-  lp::MSR::clear<lp::MSR_Fields::FEF>();
-  lp::MSR::clear<lp::MSR_Fields::PLTF>();
+  lp::MSR::clear<lp::MSR::EPF>();
+  lp::MSR::clear<lp::MSR::SDF>();
+  lp::MSR::clear<lp::MSR::NDF>();
+  lp::MSR::clear<lp::MSR::ALF>();
+  lp::MSR::clear<lp::MSR::FEF>();
+  lp::MSR::clear<lp::MSR::PLTF>();
 }
 
 Lpi2cStatus Lpi2c5::checkErrorFlags() {
   auto snap = lp::MSR::read();
-  if (snap.get<lp::MSR_Fields::NDF>()  == lp::MSR_Fields::eNDF::eFLAG)  return Lpi2cStatus::eNack;
-  if (snap.get<lp::MSR_Fields::ALF>()  == lp::MSR_Fields::eALF::eFLAG)  return Lpi2cStatus::eArbitrationLost;
-  if (snap.get<lp::MSR_Fields::FEF>()  == lp::MSR_Fields::eFEF::eFLAG)  return Lpi2cStatus::eFifoError;
-  if (snap.get<lp::MSR_Fields::PLTF>() == lp::MSR_Fields::ePLTF::eFLAG) return Lpi2cStatus::ePinLowTimeout;
+  if (snap.get<lp::MSR::NDF>()  == lp::MSR::eNDF::eFLAG)  return Lpi2cStatus::eNack;
+  if (snap.get<lp::MSR::ALF>()  == lp::MSR::eALF::eFLAG)  return Lpi2cStatus::eArbitrationLost;
+  if (snap.get<lp::MSR::FEF>()  == lp::MSR::eFEF::eFLAG)  return Lpi2cStatus::eFifoError;
+  if (snap.get<lp::MSR::PLTF>() == lp::MSR::ePLTF::eFLAG) return Lpi2cStatus::ePinLowTimeout;
   return Lpi2cStatus::eOk;
 }
 
 Lpi2cStatus Lpi2c5::waitTxReady() {
-  while (lp::MSR::read().get<lp::MSR_Fields::TDF>() != lp::MSR_Fields::eTDF::eENABLED) {
+  while (lp::MSR::read().get<lp::MSR::TDF>() != lp::MSR::eTDF::eENABLED) {
     auto err = checkErrorFlags();
     if (err != Lpi2cStatus::eOk) return err;
   }
@@ -103,7 +103,7 @@ Lpi2cStatus Lpi2c5::waitTxReady() {
 }
 
 Lpi2cStatus Lpi2c5::waitRxReady() {
-  while (lp::MSR::read().get<lp::MSR_Fields::RDF>() != lp::MSR_Fields::eRDF::eENABLED) {
+  while (lp::MSR::read().get<lp::MSR::RDF>() != lp::MSR::eRDF::eENABLED) {
     auto err = checkErrorFlags();
     if (err != Lpi2cStatus::eOk) return err;
   }
@@ -111,19 +111,19 @@ Lpi2cStatus Lpi2c5::waitRxReady() {
 }
 
 Lpi2cStatus Lpi2c5::waitStopDetected() {
-  while (lp::MSR::read().get<lp::MSR_Fields::SDF>() != lp::MSR_Fields::eSDF::eFLAG) {
+  while (lp::MSR::read().get<lp::MSR::SDF>() != lp::MSR::eSDF::eFLAG) {
     auto err = checkErrorFlags();
     if (err != Lpi2cStatus::eOk) return err;
   }
-  lp::MSR::clear<lp::MSR_Fields::SDF>();
+  lp::MSR::clear<lp::MSR::SDF>();
   return Lpi2cStatus::eOk;
 }
 
 namespace {
 
 inline void pushCommand(Cmd cmd, std::uint8_t data) {
-  lp::MTDR::write(lp::MTDR_Fields::CMD{cmd},
-                  lp::MTDR_Fields::DATA{data});
+  lp::MTDR::write(lp::MTDR::CMD{cmd},
+                  lp::MTDR::DATA{data});
 }
 
 }  // namespace
@@ -159,7 +159,7 @@ Lpi2cStatus Lpi2c5::readRegister(std::uint8_t addr, std::uint8_t reg,
   // Drain RX FIFO.
   for (std::size_t i = 0; i < len; ++i) {
     if (auto s = waitRxReady(); s != Lpi2cStatus::eOk) return s;
-    dst[i] = static_cast<std::uint8_t>(lp::MRDR::read().get<lp::MRDR_Fields::DATA>());
+    dst[i] = static_cast<std::uint8_t>(lp::MRDR::read().get<lp::MRDR::DATA>());
   }
 
   return waitStopDetected();
