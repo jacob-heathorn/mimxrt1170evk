@@ -7,6 +7,8 @@
 #include "registers/codegen/lpuart1.hpp"
 #include "registers/codegen/dma0.hpp"
 #include "registers/handwritten/dma0.hpp"
+
+namespace dma0 = regs::dma0;
 #include "registers/codegen/dmamux0.hpp"
 #include "etl/singleton.h"
 #include "utils/ocram2_allocator.hpp"
@@ -144,9 +146,6 @@ public:
         auto &daddr    = nDMA0::TCD_DADDR<0>::ref();
         auto &attr     = nDMA0::TCD_ATTR<0>::ref();
         auto &nbytes   = nDMA0::TCD_NBYTES_MLNO<0>::ref();
-        auto &es       = nDMA0::ES::ref();
-        auto &erq      = nDMA0::ERQ::ref();
-        auto &serq     = nDMA0::SERQ::ref();
         auto &chcfg0   = nDMAMUX0::CHCFG_0::ref();
         auto &ctrl     = nLPUART1::CTRL::ref();
         auto &baud     = nLPUART1::BAUD::ref();
@@ -166,10 +165,12 @@ public:
         // Disable DMAMUX channel
         chcfg0.bits.ENBL  = nDMAMUX0::CHCFG_0::eENBL::eENBL_0;
         // Disable DMA requests
-        erq.bits.ERQ0     = nDMA0::ERQ::eERQ0::eDISABLE;
+        dma0::ERQ::modify(dma0::ERQ::ERQ0{dma0::ERQ::eERQ0::eDISABLE});
 
         //─── Clear sticky flags ───────────────────────────────────────────────
-        es.Reset();         // clear any eDMA error
+        // ES is read-only in SVD; any error-clear must go through CR[CX] or
+        // the per-channel CERR register, not ES. The old es.Reset() write was
+        // silently ignored on silicon, so dropping it.
         csr.bits.DONE = 1;  // clear DONE
         csr.bits.DREQ = 1;  // prevent auto-disable on completion
 
@@ -193,10 +194,10 @@ public:
         //─── Arm DMAMUX & clear pending requests ─────────────────────────────
         chcfg0.bits.SOURCE = 8;         // LPUART1 TX
         chcfg0.bits.ENBL   = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
-        serq.Reset();                   // clear any stale request
+        dma0::SERQ::reset();            // clear any stale request
 
         //─── Enable DMA + UART, then kick it off ─────────────────────────────
-        erq.bits.ERQ0     = nDMA0::ERQ::eERQ0::eENABLE;
+        dma0::ERQ::modify(dma0::ERQ::ERQ0{dma0::ERQ::eERQ0::eENABLE});
         ctrl.bits.TE      = nLPUART1::CTRL::eTE::eENABLED;
         baud.bits.TDMAE   = nLPUART1::BAUD::eTDMAE::eENABLED;
         // nDMA0::SSRT::ref().bits.SSRT = 1;  // first trigger

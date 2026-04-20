@@ -8,8 +8,11 @@
 #include "cachel1_armv7.h"
 #include <cstdio>
 
+#include "registers/codegen/dma0.hpp"
 #include "registers/handwritten/dma0.hpp"
 #include "registers/codegen/dmamux0.hpp"
+
+namespace dma0 = regs::dma0;
 
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
@@ -20,9 +23,8 @@
 //#define DMAMUX_SOURCE_MEM_TO_MEM 63  // Special source for memory-to-memory transfer
 
 void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
-    auto &es = nDMA0::ES::ref();
-    es.Reset();
-    
+    // ES is read-only; the old es.Reset() write was ignored by silicon.
+
     // Step 1: Enable DMAMUX for memory-to-memory transfer (channel 1)
     auto &dmamux = nDMAMUX0::CHCFG_1::ref();
     //dmamux.bits.SOURCE = DMAMUX_SOURCE_MEM_TO_MEM;  // Memory-to-memory transfer
@@ -61,26 +63,17 @@ void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
     tcd_biter.bits.BITER = 1;  // Total number of iterations
 
     // Enable DMA request and start transfer
-    auto &erq = nDMA0::ERQ::ref();
-    erq.bits.ERQ1 = nDMA0::ERQ::eERQ1::eENABLE;  // Enable eDMA Channel 1
+    dma0::ERQ::modify(dma0::ERQ::ERQ1{dma0::ERQ::eERQ1::eENABLE});
+    dma0::SERQ::modify(dma0::SERQ::value_{DMA_CHANNEL});
+    dma0::SSRT::modify(dma0::SSRT::value_{1});  // Trigger DMA
 
-    auto &serq = nDMA0::SERQ::ref();
-    serq.bits.SERQ = DMA_CHANNEL;  // Start transfer
-
-    nDMA0::SSRT::ref().bits.SSRT = 1; // Trigger DMA
-
-    // Wait for DMA transfer completion
-    // int x = 5;
-    // while (!(x == 1'000'000)) {
-    //     ++x;
-    // }
     while (!(tcd_csr.bits.DONE)) {}  // Wait until transfer is done
 
     // Clear Done flag
     tcd_csr.bits.DONE = 1;
 
     // Disable DMA channel to avoid unwanted future transfers
-    erq.bits.ERQ1 = nDMA0::ERQ::eERQ1::eDISABLE;
+    dma0::ERQ::modify(dma0::ERQ::ERQ1{dma0::ERQ::eERQ1::eDISABLE});
 }
 
 TEST(mpu, verify_cache_clean)
