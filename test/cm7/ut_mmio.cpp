@@ -29,7 +29,7 @@ namespace MsrFields {
   using ALF = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   using MBF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RO>;
 }
-using Msr = ftl::mmio::Register<kMsrAddr, 0x1, ftl::mmio::RW,
+using Msr = ftl::mmio::Register<kMsrAddr, std::uint32_t, 0x1u, ftl::mmio::RW,
     MsrFields::TDF, MsrFields::RDF, MsrFields::SDF,
     MsrFields::NDF, MsrFields::ALF, MsrFields::MBF>;
 
@@ -38,7 +38,7 @@ namespace MtdrFields {
   using DATA = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::WO>;
   using CMD  = ftl::mmio::Field<3, 8, Cmd,          ftl::mmio::WO>;
 }
-using Mtdr = ftl::mmio::Register<kMtdrAddr, 0x0, ftl::mmio::WO,
+using Mtdr = ftl::mmio::Register<kMtdrAddr, std::uint32_t, 0x0u, ftl::mmio::WO,
     MtdrFields::DATA, MtdrFields::CMD>;
 
 namespace MixedFields {
@@ -46,7 +46,7 @@ namespace MixedFields {
   using COUNT  = ftl::mmio::Field<4, 4, std::uint8_t>;
   using FLAG   = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
 }
-using Mixed = ftl::mmio::Register<kMixedAddr, 0x0, ftl::mmio::RW,
+using Mixed = ftl::mmio::Register<kMixedAddr, std::uint32_t, 0x0u, ftl::mmio::RW,
     MixedFields::ENABLE, MixedFields::COUNT, MixedFields::FLAG>;
 
 }  // namespace fake

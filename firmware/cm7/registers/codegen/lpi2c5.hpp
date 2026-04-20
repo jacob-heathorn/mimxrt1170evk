@@ -27,6 +27,7 @@ namespace VERID_fields_ {
 
 struct VERID : ftl::mmio::Register<
     0x40C34000u,
+    std::uint32_t,
     0x01010003u,
     ftl::mmio::RO,
     VERID_fields_::FEATURE,
@@ -48,6 +49,7 @@ namespace PARAM_fields_ {
 
 struct PARAM : ftl::mmio::Register<
     0x40C34004u,
+    std::uint32_t,
     0x00000202u,
     ftl::mmio::RO,
     PARAM_fields_::MTXFIFO,
@@ -118,6 +120,7 @@ namespace MCR_fields_ {
 
 struct MCR : ftl::mmio::Register<
     0x40C34010u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     MCR_fields_::MEN,
@@ -247,6 +250,7 @@ namespace MSR_fields_ {
 
 struct MSR : ftl::mmio::Register<
     0x40C34014u,
+    std::uint32_t,
     0x00000001u,
     ftl::mmio::RW,
     MSR_fields_::TDF,
@@ -374,6 +378,7 @@ namespace MIER_fields_ {
 
 struct MIER : ftl::mmio::Register<
     0x40C34018u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     MIER_fields_::TDIE,
@@ -431,6 +436,7 @@ namespace MDER_fields_ {
 
 struct MDER : ftl::mmio::Register<
     0x40C3401Cu,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     MDER_fields_::TDDE,
@@ -493,6 +499,7 @@ namespace MCFGR0_fields_ {
 
 struct MCFGR0 : ftl::mmio::Register<
     0x40C34020u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     MCFGR0_fields_::HREN,
@@ -608,6 +615,7 @@ namespace MCFGR1_fields_ {
 
 struct MCFGR1 : ftl::mmio::Register<
     0x40C34024u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     MCFGR1_fields_::PRESCALE,
@@ -646,6 +654,7 @@ namespace MCFGR2_fields_ {
 
 struct MCFGR2 : ftl::mmio::Register<
     0x40C34028u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     MCFGR2_fields_::BUSIDLE,
@@ -667,6 +676,7 @@ namespace MCFGR3_fields_ {
 
 struct MCFGR3 : ftl::mmio::Register<
     0x40C3402Cu,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     ftl::mmio::Reserved<8, 0>,
@@ -685,6 +695,7 @@ namespace MDMR_fields_ {
 
 struct MDMR : ftl::mmio::Register<
     0x40C34040u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     MDMR_fields_::MATCH0,
@@ -709,6 +720,7 @@ namespace MCCR0_fields_ {
 
 struct MCCR0 : ftl::mmio::Register<
     0x40C34048u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     MCCR0_fields_::CLKLO,
@@ -739,6 +751,7 @@ namespace MCCR1_fields_ {
 
 struct MCCR1 : ftl::mmio::Register<
     0x40C34050u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     MCCR1_fields_::CLKLO,
@@ -765,6 +778,7 @@ namespace MFCR_fields_ {
 
 struct MFCR : ftl::mmio::Register<
     0x40C34058u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     MFCR_fields_::TXWATER,
@@ -785,6 +799,7 @@ namespace MFSR_fields_ {
 
 struct MFSR : ftl::mmio::Register<
     0x40C3405Cu,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RO,
     MFSR_fields_::TXCOUNT,
@@ -824,6 +839,7 @@ namespace MTDR_fields_ {
 
 struct MTDR : ftl::mmio::Register<
     0x40C34060u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::WO,
     MTDR_fields_::DATA,
@@ -851,6 +867,7 @@ namespace MRDR_fields_ {
 
 struct MRDR : ftl::mmio::Register<
     0x40C34070u,
+    std::uint32_t,
     0x00004000u,
     ftl::mmio::RO,
     MRDR_fields_::DATA,
@@ -922,6 +939,7 @@ namespace SCR_fields_ {
 
 struct SCR : ftl::mmio::Register<
     0x40C34110u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     SCR_fields_::SEN,
@@ -1079,6 +1097,7 @@ namespace SSR_fields_ {
 
 struct SSR : ftl::mmio::Register<
     0x40C34114u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     SSR_fields_::TDF,
@@ -1242,6 +1261,7 @@ namespace SIER_fields_ {
 
 struct SIER : ftl::mmio::Register<
     0x40C34118u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     SIER_fields_::TDIE,
@@ -1317,6 +1337,7 @@ namespace SDER_fields_ {
 
 struct SDER : ftl::mmio::Register<
     0x40C3411Cu,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     SDER_fields_::TDDE,
@@ -1448,6 +1469,7 @@ namespace SCFGR1_fields_ {
 
 struct SCFGR1 : ftl::mmio::Register<
     0x40C34124u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     SCFGR1_fields_::ADRSTALL,
@@ -1502,6 +1524,7 @@ namespace SCFGR2_fields_ {
 
 struct SCFGR2 : ftl::mmio::Register<
     0x40C34128u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     SCFGR2_fields_::CLKHOLD,
@@ -1528,6 +1551,7 @@ namespace SAMR_fields_ {
 
 struct SAMR : ftl::mmio::Register<
     0x40C34140u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     ftl::mmio::Reserved<1, 0>,
@@ -1556,6 +1580,7 @@ namespace SASR_fields_ {
 
 struct SASR : ftl::mmio::Register<
     0x40C34150u,
+    std::uint32_t,
     0x00004000u,
     ftl::mmio::RO,
     SASR_fields_::RADDR,
@@ -1582,6 +1607,7 @@ namespace STAR_fields_ {
 
 struct STAR : ftl::mmio::Register<
     0x40C34154u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::RW,
     STAR_fields_::TXNACK,
@@ -1598,6 +1624,7 @@ namespace STDR_fields_ {
 
 struct STDR : ftl::mmio::Register<
     0x40C34160u,
+    std::uint32_t,
     0x00000000u,
     ftl::mmio::WO,
     STDR_fields_::DATA,
@@ -1631,6 +1658,7 @@ namespace SRDR_fields_ {
 
 struct SRDR : ftl::mmio::Register<
     0x40C34170u,
+    std::uint32_t,
     0x00004000u,
     ftl::mmio::RO,
     SRDR_fields_::DATA,
