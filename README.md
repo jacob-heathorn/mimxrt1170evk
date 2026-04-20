@@ -135,8 +135,9 @@ baud: `115200`
 
 ```bash
 # Generate register files from SVD
-rip -g0  # CM4 registers
-rip -g1  # CM7 registers
+rip generate cm4          # Regenerate all CM4 peripherals (wipes codegen/)
+rip generate cm7          # Regenerate all CM7 peripherals (wipes codegen/)
+rip generate cm7 DMA0     # Regenerate a single peripheral, leaves others intact
 ```
 
 # Copyright & Licensing
