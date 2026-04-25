@@ -12,6 +12,7 @@
 #include "registers/codegen/dmamux0.hpp"
 
 namespace dma0 = regs::dma0;
+namespace dmamux0 = regs::dmamux0;
 
 #include "utils/dtcm_allocator.hpp"
 #include "utils/ocram1_allocator.hpp"
@@ -25,9 +26,8 @@ void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
     // ES is read-only; the old es.Reset() write was ignored by silicon.
 
     // Step 1: Enable DMAMUX for memory-to-memory transfer (channel 1)
-    auto &dmamux = nDMAMUX0::CHCFG_1::ref();
-    //dmamux.bits.SOURCE = DMAMUX_SOURCE_MEM_TO_MEM;  // Memory-to-memory transfer
-    dmamux.bits.ENBL = nDMAMUX0::CHCFG_1::eENBL::eENBL_1;
+    using chcfg = dmamux0::CHCFG<DMA_CHANNEL>;
+    chcfg::modify(chcfg::ENBL{chcfg::eENBL::eENBL_1});
 
     // Per-channel TCD aliases.
     using tcd_saddr = dma0::TCD_SADDR<DMA_CHANNEL>;

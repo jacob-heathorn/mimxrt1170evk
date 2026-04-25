@@ -6,8 +6,10 @@
 #include <cstdio>
 #include "registers/codegen/lpuart1.hpp"
 #include "registers/codegen/dma0.hpp"
+#include "registers/codegen/dmamux0.hpp"
 
 namespace dma0 = regs::dma0;
+namespace dmamux0 = regs::dmamux0;
 #include "registers/codegen/dmamux0.hpp"
 #include "etl/singleton.h"
 #include "utils/ocram2_allocator.hpp"
@@ -145,7 +147,7 @@ public:
         using attr   = dma0::TCD_ATTR<0>;
         using nbytes = dma0::TCD_NBYTES_MLNO<0>;
 
-        auto &chcfg0   = nDMAMUX0::CHCFG_0::ref();
+        using chcfg0   = dmamux0::CHCFG<0>;
         auto &ctrl     = nLPUART1::CTRL::ref();
         auto &baud     = nLPUART1::BAUD::ref();
         auto &ldata    = nLPUART1::DATA::ref();
@@ -162,7 +164,7 @@ public:
         ctrl.bits.TE      = nLPUART1::CTRL::eTE::eDISABLED;
         baud.bits.TDMAE   = nLPUART1::BAUD::eTDMAE::eDISABLED;
         // Disable DMAMUX channel
-        chcfg0.bits.ENBL  = nDMAMUX0::CHCFG_0::eENBL::eENBL_0;
+        chcfg0::modify(chcfg0::ENBL{chcfg0::eENBL::eENBL_0});
         // Disable DMA requests
         dma0::ERQ::modify(dma0::ERQ::ERQ0{dma0::ERQ::eERQ0::eDISABLE});
 
@@ -190,8 +192,9 @@ public:
         citer::write(citer::CITER{size}, citer::ELINK{citer::eELINK::eDISABLED});
 
         //─── Arm DMAMUX & clear pending requests ─────────────────────────────
-        chcfg0.bits.SOURCE = 8;         // LPUART1 TX
-        chcfg0.bits.ENBL   = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
+        // SOURCE=8 → LPUART1 TX
+        chcfg0::modify(chcfg0::SOURCE{std::uint8_t{8}},
+                       chcfg0::ENBL  {chcfg0::eENBL::eENBL_1});
         dma0::SERQ::reset();            // clear any stale request
 
         //─── Enable DMA + UART, then kick it off ─────────────────────────────
