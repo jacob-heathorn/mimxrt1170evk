@@ -4382,4 +4382,514 @@ struct DCHPRI28 : ftl::mmio::Register<
   using ECP = DCHPRI28_fields_::ECP;
 };
 
+// TCD Source Address
+namespace TCD_SADDR_fields_ {
+  // Source Address
+  using SADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_SADDR_fields_
+
+template<std::uint32_t Index>
+struct TCD_SADDR : ftl::mmio::Register<
+    0x40071000u + (Index * 0x20u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCD_SADDR_fields_::SADDR> {
+  static_assert(Index < 32u, "TCD_SADDR: Index out of range");
+  using SADDR = TCD_SADDR_fields_::SADDR;
+};
+
+// TCD Signed Source Address Offset
+namespace TCD_SOFF_fields_ {
+  // Source address signed offset
+  using SOFF = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_SOFF_fields_
+
+template<std::uint32_t Index>
+struct TCD_SOFF : ftl::mmio::Register<
+    0x40071004u + (Index * 0x20u),
+    std::uint16_t,
+    0x0000u,
+    ftl::mmio::RW,
+    TCD_SOFF_fields_::SOFF> {
+  static_assert(Index < 32u, "TCD_SOFF: Index out of range");
+  using SOFF = TCD_SOFF_fields_::SOFF;
+};
+
+// TCD Transfer Attributes
+namespace TCD_ATTR_fields_ {
+
+  enum class eSSIZE : std::uint32_t {
+    // 8-bit
+    eEIGHT = 0,
+    // 16-bit
+    eSIXTEEN_BIT = 1,
+    // 32-bit
+    eTHIRTYTWO_BIT = 2,
+    // 64-bit
+    eSIXTYFOUR = 3,
+    // 32-byte burst (4 beats of 64 bits)
+    eTHIRTYTWO_BYTE = 5,
+  };
+
+  enum class eSMOD : std::uint32_t {
+    // Source address modulo feature is disabled
+    eDISABLED = 0,
+    // Value defines address range used to set up circular data queue
+    eENABLED_1 = 1,
+    // Value defines address range used to set up circular data queue
+    eENABLED_2 = 2,
+    // Value defines address range used to set up circular data queue
+    eENABLED_3 = 3,
+    // Value defines address range used to set up circular data queue
+    eENABLED_4 = 4,
+    // Value defines address range used to set up circular data queue
+    eENABLED_5 = 5,
+    // Value defines address range used to set up circular data queue
+    eENABLED_6 = 6,
+    // Value defines address range used to set up circular data queue
+    eENABLED_7 = 7,
+    // Value defines address range used to set up circular data queue
+    eENABLED_8 = 8,
+    // Value defines address range used to set up circular data queue
+    eENABLED_9 = 9,
+  };
+  // Destination data transfer size
+  using DSIZE = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Destination Address Modulo
+  using DMOD = ftl::mmio::Field<5, 3, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Source data transfer size
+  using SSIZE = ftl::mmio::Field<3, 8, eSSIZE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Source Address Modulo
+  using SMOD = ftl::mmio::Field<5, 11, eSMOD, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_ATTR_fields_
+
+template<std::uint32_t Index>
+struct TCD_ATTR : ftl::mmio::Register<
+    0x40071006u + (Index * 0x20u),
+    std::uint16_t,
+    0x0000u,
+    ftl::mmio::RW,
+    TCD_ATTR_fields_::DSIZE,
+    TCD_ATTR_fields_::DMOD,
+    TCD_ATTR_fields_::SSIZE,
+    TCD_ATTR_fields_::SMOD> {
+  static_assert(Index < 32u, "TCD_ATTR: Index out of range");
+  using eSSIZE = TCD_ATTR_fields_::eSSIZE;
+  using eSMOD = TCD_ATTR_fields_::eSMOD;
+  using DSIZE = TCD_ATTR_fields_::DSIZE;
+  using DMOD = TCD_ATTR_fields_::DMOD;
+  using SSIZE = TCD_ATTR_fields_::SSIZE;
+  using SMOD = TCD_ATTR_fields_::SMOD;
+};
+
+// TCD Last Source Address Adjustment
+namespace TCD_SLAST_fields_ {
+  // Last Source Address Adjustment
+  using SLAST = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_SLAST_fields_
+
+template<std::uint32_t Index>
+struct TCD_SLAST : ftl::mmio::Register<
+    0x4007100Cu + (Index * 0x20u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCD_SLAST_fields_::SLAST> {
+  static_assert(Index < 32u, "TCD_SLAST: Index out of range");
+  using SLAST = TCD_SLAST_fields_::SLAST;
+};
+
+// TCD Destination Address
+namespace TCD_DADDR_fields_ {
+  // Destination Address
+  using DADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_DADDR_fields_
+
+template<std::uint32_t Index>
+struct TCD_DADDR : ftl::mmio::Register<
+    0x40071010u + (Index * 0x20u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCD_DADDR_fields_::DADDR> {
+  static_assert(Index < 32u, "TCD_DADDR: Index out of range");
+  using DADDR = TCD_DADDR_fields_::DADDR;
+};
+
+// TCD Signed Destination Address Offset
+namespace TCD_DOFF_fields_ {
+  // Destination Address Signed Offset
+  using DOFF = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_DOFF_fields_
+
+template<std::uint32_t Index>
+struct TCD_DOFF : ftl::mmio::Register<
+    0x40071014u + (Index * 0x20u),
+    std::uint16_t,
+    0x0000u,
+    ftl::mmio::RW,
+    TCD_DOFF_fields_::DOFF> {
+  static_assert(Index < 32u, "TCD_DOFF: Index out of range");
+  using DOFF = TCD_DOFF_fields_::DOFF;
+};
+
+// TCD Last Destination Address Adjustment/Scatter Gather Address
+namespace TCD_DLASTSGA_fields_ {
+  // Destination last address adjustment, or next memory address TCD for channel (scatter/gather)
+  using DLASTSGA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_DLASTSGA_fields_
+
+template<std::uint32_t Index>
+struct TCD_DLASTSGA : ftl::mmio::Register<
+    0x40071018u + (Index * 0x20u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCD_DLASTSGA_fields_::DLASTSGA> {
+  static_assert(Index < 32u, "TCD_DLASTSGA: Index out of range");
+  using DLASTSGA = TCD_DLASTSGA_fields_::DLASTSGA;
+};
+
+// TCD Control and Status
+namespace TCD_CSR_fields_ {
+
+  enum class eSTART : std::uint32_t {
+    // Channel is not explicitly started
+    eNO_START = 0,
+    // Channel is explicitly started via a software initiated service request
+    eSTART = 1,
+  };
+
+  enum class eINTMAJOR : std::uint32_t {
+    // End of major loop interrupt is disabled
+    eDISABLED = 0,
+    // End of major loop interrupt is enabled
+    eENABLED = 1,
+  };
+
+  enum class eINTHALF : std::uint32_t {
+    // Half-point interrupt is disabled
+    eDISABLED = 0,
+    // Half-point interrupt is enabled
+    eENABLED = 1,
+  };
+
+  enum class eDREQ : std::uint32_t {
+    // The channel's ERQ field is not affected
+    eNO_CLEAR = 0,
+    // The channel's ERQ field value changes to 0 when the major loop is complete
+    eCLEAR = 1,
+  };
+
+  enum class eESG : std::uint32_t {
+    // The current channel's TCD is normal format
+    eNORMAL = 0,
+    // The current channel's TCD specifies a scatter gather format
+    eSCATTER = 1,
+  };
+
+  enum class eMAJORELINK : std::uint32_t {
+    // Channel-to-channel linking is disabled
+    eDISABLED = 0,
+    // Channel-to-channel linking is enabled
+    eENABLED = 1,
+  };
+
+  enum class eBWC : std::uint32_t {
+    // No eDMA engine stalls
+    eDISABLED = 0,
+    // eDMA engine stalls for 4 cycles after each R/W
+    eSTALL4 = 2,
+    // eDMA engine stalls for 8 cycles after each R/W
+    eSTALL8 = 3,
+  };
+  // Channel Start
+  using START = ftl::mmio::Field<1, 0, eSTART, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable an interrupt when major iteration count completes.
+  using INTMAJOR = ftl::mmio::Field<1, 1, eINTMAJOR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable an interrupt when major counter is half complete.
+  using INTHALF = ftl::mmio::Field<1, 2, eINTHALF, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable Request
+  using DREQ = ftl::mmio::Field<1, 3, eDREQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Scatter/Gather Processing
+  using ESG = ftl::mmio::Field<1, 4, eESG, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable channel-to-channel linking on major loop complete
+  using MAJORELINK = ftl::mmio::Field<1, 5, eMAJORELINK, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel Active
+  using ACTIVE = ftl::mmio::Field<1, 6, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Channel Done
+  using DONE = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Major Loop Link Channel Number
+  using MAJORLINKCH = ftl::mmio::Field<5, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Bandwidth Control
+  using BWC = ftl::mmio::Field<2, 14, eBWC, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_CSR_fields_
+
+template<std::uint32_t Index>
+struct TCD_CSR : ftl::mmio::Register<
+    0x4007101Cu + (Index * 0x20u),
+    std::uint16_t,
+    0x0000u,
+    ftl::mmio::RW,
+    TCD_CSR_fields_::START,
+    TCD_CSR_fields_::INTMAJOR,
+    TCD_CSR_fields_::INTHALF,
+    TCD_CSR_fields_::DREQ,
+    TCD_CSR_fields_::ESG,
+    TCD_CSR_fields_::MAJORELINK,
+    TCD_CSR_fields_::ACTIVE,
+    TCD_CSR_fields_::DONE,
+    TCD_CSR_fields_::MAJORLINKCH,
+    ftl::mmio::Reserved<1, 13>,
+    TCD_CSR_fields_::BWC> {
+  static_assert(Index < 32u, "TCD_CSR: Index out of range");
+  using eSTART = TCD_CSR_fields_::eSTART;
+  using eINTMAJOR = TCD_CSR_fields_::eINTMAJOR;
+  using eINTHALF = TCD_CSR_fields_::eINTHALF;
+  using eDREQ = TCD_CSR_fields_::eDREQ;
+  using eESG = TCD_CSR_fields_::eESG;
+  using eMAJORELINK = TCD_CSR_fields_::eMAJORELINK;
+  using eBWC = TCD_CSR_fields_::eBWC;
+  using START = TCD_CSR_fields_::START;
+  using INTMAJOR = TCD_CSR_fields_::INTMAJOR;
+  using INTHALF = TCD_CSR_fields_::INTHALF;
+  using DREQ = TCD_CSR_fields_::DREQ;
+  using ESG = TCD_CSR_fields_::ESG;
+  using MAJORELINK = TCD_CSR_fields_::MAJORELINK;
+  using ACTIVE = TCD_CSR_fields_::ACTIVE;
+  using DONE = TCD_CSR_fields_::DONE;
+  using MAJORLINKCH = TCD_CSR_fields_::MAJORLINKCH;
+  using BWC = TCD_CSR_fields_::BWC;
+};
+
+// TCD Minor Byte Count (Minor Loop Mapping Disabled)
+namespace TCD_NBYTES_MLNO_fields_ {
+  // Minor Byte Transfer Count
+  using NBYTES = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_NBYTES_MLNO_fields_
+
+template<std::uint32_t Index>
+struct TCD_NBYTES_MLNO : ftl::mmio::Register<
+    0x40071008u + (Index * 0x20u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCD_NBYTES_MLNO_fields_::NBYTES> {
+  static_assert(Index < 32u, "TCD_NBYTES_MLNO: Index out of range");
+  using NBYTES = TCD_NBYTES_MLNO_fields_::NBYTES;
+};
+
+// TCD Signed Minor Loop Offset (Minor Loop Mapping Enabled and Offset Disabled)
+namespace TCD_NBYTES_MLOFFNO_fields_ {
+
+  enum class eDMLOE : std::uint32_t {
+    // The minor loop offset is not applied to the DADDR
+    eDISABLED = 0,
+    // The minor loop offset is applied to the DADDR
+    eENABLED = 1,
+  };
+
+  enum class eSMLOE : std::uint32_t {
+    // The minor loop offset is not applied to the SADDR
+    eDISABLED = 0,
+    // The minor loop offset is applied to the SADDR
+    eENABLED = 1,
+  };
+  // Minor Byte Transfer Count
+  using NBYTES = ftl::mmio::Field<30, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Destination Minor Loop Offset Enable
+  using DMLOE = ftl::mmio::Field<1, 30, eDMLOE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Source Minor Loop Offset Enable
+  using SMLOE = ftl::mmio::Field<1, 31, eSMLOE, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_NBYTES_MLOFFNO_fields_
+
+template<std::uint32_t Index>
+struct TCD_NBYTES_MLOFFNO : ftl::mmio::Register<
+    0x40071008u + (Index * 0x20u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCD_NBYTES_MLOFFNO_fields_::NBYTES,
+    TCD_NBYTES_MLOFFNO_fields_::DMLOE,
+    TCD_NBYTES_MLOFFNO_fields_::SMLOE> {
+  static_assert(Index < 32u, "TCD_NBYTES_MLOFFNO: Index out of range");
+  using eDMLOE = TCD_NBYTES_MLOFFNO_fields_::eDMLOE;
+  using eSMLOE = TCD_NBYTES_MLOFFNO_fields_::eSMLOE;
+  using NBYTES = TCD_NBYTES_MLOFFNO_fields_::NBYTES;
+  using DMLOE = TCD_NBYTES_MLOFFNO_fields_::DMLOE;
+  using SMLOE = TCD_NBYTES_MLOFFNO_fields_::SMLOE;
+};
+
+// TCD Signed Minor Loop Offset (Minor Loop Mapping and Offset Enabled)
+namespace TCD_NBYTES_MLOFFYES_fields_ {
+
+  enum class eDMLOE : std::uint32_t {
+    // The minor loop offset is not applied to the DADDR
+    eDISABLED = 0,
+    // The minor loop offset is applied to the DADDR
+    eENABLED = 1,
+  };
+
+  enum class eSMLOE : std::uint32_t {
+    // The minor loop offset is not applied to the SADDR
+    eDISABLED = 0,
+    // The minor loop offset is applied to the SADDR
+    eENABLED = 1,
+  };
+  // Minor Byte Transfer Count
+  using NBYTES = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // If SMLOE = 1 or DMLOE = 1, this field represents a sign-extended offset applied to the source or destination address to form the next-state value after the minor loop completes.
+  using MLOFF = ftl::mmio::Field<20, 10, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Destination Minor Loop Offset Enable
+  using DMLOE = ftl::mmio::Field<1, 30, eDMLOE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Source Minor Loop Offset Enable
+  using SMLOE = ftl::mmio::Field<1, 31, eSMLOE, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_NBYTES_MLOFFYES_fields_
+
+template<std::uint32_t Index>
+struct TCD_NBYTES_MLOFFYES : ftl::mmio::Register<
+    0x40071008u + (Index * 0x20u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCD_NBYTES_MLOFFYES_fields_::NBYTES,
+    TCD_NBYTES_MLOFFYES_fields_::MLOFF,
+    TCD_NBYTES_MLOFFYES_fields_::DMLOE,
+    TCD_NBYTES_MLOFFYES_fields_::SMLOE> {
+  static_assert(Index < 32u, "TCD_NBYTES_MLOFFYES: Index out of range");
+  using eDMLOE = TCD_NBYTES_MLOFFYES_fields_::eDMLOE;
+  using eSMLOE = TCD_NBYTES_MLOFFYES_fields_::eSMLOE;
+  using NBYTES = TCD_NBYTES_MLOFFYES_fields_::NBYTES;
+  using MLOFF = TCD_NBYTES_MLOFFYES_fields_::MLOFF;
+  using DMLOE = TCD_NBYTES_MLOFFYES_fields_::DMLOE;
+  using SMLOE = TCD_NBYTES_MLOFFYES_fields_::SMLOE;
+};
+
+// TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
+namespace TCD_CITER_ELINKNO_fields_ {
+
+  enum class eELINK : std::uint32_t {
+    // Channel-to-channel linking is disabled
+    eDISABLED = 0,
+    // Channel-to-channel linking is enabled
+    eENABLED = 1,
+  };
+  // Current Major Iteration Count
+  using CITER = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable channel-to-channel linking on minor-loop complete
+  using ELINK = ftl::mmio::Field<1, 15, eELINK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_CITER_ELINKNO_fields_
+
+template<std::uint32_t Index>
+struct TCD_CITER_ELINKNO : ftl::mmio::Register<
+    0x40071016u + (Index * 0x20u),
+    std::uint16_t,
+    0x0000u,
+    ftl::mmio::RW,
+    TCD_CITER_ELINKNO_fields_::CITER,
+    TCD_CITER_ELINKNO_fields_::ELINK> {
+  static_assert(Index < 32u, "TCD_CITER_ELINKNO: Index out of range");
+  using eELINK = TCD_CITER_ELINKNO_fields_::eELINK;
+  using CITER = TCD_CITER_ELINKNO_fields_::CITER;
+  using ELINK = TCD_CITER_ELINKNO_fields_::ELINK;
+};
+
+// TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
+namespace TCD_CITER_ELINKYES_fields_ {
+
+  enum class eELINK : std::uint32_t {
+    // Channel-to-channel linking is disabled
+    eDISABLED = 0,
+    // Channel-to-channel linking is enabled
+    eENABLED = 1,
+  };
+  // Current Major Iteration Count
+  using CITER = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Minor Loop Link Channel Number
+  using LINKCH = ftl::mmio::Field<5, 9, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable channel-to-channel linking on minor-loop complete
+  using ELINK = ftl::mmio::Field<1, 15, eELINK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_CITER_ELINKYES_fields_
+
+template<std::uint32_t Index>
+struct TCD_CITER_ELINKYES : ftl::mmio::Register<
+    0x40071016u + (Index * 0x20u),
+    std::uint16_t,
+    0x0000u,
+    ftl::mmio::RW,
+    TCD_CITER_ELINKYES_fields_::CITER,
+    TCD_CITER_ELINKYES_fields_::LINKCH,
+    ftl::mmio::Reserved<1, 14>,
+    TCD_CITER_ELINKYES_fields_::ELINK> {
+  static_assert(Index < 32u, "TCD_CITER_ELINKYES: Index out of range");
+  using eELINK = TCD_CITER_ELINKYES_fields_::eELINK;
+  using CITER = TCD_CITER_ELINKYES_fields_::CITER;
+  using LINKCH = TCD_CITER_ELINKYES_fields_::LINKCH;
+  using ELINK = TCD_CITER_ELINKYES_fields_::ELINK;
+};
+
+// TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
+namespace TCD_BITER_ELINKNO_fields_ {
+
+  enum class eELINK : std::uint32_t {
+    // Channel-to-channel linking is disabled
+    eDISABLED = 0,
+    // Channel-to-channel linking is enabled
+    eENABLED = 1,
+  };
+  // Starting Major Iteration Count
+  using BITER = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enables channel-to-channel linking on minor loop complete
+  using ELINK = ftl::mmio::Field<1, 15, eELINK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_BITER_ELINKNO_fields_
+
+template<std::uint32_t Index>
+struct TCD_BITER_ELINKNO : ftl::mmio::Register<
+    0x4007101Eu + (Index * 0x20u),
+    std::uint16_t,
+    0x0000u,
+    ftl::mmio::RW,
+    TCD_BITER_ELINKNO_fields_::BITER,
+    TCD_BITER_ELINKNO_fields_::ELINK> {
+  static_assert(Index < 32u, "TCD_BITER_ELINKNO: Index out of range");
+  using eELINK = TCD_BITER_ELINKNO_fields_::eELINK;
+  using BITER = TCD_BITER_ELINKNO_fields_::BITER;
+  using ELINK = TCD_BITER_ELINKNO_fields_::ELINK;
+};
+
+// TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
+namespace TCD_BITER_ELINKYES_fields_ {
+
+  enum class eELINK : std::uint32_t {
+    // Channel-to-channel linking is disabled
+    eDISABLED = 0,
+    // Channel-to-channel linking is enabled
+    eENABLED = 1,
+  };
+  // Starting major iteration count
+  using BITER = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Link Channel Number
+  using LINKCH = ftl::mmio::Field<5, 9, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enables channel-to-channel linking on minor loop complete
+  using ELINK = ftl::mmio::Field<1, 15, eELINK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace TCD_BITER_ELINKYES_fields_
+
+template<std::uint32_t Index>
+struct TCD_BITER_ELINKYES : ftl::mmio::Register<
+    0x4007101Eu + (Index * 0x20u),
+    std::uint16_t,
+    0x0000u,
+    ftl::mmio::RW,
+    TCD_BITER_ELINKYES_fields_::BITER,
+    TCD_BITER_ELINKYES_fields_::LINKCH,
+    ftl::mmio::Reserved<1, 14>,
+    TCD_BITER_ELINKYES_fields_::ELINK> {
+  static_assert(Index < 32u, "TCD_BITER_ELINKYES: Index out of range");
+  using eELINK = TCD_BITER_ELINKYES_fields_::eELINK;
+  using BITER = TCD_BITER_ELINKYES_fields_::BITER;
+  using LINKCH = TCD_BITER_ELINKYES_fields_::LINKCH;
+  using ELINK = TCD_BITER_ELINKYES_fields_::ELINK;
+};
+
 }  // namespace regs::dma0

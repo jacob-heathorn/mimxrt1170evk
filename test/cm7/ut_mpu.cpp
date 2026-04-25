@@ -9,7 +9,6 @@
 #include <cstdio>
 
 #include "registers/codegen/dma0.hpp"
-#include "registers/handwritten/dma0.hpp"
 #include "registers/codegen/dmamux0.hpp"
 
 namespace dma0 = regs::dma0;
@@ -30,49 +29,49 @@ void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest) {
     //dmamux.bits.SOURCE = DMAMUX_SOURCE_MEM_TO_MEM;  // Memory-to-memory transfer
     dmamux.bits.ENBL = nDMAMUX0::CHCFG_1::eENBL::eENBL_1;
 
-    // Step 2: Configure the eDMA TCD (Transfer Control Descriptor) for channel 0
-    auto &tcd_saddr = nDMA0::TCD_SADDR<DMA_CHANNEL>::ref();
-    auto &tcd_daddr = nDMA0::TCD_DADDR<DMA_CHANNEL>::ref();
-    auto &nbytes = nDMA0::TCD_NBYTES_MLOFFNO<DMA_CHANNEL>::ref();
-    auto &tcd_attr = nDMA0::TCD_ATTR<DMA_CHANNEL>::ref();
-    auto &tcd_citer = nDMA0::TCD_CITER_ELINKNO<DMA_CHANNEL>::ref();
-    auto &tcd_biter = nDMA0::TCD_BITER_ELINKNO<DMA_CHANNEL>::ref();
-    auto &tcd_csr = nDMA0::TCD_CSR<DMA_CHANNEL>::ref();
-    auto &doff = nDMA0::TCD_DOFF<DMA_CHANNEL>::ref();
-    auto &soff = nDMA0::TCD_SOFF<DMA_CHANNEL>::ref();
+    // Per-channel TCD aliases.
+    using tcd_saddr = dma0::TCD_SADDR<DMA_CHANNEL>;
+    using tcd_daddr = dma0::TCD_DADDR<DMA_CHANNEL>;
+    using nbytes    = dma0::TCD_NBYTES_MLOFFNO<DMA_CHANNEL>;
+    using tcd_attr  = dma0::TCD_ATTR<DMA_CHANNEL>;
+    using tcd_citer = dma0::TCD_CITER_ELINKNO<DMA_CHANNEL>;
+    using tcd_biter = dma0::TCD_BITER_ELINKNO<DMA_CHANNEL>;
+    using tcd_csr   = dma0::TCD_CSR<DMA_CHANNEL>;
+    using doff      = dma0::TCD_DOFF<DMA_CHANNEL>;
+    using soff      = dma0::TCD_SOFF<DMA_CHANNEL>;
 
-    // Source & Destination Addresses
-    tcd_saddr.value = (uint32_t)src;  // Read from this address (RAM location)
-    tcd_daddr.value = (uint32_t)dest; // Store the value here
+    // Source & destination addresses.
+    tcd_saddr::write(tcd_saddr::SADDR{reinterpret_cast<std::uint32_t>(src)});
+    tcd_daddr::write(tcd_daddr::DADDR{reinterpret_cast<std::uint32_t>(dest)});
 
-    // Source and destination offsets
-    soff.bits.SOFF = 4;  // Increment source by 1 byte
-    doff.bits.DOFF = 4;  // No dest increment
+    // Source and destination offsets — increment 4 bytes per minor loop.
+    soff::write(soff::SOFF{static_cast<std::uint16_t>(4)});
+    doff::write(doff::DOFF{static_cast<std::uint16_t>(4)});
 
-    // Configure transfer size
-    nbytes.bits.DMLOE = 0;
-    nbytes.bits.SMLOE = 0;
-    nbytes.value = 4;  // Transfer 4 bytes (1 word)
+    // Transfer size: 4 bytes, no minor-loop offset.
+    nbytes::write(nbytes::NBYTES{4u},
+                  nbytes::DMLOE{nbytes::eDMLOE::eDISABLED},
+                  nbytes::SMLOE{nbytes::eSMLOE::eDISABLED});
 
-    // Configure source & destination attributes
-    tcd_attr.bits.SSIZE = 2;  // 2 = 32-bit transfer size (4 bytes)
-    tcd_attr.bits.DSIZE = 2;  // 2 = 32-bit transfer size (4 bytes)
+    // 32-bit transfer attributes (SSIZE=2 → 32-bit, DSIZE=2 → 32-bit).
+    tcd_attr::write(tcd_attr::SSIZE{tcd_attr::eSSIZE::eTHIRTYTWO_BIT},
+                    tcd_attr::DSIZE{static_cast<std::uint8_t>(2)});
 
-    // Configure loop counters
-    tcd_citer.bits.CITER = 1;  // Only 1 transfer needed
-    tcd_biter.bits.BITER = 1;  // Total number of iterations
+    // Loop counters: single transfer.
+    tcd_biter::write(tcd_biter::BITER{1u},
+                     tcd_biter::ELINK{tcd_biter::eELINK::eDISABLED});
+    tcd_citer::write(tcd_citer::CITER{1u},
+                     tcd_citer::ELINK{tcd_citer::eELINK::eDISABLED});
 
-    // Enable DMA request and start transfer
+    // Enable DMA request and start transfer.
     dma0::ERQ::modify(dma0::ERQ::ERQ1{dma0::ERQ::eERQ1::eENABLE});
     dma0::SERQ::modify(dma0::SERQ::value_{DMA_CHANNEL});
     dma0::SSRT::modify(dma0::SSRT::value_{1});  // Trigger DMA
 
-    while (!(tcd_csr.bits.DONE)) {}  // Wait until transfer is done
+    while (!tcd_csr::read().get<tcd_csr::DONE>()) {}
 
-    // Clear Done flag
-    tcd_csr.bits.DONE = 1;
+    tcd_csr::modify(tcd_csr::DONE{true});
 
-    // Disable DMA channel to avoid unwanted future transfers
     dma0::ERQ::modify(dma0::ERQ::ERQ1{dma0::ERQ::eERQ1::eDISABLE});
 }
 

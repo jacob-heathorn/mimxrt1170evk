@@ -6,7 +6,6 @@
 #include <cstdio>
 #include "registers/codegen/lpuart1.hpp"
 #include "registers/codegen/dma0.hpp"
-#include "registers/handwritten/dma0.hpp"
 
 namespace dma0 = regs::dma0;
 #include "registers/codegen/dmamux0.hpp"
@@ -129,30 +128,30 @@ private:
         ctrl.bits.TE = nLPUART1::CTRL::eTE::eDISABLED;  // Disable TX until DMA ready
 
         // Set done flag in case we inherit a different state.
-        auto &csr      = nDMA0::TCD_CSR<0>::ref();
-        csr.bits.DONE = 1;
+        dma0::TCD_CSR<0>::modify(dma0::TCD_CSR<0>::DONE{true});
     }
 
 public:
     void write(const uint8_t *buffer, uint16_t size)
     {
-        //─── Handy refs ────────────────────────────────────────────────────────
-        auto &csr      = nDMA0::TCD_CSR<0>::ref();
-        auto &citer    = nDMA0::TCD_CITER_ELINKNO<0>::ref();
-        auto &biter    = nDMA0::TCD_BITER_ELINKNO<0>::ref();
-        auto &soff     = nDMA0::TCD_SOFF<0>::ref();
-        auto &doff     = nDMA0::TCD_DOFF<0>::ref();
-        auto &saddr    = nDMA0::TCD_SADDR<0>::ref();
-        auto &daddr    = nDMA0::TCD_DADDR<0>::ref();
-        auto &attr     = nDMA0::TCD_ATTR<0>::ref();
-        auto &nbytes   = nDMA0::TCD_NBYTES_MLNO<0>::ref();
+        // Per-channel TCD aliases — channel 0 is wired to LPUART1 TX.
+        using csr    = dma0::TCD_CSR<0>;
+        using citer  = dma0::TCD_CITER_ELINKNO<0>;
+        using biter  = dma0::TCD_BITER_ELINKNO<0>;
+        using soff   = dma0::TCD_SOFF<0>;
+        using doff   = dma0::TCD_DOFF<0>;
+        using saddr  = dma0::TCD_SADDR<0>;
+        using daddr  = dma0::TCD_DADDR<0>;
+        using attr   = dma0::TCD_ATTR<0>;
+        using nbytes = dma0::TCD_NBYTES_MLNO<0>;
+
         auto &chcfg0   = nDMAMUX0::CHCFG_0::ref();
         auto &ctrl     = nLPUART1::CTRL::ref();
         auto &baud     = nLPUART1::BAUD::ref();
         auto &ldata    = nLPUART1::DATA::ref();
 
         //─── Wait for completion of the previous write ─────────────────────────
-        while (!csr.bits.DONE) {}
+        while (!csr::read().get<csr::DONE>()) {}
 
         //─── Wait for UART shift register to empty ─────────────────────────────
         auto &stat = nLPUART1::STAT::ref();
@@ -171,25 +170,24 @@ public:
         // ES is read-only in SVD; any error-clear must go through CR[CX] or
         // the per-channel CERR register, not ES. The old es.Reset() write was
         // silently ignored on silicon, so dropping it.
-        csr.bits.DONE = 1;  // clear DONE
-        csr.bits.DREQ = 1;  // prevent auto-disable on completion
+        csr::modify(csr::DONE{true},                       // clear DONE
+                    csr::DREQ{csr::eDREQ::eCLEAR});         // prevent auto-disable
 
         //─── Copy the data (No cache clean necesarry for OCRAM2 ───────────────
         assert(size <= kTxBufferSize);
         memcpy(tx_buffer_, buffer, size);
 
         //─── Reconfigure the TCD ──────────────────────────────────────────────
-        saddr.value        = (uint32_t)tx_buffer_;
-        soff.bits.SOFF     = 1;          // step source by 1 byte
-        daddr.value        = (uint32_t)&ldata.value;
-        doff.bits.DOFF     = 0;          // keep dest fixed
-        nbytes.bits.NBYTES = 1;          // 1 byte per minor-loop
-        attr.bits.SSIZE    = 0;          // 8-bit transfers
-        attr.bits.DSIZE    = 0;
-        biter.bits.BITER   = size;       // set major-loop count
-        biter.bits.ELINK   = 0;
-        citer.bits.CITER   = size;       // must load *after* BITER
-        citer.bits.ELINK   = 0;
+        saddr::write(saddr::SADDR{reinterpret_cast<std::uint32_t>(tx_buffer_)});
+        soff::write (soff::SOFF{static_cast<std::uint16_t>(1)});       // step source by 1 byte
+        daddr::write(daddr::DADDR{reinterpret_cast<std::uint32_t>(&ldata.value)});
+        doff::write (doff::DOFF{static_cast<std::uint16_t>(0)});       // keep dest fixed
+        nbytes::write(nbytes::NBYTES{1u});                              // 1 byte per minor-loop
+        attr::write(attr::SSIZE{attr::eSSIZE::eEIGHT},                  // 8-bit transfers
+                    attr::DSIZE{static_cast<std::uint8_t>(0)});
+        biter::write(biter::BITER{size}, biter::ELINK{biter::eELINK::eDISABLED});
+        // CITER must be loaded *after* BITER per the reference manual.
+        citer::write(citer::CITER{size}, citer::ELINK{citer::eELINK::eDISABLED});
 
         //─── Arm DMAMUX & clear pending requests ─────────────────────────────
         chcfg0.bits.SOURCE = 8;         // LPUART1 TX
@@ -200,7 +198,6 @@ public:
         dma0::ERQ::modify(dma0::ERQ::ERQ0{dma0::ERQ::eERQ0::eENABLE});
         ctrl.bits.TE      = nLPUART1::CTRL::eTE::eENABLED;
         baud.bits.TDMAE   = nLPUART1::BAUD::eTDMAE::eENABLED;
-        // nDMA0::SSRT::ref().bits.SSRT = 1;  // first trigger
     }
 
 
