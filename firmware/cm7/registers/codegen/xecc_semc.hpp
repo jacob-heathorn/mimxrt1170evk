@@ -1,508 +1,504 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // XECC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nXECC_SEMC {
+namespace regs::xecc_semc {
 
 
 // ECC Control Register
-union ECC_CTRL {
-  
-  // ECC Function Enable
-  enum class eECC_EN : uint32_t {
+struct ECC_CTRL_fields_ {
+
+  enum class eECC_EN : std::uint32_t {
     // Disable
     eECC_EN_0 = 0,
     // Enable
     eECC_EN_1 = 1,
   };
-  
-  // Write ECC Encode Function Enable
-  enum class eWECC_EN : uint32_t {
+
+  enum class eWECC_EN : std::uint32_t {
     // Disable
     eWECC_EN_0 = 0,
     // Enable
     eWECC_EN_1 = 1,
   };
-  
-  // Read ECC Function Enable
-  enum class eRECC_EN : uint32_t {
+
+  enum class eRECC_EN : std::uint32_t {
     // Disable
     eRECC_EN_0 = 0,
     // Enable
     eRECC_EN_1 = 1,
   };
-  
-  // Swap Data Enable
-  enum class eSWAP_EN : uint32_t {
+
+  enum class eSWAP_EN : std::uint32_t {
     // Disable
     eSWAP_EN_0 = 0,
     // Enable
     eSWAP_EN_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ECC Function Enable
-    eECC_EN ECC_EN : 1;
-    // read-write - Write ECC Encode Function Enable
-    eWECC_EN WECC_EN : 1;
-    // read-write - Read ECC Function Enable
-    eRECC_EN RECC_EN : 1;
-    // read-write - Swap Data Enable
-    eSWAP_EN SWAP_EN : 1;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // ECC Function Enable
+  using ECC_EN = ftl::mmio::Field<1, 0, eECC_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write ECC Encode Function Enable
+  using WECC_EN = ftl::mmio::Field<1, 1, eWECC_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read ECC Function Enable
+  using RECC_EN = ftl::mmio::Field<1, 2, eRECC_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Swap Data Enable
+  using SWAP_EN = ftl::mmio::Field<1, 3, eSWAP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ECC_CTRL_fields_
 
-  ECC_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_CTRL &ref() { return *reinterpret_cast<volatile ECC_CTRL*>(0x40024000); }
+struct ECC_CTRL : ftl::mmio::Register<
+    0x40024000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ECC_CTRL_fields_::ECC_EN,
+    ECC_CTRL_fields_::WECC_EN,
+    ECC_CTRL_fields_::RECC_EN,
+    ECC_CTRL_fields_::SWAP_EN,
+    ftl::mmio::Reserved<28, 4>> {
+  using eECC_EN = ECC_CTRL_fields_::eECC_EN;
+  using eWECC_EN = ECC_CTRL_fields_::eWECC_EN;
+  using eRECC_EN = ECC_CTRL_fields_::eRECC_EN;
+  using eSWAP_EN = ECC_CTRL_fields_::eSWAP_EN;
+  using ECC_EN = ECC_CTRL_fields_::ECC_EN;
+  using WECC_EN = ECC_CTRL_fields_::WECC_EN;
+  using RECC_EN = ECC_CTRL_fields_::RECC_EN;
+  using SWAP_EN = ECC_CTRL_fields_::SWAP_EN;
 };
 
+
 // Error Interrupt Status Register
-union ERR_STATUS {
-  
-  // Single Bit Error
-  enum class eSINGLE_ERR : uint32_t {
+struct ERR_STATUS_fields_ {
+
+  enum class eSINGLE_ERR : std::uint32_t {
     // Single bit error does not happen.
     eSINGLE_ERR_0 = 0,
     // Single bit error happens.
     eSINGLE_ERR_1 = 1,
   };
-  
-  // Multiple Bits Error
-  enum class eMULTI_ERR : uint32_t {
+
+  enum class eMULTI_ERR : std::uint32_t {
     // Multiple bits error does not happen.
     eMULTI_ERR_0 = 0,
     // Multiple bits error happens.
     eMULTI_ERR_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Single Bit Error
-    eSINGLE_ERR SINGLE_ERR : 1;
-    // read-write - Multiple Bits Error
-    eMULTI_ERR MULTI_ERR : 1;
-    // read-only - Reserved
-    uint32_t Reserved1 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Single Bit Error
+  using SINGLE_ERR = ftl::mmio::Field<1, 0, eSINGLE_ERR, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Multiple Bits Error
+  using MULTI_ERR = ftl::mmio::Field<1, 1, eMULTI_ERR, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Reserved
+  using Reserved1 = ftl::mmio::Field<30, 2, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ERR_STATUS_fields_
 
-  ERR_STATUS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_STATUS &ref() { return *reinterpret_cast<volatile ERR_STATUS*>(0x40024004); }
+struct ERR_STATUS : ftl::mmio::Register<
+    0x40024004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ERR_STATUS_fields_::SINGLE_ERR,
+    ERR_STATUS_fields_::MULTI_ERR,
+    ERR_STATUS_fields_::Reserved1> {
+  using eSINGLE_ERR = ERR_STATUS_fields_::eSINGLE_ERR;
+  using eMULTI_ERR = ERR_STATUS_fields_::eMULTI_ERR;
+  using SINGLE_ERR = ERR_STATUS_fields_::SINGLE_ERR;
+  using MULTI_ERR = ERR_STATUS_fields_::MULTI_ERR;
+  using Reserved1 = ERR_STATUS_fields_::Reserved1;
 };
 
+
 // Error Interrupt Status Enable Register
-union ERR_STAT_EN {
-  
-  // Single Bit Error Status Enable
-  enum class eSINGLE_ERR_STAT_EN : uint32_t {
+struct ERR_STAT_EN_fields_ {
+
+  enum class eSINGLE_ERR_STAT_EN : std::uint32_t {
     // Masked
     eSINGLE_ERR_STAT_EN_0 = 0,
     // Enabled
     eSINGLE_ERR_STAT_EN_1 = 1,
   };
-  
-  // Multiple Bits Error Status Enable
-  enum class eMULIT_ERR_STAT_EN : uint32_t {
+
+  enum class eMULIT_ERR_STAT_EN : std::uint32_t {
     // Masked
     eMULIT_ERR_STAT_EN_0 = 0,
     // Enabled
     eMULIT_ERR_STAT_EN_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Single Bit Error Status Enable
-    eSINGLE_ERR_STAT_EN SINGLE_ERR_STAT_EN : 1;
-    // read-write - Multiple Bits Error Status Enable
-    eMULIT_ERR_STAT_EN MULIT_ERR_STAT_EN : 1;
-    // read-only - Reserved
-    uint32_t Reserved1 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Single Bit Error Status Enable
+  using SINGLE_ERR_STAT_EN = ftl::mmio::Field<1, 0, eSINGLE_ERR_STAT_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Multiple Bits Error Status Enable
+  using MULIT_ERR_STAT_EN = ftl::mmio::Field<1, 1, eMULIT_ERR_STAT_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Reserved
+  using Reserved1 = ftl::mmio::Field<30, 2, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ERR_STAT_EN_fields_
 
-  ERR_STAT_EN() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_STAT_EN &ref() { return *reinterpret_cast<volatile ERR_STAT_EN*>(0x40024008); }
+struct ERR_STAT_EN : ftl::mmio::Register<
+    0x40024008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ERR_STAT_EN_fields_::SINGLE_ERR_STAT_EN,
+    ERR_STAT_EN_fields_::MULIT_ERR_STAT_EN,
+    ERR_STAT_EN_fields_::Reserved1> {
+  using eSINGLE_ERR_STAT_EN = ERR_STAT_EN_fields_::eSINGLE_ERR_STAT_EN;
+  using eMULIT_ERR_STAT_EN = ERR_STAT_EN_fields_::eMULIT_ERR_STAT_EN;
+  using SINGLE_ERR_STAT_EN = ERR_STAT_EN_fields_::SINGLE_ERR_STAT_EN;
+  using MULIT_ERR_STAT_EN = ERR_STAT_EN_fields_::MULIT_ERR_STAT_EN;
+  using Reserved1 = ERR_STAT_EN_fields_::Reserved1;
 };
 
+
 // Error Interrupt Enable Register
-union ERR_SIG_EN {
-  
-  // Single Bit Error Interrupt Enable
-  enum class eSINGLE_ERR_SIG_EN : uint32_t {
+struct ERR_SIG_EN_fields_ {
+
+  enum class eSINGLE_ERR_SIG_EN : std::uint32_t {
     // Masked
     eSINGLE_ERR_SIG_EN_0 = 0,
     // Enabled
     eSINGLE_ERR_SIG_EN_1 = 1,
   };
-  
-  // Multiple Bits Error Interrupt Enable
-  enum class eMULTI_ERR_SIG_EN : uint32_t {
+
+  enum class eMULTI_ERR_SIG_EN : std::uint32_t {
     // Masked
     eMULTI_ERR_SIG_EN_0 = 0,
     // Enabled
     eMULTI_ERR_SIG_EN_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Single Bit Error Interrupt Enable
-    eSINGLE_ERR_SIG_EN SINGLE_ERR_SIG_EN : 1;
-    // read-write - Multiple Bits Error Interrupt Enable
-    eMULTI_ERR_SIG_EN MULTI_ERR_SIG_EN : 1;
-    // read-only - Reserved
-    uint32_t Reserved1 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Single Bit Error Interrupt Enable
+  using SINGLE_ERR_SIG_EN = ftl::mmio::Field<1, 0, eSINGLE_ERR_SIG_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Multiple Bits Error Interrupt Enable
+  using MULTI_ERR_SIG_EN = ftl::mmio::Field<1, 1, eMULTI_ERR_SIG_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Reserved
+  using Reserved1 = ftl::mmio::Field<30, 2, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ERR_SIG_EN_fields_
 
-  ERR_SIG_EN() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_SIG_EN &ref() { return *reinterpret_cast<volatile ERR_SIG_EN*>(0x4002400C); }
+struct ERR_SIG_EN : ftl::mmio::Register<
+    0x4002400Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ERR_SIG_EN_fields_::SINGLE_ERR_SIG_EN,
+    ERR_SIG_EN_fields_::MULTI_ERR_SIG_EN,
+    ERR_SIG_EN_fields_::Reserved1> {
+  using eSINGLE_ERR_SIG_EN = ERR_SIG_EN_fields_::eSINGLE_ERR_SIG_EN;
+  using eMULTI_ERR_SIG_EN = ERR_SIG_EN_fields_::eMULTI_ERR_SIG_EN;
+  using SINGLE_ERR_SIG_EN = ERR_SIG_EN_fields_::SINGLE_ERR_SIG_EN;
+  using MULTI_ERR_SIG_EN = ERR_SIG_EN_fields_::MULTI_ERR_SIG_EN;
+  using Reserved1 = ERR_SIG_EN_fields_::Reserved1;
 };
+
 
 // Error Injection On Write Data
-union ERR_DATA_INJ {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Error Injection On Write Data
-    uint32_t ERR_DATA_INJ : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ERR_DATA_INJ_fields_ {
+  // Error Injection On Write Data
+  using ERR_DATA_INJ = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ERR_DATA_INJ_fields_
 
-  ERR_DATA_INJ() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_DATA_INJ &ref() { return *reinterpret_cast<volatile ERR_DATA_INJ*>(0x40024010); }
+struct ERR_DATA_INJ : ftl::mmio::Register<
+    0x40024010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ERR_DATA_INJ_fields_::ERR_DATA_INJ> {
+  using value_ = ERR_DATA_INJ_fields_::ERR_DATA_INJ;
 };
+
 
 // Error Injection On ECC Code of Write Data
-union ERR_ECC_INJ {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Error Injection On ECC Code of Write Data
-    uint32_t ERR_ECC_INJ : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ERR_ECC_INJ_fields_ {
+  // Error Injection On ECC Code of Write Data
+  using ERR_ECC_INJ = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ERR_ECC_INJ_fields_
 
-  ERR_ECC_INJ() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ERR_ECC_INJ &ref() { return *reinterpret_cast<volatile ERR_ECC_INJ*>(0x40024014); }
+struct ERR_ECC_INJ : ftl::mmio::Register<
+    0x40024014u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ERR_ECC_INJ_fields_::ERR_ECC_INJ> {
+  using value_ = ERR_ECC_INJ_fields_::ERR_ECC_INJ;
 };
+
 
 // Single Error Address
-union SINGLE_ERR_ADDR {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Single Error Address
-    uint32_t SINGLE_ERR_ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SINGLE_ERR_ADDR_fields_ {
+  // Single Error Address
+  using SINGLE_ERR_ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct SINGLE_ERR_ADDR_fields_
 
-  SINGLE_ERR_ADDR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_ADDR &ref() { return *reinterpret_cast<volatile SINGLE_ERR_ADDR*>(0x40024018); }
+struct SINGLE_ERR_ADDR : ftl::mmio::Register<
+    0x40024018u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    SINGLE_ERR_ADDR_fields_::SINGLE_ERR_ADDR> {
+  using value_ = SINGLE_ERR_ADDR_fields_::SINGLE_ERR_ADDR;
 };
+
 
 // Single Error Read Data
-union SINGLE_ERR_DATA {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Single Error Read Data
-    uint32_t SINGLE_ERR_DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SINGLE_ERR_DATA_fields_ {
+  // Single Error Read Data
+  using SINGLE_ERR_DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct SINGLE_ERR_DATA_fields_
 
-  SINGLE_ERR_DATA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_DATA &ref() { return *reinterpret_cast<volatile SINGLE_ERR_DATA*>(0x4002401C); }
+struct SINGLE_ERR_DATA : ftl::mmio::Register<
+    0x4002401Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    SINGLE_ERR_DATA_fields_::SINGLE_ERR_DATA> {
+  using value_ = SINGLE_ERR_DATA_fields_::SINGLE_ERR_DATA;
 };
+
 
 // Single Error ECC Code
-union SINGLE_ERR_ECC {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Single Error ECC code
-    uint32_t SINGLE_ERR_ECC : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SINGLE_ERR_ECC_fields_ {
+  // Single Error ECC code
+  using SINGLE_ERR_ECC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct SINGLE_ERR_ECC_fields_
 
-  SINGLE_ERR_ECC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_ECC &ref() { return *reinterpret_cast<volatile SINGLE_ERR_ECC*>(0x40024020); }
+struct SINGLE_ERR_ECC : ftl::mmio::Register<
+    0x40024020u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    SINGLE_ERR_ECC_fields_::SINGLE_ERR_ECC> {
+  using value_ = SINGLE_ERR_ECC_fields_::SINGLE_ERR_ECC;
 };
+
 
 // Single Error Bit Position
-union SINGLE_ERR_POS {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Single Error bit Position
-    uint32_t SINGLE_ERR_POS : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SINGLE_ERR_POS_fields_ {
+  // Single Error bit Position
+  using SINGLE_ERR_POS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct SINGLE_ERR_POS_fields_
 
-  SINGLE_ERR_POS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_POS &ref() { return *reinterpret_cast<volatile SINGLE_ERR_POS*>(0x40024024); }
+struct SINGLE_ERR_POS : ftl::mmio::Register<
+    0x40024024u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    SINGLE_ERR_POS_fields_::SINGLE_ERR_POS> {
+  using value_ = SINGLE_ERR_POS_fields_::SINGLE_ERR_POS;
 };
+
 
 // Single Error Bit Field
-union SINGLE_ERR_BIT_FIELD {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Single Error Bit Field
-    uint32_t SINGLE_ERR_BIT_FIELD : 8;
-    // read-only - Reserved
-    uint32_t Reserved1 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SINGLE_ERR_BIT_FIELD_fields_ {
+  // Single Error Bit Field
+  using SINGLE_ERR_BIT_FIELD = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Reserved
+  using Reserved1 = ftl::mmio::Field<24, 8, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct SINGLE_ERR_BIT_FIELD_fields_
 
-  SINGLE_ERR_BIT_FIELD() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SINGLE_ERR_BIT_FIELD &ref() { return *reinterpret_cast<volatile SINGLE_ERR_BIT_FIELD*>(0x40024028); }
+struct SINGLE_ERR_BIT_FIELD : ftl::mmio::Register<
+    0x40024028u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    SINGLE_ERR_BIT_FIELD_fields_::SINGLE_ERR_BIT_FIELD,
+    SINGLE_ERR_BIT_FIELD_fields_::Reserved1> {
+  using value_ = SINGLE_ERR_BIT_FIELD_fields_::SINGLE_ERR_BIT_FIELD;
+  using Reserved1 = SINGLE_ERR_BIT_FIELD_fields_::Reserved1;
 };
+
 
 // Multiple Error Address
-union MULTI_ERR_ADDR {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Multiple Error Address
-    uint32_t MULTI_ERR_ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct MULTI_ERR_ADDR_fields_ {
+  // Multiple Error Address
+  using MULTI_ERR_ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct MULTI_ERR_ADDR_fields_
 
-  MULTI_ERR_ADDR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_ADDR &ref() { return *reinterpret_cast<volatile MULTI_ERR_ADDR*>(0x4002402C); }
+struct MULTI_ERR_ADDR : ftl::mmio::Register<
+    0x4002402Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    MULTI_ERR_ADDR_fields_::MULTI_ERR_ADDR> {
+  using value_ = MULTI_ERR_ADDR_fields_::MULTI_ERR_ADDR;
 };
+
 
 // Multiple Error Read Data
-union MULTI_ERR_DATA {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Multiple Error Read Data
-    uint32_t MULTI_ERR_DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct MULTI_ERR_DATA_fields_ {
+  // Multiple Error Read Data
+  using MULTI_ERR_DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct MULTI_ERR_DATA_fields_
 
-  MULTI_ERR_DATA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_DATA &ref() { return *reinterpret_cast<volatile MULTI_ERR_DATA*>(0x40024030); }
+struct MULTI_ERR_DATA : ftl::mmio::Register<
+    0x40024030u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    MULTI_ERR_DATA_fields_::MULTI_ERR_DATA> {
+  using value_ = MULTI_ERR_DATA_fields_::MULTI_ERR_DATA;
 };
+
 
 // Multiple Error ECC code
-union MULTI_ERR_ECC {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Multiple Error ECC code
-    uint32_t MULTI_ERR_ECC : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct MULTI_ERR_ECC_fields_ {
+  // Multiple Error ECC code
+  using MULTI_ERR_ECC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct MULTI_ERR_ECC_fields_
 
-  MULTI_ERR_ECC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_ECC &ref() { return *reinterpret_cast<volatile MULTI_ERR_ECC*>(0x40024034); }
+struct MULTI_ERR_ECC : ftl::mmio::Register<
+    0x40024034u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    MULTI_ERR_ECC_fields_::MULTI_ERR_ECC> {
+  using value_ = MULTI_ERR_ECC_fields_::MULTI_ERR_ECC;
 };
+
 
 // Multiple Error Bit Field
-union MULTI_ERR_BIT_FIELD {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Multiple Error Bit Field
-    uint32_t MULTI_ERR_BIT_FIELD : 8;
-    // read-only - Reserved
-    uint32_t Reserved1 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct MULTI_ERR_BIT_FIELD_fields_ {
+  // Multiple Error Bit Field
+  using MULTI_ERR_BIT_FIELD = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Reserved
+  using Reserved1 = ftl::mmio::Field<24, 8, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct MULTI_ERR_BIT_FIELD_fields_
 
-  MULTI_ERR_BIT_FIELD() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MULTI_ERR_BIT_FIELD &ref() { return *reinterpret_cast<volatile MULTI_ERR_BIT_FIELD*>(0x40024038); }
+struct MULTI_ERR_BIT_FIELD : ftl::mmio::Register<
+    0x40024038u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    MULTI_ERR_BIT_FIELD_fields_::MULTI_ERR_BIT_FIELD,
+    MULTI_ERR_BIT_FIELD_fields_::Reserved1> {
+  using value_ = MULTI_ERR_BIT_FIELD_fields_::MULTI_ERR_BIT_FIELD;
+  using Reserved1 = MULTI_ERR_BIT_FIELD_fields_::Reserved1;
 };
+
 
 // ECC Region 0 Base Address
-union ECC_BASE_ADDR0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - ECC Region 0 Base Address
-    uint32_t ECC_BASE_ADDR0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ECC_BASE_ADDR0_fields_ {
+  // ECC Region 0 Base Address
+  using ECC_BASE_ADDR0 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ECC_BASE_ADDR0_fields_
 
-  ECC_BASE_ADDR0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_BASE_ADDR0 &ref() { return *reinterpret_cast<volatile ECC_BASE_ADDR0*>(0x4002403C); }
+struct ECC_BASE_ADDR0 : ftl::mmio::Register<
+    0x4002403Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ECC_BASE_ADDR0_fields_::ECC_BASE_ADDR0> {
+  using value_ = ECC_BASE_ADDR0_fields_::ECC_BASE_ADDR0;
 };
+
 
 // ECC Region 0 End Address
-union ECC_END_ADDR0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - ECC Region 0 End Address
-    uint32_t ECC_END_ADDR0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ECC_END_ADDR0_fields_ {
+  // ECC Region 0 End Address
+  using ECC_END_ADDR0 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ECC_END_ADDR0_fields_
 
-  ECC_END_ADDR0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_END_ADDR0 &ref() { return *reinterpret_cast<volatile ECC_END_ADDR0*>(0x40024040); }
+struct ECC_END_ADDR0 : ftl::mmio::Register<
+    0x40024040u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ECC_END_ADDR0_fields_::ECC_END_ADDR0> {
+  using value_ = ECC_END_ADDR0_fields_::ECC_END_ADDR0;
 };
+
 
 // ECC Region 1 Base Address
-union ECC_BASE_ADDR1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - ECC Region 1 Base Address
-    uint32_t ECC_BASE_ADDR1 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ECC_BASE_ADDR1_fields_ {
+  // ECC Region 1 Base Address
+  using ECC_BASE_ADDR1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ECC_BASE_ADDR1_fields_
 
-  ECC_BASE_ADDR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_BASE_ADDR1 &ref() { return *reinterpret_cast<volatile ECC_BASE_ADDR1*>(0x40024044); }
+struct ECC_BASE_ADDR1 : ftl::mmio::Register<
+    0x40024044u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ECC_BASE_ADDR1_fields_::ECC_BASE_ADDR1> {
+  using value_ = ECC_BASE_ADDR1_fields_::ECC_BASE_ADDR1;
 };
+
 
 // ECC Region 1 End Address
-union ECC_END_ADDR1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - ECC Region 1 End Address
-    uint32_t ECC_END_ADDR1 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ECC_END_ADDR1_fields_ {
+  // ECC Region 1 End Address
+  using ECC_END_ADDR1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ECC_END_ADDR1_fields_
 
-  ECC_END_ADDR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_END_ADDR1 &ref() { return *reinterpret_cast<volatile ECC_END_ADDR1*>(0x40024048); }
+struct ECC_END_ADDR1 : ftl::mmio::Register<
+    0x40024048u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ECC_END_ADDR1_fields_::ECC_END_ADDR1> {
+  using value_ = ECC_END_ADDR1_fields_::ECC_END_ADDR1;
 };
+
 
 // ECC Region 2 Base Address
-union ECC_BASE_ADDR2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - ECC Region 2 Base Address
-    uint32_t ECC_BASE_ADDR2 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ECC_BASE_ADDR2_fields_ {
+  // ECC Region 2 Base Address
+  using ECC_BASE_ADDR2 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ECC_BASE_ADDR2_fields_
 
-  ECC_BASE_ADDR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_BASE_ADDR2 &ref() { return *reinterpret_cast<volatile ECC_BASE_ADDR2*>(0x4002404C); }
+struct ECC_BASE_ADDR2 : ftl::mmio::Register<
+    0x4002404Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ECC_BASE_ADDR2_fields_::ECC_BASE_ADDR2> {
+  using value_ = ECC_BASE_ADDR2_fields_::ECC_BASE_ADDR2;
 };
+
 
 // ECC Region 2 End Address
-union ECC_END_ADDR2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - ECC Region 2 End Address
-    uint32_t ECC_END_ADDR2 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ECC_END_ADDR2_fields_ {
+  // ECC Region 2 End Address
+  using ECC_END_ADDR2 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ECC_END_ADDR2_fields_
 
-  ECC_END_ADDR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_END_ADDR2 &ref() { return *reinterpret_cast<volatile ECC_END_ADDR2*>(0x40024050); }
+struct ECC_END_ADDR2 : ftl::mmio::Register<
+    0x40024050u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ECC_END_ADDR2_fields_::ECC_END_ADDR2> {
+  using value_ = ECC_END_ADDR2_fields_::ECC_END_ADDR2;
 };
+
 
 // ECC Region 3 Base Address
-union ECC_BASE_ADDR3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - ECC Region 3 Base Address
-    uint32_t ECC_BASE_ADDR3 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ECC_BASE_ADDR3_fields_ {
+  // ECC Region 3 Base Address
+  using ECC_BASE_ADDR3 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ECC_BASE_ADDR3_fields_
 
-  ECC_BASE_ADDR3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_BASE_ADDR3 &ref() { return *reinterpret_cast<volatile ECC_BASE_ADDR3*>(0x40024054); }
+struct ECC_BASE_ADDR3 : ftl::mmio::Register<
+    0x40024054u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ECC_BASE_ADDR3_fields_::ECC_BASE_ADDR3> {
+  using value_ = ECC_BASE_ADDR3_fields_::ECC_BASE_ADDR3;
 };
+
 
 // ECC Region 3 End Address
-union ECC_END_ADDR3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - ECC Region 3 End Address
-    uint32_t ECC_END_ADDR3 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ECC_END_ADDR3_fields_ {
+  // ECC Region 3 End Address
+  using ECC_END_ADDR3 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ECC_END_ADDR3_fields_
 
-  ECC_END_ADDR3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ECC_END_ADDR3 &ref() { return *reinterpret_cast<volatile ECC_END_ADDR3*>(0x40024058); }
+struct ECC_END_ADDR3 : ftl::mmio::Register<
+    0x40024058u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ECC_END_ADDR3_fields_::ECC_END_ADDR3> {
+  using value_ = ECC_END_ADDR3_fields_::ECC_END_ADDR3;
 };
 
-
-} // namespace nXECC_SEMC
+}  // namespace regs::xecc_semc

@@ -1,315 +1,324 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // MUA
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nMUA {
+namespace regs::mua {
 
 
 // Processor A Transmit Register 0
-union TR0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - TR0
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TR0_fields_ {
+  // TR0
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TR0_fields_
 
-  TR0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TR0 &ref() { return *reinterpret_cast<volatile TR0*>(0x40C48000); }
+struct TR0 : ftl::mmio::Register<
+    0x40C48000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TR0_fields_::DATA> {
+  using DATA = TR0_fields_::DATA;
 };
+
 
 // Processor A Transmit Register 1
-union TR1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - TR1
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TR1_fields_ {
+  // TR1
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TR1_fields_
 
-  TR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TR1 &ref() { return *reinterpret_cast<volatile TR1*>(0x40C48004); }
+struct TR1 : ftl::mmio::Register<
+    0x40C48004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TR1_fields_::DATA> {
+  using DATA = TR1_fields_::DATA;
 };
+
 
 // Processor A Transmit Register 2
-union TR2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - TR2
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TR2_fields_ {
+  // TR2
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TR2_fields_
 
-  TR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TR2 &ref() { return *reinterpret_cast<volatile TR2*>(0x40C48008); }
+struct TR2 : ftl::mmio::Register<
+    0x40C48008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TR2_fields_::DATA> {
+  using DATA = TR2_fields_::DATA;
 };
+
 
 // Processor A Transmit Register 3
-union TR3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - TR3
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TR3_fields_ {
+  // TR3
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TR3_fields_
 
-  TR3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TR3 &ref() { return *reinterpret_cast<volatile TR3*>(0x40C4800C); }
+struct TR3 : ftl::mmio::Register<
+    0x40C4800Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TR3_fields_::DATA> {
+  using DATA = TR3_fields_::DATA;
 };
+
 
 // Processor A Receive Register 0
-union RR0 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - RR0
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RR0_fields_ {
+  // RR0
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RR0_fields_
 
-  RR0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RR0 &ref() { return *reinterpret_cast<volatile RR0*>(0x40C48010); }
+struct RR0 : ftl::mmio::Register<
+    0x40C48010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RR0_fields_::DATA> {
+  using DATA = RR0_fields_::DATA;
 };
+
 
 // Processor A Receive Register 1
-union RR1 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - RR1
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RR1_fields_ {
+  // RR1
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RR1_fields_
 
-  RR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RR1 &ref() { return *reinterpret_cast<volatile RR1*>(0x40C48014); }
+struct RR1 : ftl::mmio::Register<
+    0x40C48014u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RR1_fields_::DATA> {
+  using DATA = RR1_fields_::DATA;
 };
+
 
 // Processor A Receive Register 2
-union RR2 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - RR2
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RR2_fields_ {
+  // RR2
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RR2_fields_
 
-  RR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RR2 &ref() { return *reinterpret_cast<volatile RR2*>(0x40C48018); }
+struct RR2 : ftl::mmio::Register<
+    0x40C48018u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RR2_fields_::DATA> {
+  using DATA = RR2_fields_::DATA;
 };
+
 
 // Processor A Receive Register 3
-union RR3 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - RR3
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RR3_fields_ {
+  // RR3
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RR3_fields_
 
-  RR3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RR3 &ref() { return *reinterpret_cast<volatile RR3*>(0x40C4801C); }
+struct RR3 : ftl::mmio::Register<
+    0x40C4801Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RR3_fields_::DATA> {
+  using DATA = RR3_fields_::DATA;
 };
 
+
 // Processor A Status Register
-union SR {
-  
-  // Fn
-  enum class eFn : uint32_t {
+struct SR_fields_ {
+
+  enum class eFn : std::uint32_t {
     // BAFn bit in MUB.CR register is written 0 (default).
     ezero = 0,
     // BAFn bit in MUB.CR register is written 1.
     eone = 1,
   };
-  
-  // EP
-  enum class eEP : uint32_t {
+
+  enum class eEP : std::uint32_t {
     // The Processor A-side event is not pending (default).
     enot_pending = 0,
     // The Processor A-side event is pending.
     epending = 1,
   };
-  
-  // RS
-  enum class eRS : uint32_t {
+
+  enum class eRS : std::uint32_t {
     // The Processor B-side of the MU is not in reset.
     enot_reset = 0,
     // The Processor B-side of the MU is in reset.
     ereset = 1,
   };
-  
-  // FUP
-  enum class eFUP : uint32_t {
+
+  enum class eFUP : std::uint32_t {
     // No flags updated, initiated by the Processor A, in progress (default)
     eno_update = 0,
     // Processor A initiated flags update, processing
     eupdate = 1,
   };
-  
-  // TEn
-  enum class eTEn : uint32_t {
+
+  enum class eTEn : std::uint32_t {
     // MUA.TRn register is not empty.
     enot_empty = 0,
     // MUA.TRn register is empty (default).
     eempty = 1,
   };
-  
-  // RFn
-  enum class eRFn : uint32_t {
+
+  enum class eRFn : std::uint32_t {
     // MUA.RRn register is not full (default).
     enot_full = 0,
     // MUA.RRn register has received data from MUB.TRn register and is ready to be read by the Processor A.
     efull = 1,
   };
-  
-  // GIPn
-  enum class eGIPn : uint32_t {
+
+  enum class eGIPn : std::uint32_t {
     // Processor A general purpose interrupt n is not pending. (default)
     enot_pending = 0,
     // Processor A general purpose interrupt n is pending.
     epending = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - Fn
-    eFn Fn : 3;
-    uint32_t _reserved_0 : 1;
-    // read-only - EP
-    eEP EP : 1;
-    uint32_t _reserved_1 : 2;
-    // read-only - RS
-    eRS RS : 1;
-    // read-only - FUP
-    eFUP FUP : 1;
-    uint32_t _reserved_2 : 11;
-    // read-only - TEn
-    eTEn TEn : 4;
-    // read-only - RFn
-    eRFn RFn : 4;
-    // read-write - GIPn
-    eGIPn GIPn : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Fn
+  using Fn = ftl::mmio::Field<3, 0, eFn, ftl::mmio::RO, ftl::mmio::Normal>;
+  // EP
+  using EP = ftl::mmio::Field<1, 4, eEP, ftl::mmio::RO, ftl::mmio::Normal>;
+  // RS
+  using RS = ftl::mmio::Field<1, 7, eRS, ftl::mmio::RO, ftl::mmio::Normal>;
+  // FUP
+  using FUP = ftl::mmio::Field<1, 8, eFUP, ftl::mmio::RO, ftl::mmio::Normal>;
+  // TEn
+  using TEn = ftl::mmio::Field<4, 20, eTEn, ftl::mmio::RO, ftl::mmio::Normal>;
+  // RFn
+  using RFn = ftl::mmio::Field<4, 24, eRFn, ftl::mmio::RO, ftl::mmio::Normal>;
+  // GIPn
+  using GIPn = ftl::mmio::Field<4, 28, eGIPn, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct SR_fields_
 
-  SR() = delete;
-  inline void Reset() volatile { this->value = 0x00F00080; }
-  static inline volatile SR &ref() { return *reinterpret_cast<volatile SR*>(0x40C48020); }
+struct SR : ftl::mmio::Register<
+    0x40C48020u,
+    std::uint32_t,
+    0x00F00080u,
+    ftl::mmio::RW,
+    SR_fields_::Fn,
+    ftl::mmio::Reserved<1, 3>,
+    SR_fields_::EP,
+    ftl::mmio::Reserved<2, 5>,
+    SR_fields_::RS,
+    SR_fields_::FUP,
+    ftl::mmio::Reserved<11, 9>,
+    SR_fields_::TEn,
+    SR_fields_::RFn,
+    SR_fields_::GIPn> {
+  using eFn = SR_fields_::eFn;
+  using eEP = SR_fields_::eEP;
+  using eRS = SR_fields_::eRS;
+  using eFUP = SR_fields_::eFUP;
+  using eTEn = SR_fields_::eTEn;
+  using eRFn = SR_fields_::eRFn;
+  using eGIPn = SR_fields_::eGIPn;
+  using Fn = SR_fields_::Fn;
+  using EP = SR_fields_::EP;
+  using RS = SR_fields_::RS;
+  using FUP = SR_fields_::FUP;
+  using TEn = SR_fields_::TEn;
+  using RFn = SR_fields_::RFn;
+  using GIPn = SR_fields_::GIPn;
 };
 
+
 // Processor A Control Register
-union CR {
-  
-  // Fn
-  enum class eFn : uint32_t {
+struct CR_fields_ {
+
+  enum class eFn : std::uint32_t {
     // N/A. Self clearing bit (default).
     enot_appl = 0,
     // Asserts the Processor A MU reset.
     eassert_reset = 1,
   };
-  
-  // MUR
-  enum class eMUR : uint32_t {
+
+  enum class eMUR : std::uint32_t {
     // N/A. Self clearing bit (default).
     enot_appl = 0,
     // Asserts the Processor A MU reset.
     eassert_reset = 1,
   };
-  
-  // GIRn
-  enum class eGIRn : uint32_t {
+
+  enum class eGIRn : std::uint32_t {
     // Processor A General Interrupt n is not requested to the Processor B (default).
     enot_requested = 0,
     // Processor A General Interrupt n is requested to the Processor B.
     erequested = 1,
   };
-  
-  // TIEn
-  enum class eTIEn : uint32_t {
+
+  enum class eTIEn : std::uint32_t {
     // Disables Processor A Transmit Interrupt n. (default)
     edisable = 0,
     // Enables Processor A Transmit Interrupt n.
     eenable = 1,
   };
-  
-  // RIEn
-  enum class eRIEn : uint32_t {
+
+  enum class eRIEn : std::uint32_t {
     // Disables Processor A Receive Interrupt n. (default)
     edisable = 0,
     // Enables Processor A Receive Interrupt n.
     eenable = 1,
   };
-  
-  // GIEn
-  enum class eGIEn : uint32_t {
+
+  enum class eGIEn : std::uint32_t {
     // Disables Processor A General Interrupt n. (default)
     edisable = 0,
     // Enables Processor A General Interrupt n.
     eenable = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Fn
-    eFn Fn : 3;
-    uint32_t _reserved_0 : 2;
-    // read-write - MUR
-    eMUR MUR : 1;
-    uint32_t _reserved_1 : 10;
-    // read-write - GIRn
-    eGIRn GIRn : 4;
-    // read-write - TIEn
-    eTIEn TIEn : 4;
-    // read-write - RIEn
-    eRIEn RIEn : 4;
-    // read-write - GIEn
-    eGIEn GIEn : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Fn
+  using Fn = ftl::mmio::Field<3, 0, eFn, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MUR
+  using MUR = ftl::mmio::Field<1, 5, eMUR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GIRn
+  using GIRn = ftl::mmio::Field<4, 16, eGIRn, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TIEn
+  using TIEn = ftl::mmio::Field<4, 20, eTIEn, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RIEn
+  using RIEn = ftl::mmio::Field<4, 24, eRIEn, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GIEn
+  using GIEn = ftl::mmio::Field<4, 28, eGIEn, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CR_fields_
 
-  CR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CR &ref() { return *reinterpret_cast<volatile CR*>(0x40C48024); }
+struct CR : ftl::mmio::Register<
+    0x40C48024u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CR_fields_::Fn,
+    ftl::mmio::Reserved<2, 3>,
+    CR_fields_::MUR,
+    ftl::mmio::Reserved<10, 6>,
+    CR_fields_::GIRn,
+    CR_fields_::TIEn,
+    CR_fields_::RIEn,
+    CR_fields_::GIEn> {
+  using eFn = CR_fields_::eFn;
+  using eMUR = CR_fields_::eMUR;
+  using eGIRn = CR_fields_::eGIRn;
+  using eTIEn = CR_fields_::eTIEn;
+  using eRIEn = CR_fields_::eRIEn;
+  using eGIEn = CR_fields_::eGIEn;
+  using Fn = CR_fields_::Fn;
+  using MUR = CR_fields_::MUR;
+  using GIRn = CR_fields_::GIRn;
+  using TIEn = CR_fields_::TIEn;
+  using RIEn = CR_fields_::RIEn;
+  using GIEn = CR_fields_::GIEn;
 };
 
-
-} // namespace nMUA
+}  // namespace regs::mua

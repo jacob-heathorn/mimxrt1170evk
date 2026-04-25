@@ -8,8 +8,9 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::ccm {
 
+
 // Clock group control
-namespace CLOCK_GROUP0_CONTROL_fields_ {
+struct CLOCK_GROUP0_CONTROL_fields_ {
 
   enum class eOFF : std::uint32_t {
     // Clock is running
@@ -23,7 +24,7 @@ namespace CLOCK_GROUP0_CONTROL_fields_ {
   using RSTDIV = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // OFF
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_CONTROL_fields_
+};  // struct CLOCK_GROUP0_CONTROL_fields_
 
 struct CLOCK_GROUP0_CONTROL : ftl::mmio::Register<
     0x40CC4000u,
@@ -41,15 +42,16 @@ struct CLOCK_GROUP0_CONTROL : ftl::mmio::Register<
   using OFF = CLOCK_GROUP0_CONTROL_fields_::OFF;
 };
 
+
 // Clock group control
-namespace CLOCK_GROUP0_CONTROL_SET_fields_ {
+struct CLOCK_GROUP0_CONTROL_SET_fields_ {
   // Clock divider0
   using DIV0 = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Clock group global restart count
   using RSTDIV = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // OFF
   using OFF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace CLOCK_GROUP0_CONTROL_SET_fields_
+};  // struct CLOCK_GROUP0_CONTROL_SET_fields_
 
 struct CLOCK_GROUP0_CONTROL_SET : ftl::mmio::Register<
     0x40CC4004u,
@@ -66,15 +68,16 @@ struct CLOCK_GROUP0_CONTROL_SET : ftl::mmio::Register<
   using OFF = CLOCK_GROUP0_CONTROL_SET_fields_::OFF;
 };
 
+
 // Clock group control
-namespace CLOCK_GROUP0_CONTROL_CLR_fields_ {
+struct CLOCK_GROUP0_CONTROL_CLR_fields_ {
   // Clock divider0
   using DIV0 = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Clock group global restart count
   using RSTDIV = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // OFF
   using OFF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace CLOCK_GROUP0_CONTROL_CLR_fields_
+};  // struct CLOCK_GROUP0_CONTROL_CLR_fields_
 
 struct CLOCK_GROUP0_CONTROL_CLR : ftl::mmio::Register<
     0x40CC4008u,
@@ -91,15 +94,16 @@ struct CLOCK_GROUP0_CONTROL_CLR : ftl::mmio::Register<
   using OFF = CLOCK_GROUP0_CONTROL_CLR_fields_::OFF;
 };
 
+
 // Clock group control
-namespace CLOCK_GROUP0_CONTROL_TOG_fields_ {
+struct CLOCK_GROUP0_CONTROL_TOG_fields_ {
   // Clock divider0
   using DIV0 = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Clock group global restart count
   using RSTDIV = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // OFF
   using OFF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace CLOCK_GROUP0_CONTROL_TOG_fields_
+};  // struct CLOCK_GROUP0_CONTROL_TOG_fields_
 
 struct CLOCK_GROUP0_CONTROL_TOG : ftl::mmio::Register<
     0x40CC400Cu,
@@ -116,8 +120,9 @@ struct CLOCK_GROUP0_CONTROL_TOG : ftl::mmio::Register<
   using OFF = CLOCK_GROUP0_CONTROL_TOG_fields_::OFF;
 };
 
+
 // Clock group working status
-namespace CLOCK_GROUP0_STATUS0_fields_ {
+struct CLOCK_GROUP0_STATUS0_fields_ {
 
   enum class eOFF : std::uint32_t {
     // Clock is running.
@@ -176,7 +181,7 @@ namespace CLOCK_GROUP0_STATUS0_fields_ {
   using UPDATE_REVERSE = ftl::mmio::Field<1, 30, eUPDATE_REVERSE, ftl::mmio::RO, ftl::mmio::Normal>;
   // Internal updating in clock group
   using CHANGING = ftl::mmio::Field<1, 31, eCHANGING, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_STATUS0_fields_
+};  // struct CLOCK_GROUP0_STATUS0_fields_
 
 struct CLOCK_GROUP0_STATUS0 : ftl::mmio::Register<
     0x40CC4020u,
@@ -209,8 +214,9 @@ struct CLOCK_GROUP0_STATUS0 : ftl::mmio::Register<
   using CHANGING = CLOCK_GROUP0_STATUS0_fields_::CHANGING;
 };
 
+
 // Clock group low power/extend status
-namespace CLOCK_GROUP0_STATUS1_fields_ {
+struct CLOCK_GROUP0_STATUS1_fields_ {
 
   enum class eDOWN_REQUEST : std::uint32_t {
     // No handshake signal is not requested
@@ -251,7 +257,7 @@ namespace CLOCK_GROUP0_STATUS1_fields_ {
   using UP_REQUEST = ftl::mmio::Field<1, 26, eUP_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock frequency increase complete
   using UP_DONE = ftl::mmio::Field<1, 27, eUP_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_STATUS1_fields_
+};  // struct CLOCK_GROUP0_STATUS1_fields_
 
 struct CLOCK_GROUP0_STATUS1 : ftl::mmio::Register<
     0x40CC4024u,
@@ -278,8 +284,9 @@ struct CLOCK_GROUP0_STATUS1 : ftl::mmio::Register<
   using UP_DONE = CLOCK_GROUP0_STATUS1_fields_::UP_DONE;
 };
 
+
 // Clock group configuration
-namespace CLOCK_GROUP0_CONFIG_fields_ {
+struct CLOCK_GROUP0_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -289,7 +296,7 @@ namespace CLOCK_GROUP0_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_CONFIG_fields_
+};  // struct CLOCK_GROUP0_CONFIG_fields_
 
 struct CLOCK_GROUP0_CONFIG : ftl::mmio::Register<
     0x40CC402Cu,
@@ -303,8 +310,9 @@ struct CLOCK_GROUP0_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = CLOCK_GROUP0_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // Clock group access control
-namespace CLOCK_GROUP0_AUTHEN_fields_ {
+struct CLOCK_GROUP0_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode.
@@ -363,7 +371,7 @@ namespace CLOCK_GROUP0_AUTHEN_fields_ {
   using SETPOINT_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_AUTHEN_fields_
+};  // struct CLOCK_GROUP0_AUTHEN_fields_
 
 struct CLOCK_GROUP0_AUTHEN : ftl::mmio::Register<
     0x40CC4030u,
@@ -399,8 +407,9 @@ struct CLOCK_GROUP0_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = CLOCK_GROUP0_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // Clock group access control
-namespace CLOCK_GROUP0_AUTHEN_SET_fields_ {
+struct CLOCK_GROUP0_AUTHEN_SET_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Non-secure access
@@ -417,7 +426,7 @@ namespace CLOCK_GROUP0_AUTHEN_SET_fields_ {
   using SETPOINT_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace CLOCK_GROUP0_AUTHEN_SET_fields_
+};  // struct CLOCK_GROUP0_AUTHEN_SET_fields_
 
 struct CLOCK_GROUP0_AUTHEN_SET : ftl::mmio::Register<
     0x40CC4034u,
@@ -447,8 +456,9 @@ struct CLOCK_GROUP0_AUTHEN_SET : ftl::mmio::Register<
   using LOCK_MODE = CLOCK_GROUP0_AUTHEN_SET_fields_::LOCK_MODE;
 };
 
+
 // Clock group access control
-namespace CLOCK_GROUP0_AUTHEN_CLR_fields_ {
+struct CLOCK_GROUP0_AUTHEN_CLR_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Non-secure access
@@ -465,7 +475,7 @@ namespace CLOCK_GROUP0_AUTHEN_CLR_fields_ {
   using SETPOINT_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace CLOCK_GROUP0_AUTHEN_CLR_fields_
+};  // struct CLOCK_GROUP0_AUTHEN_CLR_fields_
 
 struct CLOCK_GROUP0_AUTHEN_CLR : ftl::mmio::Register<
     0x40CC4038u,
@@ -495,8 +505,9 @@ struct CLOCK_GROUP0_AUTHEN_CLR : ftl::mmio::Register<
   using LOCK_MODE = CLOCK_GROUP0_AUTHEN_CLR_fields_::LOCK_MODE;
 };
 
+
 // Clock group access control
-namespace CLOCK_GROUP0_AUTHEN_TOG_fields_ {
+struct CLOCK_GROUP0_AUTHEN_TOG_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Non-secure access
@@ -513,7 +524,7 @@ namespace CLOCK_GROUP0_AUTHEN_TOG_fields_ {
   using SETPOINT_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace CLOCK_GROUP0_AUTHEN_TOG_fields_
+};  // struct CLOCK_GROUP0_AUTHEN_TOG_fields_
 
 struct CLOCK_GROUP0_AUTHEN_TOG : ftl::mmio::Register<
     0x40CC403Cu,
@@ -543,8 +554,9 @@ struct CLOCK_GROUP0_AUTHEN_TOG : ftl::mmio::Register<
   using LOCK_MODE = CLOCK_GROUP0_AUTHEN_TOG_fields_::LOCK_MODE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT0_fields_ {
+struct CLOCK_GROUP0_SETPOINT0_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -573,7 +585,7 @@ namespace CLOCK_GROUP0_SETPOINT0_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT0_fields_
+};  // struct CLOCK_GROUP0_SETPOINT0_fields_
 
 struct CLOCK_GROUP0_SETPOINT0 : ftl::mmio::Register<
     0x40CC4040u,
@@ -594,8 +606,9 @@ struct CLOCK_GROUP0_SETPOINT0 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT0_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT1_fields_ {
+struct CLOCK_GROUP0_SETPOINT1_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -624,7 +637,7 @@ namespace CLOCK_GROUP0_SETPOINT1_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT1_fields_
+};  // struct CLOCK_GROUP0_SETPOINT1_fields_
 
 struct CLOCK_GROUP0_SETPOINT1 : ftl::mmio::Register<
     0x40CC4044u,
@@ -645,8 +658,9 @@ struct CLOCK_GROUP0_SETPOINT1 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT1_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT2_fields_ {
+struct CLOCK_GROUP0_SETPOINT2_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -675,7 +689,7 @@ namespace CLOCK_GROUP0_SETPOINT2_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT2_fields_
+};  // struct CLOCK_GROUP0_SETPOINT2_fields_
 
 struct CLOCK_GROUP0_SETPOINT2 : ftl::mmio::Register<
     0x40CC4048u,
@@ -696,8 +710,9 @@ struct CLOCK_GROUP0_SETPOINT2 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT2_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT3_fields_ {
+struct CLOCK_GROUP0_SETPOINT3_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -726,7 +741,7 @@ namespace CLOCK_GROUP0_SETPOINT3_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT3_fields_
+};  // struct CLOCK_GROUP0_SETPOINT3_fields_
 
 struct CLOCK_GROUP0_SETPOINT3 : ftl::mmio::Register<
     0x40CC404Cu,
@@ -747,8 +762,9 @@ struct CLOCK_GROUP0_SETPOINT3 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT3_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT4_fields_ {
+struct CLOCK_GROUP0_SETPOINT4_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -777,7 +793,7 @@ namespace CLOCK_GROUP0_SETPOINT4_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT4_fields_
+};  // struct CLOCK_GROUP0_SETPOINT4_fields_
 
 struct CLOCK_GROUP0_SETPOINT4 : ftl::mmio::Register<
     0x40CC4050u,
@@ -798,8 +814,9 @@ struct CLOCK_GROUP0_SETPOINT4 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT4_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT5_fields_ {
+struct CLOCK_GROUP0_SETPOINT5_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -828,7 +845,7 @@ namespace CLOCK_GROUP0_SETPOINT5_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT5_fields_
+};  // struct CLOCK_GROUP0_SETPOINT5_fields_
 
 struct CLOCK_GROUP0_SETPOINT5 : ftl::mmio::Register<
     0x40CC4054u,
@@ -849,8 +866,9 @@ struct CLOCK_GROUP0_SETPOINT5 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT5_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT6_fields_ {
+struct CLOCK_GROUP0_SETPOINT6_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -879,7 +897,7 @@ namespace CLOCK_GROUP0_SETPOINT6_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT6_fields_
+};  // struct CLOCK_GROUP0_SETPOINT6_fields_
 
 struct CLOCK_GROUP0_SETPOINT6 : ftl::mmio::Register<
     0x40CC4058u,
@@ -900,8 +918,9 @@ struct CLOCK_GROUP0_SETPOINT6 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT6_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT7_fields_ {
+struct CLOCK_GROUP0_SETPOINT7_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -930,7 +949,7 @@ namespace CLOCK_GROUP0_SETPOINT7_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT7_fields_
+};  // struct CLOCK_GROUP0_SETPOINT7_fields_
 
 struct CLOCK_GROUP0_SETPOINT7 : ftl::mmio::Register<
     0x40CC405Cu,
@@ -951,8 +970,9 @@ struct CLOCK_GROUP0_SETPOINT7 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT7_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT8_fields_ {
+struct CLOCK_GROUP0_SETPOINT8_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -981,7 +1001,7 @@ namespace CLOCK_GROUP0_SETPOINT8_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT8_fields_
+};  // struct CLOCK_GROUP0_SETPOINT8_fields_
 
 struct CLOCK_GROUP0_SETPOINT8 : ftl::mmio::Register<
     0x40CC4060u,
@@ -1002,8 +1022,9 @@ struct CLOCK_GROUP0_SETPOINT8 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT8_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT9_fields_ {
+struct CLOCK_GROUP0_SETPOINT9_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -1032,7 +1053,7 @@ namespace CLOCK_GROUP0_SETPOINT9_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT9_fields_
+};  // struct CLOCK_GROUP0_SETPOINT9_fields_
 
 struct CLOCK_GROUP0_SETPOINT9 : ftl::mmio::Register<
     0x40CC4064u,
@@ -1053,8 +1074,9 @@ struct CLOCK_GROUP0_SETPOINT9 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT9_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT10_fields_ {
+struct CLOCK_GROUP0_SETPOINT10_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -1083,7 +1105,7 @@ namespace CLOCK_GROUP0_SETPOINT10_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT10_fields_
+};  // struct CLOCK_GROUP0_SETPOINT10_fields_
 
 struct CLOCK_GROUP0_SETPOINT10 : ftl::mmio::Register<
     0x40CC4068u,
@@ -1104,8 +1126,9 @@ struct CLOCK_GROUP0_SETPOINT10 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT10_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT11_fields_ {
+struct CLOCK_GROUP0_SETPOINT11_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -1134,7 +1157,7 @@ namespace CLOCK_GROUP0_SETPOINT11_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT11_fields_
+};  // struct CLOCK_GROUP0_SETPOINT11_fields_
 
 struct CLOCK_GROUP0_SETPOINT11 : ftl::mmio::Register<
     0x40CC406Cu,
@@ -1155,8 +1178,9 @@ struct CLOCK_GROUP0_SETPOINT11 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT11_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT12_fields_ {
+struct CLOCK_GROUP0_SETPOINT12_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -1185,7 +1209,7 @@ namespace CLOCK_GROUP0_SETPOINT12_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT12_fields_
+};  // struct CLOCK_GROUP0_SETPOINT12_fields_
 
 struct CLOCK_GROUP0_SETPOINT12 : ftl::mmio::Register<
     0x40CC4070u,
@@ -1206,8 +1230,9 @@ struct CLOCK_GROUP0_SETPOINT12 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT12_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT13_fields_ {
+struct CLOCK_GROUP0_SETPOINT13_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -1236,7 +1261,7 @@ namespace CLOCK_GROUP0_SETPOINT13_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT13_fields_
+};  // struct CLOCK_GROUP0_SETPOINT13_fields_
 
 struct CLOCK_GROUP0_SETPOINT13 : ftl::mmio::Register<
     0x40CC4074u,
@@ -1257,8 +1282,9 @@ struct CLOCK_GROUP0_SETPOINT13 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT13_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT14_fields_ {
+struct CLOCK_GROUP0_SETPOINT14_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -1287,7 +1313,7 @@ namespace CLOCK_GROUP0_SETPOINT14_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT14_fields_
+};  // struct CLOCK_GROUP0_SETPOINT14_fields_
 
 struct CLOCK_GROUP0_SETPOINT14 : ftl::mmio::Register<
     0x40CC4078u,
@@ -1308,8 +1334,9 @@ struct CLOCK_GROUP0_SETPOINT14 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT14_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP0_SETPOINT15_fields_ {
+struct CLOCK_GROUP0_SETPOINT15_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -1338,7 +1365,7 @@ namespace CLOCK_GROUP0_SETPOINT15_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP0_SETPOINT15_fields_
+};  // struct CLOCK_GROUP0_SETPOINT15_fields_
 
 struct CLOCK_GROUP0_SETPOINT15 : ftl::mmio::Register<
     0x40CC407Cu,
@@ -1359,8 +1386,9 @@ struct CLOCK_GROUP0_SETPOINT15 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP0_SETPOINT15_fields_::GRADE;
 };
 
+
 // Clock group control
-namespace CLOCK_GROUP1_CONTROL_fields_ {
+struct CLOCK_GROUP1_CONTROL_fields_ {
 
   enum class eOFF : std::uint32_t {
     // Clock is running
@@ -1374,7 +1402,7 @@ namespace CLOCK_GROUP1_CONTROL_fields_ {
   using RSTDIV = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // OFF
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_CONTROL_fields_
+};  // struct CLOCK_GROUP1_CONTROL_fields_
 
 struct CLOCK_GROUP1_CONTROL : ftl::mmio::Register<
     0x40CC4080u,
@@ -1392,15 +1420,16 @@ struct CLOCK_GROUP1_CONTROL : ftl::mmio::Register<
   using OFF = CLOCK_GROUP1_CONTROL_fields_::OFF;
 };
 
+
 // Clock group control
-namespace CLOCK_GROUP1_CONTROL_SET_fields_ {
+struct CLOCK_GROUP1_CONTROL_SET_fields_ {
   // Clock divider0
   using DIV0 = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Clock group global restart count
   using RSTDIV = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // OFF
   using OFF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace CLOCK_GROUP1_CONTROL_SET_fields_
+};  // struct CLOCK_GROUP1_CONTROL_SET_fields_
 
 struct CLOCK_GROUP1_CONTROL_SET : ftl::mmio::Register<
     0x40CC4084u,
@@ -1417,15 +1446,16 @@ struct CLOCK_GROUP1_CONTROL_SET : ftl::mmio::Register<
   using OFF = CLOCK_GROUP1_CONTROL_SET_fields_::OFF;
 };
 
+
 // Clock group control
-namespace CLOCK_GROUP1_CONTROL_CLR_fields_ {
+struct CLOCK_GROUP1_CONTROL_CLR_fields_ {
   // Clock divider0
   using DIV0 = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Clock group global restart count
   using RSTDIV = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // OFF
   using OFF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace CLOCK_GROUP1_CONTROL_CLR_fields_
+};  // struct CLOCK_GROUP1_CONTROL_CLR_fields_
 
 struct CLOCK_GROUP1_CONTROL_CLR : ftl::mmio::Register<
     0x40CC4088u,
@@ -1442,15 +1472,16 @@ struct CLOCK_GROUP1_CONTROL_CLR : ftl::mmio::Register<
   using OFF = CLOCK_GROUP1_CONTROL_CLR_fields_::OFF;
 };
 
+
 // Clock group control
-namespace CLOCK_GROUP1_CONTROL_TOG_fields_ {
+struct CLOCK_GROUP1_CONTROL_TOG_fields_ {
   // Clock divider0
   using DIV0 = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Clock group global restart count
   using RSTDIV = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // OFF
   using OFF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace CLOCK_GROUP1_CONTROL_TOG_fields_
+};  // struct CLOCK_GROUP1_CONTROL_TOG_fields_
 
 struct CLOCK_GROUP1_CONTROL_TOG : ftl::mmio::Register<
     0x40CC408Cu,
@@ -1467,8 +1498,9 @@ struct CLOCK_GROUP1_CONTROL_TOG : ftl::mmio::Register<
   using OFF = CLOCK_GROUP1_CONTROL_TOG_fields_::OFF;
 };
 
+
 // Clock group working status
-namespace CLOCK_GROUP1_STATUS0_fields_ {
+struct CLOCK_GROUP1_STATUS0_fields_ {
 
   enum class eOFF : std::uint32_t {
     // Clock is running.
@@ -1527,7 +1559,7 @@ namespace CLOCK_GROUP1_STATUS0_fields_ {
   using UPDATE_REVERSE = ftl::mmio::Field<1, 30, eUPDATE_REVERSE, ftl::mmio::RO, ftl::mmio::Normal>;
   // Internal updating in clock group
   using CHANGING = ftl::mmio::Field<1, 31, eCHANGING, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_STATUS0_fields_
+};  // struct CLOCK_GROUP1_STATUS0_fields_
 
 struct CLOCK_GROUP1_STATUS0 : ftl::mmio::Register<
     0x40CC40A0u,
@@ -1560,8 +1592,9 @@ struct CLOCK_GROUP1_STATUS0 : ftl::mmio::Register<
   using CHANGING = CLOCK_GROUP1_STATUS0_fields_::CHANGING;
 };
 
+
 // Clock group low power/extend status
-namespace CLOCK_GROUP1_STATUS1_fields_ {
+struct CLOCK_GROUP1_STATUS1_fields_ {
 
   enum class eDOWN_REQUEST : std::uint32_t {
     // No handshake signal is not requested
@@ -1602,7 +1635,7 @@ namespace CLOCK_GROUP1_STATUS1_fields_ {
   using UP_REQUEST = ftl::mmio::Field<1, 26, eUP_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock frequency increase complete
   using UP_DONE = ftl::mmio::Field<1, 27, eUP_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_STATUS1_fields_
+};  // struct CLOCK_GROUP1_STATUS1_fields_
 
 struct CLOCK_GROUP1_STATUS1 : ftl::mmio::Register<
     0x40CC40A4u,
@@ -1629,8 +1662,9 @@ struct CLOCK_GROUP1_STATUS1 : ftl::mmio::Register<
   using UP_DONE = CLOCK_GROUP1_STATUS1_fields_::UP_DONE;
 };
 
+
 // Clock group configuration
-namespace CLOCK_GROUP1_CONFIG_fields_ {
+struct CLOCK_GROUP1_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -1640,7 +1674,7 @@ namespace CLOCK_GROUP1_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_CONFIG_fields_
+};  // struct CLOCK_GROUP1_CONFIG_fields_
 
 struct CLOCK_GROUP1_CONFIG : ftl::mmio::Register<
     0x40CC40ACu,
@@ -1654,8 +1688,9 @@ struct CLOCK_GROUP1_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = CLOCK_GROUP1_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // Clock group access control
-namespace CLOCK_GROUP1_AUTHEN_fields_ {
+struct CLOCK_GROUP1_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode.
@@ -1714,7 +1749,7 @@ namespace CLOCK_GROUP1_AUTHEN_fields_ {
   using SETPOINT_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_AUTHEN_fields_
+};  // struct CLOCK_GROUP1_AUTHEN_fields_
 
 struct CLOCK_GROUP1_AUTHEN : ftl::mmio::Register<
     0x40CC40B0u,
@@ -1750,8 +1785,9 @@ struct CLOCK_GROUP1_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = CLOCK_GROUP1_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // Clock group access control
-namespace CLOCK_GROUP1_AUTHEN_SET_fields_ {
+struct CLOCK_GROUP1_AUTHEN_SET_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Non-secure access
@@ -1768,7 +1804,7 @@ namespace CLOCK_GROUP1_AUTHEN_SET_fields_ {
   using SETPOINT_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace CLOCK_GROUP1_AUTHEN_SET_fields_
+};  // struct CLOCK_GROUP1_AUTHEN_SET_fields_
 
 struct CLOCK_GROUP1_AUTHEN_SET : ftl::mmio::Register<
     0x40CC40B4u,
@@ -1798,8 +1834,9 @@ struct CLOCK_GROUP1_AUTHEN_SET : ftl::mmio::Register<
   using LOCK_MODE = CLOCK_GROUP1_AUTHEN_SET_fields_::LOCK_MODE;
 };
 
+
 // Clock group access control
-namespace CLOCK_GROUP1_AUTHEN_CLR_fields_ {
+struct CLOCK_GROUP1_AUTHEN_CLR_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Non-secure access
@@ -1816,7 +1853,7 @@ namespace CLOCK_GROUP1_AUTHEN_CLR_fields_ {
   using SETPOINT_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace CLOCK_GROUP1_AUTHEN_CLR_fields_
+};  // struct CLOCK_GROUP1_AUTHEN_CLR_fields_
 
 struct CLOCK_GROUP1_AUTHEN_CLR : ftl::mmio::Register<
     0x40CC40B8u,
@@ -1846,8 +1883,9 @@ struct CLOCK_GROUP1_AUTHEN_CLR : ftl::mmio::Register<
   using LOCK_MODE = CLOCK_GROUP1_AUTHEN_CLR_fields_::LOCK_MODE;
 };
 
+
 // Clock group access control
-namespace CLOCK_GROUP1_AUTHEN_TOG_fields_ {
+struct CLOCK_GROUP1_AUTHEN_TOG_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Non-secure access
@@ -1864,7 +1902,7 @@ namespace CLOCK_GROUP1_AUTHEN_TOG_fields_ {
   using SETPOINT_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace CLOCK_GROUP1_AUTHEN_TOG_fields_
+};  // struct CLOCK_GROUP1_AUTHEN_TOG_fields_
 
 struct CLOCK_GROUP1_AUTHEN_TOG : ftl::mmio::Register<
     0x40CC40BCu,
@@ -1894,8 +1932,9 @@ struct CLOCK_GROUP1_AUTHEN_TOG : ftl::mmio::Register<
   using LOCK_MODE = CLOCK_GROUP1_AUTHEN_TOG_fields_::LOCK_MODE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT0_fields_ {
+struct CLOCK_GROUP1_SETPOINT0_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -1924,7 +1963,7 @@ namespace CLOCK_GROUP1_SETPOINT0_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT0_fields_
+};  // struct CLOCK_GROUP1_SETPOINT0_fields_
 
 struct CLOCK_GROUP1_SETPOINT0 : ftl::mmio::Register<
     0x40CC40C0u,
@@ -1945,8 +1984,9 @@ struct CLOCK_GROUP1_SETPOINT0 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT0_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT1_fields_ {
+struct CLOCK_GROUP1_SETPOINT1_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -1975,7 +2015,7 @@ namespace CLOCK_GROUP1_SETPOINT1_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT1_fields_
+};  // struct CLOCK_GROUP1_SETPOINT1_fields_
 
 struct CLOCK_GROUP1_SETPOINT1 : ftl::mmio::Register<
     0x40CC40C4u,
@@ -1996,8 +2036,9 @@ struct CLOCK_GROUP1_SETPOINT1 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT1_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT2_fields_ {
+struct CLOCK_GROUP1_SETPOINT2_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2026,7 +2067,7 @@ namespace CLOCK_GROUP1_SETPOINT2_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT2_fields_
+};  // struct CLOCK_GROUP1_SETPOINT2_fields_
 
 struct CLOCK_GROUP1_SETPOINT2 : ftl::mmio::Register<
     0x40CC40C8u,
@@ -2047,8 +2088,9 @@ struct CLOCK_GROUP1_SETPOINT2 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT2_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT3_fields_ {
+struct CLOCK_GROUP1_SETPOINT3_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2077,7 +2119,7 @@ namespace CLOCK_GROUP1_SETPOINT3_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT3_fields_
+};  // struct CLOCK_GROUP1_SETPOINT3_fields_
 
 struct CLOCK_GROUP1_SETPOINT3 : ftl::mmio::Register<
     0x40CC40CCu,
@@ -2098,8 +2140,9 @@ struct CLOCK_GROUP1_SETPOINT3 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT3_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT4_fields_ {
+struct CLOCK_GROUP1_SETPOINT4_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2128,7 +2171,7 @@ namespace CLOCK_GROUP1_SETPOINT4_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT4_fields_
+};  // struct CLOCK_GROUP1_SETPOINT4_fields_
 
 struct CLOCK_GROUP1_SETPOINT4 : ftl::mmio::Register<
     0x40CC40D0u,
@@ -2149,8 +2192,9 @@ struct CLOCK_GROUP1_SETPOINT4 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT4_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT5_fields_ {
+struct CLOCK_GROUP1_SETPOINT5_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2179,7 +2223,7 @@ namespace CLOCK_GROUP1_SETPOINT5_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT5_fields_
+};  // struct CLOCK_GROUP1_SETPOINT5_fields_
 
 struct CLOCK_GROUP1_SETPOINT5 : ftl::mmio::Register<
     0x40CC40D4u,
@@ -2200,8 +2244,9 @@ struct CLOCK_GROUP1_SETPOINT5 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT5_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT6_fields_ {
+struct CLOCK_GROUP1_SETPOINT6_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2230,7 +2275,7 @@ namespace CLOCK_GROUP1_SETPOINT6_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT6_fields_
+};  // struct CLOCK_GROUP1_SETPOINT6_fields_
 
 struct CLOCK_GROUP1_SETPOINT6 : ftl::mmio::Register<
     0x40CC40D8u,
@@ -2251,8 +2296,9 @@ struct CLOCK_GROUP1_SETPOINT6 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT6_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT7_fields_ {
+struct CLOCK_GROUP1_SETPOINT7_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2281,7 +2327,7 @@ namespace CLOCK_GROUP1_SETPOINT7_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT7_fields_
+};  // struct CLOCK_GROUP1_SETPOINT7_fields_
 
 struct CLOCK_GROUP1_SETPOINT7 : ftl::mmio::Register<
     0x40CC40DCu,
@@ -2302,8 +2348,9 @@ struct CLOCK_GROUP1_SETPOINT7 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT7_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT8_fields_ {
+struct CLOCK_GROUP1_SETPOINT8_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2332,7 +2379,7 @@ namespace CLOCK_GROUP1_SETPOINT8_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT8_fields_
+};  // struct CLOCK_GROUP1_SETPOINT8_fields_
 
 struct CLOCK_GROUP1_SETPOINT8 : ftl::mmio::Register<
     0x40CC40E0u,
@@ -2353,8 +2400,9 @@ struct CLOCK_GROUP1_SETPOINT8 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT8_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT9_fields_ {
+struct CLOCK_GROUP1_SETPOINT9_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2383,7 +2431,7 @@ namespace CLOCK_GROUP1_SETPOINT9_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT9_fields_
+};  // struct CLOCK_GROUP1_SETPOINT9_fields_
 
 struct CLOCK_GROUP1_SETPOINT9 : ftl::mmio::Register<
     0x40CC40E4u,
@@ -2404,8 +2452,9 @@ struct CLOCK_GROUP1_SETPOINT9 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT9_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT10_fields_ {
+struct CLOCK_GROUP1_SETPOINT10_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2434,7 +2483,7 @@ namespace CLOCK_GROUP1_SETPOINT10_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT10_fields_
+};  // struct CLOCK_GROUP1_SETPOINT10_fields_
 
 struct CLOCK_GROUP1_SETPOINT10 : ftl::mmio::Register<
     0x40CC40E8u,
@@ -2455,8 +2504,9 @@ struct CLOCK_GROUP1_SETPOINT10 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT10_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT11_fields_ {
+struct CLOCK_GROUP1_SETPOINT11_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2485,7 +2535,7 @@ namespace CLOCK_GROUP1_SETPOINT11_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT11_fields_
+};  // struct CLOCK_GROUP1_SETPOINT11_fields_
 
 struct CLOCK_GROUP1_SETPOINT11 : ftl::mmio::Register<
     0x40CC40ECu,
@@ -2506,8 +2556,9 @@ struct CLOCK_GROUP1_SETPOINT11 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT11_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT12_fields_ {
+struct CLOCK_GROUP1_SETPOINT12_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2536,7 +2587,7 @@ namespace CLOCK_GROUP1_SETPOINT12_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT12_fields_
+};  // struct CLOCK_GROUP1_SETPOINT12_fields_
 
 struct CLOCK_GROUP1_SETPOINT12 : ftl::mmio::Register<
     0x40CC40F0u,
@@ -2557,8 +2608,9 @@ struct CLOCK_GROUP1_SETPOINT12 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT12_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT13_fields_ {
+struct CLOCK_GROUP1_SETPOINT13_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2587,7 +2639,7 @@ namespace CLOCK_GROUP1_SETPOINT13_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT13_fields_
+};  // struct CLOCK_GROUP1_SETPOINT13_fields_
 
 struct CLOCK_GROUP1_SETPOINT13 : ftl::mmio::Register<
     0x40CC40F4u,
@@ -2608,8 +2660,9 @@ struct CLOCK_GROUP1_SETPOINT13 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT13_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT14_fields_ {
+struct CLOCK_GROUP1_SETPOINT14_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2638,7 +2691,7 @@ namespace CLOCK_GROUP1_SETPOINT14_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT14_fields_
+};  // struct CLOCK_GROUP1_SETPOINT14_fields_
 
 struct CLOCK_GROUP1_SETPOINT14 : ftl::mmio::Register<
     0x40CC40F8u,
@@ -2659,8 +2712,9 @@ struct CLOCK_GROUP1_SETPOINT14 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT14_fields_::GRADE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_GROUP1_SETPOINT15_fields_ {
+struct CLOCK_GROUP1_SETPOINT15_fields_ {
 
   enum class eDIV0 : std::uint32_t {
     // Direct output.
@@ -2689,7 +2743,7 @@ namespace CLOCK_GROUP1_SETPOINT15_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_GROUP1_SETPOINT15_fields_
+};  // struct CLOCK_GROUP1_SETPOINT15_fields_
 
 struct CLOCK_GROUP1_SETPOINT15 : ftl::mmio::Register<
     0x40CC40FCu,
@@ -2710,11 +2764,12 @@ struct CLOCK_GROUP1_SETPOINT15 : ftl::mmio::Register<
   using GRADE = CLOCK_GROUP1_SETPOINT15_fields_::GRADE;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE1_fields_ {
+struct GPR_PRIVATE1_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE1_fields_
+};  // struct GPR_PRIVATE1_fields_
 
 struct GPR_PRIVATE1 : ftl::mmio::Register<
     0x40CC4C20u,
@@ -2725,11 +2780,12 @@ struct GPR_PRIVATE1 : ftl::mmio::Register<
   using GPR = GPR_PRIVATE1_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE1_SET_fields_ {
+struct GPR_PRIVATE1_SET_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE1_SET_fields_
+};  // struct GPR_PRIVATE1_SET_fields_
 
 struct GPR_PRIVATE1_SET : ftl::mmio::Register<
     0x40CC4C24u,
@@ -2740,11 +2796,12 @@ struct GPR_PRIVATE1_SET : ftl::mmio::Register<
   using GPR = GPR_PRIVATE1_SET_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE1_CLR_fields_ {
+struct GPR_PRIVATE1_CLR_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE1_CLR_fields_
+};  // struct GPR_PRIVATE1_CLR_fields_
 
 struct GPR_PRIVATE1_CLR : ftl::mmio::Register<
     0x40CC4C28u,
@@ -2755,11 +2812,12 @@ struct GPR_PRIVATE1_CLR : ftl::mmio::Register<
   using GPR = GPR_PRIVATE1_CLR_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE1_TOG_fields_ {
+struct GPR_PRIVATE1_TOG_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE1_TOG_fields_
+};  // struct GPR_PRIVATE1_TOG_fields_
 
 struct GPR_PRIVATE1_TOG : ftl::mmio::Register<
     0x40CC4C2Cu,
@@ -2770,8 +2828,9 @@ struct GPR_PRIVATE1_TOG : ftl::mmio::Register<
   using GPR = GPR_PRIVATE1_TOG_fields_::GPR;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE1_AUTHEN_fields_ {
+struct GPR_PRIVATE1_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode.
@@ -2835,7 +2894,7 @@ namespace GPR_PRIVATE1_AUTHEN_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE1_AUTHEN_fields_
+};  // struct GPR_PRIVATE1_AUTHEN_fields_
 
 struct GPR_PRIVATE1_AUTHEN : ftl::mmio::Register<
     0x40CC4C30u,
@@ -2870,8 +2929,9 @@ struct GPR_PRIVATE1_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE1_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE1_AUTHEN_SET_fields_ {
+struct GPR_PRIVATE1_AUTHEN_SET_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Non-secure access
@@ -2886,7 +2946,7 @@ namespace GPR_PRIVATE1_AUTHEN_SET_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE1_AUTHEN_SET_fields_
+};  // struct GPR_PRIVATE1_AUTHEN_SET_fields_
 
 struct GPR_PRIVATE1_AUTHEN_SET : ftl::mmio::Register<
     0x40CC4C34u,
@@ -2914,8 +2974,9 @@ struct GPR_PRIVATE1_AUTHEN_SET : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE1_AUTHEN_SET_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE1_AUTHEN_CLR_fields_ {
+struct GPR_PRIVATE1_AUTHEN_CLR_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Non-secure access
@@ -2930,7 +2991,7 @@ namespace GPR_PRIVATE1_AUTHEN_CLR_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE1_AUTHEN_CLR_fields_
+};  // struct GPR_PRIVATE1_AUTHEN_CLR_fields_
 
 struct GPR_PRIVATE1_AUTHEN_CLR : ftl::mmio::Register<
     0x40CC4C38u,
@@ -2958,8 +3019,9 @@ struct GPR_PRIVATE1_AUTHEN_CLR : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE1_AUTHEN_CLR_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE1_AUTHEN_TOG_fields_ {
+struct GPR_PRIVATE1_AUTHEN_TOG_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Non-secure access
@@ -2974,7 +3036,7 @@ namespace GPR_PRIVATE1_AUTHEN_TOG_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE1_AUTHEN_TOG_fields_
+};  // struct GPR_PRIVATE1_AUTHEN_TOG_fields_
 
 struct GPR_PRIVATE1_AUTHEN_TOG : ftl::mmio::Register<
     0x40CC4C3Cu,
@@ -3002,11 +3064,12 @@ struct GPR_PRIVATE1_AUTHEN_TOG : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE1_AUTHEN_TOG_fields_::LOCK_MODE;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE2_fields_ {
+struct GPR_PRIVATE2_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE2_fields_
+};  // struct GPR_PRIVATE2_fields_
 
 struct GPR_PRIVATE2 : ftl::mmio::Register<
     0x40CC4C40u,
@@ -3017,11 +3080,12 @@ struct GPR_PRIVATE2 : ftl::mmio::Register<
   using GPR = GPR_PRIVATE2_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE2_SET_fields_ {
+struct GPR_PRIVATE2_SET_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE2_SET_fields_
+};  // struct GPR_PRIVATE2_SET_fields_
 
 struct GPR_PRIVATE2_SET : ftl::mmio::Register<
     0x40CC4C44u,
@@ -3032,11 +3096,12 @@ struct GPR_PRIVATE2_SET : ftl::mmio::Register<
   using GPR = GPR_PRIVATE2_SET_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE2_CLR_fields_ {
+struct GPR_PRIVATE2_CLR_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE2_CLR_fields_
+};  // struct GPR_PRIVATE2_CLR_fields_
 
 struct GPR_PRIVATE2_CLR : ftl::mmio::Register<
     0x40CC4C48u,
@@ -3047,11 +3112,12 @@ struct GPR_PRIVATE2_CLR : ftl::mmio::Register<
   using GPR = GPR_PRIVATE2_CLR_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE2_TOG_fields_ {
+struct GPR_PRIVATE2_TOG_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE2_TOG_fields_
+};  // struct GPR_PRIVATE2_TOG_fields_
 
 struct GPR_PRIVATE2_TOG : ftl::mmio::Register<
     0x40CC4C4Cu,
@@ -3062,8 +3128,9 @@ struct GPR_PRIVATE2_TOG : ftl::mmio::Register<
   using GPR = GPR_PRIVATE2_TOG_fields_::GPR;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE2_AUTHEN_fields_ {
+struct GPR_PRIVATE2_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode.
@@ -3127,7 +3194,7 @@ namespace GPR_PRIVATE2_AUTHEN_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE2_AUTHEN_fields_
+};  // struct GPR_PRIVATE2_AUTHEN_fields_
 
 struct GPR_PRIVATE2_AUTHEN : ftl::mmio::Register<
     0x40CC4C50u,
@@ -3162,8 +3229,9 @@ struct GPR_PRIVATE2_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE2_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE2_AUTHEN_SET_fields_ {
+struct GPR_PRIVATE2_AUTHEN_SET_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Non-secure access
@@ -3178,7 +3246,7 @@ namespace GPR_PRIVATE2_AUTHEN_SET_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE2_AUTHEN_SET_fields_
+};  // struct GPR_PRIVATE2_AUTHEN_SET_fields_
 
 struct GPR_PRIVATE2_AUTHEN_SET : ftl::mmio::Register<
     0x40CC4C54u,
@@ -3206,8 +3274,9 @@ struct GPR_PRIVATE2_AUTHEN_SET : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE2_AUTHEN_SET_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE2_AUTHEN_CLR_fields_ {
+struct GPR_PRIVATE2_AUTHEN_CLR_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Non-secure access
@@ -3222,7 +3291,7 @@ namespace GPR_PRIVATE2_AUTHEN_CLR_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE2_AUTHEN_CLR_fields_
+};  // struct GPR_PRIVATE2_AUTHEN_CLR_fields_
 
 struct GPR_PRIVATE2_AUTHEN_CLR : ftl::mmio::Register<
     0x40CC4C58u,
@@ -3250,8 +3319,9 @@ struct GPR_PRIVATE2_AUTHEN_CLR : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE2_AUTHEN_CLR_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE2_AUTHEN_TOG_fields_ {
+struct GPR_PRIVATE2_AUTHEN_TOG_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Non-secure access
@@ -3266,7 +3336,7 @@ namespace GPR_PRIVATE2_AUTHEN_TOG_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE2_AUTHEN_TOG_fields_
+};  // struct GPR_PRIVATE2_AUTHEN_TOG_fields_
 
 struct GPR_PRIVATE2_AUTHEN_TOG : ftl::mmio::Register<
     0x40CC4C5Cu,
@@ -3294,11 +3364,12 @@ struct GPR_PRIVATE2_AUTHEN_TOG : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE2_AUTHEN_TOG_fields_::LOCK_MODE;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE3_fields_ {
+struct GPR_PRIVATE3_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE3_fields_
+};  // struct GPR_PRIVATE3_fields_
 
 struct GPR_PRIVATE3 : ftl::mmio::Register<
     0x40CC4C60u,
@@ -3309,11 +3380,12 @@ struct GPR_PRIVATE3 : ftl::mmio::Register<
   using GPR = GPR_PRIVATE3_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE3_SET_fields_ {
+struct GPR_PRIVATE3_SET_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE3_SET_fields_
+};  // struct GPR_PRIVATE3_SET_fields_
 
 struct GPR_PRIVATE3_SET : ftl::mmio::Register<
     0x40CC4C64u,
@@ -3324,11 +3396,12 @@ struct GPR_PRIVATE3_SET : ftl::mmio::Register<
   using GPR = GPR_PRIVATE3_SET_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE3_CLR_fields_ {
+struct GPR_PRIVATE3_CLR_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE3_CLR_fields_
+};  // struct GPR_PRIVATE3_CLR_fields_
 
 struct GPR_PRIVATE3_CLR : ftl::mmio::Register<
     0x40CC4C68u,
@@ -3339,11 +3412,12 @@ struct GPR_PRIVATE3_CLR : ftl::mmio::Register<
   using GPR = GPR_PRIVATE3_CLR_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE3_TOG_fields_ {
+struct GPR_PRIVATE3_TOG_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE3_TOG_fields_
+};  // struct GPR_PRIVATE3_TOG_fields_
 
 struct GPR_PRIVATE3_TOG : ftl::mmio::Register<
     0x40CC4C6Cu,
@@ -3354,8 +3428,9 @@ struct GPR_PRIVATE3_TOG : ftl::mmio::Register<
   using GPR = GPR_PRIVATE3_TOG_fields_::GPR;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE3_AUTHEN_fields_ {
+struct GPR_PRIVATE3_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode.
@@ -3419,7 +3494,7 @@ namespace GPR_PRIVATE3_AUTHEN_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE3_AUTHEN_fields_
+};  // struct GPR_PRIVATE3_AUTHEN_fields_
 
 struct GPR_PRIVATE3_AUTHEN : ftl::mmio::Register<
     0x40CC4C70u,
@@ -3454,8 +3529,9 @@ struct GPR_PRIVATE3_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE3_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE3_AUTHEN_SET_fields_ {
+struct GPR_PRIVATE3_AUTHEN_SET_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Non-secure access
@@ -3470,7 +3546,7 @@ namespace GPR_PRIVATE3_AUTHEN_SET_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE3_AUTHEN_SET_fields_
+};  // struct GPR_PRIVATE3_AUTHEN_SET_fields_
 
 struct GPR_PRIVATE3_AUTHEN_SET : ftl::mmio::Register<
     0x40CC4C74u,
@@ -3498,8 +3574,9 @@ struct GPR_PRIVATE3_AUTHEN_SET : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE3_AUTHEN_SET_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE3_AUTHEN_CLR_fields_ {
+struct GPR_PRIVATE3_AUTHEN_CLR_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Non-secure access
@@ -3514,7 +3591,7 @@ namespace GPR_PRIVATE3_AUTHEN_CLR_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE3_AUTHEN_CLR_fields_
+};  // struct GPR_PRIVATE3_AUTHEN_CLR_fields_
 
 struct GPR_PRIVATE3_AUTHEN_CLR : ftl::mmio::Register<
     0x40CC4C78u,
@@ -3542,8 +3619,9 @@ struct GPR_PRIVATE3_AUTHEN_CLR : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE3_AUTHEN_CLR_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE3_AUTHEN_TOG_fields_ {
+struct GPR_PRIVATE3_AUTHEN_TOG_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Non-secure access
@@ -3558,7 +3636,7 @@ namespace GPR_PRIVATE3_AUTHEN_TOG_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE3_AUTHEN_TOG_fields_
+};  // struct GPR_PRIVATE3_AUTHEN_TOG_fields_
 
 struct GPR_PRIVATE3_AUTHEN_TOG : ftl::mmio::Register<
     0x40CC4C7Cu,
@@ -3586,11 +3664,12 @@ struct GPR_PRIVATE3_AUTHEN_TOG : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE3_AUTHEN_TOG_fields_::LOCK_MODE;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE4_fields_ {
+struct GPR_PRIVATE4_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE4_fields_
+};  // struct GPR_PRIVATE4_fields_
 
 struct GPR_PRIVATE4 : ftl::mmio::Register<
     0x40CC4C80u,
@@ -3601,11 +3680,12 @@ struct GPR_PRIVATE4 : ftl::mmio::Register<
   using GPR = GPR_PRIVATE4_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE4_SET_fields_ {
+struct GPR_PRIVATE4_SET_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE4_SET_fields_
+};  // struct GPR_PRIVATE4_SET_fields_
 
 struct GPR_PRIVATE4_SET : ftl::mmio::Register<
     0x40CC4C84u,
@@ -3616,11 +3696,12 @@ struct GPR_PRIVATE4_SET : ftl::mmio::Register<
   using GPR = GPR_PRIVATE4_SET_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE4_CLR_fields_ {
+struct GPR_PRIVATE4_CLR_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE4_CLR_fields_
+};  // struct GPR_PRIVATE4_CLR_fields_
 
 struct GPR_PRIVATE4_CLR : ftl::mmio::Register<
     0x40CC4C88u,
@@ -3631,11 +3712,12 @@ struct GPR_PRIVATE4_CLR : ftl::mmio::Register<
   using GPR = GPR_PRIVATE4_CLR_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE4_TOG_fields_ {
+struct GPR_PRIVATE4_TOG_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE4_TOG_fields_
+};  // struct GPR_PRIVATE4_TOG_fields_
 
 struct GPR_PRIVATE4_TOG : ftl::mmio::Register<
     0x40CC4C8Cu,
@@ -3646,8 +3728,9 @@ struct GPR_PRIVATE4_TOG : ftl::mmio::Register<
   using GPR = GPR_PRIVATE4_TOG_fields_::GPR;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE4_AUTHEN_fields_ {
+struct GPR_PRIVATE4_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode.
@@ -3711,7 +3794,7 @@ namespace GPR_PRIVATE4_AUTHEN_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE4_AUTHEN_fields_
+};  // struct GPR_PRIVATE4_AUTHEN_fields_
 
 struct GPR_PRIVATE4_AUTHEN : ftl::mmio::Register<
     0x40CC4C90u,
@@ -3746,8 +3829,9 @@ struct GPR_PRIVATE4_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE4_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE4_AUTHEN_SET_fields_ {
+struct GPR_PRIVATE4_AUTHEN_SET_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Non-secure access
@@ -3762,7 +3846,7 @@ namespace GPR_PRIVATE4_AUTHEN_SET_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE4_AUTHEN_SET_fields_
+};  // struct GPR_PRIVATE4_AUTHEN_SET_fields_
 
 struct GPR_PRIVATE4_AUTHEN_SET : ftl::mmio::Register<
     0x40CC4C94u,
@@ -3790,8 +3874,9 @@ struct GPR_PRIVATE4_AUTHEN_SET : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE4_AUTHEN_SET_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE4_AUTHEN_CLR_fields_ {
+struct GPR_PRIVATE4_AUTHEN_CLR_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Non-secure access
@@ -3806,7 +3891,7 @@ namespace GPR_PRIVATE4_AUTHEN_CLR_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE4_AUTHEN_CLR_fields_
+};  // struct GPR_PRIVATE4_AUTHEN_CLR_fields_
 
 struct GPR_PRIVATE4_AUTHEN_CLR : ftl::mmio::Register<
     0x40CC4C98u,
@@ -3834,8 +3919,9 @@ struct GPR_PRIVATE4_AUTHEN_CLR : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE4_AUTHEN_CLR_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE4_AUTHEN_TOG_fields_ {
+struct GPR_PRIVATE4_AUTHEN_TOG_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Non-secure access
@@ -3850,7 +3936,7 @@ namespace GPR_PRIVATE4_AUTHEN_TOG_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE4_AUTHEN_TOG_fields_
+};  // struct GPR_PRIVATE4_AUTHEN_TOG_fields_
 
 struct GPR_PRIVATE4_AUTHEN_TOG : ftl::mmio::Register<
     0x40CC4C9Cu,
@@ -3878,11 +3964,12 @@ struct GPR_PRIVATE4_AUTHEN_TOG : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE4_AUTHEN_TOG_fields_::LOCK_MODE;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE5_fields_ {
+struct GPR_PRIVATE5_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE5_fields_
+};  // struct GPR_PRIVATE5_fields_
 
 struct GPR_PRIVATE5 : ftl::mmio::Register<
     0x40CC4CA0u,
@@ -3893,11 +3980,12 @@ struct GPR_PRIVATE5 : ftl::mmio::Register<
   using GPR = GPR_PRIVATE5_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE5_SET_fields_ {
+struct GPR_PRIVATE5_SET_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE5_SET_fields_
+};  // struct GPR_PRIVATE5_SET_fields_
 
 struct GPR_PRIVATE5_SET : ftl::mmio::Register<
     0x40CC4CA4u,
@@ -3908,11 +3996,12 @@ struct GPR_PRIVATE5_SET : ftl::mmio::Register<
   using GPR = GPR_PRIVATE5_SET_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE5_CLR_fields_ {
+struct GPR_PRIVATE5_CLR_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE5_CLR_fields_
+};  // struct GPR_PRIVATE5_CLR_fields_
 
 struct GPR_PRIVATE5_CLR : ftl::mmio::Register<
     0x40CC4CA8u,
@@ -3923,11 +4012,12 @@ struct GPR_PRIVATE5_CLR : ftl::mmio::Register<
   using GPR = GPR_PRIVATE5_CLR_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE5_TOG_fields_ {
+struct GPR_PRIVATE5_TOG_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE5_TOG_fields_
+};  // struct GPR_PRIVATE5_TOG_fields_
 
 struct GPR_PRIVATE5_TOG : ftl::mmio::Register<
     0x40CC4CACu,
@@ -3938,8 +4028,9 @@ struct GPR_PRIVATE5_TOG : ftl::mmio::Register<
   using GPR = GPR_PRIVATE5_TOG_fields_::GPR;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE5_AUTHEN_fields_ {
+struct GPR_PRIVATE5_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode.
@@ -4003,7 +4094,7 @@ namespace GPR_PRIVATE5_AUTHEN_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE5_AUTHEN_fields_
+};  // struct GPR_PRIVATE5_AUTHEN_fields_
 
 struct GPR_PRIVATE5_AUTHEN : ftl::mmio::Register<
     0x40CC4CB0u,
@@ -4038,8 +4129,9 @@ struct GPR_PRIVATE5_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE5_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE5_AUTHEN_SET_fields_ {
+struct GPR_PRIVATE5_AUTHEN_SET_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Non-secure access
@@ -4054,7 +4146,7 @@ namespace GPR_PRIVATE5_AUTHEN_SET_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE5_AUTHEN_SET_fields_
+};  // struct GPR_PRIVATE5_AUTHEN_SET_fields_
 
 struct GPR_PRIVATE5_AUTHEN_SET : ftl::mmio::Register<
     0x40CC4CB4u,
@@ -4082,8 +4174,9 @@ struct GPR_PRIVATE5_AUTHEN_SET : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE5_AUTHEN_SET_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE5_AUTHEN_CLR_fields_ {
+struct GPR_PRIVATE5_AUTHEN_CLR_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Non-secure access
@@ -4098,7 +4191,7 @@ namespace GPR_PRIVATE5_AUTHEN_CLR_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE5_AUTHEN_CLR_fields_
+};  // struct GPR_PRIVATE5_AUTHEN_CLR_fields_
 
 struct GPR_PRIVATE5_AUTHEN_CLR : ftl::mmio::Register<
     0x40CC4CB8u,
@@ -4126,8 +4219,9 @@ struct GPR_PRIVATE5_AUTHEN_CLR : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE5_AUTHEN_CLR_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE5_AUTHEN_TOG_fields_ {
+struct GPR_PRIVATE5_AUTHEN_TOG_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Non-secure access
@@ -4142,7 +4236,7 @@ namespace GPR_PRIVATE5_AUTHEN_TOG_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE5_AUTHEN_TOG_fields_
+};  // struct GPR_PRIVATE5_AUTHEN_TOG_fields_
 
 struct GPR_PRIVATE5_AUTHEN_TOG : ftl::mmio::Register<
     0x40CC4CBCu,
@@ -4170,11 +4264,12 @@ struct GPR_PRIVATE5_AUTHEN_TOG : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE5_AUTHEN_TOG_fields_::LOCK_MODE;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE6_fields_ {
+struct GPR_PRIVATE6_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE6_fields_
+};  // struct GPR_PRIVATE6_fields_
 
 struct GPR_PRIVATE6 : ftl::mmio::Register<
     0x40CC4CC0u,
@@ -4185,11 +4280,12 @@ struct GPR_PRIVATE6 : ftl::mmio::Register<
   using GPR = GPR_PRIVATE6_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE6_SET_fields_ {
+struct GPR_PRIVATE6_SET_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE6_SET_fields_
+};  // struct GPR_PRIVATE6_SET_fields_
 
 struct GPR_PRIVATE6_SET : ftl::mmio::Register<
     0x40CC4CC4u,
@@ -4200,11 +4296,12 @@ struct GPR_PRIVATE6_SET : ftl::mmio::Register<
   using GPR = GPR_PRIVATE6_SET_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE6_CLR_fields_ {
+struct GPR_PRIVATE6_CLR_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE6_CLR_fields_
+};  // struct GPR_PRIVATE6_CLR_fields_
 
 struct GPR_PRIVATE6_CLR : ftl::mmio::Register<
     0x40CC4CC8u,
@@ -4215,11 +4312,12 @@ struct GPR_PRIVATE6_CLR : ftl::mmio::Register<
   using GPR = GPR_PRIVATE6_CLR_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE6_TOG_fields_ {
+struct GPR_PRIVATE6_TOG_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE6_TOG_fields_
+};  // struct GPR_PRIVATE6_TOG_fields_
 
 struct GPR_PRIVATE6_TOG : ftl::mmio::Register<
     0x40CC4CCCu,
@@ -4230,8 +4328,9 @@ struct GPR_PRIVATE6_TOG : ftl::mmio::Register<
   using GPR = GPR_PRIVATE6_TOG_fields_::GPR;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE6_AUTHEN_fields_ {
+struct GPR_PRIVATE6_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode.
@@ -4295,7 +4394,7 @@ namespace GPR_PRIVATE6_AUTHEN_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE6_AUTHEN_fields_
+};  // struct GPR_PRIVATE6_AUTHEN_fields_
 
 struct GPR_PRIVATE6_AUTHEN : ftl::mmio::Register<
     0x40CC4CD0u,
@@ -4330,8 +4429,9 @@ struct GPR_PRIVATE6_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE6_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE6_AUTHEN_SET_fields_ {
+struct GPR_PRIVATE6_AUTHEN_SET_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Non-secure access
@@ -4346,7 +4446,7 @@ namespace GPR_PRIVATE6_AUTHEN_SET_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE6_AUTHEN_SET_fields_
+};  // struct GPR_PRIVATE6_AUTHEN_SET_fields_
 
 struct GPR_PRIVATE6_AUTHEN_SET : ftl::mmio::Register<
     0x40CC4CD4u,
@@ -4374,8 +4474,9 @@ struct GPR_PRIVATE6_AUTHEN_SET : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE6_AUTHEN_SET_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE6_AUTHEN_CLR_fields_ {
+struct GPR_PRIVATE6_AUTHEN_CLR_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Non-secure access
@@ -4390,7 +4491,7 @@ namespace GPR_PRIVATE6_AUTHEN_CLR_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE6_AUTHEN_CLR_fields_
+};  // struct GPR_PRIVATE6_AUTHEN_CLR_fields_
 
 struct GPR_PRIVATE6_AUTHEN_CLR : ftl::mmio::Register<
     0x40CC4CD8u,
@@ -4418,8 +4519,9 @@ struct GPR_PRIVATE6_AUTHEN_CLR : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE6_AUTHEN_CLR_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE6_AUTHEN_TOG_fields_ {
+struct GPR_PRIVATE6_AUTHEN_TOG_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Non-secure access
@@ -4434,7 +4536,7 @@ namespace GPR_PRIVATE6_AUTHEN_TOG_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE6_AUTHEN_TOG_fields_
+};  // struct GPR_PRIVATE6_AUTHEN_TOG_fields_
 
 struct GPR_PRIVATE6_AUTHEN_TOG : ftl::mmio::Register<
     0x40CC4CDCu,
@@ -4462,11 +4564,12 @@ struct GPR_PRIVATE6_AUTHEN_TOG : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE6_AUTHEN_TOG_fields_::LOCK_MODE;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE7_fields_ {
+struct GPR_PRIVATE7_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE7_fields_
+};  // struct GPR_PRIVATE7_fields_
 
 struct GPR_PRIVATE7 : ftl::mmio::Register<
     0x40CC4CE0u,
@@ -4477,11 +4580,12 @@ struct GPR_PRIVATE7 : ftl::mmio::Register<
   using GPR = GPR_PRIVATE7_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE7_SET_fields_ {
+struct GPR_PRIVATE7_SET_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE7_SET_fields_
+};  // struct GPR_PRIVATE7_SET_fields_
 
 struct GPR_PRIVATE7_SET : ftl::mmio::Register<
     0x40CC4CE4u,
@@ -4492,11 +4596,12 @@ struct GPR_PRIVATE7_SET : ftl::mmio::Register<
   using GPR = GPR_PRIVATE7_SET_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE7_CLR_fields_ {
+struct GPR_PRIVATE7_CLR_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE7_CLR_fields_
+};  // struct GPR_PRIVATE7_CLR_fields_
 
 struct GPR_PRIVATE7_CLR : ftl::mmio::Register<
     0x40CC4CE8u,
@@ -4507,11 +4612,12 @@ struct GPR_PRIVATE7_CLR : ftl::mmio::Register<
   using GPR = GPR_PRIVATE7_CLR_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_PRIVATE7_TOG_fields_ {
+struct GPR_PRIVATE7_TOG_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE7_TOG_fields_
+};  // struct GPR_PRIVATE7_TOG_fields_
 
 struct GPR_PRIVATE7_TOG : ftl::mmio::Register<
     0x40CC4CECu,
@@ -4522,8 +4628,9 @@ struct GPR_PRIVATE7_TOG : ftl::mmio::Register<
   using GPR = GPR_PRIVATE7_TOG_fields_::GPR;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE7_AUTHEN_fields_ {
+struct GPR_PRIVATE7_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode.
@@ -4587,7 +4694,7 @@ namespace GPR_PRIVATE7_AUTHEN_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_PRIVATE7_AUTHEN_fields_
+};  // struct GPR_PRIVATE7_AUTHEN_fields_
 
 struct GPR_PRIVATE7_AUTHEN : ftl::mmio::Register<
     0x40CC4CF0u,
@@ -4622,8 +4729,9 @@ struct GPR_PRIVATE7_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE7_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE7_AUTHEN_SET_fields_ {
+struct GPR_PRIVATE7_AUTHEN_SET_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Non-secure access
@@ -4638,7 +4746,7 @@ namespace GPR_PRIVATE7_AUTHEN_SET_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_PRIVATE7_AUTHEN_SET_fields_
+};  // struct GPR_PRIVATE7_AUTHEN_SET_fields_
 
 struct GPR_PRIVATE7_AUTHEN_SET : ftl::mmio::Register<
     0x40CC4CF4u,
@@ -4666,8 +4774,9 @@ struct GPR_PRIVATE7_AUTHEN_SET : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE7_AUTHEN_SET_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE7_AUTHEN_CLR_fields_ {
+struct GPR_PRIVATE7_AUTHEN_CLR_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Non-secure access
@@ -4682,7 +4791,7 @@ namespace GPR_PRIVATE7_AUTHEN_CLR_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_PRIVATE7_AUTHEN_CLR_fields_
+};  // struct GPR_PRIVATE7_AUTHEN_CLR_fields_
 
 struct GPR_PRIVATE7_AUTHEN_CLR : ftl::mmio::Register<
     0x40CC4CF8u,
@@ -4710,8 +4819,9 @@ struct GPR_PRIVATE7_AUTHEN_CLR : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE7_AUTHEN_CLR_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_PRIVATE7_AUTHEN_TOG_fields_ {
+struct GPR_PRIVATE7_AUTHEN_TOG_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Non-secure access
@@ -4726,7 +4836,7 @@ namespace GPR_PRIVATE7_AUTHEN_TOG_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_PRIVATE7_AUTHEN_TOG_fields_
+};  // struct GPR_PRIVATE7_AUTHEN_TOG_fields_
 
 struct GPR_PRIVATE7_AUTHEN_TOG : ftl::mmio::Register<
     0x40CC4CFCu,
@@ -4754,8 +4864,9 @@ struct GPR_PRIVATE7_AUTHEN_TOG : ftl::mmio::Register<
   using LOCK_MODE = GPR_PRIVATE7_AUTHEN_TOG_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG0_DIRECT_fields_ {
+struct LPCG0_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -4765,7 +4876,7 @@ namespace LPCG0_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG0_DIRECT_fields_
+};  // struct LPCG0_DIRECT_fields_
 
 struct LPCG0_DIRECT : ftl::mmio::Register<
     0x40CC6000u,
@@ -4778,8 +4889,9 @@ struct LPCG0_DIRECT : ftl::mmio::Register<
   using ON = LPCG0_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG0_DOMAIN_fields_ {
+struct LPCG0_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -4855,7 +4967,7 @@ namespace LPCG0_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG0_DOMAIN_fields_
+};  // struct LPCG0_DOMAIN_fields_
 
 struct LPCG0_DOMAIN : ftl::mmio::Register<
     0x40CC6004u,
@@ -4884,8 +4996,9 @@ struct LPCG0_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG0_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG0_STATUS0_fields_ {
+struct LPCG0_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -4969,7 +5082,7 @@ namespace LPCG0_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG0_STATUS0_fields_
+};  // struct LPCG0_STATUS0_fields_
 
 struct LPCG0_STATUS0 : ftl::mmio::Register<
     0x40CC6010u,
@@ -4989,8 +5102,9 @@ struct LPCG0_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG0_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG0_STATUS1_fields_ {
+struct LPCG0_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -5155,7 +5269,7 @@ namespace LPCG0_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG0_STATUS1_fields_
+};  // struct LPCG0_STATUS1_fields_
 
 struct LPCG0_STATUS1 : ftl::mmio::Register<
     0x40CC6014u,
@@ -5217,8 +5331,9 @@ struct LPCG0_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG0_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG0_CONFIG_fields_ {
+struct LPCG0_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -5228,7 +5343,7 @@ namespace LPCG0_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG0_CONFIG_fields_
+};  // struct LPCG0_CONFIG_fields_
 
 struct LPCG0_CONFIG : ftl::mmio::Register<
     0x40CC6018u,
@@ -5242,8 +5357,9 @@ struct LPCG0_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG0_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG0_AUTHEN_fields_ {
+struct LPCG0_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -5318,7 +5434,7 @@ namespace LPCG0_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG0_AUTHEN_fields_
+};  // struct LPCG0_AUTHEN_fields_
 
 struct LPCG0_AUTHEN : ftl::mmio::Register<
     0x40CC601Cu,
@@ -5358,8 +5474,9 @@ struct LPCG0_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG0_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG1_DIRECT_fields_ {
+struct LPCG1_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -5369,7 +5486,7 @@ namespace LPCG1_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG1_DIRECT_fields_
+};  // struct LPCG1_DIRECT_fields_
 
 struct LPCG1_DIRECT : ftl::mmio::Register<
     0x40CC6020u,
@@ -5382,8 +5499,9 @@ struct LPCG1_DIRECT : ftl::mmio::Register<
   using ON = LPCG1_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG1_DOMAIN_fields_ {
+struct LPCG1_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -5459,7 +5577,7 @@ namespace LPCG1_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG1_DOMAIN_fields_
+};  // struct LPCG1_DOMAIN_fields_
 
 struct LPCG1_DOMAIN : ftl::mmio::Register<
     0x40CC6024u,
@@ -5488,8 +5606,9 @@ struct LPCG1_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG1_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG1_STATUS0_fields_ {
+struct LPCG1_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -5573,7 +5692,7 @@ namespace LPCG1_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG1_STATUS0_fields_
+};  // struct LPCG1_STATUS0_fields_
 
 struct LPCG1_STATUS0 : ftl::mmio::Register<
     0x40CC6030u,
@@ -5593,8 +5712,9 @@ struct LPCG1_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG1_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG1_STATUS1_fields_ {
+struct LPCG1_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -5759,7 +5879,7 @@ namespace LPCG1_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG1_STATUS1_fields_
+};  // struct LPCG1_STATUS1_fields_
 
 struct LPCG1_STATUS1 : ftl::mmio::Register<
     0x40CC6034u,
@@ -5821,8 +5941,9 @@ struct LPCG1_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG1_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG1_CONFIG_fields_ {
+struct LPCG1_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -5832,7 +5953,7 @@ namespace LPCG1_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG1_CONFIG_fields_
+};  // struct LPCG1_CONFIG_fields_
 
 struct LPCG1_CONFIG : ftl::mmio::Register<
     0x40CC6038u,
@@ -5846,8 +5967,9 @@ struct LPCG1_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG1_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG1_AUTHEN_fields_ {
+struct LPCG1_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -5922,7 +6044,7 @@ namespace LPCG1_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG1_AUTHEN_fields_
+};  // struct LPCG1_AUTHEN_fields_
 
 struct LPCG1_AUTHEN : ftl::mmio::Register<
     0x40CC603Cu,
@@ -5962,8 +6084,9 @@ struct LPCG1_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG1_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG2_DIRECT_fields_ {
+struct LPCG2_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -5973,7 +6096,7 @@ namespace LPCG2_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG2_DIRECT_fields_
+};  // struct LPCG2_DIRECT_fields_
 
 struct LPCG2_DIRECT : ftl::mmio::Register<
     0x40CC6040u,
@@ -5986,8 +6109,9 @@ struct LPCG2_DIRECT : ftl::mmio::Register<
   using ON = LPCG2_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG2_DOMAIN_fields_ {
+struct LPCG2_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -6063,7 +6187,7 @@ namespace LPCG2_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG2_DOMAIN_fields_
+};  // struct LPCG2_DOMAIN_fields_
 
 struct LPCG2_DOMAIN : ftl::mmio::Register<
     0x40CC6044u,
@@ -6092,13 +6216,14 @@ struct LPCG2_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG2_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG2_SETPOINT_fields_ {
+struct LPCG2_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG2_SETPOINT_fields_
+};  // struct LPCG2_SETPOINT_fields_
 
 struct LPCG2_SETPOINT : ftl::mmio::Register<
     0x40CC6048u,
@@ -6111,8 +6236,9 @@ struct LPCG2_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG2_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG2_STATUS0_fields_ {
+struct LPCG2_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -6196,7 +6322,7 @@ namespace LPCG2_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG2_STATUS0_fields_
+};  // struct LPCG2_STATUS0_fields_
 
 struct LPCG2_STATUS0 : ftl::mmio::Register<
     0x40CC6050u,
@@ -6216,8 +6342,9 @@ struct LPCG2_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG2_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG2_STATUS1_fields_ {
+struct LPCG2_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -6382,7 +6509,7 @@ namespace LPCG2_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG2_STATUS1_fields_
+};  // struct LPCG2_STATUS1_fields_
 
 struct LPCG2_STATUS1 : ftl::mmio::Register<
     0x40CC6054u,
@@ -6444,8 +6571,9 @@ struct LPCG2_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG2_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG2_CONFIG_fields_ {
+struct LPCG2_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -6455,7 +6583,7 @@ namespace LPCG2_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG2_CONFIG_fields_
+};  // struct LPCG2_CONFIG_fields_
 
 struct LPCG2_CONFIG : ftl::mmio::Register<
     0x40CC6058u,
@@ -6469,8 +6597,9 @@ struct LPCG2_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG2_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG2_AUTHEN_fields_ {
+struct LPCG2_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -6545,7 +6674,7 @@ namespace LPCG2_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG2_AUTHEN_fields_
+};  // struct LPCG2_AUTHEN_fields_
 
 struct LPCG2_AUTHEN : ftl::mmio::Register<
     0x40CC605Cu,
@@ -6585,8 +6714,9 @@ struct LPCG2_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG2_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG3_DIRECT_fields_ {
+struct LPCG3_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -6596,7 +6726,7 @@ namespace LPCG3_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG3_DIRECT_fields_
+};  // struct LPCG3_DIRECT_fields_
 
 struct LPCG3_DIRECT : ftl::mmio::Register<
     0x40CC6060u,
@@ -6609,8 +6739,9 @@ struct LPCG3_DIRECT : ftl::mmio::Register<
   using ON = LPCG3_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG3_DOMAIN_fields_ {
+struct LPCG3_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -6686,7 +6817,7 @@ namespace LPCG3_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG3_DOMAIN_fields_
+};  // struct LPCG3_DOMAIN_fields_
 
 struct LPCG3_DOMAIN : ftl::mmio::Register<
     0x40CC6064u,
@@ -6715,13 +6846,14 @@ struct LPCG3_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG3_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG3_SETPOINT_fields_ {
+struct LPCG3_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG3_SETPOINT_fields_
+};  // struct LPCG3_SETPOINT_fields_
 
 struct LPCG3_SETPOINT : ftl::mmio::Register<
     0x40CC6068u,
@@ -6734,8 +6866,9 @@ struct LPCG3_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG3_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG3_STATUS0_fields_ {
+struct LPCG3_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -6819,7 +6952,7 @@ namespace LPCG3_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG3_STATUS0_fields_
+};  // struct LPCG3_STATUS0_fields_
 
 struct LPCG3_STATUS0 : ftl::mmio::Register<
     0x40CC6070u,
@@ -6839,8 +6972,9 @@ struct LPCG3_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG3_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG3_STATUS1_fields_ {
+struct LPCG3_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -7005,7 +7139,7 @@ namespace LPCG3_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG3_STATUS1_fields_
+};  // struct LPCG3_STATUS1_fields_
 
 struct LPCG3_STATUS1 : ftl::mmio::Register<
     0x40CC6074u,
@@ -7067,8 +7201,9 @@ struct LPCG3_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG3_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG3_CONFIG_fields_ {
+struct LPCG3_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -7078,7 +7213,7 @@ namespace LPCG3_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG3_CONFIG_fields_
+};  // struct LPCG3_CONFIG_fields_
 
 struct LPCG3_CONFIG : ftl::mmio::Register<
     0x40CC6078u,
@@ -7092,8 +7227,9 @@ struct LPCG3_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG3_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG3_AUTHEN_fields_ {
+struct LPCG3_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -7168,7 +7304,7 @@ namespace LPCG3_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG3_AUTHEN_fields_
+};  // struct LPCG3_AUTHEN_fields_
 
 struct LPCG3_AUTHEN : ftl::mmio::Register<
     0x40CC607Cu,
@@ -7208,8 +7344,9 @@ struct LPCG3_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG3_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG4_DIRECT_fields_ {
+struct LPCG4_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -7219,7 +7356,7 @@ namespace LPCG4_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG4_DIRECT_fields_
+};  // struct LPCG4_DIRECT_fields_
 
 struct LPCG4_DIRECT : ftl::mmio::Register<
     0x40CC6080u,
@@ -7232,8 +7369,9 @@ struct LPCG4_DIRECT : ftl::mmio::Register<
   using ON = LPCG4_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG4_DOMAIN_fields_ {
+struct LPCG4_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -7309,7 +7447,7 @@ namespace LPCG4_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG4_DOMAIN_fields_
+};  // struct LPCG4_DOMAIN_fields_
 
 struct LPCG4_DOMAIN : ftl::mmio::Register<
     0x40CC6084u,
@@ -7338,13 +7476,14 @@ struct LPCG4_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG4_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG4_SETPOINT_fields_ {
+struct LPCG4_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG4_SETPOINT_fields_
+};  // struct LPCG4_SETPOINT_fields_
 
 struct LPCG4_SETPOINT : ftl::mmio::Register<
     0x40CC6088u,
@@ -7357,8 +7496,9 @@ struct LPCG4_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG4_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG4_STATUS0_fields_ {
+struct LPCG4_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -7442,7 +7582,7 @@ namespace LPCG4_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG4_STATUS0_fields_
+};  // struct LPCG4_STATUS0_fields_
 
 struct LPCG4_STATUS0 : ftl::mmio::Register<
     0x40CC6090u,
@@ -7462,8 +7602,9 @@ struct LPCG4_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG4_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG4_STATUS1_fields_ {
+struct LPCG4_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -7628,7 +7769,7 @@ namespace LPCG4_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG4_STATUS1_fields_
+};  // struct LPCG4_STATUS1_fields_
 
 struct LPCG4_STATUS1 : ftl::mmio::Register<
     0x40CC6094u,
@@ -7690,8 +7831,9 @@ struct LPCG4_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG4_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG4_CONFIG_fields_ {
+struct LPCG4_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -7701,7 +7843,7 @@ namespace LPCG4_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG4_CONFIG_fields_
+};  // struct LPCG4_CONFIG_fields_
 
 struct LPCG4_CONFIG : ftl::mmio::Register<
     0x40CC6098u,
@@ -7715,8 +7857,9 @@ struct LPCG4_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG4_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG4_AUTHEN_fields_ {
+struct LPCG4_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -7791,7 +7934,7 @@ namespace LPCG4_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG4_AUTHEN_fields_
+};  // struct LPCG4_AUTHEN_fields_
 
 struct LPCG4_AUTHEN : ftl::mmio::Register<
     0x40CC609Cu,
@@ -7831,8 +7974,9 @@ struct LPCG4_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG4_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG5_DIRECT_fields_ {
+struct LPCG5_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -7842,7 +7986,7 @@ namespace LPCG5_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG5_DIRECT_fields_
+};  // struct LPCG5_DIRECT_fields_
 
 struct LPCG5_DIRECT : ftl::mmio::Register<
     0x40CC60A0u,
@@ -7855,8 +7999,9 @@ struct LPCG5_DIRECT : ftl::mmio::Register<
   using ON = LPCG5_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG5_DOMAIN_fields_ {
+struct LPCG5_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -7932,7 +8077,7 @@ namespace LPCG5_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG5_DOMAIN_fields_
+};  // struct LPCG5_DOMAIN_fields_
 
 struct LPCG5_DOMAIN : ftl::mmio::Register<
     0x40CC60A4u,
@@ -7961,13 +8106,14 @@ struct LPCG5_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG5_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG5_SETPOINT_fields_ {
+struct LPCG5_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG5_SETPOINT_fields_
+};  // struct LPCG5_SETPOINT_fields_
 
 struct LPCG5_SETPOINT : ftl::mmio::Register<
     0x40CC60A8u,
@@ -7980,8 +8126,9 @@ struct LPCG5_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG5_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG5_STATUS0_fields_ {
+struct LPCG5_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -8065,7 +8212,7 @@ namespace LPCG5_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG5_STATUS0_fields_
+};  // struct LPCG5_STATUS0_fields_
 
 struct LPCG5_STATUS0 : ftl::mmio::Register<
     0x40CC60B0u,
@@ -8085,8 +8232,9 @@ struct LPCG5_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG5_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG5_STATUS1_fields_ {
+struct LPCG5_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -8251,7 +8399,7 @@ namespace LPCG5_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG5_STATUS1_fields_
+};  // struct LPCG5_STATUS1_fields_
 
 struct LPCG5_STATUS1 : ftl::mmio::Register<
     0x40CC60B4u,
@@ -8313,8 +8461,9 @@ struct LPCG5_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG5_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG5_CONFIG_fields_ {
+struct LPCG5_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -8324,7 +8473,7 @@ namespace LPCG5_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG5_CONFIG_fields_
+};  // struct LPCG5_CONFIG_fields_
 
 struct LPCG5_CONFIG : ftl::mmio::Register<
     0x40CC60B8u,
@@ -8338,8 +8487,9 @@ struct LPCG5_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG5_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG5_AUTHEN_fields_ {
+struct LPCG5_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -8414,7 +8564,7 @@ namespace LPCG5_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG5_AUTHEN_fields_
+};  // struct LPCG5_AUTHEN_fields_
 
 struct LPCG5_AUTHEN : ftl::mmio::Register<
     0x40CC60BCu,
@@ -8454,8 +8604,9 @@ struct LPCG5_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG5_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG6_DIRECT_fields_ {
+struct LPCG6_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -8465,7 +8616,7 @@ namespace LPCG6_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG6_DIRECT_fields_
+};  // struct LPCG6_DIRECT_fields_
 
 struct LPCG6_DIRECT : ftl::mmio::Register<
     0x40CC60C0u,
@@ -8478,8 +8629,9 @@ struct LPCG6_DIRECT : ftl::mmio::Register<
   using ON = LPCG6_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG6_DOMAIN_fields_ {
+struct LPCG6_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -8555,7 +8707,7 @@ namespace LPCG6_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG6_DOMAIN_fields_
+};  // struct LPCG6_DOMAIN_fields_
 
 struct LPCG6_DOMAIN : ftl::mmio::Register<
     0x40CC60C4u,
@@ -8584,13 +8736,14 @@ struct LPCG6_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG6_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG6_SETPOINT_fields_ {
+struct LPCG6_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG6_SETPOINT_fields_
+};  // struct LPCG6_SETPOINT_fields_
 
 struct LPCG6_SETPOINT : ftl::mmio::Register<
     0x40CC60C8u,
@@ -8603,8 +8756,9 @@ struct LPCG6_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG6_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG6_STATUS0_fields_ {
+struct LPCG6_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -8688,7 +8842,7 @@ namespace LPCG6_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG6_STATUS0_fields_
+};  // struct LPCG6_STATUS0_fields_
 
 struct LPCG6_STATUS0 : ftl::mmio::Register<
     0x40CC60D0u,
@@ -8708,8 +8862,9 @@ struct LPCG6_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG6_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG6_STATUS1_fields_ {
+struct LPCG6_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -8874,7 +9029,7 @@ namespace LPCG6_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG6_STATUS1_fields_
+};  // struct LPCG6_STATUS1_fields_
 
 struct LPCG6_STATUS1 : ftl::mmio::Register<
     0x40CC60D4u,
@@ -8936,8 +9091,9 @@ struct LPCG6_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG6_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG6_CONFIG_fields_ {
+struct LPCG6_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -8947,7 +9103,7 @@ namespace LPCG6_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG6_CONFIG_fields_
+};  // struct LPCG6_CONFIG_fields_
 
 struct LPCG6_CONFIG : ftl::mmio::Register<
     0x40CC60D8u,
@@ -8961,8 +9117,9 @@ struct LPCG6_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG6_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG6_AUTHEN_fields_ {
+struct LPCG6_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -9037,7 +9194,7 @@ namespace LPCG6_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG6_AUTHEN_fields_
+};  // struct LPCG6_AUTHEN_fields_
 
 struct LPCG6_AUTHEN : ftl::mmio::Register<
     0x40CC60DCu,
@@ -9077,8 +9234,9 @@ struct LPCG6_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG6_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG7_DIRECT_fields_ {
+struct LPCG7_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -9088,7 +9246,7 @@ namespace LPCG7_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG7_DIRECT_fields_
+};  // struct LPCG7_DIRECT_fields_
 
 struct LPCG7_DIRECT : ftl::mmio::Register<
     0x40CC60E0u,
@@ -9101,8 +9259,9 @@ struct LPCG7_DIRECT : ftl::mmio::Register<
   using ON = LPCG7_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG7_DOMAIN_fields_ {
+struct LPCG7_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -9178,7 +9337,7 @@ namespace LPCG7_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG7_DOMAIN_fields_
+};  // struct LPCG7_DOMAIN_fields_
 
 struct LPCG7_DOMAIN : ftl::mmio::Register<
     0x40CC60E4u,
@@ -9207,13 +9366,14 @@ struct LPCG7_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG7_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG7_SETPOINT_fields_ {
+struct LPCG7_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG7_SETPOINT_fields_
+};  // struct LPCG7_SETPOINT_fields_
 
 struct LPCG7_SETPOINT : ftl::mmio::Register<
     0x40CC60E8u,
@@ -9226,8 +9386,9 @@ struct LPCG7_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG7_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG7_STATUS0_fields_ {
+struct LPCG7_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -9311,7 +9472,7 @@ namespace LPCG7_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG7_STATUS0_fields_
+};  // struct LPCG7_STATUS0_fields_
 
 struct LPCG7_STATUS0 : ftl::mmio::Register<
     0x40CC60F0u,
@@ -9331,8 +9492,9 @@ struct LPCG7_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG7_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG7_STATUS1_fields_ {
+struct LPCG7_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -9497,7 +9659,7 @@ namespace LPCG7_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG7_STATUS1_fields_
+};  // struct LPCG7_STATUS1_fields_
 
 struct LPCG7_STATUS1 : ftl::mmio::Register<
     0x40CC60F4u,
@@ -9559,8 +9721,9 @@ struct LPCG7_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG7_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG7_CONFIG_fields_ {
+struct LPCG7_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -9570,7 +9733,7 @@ namespace LPCG7_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG7_CONFIG_fields_
+};  // struct LPCG7_CONFIG_fields_
 
 struct LPCG7_CONFIG : ftl::mmio::Register<
     0x40CC60F8u,
@@ -9584,8 +9747,9 @@ struct LPCG7_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG7_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG7_AUTHEN_fields_ {
+struct LPCG7_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -9660,7 +9824,7 @@ namespace LPCG7_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG7_AUTHEN_fields_
+};  // struct LPCG7_AUTHEN_fields_
 
 struct LPCG7_AUTHEN : ftl::mmio::Register<
     0x40CC60FCu,
@@ -9700,8 +9864,9 @@ struct LPCG7_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG7_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG8_DIRECT_fields_ {
+struct LPCG8_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -9711,7 +9876,7 @@ namespace LPCG8_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG8_DIRECT_fields_
+};  // struct LPCG8_DIRECT_fields_
 
 struct LPCG8_DIRECT : ftl::mmio::Register<
     0x40CC6100u,
@@ -9724,8 +9889,9 @@ struct LPCG8_DIRECT : ftl::mmio::Register<
   using ON = LPCG8_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG8_DOMAIN_fields_ {
+struct LPCG8_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -9801,7 +9967,7 @@ namespace LPCG8_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG8_DOMAIN_fields_
+};  // struct LPCG8_DOMAIN_fields_
 
 struct LPCG8_DOMAIN : ftl::mmio::Register<
     0x40CC6104u,
@@ -9830,13 +9996,14 @@ struct LPCG8_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG8_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG8_SETPOINT_fields_ {
+struct LPCG8_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG8_SETPOINT_fields_
+};  // struct LPCG8_SETPOINT_fields_
 
 struct LPCG8_SETPOINT : ftl::mmio::Register<
     0x40CC6108u,
@@ -9849,8 +10016,9 @@ struct LPCG8_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG8_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG8_STATUS0_fields_ {
+struct LPCG8_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -9934,7 +10102,7 @@ namespace LPCG8_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG8_STATUS0_fields_
+};  // struct LPCG8_STATUS0_fields_
 
 struct LPCG8_STATUS0 : ftl::mmio::Register<
     0x40CC6110u,
@@ -9954,8 +10122,9 @@ struct LPCG8_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG8_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG8_STATUS1_fields_ {
+struct LPCG8_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -10120,7 +10289,7 @@ namespace LPCG8_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG8_STATUS1_fields_
+};  // struct LPCG8_STATUS1_fields_
 
 struct LPCG8_STATUS1 : ftl::mmio::Register<
     0x40CC6114u,
@@ -10182,8 +10351,9 @@ struct LPCG8_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG8_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG8_CONFIG_fields_ {
+struct LPCG8_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -10193,7 +10363,7 @@ namespace LPCG8_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG8_CONFIG_fields_
+};  // struct LPCG8_CONFIG_fields_
 
 struct LPCG8_CONFIG : ftl::mmio::Register<
     0x40CC6118u,
@@ -10207,8 +10377,9 @@ struct LPCG8_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG8_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG8_AUTHEN_fields_ {
+struct LPCG8_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -10283,7 +10454,7 @@ namespace LPCG8_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG8_AUTHEN_fields_
+};  // struct LPCG8_AUTHEN_fields_
 
 struct LPCG8_AUTHEN : ftl::mmio::Register<
     0x40CC611Cu,
@@ -10323,8 +10494,9 @@ struct LPCG8_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG8_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG9_DIRECT_fields_ {
+struct LPCG9_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -10334,7 +10506,7 @@ namespace LPCG9_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG9_DIRECT_fields_
+};  // struct LPCG9_DIRECT_fields_
 
 struct LPCG9_DIRECT : ftl::mmio::Register<
     0x40CC6120u,
@@ -10347,8 +10519,9 @@ struct LPCG9_DIRECT : ftl::mmio::Register<
   using ON = LPCG9_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG9_DOMAIN_fields_ {
+struct LPCG9_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -10424,7 +10597,7 @@ namespace LPCG9_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG9_DOMAIN_fields_
+};  // struct LPCG9_DOMAIN_fields_
 
 struct LPCG9_DOMAIN : ftl::mmio::Register<
     0x40CC6124u,
@@ -10453,13 +10626,14 @@ struct LPCG9_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG9_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG9_SETPOINT_fields_ {
+struct LPCG9_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG9_SETPOINT_fields_
+};  // struct LPCG9_SETPOINT_fields_
 
 struct LPCG9_SETPOINT : ftl::mmio::Register<
     0x40CC6128u,
@@ -10472,8 +10646,9 @@ struct LPCG9_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG9_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG9_STATUS0_fields_ {
+struct LPCG9_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -10557,7 +10732,7 @@ namespace LPCG9_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG9_STATUS0_fields_
+};  // struct LPCG9_STATUS0_fields_
 
 struct LPCG9_STATUS0 : ftl::mmio::Register<
     0x40CC6130u,
@@ -10577,8 +10752,9 @@ struct LPCG9_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG9_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG9_STATUS1_fields_ {
+struct LPCG9_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -10743,7 +10919,7 @@ namespace LPCG9_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG9_STATUS1_fields_
+};  // struct LPCG9_STATUS1_fields_
 
 struct LPCG9_STATUS1 : ftl::mmio::Register<
     0x40CC6134u,
@@ -10805,8 +10981,9 @@ struct LPCG9_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG9_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG9_CONFIG_fields_ {
+struct LPCG9_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -10816,7 +10993,7 @@ namespace LPCG9_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG9_CONFIG_fields_
+};  // struct LPCG9_CONFIG_fields_
 
 struct LPCG9_CONFIG : ftl::mmio::Register<
     0x40CC6138u,
@@ -10830,8 +11007,9 @@ struct LPCG9_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG9_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG9_AUTHEN_fields_ {
+struct LPCG9_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -10906,7 +11084,7 @@ namespace LPCG9_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG9_AUTHEN_fields_
+};  // struct LPCG9_AUTHEN_fields_
 
 struct LPCG9_AUTHEN : ftl::mmio::Register<
     0x40CC613Cu,
@@ -10946,8 +11124,9 @@ struct LPCG9_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG9_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG10_DIRECT_fields_ {
+struct LPCG10_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -10957,7 +11136,7 @@ namespace LPCG10_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG10_DIRECT_fields_
+};  // struct LPCG10_DIRECT_fields_
 
 struct LPCG10_DIRECT : ftl::mmio::Register<
     0x40CC6140u,
@@ -10970,8 +11149,9 @@ struct LPCG10_DIRECT : ftl::mmio::Register<
   using ON = LPCG10_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG10_DOMAIN_fields_ {
+struct LPCG10_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -11047,7 +11227,7 @@ namespace LPCG10_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG10_DOMAIN_fields_
+};  // struct LPCG10_DOMAIN_fields_
 
 struct LPCG10_DOMAIN : ftl::mmio::Register<
     0x40CC6144u,
@@ -11076,13 +11256,14 @@ struct LPCG10_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG10_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG10_SETPOINT_fields_ {
+struct LPCG10_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG10_SETPOINT_fields_
+};  // struct LPCG10_SETPOINT_fields_
 
 struct LPCG10_SETPOINT : ftl::mmio::Register<
     0x40CC6148u,
@@ -11095,8 +11276,9 @@ struct LPCG10_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG10_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG10_STATUS0_fields_ {
+struct LPCG10_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -11180,7 +11362,7 @@ namespace LPCG10_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG10_STATUS0_fields_
+};  // struct LPCG10_STATUS0_fields_
 
 struct LPCG10_STATUS0 : ftl::mmio::Register<
     0x40CC6150u,
@@ -11200,8 +11382,9 @@ struct LPCG10_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG10_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG10_STATUS1_fields_ {
+struct LPCG10_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -11366,7 +11549,7 @@ namespace LPCG10_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG10_STATUS1_fields_
+};  // struct LPCG10_STATUS1_fields_
 
 struct LPCG10_STATUS1 : ftl::mmio::Register<
     0x40CC6154u,
@@ -11428,8 +11611,9 @@ struct LPCG10_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG10_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG10_CONFIG_fields_ {
+struct LPCG10_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -11439,7 +11623,7 @@ namespace LPCG10_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG10_CONFIG_fields_
+};  // struct LPCG10_CONFIG_fields_
 
 struct LPCG10_CONFIG : ftl::mmio::Register<
     0x40CC6158u,
@@ -11453,8 +11637,9 @@ struct LPCG10_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG10_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG10_AUTHEN_fields_ {
+struct LPCG10_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -11529,7 +11714,7 @@ namespace LPCG10_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG10_AUTHEN_fields_
+};  // struct LPCG10_AUTHEN_fields_
 
 struct LPCG10_AUTHEN : ftl::mmio::Register<
     0x40CC615Cu,
@@ -11569,8 +11754,9 @@ struct LPCG10_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG10_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG11_DIRECT_fields_ {
+struct LPCG11_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -11580,7 +11766,7 @@ namespace LPCG11_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG11_DIRECT_fields_
+};  // struct LPCG11_DIRECT_fields_
 
 struct LPCG11_DIRECT : ftl::mmio::Register<
     0x40CC6160u,
@@ -11593,8 +11779,9 @@ struct LPCG11_DIRECT : ftl::mmio::Register<
   using ON = LPCG11_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG11_DOMAIN_fields_ {
+struct LPCG11_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -11670,7 +11857,7 @@ namespace LPCG11_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG11_DOMAIN_fields_
+};  // struct LPCG11_DOMAIN_fields_
 
 struct LPCG11_DOMAIN : ftl::mmio::Register<
     0x40CC6164u,
@@ -11699,13 +11886,14 @@ struct LPCG11_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG11_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG11_SETPOINT_fields_ {
+struct LPCG11_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG11_SETPOINT_fields_
+};  // struct LPCG11_SETPOINT_fields_
 
 struct LPCG11_SETPOINT : ftl::mmio::Register<
     0x40CC6168u,
@@ -11718,8 +11906,9 @@ struct LPCG11_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG11_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG11_STATUS0_fields_ {
+struct LPCG11_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -11803,7 +11992,7 @@ namespace LPCG11_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG11_STATUS0_fields_
+};  // struct LPCG11_STATUS0_fields_
 
 struct LPCG11_STATUS0 : ftl::mmio::Register<
     0x40CC6170u,
@@ -11823,8 +12012,9 @@ struct LPCG11_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG11_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG11_STATUS1_fields_ {
+struct LPCG11_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -11989,7 +12179,7 @@ namespace LPCG11_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG11_STATUS1_fields_
+};  // struct LPCG11_STATUS1_fields_
 
 struct LPCG11_STATUS1 : ftl::mmio::Register<
     0x40CC6174u,
@@ -12051,8 +12241,9 @@ struct LPCG11_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG11_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG11_CONFIG_fields_ {
+struct LPCG11_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -12062,7 +12253,7 @@ namespace LPCG11_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG11_CONFIG_fields_
+};  // struct LPCG11_CONFIG_fields_
 
 struct LPCG11_CONFIG : ftl::mmio::Register<
     0x40CC6178u,
@@ -12076,8 +12267,9 @@ struct LPCG11_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG11_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG11_AUTHEN_fields_ {
+struct LPCG11_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -12152,7 +12344,7 @@ namespace LPCG11_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG11_AUTHEN_fields_
+};  // struct LPCG11_AUTHEN_fields_
 
 struct LPCG11_AUTHEN : ftl::mmio::Register<
     0x40CC617Cu,
@@ -12192,8 +12384,9 @@ struct LPCG11_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG11_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG12_DIRECT_fields_ {
+struct LPCG12_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -12203,7 +12396,7 @@ namespace LPCG12_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG12_DIRECT_fields_
+};  // struct LPCG12_DIRECT_fields_
 
 struct LPCG12_DIRECT : ftl::mmio::Register<
     0x40CC6180u,
@@ -12216,8 +12409,9 @@ struct LPCG12_DIRECT : ftl::mmio::Register<
   using ON = LPCG12_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG12_DOMAIN_fields_ {
+struct LPCG12_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -12293,7 +12487,7 @@ namespace LPCG12_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG12_DOMAIN_fields_
+};  // struct LPCG12_DOMAIN_fields_
 
 struct LPCG12_DOMAIN : ftl::mmio::Register<
     0x40CC6184u,
@@ -12322,13 +12516,14 @@ struct LPCG12_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG12_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG12_SETPOINT_fields_ {
+struct LPCG12_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG12_SETPOINT_fields_
+};  // struct LPCG12_SETPOINT_fields_
 
 struct LPCG12_SETPOINT : ftl::mmio::Register<
     0x40CC6188u,
@@ -12341,8 +12536,9 @@ struct LPCG12_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG12_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG12_STATUS0_fields_ {
+struct LPCG12_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -12426,7 +12622,7 @@ namespace LPCG12_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG12_STATUS0_fields_
+};  // struct LPCG12_STATUS0_fields_
 
 struct LPCG12_STATUS0 : ftl::mmio::Register<
     0x40CC6190u,
@@ -12446,8 +12642,9 @@ struct LPCG12_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG12_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG12_STATUS1_fields_ {
+struct LPCG12_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -12612,7 +12809,7 @@ namespace LPCG12_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG12_STATUS1_fields_
+};  // struct LPCG12_STATUS1_fields_
 
 struct LPCG12_STATUS1 : ftl::mmio::Register<
     0x40CC6194u,
@@ -12674,8 +12871,9 @@ struct LPCG12_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG12_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG12_CONFIG_fields_ {
+struct LPCG12_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -12685,7 +12883,7 @@ namespace LPCG12_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG12_CONFIG_fields_
+};  // struct LPCG12_CONFIG_fields_
 
 struct LPCG12_CONFIG : ftl::mmio::Register<
     0x40CC6198u,
@@ -12699,8 +12897,9 @@ struct LPCG12_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG12_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG12_AUTHEN_fields_ {
+struct LPCG12_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -12775,7 +12974,7 @@ namespace LPCG12_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG12_AUTHEN_fields_
+};  // struct LPCG12_AUTHEN_fields_
 
 struct LPCG12_AUTHEN : ftl::mmio::Register<
     0x40CC619Cu,
@@ -12815,8 +13014,9 @@ struct LPCG12_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG12_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG13_DIRECT_fields_ {
+struct LPCG13_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -12826,7 +13026,7 @@ namespace LPCG13_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG13_DIRECT_fields_
+};  // struct LPCG13_DIRECT_fields_
 
 struct LPCG13_DIRECT : ftl::mmio::Register<
     0x40CC61A0u,
@@ -12839,8 +13039,9 @@ struct LPCG13_DIRECT : ftl::mmio::Register<
   using ON = LPCG13_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG13_DOMAIN_fields_ {
+struct LPCG13_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -12916,7 +13117,7 @@ namespace LPCG13_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG13_DOMAIN_fields_
+};  // struct LPCG13_DOMAIN_fields_
 
 struct LPCG13_DOMAIN : ftl::mmio::Register<
     0x40CC61A4u,
@@ -12945,8 +13146,9 @@ struct LPCG13_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG13_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG13_STATUS0_fields_ {
+struct LPCG13_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -13030,7 +13232,7 @@ namespace LPCG13_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG13_STATUS0_fields_
+};  // struct LPCG13_STATUS0_fields_
 
 struct LPCG13_STATUS0 : ftl::mmio::Register<
     0x40CC61B0u,
@@ -13050,8 +13252,9 @@ struct LPCG13_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG13_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG13_STATUS1_fields_ {
+struct LPCG13_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -13216,7 +13419,7 @@ namespace LPCG13_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG13_STATUS1_fields_
+};  // struct LPCG13_STATUS1_fields_
 
 struct LPCG13_STATUS1 : ftl::mmio::Register<
     0x40CC61B4u,
@@ -13278,8 +13481,9 @@ struct LPCG13_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG13_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG13_CONFIG_fields_ {
+struct LPCG13_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -13289,7 +13493,7 @@ namespace LPCG13_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG13_CONFIG_fields_
+};  // struct LPCG13_CONFIG_fields_
 
 struct LPCG13_CONFIG : ftl::mmio::Register<
     0x40CC61B8u,
@@ -13303,8 +13507,9 @@ struct LPCG13_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG13_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG13_AUTHEN_fields_ {
+struct LPCG13_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -13379,7 +13584,7 @@ namespace LPCG13_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG13_AUTHEN_fields_
+};  // struct LPCG13_AUTHEN_fields_
 
 struct LPCG13_AUTHEN : ftl::mmio::Register<
     0x40CC61BCu,
@@ -13419,8 +13624,9 @@ struct LPCG13_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG13_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG14_DIRECT_fields_ {
+struct LPCG14_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -13430,7 +13636,7 @@ namespace LPCG14_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG14_DIRECT_fields_
+};  // struct LPCG14_DIRECT_fields_
 
 struct LPCG14_DIRECT : ftl::mmio::Register<
     0x40CC61C0u,
@@ -13443,8 +13649,9 @@ struct LPCG14_DIRECT : ftl::mmio::Register<
   using ON = LPCG14_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG14_DOMAIN_fields_ {
+struct LPCG14_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -13520,7 +13727,7 @@ namespace LPCG14_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG14_DOMAIN_fields_
+};  // struct LPCG14_DOMAIN_fields_
 
 struct LPCG14_DOMAIN : ftl::mmio::Register<
     0x40CC61C4u,
@@ -13549,13 +13756,14 @@ struct LPCG14_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG14_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG14_SETPOINT_fields_ {
+struct LPCG14_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG14_SETPOINT_fields_
+};  // struct LPCG14_SETPOINT_fields_
 
 struct LPCG14_SETPOINT : ftl::mmio::Register<
     0x40CC61C8u,
@@ -13568,8 +13776,9 @@ struct LPCG14_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG14_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG14_STATUS0_fields_ {
+struct LPCG14_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -13653,7 +13862,7 @@ namespace LPCG14_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG14_STATUS0_fields_
+};  // struct LPCG14_STATUS0_fields_
 
 struct LPCG14_STATUS0 : ftl::mmio::Register<
     0x40CC61D0u,
@@ -13673,8 +13882,9 @@ struct LPCG14_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG14_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG14_STATUS1_fields_ {
+struct LPCG14_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -13839,7 +14049,7 @@ namespace LPCG14_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG14_STATUS1_fields_
+};  // struct LPCG14_STATUS1_fields_
 
 struct LPCG14_STATUS1 : ftl::mmio::Register<
     0x40CC61D4u,
@@ -13901,8 +14111,9 @@ struct LPCG14_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG14_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG14_CONFIG_fields_ {
+struct LPCG14_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -13912,7 +14123,7 @@ namespace LPCG14_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG14_CONFIG_fields_
+};  // struct LPCG14_CONFIG_fields_
 
 struct LPCG14_CONFIG : ftl::mmio::Register<
     0x40CC61D8u,
@@ -13926,8 +14137,9 @@ struct LPCG14_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG14_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG14_AUTHEN_fields_ {
+struct LPCG14_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -14002,7 +14214,7 @@ namespace LPCG14_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG14_AUTHEN_fields_
+};  // struct LPCG14_AUTHEN_fields_
 
 struct LPCG14_AUTHEN : ftl::mmio::Register<
     0x40CC61DCu,
@@ -14042,8 +14254,9 @@ struct LPCG14_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG14_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG15_DIRECT_fields_ {
+struct LPCG15_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -14053,7 +14266,7 @@ namespace LPCG15_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG15_DIRECT_fields_
+};  // struct LPCG15_DIRECT_fields_
 
 struct LPCG15_DIRECT : ftl::mmio::Register<
     0x40CC61E0u,
@@ -14066,8 +14279,9 @@ struct LPCG15_DIRECT : ftl::mmio::Register<
   using ON = LPCG15_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG15_DOMAIN_fields_ {
+struct LPCG15_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -14143,7 +14357,7 @@ namespace LPCG15_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG15_DOMAIN_fields_
+};  // struct LPCG15_DOMAIN_fields_
 
 struct LPCG15_DOMAIN : ftl::mmio::Register<
     0x40CC61E4u,
@@ -14172,13 +14386,14 @@ struct LPCG15_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG15_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG15_SETPOINT_fields_ {
+struct LPCG15_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG15_SETPOINT_fields_
+};  // struct LPCG15_SETPOINT_fields_
 
 struct LPCG15_SETPOINT : ftl::mmio::Register<
     0x40CC61E8u,
@@ -14191,8 +14406,9 @@ struct LPCG15_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG15_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG15_STATUS0_fields_ {
+struct LPCG15_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -14276,7 +14492,7 @@ namespace LPCG15_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG15_STATUS0_fields_
+};  // struct LPCG15_STATUS0_fields_
 
 struct LPCG15_STATUS0 : ftl::mmio::Register<
     0x40CC61F0u,
@@ -14296,8 +14512,9 @@ struct LPCG15_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG15_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG15_STATUS1_fields_ {
+struct LPCG15_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -14462,7 +14679,7 @@ namespace LPCG15_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG15_STATUS1_fields_
+};  // struct LPCG15_STATUS1_fields_
 
 struct LPCG15_STATUS1 : ftl::mmio::Register<
     0x40CC61F4u,
@@ -14524,8 +14741,9 @@ struct LPCG15_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG15_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG15_CONFIG_fields_ {
+struct LPCG15_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -14535,7 +14753,7 @@ namespace LPCG15_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG15_CONFIG_fields_
+};  // struct LPCG15_CONFIG_fields_
 
 struct LPCG15_CONFIG : ftl::mmio::Register<
     0x40CC61F8u,
@@ -14549,8 +14767,9 @@ struct LPCG15_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG15_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG15_AUTHEN_fields_ {
+struct LPCG15_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -14625,7 +14844,7 @@ namespace LPCG15_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG15_AUTHEN_fields_
+};  // struct LPCG15_AUTHEN_fields_
 
 struct LPCG15_AUTHEN : ftl::mmio::Register<
     0x40CC61FCu,
@@ -14665,8 +14884,9 @@ struct LPCG15_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG15_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG16_DIRECT_fields_ {
+struct LPCG16_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -14676,7 +14896,7 @@ namespace LPCG16_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG16_DIRECT_fields_
+};  // struct LPCG16_DIRECT_fields_
 
 struct LPCG16_DIRECT : ftl::mmio::Register<
     0x40CC6200u,
@@ -14689,8 +14909,9 @@ struct LPCG16_DIRECT : ftl::mmio::Register<
   using ON = LPCG16_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG16_DOMAIN_fields_ {
+struct LPCG16_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -14766,7 +14987,7 @@ namespace LPCG16_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG16_DOMAIN_fields_
+};  // struct LPCG16_DOMAIN_fields_
 
 struct LPCG16_DOMAIN : ftl::mmio::Register<
     0x40CC6204u,
@@ -14795,13 +15016,14 @@ struct LPCG16_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG16_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG16_SETPOINT_fields_ {
+struct LPCG16_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG16_SETPOINT_fields_
+};  // struct LPCG16_SETPOINT_fields_
 
 struct LPCG16_SETPOINT : ftl::mmio::Register<
     0x40CC6208u,
@@ -14814,8 +15036,9 @@ struct LPCG16_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG16_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG16_STATUS0_fields_ {
+struct LPCG16_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -14899,7 +15122,7 @@ namespace LPCG16_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG16_STATUS0_fields_
+};  // struct LPCG16_STATUS0_fields_
 
 struct LPCG16_STATUS0 : ftl::mmio::Register<
     0x40CC6210u,
@@ -14919,8 +15142,9 @@ struct LPCG16_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG16_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG16_STATUS1_fields_ {
+struct LPCG16_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -15085,7 +15309,7 @@ namespace LPCG16_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG16_STATUS1_fields_
+};  // struct LPCG16_STATUS1_fields_
 
 struct LPCG16_STATUS1 : ftl::mmio::Register<
     0x40CC6214u,
@@ -15147,8 +15371,9 @@ struct LPCG16_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG16_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG16_CONFIG_fields_ {
+struct LPCG16_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -15158,7 +15383,7 @@ namespace LPCG16_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG16_CONFIG_fields_
+};  // struct LPCG16_CONFIG_fields_
 
 struct LPCG16_CONFIG : ftl::mmio::Register<
     0x40CC6218u,
@@ -15172,8 +15397,9 @@ struct LPCG16_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG16_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG16_AUTHEN_fields_ {
+struct LPCG16_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -15248,7 +15474,7 @@ namespace LPCG16_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG16_AUTHEN_fields_
+};  // struct LPCG16_AUTHEN_fields_
 
 struct LPCG16_AUTHEN : ftl::mmio::Register<
     0x40CC621Cu,
@@ -15288,8 +15514,9 @@ struct LPCG16_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG16_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG17_DIRECT_fields_ {
+struct LPCG17_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -15299,7 +15526,7 @@ namespace LPCG17_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG17_DIRECT_fields_
+};  // struct LPCG17_DIRECT_fields_
 
 struct LPCG17_DIRECT : ftl::mmio::Register<
     0x40CC6220u,
@@ -15312,8 +15539,9 @@ struct LPCG17_DIRECT : ftl::mmio::Register<
   using ON = LPCG17_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG17_DOMAIN_fields_ {
+struct LPCG17_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -15389,7 +15617,7 @@ namespace LPCG17_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG17_DOMAIN_fields_
+};  // struct LPCG17_DOMAIN_fields_
 
 struct LPCG17_DOMAIN : ftl::mmio::Register<
     0x40CC6224u,
@@ -15418,13 +15646,14 @@ struct LPCG17_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG17_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG17_SETPOINT_fields_ {
+struct LPCG17_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG17_SETPOINT_fields_
+};  // struct LPCG17_SETPOINT_fields_
 
 struct LPCG17_SETPOINT : ftl::mmio::Register<
     0x40CC6228u,
@@ -15437,8 +15666,9 @@ struct LPCG17_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG17_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG17_STATUS0_fields_ {
+struct LPCG17_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -15522,7 +15752,7 @@ namespace LPCG17_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG17_STATUS0_fields_
+};  // struct LPCG17_STATUS0_fields_
 
 struct LPCG17_STATUS0 : ftl::mmio::Register<
     0x40CC6230u,
@@ -15542,8 +15772,9 @@ struct LPCG17_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG17_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG17_STATUS1_fields_ {
+struct LPCG17_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -15708,7 +15939,7 @@ namespace LPCG17_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG17_STATUS1_fields_
+};  // struct LPCG17_STATUS1_fields_
 
 struct LPCG17_STATUS1 : ftl::mmio::Register<
     0x40CC6234u,
@@ -15770,8 +16001,9 @@ struct LPCG17_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG17_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG17_CONFIG_fields_ {
+struct LPCG17_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -15781,7 +16013,7 @@ namespace LPCG17_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG17_CONFIG_fields_
+};  // struct LPCG17_CONFIG_fields_
 
 struct LPCG17_CONFIG : ftl::mmio::Register<
     0x40CC6238u,
@@ -15795,8 +16027,9 @@ struct LPCG17_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG17_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG17_AUTHEN_fields_ {
+struct LPCG17_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -15871,7 +16104,7 @@ namespace LPCG17_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG17_AUTHEN_fields_
+};  // struct LPCG17_AUTHEN_fields_
 
 struct LPCG17_AUTHEN : ftl::mmio::Register<
     0x40CC623Cu,
@@ -15911,8 +16144,9 @@ struct LPCG17_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG17_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG18_DIRECT_fields_ {
+struct LPCG18_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -15922,7 +16156,7 @@ namespace LPCG18_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG18_DIRECT_fields_
+};  // struct LPCG18_DIRECT_fields_
 
 struct LPCG18_DIRECT : ftl::mmio::Register<
     0x40CC6240u,
@@ -15935,8 +16169,9 @@ struct LPCG18_DIRECT : ftl::mmio::Register<
   using ON = LPCG18_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG18_DOMAIN_fields_ {
+struct LPCG18_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -16012,7 +16247,7 @@ namespace LPCG18_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG18_DOMAIN_fields_
+};  // struct LPCG18_DOMAIN_fields_
 
 struct LPCG18_DOMAIN : ftl::mmio::Register<
     0x40CC6244u,
@@ -16041,13 +16276,14 @@ struct LPCG18_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG18_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG18_SETPOINT_fields_ {
+struct LPCG18_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG18_SETPOINT_fields_
+};  // struct LPCG18_SETPOINT_fields_
 
 struct LPCG18_SETPOINT : ftl::mmio::Register<
     0x40CC6248u,
@@ -16060,8 +16296,9 @@ struct LPCG18_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG18_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG18_STATUS0_fields_ {
+struct LPCG18_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -16145,7 +16382,7 @@ namespace LPCG18_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG18_STATUS0_fields_
+};  // struct LPCG18_STATUS0_fields_
 
 struct LPCG18_STATUS0 : ftl::mmio::Register<
     0x40CC6250u,
@@ -16165,8 +16402,9 @@ struct LPCG18_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG18_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG18_STATUS1_fields_ {
+struct LPCG18_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -16331,7 +16569,7 @@ namespace LPCG18_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG18_STATUS1_fields_
+};  // struct LPCG18_STATUS1_fields_
 
 struct LPCG18_STATUS1 : ftl::mmio::Register<
     0x40CC6254u,
@@ -16393,8 +16631,9 @@ struct LPCG18_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG18_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG18_CONFIG_fields_ {
+struct LPCG18_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -16404,7 +16643,7 @@ namespace LPCG18_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG18_CONFIG_fields_
+};  // struct LPCG18_CONFIG_fields_
 
 struct LPCG18_CONFIG : ftl::mmio::Register<
     0x40CC6258u,
@@ -16418,8 +16657,9 @@ struct LPCG18_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG18_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG18_AUTHEN_fields_ {
+struct LPCG18_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -16494,7 +16734,7 @@ namespace LPCG18_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG18_AUTHEN_fields_
+};  // struct LPCG18_AUTHEN_fields_
 
 struct LPCG18_AUTHEN : ftl::mmio::Register<
     0x40CC625Cu,
@@ -16534,8 +16774,9 @@ struct LPCG18_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG18_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG19_DIRECT_fields_ {
+struct LPCG19_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -16545,7 +16786,7 @@ namespace LPCG19_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG19_DIRECT_fields_
+};  // struct LPCG19_DIRECT_fields_
 
 struct LPCG19_DIRECT : ftl::mmio::Register<
     0x40CC6260u,
@@ -16558,8 +16799,9 @@ struct LPCG19_DIRECT : ftl::mmio::Register<
   using ON = LPCG19_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG19_DOMAIN_fields_ {
+struct LPCG19_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -16635,7 +16877,7 @@ namespace LPCG19_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG19_DOMAIN_fields_
+};  // struct LPCG19_DOMAIN_fields_
 
 struct LPCG19_DOMAIN : ftl::mmio::Register<
     0x40CC6264u,
@@ -16664,13 +16906,14 @@ struct LPCG19_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG19_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG19_SETPOINT_fields_ {
+struct LPCG19_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG19_SETPOINT_fields_
+};  // struct LPCG19_SETPOINT_fields_
 
 struct LPCG19_SETPOINT : ftl::mmio::Register<
     0x40CC6268u,
@@ -16683,8 +16926,9 @@ struct LPCG19_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG19_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG19_STATUS0_fields_ {
+struct LPCG19_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -16768,7 +17012,7 @@ namespace LPCG19_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG19_STATUS0_fields_
+};  // struct LPCG19_STATUS0_fields_
 
 struct LPCG19_STATUS0 : ftl::mmio::Register<
     0x40CC6270u,
@@ -16788,8 +17032,9 @@ struct LPCG19_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG19_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG19_STATUS1_fields_ {
+struct LPCG19_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -16954,7 +17199,7 @@ namespace LPCG19_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG19_STATUS1_fields_
+};  // struct LPCG19_STATUS1_fields_
 
 struct LPCG19_STATUS1 : ftl::mmio::Register<
     0x40CC6274u,
@@ -17016,8 +17261,9 @@ struct LPCG19_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG19_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG19_CONFIG_fields_ {
+struct LPCG19_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -17027,7 +17273,7 @@ namespace LPCG19_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG19_CONFIG_fields_
+};  // struct LPCG19_CONFIG_fields_
 
 struct LPCG19_CONFIG : ftl::mmio::Register<
     0x40CC6278u,
@@ -17041,8 +17287,9 @@ struct LPCG19_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG19_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG19_AUTHEN_fields_ {
+struct LPCG19_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -17117,7 +17364,7 @@ namespace LPCG19_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG19_AUTHEN_fields_
+};  // struct LPCG19_AUTHEN_fields_
 
 struct LPCG19_AUTHEN : ftl::mmio::Register<
     0x40CC627Cu,
@@ -17157,8 +17404,9 @@ struct LPCG19_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG19_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG20_DIRECT_fields_ {
+struct LPCG20_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -17168,7 +17416,7 @@ namespace LPCG20_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG20_DIRECT_fields_
+};  // struct LPCG20_DIRECT_fields_
 
 struct LPCG20_DIRECT : ftl::mmio::Register<
     0x40CC6280u,
@@ -17181,8 +17429,9 @@ struct LPCG20_DIRECT : ftl::mmio::Register<
   using ON = LPCG20_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG20_DOMAIN_fields_ {
+struct LPCG20_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -17258,7 +17507,7 @@ namespace LPCG20_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG20_DOMAIN_fields_
+};  // struct LPCG20_DOMAIN_fields_
 
 struct LPCG20_DOMAIN : ftl::mmio::Register<
     0x40CC6284u,
@@ -17287,8 +17536,9 @@ struct LPCG20_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG20_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG20_STATUS0_fields_ {
+struct LPCG20_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -17372,7 +17622,7 @@ namespace LPCG20_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG20_STATUS0_fields_
+};  // struct LPCG20_STATUS0_fields_
 
 struct LPCG20_STATUS0 : ftl::mmio::Register<
     0x40CC6290u,
@@ -17392,8 +17642,9 @@ struct LPCG20_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG20_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG20_STATUS1_fields_ {
+struct LPCG20_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -17558,7 +17809,7 @@ namespace LPCG20_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG20_STATUS1_fields_
+};  // struct LPCG20_STATUS1_fields_
 
 struct LPCG20_STATUS1 : ftl::mmio::Register<
     0x40CC6294u,
@@ -17620,8 +17871,9 @@ struct LPCG20_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG20_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG20_CONFIG_fields_ {
+struct LPCG20_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -17631,7 +17883,7 @@ namespace LPCG20_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG20_CONFIG_fields_
+};  // struct LPCG20_CONFIG_fields_
 
 struct LPCG20_CONFIG : ftl::mmio::Register<
     0x40CC6298u,
@@ -17645,8 +17897,9 @@ struct LPCG20_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG20_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG20_AUTHEN_fields_ {
+struct LPCG20_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -17721,7 +17974,7 @@ namespace LPCG20_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG20_AUTHEN_fields_
+};  // struct LPCG20_AUTHEN_fields_
 
 struct LPCG20_AUTHEN : ftl::mmio::Register<
     0x40CC629Cu,
@@ -17761,8 +18014,9 @@ struct LPCG20_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG20_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG21_DIRECT_fields_ {
+struct LPCG21_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -17772,7 +18026,7 @@ namespace LPCG21_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG21_DIRECT_fields_
+};  // struct LPCG21_DIRECT_fields_
 
 struct LPCG21_DIRECT : ftl::mmio::Register<
     0x40CC62A0u,
@@ -17785,8 +18039,9 @@ struct LPCG21_DIRECT : ftl::mmio::Register<
   using ON = LPCG21_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG21_DOMAIN_fields_ {
+struct LPCG21_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -17862,7 +18117,7 @@ namespace LPCG21_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG21_DOMAIN_fields_
+};  // struct LPCG21_DOMAIN_fields_
 
 struct LPCG21_DOMAIN : ftl::mmio::Register<
     0x40CC62A4u,
@@ -17891,8 +18146,9 @@ struct LPCG21_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG21_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG21_STATUS0_fields_ {
+struct LPCG21_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -17976,7 +18232,7 @@ namespace LPCG21_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG21_STATUS0_fields_
+};  // struct LPCG21_STATUS0_fields_
 
 struct LPCG21_STATUS0 : ftl::mmio::Register<
     0x40CC62B0u,
@@ -17996,8 +18252,9 @@ struct LPCG21_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG21_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG21_STATUS1_fields_ {
+struct LPCG21_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -18162,7 +18419,7 @@ namespace LPCG21_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG21_STATUS1_fields_
+};  // struct LPCG21_STATUS1_fields_
 
 struct LPCG21_STATUS1 : ftl::mmio::Register<
     0x40CC62B4u,
@@ -18224,8 +18481,9 @@ struct LPCG21_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG21_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG21_CONFIG_fields_ {
+struct LPCG21_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -18235,7 +18493,7 @@ namespace LPCG21_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG21_CONFIG_fields_
+};  // struct LPCG21_CONFIG_fields_
 
 struct LPCG21_CONFIG : ftl::mmio::Register<
     0x40CC62B8u,
@@ -18249,8 +18507,9 @@ struct LPCG21_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG21_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG21_AUTHEN_fields_ {
+struct LPCG21_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -18325,7 +18584,7 @@ namespace LPCG21_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG21_AUTHEN_fields_
+};  // struct LPCG21_AUTHEN_fields_
 
 struct LPCG21_AUTHEN : ftl::mmio::Register<
     0x40CC62BCu,
@@ -18365,8 +18624,9 @@ struct LPCG21_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG21_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG22_DIRECT_fields_ {
+struct LPCG22_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -18376,7 +18636,7 @@ namespace LPCG22_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG22_DIRECT_fields_
+};  // struct LPCG22_DIRECT_fields_
 
 struct LPCG22_DIRECT : ftl::mmio::Register<
     0x40CC62C0u,
@@ -18389,8 +18649,9 @@ struct LPCG22_DIRECT : ftl::mmio::Register<
   using ON = LPCG22_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG22_DOMAIN_fields_ {
+struct LPCG22_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -18466,7 +18727,7 @@ namespace LPCG22_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG22_DOMAIN_fields_
+};  // struct LPCG22_DOMAIN_fields_
 
 struct LPCG22_DOMAIN : ftl::mmio::Register<
     0x40CC62C4u,
@@ -18495,8 +18756,9 @@ struct LPCG22_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG22_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG22_STATUS0_fields_ {
+struct LPCG22_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -18580,7 +18842,7 @@ namespace LPCG22_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG22_STATUS0_fields_
+};  // struct LPCG22_STATUS0_fields_
 
 struct LPCG22_STATUS0 : ftl::mmio::Register<
     0x40CC62D0u,
@@ -18600,8 +18862,9 @@ struct LPCG22_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG22_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG22_STATUS1_fields_ {
+struct LPCG22_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -18766,7 +19029,7 @@ namespace LPCG22_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG22_STATUS1_fields_
+};  // struct LPCG22_STATUS1_fields_
 
 struct LPCG22_STATUS1 : ftl::mmio::Register<
     0x40CC62D4u,
@@ -18828,8 +19091,9 @@ struct LPCG22_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG22_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG22_CONFIG_fields_ {
+struct LPCG22_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -18839,7 +19103,7 @@ namespace LPCG22_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG22_CONFIG_fields_
+};  // struct LPCG22_CONFIG_fields_
 
 struct LPCG22_CONFIG : ftl::mmio::Register<
     0x40CC62D8u,
@@ -18853,8 +19117,9 @@ struct LPCG22_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG22_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG22_AUTHEN_fields_ {
+struct LPCG22_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -18929,7 +19194,7 @@ namespace LPCG22_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG22_AUTHEN_fields_
+};  // struct LPCG22_AUTHEN_fields_
 
 struct LPCG22_AUTHEN : ftl::mmio::Register<
     0x40CC62DCu,
@@ -18969,8 +19234,9 @@ struct LPCG22_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG22_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG23_DIRECT_fields_ {
+struct LPCG23_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -18980,7 +19246,7 @@ namespace LPCG23_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG23_DIRECT_fields_
+};  // struct LPCG23_DIRECT_fields_
 
 struct LPCG23_DIRECT : ftl::mmio::Register<
     0x40CC62E0u,
@@ -18993,8 +19259,9 @@ struct LPCG23_DIRECT : ftl::mmio::Register<
   using ON = LPCG23_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG23_DOMAIN_fields_ {
+struct LPCG23_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -19070,7 +19337,7 @@ namespace LPCG23_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG23_DOMAIN_fields_
+};  // struct LPCG23_DOMAIN_fields_
 
 struct LPCG23_DOMAIN : ftl::mmio::Register<
     0x40CC62E4u,
@@ -19099,8 +19366,9 @@ struct LPCG23_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG23_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG23_STATUS0_fields_ {
+struct LPCG23_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -19184,7 +19452,7 @@ namespace LPCG23_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG23_STATUS0_fields_
+};  // struct LPCG23_STATUS0_fields_
 
 struct LPCG23_STATUS0 : ftl::mmio::Register<
     0x40CC62F0u,
@@ -19204,8 +19472,9 @@ struct LPCG23_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG23_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG23_STATUS1_fields_ {
+struct LPCG23_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -19370,7 +19639,7 @@ namespace LPCG23_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG23_STATUS1_fields_
+};  // struct LPCG23_STATUS1_fields_
 
 struct LPCG23_STATUS1 : ftl::mmio::Register<
     0x40CC62F4u,
@@ -19432,8 +19701,9 @@ struct LPCG23_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG23_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG23_CONFIG_fields_ {
+struct LPCG23_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -19443,7 +19713,7 @@ namespace LPCG23_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG23_CONFIG_fields_
+};  // struct LPCG23_CONFIG_fields_
 
 struct LPCG23_CONFIG : ftl::mmio::Register<
     0x40CC62F8u,
@@ -19457,8 +19727,9 @@ struct LPCG23_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG23_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG23_AUTHEN_fields_ {
+struct LPCG23_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -19533,7 +19804,7 @@ namespace LPCG23_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG23_AUTHEN_fields_
+};  // struct LPCG23_AUTHEN_fields_
 
 struct LPCG23_AUTHEN : ftl::mmio::Register<
     0x40CC62FCu,
@@ -19573,8 +19844,9 @@ struct LPCG23_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG23_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG24_DIRECT_fields_ {
+struct LPCG24_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -19584,7 +19856,7 @@ namespace LPCG24_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG24_DIRECT_fields_
+};  // struct LPCG24_DIRECT_fields_
 
 struct LPCG24_DIRECT : ftl::mmio::Register<
     0x40CC6300u,
@@ -19597,8 +19869,9 @@ struct LPCG24_DIRECT : ftl::mmio::Register<
   using ON = LPCG24_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG24_DOMAIN_fields_ {
+struct LPCG24_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -19674,7 +19947,7 @@ namespace LPCG24_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG24_DOMAIN_fields_
+};  // struct LPCG24_DOMAIN_fields_
 
 struct LPCG24_DOMAIN : ftl::mmio::Register<
     0x40CC6304u,
@@ -19703,13 +19976,14 @@ struct LPCG24_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG24_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG24_SETPOINT_fields_ {
+struct LPCG24_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG24_SETPOINT_fields_
+};  // struct LPCG24_SETPOINT_fields_
 
 struct LPCG24_SETPOINT : ftl::mmio::Register<
     0x40CC6308u,
@@ -19722,8 +19996,9 @@ struct LPCG24_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG24_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG24_STATUS0_fields_ {
+struct LPCG24_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -19807,7 +20082,7 @@ namespace LPCG24_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG24_STATUS0_fields_
+};  // struct LPCG24_STATUS0_fields_
 
 struct LPCG24_STATUS0 : ftl::mmio::Register<
     0x40CC6310u,
@@ -19827,8 +20102,9 @@ struct LPCG24_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG24_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG24_STATUS1_fields_ {
+struct LPCG24_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -19993,7 +20269,7 @@ namespace LPCG24_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG24_STATUS1_fields_
+};  // struct LPCG24_STATUS1_fields_
 
 struct LPCG24_STATUS1 : ftl::mmio::Register<
     0x40CC6314u,
@@ -20055,8 +20331,9 @@ struct LPCG24_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG24_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG24_CONFIG_fields_ {
+struct LPCG24_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -20066,7 +20343,7 @@ namespace LPCG24_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG24_CONFIG_fields_
+};  // struct LPCG24_CONFIG_fields_
 
 struct LPCG24_CONFIG : ftl::mmio::Register<
     0x40CC6318u,
@@ -20080,8 +20357,9 @@ struct LPCG24_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG24_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG24_AUTHEN_fields_ {
+struct LPCG24_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -20156,7 +20434,7 @@ namespace LPCG24_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG24_AUTHEN_fields_
+};  // struct LPCG24_AUTHEN_fields_
 
 struct LPCG24_AUTHEN : ftl::mmio::Register<
     0x40CC631Cu,
@@ -20196,8 +20474,9 @@ struct LPCG24_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG24_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG25_DIRECT_fields_ {
+struct LPCG25_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -20207,7 +20486,7 @@ namespace LPCG25_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG25_DIRECT_fields_
+};  // struct LPCG25_DIRECT_fields_
 
 struct LPCG25_DIRECT : ftl::mmio::Register<
     0x40CC6320u,
@@ -20220,8 +20499,9 @@ struct LPCG25_DIRECT : ftl::mmio::Register<
   using ON = LPCG25_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG25_DOMAIN_fields_ {
+struct LPCG25_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -20297,7 +20577,7 @@ namespace LPCG25_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG25_DOMAIN_fields_
+};  // struct LPCG25_DOMAIN_fields_
 
 struct LPCG25_DOMAIN : ftl::mmio::Register<
     0x40CC6324u,
@@ -20326,13 +20606,14 @@ struct LPCG25_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG25_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG25_SETPOINT_fields_ {
+struct LPCG25_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG25_SETPOINT_fields_
+};  // struct LPCG25_SETPOINT_fields_
 
 struct LPCG25_SETPOINT : ftl::mmio::Register<
     0x40CC6328u,
@@ -20345,8 +20626,9 @@ struct LPCG25_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG25_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG25_STATUS0_fields_ {
+struct LPCG25_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -20430,7 +20712,7 @@ namespace LPCG25_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG25_STATUS0_fields_
+};  // struct LPCG25_STATUS0_fields_
 
 struct LPCG25_STATUS0 : ftl::mmio::Register<
     0x40CC6330u,
@@ -20450,8 +20732,9 @@ struct LPCG25_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG25_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG25_STATUS1_fields_ {
+struct LPCG25_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -20616,7 +20899,7 @@ namespace LPCG25_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG25_STATUS1_fields_
+};  // struct LPCG25_STATUS1_fields_
 
 struct LPCG25_STATUS1 : ftl::mmio::Register<
     0x40CC6334u,
@@ -20678,8 +20961,9 @@ struct LPCG25_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG25_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG25_CONFIG_fields_ {
+struct LPCG25_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -20689,7 +20973,7 @@ namespace LPCG25_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG25_CONFIG_fields_
+};  // struct LPCG25_CONFIG_fields_
 
 struct LPCG25_CONFIG : ftl::mmio::Register<
     0x40CC6338u,
@@ -20703,8 +20987,9 @@ struct LPCG25_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG25_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG25_AUTHEN_fields_ {
+struct LPCG25_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -20779,7 +21064,7 @@ namespace LPCG25_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG25_AUTHEN_fields_
+};  // struct LPCG25_AUTHEN_fields_
 
 struct LPCG25_AUTHEN : ftl::mmio::Register<
     0x40CC633Cu,
@@ -20819,8 +21104,9 @@ struct LPCG25_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG25_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG26_DIRECT_fields_ {
+struct LPCG26_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -20830,7 +21116,7 @@ namespace LPCG26_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG26_DIRECT_fields_
+};  // struct LPCG26_DIRECT_fields_
 
 struct LPCG26_DIRECT : ftl::mmio::Register<
     0x40CC6340u,
@@ -20843,8 +21129,9 @@ struct LPCG26_DIRECT : ftl::mmio::Register<
   using ON = LPCG26_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG26_DOMAIN_fields_ {
+struct LPCG26_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -20920,7 +21207,7 @@ namespace LPCG26_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG26_DOMAIN_fields_
+};  // struct LPCG26_DOMAIN_fields_
 
 struct LPCG26_DOMAIN : ftl::mmio::Register<
     0x40CC6344u,
@@ -20949,13 +21236,14 @@ struct LPCG26_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG26_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG26_SETPOINT_fields_ {
+struct LPCG26_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG26_SETPOINT_fields_
+};  // struct LPCG26_SETPOINT_fields_
 
 struct LPCG26_SETPOINT : ftl::mmio::Register<
     0x40CC6348u,
@@ -20968,8 +21256,9 @@ struct LPCG26_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG26_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG26_STATUS0_fields_ {
+struct LPCG26_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -21053,7 +21342,7 @@ namespace LPCG26_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG26_STATUS0_fields_
+};  // struct LPCG26_STATUS0_fields_
 
 struct LPCG26_STATUS0 : ftl::mmio::Register<
     0x40CC6350u,
@@ -21073,8 +21362,9 @@ struct LPCG26_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG26_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG26_STATUS1_fields_ {
+struct LPCG26_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -21239,7 +21529,7 @@ namespace LPCG26_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG26_STATUS1_fields_
+};  // struct LPCG26_STATUS1_fields_
 
 struct LPCG26_STATUS1 : ftl::mmio::Register<
     0x40CC6354u,
@@ -21301,8 +21591,9 @@ struct LPCG26_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG26_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG26_CONFIG_fields_ {
+struct LPCG26_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -21312,7 +21603,7 @@ namespace LPCG26_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG26_CONFIG_fields_
+};  // struct LPCG26_CONFIG_fields_
 
 struct LPCG26_CONFIG : ftl::mmio::Register<
     0x40CC6358u,
@@ -21326,8 +21617,9 @@ struct LPCG26_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG26_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG26_AUTHEN_fields_ {
+struct LPCG26_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -21402,7 +21694,7 @@ namespace LPCG26_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG26_AUTHEN_fields_
+};  // struct LPCG26_AUTHEN_fields_
 
 struct LPCG26_AUTHEN : ftl::mmio::Register<
     0x40CC635Cu,
@@ -21442,8 +21734,9 @@ struct LPCG26_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG26_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG27_DIRECT_fields_ {
+struct LPCG27_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -21453,7 +21746,7 @@ namespace LPCG27_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG27_DIRECT_fields_
+};  // struct LPCG27_DIRECT_fields_
 
 struct LPCG27_DIRECT : ftl::mmio::Register<
     0x40CC6360u,
@@ -21466,8 +21759,9 @@ struct LPCG27_DIRECT : ftl::mmio::Register<
   using ON = LPCG27_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG27_DOMAIN_fields_ {
+struct LPCG27_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -21543,7 +21837,7 @@ namespace LPCG27_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG27_DOMAIN_fields_
+};  // struct LPCG27_DOMAIN_fields_
 
 struct LPCG27_DOMAIN : ftl::mmio::Register<
     0x40CC6364u,
@@ -21572,13 +21866,14 @@ struct LPCG27_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG27_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG27_SETPOINT_fields_ {
+struct LPCG27_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG27_SETPOINT_fields_
+};  // struct LPCG27_SETPOINT_fields_
 
 struct LPCG27_SETPOINT : ftl::mmio::Register<
     0x40CC6368u,
@@ -21591,8 +21886,9 @@ struct LPCG27_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG27_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG27_STATUS0_fields_ {
+struct LPCG27_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -21676,7 +21972,7 @@ namespace LPCG27_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG27_STATUS0_fields_
+};  // struct LPCG27_STATUS0_fields_
 
 struct LPCG27_STATUS0 : ftl::mmio::Register<
     0x40CC6370u,
@@ -21696,8 +21992,9 @@ struct LPCG27_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG27_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG27_STATUS1_fields_ {
+struct LPCG27_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -21862,7 +22159,7 @@ namespace LPCG27_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG27_STATUS1_fields_
+};  // struct LPCG27_STATUS1_fields_
 
 struct LPCG27_STATUS1 : ftl::mmio::Register<
     0x40CC6374u,
@@ -21924,8 +22221,9 @@ struct LPCG27_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG27_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG27_CONFIG_fields_ {
+struct LPCG27_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -21935,7 +22233,7 @@ namespace LPCG27_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG27_CONFIG_fields_
+};  // struct LPCG27_CONFIG_fields_
 
 struct LPCG27_CONFIG : ftl::mmio::Register<
     0x40CC6378u,
@@ -21949,8 +22247,9 @@ struct LPCG27_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG27_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG27_AUTHEN_fields_ {
+struct LPCG27_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -22025,7 +22324,7 @@ namespace LPCG27_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG27_AUTHEN_fields_
+};  // struct LPCG27_AUTHEN_fields_
 
 struct LPCG27_AUTHEN : ftl::mmio::Register<
     0x40CC637Cu,
@@ -22065,8 +22364,9 @@ struct LPCG27_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG27_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG28_DIRECT_fields_ {
+struct LPCG28_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -22076,7 +22376,7 @@ namespace LPCG28_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG28_DIRECT_fields_
+};  // struct LPCG28_DIRECT_fields_
 
 struct LPCG28_DIRECT : ftl::mmio::Register<
     0x40CC6380u,
@@ -22089,8 +22389,9 @@ struct LPCG28_DIRECT : ftl::mmio::Register<
   using ON = LPCG28_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG28_DOMAIN_fields_ {
+struct LPCG28_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -22166,7 +22467,7 @@ namespace LPCG28_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG28_DOMAIN_fields_
+};  // struct LPCG28_DOMAIN_fields_
 
 struct LPCG28_DOMAIN : ftl::mmio::Register<
     0x40CC6384u,
@@ -22195,13 +22496,14 @@ struct LPCG28_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG28_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG28_SETPOINT_fields_ {
+struct LPCG28_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG28_SETPOINT_fields_
+};  // struct LPCG28_SETPOINT_fields_
 
 struct LPCG28_SETPOINT : ftl::mmio::Register<
     0x40CC6388u,
@@ -22214,8 +22516,9 @@ struct LPCG28_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG28_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG28_STATUS0_fields_ {
+struct LPCG28_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -22299,7 +22602,7 @@ namespace LPCG28_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG28_STATUS0_fields_
+};  // struct LPCG28_STATUS0_fields_
 
 struct LPCG28_STATUS0 : ftl::mmio::Register<
     0x40CC6390u,
@@ -22319,8 +22622,9 @@ struct LPCG28_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG28_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG28_STATUS1_fields_ {
+struct LPCG28_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -22485,7 +22789,7 @@ namespace LPCG28_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG28_STATUS1_fields_
+};  // struct LPCG28_STATUS1_fields_
 
 struct LPCG28_STATUS1 : ftl::mmio::Register<
     0x40CC6394u,
@@ -22547,8 +22851,9 @@ struct LPCG28_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG28_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG28_CONFIG_fields_ {
+struct LPCG28_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -22558,7 +22863,7 @@ namespace LPCG28_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG28_CONFIG_fields_
+};  // struct LPCG28_CONFIG_fields_
 
 struct LPCG28_CONFIG : ftl::mmio::Register<
     0x40CC6398u,
@@ -22572,8 +22877,9 @@ struct LPCG28_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG28_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG28_AUTHEN_fields_ {
+struct LPCG28_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -22648,7 +22954,7 @@ namespace LPCG28_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG28_AUTHEN_fields_
+};  // struct LPCG28_AUTHEN_fields_
 
 struct LPCG28_AUTHEN : ftl::mmio::Register<
     0x40CC639Cu,
@@ -22688,8 +22994,9 @@ struct LPCG28_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG28_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG29_DIRECT_fields_ {
+struct LPCG29_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -22699,7 +23006,7 @@ namespace LPCG29_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG29_DIRECT_fields_
+};  // struct LPCG29_DIRECT_fields_
 
 struct LPCG29_DIRECT : ftl::mmio::Register<
     0x40CC63A0u,
@@ -22712,8 +23019,9 @@ struct LPCG29_DIRECT : ftl::mmio::Register<
   using ON = LPCG29_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG29_DOMAIN_fields_ {
+struct LPCG29_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -22789,7 +23097,7 @@ namespace LPCG29_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG29_DOMAIN_fields_
+};  // struct LPCG29_DOMAIN_fields_
 
 struct LPCG29_DOMAIN : ftl::mmio::Register<
     0x40CC63A4u,
@@ -22818,13 +23126,14 @@ struct LPCG29_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG29_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG29_SETPOINT_fields_ {
+struct LPCG29_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG29_SETPOINT_fields_
+};  // struct LPCG29_SETPOINT_fields_
 
 struct LPCG29_SETPOINT : ftl::mmio::Register<
     0x40CC63A8u,
@@ -22837,8 +23146,9 @@ struct LPCG29_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG29_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG29_STATUS0_fields_ {
+struct LPCG29_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -22922,7 +23232,7 @@ namespace LPCG29_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG29_STATUS0_fields_
+};  // struct LPCG29_STATUS0_fields_
 
 struct LPCG29_STATUS0 : ftl::mmio::Register<
     0x40CC63B0u,
@@ -22942,8 +23252,9 @@ struct LPCG29_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG29_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG29_STATUS1_fields_ {
+struct LPCG29_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -23108,7 +23419,7 @@ namespace LPCG29_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG29_STATUS1_fields_
+};  // struct LPCG29_STATUS1_fields_
 
 struct LPCG29_STATUS1 : ftl::mmio::Register<
     0x40CC63B4u,
@@ -23170,8 +23481,9 @@ struct LPCG29_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG29_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG29_CONFIG_fields_ {
+struct LPCG29_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -23181,7 +23493,7 @@ namespace LPCG29_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG29_CONFIG_fields_
+};  // struct LPCG29_CONFIG_fields_
 
 struct LPCG29_CONFIG : ftl::mmio::Register<
     0x40CC63B8u,
@@ -23195,8 +23507,9 @@ struct LPCG29_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG29_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG29_AUTHEN_fields_ {
+struct LPCG29_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -23271,7 +23584,7 @@ namespace LPCG29_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG29_AUTHEN_fields_
+};  // struct LPCG29_AUTHEN_fields_
 
 struct LPCG29_AUTHEN : ftl::mmio::Register<
     0x40CC63BCu,
@@ -23311,8 +23624,9 @@ struct LPCG29_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG29_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG30_DIRECT_fields_ {
+struct LPCG30_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -23322,7 +23636,7 @@ namespace LPCG30_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG30_DIRECT_fields_
+};  // struct LPCG30_DIRECT_fields_
 
 struct LPCG30_DIRECT : ftl::mmio::Register<
     0x40CC63C0u,
@@ -23335,8 +23649,9 @@ struct LPCG30_DIRECT : ftl::mmio::Register<
   using ON = LPCG30_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG30_DOMAIN_fields_ {
+struct LPCG30_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -23412,7 +23727,7 @@ namespace LPCG30_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG30_DOMAIN_fields_
+};  // struct LPCG30_DOMAIN_fields_
 
 struct LPCG30_DOMAIN : ftl::mmio::Register<
     0x40CC63C4u,
@@ -23441,13 +23756,14 @@ struct LPCG30_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG30_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG30_SETPOINT_fields_ {
+struct LPCG30_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG30_SETPOINT_fields_
+};  // struct LPCG30_SETPOINT_fields_
 
 struct LPCG30_SETPOINT : ftl::mmio::Register<
     0x40CC63C8u,
@@ -23460,8 +23776,9 @@ struct LPCG30_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG30_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG30_STATUS0_fields_ {
+struct LPCG30_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -23545,7 +23862,7 @@ namespace LPCG30_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG30_STATUS0_fields_
+};  // struct LPCG30_STATUS0_fields_
 
 struct LPCG30_STATUS0 : ftl::mmio::Register<
     0x40CC63D0u,
@@ -23565,8 +23882,9 @@ struct LPCG30_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG30_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG30_STATUS1_fields_ {
+struct LPCG30_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -23731,7 +24049,7 @@ namespace LPCG30_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG30_STATUS1_fields_
+};  // struct LPCG30_STATUS1_fields_
 
 struct LPCG30_STATUS1 : ftl::mmio::Register<
     0x40CC63D4u,
@@ -23793,8 +24111,9 @@ struct LPCG30_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG30_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG30_CONFIG_fields_ {
+struct LPCG30_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -23804,7 +24123,7 @@ namespace LPCG30_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG30_CONFIG_fields_
+};  // struct LPCG30_CONFIG_fields_
 
 struct LPCG30_CONFIG : ftl::mmio::Register<
     0x40CC63D8u,
@@ -23818,8 +24137,9 @@ struct LPCG30_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG30_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG30_AUTHEN_fields_ {
+struct LPCG30_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -23894,7 +24214,7 @@ namespace LPCG30_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG30_AUTHEN_fields_
+};  // struct LPCG30_AUTHEN_fields_
 
 struct LPCG30_AUTHEN : ftl::mmio::Register<
     0x40CC63DCu,
@@ -23934,8 +24254,9 @@ struct LPCG30_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG30_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG31_DIRECT_fields_ {
+struct LPCG31_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -23945,7 +24266,7 @@ namespace LPCG31_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG31_DIRECT_fields_
+};  // struct LPCG31_DIRECT_fields_
 
 struct LPCG31_DIRECT : ftl::mmio::Register<
     0x40CC63E0u,
@@ -23958,8 +24279,9 @@ struct LPCG31_DIRECT : ftl::mmio::Register<
   using ON = LPCG31_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG31_DOMAIN_fields_ {
+struct LPCG31_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -24035,7 +24357,7 @@ namespace LPCG31_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG31_DOMAIN_fields_
+};  // struct LPCG31_DOMAIN_fields_
 
 struct LPCG31_DOMAIN : ftl::mmio::Register<
     0x40CC63E4u,
@@ -24064,13 +24386,14 @@ struct LPCG31_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG31_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG31_SETPOINT_fields_ {
+struct LPCG31_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG31_SETPOINT_fields_
+};  // struct LPCG31_SETPOINT_fields_
 
 struct LPCG31_SETPOINT : ftl::mmio::Register<
     0x40CC63E8u,
@@ -24083,8 +24406,9 @@ struct LPCG31_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG31_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG31_STATUS0_fields_ {
+struct LPCG31_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -24168,7 +24492,7 @@ namespace LPCG31_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG31_STATUS0_fields_
+};  // struct LPCG31_STATUS0_fields_
 
 struct LPCG31_STATUS0 : ftl::mmio::Register<
     0x40CC63F0u,
@@ -24188,8 +24512,9 @@ struct LPCG31_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG31_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG31_STATUS1_fields_ {
+struct LPCG31_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -24354,7 +24679,7 @@ namespace LPCG31_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG31_STATUS1_fields_
+};  // struct LPCG31_STATUS1_fields_
 
 struct LPCG31_STATUS1 : ftl::mmio::Register<
     0x40CC63F4u,
@@ -24416,8 +24741,9 @@ struct LPCG31_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG31_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG31_CONFIG_fields_ {
+struct LPCG31_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -24427,7 +24753,7 @@ namespace LPCG31_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG31_CONFIG_fields_
+};  // struct LPCG31_CONFIG_fields_
 
 struct LPCG31_CONFIG : ftl::mmio::Register<
     0x40CC63F8u,
@@ -24441,8 +24767,9 @@ struct LPCG31_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG31_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG31_AUTHEN_fields_ {
+struct LPCG31_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -24517,7 +24844,7 @@ namespace LPCG31_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG31_AUTHEN_fields_
+};  // struct LPCG31_AUTHEN_fields_
 
 struct LPCG31_AUTHEN : ftl::mmio::Register<
     0x40CC63FCu,
@@ -24557,8 +24884,9 @@ struct LPCG31_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG31_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG32_DIRECT_fields_ {
+struct LPCG32_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -24568,7 +24896,7 @@ namespace LPCG32_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG32_DIRECT_fields_
+};  // struct LPCG32_DIRECT_fields_
 
 struct LPCG32_DIRECT : ftl::mmio::Register<
     0x40CC6400u,
@@ -24581,8 +24909,9 @@ struct LPCG32_DIRECT : ftl::mmio::Register<
   using ON = LPCG32_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG32_DOMAIN_fields_ {
+struct LPCG32_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -24658,7 +24987,7 @@ namespace LPCG32_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG32_DOMAIN_fields_
+};  // struct LPCG32_DOMAIN_fields_
 
 struct LPCG32_DOMAIN : ftl::mmio::Register<
     0x40CC6404u,
@@ -24687,13 +25016,14 @@ struct LPCG32_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG32_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG32_SETPOINT_fields_ {
+struct LPCG32_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG32_SETPOINT_fields_
+};  // struct LPCG32_SETPOINT_fields_
 
 struct LPCG32_SETPOINT : ftl::mmio::Register<
     0x40CC6408u,
@@ -24706,8 +25036,9 @@ struct LPCG32_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG32_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG32_STATUS0_fields_ {
+struct LPCG32_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -24791,7 +25122,7 @@ namespace LPCG32_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG32_STATUS0_fields_
+};  // struct LPCG32_STATUS0_fields_
 
 struct LPCG32_STATUS0 : ftl::mmio::Register<
     0x40CC6410u,
@@ -24811,8 +25142,9 @@ struct LPCG32_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG32_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG32_STATUS1_fields_ {
+struct LPCG32_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -24977,7 +25309,7 @@ namespace LPCG32_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG32_STATUS1_fields_
+};  // struct LPCG32_STATUS1_fields_
 
 struct LPCG32_STATUS1 : ftl::mmio::Register<
     0x40CC6414u,
@@ -25039,8 +25371,9 @@ struct LPCG32_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG32_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG32_CONFIG_fields_ {
+struct LPCG32_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -25050,7 +25383,7 @@ namespace LPCG32_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG32_CONFIG_fields_
+};  // struct LPCG32_CONFIG_fields_
 
 struct LPCG32_CONFIG : ftl::mmio::Register<
     0x40CC6418u,
@@ -25064,8 +25397,9 @@ struct LPCG32_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG32_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG32_AUTHEN_fields_ {
+struct LPCG32_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -25140,7 +25474,7 @@ namespace LPCG32_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG32_AUTHEN_fields_
+};  // struct LPCG32_AUTHEN_fields_
 
 struct LPCG32_AUTHEN : ftl::mmio::Register<
     0x40CC641Cu,
@@ -25180,8 +25514,9 @@ struct LPCG32_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG32_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG33_DIRECT_fields_ {
+struct LPCG33_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -25191,7 +25526,7 @@ namespace LPCG33_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG33_DIRECT_fields_
+};  // struct LPCG33_DIRECT_fields_
 
 struct LPCG33_DIRECT : ftl::mmio::Register<
     0x40CC6420u,
@@ -25204,8 +25539,9 @@ struct LPCG33_DIRECT : ftl::mmio::Register<
   using ON = LPCG33_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG33_DOMAIN_fields_ {
+struct LPCG33_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -25281,7 +25617,7 @@ namespace LPCG33_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG33_DOMAIN_fields_
+};  // struct LPCG33_DOMAIN_fields_
 
 struct LPCG33_DOMAIN : ftl::mmio::Register<
     0x40CC6424u,
@@ -25310,13 +25646,14 @@ struct LPCG33_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG33_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG33_SETPOINT_fields_ {
+struct LPCG33_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG33_SETPOINT_fields_
+};  // struct LPCG33_SETPOINT_fields_
 
 struct LPCG33_SETPOINT : ftl::mmio::Register<
     0x40CC6428u,
@@ -25329,8 +25666,9 @@ struct LPCG33_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG33_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG33_STATUS0_fields_ {
+struct LPCG33_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -25414,7 +25752,7 @@ namespace LPCG33_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG33_STATUS0_fields_
+};  // struct LPCG33_STATUS0_fields_
 
 struct LPCG33_STATUS0 : ftl::mmio::Register<
     0x40CC6430u,
@@ -25434,8 +25772,9 @@ struct LPCG33_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG33_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG33_STATUS1_fields_ {
+struct LPCG33_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -25600,7 +25939,7 @@ namespace LPCG33_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG33_STATUS1_fields_
+};  // struct LPCG33_STATUS1_fields_
 
 struct LPCG33_STATUS1 : ftl::mmio::Register<
     0x40CC6434u,
@@ -25662,8 +26001,9 @@ struct LPCG33_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG33_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG33_CONFIG_fields_ {
+struct LPCG33_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -25673,7 +26013,7 @@ namespace LPCG33_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG33_CONFIG_fields_
+};  // struct LPCG33_CONFIG_fields_
 
 struct LPCG33_CONFIG : ftl::mmio::Register<
     0x40CC6438u,
@@ -25687,8 +26027,9 @@ struct LPCG33_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG33_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG33_AUTHEN_fields_ {
+struct LPCG33_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -25763,7 +26104,7 @@ namespace LPCG33_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG33_AUTHEN_fields_
+};  // struct LPCG33_AUTHEN_fields_
 
 struct LPCG33_AUTHEN : ftl::mmio::Register<
     0x40CC643Cu,
@@ -25803,8 +26144,9 @@ struct LPCG33_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG33_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG34_DIRECT_fields_ {
+struct LPCG34_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -25814,7 +26156,7 @@ namespace LPCG34_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG34_DIRECT_fields_
+};  // struct LPCG34_DIRECT_fields_
 
 struct LPCG34_DIRECT : ftl::mmio::Register<
     0x40CC6440u,
@@ -25827,8 +26169,9 @@ struct LPCG34_DIRECT : ftl::mmio::Register<
   using ON = LPCG34_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG34_DOMAIN_fields_ {
+struct LPCG34_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -25904,7 +26247,7 @@ namespace LPCG34_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG34_DOMAIN_fields_
+};  // struct LPCG34_DOMAIN_fields_
 
 struct LPCG34_DOMAIN : ftl::mmio::Register<
     0x40CC6444u,
@@ -25933,13 +26276,14 @@ struct LPCG34_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG34_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG34_SETPOINT_fields_ {
+struct LPCG34_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG34_SETPOINT_fields_
+};  // struct LPCG34_SETPOINT_fields_
 
 struct LPCG34_SETPOINT : ftl::mmio::Register<
     0x40CC6448u,
@@ -25952,8 +26296,9 @@ struct LPCG34_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG34_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG34_STATUS0_fields_ {
+struct LPCG34_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -26037,7 +26382,7 @@ namespace LPCG34_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG34_STATUS0_fields_
+};  // struct LPCG34_STATUS0_fields_
 
 struct LPCG34_STATUS0 : ftl::mmio::Register<
     0x40CC6450u,
@@ -26057,8 +26402,9 @@ struct LPCG34_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG34_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG34_STATUS1_fields_ {
+struct LPCG34_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -26223,7 +26569,7 @@ namespace LPCG34_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG34_STATUS1_fields_
+};  // struct LPCG34_STATUS1_fields_
 
 struct LPCG34_STATUS1 : ftl::mmio::Register<
     0x40CC6454u,
@@ -26285,8 +26631,9 @@ struct LPCG34_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG34_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG34_CONFIG_fields_ {
+struct LPCG34_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -26296,7 +26643,7 @@ namespace LPCG34_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG34_CONFIG_fields_
+};  // struct LPCG34_CONFIG_fields_
 
 struct LPCG34_CONFIG : ftl::mmio::Register<
     0x40CC6458u,
@@ -26310,8 +26657,9 @@ struct LPCG34_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG34_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG34_AUTHEN_fields_ {
+struct LPCG34_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -26386,7 +26734,7 @@ namespace LPCG34_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG34_AUTHEN_fields_
+};  // struct LPCG34_AUTHEN_fields_
 
 struct LPCG34_AUTHEN : ftl::mmio::Register<
     0x40CC645Cu,
@@ -26426,8 +26774,9 @@ struct LPCG34_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG34_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG35_DIRECT_fields_ {
+struct LPCG35_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -26437,7 +26786,7 @@ namespace LPCG35_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG35_DIRECT_fields_
+};  // struct LPCG35_DIRECT_fields_
 
 struct LPCG35_DIRECT : ftl::mmio::Register<
     0x40CC6460u,
@@ -26450,8 +26799,9 @@ struct LPCG35_DIRECT : ftl::mmio::Register<
   using ON = LPCG35_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG35_DOMAIN_fields_ {
+struct LPCG35_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -26527,7 +26877,7 @@ namespace LPCG35_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG35_DOMAIN_fields_
+};  // struct LPCG35_DOMAIN_fields_
 
 struct LPCG35_DOMAIN : ftl::mmio::Register<
     0x40CC6464u,
@@ -26556,13 +26906,14 @@ struct LPCG35_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG35_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG35_SETPOINT_fields_ {
+struct LPCG35_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG35_SETPOINT_fields_
+};  // struct LPCG35_SETPOINT_fields_
 
 struct LPCG35_SETPOINT : ftl::mmio::Register<
     0x40CC6468u,
@@ -26575,8 +26926,9 @@ struct LPCG35_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG35_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG35_STATUS0_fields_ {
+struct LPCG35_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -26660,7 +27012,7 @@ namespace LPCG35_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG35_STATUS0_fields_
+};  // struct LPCG35_STATUS0_fields_
 
 struct LPCG35_STATUS0 : ftl::mmio::Register<
     0x40CC6470u,
@@ -26680,8 +27032,9 @@ struct LPCG35_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG35_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG35_STATUS1_fields_ {
+struct LPCG35_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -26846,7 +27199,7 @@ namespace LPCG35_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG35_STATUS1_fields_
+};  // struct LPCG35_STATUS1_fields_
 
 struct LPCG35_STATUS1 : ftl::mmio::Register<
     0x40CC6474u,
@@ -26908,8 +27261,9 @@ struct LPCG35_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG35_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG35_CONFIG_fields_ {
+struct LPCG35_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -26919,7 +27273,7 @@ namespace LPCG35_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG35_CONFIG_fields_
+};  // struct LPCG35_CONFIG_fields_
 
 struct LPCG35_CONFIG : ftl::mmio::Register<
     0x40CC6478u,
@@ -26933,8 +27287,9 @@ struct LPCG35_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG35_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG35_AUTHEN_fields_ {
+struct LPCG35_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -27009,7 +27364,7 @@ namespace LPCG35_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG35_AUTHEN_fields_
+};  // struct LPCG35_AUTHEN_fields_
 
 struct LPCG35_AUTHEN : ftl::mmio::Register<
     0x40CC647Cu,
@@ -27049,8 +27404,9 @@ struct LPCG35_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG35_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG36_DIRECT_fields_ {
+struct LPCG36_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -27060,7 +27416,7 @@ namespace LPCG36_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG36_DIRECT_fields_
+};  // struct LPCG36_DIRECT_fields_
 
 struct LPCG36_DIRECT : ftl::mmio::Register<
     0x40CC6480u,
@@ -27073,8 +27429,9 @@ struct LPCG36_DIRECT : ftl::mmio::Register<
   using ON = LPCG36_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG36_DOMAIN_fields_ {
+struct LPCG36_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -27150,7 +27507,7 @@ namespace LPCG36_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG36_DOMAIN_fields_
+};  // struct LPCG36_DOMAIN_fields_
 
 struct LPCG36_DOMAIN : ftl::mmio::Register<
     0x40CC6484u,
@@ -27179,13 +27536,14 @@ struct LPCG36_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG36_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG36_SETPOINT_fields_ {
+struct LPCG36_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG36_SETPOINT_fields_
+};  // struct LPCG36_SETPOINT_fields_
 
 struct LPCG36_SETPOINT : ftl::mmio::Register<
     0x40CC6488u,
@@ -27198,8 +27556,9 @@ struct LPCG36_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG36_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG36_STATUS0_fields_ {
+struct LPCG36_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -27283,7 +27642,7 @@ namespace LPCG36_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG36_STATUS0_fields_
+};  // struct LPCG36_STATUS0_fields_
 
 struct LPCG36_STATUS0 : ftl::mmio::Register<
     0x40CC6490u,
@@ -27303,8 +27662,9 @@ struct LPCG36_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG36_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG36_STATUS1_fields_ {
+struct LPCG36_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -27469,7 +27829,7 @@ namespace LPCG36_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG36_STATUS1_fields_
+};  // struct LPCG36_STATUS1_fields_
 
 struct LPCG36_STATUS1 : ftl::mmio::Register<
     0x40CC6494u,
@@ -27531,8 +27891,9 @@ struct LPCG36_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG36_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG36_CONFIG_fields_ {
+struct LPCG36_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -27542,7 +27903,7 @@ namespace LPCG36_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG36_CONFIG_fields_
+};  // struct LPCG36_CONFIG_fields_
 
 struct LPCG36_CONFIG : ftl::mmio::Register<
     0x40CC6498u,
@@ -27556,8 +27917,9 @@ struct LPCG36_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG36_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG36_AUTHEN_fields_ {
+struct LPCG36_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -27632,7 +27994,7 @@ namespace LPCG36_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG36_AUTHEN_fields_
+};  // struct LPCG36_AUTHEN_fields_
 
 struct LPCG36_AUTHEN : ftl::mmio::Register<
     0x40CC649Cu,
@@ -27672,8 +28034,9 @@ struct LPCG36_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG36_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG37_DIRECT_fields_ {
+struct LPCG37_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -27683,7 +28046,7 @@ namespace LPCG37_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG37_DIRECT_fields_
+};  // struct LPCG37_DIRECT_fields_
 
 struct LPCG37_DIRECT : ftl::mmio::Register<
     0x40CC64A0u,
@@ -27696,8 +28059,9 @@ struct LPCG37_DIRECT : ftl::mmio::Register<
   using ON = LPCG37_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG37_DOMAIN_fields_ {
+struct LPCG37_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -27773,7 +28137,7 @@ namespace LPCG37_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG37_DOMAIN_fields_
+};  // struct LPCG37_DOMAIN_fields_
 
 struct LPCG37_DOMAIN : ftl::mmio::Register<
     0x40CC64A4u,
@@ -27802,13 +28166,14 @@ struct LPCG37_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG37_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG37_SETPOINT_fields_ {
+struct LPCG37_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG37_SETPOINT_fields_
+};  // struct LPCG37_SETPOINT_fields_
 
 struct LPCG37_SETPOINT : ftl::mmio::Register<
     0x40CC64A8u,
@@ -27821,8 +28186,9 @@ struct LPCG37_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG37_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG37_STATUS0_fields_ {
+struct LPCG37_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -27906,7 +28272,7 @@ namespace LPCG37_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG37_STATUS0_fields_
+};  // struct LPCG37_STATUS0_fields_
 
 struct LPCG37_STATUS0 : ftl::mmio::Register<
     0x40CC64B0u,
@@ -27926,8 +28292,9 @@ struct LPCG37_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG37_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG37_STATUS1_fields_ {
+struct LPCG37_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -28092,7 +28459,7 @@ namespace LPCG37_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG37_STATUS1_fields_
+};  // struct LPCG37_STATUS1_fields_
 
 struct LPCG37_STATUS1 : ftl::mmio::Register<
     0x40CC64B4u,
@@ -28154,8 +28521,9 @@ struct LPCG37_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG37_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG37_CONFIG_fields_ {
+struct LPCG37_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -28165,7 +28533,7 @@ namespace LPCG37_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG37_CONFIG_fields_
+};  // struct LPCG37_CONFIG_fields_
 
 struct LPCG37_CONFIG : ftl::mmio::Register<
     0x40CC64B8u,
@@ -28179,8 +28547,9 @@ struct LPCG37_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG37_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG37_AUTHEN_fields_ {
+struct LPCG37_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -28255,7 +28624,7 @@ namespace LPCG37_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG37_AUTHEN_fields_
+};  // struct LPCG37_AUTHEN_fields_
 
 struct LPCG37_AUTHEN : ftl::mmio::Register<
     0x40CC64BCu,
@@ -28295,8 +28664,9 @@ struct LPCG37_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG37_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG38_DIRECT_fields_ {
+struct LPCG38_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -28306,7 +28676,7 @@ namespace LPCG38_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG38_DIRECT_fields_
+};  // struct LPCG38_DIRECT_fields_
 
 struct LPCG38_DIRECT : ftl::mmio::Register<
     0x40CC64C0u,
@@ -28319,8 +28689,9 @@ struct LPCG38_DIRECT : ftl::mmio::Register<
   using ON = LPCG38_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG38_DOMAIN_fields_ {
+struct LPCG38_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -28396,7 +28767,7 @@ namespace LPCG38_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG38_DOMAIN_fields_
+};  // struct LPCG38_DOMAIN_fields_
 
 struct LPCG38_DOMAIN : ftl::mmio::Register<
     0x40CC64C4u,
@@ -28425,13 +28796,14 @@ struct LPCG38_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG38_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG38_SETPOINT_fields_ {
+struct LPCG38_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG38_SETPOINT_fields_
+};  // struct LPCG38_SETPOINT_fields_
 
 struct LPCG38_SETPOINT : ftl::mmio::Register<
     0x40CC64C8u,
@@ -28444,8 +28816,9 @@ struct LPCG38_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG38_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG38_STATUS0_fields_ {
+struct LPCG38_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -28529,7 +28902,7 @@ namespace LPCG38_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG38_STATUS0_fields_
+};  // struct LPCG38_STATUS0_fields_
 
 struct LPCG38_STATUS0 : ftl::mmio::Register<
     0x40CC64D0u,
@@ -28549,8 +28922,9 @@ struct LPCG38_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG38_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG38_STATUS1_fields_ {
+struct LPCG38_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -28715,7 +29089,7 @@ namespace LPCG38_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG38_STATUS1_fields_
+};  // struct LPCG38_STATUS1_fields_
 
 struct LPCG38_STATUS1 : ftl::mmio::Register<
     0x40CC64D4u,
@@ -28777,8 +29151,9 @@ struct LPCG38_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG38_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG38_CONFIG_fields_ {
+struct LPCG38_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -28788,7 +29163,7 @@ namespace LPCG38_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG38_CONFIG_fields_
+};  // struct LPCG38_CONFIG_fields_
 
 struct LPCG38_CONFIG : ftl::mmio::Register<
     0x40CC64D8u,
@@ -28802,8 +29177,9 @@ struct LPCG38_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG38_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG38_AUTHEN_fields_ {
+struct LPCG38_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -28878,7 +29254,7 @@ namespace LPCG38_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG38_AUTHEN_fields_
+};  // struct LPCG38_AUTHEN_fields_
 
 struct LPCG38_AUTHEN : ftl::mmio::Register<
     0x40CC64DCu,
@@ -28918,8 +29294,9 @@ struct LPCG38_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG38_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG39_DIRECT_fields_ {
+struct LPCG39_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -28929,7 +29306,7 @@ namespace LPCG39_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG39_DIRECT_fields_
+};  // struct LPCG39_DIRECT_fields_
 
 struct LPCG39_DIRECT : ftl::mmio::Register<
     0x40CC64E0u,
@@ -28942,8 +29319,9 @@ struct LPCG39_DIRECT : ftl::mmio::Register<
   using ON = LPCG39_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG39_DOMAIN_fields_ {
+struct LPCG39_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -29019,7 +29397,7 @@ namespace LPCG39_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG39_DOMAIN_fields_
+};  // struct LPCG39_DOMAIN_fields_
 
 struct LPCG39_DOMAIN : ftl::mmio::Register<
     0x40CC64E4u,
@@ -29048,13 +29426,14 @@ struct LPCG39_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG39_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG39_SETPOINT_fields_ {
+struct LPCG39_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG39_SETPOINT_fields_
+};  // struct LPCG39_SETPOINT_fields_
 
 struct LPCG39_SETPOINT : ftl::mmio::Register<
     0x40CC64E8u,
@@ -29067,8 +29446,9 @@ struct LPCG39_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG39_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG39_STATUS0_fields_ {
+struct LPCG39_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -29152,7 +29532,7 @@ namespace LPCG39_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG39_STATUS0_fields_
+};  // struct LPCG39_STATUS0_fields_
 
 struct LPCG39_STATUS0 : ftl::mmio::Register<
     0x40CC64F0u,
@@ -29172,8 +29552,9 @@ struct LPCG39_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG39_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG39_STATUS1_fields_ {
+struct LPCG39_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -29338,7 +29719,7 @@ namespace LPCG39_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG39_STATUS1_fields_
+};  // struct LPCG39_STATUS1_fields_
 
 struct LPCG39_STATUS1 : ftl::mmio::Register<
     0x40CC64F4u,
@@ -29400,8 +29781,9 @@ struct LPCG39_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG39_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG39_CONFIG_fields_ {
+struct LPCG39_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -29411,7 +29793,7 @@ namespace LPCG39_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG39_CONFIG_fields_
+};  // struct LPCG39_CONFIG_fields_
 
 struct LPCG39_CONFIG : ftl::mmio::Register<
     0x40CC64F8u,
@@ -29425,8 +29807,9 @@ struct LPCG39_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG39_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG39_AUTHEN_fields_ {
+struct LPCG39_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -29501,7 +29884,7 @@ namespace LPCG39_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG39_AUTHEN_fields_
+};  // struct LPCG39_AUTHEN_fields_
 
 struct LPCG39_AUTHEN : ftl::mmio::Register<
     0x40CC64FCu,
@@ -29541,8 +29924,9 @@ struct LPCG39_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG39_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG40_DIRECT_fields_ {
+struct LPCG40_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -29552,7 +29936,7 @@ namespace LPCG40_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG40_DIRECT_fields_
+};  // struct LPCG40_DIRECT_fields_
 
 struct LPCG40_DIRECT : ftl::mmio::Register<
     0x40CC6500u,
@@ -29565,8 +29949,9 @@ struct LPCG40_DIRECT : ftl::mmio::Register<
   using ON = LPCG40_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG40_DOMAIN_fields_ {
+struct LPCG40_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -29642,7 +30027,7 @@ namespace LPCG40_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG40_DOMAIN_fields_
+};  // struct LPCG40_DOMAIN_fields_
 
 struct LPCG40_DOMAIN : ftl::mmio::Register<
     0x40CC6504u,
@@ -29671,13 +30056,14 @@ struct LPCG40_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG40_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG40_SETPOINT_fields_ {
+struct LPCG40_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG40_SETPOINT_fields_
+};  // struct LPCG40_SETPOINT_fields_
 
 struct LPCG40_SETPOINT : ftl::mmio::Register<
     0x40CC6508u,
@@ -29690,8 +30076,9 @@ struct LPCG40_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG40_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG40_STATUS0_fields_ {
+struct LPCG40_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -29775,7 +30162,7 @@ namespace LPCG40_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG40_STATUS0_fields_
+};  // struct LPCG40_STATUS0_fields_
 
 struct LPCG40_STATUS0 : ftl::mmio::Register<
     0x40CC6510u,
@@ -29795,8 +30182,9 @@ struct LPCG40_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG40_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG40_STATUS1_fields_ {
+struct LPCG40_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -29961,7 +30349,7 @@ namespace LPCG40_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG40_STATUS1_fields_
+};  // struct LPCG40_STATUS1_fields_
 
 struct LPCG40_STATUS1 : ftl::mmio::Register<
     0x40CC6514u,
@@ -30023,8 +30411,9 @@ struct LPCG40_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG40_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG40_CONFIG_fields_ {
+struct LPCG40_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -30034,7 +30423,7 @@ namespace LPCG40_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG40_CONFIG_fields_
+};  // struct LPCG40_CONFIG_fields_
 
 struct LPCG40_CONFIG : ftl::mmio::Register<
     0x40CC6518u,
@@ -30048,8 +30437,9 @@ struct LPCG40_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG40_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG40_AUTHEN_fields_ {
+struct LPCG40_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -30124,7 +30514,7 @@ namespace LPCG40_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG40_AUTHEN_fields_
+};  // struct LPCG40_AUTHEN_fields_
 
 struct LPCG40_AUTHEN : ftl::mmio::Register<
     0x40CC651Cu,
@@ -30164,8 +30554,9 @@ struct LPCG40_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG40_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG41_DIRECT_fields_ {
+struct LPCG41_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -30175,7 +30566,7 @@ namespace LPCG41_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG41_DIRECT_fields_
+};  // struct LPCG41_DIRECT_fields_
 
 struct LPCG41_DIRECT : ftl::mmio::Register<
     0x40CC6520u,
@@ -30188,8 +30579,9 @@ struct LPCG41_DIRECT : ftl::mmio::Register<
   using ON = LPCG41_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG41_DOMAIN_fields_ {
+struct LPCG41_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -30265,7 +30657,7 @@ namespace LPCG41_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG41_DOMAIN_fields_
+};  // struct LPCG41_DOMAIN_fields_
 
 struct LPCG41_DOMAIN : ftl::mmio::Register<
     0x40CC6524u,
@@ -30294,8 +30686,9 @@ struct LPCG41_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG41_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG41_STATUS0_fields_ {
+struct LPCG41_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -30379,7 +30772,7 @@ namespace LPCG41_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG41_STATUS0_fields_
+};  // struct LPCG41_STATUS0_fields_
 
 struct LPCG41_STATUS0 : ftl::mmio::Register<
     0x40CC6530u,
@@ -30399,8 +30792,9 @@ struct LPCG41_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG41_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG41_STATUS1_fields_ {
+struct LPCG41_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -30565,7 +30959,7 @@ namespace LPCG41_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG41_STATUS1_fields_
+};  // struct LPCG41_STATUS1_fields_
 
 struct LPCG41_STATUS1 : ftl::mmio::Register<
     0x40CC6534u,
@@ -30627,8 +31021,9 @@ struct LPCG41_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG41_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG41_CONFIG_fields_ {
+struct LPCG41_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -30638,7 +31033,7 @@ namespace LPCG41_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG41_CONFIG_fields_
+};  // struct LPCG41_CONFIG_fields_
 
 struct LPCG41_CONFIG : ftl::mmio::Register<
     0x40CC6538u,
@@ -30652,8 +31047,9 @@ struct LPCG41_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG41_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG41_AUTHEN_fields_ {
+struct LPCG41_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -30728,7 +31124,7 @@ namespace LPCG41_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG41_AUTHEN_fields_
+};  // struct LPCG41_AUTHEN_fields_
 
 struct LPCG41_AUTHEN : ftl::mmio::Register<
     0x40CC653Cu,
@@ -30768,8 +31164,9 @@ struct LPCG41_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG41_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG42_DIRECT_fields_ {
+struct LPCG42_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -30779,7 +31176,7 @@ namespace LPCG42_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG42_DIRECT_fields_
+};  // struct LPCG42_DIRECT_fields_
 
 struct LPCG42_DIRECT : ftl::mmio::Register<
     0x40CC6540u,
@@ -30792,8 +31189,9 @@ struct LPCG42_DIRECT : ftl::mmio::Register<
   using ON = LPCG42_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG42_DOMAIN_fields_ {
+struct LPCG42_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -30869,7 +31267,7 @@ namespace LPCG42_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG42_DOMAIN_fields_
+};  // struct LPCG42_DOMAIN_fields_
 
 struct LPCG42_DOMAIN : ftl::mmio::Register<
     0x40CC6544u,
@@ -30898,8 +31296,9 @@ struct LPCG42_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG42_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG42_STATUS0_fields_ {
+struct LPCG42_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -30983,7 +31382,7 @@ namespace LPCG42_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG42_STATUS0_fields_
+};  // struct LPCG42_STATUS0_fields_
 
 struct LPCG42_STATUS0 : ftl::mmio::Register<
     0x40CC6550u,
@@ -31003,8 +31402,9 @@ struct LPCG42_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG42_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG42_STATUS1_fields_ {
+struct LPCG42_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -31169,7 +31569,7 @@ namespace LPCG42_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG42_STATUS1_fields_
+};  // struct LPCG42_STATUS1_fields_
 
 struct LPCG42_STATUS1 : ftl::mmio::Register<
     0x40CC6554u,
@@ -31231,8 +31631,9 @@ struct LPCG42_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG42_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG42_CONFIG_fields_ {
+struct LPCG42_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -31242,7 +31643,7 @@ namespace LPCG42_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG42_CONFIG_fields_
+};  // struct LPCG42_CONFIG_fields_
 
 struct LPCG42_CONFIG : ftl::mmio::Register<
     0x40CC6558u,
@@ -31256,8 +31657,9 @@ struct LPCG42_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG42_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG42_AUTHEN_fields_ {
+struct LPCG42_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -31332,7 +31734,7 @@ namespace LPCG42_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG42_AUTHEN_fields_
+};  // struct LPCG42_AUTHEN_fields_
 
 struct LPCG42_AUTHEN : ftl::mmio::Register<
     0x40CC655Cu,
@@ -31372,8 +31774,9 @@ struct LPCG42_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG42_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG43_DIRECT_fields_ {
+struct LPCG43_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -31383,7 +31786,7 @@ namespace LPCG43_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG43_DIRECT_fields_
+};  // struct LPCG43_DIRECT_fields_
 
 struct LPCG43_DIRECT : ftl::mmio::Register<
     0x40CC6560u,
@@ -31396,8 +31799,9 @@ struct LPCG43_DIRECT : ftl::mmio::Register<
   using ON = LPCG43_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG43_DOMAIN_fields_ {
+struct LPCG43_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -31473,7 +31877,7 @@ namespace LPCG43_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG43_DOMAIN_fields_
+};  // struct LPCG43_DOMAIN_fields_
 
 struct LPCG43_DOMAIN : ftl::mmio::Register<
     0x40CC6564u,
@@ -31502,13 +31906,14 @@ struct LPCG43_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG43_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG43_SETPOINT_fields_ {
+struct LPCG43_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG43_SETPOINT_fields_
+};  // struct LPCG43_SETPOINT_fields_
 
 struct LPCG43_SETPOINT : ftl::mmio::Register<
     0x40CC6568u,
@@ -31521,8 +31926,9 @@ struct LPCG43_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG43_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG43_STATUS0_fields_ {
+struct LPCG43_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -31606,7 +32012,7 @@ namespace LPCG43_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG43_STATUS0_fields_
+};  // struct LPCG43_STATUS0_fields_
 
 struct LPCG43_STATUS0 : ftl::mmio::Register<
     0x40CC6570u,
@@ -31626,8 +32032,9 @@ struct LPCG43_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG43_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG43_STATUS1_fields_ {
+struct LPCG43_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -31792,7 +32199,7 @@ namespace LPCG43_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG43_STATUS1_fields_
+};  // struct LPCG43_STATUS1_fields_
 
 struct LPCG43_STATUS1 : ftl::mmio::Register<
     0x40CC6574u,
@@ -31854,8 +32261,9 @@ struct LPCG43_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG43_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG43_CONFIG_fields_ {
+struct LPCG43_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -31865,7 +32273,7 @@ namespace LPCG43_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG43_CONFIG_fields_
+};  // struct LPCG43_CONFIG_fields_
 
 struct LPCG43_CONFIG : ftl::mmio::Register<
     0x40CC6578u,
@@ -31879,8 +32287,9 @@ struct LPCG43_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG43_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG43_AUTHEN_fields_ {
+struct LPCG43_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -31955,7 +32364,7 @@ namespace LPCG43_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG43_AUTHEN_fields_
+};  // struct LPCG43_AUTHEN_fields_
 
 struct LPCG43_AUTHEN : ftl::mmio::Register<
     0x40CC657Cu,
@@ -31995,8 +32404,9 @@ struct LPCG43_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG43_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG44_DIRECT_fields_ {
+struct LPCG44_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -32006,7 +32416,7 @@ namespace LPCG44_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG44_DIRECT_fields_
+};  // struct LPCG44_DIRECT_fields_
 
 struct LPCG44_DIRECT : ftl::mmio::Register<
     0x40CC6580u,
@@ -32019,8 +32429,9 @@ struct LPCG44_DIRECT : ftl::mmio::Register<
   using ON = LPCG44_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG44_DOMAIN_fields_ {
+struct LPCG44_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -32096,7 +32507,7 @@ namespace LPCG44_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG44_DOMAIN_fields_
+};  // struct LPCG44_DOMAIN_fields_
 
 struct LPCG44_DOMAIN : ftl::mmio::Register<
     0x40CC6584u,
@@ -32125,13 +32536,14 @@ struct LPCG44_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG44_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG44_SETPOINT_fields_ {
+struct LPCG44_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG44_SETPOINT_fields_
+};  // struct LPCG44_SETPOINT_fields_
 
 struct LPCG44_SETPOINT : ftl::mmio::Register<
     0x40CC6588u,
@@ -32144,8 +32556,9 @@ struct LPCG44_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG44_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG44_STATUS0_fields_ {
+struct LPCG44_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -32229,7 +32642,7 @@ namespace LPCG44_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG44_STATUS0_fields_
+};  // struct LPCG44_STATUS0_fields_
 
 struct LPCG44_STATUS0 : ftl::mmio::Register<
     0x40CC6590u,
@@ -32249,8 +32662,9 @@ struct LPCG44_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG44_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG44_STATUS1_fields_ {
+struct LPCG44_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -32415,7 +32829,7 @@ namespace LPCG44_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG44_STATUS1_fields_
+};  // struct LPCG44_STATUS1_fields_
 
 struct LPCG44_STATUS1 : ftl::mmio::Register<
     0x40CC6594u,
@@ -32477,8 +32891,9 @@ struct LPCG44_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG44_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG44_CONFIG_fields_ {
+struct LPCG44_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -32488,7 +32903,7 @@ namespace LPCG44_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG44_CONFIG_fields_
+};  // struct LPCG44_CONFIG_fields_
 
 struct LPCG44_CONFIG : ftl::mmio::Register<
     0x40CC6598u,
@@ -32502,8 +32917,9 @@ struct LPCG44_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG44_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG44_AUTHEN_fields_ {
+struct LPCG44_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -32578,7 +32994,7 @@ namespace LPCG44_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG44_AUTHEN_fields_
+};  // struct LPCG44_AUTHEN_fields_
 
 struct LPCG44_AUTHEN : ftl::mmio::Register<
     0x40CC659Cu,
@@ -32618,8 +33034,9 @@ struct LPCG44_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG44_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG45_DIRECT_fields_ {
+struct LPCG45_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -32629,7 +33046,7 @@ namespace LPCG45_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG45_DIRECT_fields_
+};  // struct LPCG45_DIRECT_fields_
 
 struct LPCG45_DIRECT : ftl::mmio::Register<
     0x40CC65A0u,
@@ -32642,8 +33059,9 @@ struct LPCG45_DIRECT : ftl::mmio::Register<
   using ON = LPCG45_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG45_DOMAIN_fields_ {
+struct LPCG45_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -32719,7 +33137,7 @@ namespace LPCG45_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG45_DOMAIN_fields_
+};  // struct LPCG45_DOMAIN_fields_
 
 struct LPCG45_DOMAIN : ftl::mmio::Register<
     0x40CC65A4u,
@@ -32748,13 +33166,14 @@ struct LPCG45_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG45_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG45_SETPOINT_fields_ {
+struct LPCG45_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG45_SETPOINT_fields_
+};  // struct LPCG45_SETPOINT_fields_
 
 struct LPCG45_SETPOINT : ftl::mmio::Register<
     0x40CC65A8u,
@@ -32767,8 +33186,9 @@ struct LPCG45_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG45_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG45_STATUS0_fields_ {
+struct LPCG45_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -32852,7 +33272,7 @@ namespace LPCG45_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG45_STATUS0_fields_
+};  // struct LPCG45_STATUS0_fields_
 
 struct LPCG45_STATUS0 : ftl::mmio::Register<
     0x40CC65B0u,
@@ -32872,8 +33292,9 @@ struct LPCG45_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG45_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG45_STATUS1_fields_ {
+struct LPCG45_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -33038,7 +33459,7 @@ namespace LPCG45_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG45_STATUS1_fields_
+};  // struct LPCG45_STATUS1_fields_
 
 struct LPCG45_STATUS1 : ftl::mmio::Register<
     0x40CC65B4u,
@@ -33100,8 +33521,9 @@ struct LPCG45_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG45_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG45_CONFIG_fields_ {
+struct LPCG45_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -33111,7 +33533,7 @@ namespace LPCG45_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG45_CONFIG_fields_
+};  // struct LPCG45_CONFIG_fields_
 
 struct LPCG45_CONFIG : ftl::mmio::Register<
     0x40CC65B8u,
@@ -33125,8 +33547,9 @@ struct LPCG45_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG45_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG45_AUTHEN_fields_ {
+struct LPCG45_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -33201,7 +33624,7 @@ namespace LPCG45_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG45_AUTHEN_fields_
+};  // struct LPCG45_AUTHEN_fields_
 
 struct LPCG45_AUTHEN : ftl::mmio::Register<
     0x40CC65BCu,
@@ -33241,8 +33664,9 @@ struct LPCG45_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG45_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG46_DIRECT_fields_ {
+struct LPCG46_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -33252,7 +33676,7 @@ namespace LPCG46_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG46_DIRECT_fields_
+};  // struct LPCG46_DIRECT_fields_
 
 struct LPCG46_DIRECT : ftl::mmio::Register<
     0x40CC65C0u,
@@ -33265,8 +33689,9 @@ struct LPCG46_DIRECT : ftl::mmio::Register<
   using ON = LPCG46_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG46_DOMAIN_fields_ {
+struct LPCG46_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -33342,7 +33767,7 @@ namespace LPCG46_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG46_DOMAIN_fields_
+};  // struct LPCG46_DOMAIN_fields_
 
 struct LPCG46_DOMAIN : ftl::mmio::Register<
     0x40CC65C4u,
@@ -33371,13 +33796,14 @@ struct LPCG46_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG46_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG46_SETPOINT_fields_ {
+struct LPCG46_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG46_SETPOINT_fields_
+};  // struct LPCG46_SETPOINT_fields_
 
 struct LPCG46_SETPOINT : ftl::mmio::Register<
     0x40CC65C8u,
@@ -33390,8 +33816,9 @@ struct LPCG46_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG46_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG46_STATUS0_fields_ {
+struct LPCG46_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -33475,7 +33902,7 @@ namespace LPCG46_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG46_STATUS0_fields_
+};  // struct LPCG46_STATUS0_fields_
 
 struct LPCG46_STATUS0 : ftl::mmio::Register<
     0x40CC65D0u,
@@ -33495,8 +33922,9 @@ struct LPCG46_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG46_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG46_STATUS1_fields_ {
+struct LPCG46_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -33661,7 +34089,7 @@ namespace LPCG46_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG46_STATUS1_fields_
+};  // struct LPCG46_STATUS1_fields_
 
 struct LPCG46_STATUS1 : ftl::mmio::Register<
     0x40CC65D4u,
@@ -33723,8 +34151,9 @@ struct LPCG46_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG46_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG46_CONFIG_fields_ {
+struct LPCG46_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -33734,7 +34163,7 @@ namespace LPCG46_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG46_CONFIG_fields_
+};  // struct LPCG46_CONFIG_fields_
 
 struct LPCG46_CONFIG : ftl::mmio::Register<
     0x40CC65D8u,
@@ -33748,8 +34177,9 @@ struct LPCG46_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG46_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG46_AUTHEN_fields_ {
+struct LPCG46_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -33824,7 +34254,7 @@ namespace LPCG46_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG46_AUTHEN_fields_
+};  // struct LPCG46_AUTHEN_fields_
 
 struct LPCG46_AUTHEN : ftl::mmio::Register<
     0x40CC65DCu,
@@ -33864,8 +34294,9 @@ struct LPCG46_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG46_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG47_DIRECT_fields_ {
+struct LPCG47_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -33875,7 +34306,7 @@ namespace LPCG47_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG47_DIRECT_fields_
+};  // struct LPCG47_DIRECT_fields_
 
 struct LPCG47_DIRECT : ftl::mmio::Register<
     0x40CC65E0u,
@@ -33888,8 +34319,9 @@ struct LPCG47_DIRECT : ftl::mmio::Register<
   using ON = LPCG47_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG47_DOMAIN_fields_ {
+struct LPCG47_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -33965,7 +34397,7 @@ namespace LPCG47_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG47_DOMAIN_fields_
+};  // struct LPCG47_DOMAIN_fields_
 
 struct LPCG47_DOMAIN : ftl::mmio::Register<
     0x40CC65E4u,
@@ -33994,13 +34426,14 @@ struct LPCG47_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG47_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG47_SETPOINT_fields_ {
+struct LPCG47_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG47_SETPOINT_fields_
+};  // struct LPCG47_SETPOINT_fields_
 
 struct LPCG47_SETPOINT : ftl::mmio::Register<
     0x40CC65E8u,
@@ -34013,8 +34446,9 @@ struct LPCG47_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG47_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG47_STATUS0_fields_ {
+struct LPCG47_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -34098,7 +34532,7 @@ namespace LPCG47_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG47_STATUS0_fields_
+};  // struct LPCG47_STATUS0_fields_
 
 struct LPCG47_STATUS0 : ftl::mmio::Register<
     0x40CC65F0u,
@@ -34118,8 +34552,9 @@ struct LPCG47_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG47_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG47_STATUS1_fields_ {
+struct LPCG47_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -34284,7 +34719,7 @@ namespace LPCG47_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG47_STATUS1_fields_
+};  // struct LPCG47_STATUS1_fields_
 
 struct LPCG47_STATUS1 : ftl::mmio::Register<
     0x40CC65F4u,
@@ -34346,8 +34781,9 @@ struct LPCG47_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG47_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG47_CONFIG_fields_ {
+struct LPCG47_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -34357,7 +34793,7 @@ namespace LPCG47_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG47_CONFIG_fields_
+};  // struct LPCG47_CONFIG_fields_
 
 struct LPCG47_CONFIG : ftl::mmio::Register<
     0x40CC65F8u,
@@ -34371,8 +34807,9 @@ struct LPCG47_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG47_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG47_AUTHEN_fields_ {
+struct LPCG47_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -34447,7 +34884,7 @@ namespace LPCG47_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG47_AUTHEN_fields_
+};  // struct LPCG47_AUTHEN_fields_
 
 struct LPCG47_AUTHEN : ftl::mmio::Register<
     0x40CC65FCu,
@@ -34487,8 +34924,9 @@ struct LPCG47_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG47_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG48_DIRECT_fields_ {
+struct LPCG48_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -34498,7 +34936,7 @@ namespace LPCG48_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG48_DIRECT_fields_
+};  // struct LPCG48_DIRECT_fields_
 
 struct LPCG48_DIRECT : ftl::mmio::Register<
     0x40CC6600u,
@@ -34511,8 +34949,9 @@ struct LPCG48_DIRECT : ftl::mmio::Register<
   using ON = LPCG48_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG48_DOMAIN_fields_ {
+struct LPCG48_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -34588,7 +35027,7 @@ namespace LPCG48_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG48_DOMAIN_fields_
+};  // struct LPCG48_DOMAIN_fields_
 
 struct LPCG48_DOMAIN : ftl::mmio::Register<
     0x40CC6604u,
@@ -34617,13 +35056,14 @@ struct LPCG48_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG48_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG Setpoint setting
-namespace LPCG48_SETPOINT_fields_ {
+struct LPCG48_SETPOINT_fields_ {
   // Setpoints
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG48_SETPOINT_fields_
+};  // struct LPCG48_SETPOINT_fields_
 
 struct LPCG48_SETPOINT : ftl::mmio::Register<
     0x40CC6608u,
@@ -34636,8 +35076,9 @@ struct LPCG48_SETPOINT : ftl::mmio::Register<
   using STANDBY = LPCG48_SETPOINT_fields_::STANDBY;
 };
 
+
 // LPCG working status
-namespace LPCG48_STATUS0_fields_ {
+struct LPCG48_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -34721,7 +35162,7 @@ namespace LPCG48_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG48_STATUS0_fields_
+};  // struct LPCG48_STATUS0_fields_
 
 struct LPCG48_STATUS0 : ftl::mmio::Register<
     0x40CC6610u,
@@ -34741,8 +35182,9 @@ struct LPCG48_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG48_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG48_STATUS1_fields_ {
+struct LPCG48_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -34907,7 +35349,7 @@ namespace LPCG48_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG48_STATUS1_fields_
+};  // struct LPCG48_STATUS1_fields_
 
 struct LPCG48_STATUS1 : ftl::mmio::Register<
     0x40CC6614u,
@@ -34969,8 +35411,9 @@ struct LPCG48_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG48_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG48_CONFIG_fields_ {
+struct LPCG48_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -34980,7 +35423,7 @@ namespace LPCG48_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG48_CONFIG_fields_
+};  // struct LPCG48_CONFIG_fields_
 
 struct LPCG48_CONFIG : ftl::mmio::Register<
     0x40CC6618u,
@@ -34994,8 +35437,9 @@ struct LPCG48_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG48_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG48_AUTHEN_fields_ {
+struct LPCG48_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -35070,7 +35514,7 @@ namespace LPCG48_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG48_AUTHEN_fields_
+};  // struct LPCG48_AUTHEN_fields_
 
 struct LPCG48_AUTHEN : ftl::mmio::Register<
     0x40CC661Cu,
@@ -35110,8 +35554,9 @@ struct LPCG48_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG48_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG49_DIRECT_fields_ {
+struct LPCG49_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -35121,7 +35566,7 @@ namespace LPCG49_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG49_DIRECT_fields_
+};  // struct LPCG49_DIRECT_fields_
 
 struct LPCG49_DIRECT : ftl::mmio::Register<
     0x40CC6620u,
@@ -35134,8 +35579,9 @@ struct LPCG49_DIRECT : ftl::mmio::Register<
   using ON = LPCG49_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG49_DOMAIN_fields_ {
+struct LPCG49_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -35211,7 +35657,7 @@ namespace LPCG49_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG49_DOMAIN_fields_
+};  // struct LPCG49_DOMAIN_fields_
 
 struct LPCG49_DOMAIN : ftl::mmio::Register<
     0x40CC6624u,
@@ -35240,8 +35686,9 @@ struct LPCG49_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG49_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG49_STATUS0_fields_ {
+struct LPCG49_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -35325,7 +35772,7 @@ namespace LPCG49_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG49_STATUS0_fields_
+};  // struct LPCG49_STATUS0_fields_
 
 struct LPCG49_STATUS0 : ftl::mmio::Register<
     0x40CC6630u,
@@ -35345,8 +35792,9 @@ struct LPCG49_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG49_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG49_STATUS1_fields_ {
+struct LPCG49_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -35511,7 +35959,7 @@ namespace LPCG49_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG49_STATUS1_fields_
+};  // struct LPCG49_STATUS1_fields_
 
 struct LPCG49_STATUS1 : ftl::mmio::Register<
     0x40CC6634u,
@@ -35573,8 +36021,9 @@ struct LPCG49_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG49_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG49_CONFIG_fields_ {
+struct LPCG49_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -35584,7 +36033,7 @@ namespace LPCG49_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG49_CONFIG_fields_
+};  // struct LPCG49_CONFIG_fields_
 
 struct LPCG49_CONFIG : ftl::mmio::Register<
     0x40CC6638u,
@@ -35598,8 +36047,9 @@ struct LPCG49_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG49_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG49_AUTHEN_fields_ {
+struct LPCG49_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -35674,7 +36124,7 @@ namespace LPCG49_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG49_AUTHEN_fields_
+};  // struct LPCG49_AUTHEN_fields_
 
 struct LPCG49_AUTHEN : ftl::mmio::Register<
     0x40CC663Cu,
@@ -35714,8 +36164,9 @@ struct LPCG49_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG49_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG50_DIRECT_fields_ {
+struct LPCG50_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -35725,7 +36176,7 @@ namespace LPCG50_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG50_DIRECT_fields_
+};  // struct LPCG50_DIRECT_fields_
 
 struct LPCG50_DIRECT : ftl::mmio::Register<
     0x40CC6640u,
@@ -35738,8 +36189,9 @@ struct LPCG50_DIRECT : ftl::mmio::Register<
   using ON = LPCG50_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG50_DOMAIN_fields_ {
+struct LPCG50_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -35815,7 +36267,7 @@ namespace LPCG50_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG50_DOMAIN_fields_
+};  // struct LPCG50_DOMAIN_fields_
 
 struct LPCG50_DOMAIN : ftl::mmio::Register<
     0x40CC6644u,
@@ -35844,8 +36296,9 @@ struct LPCG50_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG50_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG50_STATUS0_fields_ {
+struct LPCG50_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -35929,7 +36382,7 @@ namespace LPCG50_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG50_STATUS0_fields_
+};  // struct LPCG50_STATUS0_fields_
 
 struct LPCG50_STATUS0 : ftl::mmio::Register<
     0x40CC6650u,
@@ -35949,8 +36402,9 @@ struct LPCG50_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG50_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG50_STATUS1_fields_ {
+struct LPCG50_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -36115,7 +36569,7 @@ namespace LPCG50_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG50_STATUS1_fields_
+};  // struct LPCG50_STATUS1_fields_
 
 struct LPCG50_STATUS1 : ftl::mmio::Register<
     0x40CC6654u,
@@ -36177,8 +36631,9 @@ struct LPCG50_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG50_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG50_CONFIG_fields_ {
+struct LPCG50_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -36188,7 +36643,7 @@ namespace LPCG50_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG50_CONFIG_fields_
+};  // struct LPCG50_CONFIG_fields_
 
 struct LPCG50_CONFIG : ftl::mmio::Register<
     0x40CC6658u,
@@ -36202,8 +36657,9 @@ struct LPCG50_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG50_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG50_AUTHEN_fields_ {
+struct LPCG50_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -36278,7 +36734,7 @@ namespace LPCG50_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG50_AUTHEN_fields_
+};  // struct LPCG50_AUTHEN_fields_
 
 struct LPCG50_AUTHEN : ftl::mmio::Register<
     0x40CC665Cu,
@@ -36318,8 +36774,9 @@ struct LPCG50_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG50_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG51_DIRECT_fields_ {
+struct LPCG51_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -36329,7 +36786,7 @@ namespace LPCG51_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG51_DIRECT_fields_
+};  // struct LPCG51_DIRECT_fields_
 
 struct LPCG51_DIRECT : ftl::mmio::Register<
     0x40CC6660u,
@@ -36342,8 +36799,9 @@ struct LPCG51_DIRECT : ftl::mmio::Register<
   using ON = LPCG51_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG51_DOMAIN_fields_ {
+struct LPCG51_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -36419,7 +36877,7 @@ namespace LPCG51_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG51_DOMAIN_fields_
+};  // struct LPCG51_DOMAIN_fields_
 
 struct LPCG51_DOMAIN : ftl::mmio::Register<
     0x40CC6664u,
@@ -36448,8 +36906,9 @@ struct LPCG51_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG51_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG51_STATUS0_fields_ {
+struct LPCG51_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -36533,7 +36992,7 @@ namespace LPCG51_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG51_STATUS0_fields_
+};  // struct LPCG51_STATUS0_fields_
 
 struct LPCG51_STATUS0 : ftl::mmio::Register<
     0x40CC6670u,
@@ -36553,8 +37012,9 @@ struct LPCG51_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG51_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG51_STATUS1_fields_ {
+struct LPCG51_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -36719,7 +37179,7 @@ namespace LPCG51_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG51_STATUS1_fields_
+};  // struct LPCG51_STATUS1_fields_
 
 struct LPCG51_STATUS1 : ftl::mmio::Register<
     0x40CC6674u,
@@ -36781,8 +37241,9 @@ struct LPCG51_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG51_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG51_CONFIG_fields_ {
+struct LPCG51_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -36792,7 +37253,7 @@ namespace LPCG51_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG51_CONFIG_fields_
+};  // struct LPCG51_CONFIG_fields_
 
 struct LPCG51_CONFIG : ftl::mmio::Register<
     0x40CC6678u,
@@ -36806,8 +37267,9 @@ struct LPCG51_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG51_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG51_AUTHEN_fields_ {
+struct LPCG51_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -36882,7 +37344,7 @@ namespace LPCG51_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG51_AUTHEN_fields_
+};  // struct LPCG51_AUTHEN_fields_
 
 struct LPCG51_AUTHEN : ftl::mmio::Register<
     0x40CC667Cu,
@@ -36922,8 +37384,9 @@ struct LPCG51_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG51_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG52_DIRECT_fields_ {
+struct LPCG52_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -36933,7 +37396,7 @@ namespace LPCG52_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG52_DIRECT_fields_
+};  // struct LPCG52_DIRECT_fields_
 
 struct LPCG52_DIRECT : ftl::mmio::Register<
     0x40CC6680u,
@@ -36946,8 +37409,9 @@ struct LPCG52_DIRECT : ftl::mmio::Register<
   using ON = LPCG52_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG52_DOMAIN_fields_ {
+struct LPCG52_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -37023,7 +37487,7 @@ namespace LPCG52_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG52_DOMAIN_fields_
+};  // struct LPCG52_DOMAIN_fields_
 
 struct LPCG52_DOMAIN : ftl::mmio::Register<
     0x40CC6684u,
@@ -37052,8 +37516,9 @@ struct LPCG52_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG52_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG52_STATUS0_fields_ {
+struct LPCG52_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -37137,7 +37602,7 @@ namespace LPCG52_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG52_STATUS0_fields_
+};  // struct LPCG52_STATUS0_fields_
 
 struct LPCG52_STATUS0 : ftl::mmio::Register<
     0x40CC6690u,
@@ -37157,8 +37622,9 @@ struct LPCG52_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG52_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG52_STATUS1_fields_ {
+struct LPCG52_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -37323,7 +37789,7 @@ namespace LPCG52_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG52_STATUS1_fields_
+};  // struct LPCG52_STATUS1_fields_
 
 struct LPCG52_STATUS1 : ftl::mmio::Register<
     0x40CC6694u,
@@ -37385,8 +37851,9 @@ struct LPCG52_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG52_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG52_CONFIG_fields_ {
+struct LPCG52_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -37396,7 +37863,7 @@ namespace LPCG52_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG52_CONFIG_fields_
+};  // struct LPCG52_CONFIG_fields_
 
 struct LPCG52_CONFIG : ftl::mmio::Register<
     0x40CC6698u,
@@ -37410,8 +37877,9 @@ struct LPCG52_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG52_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG52_AUTHEN_fields_ {
+struct LPCG52_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -37486,7 +37954,7 @@ namespace LPCG52_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG52_AUTHEN_fields_
+};  // struct LPCG52_AUTHEN_fields_
 
 struct LPCG52_AUTHEN : ftl::mmio::Register<
     0x40CC669Cu,
@@ -37526,8 +37994,9 @@ struct LPCG52_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG52_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG53_DIRECT_fields_ {
+struct LPCG53_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -37537,7 +38006,7 @@ namespace LPCG53_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG53_DIRECT_fields_
+};  // struct LPCG53_DIRECT_fields_
 
 struct LPCG53_DIRECT : ftl::mmio::Register<
     0x40CC66A0u,
@@ -37550,8 +38019,9 @@ struct LPCG53_DIRECT : ftl::mmio::Register<
   using ON = LPCG53_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG53_DOMAIN_fields_ {
+struct LPCG53_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -37627,7 +38097,7 @@ namespace LPCG53_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG53_DOMAIN_fields_
+};  // struct LPCG53_DOMAIN_fields_
 
 struct LPCG53_DOMAIN : ftl::mmio::Register<
     0x40CC66A4u,
@@ -37656,8 +38126,9 @@ struct LPCG53_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG53_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG53_STATUS0_fields_ {
+struct LPCG53_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -37741,7 +38212,7 @@ namespace LPCG53_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG53_STATUS0_fields_
+};  // struct LPCG53_STATUS0_fields_
 
 struct LPCG53_STATUS0 : ftl::mmio::Register<
     0x40CC66B0u,
@@ -37761,8 +38232,9 @@ struct LPCG53_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG53_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG53_STATUS1_fields_ {
+struct LPCG53_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -37927,7 +38399,7 @@ namespace LPCG53_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG53_STATUS1_fields_
+};  // struct LPCG53_STATUS1_fields_
 
 struct LPCG53_STATUS1 : ftl::mmio::Register<
     0x40CC66B4u,
@@ -37989,8 +38461,9 @@ struct LPCG53_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG53_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG53_CONFIG_fields_ {
+struct LPCG53_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -38000,7 +38473,7 @@ namespace LPCG53_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG53_CONFIG_fields_
+};  // struct LPCG53_CONFIG_fields_
 
 struct LPCG53_CONFIG : ftl::mmio::Register<
     0x40CC66B8u,
@@ -38014,8 +38487,9 @@ struct LPCG53_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG53_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG53_AUTHEN_fields_ {
+struct LPCG53_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -38090,7 +38564,7 @@ namespace LPCG53_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG53_AUTHEN_fields_
+};  // struct LPCG53_AUTHEN_fields_
 
 struct LPCG53_AUTHEN : ftl::mmio::Register<
     0x40CC66BCu,
@@ -38130,8 +38604,9 @@ struct LPCG53_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG53_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG54_DIRECT_fields_ {
+struct LPCG54_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -38141,7 +38616,7 @@ namespace LPCG54_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG54_DIRECT_fields_
+};  // struct LPCG54_DIRECT_fields_
 
 struct LPCG54_DIRECT : ftl::mmio::Register<
     0x40CC66C0u,
@@ -38154,8 +38629,9 @@ struct LPCG54_DIRECT : ftl::mmio::Register<
   using ON = LPCG54_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG54_DOMAIN_fields_ {
+struct LPCG54_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -38231,7 +38707,7 @@ namespace LPCG54_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG54_DOMAIN_fields_
+};  // struct LPCG54_DOMAIN_fields_
 
 struct LPCG54_DOMAIN : ftl::mmio::Register<
     0x40CC66C4u,
@@ -38260,8 +38736,9 @@ struct LPCG54_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG54_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG54_STATUS0_fields_ {
+struct LPCG54_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -38345,7 +38822,7 @@ namespace LPCG54_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG54_STATUS0_fields_
+};  // struct LPCG54_STATUS0_fields_
 
 struct LPCG54_STATUS0 : ftl::mmio::Register<
     0x40CC66D0u,
@@ -38365,8 +38842,9 @@ struct LPCG54_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG54_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG54_STATUS1_fields_ {
+struct LPCG54_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -38531,7 +39009,7 @@ namespace LPCG54_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG54_STATUS1_fields_
+};  // struct LPCG54_STATUS1_fields_
 
 struct LPCG54_STATUS1 : ftl::mmio::Register<
     0x40CC66D4u,
@@ -38593,8 +39071,9 @@ struct LPCG54_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG54_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG54_CONFIG_fields_ {
+struct LPCG54_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -38604,7 +39083,7 @@ namespace LPCG54_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG54_CONFIG_fields_
+};  // struct LPCG54_CONFIG_fields_
 
 struct LPCG54_CONFIG : ftl::mmio::Register<
     0x40CC66D8u,
@@ -38618,8 +39097,9 @@ struct LPCG54_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG54_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG54_AUTHEN_fields_ {
+struct LPCG54_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -38694,7 +39174,7 @@ namespace LPCG54_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG54_AUTHEN_fields_
+};  // struct LPCG54_AUTHEN_fields_
 
 struct LPCG54_AUTHEN : ftl::mmio::Register<
     0x40CC66DCu,
@@ -38734,8 +39214,9 @@ struct LPCG54_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG54_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG55_DIRECT_fields_ {
+struct LPCG55_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -38745,7 +39226,7 @@ namespace LPCG55_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG55_DIRECT_fields_
+};  // struct LPCG55_DIRECT_fields_
 
 struct LPCG55_DIRECT : ftl::mmio::Register<
     0x40CC66E0u,
@@ -38758,8 +39239,9 @@ struct LPCG55_DIRECT : ftl::mmio::Register<
   using ON = LPCG55_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG55_DOMAIN_fields_ {
+struct LPCG55_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -38835,7 +39317,7 @@ namespace LPCG55_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG55_DOMAIN_fields_
+};  // struct LPCG55_DOMAIN_fields_
 
 struct LPCG55_DOMAIN : ftl::mmio::Register<
     0x40CC66E4u,
@@ -38864,8 +39346,9 @@ struct LPCG55_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG55_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG55_STATUS0_fields_ {
+struct LPCG55_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -38949,7 +39432,7 @@ namespace LPCG55_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG55_STATUS0_fields_
+};  // struct LPCG55_STATUS0_fields_
 
 struct LPCG55_STATUS0 : ftl::mmio::Register<
     0x40CC66F0u,
@@ -38969,8 +39452,9 @@ struct LPCG55_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG55_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG55_STATUS1_fields_ {
+struct LPCG55_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -39135,7 +39619,7 @@ namespace LPCG55_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG55_STATUS1_fields_
+};  // struct LPCG55_STATUS1_fields_
 
 struct LPCG55_STATUS1 : ftl::mmio::Register<
     0x40CC66F4u,
@@ -39197,8 +39681,9 @@ struct LPCG55_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG55_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG55_CONFIG_fields_ {
+struct LPCG55_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -39208,7 +39693,7 @@ namespace LPCG55_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG55_CONFIG_fields_
+};  // struct LPCG55_CONFIG_fields_
 
 struct LPCG55_CONFIG : ftl::mmio::Register<
     0x40CC66F8u,
@@ -39222,8 +39707,9 @@ struct LPCG55_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG55_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG55_AUTHEN_fields_ {
+struct LPCG55_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -39298,7 +39784,7 @@ namespace LPCG55_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG55_AUTHEN_fields_
+};  // struct LPCG55_AUTHEN_fields_
 
 struct LPCG55_AUTHEN : ftl::mmio::Register<
     0x40CC66FCu,
@@ -39338,8 +39824,9 @@ struct LPCG55_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG55_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG56_DIRECT_fields_ {
+struct LPCG56_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -39349,7 +39836,7 @@ namespace LPCG56_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG56_DIRECT_fields_
+};  // struct LPCG56_DIRECT_fields_
 
 struct LPCG56_DIRECT : ftl::mmio::Register<
     0x40CC6700u,
@@ -39362,8 +39849,9 @@ struct LPCG56_DIRECT : ftl::mmio::Register<
   using ON = LPCG56_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG56_DOMAIN_fields_ {
+struct LPCG56_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -39439,7 +39927,7 @@ namespace LPCG56_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG56_DOMAIN_fields_
+};  // struct LPCG56_DOMAIN_fields_
 
 struct LPCG56_DOMAIN : ftl::mmio::Register<
     0x40CC6704u,
@@ -39468,8 +39956,9 @@ struct LPCG56_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG56_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG56_STATUS0_fields_ {
+struct LPCG56_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -39553,7 +40042,7 @@ namespace LPCG56_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG56_STATUS0_fields_
+};  // struct LPCG56_STATUS0_fields_
 
 struct LPCG56_STATUS0 : ftl::mmio::Register<
     0x40CC6710u,
@@ -39573,8 +40062,9 @@ struct LPCG56_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG56_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG56_STATUS1_fields_ {
+struct LPCG56_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -39739,7 +40229,7 @@ namespace LPCG56_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG56_STATUS1_fields_
+};  // struct LPCG56_STATUS1_fields_
 
 struct LPCG56_STATUS1 : ftl::mmio::Register<
     0x40CC6714u,
@@ -39801,8 +40291,9 @@ struct LPCG56_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG56_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG56_CONFIG_fields_ {
+struct LPCG56_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -39812,7 +40303,7 @@ namespace LPCG56_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG56_CONFIG_fields_
+};  // struct LPCG56_CONFIG_fields_
 
 struct LPCG56_CONFIG : ftl::mmio::Register<
     0x40CC6718u,
@@ -39826,8 +40317,9 @@ struct LPCG56_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG56_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG56_AUTHEN_fields_ {
+struct LPCG56_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -39902,7 +40394,7 @@ namespace LPCG56_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG56_AUTHEN_fields_
+};  // struct LPCG56_AUTHEN_fields_
 
 struct LPCG56_AUTHEN : ftl::mmio::Register<
     0x40CC671Cu,
@@ -39942,8 +40434,9 @@ struct LPCG56_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG56_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG57_DIRECT_fields_ {
+struct LPCG57_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -39953,7 +40446,7 @@ namespace LPCG57_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG57_DIRECT_fields_
+};  // struct LPCG57_DIRECT_fields_
 
 struct LPCG57_DIRECT : ftl::mmio::Register<
     0x40CC6720u,
@@ -39966,8 +40459,9 @@ struct LPCG57_DIRECT : ftl::mmio::Register<
   using ON = LPCG57_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG57_DOMAIN_fields_ {
+struct LPCG57_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -40043,7 +40537,7 @@ namespace LPCG57_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG57_DOMAIN_fields_
+};  // struct LPCG57_DOMAIN_fields_
 
 struct LPCG57_DOMAIN : ftl::mmio::Register<
     0x40CC6724u,
@@ -40072,8 +40566,9 @@ struct LPCG57_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG57_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG57_STATUS0_fields_ {
+struct LPCG57_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -40157,7 +40652,7 @@ namespace LPCG57_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG57_STATUS0_fields_
+};  // struct LPCG57_STATUS0_fields_
 
 struct LPCG57_STATUS0 : ftl::mmio::Register<
     0x40CC6730u,
@@ -40177,8 +40672,9 @@ struct LPCG57_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG57_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG57_STATUS1_fields_ {
+struct LPCG57_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -40343,7 +40839,7 @@ namespace LPCG57_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG57_STATUS1_fields_
+};  // struct LPCG57_STATUS1_fields_
 
 struct LPCG57_STATUS1 : ftl::mmio::Register<
     0x40CC6734u,
@@ -40405,8 +40901,9 @@ struct LPCG57_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG57_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG57_CONFIG_fields_ {
+struct LPCG57_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -40416,7 +40913,7 @@ namespace LPCG57_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG57_CONFIG_fields_
+};  // struct LPCG57_CONFIG_fields_
 
 struct LPCG57_CONFIG : ftl::mmio::Register<
     0x40CC6738u,
@@ -40430,8 +40927,9 @@ struct LPCG57_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG57_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG57_AUTHEN_fields_ {
+struct LPCG57_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -40506,7 +41004,7 @@ namespace LPCG57_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG57_AUTHEN_fields_
+};  // struct LPCG57_AUTHEN_fields_
 
 struct LPCG57_AUTHEN : ftl::mmio::Register<
     0x40CC673Cu,
@@ -40546,8 +41044,9 @@ struct LPCG57_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG57_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG58_DIRECT_fields_ {
+struct LPCG58_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -40557,7 +41056,7 @@ namespace LPCG58_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG58_DIRECT_fields_
+};  // struct LPCG58_DIRECT_fields_
 
 struct LPCG58_DIRECT : ftl::mmio::Register<
     0x40CC6740u,
@@ -40570,8 +41069,9 @@ struct LPCG58_DIRECT : ftl::mmio::Register<
   using ON = LPCG58_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG58_DOMAIN_fields_ {
+struct LPCG58_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -40647,7 +41147,7 @@ namespace LPCG58_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG58_DOMAIN_fields_
+};  // struct LPCG58_DOMAIN_fields_
 
 struct LPCG58_DOMAIN : ftl::mmio::Register<
     0x40CC6744u,
@@ -40676,8 +41176,9 @@ struct LPCG58_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG58_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG58_STATUS0_fields_ {
+struct LPCG58_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -40761,7 +41262,7 @@ namespace LPCG58_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG58_STATUS0_fields_
+};  // struct LPCG58_STATUS0_fields_
 
 struct LPCG58_STATUS0 : ftl::mmio::Register<
     0x40CC6750u,
@@ -40781,8 +41282,9 @@ struct LPCG58_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG58_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG58_STATUS1_fields_ {
+struct LPCG58_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -40947,7 +41449,7 @@ namespace LPCG58_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG58_STATUS1_fields_
+};  // struct LPCG58_STATUS1_fields_
 
 struct LPCG58_STATUS1 : ftl::mmio::Register<
     0x40CC6754u,
@@ -41009,8 +41511,9 @@ struct LPCG58_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG58_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG58_CONFIG_fields_ {
+struct LPCG58_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -41020,7 +41523,7 @@ namespace LPCG58_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG58_CONFIG_fields_
+};  // struct LPCG58_CONFIG_fields_
 
 struct LPCG58_CONFIG : ftl::mmio::Register<
     0x40CC6758u,
@@ -41034,8 +41537,9 @@ struct LPCG58_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG58_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG58_AUTHEN_fields_ {
+struct LPCG58_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -41110,7 +41614,7 @@ namespace LPCG58_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG58_AUTHEN_fields_
+};  // struct LPCG58_AUTHEN_fields_
 
 struct LPCG58_AUTHEN : ftl::mmio::Register<
     0x40CC675Cu,
@@ -41150,8 +41654,9 @@ struct LPCG58_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG58_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG59_DIRECT_fields_ {
+struct LPCG59_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -41161,7 +41666,7 @@ namespace LPCG59_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG59_DIRECT_fields_
+};  // struct LPCG59_DIRECT_fields_
 
 struct LPCG59_DIRECT : ftl::mmio::Register<
     0x40CC6760u,
@@ -41174,8 +41679,9 @@ struct LPCG59_DIRECT : ftl::mmio::Register<
   using ON = LPCG59_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG59_DOMAIN_fields_ {
+struct LPCG59_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -41251,7 +41757,7 @@ namespace LPCG59_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG59_DOMAIN_fields_
+};  // struct LPCG59_DOMAIN_fields_
 
 struct LPCG59_DOMAIN : ftl::mmio::Register<
     0x40CC6764u,
@@ -41280,8 +41786,9 @@ struct LPCG59_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG59_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG59_STATUS0_fields_ {
+struct LPCG59_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -41365,7 +41872,7 @@ namespace LPCG59_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG59_STATUS0_fields_
+};  // struct LPCG59_STATUS0_fields_
 
 struct LPCG59_STATUS0 : ftl::mmio::Register<
     0x40CC6770u,
@@ -41385,8 +41892,9 @@ struct LPCG59_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG59_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG59_STATUS1_fields_ {
+struct LPCG59_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -41551,7 +42059,7 @@ namespace LPCG59_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG59_STATUS1_fields_
+};  // struct LPCG59_STATUS1_fields_
 
 struct LPCG59_STATUS1 : ftl::mmio::Register<
     0x40CC6774u,
@@ -41613,8 +42121,9 @@ struct LPCG59_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG59_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG59_CONFIG_fields_ {
+struct LPCG59_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -41624,7 +42133,7 @@ namespace LPCG59_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG59_CONFIG_fields_
+};  // struct LPCG59_CONFIG_fields_
 
 struct LPCG59_CONFIG : ftl::mmio::Register<
     0x40CC6778u,
@@ -41638,8 +42147,9 @@ struct LPCG59_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG59_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG59_AUTHEN_fields_ {
+struct LPCG59_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -41714,7 +42224,7 @@ namespace LPCG59_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG59_AUTHEN_fields_
+};  // struct LPCG59_AUTHEN_fields_
 
 struct LPCG59_AUTHEN : ftl::mmio::Register<
     0x40CC677Cu,
@@ -41754,8 +42264,9 @@ struct LPCG59_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG59_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG60_DIRECT_fields_ {
+struct LPCG60_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -41765,7 +42276,7 @@ namespace LPCG60_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG60_DIRECT_fields_
+};  // struct LPCG60_DIRECT_fields_
 
 struct LPCG60_DIRECT : ftl::mmio::Register<
     0x40CC6780u,
@@ -41778,8 +42289,9 @@ struct LPCG60_DIRECT : ftl::mmio::Register<
   using ON = LPCG60_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG60_DOMAIN_fields_ {
+struct LPCG60_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -41855,7 +42367,7 @@ namespace LPCG60_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG60_DOMAIN_fields_
+};  // struct LPCG60_DOMAIN_fields_
 
 struct LPCG60_DOMAIN : ftl::mmio::Register<
     0x40CC6784u,
@@ -41884,8 +42396,9 @@ struct LPCG60_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG60_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG60_STATUS0_fields_ {
+struct LPCG60_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -41969,7 +42482,7 @@ namespace LPCG60_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG60_STATUS0_fields_
+};  // struct LPCG60_STATUS0_fields_
 
 struct LPCG60_STATUS0 : ftl::mmio::Register<
     0x40CC6790u,
@@ -41989,8 +42502,9 @@ struct LPCG60_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG60_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG60_STATUS1_fields_ {
+struct LPCG60_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -42155,7 +42669,7 @@ namespace LPCG60_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG60_STATUS1_fields_
+};  // struct LPCG60_STATUS1_fields_
 
 struct LPCG60_STATUS1 : ftl::mmio::Register<
     0x40CC6794u,
@@ -42217,8 +42731,9 @@ struct LPCG60_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG60_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG60_CONFIG_fields_ {
+struct LPCG60_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -42228,7 +42743,7 @@ namespace LPCG60_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG60_CONFIG_fields_
+};  // struct LPCG60_CONFIG_fields_
 
 struct LPCG60_CONFIG : ftl::mmio::Register<
     0x40CC6798u,
@@ -42242,8 +42757,9 @@ struct LPCG60_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG60_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG60_AUTHEN_fields_ {
+struct LPCG60_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -42318,7 +42834,7 @@ namespace LPCG60_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG60_AUTHEN_fields_
+};  // struct LPCG60_AUTHEN_fields_
 
 struct LPCG60_AUTHEN : ftl::mmio::Register<
     0x40CC679Cu,
@@ -42358,8 +42874,9 @@ struct LPCG60_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG60_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG61_DIRECT_fields_ {
+struct LPCG61_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -42369,7 +42886,7 @@ namespace LPCG61_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG61_DIRECT_fields_
+};  // struct LPCG61_DIRECT_fields_
 
 struct LPCG61_DIRECT : ftl::mmio::Register<
     0x40CC67A0u,
@@ -42382,8 +42899,9 @@ struct LPCG61_DIRECT : ftl::mmio::Register<
   using ON = LPCG61_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG61_DOMAIN_fields_ {
+struct LPCG61_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -42459,7 +42977,7 @@ namespace LPCG61_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG61_DOMAIN_fields_
+};  // struct LPCG61_DOMAIN_fields_
 
 struct LPCG61_DOMAIN : ftl::mmio::Register<
     0x40CC67A4u,
@@ -42488,8 +43006,9 @@ struct LPCG61_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG61_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG61_STATUS0_fields_ {
+struct LPCG61_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -42573,7 +43092,7 @@ namespace LPCG61_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG61_STATUS0_fields_
+};  // struct LPCG61_STATUS0_fields_
 
 struct LPCG61_STATUS0 : ftl::mmio::Register<
     0x40CC67B0u,
@@ -42593,8 +43112,9 @@ struct LPCG61_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG61_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG61_STATUS1_fields_ {
+struct LPCG61_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -42759,7 +43279,7 @@ namespace LPCG61_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG61_STATUS1_fields_
+};  // struct LPCG61_STATUS1_fields_
 
 struct LPCG61_STATUS1 : ftl::mmio::Register<
     0x40CC67B4u,
@@ -42821,8 +43341,9 @@ struct LPCG61_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG61_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG61_CONFIG_fields_ {
+struct LPCG61_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -42832,7 +43353,7 @@ namespace LPCG61_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG61_CONFIG_fields_
+};  // struct LPCG61_CONFIG_fields_
 
 struct LPCG61_CONFIG : ftl::mmio::Register<
     0x40CC67B8u,
@@ -42846,8 +43367,9 @@ struct LPCG61_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG61_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG61_AUTHEN_fields_ {
+struct LPCG61_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -42922,7 +43444,7 @@ namespace LPCG61_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG61_AUTHEN_fields_
+};  // struct LPCG61_AUTHEN_fields_
 
 struct LPCG61_AUTHEN : ftl::mmio::Register<
     0x40CC67BCu,
@@ -42962,8 +43484,9 @@ struct LPCG61_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG61_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG62_DIRECT_fields_ {
+struct LPCG62_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -42973,7 +43496,7 @@ namespace LPCG62_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG62_DIRECT_fields_
+};  // struct LPCG62_DIRECT_fields_
 
 struct LPCG62_DIRECT : ftl::mmio::Register<
     0x40CC67C0u,
@@ -42986,8 +43509,9 @@ struct LPCG62_DIRECT : ftl::mmio::Register<
   using ON = LPCG62_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG62_DOMAIN_fields_ {
+struct LPCG62_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -43063,7 +43587,7 @@ namespace LPCG62_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG62_DOMAIN_fields_
+};  // struct LPCG62_DOMAIN_fields_
 
 struct LPCG62_DOMAIN : ftl::mmio::Register<
     0x40CC67C4u,
@@ -43092,8 +43616,9 @@ struct LPCG62_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG62_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG62_STATUS0_fields_ {
+struct LPCG62_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -43177,7 +43702,7 @@ namespace LPCG62_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG62_STATUS0_fields_
+};  // struct LPCG62_STATUS0_fields_
 
 struct LPCG62_STATUS0 : ftl::mmio::Register<
     0x40CC67D0u,
@@ -43197,8 +43722,9 @@ struct LPCG62_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG62_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG62_STATUS1_fields_ {
+struct LPCG62_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -43363,7 +43889,7 @@ namespace LPCG62_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG62_STATUS1_fields_
+};  // struct LPCG62_STATUS1_fields_
 
 struct LPCG62_STATUS1 : ftl::mmio::Register<
     0x40CC67D4u,
@@ -43425,8 +43951,9 @@ struct LPCG62_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG62_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG62_CONFIG_fields_ {
+struct LPCG62_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -43436,7 +43963,7 @@ namespace LPCG62_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG62_CONFIG_fields_
+};  // struct LPCG62_CONFIG_fields_
 
 struct LPCG62_CONFIG : ftl::mmio::Register<
     0x40CC67D8u,
@@ -43450,8 +43977,9 @@ struct LPCG62_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG62_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG62_AUTHEN_fields_ {
+struct LPCG62_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -43526,7 +44054,7 @@ namespace LPCG62_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG62_AUTHEN_fields_
+};  // struct LPCG62_AUTHEN_fields_
 
 struct LPCG62_AUTHEN : ftl::mmio::Register<
     0x40CC67DCu,
@@ -43566,8 +44094,9 @@ struct LPCG62_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG62_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG63_DIRECT_fields_ {
+struct LPCG63_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -43577,7 +44106,7 @@ namespace LPCG63_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG63_DIRECT_fields_
+};  // struct LPCG63_DIRECT_fields_
 
 struct LPCG63_DIRECT : ftl::mmio::Register<
     0x40CC67E0u,
@@ -43590,8 +44119,9 @@ struct LPCG63_DIRECT : ftl::mmio::Register<
   using ON = LPCG63_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG63_DOMAIN_fields_ {
+struct LPCG63_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -43667,7 +44197,7 @@ namespace LPCG63_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG63_DOMAIN_fields_
+};  // struct LPCG63_DOMAIN_fields_
 
 struct LPCG63_DOMAIN : ftl::mmio::Register<
     0x40CC67E4u,
@@ -43696,8 +44226,9 @@ struct LPCG63_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG63_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG63_STATUS0_fields_ {
+struct LPCG63_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -43781,7 +44312,7 @@ namespace LPCG63_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG63_STATUS0_fields_
+};  // struct LPCG63_STATUS0_fields_
 
 struct LPCG63_STATUS0 : ftl::mmio::Register<
     0x40CC67F0u,
@@ -43801,8 +44332,9 @@ struct LPCG63_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG63_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG63_STATUS1_fields_ {
+struct LPCG63_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -43967,7 +44499,7 @@ namespace LPCG63_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG63_STATUS1_fields_
+};  // struct LPCG63_STATUS1_fields_
 
 struct LPCG63_STATUS1 : ftl::mmio::Register<
     0x40CC67F4u,
@@ -44029,8 +44561,9 @@ struct LPCG63_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG63_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG63_CONFIG_fields_ {
+struct LPCG63_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -44040,7 +44573,7 @@ namespace LPCG63_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG63_CONFIG_fields_
+};  // struct LPCG63_CONFIG_fields_
 
 struct LPCG63_CONFIG : ftl::mmio::Register<
     0x40CC67F8u,
@@ -44054,8 +44587,9 @@ struct LPCG63_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG63_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG63_AUTHEN_fields_ {
+struct LPCG63_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -44130,7 +44664,7 @@ namespace LPCG63_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG63_AUTHEN_fields_
+};  // struct LPCG63_AUTHEN_fields_
 
 struct LPCG63_AUTHEN : ftl::mmio::Register<
     0x40CC67FCu,
@@ -44170,8 +44704,9 @@ struct LPCG63_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG63_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG64_DIRECT_fields_ {
+struct LPCG64_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -44181,7 +44716,7 @@ namespace LPCG64_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG64_DIRECT_fields_
+};  // struct LPCG64_DIRECT_fields_
 
 struct LPCG64_DIRECT : ftl::mmio::Register<
     0x40CC6800u,
@@ -44194,8 +44729,9 @@ struct LPCG64_DIRECT : ftl::mmio::Register<
   using ON = LPCG64_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG64_DOMAIN_fields_ {
+struct LPCG64_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -44271,7 +44807,7 @@ namespace LPCG64_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG64_DOMAIN_fields_
+};  // struct LPCG64_DOMAIN_fields_
 
 struct LPCG64_DOMAIN : ftl::mmio::Register<
     0x40CC6804u,
@@ -44300,8 +44836,9 @@ struct LPCG64_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG64_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG64_STATUS0_fields_ {
+struct LPCG64_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -44385,7 +44922,7 @@ namespace LPCG64_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG64_STATUS0_fields_
+};  // struct LPCG64_STATUS0_fields_
 
 struct LPCG64_STATUS0 : ftl::mmio::Register<
     0x40CC6810u,
@@ -44405,8 +44942,9 @@ struct LPCG64_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG64_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG64_STATUS1_fields_ {
+struct LPCG64_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -44571,7 +45109,7 @@ namespace LPCG64_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG64_STATUS1_fields_
+};  // struct LPCG64_STATUS1_fields_
 
 struct LPCG64_STATUS1 : ftl::mmio::Register<
     0x40CC6814u,
@@ -44633,8 +45171,9 @@ struct LPCG64_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG64_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG64_CONFIG_fields_ {
+struct LPCG64_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -44644,7 +45183,7 @@ namespace LPCG64_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG64_CONFIG_fields_
+};  // struct LPCG64_CONFIG_fields_
 
 struct LPCG64_CONFIG : ftl::mmio::Register<
     0x40CC6818u,
@@ -44658,8 +45197,9 @@ struct LPCG64_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG64_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG64_AUTHEN_fields_ {
+struct LPCG64_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -44734,7 +45274,7 @@ namespace LPCG64_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG64_AUTHEN_fields_
+};  // struct LPCG64_AUTHEN_fields_
 
 struct LPCG64_AUTHEN : ftl::mmio::Register<
     0x40CC681Cu,
@@ -44774,8 +45314,9 @@ struct LPCG64_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG64_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG65_DIRECT_fields_ {
+struct LPCG65_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -44785,7 +45326,7 @@ namespace LPCG65_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG65_DIRECT_fields_
+};  // struct LPCG65_DIRECT_fields_
 
 struct LPCG65_DIRECT : ftl::mmio::Register<
     0x40CC6820u,
@@ -44798,8 +45339,9 @@ struct LPCG65_DIRECT : ftl::mmio::Register<
   using ON = LPCG65_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG65_DOMAIN_fields_ {
+struct LPCG65_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -44875,7 +45417,7 @@ namespace LPCG65_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG65_DOMAIN_fields_
+};  // struct LPCG65_DOMAIN_fields_
 
 struct LPCG65_DOMAIN : ftl::mmio::Register<
     0x40CC6824u,
@@ -44904,8 +45446,9 @@ struct LPCG65_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG65_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG65_STATUS0_fields_ {
+struct LPCG65_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -44989,7 +45532,7 @@ namespace LPCG65_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG65_STATUS0_fields_
+};  // struct LPCG65_STATUS0_fields_
 
 struct LPCG65_STATUS0 : ftl::mmio::Register<
     0x40CC6830u,
@@ -45009,8 +45552,9 @@ struct LPCG65_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG65_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG65_STATUS1_fields_ {
+struct LPCG65_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -45175,7 +45719,7 @@ namespace LPCG65_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG65_STATUS1_fields_
+};  // struct LPCG65_STATUS1_fields_
 
 struct LPCG65_STATUS1 : ftl::mmio::Register<
     0x40CC6834u,
@@ -45237,8 +45781,9 @@ struct LPCG65_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG65_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG65_CONFIG_fields_ {
+struct LPCG65_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -45248,7 +45793,7 @@ namespace LPCG65_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG65_CONFIG_fields_
+};  // struct LPCG65_CONFIG_fields_
 
 struct LPCG65_CONFIG : ftl::mmio::Register<
     0x40CC6838u,
@@ -45262,8 +45807,9 @@ struct LPCG65_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG65_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG65_AUTHEN_fields_ {
+struct LPCG65_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -45338,7 +45884,7 @@ namespace LPCG65_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG65_AUTHEN_fields_
+};  // struct LPCG65_AUTHEN_fields_
 
 struct LPCG65_AUTHEN : ftl::mmio::Register<
     0x40CC683Cu,
@@ -45378,8 +45924,9 @@ struct LPCG65_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG65_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG66_DIRECT_fields_ {
+struct LPCG66_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -45389,7 +45936,7 @@ namespace LPCG66_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG66_DIRECT_fields_
+};  // struct LPCG66_DIRECT_fields_
 
 struct LPCG66_DIRECT : ftl::mmio::Register<
     0x40CC6840u,
@@ -45402,8 +45949,9 @@ struct LPCG66_DIRECT : ftl::mmio::Register<
   using ON = LPCG66_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG66_DOMAIN_fields_ {
+struct LPCG66_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -45479,7 +46027,7 @@ namespace LPCG66_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG66_DOMAIN_fields_
+};  // struct LPCG66_DOMAIN_fields_
 
 struct LPCG66_DOMAIN : ftl::mmio::Register<
     0x40CC6844u,
@@ -45508,8 +46056,9 @@ struct LPCG66_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG66_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG66_STATUS0_fields_ {
+struct LPCG66_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -45593,7 +46142,7 @@ namespace LPCG66_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG66_STATUS0_fields_
+};  // struct LPCG66_STATUS0_fields_
 
 struct LPCG66_STATUS0 : ftl::mmio::Register<
     0x40CC6850u,
@@ -45613,8 +46162,9 @@ struct LPCG66_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG66_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG66_STATUS1_fields_ {
+struct LPCG66_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -45779,7 +46329,7 @@ namespace LPCG66_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG66_STATUS1_fields_
+};  // struct LPCG66_STATUS1_fields_
 
 struct LPCG66_STATUS1 : ftl::mmio::Register<
     0x40CC6854u,
@@ -45841,8 +46391,9 @@ struct LPCG66_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG66_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG66_CONFIG_fields_ {
+struct LPCG66_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -45852,7 +46403,7 @@ namespace LPCG66_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG66_CONFIG_fields_
+};  // struct LPCG66_CONFIG_fields_
 
 struct LPCG66_CONFIG : ftl::mmio::Register<
     0x40CC6858u,
@@ -45866,8 +46417,9 @@ struct LPCG66_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG66_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG66_AUTHEN_fields_ {
+struct LPCG66_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -45942,7 +46494,7 @@ namespace LPCG66_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG66_AUTHEN_fields_
+};  // struct LPCG66_AUTHEN_fields_
 
 struct LPCG66_AUTHEN : ftl::mmio::Register<
     0x40CC685Cu,
@@ -45982,8 +46534,9 @@ struct LPCG66_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG66_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG67_DIRECT_fields_ {
+struct LPCG67_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -45993,7 +46546,7 @@ namespace LPCG67_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG67_DIRECT_fields_
+};  // struct LPCG67_DIRECT_fields_
 
 struct LPCG67_DIRECT : ftl::mmio::Register<
     0x40CC6860u,
@@ -46006,8 +46559,9 @@ struct LPCG67_DIRECT : ftl::mmio::Register<
   using ON = LPCG67_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG67_DOMAIN_fields_ {
+struct LPCG67_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -46083,7 +46637,7 @@ namespace LPCG67_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG67_DOMAIN_fields_
+};  // struct LPCG67_DOMAIN_fields_
 
 struct LPCG67_DOMAIN : ftl::mmio::Register<
     0x40CC6864u,
@@ -46112,8 +46666,9 @@ struct LPCG67_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG67_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG67_STATUS0_fields_ {
+struct LPCG67_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -46197,7 +46752,7 @@ namespace LPCG67_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG67_STATUS0_fields_
+};  // struct LPCG67_STATUS0_fields_
 
 struct LPCG67_STATUS0 : ftl::mmio::Register<
     0x40CC6870u,
@@ -46217,8 +46772,9 @@ struct LPCG67_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG67_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG67_STATUS1_fields_ {
+struct LPCG67_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -46383,7 +46939,7 @@ namespace LPCG67_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG67_STATUS1_fields_
+};  // struct LPCG67_STATUS1_fields_
 
 struct LPCG67_STATUS1 : ftl::mmio::Register<
     0x40CC6874u,
@@ -46445,8 +47001,9 @@ struct LPCG67_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG67_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG67_CONFIG_fields_ {
+struct LPCG67_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -46456,7 +47013,7 @@ namespace LPCG67_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG67_CONFIG_fields_
+};  // struct LPCG67_CONFIG_fields_
 
 struct LPCG67_CONFIG : ftl::mmio::Register<
     0x40CC6878u,
@@ -46470,8 +47027,9 @@ struct LPCG67_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG67_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG67_AUTHEN_fields_ {
+struct LPCG67_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -46546,7 +47104,7 @@ namespace LPCG67_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG67_AUTHEN_fields_
+};  // struct LPCG67_AUTHEN_fields_
 
 struct LPCG67_AUTHEN : ftl::mmio::Register<
     0x40CC687Cu,
@@ -46586,8 +47144,9 @@ struct LPCG67_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG67_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG68_DIRECT_fields_ {
+struct LPCG68_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -46597,7 +47156,7 @@ namespace LPCG68_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG68_DIRECT_fields_
+};  // struct LPCG68_DIRECT_fields_
 
 struct LPCG68_DIRECT : ftl::mmio::Register<
     0x40CC6880u,
@@ -46610,8 +47169,9 @@ struct LPCG68_DIRECT : ftl::mmio::Register<
   using ON = LPCG68_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG68_DOMAIN_fields_ {
+struct LPCG68_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -46687,7 +47247,7 @@ namespace LPCG68_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG68_DOMAIN_fields_
+};  // struct LPCG68_DOMAIN_fields_
 
 struct LPCG68_DOMAIN : ftl::mmio::Register<
     0x40CC6884u,
@@ -46716,8 +47276,9 @@ struct LPCG68_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG68_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG68_STATUS0_fields_ {
+struct LPCG68_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -46801,7 +47362,7 @@ namespace LPCG68_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG68_STATUS0_fields_
+};  // struct LPCG68_STATUS0_fields_
 
 struct LPCG68_STATUS0 : ftl::mmio::Register<
     0x40CC6890u,
@@ -46821,8 +47382,9 @@ struct LPCG68_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG68_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG68_STATUS1_fields_ {
+struct LPCG68_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -46987,7 +47549,7 @@ namespace LPCG68_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG68_STATUS1_fields_
+};  // struct LPCG68_STATUS1_fields_
 
 struct LPCG68_STATUS1 : ftl::mmio::Register<
     0x40CC6894u,
@@ -47049,8 +47611,9 @@ struct LPCG68_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG68_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG68_CONFIG_fields_ {
+struct LPCG68_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -47060,7 +47623,7 @@ namespace LPCG68_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG68_CONFIG_fields_
+};  // struct LPCG68_CONFIG_fields_
 
 struct LPCG68_CONFIG : ftl::mmio::Register<
     0x40CC6898u,
@@ -47074,8 +47637,9 @@ struct LPCG68_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG68_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG68_AUTHEN_fields_ {
+struct LPCG68_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -47150,7 +47714,7 @@ namespace LPCG68_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG68_AUTHEN_fields_
+};  // struct LPCG68_AUTHEN_fields_
 
 struct LPCG68_AUTHEN : ftl::mmio::Register<
     0x40CC689Cu,
@@ -47190,8 +47754,9 @@ struct LPCG68_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG68_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG69_DIRECT_fields_ {
+struct LPCG69_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -47201,7 +47766,7 @@ namespace LPCG69_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG69_DIRECT_fields_
+};  // struct LPCG69_DIRECT_fields_
 
 struct LPCG69_DIRECT : ftl::mmio::Register<
     0x40CC68A0u,
@@ -47214,8 +47779,9 @@ struct LPCG69_DIRECT : ftl::mmio::Register<
   using ON = LPCG69_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG69_DOMAIN_fields_ {
+struct LPCG69_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -47291,7 +47857,7 @@ namespace LPCG69_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG69_DOMAIN_fields_
+};  // struct LPCG69_DOMAIN_fields_
 
 struct LPCG69_DOMAIN : ftl::mmio::Register<
     0x40CC68A4u,
@@ -47320,8 +47886,9 @@ struct LPCG69_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG69_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG69_STATUS0_fields_ {
+struct LPCG69_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -47405,7 +47972,7 @@ namespace LPCG69_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG69_STATUS0_fields_
+};  // struct LPCG69_STATUS0_fields_
 
 struct LPCG69_STATUS0 : ftl::mmio::Register<
     0x40CC68B0u,
@@ -47425,8 +47992,9 @@ struct LPCG69_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG69_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG69_STATUS1_fields_ {
+struct LPCG69_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -47591,7 +48159,7 @@ namespace LPCG69_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG69_STATUS1_fields_
+};  // struct LPCG69_STATUS1_fields_
 
 struct LPCG69_STATUS1 : ftl::mmio::Register<
     0x40CC68B4u,
@@ -47653,8 +48221,9 @@ struct LPCG69_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG69_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG69_CONFIG_fields_ {
+struct LPCG69_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -47664,7 +48233,7 @@ namespace LPCG69_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG69_CONFIG_fields_
+};  // struct LPCG69_CONFIG_fields_
 
 struct LPCG69_CONFIG : ftl::mmio::Register<
     0x40CC68B8u,
@@ -47678,8 +48247,9 @@ struct LPCG69_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG69_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG69_AUTHEN_fields_ {
+struct LPCG69_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -47754,7 +48324,7 @@ namespace LPCG69_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG69_AUTHEN_fields_
+};  // struct LPCG69_AUTHEN_fields_
 
 struct LPCG69_AUTHEN : ftl::mmio::Register<
     0x40CC68BCu,
@@ -47794,8 +48364,9 @@ struct LPCG69_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG69_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG70_DIRECT_fields_ {
+struct LPCG70_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -47805,7 +48376,7 @@ namespace LPCG70_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG70_DIRECT_fields_
+};  // struct LPCG70_DIRECT_fields_
 
 struct LPCG70_DIRECT : ftl::mmio::Register<
     0x40CC68C0u,
@@ -47818,8 +48389,9 @@ struct LPCG70_DIRECT : ftl::mmio::Register<
   using ON = LPCG70_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG70_DOMAIN_fields_ {
+struct LPCG70_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -47895,7 +48467,7 @@ namespace LPCG70_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG70_DOMAIN_fields_
+};  // struct LPCG70_DOMAIN_fields_
 
 struct LPCG70_DOMAIN : ftl::mmio::Register<
     0x40CC68C4u,
@@ -47924,8 +48496,9 @@ struct LPCG70_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG70_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG70_STATUS0_fields_ {
+struct LPCG70_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -48009,7 +48582,7 @@ namespace LPCG70_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG70_STATUS0_fields_
+};  // struct LPCG70_STATUS0_fields_
 
 struct LPCG70_STATUS0 : ftl::mmio::Register<
     0x40CC68D0u,
@@ -48029,8 +48602,9 @@ struct LPCG70_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG70_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG70_STATUS1_fields_ {
+struct LPCG70_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -48195,7 +48769,7 @@ namespace LPCG70_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG70_STATUS1_fields_
+};  // struct LPCG70_STATUS1_fields_
 
 struct LPCG70_STATUS1 : ftl::mmio::Register<
     0x40CC68D4u,
@@ -48257,8 +48831,9 @@ struct LPCG70_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG70_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG70_CONFIG_fields_ {
+struct LPCG70_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -48268,7 +48843,7 @@ namespace LPCG70_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG70_CONFIG_fields_
+};  // struct LPCG70_CONFIG_fields_
 
 struct LPCG70_CONFIG : ftl::mmio::Register<
     0x40CC68D8u,
@@ -48282,8 +48857,9 @@ struct LPCG70_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG70_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG70_AUTHEN_fields_ {
+struct LPCG70_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -48358,7 +48934,7 @@ namespace LPCG70_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG70_AUTHEN_fields_
+};  // struct LPCG70_AUTHEN_fields_
 
 struct LPCG70_AUTHEN : ftl::mmio::Register<
     0x40CC68DCu,
@@ -48398,8 +48974,9 @@ struct LPCG70_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG70_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG71_DIRECT_fields_ {
+struct LPCG71_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -48409,7 +48986,7 @@ namespace LPCG71_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG71_DIRECT_fields_
+};  // struct LPCG71_DIRECT_fields_
 
 struct LPCG71_DIRECT : ftl::mmio::Register<
     0x40CC68E0u,
@@ -48422,8 +48999,9 @@ struct LPCG71_DIRECT : ftl::mmio::Register<
   using ON = LPCG71_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG71_DOMAIN_fields_ {
+struct LPCG71_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -48499,7 +49077,7 @@ namespace LPCG71_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG71_DOMAIN_fields_
+};  // struct LPCG71_DOMAIN_fields_
 
 struct LPCG71_DOMAIN : ftl::mmio::Register<
     0x40CC68E4u,
@@ -48528,8 +49106,9 @@ struct LPCG71_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG71_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG71_STATUS0_fields_ {
+struct LPCG71_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -48613,7 +49192,7 @@ namespace LPCG71_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG71_STATUS0_fields_
+};  // struct LPCG71_STATUS0_fields_
 
 struct LPCG71_STATUS0 : ftl::mmio::Register<
     0x40CC68F0u,
@@ -48633,8 +49212,9 @@ struct LPCG71_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG71_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG71_STATUS1_fields_ {
+struct LPCG71_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -48799,7 +49379,7 @@ namespace LPCG71_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG71_STATUS1_fields_
+};  // struct LPCG71_STATUS1_fields_
 
 struct LPCG71_STATUS1 : ftl::mmio::Register<
     0x40CC68F4u,
@@ -48861,8 +49441,9 @@ struct LPCG71_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG71_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG71_CONFIG_fields_ {
+struct LPCG71_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -48872,7 +49453,7 @@ namespace LPCG71_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG71_CONFIG_fields_
+};  // struct LPCG71_CONFIG_fields_
 
 struct LPCG71_CONFIG : ftl::mmio::Register<
     0x40CC68F8u,
@@ -48886,8 +49467,9 @@ struct LPCG71_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG71_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG71_AUTHEN_fields_ {
+struct LPCG71_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -48962,7 +49544,7 @@ namespace LPCG71_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG71_AUTHEN_fields_
+};  // struct LPCG71_AUTHEN_fields_
 
 struct LPCG71_AUTHEN : ftl::mmio::Register<
     0x40CC68FCu,
@@ -49002,8 +49584,9 @@ struct LPCG71_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG71_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG72_DIRECT_fields_ {
+struct LPCG72_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -49013,7 +49596,7 @@ namespace LPCG72_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG72_DIRECT_fields_
+};  // struct LPCG72_DIRECT_fields_
 
 struct LPCG72_DIRECT : ftl::mmio::Register<
     0x40CC6900u,
@@ -49026,8 +49609,9 @@ struct LPCG72_DIRECT : ftl::mmio::Register<
   using ON = LPCG72_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG72_DOMAIN_fields_ {
+struct LPCG72_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -49103,7 +49687,7 @@ namespace LPCG72_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG72_DOMAIN_fields_
+};  // struct LPCG72_DOMAIN_fields_
 
 struct LPCG72_DOMAIN : ftl::mmio::Register<
     0x40CC6904u,
@@ -49132,8 +49716,9 @@ struct LPCG72_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG72_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG72_STATUS0_fields_ {
+struct LPCG72_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -49217,7 +49802,7 @@ namespace LPCG72_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG72_STATUS0_fields_
+};  // struct LPCG72_STATUS0_fields_
 
 struct LPCG72_STATUS0 : ftl::mmio::Register<
     0x40CC6910u,
@@ -49237,8 +49822,9 @@ struct LPCG72_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG72_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG72_STATUS1_fields_ {
+struct LPCG72_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -49403,7 +49989,7 @@ namespace LPCG72_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG72_STATUS1_fields_
+};  // struct LPCG72_STATUS1_fields_
 
 struct LPCG72_STATUS1 : ftl::mmio::Register<
     0x40CC6914u,
@@ -49465,8 +50051,9 @@ struct LPCG72_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG72_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG72_CONFIG_fields_ {
+struct LPCG72_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -49476,7 +50063,7 @@ namespace LPCG72_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG72_CONFIG_fields_
+};  // struct LPCG72_CONFIG_fields_
 
 struct LPCG72_CONFIG : ftl::mmio::Register<
     0x40CC6918u,
@@ -49490,8 +50077,9 @@ struct LPCG72_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG72_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG72_AUTHEN_fields_ {
+struct LPCG72_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -49566,7 +50154,7 @@ namespace LPCG72_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG72_AUTHEN_fields_
+};  // struct LPCG72_AUTHEN_fields_
 
 struct LPCG72_AUTHEN : ftl::mmio::Register<
     0x40CC691Cu,
@@ -49606,8 +50194,9 @@ struct LPCG72_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG72_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG73_DIRECT_fields_ {
+struct LPCG73_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -49617,7 +50206,7 @@ namespace LPCG73_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG73_DIRECT_fields_
+};  // struct LPCG73_DIRECT_fields_
 
 struct LPCG73_DIRECT : ftl::mmio::Register<
     0x40CC6920u,
@@ -49630,8 +50219,9 @@ struct LPCG73_DIRECT : ftl::mmio::Register<
   using ON = LPCG73_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG73_DOMAIN_fields_ {
+struct LPCG73_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -49707,7 +50297,7 @@ namespace LPCG73_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG73_DOMAIN_fields_
+};  // struct LPCG73_DOMAIN_fields_
 
 struct LPCG73_DOMAIN : ftl::mmio::Register<
     0x40CC6924u,
@@ -49736,8 +50326,9 @@ struct LPCG73_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG73_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG73_STATUS0_fields_ {
+struct LPCG73_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -49821,7 +50412,7 @@ namespace LPCG73_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG73_STATUS0_fields_
+};  // struct LPCG73_STATUS0_fields_
 
 struct LPCG73_STATUS0 : ftl::mmio::Register<
     0x40CC6930u,
@@ -49841,8 +50432,9 @@ struct LPCG73_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG73_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG73_STATUS1_fields_ {
+struct LPCG73_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -50007,7 +50599,7 @@ namespace LPCG73_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG73_STATUS1_fields_
+};  // struct LPCG73_STATUS1_fields_
 
 struct LPCG73_STATUS1 : ftl::mmio::Register<
     0x40CC6934u,
@@ -50069,8 +50661,9 @@ struct LPCG73_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG73_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG73_CONFIG_fields_ {
+struct LPCG73_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -50080,7 +50673,7 @@ namespace LPCG73_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG73_CONFIG_fields_
+};  // struct LPCG73_CONFIG_fields_
 
 struct LPCG73_CONFIG : ftl::mmio::Register<
     0x40CC6938u,
@@ -50094,8 +50687,9 @@ struct LPCG73_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG73_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG73_AUTHEN_fields_ {
+struct LPCG73_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -50170,7 +50764,7 @@ namespace LPCG73_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG73_AUTHEN_fields_
+};  // struct LPCG73_AUTHEN_fields_
 
 struct LPCG73_AUTHEN : ftl::mmio::Register<
     0x40CC693Cu,
@@ -50210,8 +50804,9 @@ struct LPCG73_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG73_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG74_DIRECT_fields_ {
+struct LPCG74_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -50221,7 +50816,7 @@ namespace LPCG74_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG74_DIRECT_fields_
+};  // struct LPCG74_DIRECT_fields_
 
 struct LPCG74_DIRECT : ftl::mmio::Register<
     0x40CC6940u,
@@ -50234,8 +50829,9 @@ struct LPCG74_DIRECT : ftl::mmio::Register<
   using ON = LPCG74_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG74_DOMAIN_fields_ {
+struct LPCG74_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -50311,7 +50907,7 @@ namespace LPCG74_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG74_DOMAIN_fields_
+};  // struct LPCG74_DOMAIN_fields_
 
 struct LPCG74_DOMAIN : ftl::mmio::Register<
     0x40CC6944u,
@@ -50340,8 +50936,9 @@ struct LPCG74_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG74_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG74_STATUS0_fields_ {
+struct LPCG74_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -50425,7 +51022,7 @@ namespace LPCG74_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG74_STATUS0_fields_
+};  // struct LPCG74_STATUS0_fields_
 
 struct LPCG74_STATUS0 : ftl::mmio::Register<
     0x40CC6950u,
@@ -50445,8 +51042,9 @@ struct LPCG74_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG74_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG74_STATUS1_fields_ {
+struct LPCG74_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -50611,7 +51209,7 @@ namespace LPCG74_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG74_STATUS1_fields_
+};  // struct LPCG74_STATUS1_fields_
 
 struct LPCG74_STATUS1 : ftl::mmio::Register<
     0x40CC6954u,
@@ -50673,8 +51271,9 @@ struct LPCG74_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG74_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG74_CONFIG_fields_ {
+struct LPCG74_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -50684,7 +51283,7 @@ namespace LPCG74_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG74_CONFIG_fields_
+};  // struct LPCG74_CONFIG_fields_
 
 struct LPCG74_CONFIG : ftl::mmio::Register<
     0x40CC6958u,
@@ -50698,8 +51297,9 @@ struct LPCG74_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG74_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG74_AUTHEN_fields_ {
+struct LPCG74_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -50774,7 +51374,7 @@ namespace LPCG74_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG74_AUTHEN_fields_
+};  // struct LPCG74_AUTHEN_fields_
 
 struct LPCG74_AUTHEN : ftl::mmio::Register<
     0x40CC695Cu,
@@ -50814,8 +51414,9 @@ struct LPCG74_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG74_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG75_DIRECT_fields_ {
+struct LPCG75_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -50825,7 +51426,7 @@ namespace LPCG75_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG75_DIRECT_fields_
+};  // struct LPCG75_DIRECT_fields_
 
 struct LPCG75_DIRECT : ftl::mmio::Register<
     0x40CC6960u,
@@ -50838,8 +51439,9 @@ struct LPCG75_DIRECT : ftl::mmio::Register<
   using ON = LPCG75_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG75_DOMAIN_fields_ {
+struct LPCG75_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -50915,7 +51517,7 @@ namespace LPCG75_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG75_DOMAIN_fields_
+};  // struct LPCG75_DOMAIN_fields_
 
 struct LPCG75_DOMAIN : ftl::mmio::Register<
     0x40CC6964u,
@@ -50944,8 +51546,9 @@ struct LPCG75_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG75_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG75_STATUS0_fields_ {
+struct LPCG75_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -51029,7 +51632,7 @@ namespace LPCG75_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG75_STATUS0_fields_
+};  // struct LPCG75_STATUS0_fields_
 
 struct LPCG75_STATUS0 : ftl::mmio::Register<
     0x40CC6970u,
@@ -51049,8 +51652,9 @@ struct LPCG75_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG75_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG75_STATUS1_fields_ {
+struct LPCG75_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -51215,7 +51819,7 @@ namespace LPCG75_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG75_STATUS1_fields_
+};  // struct LPCG75_STATUS1_fields_
 
 struct LPCG75_STATUS1 : ftl::mmio::Register<
     0x40CC6974u,
@@ -51277,8 +51881,9 @@ struct LPCG75_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG75_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG75_CONFIG_fields_ {
+struct LPCG75_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -51288,7 +51893,7 @@ namespace LPCG75_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG75_CONFIG_fields_
+};  // struct LPCG75_CONFIG_fields_
 
 struct LPCG75_CONFIG : ftl::mmio::Register<
     0x40CC6978u,
@@ -51302,8 +51907,9 @@ struct LPCG75_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG75_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG75_AUTHEN_fields_ {
+struct LPCG75_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -51378,7 +51984,7 @@ namespace LPCG75_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG75_AUTHEN_fields_
+};  // struct LPCG75_AUTHEN_fields_
 
 struct LPCG75_AUTHEN : ftl::mmio::Register<
     0x40CC697Cu,
@@ -51418,8 +52024,9 @@ struct LPCG75_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG75_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG76_DIRECT_fields_ {
+struct LPCG76_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -51429,7 +52036,7 @@ namespace LPCG76_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG76_DIRECT_fields_
+};  // struct LPCG76_DIRECT_fields_
 
 struct LPCG76_DIRECT : ftl::mmio::Register<
     0x40CC6980u,
@@ -51442,8 +52049,9 @@ struct LPCG76_DIRECT : ftl::mmio::Register<
   using ON = LPCG76_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG76_DOMAIN_fields_ {
+struct LPCG76_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -51519,7 +52127,7 @@ namespace LPCG76_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG76_DOMAIN_fields_
+};  // struct LPCG76_DOMAIN_fields_
 
 struct LPCG76_DOMAIN : ftl::mmio::Register<
     0x40CC6984u,
@@ -51548,8 +52156,9 @@ struct LPCG76_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG76_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG76_STATUS0_fields_ {
+struct LPCG76_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -51633,7 +52242,7 @@ namespace LPCG76_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG76_STATUS0_fields_
+};  // struct LPCG76_STATUS0_fields_
 
 struct LPCG76_STATUS0 : ftl::mmio::Register<
     0x40CC6990u,
@@ -51653,8 +52262,9 @@ struct LPCG76_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG76_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG76_STATUS1_fields_ {
+struct LPCG76_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -51819,7 +52429,7 @@ namespace LPCG76_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG76_STATUS1_fields_
+};  // struct LPCG76_STATUS1_fields_
 
 struct LPCG76_STATUS1 : ftl::mmio::Register<
     0x40CC6994u,
@@ -51881,8 +52491,9 @@ struct LPCG76_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG76_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG76_CONFIG_fields_ {
+struct LPCG76_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -51892,7 +52503,7 @@ namespace LPCG76_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG76_CONFIG_fields_
+};  // struct LPCG76_CONFIG_fields_
 
 struct LPCG76_CONFIG : ftl::mmio::Register<
     0x40CC6998u,
@@ -51906,8 +52517,9 @@ struct LPCG76_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG76_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG76_AUTHEN_fields_ {
+struct LPCG76_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -51982,7 +52594,7 @@ namespace LPCG76_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG76_AUTHEN_fields_
+};  // struct LPCG76_AUTHEN_fields_
 
 struct LPCG76_AUTHEN : ftl::mmio::Register<
     0x40CC699Cu,
@@ -52022,8 +52634,9 @@ struct LPCG76_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG76_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG77_DIRECT_fields_ {
+struct LPCG77_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -52033,7 +52646,7 @@ namespace LPCG77_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG77_DIRECT_fields_
+};  // struct LPCG77_DIRECT_fields_
 
 struct LPCG77_DIRECT : ftl::mmio::Register<
     0x40CC69A0u,
@@ -52046,8 +52659,9 @@ struct LPCG77_DIRECT : ftl::mmio::Register<
   using ON = LPCG77_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG77_DOMAIN_fields_ {
+struct LPCG77_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -52123,7 +52737,7 @@ namespace LPCG77_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG77_DOMAIN_fields_
+};  // struct LPCG77_DOMAIN_fields_
 
 struct LPCG77_DOMAIN : ftl::mmio::Register<
     0x40CC69A4u,
@@ -52152,8 +52766,9 @@ struct LPCG77_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG77_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG77_STATUS0_fields_ {
+struct LPCG77_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -52237,7 +52852,7 @@ namespace LPCG77_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG77_STATUS0_fields_
+};  // struct LPCG77_STATUS0_fields_
 
 struct LPCG77_STATUS0 : ftl::mmio::Register<
     0x40CC69B0u,
@@ -52257,8 +52872,9 @@ struct LPCG77_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG77_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG77_STATUS1_fields_ {
+struct LPCG77_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -52423,7 +53039,7 @@ namespace LPCG77_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG77_STATUS1_fields_
+};  // struct LPCG77_STATUS1_fields_
 
 struct LPCG77_STATUS1 : ftl::mmio::Register<
     0x40CC69B4u,
@@ -52485,8 +53101,9 @@ struct LPCG77_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG77_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG77_CONFIG_fields_ {
+struct LPCG77_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -52496,7 +53113,7 @@ namespace LPCG77_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG77_CONFIG_fields_
+};  // struct LPCG77_CONFIG_fields_
 
 struct LPCG77_CONFIG : ftl::mmio::Register<
     0x40CC69B8u,
@@ -52510,8 +53127,9 @@ struct LPCG77_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG77_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG77_AUTHEN_fields_ {
+struct LPCG77_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -52586,7 +53204,7 @@ namespace LPCG77_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG77_AUTHEN_fields_
+};  // struct LPCG77_AUTHEN_fields_
 
 struct LPCG77_AUTHEN : ftl::mmio::Register<
     0x40CC69BCu,
@@ -52626,8 +53244,9 @@ struct LPCG77_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG77_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG78_DIRECT_fields_ {
+struct LPCG78_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -52637,7 +53256,7 @@ namespace LPCG78_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG78_DIRECT_fields_
+};  // struct LPCG78_DIRECT_fields_
 
 struct LPCG78_DIRECT : ftl::mmio::Register<
     0x40CC69C0u,
@@ -52650,8 +53269,9 @@ struct LPCG78_DIRECT : ftl::mmio::Register<
   using ON = LPCG78_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG78_DOMAIN_fields_ {
+struct LPCG78_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -52727,7 +53347,7 @@ namespace LPCG78_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG78_DOMAIN_fields_
+};  // struct LPCG78_DOMAIN_fields_
 
 struct LPCG78_DOMAIN : ftl::mmio::Register<
     0x40CC69C4u,
@@ -52756,8 +53376,9 @@ struct LPCG78_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG78_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG78_STATUS0_fields_ {
+struct LPCG78_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -52841,7 +53462,7 @@ namespace LPCG78_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG78_STATUS0_fields_
+};  // struct LPCG78_STATUS0_fields_
 
 struct LPCG78_STATUS0 : ftl::mmio::Register<
     0x40CC69D0u,
@@ -52861,8 +53482,9 @@ struct LPCG78_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG78_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG78_STATUS1_fields_ {
+struct LPCG78_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -53027,7 +53649,7 @@ namespace LPCG78_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG78_STATUS1_fields_
+};  // struct LPCG78_STATUS1_fields_
 
 struct LPCG78_STATUS1 : ftl::mmio::Register<
     0x40CC69D4u,
@@ -53089,8 +53711,9 @@ struct LPCG78_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG78_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG78_CONFIG_fields_ {
+struct LPCG78_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -53100,7 +53723,7 @@ namespace LPCG78_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG78_CONFIG_fields_
+};  // struct LPCG78_CONFIG_fields_
 
 struct LPCG78_CONFIG : ftl::mmio::Register<
     0x40CC69D8u,
@@ -53114,8 +53737,9 @@ struct LPCG78_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG78_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG78_AUTHEN_fields_ {
+struct LPCG78_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -53190,7 +53814,7 @@ namespace LPCG78_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG78_AUTHEN_fields_
+};  // struct LPCG78_AUTHEN_fields_
 
 struct LPCG78_AUTHEN : ftl::mmio::Register<
     0x40CC69DCu,
@@ -53230,8 +53854,9 @@ struct LPCG78_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG78_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG79_DIRECT_fields_ {
+struct LPCG79_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -53241,7 +53866,7 @@ namespace LPCG79_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG79_DIRECT_fields_
+};  // struct LPCG79_DIRECT_fields_
 
 struct LPCG79_DIRECT : ftl::mmio::Register<
     0x40CC69E0u,
@@ -53254,8 +53879,9 @@ struct LPCG79_DIRECT : ftl::mmio::Register<
   using ON = LPCG79_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG79_DOMAIN_fields_ {
+struct LPCG79_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -53331,7 +53957,7 @@ namespace LPCG79_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG79_DOMAIN_fields_
+};  // struct LPCG79_DOMAIN_fields_
 
 struct LPCG79_DOMAIN : ftl::mmio::Register<
     0x40CC69E4u,
@@ -53360,8 +53986,9 @@ struct LPCG79_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG79_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG79_STATUS0_fields_ {
+struct LPCG79_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -53445,7 +54072,7 @@ namespace LPCG79_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG79_STATUS0_fields_
+};  // struct LPCG79_STATUS0_fields_
 
 struct LPCG79_STATUS0 : ftl::mmio::Register<
     0x40CC69F0u,
@@ -53465,8 +54092,9 @@ struct LPCG79_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG79_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG79_STATUS1_fields_ {
+struct LPCG79_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -53631,7 +54259,7 @@ namespace LPCG79_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG79_STATUS1_fields_
+};  // struct LPCG79_STATUS1_fields_
 
 struct LPCG79_STATUS1 : ftl::mmio::Register<
     0x40CC69F4u,
@@ -53693,8 +54321,9 @@ struct LPCG79_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG79_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG79_CONFIG_fields_ {
+struct LPCG79_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -53704,7 +54333,7 @@ namespace LPCG79_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG79_CONFIG_fields_
+};  // struct LPCG79_CONFIG_fields_
 
 struct LPCG79_CONFIG : ftl::mmio::Register<
     0x40CC69F8u,
@@ -53718,8 +54347,9 @@ struct LPCG79_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG79_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG79_AUTHEN_fields_ {
+struct LPCG79_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -53794,7 +54424,7 @@ namespace LPCG79_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG79_AUTHEN_fields_
+};  // struct LPCG79_AUTHEN_fields_
 
 struct LPCG79_AUTHEN : ftl::mmio::Register<
     0x40CC69FCu,
@@ -53834,8 +54464,9 @@ struct LPCG79_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG79_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG80_DIRECT_fields_ {
+struct LPCG80_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -53845,7 +54476,7 @@ namespace LPCG80_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG80_DIRECT_fields_
+};  // struct LPCG80_DIRECT_fields_
 
 struct LPCG80_DIRECT : ftl::mmio::Register<
     0x40CC6A00u,
@@ -53858,8 +54489,9 @@ struct LPCG80_DIRECT : ftl::mmio::Register<
   using ON = LPCG80_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG80_DOMAIN_fields_ {
+struct LPCG80_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -53935,7 +54567,7 @@ namespace LPCG80_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG80_DOMAIN_fields_
+};  // struct LPCG80_DOMAIN_fields_
 
 struct LPCG80_DOMAIN : ftl::mmio::Register<
     0x40CC6A04u,
@@ -53964,8 +54596,9 @@ struct LPCG80_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG80_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG80_STATUS0_fields_ {
+struct LPCG80_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -54049,7 +54682,7 @@ namespace LPCG80_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG80_STATUS0_fields_
+};  // struct LPCG80_STATUS0_fields_
 
 struct LPCG80_STATUS0 : ftl::mmio::Register<
     0x40CC6A10u,
@@ -54069,8 +54702,9 @@ struct LPCG80_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG80_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG80_STATUS1_fields_ {
+struct LPCG80_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -54235,7 +54869,7 @@ namespace LPCG80_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG80_STATUS1_fields_
+};  // struct LPCG80_STATUS1_fields_
 
 struct LPCG80_STATUS1 : ftl::mmio::Register<
     0x40CC6A14u,
@@ -54297,8 +54931,9 @@ struct LPCG80_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG80_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG80_CONFIG_fields_ {
+struct LPCG80_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -54308,7 +54943,7 @@ namespace LPCG80_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG80_CONFIG_fields_
+};  // struct LPCG80_CONFIG_fields_
 
 struct LPCG80_CONFIG : ftl::mmio::Register<
     0x40CC6A18u,
@@ -54322,8 +54957,9 @@ struct LPCG80_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG80_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG80_AUTHEN_fields_ {
+struct LPCG80_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -54398,7 +55034,7 @@ namespace LPCG80_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG80_AUTHEN_fields_
+};  // struct LPCG80_AUTHEN_fields_
 
 struct LPCG80_AUTHEN : ftl::mmio::Register<
     0x40CC6A1Cu,
@@ -54438,8 +55074,9 @@ struct LPCG80_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG80_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG81_DIRECT_fields_ {
+struct LPCG81_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -54449,7 +55086,7 @@ namespace LPCG81_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG81_DIRECT_fields_
+};  // struct LPCG81_DIRECT_fields_
 
 struct LPCG81_DIRECT : ftl::mmio::Register<
     0x40CC6A20u,
@@ -54462,8 +55099,9 @@ struct LPCG81_DIRECT : ftl::mmio::Register<
   using ON = LPCG81_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG81_DOMAIN_fields_ {
+struct LPCG81_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -54539,7 +55177,7 @@ namespace LPCG81_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG81_DOMAIN_fields_
+};  // struct LPCG81_DOMAIN_fields_
 
 struct LPCG81_DOMAIN : ftl::mmio::Register<
     0x40CC6A24u,
@@ -54568,8 +55206,9 @@ struct LPCG81_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG81_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG81_STATUS0_fields_ {
+struct LPCG81_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -54653,7 +55292,7 @@ namespace LPCG81_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG81_STATUS0_fields_
+};  // struct LPCG81_STATUS0_fields_
 
 struct LPCG81_STATUS0 : ftl::mmio::Register<
     0x40CC6A30u,
@@ -54673,8 +55312,9 @@ struct LPCG81_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG81_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG81_STATUS1_fields_ {
+struct LPCG81_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -54839,7 +55479,7 @@ namespace LPCG81_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG81_STATUS1_fields_
+};  // struct LPCG81_STATUS1_fields_
 
 struct LPCG81_STATUS1 : ftl::mmio::Register<
     0x40CC6A34u,
@@ -54901,8 +55541,9 @@ struct LPCG81_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG81_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG81_CONFIG_fields_ {
+struct LPCG81_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -54912,7 +55553,7 @@ namespace LPCG81_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG81_CONFIG_fields_
+};  // struct LPCG81_CONFIG_fields_
 
 struct LPCG81_CONFIG : ftl::mmio::Register<
     0x40CC6A38u,
@@ -54926,8 +55567,9 @@ struct LPCG81_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG81_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG81_AUTHEN_fields_ {
+struct LPCG81_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -55002,7 +55644,7 @@ namespace LPCG81_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG81_AUTHEN_fields_
+};  // struct LPCG81_AUTHEN_fields_
 
 struct LPCG81_AUTHEN : ftl::mmio::Register<
     0x40CC6A3Cu,
@@ -55042,8 +55684,9 @@ struct LPCG81_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG81_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG82_DIRECT_fields_ {
+struct LPCG82_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -55053,7 +55696,7 @@ namespace LPCG82_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG82_DIRECT_fields_
+};  // struct LPCG82_DIRECT_fields_
 
 struct LPCG82_DIRECT : ftl::mmio::Register<
     0x40CC6A40u,
@@ -55066,8 +55709,9 @@ struct LPCG82_DIRECT : ftl::mmio::Register<
   using ON = LPCG82_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG82_DOMAIN_fields_ {
+struct LPCG82_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -55143,7 +55787,7 @@ namespace LPCG82_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG82_DOMAIN_fields_
+};  // struct LPCG82_DOMAIN_fields_
 
 struct LPCG82_DOMAIN : ftl::mmio::Register<
     0x40CC6A44u,
@@ -55172,8 +55816,9 @@ struct LPCG82_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG82_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG82_STATUS0_fields_ {
+struct LPCG82_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -55257,7 +55902,7 @@ namespace LPCG82_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG82_STATUS0_fields_
+};  // struct LPCG82_STATUS0_fields_
 
 struct LPCG82_STATUS0 : ftl::mmio::Register<
     0x40CC6A50u,
@@ -55277,8 +55922,9 @@ struct LPCG82_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG82_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG82_STATUS1_fields_ {
+struct LPCG82_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -55443,7 +56089,7 @@ namespace LPCG82_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG82_STATUS1_fields_
+};  // struct LPCG82_STATUS1_fields_
 
 struct LPCG82_STATUS1 : ftl::mmio::Register<
     0x40CC6A54u,
@@ -55505,8 +56151,9 @@ struct LPCG82_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG82_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG82_CONFIG_fields_ {
+struct LPCG82_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -55516,7 +56163,7 @@ namespace LPCG82_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG82_CONFIG_fields_
+};  // struct LPCG82_CONFIG_fields_
 
 struct LPCG82_CONFIG : ftl::mmio::Register<
     0x40CC6A58u,
@@ -55530,8 +56177,9 @@ struct LPCG82_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG82_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG82_AUTHEN_fields_ {
+struct LPCG82_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -55606,7 +56254,7 @@ namespace LPCG82_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG82_AUTHEN_fields_
+};  // struct LPCG82_AUTHEN_fields_
 
 struct LPCG82_AUTHEN : ftl::mmio::Register<
     0x40CC6A5Cu,
@@ -55646,8 +56294,9 @@ struct LPCG82_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG82_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG83_DIRECT_fields_ {
+struct LPCG83_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -55657,7 +56306,7 @@ namespace LPCG83_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG83_DIRECT_fields_
+};  // struct LPCG83_DIRECT_fields_
 
 struct LPCG83_DIRECT : ftl::mmio::Register<
     0x40CC6A60u,
@@ -55670,8 +56319,9 @@ struct LPCG83_DIRECT : ftl::mmio::Register<
   using ON = LPCG83_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG83_DOMAIN_fields_ {
+struct LPCG83_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -55747,7 +56397,7 @@ namespace LPCG83_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG83_DOMAIN_fields_
+};  // struct LPCG83_DOMAIN_fields_
 
 struct LPCG83_DOMAIN : ftl::mmio::Register<
     0x40CC6A64u,
@@ -55776,8 +56426,9 @@ struct LPCG83_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG83_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG83_STATUS0_fields_ {
+struct LPCG83_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -55861,7 +56512,7 @@ namespace LPCG83_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG83_STATUS0_fields_
+};  // struct LPCG83_STATUS0_fields_
 
 struct LPCG83_STATUS0 : ftl::mmio::Register<
     0x40CC6A70u,
@@ -55881,8 +56532,9 @@ struct LPCG83_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG83_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG83_STATUS1_fields_ {
+struct LPCG83_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -56047,7 +56699,7 @@ namespace LPCG83_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG83_STATUS1_fields_
+};  // struct LPCG83_STATUS1_fields_
 
 struct LPCG83_STATUS1 : ftl::mmio::Register<
     0x40CC6A74u,
@@ -56109,8 +56761,9 @@ struct LPCG83_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG83_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG83_CONFIG_fields_ {
+struct LPCG83_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -56120,7 +56773,7 @@ namespace LPCG83_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG83_CONFIG_fields_
+};  // struct LPCG83_CONFIG_fields_
 
 struct LPCG83_CONFIG : ftl::mmio::Register<
     0x40CC6A78u,
@@ -56134,8 +56787,9 @@ struct LPCG83_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG83_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG83_AUTHEN_fields_ {
+struct LPCG83_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -56210,7 +56864,7 @@ namespace LPCG83_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG83_AUTHEN_fields_
+};  // struct LPCG83_AUTHEN_fields_
 
 struct LPCG83_AUTHEN : ftl::mmio::Register<
     0x40CC6A7Cu,
@@ -56250,8 +56904,9 @@ struct LPCG83_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG83_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG84_DIRECT_fields_ {
+struct LPCG84_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -56261,7 +56916,7 @@ namespace LPCG84_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG84_DIRECT_fields_
+};  // struct LPCG84_DIRECT_fields_
 
 struct LPCG84_DIRECT : ftl::mmio::Register<
     0x40CC6A80u,
@@ -56274,8 +56929,9 @@ struct LPCG84_DIRECT : ftl::mmio::Register<
   using ON = LPCG84_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG84_DOMAIN_fields_ {
+struct LPCG84_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -56351,7 +57007,7 @@ namespace LPCG84_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG84_DOMAIN_fields_
+};  // struct LPCG84_DOMAIN_fields_
 
 struct LPCG84_DOMAIN : ftl::mmio::Register<
     0x40CC6A84u,
@@ -56380,8 +57036,9 @@ struct LPCG84_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG84_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG84_STATUS0_fields_ {
+struct LPCG84_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -56465,7 +57122,7 @@ namespace LPCG84_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG84_STATUS0_fields_
+};  // struct LPCG84_STATUS0_fields_
 
 struct LPCG84_STATUS0 : ftl::mmio::Register<
     0x40CC6A90u,
@@ -56485,8 +57142,9 @@ struct LPCG84_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG84_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG84_STATUS1_fields_ {
+struct LPCG84_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -56651,7 +57309,7 @@ namespace LPCG84_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG84_STATUS1_fields_
+};  // struct LPCG84_STATUS1_fields_
 
 struct LPCG84_STATUS1 : ftl::mmio::Register<
     0x40CC6A94u,
@@ -56713,8 +57371,9 @@ struct LPCG84_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG84_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG84_CONFIG_fields_ {
+struct LPCG84_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -56724,7 +57383,7 @@ namespace LPCG84_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG84_CONFIG_fields_
+};  // struct LPCG84_CONFIG_fields_
 
 struct LPCG84_CONFIG : ftl::mmio::Register<
     0x40CC6A98u,
@@ -56738,8 +57397,9 @@ struct LPCG84_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG84_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG84_AUTHEN_fields_ {
+struct LPCG84_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -56814,7 +57474,7 @@ namespace LPCG84_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG84_AUTHEN_fields_
+};  // struct LPCG84_AUTHEN_fields_
 
 struct LPCG84_AUTHEN : ftl::mmio::Register<
     0x40CC6A9Cu,
@@ -56854,8 +57514,9 @@ struct LPCG84_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG84_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG85_DIRECT_fields_ {
+struct LPCG85_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -56865,7 +57526,7 @@ namespace LPCG85_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG85_DIRECT_fields_
+};  // struct LPCG85_DIRECT_fields_
 
 struct LPCG85_DIRECT : ftl::mmio::Register<
     0x40CC6AA0u,
@@ -56878,8 +57539,9 @@ struct LPCG85_DIRECT : ftl::mmio::Register<
   using ON = LPCG85_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG85_DOMAIN_fields_ {
+struct LPCG85_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -56955,7 +57617,7 @@ namespace LPCG85_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG85_DOMAIN_fields_
+};  // struct LPCG85_DOMAIN_fields_
 
 struct LPCG85_DOMAIN : ftl::mmio::Register<
     0x40CC6AA4u,
@@ -56984,8 +57646,9 @@ struct LPCG85_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG85_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG85_STATUS0_fields_ {
+struct LPCG85_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -57069,7 +57732,7 @@ namespace LPCG85_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG85_STATUS0_fields_
+};  // struct LPCG85_STATUS0_fields_
 
 struct LPCG85_STATUS0 : ftl::mmio::Register<
     0x40CC6AB0u,
@@ -57089,8 +57752,9 @@ struct LPCG85_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG85_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG85_STATUS1_fields_ {
+struct LPCG85_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -57255,7 +57919,7 @@ namespace LPCG85_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG85_STATUS1_fields_
+};  // struct LPCG85_STATUS1_fields_
 
 struct LPCG85_STATUS1 : ftl::mmio::Register<
     0x40CC6AB4u,
@@ -57317,8 +57981,9 @@ struct LPCG85_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG85_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG85_CONFIG_fields_ {
+struct LPCG85_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -57328,7 +57993,7 @@ namespace LPCG85_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG85_CONFIG_fields_
+};  // struct LPCG85_CONFIG_fields_
 
 struct LPCG85_CONFIG : ftl::mmio::Register<
     0x40CC6AB8u,
@@ -57342,8 +58007,9 @@ struct LPCG85_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG85_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG85_AUTHEN_fields_ {
+struct LPCG85_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -57418,7 +58084,7 @@ namespace LPCG85_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG85_AUTHEN_fields_
+};  // struct LPCG85_AUTHEN_fields_
 
 struct LPCG85_AUTHEN : ftl::mmio::Register<
     0x40CC6ABCu,
@@ -57458,8 +58124,9 @@ struct LPCG85_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG85_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG86_DIRECT_fields_ {
+struct LPCG86_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -57469,7 +58136,7 @@ namespace LPCG86_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG86_DIRECT_fields_
+};  // struct LPCG86_DIRECT_fields_
 
 struct LPCG86_DIRECT : ftl::mmio::Register<
     0x40CC6AC0u,
@@ -57482,8 +58149,9 @@ struct LPCG86_DIRECT : ftl::mmio::Register<
   using ON = LPCG86_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG86_DOMAIN_fields_ {
+struct LPCG86_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -57559,7 +58227,7 @@ namespace LPCG86_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG86_DOMAIN_fields_
+};  // struct LPCG86_DOMAIN_fields_
 
 struct LPCG86_DOMAIN : ftl::mmio::Register<
     0x40CC6AC4u,
@@ -57588,8 +58256,9 @@ struct LPCG86_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG86_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG86_STATUS0_fields_ {
+struct LPCG86_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -57673,7 +58342,7 @@ namespace LPCG86_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG86_STATUS0_fields_
+};  // struct LPCG86_STATUS0_fields_
 
 struct LPCG86_STATUS0 : ftl::mmio::Register<
     0x40CC6AD0u,
@@ -57693,8 +58362,9 @@ struct LPCG86_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG86_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG86_STATUS1_fields_ {
+struct LPCG86_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -57859,7 +58529,7 @@ namespace LPCG86_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG86_STATUS1_fields_
+};  // struct LPCG86_STATUS1_fields_
 
 struct LPCG86_STATUS1 : ftl::mmio::Register<
     0x40CC6AD4u,
@@ -57921,8 +58591,9 @@ struct LPCG86_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG86_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG86_CONFIG_fields_ {
+struct LPCG86_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -57932,7 +58603,7 @@ namespace LPCG86_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG86_CONFIG_fields_
+};  // struct LPCG86_CONFIG_fields_
 
 struct LPCG86_CONFIG : ftl::mmio::Register<
     0x40CC6AD8u,
@@ -57946,8 +58617,9 @@ struct LPCG86_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG86_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG86_AUTHEN_fields_ {
+struct LPCG86_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -58022,7 +58694,7 @@ namespace LPCG86_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG86_AUTHEN_fields_
+};  // struct LPCG86_AUTHEN_fields_
 
 struct LPCG86_AUTHEN : ftl::mmio::Register<
     0x40CC6ADCu,
@@ -58062,8 +58734,9 @@ struct LPCG86_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG86_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG87_DIRECT_fields_ {
+struct LPCG87_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -58073,7 +58746,7 @@ namespace LPCG87_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG87_DIRECT_fields_
+};  // struct LPCG87_DIRECT_fields_
 
 struct LPCG87_DIRECT : ftl::mmio::Register<
     0x40CC6AE0u,
@@ -58086,8 +58759,9 @@ struct LPCG87_DIRECT : ftl::mmio::Register<
   using ON = LPCG87_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG87_DOMAIN_fields_ {
+struct LPCG87_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -58163,7 +58837,7 @@ namespace LPCG87_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG87_DOMAIN_fields_
+};  // struct LPCG87_DOMAIN_fields_
 
 struct LPCG87_DOMAIN : ftl::mmio::Register<
     0x40CC6AE4u,
@@ -58192,8 +58866,9 @@ struct LPCG87_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG87_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG87_STATUS0_fields_ {
+struct LPCG87_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -58277,7 +58952,7 @@ namespace LPCG87_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG87_STATUS0_fields_
+};  // struct LPCG87_STATUS0_fields_
 
 struct LPCG87_STATUS0 : ftl::mmio::Register<
     0x40CC6AF0u,
@@ -58297,8 +58972,9 @@ struct LPCG87_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG87_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG87_STATUS1_fields_ {
+struct LPCG87_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -58463,7 +59139,7 @@ namespace LPCG87_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG87_STATUS1_fields_
+};  // struct LPCG87_STATUS1_fields_
 
 struct LPCG87_STATUS1 : ftl::mmio::Register<
     0x40CC6AF4u,
@@ -58525,8 +59201,9 @@ struct LPCG87_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG87_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG87_CONFIG_fields_ {
+struct LPCG87_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -58536,7 +59213,7 @@ namespace LPCG87_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG87_CONFIG_fields_
+};  // struct LPCG87_CONFIG_fields_
 
 struct LPCG87_CONFIG : ftl::mmio::Register<
     0x40CC6AF8u,
@@ -58550,8 +59227,9 @@ struct LPCG87_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG87_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG87_AUTHEN_fields_ {
+struct LPCG87_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -58626,7 +59304,7 @@ namespace LPCG87_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG87_AUTHEN_fields_
+};  // struct LPCG87_AUTHEN_fields_
 
 struct LPCG87_AUTHEN : ftl::mmio::Register<
     0x40CC6AFCu,
@@ -58666,8 +59344,9 @@ struct LPCG87_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG87_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG88_DIRECT_fields_ {
+struct LPCG88_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -58677,7 +59356,7 @@ namespace LPCG88_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG88_DIRECT_fields_
+};  // struct LPCG88_DIRECT_fields_
 
 struct LPCG88_DIRECT : ftl::mmio::Register<
     0x40CC6B00u,
@@ -58690,8 +59369,9 @@ struct LPCG88_DIRECT : ftl::mmio::Register<
   using ON = LPCG88_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG88_DOMAIN_fields_ {
+struct LPCG88_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -58767,7 +59447,7 @@ namespace LPCG88_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG88_DOMAIN_fields_
+};  // struct LPCG88_DOMAIN_fields_
 
 struct LPCG88_DOMAIN : ftl::mmio::Register<
     0x40CC6B04u,
@@ -58796,8 +59476,9 @@ struct LPCG88_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG88_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG88_STATUS0_fields_ {
+struct LPCG88_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -58881,7 +59562,7 @@ namespace LPCG88_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG88_STATUS0_fields_
+};  // struct LPCG88_STATUS0_fields_
 
 struct LPCG88_STATUS0 : ftl::mmio::Register<
     0x40CC6B10u,
@@ -58901,8 +59582,9 @@ struct LPCG88_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG88_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG88_STATUS1_fields_ {
+struct LPCG88_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -59067,7 +59749,7 @@ namespace LPCG88_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG88_STATUS1_fields_
+};  // struct LPCG88_STATUS1_fields_
 
 struct LPCG88_STATUS1 : ftl::mmio::Register<
     0x40CC6B14u,
@@ -59129,8 +59811,9 @@ struct LPCG88_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG88_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG88_CONFIG_fields_ {
+struct LPCG88_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -59140,7 +59823,7 @@ namespace LPCG88_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG88_CONFIG_fields_
+};  // struct LPCG88_CONFIG_fields_
 
 struct LPCG88_CONFIG : ftl::mmio::Register<
     0x40CC6B18u,
@@ -59154,8 +59837,9 @@ struct LPCG88_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG88_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG88_AUTHEN_fields_ {
+struct LPCG88_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -59230,7 +59914,7 @@ namespace LPCG88_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG88_AUTHEN_fields_
+};  // struct LPCG88_AUTHEN_fields_
 
 struct LPCG88_AUTHEN : ftl::mmio::Register<
     0x40CC6B1Cu,
@@ -59270,8 +59954,9 @@ struct LPCG88_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG88_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG89_DIRECT_fields_ {
+struct LPCG89_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -59281,7 +59966,7 @@ namespace LPCG89_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG89_DIRECT_fields_
+};  // struct LPCG89_DIRECT_fields_
 
 struct LPCG89_DIRECT : ftl::mmio::Register<
     0x40CC6B20u,
@@ -59294,8 +59979,9 @@ struct LPCG89_DIRECT : ftl::mmio::Register<
   using ON = LPCG89_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG89_DOMAIN_fields_ {
+struct LPCG89_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -59371,7 +60057,7 @@ namespace LPCG89_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG89_DOMAIN_fields_
+};  // struct LPCG89_DOMAIN_fields_
 
 struct LPCG89_DOMAIN : ftl::mmio::Register<
     0x40CC6B24u,
@@ -59400,8 +60086,9 @@ struct LPCG89_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG89_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG89_STATUS0_fields_ {
+struct LPCG89_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -59485,7 +60172,7 @@ namespace LPCG89_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG89_STATUS0_fields_
+};  // struct LPCG89_STATUS0_fields_
 
 struct LPCG89_STATUS0 : ftl::mmio::Register<
     0x40CC6B30u,
@@ -59505,8 +60192,9 @@ struct LPCG89_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG89_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG89_STATUS1_fields_ {
+struct LPCG89_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -59671,7 +60359,7 @@ namespace LPCG89_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG89_STATUS1_fields_
+};  // struct LPCG89_STATUS1_fields_
 
 struct LPCG89_STATUS1 : ftl::mmio::Register<
     0x40CC6B34u,
@@ -59733,8 +60421,9 @@ struct LPCG89_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG89_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG89_CONFIG_fields_ {
+struct LPCG89_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -59744,7 +60433,7 @@ namespace LPCG89_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG89_CONFIG_fields_
+};  // struct LPCG89_CONFIG_fields_
 
 struct LPCG89_CONFIG : ftl::mmio::Register<
     0x40CC6B38u,
@@ -59758,8 +60447,9 @@ struct LPCG89_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG89_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG89_AUTHEN_fields_ {
+struct LPCG89_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -59834,7 +60524,7 @@ namespace LPCG89_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG89_AUTHEN_fields_
+};  // struct LPCG89_AUTHEN_fields_
 
 struct LPCG89_AUTHEN : ftl::mmio::Register<
     0x40CC6B3Cu,
@@ -59874,8 +60564,9 @@ struct LPCG89_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG89_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG90_DIRECT_fields_ {
+struct LPCG90_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -59885,7 +60576,7 @@ namespace LPCG90_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG90_DIRECT_fields_
+};  // struct LPCG90_DIRECT_fields_
 
 struct LPCG90_DIRECT : ftl::mmio::Register<
     0x40CC6B40u,
@@ -59898,8 +60589,9 @@ struct LPCG90_DIRECT : ftl::mmio::Register<
   using ON = LPCG90_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG90_DOMAIN_fields_ {
+struct LPCG90_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -59975,7 +60667,7 @@ namespace LPCG90_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG90_DOMAIN_fields_
+};  // struct LPCG90_DOMAIN_fields_
 
 struct LPCG90_DOMAIN : ftl::mmio::Register<
     0x40CC6B44u,
@@ -60004,8 +60696,9 @@ struct LPCG90_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG90_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG90_STATUS0_fields_ {
+struct LPCG90_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -60089,7 +60782,7 @@ namespace LPCG90_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG90_STATUS0_fields_
+};  // struct LPCG90_STATUS0_fields_
 
 struct LPCG90_STATUS0 : ftl::mmio::Register<
     0x40CC6B50u,
@@ -60109,8 +60802,9 @@ struct LPCG90_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG90_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG90_STATUS1_fields_ {
+struct LPCG90_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -60275,7 +60969,7 @@ namespace LPCG90_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG90_STATUS1_fields_
+};  // struct LPCG90_STATUS1_fields_
 
 struct LPCG90_STATUS1 : ftl::mmio::Register<
     0x40CC6B54u,
@@ -60337,8 +61031,9 @@ struct LPCG90_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG90_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG90_CONFIG_fields_ {
+struct LPCG90_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -60348,7 +61043,7 @@ namespace LPCG90_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG90_CONFIG_fields_
+};  // struct LPCG90_CONFIG_fields_
 
 struct LPCG90_CONFIG : ftl::mmio::Register<
     0x40CC6B58u,
@@ -60362,8 +61057,9 @@ struct LPCG90_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG90_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG90_AUTHEN_fields_ {
+struct LPCG90_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -60438,7 +61134,7 @@ namespace LPCG90_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG90_AUTHEN_fields_
+};  // struct LPCG90_AUTHEN_fields_
 
 struct LPCG90_AUTHEN : ftl::mmio::Register<
     0x40CC6B5Cu,
@@ -60478,8 +61174,9 @@ struct LPCG90_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG90_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG91_DIRECT_fields_ {
+struct LPCG91_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -60489,7 +61186,7 @@ namespace LPCG91_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG91_DIRECT_fields_
+};  // struct LPCG91_DIRECT_fields_
 
 struct LPCG91_DIRECT : ftl::mmio::Register<
     0x40CC6B60u,
@@ -60502,8 +61199,9 @@ struct LPCG91_DIRECT : ftl::mmio::Register<
   using ON = LPCG91_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG91_DOMAIN_fields_ {
+struct LPCG91_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -60579,7 +61277,7 @@ namespace LPCG91_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG91_DOMAIN_fields_
+};  // struct LPCG91_DOMAIN_fields_
 
 struct LPCG91_DOMAIN : ftl::mmio::Register<
     0x40CC6B64u,
@@ -60608,8 +61306,9 @@ struct LPCG91_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG91_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG91_STATUS0_fields_ {
+struct LPCG91_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -60693,7 +61392,7 @@ namespace LPCG91_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG91_STATUS0_fields_
+};  // struct LPCG91_STATUS0_fields_
 
 struct LPCG91_STATUS0 : ftl::mmio::Register<
     0x40CC6B70u,
@@ -60713,8 +61412,9 @@ struct LPCG91_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG91_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG91_STATUS1_fields_ {
+struct LPCG91_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -60879,7 +61579,7 @@ namespace LPCG91_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG91_STATUS1_fields_
+};  // struct LPCG91_STATUS1_fields_
 
 struct LPCG91_STATUS1 : ftl::mmio::Register<
     0x40CC6B74u,
@@ -60941,8 +61641,9 @@ struct LPCG91_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG91_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG91_CONFIG_fields_ {
+struct LPCG91_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -60952,7 +61653,7 @@ namespace LPCG91_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG91_CONFIG_fields_
+};  // struct LPCG91_CONFIG_fields_
 
 struct LPCG91_CONFIG : ftl::mmio::Register<
     0x40CC6B78u,
@@ -60966,8 +61667,9 @@ struct LPCG91_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG91_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG91_AUTHEN_fields_ {
+struct LPCG91_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -61042,7 +61744,7 @@ namespace LPCG91_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG91_AUTHEN_fields_
+};  // struct LPCG91_AUTHEN_fields_
 
 struct LPCG91_AUTHEN : ftl::mmio::Register<
     0x40CC6B7Cu,
@@ -61082,8 +61784,9 @@ struct LPCG91_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG91_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG92_DIRECT_fields_ {
+struct LPCG92_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -61093,7 +61796,7 @@ namespace LPCG92_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG92_DIRECT_fields_
+};  // struct LPCG92_DIRECT_fields_
 
 struct LPCG92_DIRECT : ftl::mmio::Register<
     0x40CC6B80u,
@@ -61106,8 +61809,9 @@ struct LPCG92_DIRECT : ftl::mmio::Register<
   using ON = LPCG92_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG92_DOMAIN_fields_ {
+struct LPCG92_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -61183,7 +61887,7 @@ namespace LPCG92_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG92_DOMAIN_fields_
+};  // struct LPCG92_DOMAIN_fields_
 
 struct LPCG92_DOMAIN : ftl::mmio::Register<
     0x40CC6B84u,
@@ -61212,8 +61916,9 @@ struct LPCG92_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG92_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG92_STATUS0_fields_ {
+struct LPCG92_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -61297,7 +62002,7 @@ namespace LPCG92_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG92_STATUS0_fields_
+};  // struct LPCG92_STATUS0_fields_
 
 struct LPCG92_STATUS0 : ftl::mmio::Register<
     0x40CC6B90u,
@@ -61317,8 +62022,9 @@ struct LPCG92_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG92_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG92_STATUS1_fields_ {
+struct LPCG92_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -61483,7 +62189,7 @@ namespace LPCG92_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG92_STATUS1_fields_
+};  // struct LPCG92_STATUS1_fields_
 
 struct LPCG92_STATUS1 : ftl::mmio::Register<
     0x40CC6B94u,
@@ -61545,8 +62251,9 @@ struct LPCG92_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG92_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG92_CONFIG_fields_ {
+struct LPCG92_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -61556,7 +62263,7 @@ namespace LPCG92_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG92_CONFIG_fields_
+};  // struct LPCG92_CONFIG_fields_
 
 struct LPCG92_CONFIG : ftl::mmio::Register<
     0x40CC6B98u,
@@ -61570,8 +62277,9 @@ struct LPCG92_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG92_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG92_AUTHEN_fields_ {
+struct LPCG92_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -61646,7 +62354,7 @@ namespace LPCG92_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG92_AUTHEN_fields_
+};  // struct LPCG92_AUTHEN_fields_
 
 struct LPCG92_AUTHEN : ftl::mmio::Register<
     0x40CC6B9Cu,
@@ -61686,8 +62394,9 @@ struct LPCG92_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG92_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG93_DIRECT_fields_ {
+struct LPCG93_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -61697,7 +62406,7 @@ namespace LPCG93_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG93_DIRECT_fields_
+};  // struct LPCG93_DIRECT_fields_
 
 struct LPCG93_DIRECT : ftl::mmio::Register<
     0x40CC6BA0u,
@@ -61710,8 +62419,9 @@ struct LPCG93_DIRECT : ftl::mmio::Register<
   using ON = LPCG93_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG93_DOMAIN_fields_ {
+struct LPCG93_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -61787,7 +62497,7 @@ namespace LPCG93_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG93_DOMAIN_fields_
+};  // struct LPCG93_DOMAIN_fields_
 
 struct LPCG93_DOMAIN : ftl::mmio::Register<
     0x40CC6BA4u,
@@ -61816,8 +62526,9 @@ struct LPCG93_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG93_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG93_STATUS0_fields_ {
+struct LPCG93_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -61901,7 +62612,7 @@ namespace LPCG93_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG93_STATUS0_fields_
+};  // struct LPCG93_STATUS0_fields_
 
 struct LPCG93_STATUS0 : ftl::mmio::Register<
     0x40CC6BB0u,
@@ -61921,8 +62632,9 @@ struct LPCG93_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG93_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG93_STATUS1_fields_ {
+struct LPCG93_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -62087,7 +62799,7 @@ namespace LPCG93_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG93_STATUS1_fields_
+};  // struct LPCG93_STATUS1_fields_
 
 struct LPCG93_STATUS1 : ftl::mmio::Register<
     0x40CC6BB4u,
@@ -62149,8 +62861,9 @@ struct LPCG93_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG93_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG93_CONFIG_fields_ {
+struct LPCG93_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -62160,7 +62873,7 @@ namespace LPCG93_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG93_CONFIG_fields_
+};  // struct LPCG93_CONFIG_fields_
 
 struct LPCG93_CONFIG : ftl::mmio::Register<
     0x40CC6BB8u,
@@ -62174,8 +62887,9 @@ struct LPCG93_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG93_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG93_AUTHEN_fields_ {
+struct LPCG93_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -62250,7 +62964,7 @@ namespace LPCG93_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG93_AUTHEN_fields_
+};  // struct LPCG93_AUTHEN_fields_
 
 struct LPCG93_AUTHEN : ftl::mmio::Register<
     0x40CC6BBCu,
@@ -62290,8 +63004,9 @@ struct LPCG93_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG93_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG94_DIRECT_fields_ {
+struct LPCG94_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -62301,7 +63016,7 @@ namespace LPCG94_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG94_DIRECT_fields_
+};  // struct LPCG94_DIRECT_fields_
 
 struct LPCG94_DIRECT : ftl::mmio::Register<
     0x40CC6BC0u,
@@ -62314,8 +63029,9 @@ struct LPCG94_DIRECT : ftl::mmio::Register<
   using ON = LPCG94_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG94_DOMAIN_fields_ {
+struct LPCG94_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -62391,7 +63107,7 @@ namespace LPCG94_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG94_DOMAIN_fields_
+};  // struct LPCG94_DOMAIN_fields_
 
 struct LPCG94_DOMAIN : ftl::mmio::Register<
     0x40CC6BC4u,
@@ -62420,8 +63136,9 @@ struct LPCG94_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG94_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG94_STATUS0_fields_ {
+struct LPCG94_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -62505,7 +63222,7 @@ namespace LPCG94_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG94_STATUS0_fields_
+};  // struct LPCG94_STATUS0_fields_
 
 struct LPCG94_STATUS0 : ftl::mmio::Register<
     0x40CC6BD0u,
@@ -62525,8 +63242,9 @@ struct LPCG94_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG94_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG94_STATUS1_fields_ {
+struct LPCG94_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -62691,7 +63409,7 @@ namespace LPCG94_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG94_STATUS1_fields_
+};  // struct LPCG94_STATUS1_fields_
 
 struct LPCG94_STATUS1 : ftl::mmio::Register<
     0x40CC6BD4u,
@@ -62753,8 +63471,9 @@ struct LPCG94_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG94_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG94_CONFIG_fields_ {
+struct LPCG94_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -62764,7 +63483,7 @@ namespace LPCG94_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG94_CONFIG_fields_
+};  // struct LPCG94_CONFIG_fields_
 
 struct LPCG94_CONFIG : ftl::mmio::Register<
     0x40CC6BD8u,
@@ -62778,8 +63497,9 @@ struct LPCG94_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG94_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG94_AUTHEN_fields_ {
+struct LPCG94_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -62854,7 +63574,7 @@ namespace LPCG94_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG94_AUTHEN_fields_
+};  // struct LPCG94_AUTHEN_fields_
 
 struct LPCG94_AUTHEN : ftl::mmio::Register<
     0x40CC6BDCu,
@@ -62894,8 +63614,9 @@ struct LPCG94_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG94_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG95_DIRECT_fields_ {
+struct LPCG95_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -62905,7 +63626,7 @@ namespace LPCG95_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG95_DIRECT_fields_
+};  // struct LPCG95_DIRECT_fields_
 
 struct LPCG95_DIRECT : ftl::mmio::Register<
     0x40CC6BE0u,
@@ -62918,8 +63639,9 @@ struct LPCG95_DIRECT : ftl::mmio::Register<
   using ON = LPCG95_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG95_DOMAIN_fields_ {
+struct LPCG95_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -62995,7 +63717,7 @@ namespace LPCG95_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG95_DOMAIN_fields_
+};  // struct LPCG95_DOMAIN_fields_
 
 struct LPCG95_DOMAIN : ftl::mmio::Register<
     0x40CC6BE4u,
@@ -63024,8 +63746,9 @@ struct LPCG95_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG95_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG95_STATUS0_fields_ {
+struct LPCG95_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -63109,7 +63832,7 @@ namespace LPCG95_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG95_STATUS0_fields_
+};  // struct LPCG95_STATUS0_fields_
 
 struct LPCG95_STATUS0 : ftl::mmio::Register<
     0x40CC6BF0u,
@@ -63129,8 +63852,9 @@ struct LPCG95_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG95_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG95_STATUS1_fields_ {
+struct LPCG95_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -63295,7 +64019,7 @@ namespace LPCG95_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG95_STATUS1_fields_
+};  // struct LPCG95_STATUS1_fields_
 
 struct LPCG95_STATUS1 : ftl::mmio::Register<
     0x40CC6BF4u,
@@ -63357,8 +64081,9 @@ struct LPCG95_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG95_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG95_CONFIG_fields_ {
+struct LPCG95_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -63368,7 +64093,7 @@ namespace LPCG95_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG95_CONFIG_fields_
+};  // struct LPCG95_CONFIG_fields_
 
 struct LPCG95_CONFIG : ftl::mmio::Register<
     0x40CC6BF8u,
@@ -63382,8 +64107,9 @@ struct LPCG95_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG95_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG95_AUTHEN_fields_ {
+struct LPCG95_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -63458,7 +64184,7 @@ namespace LPCG95_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG95_AUTHEN_fields_
+};  // struct LPCG95_AUTHEN_fields_
 
 struct LPCG95_AUTHEN : ftl::mmio::Register<
     0x40CC6BFCu,
@@ -63498,8 +64224,9 @@ struct LPCG95_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG95_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG96_DIRECT_fields_ {
+struct LPCG96_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -63509,7 +64236,7 @@ namespace LPCG96_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG96_DIRECT_fields_
+};  // struct LPCG96_DIRECT_fields_
 
 struct LPCG96_DIRECT : ftl::mmio::Register<
     0x40CC6C00u,
@@ -63522,8 +64249,9 @@ struct LPCG96_DIRECT : ftl::mmio::Register<
   using ON = LPCG96_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG96_DOMAIN_fields_ {
+struct LPCG96_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -63599,7 +64327,7 @@ namespace LPCG96_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG96_DOMAIN_fields_
+};  // struct LPCG96_DOMAIN_fields_
 
 struct LPCG96_DOMAIN : ftl::mmio::Register<
     0x40CC6C04u,
@@ -63628,8 +64356,9 @@ struct LPCG96_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG96_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG96_STATUS0_fields_ {
+struct LPCG96_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -63713,7 +64442,7 @@ namespace LPCG96_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG96_STATUS0_fields_
+};  // struct LPCG96_STATUS0_fields_
 
 struct LPCG96_STATUS0 : ftl::mmio::Register<
     0x40CC6C10u,
@@ -63733,8 +64462,9 @@ struct LPCG96_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG96_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG96_STATUS1_fields_ {
+struct LPCG96_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -63899,7 +64629,7 @@ namespace LPCG96_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG96_STATUS1_fields_
+};  // struct LPCG96_STATUS1_fields_
 
 struct LPCG96_STATUS1 : ftl::mmio::Register<
     0x40CC6C14u,
@@ -63961,8 +64691,9 @@ struct LPCG96_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG96_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG96_CONFIG_fields_ {
+struct LPCG96_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -63972,7 +64703,7 @@ namespace LPCG96_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG96_CONFIG_fields_
+};  // struct LPCG96_CONFIG_fields_
 
 struct LPCG96_CONFIG : ftl::mmio::Register<
     0x40CC6C18u,
@@ -63986,8 +64717,9 @@ struct LPCG96_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG96_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG96_AUTHEN_fields_ {
+struct LPCG96_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -64062,7 +64794,7 @@ namespace LPCG96_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG96_AUTHEN_fields_
+};  // struct LPCG96_AUTHEN_fields_
 
 struct LPCG96_AUTHEN : ftl::mmio::Register<
     0x40CC6C1Cu,
@@ -64102,8 +64834,9 @@ struct LPCG96_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG96_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG97_DIRECT_fields_ {
+struct LPCG97_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -64113,7 +64846,7 @@ namespace LPCG97_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG97_DIRECT_fields_
+};  // struct LPCG97_DIRECT_fields_
 
 struct LPCG97_DIRECT : ftl::mmio::Register<
     0x40CC6C20u,
@@ -64126,8 +64859,9 @@ struct LPCG97_DIRECT : ftl::mmio::Register<
   using ON = LPCG97_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG97_DOMAIN_fields_ {
+struct LPCG97_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -64203,7 +64937,7 @@ namespace LPCG97_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG97_DOMAIN_fields_
+};  // struct LPCG97_DOMAIN_fields_
 
 struct LPCG97_DOMAIN : ftl::mmio::Register<
     0x40CC6C24u,
@@ -64232,8 +64966,9 @@ struct LPCG97_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG97_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG97_STATUS0_fields_ {
+struct LPCG97_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -64317,7 +65052,7 @@ namespace LPCG97_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG97_STATUS0_fields_
+};  // struct LPCG97_STATUS0_fields_
 
 struct LPCG97_STATUS0 : ftl::mmio::Register<
     0x40CC6C30u,
@@ -64337,8 +65072,9 @@ struct LPCG97_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG97_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG97_STATUS1_fields_ {
+struct LPCG97_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -64503,7 +65239,7 @@ namespace LPCG97_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG97_STATUS1_fields_
+};  // struct LPCG97_STATUS1_fields_
 
 struct LPCG97_STATUS1 : ftl::mmio::Register<
     0x40CC6C34u,
@@ -64565,8 +65301,9 @@ struct LPCG97_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG97_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG97_CONFIG_fields_ {
+struct LPCG97_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -64576,7 +65313,7 @@ namespace LPCG97_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG97_CONFIG_fields_
+};  // struct LPCG97_CONFIG_fields_
 
 struct LPCG97_CONFIG : ftl::mmio::Register<
     0x40CC6C38u,
@@ -64590,8 +65327,9 @@ struct LPCG97_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG97_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG97_AUTHEN_fields_ {
+struct LPCG97_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -64666,7 +65404,7 @@ namespace LPCG97_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG97_AUTHEN_fields_
+};  // struct LPCG97_AUTHEN_fields_
 
 struct LPCG97_AUTHEN : ftl::mmio::Register<
     0x40CC6C3Cu,
@@ -64706,8 +65444,9 @@ struct LPCG97_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG97_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG98_DIRECT_fields_ {
+struct LPCG98_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -64717,7 +65456,7 @@ namespace LPCG98_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG98_DIRECT_fields_
+};  // struct LPCG98_DIRECT_fields_
 
 struct LPCG98_DIRECT : ftl::mmio::Register<
     0x40CC6C40u,
@@ -64730,8 +65469,9 @@ struct LPCG98_DIRECT : ftl::mmio::Register<
   using ON = LPCG98_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG98_DOMAIN_fields_ {
+struct LPCG98_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -64807,7 +65547,7 @@ namespace LPCG98_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG98_DOMAIN_fields_
+};  // struct LPCG98_DOMAIN_fields_
 
 struct LPCG98_DOMAIN : ftl::mmio::Register<
     0x40CC6C44u,
@@ -64836,8 +65576,9 @@ struct LPCG98_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG98_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG98_STATUS0_fields_ {
+struct LPCG98_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -64921,7 +65662,7 @@ namespace LPCG98_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG98_STATUS0_fields_
+};  // struct LPCG98_STATUS0_fields_
 
 struct LPCG98_STATUS0 : ftl::mmio::Register<
     0x40CC6C50u,
@@ -64941,8 +65682,9 @@ struct LPCG98_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG98_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG98_STATUS1_fields_ {
+struct LPCG98_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -65107,7 +65849,7 @@ namespace LPCG98_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG98_STATUS1_fields_
+};  // struct LPCG98_STATUS1_fields_
 
 struct LPCG98_STATUS1 : ftl::mmio::Register<
     0x40CC6C54u,
@@ -65169,8 +65911,9 @@ struct LPCG98_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG98_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG98_CONFIG_fields_ {
+struct LPCG98_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -65180,7 +65923,7 @@ namespace LPCG98_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG98_CONFIG_fields_
+};  // struct LPCG98_CONFIG_fields_
 
 struct LPCG98_CONFIG : ftl::mmio::Register<
     0x40CC6C58u,
@@ -65194,8 +65937,9 @@ struct LPCG98_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG98_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG98_AUTHEN_fields_ {
+struct LPCG98_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -65270,7 +66014,7 @@ namespace LPCG98_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG98_AUTHEN_fields_
+};  // struct LPCG98_AUTHEN_fields_
 
 struct LPCG98_AUTHEN : ftl::mmio::Register<
     0x40CC6C5Cu,
@@ -65310,8 +66054,9 @@ struct LPCG98_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG98_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG99_DIRECT_fields_ {
+struct LPCG99_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -65321,7 +66066,7 @@ namespace LPCG99_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG99_DIRECT_fields_
+};  // struct LPCG99_DIRECT_fields_
 
 struct LPCG99_DIRECT : ftl::mmio::Register<
     0x40CC6C60u,
@@ -65334,8 +66079,9 @@ struct LPCG99_DIRECT : ftl::mmio::Register<
   using ON = LPCG99_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG99_DOMAIN_fields_ {
+struct LPCG99_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -65411,7 +66157,7 @@ namespace LPCG99_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG99_DOMAIN_fields_
+};  // struct LPCG99_DOMAIN_fields_
 
 struct LPCG99_DOMAIN : ftl::mmio::Register<
     0x40CC6C64u,
@@ -65440,8 +66186,9 @@ struct LPCG99_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG99_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG99_STATUS0_fields_ {
+struct LPCG99_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -65525,7 +66272,7 @@ namespace LPCG99_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG99_STATUS0_fields_
+};  // struct LPCG99_STATUS0_fields_
 
 struct LPCG99_STATUS0 : ftl::mmio::Register<
     0x40CC6C70u,
@@ -65545,8 +66292,9 @@ struct LPCG99_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG99_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG99_STATUS1_fields_ {
+struct LPCG99_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -65711,7 +66459,7 @@ namespace LPCG99_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG99_STATUS1_fields_
+};  // struct LPCG99_STATUS1_fields_
 
 struct LPCG99_STATUS1 : ftl::mmio::Register<
     0x40CC6C74u,
@@ -65773,8 +66521,9 @@ struct LPCG99_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG99_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG99_CONFIG_fields_ {
+struct LPCG99_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -65784,7 +66533,7 @@ namespace LPCG99_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG99_CONFIG_fields_
+};  // struct LPCG99_CONFIG_fields_
 
 struct LPCG99_CONFIG : ftl::mmio::Register<
     0x40CC6C78u,
@@ -65798,8 +66547,9 @@ struct LPCG99_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG99_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG99_AUTHEN_fields_ {
+struct LPCG99_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -65874,7 +66624,7 @@ namespace LPCG99_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG99_AUTHEN_fields_
+};  // struct LPCG99_AUTHEN_fields_
 
 struct LPCG99_AUTHEN : ftl::mmio::Register<
     0x40CC6C7Cu,
@@ -65914,8 +66664,9 @@ struct LPCG99_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG99_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG100_DIRECT_fields_ {
+struct LPCG100_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -65925,7 +66676,7 @@ namespace LPCG100_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG100_DIRECT_fields_
+};  // struct LPCG100_DIRECT_fields_
 
 struct LPCG100_DIRECT : ftl::mmio::Register<
     0x40CC6C80u,
@@ -65938,8 +66689,9 @@ struct LPCG100_DIRECT : ftl::mmio::Register<
   using ON = LPCG100_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG100_DOMAIN_fields_ {
+struct LPCG100_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -66015,7 +66767,7 @@ namespace LPCG100_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG100_DOMAIN_fields_
+};  // struct LPCG100_DOMAIN_fields_
 
 struct LPCG100_DOMAIN : ftl::mmio::Register<
     0x40CC6C84u,
@@ -66044,8 +66796,9 @@ struct LPCG100_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG100_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG100_STATUS0_fields_ {
+struct LPCG100_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -66129,7 +66882,7 @@ namespace LPCG100_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG100_STATUS0_fields_
+};  // struct LPCG100_STATUS0_fields_
 
 struct LPCG100_STATUS0 : ftl::mmio::Register<
     0x40CC6C90u,
@@ -66149,8 +66902,9 @@ struct LPCG100_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG100_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG100_STATUS1_fields_ {
+struct LPCG100_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -66315,7 +67069,7 @@ namespace LPCG100_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG100_STATUS1_fields_
+};  // struct LPCG100_STATUS1_fields_
 
 struct LPCG100_STATUS1 : ftl::mmio::Register<
     0x40CC6C94u,
@@ -66377,8 +67131,9 @@ struct LPCG100_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG100_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG100_CONFIG_fields_ {
+struct LPCG100_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -66388,7 +67143,7 @@ namespace LPCG100_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG100_CONFIG_fields_
+};  // struct LPCG100_CONFIG_fields_
 
 struct LPCG100_CONFIG : ftl::mmio::Register<
     0x40CC6C98u,
@@ -66402,8 +67157,9 @@ struct LPCG100_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG100_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG100_AUTHEN_fields_ {
+struct LPCG100_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -66478,7 +67234,7 @@ namespace LPCG100_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG100_AUTHEN_fields_
+};  // struct LPCG100_AUTHEN_fields_
 
 struct LPCG100_AUTHEN : ftl::mmio::Register<
     0x40CC6C9Cu,
@@ -66518,8 +67274,9 @@ struct LPCG100_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG100_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG101_DIRECT_fields_ {
+struct LPCG101_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -66529,7 +67286,7 @@ namespace LPCG101_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG101_DIRECT_fields_
+};  // struct LPCG101_DIRECT_fields_
 
 struct LPCG101_DIRECT : ftl::mmio::Register<
     0x40CC6CA0u,
@@ -66542,8 +67299,9 @@ struct LPCG101_DIRECT : ftl::mmio::Register<
   using ON = LPCG101_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG101_DOMAIN_fields_ {
+struct LPCG101_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -66619,7 +67377,7 @@ namespace LPCG101_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG101_DOMAIN_fields_
+};  // struct LPCG101_DOMAIN_fields_
 
 struct LPCG101_DOMAIN : ftl::mmio::Register<
     0x40CC6CA4u,
@@ -66648,8 +67406,9 @@ struct LPCG101_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG101_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG101_STATUS0_fields_ {
+struct LPCG101_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -66733,7 +67492,7 @@ namespace LPCG101_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG101_STATUS0_fields_
+};  // struct LPCG101_STATUS0_fields_
 
 struct LPCG101_STATUS0 : ftl::mmio::Register<
     0x40CC6CB0u,
@@ -66753,8 +67512,9 @@ struct LPCG101_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG101_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG101_STATUS1_fields_ {
+struct LPCG101_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -66919,7 +67679,7 @@ namespace LPCG101_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG101_STATUS1_fields_
+};  // struct LPCG101_STATUS1_fields_
 
 struct LPCG101_STATUS1 : ftl::mmio::Register<
     0x40CC6CB4u,
@@ -66981,8 +67741,9 @@ struct LPCG101_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG101_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG101_CONFIG_fields_ {
+struct LPCG101_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -66992,7 +67753,7 @@ namespace LPCG101_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG101_CONFIG_fields_
+};  // struct LPCG101_CONFIG_fields_
 
 struct LPCG101_CONFIG : ftl::mmio::Register<
     0x40CC6CB8u,
@@ -67006,8 +67767,9 @@ struct LPCG101_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG101_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG101_AUTHEN_fields_ {
+struct LPCG101_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -67082,7 +67844,7 @@ namespace LPCG101_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG101_AUTHEN_fields_
+};  // struct LPCG101_AUTHEN_fields_
 
 struct LPCG101_AUTHEN : ftl::mmio::Register<
     0x40CC6CBCu,
@@ -67122,8 +67884,9 @@ struct LPCG101_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG101_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG102_DIRECT_fields_ {
+struct LPCG102_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -67133,7 +67896,7 @@ namespace LPCG102_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG102_DIRECT_fields_
+};  // struct LPCG102_DIRECT_fields_
 
 struct LPCG102_DIRECT : ftl::mmio::Register<
     0x40CC6CC0u,
@@ -67146,8 +67909,9 @@ struct LPCG102_DIRECT : ftl::mmio::Register<
   using ON = LPCG102_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG102_DOMAIN_fields_ {
+struct LPCG102_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -67223,7 +67987,7 @@ namespace LPCG102_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG102_DOMAIN_fields_
+};  // struct LPCG102_DOMAIN_fields_
 
 struct LPCG102_DOMAIN : ftl::mmio::Register<
     0x40CC6CC4u,
@@ -67252,8 +68016,9 @@ struct LPCG102_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG102_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG102_STATUS0_fields_ {
+struct LPCG102_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -67337,7 +68102,7 @@ namespace LPCG102_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG102_STATUS0_fields_
+};  // struct LPCG102_STATUS0_fields_
 
 struct LPCG102_STATUS0 : ftl::mmio::Register<
     0x40CC6CD0u,
@@ -67357,8 +68122,9 @@ struct LPCG102_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG102_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG102_STATUS1_fields_ {
+struct LPCG102_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -67523,7 +68289,7 @@ namespace LPCG102_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG102_STATUS1_fields_
+};  // struct LPCG102_STATUS1_fields_
 
 struct LPCG102_STATUS1 : ftl::mmio::Register<
     0x40CC6CD4u,
@@ -67585,8 +68351,9 @@ struct LPCG102_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG102_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG102_CONFIG_fields_ {
+struct LPCG102_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -67596,7 +68363,7 @@ namespace LPCG102_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG102_CONFIG_fields_
+};  // struct LPCG102_CONFIG_fields_
 
 struct LPCG102_CONFIG : ftl::mmio::Register<
     0x40CC6CD8u,
@@ -67610,8 +68377,9 @@ struct LPCG102_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG102_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG102_AUTHEN_fields_ {
+struct LPCG102_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -67686,7 +68454,7 @@ namespace LPCG102_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG102_AUTHEN_fields_
+};  // struct LPCG102_AUTHEN_fields_
 
 struct LPCG102_AUTHEN : ftl::mmio::Register<
     0x40CC6CDCu,
@@ -67726,8 +68494,9 @@ struct LPCG102_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG102_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG103_DIRECT_fields_ {
+struct LPCG103_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -67737,7 +68506,7 @@ namespace LPCG103_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG103_DIRECT_fields_
+};  // struct LPCG103_DIRECT_fields_
 
 struct LPCG103_DIRECT : ftl::mmio::Register<
     0x40CC6CE0u,
@@ -67750,8 +68519,9 @@ struct LPCG103_DIRECT : ftl::mmio::Register<
   using ON = LPCG103_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG103_DOMAIN_fields_ {
+struct LPCG103_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -67827,7 +68597,7 @@ namespace LPCG103_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG103_DOMAIN_fields_
+};  // struct LPCG103_DOMAIN_fields_
 
 struct LPCG103_DOMAIN : ftl::mmio::Register<
     0x40CC6CE4u,
@@ -67856,8 +68626,9 @@ struct LPCG103_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG103_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG103_STATUS0_fields_ {
+struct LPCG103_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -67941,7 +68712,7 @@ namespace LPCG103_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG103_STATUS0_fields_
+};  // struct LPCG103_STATUS0_fields_
 
 struct LPCG103_STATUS0 : ftl::mmio::Register<
     0x40CC6CF0u,
@@ -67961,8 +68732,9 @@ struct LPCG103_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG103_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG103_STATUS1_fields_ {
+struct LPCG103_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -68127,7 +68899,7 @@ namespace LPCG103_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG103_STATUS1_fields_
+};  // struct LPCG103_STATUS1_fields_
 
 struct LPCG103_STATUS1 : ftl::mmio::Register<
     0x40CC6CF4u,
@@ -68189,8 +68961,9 @@ struct LPCG103_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG103_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG103_CONFIG_fields_ {
+struct LPCG103_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -68200,7 +68973,7 @@ namespace LPCG103_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG103_CONFIG_fields_
+};  // struct LPCG103_CONFIG_fields_
 
 struct LPCG103_CONFIG : ftl::mmio::Register<
     0x40CC6CF8u,
@@ -68214,8 +68987,9 @@ struct LPCG103_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG103_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG103_AUTHEN_fields_ {
+struct LPCG103_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -68290,7 +69064,7 @@ namespace LPCG103_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG103_AUTHEN_fields_
+};  // struct LPCG103_AUTHEN_fields_
 
 struct LPCG103_AUTHEN : ftl::mmio::Register<
     0x40CC6CFCu,
@@ -68330,8 +69104,9 @@ struct LPCG103_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG103_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG104_DIRECT_fields_ {
+struct LPCG104_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -68341,7 +69116,7 @@ namespace LPCG104_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG104_DIRECT_fields_
+};  // struct LPCG104_DIRECT_fields_
 
 struct LPCG104_DIRECT : ftl::mmio::Register<
     0x40CC6D00u,
@@ -68354,8 +69129,9 @@ struct LPCG104_DIRECT : ftl::mmio::Register<
   using ON = LPCG104_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG104_DOMAIN_fields_ {
+struct LPCG104_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -68431,7 +69207,7 @@ namespace LPCG104_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG104_DOMAIN_fields_
+};  // struct LPCG104_DOMAIN_fields_
 
 struct LPCG104_DOMAIN : ftl::mmio::Register<
     0x40CC6D04u,
@@ -68460,8 +69236,9 @@ struct LPCG104_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG104_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG104_STATUS0_fields_ {
+struct LPCG104_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -68545,7 +69322,7 @@ namespace LPCG104_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG104_STATUS0_fields_
+};  // struct LPCG104_STATUS0_fields_
 
 struct LPCG104_STATUS0 : ftl::mmio::Register<
     0x40CC6D10u,
@@ -68565,8 +69342,9 @@ struct LPCG104_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG104_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG104_STATUS1_fields_ {
+struct LPCG104_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -68731,7 +69509,7 @@ namespace LPCG104_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG104_STATUS1_fields_
+};  // struct LPCG104_STATUS1_fields_
 
 struct LPCG104_STATUS1 : ftl::mmio::Register<
     0x40CC6D14u,
@@ -68793,8 +69571,9 @@ struct LPCG104_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG104_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG104_CONFIG_fields_ {
+struct LPCG104_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -68804,7 +69583,7 @@ namespace LPCG104_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG104_CONFIG_fields_
+};  // struct LPCG104_CONFIG_fields_
 
 struct LPCG104_CONFIG : ftl::mmio::Register<
     0x40CC6D18u,
@@ -68818,8 +69597,9 @@ struct LPCG104_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG104_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG104_AUTHEN_fields_ {
+struct LPCG104_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -68894,7 +69674,7 @@ namespace LPCG104_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG104_AUTHEN_fields_
+};  // struct LPCG104_AUTHEN_fields_
 
 struct LPCG104_AUTHEN : ftl::mmio::Register<
     0x40CC6D1Cu,
@@ -68934,8 +69714,9 @@ struct LPCG104_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG104_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG105_DIRECT_fields_ {
+struct LPCG105_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -68945,7 +69726,7 @@ namespace LPCG105_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG105_DIRECT_fields_
+};  // struct LPCG105_DIRECT_fields_
 
 struct LPCG105_DIRECT : ftl::mmio::Register<
     0x40CC6D20u,
@@ -68958,8 +69739,9 @@ struct LPCG105_DIRECT : ftl::mmio::Register<
   using ON = LPCG105_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG105_DOMAIN_fields_ {
+struct LPCG105_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -69035,7 +69817,7 @@ namespace LPCG105_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG105_DOMAIN_fields_
+};  // struct LPCG105_DOMAIN_fields_
 
 struct LPCG105_DOMAIN : ftl::mmio::Register<
     0x40CC6D24u,
@@ -69064,8 +69846,9 @@ struct LPCG105_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG105_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG105_STATUS0_fields_ {
+struct LPCG105_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -69149,7 +69932,7 @@ namespace LPCG105_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG105_STATUS0_fields_
+};  // struct LPCG105_STATUS0_fields_
 
 struct LPCG105_STATUS0 : ftl::mmio::Register<
     0x40CC6D30u,
@@ -69169,8 +69952,9 @@ struct LPCG105_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG105_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG105_STATUS1_fields_ {
+struct LPCG105_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -69335,7 +70119,7 @@ namespace LPCG105_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG105_STATUS1_fields_
+};  // struct LPCG105_STATUS1_fields_
 
 struct LPCG105_STATUS1 : ftl::mmio::Register<
     0x40CC6D34u,
@@ -69397,8 +70181,9 @@ struct LPCG105_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG105_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG105_CONFIG_fields_ {
+struct LPCG105_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -69408,7 +70193,7 @@ namespace LPCG105_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG105_CONFIG_fields_
+};  // struct LPCG105_CONFIG_fields_
 
 struct LPCG105_CONFIG : ftl::mmio::Register<
     0x40CC6D38u,
@@ -69422,8 +70207,9 @@ struct LPCG105_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG105_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG105_AUTHEN_fields_ {
+struct LPCG105_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -69498,7 +70284,7 @@ namespace LPCG105_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG105_AUTHEN_fields_
+};  // struct LPCG105_AUTHEN_fields_
 
 struct LPCG105_AUTHEN : ftl::mmio::Register<
     0x40CC6D3Cu,
@@ -69538,8 +70324,9 @@ struct LPCG105_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG105_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG106_DIRECT_fields_ {
+struct LPCG106_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -69549,7 +70336,7 @@ namespace LPCG106_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG106_DIRECT_fields_
+};  // struct LPCG106_DIRECT_fields_
 
 struct LPCG106_DIRECT : ftl::mmio::Register<
     0x40CC6D40u,
@@ -69562,8 +70349,9 @@ struct LPCG106_DIRECT : ftl::mmio::Register<
   using ON = LPCG106_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG106_DOMAIN_fields_ {
+struct LPCG106_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -69639,7 +70427,7 @@ namespace LPCG106_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG106_DOMAIN_fields_
+};  // struct LPCG106_DOMAIN_fields_
 
 struct LPCG106_DOMAIN : ftl::mmio::Register<
     0x40CC6D44u,
@@ -69668,8 +70456,9 @@ struct LPCG106_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG106_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG106_STATUS0_fields_ {
+struct LPCG106_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -69753,7 +70542,7 @@ namespace LPCG106_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG106_STATUS0_fields_
+};  // struct LPCG106_STATUS0_fields_
 
 struct LPCG106_STATUS0 : ftl::mmio::Register<
     0x40CC6D50u,
@@ -69773,8 +70562,9 @@ struct LPCG106_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG106_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG106_STATUS1_fields_ {
+struct LPCG106_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -69939,7 +70729,7 @@ namespace LPCG106_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG106_STATUS1_fields_
+};  // struct LPCG106_STATUS1_fields_
 
 struct LPCG106_STATUS1 : ftl::mmio::Register<
     0x40CC6D54u,
@@ -70001,8 +70791,9 @@ struct LPCG106_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG106_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG106_CONFIG_fields_ {
+struct LPCG106_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -70012,7 +70803,7 @@ namespace LPCG106_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG106_CONFIG_fields_
+};  // struct LPCG106_CONFIG_fields_
 
 struct LPCG106_CONFIG : ftl::mmio::Register<
     0x40CC6D58u,
@@ -70026,8 +70817,9 @@ struct LPCG106_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG106_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG106_AUTHEN_fields_ {
+struct LPCG106_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -70102,7 +70894,7 @@ namespace LPCG106_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG106_AUTHEN_fields_
+};  // struct LPCG106_AUTHEN_fields_
 
 struct LPCG106_AUTHEN : ftl::mmio::Register<
     0x40CC6D5Cu,
@@ -70142,8 +70934,9 @@ struct LPCG106_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG106_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG107_DIRECT_fields_ {
+struct LPCG107_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -70153,7 +70946,7 @@ namespace LPCG107_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG107_DIRECT_fields_
+};  // struct LPCG107_DIRECT_fields_
 
 struct LPCG107_DIRECT : ftl::mmio::Register<
     0x40CC6D60u,
@@ -70166,8 +70959,9 @@ struct LPCG107_DIRECT : ftl::mmio::Register<
   using ON = LPCG107_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG107_DOMAIN_fields_ {
+struct LPCG107_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -70243,7 +71037,7 @@ namespace LPCG107_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG107_DOMAIN_fields_
+};  // struct LPCG107_DOMAIN_fields_
 
 struct LPCG107_DOMAIN : ftl::mmio::Register<
     0x40CC6D64u,
@@ -70272,8 +71066,9 @@ struct LPCG107_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG107_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG107_STATUS0_fields_ {
+struct LPCG107_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -70357,7 +71152,7 @@ namespace LPCG107_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG107_STATUS0_fields_
+};  // struct LPCG107_STATUS0_fields_
 
 struct LPCG107_STATUS0 : ftl::mmio::Register<
     0x40CC6D70u,
@@ -70377,8 +71172,9 @@ struct LPCG107_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG107_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG107_STATUS1_fields_ {
+struct LPCG107_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -70543,7 +71339,7 @@ namespace LPCG107_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG107_STATUS1_fields_
+};  // struct LPCG107_STATUS1_fields_
 
 struct LPCG107_STATUS1 : ftl::mmio::Register<
     0x40CC6D74u,
@@ -70605,8 +71401,9 @@ struct LPCG107_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG107_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG107_CONFIG_fields_ {
+struct LPCG107_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -70616,7 +71413,7 @@ namespace LPCG107_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG107_CONFIG_fields_
+};  // struct LPCG107_CONFIG_fields_
 
 struct LPCG107_CONFIG : ftl::mmio::Register<
     0x40CC6D78u,
@@ -70630,8 +71427,9 @@ struct LPCG107_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG107_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG107_AUTHEN_fields_ {
+struct LPCG107_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -70706,7 +71504,7 @@ namespace LPCG107_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG107_AUTHEN_fields_
+};  // struct LPCG107_AUTHEN_fields_
 
 struct LPCG107_AUTHEN : ftl::mmio::Register<
     0x40CC6D7Cu,
@@ -70746,8 +71544,9 @@ struct LPCG107_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG107_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG108_DIRECT_fields_ {
+struct LPCG108_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -70757,7 +71556,7 @@ namespace LPCG108_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG108_DIRECT_fields_
+};  // struct LPCG108_DIRECT_fields_
 
 struct LPCG108_DIRECT : ftl::mmio::Register<
     0x40CC6D80u,
@@ -70770,8 +71569,9 @@ struct LPCG108_DIRECT : ftl::mmio::Register<
   using ON = LPCG108_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG108_DOMAIN_fields_ {
+struct LPCG108_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -70847,7 +71647,7 @@ namespace LPCG108_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG108_DOMAIN_fields_
+};  // struct LPCG108_DOMAIN_fields_
 
 struct LPCG108_DOMAIN : ftl::mmio::Register<
     0x40CC6D84u,
@@ -70876,8 +71676,9 @@ struct LPCG108_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG108_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG108_STATUS0_fields_ {
+struct LPCG108_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -70961,7 +71762,7 @@ namespace LPCG108_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG108_STATUS0_fields_
+};  // struct LPCG108_STATUS0_fields_
 
 struct LPCG108_STATUS0 : ftl::mmio::Register<
     0x40CC6D90u,
@@ -70981,8 +71782,9 @@ struct LPCG108_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG108_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG108_STATUS1_fields_ {
+struct LPCG108_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -71147,7 +71949,7 @@ namespace LPCG108_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG108_STATUS1_fields_
+};  // struct LPCG108_STATUS1_fields_
 
 struct LPCG108_STATUS1 : ftl::mmio::Register<
     0x40CC6D94u,
@@ -71209,8 +72011,9 @@ struct LPCG108_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG108_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG108_CONFIG_fields_ {
+struct LPCG108_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -71220,7 +72023,7 @@ namespace LPCG108_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG108_CONFIG_fields_
+};  // struct LPCG108_CONFIG_fields_
 
 struct LPCG108_CONFIG : ftl::mmio::Register<
     0x40CC6D98u,
@@ -71234,8 +72037,9 @@ struct LPCG108_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG108_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG108_AUTHEN_fields_ {
+struct LPCG108_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -71310,7 +72114,7 @@ namespace LPCG108_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG108_AUTHEN_fields_
+};  // struct LPCG108_AUTHEN_fields_
 
 struct LPCG108_AUTHEN : ftl::mmio::Register<
     0x40CC6D9Cu,
@@ -71350,8 +72154,9 @@ struct LPCG108_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG108_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG109_DIRECT_fields_ {
+struct LPCG109_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -71361,7 +72166,7 @@ namespace LPCG109_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG109_DIRECT_fields_
+};  // struct LPCG109_DIRECT_fields_
 
 struct LPCG109_DIRECT : ftl::mmio::Register<
     0x40CC6DA0u,
@@ -71374,8 +72179,9 @@ struct LPCG109_DIRECT : ftl::mmio::Register<
   using ON = LPCG109_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG109_DOMAIN_fields_ {
+struct LPCG109_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -71451,7 +72257,7 @@ namespace LPCG109_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG109_DOMAIN_fields_
+};  // struct LPCG109_DOMAIN_fields_
 
 struct LPCG109_DOMAIN : ftl::mmio::Register<
     0x40CC6DA4u,
@@ -71480,8 +72286,9 @@ struct LPCG109_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG109_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG109_STATUS0_fields_ {
+struct LPCG109_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -71565,7 +72372,7 @@ namespace LPCG109_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG109_STATUS0_fields_
+};  // struct LPCG109_STATUS0_fields_
 
 struct LPCG109_STATUS0 : ftl::mmio::Register<
     0x40CC6DB0u,
@@ -71585,8 +72392,9 @@ struct LPCG109_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG109_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG109_STATUS1_fields_ {
+struct LPCG109_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -71751,7 +72559,7 @@ namespace LPCG109_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG109_STATUS1_fields_
+};  // struct LPCG109_STATUS1_fields_
 
 struct LPCG109_STATUS1 : ftl::mmio::Register<
     0x40CC6DB4u,
@@ -71813,8 +72621,9 @@ struct LPCG109_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG109_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG109_CONFIG_fields_ {
+struct LPCG109_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -71824,7 +72633,7 @@ namespace LPCG109_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG109_CONFIG_fields_
+};  // struct LPCG109_CONFIG_fields_
 
 struct LPCG109_CONFIG : ftl::mmio::Register<
     0x40CC6DB8u,
@@ -71838,8 +72647,9 @@ struct LPCG109_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG109_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG109_AUTHEN_fields_ {
+struct LPCG109_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -71914,7 +72724,7 @@ namespace LPCG109_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG109_AUTHEN_fields_
+};  // struct LPCG109_AUTHEN_fields_
 
 struct LPCG109_AUTHEN : ftl::mmio::Register<
     0x40CC6DBCu,
@@ -71954,8 +72764,9 @@ struct LPCG109_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG109_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG110_DIRECT_fields_ {
+struct LPCG110_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -71965,7 +72776,7 @@ namespace LPCG110_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG110_DIRECT_fields_
+};  // struct LPCG110_DIRECT_fields_
 
 struct LPCG110_DIRECT : ftl::mmio::Register<
     0x40CC6DC0u,
@@ -71978,8 +72789,9 @@ struct LPCG110_DIRECT : ftl::mmio::Register<
   using ON = LPCG110_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG110_DOMAIN_fields_ {
+struct LPCG110_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -72055,7 +72867,7 @@ namespace LPCG110_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG110_DOMAIN_fields_
+};  // struct LPCG110_DOMAIN_fields_
 
 struct LPCG110_DOMAIN : ftl::mmio::Register<
     0x40CC6DC4u,
@@ -72084,8 +72896,9 @@ struct LPCG110_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG110_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG110_STATUS0_fields_ {
+struct LPCG110_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -72169,7 +72982,7 @@ namespace LPCG110_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG110_STATUS0_fields_
+};  // struct LPCG110_STATUS0_fields_
 
 struct LPCG110_STATUS0 : ftl::mmio::Register<
     0x40CC6DD0u,
@@ -72189,8 +73002,9 @@ struct LPCG110_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG110_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG110_STATUS1_fields_ {
+struct LPCG110_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -72355,7 +73169,7 @@ namespace LPCG110_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG110_STATUS1_fields_
+};  // struct LPCG110_STATUS1_fields_
 
 struct LPCG110_STATUS1 : ftl::mmio::Register<
     0x40CC6DD4u,
@@ -72417,8 +73231,9 @@ struct LPCG110_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG110_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG110_CONFIG_fields_ {
+struct LPCG110_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -72428,7 +73243,7 @@ namespace LPCG110_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG110_CONFIG_fields_
+};  // struct LPCG110_CONFIG_fields_
 
 struct LPCG110_CONFIG : ftl::mmio::Register<
     0x40CC6DD8u,
@@ -72442,8 +73257,9 @@ struct LPCG110_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG110_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG110_AUTHEN_fields_ {
+struct LPCG110_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -72518,7 +73334,7 @@ namespace LPCG110_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG110_AUTHEN_fields_
+};  // struct LPCG110_AUTHEN_fields_
 
 struct LPCG110_AUTHEN : ftl::mmio::Register<
     0x40CC6DDCu,
@@ -72558,8 +73374,9 @@ struct LPCG110_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG110_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG111_DIRECT_fields_ {
+struct LPCG111_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -72569,7 +73386,7 @@ namespace LPCG111_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG111_DIRECT_fields_
+};  // struct LPCG111_DIRECT_fields_
 
 struct LPCG111_DIRECT : ftl::mmio::Register<
     0x40CC6DE0u,
@@ -72582,8 +73399,9 @@ struct LPCG111_DIRECT : ftl::mmio::Register<
   using ON = LPCG111_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG111_DOMAIN_fields_ {
+struct LPCG111_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -72659,7 +73477,7 @@ namespace LPCG111_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG111_DOMAIN_fields_
+};  // struct LPCG111_DOMAIN_fields_
 
 struct LPCG111_DOMAIN : ftl::mmio::Register<
     0x40CC6DE4u,
@@ -72688,8 +73506,9 @@ struct LPCG111_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG111_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG111_STATUS0_fields_ {
+struct LPCG111_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -72773,7 +73592,7 @@ namespace LPCG111_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG111_STATUS0_fields_
+};  // struct LPCG111_STATUS0_fields_
 
 struct LPCG111_STATUS0 : ftl::mmio::Register<
     0x40CC6DF0u,
@@ -72793,8 +73612,9 @@ struct LPCG111_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG111_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG111_STATUS1_fields_ {
+struct LPCG111_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -72959,7 +73779,7 @@ namespace LPCG111_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG111_STATUS1_fields_
+};  // struct LPCG111_STATUS1_fields_
 
 struct LPCG111_STATUS1 : ftl::mmio::Register<
     0x40CC6DF4u,
@@ -73021,8 +73841,9 @@ struct LPCG111_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG111_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG111_CONFIG_fields_ {
+struct LPCG111_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -73032,7 +73853,7 @@ namespace LPCG111_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG111_CONFIG_fields_
+};  // struct LPCG111_CONFIG_fields_
 
 struct LPCG111_CONFIG : ftl::mmio::Register<
     0x40CC6DF8u,
@@ -73046,8 +73867,9 @@ struct LPCG111_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG111_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG111_AUTHEN_fields_ {
+struct LPCG111_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -73122,7 +73944,7 @@ namespace LPCG111_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG111_AUTHEN_fields_
+};  // struct LPCG111_AUTHEN_fields_
 
 struct LPCG111_AUTHEN : ftl::mmio::Register<
     0x40CC6DFCu,
@@ -73162,8 +73984,9 @@ struct LPCG111_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG111_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG112_DIRECT_fields_ {
+struct LPCG112_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -73173,7 +73996,7 @@ namespace LPCG112_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG112_DIRECT_fields_
+};  // struct LPCG112_DIRECT_fields_
 
 struct LPCG112_DIRECT : ftl::mmio::Register<
     0x40CC6E00u,
@@ -73186,8 +74009,9 @@ struct LPCG112_DIRECT : ftl::mmio::Register<
   using ON = LPCG112_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG112_DOMAIN_fields_ {
+struct LPCG112_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -73263,7 +74087,7 @@ namespace LPCG112_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG112_DOMAIN_fields_
+};  // struct LPCG112_DOMAIN_fields_
 
 struct LPCG112_DOMAIN : ftl::mmio::Register<
     0x40CC6E04u,
@@ -73292,8 +74116,9 @@ struct LPCG112_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG112_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG112_STATUS0_fields_ {
+struct LPCG112_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -73377,7 +74202,7 @@ namespace LPCG112_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG112_STATUS0_fields_
+};  // struct LPCG112_STATUS0_fields_
 
 struct LPCG112_STATUS0 : ftl::mmio::Register<
     0x40CC6E10u,
@@ -73397,8 +74222,9 @@ struct LPCG112_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG112_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG112_STATUS1_fields_ {
+struct LPCG112_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -73563,7 +74389,7 @@ namespace LPCG112_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG112_STATUS1_fields_
+};  // struct LPCG112_STATUS1_fields_
 
 struct LPCG112_STATUS1 : ftl::mmio::Register<
     0x40CC6E14u,
@@ -73625,8 +74451,9 @@ struct LPCG112_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG112_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG112_CONFIG_fields_ {
+struct LPCG112_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -73636,7 +74463,7 @@ namespace LPCG112_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG112_CONFIG_fields_
+};  // struct LPCG112_CONFIG_fields_
 
 struct LPCG112_CONFIG : ftl::mmio::Register<
     0x40CC6E18u,
@@ -73650,8 +74477,9 @@ struct LPCG112_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG112_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG112_AUTHEN_fields_ {
+struct LPCG112_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -73726,7 +74554,7 @@ namespace LPCG112_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG112_AUTHEN_fields_
+};  // struct LPCG112_AUTHEN_fields_
 
 struct LPCG112_AUTHEN : ftl::mmio::Register<
     0x40CC6E1Cu,
@@ -73766,8 +74594,9 @@ struct LPCG112_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG112_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG113_DIRECT_fields_ {
+struct LPCG113_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -73777,7 +74606,7 @@ namespace LPCG113_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG113_DIRECT_fields_
+};  // struct LPCG113_DIRECT_fields_
 
 struct LPCG113_DIRECT : ftl::mmio::Register<
     0x40CC6E20u,
@@ -73790,8 +74619,9 @@ struct LPCG113_DIRECT : ftl::mmio::Register<
   using ON = LPCG113_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG113_DOMAIN_fields_ {
+struct LPCG113_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -73867,7 +74697,7 @@ namespace LPCG113_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG113_DOMAIN_fields_
+};  // struct LPCG113_DOMAIN_fields_
 
 struct LPCG113_DOMAIN : ftl::mmio::Register<
     0x40CC6E24u,
@@ -73896,8 +74726,9 @@ struct LPCG113_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG113_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG113_STATUS0_fields_ {
+struct LPCG113_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -73981,7 +74812,7 @@ namespace LPCG113_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG113_STATUS0_fields_
+};  // struct LPCG113_STATUS0_fields_
 
 struct LPCG113_STATUS0 : ftl::mmio::Register<
     0x40CC6E30u,
@@ -74001,8 +74832,9 @@ struct LPCG113_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG113_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG113_STATUS1_fields_ {
+struct LPCG113_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -74167,7 +74999,7 @@ namespace LPCG113_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG113_STATUS1_fields_
+};  // struct LPCG113_STATUS1_fields_
 
 struct LPCG113_STATUS1 : ftl::mmio::Register<
     0x40CC6E34u,
@@ -74229,8 +75061,9 @@ struct LPCG113_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG113_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG113_CONFIG_fields_ {
+struct LPCG113_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -74240,7 +75073,7 @@ namespace LPCG113_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG113_CONFIG_fields_
+};  // struct LPCG113_CONFIG_fields_
 
 struct LPCG113_CONFIG : ftl::mmio::Register<
     0x40CC6E38u,
@@ -74254,8 +75087,9 @@ struct LPCG113_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG113_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG113_AUTHEN_fields_ {
+struct LPCG113_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -74330,7 +75164,7 @@ namespace LPCG113_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG113_AUTHEN_fields_
+};  // struct LPCG113_AUTHEN_fields_
 
 struct LPCG113_AUTHEN : ftl::mmio::Register<
     0x40CC6E3Cu,
@@ -74370,8 +75204,9 @@ struct LPCG113_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG113_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG114_DIRECT_fields_ {
+struct LPCG114_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -74381,7 +75216,7 @@ namespace LPCG114_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG114_DIRECT_fields_
+};  // struct LPCG114_DIRECT_fields_
 
 struct LPCG114_DIRECT : ftl::mmio::Register<
     0x40CC6E40u,
@@ -74394,8 +75229,9 @@ struct LPCG114_DIRECT : ftl::mmio::Register<
   using ON = LPCG114_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG114_DOMAIN_fields_ {
+struct LPCG114_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -74471,7 +75307,7 @@ namespace LPCG114_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG114_DOMAIN_fields_
+};  // struct LPCG114_DOMAIN_fields_
 
 struct LPCG114_DOMAIN : ftl::mmio::Register<
     0x40CC6E44u,
@@ -74500,8 +75336,9 @@ struct LPCG114_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG114_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG114_STATUS0_fields_ {
+struct LPCG114_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -74585,7 +75422,7 @@ namespace LPCG114_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG114_STATUS0_fields_
+};  // struct LPCG114_STATUS0_fields_
 
 struct LPCG114_STATUS0 : ftl::mmio::Register<
     0x40CC6E50u,
@@ -74605,8 +75442,9 @@ struct LPCG114_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG114_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG114_STATUS1_fields_ {
+struct LPCG114_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -74771,7 +75609,7 @@ namespace LPCG114_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG114_STATUS1_fields_
+};  // struct LPCG114_STATUS1_fields_
 
 struct LPCG114_STATUS1 : ftl::mmio::Register<
     0x40CC6E54u,
@@ -74833,8 +75671,9 @@ struct LPCG114_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG114_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG114_CONFIG_fields_ {
+struct LPCG114_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -74844,7 +75683,7 @@ namespace LPCG114_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG114_CONFIG_fields_
+};  // struct LPCG114_CONFIG_fields_
 
 struct LPCG114_CONFIG : ftl::mmio::Register<
     0x40CC6E58u,
@@ -74858,8 +75697,9 @@ struct LPCG114_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG114_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG114_AUTHEN_fields_ {
+struct LPCG114_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -74934,7 +75774,7 @@ namespace LPCG114_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG114_AUTHEN_fields_
+};  // struct LPCG114_AUTHEN_fields_
 
 struct LPCG114_AUTHEN : ftl::mmio::Register<
     0x40CC6E5Cu,
@@ -74974,8 +75814,9 @@ struct LPCG114_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG114_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG115_DIRECT_fields_ {
+struct LPCG115_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -74985,7 +75826,7 @@ namespace LPCG115_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG115_DIRECT_fields_
+};  // struct LPCG115_DIRECT_fields_
 
 struct LPCG115_DIRECT : ftl::mmio::Register<
     0x40CC6E60u,
@@ -74998,8 +75839,9 @@ struct LPCG115_DIRECT : ftl::mmio::Register<
   using ON = LPCG115_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG115_DOMAIN_fields_ {
+struct LPCG115_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -75075,7 +75917,7 @@ namespace LPCG115_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG115_DOMAIN_fields_
+};  // struct LPCG115_DOMAIN_fields_
 
 struct LPCG115_DOMAIN : ftl::mmio::Register<
     0x40CC6E64u,
@@ -75104,8 +75946,9 @@ struct LPCG115_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG115_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG115_STATUS0_fields_ {
+struct LPCG115_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -75189,7 +76032,7 @@ namespace LPCG115_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG115_STATUS0_fields_
+};  // struct LPCG115_STATUS0_fields_
 
 struct LPCG115_STATUS0 : ftl::mmio::Register<
     0x40CC6E70u,
@@ -75209,8 +76052,9 @@ struct LPCG115_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG115_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG115_STATUS1_fields_ {
+struct LPCG115_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -75375,7 +76219,7 @@ namespace LPCG115_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG115_STATUS1_fields_
+};  // struct LPCG115_STATUS1_fields_
 
 struct LPCG115_STATUS1 : ftl::mmio::Register<
     0x40CC6E74u,
@@ -75437,8 +76281,9 @@ struct LPCG115_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG115_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG115_CONFIG_fields_ {
+struct LPCG115_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -75448,7 +76293,7 @@ namespace LPCG115_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG115_CONFIG_fields_
+};  // struct LPCG115_CONFIG_fields_
 
 struct LPCG115_CONFIG : ftl::mmio::Register<
     0x40CC6E78u,
@@ -75462,8 +76307,9 @@ struct LPCG115_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG115_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG115_AUTHEN_fields_ {
+struct LPCG115_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -75538,7 +76384,7 @@ namespace LPCG115_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG115_AUTHEN_fields_
+};  // struct LPCG115_AUTHEN_fields_
 
 struct LPCG115_AUTHEN : ftl::mmio::Register<
     0x40CC6E7Cu,
@@ -75578,8 +76424,9 @@ struct LPCG115_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG115_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG116_DIRECT_fields_ {
+struct LPCG116_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -75589,7 +76436,7 @@ namespace LPCG116_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG116_DIRECT_fields_
+};  // struct LPCG116_DIRECT_fields_
 
 struct LPCG116_DIRECT : ftl::mmio::Register<
     0x40CC6E80u,
@@ -75602,8 +76449,9 @@ struct LPCG116_DIRECT : ftl::mmio::Register<
   using ON = LPCG116_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG116_DOMAIN_fields_ {
+struct LPCG116_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -75679,7 +76527,7 @@ namespace LPCG116_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG116_DOMAIN_fields_
+};  // struct LPCG116_DOMAIN_fields_
 
 struct LPCG116_DOMAIN : ftl::mmio::Register<
     0x40CC6E84u,
@@ -75708,8 +76556,9 @@ struct LPCG116_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG116_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG116_STATUS0_fields_ {
+struct LPCG116_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -75793,7 +76642,7 @@ namespace LPCG116_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG116_STATUS0_fields_
+};  // struct LPCG116_STATUS0_fields_
 
 struct LPCG116_STATUS0 : ftl::mmio::Register<
     0x40CC6E90u,
@@ -75813,8 +76662,9 @@ struct LPCG116_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG116_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG116_STATUS1_fields_ {
+struct LPCG116_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -75979,7 +76829,7 @@ namespace LPCG116_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG116_STATUS1_fields_
+};  // struct LPCG116_STATUS1_fields_
 
 struct LPCG116_STATUS1 : ftl::mmio::Register<
     0x40CC6E94u,
@@ -76041,8 +76891,9 @@ struct LPCG116_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG116_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG116_CONFIG_fields_ {
+struct LPCG116_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -76052,7 +76903,7 @@ namespace LPCG116_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG116_CONFIG_fields_
+};  // struct LPCG116_CONFIG_fields_
 
 struct LPCG116_CONFIG : ftl::mmio::Register<
     0x40CC6E98u,
@@ -76066,8 +76917,9 @@ struct LPCG116_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG116_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG116_AUTHEN_fields_ {
+struct LPCG116_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -76142,7 +76994,7 @@ namespace LPCG116_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG116_AUTHEN_fields_
+};  // struct LPCG116_AUTHEN_fields_
 
 struct LPCG116_AUTHEN : ftl::mmio::Register<
     0x40CC6E9Cu,
@@ -76182,8 +77034,9 @@ struct LPCG116_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG116_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG117_DIRECT_fields_ {
+struct LPCG117_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -76193,7 +77046,7 @@ namespace LPCG117_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG117_DIRECT_fields_
+};  // struct LPCG117_DIRECT_fields_
 
 struct LPCG117_DIRECT : ftl::mmio::Register<
     0x40CC6EA0u,
@@ -76206,8 +77059,9 @@ struct LPCG117_DIRECT : ftl::mmio::Register<
   using ON = LPCG117_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG117_DOMAIN_fields_ {
+struct LPCG117_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -76283,7 +77137,7 @@ namespace LPCG117_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG117_DOMAIN_fields_
+};  // struct LPCG117_DOMAIN_fields_
 
 struct LPCG117_DOMAIN : ftl::mmio::Register<
     0x40CC6EA4u,
@@ -76312,8 +77166,9 @@ struct LPCG117_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG117_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG117_STATUS0_fields_ {
+struct LPCG117_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -76397,7 +77252,7 @@ namespace LPCG117_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG117_STATUS0_fields_
+};  // struct LPCG117_STATUS0_fields_
 
 struct LPCG117_STATUS0 : ftl::mmio::Register<
     0x40CC6EB0u,
@@ -76417,8 +77272,9 @@ struct LPCG117_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG117_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG117_STATUS1_fields_ {
+struct LPCG117_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -76583,7 +77439,7 @@ namespace LPCG117_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG117_STATUS1_fields_
+};  // struct LPCG117_STATUS1_fields_
 
 struct LPCG117_STATUS1 : ftl::mmio::Register<
     0x40CC6EB4u,
@@ -76645,8 +77501,9 @@ struct LPCG117_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG117_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG117_CONFIG_fields_ {
+struct LPCG117_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -76656,7 +77513,7 @@ namespace LPCG117_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG117_CONFIG_fields_
+};  // struct LPCG117_CONFIG_fields_
 
 struct LPCG117_CONFIG : ftl::mmio::Register<
     0x40CC6EB8u,
@@ -76670,8 +77527,9 @@ struct LPCG117_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG117_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG117_AUTHEN_fields_ {
+struct LPCG117_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -76746,7 +77604,7 @@ namespace LPCG117_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG117_AUTHEN_fields_
+};  // struct LPCG117_AUTHEN_fields_
 
 struct LPCG117_AUTHEN : ftl::mmio::Register<
     0x40CC6EBCu,
@@ -76786,8 +77644,9 @@ struct LPCG117_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG117_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG118_DIRECT_fields_ {
+struct LPCG118_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -76797,7 +77656,7 @@ namespace LPCG118_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG118_DIRECT_fields_
+};  // struct LPCG118_DIRECT_fields_
 
 struct LPCG118_DIRECT : ftl::mmio::Register<
     0x40CC6EC0u,
@@ -76810,8 +77669,9 @@ struct LPCG118_DIRECT : ftl::mmio::Register<
   using ON = LPCG118_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG118_DOMAIN_fields_ {
+struct LPCG118_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -76887,7 +77747,7 @@ namespace LPCG118_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG118_DOMAIN_fields_
+};  // struct LPCG118_DOMAIN_fields_
 
 struct LPCG118_DOMAIN : ftl::mmio::Register<
     0x40CC6EC4u,
@@ -76916,8 +77776,9 @@ struct LPCG118_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG118_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG118_STATUS0_fields_ {
+struct LPCG118_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -77001,7 +77862,7 @@ namespace LPCG118_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG118_STATUS0_fields_
+};  // struct LPCG118_STATUS0_fields_
 
 struct LPCG118_STATUS0 : ftl::mmio::Register<
     0x40CC6ED0u,
@@ -77021,8 +77882,9 @@ struct LPCG118_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG118_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG118_STATUS1_fields_ {
+struct LPCG118_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -77187,7 +78049,7 @@ namespace LPCG118_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG118_STATUS1_fields_
+};  // struct LPCG118_STATUS1_fields_
 
 struct LPCG118_STATUS1 : ftl::mmio::Register<
     0x40CC6ED4u,
@@ -77249,8 +78111,9 @@ struct LPCG118_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG118_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG118_CONFIG_fields_ {
+struct LPCG118_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -77260,7 +78123,7 @@ namespace LPCG118_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG118_CONFIG_fields_
+};  // struct LPCG118_CONFIG_fields_
 
 struct LPCG118_CONFIG : ftl::mmio::Register<
     0x40CC6ED8u,
@@ -77274,8 +78137,9 @@ struct LPCG118_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG118_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG118_AUTHEN_fields_ {
+struct LPCG118_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -77350,7 +78214,7 @@ namespace LPCG118_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG118_AUTHEN_fields_
+};  // struct LPCG118_AUTHEN_fields_
 
 struct LPCG118_AUTHEN : ftl::mmio::Register<
     0x40CC6EDCu,
@@ -77390,8 +78254,9 @@ struct LPCG118_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG118_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG119_DIRECT_fields_ {
+struct LPCG119_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -77401,7 +78266,7 @@ namespace LPCG119_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG119_DIRECT_fields_
+};  // struct LPCG119_DIRECT_fields_
 
 struct LPCG119_DIRECT : ftl::mmio::Register<
     0x40CC6EE0u,
@@ -77414,8 +78279,9 @@ struct LPCG119_DIRECT : ftl::mmio::Register<
   using ON = LPCG119_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG119_DOMAIN_fields_ {
+struct LPCG119_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -77491,7 +78357,7 @@ namespace LPCG119_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG119_DOMAIN_fields_
+};  // struct LPCG119_DOMAIN_fields_
 
 struct LPCG119_DOMAIN : ftl::mmio::Register<
     0x40CC6EE4u,
@@ -77520,8 +78386,9 @@ struct LPCG119_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG119_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG119_STATUS0_fields_ {
+struct LPCG119_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -77605,7 +78472,7 @@ namespace LPCG119_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG119_STATUS0_fields_
+};  // struct LPCG119_STATUS0_fields_
 
 struct LPCG119_STATUS0 : ftl::mmio::Register<
     0x40CC6EF0u,
@@ -77625,8 +78492,9 @@ struct LPCG119_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG119_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG119_STATUS1_fields_ {
+struct LPCG119_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -77791,7 +78659,7 @@ namespace LPCG119_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG119_STATUS1_fields_
+};  // struct LPCG119_STATUS1_fields_
 
 struct LPCG119_STATUS1 : ftl::mmio::Register<
     0x40CC6EF4u,
@@ -77853,8 +78721,9 @@ struct LPCG119_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG119_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG119_CONFIG_fields_ {
+struct LPCG119_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -77864,7 +78733,7 @@ namespace LPCG119_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG119_CONFIG_fields_
+};  // struct LPCG119_CONFIG_fields_
 
 struct LPCG119_CONFIG : ftl::mmio::Register<
     0x40CC6EF8u,
@@ -77878,8 +78747,9 @@ struct LPCG119_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG119_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG119_AUTHEN_fields_ {
+struct LPCG119_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -77954,7 +78824,7 @@ namespace LPCG119_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG119_AUTHEN_fields_
+};  // struct LPCG119_AUTHEN_fields_
 
 struct LPCG119_AUTHEN : ftl::mmio::Register<
     0x40CC6EFCu,
@@ -77994,8 +78864,9 @@ struct LPCG119_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG119_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG120_DIRECT_fields_ {
+struct LPCG120_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -78005,7 +78876,7 @@ namespace LPCG120_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG120_DIRECT_fields_
+};  // struct LPCG120_DIRECT_fields_
 
 struct LPCG120_DIRECT : ftl::mmio::Register<
     0x40CC6F00u,
@@ -78018,8 +78889,9 @@ struct LPCG120_DIRECT : ftl::mmio::Register<
   using ON = LPCG120_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG120_DOMAIN_fields_ {
+struct LPCG120_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -78095,7 +78967,7 @@ namespace LPCG120_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG120_DOMAIN_fields_
+};  // struct LPCG120_DOMAIN_fields_
 
 struct LPCG120_DOMAIN : ftl::mmio::Register<
     0x40CC6F04u,
@@ -78124,8 +78996,9 @@ struct LPCG120_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG120_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG120_STATUS0_fields_ {
+struct LPCG120_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -78209,7 +79082,7 @@ namespace LPCG120_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG120_STATUS0_fields_
+};  // struct LPCG120_STATUS0_fields_
 
 struct LPCG120_STATUS0 : ftl::mmio::Register<
     0x40CC6F10u,
@@ -78229,8 +79102,9 @@ struct LPCG120_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG120_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG120_STATUS1_fields_ {
+struct LPCG120_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -78395,7 +79269,7 @@ namespace LPCG120_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG120_STATUS1_fields_
+};  // struct LPCG120_STATUS1_fields_
 
 struct LPCG120_STATUS1 : ftl::mmio::Register<
     0x40CC6F14u,
@@ -78457,8 +79331,9 @@ struct LPCG120_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG120_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG120_CONFIG_fields_ {
+struct LPCG120_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -78468,7 +79343,7 @@ namespace LPCG120_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG120_CONFIG_fields_
+};  // struct LPCG120_CONFIG_fields_
 
 struct LPCG120_CONFIG : ftl::mmio::Register<
     0x40CC6F18u,
@@ -78482,8 +79357,9 @@ struct LPCG120_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG120_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG120_AUTHEN_fields_ {
+struct LPCG120_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -78558,7 +79434,7 @@ namespace LPCG120_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG120_AUTHEN_fields_
+};  // struct LPCG120_AUTHEN_fields_
 
 struct LPCG120_AUTHEN : ftl::mmio::Register<
     0x40CC6F1Cu,
@@ -78598,8 +79474,9 @@ struct LPCG120_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG120_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG121_DIRECT_fields_ {
+struct LPCG121_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -78609,7 +79486,7 @@ namespace LPCG121_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG121_DIRECT_fields_
+};  // struct LPCG121_DIRECT_fields_
 
 struct LPCG121_DIRECT : ftl::mmio::Register<
     0x40CC6F20u,
@@ -78622,8 +79499,9 @@ struct LPCG121_DIRECT : ftl::mmio::Register<
   using ON = LPCG121_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG121_DOMAIN_fields_ {
+struct LPCG121_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -78699,7 +79577,7 @@ namespace LPCG121_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG121_DOMAIN_fields_
+};  // struct LPCG121_DOMAIN_fields_
 
 struct LPCG121_DOMAIN : ftl::mmio::Register<
     0x40CC6F24u,
@@ -78728,8 +79606,9 @@ struct LPCG121_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG121_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG121_STATUS0_fields_ {
+struct LPCG121_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -78813,7 +79692,7 @@ namespace LPCG121_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG121_STATUS0_fields_
+};  // struct LPCG121_STATUS0_fields_
 
 struct LPCG121_STATUS0 : ftl::mmio::Register<
     0x40CC6F30u,
@@ -78833,8 +79712,9 @@ struct LPCG121_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG121_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG121_STATUS1_fields_ {
+struct LPCG121_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -78999,7 +79879,7 @@ namespace LPCG121_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG121_STATUS1_fields_
+};  // struct LPCG121_STATUS1_fields_
 
 struct LPCG121_STATUS1 : ftl::mmio::Register<
     0x40CC6F34u,
@@ -79061,8 +79941,9 @@ struct LPCG121_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG121_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG121_CONFIG_fields_ {
+struct LPCG121_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -79072,7 +79953,7 @@ namespace LPCG121_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG121_CONFIG_fields_
+};  // struct LPCG121_CONFIG_fields_
 
 struct LPCG121_CONFIG : ftl::mmio::Register<
     0x40CC6F38u,
@@ -79086,8 +79967,9 @@ struct LPCG121_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG121_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG121_AUTHEN_fields_ {
+struct LPCG121_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -79162,7 +80044,7 @@ namespace LPCG121_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG121_AUTHEN_fields_
+};  // struct LPCG121_AUTHEN_fields_
 
 struct LPCG121_AUTHEN : ftl::mmio::Register<
     0x40CC6F3Cu,
@@ -79202,8 +80084,9 @@ struct LPCG121_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG121_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG122_DIRECT_fields_ {
+struct LPCG122_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -79213,7 +80096,7 @@ namespace LPCG122_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG122_DIRECT_fields_
+};  // struct LPCG122_DIRECT_fields_
 
 struct LPCG122_DIRECT : ftl::mmio::Register<
     0x40CC6F40u,
@@ -79226,8 +80109,9 @@ struct LPCG122_DIRECT : ftl::mmio::Register<
   using ON = LPCG122_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG122_DOMAIN_fields_ {
+struct LPCG122_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -79303,7 +80187,7 @@ namespace LPCG122_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG122_DOMAIN_fields_
+};  // struct LPCG122_DOMAIN_fields_
 
 struct LPCG122_DOMAIN : ftl::mmio::Register<
     0x40CC6F44u,
@@ -79332,8 +80216,9 @@ struct LPCG122_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG122_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG122_STATUS0_fields_ {
+struct LPCG122_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -79417,7 +80302,7 @@ namespace LPCG122_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG122_STATUS0_fields_
+};  // struct LPCG122_STATUS0_fields_
 
 struct LPCG122_STATUS0 : ftl::mmio::Register<
     0x40CC6F50u,
@@ -79437,8 +80322,9 @@ struct LPCG122_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG122_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG122_STATUS1_fields_ {
+struct LPCG122_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -79603,7 +80489,7 @@ namespace LPCG122_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG122_STATUS1_fields_
+};  // struct LPCG122_STATUS1_fields_
 
 struct LPCG122_STATUS1 : ftl::mmio::Register<
     0x40CC6F54u,
@@ -79665,8 +80551,9 @@ struct LPCG122_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG122_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG122_CONFIG_fields_ {
+struct LPCG122_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -79676,7 +80563,7 @@ namespace LPCG122_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG122_CONFIG_fields_
+};  // struct LPCG122_CONFIG_fields_
 
 struct LPCG122_CONFIG : ftl::mmio::Register<
     0x40CC6F58u,
@@ -79690,8 +80577,9 @@ struct LPCG122_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG122_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG122_AUTHEN_fields_ {
+struct LPCG122_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -79766,7 +80654,7 @@ namespace LPCG122_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG122_AUTHEN_fields_
+};  // struct LPCG122_AUTHEN_fields_
 
 struct LPCG122_AUTHEN : ftl::mmio::Register<
     0x40CC6F5Cu,
@@ -79806,8 +80694,9 @@ struct LPCG122_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG122_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG123_DIRECT_fields_ {
+struct LPCG123_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -79817,7 +80706,7 @@ namespace LPCG123_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG123_DIRECT_fields_
+};  // struct LPCG123_DIRECT_fields_
 
 struct LPCG123_DIRECT : ftl::mmio::Register<
     0x40CC6F60u,
@@ -79830,8 +80719,9 @@ struct LPCG123_DIRECT : ftl::mmio::Register<
   using ON = LPCG123_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG123_DOMAIN_fields_ {
+struct LPCG123_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -79907,7 +80797,7 @@ namespace LPCG123_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG123_DOMAIN_fields_
+};  // struct LPCG123_DOMAIN_fields_
 
 struct LPCG123_DOMAIN : ftl::mmio::Register<
     0x40CC6F64u,
@@ -79936,8 +80826,9 @@ struct LPCG123_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG123_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG123_STATUS0_fields_ {
+struct LPCG123_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -80021,7 +80912,7 @@ namespace LPCG123_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG123_STATUS0_fields_
+};  // struct LPCG123_STATUS0_fields_
 
 struct LPCG123_STATUS0 : ftl::mmio::Register<
     0x40CC6F70u,
@@ -80041,8 +80932,9 @@ struct LPCG123_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG123_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG123_STATUS1_fields_ {
+struct LPCG123_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -80207,7 +81099,7 @@ namespace LPCG123_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG123_STATUS1_fields_
+};  // struct LPCG123_STATUS1_fields_
 
 struct LPCG123_STATUS1 : ftl::mmio::Register<
     0x40CC6F74u,
@@ -80269,8 +81161,9 @@ struct LPCG123_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG123_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG123_CONFIG_fields_ {
+struct LPCG123_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -80280,7 +81173,7 @@ namespace LPCG123_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG123_CONFIG_fields_
+};  // struct LPCG123_CONFIG_fields_
 
 struct LPCG123_CONFIG : ftl::mmio::Register<
     0x40CC6F78u,
@@ -80294,8 +81187,9 @@ struct LPCG123_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG123_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG123_AUTHEN_fields_ {
+struct LPCG123_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -80370,7 +81264,7 @@ namespace LPCG123_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG123_AUTHEN_fields_
+};  // struct LPCG123_AUTHEN_fields_
 
 struct LPCG123_AUTHEN : ftl::mmio::Register<
     0x40CC6F7Cu,
@@ -80410,8 +81304,9 @@ struct LPCG123_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG123_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG124_DIRECT_fields_ {
+struct LPCG124_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -80421,7 +81316,7 @@ namespace LPCG124_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG124_DIRECT_fields_
+};  // struct LPCG124_DIRECT_fields_
 
 struct LPCG124_DIRECT : ftl::mmio::Register<
     0x40CC6F80u,
@@ -80434,8 +81329,9 @@ struct LPCG124_DIRECT : ftl::mmio::Register<
   using ON = LPCG124_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG124_DOMAIN_fields_ {
+struct LPCG124_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -80511,7 +81407,7 @@ namespace LPCG124_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG124_DOMAIN_fields_
+};  // struct LPCG124_DOMAIN_fields_
 
 struct LPCG124_DOMAIN : ftl::mmio::Register<
     0x40CC6F84u,
@@ -80540,8 +81436,9 @@ struct LPCG124_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG124_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG124_STATUS0_fields_ {
+struct LPCG124_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -80625,7 +81522,7 @@ namespace LPCG124_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG124_STATUS0_fields_
+};  // struct LPCG124_STATUS0_fields_
 
 struct LPCG124_STATUS0 : ftl::mmio::Register<
     0x40CC6F90u,
@@ -80645,8 +81542,9 @@ struct LPCG124_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG124_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG124_STATUS1_fields_ {
+struct LPCG124_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -80811,7 +81709,7 @@ namespace LPCG124_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG124_STATUS1_fields_
+};  // struct LPCG124_STATUS1_fields_
 
 struct LPCG124_STATUS1 : ftl::mmio::Register<
     0x40CC6F94u,
@@ -80873,8 +81771,9 @@ struct LPCG124_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG124_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG124_CONFIG_fields_ {
+struct LPCG124_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -80884,7 +81783,7 @@ namespace LPCG124_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG124_CONFIG_fields_
+};  // struct LPCG124_CONFIG_fields_
 
 struct LPCG124_CONFIG : ftl::mmio::Register<
     0x40CC6F98u,
@@ -80898,8 +81797,9 @@ struct LPCG124_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG124_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG124_AUTHEN_fields_ {
+struct LPCG124_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -80974,7 +81874,7 @@ namespace LPCG124_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG124_AUTHEN_fields_
+};  // struct LPCG124_AUTHEN_fields_
 
 struct LPCG124_AUTHEN : ftl::mmio::Register<
     0x40CC6F9Cu,
@@ -81014,8 +81914,9 @@ struct LPCG124_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG124_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG125_DIRECT_fields_ {
+struct LPCG125_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -81025,7 +81926,7 @@ namespace LPCG125_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG125_DIRECT_fields_
+};  // struct LPCG125_DIRECT_fields_
 
 struct LPCG125_DIRECT : ftl::mmio::Register<
     0x40CC6FA0u,
@@ -81038,8 +81939,9 @@ struct LPCG125_DIRECT : ftl::mmio::Register<
   using ON = LPCG125_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG125_DOMAIN_fields_ {
+struct LPCG125_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -81115,7 +82017,7 @@ namespace LPCG125_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG125_DOMAIN_fields_
+};  // struct LPCG125_DOMAIN_fields_
 
 struct LPCG125_DOMAIN : ftl::mmio::Register<
     0x40CC6FA4u,
@@ -81144,8 +82046,9 @@ struct LPCG125_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG125_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG125_STATUS0_fields_ {
+struct LPCG125_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -81229,7 +82132,7 @@ namespace LPCG125_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG125_STATUS0_fields_
+};  // struct LPCG125_STATUS0_fields_
 
 struct LPCG125_STATUS0 : ftl::mmio::Register<
     0x40CC6FB0u,
@@ -81249,8 +82152,9 @@ struct LPCG125_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG125_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG125_STATUS1_fields_ {
+struct LPCG125_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -81415,7 +82319,7 @@ namespace LPCG125_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG125_STATUS1_fields_
+};  // struct LPCG125_STATUS1_fields_
 
 struct LPCG125_STATUS1 : ftl::mmio::Register<
     0x40CC6FB4u,
@@ -81477,8 +82381,9 @@ struct LPCG125_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG125_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG125_CONFIG_fields_ {
+struct LPCG125_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -81488,7 +82393,7 @@ namespace LPCG125_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG125_CONFIG_fields_
+};  // struct LPCG125_CONFIG_fields_
 
 struct LPCG125_CONFIG : ftl::mmio::Register<
     0x40CC6FB8u,
@@ -81502,8 +82407,9 @@ struct LPCG125_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG125_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG125_AUTHEN_fields_ {
+struct LPCG125_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -81578,7 +82484,7 @@ namespace LPCG125_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG125_AUTHEN_fields_
+};  // struct LPCG125_AUTHEN_fields_
 
 struct LPCG125_AUTHEN : ftl::mmio::Register<
     0x40CC6FBCu,
@@ -81618,8 +82524,9 @@ struct LPCG125_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG125_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG126_DIRECT_fields_ {
+struct LPCG126_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -81629,7 +82536,7 @@ namespace LPCG126_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG126_DIRECT_fields_
+};  // struct LPCG126_DIRECT_fields_
 
 struct LPCG126_DIRECT : ftl::mmio::Register<
     0x40CC6FC0u,
@@ -81642,8 +82549,9 @@ struct LPCG126_DIRECT : ftl::mmio::Register<
   using ON = LPCG126_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG126_DOMAIN_fields_ {
+struct LPCG126_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -81719,7 +82627,7 @@ namespace LPCG126_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG126_DOMAIN_fields_
+};  // struct LPCG126_DOMAIN_fields_
 
 struct LPCG126_DOMAIN : ftl::mmio::Register<
     0x40CC6FC4u,
@@ -81748,8 +82656,9 @@ struct LPCG126_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG126_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG126_STATUS0_fields_ {
+struct LPCG126_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -81833,7 +82742,7 @@ namespace LPCG126_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG126_STATUS0_fields_
+};  // struct LPCG126_STATUS0_fields_
 
 struct LPCG126_STATUS0 : ftl::mmio::Register<
     0x40CC6FD0u,
@@ -81853,8 +82762,9 @@ struct LPCG126_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG126_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG126_STATUS1_fields_ {
+struct LPCG126_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -82019,7 +82929,7 @@ namespace LPCG126_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG126_STATUS1_fields_
+};  // struct LPCG126_STATUS1_fields_
 
 struct LPCG126_STATUS1 : ftl::mmio::Register<
     0x40CC6FD4u,
@@ -82081,8 +82991,9 @@ struct LPCG126_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG126_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG126_CONFIG_fields_ {
+struct LPCG126_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -82092,7 +83003,7 @@ namespace LPCG126_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG126_CONFIG_fields_
+};  // struct LPCG126_CONFIG_fields_
 
 struct LPCG126_CONFIG : ftl::mmio::Register<
     0x40CC6FD8u,
@@ -82106,8 +83017,9 @@ struct LPCG126_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG126_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG126_AUTHEN_fields_ {
+struct LPCG126_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -82182,7 +83094,7 @@ namespace LPCG126_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG126_AUTHEN_fields_
+};  // struct LPCG126_AUTHEN_fields_
 
 struct LPCG126_AUTHEN : ftl::mmio::Register<
     0x40CC6FDCu,
@@ -82222,8 +83134,9 @@ struct LPCG126_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG126_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG127_DIRECT_fields_ {
+struct LPCG127_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -82233,7 +83146,7 @@ namespace LPCG127_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG127_DIRECT_fields_
+};  // struct LPCG127_DIRECT_fields_
 
 struct LPCG127_DIRECT : ftl::mmio::Register<
     0x40CC6FE0u,
@@ -82246,8 +83159,9 @@ struct LPCG127_DIRECT : ftl::mmio::Register<
   using ON = LPCG127_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG127_DOMAIN_fields_ {
+struct LPCG127_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -82323,7 +83237,7 @@ namespace LPCG127_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG127_DOMAIN_fields_
+};  // struct LPCG127_DOMAIN_fields_
 
 struct LPCG127_DOMAIN : ftl::mmio::Register<
     0x40CC6FE4u,
@@ -82352,8 +83266,9 @@ struct LPCG127_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG127_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG127_STATUS0_fields_ {
+struct LPCG127_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -82437,7 +83352,7 @@ namespace LPCG127_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG127_STATUS0_fields_
+};  // struct LPCG127_STATUS0_fields_
 
 struct LPCG127_STATUS0 : ftl::mmio::Register<
     0x40CC6FF0u,
@@ -82457,8 +83372,9 @@ struct LPCG127_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG127_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG127_STATUS1_fields_ {
+struct LPCG127_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -82623,7 +83539,7 @@ namespace LPCG127_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG127_STATUS1_fields_
+};  // struct LPCG127_STATUS1_fields_
 
 struct LPCG127_STATUS1 : ftl::mmio::Register<
     0x40CC6FF4u,
@@ -82685,8 +83601,9 @@ struct LPCG127_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG127_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG127_CONFIG_fields_ {
+struct LPCG127_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -82696,7 +83613,7 @@ namespace LPCG127_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG127_CONFIG_fields_
+};  // struct LPCG127_CONFIG_fields_
 
 struct LPCG127_CONFIG : ftl::mmio::Register<
     0x40CC6FF8u,
@@ -82710,8 +83627,9 @@ struct LPCG127_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG127_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG127_AUTHEN_fields_ {
+struct LPCG127_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -82786,7 +83704,7 @@ namespace LPCG127_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG127_AUTHEN_fields_
+};  // struct LPCG127_AUTHEN_fields_
 
 struct LPCG127_AUTHEN : ftl::mmio::Register<
     0x40CC6FFCu,
@@ -82826,8 +83744,9 @@ struct LPCG127_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG127_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG128_DIRECT_fields_ {
+struct LPCG128_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -82837,7 +83756,7 @@ namespace LPCG128_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG128_DIRECT_fields_
+};  // struct LPCG128_DIRECT_fields_
 
 struct LPCG128_DIRECT : ftl::mmio::Register<
     0x40CC7000u,
@@ -82850,8 +83769,9 @@ struct LPCG128_DIRECT : ftl::mmio::Register<
   using ON = LPCG128_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG128_DOMAIN_fields_ {
+struct LPCG128_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -82927,7 +83847,7 @@ namespace LPCG128_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG128_DOMAIN_fields_
+};  // struct LPCG128_DOMAIN_fields_
 
 struct LPCG128_DOMAIN : ftl::mmio::Register<
     0x40CC7004u,
@@ -82956,8 +83876,9 @@ struct LPCG128_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG128_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG128_STATUS0_fields_ {
+struct LPCG128_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -83041,7 +83962,7 @@ namespace LPCG128_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG128_STATUS0_fields_
+};  // struct LPCG128_STATUS0_fields_
 
 struct LPCG128_STATUS0 : ftl::mmio::Register<
     0x40CC7010u,
@@ -83061,8 +83982,9 @@ struct LPCG128_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG128_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG128_STATUS1_fields_ {
+struct LPCG128_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -83227,7 +84149,7 @@ namespace LPCG128_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG128_STATUS1_fields_
+};  // struct LPCG128_STATUS1_fields_
 
 struct LPCG128_STATUS1 : ftl::mmio::Register<
     0x40CC7014u,
@@ -83289,8 +84211,9 @@ struct LPCG128_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG128_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG128_CONFIG_fields_ {
+struct LPCG128_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -83300,7 +84223,7 @@ namespace LPCG128_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG128_CONFIG_fields_
+};  // struct LPCG128_CONFIG_fields_
 
 struct LPCG128_CONFIG : ftl::mmio::Register<
     0x40CC7018u,
@@ -83314,8 +84237,9 @@ struct LPCG128_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG128_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG128_AUTHEN_fields_ {
+struct LPCG128_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -83390,7 +84314,7 @@ namespace LPCG128_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG128_AUTHEN_fields_
+};  // struct LPCG128_AUTHEN_fields_
 
 struct LPCG128_AUTHEN : ftl::mmio::Register<
     0x40CC701Cu,
@@ -83430,8 +84354,9 @@ struct LPCG128_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG128_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG129_DIRECT_fields_ {
+struct LPCG129_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -83441,7 +84366,7 @@ namespace LPCG129_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG129_DIRECT_fields_
+};  // struct LPCG129_DIRECT_fields_
 
 struct LPCG129_DIRECT : ftl::mmio::Register<
     0x40CC7020u,
@@ -83454,8 +84379,9 @@ struct LPCG129_DIRECT : ftl::mmio::Register<
   using ON = LPCG129_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG129_DOMAIN_fields_ {
+struct LPCG129_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -83531,7 +84457,7 @@ namespace LPCG129_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG129_DOMAIN_fields_
+};  // struct LPCG129_DOMAIN_fields_
 
 struct LPCG129_DOMAIN : ftl::mmio::Register<
     0x40CC7024u,
@@ -83560,8 +84486,9 @@ struct LPCG129_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG129_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG129_STATUS0_fields_ {
+struct LPCG129_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -83645,7 +84572,7 @@ namespace LPCG129_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG129_STATUS0_fields_
+};  // struct LPCG129_STATUS0_fields_
 
 struct LPCG129_STATUS0 : ftl::mmio::Register<
     0x40CC7030u,
@@ -83665,8 +84592,9 @@ struct LPCG129_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG129_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG129_STATUS1_fields_ {
+struct LPCG129_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -83831,7 +84759,7 @@ namespace LPCG129_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG129_STATUS1_fields_
+};  // struct LPCG129_STATUS1_fields_
 
 struct LPCG129_STATUS1 : ftl::mmio::Register<
     0x40CC7034u,
@@ -83893,8 +84821,9 @@ struct LPCG129_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG129_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG129_CONFIG_fields_ {
+struct LPCG129_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -83904,7 +84833,7 @@ namespace LPCG129_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG129_CONFIG_fields_
+};  // struct LPCG129_CONFIG_fields_
 
 struct LPCG129_CONFIG : ftl::mmio::Register<
     0x40CC7038u,
@@ -83918,8 +84847,9 @@ struct LPCG129_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG129_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG129_AUTHEN_fields_ {
+struct LPCG129_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -83994,7 +84924,7 @@ namespace LPCG129_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG129_AUTHEN_fields_
+};  // struct LPCG129_AUTHEN_fields_
 
 struct LPCG129_AUTHEN : ftl::mmio::Register<
     0x40CC703Cu,
@@ -84034,8 +84964,9 @@ struct LPCG129_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG129_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG130_DIRECT_fields_ {
+struct LPCG130_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -84045,7 +84976,7 @@ namespace LPCG130_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG130_DIRECT_fields_
+};  // struct LPCG130_DIRECT_fields_
 
 struct LPCG130_DIRECT : ftl::mmio::Register<
     0x40CC7040u,
@@ -84058,8 +84989,9 @@ struct LPCG130_DIRECT : ftl::mmio::Register<
   using ON = LPCG130_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG130_DOMAIN_fields_ {
+struct LPCG130_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -84135,7 +85067,7 @@ namespace LPCG130_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG130_DOMAIN_fields_
+};  // struct LPCG130_DOMAIN_fields_
 
 struct LPCG130_DOMAIN : ftl::mmio::Register<
     0x40CC7044u,
@@ -84164,8 +85096,9 @@ struct LPCG130_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG130_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG130_STATUS0_fields_ {
+struct LPCG130_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -84249,7 +85182,7 @@ namespace LPCG130_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG130_STATUS0_fields_
+};  // struct LPCG130_STATUS0_fields_
 
 struct LPCG130_STATUS0 : ftl::mmio::Register<
     0x40CC7050u,
@@ -84269,8 +85202,9 @@ struct LPCG130_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG130_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG130_STATUS1_fields_ {
+struct LPCG130_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -84435,7 +85369,7 @@ namespace LPCG130_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG130_STATUS1_fields_
+};  // struct LPCG130_STATUS1_fields_
 
 struct LPCG130_STATUS1 : ftl::mmio::Register<
     0x40CC7054u,
@@ -84497,8 +85431,9 @@ struct LPCG130_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG130_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG130_CONFIG_fields_ {
+struct LPCG130_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -84508,7 +85443,7 @@ namespace LPCG130_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG130_CONFIG_fields_
+};  // struct LPCG130_CONFIG_fields_
 
 struct LPCG130_CONFIG : ftl::mmio::Register<
     0x40CC7058u,
@@ -84522,8 +85457,9 @@ struct LPCG130_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG130_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG130_AUTHEN_fields_ {
+struct LPCG130_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -84598,7 +85534,7 @@ namespace LPCG130_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG130_AUTHEN_fields_
+};  // struct LPCG130_AUTHEN_fields_
 
 struct LPCG130_AUTHEN : ftl::mmio::Register<
     0x40CC705Cu,
@@ -84638,8 +85574,9 @@ struct LPCG130_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG130_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG131_DIRECT_fields_ {
+struct LPCG131_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -84649,7 +85586,7 @@ namespace LPCG131_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG131_DIRECT_fields_
+};  // struct LPCG131_DIRECT_fields_
 
 struct LPCG131_DIRECT : ftl::mmio::Register<
     0x40CC7060u,
@@ -84662,8 +85599,9 @@ struct LPCG131_DIRECT : ftl::mmio::Register<
   using ON = LPCG131_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG131_DOMAIN_fields_ {
+struct LPCG131_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -84739,7 +85677,7 @@ namespace LPCG131_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG131_DOMAIN_fields_
+};  // struct LPCG131_DOMAIN_fields_
 
 struct LPCG131_DOMAIN : ftl::mmio::Register<
     0x40CC7064u,
@@ -84768,8 +85706,9 @@ struct LPCG131_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG131_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG131_STATUS0_fields_ {
+struct LPCG131_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -84853,7 +85792,7 @@ namespace LPCG131_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG131_STATUS0_fields_
+};  // struct LPCG131_STATUS0_fields_
 
 struct LPCG131_STATUS0 : ftl::mmio::Register<
     0x40CC7070u,
@@ -84873,8 +85812,9 @@ struct LPCG131_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG131_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG131_STATUS1_fields_ {
+struct LPCG131_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -85039,7 +85979,7 @@ namespace LPCG131_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG131_STATUS1_fields_
+};  // struct LPCG131_STATUS1_fields_
 
 struct LPCG131_STATUS1 : ftl::mmio::Register<
     0x40CC7074u,
@@ -85101,8 +86041,9 @@ struct LPCG131_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG131_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG131_CONFIG_fields_ {
+struct LPCG131_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -85112,7 +86053,7 @@ namespace LPCG131_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG131_CONFIG_fields_
+};  // struct LPCG131_CONFIG_fields_
 
 struct LPCG131_CONFIG : ftl::mmio::Register<
     0x40CC7078u,
@@ -85126,8 +86067,9 @@ struct LPCG131_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG131_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG131_AUTHEN_fields_ {
+struct LPCG131_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -85202,7 +86144,7 @@ namespace LPCG131_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG131_AUTHEN_fields_
+};  // struct LPCG131_AUTHEN_fields_
 
 struct LPCG131_AUTHEN : ftl::mmio::Register<
     0x40CC707Cu,
@@ -85242,8 +86184,9 @@ struct LPCG131_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG131_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG132_DIRECT_fields_ {
+struct LPCG132_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -85253,7 +86196,7 @@ namespace LPCG132_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG132_DIRECT_fields_
+};  // struct LPCG132_DIRECT_fields_
 
 struct LPCG132_DIRECT : ftl::mmio::Register<
     0x40CC7080u,
@@ -85266,8 +86209,9 @@ struct LPCG132_DIRECT : ftl::mmio::Register<
   using ON = LPCG132_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG132_DOMAIN_fields_ {
+struct LPCG132_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -85343,7 +86287,7 @@ namespace LPCG132_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG132_DOMAIN_fields_
+};  // struct LPCG132_DOMAIN_fields_
 
 struct LPCG132_DOMAIN : ftl::mmio::Register<
     0x40CC7084u,
@@ -85372,8 +86316,9 @@ struct LPCG132_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG132_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG132_STATUS0_fields_ {
+struct LPCG132_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -85457,7 +86402,7 @@ namespace LPCG132_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG132_STATUS0_fields_
+};  // struct LPCG132_STATUS0_fields_
 
 struct LPCG132_STATUS0 : ftl::mmio::Register<
     0x40CC7090u,
@@ -85477,8 +86422,9 @@ struct LPCG132_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG132_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG132_STATUS1_fields_ {
+struct LPCG132_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -85643,7 +86589,7 @@ namespace LPCG132_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG132_STATUS1_fields_
+};  // struct LPCG132_STATUS1_fields_
 
 struct LPCG132_STATUS1 : ftl::mmio::Register<
     0x40CC7094u,
@@ -85705,8 +86651,9 @@ struct LPCG132_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG132_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG132_CONFIG_fields_ {
+struct LPCG132_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -85716,7 +86663,7 @@ namespace LPCG132_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG132_CONFIG_fields_
+};  // struct LPCG132_CONFIG_fields_
 
 struct LPCG132_CONFIG : ftl::mmio::Register<
     0x40CC7098u,
@@ -85730,8 +86677,9 @@ struct LPCG132_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG132_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG132_AUTHEN_fields_ {
+struct LPCG132_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -85806,7 +86754,7 @@ namespace LPCG132_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG132_AUTHEN_fields_
+};  // struct LPCG132_AUTHEN_fields_
 
 struct LPCG132_AUTHEN : ftl::mmio::Register<
     0x40CC709Cu,
@@ -85846,8 +86794,9 @@ struct LPCG132_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG132_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG133_DIRECT_fields_ {
+struct LPCG133_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -85857,7 +86806,7 @@ namespace LPCG133_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG133_DIRECT_fields_
+};  // struct LPCG133_DIRECT_fields_
 
 struct LPCG133_DIRECT : ftl::mmio::Register<
     0x40CC70A0u,
@@ -85870,8 +86819,9 @@ struct LPCG133_DIRECT : ftl::mmio::Register<
   using ON = LPCG133_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG133_DOMAIN_fields_ {
+struct LPCG133_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -85947,7 +86897,7 @@ namespace LPCG133_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG133_DOMAIN_fields_
+};  // struct LPCG133_DOMAIN_fields_
 
 struct LPCG133_DOMAIN : ftl::mmio::Register<
     0x40CC70A4u,
@@ -85976,8 +86926,9 @@ struct LPCG133_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG133_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG133_STATUS0_fields_ {
+struct LPCG133_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -86061,7 +87012,7 @@ namespace LPCG133_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG133_STATUS0_fields_
+};  // struct LPCG133_STATUS0_fields_
 
 struct LPCG133_STATUS0 : ftl::mmio::Register<
     0x40CC70B0u,
@@ -86081,8 +87032,9 @@ struct LPCG133_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG133_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG133_STATUS1_fields_ {
+struct LPCG133_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -86247,7 +87199,7 @@ namespace LPCG133_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG133_STATUS1_fields_
+};  // struct LPCG133_STATUS1_fields_
 
 struct LPCG133_STATUS1 : ftl::mmio::Register<
     0x40CC70B4u,
@@ -86309,8 +87261,9 @@ struct LPCG133_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG133_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG133_CONFIG_fields_ {
+struct LPCG133_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -86320,7 +87273,7 @@ namespace LPCG133_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG133_CONFIG_fields_
+};  // struct LPCG133_CONFIG_fields_
 
 struct LPCG133_CONFIG : ftl::mmio::Register<
     0x40CC70B8u,
@@ -86334,8 +87287,9 @@ struct LPCG133_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG133_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG133_AUTHEN_fields_ {
+struct LPCG133_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -86410,7 +87364,7 @@ namespace LPCG133_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG133_AUTHEN_fields_
+};  // struct LPCG133_AUTHEN_fields_
 
 struct LPCG133_AUTHEN : ftl::mmio::Register<
     0x40CC70BCu,
@@ -86450,8 +87404,9 @@ struct LPCG133_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG133_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG134_DIRECT_fields_ {
+struct LPCG134_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -86461,7 +87416,7 @@ namespace LPCG134_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG134_DIRECT_fields_
+};  // struct LPCG134_DIRECT_fields_
 
 struct LPCG134_DIRECT : ftl::mmio::Register<
     0x40CC70C0u,
@@ -86474,8 +87429,9 @@ struct LPCG134_DIRECT : ftl::mmio::Register<
   using ON = LPCG134_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG134_DOMAIN_fields_ {
+struct LPCG134_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -86551,7 +87507,7 @@ namespace LPCG134_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG134_DOMAIN_fields_
+};  // struct LPCG134_DOMAIN_fields_
 
 struct LPCG134_DOMAIN : ftl::mmio::Register<
     0x40CC70C4u,
@@ -86580,8 +87536,9 @@ struct LPCG134_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG134_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG134_STATUS0_fields_ {
+struct LPCG134_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -86665,7 +87622,7 @@ namespace LPCG134_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG134_STATUS0_fields_
+};  // struct LPCG134_STATUS0_fields_
 
 struct LPCG134_STATUS0 : ftl::mmio::Register<
     0x40CC70D0u,
@@ -86685,8 +87642,9 @@ struct LPCG134_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG134_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG134_STATUS1_fields_ {
+struct LPCG134_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -86851,7 +87809,7 @@ namespace LPCG134_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG134_STATUS1_fields_
+};  // struct LPCG134_STATUS1_fields_
 
 struct LPCG134_STATUS1 : ftl::mmio::Register<
     0x40CC70D4u,
@@ -86913,8 +87871,9 @@ struct LPCG134_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG134_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG134_CONFIG_fields_ {
+struct LPCG134_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -86924,7 +87883,7 @@ namespace LPCG134_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG134_CONFIG_fields_
+};  // struct LPCG134_CONFIG_fields_
 
 struct LPCG134_CONFIG : ftl::mmio::Register<
     0x40CC70D8u,
@@ -86938,8 +87897,9 @@ struct LPCG134_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG134_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG134_AUTHEN_fields_ {
+struct LPCG134_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -87014,7 +87974,7 @@ namespace LPCG134_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG134_AUTHEN_fields_
+};  // struct LPCG134_AUTHEN_fields_
 
 struct LPCG134_AUTHEN : ftl::mmio::Register<
     0x40CC70DCu,
@@ -87054,8 +88014,9 @@ struct LPCG134_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG134_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG135_DIRECT_fields_ {
+struct LPCG135_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -87065,7 +88026,7 @@ namespace LPCG135_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG135_DIRECT_fields_
+};  // struct LPCG135_DIRECT_fields_
 
 struct LPCG135_DIRECT : ftl::mmio::Register<
     0x40CC70E0u,
@@ -87078,8 +88039,9 @@ struct LPCG135_DIRECT : ftl::mmio::Register<
   using ON = LPCG135_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG135_DOMAIN_fields_ {
+struct LPCG135_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -87155,7 +88117,7 @@ namespace LPCG135_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG135_DOMAIN_fields_
+};  // struct LPCG135_DOMAIN_fields_
 
 struct LPCG135_DOMAIN : ftl::mmio::Register<
     0x40CC70E4u,
@@ -87184,8 +88146,9 @@ struct LPCG135_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG135_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG135_STATUS0_fields_ {
+struct LPCG135_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -87269,7 +88232,7 @@ namespace LPCG135_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG135_STATUS0_fields_
+};  // struct LPCG135_STATUS0_fields_
 
 struct LPCG135_STATUS0 : ftl::mmio::Register<
     0x40CC70F0u,
@@ -87289,8 +88252,9 @@ struct LPCG135_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG135_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG135_STATUS1_fields_ {
+struct LPCG135_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -87455,7 +88419,7 @@ namespace LPCG135_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG135_STATUS1_fields_
+};  // struct LPCG135_STATUS1_fields_
 
 struct LPCG135_STATUS1 : ftl::mmio::Register<
     0x40CC70F4u,
@@ -87517,8 +88481,9 @@ struct LPCG135_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG135_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG135_CONFIG_fields_ {
+struct LPCG135_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -87528,7 +88493,7 @@ namespace LPCG135_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG135_CONFIG_fields_
+};  // struct LPCG135_CONFIG_fields_
 
 struct LPCG135_CONFIG : ftl::mmio::Register<
     0x40CC70F8u,
@@ -87542,8 +88507,9 @@ struct LPCG135_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG135_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG135_AUTHEN_fields_ {
+struct LPCG135_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -87618,7 +88584,7 @@ namespace LPCG135_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG135_AUTHEN_fields_
+};  // struct LPCG135_AUTHEN_fields_
 
 struct LPCG135_AUTHEN : ftl::mmio::Register<
     0x40CC70FCu,
@@ -87658,8 +88624,9 @@ struct LPCG135_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG135_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG136_DIRECT_fields_ {
+struct LPCG136_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -87669,7 +88636,7 @@ namespace LPCG136_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG136_DIRECT_fields_
+};  // struct LPCG136_DIRECT_fields_
 
 struct LPCG136_DIRECT : ftl::mmio::Register<
     0x40CC7100u,
@@ -87682,8 +88649,9 @@ struct LPCG136_DIRECT : ftl::mmio::Register<
   using ON = LPCG136_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG136_DOMAIN_fields_ {
+struct LPCG136_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -87759,7 +88727,7 @@ namespace LPCG136_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG136_DOMAIN_fields_
+};  // struct LPCG136_DOMAIN_fields_
 
 struct LPCG136_DOMAIN : ftl::mmio::Register<
     0x40CC7104u,
@@ -87788,8 +88756,9 @@ struct LPCG136_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG136_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG136_STATUS0_fields_ {
+struct LPCG136_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -87873,7 +88842,7 @@ namespace LPCG136_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG136_STATUS0_fields_
+};  // struct LPCG136_STATUS0_fields_
 
 struct LPCG136_STATUS0 : ftl::mmio::Register<
     0x40CC7110u,
@@ -87893,8 +88862,9 @@ struct LPCG136_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG136_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG136_STATUS1_fields_ {
+struct LPCG136_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -88059,7 +89029,7 @@ namespace LPCG136_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG136_STATUS1_fields_
+};  // struct LPCG136_STATUS1_fields_
 
 struct LPCG136_STATUS1 : ftl::mmio::Register<
     0x40CC7114u,
@@ -88121,8 +89091,9 @@ struct LPCG136_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG136_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG136_CONFIG_fields_ {
+struct LPCG136_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -88132,7 +89103,7 @@ namespace LPCG136_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG136_CONFIG_fields_
+};  // struct LPCG136_CONFIG_fields_
 
 struct LPCG136_CONFIG : ftl::mmio::Register<
     0x40CC7118u,
@@ -88146,8 +89117,9 @@ struct LPCG136_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG136_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG136_AUTHEN_fields_ {
+struct LPCG136_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -88222,7 +89194,7 @@ namespace LPCG136_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG136_AUTHEN_fields_
+};  // struct LPCG136_AUTHEN_fields_
 
 struct LPCG136_AUTHEN : ftl::mmio::Register<
     0x40CC711Cu,
@@ -88262,8 +89234,9 @@ struct LPCG136_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG136_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // LPCG direct control
-namespace LPCG137_DIRECT_fields_ {
+struct LPCG137_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -88273,7 +89246,7 @@ namespace LPCG137_DIRECT_fields_ {
   };
   // LPCG on
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG137_DIRECT_fields_
+};  // struct LPCG137_DIRECT_fields_
 
 struct LPCG137_DIRECT : ftl::mmio::Register<
     0x40CC7120u,
@@ -88286,8 +89259,9 @@ struct LPCG137_DIRECT : ftl::mmio::Register<
   using ON = LPCG137_DIRECT_fields_::ON;
 };
 
+
 // LPCG domain control
-namespace LPCG137_DOMAIN_fields_ {
+struct LPCG137_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -88363,7 +89337,7 @@ namespace LPCG137_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG137_DOMAIN_fields_
+};  // struct LPCG137_DOMAIN_fields_
 
 struct LPCG137_DOMAIN : ftl::mmio::Register<
     0x40CC7124u,
@@ -88392,8 +89366,9 @@ struct LPCG137_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = LPCG137_DOMAIN_fields_::LEVEL3;
 };
 
+
 // LPCG working status
-namespace LPCG137_STATUS0_fields_ {
+struct LPCG137_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // LPCG is OFF.
@@ -88477,7 +89452,7 @@ namespace LPCG137_STATUS0_fields_ {
   using ACTIVE_DOMAIN = ftl::mmio::Field<4, 8, eACTIVE_DOMAIN, ftl::mmio::RO, ftl::mmio::Normal>;
   // Enable status from each domain
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG137_STATUS0_fields_
+};  // struct LPCG137_STATUS0_fields_
 
 struct LPCG137_STATUS0 : ftl::mmio::Register<
     0x40CC7130u,
@@ -88497,8 +89472,9 @@ struct LPCG137_STATUS0 : ftl::mmio::Register<
   using DOMAIN_ENABLE = LPCG137_STATUS0_fields_::DOMAIN_ENABLE;
 };
 
+
 // LPCG low power status
-namespace LPCG137_STATUS1_fields_ {
+struct LPCG137_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -88663,7 +89639,7 @@ namespace LPCG137_STATUS1_fields_ {
   using SETPOINT_ON_REQUEST = ftl::mmio::Field<1, 26, eSETPOINT_ON_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on finish from GPC Setpoint
   using SETPOINT_ON_DONE = ftl::mmio::Field<1, 27, eSETPOINT_ON_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG137_STATUS1_fields_
+};  // struct LPCG137_STATUS1_fields_
 
 struct LPCG137_STATUS1 : ftl::mmio::Register<
     0x40CC7134u,
@@ -88725,8 +89701,9 @@ struct LPCG137_STATUS1 : ftl::mmio::Register<
   using SETPOINT_ON_DONE = LPCG137_STATUS1_fields_::SETPOINT_ON_DONE;
 };
 
+
 // LPCG configuration
-namespace LPCG137_CONFIG_fields_ {
+struct LPCG137_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -88736,7 +89713,7 @@ namespace LPCG137_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace LPCG137_CONFIG_fields_
+};  // struct LPCG137_CONFIG_fields_
 
 struct LPCG137_CONFIG : ftl::mmio::Register<
     0x40CC7138u,
@@ -88750,8 +89727,9 @@ struct LPCG137_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = LPCG137_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // LPCG access control
-namespace LPCG137_AUTHEN_fields_ {
+struct LPCG137_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // LPCG cannot be changed in user mode.
@@ -88826,7 +89804,7 @@ namespace LPCG137_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace LPCG137_AUTHEN_fields_
+};  // struct LPCG137_AUTHEN_fields_
 
 struct LPCG137_AUTHEN : ftl::mmio::Register<
     0x40CC713Cu,
@@ -88866,8 +89844,9 @@ struct LPCG137_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = LPCG137_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // Clock root control
-namespace CLOCK_ROOT_CONTROL_fields_ {
+struct CLOCK_ROOT_CONTROL_fields_ {
 
   enum class eOFF : std::uint32_t {
     // Turn on clock
@@ -88881,7 +89860,7 @@ namespace CLOCK_ROOT_CONTROL_fields_ {
   using MUX = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // OFF
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_ROOT_CONTROL_fields_
+};  // struct CLOCK_ROOT_CONTROL_fields_
 
 template<std::uint32_t ClusterIndex>
 struct CLOCK_ROOT_CONTROL : ftl::mmio::Register<
@@ -88901,15 +89880,16 @@ struct CLOCK_ROOT_CONTROL : ftl::mmio::Register<
   using OFF = CLOCK_ROOT_CONTROL_fields_::OFF;
 };
 
+
 // Clock root control
-namespace CLOCK_ROOT_CONTROL_SET_fields_ {
+struct CLOCK_ROOT_CONTROL_SET_fields_ {
   // Clock divider
   using DIV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Clock multiplexer
   using MUX = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // OFF
   using OFF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace CLOCK_ROOT_CONTROL_SET_fields_
+};  // struct CLOCK_ROOT_CONTROL_SET_fields_
 
 template<std::uint32_t ClusterIndex>
 struct CLOCK_ROOT_CONTROL_SET : ftl::mmio::Register<
@@ -88928,15 +89908,16 @@ struct CLOCK_ROOT_CONTROL_SET : ftl::mmio::Register<
   using OFF = CLOCK_ROOT_CONTROL_SET_fields_::OFF;
 };
 
+
 // Clock root control
-namespace CLOCK_ROOT_CONTROL_CLR_fields_ {
+struct CLOCK_ROOT_CONTROL_CLR_fields_ {
   // Clock divider
   using DIV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Clock multiplexer
   using MUX = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // OFF
   using OFF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace CLOCK_ROOT_CONTROL_CLR_fields_
+};  // struct CLOCK_ROOT_CONTROL_CLR_fields_
 
 template<std::uint32_t ClusterIndex>
 struct CLOCK_ROOT_CONTROL_CLR : ftl::mmio::Register<
@@ -88955,15 +89936,16 @@ struct CLOCK_ROOT_CONTROL_CLR : ftl::mmio::Register<
   using OFF = CLOCK_ROOT_CONTROL_CLR_fields_::OFF;
 };
 
+
 // Clock root control
-namespace CLOCK_ROOT_CONTROL_TOG_fields_ {
+struct CLOCK_ROOT_CONTROL_TOG_fields_ {
   // Clock divider
   using DIV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Clock multiplexer
   using MUX = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // OFF
   using OFF = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace CLOCK_ROOT_CONTROL_TOG_fields_
+};  // struct CLOCK_ROOT_CONTROL_TOG_fields_
 
 template<std::uint32_t ClusterIndex>
 struct CLOCK_ROOT_CONTROL_TOG : ftl::mmio::Register<
@@ -88982,8 +89964,9 @@ struct CLOCK_ROOT_CONTROL_TOG : ftl::mmio::Register<
   using OFF = CLOCK_ROOT_CONTROL_TOG_fields_::OFF;
 };
 
+
 // Clock root working status
-namespace CLOCK_ROOT_STATUS0_fields_ {
+struct CLOCK_ROOT_STATUS0_fields_ {
 
   enum class eOFF : std::uint32_t {
     // Clock is running
@@ -89042,7 +90025,7 @@ namespace CLOCK_ROOT_STATUS0_fields_ {
   using UPDATE_REVERSE = ftl::mmio::Field<1, 30, eUPDATE_REVERSE, ftl::mmio::RO, ftl::mmio::Normal>;
   // Internal updating in clock root
   using CHANGING = ftl::mmio::Field<1, 31, eCHANGING, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace CLOCK_ROOT_STATUS0_fields_
+};  // struct CLOCK_ROOT_STATUS0_fields_
 
 template<std::uint32_t ClusterIndex>
 struct CLOCK_ROOT_STATUS0 : ftl::mmio::Register<
@@ -89077,8 +90060,9 @@ struct CLOCK_ROOT_STATUS0 : ftl::mmio::Register<
   using CHANGING = CLOCK_ROOT_STATUS0_fields_::CHANGING;
 };
 
+
 // Clock root low power status
-namespace CLOCK_ROOT_STATUS1_fields_ {
+struct CLOCK_ROOT_STATUS1_fields_ {
 
   enum class eDOWN_REQUEST : std::uint32_t {
     // Frequency decrease not requested
@@ -89119,7 +90103,7 @@ namespace CLOCK_ROOT_STATUS1_fields_ {
   using UP_REQUEST = ftl::mmio::Field<1, 26, eUP_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock frequency increase finish
   using UP_DONE = ftl::mmio::Field<1, 27, eUP_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace CLOCK_ROOT_STATUS1_fields_
+};  // struct CLOCK_ROOT_STATUS1_fields_
 
 template<std::uint32_t ClusterIndex>
 struct CLOCK_ROOT_STATUS1 : ftl::mmio::Register<
@@ -89148,8 +90132,9 @@ struct CLOCK_ROOT_STATUS1 : ftl::mmio::Register<
   using UP_DONE = CLOCK_ROOT_STATUS1_fields_::UP_DONE;
 };
 
+
 // Clock root configuration
-namespace CLOCK_ROOT_CONFIG_fields_ {
+struct CLOCK_ROOT_CONFIG_fields_ {
 
   enum class eSETPOINT_PRESENT : std::uint32_t {
     // Setpoint is not implemented.
@@ -89159,7 +90144,7 @@ namespace CLOCK_ROOT_CONFIG_fields_ {
   };
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace CLOCK_ROOT_CONFIG_fields_
+};  // struct CLOCK_ROOT_CONFIG_fields_
 
 template<std::uint32_t ClusterIndex>
 struct CLOCK_ROOT_CONFIG : ftl::mmio::Register<
@@ -89175,8 +90160,9 @@ struct CLOCK_ROOT_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = CLOCK_ROOT_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // Clock root access control
-namespace CLOCK_ROOT_AUTHEN_fields_ {
+struct CLOCK_ROOT_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode
@@ -89249,7 +90235,7 @@ namespace CLOCK_ROOT_AUTHEN_fields_ {
   using SETPOINT_MODE = ftl::mmio::Field<1, 17, eSETPOINT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_ROOT_AUTHEN_fields_
+};  // struct CLOCK_ROOT_AUTHEN_fields_
 
 template<std::uint32_t ClusterIndex>
 struct CLOCK_ROOT_AUTHEN : ftl::mmio::Register<
@@ -89289,8 +90275,9 @@ struct CLOCK_ROOT_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = CLOCK_ROOT_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // Clock root access control
-namespace CLOCK_ROOT_AUTHEN_SET_fields_ {
+struct CLOCK_ROOT_AUTHEN_SET_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Non-secure access
@@ -89307,7 +90294,7 @@ namespace CLOCK_ROOT_AUTHEN_SET_fields_ {
   using SETPOINT_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace CLOCK_ROOT_AUTHEN_SET_fields_
+};  // struct CLOCK_ROOT_AUTHEN_SET_fields_
 
 template<std::uint32_t ClusterIndex>
 struct CLOCK_ROOT_AUTHEN_SET : ftl::mmio::Register<
@@ -89339,8 +90326,9 @@ struct CLOCK_ROOT_AUTHEN_SET : ftl::mmio::Register<
   using LOCK_MODE = CLOCK_ROOT_AUTHEN_SET_fields_::LOCK_MODE;
 };
 
+
 // Clock root access control
-namespace CLOCK_ROOT_AUTHEN_CLR_fields_ {
+struct CLOCK_ROOT_AUTHEN_CLR_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Non-secure access
@@ -89357,7 +90345,7 @@ namespace CLOCK_ROOT_AUTHEN_CLR_fields_ {
   using SETPOINT_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace CLOCK_ROOT_AUTHEN_CLR_fields_
+};  // struct CLOCK_ROOT_AUTHEN_CLR_fields_
 
 template<std::uint32_t ClusterIndex>
 struct CLOCK_ROOT_AUTHEN_CLR : ftl::mmio::Register<
@@ -89389,8 +90377,9 @@ struct CLOCK_ROOT_AUTHEN_CLR : ftl::mmio::Register<
   using LOCK_MODE = CLOCK_ROOT_AUTHEN_CLR_fields_::LOCK_MODE;
 };
 
+
 // Clock root access control
-namespace CLOCK_ROOT_AUTHEN_TOG_fields_ {
+struct CLOCK_ROOT_AUTHEN_TOG_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Non-secure access
@@ -89407,7 +90396,7 @@ namespace CLOCK_ROOT_AUTHEN_TOG_fields_ {
   using SETPOINT_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace CLOCK_ROOT_AUTHEN_TOG_fields_
+};  // struct CLOCK_ROOT_AUTHEN_TOG_fields_
 
 template<std::uint32_t ClusterIndex>
 struct CLOCK_ROOT_AUTHEN_TOG : ftl::mmio::Register<
@@ -89439,8 +90428,9 @@ struct CLOCK_ROOT_AUTHEN_TOG : ftl::mmio::Register<
   using LOCK_MODE = CLOCK_ROOT_AUTHEN_TOG_fields_::LOCK_MODE;
 };
 
+
 // Setpoint setting
-namespace CLOCK_ROOT_SETPOINT_fields_ {
+struct CLOCK_ROOT_SETPOINT_fields_ {
 
   enum class eOFF : std::uint32_t {
     // ON
@@ -89456,7 +90446,7 @@ namespace CLOCK_ROOT_SETPOINT_fields_ {
   using OFF = ftl::mmio::Field<1, 24, eOFF, ftl::mmio::RW, ftl::mmio::Normal>;
   // Grade
   using GRADE = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CLOCK_ROOT_SETPOINT_fields_
+};  // struct CLOCK_ROOT_SETPOINT_fields_
 
 template<std::uint32_t ClusterIndex, std::uint32_t ArrayIndex>
 struct CLOCK_ROOT_SETPOINT : ftl::mmio::Register<
@@ -89479,11 +90469,12 @@ struct CLOCK_ROOT_SETPOINT : ftl::mmio::Register<
   using GRADE = CLOCK_ROOT_SETPOINT_fields_::GRADE;
 };
 
+
 // General Purpose Register
-namespace GPR_SHARED_fields_ {
+struct GPR_SHARED_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_SHARED_fields_
+};  // struct GPR_SHARED_fields_
 
 template<std::uint32_t ClusterIndex>
 struct GPR_SHARED : ftl::mmio::Register<
@@ -89496,11 +90487,12 @@ struct GPR_SHARED : ftl::mmio::Register<
   using GPR = GPR_SHARED_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_SHARED_SET_fields_ {
+struct GPR_SHARED_SET_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_SHARED_SET_fields_
+};  // struct GPR_SHARED_SET_fields_
 
 template<std::uint32_t ClusterIndex>
 struct GPR_SHARED_SET : ftl::mmio::Register<
@@ -89513,11 +90505,12 @@ struct GPR_SHARED_SET : ftl::mmio::Register<
   using GPR = GPR_SHARED_SET_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_SHARED_CLR_fields_ {
+struct GPR_SHARED_CLR_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_SHARED_CLR_fields_
+};  // struct GPR_SHARED_CLR_fields_
 
 template<std::uint32_t ClusterIndex>
 struct GPR_SHARED_CLR : ftl::mmio::Register<
@@ -89530,11 +90523,12 @@ struct GPR_SHARED_CLR : ftl::mmio::Register<
   using GPR = GPR_SHARED_CLR_fields_::GPR;
 };
 
+
 // General Purpose Register
-namespace GPR_SHARED_TOG_fields_ {
+struct GPR_SHARED_TOG_fields_ {
   // GP register
   using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_SHARED_TOG_fields_
+};  // struct GPR_SHARED_TOG_fields_
 
 template<std::uint32_t ClusterIndex>
 struct GPR_SHARED_TOG : ftl::mmio::Register<
@@ -89547,8 +90541,9 @@ struct GPR_SHARED_TOG : ftl::mmio::Register<
   using GPR = GPR_SHARED_TOG_fields_::GPR;
 };
 
+
 // GPR access control
-namespace GPR_SHARED_AUTHEN_fields_ {
+struct GPR_SHARED_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode.
@@ -89612,7 +90607,7 @@ namespace GPR_SHARED_AUTHEN_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace GPR_SHARED_AUTHEN_fields_
+};  // struct GPR_SHARED_AUTHEN_fields_
 
 template<std::uint32_t ClusterIndex>
 struct GPR_SHARED_AUTHEN : ftl::mmio::Register<
@@ -89649,8 +90644,9 @@ struct GPR_SHARED_AUTHEN : ftl::mmio::Register<
   using LOCK_MODE = GPR_SHARED_AUTHEN_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_SHARED_AUTHEN_SET_fields_ {
+struct GPR_SHARED_AUTHEN_SET_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Non-secure access
@@ -89665,7 +90661,7 @@ namespace GPR_SHARED_AUTHEN_SET_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
-}  // namespace GPR_SHARED_AUTHEN_SET_fields_
+};  // struct GPR_SHARED_AUTHEN_SET_fields_
 
 template<std::uint32_t ClusterIndex>
 struct GPR_SHARED_AUTHEN_SET : ftl::mmio::Register<
@@ -89695,8 +90691,9 @@ struct GPR_SHARED_AUTHEN_SET : ftl::mmio::Register<
   using LOCK_MODE = GPR_SHARED_AUTHEN_SET_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_SHARED_AUTHEN_CLR_fields_ {
+struct GPR_SHARED_AUTHEN_CLR_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Non-secure access
@@ -89711,7 +90708,7 @@ namespace GPR_SHARED_AUTHEN_CLR_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
-}  // namespace GPR_SHARED_AUTHEN_CLR_fields_
+};  // struct GPR_SHARED_AUTHEN_CLR_fields_
 
 template<std::uint32_t ClusterIndex>
 struct GPR_SHARED_AUTHEN_CLR : ftl::mmio::Register<
@@ -89741,8 +90738,9 @@ struct GPR_SHARED_AUTHEN_CLR : ftl::mmio::Register<
   using LOCK_MODE = GPR_SHARED_AUTHEN_CLR_fields_::LOCK_MODE;
 };
 
+
 // GPR access control
-namespace GPR_SHARED_AUTHEN_TOG_fields_ {
+struct GPR_SHARED_AUTHEN_TOG_fields_ {
   // User access
   using TZ_USER = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Non-secure access
@@ -89757,7 +90755,7 @@ namespace GPR_SHARED_AUTHEN_TOG_fields_ {
   using DOMAIN_MODE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
-}  // namespace GPR_SHARED_AUTHEN_TOG_fields_
+};  // struct GPR_SHARED_AUTHEN_TOG_fields_
 
 template<std::uint32_t ClusterIndex>
 struct GPR_SHARED_AUTHEN_TOG : ftl::mmio::Register<
@@ -89787,8 +90785,9 @@ struct GPR_SHARED_AUTHEN_TOG : ftl::mmio::Register<
   using LOCK_MODE = GPR_SHARED_AUTHEN_TOG_fields_::LOCK_MODE;
 };
 
+
 // Clock source direct control
-namespace OSCPLL_DIRECT_fields_ {
+struct OSCPLL_DIRECT_fields_ {
 
   enum class eON : std::uint32_t {
     // OSCPLL is OFF
@@ -89798,7 +90797,7 @@ namespace OSCPLL_DIRECT_fields_ {
   };
   // turn on clock source
   using ON = ftl::mmio::Field<1, 0, eON, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace OSCPLL_DIRECT_fields_
+};  // struct OSCPLL_DIRECT_fields_
 
 template<std::uint32_t ClusterIndex>
 struct OSCPLL_DIRECT : ftl::mmio::Register<
@@ -89813,8 +90812,9 @@ struct OSCPLL_DIRECT : ftl::mmio::Register<
   using ON = OSCPLL_DIRECT_fields_::ON;
 };
 
+
 // Clock source domain control
-namespace OSCPLL_DOMAIN_fields_ {
+struct OSCPLL_DOMAIN_fields_ {
 
   enum class eLEVEL : std::uint32_t {
     // This clock source is not needed in any mode, and can be turned off
@@ -89890,7 +90890,7 @@ namespace OSCPLL_DOMAIN_fields_ {
   using LEVEL2 = ftl::mmio::Field<3, 24, eLEVEL2, ftl::mmio::RW, ftl::mmio::Normal>;
   // Depend level
   using LEVEL3 = ftl::mmio::Field<3, 28, eLEVEL3, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace OSCPLL_DOMAIN_fields_
+};  // struct OSCPLL_DOMAIN_fields_
 
 template<std::uint32_t ClusterIndex>
 struct OSCPLL_DOMAIN : ftl::mmio::Register<
@@ -89921,13 +90921,14 @@ struct OSCPLL_DOMAIN : ftl::mmio::Register<
   using LEVEL3 = OSCPLL_DOMAIN_fields_::LEVEL3;
 };
 
+
 // Clock source Setpoint setting
-namespace OSCPLL_SETPOINT_fields_ {
+struct OSCPLL_SETPOINT_fields_ {
   // Setpoint
   using SETPOINT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Standby
   using STANDBY = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace OSCPLL_SETPOINT_fields_
+};  // struct OSCPLL_SETPOINT_fields_
 
 template<std::uint32_t ClusterIndex>
 struct OSCPLL_SETPOINT : ftl::mmio::Register<
@@ -89942,8 +90943,9 @@ struct OSCPLL_SETPOINT : ftl::mmio::Register<
   using STANDBY = OSCPLL_SETPOINT_fields_::STANDBY;
 };
 
+
 // Clock source working status
-namespace OSCPLL_STATUS0_fields_ {
+struct OSCPLL_STATUS0_fields_ {
 
   enum class eON : std::uint32_t {
     // Clock source is OFF
@@ -90054,7 +91056,7 @@ namespace OSCPLL_STATUS0_fields_ {
   using DOMAIN_ENABLE = ftl::mmio::Field<4, 12, eDOMAIN_ENABLE, ftl::mmio::RO, ftl::mmio::Normal>;
   // In use
   using IN_USE = ftl::mmio::Field<1, 28, eIN_USE, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace OSCPLL_STATUS0_fields_
+};  // struct OSCPLL_STATUS0_fields_
 
 template<std::uint32_t ClusterIndex>
 struct OSCPLL_STATUS0 : ftl::mmio::Register<
@@ -90087,8 +91089,9 @@ struct OSCPLL_STATUS0 : ftl::mmio::Register<
   using IN_USE = OSCPLL_STATUS0_fields_::IN_USE;
 };
 
+
 // Clock source low power status
-namespace OSCPLL_STATUS1_fields_ {
+struct OSCPLL_STATUS1_fields_ {
 
   enum class eCPU0_MODE : std::uint32_t {
     // Run
@@ -90289,7 +91292,7 @@ namespace OSCPLL_STATUS1_fields_ {
   using STANDBY_OUT_DONE = ftl::mmio::Field<1, 30, eSTANDBY_OUT_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
   // Clock gate turn on request from GPC standby
   using STANDBY_OUT_REQUEST = ftl::mmio::Field<1, 31, eSTANDBY_OUT_REQUEST, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace OSCPLL_STATUS1_fields_
+};  // struct OSCPLL_STATUS1_fields_
 
 template<std::uint32_t ClusterIndex>
 struct OSCPLL_STATUS1 : ftl::mmio::Register<
@@ -90364,8 +91367,9 @@ struct OSCPLL_STATUS1 : ftl::mmio::Register<
   using STANDBY_OUT_REQUEST = OSCPLL_STATUS1_fields_::STANDBY_OUT_REQUEST;
 };
 
+
 // Clock source configuration
-namespace OSCPLL_CONFIG_fields_ {
+struct OSCPLL_CONFIG_fields_ {
 
   enum class eAUTOMODE_PRESENT : std::uint32_t {
     // Not present
@@ -90384,7 +91388,7 @@ namespace OSCPLL_CONFIG_fields_ {
   using AUTOMODE_PRESENT = ftl::mmio::Field<1, 1, eAUTOMODE_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
   // Setpoint present
   using SETPOINT_PRESENT = ftl::mmio::Field<1, 4, eSETPOINT_PRESENT, ftl::mmio::RO, ftl::mmio::Normal>;
-}  // namespace OSCPLL_CONFIG_fields_
+};  // struct OSCPLL_CONFIG_fields_
 
 template<std::uint32_t ClusterIndex>
 struct OSCPLL_CONFIG : ftl::mmio::Register<
@@ -90404,8 +91408,9 @@ struct OSCPLL_CONFIG : ftl::mmio::Register<
   using SETPOINT_PRESENT = OSCPLL_CONFIG_fields_::SETPOINT_PRESENT;
 };
 
+
 // Clock source access control
-namespace OSCPLL_AUTHEN_fields_ {
+struct OSCPLL_AUTHEN_fields_ {
 
   enum class eTZ_USER : std::uint32_t {
     // Clock cannot be changed in user mode.
@@ -90473,7 +91478,7 @@ namespace OSCPLL_AUTHEN_fields_ {
   using CPULPM = ftl::mmio::Field<1, 18, eCPULPM, ftl::mmio::RW, ftl::mmio::Normal>;
   // Lock low power and access mode
   using LOCK_MODE = ftl::mmio::Field<1, 20, eLOCK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace OSCPLL_AUTHEN_fields_
+};  // struct OSCPLL_AUTHEN_fields_
 
 template<std::uint32_t ClusterIndex>
 struct OSCPLL_AUTHEN : ftl::mmio::Register<

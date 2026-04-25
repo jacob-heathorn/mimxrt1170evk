@@ -2,11 +2,11 @@
 
 #include "registers/codegen/ccm.hpp"
 #include "registers/codegen/iomuxc_lpsr.hpp"
-#include "registers/codegen/lpi2c5.hpp"
+#include "registers/codegen/lpi2c.hpp"
 
 namespace ccm = regs::ccm;
 namespace iomuxc_lpsr = regs::iomuxc_lpsr;
-namespace lp = regs::lpi2c5;
+using lp = regs::Lpi2c<5>;
 
 namespace {
 

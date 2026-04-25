@@ -1,71 +1,66 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // GPIO
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nCM7_GPIO3 {
+namespace regs::cm7_gpio3 {
 
 
 // GPIO data register
-union DR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - DR data bits
-    uint32_t DR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DR_fields_ {
+  // DR data bits
+  using DR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DR_fields_
 
-  DR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DR &ref() { return *reinterpret_cast<volatile DR*>(0x4200C000); }
+struct DR : ftl::mmio::Register<
+    0x4200C000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DR_fields_::DR> {
+  using value_ = DR_fields_::DR;
 };
+
 
 // GPIO direction register
-union GDIR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - GPIO direction bits
-    uint32_t GDIR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct GDIR_fields_ {
+  // GPIO direction bits
+  using GDIR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GDIR_fields_
 
-  GDIR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GDIR &ref() { return *reinterpret_cast<volatile GDIR*>(0x4200C004); }
+struct GDIR : ftl::mmio::Register<
+    0x4200C004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GDIR_fields_::GDIR> {
+  using value_ = GDIR_fields_::GDIR;
 };
+
 
 // GPIO pad status register
-union PSR {
-  
-  // Bit field definition.
-  struct {
-    // read-only - GPIO pad status bits
-    uint32_t PSR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PSR_fields_ {
+  // GPIO pad status bits
+  using PSR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PSR_fields_
 
-  PSR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PSR &ref() { return *reinterpret_cast<volatile PSR*>(0x4200C008); }
+struct PSR : ftl::mmio::Register<
+    0x4200C008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    PSR_fields_::PSR> {
+  using value_ = PSR_fields_::PSR;
 };
 
+
 // GPIO interrupt configuration register1
-union ICR1 {
-  
-  // Interrupt configuration field for GPIO interrupt 0
-  enum class eICR0 : uint32_t {
+struct ICR1_fields_ {
+
+  enum class eICR0 : std::uint32_t {
     // Interrupt 0 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 0 is high-level sensitive.
@@ -75,9 +70,8 @@ union ICR1 {
     // Interrupt 0 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 1
-  enum class eICR1 : uint32_t {
+
+  enum class eICR1 : std::uint32_t {
     // Interrupt 1 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 1 is high-level sensitive.
@@ -87,9 +81,8 @@ union ICR1 {
     // Interrupt 1 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 2
-  enum class eICR2 : uint32_t {
+
+  enum class eICR2 : std::uint32_t {
     // Interrupt 2 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 2 is high-level sensitive.
@@ -99,9 +92,8 @@ union ICR1 {
     // Interrupt 2 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 3
-  enum class eICR3 : uint32_t {
+
+  enum class eICR3 : std::uint32_t {
     // Interrupt 3 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 3 is high-level sensitive.
@@ -111,9 +103,8 @@ union ICR1 {
     // Interrupt 3 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 4
-  enum class eICR4 : uint32_t {
+
+  enum class eICR4 : std::uint32_t {
     // Interrupt 4 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 4 is high-level sensitive.
@@ -123,9 +114,8 @@ union ICR1 {
     // Interrupt 4 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 5
-  enum class eICR5 : uint32_t {
+
+  enum class eICR5 : std::uint32_t {
     // Interrupt 5 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 5 is high-level sensitive.
@@ -135,9 +125,8 @@ union ICR1 {
     // Interrupt 5 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 6
-  enum class eICR6 : uint32_t {
+
+  enum class eICR6 : std::uint32_t {
     // Interrupt 6 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 6 is high-level sensitive.
@@ -147,9 +136,8 @@ union ICR1 {
     // Interrupt 6 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 7
-  enum class eICR7 : uint32_t {
+
+  enum class eICR7 : std::uint32_t {
     // Interrupt 7 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 7 is high-level sensitive.
@@ -159,9 +147,8 @@ union ICR1 {
     // Interrupt 7 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 8
-  enum class eICR8 : uint32_t {
+
+  enum class eICR8 : std::uint32_t {
     // Interrupt 8 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 8 is high-level sensitive.
@@ -171,9 +158,8 @@ union ICR1 {
     // Interrupt 8 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 9
-  enum class eICR9 : uint32_t {
+
+  enum class eICR9 : std::uint32_t {
     // Interrupt 9 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 9 is high-level sensitive.
@@ -183,9 +169,8 @@ union ICR1 {
     // Interrupt 9 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 10
-  enum class eICR10 : uint32_t {
+
+  enum class eICR10 : std::uint32_t {
     // Interrupt 10 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 10 is high-level sensitive.
@@ -195,9 +180,8 @@ union ICR1 {
     // Interrupt 10 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 11
-  enum class eICR11 : uint32_t {
+
+  enum class eICR11 : std::uint32_t {
     // Interrupt 11 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 11 is high-level sensitive.
@@ -207,9 +191,8 @@ union ICR1 {
     // Interrupt 11 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 12
-  enum class eICR12 : uint32_t {
+
+  enum class eICR12 : std::uint32_t {
     // Interrupt 12 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 12 is high-level sensitive.
@@ -219,9 +202,8 @@ union ICR1 {
     // Interrupt 12 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 13
-  enum class eICR13 : uint32_t {
+
+  enum class eICR13 : std::uint32_t {
     // Interrupt 13 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 13 is high-level sensitive.
@@ -231,9 +213,8 @@ union ICR1 {
     // Interrupt 13 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 14
-  enum class eICR14 : uint32_t {
+
+  enum class eICR14 : std::uint32_t {
     // Interrupt 14 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 14 is high-level sensitive.
@@ -243,9 +224,8 @@ union ICR1 {
     // Interrupt 14 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 15
-  enum class eICR15 : uint32_t {
+
+  enum class eICR15 : std::uint32_t {
     // Interrupt 15 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 15 is high-level sensitive.
@@ -255,56 +235,100 @@ union ICR1 {
     // Interrupt 15 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt configuration field for GPIO interrupt 0
-    eICR0 ICR0 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 1
-    eICR1 ICR1 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 2
-    eICR2 ICR2 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 3
-    eICR3 ICR3 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 4
-    eICR4 ICR4 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 5
-    eICR5 ICR5 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 6
-    eICR6 ICR6 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 7
-    eICR7 ICR7 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 8
-    eICR8 ICR8 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 9
-    eICR9 ICR9 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 10
-    eICR10 ICR10 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 11
-    eICR11 ICR11 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 12
-    eICR12 ICR12 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 13
-    eICR13 ICR13 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 14
-    eICR14 ICR14 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 15
-    eICR15 ICR15 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Interrupt configuration field for GPIO interrupt 0
+  using ICR0 = ftl::mmio::Field<2, 0, eICR0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 1
+  using ICR1 = ftl::mmio::Field<2, 2, eICR1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 2
+  using ICR2 = ftl::mmio::Field<2, 4, eICR2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 3
+  using ICR3 = ftl::mmio::Field<2, 6, eICR3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 4
+  using ICR4 = ftl::mmio::Field<2, 8, eICR4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 5
+  using ICR5 = ftl::mmio::Field<2, 10, eICR5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 6
+  using ICR6 = ftl::mmio::Field<2, 12, eICR6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 7
+  using ICR7 = ftl::mmio::Field<2, 14, eICR7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 8
+  using ICR8 = ftl::mmio::Field<2, 16, eICR8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 9
+  using ICR9 = ftl::mmio::Field<2, 18, eICR9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 10
+  using ICR10 = ftl::mmio::Field<2, 20, eICR10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 11
+  using ICR11 = ftl::mmio::Field<2, 22, eICR11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 12
+  using ICR12 = ftl::mmio::Field<2, 24, eICR12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 13
+  using ICR13 = ftl::mmio::Field<2, 26, eICR13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 14
+  using ICR14 = ftl::mmio::Field<2, 28, eICR14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 15
+  using ICR15 = ftl::mmio::Field<2, 30, eICR15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ICR1_fields_
 
-  ICR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ICR1 &ref() { return *reinterpret_cast<volatile ICR1*>(0x4200C00C); }
+struct ICR1 : ftl::mmio::Register<
+    0x4200C00Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ICR1_fields_::ICR0,
+    ICR1_fields_::ICR1,
+    ICR1_fields_::ICR2,
+    ICR1_fields_::ICR3,
+    ICR1_fields_::ICR4,
+    ICR1_fields_::ICR5,
+    ICR1_fields_::ICR6,
+    ICR1_fields_::ICR7,
+    ICR1_fields_::ICR8,
+    ICR1_fields_::ICR9,
+    ICR1_fields_::ICR10,
+    ICR1_fields_::ICR11,
+    ICR1_fields_::ICR12,
+    ICR1_fields_::ICR13,
+    ICR1_fields_::ICR14,
+    ICR1_fields_::ICR15> {
+  using eICR0 = ICR1_fields_::eICR0;
+  using eICR1 = ICR1_fields_::eICR1;
+  using eICR2 = ICR1_fields_::eICR2;
+  using eICR3 = ICR1_fields_::eICR3;
+  using eICR4 = ICR1_fields_::eICR4;
+  using eICR5 = ICR1_fields_::eICR5;
+  using eICR6 = ICR1_fields_::eICR6;
+  using eICR7 = ICR1_fields_::eICR7;
+  using eICR8 = ICR1_fields_::eICR8;
+  using eICR9 = ICR1_fields_::eICR9;
+  using eICR10 = ICR1_fields_::eICR10;
+  using eICR11 = ICR1_fields_::eICR11;
+  using eICR12 = ICR1_fields_::eICR12;
+  using eICR13 = ICR1_fields_::eICR13;
+  using eICR14 = ICR1_fields_::eICR14;
+  using eICR15 = ICR1_fields_::eICR15;
+  using ICR0 = ICR1_fields_::ICR0;
+  using value_ = ICR1_fields_::ICR1;
+  using ICR2 = ICR1_fields_::ICR2;
+  using ICR3 = ICR1_fields_::ICR3;
+  using ICR4 = ICR1_fields_::ICR4;
+  using ICR5 = ICR1_fields_::ICR5;
+  using ICR6 = ICR1_fields_::ICR6;
+  using ICR7 = ICR1_fields_::ICR7;
+  using ICR8 = ICR1_fields_::ICR8;
+  using ICR9 = ICR1_fields_::ICR9;
+  using ICR10 = ICR1_fields_::ICR10;
+  using ICR11 = ICR1_fields_::ICR11;
+  using ICR12 = ICR1_fields_::ICR12;
+  using ICR13 = ICR1_fields_::ICR13;
+  using ICR14 = ICR1_fields_::ICR14;
+  using ICR15 = ICR1_fields_::ICR15;
 };
 
+
 // GPIO interrupt configuration register2
-union ICR2 {
-  
-  // Interrupt configuration field for GPIO interrupt 16
-  enum class eICR16 : uint32_t {
+struct ICR2_fields_ {
+
+  enum class eICR16 : std::uint32_t {
     // Interrupt 16 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 16 is high-level sensitive.
@@ -314,9 +338,8 @@ union ICR2 {
     // Interrupt 16 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 17
-  enum class eICR17 : uint32_t {
+
+  enum class eICR17 : std::uint32_t {
     // Interrupt 17 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 17 is high-level sensitive.
@@ -326,9 +349,8 @@ union ICR2 {
     // Interrupt 17 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 18
-  enum class eICR18 : uint32_t {
+
+  enum class eICR18 : std::uint32_t {
     // Interrupt 18 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 18 is high-level sensitive.
@@ -338,9 +360,8 @@ union ICR2 {
     // Interrupt 18 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 19
-  enum class eICR19 : uint32_t {
+
+  enum class eICR19 : std::uint32_t {
     // Interrupt 19 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 19 is high-level sensitive.
@@ -350,9 +371,8 @@ union ICR2 {
     // Interrupt 19 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 20
-  enum class eICR20 : uint32_t {
+
+  enum class eICR20 : std::uint32_t {
     // Interrupt 20 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 20 is high-level sensitive.
@@ -362,9 +382,8 @@ union ICR2 {
     // Interrupt 20 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 21
-  enum class eICR21 : uint32_t {
+
+  enum class eICR21 : std::uint32_t {
     // Interrupt 21 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 21 is high-level sensitive.
@@ -374,9 +393,8 @@ union ICR2 {
     // Interrupt 21 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 22
-  enum class eICR22 : uint32_t {
+
+  enum class eICR22 : std::uint32_t {
     // Interrupt 22 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 22 is high-level sensitive.
@@ -386,9 +404,8 @@ union ICR2 {
     // Interrupt 22 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 23
-  enum class eICR23 : uint32_t {
+
+  enum class eICR23 : std::uint32_t {
     // Interrupt 23 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 23 is high-level sensitive.
@@ -398,9 +415,8 @@ union ICR2 {
     // Interrupt 23 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 24
-  enum class eICR24 : uint32_t {
+
+  enum class eICR24 : std::uint32_t {
     // Interrupt 24 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 24 is high-level sensitive.
@@ -410,9 +426,8 @@ union ICR2 {
     // Interrupt 24 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 25
-  enum class eICR25 : uint32_t {
+
+  enum class eICR25 : std::uint32_t {
     // Interrupt 25 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 25 is high-level sensitive.
@@ -422,9 +437,8 @@ union ICR2 {
     // Interrupt 25 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 26
-  enum class eICR26 : uint32_t {
+
+  enum class eICR26 : std::uint32_t {
     // Interrupt 26 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 26 is high-level sensitive.
@@ -434,9 +448,8 @@ union ICR2 {
     // Interrupt 26 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 27
-  enum class eICR27 : uint32_t {
+
+  enum class eICR27 : std::uint32_t {
     // Interrupt 27 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 27 is high-level sensitive.
@@ -446,9 +459,8 @@ union ICR2 {
     // Interrupt 27 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 28
-  enum class eICR28 : uint32_t {
+
+  enum class eICR28 : std::uint32_t {
     // Interrupt 28 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 28 is high-level sensitive.
@@ -458,9 +470,8 @@ union ICR2 {
     // Interrupt 28 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 29
-  enum class eICR29 : uint32_t {
+
+  enum class eICR29 : std::uint32_t {
     // Interrupt 29 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 29 is high-level sensitive.
@@ -470,9 +481,8 @@ union ICR2 {
     // Interrupt 29 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 30
-  enum class eICR30 : uint32_t {
+
+  enum class eICR30 : std::uint32_t {
     // Interrupt 30 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 30 is high-level sensitive.
@@ -482,9 +492,8 @@ union ICR2 {
     // Interrupt 30 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Interrupt configuration field for GPIO interrupt 31
-  enum class eICR31 : uint32_t {
+
+  enum class eICR31 : std::uint32_t {
     // Interrupt 31 is low-level sensitive.
     eLOW_LEVEL = 0,
     // Interrupt 31 is high-level sensitive.
@@ -494,152 +503,189 @@ union ICR2 {
     // Interrupt 31 is falling-edge sensitive.
     eFALLING_EDGE = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt configuration field for GPIO interrupt 16
-    eICR16 ICR16 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 17
-    eICR17 ICR17 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 18
-    eICR18 ICR18 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 19
-    eICR19 ICR19 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 20
-    eICR20 ICR20 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 21
-    eICR21 ICR21 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 22
-    eICR22 ICR22 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 23
-    eICR23 ICR23 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 24
-    eICR24 ICR24 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 25
-    eICR25 ICR25 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 26
-    eICR26 ICR26 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 27
-    eICR27 ICR27 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 28
-    eICR28 ICR28 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 29
-    eICR29 ICR29 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 30
-    eICR30 ICR30 : 2;
-    // read-write - Interrupt configuration field for GPIO interrupt 31
-    eICR31 ICR31 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Interrupt configuration field for GPIO interrupt 16
+  using ICR16 = ftl::mmio::Field<2, 0, eICR16, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 17
+  using ICR17 = ftl::mmio::Field<2, 2, eICR17, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 18
+  using ICR18 = ftl::mmio::Field<2, 4, eICR18, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 19
+  using ICR19 = ftl::mmio::Field<2, 6, eICR19, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 20
+  using ICR20 = ftl::mmio::Field<2, 8, eICR20, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 21
+  using ICR21 = ftl::mmio::Field<2, 10, eICR21, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 22
+  using ICR22 = ftl::mmio::Field<2, 12, eICR22, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 23
+  using ICR23 = ftl::mmio::Field<2, 14, eICR23, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 24
+  using ICR24 = ftl::mmio::Field<2, 16, eICR24, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 25
+  using ICR25 = ftl::mmio::Field<2, 18, eICR25, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 26
+  using ICR26 = ftl::mmio::Field<2, 20, eICR26, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 27
+  using ICR27 = ftl::mmio::Field<2, 22, eICR27, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 28
+  using ICR28 = ftl::mmio::Field<2, 24, eICR28, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 29
+  using ICR29 = ftl::mmio::Field<2, 26, eICR29, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 30
+  using ICR30 = ftl::mmio::Field<2, 28, eICR30, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt configuration field for GPIO interrupt 31
+  using ICR31 = ftl::mmio::Field<2, 30, eICR31, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ICR2_fields_
 
-  ICR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ICR2 &ref() { return *reinterpret_cast<volatile ICR2*>(0x4200C010); }
+struct ICR2 : ftl::mmio::Register<
+    0x4200C010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ICR2_fields_::ICR16,
+    ICR2_fields_::ICR17,
+    ICR2_fields_::ICR18,
+    ICR2_fields_::ICR19,
+    ICR2_fields_::ICR20,
+    ICR2_fields_::ICR21,
+    ICR2_fields_::ICR22,
+    ICR2_fields_::ICR23,
+    ICR2_fields_::ICR24,
+    ICR2_fields_::ICR25,
+    ICR2_fields_::ICR26,
+    ICR2_fields_::ICR27,
+    ICR2_fields_::ICR28,
+    ICR2_fields_::ICR29,
+    ICR2_fields_::ICR30,
+    ICR2_fields_::ICR31> {
+  using eICR16 = ICR2_fields_::eICR16;
+  using eICR17 = ICR2_fields_::eICR17;
+  using eICR18 = ICR2_fields_::eICR18;
+  using eICR19 = ICR2_fields_::eICR19;
+  using eICR20 = ICR2_fields_::eICR20;
+  using eICR21 = ICR2_fields_::eICR21;
+  using eICR22 = ICR2_fields_::eICR22;
+  using eICR23 = ICR2_fields_::eICR23;
+  using eICR24 = ICR2_fields_::eICR24;
+  using eICR25 = ICR2_fields_::eICR25;
+  using eICR26 = ICR2_fields_::eICR26;
+  using eICR27 = ICR2_fields_::eICR27;
+  using eICR28 = ICR2_fields_::eICR28;
+  using eICR29 = ICR2_fields_::eICR29;
+  using eICR30 = ICR2_fields_::eICR30;
+  using eICR31 = ICR2_fields_::eICR31;
+  using ICR16 = ICR2_fields_::ICR16;
+  using ICR17 = ICR2_fields_::ICR17;
+  using ICR18 = ICR2_fields_::ICR18;
+  using ICR19 = ICR2_fields_::ICR19;
+  using ICR20 = ICR2_fields_::ICR20;
+  using ICR21 = ICR2_fields_::ICR21;
+  using ICR22 = ICR2_fields_::ICR22;
+  using ICR23 = ICR2_fields_::ICR23;
+  using ICR24 = ICR2_fields_::ICR24;
+  using ICR25 = ICR2_fields_::ICR25;
+  using ICR26 = ICR2_fields_::ICR26;
+  using ICR27 = ICR2_fields_::ICR27;
+  using ICR28 = ICR2_fields_::ICR28;
+  using ICR29 = ICR2_fields_::ICR29;
+  using ICR30 = ICR2_fields_::ICR30;
+  using ICR31 = ICR2_fields_::ICR31;
 };
+
 
 // GPIO interrupt mask register
-union IMR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt Mask bits
-    uint32_t IMR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IMR_fields_ {
+  // Interrupt Mask bits
+  using IMR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct IMR_fields_
 
-  IMR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IMR &ref() { return *reinterpret_cast<volatile IMR*>(0x4200C014); }
+struct IMR : ftl::mmio::Register<
+    0x4200C014u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    IMR_fields_::IMR> {
+  using value_ = IMR_fields_::IMR;
 };
+
 
 // GPIO interrupt status register
-union ISR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt status bits
-    uint32_t ISR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ISR_fields_ {
+  // Interrupt status bits
+  using ISR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct ISR_fields_
 
-  ISR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ISR &ref() { return *reinterpret_cast<volatile ISR*>(0x4200C018); }
+struct ISR : ftl::mmio::Register<
+    0x4200C018u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ISR_fields_::ISR> {
+  using value_ = ISR_fields_::ISR;
 };
+
 
 // GPIO edge select register
-union EDGE_SEL {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Edge select
-    uint32_t GPIO_EDGE_SEL : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct EDGE_SEL_fields_ {
+  // Edge select
+  using GPIO_EDGE_SEL = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct EDGE_SEL_fields_
 
-  EDGE_SEL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile EDGE_SEL &ref() { return *reinterpret_cast<volatile EDGE_SEL*>(0x4200C01C); }
+struct EDGE_SEL : ftl::mmio::Register<
+    0x4200C01Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    EDGE_SEL_fields_::GPIO_EDGE_SEL> {
+  using GPIO_EDGE_SEL = EDGE_SEL_fields_::GPIO_EDGE_SEL;
 };
+
 
 // GPIO data register SET
-union DR_SET {
-  
-  // Bit field definition.
-  struct {
-    // write-only - Set
-    uint32_t DR_SET : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DR_SET_fields_ {
+  // Set
+  using DR_SET = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
+};  // struct DR_SET_fields_
 
-  DR_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DR_SET &ref() { return *reinterpret_cast<volatile DR_SET*>(0x4200C084); }
+struct DR_SET : ftl::mmio::Register<
+    0x4200C084u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::WO,
+    DR_SET_fields_::DR_SET> {
+  using value_ = DR_SET_fields_::DR_SET;
 };
+
 
 // GPIO data register CLEAR
-union DR_CLEAR {
-  
-  // Bit field definition.
-  struct {
-    // write-only - Clear
-    uint32_t DR_CLEAR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DR_CLEAR_fields_ {
+  // Clear
+  using DR_CLEAR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
+};  // struct DR_CLEAR_fields_
 
-  DR_CLEAR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DR_CLEAR &ref() { return *reinterpret_cast<volatile DR_CLEAR*>(0x4200C088); }
+struct DR_CLEAR : ftl::mmio::Register<
+    0x4200C088u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::WO,
+    DR_CLEAR_fields_::DR_CLEAR> {
+  using value_ = DR_CLEAR_fields_::DR_CLEAR;
 };
+
 
 // GPIO data register TOGGLE
-union DR_TOGGLE {
-  
-  // Bit field definition.
-  struct {
-    // write-only - Toggle
-    uint32_t DR_TOGGLE : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DR_TOGGLE_fields_ {
+  // Toggle
+  using DR_TOGGLE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
+};  // struct DR_TOGGLE_fields_
 
-  DR_TOGGLE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DR_TOGGLE &ref() { return *reinterpret_cast<volatile DR_TOGGLE*>(0x4200C08C); }
+struct DR_TOGGLE : ftl::mmio::Register<
+    0x4200C08Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::WO,
+    DR_TOGGLE_fields_::DR_TOGGLE> {
+  using value_ = DR_TOGGLE_fields_::DR_TOGGLE;
 };
 
-
-} // namespace nCM7_GPIO3
+}  // namespace regs::cm7_gpio3

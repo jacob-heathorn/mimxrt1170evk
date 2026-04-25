@@ -6,7 +6,7 @@
 
 #include "registers/codegen/iomuxc.hpp"
 #include "registers/codegen/ccm.hpp"
-#include "registers/codegen/lpuart1.hpp"
+#include "registers/codegen/lpuart.hpp"
 #include "registers/codegen/dma0.hpp"
 #include "registers/codegen/dmamux0.hpp"
 
@@ -20,7 +20,7 @@
 namespace ccm     = regs::ccm;
 namespace dma0    = regs::dma0;
 namespace dmamux0 = regs::dmamux0;
-namespace lpuart1 = regs::lpuart1;
+using lpuart1     = regs::Lpuart<1>;
 
 class Lpuart1 : public ftl::Singleton<Lpuart1>
 {

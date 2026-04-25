@@ -8,8 +8,9 @@
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace regs::dmamux0 {
 
+
 // Channel index Configuration Register
-namespace CHCFG_fields_ {
+struct CHCFG_fields_ {
 
   enum class eA_ON : std::uint32_t {
     // DMA Channel Always ON function is disabled
@@ -39,7 +40,7 @@ namespace CHCFG_fields_ {
   using TRIG = ftl::mmio::Field<1, 30, eTRIG, ftl::mmio::RW, ftl::mmio::Normal>;
   // DMA Mux Channel Enable
   using ENBL = ftl::mmio::Field<1, 31, eENBL, ftl::mmio::RW, ftl::mmio::Normal>;
-}  // namespace CHCFG_fields_
+};  // struct CHCFG_fields_
 
 template<std::uint32_t Index>
 struct CHCFG : ftl::mmio::Register<

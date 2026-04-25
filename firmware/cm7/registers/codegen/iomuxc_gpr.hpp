@@ -1,20 +1,18 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // IOMUXC GPR
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nIOMUXC_GPR {
+namespace regs::iomuxc_gpr {
 
 
 // GPR0 General Purpose Register
-union GPR0 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR0_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -24,9 +22,8 @@ union GPR0 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -36,37 +33,47 @@ union GPR0 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - SAI1 MCLK1 source select
-    uint32_t SAI1_MCLK1_SEL : 3;
-    // read-write - SAI1 MCLK2 source select
-    uint32_t SAI1_MCLK2_SEL : 3;
-    // read-write - SAI1 MCLK3 source select
-    uint32_t SAI1_MCLK3_SEL : 2;
-    // read-write - SAI1_MCLK signal direction control
-    uint32_t SAI1_MCLK_DIR : 1;
-    uint32_t _reserved_0 : 19;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // SAI1 MCLK1 source select
+  using SAI1_MCLK1_SEL = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SAI1 MCLK2 source select
+  using SAI1_MCLK2_SEL = ftl::mmio::Field<3, 3, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SAI1 MCLK3 source select
+  using SAI1_MCLK3_SEL = ftl::mmio::Field<2, 6, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SAI1_MCLK signal direction control
+  using SAI1_MCLK_DIR = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR0_fields_
 
-  GPR0() = delete;
-  inline void Reset() volatile { this->value = 0x00000018; }
-  static inline volatile GPR0 &ref() { return *reinterpret_cast<volatile GPR0*>(0x400E4000); }
+struct GPR0 : ftl::mmio::Register<
+    0x400E4000u,
+    std::uint32_t,
+    0x00000018u,
+    ftl::mmio::RW,
+    GPR0_fields_::SAI1_MCLK1_SEL,
+    GPR0_fields_::SAI1_MCLK2_SEL,
+    GPR0_fields_::SAI1_MCLK3_SEL,
+    GPR0_fields_::SAI1_MCLK_DIR,
+    ftl::mmio::Reserved<19, 9>,
+    GPR0_fields_::DWP,
+    GPR0_fields_::DWP_LOCK> {
+  using eDWP = GPR0_fields_::eDWP;
+  using eDWP_LOCK = GPR0_fields_::eDWP_LOCK;
+  using SAI1_MCLK1_SEL = GPR0_fields_::SAI1_MCLK1_SEL;
+  using SAI1_MCLK2_SEL = GPR0_fields_::SAI1_MCLK2_SEL;
+  using SAI1_MCLK3_SEL = GPR0_fields_::SAI1_MCLK3_SEL;
+  using SAI1_MCLK_DIR = GPR0_fields_::SAI1_MCLK_DIR;
+  using DWP = GPR0_fields_::DWP;
+  using DWP_LOCK = GPR0_fields_::DWP_LOCK;
 };
+
 
 // GPR1 General Purpose Register
-union GPR1 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR1_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -76,9 +83,8 @@ union GPR1 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -88,34 +94,40 @@ union GPR1 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - SAI2 MCLK3 source select
-    uint32_t SAI2_MCLK3_SEL : 2;
-    uint32_t _reserved_0 : 6;
-    // read-write - SAI2_MCLK signal direction control
-    uint32_t SAI2_MCLK_DIR : 1;
-    uint32_t _reserved_1 : 19;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // SAI2 MCLK3 source select
+  using SAI2_MCLK3_SEL = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SAI2_MCLK signal direction control
+  using SAI2_MCLK_DIR = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR1_fields_
 
-  GPR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR1 &ref() { return *reinterpret_cast<volatile GPR1*>(0x400E4004); }
+struct GPR1 : ftl::mmio::Register<
+    0x400E4004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR1_fields_::SAI2_MCLK3_SEL,
+    ftl::mmio::Reserved<6, 2>,
+    GPR1_fields_::SAI2_MCLK_DIR,
+    ftl::mmio::Reserved<19, 9>,
+    GPR1_fields_::DWP,
+    GPR1_fields_::DWP_LOCK> {
+  using eDWP = GPR1_fields_::eDWP;
+  using eDWP_LOCK = GPR1_fields_::eDWP_LOCK;
+  using SAI2_MCLK3_SEL = GPR1_fields_::SAI2_MCLK3_SEL;
+  using SAI2_MCLK_DIR = GPR1_fields_::SAI2_MCLK_DIR;
+  using DWP = GPR1_fields_::DWP;
+  using DWP_LOCK = GPR1_fields_::DWP_LOCK;
 };
+
 
 // GPR2 General Purpose Register
-union GPR2 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR2_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -125,9 +137,8 @@ union GPR2 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -137,36 +148,44 @@ union GPR2 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - SAI3 MCLK3 source select
-    uint32_t SAI3_MCLK3_SEL : 2;
-    uint32_t _reserved_0 : 6;
-    // read-write - SAI3_MCLK signal direction control
-    uint32_t SAI3_MCLK_DIR : 1;
-    // read-write - SAI4_MCLK signal direction control
-    uint32_t SAI4_MCLK_DIR : 1;
-    uint32_t _reserved_1 : 18;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // SAI3 MCLK3 source select
+  using SAI3_MCLK3_SEL = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SAI3_MCLK signal direction control
+  using SAI3_MCLK_DIR = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SAI4_MCLK signal direction control
+  using SAI4_MCLK_DIR = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR2_fields_
 
-  GPR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR2 &ref() { return *reinterpret_cast<volatile GPR2*>(0x400E4008); }
+struct GPR2 : ftl::mmio::Register<
+    0x400E4008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR2_fields_::SAI3_MCLK3_SEL,
+    ftl::mmio::Reserved<6, 2>,
+    GPR2_fields_::SAI3_MCLK_DIR,
+    GPR2_fields_::SAI4_MCLK_DIR,
+    ftl::mmio::Reserved<18, 10>,
+    GPR2_fields_::DWP,
+    GPR2_fields_::DWP_LOCK> {
+  using eDWP = GPR2_fields_::eDWP;
+  using eDWP_LOCK = GPR2_fields_::eDWP_LOCK;
+  using SAI3_MCLK3_SEL = GPR2_fields_::SAI3_MCLK3_SEL;
+  using SAI3_MCLK_DIR = GPR2_fields_::SAI3_MCLK_DIR;
+  using SAI4_MCLK_DIR = GPR2_fields_::SAI4_MCLK_DIR;
+  using DWP = GPR2_fields_::DWP;
+  using DWP_LOCK = GPR2_fields_::DWP_LOCK;
 };
+
 
 // GPR3 General Purpose Register
-union GPR3 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR3_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -176,9 +195,8 @@ union GPR3 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -188,37 +206,47 @@ union GPR3 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Divider ratio control for mclk from hmclk.
-    uint32_t MQS_CLK_DIV : 8;
-    // read-write - MQS software reset
-    uint32_t MQS_SW_RST : 1;
-    // read-write - MQS enable
-    uint32_t MQS_EN : 1;
-    // read-write - Medium Quality Sound (MQS) Oversample
-    uint32_t MQS_OVERSAMPLE : 1;
-    uint32_t _reserved_0 : 17;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Divider ratio control for mclk from hmclk.
+  using MQS_CLK_DIV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MQS software reset
+  using MQS_SW_RST = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MQS enable
+  using MQS_EN = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Medium Quality Sound (MQS) Oversample
+  using MQS_OVERSAMPLE = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR3_fields_
 
-  GPR3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR3 &ref() { return *reinterpret_cast<volatile GPR3*>(0x400E400C); }
+struct GPR3 : ftl::mmio::Register<
+    0x400E400Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR3_fields_::MQS_CLK_DIV,
+    GPR3_fields_::MQS_SW_RST,
+    GPR3_fields_::MQS_EN,
+    GPR3_fields_::MQS_OVERSAMPLE,
+    ftl::mmio::Reserved<17, 11>,
+    GPR3_fields_::DWP,
+    GPR3_fields_::DWP_LOCK> {
+  using eDWP = GPR3_fields_::eDWP;
+  using eDWP_LOCK = GPR3_fields_::eDWP_LOCK;
+  using MQS_CLK_DIV = GPR3_fields_::MQS_CLK_DIV;
+  using MQS_SW_RST = GPR3_fields_::MQS_SW_RST;
+  using MQS_EN = GPR3_fields_::MQS_EN;
+  using MQS_OVERSAMPLE = GPR3_fields_::MQS_OVERSAMPLE;
+  using DWP = GPR3_fields_::DWP;
+  using DWP_LOCK = GPR3_fields_::DWP_LOCK;
 };
+
 
 // GPR4 General Purpose Register
-union GPR4 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR4_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -228,9 +256,8 @@ union GPR4 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -240,37 +267,47 @@ union GPR4 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ENET TX_CLK select
-    uint32_t ENET_TX_CLK_SEL : 1;
-    // read-write - ENET_REF_CLK direction control
-    uint32_t ENET_REF_CLK_DIR : 1;
-    // read-write - ENET master timer source select
-    uint32_t ENET_TIME_SEL : 1;
-    // read-write - ENET ENET_1588_EVENT0_IN source select
-    uint32_t ENET_EVENT0IN_SEL : 1;
-    uint32_t _reserved_0 : 24;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // ENET TX_CLK select
+  using ENET_TX_CLK_SEL = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET_REF_CLK direction control
+  using ENET_REF_CLK_DIR = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET master timer source select
+  using ENET_TIME_SEL = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET ENET_1588_EVENT0_IN source select
+  using ENET_EVENT0IN_SEL = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR4_fields_
 
-  GPR4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR4 &ref() { return *reinterpret_cast<volatile GPR4*>(0x400E4010); }
+struct GPR4 : ftl::mmio::Register<
+    0x400E4010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR4_fields_::ENET_TX_CLK_SEL,
+    GPR4_fields_::ENET_REF_CLK_DIR,
+    GPR4_fields_::ENET_TIME_SEL,
+    GPR4_fields_::ENET_EVENT0IN_SEL,
+    ftl::mmio::Reserved<24, 4>,
+    GPR4_fields_::DWP,
+    GPR4_fields_::DWP_LOCK> {
+  using eDWP = GPR4_fields_::eDWP;
+  using eDWP_LOCK = GPR4_fields_::eDWP_LOCK;
+  using ENET_TX_CLK_SEL = GPR4_fields_::ENET_TX_CLK_SEL;
+  using ENET_REF_CLK_DIR = GPR4_fields_::ENET_REF_CLK_DIR;
+  using ENET_TIME_SEL = GPR4_fields_::ENET_TIME_SEL;
+  using ENET_EVENT0IN_SEL = GPR4_fields_::ENET_EVENT0IN_SEL;
+  using DWP = GPR4_fields_::DWP;
+  using DWP_LOCK = GPR4_fields_::DWP_LOCK;
 };
+
 
 // GPR5 General Purpose Register
-union GPR5 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR5_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -280,9 +317,8 @@ union GPR5 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -292,39 +328,51 @@ union GPR5 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ENET1G TX_CLK select
-    uint32_t ENET1G_TX_CLK_SEL : 1;
-    // read-write - ENET1G_REF_CLK direction control
-    uint32_t ENET1G_REF_CLK_DIR : 1;
-    // read-write - ENET1G RGMII TX clock output enable
-    uint32_t ENET1G_RGMII_EN : 1;
-    // read-write - ENET1G master timer source select
-    uint32_t ENET1G_TIME_SEL : 1;
-    // read-write - ENET1G ENET_1588_EVENT0_IN source select
-    uint32_t ENET1G_EVENT0IN_SEL : 1;
-    uint32_t _reserved_0 : 23;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // ENET1G TX_CLK select
+  using ENET1G_TX_CLK_SEL = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET1G_REF_CLK direction control
+  using ENET1G_REF_CLK_DIR = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET1G RGMII TX clock output enable
+  using ENET1G_RGMII_EN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET1G master timer source select
+  using ENET1G_TIME_SEL = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET1G ENET_1588_EVENT0_IN source select
+  using ENET1G_EVENT0IN_SEL = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR5_fields_
 
-  GPR5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR5 &ref() { return *reinterpret_cast<volatile GPR5*>(0x400E4014); }
+struct GPR5 : ftl::mmio::Register<
+    0x400E4014u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR5_fields_::ENET1G_TX_CLK_SEL,
+    GPR5_fields_::ENET1G_REF_CLK_DIR,
+    GPR5_fields_::ENET1G_RGMII_EN,
+    GPR5_fields_::ENET1G_TIME_SEL,
+    GPR5_fields_::ENET1G_EVENT0IN_SEL,
+    ftl::mmio::Reserved<23, 5>,
+    GPR5_fields_::DWP,
+    GPR5_fields_::DWP_LOCK> {
+  using eDWP = GPR5_fields_::eDWP;
+  using eDWP_LOCK = GPR5_fields_::eDWP_LOCK;
+  using ENET1G_TX_CLK_SEL = GPR5_fields_::ENET1G_TX_CLK_SEL;
+  using ENET1G_REF_CLK_DIR = GPR5_fields_::ENET1G_REF_CLK_DIR;
+  using ENET1G_RGMII_EN = GPR5_fields_::ENET1G_RGMII_EN;
+  using ENET1G_TIME_SEL = GPR5_fields_::ENET1G_TIME_SEL;
+  using ENET1G_EVENT0IN_SEL = GPR5_fields_::ENET1G_EVENT0IN_SEL;
+  using DWP = GPR5_fields_::DWP;
+  using DWP_LOCK = GPR5_fields_::DWP_LOCK;
 };
+
 
 // GPR6 General Purpose Register
-union GPR6 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR6_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -334,9 +382,8 @@ union GPR6 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -346,41 +393,55 @@ union GPR6 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ENET_QOS_REF_CLK direction control
-    uint32_t ENET_QOS_REF_CLK_DIR : 1;
-    // read-write - ENET_QOS RGMII TX clock output enable
-    uint32_t ENET_QOS_RGMII_EN : 1;
-    // read-write - ENET_QOS master timer source select
-    uint32_t ENET_QOS_TIME_SEL : 1;
-    // read-write - ENET_QOS PHY Interface Select
-    uint32_t ENET_QOS_INTF_SEL : 3;
-    // read-write - ENET_QOS clock generator enable
-    uint32_t ENET_QOS_CLKGEN_EN : 1;
-    // read-write - ENET_QOS ENET_1588_EVENT0_IN source select
-    uint32_t ENET_QOS_EVENT0IN_SEL : 1;
-    uint32_t _reserved_0 : 20;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // ENET_QOS_REF_CLK direction control
+  using ENET_QOS_REF_CLK_DIR = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET_QOS RGMII TX clock output enable
+  using ENET_QOS_RGMII_EN = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET_QOS master timer source select
+  using ENET_QOS_TIME_SEL = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET_QOS PHY Interface Select
+  using ENET_QOS_INTF_SEL = ftl::mmio::Field<3, 3, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET_QOS clock generator enable
+  using ENET_QOS_CLKGEN_EN = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET_QOS ENET_1588_EVENT0_IN source select
+  using ENET_QOS_EVENT0IN_SEL = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR6_fields_
 
-  GPR6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR6 &ref() { return *reinterpret_cast<volatile GPR6*>(0x400E4018); }
+struct GPR6 : ftl::mmio::Register<
+    0x400E4018u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR6_fields_::ENET_QOS_REF_CLK_DIR,
+    GPR6_fields_::ENET_QOS_RGMII_EN,
+    GPR6_fields_::ENET_QOS_TIME_SEL,
+    GPR6_fields_::ENET_QOS_INTF_SEL,
+    GPR6_fields_::ENET_QOS_CLKGEN_EN,
+    GPR6_fields_::ENET_QOS_EVENT0IN_SEL,
+    ftl::mmio::Reserved<20, 8>,
+    GPR6_fields_::DWP,
+    GPR6_fields_::DWP_LOCK> {
+  using eDWP = GPR6_fields_::eDWP;
+  using eDWP_LOCK = GPR6_fields_::eDWP_LOCK;
+  using ENET_QOS_REF_CLK_DIR = GPR6_fields_::ENET_QOS_REF_CLK_DIR;
+  using ENET_QOS_RGMII_EN = GPR6_fields_::ENET_QOS_RGMII_EN;
+  using ENET_QOS_TIME_SEL = GPR6_fields_::ENET_QOS_TIME_SEL;
+  using ENET_QOS_INTF_SEL = GPR6_fields_::ENET_QOS_INTF_SEL;
+  using ENET_QOS_CLKGEN_EN = GPR6_fields_::ENET_QOS_CLKGEN_EN;
+  using ENET_QOS_EVENT0IN_SEL = GPR6_fields_::ENET_QOS_EVENT0IN_SEL;
+  using DWP = GPR6_fields_::DWP;
+  using DWP_LOCK = GPR6_fields_::DWP_LOCK;
 };
+
 
 // GPR7 General Purpose Register
-union GPR7 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR7_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -390,9 +451,8 @@ union GPR7 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -402,31 +462,35 @@ union GPR7 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Global interrupt
-    uint32_t GINT : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Global interrupt
+  using GINT = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR7_fields_
 
-  GPR7() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR7 &ref() { return *reinterpret_cast<volatile GPR7*>(0x400E401C); }
+struct GPR7 : ftl::mmio::Register<
+    0x400E401Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR7_fields_::GINT,
+    ftl::mmio::Reserved<27, 1>,
+    GPR7_fields_::DWP,
+    GPR7_fields_::DWP_LOCK> {
+  using eDWP = GPR7_fields_::eDWP;
+  using eDWP_LOCK = GPR7_fields_::eDWP_LOCK;
+  using GINT = GPR7_fields_::GINT;
+  using DWP = GPR7_fields_::DWP;
+  using DWP_LOCK = GPR7_fields_::DWP_LOCK;
 };
+
 
 // GPR8 General Purpose Register
-union GPR8 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR8_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -436,9 +500,8 @@ union GPR8 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -448,31 +511,35 @@ union GPR8 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - WDOG1 timeout mask for WDOG_ANY
-    uint32_t WDOG1_MASK : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // WDOG1 timeout mask for WDOG_ANY
+  using WDOG1_MASK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR8_fields_
 
-  GPR8() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR8 &ref() { return *reinterpret_cast<volatile GPR8*>(0x400E4020); }
+struct GPR8 : ftl::mmio::Register<
+    0x400E4020u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR8_fields_::WDOG1_MASK,
+    ftl::mmio::Reserved<27, 1>,
+    GPR8_fields_::DWP,
+    GPR8_fields_::DWP_LOCK> {
+  using eDWP = GPR8_fields_::eDWP;
+  using eDWP_LOCK = GPR8_fields_::eDWP_LOCK;
+  using WDOG1_MASK = GPR8_fields_::WDOG1_MASK;
+  using DWP = GPR8_fields_::DWP;
+  using DWP_LOCK = GPR8_fields_::DWP_LOCK;
 };
+
 
 // GPR9 General Purpose Register
-union GPR9 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR9_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -482,9 +549,8 @@ union GPR9 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -494,31 +560,35 @@ union GPR9 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - WDOG2 timeout mask for WDOG_ANY
-    uint32_t WDOG2_MASK : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // WDOG2 timeout mask for WDOG_ANY
+  using WDOG2_MASK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR9_fields_
 
-  GPR9() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR9 &ref() { return *reinterpret_cast<volatile GPR9*>(0x400E4024); }
+struct GPR9 : ftl::mmio::Register<
+    0x400E4024u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR9_fields_::WDOG2_MASK,
+    ftl::mmio::Reserved<27, 1>,
+    GPR9_fields_::DWP,
+    GPR9_fields_::DWP_LOCK> {
+  using eDWP = GPR9_fields_::eDWP;
+  using eDWP_LOCK = GPR9_fields_::eDWP_LOCK;
+  using WDOG2_MASK = GPR9_fields_::WDOG2_MASK;
+  using DWP = GPR9_fields_::DWP;
+  using DWP_LOCK = GPR9_fields_::DWP_LOCK;
 };
+
 
 // GPR10 General Purpose Register
-union GPR10 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR10_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -528,9 +598,8 @@ union GPR10 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -540,29 +609,31 @@ union GPR10 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR10_fields_
 
-  GPR10() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR10 &ref() { return *reinterpret_cast<volatile GPR10*>(0x400E4028); }
+struct GPR10 : ftl::mmio::Register<
+    0x400E4028u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR10_fields_::DWP,
+    GPR10_fields_::DWP_LOCK> {
+  using eDWP = GPR10_fields_::eDWP;
+  using eDWP_LOCK = GPR10_fields_::eDWP_LOCK;
+  using DWP = GPR10_fields_::DWP;
+  using DWP_LOCK = GPR10_fields_::DWP_LOCK;
 };
+
 
 // GPR11 General Purpose Register
-union GPR11 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR11_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -572,9 +643,8 @@ union GPR11 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -584,29 +654,31 @@ union GPR11 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR11_fields_
 
-  GPR11() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR11 &ref() { return *reinterpret_cast<volatile GPR11*>(0x400E402C); }
+struct GPR11 : ftl::mmio::Register<
+    0x400E402Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR11_fields_::DWP,
+    GPR11_fields_::DWP_LOCK> {
+  using eDWP = GPR11_fields_::eDWP;
+  using eDWP_LOCK = GPR11_fields_::eDWP_LOCK;
+  using DWP = GPR11_fields_::DWP;
+  using DWP_LOCK = GPR11_fields_::DWP_LOCK;
 };
+
 
 // GPR12 General Purpose Register
-union GPR12 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR12_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -616,9 +688,8 @@ union GPR12 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -628,40 +699,52 @@ union GPR12 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - QTIMER1 timer counter freeze
-    uint32_t QTIMER1_TMR_CNTS_FREEZE : 1;
-    uint32_t _reserved_0 : 7;
-    // read-write - QTIMER1 TMR0 input select
-    uint32_t QTIMER1_TRM0_INPUT_SEL : 1;
-    // read-write - QTIMER1 TMR1 input select
-    uint32_t QTIMER1_TRM1_INPUT_SEL : 1;
-    // read-write - QTIMER1 TMR2 input select
-    uint32_t QTIMER1_TRM2_INPUT_SEL : 1;
-    // read-write - QTIMER1 TMR3 input select
-    uint32_t QTIMER1_TRM3_INPUT_SEL : 1;
-    uint32_t _reserved_1 : 16;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // QTIMER1 timer counter freeze
+  using QTIMER1_TMR_CNTS_FREEZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER1 TMR0 input select
+  using QTIMER1_TRM0_INPUT_SEL = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER1 TMR1 input select
+  using QTIMER1_TRM1_INPUT_SEL = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER1 TMR2 input select
+  using QTIMER1_TRM2_INPUT_SEL = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER1 TMR3 input select
+  using QTIMER1_TRM3_INPUT_SEL = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR12_fields_
 
-  GPR12() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR12 &ref() { return *reinterpret_cast<volatile GPR12*>(0x400E4030); }
+struct GPR12 : ftl::mmio::Register<
+    0x400E4030u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR12_fields_::QTIMER1_TMR_CNTS_FREEZE,
+    ftl::mmio::Reserved<7, 1>,
+    GPR12_fields_::QTIMER1_TRM0_INPUT_SEL,
+    GPR12_fields_::QTIMER1_TRM1_INPUT_SEL,
+    GPR12_fields_::QTIMER1_TRM2_INPUT_SEL,
+    GPR12_fields_::QTIMER1_TRM3_INPUT_SEL,
+    ftl::mmio::Reserved<16, 12>,
+    GPR12_fields_::DWP,
+    GPR12_fields_::DWP_LOCK> {
+  using eDWP = GPR12_fields_::eDWP;
+  using eDWP_LOCK = GPR12_fields_::eDWP_LOCK;
+  using QTIMER1_TMR_CNTS_FREEZE = GPR12_fields_::QTIMER1_TMR_CNTS_FREEZE;
+  using QTIMER1_TRM0_INPUT_SEL = GPR12_fields_::QTIMER1_TRM0_INPUT_SEL;
+  using QTIMER1_TRM1_INPUT_SEL = GPR12_fields_::QTIMER1_TRM1_INPUT_SEL;
+  using QTIMER1_TRM2_INPUT_SEL = GPR12_fields_::QTIMER1_TRM2_INPUT_SEL;
+  using QTIMER1_TRM3_INPUT_SEL = GPR12_fields_::QTIMER1_TRM3_INPUT_SEL;
+  using DWP = GPR12_fields_::DWP;
+  using DWP_LOCK = GPR12_fields_::DWP_LOCK;
 };
+
 
 // GPR13 General Purpose Register
-union GPR13 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR13_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -671,9 +754,8 @@ union GPR13 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -683,40 +765,52 @@ union GPR13 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - QTIMER2 timer counter freeze
-    uint32_t QTIMER2_TMR_CNTS_FREEZE : 1;
-    uint32_t _reserved_0 : 7;
-    // read-write - QTIMER2 TMR0 input select
-    uint32_t QTIMER2_TRM0_INPUT_SEL : 1;
-    // read-write - QTIMER2 TMR1 input select
-    uint32_t QTIMER2_TRM1_INPUT_SEL : 1;
-    // read-write - QTIMER2 TMR2 input select
-    uint32_t QTIMER2_TRM2_INPUT_SEL : 1;
-    // read-write - QTIMER2 TMR3 input select
-    uint32_t QTIMER2_TRM3_INPUT_SEL : 1;
-    uint32_t _reserved_1 : 16;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // QTIMER2 timer counter freeze
+  using QTIMER2_TMR_CNTS_FREEZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER2 TMR0 input select
+  using QTIMER2_TRM0_INPUT_SEL = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER2 TMR1 input select
+  using QTIMER2_TRM1_INPUT_SEL = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER2 TMR2 input select
+  using QTIMER2_TRM2_INPUT_SEL = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER2 TMR3 input select
+  using QTIMER2_TRM3_INPUT_SEL = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR13_fields_
 
-  GPR13() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR13 &ref() { return *reinterpret_cast<volatile GPR13*>(0x400E4034); }
+struct GPR13 : ftl::mmio::Register<
+    0x400E4034u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR13_fields_::QTIMER2_TMR_CNTS_FREEZE,
+    ftl::mmio::Reserved<7, 1>,
+    GPR13_fields_::QTIMER2_TRM0_INPUT_SEL,
+    GPR13_fields_::QTIMER2_TRM1_INPUT_SEL,
+    GPR13_fields_::QTIMER2_TRM2_INPUT_SEL,
+    GPR13_fields_::QTIMER2_TRM3_INPUT_SEL,
+    ftl::mmio::Reserved<16, 12>,
+    GPR13_fields_::DWP,
+    GPR13_fields_::DWP_LOCK> {
+  using eDWP = GPR13_fields_::eDWP;
+  using eDWP_LOCK = GPR13_fields_::eDWP_LOCK;
+  using QTIMER2_TMR_CNTS_FREEZE = GPR13_fields_::QTIMER2_TMR_CNTS_FREEZE;
+  using QTIMER2_TRM0_INPUT_SEL = GPR13_fields_::QTIMER2_TRM0_INPUT_SEL;
+  using QTIMER2_TRM1_INPUT_SEL = GPR13_fields_::QTIMER2_TRM1_INPUT_SEL;
+  using QTIMER2_TRM2_INPUT_SEL = GPR13_fields_::QTIMER2_TRM2_INPUT_SEL;
+  using QTIMER2_TRM3_INPUT_SEL = GPR13_fields_::QTIMER2_TRM3_INPUT_SEL;
+  using DWP = GPR13_fields_::DWP;
+  using DWP_LOCK = GPR13_fields_::DWP_LOCK;
 };
+
 
 // GPR14 General Purpose Register
-union GPR14 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR14_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -726,9 +820,8 @@ union GPR14 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -738,40 +831,52 @@ union GPR14 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - QTIMER3 timer counter freeze
-    uint32_t QTIMER3_TMR_CNTS_FREEZE : 1;
-    uint32_t _reserved_0 : 7;
-    // read-write - QTIMER3 TMR0 input select
-    uint32_t QTIMER3_TRM0_INPUT_SEL : 1;
-    // read-write - QTIMER3 TMR1 input select
-    uint32_t QTIMER3_TRM1_INPUT_SEL : 1;
-    // read-write - QTIMER3 TMR2 input select
-    uint32_t QTIMER3_TRM2_INPUT_SEL : 1;
-    // read-write - QTIMER3 TMR3 input select
-    uint32_t QTIMER3_TRM3_INPUT_SEL : 1;
-    uint32_t _reserved_1 : 16;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // QTIMER3 timer counter freeze
+  using QTIMER3_TMR_CNTS_FREEZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER3 TMR0 input select
+  using QTIMER3_TRM0_INPUT_SEL = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER3 TMR1 input select
+  using QTIMER3_TRM1_INPUT_SEL = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER3 TMR2 input select
+  using QTIMER3_TRM2_INPUT_SEL = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER3 TMR3 input select
+  using QTIMER3_TRM3_INPUT_SEL = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR14_fields_
 
-  GPR14() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR14 &ref() { return *reinterpret_cast<volatile GPR14*>(0x400E4038); }
+struct GPR14 : ftl::mmio::Register<
+    0x400E4038u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR14_fields_::QTIMER3_TMR_CNTS_FREEZE,
+    ftl::mmio::Reserved<7, 1>,
+    GPR14_fields_::QTIMER3_TRM0_INPUT_SEL,
+    GPR14_fields_::QTIMER3_TRM1_INPUT_SEL,
+    GPR14_fields_::QTIMER3_TRM2_INPUT_SEL,
+    GPR14_fields_::QTIMER3_TRM3_INPUT_SEL,
+    ftl::mmio::Reserved<16, 12>,
+    GPR14_fields_::DWP,
+    GPR14_fields_::DWP_LOCK> {
+  using eDWP = GPR14_fields_::eDWP;
+  using eDWP_LOCK = GPR14_fields_::eDWP_LOCK;
+  using QTIMER3_TMR_CNTS_FREEZE = GPR14_fields_::QTIMER3_TMR_CNTS_FREEZE;
+  using QTIMER3_TRM0_INPUT_SEL = GPR14_fields_::QTIMER3_TRM0_INPUT_SEL;
+  using QTIMER3_TRM1_INPUT_SEL = GPR14_fields_::QTIMER3_TRM1_INPUT_SEL;
+  using QTIMER3_TRM2_INPUT_SEL = GPR14_fields_::QTIMER3_TRM2_INPUT_SEL;
+  using QTIMER3_TRM3_INPUT_SEL = GPR14_fields_::QTIMER3_TRM3_INPUT_SEL;
+  using DWP = GPR14_fields_::DWP;
+  using DWP_LOCK = GPR14_fields_::DWP_LOCK;
 };
+
 
 // GPR15 General Purpose Register
-union GPR15 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR15_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -781,9 +886,8 @@ union GPR15 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -793,40 +897,52 @@ union GPR15 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - QTIMER4 timer counter freeze
-    uint32_t QTIMER4_TMR_CNTS_FREEZE : 1;
-    uint32_t _reserved_0 : 7;
-    // read-write - QTIMER4 TMR0 input select
-    uint32_t QTIMER4_TRM0_INPUT_SEL : 1;
-    // read-write - QTIMER4 TMR1 input select
-    uint32_t QTIMER4_TRM1_INPUT_SEL : 1;
-    // read-write - QTIMER4 TMR2 input select
-    uint32_t QTIMER4_TRM2_INPUT_SEL : 1;
-    // read-write - QTIMER4 TMR3 input select
-    uint32_t QTIMER4_TRM3_INPUT_SEL : 1;
-    uint32_t _reserved_1 : 16;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // QTIMER4 timer counter freeze
+  using QTIMER4_TMR_CNTS_FREEZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER4 TMR0 input select
+  using QTIMER4_TRM0_INPUT_SEL = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER4 TMR1 input select
+  using QTIMER4_TRM1_INPUT_SEL = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER4 TMR2 input select
+  using QTIMER4_TRM2_INPUT_SEL = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // QTIMER4 TMR3 input select
+  using QTIMER4_TRM3_INPUT_SEL = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR15_fields_
 
-  GPR15() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR15 &ref() { return *reinterpret_cast<volatile GPR15*>(0x400E403C); }
+struct GPR15 : ftl::mmio::Register<
+    0x400E403Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR15_fields_::QTIMER4_TMR_CNTS_FREEZE,
+    ftl::mmio::Reserved<7, 1>,
+    GPR15_fields_::QTIMER4_TRM0_INPUT_SEL,
+    GPR15_fields_::QTIMER4_TRM1_INPUT_SEL,
+    GPR15_fields_::QTIMER4_TRM2_INPUT_SEL,
+    GPR15_fields_::QTIMER4_TRM3_INPUT_SEL,
+    ftl::mmio::Reserved<16, 12>,
+    GPR15_fields_::DWP,
+    GPR15_fields_::DWP_LOCK> {
+  using eDWP = GPR15_fields_::eDWP;
+  using eDWP_LOCK = GPR15_fields_::eDWP_LOCK;
+  using QTIMER4_TMR_CNTS_FREEZE = GPR15_fields_::QTIMER4_TMR_CNTS_FREEZE;
+  using QTIMER4_TRM0_INPUT_SEL = GPR15_fields_::QTIMER4_TRM0_INPUT_SEL;
+  using QTIMER4_TRM1_INPUT_SEL = GPR15_fields_::QTIMER4_TRM1_INPUT_SEL;
+  using QTIMER4_TRM2_INPUT_SEL = GPR15_fields_::QTIMER4_TRM2_INPUT_SEL;
+  using QTIMER4_TRM3_INPUT_SEL = GPR15_fields_::QTIMER4_TRM3_INPUT_SEL;
+  using DWP = GPR15_fields_::DWP;
+  using DWP_LOCK = GPR15_fields_::DWP_LOCK;
 };
+
 
 // GPR16 General Purpose Register
-union GPR16 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR16_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -836,9 +952,8 @@ union GPR16 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -848,37 +963,45 @@ union GPR16 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 2;
-    // read-write - FlexRAM bank config source select
-    uint32_t FLEXRAM_BANK_CFG_SEL : 1;
-    // read-write - CM7 platform AHB clock enable
-    uint32_t CM7_FORCE_HCLK_EN : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - CM7 sleep request selection
-    uint32_t M7_GPC_SLEEP_SEL : 1;
-    uint32_t _reserved_2 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // FlexRAM bank config source select
+  using FLEXRAM_BANK_CFG_SEL = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CM7 platform AHB clock enable
+  using CM7_FORCE_HCLK_EN = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CM7 sleep request selection
+  using M7_GPC_SLEEP_SEL = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR16_fields_
 
-  GPR16() = delete;
-  inline void Reset() volatile { this->value = 0x0000AA03; }
-  static inline volatile GPR16 &ref() { return *reinterpret_cast<volatile GPR16*>(0x400E4040); }
+struct GPR16 : ftl::mmio::Register<
+    0x400E4040u,
+    std::uint32_t,
+    0x0000AA03u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<2, 0>,
+    GPR16_fields_::FLEXRAM_BANK_CFG_SEL,
+    GPR16_fields_::CM7_FORCE_HCLK_EN,
+    ftl::mmio::Reserved<1, 4>,
+    GPR16_fields_::M7_GPC_SLEEP_SEL,
+    ftl::mmio::Reserved<22, 6>,
+    GPR16_fields_::DWP,
+    GPR16_fields_::DWP_LOCK> {
+  using eDWP = GPR16_fields_::eDWP;
+  using eDWP_LOCK = GPR16_fields_::eDWP_LOCK;
+  using FLEXRAM_BANK_CFG_SEL = GPR16_fields_::FLEXRAM_BANK_CFG_SEL;
+  using CM7_FORCE_HCLK_EN = GPR16_fields_::CM7_FORCE_HCLK_EN;
+  using M7_GPC_SLEEP_SEL = GPR16_fields_::M7_GPC_SLEEP_SEL;
+  using DWP = GPR16_fields_::DWP;
+  using DWP_LOCK = GPR16_fields_::DWP_LOCK;
 };
+
 
 // GPR17 General Purpose Register
-union GPR17 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR17_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -888,9 +1011,8 @@ union GPR17 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -900,31 +1022,35 @@ union GPR17 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - FlexRAM bank config value
-    uint32_t FLEXRAM_BANK_CFG_LOW : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // FlexRAM bank config value
+  using FLEXRAM_BANK_CFG_LOW = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR17_fields_
 
-  GPR17() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR17 &ref() { return *reinterpret_cast<volatile GPR17*>(0x400E4044); }
+struct GPR17 : ftl::mmio::Register<
+    0x400E4044u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR17_fields_::FLEXRAM_BANK_CFG_LOW,
+    ftl::mmio::Reserved<12, 16>,
+    GPR17_fields_::DWP,
+    GPR17_fields_::DWP_LOCK> {
+  using eDWP = GPR17_fields_::eDWP;
+  using eDWP_LOCK = GPR17_fields_::eDWP_LOCK;
+  using FLEXRAM_BANK_CFG_LOW = GPR17_fields_::FLEXRAM_BANK_CFG_LOW;
+  using DWP = GPR17_fields_::DWP;
+  using DWP_LOCK = GPR17_fields_::DWP_LOCK;
 };
+
 
 // GPR18 General Purpose Register
-union GPR18 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR18_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -934,9 +1060,8 @@ union GPR18 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -946,31 +1071,35 @@ union GPR18 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - FlexRAM bank config value
-    uint32_t FLEXRAM_BANK_CFG_HIGH : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // FlexRAM bank config value
+  using FLEXRAM_BANK_CFG_HIGH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR18_fields_
 
-  GPR18() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR18 &ref() { return *reinterpret_cast<volatile GPR18*>(0x400E4048); }
+struct GPR18 : ftl::mmio::Register<
+    0x400E4048u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR18_fields_::FLEXRAM_BANK_CFG_HIGH,
+    ftl::mmio::Reserved<12, 16>,
+    GPR18_fields_::DWP,
+    GPR18_fields_::DWP_LOCK> {
+  using eDWP = GPR18_fields_::eDWP;
+  using eDWP_LOCK = GPR18_fields_::eDWP_LOCK;
+  using FLEXRAM_BANK_CFG_HIGH = GPR18_fields_::FLEXRAM_BANK_CFG_HIGH;
+  using DWP = GPR18_fields_::DWP;
+  using DWP_LOCK = GPR18_fields_::DWP_LOCK;
 };
+
 
 // GPR20 General Purpose Register
-union GPR20 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR20_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -980,9 +1109,8 @@ union GPR20 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -992,84 +1120,142 @@ union GPR20 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - IOMUXC XBAR_INOUT4 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_4 : 1;
-    // read-write - IOMUXC XBAR_INOUT5 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_5 : 1;
-    // read-write - IOMUXC XBAR_INOUT6 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_6 : 1;
-    // read-write - IOMUXC XBAR_INOUT7 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_7 : 1;
-    // read-write - IOMUXC XBAR_INOUT8 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_8 : 1;
-    // read-write - IOMUXC XBAR_INOUT9 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_9 : 1;
-    // read-write - IOMUXC XBAR_INOUT10 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_10 : 1;
-    // read-write - IOMUXC XBAR_INOUT11 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_11 : 1;
-    // read-write - IOMUXC XBAR_INOUT12 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_12 : 1;
-    // read-write - IOMUXC XBAR_INOUT13 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_13 : 1;
-    // read-write - IOMUXC XBAR_INOUT14 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_14 : 1;
-    // read-write - IOMUXC XBAR_INOUT15 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_15 : 1;
-    // read-write - IOMUXC XBAR_INOUT16 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_16 : 1;
-    // read-write - IOMUXC XBAR_INOUT17 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_17 : 1;
-    // read-write - IOMUXC XBAR_INOUT18 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_18 : 1;
-    // read-write - IOMUXC XBAR_INOUT19 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_19 : 1;
-    // read-write - IOMUXC XBAR_INOUT20 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_20 : 1;
-    // read-write - IOMUXC XBAR_INOUT21 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_21 : 1;
-    // read-write - IOMUXC XBAR_INOUT22 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_22 : 1;
-    // read-write - IOMUXC XBAR_INOUT23 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_23 : 1;
-    // read-write - IOMUXC XBAR_INOUT24 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_24 : 1;
-    // read-write - IOMUXC XBAR_INOUT25 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_25 : 1;
-    // read-write - IOMUXC XBAR_INOUT26 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_26 : 1;
-    // read-write - IOMUXC XBAR_INOUT27 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_27 : 1;
-    // read-write - IOMUXC XBAR_INOUT28 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_28 : 1;
-    // read-write - IOMUXC XBAR_INOUT29 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_29 : 1;
-    // read-write - IOMUXC XBAR_INOUT30 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_30 : 1;
-    // read-write - IOMUXC XBAR_INOUT31 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_31 : 1;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // IOMUXC XBAR_INOUT4 function direction select
+  using IOMUXC_XBAR_DIR_SEL_4 = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT5 function direction select
+  using IOMUXC_XBAR_DIR_SEL_5 = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT6 function direction select
+  using IOMUXC_XBAR_DIR_SEL_6 = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT7 function direction select
+  using IOMUXC_XBAR_DIR_SEL_7 = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT8 function direction select
+  using IOMUXC_XBAR_DIR_SEL_8 = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT9 function direction select
+  using IOMUXC_XBAR_DIR_SEL_9 = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT10 function direction select
+  using IOMUXC_XBAR_DIR_SEL_10 = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT11 function direction select
+  using IOMUXC_XBAR_DIR_SEL_11 = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT12 function direction select
+  using IOMUXC_XBAR_DIR_SEL_12 = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT13 function direction select
+  using IOMUXC_XBAR_DIR_SEL_13 = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT14 function direction select
+  using IOMUXC_XBAR_DIR_SEL_14 = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT15 function direction select
+  using IOMUXC_XBAR_DIR_SEL_15 = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT16 function direction select
+  using IOMUXC_XBAR_DIR_SEL_16 = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT17 function direction select
+  using IOMUXC_XBAR_DIR_SEL_17 = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT18 function direction select
+  using IOMUXC_XBAR_DIR_SEL_18 = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT19 function direction select
+  using IOMUXC_XBAR_DIR_SEL_19 = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT20 function direction select
+  using IOMUXC_XBAR_DIR_SEL_20 = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT21 function direction select
+  using IOMUXC_XBAR_DIR_SEL_21 = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT22 function direction select
+  using IOMUXC_XBAR_DIR_SEL_22 = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT23 function direction select
+  using IOMUXC_XBAR_DIR_SEL_23 = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT24 function direction select
+  using IOMUXC_XBAR_DIR_SEL_24 = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT25 function direction select
+  using IOMUXC_XBAR_DIR_SEL_25 = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT26 function direction select
+  using IOMUXC_XBAR_DIR_SEL_26 = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT27 function direction select
+  using IOMUXC_XBAR_DIR_SEL_27 = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT28 function direction select
+  using IOMUXC_XBAR_DIR_SEL_28 = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT29 function direction select
+  using IOMUXC_XBAR_DIR_SEL_29 = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT30 function direction select
+  using IOMUXC_XBAR_DIR_SEL_30 = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT31 function direction select
+  using IOMUXC_XBAR_DIR_SEL_31 = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR20_fields_
 
-  GPR20() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR20 &ref() { return *reinterpret_cast<volatile GPR20*>(0x400E4050); }
+struct GPR20 : ftl::mmio::Register<
+    0x400E4050u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_4,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_5,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_6,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_7,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_8,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_9,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_10,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_11,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_12,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_13,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_14,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_15,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_16,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_17,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_18,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_19,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_20,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_21,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_22,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_23,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_24,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_25,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_26,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_27,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_28,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_29,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_30,
+    GPR20_fields_::IOMUXC_XBAR_DIR_SEL_31,
+    GPR20_fields_::DWP,
+    GPR20_fields_::DWP_LOCK> {
+  using eDWP = GPR20_fields_::eDWP;
+  using eDWP_LOCK = GPR20_fields_::eDWP_LOCK;
+  using IOMUXC_XBAR_DIR_SEL_4 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_4;
+  using IOMUXC_XBAR_DIR_SEL_5 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_5;
+  using IOMUXC_XBAR_DIR_SEL_6 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_6;
+  using IOMUXC_XBAR_DIR_SEL_7 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_7;
+  using IOMUXC_XBAR_DIR_SEL_8 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_8;
+  using IOMUXC_XBAR_DIR_SEL_9 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_9;
+  using IOMUXC_XBAR_DIR_SEL_10 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_10;
+  using IOMUXC_XBAR_DIR_SEL_11 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_11;
+  using IOMUXC_XBAR_DIR_SEL_12 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_12;
+  using IOMUXC_XBAR_DIR_SEL_13 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_13;
+  using IOMUXC_XBAR_DIR_SEL_14 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_14;
+  using IOMUXC_XBAR_DIR_SEL_15 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_15;
+  using IOMUXC_XBAR_DIR_SEL_16 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_16;
+  using IOMUXC_XBAR_DIR_SEL_17 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_17;
+  using IOMUXC_XBAR_DIR_SEL_18 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_18;
+  using IOMUXC_XBAR_DIR_SEL_19 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_19;
+  using IOMUXC_XBAR_DIR_SEL_20 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_20;
+  using IOMUXC_XBAR_DIR_SEL_21 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_21;
+  using IOMUXC_XBAR_DIR_SEL_22 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_22;
+  using IOMUXC_XBAR_DIR_SEL_23 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_23;
+  using IOMUXC_XBAR_DIR_SEL_24 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_24;
+  using IOMUXC_XBAR_DIR_SEL_25 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_25;
+  using IOMUXC_XBAR_DIR_SEL_26 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_26;
+  using IOMUXC_XBAR_DIR_SEL_27 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_27;
+  using IOMUXC_XBAR_DIR_SEL_28 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_28;
+  using IOMUXC_XBAR_DIR_SEL_29 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_29;
+  using IOMUXC_XBAR_DIR_SEL_30 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_30;
+  using IOMUXC_XBAR_DIR_SEL_31 = GPR20_fields_::IOMUXC_XBAR_DIR_SEL_31;
+  using DWP = GPR20_fields_::DWP;
+  using DWP_LOCK = GPR20_fields_::DWP_LOCK;
 };
+
 
 // GPR21 General Purpose Register
-union GPR21 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR21_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1079,9 +1265,8 @@ union GPR21 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1091,51 +1276,75 @@ union GPR21 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - IOMUXC XBAR_INOUT32 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_32 : 1;
-    // read-write - IOMUXC XBAR_INOUT33 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_33 : 1;
-    // read-write - IOMUXC XBAR_INOUT34 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_34 : 1;
-    // read-write - IOMUXC XBAR_INOUT35 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_35 : 1;
-    // read-write - IOMUXC XBAR_INOUT36 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_36 : 1;
-    // read-write - IOMUXC XBAR_INOUT37 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_37 : 1;
-    // read-write - IOMUXC XBAR_INOUT38 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_38 : 1;
-    // read-write - IOMUXC XBAR_INOUT39 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_39 : 1;
-    // read-write - IOMUXC XBAR_INOUT40 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_40 : 1;
-    // read-write - IOMUXC XBAR_INOUT41 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_41 : 1;
-    // read-write - IOMUXC XBAR_INOUT42 function direction select
-    uint32_t IOMUXC_XBAR_DIR_SEL_42 : 1;
-    uint32_t _reserved_0 : 17;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // IOMUXC XBAR_INOUT32 function direction select
+  using IOMUXC_XBAR_DIR_SEL_32 = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT33 function direction select
+  using IOMUXC_XBAR_DIR_SEL_33 = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT34 function direction select
+  using IOMUXC_XBAR_DIR_SEL_34 = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT35 function direction select
+  using IOMUXC_XBAR_DIR_SEL_35 = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT36 function direction select
+  using IOMUXC_XBAR_DIR_SEL_36 = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT37 function direction select
+  using IOMUXC_XBAR_DIR_SEL_37 = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT38 function direction select
+  using IOMUXC_XBAR_DIR_SEL_38 = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT39 function direction select
+  using IOMUXC_XBAR_DIR_SEL_39 = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT40 function direction select
+  using IOMUXC_XBAR_DIR_SEL_40 = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT41 function direction select
+  using IOMUXC_XBAR_DIR_SEL_41 = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IOMUXC XBAR_INOUT42 function direction select
+  using IOMUXC_XBAR_DIR_SEL_42 = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR21_fields_
 
-  GPR21() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR21 &ref() { return *reinterpret_cast<volatile GPR21*>(0x400E4054); }
+struct GPR21 : ftl::mmio::Register<
+    0x400E4054u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR21_fields_::IOMUXC_XBAR_DIR_SEL_32,
+    GPR21_fields_::IOMUXC_XBAR_DIR_SEL_33,
+    GPR21_fields_::IOMUXC_XBAR_DIR_SEL_34,
+    GPR21_fields_::IOMUXC_XBAR_DIR_SEL_35,
+    GPR21_fields_::IOMUXC_XBAR_DIR_SEL_36,
+    GPR21_fields_::IOMUXC_XBAR_DIR_SEL_37,
+    GPR21_fields_::IOMUXC_XBAR_DIR_SEL_38,
+    GPR21_fields_::IOMUXC_XBAR_DIR_SEL_39,
+    GPR21_fields_::IOMUXC_XBAR_DIR_SEL_40,
+    GPR21_fields_::IOMUXC_XBAR_DIR_SEL_41,
+    GPR21_fields_::IOMUXC_XBAR_DIR_SEL_42,
+    ftl::mmio::Reserved<17, 11>,
+    GPR21_fields_::DWP,
+    GPR21_fields_::DWP_LOCK> {
+  using eDWP = GPR21_fields_::eDWP;
+  using eDWP_LOCK = GPR21_fields_::eDWP_LOCK;
+  using IOMUXC_XBAR_DIR_SEL_32 = GPR21_fields_::IOMUXC_XBAR_DIR_SEL_32;
+  using IOMUXC_XBAR_DIR_SEL_33 = GPR21_fields_::IOMUXC_XBAR_DIR_SEL_33;
+  using IOMUXC_XBAR_DIR_SEL_34 = GPR21_fields_::IOMUXC_XBAR_DIR_SEL_34;
+  using IOMUXC_XBAR_DIR_SEL_35 = GPR21_fields_::IOMUXC_XBAR_DIR_SEL_35;
+  using IOMUXC_XBAR_DIR_SEL_36 = GPR21_fields_::IOMUXC_XBAR_DIR_SEL_36;
+  using IOMUXC_XBAR_DIR_SEL_37 = GPR21_fields_::IOMUXC_XBAR_DIR_SEL_37;
+  using IOMUXC_XBAR_DIR_SEL_38 = GPR21_fields_::IOMUXC_XBAR_DIR_SEL_38;
+  using IOMUXC_XBAR_DIR_SEL_39 = GPR21_fields_::IOMUXC_XBAR_DIR_SEL_39;
+  using IOMUXC_XBAR_DIR_SEL_40 = GPR21_fields_::IOMUXC_XBAR_DIR_SEL_40;
+  using IOMUXC_XBAR_DIR_SEL_41 = GPR21_fields_::IOMUXC_XBAR_DIR_SEL_41;
+  using IOMUXC_XBAR_DIR_SEL_42 = GPR21_fields_::IOMUXC_XBAR_DIR_SEL_42;
+  using DWP = GPR21_fields_::DWP;
+  using DWP_LOCK = GPR21_fields_::DWP_LOCK;
 };
+
 
 // GPR22 General Purpose Register
-union GPR22 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR22_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1145,9 +1354,8 @@ union GPR22 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1157,31 +1365,35 @@ union GPR22 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - GPT1 1 MHz clock source select
-    uint32_t REF_1M_CLK_GPT1 : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // GPT1 1 MHz clock source select
+  using REF_1M_CLK_GPT1 = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR22_fields_
 
-  GPR22() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR22 &ref() { return *reinterpret_cast<volatile GPR22*>(0x400E4058); }
+struct GPR22 : ftl::mmio::Register<
+    0x400E4058u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR22_fields_::REF_1M_CLK_GPT1,
+    ftl::mmio::Reserved<27, 1>,
+    GPR22_fields_::DWP,
+    GPR22_fields_::DWP_LOCK> {
+  using eDWP = GPR22_fields_::eDWP;
+  using eDWP_LOCK = GPR22_fields_::eDWP_LOCK;
+  using REF_1M_CLK_GPT1 = GPR22_fields_::REF_1M_CLK_GPT1;
+  using DWP = GPR22_fields_::DWP;
+  using DWP_LOCK = GPR22_fields_::DWP_LOCK;
 };
+
 
 // GPR23 General Purpose Register
-union GPR23 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR23_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1191,9 +1403,8 @@ union GPR23 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1203,35 +1414,43 @@ union GPR23 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - GPT2 1 MHz clock source select
-    uint32_t REF_1M_CLK_GPT2 : 1;
-    // read-write - GPT2 input capture channel 1 source select
-    uint32_t GPT2_CAPIN1_SEL : 1;
-    // read-write - GPT2 input capture channel 2 source select
-    uint32_t GPT2_CAPIN2_SEL : 1;
-    uint32_t _reserved_0 : 25;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // GPT2 1 MHz clock source select
+  using REF_1M_CLK_GPT2 = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPT2 input capture channel 1 source select
+  using GPT2_CAPIN1_SEL = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPT2 input capture channel 2 source select
+  using GPT2_CAPIN2_SEL = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR23_fields_
 
-  GPR23() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR23 &ref() { return *reinterpret_cast<volatile GPR23*>(0x400E405C); }
+struct GPR23 : ftl::mmio::Register<
+    0x400E405Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR23_fields_::REF_1M_CLK_GPT2,
+    GPR23_fields_::GPT2_CAPIN1_SEL,
+    GPR23_fields_::GPT2_CAPIN2_SEL,
+    ftl::mmio::Reserved<25, 3>,
+    GPR23_fields_::DWP,
+    GPR23_fields_::DWP_LOCK> {
+  using eDWP = GPR23_fields_::eDWP;
+  using eDWP_LOCK = GPR23_fields_::eDWP_LOCK;
+  using REF_1M_CLK_GPT2 = GPR23_fields_::REF_1M_CLK_GPT2;
+  using GPT2_CAPIN1_SEL = GPR23_fields_::GPT2_CAPIN1_SEL;
+  using GPT2_CAPIN2_SEL = GPR23_fields_::GPT2_CAPIN2_SEL;
+  using DWP = GPR23_fields_::DWP;
+  using DWP_LOCK = GPR23_fields_::DWP_LOCK;
 };
+
 
 // GPR24 General Purpose Register
-union GPR24 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR24_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1241,9 +1460,8 @@ union GPR24 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1253,33 +1471,39 @@ union GPR24 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - GPT3 1 MHz clock source select
-    uint32_t REF_1M_CLK_GPT3 : 1;
-    // read-write - GPT3 input capture channel 1 source select
-    uint32_t GPT3_CAPIN1_SEL : 1;
-    uint32_t _reserved_0 : 26;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // GPT3 1 MHz clock source select
+  using REF_1M_CLK_GPT3 = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPT3 input capture channel 1 source select
+  using GPT3_CAPIN1_SEL = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR24_fields_
 
-  GPR24() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR24 &ref() { return *reinterpret_cast<volatile GPR24*>(0x400E4060); }
+struct GPR24 : ftl::mmio::Register<
+    0x400E4060u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR24_fields_::REF_1M_CLK_GPT3,
+    GPR24_fields_::GPT3_CAPIN1_SEL,
+    ftl::mmio::Reserved<26, 2>,
+    GPR24_fields_::DWP,
+    GPR24_fields_::DWP_LOCK> {
+  using eDWP = GPR24_fields_::eDWP;
+  using eDWP_LOCK = GPR24_fields_::eDWP_LOCK;
+  using REF_1M_CLK_GPT3 = GPR24_fields_::REF_1M_CLK_GPT3;
+  using GPT3_CAPIN1_SEL = GPR24_fields_::GPT3_CAPIN1_SEL;
+  using DWP = GPR24_fields_::DWP;
+  using DWP_LOCK = GPR24_fields_::DWP_LOCK;
 };
+
 
 // GPR25 General Purpose Register
-union GPR25 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR25_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1289,9 +1513,8 @@ union GPR25 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1301,31 +1524,35 @@ union GPR25 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - GPT4 1 MHz clock source select
-    uint32_t REF_1M_CLK_GPT4 : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // GPT4 1 MHz clock source select
+  using REF_1M_CLK_GPT4 = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR25_fields_
 
-  GPR25() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR25 &ref() { return *reinterpret_cast<volatile GPR25*>(0x400E4064); }
+struct GPR25 : ftl::mmio::Register<
+    0x400E4064u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR25_fields_::REF_1M_CLK_GPT4,
+    ftl::mmio::Reserved<27, 1>,
+    GPR25_fields_::DWP,
+    GPR25_fields_::DWP_LOCK> {
+  using eDWP = GPR25_fields_::eDWP;
+  using eDWP_LOCK = GPR25_fields_::eDWP_LOCK;
+  using REF_1M_CLK_GPT4 = GPR25_fields_::REF_1M_CLK_GPT4;
+  using DWP = GPR25_fields_::DWP;
+  using DWP_LOCK = GPR25_fields_::DWP_LOCK;
 };
+
 
 // GPR26 General Purpose Register
-union GPR26 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR26_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1335,9 +1562,8 @@ union GPR26 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1347,31 +1573,35 @@ union GPR26 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - GPT5 1 MHz clock source select
-    uint32_t REF_1M_CLK_GPT5 : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // GPT5 1 MHz clock source select
+  using REF_1M_CLK_GPT5 = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR26_fields_
 
-  GPR26() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR26 &ref() { return *reinterpret_cast<volatile GPR26*>(0x400E4068); }
+struct GPR26 : ftl::mmio::Register<
+    0x400E4068u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR26_fields_::REF_1M_CLK_GPT5,
+    ftl::mmio::Reserved<27, 1>,
+    GPR26_fields_::DWP,
+    GPR26_fields_::DWP_LOCK> {
+  using eDWP = GPR26_fields_::eDWP;
+  using eDWP_LOCK = GPR26_fields_::eDWP_LOCK;
+  using REF_1M_CLK_GPT5 = GPR26_fields_::REF_1M_CLK_GPT5;
+  using DWP = GPR26_fields_::DWP;
+  using DWP_LOCK = GPR26_fields_::DWP_LOCK;
 };
+
 
 // GPR27 General Purpose Register
-union GPR27 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR27_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1381,9 +1611,8 @@ union GPR27 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1393,31 +1622,35 @@ union GPR27 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - GPT6 1 MHz clock source select
-    uint32_t REF_1M_CLK_GPT6 : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // GPT6 1 MHz clock source select
+  using REF_1M_CLK_GPT6 = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR27_fields_
 
-  GPR27() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR27 &ref() { return *reinterpret_cast<volatile GPR27*>(0x400E406C); }
+struct GPR27 : ftl::mmio::Register<
+    0x400E406Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR27_fields_::REF_1M_CLK_GPT6,
+    ftl::mmio::Reserved<27, 1>,
+    GPR27_fields_::DWP,
+    GPR27_fields_::DWP_LOCK> {
+  using eDWP = GPR27_fields_::eDWP;
+  using eDWP_LOCK = GPR27_fields_::eDWP_LOCK;
+  using REF_1M_CLK_GPT6 = GPR27_fields_::REF_1M_CLK_GPT6;
+  using DWP = GPR27_fields_::DWP;
+  using DWP_LOCK = GPR27_fields_::DWP_LOCK;
 };
+
 
 // GPR28 General Purpose Register
-union GPR28 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR28_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1427,9 +1660,8 @@ union GPR28 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1439,42 +1671,54 @@ union GPR28 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - uSDHC block cacheable attribute value of AXI read transactions
-    uint32_t ARCACHE_USDHC : 1;
-    // read-write - uSDHC block cacheable attribute value of AXI write transactions
-    uint32_t AWCACHE_USDHC : 1;
-    uint32_t _reserved_0 : 3;
-    // read-write - no description available
-    uint32_t CACHE_ENET1G : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - ENET block cacheable attribute value of AXI transactions
-    uint32_t CACHE_ENET : 1;
-    uint32_t _reserved_2 : 5;
-    // read-write - USB block cacheable attribute value of AXI transactions
-    uint32_t CACHE_USB : 1;
-    uint32_t _reserved_3 : 14;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // uSDHC block cacheable attribute value of AXI read transactions
+  using ARCACHE_USDHC = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // uSDHC block cacheable attribute value of AXI write transactions
+  using AWCACHE_USDHC = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // no description available
+  using CACHE_ENET1G = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET block cacheable attribute value of AXI transactions
+  using CACHE_ENET = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // USB block cacheable attribute value of AXI transactions
+  using CACHE_USB = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR28_fields_
 
-  GPR28() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR28 &ref() { return *reinterpret_cast<volatile GPR28*>(0x400E4070); }
+struct GPR28 : ftl::mmio::Register<
+    0x400E4070u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR28_fields_::ARCACHE_USDHC,
+    GPR28_fields_::AWCACHE_USDHC,
+    ftl::mmio::Reserved<3, 2>,
+    GPR28_fields_::CACHE_ENET1G,
+    ftl::mmio::Reserved<1, 6>,
+    GPR28_fields_::CACHE_ENET,
+    ftl::mmio::Reserved<5, 8>,
+    GPR28_fields_::CACHE_USB,
+    ftl::mmio::Reserved<14, 14>,
+    GPR28_fields_::DWP,
+    GPR28_fields_::DWP_LOCK> {
+  using eDWP = GPR28_fields_::eDWP;
+  using eDWP_LOCK = GPR28_fields_::eDWP_LOCK;
+  using ARCACHE_USDHC = GPR28_fields_::ARCACHE_USDHC;
+  using AWCACHE_USDHC = GPR28_fields_::AWCACHE_USDHC;
+  using CACHE_ENET1G = GPR28_fields_::CACHE_ENET1G;
+  using CACHE_ENET = GPR28_fields_::CACHE_ENET;
+  using CACHE_USB = GPR28_fields_::CACHE_USB;
+  using DWP = GPR28_fields_::DWP;
+  using DWP_LOCK = GPR28_fields_::DWP_LOCK;
 };
+
 
 // GPR29 General Purpose Register
-union GPR29 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR29_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1484,9 +1728,8 @@ union GPR29 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1496,31 +1739,35 @@ union GPR29 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - USBPHY1 register access clock enable
-    uint32_t USBPHY1_IPG_CLK_ACTIVE : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // USBPHY1 register access clock enable
+  using USBPHY1_IPG_CLK_ACTIVE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR29_fields_
 
-  GPR29() = delete;
-  inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile GPR29 &ref() { return *reinterpret_cast<volatile GPR29*>(0x400E4074); }
+struct GPR29 : ftl::mmio::Register<
+    0x400E4074u,
+    std::uint32_t,
+    0x00000001u,
+    ftl::mmio::RW,
+    GPR29_fields_::USBPHY1_IPG_CLK_ACTIVE,
+    ftl::mmio::Reserved<27, 1>,
+    GPR29_fields_::DWP,
+    GPR29_fields_::DWP_LOCK> {
+  using eDWP = GPR29_fields_::eDWP;
+  using eDWP_LOCK = GPR29_fields_::eDWP_LOCK;
+  using USBPHY1_IPG_CLK_ACTIVE = GPR29_fields_::USBPHY1_IPG_CLK_ACTIVE;
+  using DWP = GPR29_fields_::DWP;
+  using DWP_LOCK = GPR29_fields_::DWP_LOCK;
 };
+
 
 // GPR30 General Purpose Register
-union GPR30 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR30_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1530,9 +1777,8 @@ union GPR30 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1542,31 +1788,35 @@ union GPR30 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - USBPHY2 register access clock enable
-    uint32_t USBPHY2_IPG_CLK_ACTIVE : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // USBPHY2 register access clock enable
+  using USBPHY2_IPG_CLK_ACTIVE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR30_fields_
 
-  GPR30() = delete;
-  inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile GPR30 &ref() { return *reinterpret_cast<volatile GPR30*>(0x400E4078); }
+struct GPR30 : ftl::mmio::Register<
+    0x400E4078u,
+    std::uint32_t,
+    0x00000001u,
+    ftl::mmio::RW,
+    GPR30_fields_::USBPHY2_IPG_CLK_ACTIVE,
+    ftl::mmio::Reserved<27, 1>,
+    GPR30_fields_::DWP,
+    GPR30_fields_::DWP_LOCK> {
+  using eDWP = GPR30_fields_::eDWP;
+  using eDWP_LOCK = GPR30_fields_::eDWP_LOCK;
+  using USBPHY2_IPG_CLK_ACTIVE = GPR30_fields_::USBPHY2_IPG_CLK_ACTIVE;
+  using DWP = GPR30_fields_::DWP;
+  using DWP_LOCK = GPR30_fields_::DWP_LOCK;
 };
+
 
 // GPR31 General Purpose Register
-union GPR31 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR31_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1576,9 +1826,8 @@ union GPR31 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1588,34 +1837,40 @@ union GPR31 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - OCRAM M7 RMW wait enable
-    uint32_t RMW2_WAIT_BVALID_CPL : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - OCRAM M7 clock gating enable
-    uint32_t OCRAM_M7_CLK_GATING : 1;
-    uint32_t _reserved_1 : 25;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // OCRAM M7 RMW wait enable
+  using RMW2_WAIT_BVALID_CPL = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // OCRAM M7 clock gating enable
+  using OCRAM_M7_CLK_GATING = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR31_fields_
 
-  GPR31() = delete;
-  inline void Reset() volatile { this->value = 0x00000012; }
-  static inline volatile GPR31 &ref() { return *reinterpret_cast<volatile GPR31*>(0x400E407C); }
+struct GPR31 : ftl::mmio::Register<
+    0x400E407Cu,
+    std::uint32_t,
+    0x00000012u,
+    ftl::mmio::RW,
+    GPR31_fields_::RMW2_WAIT_BVALID_CPL,
+    ftl::mmio::Reserved<1, 1>,
+    GPR31_fields_::OCRAM_M7_CLK_GATING,
+    ftl::mmio::Reserved<25, 3>,
+    GPR31_fields_::DWP,
+    GPR31_fields_::DWP_LOCK> {
+  using eDWP = GPR31_fields_::eDWP;
+  using eDWP_LOCK = GPR31_fields_::eDWP_LOCK;
+  using RMW2_WAIT_BVALID_CPL = GPR31_fields_::RMW2_WAIT_BVALID_CPL;
+  using OCRAM_M7_CLK_GATING = GPR31_fields_::OCRAM_M7_CLK_GATING;
+  using DWP = GPR31_fields_::DWP;
+  using DWP_LOCK = GPR31_fields_::DWP_LOCK;
 };
+
 
 // GPR32 General Purpose Register
-union GPR32 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR32_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1625,9 +1880,8 @@ union GPR32 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1637,31 +1891,35 @@ union GPR32 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - OCRAM1 RMW wait enable
-    uint32_t RMW1_WAIT_BVALID_CPL : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // OCRAM1 RMW wait enable
+  using RMW1_WAIT_BVALID_CPL = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR32_fields_
 
-  GPR32() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR32 &ref() { return *reinterpret_cast<volatile GPR32*>(0x400E4080); }
+struct GPR32 : ftl::mmio::Register<
+    0x400E4080u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR32_fields_::RMW1_WAIT_BVALID_CPL,
+    ftl::mmio::Reserved<27, 1>,
+    GPR32_fields_::DWP,
+    GPR32_fields_::DWP_LOCK> {
+  using eDWP = GPR32_fields_::eDWP;
+  using eDWP_LOCK = GPR32_fields_::eDWP_LOCK;
+  using RMW1_WAIT_BVALID_CPL = GPR32_fields_::RMW1_WAIT_BVALID_CPL;
+  using DWP = GPR32_fields_::DWP;
+  using DWP_LOCK = GPR32_fields_::DWP_LOCK;
 };
+
 
 // GPR33 General Purpose Register
-union GPR33 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR33_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1671,9 +1929,8 @@ union GPR33 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1683,31 +1940,35 @@ union GPR33 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - OCRAM2 RMW wait enable
-    uint32_t RMW2_WAIT_BVALID_CPL : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // OCRAM2 RMW wait enable
+  using RMW2_WAIT_BVALID_CPL = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR33_fields_
 
-  GPR33() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR33 &ref() { return *reinterpret_cast<volatile GPR33*>(0x400E4084); }
+struct GPR33 : ftl::mmio::Register<
+    0x400E4084u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR33_fields_::RMW2_WAIT_BVALID_CPL,
+    ftl::mmio::Reserved<27, 1>,
+    GPR33_fields_::DWP,
+    GPR33_fields_::DWP_LOCK> {
+  using eDWP = GPR33_fields_::eDWP;
+  using eDWP_LOCK = GPR33_fields_::eDWP_LOCK;
+  using RMW2_WAIT_BVALID_CPL = GPR33_fields_::RMW2_WAIT_BVALID_CPL;
+  using DWP = GPR33_fields_::DWP;
+  using DWP_LOCK = GPR33_fields_::DWP_LOCK;
 };
+
 
 // GPR34 General Purpose Register
-union GPR34 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR34_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1717,9 +1978,8 @@ union GPR34 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1729,33 +1989,39 @@ union GPR34 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - XECC_FLEXSPI1 RMW wait enable
-    uint32_t XECC_FLEXSPI1_WAIT_BVALID_CPL : 1;
-    // read-write - FlexSPI1 OTFAD enable
-    uint32_t FLEXSPI1_OTFAD_EN : 1;
-    uint32_t _reserved_0 : 26;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // XECC_FLEXSPI1 RMW wait enable
+  using XECC_FLEXSPI1_WAIT_BVALID_CPL = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FlexSPI1 OTFAD enable
+  using FLEXSPI1_OTFAD_EN = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR34_fields_
 
-  GPR34() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR34 &ref() { return *reinterpret_cast<volatile GPR34*>(0x400E4088); }
+struct GPR34 : ftl::mmio::Register<
+    0x400E4088u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR34_fields_::XECC_FLEXSPI1_WAIT_BVALID_CPL,
+    GPR34_fields_::FLEXSPI1_OTFAD_EN,
+    ftl::mmio::Reserved<26, 2>,
+    GPR34_fields_::DWP,
+    GPR34_fields_::DWP_LOCK> {
+  using eDWP = GPR34_fields_::eDWP;
+  using eDWP_LOCK = GPR34_fields_::eDWP_LOCK;
+  using XECC_FLEXSPI1_WAIT_BVALID_CPL = GPR34_fields_::XECC_FLEXSPI1_WAIT_BVALID_CPL;
+  using FLEXSPI1_OTFAD_EN = GPR34_fields_::FLEXSPI1_OTFAD_EN;
+  using DWP = GPR34_fields_::DWP;
+  using DWP_LOCK = GPR34_fields_::DWP_LOCK;
 };
+
 
 // GPR35 General Purpose Register
-union GPR35 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR35_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1765,9 +2031,8 @@ union GPR35 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1777,33 +2042,39 @@ union GPR35 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - XECC_FLEXSPI2 RMW wait enable
-    uint32_t XECC_FLEXSPI2_WAIT_BVALID_CPL : 1;
-    // read-write - FlexSPI2 OTFAD enable
-    uint32_t FLEXSPI2_OTFAD_EN : 1;
-    uint32_t _reserved_0 : 26;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // XECC_FLEXSPI2 RMW wait enable
+  using XECC_FLEXSPI2_WAIT_BVALID_CPL = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FlexSPI2 OTFAD enable
+  using FLEXSPI2_OTFAD_EN = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR35_fields_
 
-  GPR35() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR35 &ref() { return *reinterpret_cast<volatile GPR35*>(0x400E408C); }
+struct GPR35 : ftl::mmio::Register<
+    0x400E408Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR35_fields_::XECC_FLEXSPI2_WAIT_BVALID_CPL,
+    GPR35_fields_::FLEXSPI2_OTFAD_EN,
+    ftl::mmio::Reserved<26, 2>,
+    GPR35_fields_::DWP,
+    GPR35_fields_::DWP_LOCK> {
+  using eDWP = GPR35_fields_::eDWP;
+  using eDWP_LOCK = GPR35_fields_::eDWP_LOCK;
+  using XECC_FLEXSPI2_WAIT_BVALID_CPL = GPR35_fields_::XECC_FLEXSPI2_WAIT_BVALID_CPL;
+  using FLEXSPI2_OTFAD_EN = GPR35_fields_::FLEXSPI2_OTFAD_EN;
+  using DWP = GPR35_fields_::DWP;
+  using DWP_LOCK = GPR35_fields_::DWP_LOCK;
 };
+
 
 // GPR36 General Purpose Register
-union GPR36 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR36_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1813,9 +2084,8 @@ union GPR36 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1825,31 +2095,35 @@ union GPR36 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - XECC_SEMC RMW wait enable
-    uint32_t XECC_SEMC_WAIT_BVALID_CPL : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // XECC_SEMC RMW wait enable
+  using XECC_SEMC_WAIT_BVALID_CPL = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR36_fields_
 
-  GPR36() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR36 &ref() { return *reinterpret_cast<volatile GPR36*>(0x400E4090); }
+struct GPR36 : ftl::mmio::Register<
+    0x400E4090u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR36_fields_::XECC_SEMC_WAIT_BVALID_CPL,
+    ftl::mmio::Reserved<27, 1>,
+    GPR36_fields_::DWP,
+    GPR36_fields_::DWP_LOCK> {
+  using eDWP = GPR36_fields_::eDWP;
+  using eDWP_LOCK = GPR36_fields_::eDWP_LOCK;
+  using XECC_SEMC_WAIT_BVALID_CPL = GPR36_fields_::XECC_SEMC_WAIT_BVALID_CPL;
+  using DWP = GPR36_fields_::DWP;
+  using DWP_LOCK = GPR36_fields_::DWP_LOCK;
 };
+
 
 // GPR37 General Purpose Register
-union GPR37 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR37_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1859,9 +2133,8 @@ union GPR37 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1871,41 +2144,53 @@ union GPR37 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ARM non-secure (non-invasive) debug enable
-    uint32_t NIDEN : 1;
-    // read-write - ARM invasive debug enable
-    uint32_t DBG_EN : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Exclusive monitor response select of illegal command
-    uint32_t EXC_MON : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - CM7 debug halt mask
-    uint32_t M7_DBG_ACK_MASK : 1;
-    // read-write - CM4 debug halt mask
-    uint32_t M4_DBG_ACK_MASK : 1;
-    uint32_t _reserved_2 : 21;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // ARM non-secure (non-invasive) debug enable
+  using NIDEN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ARM invasive debug enable
+  using DBG_EN = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Exclusive monitor response select of illegal command
+  using EXC_MON = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CM7 debug halt mask
+  using M7_DBG_ACK_MASK = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CM4 debug halt mask
+  using M4_DBG_ACK_MASK = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR37_fields_
 
-  GPR37() = delete;
-  inline void Reset() volatile { this->value = 0x00000017; }
-  static inline volatile GPR37 &ref() { return *reinterpret_cast<volatile GPR37*>(0x400E4094); }
+struct GPR37 : ftl::mmio::Register<
+    0x400E4094u,
+    std::uint32_t,
+    0x00000017u,
+    ftl::mmio::RW,
+    GPR37_fields_::NIDEN,
+    GPR37_fields_::DBG_EN,
+    ftl::mmio::Reserved<1, 2>,
+    GPR37_fields_::EXC_MON,
+    ftl::mmio::Reserved<1, 4>,
+    GPR37_fields_::M7_DBG_ACK_MASK,
+    GPR37_fields_::M4_DBG_ACK_MASK,
+    ftl::mmio::Reserved<21, 7>,
+    GPR37_fields_::DWP,
+    GPR37_fields_::DWP_LOCK> {
+  using eDWP = GPR37_fields_::eDWP;
+  using eDWP_LOCK = GPR37_fields_::eDWP_LOCK;
+  using NIDEN = GPR37_fields_::NIDEN;
+  using DBG_EN = GPR37_fields_::DBG_EN;
+  using EXC_MON = GPR37_fields_::EXC_MON;
+  using M7_DBG_ACK_MASK = GPR37_fields_::M7_DBG_ACK_MASK;
+  using M4_DBG_ACK_MASK = GPR37_fields_::M4_DBG_ACK_MASK;
+  using DWP = GPR37_fields_::DWP;
+  using DWP_LOCK = GPR37_fields_::DWP_LOCK;
 };
+
 
 // GPR38 General Purpose Register
-union GPR38 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR38_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1915,9 +2200,8 @@ union GPR38 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1927,29 +2211,31 @@ union GPR38 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR38_fields_
 
-  GPR38() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR38 &ref() { return *reinterpret_cast<volatile GPR38*>(0x400E4098); }
+struct GPR38 : ftl::mmio::Register<
+    0x400E4098u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR38_fields_::DWP,
+    GPR38_fields_::DWP_LOCK> {
+  using eDWP = GPR38_fields_::eDWP;
+  using eDWP_LOCK = GPR38_fields_::eDWP_LOCK;
+  using DWP = GPR38_fields_::DWP;
+  using DWP_LOCK = GPR38_fields_::DWP_LOCK;
 };
+
 
 // GPR39 General Purpose Register
-union GPR39 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR39_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1959,9 +2245,8 @@ union GPR39 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1971,29 +2256,31 @@ union GPR39 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR39_fields_
 
-  GPR39() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR39 &ref() { return *reinterpret_cast<volatile GPR39*>(0x400E409C); }
+struct GPR39 : ftl::mmio::Register<
+    0x400E409Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR39_fields_::DWP,
+    GPR39_fields_::DWP_LOCK> {
+  using eDWP = GPR39_fields_::eDWP;
+  using eDWP_LOCK = GPR39_fields_::eDWP_LOCK;
+  using DWP = GPR39_fields_::DWP;
+  using DWP_LOCK = GPR39_fields_::DWP_LOCK;
 };
+
 
 // GPR40 General Purpose Register
-union GPR40 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR40_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2003,9 +2290,8 @@ union GPR40 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2015,31 +2301,35 @@ union GPR40 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - GPIO2 and CM7_GPIO2 share same IO MUX function, GPIO_MUX2 selects one GPIO function.
-    uint32_t GPIO_MUX2_GPIO_SEL_LOW : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // GPIO2 and CM7_GPIO2 share same IO MUX function, GPIO_MUX2 selects one GPIO function.
+  using GPIO_MUX2_GPIO_SEL_LOW = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR40_fields_
 
-  GPR40() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR40 &ref() { return *reinterpret_cast<volatile GPR40*>(0x400E40A0); }
+struct GPR40 : ftl::mmio::Register<
+    0x400E40A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR40_fields_::GPIO_MUX2_GPIO_SEL_LOW,
+    ftl::mmio::Reserved<12, 16>,
+    GPR40_fields_::DWP,
+    GPR40_fields_::DWP_LOCK> {
+  using eDWP = GPR40_fields_::eDWP;
+  using eDWP_LOCK = GPR40_fields_::eDWP_LOCK;
+  using GPIO_MUX2_GPIO_SEL_LOW = GPR40_fields_::GPIO_MUX2_GPIO_SEL_LOW;
+  using DWP = GPR40_fields_::DWP;
+  using DWP_LOCK = GPR40_fields_::DWP_LOCK;
 };
+
 
 // GPR41 General Purpose Register
-union GPR41 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR41_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2049,9 +2339,8 @@ union GPR41 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2061,31 +2350,35 @@ union GPR41 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - GPIO2 and CM7_GPIO2 share same IO MUX function, GPIO_MUX2 selects one GPIO function.
-    uint32_t GPIO_MUX2_GPIO_SEL_HIGH : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // GPIO2 and CM7_GPIO2 share same IO MUX function, GPIO_MUX2 selects one GPIO function.
+  using GPIO_MUX2_GPIO_SEL_HIGH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR41_fields_
 
-  GPR41() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR41 &ref() { return *reinterpret_cast<volatile GPR41*>(0x400E40A4); }
+struct GPR41 : ftl::mmio::Register<
+    0x400E40A4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR41_fields_::GPIO_MUX2_GPIO_SEL_HIGH,
+    ftl::mmio::Reserved<12, 16>,
+    GPR41_fields_::DWP,
+    GPR41_fields_::DWP_LOCK> {
+  using eDWP = GPR41_fields_::eDWP;
+  using eDWP_LOCK = GPR41_fields_::eDWP_LOCK;
+  using GPIO_MUX2_GPIO_SEL_HIGH = GPR41_fields_::GPIO_MUX2_GPIO_SEL_HIGH;
+  using DWP = GPR41_fields_::DWP;
+  using DWP_LOCK = GPR41_fields_::DWP_LOCK;
 };
+
 
 // GPR42 General Purpose Register
-union GPR42 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR42_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2095,9 +2388,8 @@ union GPR42 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2107,31 +2399,35 @@ union GPR42 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - GPIO3 and CM7_GPIO3 share same IO MUX function, GPIO_MUX3 selects one GPIO function.
-    uint32_t GPIO_MUX3_GPIO_SEL_LOW : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // GPIO3 and CM7_GPIO3 share same IO MUX function, GPIO_MUX3 selects one GPIO function.
+  using GPIO_MUX3_GPIO_SEL_LOW = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR42_fields_
 
-  GPR42() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR42 &ref() { return *reinterpret_cast<volatile GPR42*>(0x400E40A8); }
+struct GPR42 : ftl::mmio::Register<
+    0x400E40A8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR42_fields_::GPIO_MUX3_GPIO_SEL_LOW,
+    ftl::mmio::Reserved<12, 16>,
+    GPR42_fields_::DWP,
+    GPR42_fields_::DWP_LOCK> {
+  using eDWP = GPR42_fields_::eDWP;
+  using eDWP_LOCK = GPR42_fields_::eDWP_LOCK;
+  using GPIO_MUX3_GPIO_SEL_LOW = GPR42_fields_::GPIO_MUX3_GPIO_SEL_LOW;
+  using DWP = GPR42_fields_::DWP;
+  using DWP_LOCK = GPR42_fields_::DWP_LOCK;
 };
+
 
 // GPR43 General Purpose Register
-union GPR43 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR43_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2141,9 +2437,8 @@ union GPR43 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2153,31 +2448,35 @@ union GPR43 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - GPIO3 and CM7_GPIO3 share same IO MUX function, GPIO_MUX3 selects one GPIO function.
-    uint32_t GPIO_MUX3_GPIO_SEL_HIGH : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // GPIO3 and CM7_GPIO3 share same IO MUX function, GPIO_MUX3 selects one GPIO function.
+  using GPIO_MUX3_GPIO_SEL_HIGH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR43_fields_
 
-  GPR43() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR43 &ref() { return *reinterpret_cast<volatile GPR43*>(0x400E40AC); }
+struct GPR43 : ftl::mmio::Register<
+    0x400E40ACu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR43_fields_::GPIO_MUX3_GPIO_SEL_HIGH,
+    ftl::mmio::Reserved<12, 16>,
+    GPR43_fields_::DWP,
+    GPR43_fields_::DWP_LOCK> {
+  using eDWP = GPR43_fields_::eDWP;
+  using eDWP_LOCK = GPR43_fields_::eDWP_LOCK;
+  using GPIO_MUX3_GPIO_SEL_HIGH = GPR43_fields_::GPIO_MUX3_GPIO_SEL_HIGH;
+  using DWP = GPR43_fields_::DWP;
+  using DWP_LOCK = GPR43_fields_::DWP_LOCK;
 };
+
 
 // GPR44 General Purpose Register
-union GPR44 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR44_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2187,9 +2486,8 @@ union GPR44 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2199,29 +2497,31 @@ union GPR44 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR44_fields_
 
-  GPR44() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR44 &ref() { return *reinterpret_cast<volatile GPR44*>(0x400E40B0); }
+struct GPR44 : ftl::mmio::Register<
+    0x400E40B0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR44_fields_::DWP,
+    GPR44_fields_::DWP_LOCK> {
+  using eDWP = GPR44_fields_::eDWP;
+  using eDWP_LOCK = GPR44_fields_::eDWP_LOCK;
+  using DWP = GPR44_fields_::DWP;
+  using DWP_LOCK = GPR44_fields_::DWP_LOCK;
 };
+
 
 // GPR45 General Purpose Register
-union GPR45 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR45_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2231,9 +2531,8 @@ union GPR45 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2243,29 +2542,31 @@ union GPR45 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR45_fields_
 
-  GPR45() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR45 &ref() { return *reinterpret_cast<volatile GPR45*>(0x400E40B4); }
+struct GPR45 : ftl::mmio::Register<
+    0x400E40B4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR45_fields_::DWP,
+    GPR45_fields_::DWP_LOCK> {
+  using eDWP = GPR45_fields_::eDWP;
+  using eDWP_LOCK = GPR45_fields_::eDWP_LOCK;
+  using DWP = GPR45_fields_::DWP;
+  using DWP_LOCK = GPR45_fields_::DWP_LOCK;
 };
+
 
 // GPR46 General Purpose Register
-union GPR46 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR46_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2275,9 +2576,8 @@ union GPR46 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2287,29 +2587,31 @@ union GPR46 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR46_fields_
 
-  GPR46() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR46 &ref() { return *reinterpret_cast<volatile GPR46*>(0x400E40B8); }
+struct GPR46 : ftl::mmio::Register<
+    0x400E40B8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR46_fields_::DWP,
+    GPR46_fields_::DWP_LOCK> {
+  using eDWP = GPR46_fields_::eDWP;
+  using eDWP_LOCK = GPR46_fields_::eDWP_LOCK;
+  using DWP = GPR46_fields_::DWP;
+  using DWP_LOCK = GPR46_fields_::DWP_LOCK;
 };
+
 
 // GPR47 General Purpose Register
-union GPR47 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR47_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2319,9 +2621,8 @@ union GPR47 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2331,29 +2632,31 @@ union GPR47 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR47_fields_
 
-  GPR47() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR47 &ref() { return *reinterpret_cast<volatile GPR47*>(0x400E40BC); }
+struct GPR47 : ftl::mmio::Register<
+    0x400E40BCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR47_fields_::DWP,
+    GPR47_fields_::DWP_LOCK> {
+  using eDWP = GPR47_fields_::eDWP;
+  using eDWP_LOCK = GPR47_fields_::eDWP_LOCK;
+  using DWP = GPR47_fields_::DWP;
+  using DWP_LOCK = GPR47_fields_::DWP_LOCK;
 };
+
 
 // GPR48 General Purpose Register
-union GPR48 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR48_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2363,9 +2666,8 @@ union GPR48 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2375,29 +2677,31 @@ union GPR48 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR48_fields_
 
-  GPR48() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR48 &ref() { return *reinterpret_cast<volatile GPR48*>(0x400E40C0); }
+struct GPR48 : ftl::mmio::Register<
+    0x400E40C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR48_fields_::DWP,
+    GPR48_fields_::DWP_LOCK> {
+  using eDWP = GPR48_fields_::eDWP;
+  using eDWP_LOCK = GPR48_fields_::eDWP_LOCK;
+  using DWP = GPR48_fields_::DWP;
+  using DWP_LOCK = GPR48_fields_::DWP_LOCK;
 };
+
 
 // GPR49 General Purpose Register
-union GPR49 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR49_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2407,9 +2711,8 @@ union GPR49 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2419,29 +2722,31 @@ union GPR49 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR49_fields_
 
-  GPR49() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR49 &ref() { return *reinterpret_cast<volatile GPR49*>(0x400E40C4); }
+struct GPR49 : ftl::mmio::Register<
+    0x400E40C4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR49_fields_::DWP,
+    GPR49_fields_::DWP_LOCK> {
+  using eDWP = GPR49_fields_::eDWP;
+  using eDWP_LOCK = GPR49_fields_::eDWP_LOCK;
+  using DWP = GPR49_fields_::DWP;
+  using DWP_LOCK = GPR49_fields_::DWP_LOCK;
 };
+
 
 // GPR50 General Purpose Register
-union GPR50 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR50_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2451,9 +2756,8 @@ union GPR50 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2463,31 +2767,35 @@ union GPR50 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - CAAM manager processor identifier
-    uint32_t CAAM_IPS_MGR : 5;
-    uint32_t _reserved_0 : 23;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // CAAM manager processor identifier
+  using CAAM_IPS_MGR = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR50_fields_
 
-  GPR50() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR50 &ref() { return *reinterpret_cast<volatile GPR50*>(0x400E40C8); }
+struct GPR50 : ftl::mmio::Register<
+    0x400E40C8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR50_fields_::CAAM_IPS_MGR,
+    ftl::mmio::Reserved<23, 5>,
+    GPR50_fields_::DWP,
+    GPR50_fields_::DWP_LOCK> {
+  using eDWP = GPR50_fields_::eDWP;
+  using eDWP_LOCK = GPR50_fields_::eDWP_LOCK;
+  using CAAM_IPS_MGR = GPR50_fields_::CAAM_IPS_MGR;
+  using DWP = GPR50_fields_::DWP;
+  using DWP_LOCK = GPR50_fields_::DWP_LOCK;
 };
+
 
 // GPR51 General Purpose Register
-union GPR51 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR51_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2497,9 +2805,8 @@ union GPR51 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2509,31 +2816,35 @@ union GPR51 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Clear CM7 NMI holding register
-    uint32_t M7_NMI_CLEAR : 1;
-    uint32_t _reserved_0 : 27;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Clear CM7 NMI holding register
+  using M7_NMI_CLEAR = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR51_fields_
 
-  GPR51() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR51 &ref() { return *reinterpret_cast<volatile GPR51*>(0x400E40CC); }
+struct GPR51 : ftl::mmio::Register<
+    0x400E40CCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR51_fields_::M7_NMI_CLEAR,
+    ftl::mmio::Reserved<27, 1>,
+    GPR51_fields_::DWP,
+    GPR51_fields_::DWP_LOCK> {
+  using eDWP = GPR51_fields_::eDWP;
+  using eDWP_LOCK = GPR51_fields_::eDWP_LOCK;
+  using M7_NMI_CLEAR = GPR51_fields_::M7_NMI_CLEAR;
+  using DWP = GPR51_fields_::DWP;
+  using DWP_LOCK = GPR51_fields_::DWP_LOCK;
 };
+
 
 // GPR52 General Purpose Register
-union GPR52 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR52_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2543,9 +2854,8 @@ union GPR52 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2555,29 +2865,31 @@ union GPR52 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR52_fields_
 
-  GPR52() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR52 &ref() { return *reinterpret_cast<volatile GPR52*>(0x400E40D0); }
+struct GPR52 : ftl::mmio::Register<
+    0x400E40D0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR52_fields_::DWP,
+    GPR52_fields_::DWP_LOCK> {
+  using eDWP = GPR52_fields_::eDWP;
+  using eDWP_LOCK = GPR52_fields_::eDWP_LOCK;
+  using DWP = GPR52_fields_::DWP;
+  using DWP_LOCK = GPR52_fields_::DWP_LOCK;
 };
+
 
 // GPR53 General Purpose Register
-union GPR53 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR53_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2587,9 +2899,8 @@ union GPR53 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2599,29 +2910,31 @@ union GPR53 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR53_fields_
 
-  GPR53() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR53 &ref() { return *reinterpret_cast<volatile GPR53*>(0x400E40D4); }
+struct GPR53 : ftl::mmio::Register<
+    0x400E40D4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR53_fields_::DWP,
+    GPR53_fields_::DWP_LOCK> {
+  using eDWP = GPR53_fields_::eDWP;
+  using eDWP_LOCK = GPR53_fields_::eDWP_LOCK;
+  using DWP = GPR53_fields_::DWP;
+  using DWP_LOCK = GPR53_fields_::DWP_LOCK;
 };
+
 
 // GPR54 General Purpose Register
-union GPR54 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR54_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2631,9 +2944,8 @@ union GPR54 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2643,29 +2955,31 @@ union GPR54 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR54_fields_
 
-  GPR54() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR54 &ref() { return *reinterpret_cast<volatile GPR54*>(0x400E40D8); }
+struct GPR54 : ftl::mmio::Register<
+    0x400E40D8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR54_fields_::DWP,
+    GPR54_fields_::DWP_LOCK> {
+  using eDWP = GPR54_fields_::eDWP;
+  using eDWP_LOCK = GPR54_fields_::eDWP_LOCK;
+  using DWP = GPR54_fields_::DWP;
+  using DWP_LOCK = GPR54_fields_::DWP_LOCK;
 };
+
 
 // GPR55 General Purpose Register
-union GPR55 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR55_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2675,9 +2989,8 @@ union GPR55 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2687,37 +3000,38 @@ union GPR55 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 28;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR55_fields_
 
-  GPR55() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR55 &ref() { return *reinterpret_cast<volatile GPR55*>(0x400E40DC); }
+struct GPR55 : ftl::mmio::Register<
+    0x400E40DCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<28, 0>,
+    GPR55_fields_::DWP,
+    GPR55_fields_::DWP_LOCK> {
+  using eDWP = GPR55_fields_::eDWP;
+  using eDWP_LOCK = GPR55_fields_::eDWP_LOCK;
+  using DWP = GPR55_fields_::DWP;
+  using DWP_LOCK = GPR55_fields_::DWP_LOCK;
 };
 
+
 // GPR59 General Purpose Register
-union GPR59 {
-  
-  // MIPI CSI APB clock domain and User interface clock domain software reset bit
-  enum class eMIPI_CSI_SOFT_RST_N : uint32_t {
+struct GPR59_fields_ {
+
+  enum class eMIPI_CSI_SOFT_RST_N : std::uint32_t {
     // Assert reset
     eASSERT = 0,
     // De-assert reset
     eDEAST = 1,
   };
-  
-  // Programming bits that adjust the threshold voltage of LP-CD, default setting 2'b01
-  enum class eMIPI_CSI_RXCDRP : uint32_t {
+
+  enum class eMIPI_CSI_RXCDRP : std::uint32_t {
     // 344mV
     eVAL0 = 0,
     // 325mV (Default)
@@ -2727,9 +3041,8 @@ union GPR59 {
     // Invalid
     eVAL11 = 3,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2739,9 +3052,8 @@ union GPR59 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2751,81 +3063,101 @@ union GPR59 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Powers down inactive lanes reported by CSI2X_CFG_NUM_LANES.
-    uint32_t MIPI_CSI_AUTO_PD_EN : 1;
-    // read-write - MIPI CSI APB clock domain and User interface clock domain software reset bit
-    eMIPI_CSI_SOFT_RST_N MIPI_CSI_SOFT_RST_N : 1;
-    // read-write - Enables the slave clock lane feature to maintain HS reception state during continuous clock mode operation, despite line glitches.
-    uint32_t MIPI_CSI_CONT_CLK_MODE : 1;
-    // read-write - When high, enables received DDR clock on CLK_DRXHS
-    uint32_t MIPI_CSI_DDRCLK_EN : 1;
-    // read-write - Power Down input for MIPI CSI PHY.
-    uint32_t MIPI_CSI_PD_RX : 1;
-    // read-write - Assert to enable MIPI CSI Receive Enable
-    uint32_t MIPI_CSI_RX_ENABLE : 1;
-    // read-write - MIPI CSI PHY on-chip termination control bits
-    uint32_t MIPI_CSI_RX_RCAL : 2;
-    // read-write - Programming bits that adjust the threshold voltage of LP-CD, default setting 2'b01
-    eMIPI_CSI_RXCDRP MIPI_CSI_RXCDRP : 2;
-    // read-write - Programming bits that adjust the threshold voltage of LP-RX, default setting 2'b01
-    uint32_t MIPI_CSI_RXLPRP : 2;
-    // read-write - Bits used to program T_HS_SETTLE.
-    uint32_t MIPI_CSI_S_PRG_RXHS_SETTLE : 6;
-    uint32_t _reserved_0 : 10;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Powers down inactive lanes reported by CSI2X_CFG_NUM_LANES.
+  using MIPI_CSI_AUTO_PD_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIPI CSI APB clock domain and User interface clock domain software reset bit
+  using MIPI_CSI_SOFT_RST_N = ftl::mmio::Field<1, 1, eMIPI_CSI_SOFT_RST_N, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enables the slave clock lane feature to maintain HS reception state during continuous clock mode operation, despite line glitches.
+  using MIPI_CSI_CONT_CLK_MODE = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When high, enables received DDR clock on CLK_DRXHS
+  using MIPI_CSI_DDRCLK_EN = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Power Down input for MIPI CSI PHY.
+  using MIPI_CSI_PD_RX = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Assert to enable MIPI CSI Receive Enable
+  using MIPI_CSI_RX_ENABLE = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIPI CSI PHY on-chip termination control bits
+  using MIPI_CSI_RX_RCAL = ftl::mmio::Field<2, 6, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Programming bits that adjust the threshold voltage of LP-CD, default setting 2'b01
+  using MIPI_CSI_RXCDRP = ftl::mmio::Field<2, 8, eMIPI_CSI_RXCDRP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Programming bits that adjust the threshold voltage of LP-RX, default setting 2'b01
+  using MIPI_CSI_RXLPRP = ftl::mmio::Field<2, 10, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Bits used to program T_HS_SETTLE.
+  using MIPI_CSI_S_PRG_RXHS_SETTLE = ftl::mmio::Field<6, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR59_fields_
 
-  GPR59() = delete;
-  inline void Reset() volatile { this->value = 0x00000550; }
-  static inline volatile GPR59 &ref() { return *reinterpret_cast<volatile GPR59*>(0x400E40EC); }
+struct GPR59 : ftl::mmio::Register<
+    0x400E40ECu,
+    std::uint32_t,
+    0x00000550u,
+    ftl::mmio::RW,
+    GPR59_fields_::MIPI_CSI_AUTO_PD_EN,
+    GPR59_fields_::MIPI_CSI_SOFT_RST_N,
+    GPR59_fields_::MIPI_CSI_CONT_CLK_MODE,
+    GPR59_fields_::MIPI_CSI_DDRCLK_EN,
+    GPR59_fields_::MIPI_CSI_PD_RX,
+    GPR59_fields_::MIPI_CSI_RX_ENABLE,
+    GPR59_fields_::MIPI_CSI_RX_RCAL,
+    GPR59_fields_::MIPI_CSI_RXCDRP,
+    GPR59_fields_::MIPI_CSI_RXLPRP,
+    GPR59_fields_::MIPI_CSI_S_PRG_RXHS_SETTLE,
+    ftl::mmio::Reserved<10, 18>,
+    GPR59_fields_::DWP,
+    GPR59_fields_::DWP_LOCK> {
+  using eMIPI_CSI_SOFT_RST_N = GPR59_fields_::eMIPI_CSI_SOFT_RST_N;
+  using eMIPI_CSI_RXCDRP = GPR59_fields_::eMIPI_CSI_RXCDRP;
+  using eDWP = GPR59_fields_::eDWP;
+  using eDWP_LOCK = GPR59_fields_::eDWP_LOCK;
+  using MIPI_CSI_AUTO_PD_EN = GPR59_fields_::MIPI_CSI_AUTO_PD_EN;
+  using MIPI_CSI_SOFT_RST_N = GPR59_fields_::MIPI_CSI_SOFT_RST_N;
+  using MIPI_CSI_CONT_CLK_MODE = GPR59_fields_::MIPI_CSI_CONT_CLK_MODE;
+  using MIPI_CSI_DDRCLK_EN = GPR59_fields_::MIPI_CSI_DDRCLK_EN;
+  using MIPI_CSI_PD_RX = GPR59_fields_::MIPI_CSI_PD_RX;
+  using MIPI_CSI_RX_ENABLE = GPR59_fields_::MIPI_CSI_RX_ENABLE;
+  using MIPI_CSI_RX_RCAL = GPR59_fields_::MIPI_CSI_RX_RCAL;
+  using MIPI_CSI_RXCDRP = GPR59_fields_::MIPI_CSI_RXCDRP;
+  using MIPI_CSI_RXLPRP = GPR59_fields_::MIPI_CSI_RXLPRP;
+  using MIPI_CSI_S_PRG_RXHS_SETTLE = GPR59_fields_::MIPI_CSI_S_PRG_RXHS_SETTLE;
+  using DWP = GPR59_fields_::DWP;
+  using DWP_LOCK = GPR59_fields_::DWP_LOCK;
 };
+
 
 // GPR62 General Purpose Register
-union GPR62 {
-  
-  // MIPI DSI APB clock domain software reset bit
-  enum class eMIPI_DSI_PCLK_SOFT_RESET_N : uint32_t {
+struct GPR62_fields_ {
+
+  enum class eMIPI_DSI_PCLK_SOFT_RESET_N : std::uint32_t {
     // Assert reset
     eASSERT = 0,
     // De-assert reset
     eDEASSERT = 1,
   };
-  
-  // MIPI DSI Byte clock domain software reset bit
-  enum class eMIPI_DSI_BYTE_SOFT_RESET_N : uint32_t {
+
+  enum class eMIPI_DSI_BYTE_SOFT_RESET_N : std::uint32_t {
     // Assert reset
     eASSERT = 0,
     // De-assert reset
     eDEASSERT = 1,
   };
-  
-  // MIPI DSI Pixel clock domain software reset bit
-  enum class eMIPI_DSI_DPI_SOFT_RESET_N : uint32_t {
+
+  enum class eMIPI_DSI_DPI_SOFT_RESET_N : std::uint32_t {
     // Assert reset
     eASSERT = 0,
     // De-assert reset
     eDEASSERT = 1,
   };
-  
-  // MIPI DSI Escape clock domain software reset bit
-  enum class eMIPI_DSI_ESC_SOFT_RESET_N : uint32_t {
+
+  enum class eMIPI_DSI_ESC_SOFT_RESET_N : std::uint32_t {
     // Assert reset
     eASSERT = 0,
     // De-assert reset
     eDEASSERT = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2835,9 +3167,8 @@ union GPR62 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2847,66 +3178,89 @@ union GPR62 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MIPI DSI Clock Lane triming bits
-    uint32_t MIPI_DSI_CLK_TM : 3;
-    // read-write - MIPI DSI Data Lane 0 triming bits
-    uint32_t MIPI_DSI_D0_TM : 3;
-    // read-write - MIPI DSI Data Lane 1 triming bits
-    uint32_t MIPI_DSI_D1_TM : 3;
-    // read-write - MIPI DSI PHY on-chip termination control bits
-    uint32_t MIPI_DSI_TX_RCAL : 2;
-    // read-write - DSI transmit ULPS mode enable
-    uint32_t MIPI_DSI_TX_ULPS_ENABLE : 3;
-    uint32_t _reserved_0 : 2;
-    // read-write - MIPI DSI APB clock domain software reset bit
-    eMIPI_DSI_PCLK_SOFT_RESET_N MIPI_DSI_PCLK_SOFT_RESET_N : 1;
-    // read-write - MIPI DSI Byte clock domain software reset bit
-    eMIPI_DSI_BYTE_SOFT_RESET_N MIPI_DSI_BYTE_SOFT_RESET_N : 1;
-    // read-write - MIPI DSI Pixel clock domain software reset bit
-    eMIPI_DSI_DPI_SOFT_RESET_N MIPI_DSI_DPI_SOFT_RESET_N : 1;
-    // read-write - MIPI DSI Escape clock domain software reset bit
-    eMIPI_DSI_ESC_SOFT_RESET_N MIPI_DSI_ESC_SOFT_RESET_N : 1;
-    uint32_t _reserved_1 : 8;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MIPI DSI Clock Lane triming bits
+  using MIPI_DSI_CLK_TM = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIPI DSI Data Lane 0 triming bits
+  using MIPI_DSI_D0_TM = ftl::mmio::Field<3, 3, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIPI DSI Data Lane 1 triming bits
+  using MIPI_DSI_D1_TM = ftl::mmio::Field<3, 6, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIPI DSI PHY on-chip termination control bits
+  using MIPI_DSI_TX_RCAL = ftl::mmio::Field<2, 9, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // DSI transmit ULPS mode enable
+  using MIPI_DSI_TX_ULPS_ENABLE = ftl::mmio::Field<3, 11, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIPI DSI APB clock domain software reset bit
+  using MIPI_DSI_PCLK_SOFT_RESET_N = ftl::mmio::Field<1, 16, eMIPI_DSI_PCLK_SOFT_RESET_N, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIPI DSI Byte clock domain software reset bit
+  using MIPI_DSI_BYTE_SOFT_RESET_N = ftl::mmio::Field<1, 17, eMIPI_DSI_BYTE_SOFT_RESET_N, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIPI DSI Pixel clock domain software reset bit
+  using MIPI_DSI_DPI_SOFT_RESET_N = ftl::mmio::Field<1, 18, eMIPI_DSI_DPI_SOFT_RESET_N, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIPI DSI Escape clock domain software reset bit
+  using MIPI_DSI_ESC_SOFT_RESET_N = ftl::mmio::Field<1, 19, eMIPI_DSI_ESC_SOFT_RESET_N, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR62_fields_
 
-  GPR62() = delete;
-  inline void Reset() volatile { this->value = 0x000002DB; }
-  static inline volatile GPR62 &ref() { return *reinterpret_cast<volatile GPR62*>(0x400E40F8); }
+struct GPR62 : ftl::mmio::Register<
+    0x400E40F8u,
+    std::uint32_t,
+    0x000002DBu,
+    ftl::mmio::RW,
+    GPR62_fields_::MIPI_DSI_CLK_TM,
+    GPR62_fields_::MIPI_DSI_D0_TM,
+    GPR62_fields_::MIPI_DSI_D1_TM,
+    GPR62_fields_::MIPI_DSI_TX_RCAL,
+    GPR62_fields_::MIPI_DSI_TX_ULPS_ENABLE,
+    ftl::mmio::Reserved<2, 14>,
+    GPR62_fields_::MIPI_DSI_PCLK_SOFT_RESET_N,
+    GPR62_fields_::MIPI_DSI_BYTE_SOFT_RESET_N,
+    GPR62_fields_::MIPI_DSI_DPI_SOFT_RESET_N,
+    GPR62_fields_::MIPI_DSI_ESC_SOFT_RESET_N,
+    ftl::mmio::Reserved<8, 20>,
+    GPR62_fields_::DWP,
+    GPR62_fields_::DWP_LOCK> {
+  using eMIPI_DSI_PCLK_SOFT_RESET_N = GPR62_fields_::eMIPI_DSI_PCLK_SOFT_RESET_N;
+  using eMIPI_DSI_BYTE_SOFT_RESET_N = GPR62_fields_::eMIPI_DSI_BYTE_SOFT_RESET_N;
+  using eMIPI_DSI_DPI_SOFT_RESET_N = GPR62_fields_::eMIPI_DSI_DPI_SOFT_RESET_N;
+  using eMIPI_DSI_ESC_SOFT_RESET_N = GPR62_fields_::eMIPI_DSI_ESC_SOFT_RESET_N;
+  using eDWP = GPR62_fields_::eDWP;
+  using eDWP_LOCK = GPR62_fields_::eDWP_LOCK;
+  using MIPI_DSI_CLK_TM = GPR62_fields_::MIPI_DSI_CLK_TM;
+  using MIPI_DSI_D0_TM = GPR62_fields_::MIPI_DSI_D0_TM;
+  using MIPI_DSI_D1_TM = GPR62_fields_::MIPI_DSI_D1_TM;
+  using MIPI_DSI_TX_RCAL = GPR62_fields_::MIPI_DSI_TX_RCAL;
+  using MIPI_DSI_TX_ULPS_ENABLE = GPR62_fields_::MIPI_DSI_TX_ULPS_ENABLE;
+  using MIPI_DSI_PCLK_SOFT_RESET_N = GPR62_fields_::MIPI_DSI_PCLK_SOFT_RESET_N;
+  using MIPI_DSI_BYTE_SOFT_RESET_N = GPR62_fields_::MIPI_DSI_BYTE_SOFT_RESET_N;
+  using MIPI_DSI_DPI_SOFT_RESET_N = GPR62_fields_::MIPI_DSI_DPI_SOFT_RESET_N;
+  using MIPI_DSI_ESC_SOFT_RESET_N = GPR62_fields_::MIPI_DSI_ESC_SOFT_RESET_N;
+  using DWP = GPR62_fields_::DWP;
+  using DWP_LOCK = GPR62_fields_::DWP_LOCK;
 };
+
 
 // GPR63 General Purpose Register
-union GPR63 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - DSI transmit ULPS mode active flag
-    uint32_t MIPI_DSI_TX_ULPS_ACTIVE : 3;
-    uint32_t _reserved_0 : 29;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct GPR63_fields_ {
+  // DSI transmit ULPS mode active flag
+  using MIPI_DSI_TX_ULPS_ACTIVE = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct GPR63_fields_
 
-  GPR63() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR63 &ref() { return *reinterpret_cast<volatile GPR63*>(0x400E40FC); }
+struct GPR63 : ftl::mmio::Register<
+    0x400E40FCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    GPR63_fields_::MIPI_DSI_TX_ULPS_ACTIVE,
+    ftl::mmio::Reserved<29, 3>> {
+  using MIPI_DSI_TX_ULPS_ACTIVE = GPR63_fields_::MIPI_DSI_TX_ULPS_ACTIVE;
 };
+
 
 // GPR64 General Purpose Register
-union GPR64 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR64_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2916,9 +3270,8 @@ union GPR64 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2928,52 +3281,76 @@ union GPR64 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Compensation code freeze
-    uint32_t GPIO_DISP1_FREEZE : 1;
-    // read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
-    uint32_t GPIO_DISP1_COMPTQ : 1;
-    // read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
-    uint32_t GPIO_DISP1_COMPEN : 1;
-    // read-write - Compensation code fast freeze
-    uint32_t GPIO_DISP1_FASTFRZ_EN : 1;
-    // read-write - GPIO_DISP_B1 IO bank's 4-bit PMOS compensation codes from core
-    uint32_t GPIO_DISP1_RASRCP : 4;
-    // read-write - GPIO_DISP_B1 IO bank's 4-bit NMOS compensation codes from core
-    uint32_t GPIO_DISP1_RASRCN : 4;
-    // read-write - GPIO_DISP1_NASRC selection
-    uint32_t GPIO_DISP1_SELECT_NASRC : 1;
-    // read-write - GPIO_DISP_B1 IO bank reference voltage generator cell sleep enable
-    uint32_t GPIO_DISP1_REFGEN_SLEEP : 1;
-    // read-write - GPIO_DISP_B1 IO bank power supply mode latch enable
-    uint32_t GPIO_DISP1_SUPLYDET_LATCH : 1;
-    uint32_t _reserved_0 : 5;
-    // read-only - GPIO_DISP_B1 IO bank compensation OK flag
-    uint32_t GPIO_DISP1_COMPOK : 1;
-    // read-only - GPIO_DISP_B1 IO bank compensation codes
-    uint32_t GPIO_DISP1_NASRC : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Compensation code freeze
+  using GPIO_DISP1_FREEZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // COMPEN and COMPTQ control the operating modes of the compensation cell
+  using GPIO_DISP1_COMPTQ = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // COMPEN and COMPTQ control the operating modes of the compensation cell
+  using GPIO_DISP1_COMPEN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Compensation code fast freeze
+  using GPIO_DISP1_FASTFRZ_EN = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_DISP_B1 IO bank's 4-bit PMOS compensation codes from core
+  using GPIO_DISP1_RASRCP = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_DISP_B1 IO bank's 4-bit NMOS compensation codes from core
+  using GPIO_DISP1_RASRCN = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_DISP1_NASRC selection
+  using GPIO_DISP1_SELECT_NASRC = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_DISP_B1 IO bank reference voltage generator cell sleep enable
+  using GPIO_DISP1_REFGEN_SLEEP = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_DISP_B1 IO bank power supply mode latch enable
+  using GPIO_DISP1_SUPLYDET_LATCH = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_DISP_B1 IO bank compensation OK flag
+  using GPIO_DISP1_COMPOK = ftl::mmio::Field<1, 20, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // GPIO_DISP_B1 IO bank compensation codes
+  using GPIO_DISP1_NASRC = ftl::mmio::Field<4, 21, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR64_fields_
 
-  GPR64() = delete;
-  inline void Reset() volatile { this->value = 0x00004000; }
-  static inline volatile GPR64 &ref() { return *reinterpret_cast<volatile GPR64*>(0x400E4100); }
+struct GPR64 : ftl::mmio::Register<
+    0x400E4100u,
+    std::uint32_t,
+    0x00004000u,
+    ftl::mmio::RW,
+    GPR64_fields_::GPIO_DISP1_FREEZE,
+    GPR64_fields_::GPIO_DISP1_COMPTQ,
+    GPR64_fields_::GPIO_DISP1_COMPEN,
+    GPR64_fields_::GPIO_DISP1_FASTFRZ_EN,
+    GPR64_fields_::GPIO_DISP1_RASRCP,
+    GPR64_fields_::GPIO_DISP1_RASRCN,
+    GPR64_fields_::GPIO_DISP1_SELECT_NASRC,
+    GPR64_fields_::GPIO_DISP1_REFGEN_SLEEP,
+    GPR64_fields_::GPIO_DISP1_SUPLYDET_LATCH,
+    ftl::mmio::Reserved<5, 15>,
+    GPR64_fields_::GPIO_DISP1_COMPOK,
+    GPR64_fields_::GPIO_DISP1_NASRC,
+    ftl::mmio::Reserved<3, 25>,
+    GPR64_fields_::DWP,
+    GPR64_fields_::DWP_LOCK> {
+  using eDWP = GPR64_fields_::eDWP;
+  using eDWP_LOCK = GPR64_fields_::eDWP_LOCK;
+  using GPIO_DISP1_FREEZE = GPR64_fields_::GPIO_DISP1_FREEZE;
+  using GPIO_DISP1_COMPTQ = GPR64_fields_::GPIO_DISP1_COMPTQ;
+  using GPIO_DISP1_COMPEN = GPR64_fields_::GPIO_DISP1_COMPEN;
+  using GPIO_DISP1_FASTFRZ_EN = GPR64_fields_::GPIO_DISP1_FASTFRZ_EN;
+  using GPIO_DISP1_RASRCP = GPR64_fields_::GPIO_DISP1_RASRCP;
+  using GPIO_DISP1_RASRCN = GPR64_fields_::GPIO_DISP1_RASRCN;
+  using GPIO_DISP1_SELECT_NASRC = GPR64_fields_::GPIO_DISP1_SELECT_NASRC;
+  using GPIO_DISP1_REFGEN_SLEEP = GPR64_fields_::GPIO_DISP1_REFGEN_SLEEP;
+  using GPIO_DISP1_SUPLYDET_LATCH = GPR64_fields_::GPIO_DISP1_SUPLYDET_LATCH;
+  using GPIO_DISP1_COMPOK = GPR64_fields_::GPIO_DISP1_COMPOK;
+  using GPIO_DISP1_NASRC = GPR64_fields_::GPIO_DISP1_NASRC;
+  using DWP = GPR64_fields_::DWP;
+  using DWP_LOCK = GPR64_fields_::DWP_LOCK;
 };
+
 
 // GPR65 General Purpose Register
-union GPR65 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR65_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2983,9 +3360,8 @@ union GPR65 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2995,52 +3371,76 @@ union GPR65 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Compensation code freeze
-    uint32_t GPIO_EMC1_FREEZE : 1;
-    // read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
-    uint32_t GPIO_EMC1_COMPTQ : 1;
-    // read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
-    uint32_t GPIO_EMC1_COMPEN : 1;
-    // read-write - Compensation code fast freeze
-    uint32_t GPIO_EMC1_FASTFRZ_EN : 1;
-    // read-write - GPIO_EMC_B1 IO bank's 4-bit PMOS compensation codes from core
-    uint32_t GPIO_EMC1_RASRCP : 4;
-    // read-write - GPIO_EMC_B1 IO bank's 4-bit NMOS compensation codes from core
-    uint32_t GPIO_EMC1_RASRCN : 4;
-    // read-write - GPIO_EMC1_NASRC selection
-    uint32_t GPIO_EMC1_SELECT_NASRC : 1;
-    // read-write - GPIO_EMC_B1 IO bank reference voltage generator cell sleep enable
-    uint32_t GPIO_EMC1_REFGEN_SLEEP : 1;
-    // read-write - GPIO_EMC_B1 IO bank power supply mode latch enable
-    uint32_t GPIO_EMC1_SUPLYDET_LATCH : 1;
-    uint32_t _reserved_0 : 5;
-    // read-only - GPIO_EMC_B1 IO bank compensation OK flag
-    uint32_t GPIO_EMC1_COMPOK : 1;
-    // read-only - GPIO_EMC_B1 IO bank compensation codes
-    uint32_t GPIO_EMC1_NASRC : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Compensation code freeze
+  using GPIO_EMC1_FREEZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // COMPEN and COMPTQ control the operating modes of the compensation cell
+  using GPIO_EMC1_COMPTQ = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // COMPEN and COMPTQ control the operating modes of the compensation cell
+  using GPIO_EMC1_COMPEN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Compensation code fast freeze
+  using GPIO_EMC1_FASTFRZ_EN = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC_B1 IO bank's 4-bit PMOS compensation codes from core
+  using GPIO_EMC1_RASRCP = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC_B1 IO bank's 4-bit NMOS compensation codes from core
+  using GPIO_EMC1_RASRCN = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC1_NASRC selection
+  using GPIO_EMC1_SELECT_NASRC = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC_B1 IO bank reference voltage generator cell sleep enable
+  using GPIO_EMC1_REFGEN_SLEEP = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC_B1 IO bank power supply mode latch enable
+  using GPIO_EMC1_SUPLYDET_LATCH = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC_B1 IO bank compensation OK flag
+  using GPIO_EMC1_COMPOK = ftl::mmio::Field<1, 20, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // GPIO_EMC_B1 IO bank compensation codes
+  using GPIO_EMC1_NASRC = ftl::mmio::Field<4, 21, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR65_fields_
 
-  GPR65() = delete;
-  inline void Reset() volatile { this->value = 0x00004000; }
-  static inline volatile GPR65 &ref() { return *reinterpret_cast<volatile GPR65*>(0x400E4104); }
+struct GPR65 : ftl::mmio::Register<
+    0x400E4104u,
+    std::uint32_t,
+    0x00004000u,
+    ftl::mmio::RW,
+    GPR65_fields_::GPIO_EMC1_FREEZE,
+    GPR65_fields_::GPIO_EMC1_COMPTQ,
+    GPR65_fields_::GPIO_EMC1_COMPEN,
+    GPR65_fields_::GPIO_EMC1_FASTFRZ_EN,
+    GPR65_fields_::GPIO_EMC1_RASRCP,
+    GPR65_fields_::GPIO_EMC1_RASRCN,
+    GPR65_fields_::GPIO_EMC1_SELECT_NASRC,
+    GPR65_fields_::GPIO_EMC1_REFGEN_SLEEP,
+    GPR65_fields_::GPIO_EMC1_SUPLYDET_LATCH,
+    ftl::mmio::Reserved<5, 15>,
+    GPR65_fields_::GPIO_EMC1_COMPOK,
+    GPR65_fields_::GPIO_EMC1_NASRC,
+    ftl::mmio::Reserved<3, 25>,
+    GPR65_fields_::DWP,
+    GPR65_fields_::DWP_LOCK> {
+  using eDWP = GPR65_fields_::eDWP;
+  using eDWP_LOCK = GPR65_fields_::eDWP_LOCK;
+  using GPIO_EMC1_FREEZE = GPR65_fields_::GPIO_EMC1_FREEZE;
+  using GPIO_EMC1_COMPTQ = GPR65_fields_::GPIO_EMC1_COMPTQ;
+  using GPIO_EMC1_COMPEN = GPR65_fields_::GPIO_EMC1_COMPEN;
+  using GPIO_EMC1_FASTFRZ_EN = GPR65_fields_::GPIO_EMC1_FASTFRZ_EN;
+  using GPIO_EMC1_RASRCP = GPR65_fields_::GPIO_EMC1_RASRCP;
+  using GPIO_EMC1_RASRCN = GPR65_fields_::GPIO_EMC1_RASRCN;
+  using GPIO_EMC1_SELECT_NASRC = GPR65_fields_::GPIO_EMC1_SELECT_NASRC;
+  using GPIO_EMC1_REFGEN_SLEEP = GPR65_fields_::GPIO_EMC1_REFGEN_SLEEP;
+  using GPIO_EMC1_SUPLYDET_LATCH = GPR65_fields_::GPIO_EMC1_SUPLYDET_LATCH;
+  using GPIO_EMC1_COMPOK = GPR65_fields_::GPIO_EMC1_COMPOK;
+  using GPIO_EMC1_NASRC = GPR65_fields_::GPIO_EMC1_NASRC;
+  using DWP = GPR65_fields_::DWP;
+  using DWP_LOCK = GPR65_fields_::DWP_LOCK;
 };
+
 
 // GPR66 General Purpose Register
-union GPR66 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR66_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -3050,9 +3450,8 @@ union GPR66 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -3062,52 +3461,76 @@ union GPR66 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Compensation code freeze
-    uint32_t GPIO_EMC2_FREEZE : 1;
-    // read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
-    uint32_t GPIO_EMC2_COMPTQ : 1;
-    // read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
-    uint32_t GPIO_EMC2_COMPEN : 1;
-    // read-write - Compensation code fast freeze
-    uint32_t GPIO_EMC2_FASTFRZ_EN : 1;
-    // read-write - GPIO_EMC_B2 IO bank's 4-bit PMOS compensation codes from core
-    uint32_t GPIO_EMC2_RASRCP : 4;
-    // read-write - GPIO_EMC_B2 IO bank's 4-bit NMOS compensation codes from core
-    uint32_t GPIO_EMC2_RASRCN : 4;
-    // read-write - GPIO_EMC2_NASRC selection
-    uint32_t GPIO_EMC2_SELECT_NASRC : 1;
-    // read-write - GPIO_EMC_B2 IO bank reference voltage generator cell sleep enable
-    uint32_t GPIO_EMC2_REFGEN_SLEEP : 1;
-    // read-write - GPIO_EMC_B2 IO bank power supply mode latch enable
-    uint32_t GPIO_EMC2_SUPLYDET_LATCH : 1;
-    uint32_t _reserved_0 : 5;
-    // read-only - GPIO_EMC_B2 IO bank compensation OK flag
-    uint32_t GPIO_EMC2_COMPOK : 1;
-    // read-only - GPIO_EMC_B2 IO bank compensation codes
-    uint32_t GPIO_EMC2_NASRC : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Compensation code freeze
+  using GPIO_EMC2_FREEZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // COMPEN and COMPTQ control the operating modes of the compensation cell
+  using GPIO_EMC2_COMPTQ = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // COMPEN and COMPTQ control the operating modes of the compensation cell
+  using GPIO_EMC2_COMPEN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Compensation code fast freeze
+  using GPIO_EMC2_FASTFRZ_EN = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC_B2 IO bank's 4-bit PMOS compensation codes from core
+  using GPIO_EMC2_RASRCP = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC_B2 IO bank's 4-bit NMOS compensation codes from core
+  using GPIO_EMC2_RASRCN = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC2_NASRC selection
+  using GPIO_EMC2_SELECT_NASRC = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC_B2 IO bank reference voltage generator cell sleep enable
+  using GPIO_EMC2_REFGEN_SLEEP = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC_B2 IO bank power supply mode latch enable
+  using GPIO_EMC2_SUPLYDET_LATCH = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC_B2 IO bank compensation OK flag
+  using GPIO_EMC2_COMPOK = ftl::mmio::Field<1, 20, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // GPIO_EMC_B2 IO bank compensation codes
+  using GPIO_EMC2_NASRC = ftl::mmio::Field<4, 21, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR66_fields_
 
-  GPR66() = delete;
-  inline void Reset() volatile { this->value = 0x00004000; }
-  static inline volatile GPR66 &ref() { return *reinterpret_cast<volatile GPR66*>(0x400E4108); }
+struct GPR66 : ftl::mmio::Register<
+    0x400E4108u,
+    std::uint32_t,
+    0x00004000u,
+    ftl::mmio::RW,
+    GPR66_fields_::GPIO_EMC2_FREEZE,
+    GPR66_fields_::GPIO_EMC2_COMPTQ,
+    GPR66_fields_::GPIO_EMC2_COMPEN,
+    GPR66_fields_::GPIO_EMC2_FASTFRZ_EN,
+    GPR66_fields_::GPIO_EMC2_RASRCP,
+    GPR66_fields_::GPIO_EMC2_RASRCN,
+    GPR66_fields_::GPIO_EMC2_SELECT_NASRC,
+    GPR66_fields_::GPIO_EMC2_REFGEN_SLEEP,
+    GPR66_fields_::GPIO_EMC2_SUPLYDET_LATCH,
+    ftl::mmio::Reserved<5, 15>,
+    GPR66_fields_::GPIO_EMC2_COMPOK,
+    GPR66_fields_::GPIO_EMC2_NASRC,
+    ftl::mmio::Reserved<3, 25>,
+    GPR66_fields_::DWP,
+    GPR66_fields_::DWP_LOCK> {
+  using eDWP = GPR66_fields_::eDWP;
+  using eDWP_LOCK = GPR66_fields_::eDWP_LOCK;
+  using GPIO_EMC2_FREEZE = GPR66_fields_::GPIO_EMC2_FREEZE;
+  using GPIO_EMC2_COMPTQ = GPR66_fields_::GPIO_EMC2_COMPTQ;
+  using GPIO_EMC2_COMPEN = GPR66_fields_::GPIO_EMC2_COMPEN;
+  using GPIO_EMC2_FASTFRZ_EN = GPR66_fields_::GPIO_EMC2_FASTFRZ_EN;
+  using GPIO_EMC2_RASRCP = GPR66_fields_::GPIO_EMC2_RASRCP;
+  using GPIO_EMC2_RASRCN = GPR66_fields_::GPIO_EMC2_RASRCN;
+  using GPIO_EMC2_SELECT_NASRC = GPR66_fields_::GPIO_EMC2_SELECT_NASRC;
+  using GPIO_EMC2_REFGEN_SLEEP = GPR66_fields_::GPIO_EMC2_REFGEN_SLEEP;
+  using GPIO_EMC2_SUPLYDET_LATCH = GPR66_fields_::GPIO_EMC2_SUPLYDET_LATCH;
+  using GPIO_EMC2_COMPOK = GPR66_fields_::GPIO_EMC2_COMPOK;
+  using GPIO_EMC2_NASRC = GPR66_fields_::GPIO_EMC2_NASRC;
+  using DWP = GPR66_fields_::DWP;
+  using DWP_LOCK = GPR66_fields_::DWP_LOCK;
 };
+
 
 // GPR67 General Purpose Register
-union GPR67 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR67_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -3117,9 +3540,8 @@ union GPR67 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -3129,52 +3551,76 @@ union GPR67 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Compensation code freeze
-    uint32_t GPIO_SD1_FREEZE : 1;
-    // read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
-    uint32_t GPIO_SD1_COMPTQ : 1;
-    // read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
-    uint32_t GPIO_SD1_COMPEN : 1;
-    // read-write - Compensation code fast freeze
-    uint32_t GPIO_SD1_FASTFRZ_EN : 1;
-    // read-write - GPIO_SD_B1 IO bank's 4-bit PMOS compensation codes from core
-    uint32_t GPIO_SD1_RASRCP : 4;
-    // read-write - GPIO_SD_B1 IO bank's 4-bit NMOS compensation codes from core
-    uint32_t GPIO_SD1_RASRCN : 4;
-    // read-write - GPIO_SD1_NASRC selection
-    uint32_t GPIO_SD1_SELECT_NASRC : 1;
-    // read-write - GPIO_SD_B1 IO bank reference voltage generator cell sleep enable
-    uint32_t GPIO_SD1_REFGEN_SLEEP : 1;
-    // read-write - GPIO_SD_B1 IO bank power supply mode latch enable
-    uint32_t GPIO_SD1_SUPLYDET_LATCH : 1;
-    uint32_t _reserved_0 : 5;
-    // read-only - GPIO_SD_B1 IO bank compensation OK flag
-    uint32_t GPIO_SD1_COMPOK : 1;
-    // read-only - GPIO_SD_B1 IO bank compensation codes
-    uint32_t GPIO_SD1_NASRC : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Compensation code freeze
+  using GPIO_SD1_FREEZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // COMPEN and COMPTQ control the operating modes of the compensation cell
+  using GPIO_SD1_COMPTQ = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // COMPEN and COMPTQ control the operating modes of the compensation cell
+  using GPIO_SD1_COMPEN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Compensation code fast freeze
+  using GPIO_SD1_FASTFRZ_EN = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD_B1 IO bank's 4-bit PMOS compensation codes from core
+  using GPIO_SD1_RASRCP = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD_B1 IO bank's 4-bit NMOS compensation codes from core
+  using GPIO_SD1_RASRCN = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD1_NASRC selection
+  using GPIO_SD1_SELECT_NASRC = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD_B1 IO bank reference voltage generator cell sleep enable
+  using GPIO_SD1_REFGEN_SLEEP = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD_B1 IO bank power supply mode latch enable
+  using GPIO_SD1_SUPLYDET_LATCH = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD_B1 IO bank compensation OK flag
+  using GPIO_SD1_COMPOK = ftl::mmio::Field<1, 20, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // GPIO_SD_B1 IO bank compensation codes
+  using GPIO_SD1_NASRC = ftl::mmio::Field<4, 21, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR67_fields_
 
-  GPR67() = delete;
-  inline void Reset() volatile { this->value = 0x00004000; }
-  static inline volatile GPR67 &ref() { return *reinterpret_cast<volatile GPR67*>(0x400E410C); }
+struct GPR67 : ftl::mmio::Register<
+    0x400E410Cu,
+    std::uint32_t,
+    0x00004000u,
+    ftl::mmio::RW,
+    GPR67_fields_::GPIO_SD1_FREEZE,
+    GPR67_fields_::GPIO_SD1_COMPTQ,
+    GPR67_fields_::GPIO_SD1_COMPEN,
+    GPR67_fields_::GPIO_SD1_FASTFRZ_EN,
+    GPR67_fields_::GPIO_SD1_RASRCP,
+    GPR67_fields_::GPIO_SD1_RASRCN,
+    GPR67_fields_::GPIO_SD1_SELECT_NASRC,
+    GPR67_fields_::GPIO_SD1_REFGEN_SLEEP,
+    GPR67_fields_::GPIO_SD1_SUPLYDET_LATCH,
+    ftl::mmio::Reserved<5, 15>,
+    GPR67_fields_::GPIO_SD1_COMPOK,
+    GPR67_fields_::GPIO_SD1_NASRC,
+    ftl::mmio::Reserved<3, 25>,
+    GPR67_fields_::DWP,
+    GPR67_fields_::DWP_LOCK> {
+  using eDWP = GPR67_fields_::eDWP;
+  using eDWP_LOCK = GPR67_fields_::eDWP_LOCK;
+  using GPIO_SD1_FREEZE = GPR67_fields_::GPIO_SD1_FREEZE;
+  using GPIO_SD1_COMPTQ = GPR67_fields_::GPIO_SD1_COMPTQ;
+  using GPIO_SD1_COMPEN = GPR67_fields_::GPIO_SD1_COMPEN;
+  using GPIO_SD1_FASTFRZ_EN = GPR67_fields_::GPIO_SD1_FASTFRZ_EN;
+  using GPIO_SD1_RASRCP = GPR67_fields_::GPIO_SD1_RASRCP;
+  using GPIO_SD1_RASRCN = GPR67_fields_::GPIO_SD1_RASRCN;
+  using GPIO_SD1_SELECT_NASRC = GPR67_fields_::GPIO_SD1_SELECT_NASRC;
+  using GPIO_SD1_REFGEN_SLEEP = GPR67_fields_::GPIO_SD1_REFGEN_SLEEP;
+  using GPIO_SD1_SUPLYDET_LATCH = GPR67_fields_::GPIO_SD1_SUPLYDET_LATCH;
+  using GPIO_SD1_COMPOK = GPR67_fields_::GPIO_SD1_COMPOK;
+  using GPIO_SD1_NASRC = GPR67_fields_::GPIO_SD1_NASRC;
+  using DWP = GPR67_fields_::DWP;
+  using DWP_LOCK = GPR67_fields_::DWP_LOCK;
 };
+
 
 // GPR68 General Purpose Register
-union GPR68 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR68_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -3184,9 +3630,8 @@ union GPR68 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -3196,52 +3641,76 @@ union GPR68 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Compensation code freeze
-    uint32_t GPIO_SD2_FREEZE : 1;
-    // read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
-    uint32_t GPIO_SD2_COMPTQ : 1;
-    // read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
-    uint32_t GPIO_SD2_COMPEN : 1;
-    // read-write - Compensation code fast freeze
-    uint32_t GPIO_SD2_FASTFRZ_EN : 1;
-    // read-write - GPIO_SD_B2 IO bank's 4-bit PMOS compensation codes from core
-    uint32_t GPIO_SD2_RASRCP : 4;
-    // read-write - GPIO_SD_B2 IO bank's 4-bit NMOS compensation codes from core
-    uint32_t GPIO_SD2_RASRCN : 4;
-    // read-write - GPIO_SD2_NASRC selection
-    uint32_t GPIO_SD2_SELECT_NASRC : 1;
-    // read-write - GPIO_SD_B2 IO bank reference voltage generator cell sleep enable
-    uint32_t GPIO_SD2_REFGEN_SLEEP : 1;
-    // read-write - GPIO_SD_B2 IO bank power supply mode latch enable
-    uint32_t GPIO_SD2_SUPLYDET_LATCH : 1;
-    uint32_t _reserved_0 : 5;
-    // read-only - GPIO_SD_B2 IO bank compensation OK flag
-    uint32_t GPIO_SD2_COMPOK : 1;
-    // read-only - GPIO_SD_B2 IO bank compensation codes
-    uint32_t GPIO_SD2_NASRC : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Compensation code freeze
+  using GPIO_SD2_FREEZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // COMPEN and COMPTQ control the operating modes of the compensation cell
+  using GPIO_SD2_COMPTQ = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // COMPEN and COMPTQ control the operating modes of the compensation cell
+  using GPIO_SD2_COMPEN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Compensation code fast freeze
+  using GPIO_SD2_FASTFRZ_EN = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD_B2 IO bank's 4-bit PMOS compensation codes from core
+  using GPIO_SD2_RASRCP = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD_B2 IO bank's 4-bit NMOS compensation codes from core
+  using GPIO_SD2_RASRCN = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD2_NASRC selection
+  using GPIO_SD2_SELECT_NASRC = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD_B2 IO bank reference voltage generator cell sleep enable
+  using GPIO_SD2_REFGEN_SLEEP = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD_B2 IO bank power supply mode latch enable
+  using GPIO_SD2_SUPLYDET_LATCH = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD_B2 IO bank compensation OK flag
+  using GPIO_SD2_COMPOK = ftl::mmio::Field<1, 20, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // GPIO_SD_B2 IO bank compensation codes
+  using GPIO_SD2_NASRC = ftl::mmio::Field<4, 21, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR68_fields_
 
-  GPR68() = delete;
-  inline void Reset() volatile { this->value = 0x00004000; }
-  static inline volatile GPR68 &ref() { return *reinterpret_cast<volatile GPR68*>(0x400E4110); }
+struct GPR68 : ftl::mmio::Register<
+    0x400E4110u,
+    std::uint32_t,
+    0x00004000u,
+    ftl::mmio::RW,
+    GPR68_fields_::GPIO_SD2_FREEZE,
+    GPR68_fields_::GPIO_SD2_COMPTQ,
+    GPR68_fields_::GPIO_SD2_COMPEN,
+    GPR68_fields_::GPIO_SD2_FASTFRZ_EN,
+    GPR68_fields_::GPIO_SD2_RASRCP,
+    GPR68_fields_::GPIO_SD2_RASRCN,
+    GPR68_fields_::GPIO_SD2_SELECT_NASRC,
+    GPR68_fields_::GPIO_SD2_REFGEN_SLEEP,
+    GPR68_fields_::GPIO_SD2_SUPLYDET_LATCH,
+    ftl::mmio::Reserved<5, 15>,
+    GPR68_fields_::GPIO_SD2_COMPOK,
+    GPR68_fields_::GPIO_SD2_NASRC,
+    ftl::mmio::Reserved<3, 25>,
+    GPR68_fields_::DWP,
+    GPR68_fields_::DWP_LOCK> {
+  using eDWP = GPR68_fields_::eDWP;
+  using eDWP_LOCK = GPR68_fields_::eDWP_LOCK;
+  using GPIO_SD2_FREEZE = GPR68_fields_::GPIO_SD2_FREEZE;
+  using GPIO_SD2_COMPTQ = GPR68_fields_::GPIO_SD2_COMPTQ;
+  using GPIO_SD2_COMPEN = GPR68_fields_::GPIO_SD2_COMPEN;
+  using GPIO_SD2_FASTFRZ_EN = GPR68_fields_::GPIO_SD2_FASTFRZ_EN;
+  using GPIO_SD2_RASRCP = GPR68_fields_::GPIO_SD2_RASRCP;
+  using GPIO_SD2_RASRCN = GPR68_fields_::GPIO_SD2_RASRCN;
+  using GPIO_SD2_SELECT_NASRC = GPR68_fields_::GPIO_SD2_SELECT_NASRC;
+  using GPIO_SD2_REFGEN_SLEEP = GPR68_fields_::GPIO_SD2_REFGEN_SLEEP;
+  using GPIO_SD2_SUPLYDET_LATCH = GPR68_fields_::GPIO_SD2_SUPLYDET_LATCH;
+  using GPIO_SD2_COMPOK = GPR68_fields_::GPIO_SD2_COMPOK;
+  using GPIO_SD2_NASRC = GPR68_fields_::GPIO_SD2_NASRC;
+  using DWP = GPR68_fields_::DWP;
+  using DWP_LOCK = GPR68_fields_::DWP_LOCK;
 };
+
 
 // GPR69 General Purpose Register
-union GPR69 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR69_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -3251,9 +3720,8 @@ union GPR69 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -3263,70 +3731,92 @@ union GPR69 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 1;
-    // read-write - GPIO_DISP_B2 IO bank supply voltage range selection
-    uint32_t GPIO_DISP2_HIGH_RANGE : 1;
-    // read-write - GPIO_DISP_B2 IO bank supply voltage range selection
-    uint32_t GPIO_DISP2_LOW_RANGE : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - GPIO_AD IO bank supply voltage range selection for GPIO_AD_00 to GPIO_AD_17
-    uint32_t GPIO_AD0_HIGH_RANGE : 1;
-    // read-write - GPIO_AD IO bank supply voltage range selection for GPIO_AD_00 to GPIO_AD_17
-    uint32_t GPIO_AD0_LOW_RANGE : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - GPIO_LPSR IO bank supply voltage range selection for GPIO_AD_18 to GPIO_AD_35
-    uint32_t GPIO_AD1_HIGH_RANGE : 1;
-    // read-write - GPIO_LPSR IO bank supply voltage range selection for GPIO_AD_18 to GPIO_AD_35
-    uint32_t GPIO_AD1_LOW_RANGE : 1;
-    // read-write - GPIO_DISP_B1 IO bank supply voltage detector sleep mode enable
-    uint32_t SUPLYDET_DISP1_SLEEP : 1;
-    // read-write - GPIO_EMC_B1 IO bank supply voltage detector sleep mode enable
-    uint32_t SUPLYDET_EMC1_SLEEP : 1;
-    // read-write - GPIO_EMC_B2 IO bank supply voltage detector sleep mode enable
-    uint32_t SUPLYDET_EMC2_SLEEP : 1;
-    // read-write - GPIO_SD_B1 IO bank supply voltage detector sleep mode enable
-    uint32_t SUPLYDET_SD1_SLEEP : 1;
-    // read-write - GPIO_SD_B2 IO bank supply voltage detector sleep mode enable
-    uint32_t SUPLYDET_SD2_SLEEP : 1;
-    uint32_t _reserved_3 : 14;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // GPIO_DISP_B2 IO bank supply voltage range selection
+  using GPIO_DISP2_HIGH_RANGE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_DISP_B2 IO bank supply voltage range selection
+  using GPIO_DISP2_LOW_RANGE = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_AD IO bank supply voltage range selection for GPIO_AD_00 to GPIO_AD_17
+  using GPIO_AD0_HIGH_RANGE = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_AD IO bank supply voltage range selection for GPIO_AD_00 to GPIO_AD_17
+  using GPIO_AD0_LOW_RANGE = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_LPSR IO bank supply voltage range selection for GPIO_AD_18 to GPIO_AD_35
+  using GPIO_AD1_HIGH_RANGE = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_LPSR IO bank supply voltage range selection for GPIO_AD_18 to GPIO_AD_35
+  using GPIO_AD1_LOW_RANGE = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_DISP_B1 IO bank supply voltage detector sleep mode enable
+  using SUPLYDET_DISP1_SLEEP = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC_B1 IO bank supply voltage detector sleep mode enable
+  using SUPLYDET_EMC1_SLEEP = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_EMC_B2 IO bank supply voltage detector sleep mode enable
+  using SUPLYDET_EMC2_SLEEP = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD_B1 IO bank supply voltage detector sleep mode enable
+  using SUPLYDET_SD1_SLEEP = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPIO_SD_B2 IO bank supply voltage detector sleep mode enable
+  using SUPLYDET_SD2_SLEEP = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR69_fields_
 
-  GPR69() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR69 &ref() { return *reinterpret_cast<volatile GPR69*>(0x400E4114); }
+struct GPR69 : ftl::mmio::Register<
+    0x400E4114u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<1, 0>,
+    GPR69_fields_::GPIO_DISP2_HIGH_RANGE,
+    GPR69_fields_::GPIO_DISP2_LOW_RANGE,
+    ftl::mmio::Reserved<1, 3>,
+    GPR69_fields_::GPIO_AD0_HIGH_RANGE,
+    GPR69_fields_::GPIO_AD0_LOW_RANGE,
+    ftl::mmio::Reserved<1, 6>,
+    GPR69_fields_::GPIO_AD1_HIGH_RANGE,
+    GPR69_fields_::GPIO_AD1_LOW_RANGE,
+    GPR69_fields_::SUPLYDET_DISP1_SLEEP,
+    GPR69_fields_::SUPLYDET_EMC1_SLEEP,
+    GPR69_fields_::SUPLYDET_EMC2_SLEEP,
+    GPR69_fields_::SUPLYDET_SD1_SLEEP,
+    GPR69_fields_::SUPLYDET_SD2_SLEEP,
+    ftl::mmio::Reserved<14, 14>,
+    GPR69_fields_::DWP,
+    GPR69_fields_::DWP_LOCK> {
+  using eDWP = GPR69_fields_::eDWP;
+  using eDWP_LOCK = GPR69_fields_::eDWP_LOCK;
+  using GPIO_DISP2_HIGH_RANGE = GPR69_fields_::GPIO_DISP2_HIGH_RANGE;
+  using GPIO_DISP2_LOW_RANGE = GPR69_fields_::GPIO_DISP2_LOW_RANGE;
+  using GPIO_AD0_HIGH_RANGE = GPR69_fields_::GPIO_AD0_HIGH_RANGE;
+  using GPIO_AD0_LOW_RANGE = GPR69_fields_::GPIO_AD0_LOW_RANGE;
+  using GPIO_AD1_HIGH_RANGE = GPR69_fields_::GPIO_AD1_HIGH_RANGE;
+  using GPIO_AD1_LOW_RANGE = GPR69_fields_::GPIO_AD1_LOW_RANGE;
+  using SUPLYDET_DISP1_SLEEP = GPR69_fields_::SUPLYDET_DISP1_SLEEP;
+  using SUPLYDET_EMC1_SLEEP = GPR69_fields_::SUPLYDET_EMC1_SLEEP;
+  using SUPLYDET_EMC2_SLEEP = GPR69_fields_::SUPLYDET_EMC2_SLEEP;
+  using SUPLYDET_SD1_SLEEP = GPR69_fields_::SUPLYDET_SD1_SLEEP;
+  using SUPLYDET_SD2_SLEEP = GPR69_fields_::SUPLYDET_SD2_SLEEP;
+  using DWP = GPR69_fields_::DWP;
+  using DWP_LOCK = GPR69_fields_::DWP_LOCK;
 };
+
 
 // GPR70 General Purpose Register
-union GPR70 {
-  
-  // ADC1 stop mode selection, cannot change when ADC1_STOP_REQ is asserted.
-  enum class eADC1_IPG_STOP_MODE : uint32_t {
+struct GPR70_fields_ {
+
+  enum class eADC1_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // ADC2 stop mode selection, cannot change when ADC2_STOP_REQ is asserted.
-  enum class eADC2_IPG_STOP_MODE : uint32_t {
+
+  enum class eADC2_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -3336,9 +3826,8 @@ union GPR70 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -3348,138 +3837,187 @@ union GPR70 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ADC1 doze mode
-    uint32_t ADC1_IPG_DOZE : 1;
-    // read-write - ADC1 stop request
-    uint32_t ADC1_STOP_REQ : 1;
-    // read-write - ADC1 stop mode selection, cannot change when ADC1_STOP_REQ is asserted.
-    eADC1_IPG_STOP_MODE ADC1_IPG_STOP_MODE : 1;
-    // read-write - ADC2 doze mode
-    uint32_t ADC2_IPG_DOZE : 1;
-    // read-write - ADC2 stop request
-    uint32_t ADC2_STOP_REQ : 1;
-    // read-write - ADC2 stop mode selection, cannot change when ADC2_STOP_REQ is asserted.
-    eADC2_IPG_STOP_MODE ADC2_IPG_STOP_MODE : 1;
-    // read-write - CAN3 doze mode
-    uint32_t CAAM_IPG_DOZE : 1;
-    // read-write - CAAM stop request
-    uint32_t CAAM_STOP_REQ : 1;
-    // read-write - CAN1 doze mode
-    uint32_t CAN1_IPG_DOZE : 1;
-    // read-write - CAN1 stop request
-    uint32_t CAN1_STOP_REQ : 1;
-    // read-write - CAN2 doze mode
-    uint32_t CAN2_IPG_DOZE : 1;
-    // read-write - CAN2 stop request
-    uint32_t CAN2_STOP_REQ : 1;
-    // read-write - CAN3 doze mode
-    uint32_t CAN3_IPG_DOZE : 1;
-    // read-write - CAN3 stop request
-    uint32_t CAN3_STOP_REQ : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - EDMA stop request
-    uint32_t EDMA_STOP_REQ : 1;
-    // read-write - EDMA_LPSR stop request
-    uint32_t EDMA_LPSR_STOP_REQ : 1;
-    // read-write - ENET doze mode
-    uint32_t ENET_IPG_DOZE : 1;
-    // read-write - ENET stop request
-    uint32_t ENET_STOP_REQ : 1;
-    // read-write - ENET1G doze mode
-    uint32_t ENET1G_IPG_DOZE : 1;
-    // read-write - ENET1G stop request
-    uint32_t ENET1G_STOP_REQ : 1;
-    // read-write - FLEXIO2 doze mode
-    uint32_t FLEXIO1_IPG_DOZE : 1;
-    // read-write - FLEXIO2 doze mode
-    uint32_t FLEXIO2_IPG_DOZE : 1;
-    // read-write - FLEXSPI1 doze mode
-    uint32_t FLEXSPI1_IPG_DOZE : 1;
-    // read-write - FLEXSPI1 stop request
-    uint32_t FLEXSPI1_STOP_REQ : 1;
-    // read-write - FLEXSPI2 doze mode
-    uint32_t FLEXSPI2_IPG_DOZE : 1;
-    // read-write - FLEXSPI2 stop request
-    uint32_t FLEXSPI2_STOP_REQ : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // ADC1 doze mode
+  using ADC1_IPG_DOZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ADC1 stop request
+  using ADC1_STOP_REQ = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ADC1 stop mode selection, cannot change when ADC1_STOP_REQ is asserted.
+  using ADC1_IPG_STOP_MODE = ftl::mmio::Field<1, 2, eADC1_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ADC2 doze mode
+  using ADC2_IPG_DOZE = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ADC2 stop request
+  using ADC2_STOP_REQ = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ADC2 stop mode selection, cannot change when ADC2_STOP_REQ is asserted.
+  using ADC2_IPG_STOP_MODE = ftl::mmio::Field<1, 5, eADC2_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CAN3 doze mode
+  using CAAM_IPG_DOZE = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CAAM stop request
+  using CAAM_STOP_REQ = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CAN1 doze mode
+  using CAN1_IPG_DOZE = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CAN1 stop request
+  using CAN1_STOP_REQ = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CAN2 doze mode
+  using CAN2_IPG_DOZE = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CAN2 stop request
+  using CAN2_STOP_REQ = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CAN3 doze mode
+  using CAN3_IPG_DOZE = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CAN3 stop request
+  using CAN3_STOP_REQ = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // EDMA stop request
+  using EDMA_STOP_REQ = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // EDMA_LPSR stop request
+  using EDMA_LPSR_STOP_REQ = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET doze mode
+  using ENET_IPG_DOZE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET stop request
+  using ENET_STOP_REQ = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET1G doze mode
+  using ENET1G_IPG_DOZE = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENET1G stop request
+  using ENET1G_STOP_REQ = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FLEXIO2 doze mode
+  using FLEXIO1_IPG_DOZE = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FLEXIO2 doze mode
+  using FLEXIO2_IPG_DOZE = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FLEXSPI1 doze mode
+  using FLEXSPI1_IPG_DOZE = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FLEXSPI1 stop request
+  using FLEXSPI1_STOP_REQ = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FLEXSPI2 doze mode
+  using FLEXSPI2_IPG_DOZE = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FLEXSPI2 stop request
+  using FLEXSPI2_STOP_REQ = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR70_fields_
 
-  GPR70() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR70 &ref() { return *reinterpret_cast<volatile GPR70*>(0x400E4118); }
+struct GPR70 : ftl::mmio::Register<
+    0x400E4118u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR70_fields_::ADC1_IPG_DOZE,
+    GPR70_fields_::ADC1_STOP_REQ,
+    GPR70_fields_::ADC1_IPG_STOP_MODE,
+    GPR70_fields_::ADC2_IPG_DOZE,
+    GPR70_fields_::ADC2_STOP_REQ,
+    GPR70_fields_::ADC2_IPG_STOP_MODE,
+    GPR70_fields_::CAAM_IPG_DOZE,
+    GPR70_fields_::CAAM_STOP_REQ,
+    GPR70_fields_::CAN1_IPG_DOZE,
+    GPR70_fields_::CAN1_STOP_REQ,
+    GPR70_fields_::CAN2_IPG_DOZE,
+    GPR70_fields_::CAN2_STOP_REQ,
+    GPR70_fields_::CAN3_IPG_DOZE,
+    GPR70_fields_::CAN3_STOP_REQ,
+    ftl::mmio::Reserved<1, 14>,
+    GPR70_fields_::EDMA_STOP_REQ,
+    GPR70_fields_::EDMA_LPSR_STOP_REQ,
+    GPR70_fields_::ENET_IPG_DOZE,
+    GPR70_fields_::ENET_STOP_REQ,
+    GPR70_fields_::ENET1G_IPG_DOZE,
+    GPR70_fields_::ENET1G_STOP_REQ,
+    GPR70_fields_::FLEXIO1_IPG_DOZE,
+    GPR70_fields_::FLEXIO2_IPG_DOZE,
+    GPR70_fields_::FLEXSPI1_IPG_DOZE,
+    GPR70_fields_::FLEXSPI1_STOP_REQ,
+    GPR70_fields_::FLEXSPI2_IPG_DOZE,
+    GPR70_fields_::FLEXSPI2_STOP_REQ,
+    ftl::mmio::Reserved<1, 27>,
+    GPR70_fields_::DWP,
+    GPR70_fields_::DWP_LOCK> {
+  using eADC1_IPG_STOP_MODE = GPR70_fields_::eADC1_IPG_STOP_MODE;
+  using eADC2_IPG_STOP_MODE = GPR70_fields_::eADC2_IPG_STOP_MODE;
+  using eDWP = GPR70_fields_::eDWP;
+  using eDWP_LOCK = GPR70_fields_::eDWP_LOCK;
+  using ADC1_IPG_DOZE = GPR70_fields_::ADC1_IPG_DOZE;
+  using ADC1_STOP_REQ = GPR70_fields_::ADC1_STOP_REQ;
+  using ADC1_IPG_STOP_MODE = GPR70_fields_::ADC1_IPG_STOP_MODE;
+  using ADC2_IPG_DOZE = GPR70_fields_::ADC2_IPG_DOZE;
+  using ADC2_STOP_REQ = GPR70_fields_::ADC2_STOP_REQ;
+  using ADC2_IPG_STOP_MODE = GPR70_fields_::ADC2_IPG_STOP_MODE;
+  using CAAM_IPG_DOZE = GPR70_fields_::CAAM_IPG_DOZE;
+  using CAAM_STOP_REQ = GPR70_fields_::CAAM_STOP_REQ;
+  using CAN1_IPG_DOZE = GPR70_fields_::CAN1_IPG_DOZE;
+  using CAN1_STOP_REQ = GPR70_fields_::CAN1_STOP_REQ;
+  using CAN2_IPG_DOZE = GPR70_fields_::CAN2_IPG_DOZE;
+  using CAN2_STOP_REQ = GPR70_fields_::CAN2_STOP_REQ;
+  using CAN3_IPG_DOZE = GPR70_fields_::CAN3_IPG_DOZE;
+  using CAN3_STOP_REQ = GPR70_fields_::CAN3_STOP_REQ;
+  using EDMA_STOP_REQ = GPR70_fields_::EDMA_STOP_REQ;
+  using EDMA_LPSR_STOP_REQ = GPR70_fields_::EDMA_LPSR_STOP_REQ;
+  using ENET_IPG_DOZE = GPR70_fields_::ENET_IPG_DOZE;
+  using ENET_STOP_REQ = GPR70_fields_::ENET_STOP_REQ;
+  using ENET1G_IPG_DOZE = GPR70_fields_::ENET1G_IPG_DOZE;
+  using ENET1G_STOP_REQ = GPR70_fields_::ENET1G_STOP_REQ;
+  using FLEXIO1_IPG_DOZE = GPR70_fields_::FLEXIO1_IPG_DOZE;
+  using FLEXIO2_IPG_DOZE = GPR70_fields_::FLEXIO2_IPG_DOZE;
+  using FLEXSPI1_IPG_DOZE = GPR70_fields_::FLEXSPI1_IPG_DOZE;
+  using FLEXSPI1_STOP_REQ = GPR70_fields_::FLEXSPI1_STOP_REQ;
+  using FLEXSPI2_IPG_DOZE = GPR70_fields_::FLEXSPI2_IPG_DOZE;
+  using FLEXSPI2_STOP_REQ = GPR70_fields_::FLEXSPI2_STOP_REQ;
+  using DWP = GPR70_fields_::DWP;
+  using DWP_LOCK = GPR70_fields_::DWP_LOCK;
 };
+
 
 // GPR71 General Purpose Register
-union GPR71 {
-  
-  // LPI2C1 stop mode selection, cannot change when LPI2C1_STOP_REQ is asserted.
-  enum class eLPI2C1_IPG_STOP_MODE : uint32_t {
+struct GPR71_fields_ {
+
+  enum class eLPI2C1_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPI2C2 stop mode selection, cannot change when LPI2C2_STOP_REQ is asserted.
-  enum class eLPI2C2_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPI2C2_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPI2C3 stop mode selection, cannot change when LPI2C3_STOP_REQ is asserted.
-  enum class eLPI2C3_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPI2C3_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPI2C4 stop mode selection, cannot change when LPI2C4_STOP_REQ is asserted.
-  enum class eLPI2C4_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPI2C4_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPI2C5 stop mode selection, cannot change when LPI2C5_STOP_REQ is asserted.
-  enum class eLPI2C5_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPI2C5_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPI2C6 stop mode selection, cannot change when LPI2C6_STOP_REQ is asserted.
-  enum class eLPI2C6_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPI2C6_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPSPI1 stop mode selection, cannot change when LPSPI1_STOP_REQ is asserted.
-  enum class eLPSPI1_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPSPI1_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -3489,9 +4027,8 @@ union GPR71 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -3501,155 +4038,209 @@ union GPR71 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - GPT1 doze mode
-    uint32_t GPT1_IPG_DOZE : 1;
-    // read-write - GPT2 doze mode
-    uint32_t GPT2_IPG_DOZE : 1;
-    // read-write - GPT3 doze mode
-    uint32_t GPT3_IPG_DOZE : 1;
-    // read-write - GPT4 doze mode
-    uint32_t GPT4_IPG_DOZE : 1;
-    // read-write - GPT5 doze mode
-    uint32_t GPT5_IPG_DOZE : 1;
-    // read-write - GPT6 doze mode
-    uint32_t GPT6_IPG_DOZE : 1;
-    // read-write - LPI2C1 doze mode
-    uint32_t LPI2C1_IPG_DOZE : 1;
-    // read-write - LPI2C1 stop request
-    uint32_t LPI2C1_STOP_REQ : 1;
-    // read-write - LPI2C1 stop mode selection, cannot change when LPI2C1_STOP_REQ is asserted.
-    eLPI2C1_IPG_STOP_MODE LPI2C1_IPG_STOP_MODE : 1;
-    // read-write - LPI2C2 doze mode
-    uint32_t LPI2C2_IPG_DOZE : 1;
-    // read-write - LPI2C2 stop request
-    uint32_t LPI2C2_STOP_REQ : 1;
-    // read-write - LPI2C2 stop mode selection, cannot change when LPI2C2_STOP_REQ is asserted.
-    eLPI2C2_IPG_STOP_MODE LPI2C2_IPG_STOP_MODE : 1;
-    // read-write - LPI2C3 doze mode
-    uint32_t LPI2C3_IPG_DOZE : 1;
-    // read-write - LPI2C3 stop request
-    uint32_t LPI2C3_STOP_REQ : 1;
-    // read-write - LPI2C3 stop mode selection, cannot change when LPI2C3_STOP_REQ is asserted.
-    eLPI2C3_IPG_STOP_MODE LPI2C3_IPG_STOP_MODE : 1;
-    // read-write - LPI2C4 doze mode
-    uint32_t LPI2C4_IPG_DOZE : 1;
-    // read-write - LPI2C4 stop request
-    uint32_t LPI2C4_STOP_REQ : 1;
-    // read-write - LPI2C4 stop mode selection, cannot change when LPI2C4_STOP_REQ is asserted.
-    eLPI2C4_IPG_STOP_MODE LPI2C4_IPG_STOP_MODE : 1;
-    // read-write - LPI2C5 doze mode
-    uint32_t LPI2C5_IPG_DOZE : 1;
-    // read-write - LPI2C5 stop request
-    uint32_t LPI2C5_STOP_REQ : 1;
-    // read-write - LPI2C5 stop mode selection, cannot change when LPI2C5_STOP_REQ is asserted.
-    eLPI2C5_IPG_STOP_MODE LPI2C5_IPG_STOP_MODE : 1;
-    // read-write - LPI2C6 doze mode
-    uint32_t LPI2C6_IPG_DOZE : 1;
-    // read-write - LPI2C6 stop request
-    uint32_t LPI2C6_STOP_REQ : 1;
-    // read-write - LPI2C6 stop mode selection, cannot change when LPI2C6_STOP_REQ is asserted.
-    eLPI2C6_IPG_STOP_MODE LPI2C6_IPG_STOP_MODE : 1;
-    // read-write - LPSPI1 doze mode
-    uint32_t LPSPI1_IPG_DOZE : 1;
-    // read-write - LPSPI1 stop request
-    uint32_t LPSPI1_STOP_REQ : 1;
-    // read-write - LPSPI1 stop mode selection, cannot change when LPSPI1_STOP_REQ is asserted.
-    eLPSPI1_IPG_STOP_MODE LPSPI1_IPG_STOP_MODE : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // GPT1 doze mode
+  using GPT1_IPG_DOZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPT2 doze mode
+  using GPT2_IPG_DOZE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPT3 doze mode
+  using GPT3_IPG_DOZE = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPT4 doze mode
+  using GPT4_IPG_DOZE = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPT5 doze mode
+  using GPT5_IPG_DOZE = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GPT6 doze mode
+  using GPT6_IPG_DOZE = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C1 doze mode
+  using LPI2C1_IPG_DOZE = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C1 stop request
+  using LPI2C1_STOP_REQ = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C1 stop mode selection, cannot change when LPI2C1_STOP_REQ is asserted.
+  using LPI2C1_IPG_STOP_MODE = ftl::mmio::Field<1, 8, eLPI2C1_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C2 doze mode
+  using LPI2C2_IPG_DOZE = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C2 stop request
+  using LPI2C2_STOP_REQ = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C2 stop mode selection, cannot change when LPI2C2_STOP_REQ is asserted.
+  using LPI2C2_IPG_STOP_MODE = ftl::mmio::Field<1, 11, eLPI2C2_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C3 doze mode
+  using LPI2C3_IPG_DOZE = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C3 stop request
+  using LPI2C3_STOP_REQ = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C3 stop mode selection, cannot change when LPI2C3_STOP_REQ is asserted.
+  using LPI2C3_IPG_STOP_MODE = ftl::mmio::Field<1, 14, eLPI2C3_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C4 doze mode
+  using LPI2C4_IPG_DOZE = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C4 stop request
+  using LPI2C4_STOP_REQ = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C4 stop mode selection, cannot change when LPI2C4_STOP_REQ is asserted.
+  using LPI2C4_IPG_STOP_MODE = ftl::mmio::Field<1, 17, eLPI2C4_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C5 doze mode
+  using LPI2C5_IPG_DOZE = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C5 stop request
+  using LPI2C5_STOP_REQ = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C5 stop mode selection, cannot change when LPI2C5_STOP_REQ is asserted.
+  using LPI2C5_IPG_STOP_MODE = ftl::mmio::Field<1, 20, eLPI2C5_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C6 doze mode
+  using LPI2C6_IPG_DOZE = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C6 stop request
+  using LPI2C6_STOP_REQ = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPI2C6 stop mode selection, cannot change when LPI2C6_STOP_REQ is asserted.
+  using LPI2C6_IPG_STOP_MODE = ftl::mmio::Field<1, 23, eLPI2C6_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI1 doze mode
+  using LPSPI1_IPG_DOZE = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI1 stop request
+  using LPSPI1_STOP_REQ = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI1 stop mode selection, cannot change when LPSPI1_STOP_REQ is asserted.
+  using LPSPI1_IPG_STOP_MODE = ftl::mmio::Field<1, 26, eLPSPI1_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR71_fields_
 
-  GPR71() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR71 &ref() { return *reinterpret_cast<volatile GPR71*>(0x400E411C); }
+struct GPR71 : ftl::mmio::Register<
+    0x400E411Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR71_fields_::GPT1_IPG_DOZE,
+    GPR71_fields_::GPT2_IPG_DOZE,
+    GPR71_fields_::GPT3_IPG_DOZE,
+    GPR71_fields_::GPT4_IPG_DOZE,
+    GPR71_fields_::GPT5_IPG_DOZE,
+    GPR71_fields_::GPT6_IPG_DOZE,
+    GPR71_fields_::LPI2C1_IPG_DOZE,
+    GPR71_fields_::LPI2C1_STOP_REQ,
+    GPR71_fields_::LPI2C1_IPG_STOP_MODE,
+    GPR71_fields_::LPI2C2_IPG_DOZE,
+    GPR71_fields_::LPI2C2_STOP_REQ,
+    GPR71_fields_::LPI2C2_IPG_STOP_MODE,
+    GPR71_fields_::LPI2C3_IPG_DOZE,
+    GPR71_fields_::LPI2C3_STOP_REQ,
+    GPR71_fields_::LPI2C3_IPG_STOP_MODE,
+    GPR71_fields_::LPI2C4_IPG_DOZE,
+    GPR71_fields_::LPI2C4_STOP_REQ,
+    GPR71_fields_::LPI2C4_IPG_STOP_MODE,
+    GPR71_fields_::LPI2C5_IPG_DOZE,
+    GPR71_fields_::LPI2C5_STOP_REQ,
+    GPR71_fields_::LPI2C5_IPG_STOP_MODE,
+    GPR71_fields_::LPI2C6_IPG_DOZE,
+    GPR71_fields_::LPI2C6_STOP_REQ,
+    GPR71_fields_::LPI2C6_IPG_STOP_MODE,
+    GPR71_fields_::LPSPI1_IPG_DOZE,
+    GPR71_fields_::LPSPI1_STOP_REQ,
+    GPR71_fields_::LPSPI1_IPG_STOP_MODE,
+    ftl::mmio::Reserved<1, 27>,
+    GPR71_fields_::DWP,
+    GPR71_fields_::DWP_LOCK> {
+  using eLPI2C1_IPG_STOP_MODE = GPR71_fields_::eLPI2C1_IPG_STOP_MODE;
+  using eLPI2C2_IPG_STOP_MODE = GPR71_fields_::eLPI2C2_IPG_STOP_MODE;
+  using eLPI2C3_IPG_STOP_MODE = GPR71_fields_::eLPI2C3_IPG_STOP_MODE;
+  using eLPI2C4_IPG_STOP_MODE = GPR71_fields_::eLPI2C4_IPG_STOP_MODE;
+  using eLPI2C5_IPG_STOP_MODE = GPR71_fields_::eLPI2C5_IPG_STOP_MODE;
+  using eLPI2C6_IPG_STOP_MODE = GPR71_fields_::eLPI2C6_IPG_STOP_MODE;
+  using eLPSPI1_IPG_STOP_MODE = GPR71_fields_::eLPSPI1_IPG_STOP_MODE;
+  using eDWP = GPR71_fields_::eDWP;
+  using eDWP_LOCK = GPR71_fields_::eDWP_LOCK;
+  using GPT1_IPG_DOZE = GPR71_fields_::GPT1_IPG_DOZE;
+  using GPT2_IPG_DOZE = GPR71_fields_::GPT2_IPG_DOZE;
+  using GPT3_IPG_DOZE = GPR71_fields_::GPT3_IPG_DOZE;
+  using GPT4_IPG_DOZE = GPR71_fields_::GPT4_IPG_DOZE;
+  using GPT5_IPG_DOZE = GPR71_fields_::GPT5_IPG_DOZE;
+  using GPT6_IPG_DOZE = GPR71_fields_::GPT6_IPG_DOZE;
+  using LPI2C1_IPG_DOZE = GPR71_fields_::LPI2C1_IPG_DOZE;
+  using LPI2C1_STOP_REQ = GPR71_fields_::LPI2C1_STOP_REQ;
+  using LPI2C1_IPG_STOP_MODE = GPR71_fields_::LPI2C1_IPG_STOP_MODE;
+  using LPI2C2_IPG_DOZE = GPR71_fields_::LPI2C2_IPG_DOZE;
+  using LPI2C2_STOP_REQ = GPR71_fields_::LPI2C2_STOP_REQ;
+  using LPI2C2_IPG_STOP_MODE = GPR71_fields_::LPI2C2_IPG_STOP_MODE;
+  using LPI2C3_IPG_DOZE = GPR71_fields_::LPI2C3_IPG_DOZE;
+  using LPI2C3_STOP_REQ = GPR71_fields_::LPI2C3_STOP_REQ;
+  using LPI2C3_IPG_STOP_MODE = GPR71_fields_::LPI2C3_IPG_STOP_MODE;
+  using LPI2C4_IPG_DOZE = GPR71_fields_::LPI2C4_IPG_DOZE;
+  using LPI2C4_STOP_REQ = GPR71_fields_::LPI2C4_STOP_REQ;
+  using LPI2C4_IPG_STOP_MODE = GPR71_fields_::LPI2C4_IPG_STOP_MODE;
+  using LPI2C5_IPG_DOZE = GPR71_fields_::LPI2C5_IPG_DOZE;
+  using LPI2C5_STOP_REQ = GPR71_fields_::LPI2C5_STOP_REQ;
+  using LPI2C5_IPG_STOP_MODE = GPR71_fields_::LPI2C5_IPG_STOP_MODE;
+  using LPI2C6_IPG_DOZE = GPR71_fields_::LPI2C6_IPG_DOZE;
+  using LPI2C6_STOP_REQ = GPR71_fields_::LPI2C6_STOP_REQ;
+  using LPI2C6_IPG_STOP_MODE = GPR71_fields_::LPI2C6_IPG_STOP_MODE;
+  using LPSPI1_IPG_DOZE = GPR71_fields_::LPSPI1_IPG_DOZE;
+  using LPSPI1_STOP_REQ = GPR71_fields_::LPSPI1_STOP_REQ;
+  using LPSPI1_IPG_STOP_MODE = GPR71_fields_::LPSPI1_IPG_STOP_MODE;
+  using DWP = GPR71_fields_::DWP;
+  using DWP_LOCK = GPR71_fields_::DWP_LOCK;
 };
+
 
 // GPR72 General Purpose Register
-union GPR72 {
-  
-  // LPSPI2 stop mode selection, cannot change when LPSPI2_STOP_REQ is asserted.
-  enum class eLPSPI2_IPG_STOP_MODE : uint32_t {
+struct GPR72_fields_ {
+
+  enum class eLPSPI2_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPSPI3 stop mode selection, cannot change when LPSPI3_STOP_REQ is asserted.
-  enum class eLPSPI3_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPSPI3_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPSPI4 stop mode selection, cannot change when LPSPI4_STOP_REQ is asserted.
-  enum class eLPSPI4_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPSPI4_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPSPI5 stop mode selection, cannot change when LPSPI5_STOP_REQ is asserted.
-  enum class eLPSPI5_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPSPI5_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPSPI6 stop mode selection, cannot change when LPSPI6_STOP_REQ is asserted.
-  enum class eLPSPI6_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPSPI6_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPUART1 stop mode selection, cannot change when LPUART1_STOP_REQ is asserted.
-  enum class eLPUART1_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPUART1_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPUART2 stop mode selection, cannot change when LPUART2_STOP_REQ is asserted.
-  enum class eLPUART2_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPUART2_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPUART3 stop mode selection, cannot change when LPUART3_STOP_REQ is asserted.
-  enum class eLPUART3_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPUART3_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPUART4 stop mode selection, cannot change when LPUART4_STOP_REQ is asserted.
-  enum class eLPUART4_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPUART4_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -3659,9 +4250,8 @@ union GPR72 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -3671,155 +4261,211 @@ union GPR72 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - LPSPI2 doze mode
-    uint32_t LPSPI2_IPG_DOZE : 1;
-    // read-write - LPSPI2 stop request
-    uint32_t LPSPI2_STOP_REQ : 1;
-    // read-write - LPSPI2 stop mode selection, cannot change when LPSPI2_STOP_REQ is asserted.
-    eLPSPI2_IPG_STOP_MODE LPSPI2_IPG_STOP_MODE : 1;
-    // read-write - LPSPI3 doze mode
-    uint32_t LPSPI3_IPG_DOZE : 1;
-    // read-write - LPSPI3 stop request
-    uint32_t LPSPI3_STOP_REQ : 1;
-    // read-write - LPSPI3 stop mode selection, cannot change when LPSPI3_STOP_REQ is asserted.
-    eLPSPI3_IPG_STOP_MODE LPSPI3_IPG_STOP_MODE : 1;
-    // read-write - LPSPI4 doze mode
-    uint32_t LPSPI4_IPG_DOZE : 1;
-    // read-write - LPSPI4 stop request
-    uint32_t LPSPI4_STOP_REQ : 1;
-    // read-write - LPSPI4 stop mode selection, cannot change when LPSPI4_STOP_REQ is asserted.
-    eLPSPI4_IPG_STOP_MODE LPSPI4_IPG_STOP_MODE : 1;
-    // read-write - LPSPI5 doze mode
-    uint32_t LPSPI5_IPG_DOZE : 1;
-    // read-write - LPSPI5 stop request
-    uint32_t LPSPI5_STOP_REQ : 1;
-    // read-write - LPSPI5 stop mode selection, cannot change when LPSPI5_STOP_REQ is asserted.
-    eLPSPI5_IPG_STOP_MODE LPSPI5_IPG_STOP_MODE : 1;
-    // read-write - LPSPI6 doze mode
-    uint32_t LPSPI6_IPG_DOZE : 1;
-    // read-write - LPSPI6 stop request
-    uint32_t LPSPI6_STOP_REQ : 1;
-    // read-write - LPSPI6 stop mode selection, cannot change when LPSPI6_STOP_REQ is asserted.
-    eLPSPI6_IPG_STOP_MODE LPSPI6_IPG_STOP_MODE : 1;
-    // read-write - LPUART1 doze mode
-    uint32_t LPUART1_IPG_DOZE : 1;
-    // read-write - LPUART1 stop request
-    uint32_t LPUART1_STOP_REQ : 1;
-    // read-write - LPUART1 stop mode selection, cannot change when LPUART1_STOP_REQ is asserted.
-    eLPUART1_IPG_STOP_MODE LPUART1_IPG_STOP_MODE : 1;
-    // read-write - LPUART2 doze mode
-    uint32_t LPUART2_IPG_DOZE : 1;
-    // read-write - LPUART2 stop request
-    uint32_t LPUART2_STOP_REQ : 1;
-    // read-write - LPUART2 stop mode selection, cannot change when LPUART2_STOP_REQ is asserted.
-    eLPUART2_IPG_STOP_MODE LPUART2_IPG_STOP_MODE : 1;
-    // read-write - LPUART3 doze mode
-    uint32_t LPUART3_IPG_DOZE : 1;
-    // read-write - LPUART3 stop request
-    uint32_t LPUART3_STOP_REQ : 1;
-    // read-write - LPUART3 stop mode selection, cannot change when LPUART3_STOP_REQ is asserted.
-    eLPUART3_IPG_STOP_MODE LPUART3_IPG_STOP_MODE : 1;
-    // read-write - LPUART4 doze mode
-    uint32_t LPUART4_IPG_DOZE : 1;
-    // read-write - LPUART4 stop request
-    uint32_t LPUART4_STOP_REQ : 1;
-    // read-write - LPUART4 stop mode selection, cannot change when LPUART4_STOP_REQ is asserted.
-    eLPUART4_IPG_STOP_MODE LPUART4_IPG_STOP_MODE : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // LPSPI2 doze mode
+  using LPSPI2_IPG_DOZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI2 stop request
+  using LPSPI2_STOP_REQ = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI2 stop mode selection, cannot change when LPSPI2_STOP_REQ is asserted.
+  using LPSPI2_IPG_STOP_MODE = ftl::mmio::Field<1, 2, eLPSPI2_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI3 doze mode
+  using LPSPI3_IPG_DOZE = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI3 stop request
+  using LPSPI3_STOP_REQ = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI3 stop mode selection, cannot change when LPSPI3_STOP_REQ is asserted.
+  using LPSPI3_IPG_STOP_MODE = ftl::mmio::Field<1, 5, eLPSPI3_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI4 doze mode
+  using LPSPI4_IPG_DOZE = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI4 stop request
+  using LPSPI4_STOP_REQ = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI4 stop mode selection, cannot change when LPSPI4_STOP_REQ is asserted.
+  using LPSPI4_IPG_STOP_MODE = ftl::mmio::Field<1, 8, eLPSPI4_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI5 doze mode
+  using LPSPI5_IPG_DOZE = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI5 stop request
+  using LPSPI5_STOP_REQ = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI5 stop mode selection, cannot change when LPSPI5_STOP_REQ is asserted.
+  using LPSPI5_IPG_STOP_MODE = ftl::mmio::Field<1, 11, eLPSPI5_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI6 doze mode
+  using LPSPI6_IPG_DOZE = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI6 stop request
+  using LPSPI6_STOP_REQ = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPSPI6 stop mode selection, cannot change when LPSPI6_STOP_REQ is asserted.
+  using LPSPI6_IPG_STOP_MODE = ftl::mmio::Field<1, 14, eLPSPI6_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART1 doze mode
+  using LPUART1_IPG_DOZE = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART1 stop request
+  using LPUART1_STOP_REQ = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART1 stop mode selection, cannot change when LPUART1_STOP_REQ is asserted.
+  using LPUART1_IPG_STOP_MODE = ftl::mmio::Field<1, 17, eLPUART1_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART2 doze mode
+  using LPUART2_IPG_DOZE = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART2 stop request
+  using LPUART2_STOP_REQ = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART2 stop mode selection, cannot change when LPUART2_STOP_REQ is asserted.
+  using LPUART2_IPG_STOP_MODE = ftl::mmio::Field<1, 20, eLPUART2_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART3 doze mode
+  using LPUART3_IPG_DOZE = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART3 stop request
+  using LPUART3_STOP_REQ = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART3 stop mode selection, cannot change when LPUART3_STOP_REQ is asserted.
+  using LPUART3_IPG_STOP_MODE = ftl::mmio::Field<1, 23, eLPUART3_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART4 doze mode
+  using LPUART4_IPG_DOZE = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART4 stop request
+  using LPUART4_STOP_REQ = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART4 stop mode selection, cannot change when LPUART4_STOP_REQ is asserted.
+  using LPUART4_IPG_STOP_MODE = ftl::mmio::Field<1, 26, eLPUART4_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR72_fields_
 
-  GPR72() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR72 &ref() { return *reinterpret_cast<volatile GPR72*>(0x400E4120); }
+struct GPR72 : ftl::mmio::Register<
+    0x400E4120u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR72_fields_::LPSPI2_IPG_DOZE,
+    GPR72_fields_::LPSPI2_STOP_REQ,
+    GPR72_fields_::LPSPI2_IPG_STOP_MODE,
+    GPR72_fields_::LPSPI3_IPG_DOZE,
+    GPR72_fields_::LPSPI3_STOP_REQ,
+    GPR72_fields_::LPSPI3_IPG_STOP_MODE,
+    GPR72_fields_::LPSPI4_IPG_DOZE,
+    GPR72_fields_::LPSPI4_STOP_REQ,
+    GPR72_fields_::LPSPI4_IPG_STOP_MODE,
+    GPR72_fields_::LPSPI5_IPG_DOZE,
+    GPR72_fields_::LPSPI5_STOP_REQ,
+    GPR72_fields_::LPSPI5_IPG_STOP_MODE,
+    GPR72_fields_::LPSPI6_IPG_DOZE,
+    GPR72_fields_::LPSPI6_STOP_REQ,
+    GPR72_fields_::LPSPI6_IPG_STOP_MODE,
+    GPR72_fields_::LPUART1_IPG_DOZE,
+    GPR72_fields_::LPUART1_STOP_REQ,
+    GPR72_fields_::LPUART1_IPG_STOP_MODE,
+    GPR72_fields_::LPUART2_IPG_DOZE,
+    GPR72_fields_::LPUART2_STOP_REQ,
+    GPR72_fields_::LPUART2_IPG_STOP_MODE,
+    GPR72_fields_::LPUART3_IPG_DOZE,
+    GPR72_fields_::LPUART3_STOP_REQ,
+    GPR72_fields_::LPUART3_IPG_STOP_MODE,
+    GPR72_fields_::LPUART4_IPG_DOZE,
+    GPR72_fields_::LPUART4_STOP_REQ,
+    GPR72_fields_::LPUART4_IPG_STOP_MODE,
+    ftl::mmio::Reserved<1, 27>,
+    GPR72_fields_::DWP,
+    GPR72_fields_::DWP_LOCK> {
+  using eLPSPI2_IPG_STOP_MODE = GPR72_fields_::eLPSPI2_IPG_STOP_MODE;
+  using eLPSPI3_IPG_STOP_MODE = GPR72_fields_::eLPSPI3_IPG_STOP_MODE;
+  using eLPSPI4_IPG_STOP_MODE = GPR72_fields_::eLPSPI4_IPG_STOP_MODE;
+  using eLPSPI5_IPG_STOP_MODE = GPR72_fields_::eLPSPI5_IPG_STOP_MODE;
+  using eLPSPI6_IPG_STOP_MODE = GPR72_fields_::eLPSPI6_IPG_STOP_MODE;
+  using eLPUART1_IPG_STOP_MODE = GPR72_fields_::eLPUART1_IPG_STOP_MODE;
+  using eLPUART2_IPG_STOP_MODE = GPR72_fields_::eLPUART2_IPG_STOP_MODE;
+  using eLPUART3_IPG_STOP_MODE = GPR72_fields_::eLPUART3_IPG_STOP_MODE;
+  using eLPUART4_IPG_STOP_MODE = GPR72_fields_::eLPUART4_IPG_STOP_MODE;
+  using eDWP = GPR72_fields_::eDWP;
+  using eDWP_LOCK = GPR72_fields_::eDWP_LOCK;
+  using LPSPI2_IPG_DOZE = GPR72_fields_::LPSPI2_IPG_DOZE;
+  using LPSPI2_STOP_REQ = GPR72_fields_::LPSPI2_STOP_REQ;
+  using LPSPI2_IPG_STOP_MODE = GPR72_fields_::LPSPI2_IPG_STOP_MODE;
+  using LPSPI3_IPG_DOZE = GPR72_fields_::LPSPI3_IPG_DOZE;
+  using LPSPI3_STOP_REQ = GPR72_fields_::LPSPI3_STOP_REQ;
+  using LPSPI3_IPG_STOP_MODE = GPR72_fields_::LPSPI3_IPG_STOP_MODE;
+  using LPSPI4_IPG_DOZE = GPR72_fields_::LPSPI4_IPG_DOZE;
+  using LPSPI4_STOP_REQ = GPR72_fields_::LPSPI4_STOP_REQ;
+  using LPSPI4_IPG_STOP_MODE = GPR72_fields_::LPSPI4_IPG_STOP_MODE;
+  using LPSPI5_IPG_DOZE = GPR72_fields_::LPSPI5_IPG_DOZE;
+  using LPSPI5_STOP_REQ = GPR72_fields_::LPSPI5_STOP_REQ;
+  using LPSPI5_IPG_STOP_MODE = GPR72_fields_::LPSPI5_IPG_STOP_MODE;
+  using LPSPI6_IPG_DOZE = GPR72_fields_::LPSPI6_IPG_DOZE;
+  using LPSPI6_STOP_REQ = GPR72_fields_::LPSPI6_STOP_REQ;
+  using LPSPI6_IPG_STOP_MODE = GPR72_fields_::LPSPI6_IPG_STOP_MODE;
+  using LPUART1_IPG_DOZE = GPR72_fields_::LPUART1_IPG_DOZE;
+  using LPUART1_STOP_REQ = GPR72_fields_::LPUART1_STOP_REQ;
+  using LPUART1_IPG_STOP_MODE = GPR72_fields_::LPUART1_IPG_STOP_MODE;
+  using LPUART2_IPG_DOZE = GPR72_fields_::LPUART2_IPG_DOZE;
+  using LPUART2_STOP_REQ = GPR72_fields_::LPUART2_STOP_REQ;
+  using LPUART2_IPG_STOP_MODE = GPR72_fields_::LPUART2_IPG_STOP_MODE;
+  using LPUART3_IPG_DOZE = GPR72_fields_::LPUART3_IPG_DOZE;
+  using LPUART3_STOP_REQ = GPR72_fields_::LPUART3_STOP_REQ;
+  using LPUART3_IPG_STOP_MODE = GPR72_fields_::LPUART3_IPG_STOP_MODE;
+  using LPUART4_IPG_DOZE = GPR72_fields_::LPUART4_IPG_DOZE;
+  using LPUART4_STOP_REQ = GPR72_fields_::LPUART4_STOP_REQ;
+  using LPUART4_IPG_STOP_MODE = GPR72_fields_::LPUART4_IPG_STOP_MODE;
+  using DWP = GPR72_fields_::DWP;
+  using DWP_LOCK = GPR72_fields_::DWP_LOCK;
 };
+
 
 // GPR73 General Purpose Register
-union GPR73 {
-  
-  // LPUART5 stop mode selection, cannot change when LPUART5_STOP_REQ is asserted.
-  enum class eLPUART5_IPG_STOP_MODE : uint32_t {
+struct GPR73_fields_ {
+
+  enum class eLPUART5_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPUART6 stop mode selection, cannot change when LPUART6_STOP_REQ is asserted.
-  enum class eLPUART6_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPUART6_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPUART7 stop mode selection, cannot change when LPUART7_STOP_REQ is asserted.
-  enum class eLPUART7_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPUART7_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPUART8 stop mode selection, cannot change when LPUART8_STOP_REQ is asserted.
-  enum class eLPUART8_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPUART8_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPUART9 stop mode selection, cannot change when LPUART9_STOP_REQ is asserted.
-  enum class eLPUART9_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPUART9_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPUART10 stop mode selection, cannot change when LPUART10_STOP_REQ is asserted.
-  enum class eLPUART10_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPUART10_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPUART11 stop mode selection, cannot change when LPUART11_STOP_REQ is asserted.
-  enum class eLPUART11_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPUART11_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // LPUART12 stop mode selection, cannot change when LPUART12_STOP_REQ is asserted.
-  enum class eLPUART12_IPG_STOP_MODE : uint32_t {
+
+  enum class eLPUART12_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // MIC stop mode selection, cannot change when MIC_STOP_REQ is asserted.
-  enum class eMIC_IPG_STOP_MODE : uint32_t {
+
+  enum class eMIC_IPG_STOP_MODE : std::uint32_t {
     // This module is functional in Stop Mode
     eFUNC = 0,
     // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
     eNONFUNC = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -3829,9 +4475,8 @@ union GPR73 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -3841,83 +4486,148 @@ union GPR73 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - LPUART5 doze mode
-    uint32_t LPUART5_IPG_DOZE : 1;
-    // read-write - LPUART5 stop request
-    uint32_t LPUART5_STOP_REQ : 1;
-    // read-write - LPUART5 stop mode selection, cannot change when LPUART5_STOP_REQ is asserted.
-    eLPUART5_IPG_STOP_MODE LPUART5_IPG_STOP_MODE : 1;
-    // read-write - LPUART6 doze mode
-    uint32_t LPUART6_IPG_DOZE : 1;
-    // read-write - LPUART6 stop request
-    uint32_t LPUART6_STOP_REQ : 1;
-    // read-write - LPUART6 stop mode selection, cannot change when LPUART6_STOP_REQ is asserted.
-    eLPUART6_IPG_STOP_MODE LPUART6_IPG_STOP_MODE : 1;
-    // read-write - LPUART7 doze mode
-    uint32_t LPUART7_IPG_DOZE : 1;
-    // read-write - LPUART7 stop request
-    uint32_t LPUART7_STOP_REQ : 1;
-    // read-write - LPUART7 stop mode selection, cannot change when LPUART7_STOP_REQ is asserted.
-    eLPUART7_IPG_STOP_MODE LPUART7_IPG_STOP_MODE : 1;
-    // read-write - LPUART8 doze mode
-    uint32_t LPUART8_IPG_DOZE : 1;
-    // read-write - LPUART8 stop request
-    uint32_t LPUART8_STOP_REQ : 1;
-    // read-write - LPUART8 stop mode selection, cannot change when LPUART8_STOP_REQ is asserted.
-    eLPUART8_IPG_STOP_MODE LPUART8_IPG_STOP_MODE : 1;
-    // read-write - LPUART9 doze mode
-    uint32_t LPUART9_IPG_DOZE : 1;
-    // read-write - LPUART9 stop request
-    uint32_t LPUART9_STOP_REQ : 1;
-    // read-write - LPUART9 stop mode selection, cannot change when LPUART9_STOP_REQ is asserted.
-    eLPUART9_IPG_STOP_MODE LPUART9_IPG_STOP_MODE : 1;
-    // read-write - LPUART10 doze mode
-    uint32_t LPUART10_IPG_DOZE : 1;
-    // read-write - LPUART10 stop request
-    uint32_t LPUART10_STOP_REQ : 1;
-    // read-write - LPUART10 stop mode selection, cannot change when LPUART10_STOP_REQ is asserted.
-    eLPUART10_IPG_STOP_MODE LPUART10_IPG_STOP_MODE : 1;
-    // read-write - LPUART11 doze mode
-    uint32_t LPUART11_IPG_DOZE : 1;
-    // read-write - LPUART11 stop request
-    uint32_t LPUART11_STOP_REQ : 1;
-    // read-write - LPUART11 stop mode selection, cannot change when LPUART11_STOP_REQ is asserted.
-    eLPUART11_IPG_STOP_MODE LPUART11_IPG_STOP_MODE : 1;
-    // read-write - LPUART12 doze mode
-    uint32_t LPUART12_IPG_DOZE : 1;
-    // read-write - LPUART12 stop request
-    uint32_t LPUART12_STOP_REQ : 1;
-    // read-write - LPUART12 stop mode selection, cannot change when LPUART12_STOP_REQ is asserted.
-    eLPUART12_IPG_STOP_MODE LPUART12_IPG_STOP_MODE : 1;
-    // read-write - MIC doze mode
-    uint32_t MIC_IPG_DOZE : 1;
-    // read-write - MIC stop request
-    uint32_t MIC_STOP_REQ : 1;
-    // read-write - MIC stop mode selection, cannot change when MIC_STOP_REQ is asserted.
-    eMIC_IPG_STOP_MODE MIC_IPG_STOP_MODE : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // LPUART5 doze mode
+  using LPUART5_IPG_DOZE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART5 stop request
+  using LPUART5_STOP_REQ = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART5 stop mode selection, cannot change when LPUART5_STOP_REQ is asserted.
+  using LPUART5_IPG_STOP_MODE = ftl::mmio::Field<1, 2, eLPUART5_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART6 doze mode
+  using LPUART6_IPG_DOZE = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART6 stop request
+  using LPUART6_STOP_REQ = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART6 stop mode selection, cannot change when LPUART6_STOP_REQ is asserted.
+  using LPUART6_IPG_STOP_MODE = ftl::mmio::Field<1, 5, eLPUART6_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART7 doze mode
+  using LPUART7_IPG_DOZE = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART7 stop request
+  using LPUART7_STOP_REQ = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART7 stop mode selection, cannot change when LPUART7_STOP_REQ is asserted.
+  using LPUART7_IPG_STOP_MODE = ftl::mmio::Field<1, 8, eLPUART7_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART8 doze mode
+  using LPUART8_IPG_DOZE = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART8 stop request
+  using LPUART8_STOP_REQ = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART8 stop mode selection, cannot change when LPUART8_STOP_REQ is asserted.
+  using LPUART8_IPG_STOP_MODE = ftl::mmio::Field<1, 11, eLPUART8_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART9 doze mode
+  using LPUART9_IPG_DOZE = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART9 stop request
+  using LPUART9_STOP_REQ = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART9 stop mode selection, cannot change when LPUART9_STOP_REQ is asserted.
+  using LPUART9_IPG_STOP_MODE = ftl::mmio::Field<1, 14, eLPUART9_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART10 doze mode
+  using LPUART10_IPG_DOZE = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART10 stop request
+  using LPUART10_STOP_REQ = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART10 stop mode selection, cannot change when LPUART10_STOP_REQ is asserted.
+  using LPUART10_IPG_STOP_MODE = ftl::mmio::Field<1, 17, eLPUART10_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART11 doze mode
+  using LPUART11_IPG_DOZE = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART11 stop request
+  using LPUART11_STOP_REQ = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART11 stop mode selection, cannot change when LPUART11_STOP_REQ is asserted.
+  using LPUART11_IPG_STOP_MODE = ftl::mmio::Field<1, 20, eLPUART11_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART12 doze mode
+  using LPUART12_IPG_DOZE = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART12 stop request
+  using LPUART12_STOP_REQ = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LPUART12 stop mode selection, cannot change when LPUART12_STOP_REQ is asserted.
+  using LPUART12_IPG_STOP_MODE = ftl::mmio::Field<1, 23, eLPUART12_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIC doze mode
+  using MIC_IPG_DOZE = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIC stop request
+  using MIC_STOP_REQ = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIC stop mode selection, cannot change when MIC_STOP_REQ is asserted.
+  using MIC_IPG_STOP_MODE = ftl::mmio::Field<1, 26, eMIC_IPG_STOP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR73_fields_
 
-  GPR73() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR73 &ref() { return *reinterpret_cast<volatile GPR73*>(0x400E4124); }
+struct GPR73 : ftl::mmio::Register<
+    0x400E4124u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR73_fields_::LPUART5_IPG_DOZE,
+    GPR73_fields_::LPUART5_STOP_REQ,
+    GPR73_fields_::LPUART5_IPG_STOP_MODE,
+    GPR73_fields_::LPUART6_IPG_DOZE,
+    GPR73_fields_::LPUART6_STOP_REQ,
+    GPR73_fields_::LPUART6_IPG_STOP_MODE,
+    GPR73_fields_::LPUART7_IPG_DOZE,
+    GPR73_fields_::LPUART7_STOP_REQ,
+    GPR73_fields_::LPUART7_IPG_STOP_MODE,
+    GPR73_fields_::LPUART8_IPG_DOZE,
+    GPR73_fields_::LPUART8_STOP_REQ,
+    GPR73_fields_::LPUART8_IPG_STOP_MODE,
+    GPR73_fields_::LPUART9_IPG_DOZE,
+    GPR73_fields_::LPUART9_STOP_REQ,
+    GPR73_fields_::LPUART9_IPG_STOP_MODE,
+    GPR73_fields_::LPUART10_IPG_DOZE,
+    GPR73_fields_::LPUART10_STOP_REQ,
+    GPR73_fields_::LPUART10_IPG_STOP_MODE,
+    GPR73_fields_::LPUART11_IPG_DOZE,
+    GPR73_fields_::LPUART11_STOP_REQ,
+    GPR73_fields_::LPUART11_IPG_STOP_MODE,
+    GPR73_fields_::LPUART12_IPG_DOZE,
+    GPR73_fields_::LPUART12_STOP_REQ,
+    GPR73_fields_::LPUART12_IPG_STOP_MODE,
+    GPR73_fields_::MIC_IPG_DOZE,
+    GPR73_fields_::MIC_STOP_REQ,
+    GPR73_fields_::MIC_IPG_STOP_MODE,
+    ftl::mmio::Reserved<1, 27>,
+    GPR73_fields_::DWP,
+    GPR73_fields_::DWP_LOCK> {
+  using eLPUART5_IPG_STOP_MODE = GPR73_fields_::eLPUART5_IPG_STOP_MODE;
+  using eLPUART6_IPG_STOP_MODE = GPR73_fields_::eLPUART6_IPG_STOP_MODE;
+  using eLPUART7_IPG_STOP_MODE = GPR73_fields_::eLPUART7_IPG_STOP_MODE;
+  using eLPUART8_IPG_STOP_MODE = GPR73_fields_::eLPUART8_IPG_STOP_MODE;
+  using eLPUART9_IPG_STOP_MODE = GPR73_fields_::eLPUART9_IPG_STOP_MODE;
+  using eLPUART10_IPG_STOP_MODE = GPR73_fields_::eLPUART10_IPG_STOP_MODE;
+  using eLPUART11_IPG_STOP_MODE = GPR73_fields_::eLPUART11_IPG_STOP_MODE;
+  using eLPUART12_IPG_STOP_MODE = GPR73_fields_::eLPUART12_IPG_STOP_MODE;
+  using eMIC_IPG_STOP_MODE = GPR73_fields_::eMIC_IPG_STOP_MODE;
+  using eDWP = GPR73_fields_::eDWP;
+  using eDWP_LOCK = GPR73_fields_::eDWP_LOCK;
+  using LPUART5_IPG_DOZE = GPR73_fields_::LPUART5_IPG_DOZE;
+  using LPUART5_STOP_REQ = GPR73_fields_::LPUART5_STOP_REQ;
+  using LPUART5_IPG_STOP_MODE = GPR73_fields_::LPUART5_IPG_STOP_MODE;
+  using LPUART6_IPG_DOZE = GPR73_fields_::LPUART6_IPG_DOZE;
+  using LPUART6_STOP_REQ = GPR73_fields_::LPUART6_STOP_REQ;
+  using LPUART6_IPG_STOP_MODE = GPR73_fields_::LPUART6_IPG_STOP_MODE;
+  using LPUART7_IPG_DOZE = GPR73_fields_::LPUART7_IPG_DOZE;
+  using LPUART7_STOP_REQ = GPR73_fields_::LPUART7_STOP_REQ;
+  using LPUART7_IPG_STOP_MODE = GPR73_fields_::LPUART7_IPG_STOP_MODE;
+  using LPUART8_IPG_DOZE = GPR73_fields_::LPUART8_IPG_DOZE;
+  using LPUART8_STOP_REQ = GPR73_fields_::LPUART8_STOP_REQ;
+  using LPUART8_IPG_STOP_MODE = GPR73_fields_::LPUART8_IPG_STOP_MODE;
+  using LPUART9_IPG_DOZE = GPR73_fields_::LPUART9_IPG_DOZE;
+  using LPUART9_STOP_REQ = GPR73_fields_::LPUART9_STOP_REQ;
+  using LPUART9_IPG_STOP_MODE = GPR73_fields_::LPUART9_IPG_STOP_MODE;
+  using LPUART10_IPG_DOZE = GPR73_fields_::LPUART10_IPG_DOZE;
+  using LPUART10_STOP_REQ = GPR73_fields_::LPUART10_STOP_REQ;
+  using LPUART10_IPG_STOP_MODE = GPR73_fields_::LPUART10_IPG_STOP_MODE;
+  using LPUART11_IPG_DOZE = GPR73_fields_::LPUART11_IPG_DOZE;
+  using LPUART11_STOP_REQ = GPR73_fields_::LPUART11_STOP_REQ;
+  using LPUART11_IPG_STOP_MODE = GPR73_fields_::LPUART11_IPG_STOP_MODE;
+  using LPUART12_IPG_DOZE = GPR73_fields_::LPUART12_IPG_DOZE;
+  using LPUART12_STOP_REQ = GPR73_fields_::LPUART12_STOP_REQ;
+  using LPUART12_IPG_STOP_MODE = GPR73_fields_::LPUART12_IPG_STOP_MODE;
+  using MIC_IPG_DOZE = GPR73_fields_::MIC_IPG_DOZE;
+  using MIC_STOP_REQ = GPR73_fields_::MIC_STOP_REQ;
+  using MIC_IPG_STOP_MODE = GPR73_fields_::MIC_IPG_STOP_MODE;
+  using DWP = GPR73_fields_::DWP;
+  using DWP_LOCK = GPR73_fields_::DWP_LOCK;
 };
+
 
 // GPR74 General Purpose Register
-union GPR74 {
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+struct GPR74_fields_ {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -3927,9 +4637,8 @@ union GPR74 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -3939,187 +4648,314 @@ union GPR74 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 1;
-    // read-write - PIT1 stop request
-    uint32_t PIT1_STOP_REQ : 1;
-    // read-write - PIT2 stop request
-    uint32_t PIT2_STOP_REQ : 1;
-    // read-write - SEMC stop request
-    uint32_t SEMC_STOP_REQ : 1;
-    // read-write - SIM1 doze mode
-    uint32_t SIM1_IPG_DOZE : 1;
-    // read-write - SIM2 doze mode
-    uint32_t SIM2_IPG_DOZE : 1;
-    // read-write - SNVS_HP doze mode
-    uint32_t SNVS_HP_IPG_DOZE : 1;
-    // read-write - SNVS_HP stop request
-    uint32_t SNVS_HP_STOP_REQ : 1;
-    // read-write - WDOG1 doze mode
-    uint32_t WDOG1_IPG_DOZE : 1;
-    // read-write - WDOG2 doze mode
-    uint32_t WDOG2_IPG_DOZE : 1;
-    // read-write - SAI1 stop request
-    uint32_t SAI1_STOP_REQ : 1;
-    // read-write - SAI2 stop request
-    uint32_t SAI2_STOP_REQ : 1;
-    // read-write - SAI3 stop request
-    uint32_t SAI3_STOP_REQ : 1;
-    // read-write - SAI4 stop request
-    uint32_t SAI4_STOP_REQ : 1;
-    // read-write - FLEXIO1 bus clock domain stop request
-    uint32_t FLEXIO1_STOP_REQ_BUS : 1;
-    // read-write - FLEXIO1 peripheral clock domain stop request
-    uint32_t FLEXIO1_STOP_REQ_PER : 1;
-    // read-write - FLEXIO2 bus clock domain stop request
-    uint32_t FLEXIO2_STOP_REQ_BUS : 1;
-    // read-write - FLEXIO2 peripheral clock domain stop request
-    uint32_t FLEXIO2_STOP_REQ_PER : 1;
-    uint32_t _reserved_1 : 10;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // PIT1 stop request
+  using PIT1_STOP_REQ = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // PIT2 stop request
+  using PIT2_STOP_REQ = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SEMC stop request
+  using SEMC_STOP_REQ = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SIM1 doze mode
+  using SIM1_IPG_DOZE = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SIM2 doze mode
+  using SIM2_IPG_DOZE = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS_HP doze mode
+  using SNVS_HP_IPG_DOZE = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS_HP stop request
+  using SNVS_HP_STOP_REQ = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // WDOG1 doze mode
+  using WDOG1_IPG_DOZE = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // WDOG2 doze mode
+  using WDOG2_IPG_DOZE = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SAI1 stop request
+  using SAI1_STOP_REQ = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SAI2 stop request
+  using SAI2_STOP_REQ = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SAI3 stop request
+  using SAI3_STOP_REQ = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SAI4 stop request
+  using SAI4_STOP_REQ = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FLEXIO1 bus clock domain stop request
+  using FLEXIO1_STOP_REQ_BUS = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FLEXIO1 peripheral clock domain stop request
+  using FLEXIO1_STOP_REQ_PER = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FLEXIO2 bus clock domain stop request
+  using FLEXIO2_STOP_REQ_BUS = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FLEXIO2 peripheral clock domain stop request
+  using FLEXIO2_STOP_REQ_PER = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR74_fields_
 
-  GPR74() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR74 &ref() { return *reinterpret_cast<volatile GPR74*>(0x400E4128); }
+struct GPR74 : ftl::mmio::Register<
+    0x400E4128u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<1, 0>,
+    GPR74_fields_::PIT1_STOP_REQ,
+    GPR74_fields_::PIT2_STOP_REQ,
+    GPR74_fields_::SEMC_STOP_REQ,
+    GPR74_fields_::SIM1_IPG_DOZE,
+    GPR74_fields_::SIM2_IPG_DOZE,
+    GPR74_fields_::SNVS_HP_IPG_DOZE,
+    GPR74_fields_::SNVS_HP_STOP_REQ,
+    GPR74_fields_::WDOG1_IPG_DOZE,
+    GPR74_fields_::WDOG2_IPG_DOZE,
+    GPR74_fields_::SAI1_STOP_REQ,
+    GPR74_fields_::SAI2_STOP_REQ,
+    GPR74_fields_::SAI3_STOP_REQ,
+    GPR74_fields_::SAI4_STOP_REQ,
+    GPR74_fields_::FLEXIO1_STOP_REQ_BUS,
+    GPR74_fields_::FLEXIO1_STOP_REQ_PER,
+    GPR74_fields_::FLEXIO2_STOP_REQ_BUS,
+    GPR74_fields_::FLEXIO2_STOP_REQ_PER,
+    ftl::mmio::Reserved<10, 18>,
+    GPR74_fields_::DWP,
+    GPR74_fields_::DWP_LOCK> {
+  using eDWP = GPR74_fields_::eDWP;
+  using eDWP_LOCK = GPR74_fields_::eDWP_LOCK;
+  using PIT1_STOP_REQ = GPR74_fields_::PIT1_STOP_REQ;
+  using PIT2_STOP_REQ = GPR74_fields_::PIT2_STOP_REQ;
+  using SEMC_STOP_REQ = GPR74_fields_::SEMC_STOP_REQ;
+  using SIM1_IPG_DOZE = GPR74_fields_::SIM1_IPG_DOZE;
+  using SIM2_IPG_DOZE = GPR74_fields_::SIM2_IPG_DOZE;
+  using SNVS_HP_IPG_DOZE = GPR74_fields_::SNVS_HP_IPG_DOZE;
+  using SNVS_HP_STOP_REQ = GPR74_fields_::SNVS_HP_STOP_REQ;
+  using WDOG1_IPG_DOZE = GPR74_fields_::WDOG1_IPG_DOZE;
+  using WDOG2_IPG_DOZE = GPR74_fields_::WDOG2_IPG_DOZE;
+  using SAI1_STOP_REQ = GPR74_fields_::SAI1_STOP_REQ;
+  using SAI2_STOP_REQ = GPR74_fields_::SAI2_STOP_REQ;
+  using SAI3_STOP_REQ = GPR74_fields_::SAI3_STOP_REQ;
+  using SAI4_STOP_REQ = GPR74_fields_::SAI4_STOP_REQ;
+  using FLEXIO1_STOP_REQ_BUS = GPR74_fields_::FLEXIO1_STOP_REQ_BUS;
+  using FLEXIO1_STOP_REQ_PER = GPR74_fields_::FLEXIO1_STOP_REQ_PER;
+  using FLEXIO2_STOP_REQ_BUS = GPR74_fields_::FLEXIO2_STOP_REQ_BUS;
+  using FLEXIO2_STOP_REQ_PER = GPR74_fields_::FLEXIO2_STOP_REQ_PER;
+  using DWP = GPR74_fields_::DWP;
+  using DWP_LOCK = GPR74_fields_::DWP_LOCK;
 };
+
 
 // GPR75 General Purpose Register
-union GPR75 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - ADC1 stop acknowledge
-    uint32_t ADC1_STOP_ACK : 1;
-    // read-only - ADC2 stop acknowledge
-    uint32_t ADC2_STOP_ACK : 1;
-    // read-only - CAAM stop acknowledge
-    uint32_t CAAM_STOP_ACK : 1;
-    // read-only - CAN1 stop acknowledge
-    uint32_t CAN1_STOP_ACK : 1;
-    // read-only - CAN2 stop acknowledge
-    uint32_t CAN2_STOP_ACK : 1;
-    // read-only - CAN3 stop acknowledge
-    uint32_t CAN3_STOP_ACK : 1;
-    // read-only - EDMA stop acknowledge
-    uint32_t EDMA_STOP_ACK : 1;
-    // read-only - EDMA_LPSR stop acknowledge
-    uint32_t EDMA_LPSR_STOP_ACK : 1;
-    // read-only - ENET stop acknowledge
-    uint32_t ENET_STOP_ACK : 1;
-    // read-only - ENET1G stop acknowledge
-    uint32_t ENET1G_STOP_ACK : 1;
-    // read-only - FLEXSPI1 stop acknowledge
-    uint32_t FLEXSPI1_STOP_ACK : 1;
-    // read-only - FLEXSPI2 stop acknowledge
-    uint32_t FLEXSPI2_STOP_ACK : 1;
-    // read-only - LPI2C1 stop acknowledge
-    uint32_t LPI2C1_STOP_ACK : 1;
-    // read-only - LPI2C2 stop acknowledge
-    uint32_t LPI2C2_STOP_ACK : 1;
-    // read-only - LPI2C3 stop acknowledge
-    uint32_t LPI2C3_STOP_ACK : 1;
-    // read-only - LPI2C4 stop acknowledge
-    uint32_t LPI2C4_STOP_ACK : 1;
-    // read-only - LPI2C5 stop acknowledge
-    uint32_t LPI2C5_STOP_ACK : 1;
-    // read-only - LPI2C6 stop acknowledge
-    uint32_t LPI2C6_STOP_ACK : 1;
-    // read-only - LPSPI1 stop acknowledge
-    uint32_t LPSPI1_STOP_ACK : 1;
-    // read-only - LPSPI2 stop acknowledge
-    uint32_t LPSPI2_STOP_ACK : 1;
-    // read-only - LPSPI3 stop acknowledge
-    uint32_t LPSPI3_STOP_ACK : 1;
-    // read-only - LPSPI4 stop acknowledge
-    uint32_t LPSPI4_STOP_ACK : 1;
-    // read-only - LPSPI5 stop acknowledge
-    uint32_t LPSPI5_STOP_ACK : 1;
-    // read-only - LPSPI6 stop acknowledge
-    uint32_t LPSPI6_STOP_ACK : 1;
-    // read-only - LPUART1 stop acknowledge
-    uint32_t LPUART1_STOP_ACK : 1;
-    // read-only - LPUART2 stop acknowledge
-    uint32_t LPUART2_STOP_ACK : 1;
-    // read-only - LPUART3 stop acknowledge
-    uint32_t LPUART3_STOP_ACK : 1;
-    // read-only - LPUART4 stop acknowledge
-    uint32_t LPUART4_STOP_ACK : 1;
-    // read-only - LPUART5 stop acknowledge
-    uint32_t LPUART5_STOP_ACK : 1;
-    // read-only - LPUART6 stop acknowledge
-    uint32_t LPUART6_STOP_ACK : 1;
-    // read-only - LPUART7 stop acknowledge
-    uint32_t LPUART7_STOP_ACK : 1;
-    // read-only - LPUART8 stop acknowledge
-    uint32_t LPUART8_STOP_ACK : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct GPR75_fields_ {
+  // ADC1 stop acknowledge
+  using ADC1_STOP_ACK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // ADC2 stop acknowledge
+  using ADC2_STOP_ACK = ftl::mmio::Field<1, 1, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // CAAM stop acknowledge
+  using CAAM_STOP_ACK = ftl::mmio::Field<1, 2, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // CAN1 stop acknowledge
+  using CAN1_STOP_ACK = ftl::mmio::Field<1, 3, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // CAN2 stop acknowledge
+  using CAN2_STOP_ACK = ftl::mmio::Field<1, 4, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // CAN3 stop acknowledge
+  using CAN3_STOP_ACK = ftl::mmio::Field<1, 5, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // EDMA stop acknowledge
+  using EDMA_STOP_ACK = ftl::mmio::Field<1, 6, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // EDMA_LPSR stop acknowledge
+  using EDMA_LPSR_STOP_ACK = ftl::mmio::Field<1, 7, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // ENET stop acknowledge
+  using ENET_STOP_ACK = ftl::mmio::Field<1, 8, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // ENET1G stop acknowledge
+  using ENET1G_STOP_ACK = ftl::mmio::Field<1, 9, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // FLEXSPI1 stop acknowledge
+  using FLEXSPI1_STOP_ACK = ftl::mmio::Field<1, 10, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // FLEXSPI2 stop acknowledge
+  using FLEXSPI2_STOP_ACK = ftl::mmio::Field<1, 11, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPI2C1 stop acknowledge
+  using LPI2C1_STOP_ACK = ftl::mmio::Field<1, 12, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPI2C2 stop acknowledge
+  using LPI2C2_STOP_ACK = ftl::mmio::Field<1, 13, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPI2C3 stop acknowledge
+  using LPI2C3_STOP_ACK = ftl::mmio::Field<1, 14, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPI2C4 stop acknowledge
+  using LPI2C4_STOP_ACK = ftl::mmio::Field<1, 15, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPI2C5 stop acknowledge
+  using LPI2C5_STOP_ACK = ftl::mmio::Field<1, 16, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPI2C6 stop acknowledge
+  using LPI2C6_STOP_ACK = ftl::mmio::Field<1, 17, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPSPI1 stop acknowledge
+  using LPSPI1_STOP_ACK = ftl::mmio::Field<1, 18, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPSPI2 stop acknowledge
+  using LPSPI2_STOP_ACK = ftl::mmio::Field<1, 19, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPSPI3 stop acknowledge
+  using LPSPI3_STOP_ACK = ftl::mmio::Field<1, 20, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPSPI4 stop acknowledge
+  using LPSPI4_STOP_ACK = ftl::mmio::Field<1, 21, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPSPI5 stop acknowledge
+  using LPSPI5_STOP_ACK = ftl::mmio::Field<1, 22, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPSPI6 stop acknowledge
+  using LPSPI6_STOP_ACK = ftl::mmio::Field<1, 23, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPUART1 stop acknowledge
+  using LPUART1_STOP_ACK = ftl::mmio::Field<1, 24, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPUART2 stop acknowledge
+  using LPUART2_STOP_ACK = ftl::mmio::Field<1, 25, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPUART3 stop acknowledge
+  using LPUART3_STOP_ACK = ftl::mmio::Field<1, 26, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPUART4 stop acknowledge
+  using LPUART4_STOP_ACK = ftl::mmio::Field<1, 27, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPUART5 stop acknowledge
+  using LPUART5_STOP_ACK = ftl::mmio::Field<1, 28, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPUART6 stop acknowledge
+  using LPUART6_STOP_ACK = ftl::mmio::Field<1, 29, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPUART7 stop acknowledge
+  using LPUART7_STOP_ACK = ftl::mmio::Field<1, 30, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPUART8 stop acknowledge
+  using LPUART8_STOP_ACK = ftl::mmio::Field<1, 31, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct GPR75_fields_
 
-  GPR75() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR75 &ref() { return *reinterpret_cast<volatile GPR75*>(0x400E412C); }
+struct GPR75 : ftl::mmio::Register<
+    0x400E412Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    GPR75_fields_::ADC1_STOP_ACK,
+    GPR75_fields_::ADC2_STOP_ACK,
+    GPR75_fields_::CAAM_STOP_ACK,
+    GPR75_fields_::CAN1_STOP_ACK,
+    GPR75_fields_::CAN2_STOP_ACK,
+    GPR75_fields_::CAN3_STOP_ACK,
+    GPR75_fields_::EDMA_STOP_ACK,
+    GPR75_fields_::EDMA_LPSR_STOP_ACK,
+    GPR75_fields_::ENET_STOP_ACK,
+    GPR75_fields_::ENET1G_STOP_ACK,
+    GPR75_fields_::FLEXSPI1_STOP_ACK,
+    GPR75_fields_::FLEXSPI2_STOP_ACK,
+    GPR75_fields_::LPI2C1_STOP_ACK,
+    GPR75_fields_::LPI2C2_STOP_ACK,
+    GPR75_fields_::LPI2C3_STOP_ACK,
+    GPR75_fields_::LPI2C4_STOP_ACK,
+    GPR75_fields_::LPI2C5_STOP_ACK,
+    GPR75_fields_::LPI2C6_STOP_ACK,
+    GPR75_fields_::LPSPI1_STOP_ACK,
+    GPR75_fields_::LPSPI2_STOP_ACK,
+    GPR75_fields_::LPSPI3_STOP_ACK,
+    GPR75_fields_::LPSPI4_STOP_ACK,
+    GPR75_fields_::LPSPI5_STOP_ACK,
+    GPR75_fields_::LPSPI6_STOP_ACK,
+    GPR75_fields_::LPUART1_STOP_ACK,
+    GPR75_fields_::LPUART2_STOP_ACK,
+    GPR75_fields_::LPUART3_STOP_ACK,
+    GPR75_fields_::LPUART4_STOP_ACK,
+    GPR75_fields_::LPUART5_STOP_ACK,
+    GPR75_fields_::LPUART6_STOP_ACK,
+    GPR75_fields_::LPUART7_STOP_ACK,
+    GPR75_fields_::LPUART8_STOP_ACK> {
+  using ADC1_STOP_ACK = GPR75_fields_::ADC1_STOP_ACK;
+  using ADC2_STOP_ACK = GPR75_fields_::ADC2_STOP_ACK;
+  using CAAM_STOP_ACK = GPR75_fields_::CAAM_STOP_ACK;
+  using CAN1_STOP_ACK = GPR75_fields_::CAN1_STOP_ACK;
+  using CAN2_STOP_ACK = GPR75_fields_::CAN2_STOP_ACK;
+  using CAN3_STOP_ACK = GPR75_fields_::CAN3_STOP_ACK;
+  using EDMA_STOP_ACK = GPR75_fields_::EDMA_STOP_ACK;
+  using EDMA_LPSR_STOP_ACK = GPR75_fields_::EDMA_LPSR_STOP_ACK;
+  using ENET_STOP_ACK = GPR75_fields_::ENET_STOP_ACK;
+  using ENET1G_STOP_ACK = GPR75_fields_::ENET1G_STOP_ACK;
+  using FLEXSPI1_STOP_ACK = GPR75_fields_::FLEXSPI1_STOP_ACK;
+  using FLEXSPI2_STOP_ACK = GPR75_fields_::FLEXSPI2_STOP_ACK;
+  using LPI2C1_STOP_ACK = GPR75_fields_::LPI2C1_STOP_ACK;
+  using LPI2C2_STOP_ACK = GPR75_fields_::LPI2C2_STOP_ACK;
+  using LPI2C3_STOP_ACK = GPR75_fields_::LPI2C3_STOP_ACK;
+  using LPI2C4_STOP_ACK = GPR75_fields_::LPI2C4_STOP_ACK;
+  using LPI2C5_STOP_ACK = GPR75_fields_::LPI2C5_STOP_ACK;
+  using LPI2C6_STOP_ACK = GPR75_fields_::LPI2C6_STOP_ACK;
+  using LPSPI1_STOP_ACK = GPR75_fields_::LPSPI1_STOP_ACK;
+  using LPSPI2_STOP_ACK = GPR75_fields_::LPSPI2_STOP_ACK;
+  using LPSPI3_STOP_ACK = GPR75_fields_::LPSPI3_STOP_ACK;
+  using LPSPI4_STOP_ACK = GPR75_fields_::LPSPI4_STOP_ACK;
+  using LPSPI5_STOP_ACK = GPR75_fields_::LPSPI5_STOP_ACK;
+  using LPSPI6_STOP_ACK = GPR75_fields_::LPSPI6_STOP_ACK;
+  using LPUART1_STOP_ACK = GPR75_fields_::LPUART1_STOP_ACK;
+  using LPUART2_STOP_ACK = GPR75_fields_::LPUART2_STOP_ACK;
+  using LPUART3_STOP_ACK = GPR75_fields_::LPUART3_STOP_ACK;
+  using LPUART4_STOP_ACK = GPR75_fields_::LPUART4_STOP_ACK;
+  using LPUART5_STOP_ACK = GPR75_fields_::LPUART5_STOP_ACK;
+  using LPUART6_STOP_ACK = GPR75_fields_::LPUART6_STOP_ACK;
+  using LPUART7_STOP_ACK = GPR75_fields_::LPUART7_STOP_ACK;
+  using LPUART8_STOP_ACK = GPR75_fields_::LPUART8_STOP_ACK;
 };
+
 
 // GPR76 General Purpose Register
-union GPR76 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - LPUART9 stop acknowledge
-    uint32_t LPUART9_STOP_ACK : 1;
-    // read-only - LPUART10 stop acknowledge
-    uint32_t LPUART10_STOP_ACK : 1;
-    // read-only - LPUART11 stop acknowledge
-    uint32_t LPUART11_STOP_ACK : 1;
-    // read-only - LPUART12 stop acknowledge
-    uint32_t LPUART12_STOP_ACK : 1;
-    // read-only - MIC stop acknowledge
-    uint32_t MIC_STOP_ACK : 1;
-    // read-only - PIT1 stop acknowledge
-    uint32_t PIT1_STOP_ACK : 1;
-    // read-only - PIT2 stop acknowledge
-    uint32_t PIT2_STOP_ACK : 1;
-    // read-only - SEMC stop acknowledge
-    uint32_t SEMC_STOP_ACK : 1;
-    // read-only - SNVS_HP stop acknowledge
-    uint32_t SNVS_HP_STOP_ACK : 1;
-    // read-only - SAI1 stop acknowledge
-    uint32_t SAI1_STOP_ACK : 1;
-    // read-only - SAI2 stop acknowledge
-    uint32_t SAI2_STOP_ACK : 1;
-    // read-only - SAI3 stop acknowledge
-    uint32_t SAI3_STOP_ACK : 1;
-    // read-only - SAI4 stop acknowledge
-    uint32_t SAI4_STOP_ACK : 1;
-    // read-only - FLEXIO1 stop acknowledge of bus clock domain
-    uint32_t FLEXIO1_STOP_ACK_BUS : 1;
-    // read-only - FLEXIO1 stop acknowledge of peripheral clock domain
-    uint32_t FLEXIO1_STOP_ACK_PER : 1;
-    // read-only - FLEXIO2 stop acknowledge of bus clock domain
-    uint32_t FLEXIO2_STOP_ACK_BUS : 1;
-    // read-only - FLEXIO2 stop acknowledge of peripheral clock domain
-    uint32_t FLEXIO2_STOP_ACK_PER : 1;
-    uint32_t _reserved_0 : 15;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct GPR76_fields_ {
+  // LPUART9 stop acknowledge
+  using LPUART9_STOP_ACK = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPUART10 stop acknowledge
+  using LPUART10_STOP_ACK = ftl::mmio::Field<1, 1, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPUART11 stop acknowledge
+  using LPUART11_STOP_ACK = ftl::mmio::Field<1, 2, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPUART12 stop acknowledge
+  using LPUART12_STOP_ACK = ftl::mmio::Field<1, 3, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // MIC stop acknowledge
+  using MIC_STOP_ACK = ftl::mmio::Field<1, 4, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // PIT1 stop acknowledge
+  using PIT1_STOP_ACK = ftl::mmio::Field<1, 5, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // PIT2 stop acknowledge
+  using PIT2_STOP_ACK = ftl::mmio::Field<1, 6, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // SEMC stop acknowledge
+  using SEMC_STOP_ACK = ftl::mmio::Field<1, 7, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // SNVS_HP stop acknowledge
+  using SNVS_HP_STOP_ACK = ftl::mmio::Field<1, 8, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // SAI1 stop acknowledge
+  using SAI1_STOP_ACK = ftl::mmio::Field<1, 9, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // SAI2 stop acknowledge
+  using SAI2_STOP_ACK = ftl::mmio::Field<1, 10, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // SAI3 stop acknowledge
+  using SAI3_STOP_ACK = ftl::mmio::Field<1, 11, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // SAI4 stop acknowledge
+  using SAI4_STOP_ACK = ftl::mmio::Field<1, 12, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // FLEXIO1 stop acknowledge of bus clock domain
+  using FLEXIO1_STOP_ACK_BUS = ftl::mmio::Field<1, 13, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // FLEXIO1 stop acknowledge of peripheral clock domain
+  using FLEXIO1_STOP_ACK_PER = ftl::mmio::Field<1, 14, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // FLEXIO2 stop acknowledge of bus clock domain
+  using FLEXIO2_STOP_ACK_BUS = ftl::mmio::Field<1, 15, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // FLEXIO2 stop acknowledge of peripheral clock domain
+  using FLEXIO2_STOP_ACK_PER = ftl::mmio::Field<1, 16, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct GPR76_fields_
 
-  GPR76() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR76 &ref() { return *reinterpret_cast<volatile GPR76*>(0x400E4130); }
+struct GPR76 : ftl::mmio::Register<
+    0x400E4130u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    GPR76_fields_::LPUART9_STOP_ACK,
+    GPR76_fields_::LPUART10_STOP_ACK,
+    GPR76_fields_::LPUART11_STOP_ACK,
+    GPR76_fields_::LPUART12_STOP_ACK,
+    GPR76_fields_::MIC_STOP_ACK,
+    GPR76_fields_::PIT1_STOP_ACK,
+    GPR76_fields_::PIT2_STOP_ACK,
+    GPR76_fields_::SEMC_STOP_ACK,
+    GPR76_fields_::SNVS_HP_STOP_ACK,
+    GPR76_fields_::SAI1_STOP_ACK,
+    GPR76_fields_::SAI2_STOP_ACK,
+    GPR76_fields_::SAI3_STOP_ACK,
+    GPR76_fields_::SAI4_STOP_ACK,
+    GPR76_fields_::FLEXIO1_STOP_ACK_BUS,
+    GPR76_fields_::FLEXIO1_STOP_ACK_PER,
+    GPR76_fields_::FLEXIO2_STOP_ACK_BUS,
+    GPR76_fields_::FLEXIO2_STOP_ACK_PER,
+    ftl::mmio::Reserved<15, 17>> {
+  using LPUART9_STOP_ACK = GPR76_fields_::LPUART9_STOP_ACK;
+  using LPUART10_STOP_ACK = GPR76_fields_::LPUART10_STOP_ACK;
+  using LPUART11_STOP_ACK = GPR76_fields_::LPUART11_STOP_ACK;
+  using LPUART12_STOP_ACK = GPR76_fields_::LPUART12_STOP_ACK;
+  using MIC_STOP_ACK = GPR76_fields_::MIC_STOP_ACK;
+  using PIT1_STOP_ACK = GPR76_fields_::PIT1_STOP_ACK;
+  using PIT2_STOP_ACK = GPR76_fields_::PIT2_STOP_ACK;
+  using SEMC_STOP_ACK = GPR76_fields_::SEMC_STOP_ACK;
+  using SNVS_HP_STOP_ACK = GPR76_fields_::SNVS_HP_STOP_ACK;
+  using SAI1_STOP_ACK = GPR76_fields_::SAI1_STOP_ACK;
+  using SAI2_STOP_ACK = GPR76_fields_::SAI2_STOP_ACK;
+  using SAI3_STOP_ACK = GPR76_fields_::SAI3_STOP_ACK;
+  using SAI4_STOP_ACK = GPR76_fields_::SAI4_STOP_ACK;
+  using FLEXIO1_STOP_ACK_BUS = GPR76_fields_::FLEXIO1_STOP_ACK_BUS;
+  using FLEXIO1_STOP_ACK_PER = GPR76_fields_::FLEXIO1_STOP_ACK_PER;
+  using FLEXIO2_STOP_ACK_BUS = GPR76_fields_::FLEXIO2_STOP_ACK_BUS;
+  using FLEXIO2_STOP_ACK_PER = GPR76_fields_::FLEXIO2_STOP_ACK_PER;
 };
 
-
-} // namespace nIOMUXC_GPR
+}  // namespace regs::iomuxc_gpr

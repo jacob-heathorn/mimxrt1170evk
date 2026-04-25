@@ -1,234 +1,221 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // DSI HOST DPHY INTFC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nDSI_HOST_DPHY_INTFC {
+namespace regs::dsi_host_dphy_intfc {
 
 
 // PD_TX
-union PD_TX {
-  
-  // Power Down input for D-PHY
-  enum class ePD_TX : uint32_t {
+struct PD_TX_fields_ {
+
+  enum class ePD_TX : std::uint32_t {
     // Power Up
     ePD_TX_0 = 0,
     // Power Down
     ePD_TX_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Power Down input for D-PHY
-    ePD_TX PD_TX : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Power Down input for D-PHY
+  using PD_TX = ftl::mmio::Field<1, 0, ePD_TX, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PD_TX_fields_
 
-  PD_TX() = delete;
-  inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile PD_TX &ref() { return *reinterpret_cast<volatile PD_TX*>(0x4080C300); }
+struct PD_TX : ftl::mmio::Register<
+    0x4080C300u,
+    std::uint32_t,
+    0x00000001u,
+    ftl::mmio::RW,
+    PD_TX_fields_::PD_TX,
+    ftl::mmio::Reserved<31, 1>> {
+  using ePD_TX = PD_TX_fields_::ePD_TX;
+  using value_ = PD_TX_fields_::PD_TX;
 };
+
 
 // M_PRG_HS_PREPARE
-union M_PRG_HS_PREPARE {
-  
-  // Bit field definition.
-  struct {
-    // read-write - DPHY m_PRG_HS_PREPARE input
-    uint32_t M_PRG_HS_PREPARE : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct M_PRG_HS_PREPARE_fields_ {
+  // DPHY m_PRG_HS_PREPARE input
+  using M_PRG_HS_PREPARE = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct M_PRG_HS_PREPARE_fields_
 
-  M_PRG_HS_PREPARE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile M_PRG_HS_PREPARE &ref() { return *reinterpret_cast<volatile M_PRG_HS_PREPARE*>(0x4080C304); }
+struct M_PRG_HS_PREPARE : ftl::mmio::Register<
+    0x4080C304u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    M_PRG_HS_PREPARE_fields_::M_PRG_HS_PREPARE,
+    ftl::mmio::Reserved<30, 2>> {
+  using value_ = M_PRG_HS_PREPARE_fields_::M_PRG_HS_PREPARE;
 };
+
 
 // MC_PRG_HS_PREPARE
-union MC_PRG_HS_PREPARE {
-  
-  // Bit field definition.
-  struct {
-    // read-write - DPHY mc_PRG_HS_PREPARE input
-    uint32_t MC_PRG_HS_PREPARE : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct MC_PRG_HS_PREPARE_fields_ {
+  // DPHY mc_PRG_HS_PREPARE input
+  using MC_PRG_HS_PREPARE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct MC_PRG_HS_PREPARE_fields_
 
-  MC_PRG_HS_PREPARE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MC_PRG_HS_PREPARE &ref() { return *reinterpret_cast<volatile MC_PRG_HS_PREPARE*>(0x4080C308); }
+struct MC_PRG_HS_PREPARE : ftl::mmio::Register<
+    0x4080C308u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    MC_PRG_HS_PREPARE_fields_::MC_PRG_HS_PREPARE,
+    ftl::mmio::Reserved<31, 1>> {
+  using value_ = MC_PRG_HS_PREPARE_fields_::MC_PRG_HS_PREPARE;
 };
+
 
 // M_PRG_HS_ZERO
-union M_PRG_HS_ZERO {
-  
-  // Bit field definition.
-  struct {
-    // read-write - DPHY m_PRG_HS_ZERO input
-    uint32_t M_PRG_HS_ZERO : 5;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct M_PRG_HS_ZERO_fields_ {
+  // DPHY m_PRG_HS_ZERO input
+  using M_PRG_HS_ZERO = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct M_PRG_HS_ZERO_fields_
 
-  M_PRG_HS_ZERO() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile M_PRG_HS_ZERO &ref() { return *reinterpret_cast<volatile M_PRG_HS_ZERO*>(0x4080C30C); }
+struct M_PRG_HS_ZERO : ftl::mmio::Register<
+    0x4080C30Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    M_PRG_HS_ZERO_fields_::M_PRG_HS_ZERO,
+    ftl::mmio::Reserved<27, 5>> {
+  using value_ = M_PRG_HS_ZERO_fields_::M_PRG_HS_ZERO;
 };
+
 
 // MC_PRG_HS_ZERO
-union MC_PRG_HS_ZERO {
-  
-  // Bit field definition.
-  struct {
-    // read-write - DPHY mc_PRG_HS_ZERO input
-    uint32_t MC_PRG_HS_ZERO : 6;
-    uint32_t _reserved_0 : 26;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct MC_PRG_HS_ZERO_fields_ {
+  // DPHY mc_PRG_HS_ZERO input
+  using MC_PRG_HS_ZERO = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct MC_PRG_HS_ZERO_fields_
 
-  MC_PRG_HS_ZERO() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MC_PRG_HS_ZERO &ref() { return *reinterpret_cast<volatile MC_PRG_HS_ZERO*>(0x4080C310); }
+struct MC_PRG_HS_ZERO : ftl::mmio::Register<
+    0x4080C310u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    MC_PRG_HS_ZERO_fields_::MC_PRG_HS_ZERO,
+    ftl::mmio::Reserved<26, 6>> {
+  using value_ = MC_PRG_HS_ZERO_fields_::MC_PRG_HS_ZERO;
 };
+
 
 // M_PRG_HS_TRAIL
-union M_PRG_HS_TRAIL {
-  
-  // Bit field definition.
-  struct {
-    // read-write - DPHY m_PRG_HS_TRAIL input
-    uint32_t M_PRG_HS_TRAIL : 4;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct M_PRG_HS_TRAIL_fields_ {
+  // DPHY m_PRG_HS_TRAIL input
+  using M_PRG_HS_TRAIL = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct M_PRG_HS_TRAIL_fields_
 
-  M_PRG_HS_TRAIL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile M_PRG_HS_TRAIL &ref() { return *reinterpret_cast<volatile M_PRG_HS_TRAIL*>(0x4080C314); }
+struct M_PRG_HS_TRAIL : ftl::mmio::Register<
+    0x4080C314u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    M_PRG_HS_TRAIL_fields_::M_PRG_HS_TRAIL,
+    ftl::mmio::Reserved<28, 4>> {
+  using value_ = M_PRG_HS_TRAIL_fields_::M_PRG_HS_TRAIL;
 };
+
 
 // MC_PRG_HS_TRAIL
-union MC_PRG_HS_TRAIL {
-  
-  // Bit field definition.
-  struct {
-    // read-write - DPHY mc_PRG_HS_TRAIL input
-    uint32_t MC_PRG_HS_TRAIL : 4;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct MC_PRG_HS_TRAIL_fields_ {
+  // DPHY mc_PRG_HS_TRAIL input
+  using MC_PRG_HS_TRAIL = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct MC_PRG_HS_TRAIL_fields_
 
-  MC_PRG_HS_TRAIL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MC_PRG_HS_TRAIL &ref() { return *reinterpret_cast<volatile MC_PRG_HS_TRAIL*>(0x4080C318); }
+struct MC_PRG_HS_TRAIL : ftl::mmio::Register<
+    0x4080C318u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    MC_PRG_HS_TRAIL_fields_::MC_PRG_HS_TRAIL,
+    ftl::mmio::Reserved<28, 4>> {
+  using value_ = MC_PRG_HS_TRAIL_fields_::MC_PRG_HS_TRAIL;
 };
 
+
 // PD_PLL
-union PD_PLL {
-  
-  // Power-down signal
-  enum class ePD_PLL : uint32_t {
+struct PD_PLL_fields_ {
+
+  enum class ePD_PLL : std::uint32_t {
     // Power up PLL
     ePD_PLL_0 = 0,
     // Power down PLL
     ePD_PLL_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Power-down signal
-    ePD_PLL PD_PLL : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Power-down signal
+  using PD_PLL = ftl::mmio::Field<1, 0, ePD_PLL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PD_PLL_fields_
 
-  PD_PLL() = delete;
-  inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile PD_PLL &ref() { return *reinterpret_cast<volatile PD_PLL*>(0x4080C31C); }
+struct PD_PLL : ftl::mmio::Register<
+    0x4080C31Cu,
+    std::uint32_t,
+    0x00000001u,
+    ftl::mmio::RW,
+    PD_PLL_fields_::PD_PLL,
+    ftl::mmio::Reserved<31, 1>> {
+  using ePD_PLL = PD_PLL_fields_::ePD_PLL;
+  using value_ = PD_PLL_fields_::PD_PLL;
 };
+
 
 // TST
-union TST {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Test
-    uint32_t TST : 6;
-    uint32_t _reserved_0 : 26;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TST_fields_ {
+  // Test
+  using TST = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TST_fields_
 
-  TST() = delete;
-  inline void Reset() volatile { this->value = 0x00000025; }
-  static inline volatile TST &ref() { return *reinterpret_cast<volatile TST*>(0x4080C320); }
+struct TST : ftl::mmio::Register<
+    0x4080C320u,
+    std::uint32_t,
+    0x00000025u,
+    ftl::mmio::RW,
+    TST_fields_::TST,
+    ftl::mmio::Reserved<26, 6>> {
+  using value_ = TST_fields_::TST;
 };
+
 
 // CN
-union CN {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Control N divider
-    uint32_t CN : 5;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CN_fields_ {
+  // Control N divider
+  using CN = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CN_fields_
 
-  CN() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CN &ref() { return *reinterpret_cast<volatile CN*>(0x4080C324); }
+struct CN : ftl::mmio::Register<
+    0x4080C324u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CN_fields_::CN,
+    ftl::mmio::Reserved<27, 5>> {
+  using value_ = CN_fields_::CN;
 };
+
 
 // CM
-union CM {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Control M divider
-    uint32_t CM : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CM_fields_ {
+  // Control M divider
+  using CM = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CM_fields_
 
-  CM() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CM &ref() { return *reinterpret_cast<volatile CM*>(0x4080C328); }
+struct CM : ftl::mmio::Register<
+    0x4080C328u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CM_fields_::CM,
+    ftl::mmio::Reserved<24, 8>> {
+  using value_ = CM_fields_::CM;
 };
 
+
 // CO
-union CO {
-  
-  // Control O divider
-  enum class eCO : uint32_t {
+struct CO_fields_ {
+
+  enum class eCO : std::uint32_t {
     // Divide by 1
     eCO_0 = 0,
     // Divide by 2
@@ -238,79 +225,76 @@ union CO {
     // Divide by 8
     eCO_3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Control O divider
-    eCO CO : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Control O divider
+  using CO = ftl::mmio::Field<2, 0, eCO, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CO_fields_
 
-  CO() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CO &ref() { return *reinterpret_cast<volatile CO*>(0x4080C32C); }
+struct CO : ftl::mmio::Register<
+    0x4080C32Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CO_fields_::CO,
+    ftl::mmio::Reserved<30, 2>> {
+  using eCO = CO_fields_::eCO;
+  using value_ = CO_fields_::CO;
 };
 
+
 // LOCK
-union LOCK {
-  
-  // Lock Detect output
-  enum class eLOCK : uint32_t {
+struct LOCK_fields_ {
+
+  enum class eLOCK : std::uint32_t {
     // PLL not locked
     eLOCK_0 = 0,
     // PLL has achieved frequency lock
     eLOCK_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - Lock Detect output
-    eLOCK LOCK : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Lock Detect output
+  using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct LOCK_fields_
 
-  LOCK() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LOCK &ref() { return *reinterpret_cast<volatile LOCK*>(0x4080C330); }
+struct LOCK : ftl::mmio::Register<
+    0x4080C330u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    LOCK_fields_::LOCK,
+    ftl::mmio::Reserved<31, 1>> {
+  using eLOCK = LOCK_fields_::eLOCK;
+  using value_ = LOCK_fields_::LOCK;
 };
 
+
 // LOCK_BYP
-union LOCK_BYP {
-  
-  // DPHY LOCK_BYP input
-  enum class eLOCK_BYP : uint32_t {
+struct LOCK_BYP_fields_ {
+
+  enum class eLOCK_BYP : std::uint32_t {
     // PLL LOCK signal will gate TxByteClkHS clock
     eGATE = 0,
     // PLL LOCK signal will not gate TxByteClkHS clock, CIL based counter will be used to gate the TxByteClkHS
     eNOGATE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - DPHY LOCK_BYP input
-    eLOCK_BYP LOCK_BYP : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // DPHY LOCK_BYP input
+  using LOCK_BYP = ftl::mmio::Field<1, 0, eLOCK_BYP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LOCK_BYP_fields_
 
-  LOCK_BYP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LOCK_BYP &ref() { return *reinterpret_cast<volatile LOCK_BYP*>(0x4080C334); }
+struct LOCK_BYP : ftl::mmio::Register<
+    0x4080C334u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LOCK_BYP_fields_::LOCK_BYP,
+    ftl::mmio::Reserved<31, 1>> {
+  using eLOCK_BYP = LOCK_BYP_fields_::eLOCK_BYP;
+  using value_ = LOCK_BYP_fields_::LOCK_BYP;
 };
 
+
 // TX_RCAL
-union TX_RCAL {
-  
-  // On-chip termination control bits for manual calibration of HS-TX
-  enum class eTX_RCAL : uint32_t {
+struct TX_RCAL_fields_ {
+
+  enum class eTX_RCAL : std::uint32_t {
     // 20% higher than mid-range. Highest impedance setting
     eTX_RCAL_0 = 0,
     // Mid-range impedance setting (default)
@@ -320,71 +304,68 @@ union TX_RCAL {
     // 25% lower than mid-range. Lowest impedance setting
     eTX_RCAL_3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - On-chip termination control bits for manual calibration of HS-TX
-    eTX_RCAL TX_RCAL : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // On-chip termination control bits for manual calibration of HS-TX
+  using TX_RCAL = ftl::mmio::Field<2, 0, eTX_RCAL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TX_RCAL_fields_
 
-  TX_RCAL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TX_RCAL &ref() { return *reinterpret_cast<volatile TX_RCAL*>(0x4080C338); }
+struct TX_RCAL : ftl::mmio::Register<
+    0x4080C338u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TX_RCAL_fields_::TX_RCAL,
+    ftl::mmio::Reserved<30, 2>> {
+  using eTX_RCAL = TX_RCAL_fields_::eTX_RCAL;
+  using value_ = TX_RCAL_fields_::TX_RCAL;
 };
 
+
 // AUTO_PD_EN
-union AUTO_PD_EN {
-  
-  // DPHY AUTO_PD_EN input
-  enum class eAUTO_PD_EN : uint32_t {
+struct AUTO_PD_EN_fields_ {
+
+  enum class eAUTO_PD_EN : std::uint32_t {
     // Inactive lanes are powered up and driving LP11
     ePWR_UP = 0,
     // inactive lanes are powered down
     ePWR_DWN = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - DPHY AUTO_PD_EN input
-    eAUTO_PD_EN AUTO_PD_EN : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // DPHY AUTO_PD_EN input
+  using AUTO_PD_EN = ftl::mmio::Field<1, 0, eAUTO_PD_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct AUTO_PD_EN_fields_
 
-  AUTO_PD_EN() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTO_PD_EN &ref() { return *reinterpret_cast<volatile AUTO_PD_EN*>(0x4080C33C); }
+struct AUTO_PD_EN : ftl::mmio::Register<
+    0x4080C33Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    AUTO_PD_EN_fields_::AUTO_PD_EN,
+    ftl::mmio::Reserved<31, 1>> {
+  using eAUTO_PD_EN = AUTO_PD_EN_fields_::eAUTO_PD_EN;
+  using value_ = AUTO_PD_EN_fields_::AUTO_PD_EN;
 };
+
 
 // RXLPRP
-union RXLPRP {
-  
-  // Bit field definition.
-  struct {
-    // read-write - DPHY RXLPRP input
-    uint32_t RXLPRP : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RXLPRP_fields_ {
+  // DPHY RXLPRP input
+  using RXLPRP = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RXLPRP_fields_
 
-  RXLPRP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXLPRP &ref() { return *reinterpret_cast<volatile RXLPRP*>(0x4080C340); }
+struct RXLPRP : ftl::mmio::Register<
+    0x4080C340u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    RXLPRP_fields_::RXLPRP,
+    ftl::mmio::Reserved<30, 2>> {
+  using value_ = RXLPRP_fields_::RXLPRP;
 };
 
+
 // RXCDRP
-union RXCDRP {
-  
-  // DPHY RXCDRP input
-  enum class eRXCDRP : uint32_t {
+struct RXCDRP_fields_ {
+
+  enum class eRXCDRP : std::uint32_t {
     // 344mV
     eRXCDRP_0 = 0,
     // 325mV (Default)
@@ -394,21 +375,19 @@ union RXCDRP {
     // Invalid
     eRXCDRP_3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - DPHY RXCDRP input
-    eRXCDRP RXCDRP : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // DPHY RXCDRP input
+  using RXCDRP = ftl::mmio::Field<2, 0, eRXCDRP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RXCDRP_fields_
 
-  RXCDRP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXCDRP &ref() { return *reinterpret_cast<volatile RXCDRP*>(0x4080C344); }
+struct RXCDRP : ftl::mmio::Register<
+    0x4080C344u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    RXCDRP_fields_::RXCDRP,
+    ftl::mmio::Reserved<30, 2>> {
+  using eRXCDRP = RXCDRP_fields_::eRXCDRP;
+  using value_ = RXCDRP_fields_::RXCDRP;
 };
 
-
-} // namespace nDSI_HOST_DPHY_INTFC
+}  // namespace regs::dsi_host_dphy_intfc

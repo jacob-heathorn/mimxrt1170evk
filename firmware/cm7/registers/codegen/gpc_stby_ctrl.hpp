@@ -1,63 +1,65 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // GPC_STBY
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nGPC_STBY_CTRL {
+namespace regs::gpc_stby_ctrl {
 
 
 // Standby Authentication Control
-union STBY_AUTHEN_CTRL {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 20;
-    // read-write - Configuration lock
-    uint32_t LOCK_CFG : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct STBY_AUTHEN_CTRL_fields_ {
+  // Configuration lock
+  using LOCK_CFG = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_AUTHEN_CTRL_fields_
 
-  STBY_AUTHEN_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STBY_AUTHEN_CTRL &ref() { return *reinterpret_cast<volatile STBY_AUTHEN_CTRL*>(0x40C02804); }
+struct STBY_AUTHEN_CTRL : ftl::mmio::Register<
+    0x40C02804u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<20, 0>,
+    STBY_AUTHEN_CTRL_fields_::LOCK_CFG,
+    ftl::mmio::Reserved<11, 21>> {
+  using LOCK_CFG = STBY_AUTHEN_CTRL_fields_::LOCK_CFG;
 };
+
 
 // STBY Misc
-union STBY_MISC {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Force CPU0 requesting standby mode
-    uint32_t FORCE_CPU0_STBY : 1;
-    // read-write - Force CPU0 requesting standby mode
-    uint32_t FORCE_CPU1_STBY : 1;
-    // read-write - Force CPU2 requesting standby mode
-    uint32_t FORCE_CPU2_STBY : 1;
-    // read-write - Force CPU3 requesting standby mode
-    uint32_t FORCE_CPU3_STBY : 1;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct STBY_MISC_fields_ {
+  // Force CPU0 requesting standby mode
+  using FORCE_CPU0_STBY = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Force CPU0 requesting standby mode
+  using FORCE_CPU1_STBY = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Force CPU2 requesting standby mode
+  using FORCE_CPU2_STBY = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Force CPU3 requesting standby mode
+  using FORCE_CPU3_STBY = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_MISC_fields_
 
-  STBY_MISC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STBY_MISC &ref() { return *reinterpret_cast<volatile STBY_MISC*>(0x40C0280C); }
+struct STBY_MISC : ftl::mmio::Register<
+    0x40C0280Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    STBY_MISC_fields_::FORCE_CPU0_STBY,
+    STBY_MISC_fields_::FORCE_CPU1_STBY,
+    STBY_MISC_fields_::FORCE_CPU2_STBY,
+    STBY_MISC_fields_::FORCE_CPU3_STBY,
+    ftl::mmio::Reserved<28, 4>> {
+  using FORCE_CPU0_STBY = STBY_MISC_fields_::FORCE_CPU0_STBY;
+  using FORCE_CPU1_STBY = STBY_MISC_fields_::FORCE_CPU1_STBY;
+  using FORCE_CPU2_STBY = STBY_MISC_fields_::FORCE_CPU2_STBY;
+  using FORCE_CPU3_STBY = STBY_MISC_fields_::FORCE_CPU3_STBY;
 };
+
 
 // STBY lpcg_in control
-union STBY_LPCG_IN_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_LPCG_IN_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -67,32 +69,35 @@ union STBY_LPCG_IN_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_LPCG_IN_CTRL_fields_
 
-  STBY_LPCG_IN_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_LPCG_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_LPCG_IN_CTRL*>(0x40C028F0); }
+struct STBY_LPCG_IN_CTRL : ftl::mmio::Register<
+    0x40C028F0u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_LPCG_IN_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_LPCG_IN_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_LPCG_IN_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_LPCG_IN_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_LPCG_IN_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_LPCG_IN_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_LPCG_IN_CTRL_fields_::DISABLE;
 };
+
 
 // STBY pll_in control
-union STBY_PLL_IN_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_PLL_IN_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -102,32 +107,35 @@ union STBY_PLL_IN_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_PLL_IN_CTRL_fields_
 
-  STBY_PLL_IN_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_PLL_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_PLL_IN_CTRL*>(0x40C02900); }
+struct STBY_PLL_IN_CTRL : ftl::mmio::Register<
+    0x40C02900u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_PLL_IN_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_PLL_IN_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_PLL_IN_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_PLL_IN_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_PLL_IN_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_PLL_IN_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_PLL_IN_CTRL_fields_::DISABLE;
 };
+
 
 // STBY bias_in control
-union STBY_BIAS_IN_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_BIAS_IN_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -137,32 +145,35 @@ union STBY_BIAS_IN_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_BIAS_IN_CTRL_fields_
 
-  STBY_BIAS_IN_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_BIAS_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_BIAS_IN_CTRL*>(0x40C02910); }
+struct STBY_BIAS_IN_CTRL : ftl::mmio::Register<
+    0x40C02910u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_BIAS_IN_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_BIAS_IN_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_BIAS_IN_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_BIAS_IN_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_BIAS_IN_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_BIAS_IN_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_BIAS_IN_CTRL_fields_::DISABLE;
 };
+
 
 // STBY pldo_in control
-union STBY_PLDO_IN_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_PLDO_IN_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -172,32 +183,35 @@ union STBY_PLDO_IN_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_PLDO_IN_CTRL_fields_
 
-  STBY_PLDO_IN_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_PLDO_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_PLDO_IN_CTRL*>(0x40C02920); }
+struct STBY_PLDO_IN_CTRL : ftl::mmio::Register<
+    0x40C02920u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_PLDO_IN_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_PLDO_IN_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_PLDO_IN_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_PLDO_IN_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_PLDO_IN_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_PLDO_IN_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_PLDO_IN_CTRL_fields_::DISABLE;
 };
+
 
 // STBY bandgap_in control
-union STBY_BANDGAP_IN_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_BANDGAP_IN_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -207,32 +221,35 @@ union STBY_BANDGAP_IN_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_BANDGAP_IN_CTRL_fields_
 
-  STBY_BANDGAP_IN_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_BANDGAP_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_BANDGAP_IN_CTRL*>(0x40C02928); }
+struct STBY_BANDGAP_IN_CTRL : ftl::mmio::Register<
+    0x40C02928u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_BANDGAP_IN_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_BANDGAP_IN_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_BANDGAP_IN_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_BANDGAP_IN_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_BANDGAP_IN_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_BANDGAP_IN_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_BANDGAP_IN_CTRL_fields_::DISABLE;
 };
+
 
 // STBY ldo_in control
-union STBY_LDO_IN_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_LDO_IN_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -242,32 +259,35 @@ union STBY_LDO_IN_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_LDO_IN_CTRL_fields_
 
-  STBY_LDO_IN_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_LDO_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_LDO_IN_CTRL*>(0x40C02930); }
+struct STBY_LDO_IN_CTRL : ftl::mmio::Register<
+    0x40C02930u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_LDO_IN_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_LDO_IN_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_LDO_IN_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_LDO_IN_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_LDO_IN_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_LDO_IN_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_LDO_IN_CTRL_fields_::DISABLE;
 };
+
 
 // STBY dcdc_in control
-union STBY_DCDC_IN_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_DCDC_IN_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -277,32 +297,35 @@ union STBY_DCDC_IN_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_DCDC_IN_CTRL_fields_
 
-  STBY_DCDC_IN_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_DCDC_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_DCDC_IN_CTRL*>(0x40C02940); }
+struct STBY_DCDC_IN_CTRL : ftl::mmio::Register<
+    0x40C02940u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_DCDC_IN_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_DCDC_IN_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_DCDC_IN_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_DCDC_IN_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_DCDC_IN_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_DCDC_IN_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_DCDC_IN_CTRL_fields_::DISABLE;
 };
+
 
 // STBY PMIC in control
-union STBY_PMIC_IN_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_PMIC_IN_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -312,32 +335,35 @@ union STBY_PMIC_IN_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_PMIC_IN_CTRL_fields_
 
-  STBY_PMIC_IN_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_PMIC_IN_CTRL &ref() { return *reinterpret_cast<volatile STBY_PMIC_IN_CTRL*>(0x40C02950); }
+struct STBY_PMIC_IN_CTRL : ftl::mmio::Register<
+    0x40C02950u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_PMIC_IN_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_PMIC_IN_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_PMIC_IN_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_PMIC_IN_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_PMIC_IN_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_PMIC_IN_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_PMIC_IN_CTRL_fields_::DISABLE;
 };
+
 
 // STBY PMIC out control
-union STBY_PMIC_OUT_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_PMIC_OUT_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -347,32 +373,35 @@ union STBY_PMIC_OUT_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_PMIC_OUT_CTRL_fields_
 
-  STBY_PMIC_OUT_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_PMIC_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_PMIC_OUT_CTRL*>(0x40C02A00); }
+struct STBY_PMIC_OUT_CTRL : ftl::mmio::Register<
+    0x40C02A00u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_PMIC_OUT_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_PMIC_OUT_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_PMIC_OUT_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_PMIC_OUT_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_PMIC_OUT_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_PMIC_OUT_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_PMIC_OUT_CTRL_fields_::DISABLE;
 };
+
 
 // STBY DCDC out control
-union STBY_DCDC_OUT_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_DCDC_OUT_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -382,32 +411,35 @@ union STBY_DCDC_OUT_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_DCDC_OUT_CTRL_fields_
 
-  STBY_DCDC_OUT_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_DCDC_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_DCDC_OUT_CTRL*>(0x40C02A10); }
+struct STBY_DCDC_OUT_CTRL : ftl::mmio::Register<
+    0x40C02A10u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_DCDC_OUT_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_DCDC_OUT_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_DCDC_OUT_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_DCDC_OUT_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_DCDC_OUT_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_DCDC_OUT_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_DCDC_OUT_CTRL_fields_::DISABLE;
 };
+
 
 // STBY LDO out control
-union STBY_LDO_OUT_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_LDO_OUT_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -417,32 +449,35 @@ union STBY_LDO_OUT_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_LDO_OUT_CTRL_fields_
 
-  STBY_LDO_OUT_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_LDO_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_LDO_OUT_CTRL*>(0x40C02A20); }
+struct STBY_LDO_OUT_CTRL : ftl::mmio::Register<
+    0x40C02A20u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_LDO_OUT_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_LDO_OUT_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_LDO_OUT_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_LDO_OUT_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_LDO_OUT_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_LDO_OUT_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_LDO_OUT_CTRL_fields_::DISABLE;
 };
+
 
 // STBY bandgap out control
-union STBY_BANDGAP_OUT_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_BANDGAP_OUT_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -452,32 +487,35 @@ union STBY_BANDGAP_OUT_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_BANDGAP_OUT_CTRL_fields_
 
-  STBY_BANDGAP_OUT_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_BANDGAP_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_BANDGAP_OUT_CTRL*>(0x40C02A30); }
+struct STBY_BANDGAP_OUT_CTRL : ftl::mmio::Register<
+    0x40C02A30u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_BANDGAP_OUT_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_BANDGAP_OUT_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_BANDGAP_OUT_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_BANDGAP_OUT_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_BANDGAP_OUT_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_BANDGAP_OUT_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_BANDGAP_OUT_CTRL_fields_::DISABLE;
 };
+
 
 // STBY pldo out control
-union STBY_PLDO_OUT_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_PLDO_OUT_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -487,32 +525,35 @@ union STBY_PLDO_OUT_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_PLDO_OUT_CTRL_fields_
 
-  STBY_PLDO_OUT_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_PLDO_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_PLDO_OUT_CTRL*>(0x40C02A38); }
+struct STBY_PLDO_OUT_CTRL : ftl::mmio::Register<
+    0x40C02A38u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_PLDO_OUT_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_PLDO_OUT_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_PLDO_OUT_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_PLDO_OUT_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_PLDO_OUT_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_PLDO_OUT_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_PLDO_OUT_CTRL_fields_::DISABLE;
 };
+
 
 // STBY bias out control
-union STBY_BIAS_OUT_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_BIAS_OUT_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -522,32 +563,35 @@ union STBY_BIAS_OUT_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_BIAS_OUT_CTRL_fields_
 
-  STBY_BIAS_OUT_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_BIAS_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_BIAS_OUT_CTRL*>(0x40C02A40); }
+struct STBY_BIAS_OUT_CTRL : ftl::mmio::Register<
+    0x40C02A40u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_BIAS_OUT_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_BIAS_OUT_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_BIAS_OUT_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_BIAS_OUT_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_BIAS_OUT_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_BIAS_OUT_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_BIAS_OUT_CTRL_fields_::DISABLE;
 };
+
 
 // STBY PLL out control
-union STBY_PLL_OUT_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_PLL_OUT_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -557,32 +601,35 @@ union STBY_PLL_OUT_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_PLL_OUT_CTRL_fields_
 
-  STBY_PLL_OUT_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_PLL_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_PLL_OUT_CTRL*>(0x40C02A50); }
+struct STBY_PLL_OUT_CTRL : ftl::mmio::Register<
+    0x40C02A50u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_PLL_OUT_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_PLL_OUT_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_PLL_OUT_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_PLL_OUT_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_PLL_OUT_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_PLL_OUT_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_PLL_OUT_CTRL_fields_::DISABLE;
 };
+
 
 // STBY LPCG out control
-union STBY_LPCG_OUT_CTRL {
-  
-  // Count mode
-  enum class eCNT_MODE : uint32_t {
+struct STBY_LPCG_OUT_CTRL_fields_ {
+
+  enum class eCNT_MODE : std::uint32_t {
     // Counter disable mode: not use step counter, step completes once receiving step_done
     eb0 = 0,
     // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -592,26 +639,28 @@ union STBY_LPCG_OUT_CTRL {
     // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
     eb3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step count, useage is depending on CNT_MODE
-    uint32_t STEP_CNT : 16;
-    uint32_t _reserved_0 : 12;
-    // read-write - Count mode
-    eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_1 : 1;
-    // read-write - Disable this step
-    uint32_t DISABLE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Step count, useage is depending on CNT_MODE
+  using STEP_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Count mode
+  using CNT_MODE = ftl::mmio::Field<2, 28, eCNT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable this step
+  using DISABLE = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct STBY_LPCG_OUT_CTRL_fields_
 
-  STBY_LPCG_OUT_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile STBY_LPCG_OUT_CTRL &ref() { return *reinterpret_cast<volatile STBY_LPCG_OUT_CTRL*>(0x40C02A60); }
+struct STBY_LPCG_OUT_CTRL : ftl::mmio::Register<
+    0x40C02A60u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    STBY_LPCG_OUT_CTRL_fields_::STEP_CNT,
+    ftl::mmio::Reserved<12, 16>,
+    STBY_LPCG_OUT_CTRL_fields_::CNT_MODE,
+    ftl::mmio::Reserved<1, 30>,
+    STBY_LPCG_OUT_CTRL_fields_::DISABLE> {
+  using eCNT_MODE = STBY_LPCG_OUT_CTRL_fields_::eCNT_MODE;
+  using STEP_CNT = STBY_LPCG_OUT_CTRL_fields_::STEP_CNT;
+  using CNT_MODE = STBY_LPCG_OUT_CTRL_fields_::CNT_MODE;
+  using DISABLE = STBY_LPCG_OUT_CTRL_fields_::DISABLE;
 };
 
-
-} // namespace nGPC_STBY_CTRL
+}  // namespace regs::gpc_stby_ctrl

@@ -1,76 +1,77 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // SSARC Registers
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nSSARC_LP {
+namespace regs::ssarc_lp {
 
 
 // Descriptor Control0 0 Register
-union DESC_CTRL0_0 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_0_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_0_fields_
 
-  DESC_CTRL0_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_0 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_0*>(0x40CB8000); }
+struct DESC_CTRL0_0 : ftl::mmio::Register<
+    0x40CB8000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_0_fields_::START,
+    DESC_CTRL0_0_fields_::END,
+    DESC_CTRL0_0_fields_::SV_ORDER,
+    DESC_CTRL0_0_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_0_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_0_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_0_fields_::START;
+  using END = DESC_CTRL0_0_fields_::END;
+  using SV_ORDER = DESC_CTRL0_0_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_0_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 0 Register
-union DESC_CTRL1_0 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_0_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -88,168 +89,188 @@ union DESC_CTRL1_0 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_0_fields_
 
-  DESC_CTRL1_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_0 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_0*>(0x40CB8004); }
+struct DESC_CTRL1_0 : ftl::mmio::Register<
+    0x40CB8004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_0_fields_::SW_TRIG_SV,
+    DESC_CTRL1_0_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_0_fields_::POWER_DOMAIN,
+    DESC_CTRL1_0_fields_::GP_EN,
+    DESC_CTRL1_0_fields_::SV_PRIORITY,
+    DESC_CTRL1_0_fields_::RT_PRIORITY,
+    DESC_CTRL1_0_fields_::CPUD,
+    DESC_CTRL1_0_fields_::RL,
+    DESC_CTRL1_0_fields_::WL,
+    DESC_CTRL1_0_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_0_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_0_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_0_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_0_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_0_fields_::eRL;
+  using eWL = DESC_CTRL1_0_fields_::eWL;
+  using eDL = DESC_CTRL1_0_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_0_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_0_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_0_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_0_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_0_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_0_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_0_fields_::CPUD;
+  using RL = DESC_CTRL1_0_fields_::RL;
+  using WL = DESC_CTRL1_0_fields_::WL;
+  using DL = DESC_CTRL1_0_fields_::DL;
 };
+
 
 // Descriptor Address Up 0 Register
-union DESC_ADDR_UP_0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_0_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_0_fields_
 
-  DESC_ADDR_UP_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_0 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_0*>(0x40CB8008); }
+struct DESC_ADDR_UP_0 : ftl::mmio::Register<
+    0x40CB8008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_0_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_0_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 0 Register
-union DESC_ADDR_DOWN_0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_0_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_0_fields_
 
-  DESC_ADDR_DOWN_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_0 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_0*>(0x40CB800C); }
+struct DESC_ADDR_DOWN_0 : ftl::mmio::Register<
+    0x40CB800Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_0_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_0_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 1 Register
-union DESC_CTRL0_1 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_1_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_1_fields_
 
-  DESC_CTRL0_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_1 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_1*>(0x40CB8020); }
+struct DESC_CTRL0_1 : ftl::mmio::Register<
+    0x40CB8020u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_1_fields_::START,
+    DESC_CTRL0_1_fields_::END,
+    DESC_CTRL0_1_fields_::SV_ORDER,
+    DESC_CTRL0_1_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_1_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_1_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_1_fields_::START;
+  using END = DESC_CTRL0_1_fields_::END;
+  using SV_ORDER = DESC_CTRL0_1_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_1_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 1 Register
-union DESC_CTRL1_1 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_1_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -267,168 +288,188 @@ union DESC_CTRL1_1 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_1_fields_
 
-  DESC_CTRL1_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_1 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_1*>(0x40CB8024); }
+struct DESC_CTRL1_1 : ftl::mmio::Register<
+    0x40CB8024u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_1_fields_::SW_TRIG_SV,
+    DESC_CTRL1_1_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_1_fields_::POWER_DOMAIN,
+    DESC_CTRL1_1_fields_::GP_EN,
+    DESC_CTRL1_1_fields_::SV_PRIORITY,
+    DESC_CTRL1_1_fields_::RT_PRIORITY,
+    DESC_CTRL1_1_fields_::CPUD,
+    DESC_CTRL1_1_fields_::RL,
+    DESC_CTRL1_1_fields_::WL,
+    DESC_CTRL1_1_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_1_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_1_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_1_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_1_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_1_fields_::eRL;
+  using eWL = DESC_CTRL1_1_fields_::eWL;
+  using eDL = DESC_CTRL1_1_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_1_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_1_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_1_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_1_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_1_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_1_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_1_fields_::CPUD;
+  using RL = DESC_CTRL1_1_fields_::RL;
+  using WL = DESC_CTRL1_1_fields_::WL;
+  using DL = DESC_CTRL1_1_fields_::DL;
 };
+
 
 // Descriptor Address Up 1 Register
-union DESC_ADDR_UP_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_1_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_1_fields_
 
-  DESC_ADDR_UP_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_1 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_1*>(0x40CB8028); }
+struct DESC_ADDR_UP_1 : ftl::mmio::Register<
+    0x40CB8028u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_1_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_1_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 1 Register
-union DESC_ADDR_DOWN_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_1_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_1_fields_
 
-  DESC_ADDR_DOWN_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_1 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_1*>(0x40CB802C); }
+struct DESC_ADDR_DOWN_1 : ftl::mmio::Register<
+    0x40CB802Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_1_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_1_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 2 Register
-union DESC_CTRL0_2 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_2_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_2_fields_
 
-  DESC_CTRL0_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_2 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_2*>(0x40CB8040); }
+struct DESC_CTRL0_2 : ftl::mmio::Register<
+    0x40CB8040u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_2_fields_::START,
+    DESC_CTRL0_2_fields_::END,
+    DESC_CTRL0_2_fields_::SV_ORDER,
+    DESC_CTRL0_2_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_2_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_2_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_2_fields_::START;
+  using END = DESC_CTRL0_2_fields_::END;
+  using SV_ORDER = DESC_CTRL0_2_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_2_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 2 Register
-union DESC_CTRL1_2 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_2_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -446,168 +487,188 @@ union DESC_CTRL1_2 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_2_fields_
 
-  DESC_CTRL1_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_2 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_2*>(0x40CB8044); }
+struct DESC_CTRL1_2 : ftl::mmio::Register<
+    0x40CB8044u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_2_fields_::SW_TRIG_SV,
+    DESC_CTRL1_2_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_2_fields_::POWER_DOMAIN,
+    DESC_CTRL1_2_fields_::GP_EN,
+    DESC_CTRL1_2_fields_::SV_PRIORITY,
+    DESC_CTRL1_2_fields_::RT_PRIORITY,
+    DESC_CTRL1_2_fields_::CPUD,
+    DESC_CTRL1_2_fields_::RL,
+    DESC_CTRL1_2_fields_::WL,
+    DESC_CTRL1_2_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_2_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_2_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_2_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_2_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_2_fields_::eRL;
+  using eWL = DESC_CTRL1_2_fields_::eWL;
+  using eDL = DESC_CTRL1_2_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_2_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_2_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_2_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_2_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_2_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_2_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_2_fields_::CPUD;
+  using RL = DESC_CTRL1_2_fields_::RL;
+  using WL = DESC_CTRL1_2_fields_::WL;
+  using DL = DESC_CTRL1_2_fields_::DL;
 };
+
 
 // Descriptor Address Up 2 Register
-union DESC_ADDR_UP_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_2_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_2_fields_
 
-  DESC_ADDR_UP_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_2 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_2*>(0x40CB8048); }
+struct DESC_ADDR_UP_2 : ftl::mmio::Register<
+    0x40CB8048u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_2_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_2_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 2 Register
-union DESC_ADDR_DOWN_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_2_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_2_fields_
 
-  DESC_ADDR_DOWN_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_2 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_2*>(0x40CB804C); }
+struct DESC_ADDR_DOWN_2 : ftl::mmio::Register<
+    0x40CB804Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_2_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_2_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 3 Register
-union DESC_CTRL0_3 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_3_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_3_fields_
 
-  DESC_CTRL0_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_3 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_3*>(0x40CB8060); }
+struct DESC_CTRL0_3 : ftl::mmio::Register<
+    0x40CB8060u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_3_fields_::START,
+    DESC_CTRL0_3_fields_::END,
+    DESC_CTRL0_3_fields_::SV_ORDER,
+    DESC_CTRL0_3_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_3_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_3_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_3_fields_::START;
+  using END = DESC_CTRL0_3_fields_::END;
+  using SV_ORDER = DESC_CTRL0_3_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_3_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 3 Register
-union DESC_CTRL1_3 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_3_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -625,168 +686,188 @@ union DESC_CTRL1_3 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_3_fields_
 
-  DESC_CTRL1_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_3 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_3*>(0x40CB8064); }
+struct DESC_CTRL1_3 : ftl::mmio::Register<
+    0x40CB8064u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_3_fields_::SW_TRIG_SV,
+    DESC_CTRL1_3_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_3_fields_::POWER_DOMAIN,
+    DESC_CTRL1_3_fields_::GP_EN,
+    DESC_CTRL1_3_fields_::SV_PRIORITY,
+    DESC_CTRL1_3_fields_::RT_PRIORITY,
+    DESC_CTRL1_3_fields_::CPUD,
+    DESC_CTRL1_3_fields_::RL,
+    DESC_CTRL1_3_fields_::WL,
+    DESC_CTRL1_3_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_3_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_3_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_3_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_3_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_3_fields_::eRL;
+  using eWL = DESC_CTRL1_3_fields_::eWL;
+  using eDL = DESC_CTRL1_3_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_3_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_3_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_3_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_3_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_3_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_3_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_3_fields_::CPUD;
+  using RL = DESC_CTRL1_3_fields_::RL;
+  using WL = DESC_CTRL1_3_fields_::WL;
+  using DL = DESC_CTRL1_3_fields_::DL;
 };
+
 
 // Descriptor Address Up 3 Register
-union DESC_ADDR_UP_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_3_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_3_fields_
 
-  DESC_ADDR_UP_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_3 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_3*>(0x40CB8068); }
+struct DESC_ADDR_UP_3 : ftl::mmio::Register<
+    0x40CB8068u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_3_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_3_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 3 Register
-union DESC_ADDR_DOWN_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_3_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_3_fields_
 
-  DESC_ADDR_DOWN_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_3 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_3*>(0x40CB806C); }
+struct DESC_ADDR_DOWN_3 : ftl::mmio::Register<
+    0x40CB806Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_3_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_3_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 4 Register
-union DESC_CTRL0_4 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_4_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_4_fields_
 
-  DESC_CTRL0_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_4 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_4*>(0x40CB8080); }
+struct DESC_CTRL0_4 : ftl::mmio::Register<
+    0x40CB8080u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_4_fields_::START,
+    DESC_CTRL0_4_fields_::END,
+    DESC_CTRL0_4_fields_::SV_ORDER,
+    DESC_CTRL0_4_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_4_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_4_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_4_fields_::START;
+  using END = DESC_CTRL0_4_fields_::END;
+  using SV_ORDER = DESC_CTRL0_4_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_4_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 4 Register
-union DESC_CTRL1_4 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_4_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -804,168 +885,188 @@ union DESC_CTRL1_4 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_4_fields_
 
-  DESC_CTRL1_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_4 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_4*>(0x40CB8084); }
+struct DESC_CTRL1_4 : ftl::mmio::Register<
+    0x40CB8084u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_4_fields_::SW_TRIG_SV,
+    DESC_CTRL1_4_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_4_fields_::POWER_DOMAIN,
+    DESC_CTRL1_4_fields_::GP_EN,
+    DESC_CTRL1_4_fields_::SV_PRIORITY,
+    DESC_CTRL1_4_fields_::RT_PRIORITY,
+    DESC_CTRL1_4_fields_::CPUD,
+    DESC_CTRL1_4_fields_::RL,
+    DESC_CTRL1_4_fields_::WL,
+    DESC_CTRL1_4_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_4_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_4_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_4_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_4_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_4_fields_::eRL;
+  using eWL = DESC_CTRL1_4_fields_::eWL;
+  using eDL = DESC_CTRL1_4_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_4_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_4_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_4_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_4_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_4_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_4_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_4_fields_::CPUD;
+  using RL = DESC_CTRL1_4_fields_::RL;
+  using WL = DESC_CTRL1_4_fields_::WL;
+  using DL = DESC_CTRL1_4_fields_::DL;
 };
+
 
 // Descriptor Address Up 4 Register
-union DESC_ADDR_UP_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_4_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_4_fields_
 
-  DESC_ADDR_UP_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_4 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_4*>(0x40CB8088); }
+struct DESC_ADDR_UP_4 : ftl::mmio::Register<
+    0x40CB8088u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_4_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_4_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 4 Register
-union DESC_ADDR_DOWN_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_4_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_4_fields_
 
-  DESC_ADDR_DOWN_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_4 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_4*>(0x40CB808C); }
+struct DESC_ADDR_DOWN_4 : ftl::mmio::Register<
+    0x40CB808Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_4_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_4_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 5 Register
-union DESC_CTRL0_5 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_5_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_5_fields_
 
-  DESC_CTRL0_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_5 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_5*>(0x40CB80A0); }
+struct DESC_CTRL0_5 : ftl::mmio::Register<
+    0x40CB80A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_5_fields_::START,
+    DESC_CTRL0_5_fields_::END,
+    DESC_CTRL0_5_fields_::SV_ORDER,
+    DESC_CTRL0_5_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_5_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_5_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_5_fields_::START;
+  using END = DESC_CTRL0_5_fields_::END;
+  using SV_ORDER = DESC_CTRL0_5_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_5_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 5 Register
-union DESC_CTRL1_5 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_5_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -983,168 +1084,188 @@ union DESC_CTRL1_5 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_5_fields_
 
-  DESC_CTRL1_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_5 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_5*>(0x40CB80A4); }
+struct DESC_CTRL1_5 : ftl::mmio::Register<
+    0x40CB80A4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_5_fields_::SW_TRIG_SV,
+    DESC_CTRL1_5_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_5_fields_::POWER_DOMAIN,
+    DESC_CTRL1_5_fields_::GP_EN,
+    DESC_CTRL1_5_fields_::SV_PRIORITY,
+    DESC_CTRL1_5_fields_::RT_PRIORITY,
+    DESC_CTRL1_5_fields_::CPUD,
+    DESC_CTRL1_5_fields_::RL,
+    DESC_CTRL1_5_fields_::WL,
+    DESC_CTRL1_5_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_5_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_5_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_5_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_5_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_5_fields_::eRL;
+  using eWL = DESC_CTRL1_5_fields_::eWL;
+  using eDL = DESC_CTRL1_5_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_5_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_5_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_5_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_5_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_5_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_5_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_5_fields_::CPUD;
+  using RL = DESC_CTRL1_5_fields_::RL;
+  using WL = DESC_CTRL1_5_fields_::WL;
+  using DL = DESC_CTRL1_5_fields_::DL;
 };
+
 
 // Descriptor Address Up 5 Register
-union DESC_ADDR_UP_5 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_5_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_5_fields_
 
-  DESC_ADDR_UP_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_5 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_5*>(0x40CB80A8); }
+struct DESC_ADDR_UP_5 : ftl::mmio::Register<
+    0x40CB80A8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_5_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_5_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 5 Register
-union DESC_ADDR_DOWN_5 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_5_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_5_fields_
 
-  DESC_ADDR_DOWN_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_5 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_5*>(0x40CB80AC); }
+struct DESC_ADDR_DOWN_5 : ftl::mmio::Register<
+    0x40CB80ACu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_5_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_5_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 6 Register
-union DESC_CTRL0_6 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_6_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_6_fields_
 
-  DESC_CTRL0_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_6 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_6*>(0x40CB80C0); }
+struct DESC_CTRL0_6 : ftl::mmio::Register<
+    0x40CB80C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_6_fields_::START,
+    DESC_CTRL0_6_fields_::END,
+    DESC_CTRL0_6_fields_::SV_ORDER,
+    DESC_CTRL0_6_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_6_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_6_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_6_fields_::START;
+  using END = DESC_CTRL0_6_fields_::END;
+  using SV_ORDER = DESC_CTRL0_6_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_6_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 6 Register
-union DESC_CTRL1_6 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_6_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -1162,168 +1283,188 @@ union DESC_CTRL1_6 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_6_fields_
 
-  DESC_CTRL1_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_6 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_6*>(0x40CB80C4); }
+struct DESC_CTRL1_6 : ftl::mmio::Register<
+    0x40CB80C4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_6_fields_::SW_TRIG_SV,
+    DESC_CTRL1_6_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_6_fields_::POWER_DOMAIN,
+    DESC_CTRL1_6_fields_::GP_EN,
+    DESC_CTRL1_6_fields_::SV_PRIORITY,
+    DESC_CTRL1_6_fields_::RT_PRIORITY,
+    DESC_CTRL1_6_fields_::CPUD,
+    DESC_CTRL1_6_fields_::RL,
+    DESC_CTRL1_6_fields_::WL,
+    DESC_CTRL1_6_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_6_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_6_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_6_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_6_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_6_fields_::eRL;
+  using eWL = DESC_CTRL1_6_fields_::eWL;
+  using eDL = DESC_CTRL1_6_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_6_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_6_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_6_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_6_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_6_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_6_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_6_fields_::CPUD;
+  using RL = DESC_CTRL1_6_fields_::RL;
+  using WL = DESC_CTRL1_6_fields_::WL;
+  using DL = DESC_CTRL1_6_fields_::DL;
 };
+
 
 // Descriptor Address Up 6 Register
-union DESC_ADDR_UP_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_6_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_6_fields_
 
-  DESC_ADDR_UP_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_6 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_6*>(0x40CB80C8); }
+struct DESC_ADDR_UP_6 : ftl::mmio::Register<
+    0x40CB80C8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_6_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_6_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 6 Register
-union DESC_ADDR_DOWN_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_6_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_6_fields_
 
-  DESC_ADDR_DOWN_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_6 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_6*>(0x40CB80CC); }
+struct DESC_ADDR_DOWN_6 : ftl::mmio::Register<
+    0x40CB80CCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_6_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_6_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 7 Register
-union DESC_CTRL0_7 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_7_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_7_fields_
 
-  DESC_CTRL0_7() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_7 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_7*>(0x40CB80E0); }
+struct DESC_CTRL0_7 : ftl::mmio::Register<
+    0x40CB80E0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_7_fields_::START,
+    DESC_CTRL0_7_fields_::END,
+    DESC_CTRL0_7_fields_::SV_ORDER,
+    DESC_CTRL0_7_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_7_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_7_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_7_fields_::START;
+  using END = DESC_CTRL0_7_fields_::END;
+  using SV_ORDER = DESC_CTRL0_7_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_7_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 7 Register
-union DESC_CTRL1_7 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_7_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -1341,168 +1482,188 @@ union DESC_CTRL1_7 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_7_fields_
 
-  DESC_CTRL1_7() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_7 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_7*>(0x40CB80E4); }
+struct DESC_CTRL1_7 : ftl::mmio::Register<
+    0x40CB80E4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_7_fields_::SW_TRIG_SV,
+    DESC_CTRL1_7_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_7_fields_::POWER_DOMAIN,
+    DESC_CTRL1_7_fields_::GP_EN,
+    DESC_CTRL1_7_fields_::SV_PRIORITY,
+    DESC_CTRL1_7_fields_::RT_PRIORITY,
+    DESC_CTRL1_7_fields_::CPUD,
+    DESC_CTRL1_7_fields_::RL,
+    DESC_CTRL1_7_fields_::WL,
+    DESC_CTRL1_7_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_7_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_7_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_7_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_7_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_7_fields_::eRL;
+  using eWL = DESC_CTRL1_7_fields_::eWL;
+  using eDL = DESC_CTRL1_7_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_7_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_7_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_7_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_7_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_7_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_7_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_7_fields_::CPUD;
+  using RL = DESC_CTRL1_7_fields_::RL;
+  using WL = DESC_CTRL1_7_fields_::WL;
+  using DL = DESC_CTRL1_7_fields_::DL;
 };
+
 
 // Descriptor Address Up 7 Register
-union DESC_ADDR_UP_7 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_7_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_7_fields_
 
-  DESC_ADDR_UP_7() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_7 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_7*>(0x40CB80E8); }
+struct DESC_ADDR_UP_7 : ftl::mmio::Register<
+    0x40CB80E8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_7_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_7_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 7 Register
-union DESC_ADDR_DOWN_7 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_7_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_7_fields_
 
-  DESC_ADDR_DOWN_7() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_7 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_7*>(0x40CB80EC); }
+struct DESC_ADDR_DOWN_7 : ftl::mmio::Register<
+    0x40CB80ECu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_7_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_7_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 8 Register
-union DESC_CTRL0_8 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_8_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_8_fields_
 
-  DESC_CTRL0_8() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_8 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_8*>(0x40CB8100); }
+struct DESC_CTRL0_8 : ftl::mmio::Register<
+    0x40CB8100u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_8_fields_::START,
+    DESC_CTRL0_8_fields_::END,
+    DESC_CTRL0_8_fields_::SV_ORDER,
+    DESC_CTRL0_8_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_8_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_8_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_8_fields_::START;
+  using END = DESC_CTRL0_8_fields_::END;
+  using SV_ORDER = DESC_CTRL0_8_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_8_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 8 Register
-union DESC_CTRL1_8 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_8_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -1520,168 +1681,188 @@ union DESC_CTRL1_8 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_8_fields_
 
-  DESC_CTRL1_8() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_8 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_8*>(0x40CB8104); }
+struct DESC_CTRL1_8 : ftl::mmio::Register<
+    0x40CB8104u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_8_fields_::SW_TRIG_SV,
+    DESC_CTRL1_8_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_8_fields_::POWER_DOMAIN,
+    DESC_CTRL1_8_fields_::GP_EN,
+    DESC_CTRL1_8_fields_::SV_PRIORITY,
+    DESC_CTRL1_8_fields_::RT_PRIORITY,
+    DESC_CTRL1_8_fields_::CPUD,
+    DESC_CTRL1_8_fields_::RL,
+    DESC_CTRL1_8_fields_::WL,
+    DESC_CTRL1_8_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_8_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_8_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_8_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_8_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_8_fields_::eRL;
+  using eWL = DESC_CTRL1_8_fields_::eWL;
+  using eDL = DESC_CTRL1_8_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_8_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_8_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_8_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_8_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_8_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_8_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_8_fields_::CPUD;
+  using RL = DESC_CTRL1_8_fields_::RL;
+  using WL = DESC_CTRL1_8_fields_::WL;
+  using DL = DESC_CTRL1_8_fields_::DL;
 };
+
 
 // Descriptor Address Up 8 Register
-union DESC_ADDR_UP_8 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_8_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_8_fields_
 
-  DESC_ADDR_UP_8() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_8 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_8*>(0x40CB8108); }
+struct DESC_ADDR_UP_8 : ftl::mmio::Register<
+    0x40CB8108u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_8_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_8_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 8 Register
-union DESC_ADDR_DOWN_8 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_8_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_8_fields_
 
-  DESC_ADDR_DOWN_8() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_8 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_8*>(0x40CB810C); }
+struct DESC_ADDR_DOWN_8 : ftl::mmio::Register<
+    0x40CB810Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_8_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_8_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 9 Register
-union DESC_CTRL0_9 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_9_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_9_fields_
 
-  DESC_CTRL0_9() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_9 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_9*>(0x40CB8120); }
+struct DESC_CTRL0_9 : ftl::mmio::Register<
+    0x40CB8120u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_9_fields_::START,
+    DESC_CTRL0_9_fields_::END,
+    DESC_CTRL0_9_fields_::SV_ORDER,
+    DESC_CTRL0_9_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_9_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_9_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_9_fields_::START;
+  using END = DESC_CTRL0_9_fields_::END;
+  using SV_ORDER = DESC_CTRL0_9_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_9_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 9 Register
-union DESC_CTRL1_9 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_9_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -1699,168 +1880,188 @@ union DESC_CTRL1_9 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_9_fields_
 
-  DESC_CTRL1_9() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_9 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_9*>(0x40CB8124); }
+struct DESC_CTRL1_9 : ftl::mmio::Register<
+    0x40CB8124u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_9_fields_::SW_TRIG_SV,
+    DESC_CTRL1_9_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_9_fields_::POWER_DOMAIN,
+    DESC_CTRL1_9_fields_::GP_EN,
+    DESC_CTRL1_9_fields_::SV_PRIORITY,
+    DESC_CTRL1_9_fields_::RT_PRIORITY,
+    DESC_CTRL1_9_fields_::CPUD,
+    DESC_CTRL1_9_fields_::RL,
+    DESC_CTRL1_9_fields_::WL,
+    DESC_CTRL1_9_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_9_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_9_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_9_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_9_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_9_fields_::eRL;
+  using eWL = DESC_CTRL1_9_fields_::eWL;
+  using eDL = DESC_CTRL1_9_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_9_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_9_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_9_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_9_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_9_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_9_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_9_fields_::CPUD;
+  using RL = DESC_CTRL1_9_fields_::RL;
+  using WL = DESC_CTRL1_9_fields_::WL;
+  using DL = DESC_CTRL1_9_fields_::DL;
 };
+
 
 // Descriptor Address Up 9 Register
-union DESC_ADDR_UP_9 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_9_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_9_fields_
 
-  DESC_ADDR_UP_9() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_9 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_9*>(0x40CB8128); }
+struct DESC_ADDR_UP_9 : ftl::mmio::Register<
+    0x40CB8128u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_9_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_9_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 9 Register
-union DESC_ADDR_DOWN_9 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_9_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_9_fields_
 
-  DESC_ADDR_DOWN_9() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_9 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_9*>(0x40CB812C); }
+struct DESC_ADDR_DOWN_9 : ftl::mmio::Register<
+    0x40CB812Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_9_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_9_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 10 Register
-union DESC_CTRL0_10 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_10_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_10_fields_
 
-  DESC_CTRL0_10() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_10 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_10*>(0x40CB8140); }
+struct DESC_CTRL0_10 : ftl::mmio::Register<
+    0x40CB8140u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_10_fields_::START,
+    DESC_CTRL0_10_fields_::END,
+    DESC_CTRL0_10_fields_::SV_ORDER,
+    DESC_CTRL0_10_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_10_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_10_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_10_fields_::START;
+  using END = DESC_CTRL0_10_fields_::END;
+  using SV_ORDER = DESC_CTRL0_10_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_10_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 10 Register
-union DESC_CTRL1_10 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_10_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -1878,168 +2079,188 @@ union DESC_CTRL1_10 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_10_fields_
 
-  DESC_CTRL1_10() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_10 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_10*>(0x40CB8144); }
+struct DESC_CTRL1_10 : ftl::mmio::Register<
+    0x40CB8144u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_10_fields_::SW_TRIG_SV,
+    DESC_CTRL1_10_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_10_fields_::POWER_DOMAIN,
+    DESC_CTRL1_10_fields_::GP_EN,
+    DESC_CTRL1_10_fields_::SV_PRIORITY,
+    DESC_CTRL1_10_fields_::RT_PRIORITY,
+    DESC_CTRL1_10_fields_::CPUD,
+    DESC_CTRL1_10_fields_::RL,
+    DESC_CTRL1_10_fields_::WL,
+    DESC_CTRL1_10_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_10_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_10_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_10_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_10_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_10_fields_::eRL;
+  using eWL = DESC_CTRL1_10_fields_::eWL;
+  using eDL = DESC_CTRL1_10_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_10_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_10_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_10_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_10_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_10_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_10_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_10_fields_::CPUD;
+  using RL = DESC_CTRL1_10_fields_::RL;
+  using WL = DESC_CTRL1_10_fields_::WL;
+  using DL = DESC_CTRL1_10_fields_::DL;
 };
+
 
 // Descriptor Address Up 10 Register
-union DESC_ADDR_UP_10 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_10_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_10_fields_
 
-  DESC_ADDR_UP_10() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_10 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_10*>(0x40CB8148); }
+struct DESC_ADDR_UP_10 : ftl::mmio::Register<
+    0x40CB8148u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_10_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_10_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 10 Register
-union DESC_ADDR_DOWN_10 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_10_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_10_fields_
 
-  DESC_ADDR_DOWN_10() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_10 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_10*>(0x40CB814C); }
+struct DESC_ADDR_DOWN_10 : ftl::mmio::Register<
+    0x40CB814Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_10_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_10_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 11 Register
-union DESC_CTRL0_11 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_11_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_11_fields_
 
-  DESC_CTRL0_11() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_11 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_11*>(0x40CB8160); }
+struct DESC_CTRL0_11 : ftl::mmio::Register<
+    0x40CB8160u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_11_fields_::START,
+    DESC_CTRL0_11_fields_::END,
+    DESC_CTRL0_11_fields_::SV_ORDER,
+    DESC_CTRL0_11_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_11_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_11_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_11_fields_::START;
+  using END = DESC_CTRL0_11_fields_::END;
+  using SV_ORDER = DESC_CTRL0_11_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_11_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 11 Register
-union DESC_CTRL1_11 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_11_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -2057,168 +2278,188 @@ union DESC_CTRL1_11 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_11_fields_
 
-  DESC_CTRL1_11() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_11 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_11*>(0x40CB8164); }
+struct DESC_CTRL1_11 : ftl::mmio::Register<
+    0x40CB8164u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_11_fields_::SW_TRIG_SV,
+    DESC_CTRL1_11_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_11_fields_::POWER_DOMAIN,
+    DESC_CTRL1_11_fields_::GP_EN,
+    DESC_CTRL1_11_fields_::SV_PRIORITY,
+    DESC_CTRL1_11_fields_::RT_PRIORITY,
+    DESC_CTRL1_11_fields_::CPUD,
+    DESC_CTRL1_11_fields_::RL,
+    DESC_CTRL1_11_fields_::WL,
+    DESC_CTRL1_11_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_11_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_11_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_11_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_11_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_11_fields_::eRL;
+  using eWL = DESC_CTRL1_11_fields_::eWL;
+  using eDL = DESC_CTRL1_11_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_11_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_11_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_11_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_11_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_11_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_11_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_11_fields_::CPUD;
+  using RL = DESC_CTRL1_11_fields_::RL;
+  using WL = DESC_CTRL1_11_fields_::WL;
+  using DL = DESC_CTRL1_11_fields_::DL;
 };
+
 
 // Descriptor Address Up 11 Register
-union DESC_ADDR_UP_11 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_11_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_11_fields_
 
-  DESC_ADDR_UP_11() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_11 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_11*>(0x40CB8168); }
+struct DESC_ADDR_UP_11 : ftl::mmio::Register<
+    0x40CB8168u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_11_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_11_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 11 Register
-union DESC_ADDR_DOWN_11 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_11_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_11_fields_
 
-  DESC_ADDR_DOWN_11() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_11 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_11*>(0x40CB816C); }
+struct DESC_ADDR_DOWN_11 : ftl::mmio::Register<
+    0x40CB816Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_11_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_11_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 12 Register
-union DESC_CTRL0_12 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_12_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_12_fields_
 
-  DESC_CTRL0_12() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_12 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_12*>(0x40CB8180); }
+struct DESC_CTRL0_12 : ftl::mmio::Register<
+    0x40CB8180u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_12_fields_::START,
+    DESC_CTRL0_12_fields_::END,
+    DESC_CTRL0_12_fields_::SV_ORDER,
+    DESC_CTRL0_12_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_12_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_12_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_12_fields_::START;
+  using END = DESC_CTRL0_12_fields_::END;
+  using SV_ORDER = DESC_CTRL0_12_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_12_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 12 Register
-union DESC_CTRL1_12 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_12_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -2236,168 +2477,188 @@ union DESC_CTRL1_12 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_12_fields_
 
-  DESC_CTRL1_12() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_12 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_12*>(0x40CB8184); }
+struct DESC_CTRL1_12 : ftl::mmio::Register<
+    0x40CB8184u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_12_fields_::SW_TRIG_SV,
+    DESC_CTRL1_12_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_12_fields_::POWER_DOMAIN,
+    DESC_CTRL1_12_fields_::GP_EN,
+    DESC_CTRL1_12_fields_::SV_PRIORITY,
+    DESC_CTRL1_12_fields_::RT_PRIORITY,
+    DESC_CTRL1_12_fields_::CPUD,
+    DESC_CTRL1_12_fields_::RL,
+    DESC_CTRL1_12_fields_::WL,
+    DESC_CTRL1_12_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_12_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_12_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_12_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_12_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_12_fields_::eRL;
+  using eWL = DESC_CTRL1_12_fields_::eWL;
+  using eDL = DESC_CTRL1_12_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_12_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_12_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_12_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_12_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_12_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_12_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_12_fields_::CPUD;
+  using RL = DESC_CTRL1_12_fields_::RL;
+  using WL = DESC_CTRL1_12_fields_::WL;
+  using DL = DESC_CTRL1_12_fields_::DL;
 };
+
 
 // Descriptor Address Up 12 Register
-union DESC_ADDR_UP_12 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_12_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_12_fields_
 
-  DESC_ADDR_UP_12() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_12 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_12*>(0x40CB8188); }
+struct DESC_ADDR_UP_12 : ftl::mmio::Register<
+    0x40CB8188u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_12_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_12_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 12 Register
-union DESC_ADDR_DOWN_12 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_12_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_12_fields_
 
-  DESC_ADDR_DOWN_12() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_12 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_12*>(0x40CB818C); }
+struct DESC_ADDR_DOWN_12 : ftl::mmio::Register<
+    0x40CB818Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_12_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_12_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 13 Register
-union DESC_CTRL0_13 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_13_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_13_fields_
 
-  DESC_CTRL0_13() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_13 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_13*>(0x40CB81A0); }
+struct DESC_CTRL0_13 : ftl::mmio::Register<
+    0x40CB81A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_13_fields_::START,
+    DESC_CTRL0_13_fields_::END,
+    DESC_CTRL0_13_fields_::SV_ORDER,
+    DESC_CTRL0_13_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_13_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_13_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_13_fields_::START;
+  using END = DESC_CTRL0_13_fields_::END;
+  using SV_ORDER = DESC_CTRL0_13_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_13_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 13 Register
-union DESC_CTRL1_13 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_13_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -2415,168 +2676,188 @@ union DESC_CTRL1_13 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_13_fields_
 
-  DESC_CTRL1_13() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_13 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_13*>(0x40CB81A4); }
+struct DESC_CTRL1_13 : ftl::mmio::Register<
+    0x40CB81A4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_13_fields_::SW_TRIG_SV,
+    DESC_CTRL1_13_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_13_fields_::POWER_DOMAIN,
+    DESC_CTRL1_13_fields_::GP_EN,
+    DESC_CTRL1_13_fields_::SV_PRIORITY,
+    DESC_CTRL1_13_fields_::RT_PRIORITY,
+    DESC_CTRL1_13_fields_::CPUD,
+    DESC_CTRL1_13_fields_::RL,
+    DESC_CTRL1_13_fields_::WL,
+    DESC_CTRL1_13_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_13_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_13_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_13_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_13_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_13_fields_::eRL;
+  using eWL = DESC_CTRL1_13_fields_::eWL;
+  using eDL = DESC_CTRL1_13_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_13_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_13_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_13_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_13_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_13_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_13_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_13_fields_::CPUD;
+  using RL = DESC_CTRL1_13_fields_::RL;
+  using WL = DESC_CTRL1_13_fields_::WL;
+  using DL = DESC_CTRL1_13_fields_::DL;
 };
+
 
 // Descriptor Address Up 13 Register
-union DESC_ADDR_UP_13 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_13_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_13_fields_
 
-  DESC_ADDR_UP_13() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_13 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_13*>(0x40CB81A8); }
+struct DESC_ADDR_UP_13 : ftl::mmio::Register<
+    0x40CB81A8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_13_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_13_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 13 Register
-union DESC_ADDR_DOWN_13 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_13_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_13_fields_
 
-  DESC_ADDR_DOWN_13() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_13 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_13*>(0x40CB81AC); }
+struct DESC_ADDR_DOWN_13 : ftl::mmio::Register<
+    0x40CB81ACu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_13_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_13_fields_::ADDR_DOWN;
 };
+
 
 // Descriptor Control0 14 Register
-union DESC_CTRL0_14 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_14_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_14_fields_
 
-  DESC_CTRL0_14() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_14 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_14*>(0x40CB81C0); }
+struct DESC_CTRL0_14 : ftl::mmio::Register<
+    0x40CB81C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_14_fields_::START,
+    DESC_CTRL0_14_fields_::END,
+    DESC_CTRL0_14_fields_::SV_ORDER,
+    DESC_CTRL0_14_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_14_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_14_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_14_fields_::START;
+  using END = DESC_CTRL0_14_fields_::END;
+  using SV_ORDER = DESC_CTRL0_14_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_14_fields_::RT_ORDER;
 };
+
 
 // Descriptor Control1 14 Register
-union DESC_CTRL1_14 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_14_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -2594,168 +2875,188 @@ union DESC_CTRL1_14 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_14_fields_
 
-  DESC_CTRL1_14() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_14 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_14*>(0x40CB81C4); }
+struct DESC_CTRL1_14 : ftl::mmio::Register<
+    0x40CB81C4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_14_fields_::SW_TRIG_SV,
+    DESC_CTRL1_14_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_14_fields_::POWER_DOMAIN,
+    DESC_CTRL1_14_fields_::GP_EN,
+    DESC_CTRL1_14_fields_::SV_PRIORITY,
+    DESC_CTRL1_14_fields_::RT_PRIORITY,
+    DESC_CTRL1_14_fields_::CPUD,
+    DESC_CTRL1_14_fields_::RL,
+    DESC_CTRL1_14_fields_::WL,
+    DESC_CTRL1_14_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_14_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_14_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_14_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_14_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_14_fields_::eRL;
+  using eWL = DESC_CTRL1_14_fields_::eWL;
+  using eDL = DESC_CTRL1_14_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_14_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_14_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_14_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_14_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_14_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_14_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_14_fields_::CPUD;
+  using RL = DESC_CTRL1_14_fields_::RL;
+  using WL = DESC_CTRL1_14_fields_::WL;
+  using DL = DESC_CTRL1_14_fields_::DL;
 };
+
 
 // Descriptor Address Up 14 Register
-union DESC_ADDR_UP_14 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_14_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_14_fields_
 
-  DESC_ADDR_UP_14() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_14 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_14*>(0x40CB81C8); }
+struct DESC_ADDR_UP_14 : ftl::mmio::Register<
+    0x40CB81C8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_14_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_14_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 14 Register
-union DESC_ADDR_DOWN_14 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_14_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_14_fields_
 
-  DESC_ADDR_DOWN_14() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_14 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_14*>(0x40CB81CC); }
+struct DESC_ADDR_DOWN_14 : ftl::mmio::Register<
+    0x40CB81CCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_14_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_14_fields_::ADDR_DOWN;
 };
 
+
 // Descriptor Control0 15 Register
-union DESC_CTRL0_15 {
-  
-  // Save Order
-  enum class eSV_ORDER : uint32_t {
+struct DESC_CTRL0_15_fields_ {
+
+  enum class eSV_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eSV_START_END = 0,
     // Descriptors within the group are processed from end to start
     eSV_END_START = 1,
   };
-  
-  // Restore order
-  enum class eRT_ORDER : uint32_t {
+
+  enum class eRT_ORDER : std::uint32_t {
     // Descriptors within the group are processed from start to end
     eRT_START_END = 0,
     // Descriptors within the group are processed from end to start
     eRT_END_START = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Start index
-    uint32_t START : 10;
-    // read-write - End index
-    uint32_t END : 10;
-    // read-write - Save Order
-    eSV_ORDER SV_ORDER : 1;
-    // read-write - Restore order
-    eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Start index
+  using START = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // End index
+  using END = ftl::mmio::Field<10, 10, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Order
+  using SV_ORDER = ftl::mmio::Field<1, 20, eSV_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore order
+  using RT_ORDER = ftl::mmio::Field<1, 21, eRT_ORDER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL0_15_fields_
 
-  DESC_CTRL0_15() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL0_15 &ref() { return *reinterpret_cast<volatile DESC_CTRL0_15*>(0x40CB81E0); }
+struct DESC_CTRL0_15 : ftl::mmio::Register<
+    0x40CB81E0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL0_15_fields_::START,
+    DESC_CTRL0_15_fields_::END,
+    DESC_CTRL0_15_fields_::SV_ORDER,
+    DESC_CTRL0_15_fields_::RT_ORDER,
+    ftl::mmio::Reserved<10, 22>> {
+  using eSV_ORDER = DESC_CTRL0_15_fields_::eSV_ORDER;
+  using eRT_ORDER = DESC_CTRL0_15_fields_::eRT_ORDER;
+  using START = DESC_CTRL0_15_fields_::START;
+  using END = DESC_CTRL0_15_fields_::END;
+  using SV_ORDER = DESC_CTRL0_15_fields_::SV_ORDER;
+  using RT_ORDER = DESC_CTRL0_15_fields_::RT_ORDER;
 };
 
+
 // Descriptor Control1 15 Register
-union DESC_CTRL1_15 {
-  
-  // Software trigger save
-  enum class eSW_TRIG_SV : uint32_t {
+struct DESC_CTRL1_15_fields_ {
+
+  enum class eSW_TRIG_SV : std::uint32_t {
     // No software save request/software restore request complete
     eREQ_NO = 0,
     // Request a software save operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // Software trigger restore
-  enum class eSW_TRIG_RT : uint32_t {
+
+  enum class eSW_TRIG_RT : std::uint32_t {
     // No software restore request/software restore request complete
     eREQ_NO = 0,
     // Request a software restore operation/software restore operation in progress
     eREQ_YES = 1,
   };
-  
-  // This field describes the mapping (0-7) to external request signals from different domains
-  enum class ePOWER_DOMAIN : uint32_t {
+
+  enum class ePOWER_DOMAIN : std::uint32_t {
     // PGMC_BPC0
     eDOMAIN0 = 0,
     // PGMC_BPC1
@@ -2773,260 +3074,289 @@ union DESC_CTRL1_15 {
     // PGMC_BPC7
     eDOMAIN7 = 7,
   };
-  
-  // Group Enable
-  enum class eGP_EN : uint32_t {
+
+  enum class eGP_EN : std::uint32_t {
     // Group disabled
     eGP_DIS = 0,
     // Group enabled
     eGP_EN = 1,
   };
-  
-  // Read Lock
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // Group is unlocked (read access allowed)
     eR_UNLOCK = 0,
     // Group is locked (read access not allowed)
     eR_LOCK = 1,
   };
-  
-  // Write Lock
-  enum class eWL : uint32_t {
+
+  enum class eWL : std::uint32_t {
     // Group is unlocked (write access allowed)
     eW_UNLOCK = 0,
     // Group is locked (write access not allowed)
     eW_LOCK = 1,
   };
-  
-  // Domain lock
-  enum class eDL : uint32_t {
+
+  enum class eDL : std::uint32_t {
     // Unlock
     eD_UNLOCK = 0,
     // Lock
     eD_LOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Software trigger save
-    eSW_TRIG_SV SW_TRIG_SV : 1;
-    // read-write - Software trigger restore
-    eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - This field describes the mapping (0-7) to external request signals from different domains
-    ePOWER_DOMAIN POWER_DOMAIN : 3;
-    // read-write - Group Enable
-    eGP_EN GP_EN : 1;
-    // read-write - Save Priority
-    uint32_t SV_PRIORITY : 4;
-    // read-write - Restore Priority
-    uint32_t RT_PRIORITY : 4;
-    // read-write - CPU Domain
-    uint32_t CPUD : 2;
-    // read-write - Read Lock
-    eRL RL : 1;
-    // read-write - Write Lock
-    eWL WL : 1;
-    // read-write - Domain lock
-    eDL DL : 1;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software trigger save
+  using SW_TRIG_SV = ftl::mmio::Field<1, 0, eSW_TRIG_SV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software trigger restore
+  using SW_TRIG_RT = ftl::mmio::Field<1, 1, eSW_TRIG_RT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field describes the mapping (0-7) to external request signals from different domains
+  using POWER_DOMAIN = ftl::mmio::Field<3, 4, ePOWER_DOMAIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Group Enable
+  using GP_EN = ftl::mmio::Field<1, 7, eGP_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Save Priority
+  using SV_PRIORITY = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Restore Priority
+  using RT_PRIORITY = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU Domain
+  using CPUD = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Read Lock
+  using RL = ftl::mmio::Field<1, 18, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write Lock
+  using WL = ftl::mmio::Field<1, 19, eWL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain lock
+  using DL = ftl::mmio::Field<1, 20, eDL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_CTRL1_15_fields_
 
-  DESC_CTRL1_15() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_CTRL1_15 &ref() { return *reinterpret_cast<volatile DESC_CTRL1_15*>(0x40CB81E4); }
+struct DESC_CTRL1_15 : ftl::mmio::Register<
+    0x40CB81E4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_CTRL1_15_fields_::SW_TRIG_SV,
+    DESC_CTRL1_15_fields_::SW_TRIG_RT,
+    ftl::mmio::Reserved<2, 2>,
+    DESC_CTRL1_15_fields_::POWER_DOMAIN,
+    DESC_CTRL1_15_fields_::GP_EN,
+    DESC_CTRL1_15_fields_::SV_PRIORITY,
+    DESC_CTRL1_15_fields_::RT_PRIORITY,
+    DESC_CTRL1_15_fields_::CPUD,
+    DESC_CTRL1_15_fields_::RL,
+    DESC_CTRL1_15_fields_::WL,
+    DESC_CTRL1_15_fields_::DL,
+    ftl::mmio::Reserved<11, 21>> {
+  using eSW_TRIG_SV = DESC_CTRL1_15_fields_::eSW_TRIG_SV;
+  using eSW_TRIG_RT = DESC_CTRL1_15_fields_::eSW_TRIG_RT;
+  using ePOWER_DOMAIN = DESC_CTRL1_15_fields_::ePOWER_DOMAIN;
+  using eGP_EN = DESC_CTRL1_15_fields_::eGP_EN;
+  using eRL = DESC_CTRL1_15_fields_::eRL;
+  using eWL = DESC_CTRL1_15_fields_::eWL;
+  using eDL = DESC_CTRL1_15_fields_::eDL;
+  using SW_TRIG_SV = DESC_CTRL1_15_fields_::SW_TRIG_SV;
+  using SW_TRIG_RT = DESC_CTRL1_15_fields_::SW_TRIG_RT;
+  using POWER_DOMAIN = DESC_CTRL1_15_fields_::POWER_DOMAIN;
+  using GP_EN = DESC_CTRL1_15_fields_::GP_EN;
+  using SV_PRIORITY = DESC_CTRL1_15_fields_::SV_PRIORITY;
+  using RT_PRIORITY = DESC_CTRL1_15_fields_::RT_PRIORITY;
+  using CPUD = DESC_CTRL1_15_fields_::CPUD;
+  using RL = DESC_CTRL1_15_fields_::RL;
+  using WL = DESC_CTRL1_15_fields_::WL;
+  using DL = DESC_CTRL1_15_fields_::DL;
 };
+
 
 // Descriptor Address Up 15 Register
-union DESC_ADDR_UP_15 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (High)
-    uint32_t ADDR_UP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_UP_15_fields_ {
+  // Address field (High)
+  using ADDR_UP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_UP_15_fields_
 
-  DESC_ADDR_UP_15() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_UP_15 &ref() { return *reinterpret_cast<volatile DESC_ADDR_UP_15*>(0x40CB81E8); }
+struct DESC_ADDR_UP_15 : ftl::mmio::Register<
+    0x40CB81E8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_UP_15_fields_::ADDR_UP> {
+  using ADDR_UP = DESC_ADDR_UP_15_fields_::ADDR_UP;
 };
+
 
 // Descriptor Address Down 15 Register
-union DESC_ADDR_DOWN_15 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address field (Low)
-    uint32_t ADDR_DOWN : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DESC_ADDR_DOWN_15_fields_ {
+  // Address field (Low)
+  using ADDR_DOWN = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DESC_ADDR_DOWN_15_fields_
 
-  DESC_ADDR_DOWN_15() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DESC_ADDR_DOWN_15 &ref() { return *reinterpret_cast<volatile DESC_ADDR_DOWN_15*>(0x40CB81EC); }
+struct DESC_ADDR_DOWN_15 : ftl::mmio::Register<
+    0x40CB81ECu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DESC_ADDR_DOWN_15_fields_::ADDR_DOWN> {
+  using ADDR_DOWN = DESC_ADDR_DOWN_15_fields_::ADDR_DOWN;
 };
 
+
 // Control Register
-union CTRL {
-  
-  // Save/Restore request disable
-  enum class eDIS_HW_REQ : uint32_t {
+struct CTRL_fields_ {
+
+  enum class eDIS_HW_REQ : std::uint32_t {
     // PGMC save/restore requests enabled
     eENABLE_PGMC = 0,
     // PGMC save/restore requests disabled
     eDIS_PGMC = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 27;
-    // read-write - Save/Restore request disable
-    eDIS_HW_REQ DIS_HW_REQ : 1;
-    uint32_t _reserved_1 : 3;
-    // read-write - Software reset
-    uint32_t SW_RESET : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Save/Restore request disable
+  using DIS_HW_REQ = ftl::mmio::Field<1, 27, eDIS_HW_REQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software reset
+  using SW_RESET = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_fields_
 
-  CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40CB8200); }
+struct CTRL : ftl::mmio::Register<
+    0x40CB8200u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<27, 0>,
+    CTRL_fields_::DIS_HW_REQ,
+    ftl::mmio::Reserved<3, 28>,
+    CTRL_fields_::SW_RESET> {
+  using eDIS_HW_REQ = CTRL_fields_::eDIS_HW_REQ;
+  using DIS_HW_REQ = CTRL_fields_::DIS_HW_REQ;
+  using SW_RESET = CTRL_fields_::SW_RESET;
 };
 
+
 // Interrupt Status Register
-union INT_STATUS {
-  
-  // Group Conflict field
-  enum class eGROUP_CONFLICT : uint32_t {
+struct INT_STATUS_fields_ {
+
+  enum class eGROUP_CONFLICT : std::uint32_t {
     // No group conflict error
     eGRP_CONFLICT_ERR_NO = 0,
     // A group conflict error has occurred
     eGRP_CONFLICT_ERR = 1,
   };
-  
-  // Timeout field
-  enum class eTIMEOUT : uint32_t {
+
+  enum class eTIMEOUT : std::uint32_t {
     // No timeout event
     eERR_INDEX_ERR_NO = 0,
     // A timeout event has occurred
     eERR_INDEX_ERR = 1,
   };
-  
-  // Software Request Done
-  enum class eSW_REQ_DONE : uint32_t {
+
+  enum class eSW_REQ_DONE : std::uint32_t {
     // No software triggered requests or software triggered request still in progress
     eSW_REQ_ERR_A = 0,
     // Atleast one software triggered has been complete
     eSW_REQ_ERR = 1,
   };
-  
-  // AHB Error field
-  enum class eAHB_ERR : uint32_t {
+
+  enum class eAHB_ERR : std::uint32_t {
     // No AHB error
     eAHB_ERRNO = 0,
     // An AHB error has occurred
     eAHB_ERR = 1,
   };
-  
-  // Address Error field
-  enum class eADDR_ERR : uint32_t {
+
+  enum class eADDR_ERR : std::uint32_t {
     // No address error
     eADDERR_ERRNO = 0,
     // An address error has occurred
     eADDERR_ERR = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - Error Index
-    uint32_t ERR_INDEX : 10;
-    // read-only - AHB Bus response field
-    uint32_t AHB_RESP : 2;
-    uint32_t _reserved_0 : 15;
-    // read-write - Group Conflict field
-    eGROUP_CONFLICT GROUP_CONFLICT : 1;
-    // read-write - Timeout field
-    eTIMEOUT TIMEOUT : 1;
-    // read-only - Software Request Done
-    eSW_REQ_DONE SW_REQ_DONE : 1;
-    // read-write - AHB Error field
-    eAHB_ERR AHB_ERR : 1;
-    // read-write - Address Error field
-    eADDR_ERR ADDR_ERR : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Error Index
+  using ERR_INDEX = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AHB Bus response field
+  using AHB_RESP = ftl::mmio::Field<2, 10, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Group Conflict field
+  using GROUP_CONFLICT = ftl::mmio::Field<1, 27, eGROUP_CONFLICT, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Timeout field
+  using TIMEOUT = ftl::mmio::Field<1, 28, eTIMEOUT, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Software Request Done
+  using SW_REQ_DONE = ftl::mmio::Field<1, 29, eSW_REQ_DONE, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AHB Error field
+  using AHB_ERR = ftl::mmio::Field<1, 30, eAHB_ERR, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Address Error field
+  using ADDR_ERR = ftl::mmio::Field<1, 31, eADDR_ERR, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct INT_STATUS_fields_
 
-  INT_STATUS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_STATUS &ref() { return *reinterpret_cast<volatile INT_STATUS*>(0x40CB8204); }
+struct INT_STATUS : ftl::mmio::Register<
+    0x40CB8204u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    INT_STATUS_fields_::ERR_INDEX,
+    INT_STATUS_fields_::AHB_RESP,
+    ftl::mmio::Reserved<15, 12>,
+    INT_STATUS_fields_::GROUP_CONFLICT,
+    INT_STATUS_fields_::TIMEOUT,
+    INT_STATUS_fields_::SW_REQ_DONE,
+    INT_STATUS_fields_::AHB_ERR,
+    INT_STATUS_fields_::ADDR_ERR> {
+  using eGROUP_CONFLICT = INT_STATUS_fields_::eGROUP_CONFLICT;
+  using eTIMEOUT = INT_STATUS_fields_::eTIMEOUT;
+  using eSW_REQ_DONE = INT_STATUS_fields_::eSW_REQ_DONE;
+  using eAHB_ERR = INT_STATUS_fields_::eAHB_ERR;
+  using eADDR_ERR = INT_STATUS_fields_::eADDR_ERR;
+  using ERR_INDEX = INT_STATUS_fields_::ERR_INDEX;
+  using AHB_RESP = INT_STATUS_fields_::AHB_RESP;
+  using GROUP_CONFLICT = INT_STATUS_fields_::GROUP_CONFLICT;
+  using TIMEOUT = INT_STATUS_fields_::TIMEOUT;
+  using SW_REQ_DONE = INT_STATUS_fields_::SW_REQ_DONE;
+  using AHB_ERR = INT_STATUS_fields_::AHB_ERR;
+  using ADDR_ERR = INT_STATUS_fields_::ADDR_ERR;
 };
+
 
 // HP Timeout Register
-union HP_TIMEOUT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Time out value
-    uint32_t TIMEOUT_VALUE : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct HP_TIMEOUT_fields_ {
+  // Time out value
+  using TIMEOUT_VALUE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct HP_TIMEOUT_fields_
 
-  HP_TIMEOUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HP_TIMEOUT &ref() { return *reinterpret_cast<volatile HP_TIMEOUT*>(0x40CB820C); }
+struct HP_TIMEOUT : ftl::mmio::Register<
+    0x40CB820Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    HP_TIMEOUT_fields_::TIMEOUT_VALUE> {
+  using TIMEOUT_VALUE = HP_TIMEOUT_fields_::TIMEOUT_VALUE;
 };
+
 
 // Hardware Request Pending Register
-union HW_GROUP_PENDING {
-  
-  // Bit field definition.
-  struct {
-    // read-only - This field indicates which groups are pending for save from hardware request
-    uint32_t HW_SAVE_PENDING : 16;
-    // read-only - This field indicates which groups are pending for restore from hardware request
-    uint32_t HW_RESTORE_PENDING : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct HW_GROUP_PENDING_fields_ {
+  // This field indicates which groups are pending for save from hardware request
+  using HW_SAVE_PENDING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // This field indicates which groups are pending for restore from hardware request
+  using HW_RESTORE_PENDING = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct HW_GROUP_PENDING_fields_
 
-  HW_GROUP_PENDING() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HW_GROUP_PENDING &ref() { return *reinterpret_cast<volatile HW_GROUP_PENDING*>(0x40CB821C); }
+struct HW_GROUP_PENDING : ftl::mmio::Register<
+    0x40CB821Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    HW_GROUP_PENDING_fields_::HW_SAVE_PENDING,
+    HW_GROUP_PENDING_fields_::HW_RESTORE_PENDING> {
+  using HW_SAVE_PENDING = HW_GROUP_PENDING_fields_::HW_SAVE_PENDING;
+  using HW_RESTORE_PENDING = HW_GROUP_PENDING_fields_::HW_RESTORE_PENDING;
 };
+
 
 // Software Request Pending Register
-union SW_GROUP_PENDING {
-  
-  // Bit field definition.
-  struct {
-    // read-only - This field indicates which groups are pending for save from software request
-    uint32_t SW_SAVE_PENDING : 16;
-    // read-only - This field indicates which groups are pending for restore from software request
-    uint32_t SW_RESTORE_PENDING : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SW_GROUP_PENDING_fields_ {
+  // This field indicates which groups are pending for save from software request
+  using SW_SAVE_PENDING = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // This field indicates which groups are pending for restore from software request
+  using SW_RESTORE_PENDING = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct SW_GROUP_PENDING_fields_
 
-  SW_GROUP_PENDING() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_GROUP_PENDING &ref() { return *reinterpret_cast<volatile SW_GROUP_PENDING*>(0x40CB8220); }
+struct SW_GROUP_PENDING : ftl::mmio::Register<
+    0x40CB8220u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    SW_GROUP_PENDING_fields_::SW_SAVE_PENDING,
+    SW_GROUP_PENDING_fields_::SW_RESTORE_PENDING> {
+  using SW_SAVE_PENDING = SW_GROUP_PENDING_fields_::SW_SAVE_PENDING;
+  using SW_RESTORE_PENDING = SW_GROUP_PENDING_fields_::SW_RESTORE_PENDING;
 };
 
-
-} // namespace nSSARC_LP
+}  // namespace regs::ssarc_lp

@@ -1,4461 +1,4789 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // SRC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nSRC {
+namespace regs::src {
 
 
 // SRC Control Register
-union SCR {
-  
-  // cm4 core reset will be held until boot core write this bit to 1 to release it.
-  enum class eBT_RELEASE_M4 : uint32_t {
+struct SCR_fields_ {
+
+  enum class eBT_RELEASE_M4 : std::uint32_t {
     // cm4 core reset is asserted
     eBT_RELEASE_M4_0 = 0,
     // cm4 core reset is released
     eBT_RELEASE_M4_1 = 1,
   };
-  
-  // cm7 core reset will be held until boot core write this bit to 1 to release it.
-  enum class eBT_RELEASE_M7 : uint32_t {
+
+  enum class eBT_RELEASE_M7 : std::uint32_t {
     // cm7 core reset is asserted
     eBT_RELEASE_M7_0 = 0,
     // cm7 core reset is released
     eBT_RELEASE_M7_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - cm4 core reset will be held until boot core write this bit to 1 to release it.
-    eBT_RELEASE_M4 BT_RELEASE_M4 : 1;
-    // read-write - cm7 core reset will be held until boot core write this bit to 1 to release it.
-    eBT_RELEASE_M7 BT_RELEASE_M7 : 1;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // cm4 core reset will be held until boot core write this bit to 1 to release it.
+  using BT_RELEASE_M4 = ftl::mmio::Field<1, 0, eBT_RELEASE_M4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // cm7 core reset will be held until boot core write this bit to 1 to release it.
+  using BT_RELEASE_M7 = ftl::mmio::Field<1, 1, eBT_RELEASE_M7, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SCR_fields_
 
-  SCR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SCR &ref() { return *reinterpret_cast<volatile SCR*>(0x40C04000); }
+struct SCR : ftl::mmio::Register<
+    0x40C04000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SCR_fields_::BT_RELEASE_M4,
+    SCR_fields_::BT_RELEASE_M7,
+    ftl::mmio::Reserved<30, 2>> {
+  using eBT_RELEASE_M4 = SCR_fields_::eBT_RELEASE_M4;
+  using eBT_RELEASE_M7 = SCR_fields_::eBT_RELEASE_M7;
+  using BT_RELEASE_M4 = SCR_fields_::BT_RELEASE_M4;
+  using BT_RELEASE_M7 = SCR_fields_::BT_RELEASE_M7;
 };
 
+
 // SRC Reset Mode Register
-union SRMR {
-  
-  // Wdog reset mode configuration
-  enum class eWDOG_RESET_MODE : uint32_t {
+struct SRMR_fields_ {
+
+  enum class eWDOG_RESET_MODE : std::uint32_t {
     // reset system
     eWDOG_RESET_MODE_0 = 0,
     // do not reset anything
     eWDOG_RESET_MODE_3 = 3,
   };
-  
-  // Wdog3 reset mode configuration
-  enum class eWDOG3_RESET_MODE : uint32_t {
+
+  enum class eWDOG3_RESET_MODE : std::uint32_t {
     // reset system
     eWDOG3_RESET_MODE_0 = 0,
     // do not reset anything
     eWDOG3_RESET_MODE_3 = 3,
   };
-  
-  // Wdog4 reset mode configuration
-  enum class eWDOG4_RESET_MODE : uint32_t {
+
+  enum class eWDOG4_RESET_MODE : std::uint32_t {
     // reset system
     eWDOG4_RESET_MODE_0 = 0,
     // do not reset anything
     eWDOG4_RESET_MODE_3 = 3,
   };
-  
-  // M4 core lockup reset mode configuration
-  enum class eM4LOCKUP_RESET_MODE : uint32_t {
+
+  enum class eM4LOCKUP_RESET_MODE : std::uint32_t {
     // reset system
     eM4LOCKUP_RESET_MODE_0 = 0,
     // do not reset anything
     eM4LOCKUP_RESET_MODE_3 = 3,
   };
-  
-  // M7 core lockup reset mode configuration
-  enum class eM7LOCKUP_RESET_MODE : uint32_t {
+
+  enum class eM7LOCKUP_RESET_MODE : std::uint32_t {
     // reset system
     eM7LOCKUP_RESET_MODE_0 = 0,
     // do not reset anything
     eM7LOCKUP_RESET_MODE_3 = 3,
   };
-  
-  // M4 request reset configuration
-  enum class eM4REQ_RESET_MODE : uint32_t {
+
+  enum class eM4REQ_RESET_MODE : std::uint32_t {
     // reset system
     eM4REQ_RESET_MODE_0 = 0,
     // do not reset anything
     eM4REQ_RESET_MODE_3 = 3,
   };
-  
-  // M7 request reset configuration
-  enum class eM7REQ_RESET_MODE : uint32_t {
+
+  enum class eM7REQ_RESET_MODE : std::uint32_t {
     // reset system
     eM7REQ_RESET_MODE_0 = 0,
     // do not reset anything
     eM7REQ_RESET_MODE_3 = 3,
   };
-  
-  // Tempsense reset mode configuration
-  enum class eTEMPSENSE_RESET_MODE : uint32_t {
+
+  enum class eTEMPSENSE_RESET_MODE : std::uint32_t {
     // reset system
     eTEMPSENSE_RESET_MODE_0 = 0,
     // do not reset anything
     eTEMPSENSE_RESET_MODE_3 = 3,
   };
-  
-  // CSU reset mode configuration
-  enum class eCSU_RESET_MODE : uint32_t {
+
+  enum class eCSU_RESET_MODE : std::uint32_t {
     // reset system
     eCSU_RESET_MODE_0 = 0,
     // do not reset anything
     eCSU_RESET_MODE_3 = 3,
   };
-  
-  // Jtag SW reset mode configuration
-  enum class eJTAGSW_RESET_MODE : uint32_t {
+
+  enum class eJTAGSW_RESET_MODE : std::uint32_t {
     // reset system
     eJTAGSW_RESET_MODE_0 = 0,
     // do not reset anything
     eJTAGSW_RESET_MODE_3 = 3,
   };
-  
-  // Jtag SW reset mode configuration
-  enum class eOVERVOLT_RESET_MODE : uint32_t {
+
+  enum class eOVERVOLT_RESET_MODE : std::uint32_t {
     // reset system
     eOVERVOLT_RESET_MODE_0 = 0,
     // do not reset anything
     eOVERVOLT_RESET_MODE_3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Wdog reset mode configuration
-    eWDOG_RESET_MODE WDOG_RESET_MODE : 2;
-    // read-write - Wdog3 reset mode configuration
-    eWDOG3_RESET_MODE WDOG3_RESET_MODE : 2;
-    // read-write - Wdog4 reset mode configuration
-    eWDOG4_RESET_MODE WDOG4_RESET_MODE : 2;
-    // read-write - M4 core lockup reset mode configuration
-    eM4LOCKUP_RESET_MODE M4LOCKUP_RESET_MODE : 2;
-    // read-write - M7 core lockup reset mode configuration
-    eM7LOCKUP_RESET_MODE M7LOCKUP_RESET_MODE : 2;
-    // read-write - M4 request reset configuration
-    eM4REQ_RESET_MODE M4REQ_RESET_MODE : 2;
-    // read-write - M7 request reset configuration
-    eM7REQ_RESET_MODE M7REQ_RESET_MODE : 2;
-    // read-write - Tempsense reset mode configuration
-    eTEMPSENSE_RESET_MODE TEMPSENSE_RESET_MODE : 2;
-    // read-write - CSU reset mode configuration
-    eCSU_RESET_MODE CSU_RESET_MODE : 2;
-    // read-write - Jtag SW reset mode configuration
-    eJTAGSW_RESET_MODE JTAGSW_RESET_MODE : 2;
-    // read-write - Jtag SW reset mode configuration
-    eOVERVOLT_RESET_MODE OVERVOLT_RESET_MODE : 2;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Wdog reset mode configuration
+  using WDOG_RESET_MODE = ftl::mmio::Field<2, 0, eWDOG_RESET_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Wdog3 reset mode configuration
+  using WDOG3_RESET_MODE = ftl::mmio::Field<2, 2, eWDOG3_RESET_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Wdog4 reset mode configuration
+  using WDOG4_RESET_MODE = ftl::mmio::Field<2, 4, eWDOG4_RESET_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // M4 core lockup reset mode configuration
+  using M4LOCKUP_RESET_MODE = ftl::mmio::Field<2, 6, eM4LOCKUP_RESET_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // M7 core lockup reset mode configuration
+  using M7LOCKUP_RESET_MODE = ftl::mmio::Field<2, 8, eM7LOCKUP_RESET_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // M4 request reset configuration
+  using M4REQ_RESET_MODE = ftl::mmio::Field<2, 10, eM4REQ_RESET_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // M7 request reset configuration
+  using M7REQ_RESET_MODE = ftl::mmio::Field<2, 12, eM7REQ_RESET_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Tempsense reset mode configuration
+  using TEMPSENSE_RESET_MODE = ftl::mmio::Field<2, 14, eTEMPSENSE_RESET_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CSU reset mode configuration
+  using CSU_RESET_MODE = ftl::mmio::Field<2, 16, eCSU_RESET_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Jtag SW reset mode configuration
+  using JTAGSW_RESET_MODE = ftl::mmio::Field<2, 18, eJTAGSW_RESET_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Jtag SW reset mode configuration
+  using OVERVOLT_RESET_MODE = ftl::mmio::Field<2, 20, eOVERVOLT_RESET_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SRMR_fields_
 
-  SRMR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRMR &ref() { return *reinterpret_cast<volatile SRMR*>(0x40C04004); }
+struct SRMR : ftl::mmio::Register<
+    0x40C04004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SRMR_fields_::WDOG_RESET_MODE,
+    SRMR_fields_::WDOG3_RESET_MODE,
+    SRMR_fields_::WDOG4_RESET_MODE,
+    SRMR_fields_::M4LOCKUP_RESET_MODE,
+    SRMR_fields_::M7LOCKUP_RESET_MODE,
+    SRMR_fields_::M4REQ_RESET_MODE,
+    SRMR_fields_::M7REQ_RESET_MODE,
+    SRMR_fields_::TEMPSENSE_RESET_MODE,
+    SRMR_fields_::CSU_RESET_MODE,
+    SRMR_fields_::JTAGSW_RESET_MODE,
+    SRMR_fields_::OVERVOLT_RESET_MODE,
+    ftl::mmio::Reserved<10, 22>> {
+  using eWDOG_RESET_MODE = SRMR_fields_::eWDOG_RESET_MODE;
+  using eWDOG3_RESET_MODE = SRMR_fields_::eWDOG3_RESET_MODE;
+  using eWDOG4_RESET_MODE = SRMR_fields_::eWDOG4_RESET_MODE;
+  using eM4LOCKUP_RESET_MODE = SRMR_fields_::eM4LOCKUP_RESET_MODE;
+  using eM7LOCKUP_RESET_MODE = SRMR_fields_::eM7LOCKUP_RESET_MODE;
+  using eM4REQ_RESET_MODE = SRMR_fields_::eM4REQ_RESET_MODE;
+  using eM7REQ_RESET_MODE = SRMR_fields_::eM7REQ_RESET_MODE;
+  using eTEMPSENSE_RESET_MODE = SRMR_fields_::eTEMPSENSE_RESET_MODE;
+  using eCSU_RESET_MODE = SRMR_fields_::eCSU_RESET_MODE;
+  using eJTAGSW_RESET_MODE = SRMR_fields_::eJTAGSW_RESET_MODE;
+  using eOVERVOLT_RESET_MODE = SRMR_fields_::eOVERVOLT_RESET_MODE;
+  using WDOG_RESET_MODE = SRMR_fields_::WDOG_RESET_MODE;
+  using WDOG3_RESET_MODE = SRMR_fields_::WDOG3_RESET_MODE;
+  using WDOG4_RESET_MODE = SRMR_fields_::WDOG4_RESET_MODE;
+  using M4LOCKUP_RESET_MODE = SRMR_fields_::M4LOCKUP_RESET_MODE;
+  using M7LOCKUP_RESET_MODE = SRMR_fields_::M7LOCKUP_RESET_MODE;
+  using M4REQ_RESET_MODE = SRMR_fields_::M4REQ_RESET_MODE;
+  using M7REQ_RESET_MODE = SRMR_fields_::M7REQ_RESET_MODE;
+  using TEMPSENSE_RESET_MODE = SRMR_fields_::TEMPSENSE_RESET_MODE;
+  using CSU_RESET_MODE = SRMR_fields_::CSU_RESET_MODE;
+  using JTAGSW_RESET_MODE = SRMR_fields_::JTAGSW_RESET_MODE;
+  using OVERVOLT_RESET_MODE = SRMR_fields_::OVERVOLT_RESET_MODE;
 };
+
 
 // SRC Boot Mode Register 1
-union SBMR1 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Please see fusemap.
-    uint32_t BOOT_CFG1 : 8;
-    // read-only - Please see fusemap.
-    uint32_t BOOT_CFG2 : 8;
-    // read-only - Please see fusemap.
-    uint32_t BOOT_CFG3 : 8;
-    // read-only - Please see fusemap.
-    uint32_t BOOT_CFG4 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SBMR1_fields_ {
+  // Please see fusemap.
+  using BOOT_CFG1 = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Please see fusemap.
+  using BOOT_CFG2 = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Please see fusemap.
+  using BOOT_CFG3 = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Please see fusemap.
+  using BOOT_CFG4 = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct SBMR1_fields_
 
-  SBMR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SBMR1 &ref() { return *reinterpret_cast<volatile SBMR1*>(0x40C04008); }
+struct SBMR1 : ftl::mmio::Register<
+    0x40C04008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    SBMR1_fields_::BOOT_CFG1,
+    SBMR1_fields_::BOOT_CFG2,
+    SBMR1_fields_::BOOT_CFG3,
+    SBMR1_fields_::BOOT_CFG4> {
+  using BOOT_CFG1 = SBMR1_fields_::BOOT_CFG1;
+  using BOOT_CFG2 = SBMR1_fields_::BOOT_CFG2;
+  using BOOT_CFG3 = SBMR1_fields_::BOOT_CFG3;
+  using BOOT_CFG4 = SBMR1_fields_::BOOT_CFG4;
 };
+
 
 // SRC Boot Mode Register 2
-union SBMR2 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - SECONFIG[1] shows the state of the SECONFIG[1] fuse
-    uint32_t SEC_CONFIG : 2;
-    uint32_t _reserved_0 : 2;
-    // read-only - BT_FUSE_SEL shows the state of the BT_FUSE_SEL fuse
-    uint32_t BT_FUSE_SEL : 1;
-    uint32_t _reserved_1 : 19;
-    // read-only - BMOD[1:0] shows the latched state of the BOOT_MODE1 and BOOT_MODE0 signals on the rising edge of POR_B
-    uint32_t BMOD : 2;
-    uint32_t _reserved_2 : 6;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SBMR2_fields_ {
+  // SECONFIG[1] shows the state of the SECONFIG[1] fuse
+  using SEC_CONFIG = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // BT_FUSE_SEL shows the state of the BT_FUSE_SEL fuse
+  using BT_FUSE_SEL = ftl::mmio::Field<1, 4, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // BMOD[1:0] shows the latched state of the BOOT_MODE1 and BOOT_MODE0 signals on the rising edge of POR_B
+  using BMOD = ftl::mmio::Field<2, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct SBMR2_fields_
 
-  SBMR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SBMR2 &ref() { return *reinterpret_cast<volatile SBMR2*>(0x40C0400C); }
+struct SBMR2 : ftl::mmio::Register<
+    0x40C0400Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    SBMR2_fields_::SEC_CONFIG,
+    ftl::mmio::Reserved<2, 2>,
+    SBMR2_fields_::BT_FUSE_SEL,
+    ftl::mmio::Reserved<19, 5>,
+    SBMR2_fields_::BMOD,
+    ftl::mmio::Reserved<6, 26>> {
+  using SEC_CONFIG = SBMR2_fields_::SEC_CONFIG;
+  using BT_FUSE_SEL = SBMR2_fields_::BT_FUSE_SEL;
+  using BMOD = SBMR2_fields_::BMOD;
 };
 
+
 // SRC Reset Status Register
-union SRSR {
-  
-  // Indicates whether reset was the result of ipp_reset_b pin (Power-up sequence)
-  enum class eIPP_RESET_B_M7 : uint32_t {
+struct SRSR_fields_ {
+
+  enum class eIPP_RESET_B_M7 : std::uint32_t {
     // Reset is not a result of ipp_reset_b pin.
     eIPP_RESET_B_M7_0 = 0,
     // Reset is a result of ipp_reset_b pin.
     eIPP_RESET_B_M7_1 = 1,
   };
-  
-  // Indicates whether reset was the result of m7 reset request
-  enum class eM7_REQUEST_M7 : uint32_t {
+
+  enum class eM7_REQUEST_M7 : std::uint32_t {
     // Reset is not a result of m7 reset request.
     eM7_REQUEST_M7_0 = 0,
     // Reset is a result of m7 reset request.
     eM7_REQUEST_M7_1 = 1,
   };
-  
-  // Indicates a reset has been caused by M7 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
-  enum class eM7_LOCKUP_M7 : uint32_t {
+
+  enum class eM7_LOCKUP_M7 : std::uint32_t {
     // Reset is not a result of the mentioned case.
     eM7_LOCKUP_M7_0 = 0,
     // Reset is a result of the mentioned case.
     eM7_LOCKUP_M7_1 = 1,
   };
-  
-  // Indicates whether the reset was the result of the csu_reset_b input.
-  enum class eCSU_RESET_B_M7 : uint32_t {
+
+  enum class eCSU_RESET_B_M7 : std::uint32_t {
     // Reset is not a result of the csu_reset_b event.
     eCSU_RESET_B_M7_0 = 0,
     // Reset is a result of the csu_reset_b event.
     eCSU_RESET_B_M7_1 = 1,
   };
-  
-  // Indicates whether the reset was the result of the ipp_user_reset_b qualified reset.
-  enum class eIPP_USER_RESET_B_M7 : uint32_t {
+
+  enum class eIPP_USER_RESET_B_M7 : std::uint32_t {
     // Reset is not a result of the ipp_user_reset_b qualified as COLD reset event.
     eIPP_USER_RESET_B_M7_0 = 0,
     // Reset is a result of the ipp_user_reset_b qualified as COLD reset event.
     eIPP_USER_RESET_B_M7_1 = 1,
   };
-  
-  // IC Watchdog Time-out reset
-  enum class eWDOG_RST_B_M7 : uint32_t {
+
+  enum class eWDOG_RST_B_M7 : std::uint32_t {
     // Reset is not a result of the watchdog time-out event.
     eWDOG_RST_B_M7_0 = 0,
     // Reset is a result of the watchdog time-out event.
     eWDOG_RST_B_M7_1 = 1,
   };
-  
-  // HIGH - Z JTAG reset. Indicates whether the reset was the result of HIGH-Z reset from JTAG.
-  enum class eJTAG_RST_B_M7 : uint32_t {
+
+  enum class eJTAG_RST_B_M7 : std::uint32_t {
     // Reset is not a result of HIGH-Z reset from JTAG.
     eJTAG_RST_B_M7_0 = 0,
     // Reset is a result of HIGH-Z reset from JTAG.
     eJTAG_RST_B_M7_1 = 1,
   };
-  
-  // JTAG software reset. Indicates whether the reset was the result of software reset from JTAG.
-  enum class eJTAG_SW_RST_M7 : uint32_t {
+
+  enum class eJTAG_SW_RST_M7 : std::uint32_t {
     // Reset is not a result of software reset from JTAG.
     eJTAG_SW_RST_M7_0 = 0,
     // Reset is a result of software reset from JTAG.
     eJTAG_SW_RST_M7_1 = 1,
   };
-  
-  // IC Watchdog3 Time-out reset
-  enum class eWDOG3_RST_B_M7 : uint32_t {
+
+  enum class eWDOG3_RST_B_M7 : std::uint32_t {
     // Reset is not a result of the watchdog3 time-out event.
     eWDOG3_RST_B_M7_0 = 0,
     // Reset is a result of the watchdog3 time-out event.
     eWDOG3_RST_B_M7_1 = 1,
   };
-  
-  // IC Watchdog4 Time-out reset
-  enum class eWDOG4_RST_B_M7 : uint32_t {
+
+  enum class eWDOG4_RST_B_M7 : std::uint32_t {
     // Reset is not a result of the watchdog4 time-out event.
     eWDOG4_RST_B_M7_0 = 0,
     // Reset is a result of the watchdog4 time-out event.
     eWDOG4_RST_B_M7_1 = 1,
   };
-  
-  // Temper Sensor software reset
-  enum class eTEMPSENSE_RST_B_M7 : uint32_t {
+
+  enum class eTEMPSENSE_RST_B_M7 : std::uint32_t {
     // Reset is not a result of software reset from Temperature Sensor.
     eTEMPSENSE_RST_B_M7_0 = 0,
     // Reset is a result of software reset from Temperature Sensor.
     eTEMPSENSE_RST_B_M7_1 = 1,
   };
-  
-  // Indicates whether reset was the result of m4 reset request.
-  enum class eM4_REQUEST_M7 : uint32_t {
+
+  enum class eM4_REQUEST_M7 : std::uint32_t {
     // Reset is not a result of m4 reset request.
     eM4_REQUEST_M7_0 = 0,
     // Reset is a result of m4 reset request.
     eM4_REQUEST_M7_1 = 1,
   };
-  
-  // Indicates a reset has been caused by M4 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
-  enum class eM4_LOCKUP_M7 : uint32_t {
+
+  enum class eM4_LOCKUP_M7 : std::uint32_t {
     // Reset is not a result of the mentioned case.
     eM4_LOCKUP_M7_0 = 0,
     // Reset is a result of the mentioned case.
     eM4_LOCKUP_M7_1 = 1,
   };
-  
-  // Indicates a reset has been caused by power suppy voltage over the highest permitted level.
-  enum class eOVERVOLT_RST_M7 : uint32_t {
+
+  enum class eOVERVOLT_RST_M7 : std::uint32_t {
     // Reset is not a result of the mentioned case.
     eOVERVOLT_RST_M7_0 = 0,
     // Reset is a result of the mentioned case.
     eOVERVOLT_RST_M7_1 = 1,
   };
-  
-  // Indicates a reset has been caused by CDOG reset.
-  enum class eCDOG_RST_M7 : uint32_t {
+
+  enum class eCDOG_RST_M7 : std::uint32_t {
     // Reset is not a result of the mentioned case.
     eCDOG_RST_M7_0 = 0,
     // Reset is a result of the mentioned case.
     eCDOG_RST_M7_1 = 1,
   };
-  
-  // Indicates whether reset was the result of ipp_reset_b pin (Power-up sequence)
-  enum class eIPP_RESET_B_M4 : uint32_t {
+
+  enum class eIPP_RESET_B_M4 : std::uint32_t {
     // Reset is not a result of ipp_reset_b pin.
     eIPP_RESET_B_M4_0 = 0,
     // Reset is a result of ipp_reset_b pin.
     eIPP_RESET_B_M4_1 = 1,
   };
-  
-  // Indicates whether reset was the result of m4 reset request
-  enum class eM4_REQUEST_M4 : uint32_t {
+
+  enum class eM4_REQUEST_M4 : std::uint32_t {
     // Reset is not a result of m4 reset request.
     eM4_REQUEST_M4_0 = 0,
     // Reset is a result of m4 reset request.
     eM4_REQUEST_M4_1 = 1,
   };
-  
-  // Indicates a reset has been caused by M4 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
-  enum class eM4_LOCKUP_M4 : uint32_t {
+
+  enum class eM4_LOCKUP_M4 : std::uint32_t {
     // Reset is not a result of the mentioned case.
     eM4_LOCKUP_M4_0 = 0,
     // Reset is a result of the mentioned case.
     eM4_LOCKUP_M4_1 = 1,
   };
-  
-  // Indicates whether the reset was the result of the csu_reset_b input.
-  enum class eCSU_RESET_B_M4 : uint32_t {
+
+  enum class eCSU_RESET_B_M4 : std::uint32_t {
     // Reset is not a result of the csu_reset_b event.
     eCSU_RESET_B_M4_0 = 0,
     // Reset is a result of the csu_reset_b event.
     eCSU_RESET_B_M4_1 = 1,
   };
-  
-  // Indicates whether the reset was the result of the ipp_user_reset_b qualified reset.
-  enum class eIPP_USER_RESET_B_M4 : uint32_t {
+
+  enum class eIPP_USER_RESET_B_M4 : std::uint32_t {
     // Reset is not a result of the ipp_user_reset_b qualified as COLD reset event.
     eIPP_USER_RESET_B_M4_0 = 0,
     // Reset is a result of the ipp_user_reset_b qualified as COLD reset event.
     eIPP_USER_RESET_B_M4_1 = 1,
   };
-  
-  // IC Watchdog Time-out reset
-  enum class eWDOG_RST_B_M4 : uint32_t {
+
+  enum class eWDOG_RST_B_M4 : std::uint32_t {
     // Reset is not a result of the watchdog time-out event.
     eWDOG_RST_B_M4_0 = 0,
     // Reset is a result of the watchdog time-out event.
     eWDOG_RST_B_M4_1 = 1,
   };
-  
-  // HIGH - Z JTAG reset. Indicates whether the reset was the result of HIGH-Z reset from JTAG.
-  enum class eJTAG_RST_B_M4 : uint32_t {
+
+  enum class eJTAG_RST_B_M4 : std::uint32_t {
     // Reset is not a result of HIGH-Z reset from JTAG.
     eJTAG_RST_B_M4_0 = 0,
     // Reset is a result of HIGH-Z reset from JTAG.
     eJTAG_RST_B_M4_1 = 1,
   };
-  
-  // JTAG software reset. Indicates whether the reset was the result of software reset from JTAG.
-  enum class eJTAG_SW_RST_M4 : uint32_t {
+
+  enum class eJTAG_SW_RST_M4 : std::uint32_t {
     // Reset is not a result of software reset from JTAG.
     eJTAG_SW_RST_M4_0 = 0,
     // Reset is a result of software reset from JTAG.
     eJTAG_SW_RST_M4_1 = 1,
   };
-  
-  // IC Watchdog3 Time-out reset
-  enum class eWDOG3_RST_B_M4 : uint32_t {
+
+  enum class eWDOG3_RST_B_M4 : std::uint32_t {
     // Reset is not a result of the watchdog3 time-out event.
     eWDOG3_RST_B_M4_0 = 0,
     // Reset is a result of the watchdog3 time-out event.
     eWDOG3_RST_B_M4_1 = 1,
   };
-  
-  // IC Watchdog4 Time-out reset
-  enum class eWDOG4_RST_B_M4 : uint32_t {
+
+  enum class eWDOG4_RST_B_M4 : std::uint32_t {
     // Reset is not a result of the watchdog4 time-out event.
     eWDOG4_RST_B_M4_0 = 0,
     // Reset is a result of the watchdog4 time-out event.
     eWDOG4_RST_B_M4_1 = 1,
   };
-  
-  // Temper Sensor software reset
-  enum class eTEMPSENSE_RST_B_M4 : uint32_t {
+
+  enum class eTEMPSENSE_RST_B_M4 : std::uint32_t {
     // Reset is not a result of software reset from Temperature Sensor.
     eTEMPSENSE_RST_B_M4_0 = 0,
     // Reset is a result of software reset from Temperature Sensor.
     eTEMPSENSE_RST_B_M4_1 = 1,
   };
-  
-  // Indicates whether reset was the result of m7 reset request.
-  enum class eM7_REQUEST_M4 : uint32_t {
+
+  enum class eM7_REQUEST_M4 : std::uint32_t {
     // Reset is not a result of m7 reset request.
     eM7_REQUEST_M4_0 = 0,
     // Reset is a result of m7 reset request.
     eM7_REQUEST_M4_1 = 1,
   };
-  
-  // Indicates a reset has been caused by M7 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
-  enum class eM7_LOCKUP_M4 : uint32_t {
+
+  enum class eM7_LOCKUP_M4 : std::uint32_t {
     // Reset is not a result of the mentioned case.
     eM7_LOCKUP_M4_0 = 0,
     // Reset is a result of the mentioned case.
     eM7_LOCKUP_M4_1 = 1,
   };
-  
-  // Indicates a reset has been caused by power suppy voltage over the highest permitted level.
-  enum class eOVERVOLT_RST_M4 : uint32_t {
+
+  enum class eOVERVOLT_RST_M4 : std::uint32_t {
     // Reset is not a result of the mentioned case.
     eOVERVOLT_RST_M4_0 = 0,
     // Reset is a result of the mentioned case.
     eOVERVOLT_RST_M4_1 = 1,
   };
-  
-  // Indicates a reset has been caused by CDOG reset.
-  enum class eCDOG_RST_M4 : uint32_t {
+
+  enum class eCDOG_RST_M4 : std::uint32_t {
     // Reset is not a result of the mentioned case.
     eCDOG_RST_M4_0 = 0,
     // Reset is a result of the mentioned case.
     eCDOG_RST_M4_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Indicates whether reset was the result of ipp_reset_b pin (Power-up sequence)
-    eIPP_RESET_B_M7 IPP_RESET_B_M7 : 1;
-    // read-write - Indicates whether reset was the result of m7 reset request
-    eM7_REQUEST_M7 M7_REQUEST_M7 : 1;
-    // read-write - Indicates a reset has been caused by M7 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
-    eM7_LOCKUP_M7 M7_LOCKUP_M7 : 1;
-    // read-write - Indicates whether the reset was the result of the csu_reset_b input.
-    eCSU_RESET_B_M7 CSU_RESET_B_M7 : 1;
-    // read-write - Indicates whether the reset was the result of the ipp_user_reset_b qualified reset.
-    eIPP_USER_RESET_B_M7 IPP_USER_RESET_B_M7 : 1;
-    // read-write - IC Watchdog Time-out reset
-    eWDOG_RST_B_M7 WDOG_RST_B_M7 : 1;
-    // read-write - HIGH - Z JTAG reset. Indicates whether the reset was the result of HIGH-Z reset from JTAG.
-    eJTAG_RST_B_M7 JTAG_RST_B_M7 : 1;
-    // read-write - JTAG software reset. Indicates whether the reset was the result of software reset from JTAG.
-    eJTAG_SW_RST_M7 JTAG_SW_RST_M7 : 1;
-    // read-write - IC Watchdog3 Time-out reset
-    eWDOG3_RST_B_M7 WDOG3_RST_B_M7 : 1;
-    // read-write - IC Watchdog4 Time-out reset
-    eWDOG4_RST_B_M7 WDOG4_RST_B_M7 : 1;
-    // read-write - Temper Sensor software reset
-    eTEMPSENSE_RST_B_M7 TEMPSENSE_RST_B_M7 : 1;
-    // read-write - Indicates whether reset was the result of m4 reset request.
-    eM4_REQUEST_M7 M4_REQUEST_M7 : 1;
-    // read-write - Indicates a reset has been caused by M4 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
-    eM4_LOCKUP_M7 M4_LOCKUP_M7 : 1;
-    // read-write - Indicates a reset has been caused by power suppy voltage over the highest permitted level.
-    eOVERVOLT_RST_M7 OVERVOLT_RST_M7 : 1;
-    // read-write - Indicates a reset has been caused by CDOG reset.
-    eCDOG_RST_M7 CDOG_RST_M7 : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Indicates whether reset was the result of ipp_reset_b pin (Power-up sequence)
-    eIPP_RESET_B_M4 IPP_RESET_B_M4 : 1;
-    // read-write - Indicates whether reset was the result of m4 reset request
-    eM4_REQUEST_M4 M4_REQUEST_M4 : 1;
-    // read-write - Indicates a reset has been caused by M4 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
-    eM4_LOCKUP_M4 M4_LOCKUP_M4 : 1;
-    // read-write - Indicates whether the reset was the result of the csu_reset_b input.
-    eCSU_RESET_B_M4 CSU_RESET_B_M4 : 1;
-    // read-write - Indicates whether the reset was the result of the ipp_user_reset_b qualified reset.
-    eIPP_USER_RESET_B_M4 IPP_USER_RESET_B_M4 : 1;
-    // read-write - IC Watchdog Time-out reset
-    eWDOG_RST_B_M4 WDOG_RST_B_M4 : 1;
-    // read-write - HIGH - Z JTAG reset. Indicates whether the reset was the result of HIGH-Z reset from JTAG.
-    eJTAG_RST_B_M4 JTAG_RST_B_M4 : 1;
-    // read-write - JTAG software reset. Indicates whether the reset was the result of software reset from JTAG.
-    eJTAG_SW_RST_M4 JTAG_SW_RST_M4 : 1;
-    // read-write - IC Watchdog3 Time-out reset
-    eWDOG3_RST_B_M4 WDOG3_RST_B_M4 : 1;
-    // read-write - IC Watchdog4 Time-out reset
-    eWDOG4_RST_B_M4 WDOG4_RST_B_M4 : 1;
-    // read-write - Temper Sensor software reset
-    eTEMPSENSE_RST_B_M4 TEMPSENSE_RST_B_M4 : 1;
-    // read-write - Indicates whether reset was the result of m7 reset request.
-    eM7_REQUEST_M4 M7_REQUEST_M4 : 1;
-    // read-write - Indicates a reset has been caused by M7 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
-    eM7_LOCKUP_M4 M7_LOCKUP_M4 : 1;
-    // read-write - Indicates a reset has been caused by power suppy voltage over the highest permitted level.
-    eOVERVOLT_RST_M4 OVERVOLT_RST_M4 : 1;
-    // read-write - Indicates a reset has been caused by CDOG reset.
-    eCDOG_RST_M4 CDOG_RST_M4 : 1;
-    uint32_t _reserved_1 : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Indicates whether reset was the result of ipp_reset_b pin (Power-up sequence)
+  using IPP_RESET_B_M7 = ftl::mmio::Field<1, 0, eIPP_RESET_B_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates whether reset was the result of m7 reset request
+  using M7_REQUEST_M7 = ftl::mmio::Field<1, 1, eM7_REQUEST_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates a reset has been caused by M7 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
+  using M7_LOCKUP_M7 = ftl::mmio::Field<1, 2, eM7_LOCKUP_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates whether the reset was the result of the csu_reset_b input.
+  using CSU_RESET_B_M7 = ftl::mmio::Field<1, 3, eCSU_RESET_B_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates whether the reset was the result of the ipp_user_reset_b qualified reset.
+  using IPP_USER_RESET_B_M7 = ftl::mmio::Field<1, 4, eIPP_USER_RESET_B_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // IC Watchdog Time-out reset
+  using WDOG_RST_B_M7 = ftl::mmio::Field<1, 5, eWDOG_RST_B_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // HIGH - Z JTAG reset. Indicates whether the reset was the result of HIGH-Z reset from JTAG.
+  using JTAG_RST_B_M7 = ftl::mmio::Field<1, 6, eJTAG_RST_B_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // JTAG software reset. Indicates whether the reset was the result of software reset from JTAG.
+  using JTAG_SW_RST_M7 = ftl::mmio::Field<1, 7, eJTAG_SW_RST_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // IC Watchdog3 Time-out reset
+  using WDOG3_RST_B_M7 = ftl::mmio::Field<1, 8, eWDOG3_RST_B_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // IC Watchdog4 Time-out reset
+  using WDOG4_RST_B_M7 = ftl::mmio::Field<1, 9, eWDOG4_RST_B_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Temper Sensor software reset
+  using TEMPSENSE_RST_B_M7 = ftl::mmio::Field<1, 10, eTEMPSENSE_RST_B_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates whether reset was the result of m4 reset request.
+  using M4_REQUEST_M7 = ftl::mmio::Field<1, 11, eM4_REQUEST_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates a reset has been caused by M4 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
+  using M4_LOCKUP_M7 = ftl::mmio::Field<1, 12, eM4_LOCKUP_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates a reset has been caused by power suppy voltage over the highest permitted level.
+  using OVERVOLT_RST_M7 = ftl::mmio::Field<1, 13, eOVERVOLT_RST_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates a reset has been caused by CDOG reset.
+  using CDOG_RST_M7 = ftl::mmio::Field<1, 14, eCDOG_RST_M7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates whether reset was the result of ipp_reset_b pin (Power-up sequence)
+  using IPP_RESET_B_M4 = ftl::mmio::Field<1, 16, eIPP_RESET_B_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates whether reset was the result of m4 reset request
+  using M4_REQUEST_M4 = ftl::mmio::Field<1, 17, eM4_REQUEST_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates a reset has been caused by M4 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
+  using M4_LOCKUP_M4 = ftl::mmio::Field<1, 18, eM4_LOCKUP_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates whether the reset was the result of the csu_reset_b input.
+  using CSU_RESET_B_M4 = ftl::mmio::Field<1, 19, eCSU_RESET_B_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates whether the reset was the result of the ipp_user_reset_b qualified reset.
+  using IPP_USER_RESET_B_M4 = ftl::mmio::Field<1, 20, eIPP_USER_RESET_B_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // IC Watchdog Time-out reset
+  using WDOG_RST_B_M4 = ftl::mmio::Field<1, 21, eWDOG_RST_B_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // HIGH - Z JTAG reset. Indicates whether the reset was the result of HIGH-Z reset from JTAG.
+  using JTAG_RST_B_M4 = ftl::mmio::Field<1, 22, eJTAG_RST_B_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // JTAG software reset. Indicates whether the reset was the result of software reset from JTAG.
+  using JTAG_SW_RST_M4 = ftl::mmio::Field<1, 23, eJTAG_SW_RST_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // IC Watchdog3 Time-out reset
+  using WDOG3_RST_B_M4 = ftl::mmio::Field<1, 24, eWDOG3_RST_B_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // IC Watchdog4 Time-out reset
+  using WDOG4_RST_B_M4 = ftl::mmio::Field<1, 25, eWDOG4_RST_B_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Temper Sensor software reset
+  using TEMPSENSE_RST_B_M4 = ftl::mmio::Field<1, 26, eTEMPSENSE_RST_B_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates whether reset was the result of m7 reset request.
+  using M7_REQUEST_M4 = ftl::mmio::Field<1, 27, eM7_REQUEST_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates a reset has been caused by M7 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
+  using M7_LOCKUP_M4 = ftl::mmio::Field<1, 28, eM7_LOCKUP_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates a reset has been caused by power suppy voltage over the highest permitted level.
+  using OVERVOLT_RST_M4 = ftl::mmio::Field<1, 29, eOVERVOLT_RST_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates a reset has been caused by CDOG reset.
+  using CDOG_RST_M4 = ftl::mmio::Field<1, 30, eCDOG_RST_M4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct SRSR_fields_
 
-  SRSR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SRSR &ref() { return *reinterpret_cast<volatile SRSR*>(0x40C04010); }
+struct SRSR : ftl::mmio::Register<
+    0x40C04010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SRSR_fields_::IPP_RESET_B_M7,
+    SRSR_fields_::M7_REQUEST_M7,
+    SRSR_fields_::M7_LOCKUP_M7,
+    SRSR_fields_::CSU_RESET_B_M7,
+    SRSR_fields_::IPP_USER_RESET_B_M7,
+    SRSR_fields_::WDOG_RST_B_M7,
+    SRSR_fields_::JTAG_RST_B_M7,
+    SRSR_fields_::JTAG_SW_RST_M7,
+    SRSR_fields_::WDOG3_RST_B_M7,
+    SRSR_fields_::WDOG4_RST_B_M7,
+    SRSR_fields_::TEMPSENSE_RST_B_M7,
+    SRSR_fields_::M4_REQUEST_M7,
+    SRSR_fields_::M4_LOCKUP_M7,
+    SRSR_fields_::OVERVOLT_RST_M7,
+    SRSR_fields_::CDOG_RST_M7,
+    ftl::mmio::Reserved<1, 15>,
+    SRSR_fields_::IPP_RESET_B_M4,
+    SRSR_fields_::M4_REQUEST_M4,
+    SRSR_fields_::M4_LOCKUP_M4,
+    SRSR_fields_::CSU_RESET_B_M4,
+    SRSR_fields_::IPP_USER_RESET_B_M4,
+    SRSR_fields_::WDOG_RST_B_M4,
+    SRSR_fields_::JTAG_RST_B_M4,
+    SRSR_fields_::JTAG_SW_RST_M4,
+    SRSR_fields_::WDOG3_RST_B_M4,
+    SRSR_fields_::WDOG4_RST_B_M4,
+    SRSR_fields_::TEMPSENSE_RST_B_M4,
+    SRSR_fields_::M7_REQUEST_M4,
+    SRSR_fields_::M7_LOCKUP_M4,
+    SRSR_fields_::OVERVOLT_RST_M4,
+    SRSR_fields_::CDOG_RST_M4,
+    ftl::mmio::Reserved<1, 31>> {
+  using eIPP_RESET_B_M7 = SRSR_fields_::eIPP_RESET_B_M7;
+  using eM7_REQUEST_M7 = SRSR_fields_::eM7_REQUEST_M7;
+  using eM7_LOCKUP_M7 = SRSR_fields_::eM7_LOCKUP_M7;
+  using eCSU_RESET_B_M7 = SRSR_fields_::eCSU_RESET_B_M7;
+  using eIPP_USER_RESET_B_M7 = SRSR_fields_::eIPP_USER_RESET_B_M7;
+  using eWDOG_RST_B_M7 = SRSR_fields_::eWDOG_RST_B_M7;
+  using eJTAG_RST_B_M7 = SRSR_fields_::eJTAG_RST_B_M7;
+  using eJTAG_SW_RST_M7 = SRSR_fields_::eJTAG_SW_RST_M7;
+  using eWDOG3_RST_B_M7 = SRSR_fields_::eWDOG3_RST_B_M7;
+  using eWDOG4_RST_B_M7 = SRSR_fields_::eWDOG4_RST_B_M7;
+  using eTEMPSENSE_RST_B_M7 = SRSR_fields_::eTEMPSENSE_RST_B_M7;
+  using eM4_REQUEST_M7 = SRSR_fields_::eM4_REQUEST_M7;
+  using eM4_LOCKUP_M7 = SRSR_fields_::eM4_LOCKUP_M7;
+  using eOVERVOLT_RST_M7 = SRSR_fields_::eOVERVOLT_RST_M7;
+  using eCDOG_RST_M7 = SRSR_fields_::eCDOG_RST_M7;
+  using eIPP_RESET_B_M4 = SRSR_fields_::eIPP_RESET_B_M4;
+  using eM4_REQUEST_M4 = SRSR_fields_::eM4_REQUEST_M4;
+  using eM4_LOCKUP_M4 = SRSR_fields_::eM4_LOCKUP_M4;
+  using eCSU_RESET_B_M4 = SRSR_fields_::eCSU_RESET_B_M4;
+  using eIPP_USER_RESET_B_M4 = SRSR_fields_::eIPP_USER_RESET_B_M4;
+  using eWDOG_RST_B_M4 = SRSR_fields_::eWDOG_RST_B_M4;
+  using eJTAG_RST_B_M4 = SRSR_fields_::eJTAG_RST_B_M4;
+  using eJTAG_SW_RST_M4 = SRSR_fields_::eJTAG_SW_RST_M4;
+  using eWDOG3_RST_B_M4 = SRSR_fields_::eWDOG3_RST_B_M4;
+  using eWDOG4_RST_B_M4 = SRSR_fields_::eWDOG4_RST_B_M4;
+  using eTEMPSENSE_RST_B_M4 = SRSR_fields_::eTEMPSENSE_RST_B_M4;
+  using eM7_REQUEST_M4 = SRSR_fields_::eM7_REQUEST_M4;
+  using eM7_LOCKUP_M4 = SRSR_fields_::eM7_LOCKUP_M4;
+  using eOVERVOLT_RST_M4 = SRSR_fields_::eOVERVOLT_RST_M4;
+  using eCDOG_RST_M4 = SRSR_fields_::eCDOG_RST_M4;
+  using IPP_RESET_B_M7 = SRSR_fields_::IPP_RESET_B_M7;
+  using M7_REQUEST_M7 = SRSR_fields_::M7_REQUEST_M7;
+  using M7_LOCKUP_M7 = SRSR_fields_::M7_LOCKUP_M7;
+  using CSU_RESET_B_M7 = SRSR_fields_::CSU_RESET_B_M7;
+  using IPP_USER_RESET_B_M7 = SRSR_fields_::IPP_USER_RESET_B_M7;
+  using WDOG_RST_B_M7 = SRSR_fields_::WDOG_RST_B_M7;
+  using JTAG_RST_B_M7 = SRSR_fields_::JTAG_RST_B_M7;
+  using JTAG_SW_RST_M7 = SRSR_fields_::JTAG_SW_RST_M7;
+  using WDOG3_RST_B_M7 = SRSR_fields_::WDOG3_RST_B_M7;
+  using WDOG4_RST_B_M7 = SRSR_fields_::WDOG4_RST_B_M7;
+  using TEMPSENSE_RST_B_M7 = SRSR_fields_::TEMPSENSE_RST_B_M7;
+  using M4_REQUEST_M7 = SRSR_fields_::M4_REQUEST_M7;
+  using M4_LOCKUP_M7 = SRSR_fields_::M4_LOCKUP_M7;
+  using OVERVOLT_RST_M7 = SRSR_fields_::OVERVOLT_RST_M7;
+  using CDOG_RST_M7 = SRSR_fields_::CDOG_RST_M7;
+  using IPP_RESET_B_M4 = SRSR_fields_::IPP_RESET_B_M4;
+  using M4_REQUEST_M4 = SRSR_fields_::M4_REQUEST_M4;
+  using M4_LOCKUP_M4 = SRSR_fields_::M4_LOCKUP_M4;
+  using CSU_RESET_B_M4 = SRSR_fields_::CSU_RESET_B_M4;
+  using IPP_USER_RESET_B_M4 = SRSR_fields_::IPP_USER_RESET_B_M4;
+  using WDOG_RST_B_M4 = SRSR_fields_::WDOG_RST_B_M4;
+  using JTAG_RST_B_M4 = SRSR_fields_::JTAG_RST_B_M4;
+  using JTAG_SW_RST_M4 = SRSR_fields_::JTAG_SW_RST_M4;
+  using WDOG3_RST_B_M4 = SRSR_fields_::WDOG3_RST_B_M4;
+  using WDOG4_RST_B_M4 = SRSR_fields_::WDOG4_RST_B_M4;
+  using TEMPSENSE_RST_B_M4 = SRSR_fields_::TEMPSENSE_RST_B_M4;
+  using M7_REQUEST_M4 = SRSR_fields_::M7_REQUEST_M4;
+  using M7_LOCKUP_M4 = SRSR_fields_::M7_LOCKUP_M4;
+  using OVERVOLT_RST_M4 = SRSR_fields_::OVERVOLT_RST_M4;
+  using CDOG_RST_M4 = SRSR_fields_::CDOG_RST_M4;
 };
+
 
 // SRC General Purpose Register
-union GPR1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct GPR_fields_ {
+  // General Purpose Register.
+  using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR_fields_
 
-  GPR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR1 &ref() { return *reinterpret_cast<volatile GPR1*>(0x40C04014); }
+template<std::uint32_t Index>
+struct GPR : ftl::mmio::Register<
+    0x40C04014u + (Index * 0x4u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR_fields_::GPR> {
+  static_assert(Index < 20u, "GPR: Index out of range");
+  using value_ = GPR_fields_::GPR;
 };
-// SRC General Purpose Register
-union GPR2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
 
-  GPR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR2 &ref() { return *reinterpret_cast<volatile GPR2*>(0x40C04018); }
-};
-// SRC General Purpose Register
-union GPR3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR3 &ref() { return *reinterpret_cast<volatile GPR3*>(0x40C0401C); }
-};
-// SRC General Purpose Register
-union GPR4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR4 &ref() { return *reinterpret_cast<volatile GPR4*>(0x40C04020); }
-};
-// SRC General Purpose Register
-union GPR5 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR5 &ref() { return *reinterpret_cast<volatile GPR5*>(0x40C04024); }
-};
-// SRC General Purpose Register
-union GPR6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR6 &ref() { return *reinterpret_cast<volatile GPR6*>(0x40C04028); }
-};
-// SRC General Purpose Register
-union GPR7 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR7() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR7 &ref() { return *reinterpret_cast<volatile GPR7*>(0x40C0402C); }
-};
-// SRC General Purpose Register
-union GPR8 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR8() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR8 &ref() { return *reinterpret_cast<volatile GPR8*>(0x40C04030); }
-};
-// SRC General Purpose Register
-union GPR9 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR9() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR9 &ref() { return *reinterpret_cast<volatile GPR9*>(0x40C04034); }
-};
-// SRC General Purpose Register
-union GPR10 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR10() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR10 &ref() { return *reinterpret_cast<volatile GPR10*>(0x40C04038); }
-};
-// SRC General Purpose Register
-union GPR11 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR11() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR11 &ref() { return *reinterpret_cast<volatile GPR11*>(0x40C0403C); }
-};
-// SRC General Purpose Register
-union GPR12 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR12() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR12 &ref() { return *reinterpret_cast<volatile GPR12*>(0x40C04040); }
-};
-// SRC General Purpose Register
-union GPR13 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR13() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR13 &ref() { return *reinterpret_cast<volatile GPR13*>(0x40C04044); }
-};
-// SRC General Purpose Register
-union GPR14 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR14() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR14 &ref() { return *reinterpret_cast<volatile GPR14*>(0x40C04048); }
-};
-// SRC General Purpose Register
-union GPR15 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR15() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR15 &ref() { return *reinterpret_cast<volatile GPR15*>(0x40C0404C); }
-};
-// SRC General Purpose Register
-union GPR16 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR16() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR16 &ref() { return *reinterpret_cast<volatile GPR16*>(0x40C04050); }
-};
-// SRC General Purpose Register
-union GPR17 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR17() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR17 &ref() { return *reinterpret_cast<volatile GPR17*>(0x40C04054); }
-};
-// SRC General Purpose Register
-union GPR18 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR18() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR18 &ref() { return *reinterpret_cast<volatile GPR18*>(0x40C04058); }
-};
-// SRC General Purpose Register
-union GPR19 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR19() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR19 &ref() { return *reinterpret_cast<volatile GPR19*>(0x40C0405C); }
-};
-// SRC General Purpose Register
-union GPR20 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General Purpose Register.
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR20() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR20 &ref() { return *reinterpret_cast<volatile GPR20*>(0x40C04060); }
-};
 
 // Slice Authentication Register
-union AUTHEN_MEGA {
-  
-  // Control whether reset slice is in domain mode
-  enum class eDOMAIN_MODE : uint32_t {
+struct AUTHEN_MEGA_fields_ {
+
+  enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
     // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
     eDOMAIN_MODE_1 = 1,
   };
-  
-  // Control whether reset slice is in Setpoint mode
-  enum class eSETPOINT_MODE : uint32_t {
+
+  enum class eSETPOINT_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_0 = 0,
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Control whether reset slice is in domain mode
-    eDOMAIN_MODE DOMAIN_MODE : 1;
-    // read-write - Control whether reset slice is in Setpoint mode
-    eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Domain/Setpoint mode lock
-    uint32_t LOCK_MODE : 1;
-    // read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
-    uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Assign list lock
-    uint32_t LOCK_ASSIGN : 1;
-    // read-write - Domain ID white list
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_2 : 3;
-    // read-write - White list lock
-    uint32_t LOCK_LIST : 1;
-    // read-write - Allow user mode access
-    uint32_t USER : 1;
-    // read-write - Allow non-secure mode access
-    uint32_t NONSECURE : 1;
-    uint32_t _reserved_3 : 5;
-    // read-write - Lock NONSECURE and USER
-    uint32_t LOCK_SETTING : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Control whether reset slice is in domain mode
+  using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Control whether reset slice is in Setpoint mode
+  using SETPOINT_MODE = ftl::mmio::Field<1, 1, eSETPOINT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain/Setpoint mode lock
+  using LOCK_MODE = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
+  using ASSIGN_LIST = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Assign list lock
+  using LOCK_ASSIGN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain ID white list
+  using WHITE_LIST = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // White list lock
+  using LOCK_LIST = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user mode access
+  using USER = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow non-secure mode access
+  using NONSECURE = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock NONSECURE and USER
+  using LOCK_SETTING = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct AUTHEN_MEGA_fields_
 
-  AUTHEN_MEGA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_MEGA &ref() { return *reinterpret_cast<volatile AUTHEN_MEGA*>(0x40C04200); }
+struct AUTHEN_MEGA : ftl::mmio::Register<
+    0x40C04200u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    AUTHEN_MEGA_fields_::DOMAIN_MODE,
+    AUTHEN_MEGA_fields_::SETPOINT_MODE,
+    ftl::mmio::Reserved<5, 2>,
+    AUTHEN_MEGA_fields_::LOCK_MODE,
+    AUTHEN_MEGA_fields_::ASSIGN_LIST,
+    ftl::mmio::Reserved<3, 12>,
+    AUTHEN_MEGA_fields_::LOCK_ASSIGN,
+    AUTHEN_MEGA_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<3, 20>,
+    AUTHEN_MEGA_fields_::LOCK_LIST,
+    AUTHEN_MEGA_fields_::USER,
+    AUTHEN_MEGA_fields_::NONSECURE,
+    ftl::mmio::Reserved<5, 26>,
+    AUTHEN_MEGA_fields_::LOCK_SETTING> {
+  using eDOMAIN_MODE = AUTHEN_MEGA_fields_::eDOMAIN_MODE;
+  using eSETPOINT_MODE = AUTHEN_MEGA_fields_::eSETPOINT_MODE;
+  using DOMAIN_MODE = AUTHEN_MEGA_fields_::DOMAIN_MODE;
+  using SETPOINT_MODE = AUTHEN_MEGA_fields_::SETPOINT_MODE;
+  using LOCK_MODE = AUTHEN_MEGA_fields_::LOCK_MODE;
+  using ASSIGN_LIST = AUTHEN_MEGA_fields_::ASSIGN_LIST;
+  using LOCK_ASSIGN = AUTHEN_MEGA_fields_::LOCK_ASSIGN;
+  using WHITE_LIST = AUTHEN_MEGA_fields_::WHITE_LIST;
+  using LOCK_LIST = AUTHEN_MEGA_fields_::LOCK_LIST;
+  using USER = AUTHEN_MEGA_fields_::USER;
+  using NONSECURE = AUTHEN_MEGA_fields_::NONSECURE;
+  using LOCK_SETTING = AUTHEN_MEGA_fields_::LOCK_SETTING;
 };
 
+
 // Slice Control Register
-union CTRL_MEGA {
-  
-  // This is a self clearing bit
-  enum class eSW_RESET : uint32_t {
+struct CTRL_MEGA_fields_ {
+
+  enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - This is a self clearing bit
-    eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a self clearing bit
+  using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_MEGA_fields_
 
-  CTRL_MEGA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_MEGA &ref() { return *reinterpret_cast<volatile CTRL_MEGA*>(0x40C04204); }
+struct CTRL_MEGA : ftl::mmio::Register<
+    0x40C04204u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_MEGA_fields_::SW_RESET,
+    ftl::mmio::Reserved<31, 1>> {
+  using eSW_RESET = CTRL_MEGA_fields_::eSW_RESET;
+  using SW_RESET = CTRL_MEGA_fields_::SW_RESET;
 };
 
+
 // Slice Setpoint Config Register
-union SETPOINT_MEGA {
-  
-  // SETPOINT0
-  enum class eSETPOINT0 : uint32_t {
+struct SETPOINT_MEGA_fields_ {
+
+  enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT0_1 = 1,
   };
-  
-  // SETPOINT1
-  enum class eSETPOINT1 : uint32_t {
+
+  enum class eSETPOINT1 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT1_1 = 1,
   };
-  
-  // SETPOINT2
-  enum class eSETPOINT2 : uint32_t {
+
+  enum class eSETPOINT2 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT2_1 = 1,
   };
-  
-  // SETPOINT3
-  enum class eSETPOINT3 : uint32_t {
+
+  enum class eSETPOINT3 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT3_1 = 1,
   };
-  
-  // SETPOINT4
-  enum class eSETPOINT4 : uint32_t {
+
+  enum class eSETPOINT4 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT4_1 = 1,
   };
-  
-  // SETPOINT5
-  enum class eSETPOINT5 : uint32_t {
+
+  enum class eSETPOINT5 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT5_1 = 1,
   };
-  
-  // SETPOINT6
-  enum class eSETPOINT6 : uint32_t {
+
+  enum class eSETPOINT6 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT6_1 = 1,
   };
-  
-  // SETPOINT7
-  enum class eSETPOINT7 : uint32_t {
+
+  enum class eSETPOINT7 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT7_1 = 1,
   };
-  
-  // SETPOINT8
-  enum class eSETPOINT8 : uint32_t {
+
+  enum class eSETPOINT8 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT8_1 = 1,
   };
-  
-  // SETPOINT9
-  enum class eSETPOINT9 : uint32_t {
+
+  enum class eSETPOINT9 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT9_1 = 1,
   };
-  
-  // SETPOINT10
-  enum class eSETPOINT10 : uint32_t {
+
+  enum class eSETPOINT10 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT10_1 = 1,
   };
-  
-  // SETPOINT11
-  enum class eSETPOINT11 : uint32_t {
+
+  enum class eSETPOINT11 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT11_1 = 1,
   };
-  
-  // SETPOINT12
-  enum class eSETPOINT12 : uint32_t {
+
+  enum class eSETPOINT12 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT12_1 = 1,
   };
-  
-  // SETPOINT13
-  enum class eSETPOINT13 : uint32_t {
+
+  enum class eSETPOINT13 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT13_1 = 1,
   };
-  
-  // SETPOINT14
-  enum class eSETPOINT14 : uint32_t {
+
+  enum class eSETPOINT14 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT14_1 = 1,
   };
-  
-  // SETPOINT15
-  enum class eSETPOINT15 : uint32_t {
+
+  enum class eSETPOINT15 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - SETPOINT0
-    eSETPOINT0 SETPOINT0 : 1;
-    // read-write - SETPOINT1
-    eSETPOINT1 SETPOINT1 : 1;
-    // read-write - SETPOINT2
-    eSETPOINT2 SETPOINT2 : 1;
-    // read-write - SETPOINT3
-    eSETPOINT3 SETPOINT3 : 1;
-    // read-write - SETPOINT4
-    eSETPOINT4 SETPOINT4 : 1;
-    // read-write - SETPOINT5
-    eSETPOINT5 SETPOINT5 : 1;
-    // read-write - SETPOINT6
-    eSETPOINT6 SETPOINT6 : 1;
-    // read-write - SETPOINT7
-    eSETPOINT7 SETPOINT7 : 1;
-    // read-write - SETPOINT8
-    eSETPOINT8 SETPOINT8 : 1;
-    // read-write - SETPOINT9
-    eSETPOINT9 SETPOINT9 : 1;
-    // read-write - SETPOINT10
-    eSETPOINT10 SETPOINT10 : 1;
-    // read-write - SETPOINT11
-    eSETPOINT11 SETPOINT11 : 1;
-    // read-write - SETPOINT12
-    eSETPOINT12 SETPOINT12 : 1;
-    // read-write - SETPOINT13
-    eSETPOINT13 SETPOINT13 : 1;
-    // read-write - SETPOINT14
-    eSETPOINT14 SETPOINT14 : 1;
-    // read-write - SETPOINT15
-    eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // SETPOINT0
+  using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT1
+  using SETPOINT1 = ftl::mmio::Field<1, 1, eSETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT2
+  using SETPOINT2 = ftl::mmio::Field<1, 2, eSETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT3
+  using SETPOINT3 = ftl::mmio::Field<1, 3, eSETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT4
+  using SETPOINT4 = ftl::mmio::Field<1, 4, eSETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT5
+  using SETPOINT5 = ftl::mmio::Field<1, 5, eSETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT6
+  using SETPOINT6 = ftl::mmio::Field<1, 6, eSETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT7
+  using SETPOINT7 = ftl::mmio::Field<1, 7, eSETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT8
+  using SETPOINT8 = ftl::mmio::Field<1, 8, eSETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT9
+  using SETPOINT9 = ftl::mmio::Field<1, 9, eSETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT10
+  using SETPOINT10 = ftl::mmio::Field<1, 10, eSETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT11
+  using SETPOINT11 = ftl::mmio::Field<1, 11, eSETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT12
+  using SETPOINT12 = ftl::mmio::Field<1, 12, eSETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT13
+  using SETPOINT13 = ftl::mmio::Field<1, 13, eSETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT14
+  using SETPOINT14 = ftl::mmio::Field<1, 14, eSETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT15
+  using SETPOINT15 = ftl::mmio::Field<1, 15, eSETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SETPOINT_MEGA_fields_
 
-  SETPOINT_MEGA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_MEGA &ref() { return *reinterpret_cast<volatile SETPOINT_MEGA*>(0x40C04208); }
+struct SETPOINT_MEGA : ftl::mmio::Register<
+    0x40C04208u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SETPOINT_MEGA_fields_::SETPOINT0,
+    SETPOINT_MEGA_fields_::SETPOINT1,
+    SETPOINT_MEGA_fields_::SETPOINT2,
+    SETPOINT_MEGA_fields_::SETPOINT3,
+    SETPOINT_MEGA_fields_::SETPOINT4,
+    SETPOINT_MEGA_fields_::SETPOINT5,
+    SETPOINT_MEGA_fields_::SETPOINT6,
+    SETPOINT_MEGA_fields_::SETPOINT7,
+    SETPOINT_MEGA_fields_::SETPOINT8,
+    SETPOINT_MEGA_fields_::SETPOINT9,
+    SETPOINT_MEGA_fields_::SETPOINT10,
+    SETPOINT_MEGA_fields_::SETPOINT11,
+    SETPOINT_MEGA_fields_::SETPOINT12,
+    SETPOINT_MEGA_fields_::SETPOINT13,
+    SETPOINT_MEGA_fields_::SETPOINT14,
+    SETPOINT_MEGA_fields_::SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSETPOINT0 = SETPOINT_MEGA_fields_::eSETPOINT0;
+  using eSETPOINT1 = SETPOINT_MEGA_fields_::eSETPOINT1;
+  using eSETPOINT2 = SETPOINT_MEGA_fields_::eSETPOINT2;
+  using eSETPOINT3 = SETPOINT_MEGA_fields_::eSETPOINT3;
+  using eSETPOINT4 = SETPOINT_MEGA_fields_::eSETPOINT4;
+  using eSETPOINT5 = SETPOINT_MEGA_fields_::eSETPOINT5;
+  using eSETPOINT6 = SETPOINT_MEGA_fields_::eSETPOINT6;
+  using eSETPOINT7 = SETPOINT_MEGA_fields_::eSETPOINT7;
+  using eSETPOINT8 = SETPOINT_MEGA_fields_::eSETPOINT8;
+  using eSETPOINT9 = SETPOINT_MEGA_fields_::eSETPOINT9;
+  using eSETPOINT10 = SETPOINT_MEGA_fields_::eSETPOINT10;
+  using eSETPOINT11 = SETPOINT_MEGA_fields_::eSETPOINT11;
+  using eSETPOINT12 = SETPOINT_MEGA_fields_::eSETPOINT12;
+  using eSETPOINT13 = SETPOINT_MEGA_fields_::eSETPOINT13;
+  using eSETPOINT14 = SETPOINT_MEGA_fields_::eSETPOINT14;
+  using eSETPOINT15 = SETPOINT_MEGA_fields_::eSETPOINT15;
+  using SETPOINT0 = SETPOINT_MEGA_fields_::SETPOINT0;
+  using SETPOINT1 = SETPOINT_MEGA_fields_::SETPOINT1;
+  using SETPOINT2 = SETPOINT_MEGA_fields_::SETPOINT2;
+  using SETPOINT3 = SETPOINT_MEGA_fields_::SETPOINT3;
+  using SETPOINT4 = SETPOINT_MEGA_fields_::SETPOINT4;
+  using SETPOINT5 = SETPOINT_MEGA_fields_::SETPOINT5;
+  using SETPOINT6 = SETPOINT_MEGA_fields_::SETPOINT6;
+  using SETPOINT7 = SETPOINT_MEGA_fields_::SETPOINT7;
+  using SETPOINT8 = SETPOINT_MEGA_fields_::SETPOINT8;
+  using SETPOINT9 = SETPOINT_MEGA_fields_::SETPOINT9;
+  using SETPOINT10 = SETPOINT_MEGA_fields_::SETPOINT10;
+  using SETPOINT11 = SETPOINT_MEGA_fields_::SETPOINT11;
+  using SETPOINT12 = SETPOINT_MEGA_fields_::SETPOINT12;
+  using SETPOINT13 = SETPOINT_MEGA_fields_::SETPOINT13;
+  using SETPOINT14 = SETPOINT_MEGA_fields_::SETPOINT14;
+  using SETPOINT15 = SETPOINT_MEGA_fields_::SETPOINT15;
 };
 
+
 // Slice Domain Config Register
-union DOMAIN_MEGA {
-  
-  // CPU mode setting for RUN
-  enum class eCPU0_RUN : uint32_t {
+struct DOMAIN_MEGA_fields_ {
+
+  enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
     // Slice reset will be asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU0_WAIT : uint32_t {
+
+  enum class eCPU0_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_0 = 0,
     // Slice reset will be asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU0_STOP : uint32_t {
+
+  enum class eCPU0_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_0 = 0,
     // Slice reset will be asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU0_SUSP : uint32_t {
+
+  enum class eCPU0_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_0 = 0,
     // Slice reset will be asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1,
   };
-  
-  // CPU mode setting for RUN
-  enum class eCPU1_RUN : uint32_t {
+
+  enum class eCPU1_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_0 = 0,
     // Slice reset will be asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU1_WAIT : uint32_t {
+
+  enum class eCPU1_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_0 = 0,
     // Slice reset will be asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU1_STOP : uint32_t {
+
+  enum class eCPU1_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_0 = 0,
     // Slice reset will be asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU1_SUSP : uint32_t {
+
+  enum class eCPU1_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_0 = 0,
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - CPU mode setting for RUN
-    eCPU0_RUN CPU0_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU0_WAIT CPU0_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU0_STOP CPU0_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU0_SUSP CPU0_SUSP : 1;
-    // read-write - CPU mode setting for RUN
-    eCPU1_RUN CPU1_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU1_WAIT CPU1_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU1_STOP CPU1_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // CPU mode setting for RUN
+  using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU0_WAIT = ftl::mmio::Field<1, 1, eCPU0_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU0_STOP = ftl::mmio::Field<1, 2, eCPU0_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU0_SUSP = ftl::mmio::Field<1, 3, eCPU0_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for RUN
+  using CPU1_RUN = ftl::mmio::Field<1, 4, eCPU1_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU1_WAIT = ftl::mmio::Field<1, 5, eCPU1_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU1_STOP = ftl::mmio::Field<1, 6, eCPU1_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU1_SUSP = ftl::mmio::Field<1, 7, eCPU1_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DOMAIN_MEGA_fields_
 
-  DOMAIN_MEGA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_MEGA &ref() { return *reinterpret_cast<volatile DOMAIN_MEGA*>(0x40C0420C); }
+struct DOMAIN_MEGA : ftl::mmio::Register<
+    0x40C0420Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DOMAIN_MEGA_fields_::CPU0_RUN,
+    DOMAIN_MEGA_fields_::CPU0_WAIT,
+    DOMAIN_MEGA_fields_::CPU0_STOP,
+    DOMAIN_MEGA_fields_::CPU0_SUSP,
+    DOMAIN_MEGA_fields_::CPU1_RUN,
+    DOMAIN_MEGA_fields_::CPU1_WAIT,
+    DOMAIN_MEGA_fields_::CPU1_STOP,
+    DOMAIN_MEGA_fields_::CPU1_SUSP,
+    ftl::mmio::Reserved<24, 8>> {
+  using eCPU0_RUN = DOMAIN_MEGA_fields_::eCPU0_RUN;
+  using eCPU0_WAIT = DOMAIN_MEGA_fields_::eCPU0_WAIT;
+  using eCPU0_STOP = DOMAIN_MEGA_fields_::eCPU0_STOP;
+  using eCPU0_SUSP = DOMAIN_MEGA_fields_::eCPU0_SUSP;
+  using eCPU1_RUN = DOMAIN_MEGA_fields_::eCPU1_RUN;
+  using eCPU1_WAIT = DOMAIN_MEGA_fields_::eCPU1_WAIT;
+  using eCPU1_STOP = DOMAIN_MEGA_fields_::eCPU1_STOP;
+  using eCPU1_SUSP = DOMAIN_MEGA_fields_::eCPU1_SUSP;
+  using CPU0_RUN = DOMAIN_MEGA_fields_::CPU0_RUN;
+  using CPU0_WAIT = DOMAIN_MEGA_fields_::CPU0_WAIT;
+  using CPU0_STOP = DOMAIN_MEGA_fields_::CPU0_STOP;
+  using CPU0_SUSP = DOMAIN_MEGA_fields_::CPU0_SUSP;
+  using CPU1_RUN = DOMAIN_MEGA_fields_::CPU1_RUN;
+  using CPU1_WAIT = DOMAIN_MEGA_fields_::CPU1_WAIT;
+  using CPU1_STOP = DOMAIN_MEGA_fields_::CPU1_STOP;
+  using CPU1_SUSP = DOMAIN_MEGA_fields_::CPU1_SUSP;
 };
 
+
 // Slice Status Register
-union STAT_MEGA {
-  
-  // This is a Read Only bit. It indicate if the reset is in process.
-  enum class eUNDER_RST : uint32_t {
+struct STAT_MEGA_fields_ {
+
+  enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
     // the reset is in process
     eUNDER_RST_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by the power mode transfer.
-  enum class eRST_BY_HW : uint32_t {
+
+  enum class eRST_BY_HW : std::uint32_t {
     // the reset is not caused by the power mode transfer
     eRST_BY_HW_0 = 0,
     // the reset is caused by the power mode transfer
     eRST_BY_HW_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by setting SW_RESET bit.
-  enum class eRST_BY_SW : uint32_t {
+
+  enum class eRST_BY_SW : std::uint32_t {
     // the reset is not caused by software setting
     eRST_BY_SW_0 = 0,
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - This is a Read Only bit. It indicate if the reset is in process.
-    eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - This bit indicate if the reset is caused by the power mode transfer.
-    eRST_BY_HW RST_BY_HW : 1;
-    // read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
-    eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_1 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a Read Only bit. It indicate if the reset is in process.
+  using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
+  // This bit indicate if the reset is caused by the power mode transfer.
+  using RST_BY_HW = ftl::mmio::Field<1, 2, eRST_BY_HW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // This bit indicate if the reset is caused by setting SW_RESET bit.
+  using RST_BY_SW = ftl::mmio::Field<1, 3, eRST_BY_SW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct STAT_MEGA_fields_
 
-  STAT_MEGA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_MEGA &ref() { return *reinterpret_cast<volatile STAT_MEGA*>(0x40C04210); }
+struct STAT_MEGA : ftl::mmio::Register<
+    0x40C04210u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    STAT_MEGA_fields_::UNDER_RST,
+    ftl::mmio::Reserved<1, 1>,
+    STAT_MEGA_fields_::RST_BY_HW,
+    STAT_MEGA_fields_::RST_BY_SW,
+    ftl::mmio::Reserved<28, 4>> {
+  using eUNDER_RST = STAT_MEGA_fields_::eUNDER_RST;
+  using eRST_BY_HW = STAT_MEGA_fields_::eRST_BY_HW;
+  using eRST_BY_SW = STAT_MEGA_fields_::eRST_BY_SW;
+  using UNDER_RST = STAT_MEGA_fields_::UNDER_RST;
+  using RST_BY_HW = STAT_MEGA_fields_::RST_BY_HW;
+  using RST_BY_SW = STAT_MEGA_fields_::RST_BY_SW;
 };
 
+
 // Slice Authentication Register
-union AUTHEN_DISPLAY {
-  
-  // Control whether reset slice is in domain mode
-  enum class eDOMAIN_MODE : uint32_t {
+struct AUTHEN_DISPLAY_fields_ {
+
+  enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
     // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
     eDOMAIN_MODE_1 = 1,
   };
-  
-  // Control whether reset slice is in Setpoint mode
-  enum class eSETPOINT_MODE : uint32_t {
+
+  enum class eSETPOINT_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_0 = 0,
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Control whether reset slice is in domain mode
-    eDOMAIN_MODE DOMAIN_MODE : 1;
-    // read-write - Control whether reset slice is in Setpoint mode
-    eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Domain/Setpoint mode lock
-    uint32_t LOCK_MODE : 1;
-    // read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
-    uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Assign list lock
-    uint32_t LOCK_ASSIGN : 1;
-    // read-write - Domain ID white list
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_2 : 3;
-    // read-write - White list lock
-    uint32_t LOCK_LIST : 1;
-    // read-write - Allow user mode access
-    uint32_t USER : 1;
-    // read-write - Allow non-secure mode access
-    uint32_t NONSECURE : 1;
-    uint32_t _reserved_3 : 5;
-    // read-write - Lock NONSECURE and USER
-    uint32_t LOCK_SETTING : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Control whether reset slice is in domain mode
+  using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Control whether reset slice is in Setpoint mode
+  using SETPOINT_MODE = ftl::mmio::Field<1, 1, eSETPOINT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain/Setpoint mode lock
+  using LOCK_MODE = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
+  using ASSIGN_LIST = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Assign list lock
+  using LOCK_ASSIGN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain ID white list
+  using WHITE_LIST = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // White list lock
+  using LOCK_LIST = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user mode access
+  using USER = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow non-secure mode access
+  using NONSECURE = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock NONSECURE and USER
+  using LOCK_SETTING = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct AUTHEN_DISPLAY_fields_
 
-  AUTHEN_DISPLAY() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_DISPLAY &ref() { return *reinterpret_cast<volatile AUTHEN_DISPLAY*>(0x40C04220); }
+struct AUTHEN_DISPLAY : ftl::mmio::Register<
+    0x40C04220u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    AUTHEN_DISPLAY_fields_::DOMAIN_MODE,
+    AUTHEN_DISPLAY_fields_::SETPOINT_MODE,
+    ftl::mmio::Reserved<5, 2>,
+    AUTHEN_DISPLAY_fields_::LOCK_MODE,
+    AUTHEN_DISPLAY_fields_::ASSIGN_LIST,
+    ftl::mmio::Reserved<3, 12>,
+    AUTHEN_DISPLAY_fields_::LOCK_ASSIGN,
+    AUTHEN_DISPLAY_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<3, 20>,
+    AUTHEN_DISPLAY_fields_::LOCK_LIST,
+    AUTHEN_DISPLAY_fields_::USER,
+    AUTHEN_DISPLAY_fields_::NONSECURE,
+    ftl::mmio::Reserved<5, 26>,
+    AUTHEN_DISPLAY_fields_::LOCK_SETTING> {
+  using eDOMAIN_MODE = AUTHEN_DISPLAY_fields_::eDOMAIN_MODE;
+  using eSETPOINT_MODE = AUTHEN_DISPLAY_fields_::eSETPOINT_MODE;
+  using DOMAIN_MODE = AUTHEN_DISPLAY_fields_::DOMAIN_MODE;
+  using SETPOINT_MODE = AUTHEN_DISPLAY_fields_::SETPOINT_MODE;
+  using LOCK_MODE = AUTHEN_DISPLAY_fields_::LOCK_MODE;
+  using ASSIGN_LIST = AUTHEN_DISPLAY_fields_::ASSIGN_LIST;
+  using LOCK_ASSIGN = AUTHEN_DISPLAY_fields_::LOCK_ASSIGN;
+  using WHITE_LIST = AUTHEN_DISPLAY_fields_::WHITE_LIST;
+  using LOCK_LIST = AUTHEN_DISPLAY_fields_::LOCK_LIST;
+  using USER = AUTHEN_DISPLAY_fields_::USER;
+  using NONSECURE = AUTHEN_DISPLAY_fields_::NONSECURE;
+  using LOCK_SETTING = AUTHEN_DISPLAY_fields_::LOCK_SETTING;
 };
 
+
 // Slice Control Register
-union CTRL_DISPLAY {
-  
-  // This is a self clearing bit
-  enum class eSW_RESET : uint32_t {
+struct CTRL_DISPLAY_fields_ {
+
+  enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - This is a self clearing bit
-    eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a self clearing bit
+  using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_DISPLAY_fields_
 
-  CTRL_DISPLAY() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_DISPLAY &ref() { return *reinterpret_cast<volatile CTRL_DISPLAY*>(0x40C04224); }
+struct CTRL_DISPLAY : ftl::mmio::Register<
+    0x40C04224u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_DISPLAY_fields_::SW_RESET,
+    ftl::mmio::Reserved<31, 1>> {
+  using eSW_RESET = CTRL_DISPLAY_fields_::eSW_RESET;
+  using SW_RESET = CTRL_DISPLAY_fields_::SW_RESET;
 };
 
+
 // Slice Setpoint Config Register
-union SETPOINT_DISPLAY {
-  
-  // SETPOINT0
-  enum class eSETPOINT0 : uint32_t {
+struct SETPOINT_DISPLAY_fields_ {
+
+  enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT0_1 = 1,
   };
-  
-  // SETPOINT1
-  enum class eSETPOINT1 : uint32_t {
+
+  enum class eSETPOINT1 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT1_1 = 1,
   };
-  
-  // SETPOINT2
-  enum class eSETPOINT2 : uint32_t {
+
+  enum class eSETPOINT2 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT2_1 = 1,
   };
-  
-  // SETPOINT3
-  enum class eSETPOINT3 : uint32_t {
+
+  enum class eSETPOINT3 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT3_1 = 1,
   };
-  
-  // SETPOINT4
-  enum class eSETPOINT4 : uint32_t {
+
+  enum class eSETPOINT4 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT4_1 = 1,
   };
-  
-  // SETPOINT5
-  enum class eSETPOINT5 : uint32_t {
+
+  enum class eSETPOINT5 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT5_1 = 1,
   };
-  
-  // SETPOINT6
-  enum class eSETPOINT6 : uint32_t {
+
+  enum class eSETPOINT6 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT6_1 = 1,
   };
-  
-  // SETPOINT7
-  enum class eSETPOINT7 : uint32_t {
+
+  enum class eSETPOINT7 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT7_1 = 1,
   };
-  
-  // SETPOINT8
-  enum class eSETPOINT8 : uint32_t {
+
+  enum class eSETPOINT8 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT8_1 = 1,
   };
-  
-  // SETPOINT9
-  enum class eSETPOINT9 : uint32_t {
+
+  enum class eSETPOINT9 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT9_1 = 1,
   };
-  
-  // SETPOINT10
-  enum class eSETPOINT10 : uint32_t {
+
+  enum class eSETPOINT10 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT10_1 = 1,
   };
-  
-  // SETPOINT11
-  enum class eSETPOINT11 : uint32_t {
+
+  enum class eSETPOINT11 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT11_1 = 1,
   };
-  
-  // SETPOINT12
-  enum class eSETPOINT12 : uint32_t {
+
+  enum class eSETPOINT12 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT12_1 = 1,
   };
-  
-  // SETPOINT13
-  enum class eSETPOINT13 : uint32_t {
+
+  enum class eSETPOINT13 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT13_1 = 1,
   };
-  
-  // SETPOINT14
-  enum class eSETPOINT14 : uint32_t {
+
+  enum class eSETPOINT14 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT14_1 = 1,
   };
-  
-  // SETPOINT15
-  enum class eSETPOINT15 : uint32_t {
+
+  enum class eSETPOINT15 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - SETPOINT0
-    eSETPOINT0 SETPOINT0 : 1;
-    // read-write - SETPOINT1
-    eSETPOINT1 SETPOINT1 : 1;
-    // read-write - SETPOINT2
-    eSETPOINT2 SETPOINT2 : 1;
-    // read-write - SETPOINT3
-    eSETPOINT3 SETPOINT3 : 1;
-    // read-write - SETPOINT4
-    eSETPOINT4 SETPOINT4 : 1;
-    // read-write - SETPOINT5
-    eSETPOINT5 SETPOINT5 : 1;
-    // read-write - SETPOINT6
-    eSETPOINT6 SETPOINT6 : 1;
-    // read-write - SETPOINT7
-    eSETPOINT7 SETPOINT7 : 1;
-    // read-write - SETPOINT8
-    eSETPOINT8 SETPOINT8 : 1;
-    // read-write - SETPOINT9
-    eSETPOINT9 SETPOINT9 : 1;
-    // read-write - SETPOINT10
-    eSETPOINT10 SETPOINT10 : 1;
-    // read-write - SETPOINT11
-    eSETPOINT11 SETPOINT11 : 1;
-    // read-write - SETPOINT12
-    eSETPOINT12 SETPOINT12 : 1;
-    // read-write - SETPOINT13
-    eSETPOINT13 SETPOINT13 : 1;
-    // read-write - SETPOINT14
-    eSETPOINT14 SETPOINT14 : 1;
-    // read-write - SETPOINT15
-    eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // SETPOINT0
+  using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT1
+  using SETPOINT1 = ftl::mmio::Field<1, 1, eSETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT2
+  using SETPOINT2 = ftl::mmio::Field<1, 2, eSETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT3
+  using SETPOINT3 = ftl::mmio::Field<1, 3, eSETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT4
+  using SETPOINT4 = ftl::mmio::Field<1, 4, eSETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT5
+  using SETPOINT5 = ftl::mmio::Field<1, 5, eSETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT6
+  using SETPOINT6 = ftl::mmio::Field<1, 6, eSETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT7
+  using SETPOINT7 = ftl::mmio::Field<1, 7, eSETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT8
+  using SETPOINT8 = ftl::mmio::Field<1, 8, eSETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT9
+  using SETPOINT9 = ftl::mmio::Field<1, 9, eSETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT10
+  using SETPOINT10 = ftl::mmio::Field<1, 10, eSETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT11
+  using SETPOINT11 = ftl::mmio::Field<1, 11, eSETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT12
+  using SETPOINT12 = ftl::mmio::Field<1, 12, eSETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT13
+  using SETPOINT13 = ftl::mmio::Field<1, 13, eSETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT14
+  using SETPOINT14 = ftl::mmio::Field<1, 14, eSETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT15
+  using SETPOINT15 = ftl::mmio::Field<1, 15, eSETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SETPOINT_DISPLAY_fields_
 
-  SETPOINT_DISPLAY() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_DISPLAY &ref() { return *reinterpret_cast<volatile SETPOINT_DISPLAY*>(0x40C04228); }
+struct SETPOINT_DISPLAY : ftl::mmio::Register<
+    0x40C04228u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SETPOINT_DISPLAY_fields_::SETPOINT0,
+    SETPOINT_DISPLAY_fields_::SETPOINT1,
+    SETPOINT_DISPLAY_fields_::SETPOINT2,
+    SETPOINT_DISPLAY_fields_::SETPOINT3,
+    SETPOINT_DISPLAY_fields_::SETPOINT4,
+    SETPOINT_DISPLAY_fields_::SETPOINT5,
+    SETPOINT_DISPLAY_fields_::SETPOINT6,
+    SETPOINT_DISPLAY_fields_::SETPOINT7,
+    SETPOINT_DISPLAY_fields_::SETPOINT8,
+    SETPOINT_DISPLAY_fields_::SETPOINT9,
+    SETPOINT_DISPLAY_fields_::SETPOINT10,
+    SETPOINT_DISPLAY_fields_::SETPOINT11,
+    SETPOINT_DISPLAY_fields_::SETPOINT12,
+    SETPOINT_DISPLAY_fields_::SETPOINT13,
+    SETPOINT_DISPLAY_fields_::SETPOINT14,
+    SETPOINT_DISPLAY_fields_::SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSETPOINT0 = SETPOINT_DISPLAY_fields_::eSETPOINT0;
+  using eSETPOINT1 = SETPOINT_DISPLAY_fields_::eSETPOINT1;
+  using eSETPOINT2 = SETPOINT_DISPLAY_fields_::eSETPOINT2;
+  using eSETPOINT3 = SETPOINT_DISPLAY_fields_::eSETPOINT3;
+  using eSETPOINT4 = SETPOINT_DISPLAY_fields_::eSETPOINT4;
+  using eSETPOINT5 = SETPOINT_DISPLAY_fields_::eSETPOINT5;
+  using eSETPOINT6 = SETPOINT_DISPLAY_fields_::eSETPOINT6;
+  using eSETPOINT7 = SETPOINT_DISPLAY_fields_::eSETPOINT7;
+  using eSETPOINT8 = SETPOINT_DISPLAY_fields_::eSETPOINT8;
+  using eSETPOINT9 = SETPOINT_DISPLAY_fields_::eSETPOINT9;
+  using eSETPOINT10 = SETPOINT_DISPLAY_fields_::eSETPOINT10;
+  using eSETPOINT11 = SETPOINT_DISPLAY_fields_::eSETPOINT11;
+  using eSETPOINT12 = SETPOINT_DISPLAY_fields_::eSETPOINT12;
+  using eSETPOINT13 = SETPOINT_DISPLAY_fields_::eSETPOINT13;
+  using eSETPOINT14 = SETPOINT_DISPLAY_fields_::eSETPOINT14;
+  using eSETPOINT15 = SETPOINT_DISPLAY_fields_::eSETPOINT15;
+  using SETPOINT0 = SETPOINT_DISPLAY_fields_::SETPOINT0;
+  using SETPOINT1 = SETPOINT_DISPLAY_fields_::SETPOINT1;
+  using SETPOINT2 = SETPOINT_DISPLAY_fields_::SETPOINT2;
+  using SETPOINT3 = SETPOINT_DISPLAY_fields_::SETPOINT3;
+  using SETPOINT4 = SETPOINT_DISPLAY_fields_::SETPOINT4;
+  using SETPOINT5 = SETPOINT_DISPLAY_fields_::SETPOINT5;
+  using SETPOINT6 = SETPOINT_DISPLAY_fields_::SETPOINT6;
+  using SETPOINT7 = SETPOINT_DISPLAY_fields_::SETPOINT7;
+  using SETPOINT8 = SETPOINT_DISPLAY_fields_::SETPOINT8;
+  using SETPOINT9 = SETPOINT_DISPLAY_fields_::SETPOINT9;
+  using SETPOINT10 = SETPOINT_DISPLAY_fields_::SETPOINT10;
+  using SETPOINT11 = SETPOINT_DISPLAY_fields_::SETPOINT11;
+  using SETPOINT12 = SETPOINT_DISPLAY_fields_::SETPOINT12;
+  using SETPOINT13 = SETPOINT_DISPLAY_fields_::SETPOINT13;
+  using SETPOINT14 = SETPOINT_DISPLAY_fields_::SETPOINT14;
+  using SETPOINT15 = SETPOINT_DISPLAY_fields_::SETPOINT15;
 };
 
+
 // Slice Domain Config Register
-union DOMAIN_DISPLAY {
-  
-  // CPU mode setting for RUN
-  enum class eCPU0_RUN : uint32_t {
+struct DOMAIN_DISPLAY_fields_ {
+
+  enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
     // Slice reset will be asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU0_WAIT : uint32_t {
+
+  enum class eCPU0_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_0 = 0,
     // Slice reset will be asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU0_STOP : uint32_t {
+
+  enum class eCPU0_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_0 = 0,
     // Slice reset will be asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU0_SUSP : uint32_t {
+
+  enum class eCPU0_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_0 = 0,
     // Slice reset will be asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1,
   };
-  
-  // CPU mode setting for RUN
-  enum class eCPU1_RUN : uint32_t {
+
+  enum class eCPU1_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_0 = 0,
     // Slice reset will be asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU1_WAIT : uint32_t {
+
+  enum class eCPU1_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_0 = 0,
     // Slice reset will be asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU1_STOP : uint32_t {
+
+  enum class eCPU1_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_0 = 0,
     // Slice reset will be asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU1_SUSP : uint32_t {
+
+  enum class eCPU1_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_0 = 0,
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - CPU mode setting for RUN
-    eCPU0_RUN CPU0_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU0_WAIT CPU0_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU0_STOP CPU0_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU0_SUSP CPU0_SUSP : 1;
-    // read-write - CPU mode setting for RUN
-    eCPU1_RUN CPU1_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU1_WAIT CPU1_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU1_STOP CPU1_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // CPU mode setting for RUN
+  using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU0_WAIT = ftl::mmio::Field<1, 1, eCPU0_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU0_STOP = ftl::mmio::Field<1, 2, eCPU0_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU0_SUSP = ftl::mmio::Field<1, 3, eCPU0_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for RUN
+  using CPU1_RUN = ftl::mmio::Field<1, 4, eCPU1_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU1_WAIT = ftl::mmio::Field<1, 5, eCPU1_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU1_STOP = ftl::mmio::Field<1, 6, eCPU1_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU1_SUSP = ftl::mmio::Field<1, 7, eCPU1_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DOMAIN_DISPLAY_fields_
 
-  DOMAIN_DISPLAY() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_DISPLAY &ref() { return *reinterpret_cast<volatile DOMAIN_DISPLAY*>(0x40C0422C); }
+struct DOMAIN_DISPLAY : ftl::mmio::Register<
+    0x40C0422Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DOMAIN_DISPLAY_fields_::CPU0_RUN,
+    DOMAIN_DISPLAY_fields_::CPU0_WAIT,
+    DOMAIN_DISPLAY_fields_::CPU0_STOP,
+    DOMAIN_DISPLAY_fields_::CPU0_SUSP,
+    DOMAIN_DISPLAY_fields_::CPU1_RUN,
+    DOMAIN_DISPLAY_fields_::CPU1_WAIT,
+    DOMAIN_DISPLAY_fields_::CPU1_STOP,
+    DOMAIN_DISPLAY_fields_::CPU1_SUSP,
+    ftl::mmio::Reserved<24, 8>> {
+  using eCPU0_RUN = DOMAIN_DISPLAY_fields_::eCPU0_RUN;
+  using eCPU0_WAIT = DOMAIN_DISPLAY_fields_::eCPU0_WAIT;
+  using eCPU0_STOP = DOMAIN_DISPLAY_fields_::eCPU0_STOP;
+  using eCPU0_SUSP = DOMAIN_DISPLAY_fields_::eCPU0_SUSP;
+  using eCPU1_RUN = DOMAIN_DISPLAY_fields_::eCPU1_RUN;
+  using eCPU1_WAIT = DOMAIN_DISPLAY_fields_::eCPU1_WAIT;
+  using eCPU1_STOP = DOMAIN_DISPLAY_fields_::eCPU1_STOP;
+  using eCPU1_SUSP = DOMAIN_DISPLAY_fields_::eCPU1_SUSP;
+  using CPU0_RUN = DOMAIN_DISPLAY_fields_::CPU0_RUN;
+  using CPU0_WAIT = DOMAIN_DISPLAY_fields_::CPU0_WAIT;
+  using CPU0_STOP = DOMAIN_DISPLAY_fields_::CPU0_STOP;
+  using CPU0_SUSP = DOMAIN_DISPLAY_fields_::CPU0_SUSP;
+  using CPU1_RUN = DOMAIN_DISPLAY_fields_::CPU1_RUN;
+  using CPU1_WAIT = DOMAIN_DISPLAY_fields_::CPU1_WAIT;
+  using CPU1_STOP = DOMAIN_DISPLAY_fields_::CPU1_STOP;
+  using CPU1_SUSP = DOMAIN_DISPLAY_fields_::CPU1_SUSP;
 };
 
+
 // Slice Status Register
-union STAT_DISPLAY {
-  
-  // This is a Read Only bit. It indicate if the reset is in process.
-  enum class eUNDER_RST : uint32_t {
+struct STAT_DISPLAY_fields_ {
+
+  enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
     // the reset is in process
     eUNDER_RST_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by the power mode transfer.
-  enum class eRST_BY_HW : uint32_t {
+
+  enum class eRST_BY_HW : std::uint32_t {
     // the reset is not caused by the power mode transfer
     eRST_BY_HW_0 = 0,
     // the reset is caused by the power mode transfer
     eRST_BY_HW_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by setting SW_RESET bit.
-  enum class eRST_BY_SW : uint32_t {
+
+  enum class eRST_BY_SW : std::uint32_t {
     // the reset is not caused by software setting
     eRST_BY_SW_0 = 0,
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - This is a Read Only bit. It indicate if the reset is in process.
-    eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - This bit indicate if the reset is caused by the power mode transfer.
-    eRST_BY_HW RST_BY_HW : 1;
-    // read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
-    eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_1 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a Read Only bit. It indicate if the reset is in process.
+  using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
+  // This bit indicate if the reset is caused by the power mode transfer.
+  using RST_BY_HW = ftl::mmio::Field<1, 2, eRST_BY_HW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // This bit indicate if the reset is caused by setting SW_RESET bit.
+  using RST_BY_SW = ftl::mmio::Field<1, 3, eRST_BY_SW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct STAT_DISPLAY_fields_
 
-  STAT_DISPLAY() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_DISPLAY &ref() { return *reinterpret_cast<volatile STAT_DISPLAY*>(0x40C04230); }
+struct STAT_DISPLAY : ftl::mmio::Register<
+    0x40C04230u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    STAT_DISPLAY_fields_::UNDER_RST,
+    ftl::mmio::Reserved<1, 1>,
+    STAT_DISPLAY_fields_::RST_BY_HW,
+    STAT_DISPLAY_fields_::RST_BY_SW,
+    ftl::mmio::Reserved<28, 4>> {
+  using eUNDER_RST = STAT_DISPLAY_fields_::eUNDER_RST;
+  using eRST_BY_HW = STAT_DISPLAY_fields_::eRST_BY_HW;
+  using eRST_BY_SW = STAT_DISPLAY_fields_::eRST_BY_SW;
+  using UNDER_RST = STAT_DISPLAY_fields_::UNDER_RST;
+  using RST_BY_HW = STAT_DISPLAY_fields_::RST_BY_HW;
+  using RST_BY_SW = STAT_DISPLAY_fields_::RST_BY_SW;
 };
 
+
 // Slice Authentication Register
-union AUTHEN_WAKEUP {
-  
-  // Control whether reset slice is in domain mode
-  enum class eDOMAIN_MODE : uint32_t {
+struct AUTHEN_WAKEUP_fields_ {
+
+  enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
     // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
     eDOMAIN_MODE_1 = 1,
   };
-  
-  // Control whether reset slice is in Setpoint mode
-  enum class eSETPOINT_MODE : uint32_t {
+
+  enum class eSETPOINT_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_0 = 0,
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Control whether reset slice is in domain mode
-    eDOMAIN_MODE DOMAIN_MODE : 1;
-    // read-write - Control whether reset slice is in Setpoint mode
-    eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Domain/Setpoint mode lock
-    uint32_t LOCK_MODE : 1;
-    // read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
-    uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Assign list lock
-    uint32_t LOCK_ASSIGN : 1;
-    // read-write - Domain ID white list
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_2 : 3;
-    // read-write - White list lock
-    uint32_t LOCK_LIST : 1;
-    // read-write - Allow user mode access
-    uint32_t USER : 1;
-    // read-write - Allow non-secure mode access
-    uint32_t NONSECURE : 1;
-    uint32_t _reserved_3 : 5;
-    // read-write - Lock NONSECURE and USER
-    uint32_t LOCK_SETTING : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Control whether reset slice is in domain mode
+  using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Control whether reset slice is in Setpoint mode
+  using SETPOINT_MODE = ftl::mmio::Field<1, 1, eSETPOINT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain/Setpoint mode lock
+  using LOCK_MODE = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
+  using ASSIGN_LIST = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Assign list lock
+  using LOCK_ASSIGN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain ID white list
+  using WHITE_LIST = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // White list lock
+  using LOCK_LIST = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user mode access
+  using USER = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow non-secure mode access
+  using NONSECURE = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock NONSECURE and USER
+  using LOCK_SETTING = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct AUTHEN_WAKEUP_fields_
 
-  AUTHEN_WAKEUP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_WAKEUP &ref() { return *reinterpret_cast<volatile AUTHEN_WAKEUP*>(0x40C04240); }
+struct AUTHEN_WAKEUP : ftl::mmio::Register<
+    0x40C04240u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    AUTHEN_WAKEUP_fields_::DOMAIN_MODE,
+    AUTHEN_WAKEUP_fields_::SETPOINT_MODE,
+    ftl::mmio::Reserved<5, 2>,
+    AUTHEN_WAKEUP_fields_::LOCK_MODE,
+    AUTHEN_WAKEUP_fields_::ASSIGN_LIST,
+    ftl::mmio::Reserved<3, 12>,
+    AUTHEN_WAKEUP_fields_::LOCK_ASSIGN,
+    AUTHEN_WAKEUP_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<3, 20>,
+    AUTHEN_WAKEUP_fields_::LOCK_LIST,
+    AUTHEN_WAKEUP_fields_::USER,
+    AUTHEN_WAKEUP_fields_::NONSECURE,
+    ftl::mmio::Reserved<5, 26>,
+    AUTHEN_WAKEUP_fields_::LOCK_SETTING> {
+  using eDOMAIN_MODE = AUTHEN_WAKEUP_fields_::eDOMAIN_MODE;
+  using eSETPOINT_MODE = AUTHEN_WAKEUP_fields_::eSETPOINT_MODE;
+  using DOMAIN_MODE = AUTHEN_WAKEUP_fields_::DOMAIN_MODE;
+  using SETPOINT_MODE = AUTHEN_WAKEUP_fields_::SETPOINT_MODE;
+  using LOCK_MODE = AUTHEN_WAKEUP_fields_::LOCK_MODE;
+  using ASSIGN_LIST = AUTHEN_WAKEUP_fields_::ASSIGN_LIST;
+  using LOCK_ASSIGN = AUTHEN_WAKEUP_fields_::LOCK_ASSIGN;
+  using WHITE_LIST = AUTHEN_WAKEUP_fields_::WHITE_LIST;
+  using LOCK_LIST = AUTHEN_WAKEUP_fields_::LOCK_LIST;
+  using USER = AUTHEN_WAKEUP_fields_::USER;
+  using NONSECURE = AUTHEN_WAKEUP_fields_::NONSECURE;
+  using LOCK_SETTING = AUTHEN_WAKEUP_fields_::LOCK_SETTING;
 };
 
+
 // Slice Control Register
-union CTRL_WAKEUP {
-  
-  // This is a self clearing bit
-  enum class eSW_RESET : uint32_t {
+struct CTRL_WAKEUP_fields_ {
+
+  enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - This is a self clearing bit
-    eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a self clearing bit
+  using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_WAKEUP_fields_
 
-  CTRL_WAKEUP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_WAKEUP &ref() { return *reinterpret_cast<volatile CTRL_WAKEUP*>(0x40C04244); }
+struct CTRL_WAKEUP : ftl::mmio::Register<
+    0x40C04244u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_WAKEUP_fields_::SW_RESET,
+    ftl::mmio::Reserved<31, 1>> {
+  using eSW_RESET = CTRL_WAKEUP_fields_::eSW_RESET;
+  using SW_RESET = CTRL_WAKEUP_fields_::SW_RESET;
 };
 
+
 // Slice Setpoint Config Register
-union SETPOINT_WAKEUP {
-  
-  // SETPOINT0
-  enum class eSETPOINT0 : uint32_t {
+struct SETPOINT_WAKEUP_fields_ {
+
+  enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT0_1 = 1,
   };
-  
-  // SETPOINT1
-  enum class eSETPOINT1 : uint32_t {
+
+  enum class eSETPOINT1 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT1_1 = 1,
   };
-  
-  // SETPOINT2
-  enum class eSETPOINT2 : uint32_t {
+
+  enum class eSETPOINT2 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT2_1 = 1,
   };
-  
-  // SETPOINT3
-  enum class eSETPOINT3 : uint32_t {
+
+  enum class eSETPOINT3 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT3_1 = 1,
   };
-  
-  // SETPOINT4
-  enum class eSETPOINT4 : uint32_t {
+
+  enum class eSETPOINT4 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT4_1 = 1,
   };
-  
-  // SETPOINT5
-  enum class eSETPOINT5 : uint32_t {
+
+  enum class eSETPOINT5 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT5_1 = 1,
   };
-  
-  // SETPOINT6
-  enum class eSETPOINT6 : uint32_t {
+
+  enum class eSETPOINT6 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT6_1 = 1,
   };
-  
-  // SETPOINT7
-  enum class eSETPOINT7 : uint32_t {
+
+  enum class eSETPOINT7 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT7_1 = 1,
   };
-  
-  // SETPOINT8
-  enum class eSETPOINT8 : uint32_t {
+
+  enum class eSETPOINT8 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT8_1 = 1,
   };
-  
-  // SETPOINT9
-  enum class eSETPOINT9 : uint32_t {
+
+  enum class eSETPOINT9 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT9_1 = 1,
   };
-  
-  // SETPOINT10
-  enum class eSETPOINT10 : uint32_t {
+
+  enum class eSETPOINT10 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT10_1 = 1,
   };
-  
-  // SETPOINT11
-  enum class eSETPOINT11 : uint32_t {
+
+  enum class eSETPOINT11 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT11_1 = 1,
   };
-  
-  // SETPOINT12
-  enum class eSETPOINT12 : uint32_t {
+
+  enum class eSETPOINT12 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT12_1 = 1,
   };
-  
-  // SETPOINT13
-  enum class eSETPOINT13 : uint32_t {
+
+  enum class eSETPOINT13 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT13_1 = 1,
   };
-  
-  // SETPOINT14
-  enum class eSETPOINT14 : uint32_t {
+
+  enum class eSETPOINT14 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT14_1 = 1,
   };
-  
-  // SETPOINT15
-  enum class eSETPOINT15 : uint32_t {
+
+  enum class eSETPOINT15 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - SETPOINT0
-    eSETPOINT0 SETPOINT0 : 1;
-    // read-write - SETPOINT1
-    eSETPOINT1 SETPOINT1 : 1;
-    // read-write - SETPOINT2
-    eSETPOINT2 SETPOINT2 : 1;
-    // read-write - SETPOINT3
-    eSETPOINT3 SETPOINT3 : 1;
-    // read-write - SETPOINT4
-    eSETPOINT4 SETPOINT4 : 1;
-    // read-write - SETPOINT5
-    eSETPOINT5 SETPOINT5 : 1;
-    // read-write - SETPOINT6
-    eSETPOINT6 SETPOINT6 : 1;
-    // read-write - SETPOINT7
-    eSETPOINT7 SETPOINT7 : 1;
-    // read-write - SETPOINT8
-    eSETPOINT8 SETPOINT8 : 1;
-    // read-write - SETPOINT9
-    eSETPOINT9 SETPOINT9 : 1;
-    // read-write - SETPOINT10
-    eSETPOINT10 SETPOINT10 : 1;
-    // read-write - SETPOINT11
-    eSETPOINT11 SETPOINT11 : 1;
-    // read-write - SETPOINT12
-    eSETPOINT12 SETPOINT12 : 1;
-    // read-write - SETPOINT13
-    eSETPOINT13 SETPOINT13 : 1;
-    // read-write - SETPOINT14
-    eSETPOINT14 SETPOINT14 : 1;
-    // read-write - SETPOINT15
-    eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // SETPOINT0
+  using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT1
+  using SETPOINT1 = ftl::mmio::Field<1, 1, eSETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT2
+  using SETPOINT2 = ftl::mmio::Field<1, 2, eSETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT3
+  using SETPOINT3 = ftl::mmio::Field<1, 3, eSETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT4
+  using SETPOINT4 = ftl::mmio::Field<1, 4, eSETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT5
+  using SETPOINT5 = ftl::mmio::Field<1, 5, eSETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT6
+  using SETPOINT6 = ftl::mmio::Field<1, 6, eSETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT7
+  using SETPOINT7 = ftl::mmio::Field<1, 7, eSETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT8
+  using SETPOINT8 = ftl::mmio::Field<1, 8, eSETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT9
+  using SETPOINT9 = ftl::mmio::Field<1, 9, eSETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT10
+  using SETPOINT10 = ftl::mmio::Field<1, 10, eSETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT11
+  using SETPOINT11 = ftl::mmio::Field<1, 11, eSETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT12
+  using SETPOINT12 = ftl::mmio::Field<1, 12, eSETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT13
+  using SETPOINT13 = ftl::mmio::Field<1, 13, eSETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT14
+  using SETPOINT14 = ftl::mmio::Field<1, 14, eSETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT15
+  using SETPOINT15 = ftl::mmio::Field<1, 15, eSETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SETPOINT_WAKEUP_fields_
 
-  SETPOINT_WAKEUP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_WAKEUP &ref() { return *reinterpret_cast<volatile SETPOINT_WAKEUP*>(0x40C04248); }
+struct SETPOINT_WAKEUP : ftl::mmio::Register<
+    0x40C04248u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SETPOINT_WAKEUP_fields_::SETPOINT0,
+    SETPOINT_WAKEUP_fields_::SETPOINT1,
+    SETPOINT_WAKEUP_fields_::SETPOINT2,
+    SETPOINT_WAKEUP_fields_::SETPOINT3,
+    SETPOINT_WAKEUP_fields_::SETPOINT4,
+    SETPOINT_WAKEUP_fields_::SETPOINT5,
+    SETPOINT_WAKEUP_fields_::SETPOINT6,
+    SETPOINT_WAKEUP_fields_::SETPOINT7,
+    SETPOINT_WAKEUP_fields_::SETPOINT8,
+    SETPOINT_WAKEUP_fields_::SETPOINT9,
+    SETPOINT_WAKEUP_fields_::SETPOINT10,
+    SETPOINT_WAKEUP_fields_::SETPOINT11,
+    SETPOINT_WAKEUP_fields_::SETPOINT12,
+    SETPOINT_WAKEUP_fields_::SETPOINT13,
+    SETPOINT_WAKEUP_fields_::SETPOINT14,
+    SETPOINT_WAKEUP_fields_::SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSETPOINT0 = SETPOINT_WAKEUP_fields_::eSETPOINT0;
+  using eSETPOINT1 = SETPOINT_WAKEUP_fields_::eSETPOINT1;
+  using eSETPOINT2 = SETPOINT_WAKEUP_fields_::eSETPOINT2;
+  using eSETPOINT3 = SETPOINT_WAKEUP_fields_::eSETPOINT3;
+  using eSETPOINT4 = SETPOINT_WAKEUP_fields_::eSETPOINT4;
+  using eSETPOINT5 = SETPOINT_WAKEUP_fields_::eSETPOINT5;
+  using eSETPOINT6 = SETPOINT_WAKEUP_fields_::eSETPOINT6;
+  using eSETPOINT7 = SETPOINT_WAKEUP_fields_::eSETPOINT7;
+  using eSETPOINT8 = SETPOINT_WAKEUP_fields_::eSETPOINT8;
+  using eSETPOINT9 = SETPOINT_WAKEUP_fields_::eSETPOINT9;
+  using eSETPOINT10 = SETPOINT_WAKEUP_fields_::eSETPOINT10;
+  using eSETPOINT11 = SETPOINT_WAKEUP_fields_::eSETPOINT11;
+  using eSETPOINT12 = SETPOINT_WAKEUP_fields_::eSETPOINT12;
+  using eSETPOINT13 = SETPOINT_WAKEUP_fields_::eSETPOINT13;
+  using eSETPOINT14 = SETPOINT_WAKEUP_fields_::eSETPOINT14;
+  using eSETPOINT15 = SETPOINT_WAKEUP_fields_::eSETPOINT15;
+  using SETPOINT0 = SETPOINT_WAKEUP_fields_::SETPOINT0;
+  using SETPOINT1 = SETPOINT_WAKEUP_fields_::SETPOINT1;
+  using SETPOINT2 = SETPOINT_WAKEUP_fields_::SETPOINT2;
+  using SETPOINT3 = SETPOINT_WAKEUP_fields_::SETPOINT3;
+  using SETPOINT4 = SETPOINT_WAKEUP_fields_::SETPOINT4;
+  using SETPOINT5 = SETPOINT_WAKEUP_fields_::SETPOINT5;
+  using SETPOINT6 = SETPOINT_WAKEUP_fields_::SETPOINT6;
+  using SETPOINT7 = SETPOINT_WAKEUP_fields_::SETPOINT7;
+  using SETPOINT8 = SETPOINT_WAKEUP_fields_::SETPOINT8;
+  using SETPOINT9 = SETPOINT_WAKEUP_fields_::SETPOINT9;
+  using SETPOINT10 = SETPOINT_WAKEUP_fields_::SETPOINT10;
+  using SETPOINT11 = SETPOINT_WAKEUP_fields_::SETPOINT11;
+  using SETPOINT12 = SETPOINT_WAKEUP_fields_::SETPOINT12;
+  using SETPOINT13 = SETPOINT_WAKEUP_fields_::SETPOINT13;
+  using SETPOINT14 = SETPOINT_WAKEUP_fields_::SETPOINT14;
+  using SETPOINT15 = SETPOINT_WAKEUP_fields_::SETPOINT15;
 };
 
+
 // Slice Domain Config Register
-union DOMAIN_WAKEUP {
-  
-  // CPU mode setting for RUN
-  enum class eCPU0_RUN : uint32_t {
+struct DOMAIN_WAKEUP_fields_ {
+
+  enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
     // Slice reset will be asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU0_WAIT : uint32_t {
+
+  enum class eCPU0_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_0 = 0,
     // Slice reset will be asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU0_STOP : uint32_t {
+
+  enum class eCPU0_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_0 = 0,
     // Slice reset will be asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU0_SUSP : uint32_t {
+
+  enum class eCPU0_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_0 = 0,
     // Slice reset will be asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1,
   };
-  
-  // CPU mode setting for RUN
-  enum class eCPU1_RUN : uint32_t {
+
+  enum class eCPU1_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_0 = 0,
     // Slice reset will be asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU1_WAIT : uint32_t {
+
+  enum class eCPU1_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_0 = 0,
     // Slice reset will be asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU1_STOP : uint32_t {
+
+  enum class eCPU1_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_0 = 0,
     // Slice reset will be asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU1_SUSP : uint32_t {
+
+  enum class eCPU1_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_0 = 0,
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - CPU mode setting for RUN
-    eCPU0_RUN CPU0_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU0_WAIT CPU0_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU0_STOP CPU0_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU0_SUSP CPU0_SUSP : 1;
-    // read-write - CPU mode setting for RUN
-    eCPU1_RUN CPU1_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU1_WAIT CPU1_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU1_STOP CPU1_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // CPU mode setting for RUN
+  using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU0_WAIT = ftl::mmio::Field<1, 1, eCPU0_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU0_STOP = ftl::mmio::Field<1, 2, eCPU0_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU0_SUSP = ftl::mmio::Field<1, 3, eCPU0_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for RUN
+  using CPU1_RUN = ftl::mmio::Field<1, 4, eCPU1_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU1_WAIT = ftl::mmio::Field<1, 5, eCPU1_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU1_STOP = ftl::mmio::Field<1, 6, eCPU1_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU1_SUSP = ftl::mmio::Field<1, 7, eCPU1_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DOMAIN_WAKEUP_fields_
 
-  DOMAIN_WAKEUP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_WAKEUP &ref() { return *reinterpret_cast<volatile DOMAIN_WAKEUP*>(0x40C0424C); }
+struct DOMAIN_WAKEUP : ftl::mmio::Register<
+    0x40C0424Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DOMAIN_WAKEUP_fields_::CPU0_RUN,
+    DOMAIN_WAKEUP_fields_::CPU0_WAIT,
+    DOMAIN_WAKEUP_fields_::CPU0_STOP,
+    DOMAIN_WAKEUP_fields_::CPU0_SUSP,
+    DOMAIN_WAKEUP_fields_::CPU1_RUN,
+    DOMAIN_WAKEUP_fields_::CPU1_WAIT,
+    DOMAIN_WAKEUP_fields_::CPU1_STOP,
+    DOMAIN_WAKEUP_fields_::CPU1_SUSP,
+    ftl::mmio::Reserved<24, 8>> {
+  using eCPU0_RUN = DOMAIN_WAKEUP_fields_::eCPU0_RUN;
+  using eCPU0_WAIT = DOMAIN_WAKEUP_fields_::eCPU0_WAIT;
+  using eCPU0_STOP = DOMAIN_WAKEUP_fields_::eCPU0_STOP;
+  using eCPU0_SUSP = DOMAIN_WAKEUP_fields_::eCPU0_SUSP;
+  using eCPU1_RUN = DOMAIN_WAKEUP_fields_::eCPU1_RUN;
+  using eCPU1_WAIT = DOMAIN_WAKEUP_fields_::eCPU1_WAIT;
+  using eCPU1_STOP = DOMAIN_WAKEUP_fields_::eCPU1_STOP;
+  using eCPU1_SUSP = DOMAIN_WAKEUP_fields_::eCPU1_SUSP;
+  using CPU0_RUN = DOMAIN_WAKEUP_fields_::CPU0_RUN;
+  using CPU0_WAIT = DOMAIN_WAKEUP_fields_::CPU0_WAIT;
+  using CPU0_STOP = DOMAIN_WAKEUP_fields_::CPU0_STOP;
+  using CPU0_SUSP = DOMAIN_WAKEUP_fields_::CPU0_SUSP;
+  using CPU1_RUN = DOMAIN_WAKEUP_fields_::CPU1_RUN;
+  using CPU1_WAIT = DOMAIN_WAKEUP_fields_::CPU1_WAIT;
+  using CPU1_STOP = DOMAIN_WAKEUP_fields_::CPU1_STOP;
+  using CPU1_SUSP = DOMAIN_WAKEUP_fields_::CPU1_SUSP;
 };
 
+
 // Slice Status Register
-union STAT_WAKEUP {
-  
-  // This is a Read Only bit. It indicate if the reset is in process.
-  enum class eUNDER_RST : uint32_t {
+struct STAT_WAKEUP_fields_ {
+
+  enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
     // the reset is in process
     eUNDER_RST_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by the power mode transfer.
-  enum class eRST_BY_HW : uint32_t {
+
+  enum class eRST_BY_HW : std::uint32_t {
     // the reset is not caused by the power mode transfer
     eRST_BY_HW_0 = 0,
     // the reset is caused by the power mode transfer
     eRST_BY_HW_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by setting SW_RESET bit.
-  enum class eRST_BY_SW : uint32_t {
+
+  enum class eRST_BY_SW : std::uint32_t {
     // the reset is not caused by software setting
     eRST_BY_SW_0 = 0,
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - This is a Read Only bit. It indicate if the reset is in process.
-    eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - This bit indicate if the reset is caused by the power mode transfer.
-    eRST_BY_HW RST_BY_HW : 1;
-    // read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
-    eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_1 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a Read Only bit. It indicate if the reset is in process.
+  using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
+  // This bit indicate if the reset is caused by the power mode transfer.
+  using RST_BY_HW = ftl::mmio::Field<1, 2, eRST_BY_HW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // This bit indicate if the reset is caused by setting SW_RESET bit.
+  using RST_BY_SW = ftl::mmio::Field<1, 3, eRST_BY_SW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct STAT_WAKEUP_fields_
 
-  STAT_WAKEUP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_WAKEUP &ref() { return *reinterpret_cast<volatile STAT_WAKEUP*>(0x40C04250); }
+struct STAT_WAKEUP : ftl::mmio::Register<
+    0x40C04250u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    STAT_WAKEUP_fields_::UNDER_RST,
+    ftl::mmio::Reserved<1, 1>,
+    STAT_WAKEUP_fields_::RST_BY_HW,
+    STAT_WAKEUP_fields_::RST_BY_SW,
+    ftl::mmio::Reserved<28, 4>> {
+  using eUNDER_RST = STAT_WAKEUP_fields_::eUNDER_RST;
+  using eRST_BY_HW = STAT_WAKEUP_fields_::eRST_BY_HW;
+  using eRST_BY_SW = STAT_WAKEUP_fields_::eRST_BY_SW;
+  using UNDER_RST = STAT_WAKEUP_fields_::UNDER_RST;
+  using RST_BY_HW = STAT_WAKEUP_fields_::RST_BY_HW;
+  using RST_BY_SW = STAT_WAKEUP_fields_::RST_BY_SW;
 };
 
+
 // Slice Authentication Register
-union AUTHEN_M4CORE {
-  
-  // Control whether reset slice is in domain mode
-  enum class eDOMAIN_MODE : uint32_t {
+struct AUTHEN_M4CORE_fields_ {
+
+  enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
     // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
     eDOMAIN_MODE_1 = 1,
   };
-  
-  // Control whether reset slice is in Setpoint mode
-  enum class eSETPOINT_MODE : uint32_t {
+
+  enum class eSETPOINT_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_0 = 0,
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Control whether reset slice is in domain mode
-    eDOMAIN_MODE DOMAIN_MODE : 1;
-    // read-write - Control whether reset slice is in Setpoint mode
-    eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Domain/Setpoint mode lock
-    uint32_t LOCK_MODE : 1;
-    // read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
-    uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Assign list lock
-    uint32_t LOCK_ASSIGN : 1;
-    // read-write - Domain ID white list
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_2 : 3;
-    // read-write - White list lock
-    uint32_t LOCK_LIST : 1;
-    // read-write - Allow user mode access
-    uint32_t USER : 1;
-    // read-write - Allow non-secure mode access
-    uint32_t NONSECURE : 1;
-    uint32_t _reserved_3 : 5;
-    // read-write - Lock NONSECURE and USER
-    uint32_t LOCK_SETTING : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Control whether reset slice is in domain mode
+  using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Control whether reset slice is in Setpoint mode
+  using SETPOINT_MODE = ftl::mmio::Field<1, 1, eSETPOINT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain/Setpoint mode lock
+  using LOCK_MODE = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
+  using ASSIGN_LIST = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Assign list lock
+  using LOCK_ASSIGN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain ID white list
+  using WHITE_LIST = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // White list lock
+  using LOCK_LIST = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user mode access
+  using USER = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow non-secure mode access
+  using NONSECURE = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock NONSECURE and USER
+  using LOCK_SETTING = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct AUTHEN_M4CORE_fields_
 
-  AUTHEN_M4CORE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_M4CORE &ref() { return *reinterpret_cast<volatile AUTHEN_M4CORE*>(0x40C04280); }
+struct AUTHEN_M4CORE : ftl::mmio::Register<
+    0x40C04280u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    AUTHEN_M4CORE_fields_::DOMAIN_MODE,
+    AUTHEN_M4CORE_fields_::SETPOINT_MODE,
+    ftl::mmio::Reserved<5, 2>,
+    AUTHEN_M4CORE_fields_::LOCK_MODE,
+    AUTHEN_M4CORE_fields_::ASSIGN_LIST,
+    ftl::mmio::Reserved<3, 12>,
+    AUTHEN_M4CORE_fields_::LOCK_ASSIGN,
+    AUTHEN_M4CORE_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<3, 20>,
+    AUTHEN_M4CORE_fields_::LOCK_LIST,
+    AUTHEN_M4CORE_fields_::USER,
+    AUTHEN_M4CORE_fields_::NONSECURE,
+    ftl::mmio::Reserved<5, 26>,
+    AUTHEN_M4CORE_fields_::LOCK_SETTING> {
+  using eDOMAIN_MODE = AUTHEN_M4CORE_fields_::eDOMAIN_MODE;
+  using eSETPOINT_MODE = AUTHEN_M4CORE_fields_::eSETPOINT_MODE;
+  using DOMAIN_MODE = AUTHEN_M4CORE_fields_::DOMAIN_MODE;
+  using SETPOINT_MODE = AUTHEN_M4CORE_fields_::SETPOINT_MODE;
+  using LOCK_MODE = AUTHEN_M4CORE_fields_::LOCK_MODE;
+  using ASSIGN_LIST = AUTHEN_M4CORE_fields_::ASSIGN_LIST;
+  using LOCK_ASSIGN = AUTHEN_M4CORE_fields_::LOCK_ASSIGN;
+  using WHITE_LIST = AUTHEN_M4CORE_fields_::WHITE_LIST;
+  using LOCK_LIST = AUTHEN_M4CORE_fields_::LOCK_LIST;
+  using USER = AUTHEN_M4CORE_fields_::USER;
+  using NONSECURE = AUTHEN_M4CORE_fields_::NONSECURE;
+  using LOCK_SETTING = AUTHEN_M4CORE_fields_::LOCK_SETTING;
 };
 
+
 // Slice Control Register
-union CTRL_M4CORE {
-  
-  // This is a self clearing bit
-  enum class eSW_RESET : uint32_t {
+struct CTRL_M4CORE_fields_ {
+
+  enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - This is a self clearing bit
-    eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a self clearing bit
+  using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_M4CORE_fields_
 
-  CTRL_M4CORE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_M4CORE &ref() { return *reinterpret_cast<volatile CTRL_M4CORE*>(0x40C04284); }
+struct CTRL_M4CORE : ftl::mmio::Register<
+    0x40C04284u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_M4CORE_fields_::SW_RESET,
+    ftl::mmio::Reserved<31, 1>> {
+  using eSW_RESET = CTRL_M4CORE_fields_::eSW_RESET;
+  using SW_RESET = CTRL_M4CORE_fields_::SW_RESET;
 };
 
+
 // Slice Setpoint Config Register
-union SETPOINT_M4CORE {
-  
-  // SETPOINT0
-  enum class eSETPOINT0 : uint32_t {
+struct SETPOINT_M4CORE_fields_ {
+
+  enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT0_1 = 1,
   };
-  
-  // SETPOINT1
-  enum class eSETPOINT1 : uint32_t {
+
+  enum class eSETPOINT1 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT1_1 = 1,
   };
-  
-  // SETPOINT2
-  enum class eSETPOINT2 : uint32_t {
+
+  enum class eSETPOINT2 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT2_1 = 1,
   };
-  
-  // SETPOINT3
-  enum class eSETPOINT3 : uint32_t {
+
+  enum class eSETPOINT3 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT3_1 = 1,
   };
-  
-  // SETPOINT4
-  enum class eSETPOINT4 : uint32_t {
+
+  enum class eSETPOINT4 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT4_1 = 1,
   };
-  
-  // SETPOINT5
-  enum class eSETPOINT5 : uint32_t {
+
+  enum class eSETPOINT5 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT5_1 = 1,
   };
-  
-  // SETPOINT6
-  enum class eSETPOINT6 : uint32_t {
+
+  enum class eSETPOINT6 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT6_1 = 1,
   };
-  
-  // SETPOINT7
-  enum class eSETPOINT7 : uint32_t {
+
+  enum class eSETPOINT7 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT7_1 = 1,
   };
-  
-  // SETPOINT8
-  enum class eSETPOINT8 : uint32_t {
+
+  enum class eSETPOINT8 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT8_1 = 1,
   };
-  
-  // SETPOINT9
-  enum class eSETPOINT9 : uint32_t {
+
+  enum class eSETPOINT9 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT9_1 = 1,
   };
-  
-  // SETPOINT10
-  enum class eSETPOINT10 : uint32_t {
+
+  enum class eSETPOINT10 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT10_1 = 1,
   };
-  
-  // SETPOINT11
-  enum class eSETPOINT11 : uint32_t {
+
+  enum class eSETPOINT11 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT11_1 = 1,
   };
-  
-  // SETPOINT12
-  enum class eSETPOINT12 : uint32_t {
+
+  enum class eSETPOINT12 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT12_1 = 1,
   };
-  
-  // SETPOINT13
-  enum class eSETPOINT13 : uint32_t {
+
+  enum class eSETPOINT13 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT13_1 = 1,
   };
-  
-  // SETPOINT14
-  enum class eSETPOINT14 : uint32_t {
+
+  enum class eSETPOINT14 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT14_1 = 1,
   };
-  
-  // SETPOINT15
-  enum class eSETPOINT15 : uint32_t {
+
+  enum class eSETPOINT15 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - SETPOINT0
-    eSETPOINT0 SETPOINT0 : 1;
-    // read-write - SETPOINT1
-    eSETPOINT1 SETPOINT1 : 1;
-    // read-write - SETPOINT2
-    eSETPOINT2 SETPOINT2 : 1;
-    // read-write - SETPOINT3
-    eSETPOINT3 SETPOINT3 : 1;
-    // read-write - SETPOINT4
-    eSETPOINT4 SETPOINT4 : 1;
-    // read-write - SETPOINT5
-    eSETPOINT5 SETPOINT5 : 1;
-    // read-write - SETPOINT6
-    eSETPOINT6 SETPOINT6 : 1;
-    // read-write - SETPOINT7
-    eSETPOINT7 SETPOINT7 : 1;
-    // read-write - SETPOINT8
-    eSETPOINT8 SETPOINT8 : 1;
-    // read-write - SETPOINT9
-    eSETPOINT9 SETPOINT9 : 1;
-    // read-write - SETPOINT10
-    eSETPOINT10 SETPOINT10 : 1;
-    // read-write - SETPOINT11
-    eSETPOINT11 SETPOINT11 : 1;
-    // read-write - SETPOINT12
-    eSETPOINT12 SETPOINT12 : 1;
-    // read-write - SETPOINT13
-    eSETPOINT13 SETPOINT13 : 1;
-    // read-write - SETPOINT14
-    eSETPOINT14 SETPOINT14 : 1;
-    // read-write - SETPOINT15
-    eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // SETPOINT0
+  using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT1
+  using SETPOINT1 = ftl::mmio::Field<1, 1, eSETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT2
+  using SETPOINT2 = ftl::mmio::Field<1, 2, eSETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT3
+  using SETPOINT3 = ftl::mmio::Field<1, 3, eSETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT4
+  using SETPOINT4 = ftl::mmio::Field<1, 4, eSETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT5
+  using SETPOINT5 = ftl::mmio::Field<1, 5, eSETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT6
+  using SETPOINT6 = ftl::mmio::Field<1, 6, eSETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT7
+  using SETPOINT7 = ftl::mmio::Field<1, 7, eSETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT8
+  using SETPOINT8 = ftl::mmio::Field<1, 8, eSETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT9
+  using SETPOINT9 = ftl::mmio::Field<1, 9, eSETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT10
+  using SETPOINT10 = ftl::mmio::Field<1, 10, eSETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT11
+  using SETPOINT11 = ftl::mmio::Field<1, 11, eSETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT12
+  using SETPOINT12 = ftl::mmio::Field<1, 12, eSETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT13
+  using SETPOINT13 = ftl::mmio::Field<1, 13, eSETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT14
+  using SETPOINT14 = ftl::mmio::Field<1, 14, eSETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT15
+  using SETPOINT15 = ftl::mmio::Field<1, 15, eSETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SETPOINT_M4CORE_fields_
 
-  SETPOINT_M4CORE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_M4CORE &ref() { return *reinterpret_cast<volatile SETPOINT_M4CORE*>(0x40C04288); }
+struct SETPOINT_M4CORE : ftl::mmio::Register<
+    0x40C04288u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SETPOINT_M4CORE_fields_::SETPOINT0,
+    SETPOINT_M4CORE_fields_::SETPOINT1,
+    SETPOINT_M4CORE_fields_::SETPOINT2,
+    SETPOINT_M4CORE_fields_::SETPOINT3,
+    SETPOINT_M4CORE_fields_::SETPOINT4,
+    SETPOINT_M4CORE_fields_::SETPOINT5,
+    SETPOINT_M4CORE_fields_::SETPOINT6,
+    SETPOINT_M4CORE_fields_::SETPOINT7,
+    SETPOINT_M4CORE_fields_::SETPOINT8,
+    SETPOINT_M4CORE_fields_::SETPOINT9,
+    SETPOINT_M4CORE_fields_::SETPOINT10,
+    SETPOINT_M4CORE_fields_::SETPOINT11,
+    SETPOINT_M4CORE_fields_::SETPOINT12,
+    SETPOINT_M4CORE_fields_::SETPOINT13,
+    SETPOINT_M4CORE_fields_::SETPOINT14,
+    SETPOINT_M4CORE_fields_::SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSETPOINT0 = SETPOINT_M4CORE_fields_::eSETPOINT0;
+  using eSETPOINT1 = SETPOINT_M4CORE_fields_::eSETPOINT1;
+  using eSETPOINT2 = SETPOINT_M4CORE_fields_::eSETPOINT2;
+  using eSETPOINT3 = SETPOINT_M4CORE_fields_::eSETPOINT3;
+  using eSETPOINT4 = SETPOINT_M4CORE_fields_::eSETPOINT4;
+  using eSETPOINT5 = SETPOINT_M4CORE_fields_::eSETPOINT5;
+  using eSETPOINT6 = SETPOINT_M4CORE_fields_::eSETPOINT6;
+  using eSETPOINT7 = SETPOINT_M4CORE_fields_::eSETPOINT7;
+  using eSETPOINT8 = SETPOINT_M4CORE_fields_::eSETPOINT8;
+  using eSETPOINT9 = SETPOINT_M4CORE_fields_::eSETPOINT9;
+  using eSETPOINT10 = SETPOINT_M4CORE_fields_::eSETPOINT10;
+  using eSETPOINT11 = SETPOINT_M4CORE_fields_::eSETPOINT11;
+  using eSETPOINT12 = SETPOINT_M4CORE_fields_::eSETPOINT12;
+  using eSETPOINT13 = SETPOINT_M4CORE_fields_::eSETPOINT13;
+  using eSETPOINT14 = SETPOINT_M4CORE_fields_::eSETPOINT14;
+  using eSETPOINT15 = SETPOINT_M4CORE_fields_::eSETPOINT15;
+  using SETPOINT0 = SETPOINT_M4CORE_fields_::SETPOINT0;
+  using SETPOINT1 = SETPOINT_M4CORE_fields_::SETPOINT1;
+  using SETPOINT2 = SETPOINT_M4CORE_fields_::SETPOINT2;
+  using SETPOINT3 = SETPOINT_M4CORE_fields_::SETPOINT3;
+  using SETPOINT4 = SETPOINT_M4CORE_fields_::SETPOINT4;
+  using SETPOINT5 = SETPOINT_M4CORE_fields_::SETPOINT5;
+  using SETPOINT6 = SETPOINT_M4CORE_fields_::SETPOINT6;
+  using SETPOINT7 = SETPOINT_M4CORE_fields_::SETPOINT7;
+  using SETPOINT8 = SETPOINT_M4CORE_fields_::SETPOINT8;
+  using SETPOINT9 = SETPOINT_M4CORE_fields_::SETPOINT9;
+  using SETPOINT10 = SETPOINT_M4CORE_fields_::SETPOINT10;
+  using SETPOINT11 = SETPOINT_M4CORE_fields_::SETPOINT11;
+  using SETPOINT12 = SETPOINT_M4CORE_fields_::SETPOINT12;
+  using SETPOINT13 = SETPOINT_M4CORE_fields_::SETPOINT13;
+  using SETPOINT14 = SETPOINT_M4CORE_fields_::SETPOINT14;
+  using SETPOINT15 = SETPOINT_M4CORE_fields_::SETPOINT15;
 };
 
+
 // Slice Domain Config Register
-union DOMAIN_M4CORE {
-  
-  // CPU mode setting for RUN
-  enum class eCPU0_RUN : uint32_t {
+struct DOMAIN_M4CORE_fields_ {
+
+  enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
     // Slice reset will be asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU0_WAIT : uint32_t {
+
+  enum class eCPU0_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_0 = 0,
     // Slice reset will be asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU0_STOP : uint32_t {
+
+  enum class eCPU0_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_0 = 0,
     // Slice reset will be asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU0_SUSP : uint32_t {
+
+  enum class eCPU0_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_0 = 0,
     // Slice reset will be asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1,
   };
-  
-  // CPU mode setting for RUN
-  enum class eCPU1_RUN : uint32_t {
+
+  enum class eCPU1_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_0 = 0,
     // Slice reset will be asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU1_WAIT : uint32_t {
+
+  enum class eCPU1_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_0 = 0,
     // Slice reset will be asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU1_STOP : uint32_t {
+
+  enum class eCPU1_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_0 = 0,
     // Slice reset will be asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU1_SUSP : uint32_t {
+
+  enum class eCPU1_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_0 = 0,
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - CPU mode setting for RUN
-    eCPU0_RUN CPU0_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU0_WAIT CPU0_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU0_STOP CPU0_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU0_SUSP CPU0_SUSP : 1;
-    // read-write - CPU mode setting for RUN
-    eCPU1_RUN CPU1_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU1_WAIT CPU1_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU1_STOP CPU1_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // CPU mode setting for RUN
+  using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU0_WAIT = ftl::mmio::Field<1, 1, eCPU0_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU0_STOP = ftl::mmio::Field<1, 2, eCPU0_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU0_SUSP = ftl::mmio::Field<1, 3, eCPU0_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for RUN
+  using CPU1_RUN = ftl::mmio::Field<1, 4, eCPU1_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU1_WAIT = ftl::mmio::Field<1, 5, eCPU1_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU1_STOP = ftl::mmio::Field<1, 6, eCPU1_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU1_SUSP = ftl::mmio::Field<1, 7, eCPU1_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DOMAIN_M4CORE_fields_
 
-  DOMAIN_M4CORE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_M4CORE &ref() { return *reinterpret_cast<volatile DOMAIN_M4CORE*>(0x40C0428C); }
+struct DOMAIN_M4CORE : ftl::mmio::Register<
+    0x40C0428Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DOMAIN_M4CORE_fields_::CPU0_RUN,
+    DOMAIN_M4CORE_fields_::CPU0_WAIT,
+    DOMAIN_M4CORE_fields_::CPU0_STOP,
+    DOMAIN_M4CORE_fields_::CPU0_SUSP,
+    DOMAIN_M4CORE_fields_::CPU1_RUN,
+    DOMAIN_M4CORE_fields_::CPU1_WAIT,
+    DOMAIN_M4CORE_fields_::CPU1_STOP,
+    DOMAIN_M4CORE_fields_::CPU1_SUSP,
+    ftl::mmio::Reserved<24, 8>> {
+  using eCPU0_RUN = DOMAIN_M4CORE_fields_::eCPU0_RUN;
+  using eCPU0_WAIT = DOMAIN_M4CORE_fields_::eCPU0_WAIT;
+  using eCPU0_STOP = DOMAIN_M4CORE_fields_::eCPU0_STOP;
+  using eCPU0_SUSP = DOMAIN_M4CORE_fields_::eCPU0_SUSP;
+  using eCPU1_RUN = DOMAIN_M4CORE_fields_::eCPU1_RUN;
+  using eCPU1_WAIT = DOMAIN_M4CORE_fields_::eCPU1_WAIT;
+  using eCPU1_STOP = DOMAIN_M4CORE_fields_::eCPU1_STOP;
+  using eCPU1_SUSP = DOMAIN_M4CORE_fields_::eCPU1_SUSP;
+  using CPU0_RUN = DOMAIN_M4CORE_fields_::CPU0_RUN;
+  using CPU0_WAIT = DOMAIN_M4CORE_fields_::CPU0_WAIT;
+  using CPU0_STOP = DOMAIN_M4CORE_fields_::CPU0_STOP;
+  using CPU0_SUSP = DOMAIN_M4CORE_fields_::CPU0_SUSP;
+  using CPU1_RUN = DOMAIN_M4CORE_fields_::CPU1_RUN;
+  using CPU1_WAIT = DOMAIN_M4CORE_fields_::CPU1_WAIT;
+  using CPU1_STOP = DOMAIN_M4CORE_fields_::CPU1_STOP;
+  using CPU1_SUSP = DOMAIN_M4CORE_fields_::CPU1_SUSP;
 };
 
+
 // Slice Status Register
-union STAT_M4CORE {
-  
-  // This is a Read Only bit. It indicate if the reset is in process.
-  enum class eUNDER_RST : uint32_t {
+struct STAT_M4CORE_fields_ {
+
+  enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
     // the reset is in process
     eUNDER_RST_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by the power mode transfer.
-  enum class eRST_BY_HW : uint32_t {
+
+  enum class eRST_BY_HW : std::uint32_t {
     // the reset is not caused by the power mode transfer
     eRST_BY_HW_0 = 0,
     // the reset is caused by the power mode transfer
     eRST_BY_HW_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by setting SW_RESET bit.
-  enum class eRST_BY_SW : uint32_t {
+
+  enum class eRST_BY_SW : std::uint32_t {
     // the reset is not caused by software setting
     eRST_BY_SW_0 = 0,
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - This is a Read Only bit. It indicate if the reset is in process.
-    eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - This bit indicate if the reset is caused by the power mode transfer.
-    eRST_BY_HW RST_BY_HW : 1;
-    // read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
-    eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_1 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a Read Only bit. It indicate if the reset is in process.
+  using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
+  // This bit indicate if the reset is caused by the power mode transfer.
+  using RST_BY_HW = ftl::mmio::Field<1, 2, eRST_BY_HW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // This bit indicate if the reset is caused by setting SW_RESET bit.
+  using RST_BY_SW = ftl::mmio::Field<1, 3, eRST_BY_SW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct STAT_M4CORE_fields_
 
-  STAT_M4CORE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_M4CORE &ref() { return *reinterpret_cast<volatile STAT_M4CORE*>(0x40C04290); }
+struct STAT_M4CORE : ftl::mmio::Register<
+    0x40C04290u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    STAT_M4CORE_fields_::UNDER_RST,
+    ftl::mmio::Reserved<1, 1>,
+    STAT_M4CORE_fields_::RST_BY_HW,
+    STAT_M4CORE_fields_::RST_BY_SW,
+    ftl::mmio::Reserved<28, 4>> {
+  using eUNDER_RST = STAT_M4CORE_fields_::eUNDER_RST;
+  using eRST_BY_HW = STAT_M4CORE_fields_::eRST_BY_HW;
+  using eRST_BY_SW = STAT_M4CORE_fields_::eRST_BY_SW;
+  using UNDER_RST = STAT_M4CORE_fields_::UNDER_RST;
+  using RST_BY_HW = STAT_M4CORE_fields_::RST_BY_HW;
+  using RST_BY_SW = STAT_M4CORE_fields_::RST_BY_SW;
 };
 
+
 // Slice Authentication Register
-union AUTHEN_M7CORE {
-  
-  // Control whether reset slice is in domain mode
-  enum class eDOMAIN_MODE : uint32_t {
+struct AUTHEN_M7CORE_fields_ {
+
+  enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
     // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
     eDOMAIN_MODE_1 = 1,
   };
-  
-  // Control whether reset slice is in Setpoint mode
-  enum class eSETPOINT_MODE : uint32_t {
+
+  enum class eSETPOINT_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_0 = 0,
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Control whether reset slice is in domain mode
-    eDOMAIN_MODE DOMAIN_MODE : 1;
-    // read-write - Control whether reset slice is in Setpoint mode
-    eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Domain/Setpoint mode lock
-    uint32_t LOCK_MODE : 1;
-    // read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
-    uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Assign list lock
-    uint32_t LOCK_ASSIGN : 1;
-    // read-write - Domain ID white list
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_2 : 3;
-    // read-write - White list lock
-    uint32_t LOCK_LIST : 1;
-    // read-write - Allow user mode access
-    uint32_t USER : 1;
-    // read-write - Allow non-secure mode access
-    uint32_t NONSECURE : 1;
-    uint32_t _reserved_3 : 5;
-    // read-write - Lock NONSECURE and USER
-    uint32_t LOCK_SETTING : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Control whether reset slice is in domain mode
+  using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Control whether reset slice is in Setpoint mode
+  using SETPOINT_MODE = ftl::mmio::Field<1, 1, eSETPOINT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain/Setpoint mode lock
+  using LOCK_MODE = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
+  using ASSIGN_LIST = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Assign list lock
+  using LOCK_ASSIGN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain ID white list
+  using WHITE_LIST = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // White list lock
+  using LOCK_LIST = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user mode access
+  using USER = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow non-secure mode access
+  using NONSECURE = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock NONSECURE and USER
+  using LOCK_SETTING = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct AUTHEN_M7CORE_fields_
 
-  AUTHEN_M7CORE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_M7CORE &ref() { return *reinterpret_cast<volatile AUTHEN_M7CORE*>(0x40C042A0); }
+struct AUTHEN_M7CORE : ftl::mmio::Register<
+    0x40C042A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    AUTHEN_M7CORE_fields_::DOMAIN_MODE,
+    AUTHEN_M7CORE_fields_::SETPOINT_MODE,
+    ftl::mmio::Reserved<5, 2>,
+    AUTHEN_M7CORE_fields_::LOCK_MODE,
+    AUTHEN_M7CORE_fields_::ASSIGN_LIST,
+    ftl::mmio::Reserved<3, 12>,
+    AUTHEN_M7CORE_fields_::LOCK_ASSIGN,
+    AUTHEN_M7CORE_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<3, 20>,
+    AUTHEN_M7CORE_fields_::LOCK_LIST,
+    AUTHEN_M7CORE_fields_::USER,
+    AUTHEN_M7CORE_fields_::NONSECURE,
+    ftl::mmio::Reserved<5, 26>,
+    AUTHEN_M7CORE_fields_::LOCK_SETTING> {
+  using eDOMAIN_MODE = AUTHEN_M7CORE_fields_::eDOMAIN_MODE;
+  using eSETPOINT_MODE = AUTHEN_M7CORE_fields_::eSETPOINT_MODE;
+  using DOMAIN_MODE = AUTHEN_M7CORE_fields_::DOMAIN_MODE;
+  using SETPOINT_MODE = AUTHEN_M7CORE_fields_::SETPOINT_MODE;
+  using LOCK_MODE = AUTHEN_M7CORE_fields_::LOCK_MODE;
+  using ASSIGN_LIST = AUTHEN_M7CORE_fields_::ASSIGN_LIST;
+  using LOCK_ASSIGN = AUTHEN_M7CORE_fields_::LOCK_ASSIGN;
+  using WHITE_LIST = AUTHEN_M7CORE_fields_::WHITE_LIST;
+  using LOCK_LIST = AUTHEN_M7CORE_fields_::LOCK_LIST;
+  using USER = AUTHEN_M7CORE_fields_::USER;
+  using NONSECURE = AUTHEN_M7CORE_fields_::NONSECURE;
+  using LOCK_SETTING = AUTHEN_M7CORE_fields_::LOCK_SETTING;
 };
 
+
 // Slice Control Register
-union CTRL_M7CORE {
-  
-  // This is a self clearing bit
-  enum class eSW_RESET : uint32_t {
+struct CTRL_M7CORE_fields_ {
+
+  enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - This is a self clearing bit
-    eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a self clearing bit
+  using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_M7CORE_fields_
 
-  CTRL_M7CORE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_M7CORE &ref() { return *reinterpret_cast<volatile CTRL_M7CORE*>(0x40C042A4); }
+struct CTRL_M7CORE : ftl::mmio::Register<
+    0x40C042A4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_M7CORE_fields_::SW_RESET,
+    ftl::mmio::Reserved<31, 1>> {
+  using eSW_RESET = CTRL_M7CORE_fields_::eSW_RESET;
+  using SW_RESET = CTRL_M7CORE_fields_::SW_RESET;
 };
 
+
 // Slice Setpoint Config Register
-union SETPOINT_M7CORE {
-  
-  // SETPOINT0
-  enum class eSETPOINT0 : uint32_t {
+struct SETPOINT_M7CORE_fields_ {
+
+  enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT0_1 = 1,
   };
-  
-  // SETPOINT1
-  enum class eSETPOINT1 : uint32_t {
+
+  enum class eSETPOINT1 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT1_1 = 1,
   };
-  
-  // SETPOINT2
-  enum class eSETPOINT2 : uint32_t {
+
+  enum class eSETPOINT2 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT2_1 = 1,
   };
-  
-  // SETPOINT3
-  enum class eSETPOINT3 : uint32_t {
+
+  enum class eSETPOINT3 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT3_1 = 1,
   };
-  
-  // SETPOINT4
-  enum class eSETPOINT4 : uint32_t {
+
+  enum class eSETPOINT4 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT4_1 = 1,
   };
-  
-  // SETPOINT5
-  enum class eSETPOINT5 : uint32_t {
+
+  enum class eSETPOINT5 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT5_1 = 1,
   };
-  
-  // SETPOINT6
-  enum class eSETPOINT6 : uint32_t {
+
+  enum class eSETPOINT6 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT6_1 = 1,
   };
-  
-  // SETPOINT7
-  enum class eSETPOINT7 : uint32_t {
+
+  enum class eSETPOINT7 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT7_1 = 1,
   };
-  
-  // SETPOINT8
-  enum class eSETPOINT8 : uint32_t {
+
+  enum class eSETPOINT8 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT8_1 = 1,
   };
-  
-  // SETPOINT9
-  enum class eSETPOINT9 : uint32_t {
+
+  enum class eSETPOINT9 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT9_1 = 1,
   };
-  
-  // SETPOINT10
-  enum class eSETPOINT10 : uint32_t {
+
+  enum class eSETPOINT10 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT10_1 = 1,
   };
-  
-  // SETPOINT11
-  enum class eSETPOINT11 : uint32_t {
+
+  enum class eSETPOINT11 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT11_1 = 1,
   };
-  
-  // SETPOINT12
-  enum class eSETPOINT12 : uint32_t {
+
+  enum class eSETPOINT12 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT12_1 = 1,
   };
-  
-  // SETPOINT13
-  enum class eSETPOINT13 : uint32_t {
+
+  enum class eSETPOINT13 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT13_1 = 1,
   };
-  
-  // SETPOINT14
-  enum class eSETPOINT14 : uint32_t {
+
+  enum class eSETPOINT14 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT14_1 = 1,
   };
-  
-  // SETPOINT15
-  enum class eSETPOINT15 : uint32_t {
+
+  enum class eSETPOINT15 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - SETPOINT0
-    eSETPOINT0 SETPOINT0 : 1;
-    // read-write - SETPOINT1
-    eSETPOINT1 SETPOINT1 : 1;
-    // read-write - SETPOINT2
-    eSETPOINT2 SETPOINT2 : 1;
-    // read-write - SETPOINT3
-    eSETPOINT3 SETPOINT3 : 1;
-    // read-write - SETPOINT4
-    eSETPOINT4 SETPOINT4 : 1;
-    // read-write - SETPOINT5
-    eSETPOINT5 SETPOINT5 : 1;
-    // read-write - SETPOINT6
-    eSETPOINT6 SETPOINT6 : 1;
-    // read-write - SETPOINT7
-    eSETPOINT7 SETPOINT7 : 1;
-    // read-write - SETPOINT8
-    eSETPOINT8 SETPOINT8 : 1;
-    // read-write - SETPOINT9
-    eSETPOINT9 SETPOINT9 : 1;
-    // read-write - SETPOINT10
-    eSETPOINT10 SETPOINT10 : 1;
-    // read-write - SETPOINT11
-    eSETPOINT11 SETPOINT11 : 1;
-    // read-write - SETPOINT12
-    eSETPOINT12 SETPOINT12 : 1;
-    // read-write - SETPOINT13
-    eSETPOINT13 SETPOINT13 : 1;
-    // read-write - SETPOINT14
-    eSETPOINT14 SETPOINT14 : 1;
-    // read-write - SETPOINT15
-    eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // SETPOINT0
+  using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT1
+  using SETPOINT1 = ftl::mmio::Field<1, 1, eSETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT2
+  using SETPOINT2 = ftl::mmio::Field<1, 2, eSETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT3
+  using SETPOINT3 = ftl::mmio::Field<1, 3, eSETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT4
+  using SETPOINT4 = ftl::mmio::Field<1, 4, eSETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT5
+  using SETPOINT5 = ftl::mmio::Field<1, 5, eSETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT6
+  using SETPOINT6 = ftl::mmio::Field<1, 6, eSETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT7
+  using SETPOINT7 = ftl::mmio::Field<1, 7, eSETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT8
+  using SETPOINT8 = ftl::mmio::Field<1, 8, eSETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT9
+  using SETPOINT9 = ftl::mmio::Field<1, 9, eSETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT10
+  using SETPOINT10 = ftl::mmio::Field<1, 10, eSETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT11
+  using SETPOINT11 = ftl::mmio::Field<1, 11, eSETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT12
+  using SETPOINT12 = ftl::mmio::Field<1, 12, eSETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT13
+  using SETPOINT13 = ftl::mmio::Field<1, 13, eSETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT14
+  using SETPOINT14 = ftl::mmio::Field<1, 14, eSETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT15
+  using SETPOINT15 = ftl::mmio::Field<1, 15, eSETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SETPOINT_M7CORE_fields_
 
-  SETPOINT_M7CORE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_M7CORE &ref() { return *reinterpret_cast<volatile SETPOINT_M7CORE*>(0x40C042A8); }
+struct SETPOINT_M7CORE : ftl::mmio::Register<
+    0x40C042A8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SETPOINT_M7CORE_fields_::SETPOINT0,
+    SETPOINT_M7CORE_fields_::SETPOINT1,
+    SETPOINT_M7CORE_fields_::SETPOINT2,
+    SETPOINT_M7CORE_fields_::SETPOINT3,
+    SETPOINT_M7CORE_fields_::SETPOINT4,
+    SETPOINT_M7CORE_fields_::SETPOINT5,
+    SETPOINT_M7CORE_fields_::SETPOINT6,
+    SETPOINT_M7CORE_fields_::SETPOINT7,
+    SETPOINT_M7CORE_fields_::SETPOINT8,
+    SETPOINT_M7CORE_fields_::SETPOINT9,
+    SETPOINT_M7CORE_fields_::SETPOINT10,
+    SETPOINT_M7CORE_fields_::SETPOINT11,
+    SETPOINT_M7CORE_fields_::SETPOINT12,
+    SETPOINT_M7CORE_fields_::SETPOINT13,
+    SETPOINT_M7CORE_fields_::SETPOINT14,
+    SETPOINT_M7CORE_fields_::SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSETPOINT0 = SETPOINT_M7CORE_fields_::eSETPOINT0;
+  using eSETPOINT1 = SETPOINT_M7CORE_fields_::eSETPOINT1;
+  using eSETPOINT2 = SETPOINT_M7CORE_fields_::eSETPOINT2;
+  using eSETPOINT3 = SETPOINT_M7CORE_fields_::eSETPOINT3;
+  using eSETPOINT4 = SETPOINT_M7CORE_fields_::eSETPOINT4;
+  using eSETPOINT5 = SETPOINT_M7CORE_fields_::eSETPOINT5;
+  using eSETPOINT6 = SETPOINT_M7CORE_fields_::eSETPOINT6;
+  using eSETPOINT7 = SETPOINT_M7CORE_fields_::eSETPOINT7;
+  using eSETPOINT8 = SETPOINT_M7CORE_fields_::eSETPOINT8;
+  using eSETPOINT9 = SETPOINT_M7CORE_fields_::eSETPOINT9;
+  using eSETPOINT10 = SETPOINT_M7CORE_fields_::eSETPOINT10;
+  using eSETPOINT11 = SETPOINT_M7CORE_fields_::eSETPOINT11;
+  using eSETPOINT12 = SETPOINT_M7CORE_fields_::eSETPOINT12;
+  using eSETPOINT13 = SETPOINT_M7CORE_fields_::eSETPOINT13;
+  using eSETPOINT14 = SETPOINT_M7CORE_fields_::eSETPOINT14;
+  using eSETPOINT15 = SETPOINT_M7CORE_fields_::eSETPOINT15;
+  using SETPOINT0 = SETPOINT_M7CORE_fields_::SETPOINT0;
+  using SETPOINT1 = SETPOINT_M7CORE_fields_::SETPOINT1;
+  using SETPOINT2 = SETPOINT_M7CORE_fields_::SETPOINT2;
+  using SETPOINT3 = SETPOINT_M7CORE_fields_::SETPOINT3;
+  using SETPOINT4 = SETPOINT_M7CORE_fields_::SETPOINT4;
+  using SETPOINT5 = SETPOINT_M7CORE_fields_::SETPOINT5;
+  using SETPOINT6 = SETPOINT_M7CORE_fields_::SETPOINT6;
+  using SETPOINT7 = SETPOINT_M7CORE_fields_::SETPOINT7;
+  using SETPOINT8 = SETPOINT_M7CORE_fields_::SETPOINT8;
+  using SETPOINT9 = SETPOINT_M7CORE_fields_::SETPOINT9;
+  using SETPOINT10 = SETPOINT_M7CORE_fields_::SETPOINT10;
+  using SETPOINT11 = SETPOINT_M7CORE_fields_::SETPOINT11;
+  using SETPOINT12 = SETPOINT_M7CORE_fields_::SETPOINT12;
+  using SETPOINT13 = SETPOINT_M7CORE_fields_::SETPOINT13;
+  using SETPOINT14 = SETPOINT_M7CORE_fields_::SETPOINT14;
+  using SETPOINT15 = SETPOINT_M7CORE_fields_::SETPOINT15;
 };
 
+
 // Slice Domain Config Register
-union DOMAIN_M7CORE {
-  
-  // CPU mode setting for RUN
-  enum class eCPU0_RUN : uint32_t {
+struct DOMAIN_M7CORE_fields_ {
+
+  enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
     // Slice reset will be asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU0_WAIT : uint32_t {
+
+  enum class eCPU0_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_0 = 0,
     // Slice reset will be asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU0_STOP : uint32_t {
+
+  enum class eCPU0_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_0 = 0,
     // Slice reset will be asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU0_SUSP : uint32_t {
+
+  enum class eCPU0_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_0 = 0,
     // Slice reset will be asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1,
   };
-  
-  // CPU mode setting for RUN
-  enum class eCPU1_RUN : uint32_t {
+
+  enum class eCPU1_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_0 = 0,
     // Slice reset will be asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU1_WAIT : uint32_t {
+
+  enum class eCPU1_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_0 = 0,
     // Slice reset will be asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU1_STOP : uint32_t {
+
+  enum class eCPU1_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_0 = 0,
     // Slice reset will be asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU1_SUSP : uint32_t {
+
+  enum class eCPU1_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_0 = 0,
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - CPU mode setting for RUN
-    eCPU0_RUN CPU0_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU0_WAIT CPU0_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU0_STOP CPU0_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU0_SUSP CPU0_SUSP : 1;
-    // read-write - CPU mode setting for RUN
-    eCPU1_RUN CPU1_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU1_WAIT CPU1_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU1_STOP CPU1_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // CPU mode setting for RUN
+  using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU0_WAIT = ftl::mmio::Field<1, 1, eCPU0_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU0_STOP = ftl::mmio::Field<1, 2, eCPU0_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU0_SUSP = ftl::mmio::Field<1, 3, eCPU0_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for RUN
+  using CPU1_RUN = ftl::mmio::Field<1, 4, eCPU1_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU1_WAIT = ftl::mmio::Field<1, 5, eCPU1_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU1_STOP = ftl::mmio::Field<1, 6, eCPU1_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU1_SUSP = ftl::mmio::Field<1, 7, eCPU1_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DOMAIN_M7CORE_fields_
 
-  DOMAIN_M7CORE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_M7CORE &ref() { return *reinterpret_cast<volatile DOMAIN_M7CORE*>(0x40C042AC); }
+struct DOMAIN_M7CORE : ftl::mmio::Register<
+    0x40C042ACu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DOMAIN_M7CORE_fields_::CPU0_RUN,
+    DOMAIN_M7CORE_fields_::CPU0_WAIT,
+    DOMAIN_M7CORE_fields_::CPU0_STOP,
+    DOMAIN_M7CORE_fields_::CPU0_SUSP,
+    DOMAIN_M7CORE_fields_::CPU1_RUN,
+    DOMAIN_M7CORE_fields_::CPU1_WAIT,
+    DOMAIN_M7CORE_fields_::CPU1_STOP,
+    DOMAIN_M7CORE_fields_::CPU1_SUSP,
+    ftl::mmio::Reserved<24, 8>> {
+  using eCPU0_RUN = DOMAIN_M7CORE_fields_::eCPU0_RUN;
+  using eCPU0_WAIT = DOMAIN_M7CORE_fields_::eCPU0_WAIT;
+  using eCPU0_STOP = DOMAIN_M7CORE_fields_::eCPU0_STOP;
+  using eCPU0_SUSP = DOMAIN_M7CORE_fields_::eCPU0_SUSP;
+  using eCPU1_RUN = DOMAIN_M7CORE_fields_::eCPU1_RUN;
+  using eCPU1_WAIT = DOMAIN_M7CORE_fields_::eCPU1_WAIT;
+  using eCPU1_STOP = DOMAIN_M7CORE_fields_::eCPU1_STOP;
+  using eCPU1_SUSP = DOMAIN_M7CORE_fields_::eCPU1_SUSP;
+  using CPU0_RUN = DOMAIN_M7CORE_fields_::CPU0_RUN;
+  using CPU0_WAIT = DOMAIN_M7CORE_fields_::CPU0_WAIT;
+  using CPU0_STOP = DOMAIN_M7CORE_fields_::CPU0_STOP;
+  using CPU0_SUSP = DOMAIN_M7CORE_fields_::CPU0_SUSP;
+  using CPU1_RUN = DOMAIN_M7CORE_fields_::CPU1_RUN;
+  using CPU1_WAIT = DOMAIN_M7CORE_fields_::CPU1_WAIT;
+  using CPU1_STOP = DOMAIN_M7CORE_fields_::CPU1_STOP;
+  using CPU1_SUSP = DOMAIN_M7CORE_fields_::CPU1_SUSP;
 };
 
+
 // Slice Status Register
-union STAT_M7CORE {
-  
-  // This is a Read Only bit. It indicate if the reset is in process.
-  enum class eUNDER_RST : uint32_t {
+struct STAT_M7CORE_fields_ {
+
+  enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
     // the reset is in process
     eUNDER_RST_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by the power mode transfer.
-  enum class eRST_BY_HW : uint32_t {
+
+  enum class eRST_BY_HW : std::uint32_t {
     // the reset is not caused by the power mode transfer
     eRST_BY_HW_0 = 0,
     // the reset is caused by the power mode transfer
     eRST_BY_HW_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by setting SW_RESET bit.
-  enum class eRST_BY_SW : uint32_t {
+
+  enum class eRST_BY_SW : std::uint32_t {
     // the reset is not caused by software setting
     eRST_BY_SW_0 = 0,
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - This is a Read Only bit. It indicate if the reset is in process.
-    eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - This bit indicate if the reset is caused by the power mode transfer.
-    eRST_BY_HW RST_BY_HW : 1;
-    // read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
-    eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_1 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a Read Only bit. It indicate if the reset is in process.
+  using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
+  // This bit indicate if the reset is caused by the power mode transfer.
+  using RST_BY_HW = ftl::mmio::Field<1, 2, eRST_BY_HW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // This bit indicate if the reset is caused by setting SW_RESET bit.
+  using RST_BY_SW = ftl::mmio::Field<1, 3, eRST_BY_SW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct STAT_M7CORE_fields_
 
-  STAT_M7CORE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_M7CORE &ref() { return *reinterpret_cast<volatile STAT_M7CORE*>(0x40C042B0); }
+struct STAT_M7CORE : ftl::mmio::Register<
+    0x40C042B0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    STAT_M7CORE_fields_::UNDER_RST,
+    ftl::mmio::Reserved<1, 1>,
+    STAT_M7CORE_fields_::RST_BY_HW,
+    STAT_M7CORE_fields_::RST_BY_SW,
+    ftl::mmio::Reserved<28, 4>> {
+  using eUNDER_RST = STAT_M7CORE_fields_::eUNDER_RST;
+  using eRST_BY_HW = STAT_M7CORE_fields_::eRST_BY_HW;
+  using eRST_BY_SW = STAT_M7CORE_fields_::eRST_BY_SW;
+  using UNDER_RST = STAT_M7CORE_fields_::UNDER_RST;
+  using RST_BY_HW = STAT_M7CORE_fields_::RST_BY_HW;
+  using RST_BY_SW = STAT_M7CORE_fields_::RST_BY_SW;
 };
 
+
 // Slice Authentication Register
-union AUTHEN_M4DEBUG {
-  
-  // Control whether reset slice is in domain mode
-  enum class eDOMAIN_MODE : uint32_t {
+struct AUTHEN_M4DEBUG_fields_ {
+
+  enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
     // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
     eDOMAIN_MODE_1 = 1,
   };
-  
-  // Control whether reset slice is in Setpoint mode
-  enum class eSETPOINT_MODE : uint32_t {
+
+  enum class eSETPOINT_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_0 = 0,
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Control whether reset slice is in domain mode
-    eDOMAIN_MODE DOMAIN_MODE : 1;
-    // read-write - Control whether reset slice is in Setpoint mode
-    eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Domain/Setpoint mode lock
-    uint32_t LOCK_MODE : 1;
-    // read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
-    uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Assign list lock
-    uint32_t LOCK_ASSIGN : 1;
-    // read-write - Domain ID white list
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_2 : 3;
-    // read-write - White list lock
-    uint32_t LOCK_LIST : 1;
-    // read-write - Allow user mode access
-    uint32_t USER : 1;
-    // read-write - Allow non-secure mode access
-    uint32_t NONSECURE : 1;
-    uint32_t _reserved_3 : 5;
-    // read-write - Lock NONSECURE and USER
-    uint32_t LOCK_SETTING : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Control whether reset slice is in domain mode
+  using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Control whether reset slice is in Setpoint mode
+  using SETPOINT_MODE = ftl::mmio::Field<1, 1, eSETPOINT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain/Setpoint mode lock
+  using LOCK_MODE = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
+  using ASSIGN_LIST = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Assign list lock
+  using LOCK_ASSIGN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain ID white list
+  using WHITE_LIST = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // White list lock
+  using LOCK_LIST = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user mode access
+  using USER = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow non-secure mode access
+  using NONSECURE = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock NONSECURE and USER
+  using LOCK_SETTING = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct AUTHEN_M4DEBUG_fields_
 
-  AUTHEN_M4DEBUG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_M4DEBUG &ref() { return *reinterpret_cast<volatile AUTHEN_M4DEBUG*>(0x40C042C0); }
+struct AUTHEN_M4DEBUG : ftl::mmio::Register<
+    0x40C042C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    AUTHEN_M4DEBUG_fields_::DOMAIN_MODE,
+    AUTHEN_M4DEBUG_fields_::SETPOINT_MODE,
+    ftl::mmio::Reserved<5, 2>,
+    AUTHEN_M4DEBUG_fields_::LOCK_MODE,
+    AUTHEN_M4DEBUG_fields_::ASSIGN_LIST,
+    ftl::mmio::Reserved<3, 12>,
+    AUTHEN_M4DEBUG_fields_::LOCK_ASSIGN,
+    AUTHEN_M4DEBUG_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<3, 20>,
+    AUTHEN_M4DEBUG_fields_::LOCK_LIST,
+    AUTHEN_M4DEBUG_fields_::USER,
+    AUTHEN_M4DEBUG_fields_::NONSECURE,
+    ftl::mmio::Reserved<5, 26>,
+    AUTHEN_M4DEBUG_fields_::LOCK_SETTING> {
+  using eDOMAIN_MODE = AUTHEN_M4DEBUG_fields_::eDOMAIN_MODE;
+  using eSETPOINT_MODE = AUTHEN_M4DEBUG_fields_::eSETPOINT_MODE;
+  using DOMAIN_MODE = AUTHEN_M4DEBUG_fields_::DOMAIN_MODE;
+  using SETPOINT_MODE = AUTHEN_M4DEBUG_fields_::SETPOINT_MODE;
+  using LOCK_MODE = AUTHEN_M4DEBUG_fields_::LOCK_MODE;
+  using ASSIGN_LIST = AUTHEN_M4DEBUG_fields_::ASSIGN_LIST;
+  using LOCK_ASSIGN = AUTHEN_M4DEBUG_fields_::LOCK_ASSIGN;
+  using WHITE_LIST = AUTHEN_M4DEBUG_fields_::WHITE_LIST;
+  using LOCK_LIST = AUTHEN_M4DEBUG_fields_::LOCK_LIST;
+  using USER = AUTHEN_M4DEBUG_fields_::USER;
+  using NONSECURE = AUTHEN_M4DEBUG_fields_::NONSECURE;
+  using LOCK_SETTING = AUTHEN_M4DEBUG_fields_::LOCK_SETTING;
 };
 
+
 // Slice Control Register
-union CTRL_M4DEBUG {
-  
-  // This is a self clearing bit
-  enum class eSW_RESET : uint32_t {
+struct CTRL_M4DEBUG_fields_ {
+
+  enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - This is a self clearing bit
-    eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a self clearing bit
+  using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_M4DEBUG_fields_
 
-  CTRL_M4DEBUG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_M4DEBUG &ref() { return *reinterpret_cast<volatile CTRL_M4DEBUG*>(0x40C042C4); }
+struct CTRL_M4DEBUG : ftl::mmio::Register<
+    0x40C042C4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_M4DEBUG_fields_::SW_RESET,
+    ftl::mmio::Reserved<31, 1>> {
+  using eSW_RESET = CTRL_M4DEBUG_fields_::eSW_RESET;
+  using SW_RESET = CTRL_M4DEBUG_fields_::SW_RESET;
 };
 
+
 // Slice Setpoint Config Register
-union SETPOINT_M4DEBUG {
-  
-  // SETPOINT0
-  enum class eSETPOINT0 : uint32_t {
+struct SETPOINT_M4DEBUG_fields_ {
+
+  enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT0_1 = 1,
   };
-  
-  // SETPOINT1
-  enum class eSETPOINT1 : uint32_t {
+
+  enum class eSETPOINT1 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT1_1 = 1,
   };
-  
-  // SETPOINT2
-  enum class eSETPOINT2 : uint32_t {
+
+  enum class eSETPOINT2 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT2_1 = 1,
   };
-  
-  // SETPOINT3
-  enum class eSETPOINT3 : uint32_t {
+
+  enum class eSETPOINT3 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT3_1 = 1,
   };
-  
-  // SETPOINT4
-  enum class eSETPOINT4 : uint32_t {
+
+  enum class eSETPOINT4 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT4_1 = 1,
   };
-  
-  // SETPOINT5
-  enum class eSETPOINT5 : uint32_t {
+
+  enum class eSETPOINT5 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT5_1 = 1,
   };
-  
-  // SETPOINT6
-  enum class eSETPOINT6 : uint32_t {
+
+  enum class eSETPOINT6 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT6_1 = 1,
   };
-  
-  // SETPOINT7
-  enum class eSETPOINT7 : uint32_t {
+
+  enum class eSETPOINT7 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT7_1 = 1,
   };
-  
-  // SETPOINT8
-  enum class eSETPOINT8 : uint32_t {
+
+  enum class eSETPOINT8 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT8_1 = 1,
   };
-  
-  // SETPOINT9
-  enum class eSETPOINT9 : uint32_t {
+
+  enum class eSETPOINT9 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT9_1 = 1,
   };
-  
-  // SETPOINT10
-  enum class eSETPOINT10 : uint32_t {
+
+  enum class eSETPOINT10 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT10_1 = 1,
   };
-  
-  // SETPOINT11
-  enum class eSETPOINT11 : uint32_t {
+
+  enum class eSETPOINT11 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT11_1 = 1,
   };
-  
-  // SETPOINT12
-  enum class eSETPOINT12 : uint32_t {
+
+  enum class eSETPOINT12 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT12_1 = 1,
   };
-  
-  // SETPOINT13
-  enum class eSETPOINT13 : uint32_t {
+
+  enum class eSETPOINT13 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT13_1 = 1,
   };
-  
-  // SETPOINT14
-  enum class eSETPOINT14 : uint32_t {
+
+  enum class eSETPOINT14 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT14_1 = 1,
   };
-  
-  // SETPOINT15
-  enum class eSETPOINT15 : uint32_t {
+
+  enum class eSETPOINT15 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - SETPOINT0
-    eSETPOINT0 SETPOINT0 : 1;
-    // read-write - SETPOINT1
-    eSETPOINT1 SETPOINT1 : 1;
-    // read-write - SETPOINT2
-    eSETPOINT2 SETPOINT2 : 1;
-    // read-write - SETPOINT3
-    eSETPOINT3 SETPOINT3 : 1;
-    // read-write - SETPOINT4
-    eSETPOINT4 SETPOINT4 : 1;
-    // read-write - SETPOINT5
-    eSETPOINT5 SETPOINT5 : 1;
-    // read-write - SETPOINT6
-    eSETPOINT6 SETPOINT6 : 1;
-    // read-write - SETPOINT7
-    eSETPOINT7 SETPOINT7 : 1;
-    // read-write - SETPOINT8
-    eSETPOINT8 SETPOINT8 : 1;
-    // read-write - SETPOINT9
-    eSETPOINT9 SETPOINT9 : 1;
-    // read-write - SETPOINT10
-    eSETPOINT10 SETPOINT10 : 1;
-    // read-write - SETPOINT11
-    eSETPOINT11 SETPOINT11 : 1;
-    // read-write - SETPOINT12
-    eSETPOINT12 SETPOINT12 : 1;
-    // read-write - SETPOINT13
-    eSETPOINT13 SETPOINT13 : 1;
-    // read-write - SETPOINT14
-    eSETPOINT14 SETPOINT14 : 1;
-    // read-write - SETPOINT15
-    eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // SETPOINT0
+  using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT1
+  using SETPOINT1 = ftl::mmio::Field<1, 1, eSETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT2
+  using SETPOINT2 = ftl::mmio::Field<1, 2, eSETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT3
+  using SETPOINT3 = ftl::mmio::Field<1, 3, eSETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT4
+  using SETPOINT4 = ftl::mmio::Field<1, 4, eSETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT5
+  using SETPOINT5 = ftl::mmio::Field<1, 5, eSETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT6
+  using SETPOINT6 = ftl::mmio::Field<1, 6, eSETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT7
+  using SETPOINT7 = ftl::mmio::Field<1, 7, eSETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT8
+  using SETPOINT8 = ftl::mmio::Field<1, 8, eSETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT9
+  using SETPOINT9 = ftl::mmio::Field<1, 9, eSETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT10
+  using SETPOINT10 = ftl::mmio::Field<1, 10, eSETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT11
+  using SETPOINT11 = ftl::mmio::Field<1, 11, eSETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT12
+  using SETPOINT12 = ftl::mmio::Field<1, 12, eSETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT13
+  using SETPOINT13 = ftl::mmio::Field<1, 13, eSETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT14
+  using SETPOINT14 = ftl::mmio::Field<1, 14, eSETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT15
+  using SETPOINT15 = ftl::mmio::Field<1, 15, eSETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SETPOINT_M4DEBUG_fields_
 
-  SETPOINT_M4DEBUG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_M4DEBUG &ref() { return *reinterpret_cast<volatile SETPOINT_M4DEBUG*>(0x40C042C8); }
+struct SETPOINT_M4DEBUG : ftl::mmio::Register<
+    0x40C042C8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SETPOINT_M4DEBUG_fields_::SETPOINT0,
+    SETPOINT_M4DEBUG_fields_::SETPOINT1,
+    SETPOINT_M4DEBUG_fields_::SETPOINT2,
+    SETPOINT_M4DEBUG_fields_::SETPOINT3,
+    SETPOINT_M4DEBUG_fields_::SETPOINT4,
+    SETPOINT_M4DEBUG_fields_::SETPOINT5,
+    SETPOINT_M4DEBUG_fields_::SETPOINT6,
+    SETPOINT_M4DEBUG_fields_::SETPOINT7,
+    SETPOINT_M4DEBUG_fields_::SETPOINT8,
+    SETPOINT_M4DEBUG_fields_::SETPOINT9,
+    SETPOINT_M4DEBUG_fields_::SETPOINT10,
+    SETPOINT_M4DEBUG_fields_::SETPOINT11,
+    SETPOINT_M4DEBUG_fields_::SETPOINT12,
+    SETPOINT_M4DEBUG_fields_::SETPOINT13,
+    SETPOINT_M4DEBUG_fields_::SETPOINT14,
+    SETPOINT_M4DEBUG_fields_::SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSETPOINT0 = SETPOINT_M4DEBUG_fields_::eSETPOINT0;
+  using eSETPOINT1 = SETPOINT_M4DEBUG_fields_::eSETPOINT1;
+  using eSETPOINT2 = SETPOINT_M4DEBUG_fields_::eSETPOINT2;
+  using eSETPOINT3 = SETPOINT_M4DEBUG_fields_::eSETPOINT3;
+  using eSETPOINT4 = SETPOINT_M4DEBUG_fields_::eSETPOINT4;
+  using eSETPOINT5 = SETPOINT_M4DEBUG_fields_::eSETPOINT5;
+  using eSETPOINT6 = SETPOINT_M4DEBUG_fields_::eSETPOINT6;
+  using eSETPOINT7 = SETPOINT_M4DEBUG_fields_::eSETPOINT7;
+  using eSETPOINT8 = SETPOINT_M4DEBUG_fields_::eSETPOINT8;
+  using eSETPOINT9 = SETPOINT_M4DEBUG_fields_::eSETPOINT9;
+  using eSETPOINT10 = SETPOINT_M4DEBUG_fields_::eSETPOINT10;
+  using eSETPOINT11 = SETPOINT_M4DEBUG_fields_::eSETPOINT11;
+  using eSETPOINT12 = SETPOINT_M4DEBUG_fields_::eSETPOINT12;
+  using eSETPOINT13 = SETPOINT_M4DEBUG_fields_::eSETPOINT13;
+  using eSETPOINT14 = SETPOINT_M4DEBUG_fields_::eSETPOINT14;
+  using eSETPOINT15 = SETPOINT_M4DEBUG_fields_::eSETPOINT15;
+  using SETPOINT0 = SETPOINT_M4DEBUG_fields_::SETPOINT0;
+  using SETPOINT1 = SETPOINT_M4DEBUG_fields_::SETPOINT1;
+  using SETPOINT2 = SETPOINT_M4DEBUG_fields_::SETPOINT2;
+  using SETPOINT3 = SETPOINT_M4DEBUG_fields_::SETPOINT3;
+  using SETPOINT4 = SETPOINT_M4DEBUG_fields_::SETPOINT4;
+  using SETPOINT5 = SETPOINT_M4DEBUG_fields_::SETPOINT5;
+  using SETPOINT6 = SETPOINT_M4DEBUG_fields_::SETPOINT6;
+  using SETPOINT7 = SETPOINT_M4DEBUG_fields_::SETPOINT7;
+  using SETPOINT8 = SETPOINT_M4DEBUG_fields_::SETPOINT8;
+  using SETPOINT9 = SETPOINT_M4DEBUG_fields_::SETPOINT9;
+  using SETPOINT10 = SETPOINT_M4DEBUG_fields_::SETPOINT10;
+  using SETPOINT11 = SETPOINT_M4DEBUG_fields_::SETPOINT11;
+  using SETPOINT12 = SETPOINT_M4DEBUG_fields_::SETPOINT12;
+  using SETPOINT13 = SETPOINT_M4DEBUG_fields_::SETPOINT13;
+  using SETPOINT14 = SETPOINT_M4DEBUG_fields_::SETPOINT14;
+  using SETPOINT15 = SETPOINT_M4DEBUG_fields_::SETPOINT15;
 };
 
+
 // Slice Domain Config Register
-union DOMAIN_M4DEBUG {
-  
-  // CPU mode setting for RUN
-  enum class eCPU0_RUN : uint32_t {
+struct DOMAIN_M4DEBUG_fields_ {
+
+  enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
     // Slice reset will be asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU0_WAIT : uint32_t {
+
+  enum class eCPU0_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_0 = 0,
     // Slice reset will be asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU0_STOP : uint32_t {
+
+  enum class eCPU0_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_0 = 0,
     // Slice reset will be asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU0_SUSP : uint32_t {
+
+  enum class eCPU0_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_0 = 0,
     // Slice reset will be asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1,
   };
-  
-  // CPU mode setting for RUN
-  enum class eCPU1_RUN : uint32_t {
+
+  enum class eCPU1_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_0 = 0,
     // Slice reset will be asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU1_WAIT : uint32_t {
+
+  enum class eCPU1_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_0 = 0,
     // Slice reset will be asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU1_STOP : uint32_t {
+
+  enum class eCPU1_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_0 = 0,
     // Slice reset will be asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU1_SUSP : uint32_t {
+
+  enum class eCPU1_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_0 = 0,
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - CPU mode setting for RUN
-    eCPU0_RUN CPU0_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU0_WAIT CPU0_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU0_STOP CPU0_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU0_SUSP CPU0_SUSP : 1;
-    // read-write - CPU mode setting for RUN
-    eCPU1_RUN CPU1_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU1_WAIT CPU1_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU1_STOP CPU1_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // CPU mode setting for RUN
+  using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU0_WAIT = ftl::mmio::Field<1, 1, eCPU0_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU0_STOP = ftl::mmio::Field<1, 2, eCPU0_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU0_SUSP = ftl::mmio::Field<1, 3, eCPU0_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for RUN
+  using CPU1_RUN = ftl::mmio::Field<1, 4, eCPU1_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU1_WAIT = ftl::mmio::Field<1, 5, eCPU1_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU1_STOP = ftl::mmio::Field<1, 6, eCPU1_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU1_SUSP = ftl::mmio::Field<1, 7, eCPU1_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DOMAIN_M4DEBUG_fields_
 
-  DOMAIN_M4DEBUG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_M4DEBUG &ref() { return *reinterpret_cast<volatile DOMAIN_M4DEBUG*>(0x40C042CC); }
+struct DOMAIN_M4DEBUG : ftl::mmio::Register<
+    0x40C042CCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DOMAIN_M4DEBUG_fields_::CPU0_RUN,
+    DOMAIN_M4DEBUG_fields_::CPU0_WAIT,
+    DOMAIN_M4DEBUG_fields_::CPU0_STOP,
+    DOMAIN_M4DEBUG_fields_::CPU0_SUSP,
+    DOMAIN_M4DEBUG_fields_::CPU1_RUN,
+    DOMAIN_M4DEBUG_fields_::CPU1_WAIT,
+    DOMAIN_M4DEBUG_fields_::CPU1_STOP,
+    DOMAIN_M4DEBUG_fields_::CPU1_SUSP,
+    ftl::mmio::Reserved<24, 8>> {
+  using eCPU0_RUN = DOMAIN_M4DEBUG_fields_::eCPU0_RUN;
+  using eCPU0_WAIT = DOMAIN_M4DEBUG_fields_::eCPU0_WAIT;
+  using eCPU0_STOP = DOMAIN_M4DEBUG_fields_::eCPU0_STOP;
+  using eCPU0_SUSP = DOMAIN_M4DEBUG_fields_::eCPU0_SUSP;
+  using eCPU1_RUN = DOMAIN_M4DEBUG_fields_::eCPU1_RUN;
+  using eCPU1_WAIT = DOMAIN_M4DEBUG_fields_::eCPU1_WAIT;
+  using eCPU1_STOP = DOMAIN_M4DEBUG_fields_::eCPU1_STOP;
+  using eCPU1_SUSP = DOMAIN_M4DEBUG_fields_::eCPU1_SUSP;
+  using CPU0_RUN = DOMAIN_M4DEBUG_fields_::CPU0_RUN;
+  using CPU0_WAIT = DOMAIN_M4DEBUG_fields_::CPU0_WAIT;
+  using CPU0_STOP = DOMAIN_M4DEBUG_fields_::CPU0_STOP;
+  using CPU0_SUSP = DOMAIN_M4DEBUG_fields_::CPU0_SUSP;
+  using CPU1_RUN = DOMAIN_M4DEBUG_fields_::CPU1_RUN;
+  using CPU1_WAIT = DOMAIN_M4DEBUG_fields_::CPU1_WAIT;
+  using CPU1_STOP = DOMAIN_M4DEBUG_fields_::CPU1_STOP;
+  using CPU1_SUSP = DOMAIN_M4DEBUG_fields_::CPU1_SUSP;
 };
 
+
 // Slice Status Register
-union STAT_M4DEBUG {
-  
-  // This is a Read Only bit. It indicate if the reset is in process.
-  enum class eUNDER_RST : uint32_t {
+struct STAT_M4DEBUG_fields_ {
+
+  enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
     // the reset is in process
     eUNDER_RST_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by the power mode transfer.
-  enum class eRST_BY_HW : uint32_t {
+
+  enum class eRST_BY_HW : std::uint32_t {
     // the reset is not caused by the power mode transfer
     eRST_BY_HW_0 = 0,
     // the reset is caused by the power mode transfer
     eRST_BY_HW_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by setting SW_RESET bit.
-  enum class eRST_BY_SW : uint32_t {
+
+  enum class eRST_BY_SW : std::uint32_t {
     // the reset is not caused by software setting
     eRST_BY_SW_0 = 0,
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - This is a Read Only bit. It indicate if the reset is in process.
-    eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - This bit indicate if the reset is caused by the power mode transfer.
-    eRST_BY_HW RST_BY_HW : 1;
-    // read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
-    eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_1 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a Read Only bit. It indicate if the reset is in process.
+  using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
+  // This bit indicate if the reset is caused by the power mode transfer.
+  using RST_BY_HW = ftl::mmio::Field<1, 2, eRST_BY_HW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // This bit indicate if the reset is caused by setting SW_RESET bit.
+  using RST_BY_SW = ftl::mmio::Field<1, 3, eRST_BY_SW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct STAT_M4DEBUG_fields_
 
-  STAT_M4DEBUG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_M4DEBUG &ref() { return *reinterpret_cast<volatile STAT_M4DEBUG*>(0x40C042D0); }
+struct STAT_M4DEBUG : ftl::mmio::Register<
+    0x40C042D0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    STAT_M4DEBUG_fields_::UNDER_RST,
+    ftl::mmio::Reserved<1, 1>,
+    STAT_M4DEBUG_fields_::RST_BY_HW,
+    STAT_M4DEBUG_fields_::RST_BY_SW,
+    ftl::mmio::Reserved<28, 4>> {
+  using eUNDER_RST = STAT_M4DEBUG_fields_::eUNDER_RST;
+  using eRST_BY_HW = STAT_M4DEBUG_fields_::eRST_BY_HW;
+  using eRST_BY_SW = STAT_M4DEBUG_fields_::eRST_BY_SW;
+  using UNDER_RST = STAT_M4DEBUG_fields_::UNDER_RST;
+  using RST_BY_HW = STAT_M4DEBUG_fields_::RST_BY_HW;
+  using RST_BY_SW = STAT_M4DEBUG_fields_::RST_BY_SW;
 };
 
+
 // Slice Authentication Register
-union AUTHEN_M7DEBUG {
-  
-  // Control whether reset slice is in domain mode
-  enum class eDOMAIN_MODE : uint32_t {
+struct AUTHEN_M7DEBUG_fields_ {
+
+  enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
     // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
     eDOMAIN_MODE_1 = 1,
   };
-  
-  // Control whether reset slice is in Setpoint mode
-  enum class eSETPOINT_MODE : uint32_t {
+
+  enum class eSETPOINT_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_0 = 0,
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Control whether reset slice is in domain mode
-    eDOMAIN_MODE DOMAIN_MODE : 1;
-    // read-write - Control whether reset slice is in Setpoint mode
-    eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Domain/Setpoint mode lock
-    uint32_t LOCK_MODE : 1;
-    // read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
-    uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Assign list lock
-    uint32_t LOCK_ASSIGN : 1;
-    // read-write - Domain ID white list
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_2 : 3;
-    // read-write - White list lock
-    uint32_t LOCK_LIST : 1;
-    // read-write - Allow user mode access
-    uint32_t USER : 1;
-    // read-write - Allow non-secure mode access
-    uint32_t NONSECURE : 1;
-    uint32_t _reserved_3 : 5;
-    // read-write - Lock NONSECURE and USER
-    uint32_t LOCK_SETTING : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Control whether reset slice is in domain mode
+  using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Control whether reset slice is in Setpoint mode
+  using SETPOINT_MODE = ftl::mmio::Field<1, 1, eSETPOINT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain/Setpoint mode lock
+  using LOCK_MODE = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
+  using ASSIGN_LIST = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Assign list lock
+  using LOCK_ASSIGN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain ID white list
+  using WHITE_LIST = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // White list lock
+  using LOCK_LIST = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user mode access
+  using USER = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow non-secure mode access
+  using NONSECURE = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock NONSECURE and USER
+  using LOCK_SETTING = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct AUTHEN_M7DEBUG_fields_
 
-  AUTHEN_M7DEBUG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_M7DEBUG &ref() { return *reinterpret_cast<volatile AUTHEN_M7DEBUG*>(0x40C042E0); }
+struct AUTHEN_M7DEBUG : ftl::mmio::Register<
+    0x40C042E0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    AUTHEN_M7DEBUG_fields_::DOMAIN_MODE,
+    AUTHEN_M7DEBUG_fields_::SETPOINT_MODE,
+    ftl::mmio::Reserved<5, 2>,
+    AUTHEN_M7DEBUG_fields_::LOCK_MODE,
+    AUTHEN_M7DEBUG_fields_::ASSIGN_LIST,
+    ftl::mmio::Reserved<3, 12>,
+    AUTHEN_M7DEBUG_fields_::LOCK_ASSIGN,
+    AUTHEN_M7DEBUG_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<3, 20>,
+    AUTHEN_M7DEBUG_fields_::LOCK_LIST,
+    AUTHEN_M7DEBUG_fields_::USER,
+    AUTHEN_M7DEBUG_fields_::NONSECURE,
+    ftl::mmio::Reserved<5, 26>,
+    AUTHEN_M7DEBUG_fields_::LOCK_SETTING> {
+  using eDOMAIN_MODE = AUTHEN_M7DEBUG_fields_::eDOMAIN_MODE;
+  using eSETPOINT_MODE = AUTHEN_M7DEBUG_fields_::eSETPOINT_MODE;
+  using DOMAIN_MODE = AUTHEN_M7DEBUG_fields_::DOMAIN_MODE;
+  using SETPOINT_MODE = AUTHEN_M7DEBUG_fields_::SETPOINT_MODE;
+  using LOCK_MODE = AUTHEN_M7DEBUG_fields_::LOCK_MODE;
+  using ASSIGN_LIST = AUTHEN_M7DEBUG_fields_::ASSIGN_LIST;
+  using LOCK_ASSIGN = AUTHEN_M7DEBUG_fields_::LOCK_ASSIGN;
+  using WHITE_LIST = AUTHEN_M7DEBUG_fields_::WHITE_LIST;
+  using LOCK_LIST = AUTHEN_M7DEBUG_fields_::LOCK_LIST;
+  using USER = AUTHEN_M7DEBUG_fields_::USER;
+  using NONSECURE = AUTHEN_M7DEBUG_fields_::NONSECURE;
+  using LOCK_SETTING = AUTHEN_M7DEBUG_fields_::LOCK_SETTING;
 };
 
+
 // Slice Control Register
-union CTRL_M7DEBUG {
-  
-  // This is a self clearing bit
-  enum class eSW_RESET : uint32_t {
+struct CTRL_M7DEBUG_fields_ {
+
+  enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - This is a self clearing bit
-    eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a self clearing bit
+  using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_M7DEBUG_fields_
 
-  CTRL_M7DEBUG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_M7DEBUG &ref() { return *reinterpret_cast<volatile CTRL_M7DEBUG*>(0x40C042E4); }
+struct CTRL_M7DEBUG : ftl::mmio::Register<
+    0x40C042E4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_M7DEBUG_fields_::SW_RESET,
+    ftl::mmio::Reserved<31, 1>> {
+  using eSW_RESET = CTRL_M7DEBUG_fields_::eSW_RESET;
+  using SW_RESET = CTRL_M7DEBUG_fields_::SW_RESET;
 };
 
+
 // Slice Setpoint Config Register
-union SETPOINT_M7DEBUG {
-  
-  // SETPOINT0
-  enum class eSETPOINT0 : uint32_t {
+struct SETPOINT_M7DEBUG_fields_ {
+
+  enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT0_1 = 1,
   };
-  
-  // SETPOINT1
-  enum class eSETPOINT1 : uint32_t {
+
+  enum class eSETPOINT1 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT1_1 = 1,
   };
-  
-  // SETPOINT2
-  enum class eSETPOINT2 : uint32_t {
+
+  enum class eSETPOINT2 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT2_1 = 1,
   };
-  
-  // SETPOINT3
-  enum class eSETPOINT3 : uint32_t {
+
+  enum class eSETPOINT3 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT3_1 = 1,
   };
-  
-  // SETPOINT4
-  enum class eSETPOINT4 : uint32_t {
+
+  enum class eSETPOINT4 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT4_1 = 1,
   };
-  
-  // SETPOINT5
-  enum class eSETPOINT5 : uint32_t {
+
+  enum class eSETPOINT5 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT5_1 = 1,
   };
-  
-  // SETPOINT6
-  enum class eSETPOINT6 : uint32_t {
+
+  enum class eSETPOINT6 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT6_1 = 1,
   };
-  
-  // SETPOINT7
-  enum class eSETPOINT7 : uint32_t {
+
+  enum class eSETPOINT7 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT7_1 = 1,
   };
-  
-  // SETPOINT8
-  enum class eSETPOINT8 : uint32_t {
+
+  enum class eSETPOINT8 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT8_1 = 1,
   };
-  
-  // SETPOINT9
-  enum class eSETPOINT9 : uint32_t {
+
+  enum class eSETPOINT9 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT9_1 = 1,
   };
-  
-  // SETPOINT10
-  enum class eSETPOINT10 : uint32_t {
+
+  enum class eSETPOINT10 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT10_1 = 1,
   };
-  
-  // SETPOINT11
-  enum class eSETPOINT11 : uint32_t {
+
+  enum class eSETPOINT11 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT11_1 = 1,
   };
-  
-  // SETPOINT12
-  enum class eSETPOINT12 : uint32_t {
+
+  enum class eSETPOINT12 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT12_1 = 1,
   };
-  
-  // SETPOINT13
-  enum class eSETPOINT13 : uint32_t {
+
+  enum class eSETPOINT13 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT13_1 = 1,
   };
-  
-  // SETPOINT14
-  enum class eSETPOINT14 : uint32_t {
+
+  enum class eSETPOINT14 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT14_1 = 1,
   };
-  
-  // SETPOINT15
-  enum class eSETPOINT15 : uint32_t {
+
+  enum class eSETPOINT15 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - SETPOINT0
-    eSETPOINT0 SETPOINT0 : 1;
-    // read-write - SETPOINT1
-    eSETPOINT1 SETPOINT1 : 1;
-    // read-write - SETPOINT2
-    eSETPOINT2 SETPOINT2 : 1;
-    // read-write - SETPOINT3
-    eSETPOINT3 SETPOINT3 : 1;
-    // read-write - SETPOINT4
-    eSETPOINT4 SETPOINT4 : 1;
-    // read-write - SETPOINT5
-    eSETPOINT5 SETPOINT5 : 1;
-    // read-write - SETPOINT6
-    eSETPOINT6 SETPOINT6 : 1;
-    // read-write - SETPOINT7
-    eSETPOINT7 SETPOINT7 : 1;
-    // read-write - SETPOINT8
-    eSETPOINT8 SETPOINT8 : 1;
-    // read-write - SETPOINT9
-    eSETPOINT9 SETPOINT9 : 1;
-    // read-write - SETPOINT10
-    eSETPOINT10 SETPOINT10 : 1;
-    // read-write - SETPOINT11
-    eSETPOINT11 SETPOINT11 : 1;
-    // read-write - SETPOINT12
-    eSETPOINT12 SETPOINT12 : 1;
-    // read-write - SETPOINT13
-    eSETPOINT13 SETPOINT13 : 1;
-    // read-write - SETPOINT14
-    eSETPOINT14 SETPOINT14 : 1;
-    // read-write - SETPOINT15
-    eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // SETPOINT0
+  using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT1
+  using SETPOINT1 = ftl::mmio::Field<1, 1, eSETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT2
+  using SETPOINT2 = ftl::mmio::Field<1, 2, eSETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT3
+  using SETPOINT3 = ftl::mmio::Field<1, 3, eSETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT4
+  using SETPOINT4 = ftl::mmio::Field<1, 4, eSETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT5
+  using SETPOINT5 = ftl::mmio::Field<1, 5, eSETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT6
+  using SETPOINT6 = ftl::mmio::Field<1, 6, eSETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT7
+  using SETPOINT7 = ftl::mmio::Field<1, 7, eSETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT8
+  using SETPOINT8 = ftl::mmio::Field<1, 8, eSETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT9
+  using SETPOINT9 = ftl::mmio::Field<1, 9, eSETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT10
+  using SETPOINT10 = ftl::mmio::Field<1, 10, eSETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT11
+  using SETPOINT11 = ftl::mmio::Field<1, 11, eSETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT12
+  using SETPOINT12 = ftl::mmio::Field<1, 12, eSETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT13
+  using SETPOINT13 = ftl::mmio::Field<1, 13, eSETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT14
+  using SETPOINT14 = ftl::mmio::Field<1, 14, eSETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT15
+  using SETPOINT15 = ftl::mmio::Field<1, 15, eSETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SETPOINT_M7DEBUG_fields_
 
-  SETPOINT_M7DEBUG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_M7DEBUG &ref() { return *reinterpret_cast<volatile SETPOINT_M7DEBUG*>(0x40C042E8); }
+struct SETPOINT_M7DEBUG : ftl::mmio::Register<
+    0x40C042E8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SETPOINT_M7DEBUG_fields_::SETPOINT0,
+    SETPOINT_M7DEBUG_fields_::SETPOINT1,
+    SETPOINT_M7DEBUG_fields_::SETPOINT2,
+    SETPOINT_M7DEBUG_fields_::SETPOINT3,
+    SETPOINT_M7DEBUG_fields_::SETPOINT4,
+    SETPOINT_M7DEBUG_fields_::SETPOINT5,
+    SETPOINT_M7DEBUG_fields_::SETPOINT6,
+    SETPOINT_M7DEBUG_fields_::SETPOINT7,
+    SETPOINT_M7DEBUG_fields_::SETPOINT8,
+    SETPOINT_M7DEBUG_fields_::SETPOINT9,
+    SETPOINT_M7DEBUG_fields_::SETPOINT10,
+    SETPOINT_M7DEBUG_fields_::SETPOINT11,
+    SETPOINT_M7DEBUG_fields_::SETPOINT12,
+    SETPOINT_M7DEBUG_fields_::SETPOINT13,
+    SETPOINT_M7DEBUG_fields_::SETPOINT14,
+    SETPOINT_M7DEBUG_fields_::SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSETPOINT0 = SETPOINT_M7DEBUG_fields_::eSETPOINT0;
+  using eSETPOINT1 = SETPOINT_M7DEBUG_fields_::eSETPOINT1;
+  using eSETPOINT2 = SETPOINT_M7DEBUG_fields_::eSETPOINT2;
+  using eSETPOINT3 = SETPOINT_M7DEBUG_fields_::eSETPOINT3;
+  using eSETPOINT4 = SETPOINT_M7DEBUG_fields_::eSETPOINT4;
+  using eSETPOINT5 = SETPOINT_M7DEBUG_fields_::eSETPOINT5;
+  using eSETPOINT6 = SETPOINT_M7DEBUG_fields_::eSETPOINT6;
+  using eSETPOINT7 = SETPOINT_M7DEBUG_fields_::eSETPOINT7;
+  using eSETPOINT8 = SETPOINT_M7DEBUG_fields_::eSETPOINT8;
+  using eSETPOINT9 = SETPOINT_M7DEBUG_fields_::eSETPOINT9;
+  using eSETPOINT10 = SETPOINT_M7DEBUG_fields_::eSETPOINT10;
+  using eSETPOINT11 = SETPOINT_M7DEBUG_fields_::eSETPOINT11;
+  using eSETPOINT12 = SETPOINT_M7DEBUG_fields_::eSETPOINT12;
+  using eSETPOINT13 = SETPOINT_M7DEBUG_fields_::eSETPOINT13;
+  using eSETPOINT14 = SETPOINT_M7DEBUG_fields_::eSETPOINT14;
+  using eSETPOINT15 = SETPOINT_M7DEBUG_fields_::eSETPOINT15;
+  using SETPOINT0 = SETPOINT_M7DEBUG_fields_::SETPOINT0;
+  using SETPOINT1 = SETPOINT_M7DEBUG_fields_::SETPOINT1;
+  using SETPOINT2 = SETPOINT_M7DEBUG_fields_::SETPOINT2;
+  using SETPOINT3 = SETPOINT_M7DEBUG_fields_::SETPOINT3;
+  using SETPOINT4 = SETPOINT_M7DEBUG_fields_::SETPOINT4;
+  using SETPOINT5 = SETPOINT_M7DEBUG_fields_::SETPOINT5;
+  using SETPOINT6 = SETPOINT_M7DEBUG_fields_::SETPOINT6;
+  using SETPOINT7 = SETPOINT_M7DEBUG_fields_::SETPOINT7;
+  using SETPOINT8 = SETPOINT_M7DEBUG_fields_::SETPOINT8;
+  using SETPOINT9 = SETPOINT_M7DEBUG_fields_::SETPOINT9;
+  using SETPOINT10 = SETPOINT_M7DEBUG_fields_::SETPOINT10;
+  using SETPOINT11 = SETPOINT_M7DEBUG_fields_::SETPOINT11;
+  using SETPOINT12 = SETPOINT_M7DEBUG_fields_::SETPOINT12;
+  using SETPOINT13 = SETPOINT_M7DEBUG_fields_::SETPOINT13;
+  using SETPOINT14 = SETPOINT_M7DEBUG_fields_::SETPOINT14;
+  using SETPOINT15 = SETPOINT_M7DEBUG_fields_::SETPOINT15;
 };
 
+
 // Slice Domain Config Register
-union DOMAIN_M7DEBUG {
-  
-  // CPU mode setting for RUN
-  enum class eCPU0_RUN : uint32_t {
+struct DOMAIN_M7DEBUG_fields_ {
+
+  enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
     // Slice reset will be asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU0_WAIT : uint32_t {
+
+  enum class eCPU0_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_0 = 0,
     // Slice reset will be asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU0_STOP : uint32_t {
+
+  enum class eCPU0_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_0 = 0,
     // Slice reset will be asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU0_SUSP : uint32_t {
+
+  enum class eCPU0_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_0 = 0,
     // Slice reset will be asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1,
   };
-  
-  // CPU mode setting for RUN
-  enum class eCPU1_RUN : uint32_t {
+
+  enum class eCPU1_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_0 = 0,
     // Slice reset will be asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU1_WAIT : uint32_t {
+
+  enum class eCPU1_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_0 = 0,
     // Slice reset will be asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU1_STOP : uint32_t {
+
+  enum class eCPU1_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_0 = 0,
     // Slice reset will be asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU1_SUSP : uint32_t {
+
+  enum class eCPU1_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_0 = 0,
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - CPU mode setting for RUN
-    eCPU0_RUN CPU0_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU0_WAIT CPU0_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU0_STOP CPU0_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU0_SUSP CPU0_SUSP : 1;
-    // read-write - CPU mode setting for RUN
-    eCPU1_RUN CPU1_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU1_WAIT CPU1_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU1_STOP CPU1_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // CPU mode setting for RUN
+  using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU0_WAIT = ftl::mmio::Field<1, 1, eCPU0_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU0_STOP = ftl::mmio::Field<1, 2, eCPU0_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU0_SUSP = ftl::mmio::Field<1, 3, eCPU0_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for RUN
+  using CPU1_RUN = ftl::mmio::Field<1, 4, eCPU1_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU1_WAIT = ftl::mmio::Field<1, 5, eCPU1_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU1_STOP = ftl::mmio::Field<1, 6, eCPU1_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU1_SUSP = ftl::mmio::Field<1, 7, eCPU1_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DOMAIN_M7DEBUG_fields_
 
-  DOMAIN_M7DEBUG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_M7DEBUG &ref() { return *reinterpret_cast<volatile DOMAIN_M7DEBUG*>(0x40C042EC); }
+struct DOMAIN_M7DEBUG : ftl::mmio::Register<
+    0x40C042ECu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DOMAIN_M7DEBUG_fields_::CPU0_RUN,
+    DOMAIN_M7DEBUG_fields_::CPU0_WAIT,
+    DOMAIN_M7DEBUG_fields_::CPU0_STOP,
+    DOMAIN_M7DEBUG_fields_::CPU0_SUSP,
+    DOMAIN_M7DEBUG_fields_::CPU1_RUN,
+    DOMAIN_M7DEBUG_fields_::CPU1_WAIT,
+    DOMAIN_M7DEBUG_fields_::CPU1_STOP,
+    DOMAIN_M7DEBUG_fields_::CPU1_SUSP,
+    ftl::mmio::Reserved<24, 8>> {
+  using eCPU0_RUN = DOMAIN_M7DEBUG_fields_::eCPU0_RUN;
+  using eCPU0_WAIT = DOMAIN_M7DEBUG_fields_::eCPU0_WAIT;
+  using eCPU0_STOP = DOMAIN_M7DEBUG_fields_::eCPU0_STOP;
+  using eCPU0_SUSP = DOMAIN_M7DEBUG_fields_::eCPU0_SUSP;
+  using eCPU1_RUN = DOMAIN_M7DEBUG_fields_::eCPU1_RUN;
+  using eCPU1_WAIT = DOMAIN_M7DEBUG_fields_::eCPU1_WAIT;
+  using eCPU1_STOP = DOMAIN_M7DEBUG_fields_::eCPU1_STOP;
+  using eCPU1_SUSP = DOMAIN_M7DEBUG_fields_::eCPU1_SUSP;
+  using CPU0_RUN = DOMAIN_M7DEBUG_fields_::CPU0_RUN;
+  using CPU0_WAIT = DOMAIN_M7DEBUG_fields_::CPU0_WAIT;
+  using CPU0_STOP = DOMAIN_M7DEBUG_fields_::CPU0_STOP;
+  using CPU0_SUSP = DOMAIN_M7DEBUG_fields_::CPU0_SUSP;
+  using CPU1_RUN = DOMAIN_M7DEBUG_fields_::CPU1_RUN;
+  using CPU1_WAIT = DOMAIN_M7DEBUG_fields_::CPU1_WAIT;
+  using CPU1_STOP = DOMAIN_M7DEBUG_fields_::CPU1_STOP;
+  using CPU1_SUSP = DOMAIN_M7DEBUG_fields_::CPU1_SUSP;
 };
 
+
 // Slice Status Register
-union STAT_M7DEBUG {
-  
-  // This is a Read Only bit. It indicate if the reset is in process.
-  enum class eUNDER_RST : uint32_t {
+struct STAT_M7DEBUG_fields_ {
+
+  enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
     // the reset is in process
     eUNDER_RST_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by the power mode transfer.
-  enum class eRST_BY_HW : uint32_t {
+
+  enum class eRST_BY_HW : std::uint32_t {
     // the reset is not caused by the power mode transfer
     eRST_BY_HW_0 = 0,
     // the reset is caused by the power mode transfer
     eRST_BY_HW_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by setting SW_RESET bit.
-  enum class eRST_BY_SW : uint32_t {
+
+  enum class eRST_BY_SW : std::uint32_t {
     // the reset is not caused by software setting
     eRST_BY_SW_0 = 0,
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - This is a Read Only bit. It indicate if the reset is in process.
-    eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - This bit indicate if the reset is caused by the power mode transfer.
-    eRST_BY_HW RST_BY_HW : 1;
-    // read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
-    eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_1 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a Read Only bit. It indicate if the reset is in process.
+  using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
+  // This bit indicate if the reset is caused by the power mode transfer.
+  using RST_BY_HW = ftl::mmio::Field<1, 2, eRST_BY_HW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // This bit indicate if the reset is caused by setting SW_RESET bit.
+  using RST_BY_SW = ftl::mmio::Field<1, 3, eRST_BY_SW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct STAT_M7DEBUG_fields_
 
-  STAT_M7DEBUG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_M7DEBUG &ref() { return *reinterpret_cast<volatile STAT_M7DEBUG*>(0x40C042F0); }
+struct STAT_M7DEBUG : ftl::mmio::Register<
+    0x40C042F0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    STAT_M7DEBUG_fields_::UNDER_RST,
+    ftl::mmio::Reserved<1, 1>,
+    STAT_M7DEBUG_fields_::RST_BY_HW,
+    STAT_M7DEBUG_fields_::RST_BY_SW,
+    ftl::mmio::Reserved<28, 4>> {
+  using eUNDER_RST = STAT_M7DEBUG_fields_::eUNDER_RST;
+  using eRST_BY_HW = STAT_M7DEBUG_fields_::eRST_BY_HW;
+  using eRST_BY_SW = STAT_M7DEBUG_fields_::eRST_BY_SW;
+  using UNDER_RST = STAT_M7DEBUG_fields_::UNDER_RST;
+  using RST_BY_HW = STAT_M7DEBUG_fields_::RST_BY_HW;
+  using RST_BY_SW = STAT_M7DEBUG_fields_::RST_BY_SW;
 };
 
+
 // Slice Authentication Register
-union AUTHEN_USBPHY1 {
-  
-  // Control whether reset slice is in domain mode
-  enum class eDOMAIN_MODE : uint32_t {
+struct AUTHEN_USBPHY1_fields_ {
+
+  enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
     // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
     eDOMAIN_MODE_1 = 1,
   };
-  
-  // Control whether reset slice is in Setpoint mode
-  enum class eSETPOINT_MODE : uint32_t {
+
+  enum class eSETPOINT_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_0 = 0,
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Control whether reset slice is in domain mode
-    eDOMAIN_MODE DOMAIN_MODE : 1;
-    // read-write - Control whether reset slice is in Setpoint mode
-    eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Domain/Setpoint mode lock
-    uint32_t LOCK_MODE : 1;
-    // read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
-    uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Assign list lock
-    uint32_t LOCK_ASSIGN : 1;
-    // read-write - Domain ID white list
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_2 : 3;
-    // read-write - White list lock
-    uint32_t LOCK_LIST : 1;
-    // read-write - Allow user mode access
-    uint32_t USER : 1;
-    // read-write - Allow non-secure mode access
-    uint32_t NONSECURE : 1;
-    uint32_t _reserved_3 : 5;
-    // read-write - Lock NONSECURE and USER
-    uint32_t LOCK_SETTING : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Control whether reset slice is in domain mode
+  using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Control whether reset slice is in Setpoint mode
+  using SETPOINT_MODE = ftl::mmio::Field<1, 1, eSETPOINT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain/Setpoint mode lock
+  using LOCK_MODE = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
+  using ASSIGN_LIST = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Assign list lock
+  using LOCK_ASSIGN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain ID white list
+  using WHITE_LIST = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // White list lock
+  using LOCK_LIST = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user mode access
+  using USER = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow non-secure mode access
+  using NONSECURE = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock NONSECURE and USER
+  using LOCK_SETTING = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct AUTHEN_USBPHY1_fields_
 
-  AUTHEN_USBPHY1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_USBPHY1 &ref() { return *reinterpret_cast<volatile AUTHEN_USBPHY1*>(0x40C04300); }
+struct AUTHEN_USBPHY1 : ftl::mmio::Register<
+    0x40C04300u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    AUTHEN_USBPHY1_fields_::DOMAIN_MODE,
+    AUTHEN_USBPHY1_fields_::SETPOINT_MODE,
+    ftl::mmio::Reserved<5, 2>,
+    AUTHEN_USBPHY1_fields_::LOCK_MODE,
+    AUTHEN_USBPHY1_fields_::ASSIGN_LIST,
+    ftl::mmio::Reserved<3, 12>,
+    AUTHEN_USBPHY1_fields_::LOCK_ASSIGN,
+    AUTHEN_USBPHY1_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<3, 20>,
+    AUTHEN_USBPHY1_fields_::LOCK_LIST,
+    AUTHEN_USBPHY1_fields_::USER,
+    AUTHEN_USBPHY1_fields_::NONSECURE,
+    ftl::mmio::Reserved<5, 26>,
+    AUTHEN_USBPHY1_fields_::LOCK_SETTING> {
+  using eDOMAIN_MODE = AUTHEN_USBPHY1_fields_::eDOMAIN_MODE;
+  using eSETPOINT_MODE = AUTHEN_USBPHY1_fields_::eSETPOINT_MODE;
+  using DOMAIN_MODE = AUTHEN_USBPHY1_fields_::DOMAIN_MODE;
+  using SETPOINT_MODE = AUTHEN_USBPHY1_fields_::SETPOINT_MODE;
+  using LOCK_MODE = AUTHEN_USBPHY1_fields_::LOCK_MODE;
+  using ASSIGN_LIST = AUTHEN_USBPHY1_fields_::ASSIGN_LIST;
+  using LOCK_ASSIGN = AUTHEN_USBPHY1_fields_::LOCK_ASSIGN;
+  using WHITE_LIST = AUTHEN_USBPHY1_fields_::WHITE_LIST;
+  using LOCK_LIST = AUTHEN_USBPHY1_fields_::LOCK_LIST;
+  using USER = AUTHEN_USBPHY1_fields_::USER;
+  using NONSECURE = AUTHEN_USBPHY1_fields_::NONSECURE;
+  using LOCK_SETTING = AUTHEN_USBPHY1_fields_::LOCK_SETTING;
 };
 
+
 // Slice Control Register
-union CTRL_USBPHY1 {
-  
-  // This is a self clearing bit
-  enum class eSW_RESET : uint32_t {
+struct CTRL_USBPHY1_fields_ {
+
+  enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - This is a self clearing bit
-    eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a self clearing bit
+  using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_USBPHY1_fields_
 
-  CTRL_USBPHY1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_USBPHY1 &ref() { return *reinterpret_cast<volatile CTRL_USBPHY1*>(0x40C04304); }
+struct CTRL_USBPHY1 : ftl::mmio::Register<
+    0x40C04304u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_USBPHY1_fields_::SW_RESET,
+    ftl::mmio::Reserved<31, 1>> {
+  using eSW_RESET = CTRL_USBPHY1_fields_::eSW_RESET;
+  using SW_RESET = CTRL_USBPHY1_fields_::SW_RESET;
 };
 
+
 // Slice Setpoint Config Register
-union SETPOINT_USBPHY1 {
-  
-  // SETPOINT0
-  enum class eSETPOINT0 : uint32_t {
+struct SETPOINT_USBPHY1_fields_ {
+
+  enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT0_1 = 1,
   };
-  
-  // SETPOINT1
-  enum class eSETPOINT1 : uint32_t {
+
+  enum class eSETPOINT1 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT1_1 = 1,
   };
-  
-  // SETPOINT2
-  enum class eSETPOINT2 : uint32_t {
+
+  enum class eSETPOINT2 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT2_1 = 1,
   };
-  
-  // SETPOINT3
-  enum class eSETPOINT3 : uint32_t {
+
+  enum class eSETPOINT3 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT3_1 = 1,
   };
-  
-  // SETPOINT4
-  enum class eSETPOINT4 : uint32_t {
+
+  enum class eSETPOINT4 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT4_1 = 1,
   };
-  
-  // SETPOINT5
-  enum class eSETPOINT5 : uint32_t {
+
+  enum class eSETPOINT5 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT5_1 = 1,
   };
-  
-  // SETPOINT6
-  enum class eSETPOINT6 : uint32_t {
+
+  enum class eSETPOINT6 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT6_1 = 1,
   };
-  
-  // SETPOINT7
-  enum class eSETPOINT7 : uint32_t {
+
+  enum class eSETPOINT7 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT7_1 = 1,
   };
-  
-  // SETPOINT8
-  enum class eSETPOINT8 : uint32_t {
+
+  enum class eSETPOINT8 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT8_1 = 1,
   };
-  
-  // SETPOINT9
-  enum class eSETPOINT9 : uint32_t {
+
+  enum class eSETPOINT9 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT9_1 = 1,
   };
-  
-  // SETPOINT10
-  enum class eSETPOINT10 : uint32_t {
+
+  enum class eSETPOINT10 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT10_1 = 1,
   };
-  
-  // SETPOINT11
-  enum class eSETPOINT11 : uint32_t {
+
+  enum class eSETPOINT11 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT11_1 = 1,
   };
-  
-  // SETPOINT12
-  enum class eSETPOINT12 : uint32_t {
+
+  enum class eSETPOINT12 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT12_1 = 1,
   };
-  
-  // SETPOINT13
-  enum class eSETPOINT13 : uint32_t {
+
+  enum class eSETPOINT13 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT13_1 = 1,
   };
-  
-  // SETPOINT14
-  enum class eSETPOINT14 : uint32_t {
+
+  enum class eSETPOINT14 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT14_1 = 1,
   };
-  
-  // SETPOINT15
-  enum class eSETPOINT15 : uint32_t {
+
+  enum class eSETPOINT15 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - SETPOINT0
-    eSETPOINT0 SETPOINT0 : 1;
-    // read-write - SETPOINT1
-    eSETPOINT1 SETPOINT1 : 1;
-    // read-write - SETPOINT2
-    eSETPOINT2 SETPOINT2 : 1;
-    // read-write - SETPOINT3
-    eSETPOINT3 SETPOINT3 : 1;
-    // read-write - SETPOINT4
-    eSETPOINT4 SETPOINT4 : 1;
-    // read-write - SETPOINT5
-    eSETPOINT5 SETPOINT5 : 1;
-    // read-write - SETPOINT6
-    eSETPOINT6 SETPOINT6 : 1;
-    // read-write - SETPOINT7
-    eSETPOINT7 SETPOINT7 : 1;
-    // read-write - SETPOINT8
-    eSETPOINT8 SETPOINT8 : 1;
-    // read-write - SETPOINT9
-    eSETPOINT9 SETPOINT9 : 1;
-    // read-write - SETPOINT10
-    eSETPOINT10 SETPOINT10 : 1;
-    // read-write - SETPOINT11
-    eSETPOINT11 SETPOINT11 : 1;
-    // read-write - SETPOINT12
-    eSETPOINT12 SETPOINT12 : 1;
-    // read-write - SETPOINT13
-    eSETPOINT13 SETPOINT13 : 1;
-    // read-write - SETPOINT14
-    eSETPOINT14 SETPOINT14 : 1;
-    // read-write - SETPOINT15
-    eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // SETPOINT0
+  using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT1
+  using SETPOINT1 = ftl::mmio::Field<1, 1, eSETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT2
+  using SETPOINT2 = ftl::mmio::Field<1, 2, eSETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT3
+  using SETPOINT3 = ftl::mmio::Field<1, 3, eSETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT4
+  using SETPOINT4 = ftl::mmio::Field<1, 4, eSETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT5
+  using SETPOINT5 = ftl::mmio::Field<1, 5, eSETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT6
+  using SETPOINT6 = ftl::mmio::Field<1, 6, eSETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT7
+  using SETPOINT7 = ftl::mmio::Field<1, 7, eSETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT8
+  using SETPOINT8 = ftl::mmio::Field<1, 8, eSETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT9
+  using SETPOINT9 = ftl::mmio::Field<1, 9, eSETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT10
+  using SETPOINT10 = ftl::mmio::Field<1, 10, eSETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT11
+  using SETPOINT11 = ftl::mmio::Field<1, 11, eSETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT12
+  using SETPOINT12 = ftl::mmio::Field<1, 12, eSETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT13
+  using SETPOINT13 = ftl::mmio::Field<1, 13, eSETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT14
+  using SETPOINT14 = ftl::mmio::Field<1, 14, eSETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT15
+  using SETPOINT15 = ftl::mmio::Field<1, 15, eSETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SETPOINT_USBPHY1_fields_
 
-  SETPOINT_USBPHY1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_USBPHY1 &ref() { return *reinterpret_cast<volatile SETPOINT_USBPHY1*>(0x40C04308); }
+struct SETPOINT_USBPHY1 : ftl::mmio::Register<
+    0x40C04308u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SETPOINT_USBPHY1_fields_::SETPOINT0,
+    SETPOINT_USBPHY1_fields_::SETPOINT1,
+    SETPOINT_USBPHY1_fields_::SETPOINT2,
+    SETPOINT_USBPHY1_fields_::SETPOINT3,
+    SETPOINT_USBPHY1_fields_::SETPOINT4,
+    SETPOINT_USBPHY1_fields_::SETPOINT5,
+    SETPOINT_USBPHY1_fields_::SETPOINT6,
+    SETPOINT_USBPHY1_fields_::SETPOINT7,
+    SETPOINT_USBPHY1_fields_::SETPOINT8,
+    SETPOINT_USBPHY1_fields_::SETPOINT9,
+    SETPOINT_USBPHY1_fields_::SETPOINT10,
+    SETPOINT_USBPHY1_fields_::SETPOINT11,
+    SETPOINT_USBPHY1_fields_::SETPOINT12,
+    SETPOINT_USBPHY1_fields_::SETPOINT13,
+    SETPOINT_USBPHY1_fields_::SETPOINT14,
+    SETPOINT_USBPHY1_fields_::SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSETPOINT0 = SETPOINT_USBPHY1_fields_::eSETPOINT0;
+  using eSETPOINT1 = SETPOINT_USBPHY1_fields_::eSETPOINT1;
+  using eSETPOINT2 = SETPOINT_USBPHY1_fields_::eSETPOINT2;
+  using eSETPOINT3 = SETPOINT_USBPHY1_fields_::eSETPOINT3;
+  using eSETPOINT4 = SETPOINT_USBPHY1_fields_::eSETPOINT4;
+  using eSETPOINT5 = SETPOINT_USBPHY1_fields_::eSETPOINT5;
+  using eSETPOINT6 = SETPOINT_USBPHY1_fields_::eSETPOINT6;
+  using eSETPOINT7 = SETPOINT_USBPHY1_fields_::eSETPOINT7;
+  using eSETPOINT8 = SETPOINT_USBPHY1_fields_::eSETPOINT8;
+  using eSETPOINT9 = SETPOINT_USBPHY1_fields_::eSETPOINT9;
+  using eSETPOINT10 = SETPOINT_USBPHY1_fields_::eSETPOINT10;
+  using eSETPOINT11 = SETPOINT_USBPHY1_fields_::eSETPOINT11;
+  using eSETPOINT12 = SETPOINT_USBPHY1_fields_::eSETPOINT12;
+  using eSETPOINT13 = SETPOINT_USBPHY1_fields_::eSETPOINT13;
+  using eSETPOINT14 = SETPOINT_USBPHY1_fields_::eSETPOINT14;
+  using eSETPOINT15 = SETPOINT_USBPHY1_fields_::eSETPOINT15;
+  using SETPOINT0 = SETPOINT_USBPHY1_fields_::SETPOINT0;
+  using SETPOINT1 = SETPOINT_USBPHY1_fields_::SETPOINT1;
+  using SETPOINT2 = SETPOINT_USBPHY1_fields_::SETPOINT2;
+  using SETPOINT3 = SETPOINT_USBPHY1_fields_::SETPOINT3;
+  using SETPOINT4 = SETPOINT_USBPHY1_fields_::SETPOINT4;
+  using SETPOINT5 = SETPOINT_USBPHY1_fields_::SETPOINT5;
+  using SETPOINT6 = SETPOINT_USBPHY1_fields_::SETPOINT6;
+  using SETPOINT7 = SETPOINT_USBPHY1_fields_::SETPOINT7;
+  using SETPOINT8 = SETPOINT_USBPHY1_fields_::SETPOINT8;
+  using SETPOINT9 = SETPOINT_USBPHY1_fields_::SETPOINT9;
+  using SETPOINT10 = SETPOINT_USBPHY1_fields_::SETPOINT10;
+  using SETPOINT11 = SETPOINT_USBPHY1_fields_::SETPOINT11;
+  using SETPOINT12 = SETPOINT_USBPHY1_fields_::SETPOINT12;
+  using SETPOINT13 = SETPOINT_USBPHY1_fields_::SETPOINT13;
+  using SETPOINT14 = SETPOINT_USBPHY1_fields_::SETPOINT14;
+  using SETPOINT15 = SETPOINT_USBPHY1_fields_::SETPOINT15;
 };
 
+
 // Slice Domain Config Register
-union DOMAIN_USBPHY1 {
-  
-  // CPU mode setting for RUN
-  enum class eCPU0_RUN : uint32_t {
+struct DOMAIN_USBPHY1_fields_ {
+
+  enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
     // Slice reset will be asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU0_WAIT : uint32_t {
+
+  enum class eCPU0_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_0 = 0,
     // Slice reset will be asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU0_STOP : uint32_t {
+
+  enum class eCPU0_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_0 = 0,
     // Slice reset will be asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU0_SUSP : uint32_t {
+
+  enum class eCPU0_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_0 = 0,
     // Slice reset will be asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1,
   };
-  
-  // CPU mode setting for RUN
-  enum class eCPU1_RUN : uint32_t {
+
+  enum class eCPU1_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_0 = 0,
     // Slice reset will be asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU1_WAIT : uint32_t {
+
+  enum class eCPU1_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_0 = 0,
     // Slice reset will be asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU1_STOP : uint32_t {
+
+  enum class eCPU1_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_0 = 0,
     // Slice reset will be asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU1_SUSP : uint32_t {
+
+  enum class eCPU1_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_0 = 0,
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - CPU mode setting for RUN
-    eCPU0_RUN CPU0_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU0_WAIT CPU0_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU0_STOP CPU0_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU0_SUSP CPU0_SUSP : 1;
-    // read-write - CPU mode setting for RUN
-    eCPU1_RUN CPU1_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU1_WAIT CPU1_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU1_STOP CPU1_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // CPU mode setting for RUN
+  using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU0_WAIT = ftl::mmio::Field<1, 1, eCPU0_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU0_STOP = ftl::mmio::Field<1, 2, eCPU0_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU0_SUSP = ftl::mmio::Field<1, 3, eCPU0_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for RUN
+  using CPU1_RUN = ftl::mmio::Field<1, 4, eCPU1_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU1_WAIT = ftl::mmio::Field<1, 5, eCPU1_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU1_STOP = ftl::mmio::Field<1, 6, eCPU1_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU1_SUSP = ftl::mmio::Field<1, 7, eCPU1_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DOMAIN_USBPHY1_fields_
 
-  DOMAIN_USBPHY1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_USBPHY1 &ref() { return *reinterpret_cast<volatile DOMAIN_USBPHY1*>(0x40C0430C); }
+struct DOMAIN_USBPHY1 : ftl::mmio::Register<
+    0x40C0430Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DOMAIN_USBPHY1_fields_::CPU0_RUN,
+    DOMAIN_USBPHY1_fields_::CPU0_WAIT,
+    DOMAIN_USBPHY1_fields_::CPU0_STOP,
+    DOMAIN_USBPHY1_fields_::CPU0_SUSP,
+    DOMAIN_USBPHY1_fields_::CPU1_RUN,
+    DOMAIN_USBPHY1_fields_::CPU1_WAIT,
+    DOMAIN_USBPHY1_fields_::CPU1_STOP,
+    DOMAIN_USBPHY1_fields_::CPU1_SUSP,
+    ftl::mmio::Reserved<24, 8>> {
+  using eCPU0_RUN = DOMAIN_USBPHY1_fields_::eCPU0_RUN;
+  using eCPU0_WAIT = DOMAIN_USBPHY1_fields_::eCPU0_WAIT;
+  using eCPU0_STOP = DOMAIN_USBPHY1_fields_::eCPU0_STOP;
+  using eCPU0_SUSP = DOMAIN_USBPHY1_fields_::eCPU0_SUSP;
+  using eCPU1_RUN = DOMAIN_USBPHY1_fields_::eCPU1_RUN;
+  using eCPU1_WAIT = DOMAIN_USBPHY1_fields_::eCPU1_WAIT;
+  using eCPU1_STOP = DOMAIN_USBPHY1_fields_::eCPU1_STOP;
+  using eCPU1_SUSP = DOMAIN_USBPHY1_fields_::eCPU1_SUSP;
+  using CPU0_RUN = DOMAIN_USBPHY1_fields_::CPU0_RUN;
+  using CPU0_WAIT = DOMAIN_USBPHY1_fields_::CPU0_WAIT;
+  using CPU0_STOP = DOMAIN_USBPHY1_fields_::CPU0_STOP;
+  using CPU0_SUSP = DOMAIN_USBPHY1_fields_::CPU0_SUSP;
+  using CPU1_RUN = DOMAIN_USBPHY1_fields_::CPU1_RUN;
+  using CPU1_WAIT = DOMAIN_USBPHY1_fields_::CPU1_WAIT;
+  using CPU1_STOP = DOMAIN_USBPHY1_fields_::CPU1_STOP;
+  using CPU1_SUSP = DOMAIN_USBPHY1_fields_::CPU1_SUSP;
 };
 
+
 // Slice Status Register
-union STAT_USBPHY1 {
-  
-  // This is a Read Only bit. It indicate if the reset is in process.
-  enum class eUNDER_RST : uint32_t {
+struct STAT_USBPHY1_fields_ {
+
+  enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
     // the reset is in process
     eUNDER_RST_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by the power mode transfer.
-  enum class eRST_BY_HW : uint32_t {
+
+  enum class eRST_BY_HW : std::uint32_t {
     // the reset is not caused by the power mode transfer
     eRST_BY_HW_0 = 0,
     // the reset is caused by the power mode transfer
     eRST_BY_HW_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by setting SW_RESET bit.
-  enum class eRST_BY_SW : uint32_t {
+
+  enum class eRST_BY_SW : std::uint32_t {
     // the reset is not caused by software setting
     eRST_BY_SW_0 = 0,
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - This is a Read Only bit. It indicate if the reset is in process.
-    eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - This bit indicate if the reset is caused by the power mode transfer.
-    eRST_BY_HW RST_BY_HW : 1;
-    // read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
-    eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_1 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a Read Only bit. It indicate if the reset is in process.
+  using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
+  // This bit indicate if the reset is caused by the power mode transfer.
+  using RST_BY_HW = ftl::mmio::Field<1, 2, eRST_BY_HW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // This bit indicate if the reset is caused by setting SW_RESET bit.
+  using RST_BY_SW = ftl::mmio::Field<1, 3, eRST_BY_SW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct STAT_USBPHY1_fields_
 
-  STAT_USBPHY1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_USBPHY1 &ref() { return *reinterpret_cast<volatile STAT_USBPHY1*>(0x40C04310); }
+struct STAT_USBPHY1 : ftl::mmio::Register<
+    0x40C04310u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    STAT_USBPHY1_fields_::UNDER_RST,
+    ftl::mmio::Reserved<1, 1>,
+    STAT_USBPHY1_fields_::RST_BY_HW,
+    STAT_USBPHY1_fields_::RST_BY_SW,
+    ftl::mmio::Reserved<28, 4>> {
+  using eUNDER_RST = STAT_USBPHY1_fields_::eUNDER_RST;
+  using eRST_BY_HW = STAT_USBPHY1_fields_::eRST_BY_HW;
+  using eRST_BY_SW = STAT_USBPHY1_fields_::eRST_BY_SW;
+  using UNDER_RST = STAT_USBPHY1_fields_::UNDER_RST;
+  using RST_BY_HW = STAT_USBPHY1_fields_::RST_BY_HW;
+  using RST_BY_SW = STAT_USBPHY1_fields_::RST_BY_SW;
 };
 
+
 // Slice Authentication Register
-union AUTHEN_USBPHY2 {
-  
-  // Control whether reset slice is in domain mode
-  enum class eDOMAIN_MODE : uint32_t {
+struct AUTHEN_USBPHY2_fields_ {
+
+  enum class eDOMAIN_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_0 = 0,
     // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
     eDOMAIN_MODE_1 = 1,
   };
-  
-  // Control whether reset slice is in Setpoint mode
-  enum class eSETPOINT_MODE : uint32_t {
+
+  enum class eSETPOINT_MODE : std::uint32_t {
     // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_0 = 0,
     // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
     eSETPOINT_MODE_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Control whether reset slice is in domain mode
-    eDOMAIN_MODE DOMAIN_MODE : 1;
-    // read-write - Control whether reset slice is in Setpoint mode
-    eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Domain/Setpoint mode lock
-    uint32_t LOCK_MODE : 1;
-    // read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
-    uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_1 : 3;
-    // read-write - Assign list lock
-    uint32_t LOCK_ASSIGN : 1;
-    // read-write - Domain ID white list
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_2 : 3;
-    // read-write - White list lock
-    uint32_t LOCK_LIST : 1;
-    // read-write - Allow user mode access
-    uint32_t USER : 1;
-    // read-write - Allow non-secure mode access
-    uint32_t NONSECURE : 1;
-    uint32_t _reserved_3 : 5;
-    // read-write - Lock NONSECURE and USER
-    uint32_t LOCK_SETTING : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Control whether reset slice is in domain mode
+  using DOMAIN_MODE = ftl::mmio::Field<1, 0, eDOMAIN_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Control whether reset slice is in Setpoint mode
+  using SETPOINT_MODE = ftl::mmio::Field<1, 1, eSETPOINT_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain/Setpoint mode lock
+  using LOCK_MODE = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
+  using ASSIGN_LIST = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Assign list lock
+  using LOCK_ASSIGN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain ID white list
+  using WHITE_LIST = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // White list lock
+  using LOCK_LIST = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user mode access
+  using USER = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow non-secure mode access
+  using NONSECURE = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock NONSECURE and USER
+  using LOCK_SETTING = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct AUTHEN_USBPHY2_fields_
 
-  AUTHEN_USBPHY2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AUTHEN_USBPHY2 &ref() { return *reinterpret_cast<volatile AUTHEN_USBPHY2*>(0x40C04320); }
+struct AUTHEN_USBPHY2 : ftl::mmio::Register<
+    0x40C04320u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    AUTHEN_USBPHY2_fields_::DOMAIN_MODE,
+    AUTHEN_USBPHY2_fields_::SETPOINT_MODE,
+    ftl::mmio::Reserved<5, 2>,
+    AUTHEN_USBPHY2_fields_::LOCK_MODE,
+    AUTHEN_USBPHY2_fields_::ASSIGN_LIST,
+    ftl::mmio::Reserved<3, 12>,
+    AUTHEN_USBPHY2_fields_::LOCK_ASSIGN,
+    AUTHEN_USBPHY2_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<3, 20>,
+    AUTHEN_USBPHY2_fields_::LOCK_LIST,
+    AUTHEN_USBPHY2_fields_::USER,
+    AUTHEN_USBPHY2_fields_::NONSECURE,
+    ftl::mmio::Reserved<5, 26>,
+    AUTHEN_USBPHY2_fields_::LOCK_SETTING> {
+  using eDOMAIN_MODE = AUTHEN_USBPHY2_fields_::eDOMAIN_MODE;
+  using eSETPOINT_MODE = AUTHEN_USBPHY2_fields_::eSETPOINT_MODE;
+  using DOMAIN_MODE = AUTHEN_USBPHY2_fields_::DOMAIN_MODE;
+  using SETPOINT_MODE = AUTHEN_USBPHY2_fields_::SETPOINT_MODE;
+  using LOCK_MODE = AUTHEN_USBPHY2_fields_::LOCK_MODE;
+  using ASSIGN_LIST = AUTHEN_USBPHY2_fields_::ASSIGN_LIST;
+  using LOCK_ASSIGN = AUTHEN_USBPHY2_fields_::LOCK_ASSIGN;
+  using WHITE_LIST = AUTHEN_USBPHY2_fields_::WHITE_LIST;
+  using LOCK_LIST = AUTHEN_USBPHY2_fields_::LOCK_LIST;
+  using USER = AUTHEN_USBPHY2_fields_::USER;
+  using NONSECURE = AUTHEN_USBPHY2_fields_::NONSECURE;
+  using LOCK_SETTING = AUTHEN_USBPHY2_fields_::LOCK_SETTING;
 };
 
+
 // Slice Control Register
-union CTRL_USBPHY2 {
-  
-  // This is a self clearing bit
-  enum class eSW_RESET : uint32_t {
+struct CTRL_USBPHY2_fields_ {
+
+  enum class eSW_RESET : std::uint32_t {
     // do not assert slice software reset
     eSW_RESET_0 = 0,
     // assert slice software reset
     eSW_RESET_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - This is a self clearing bit
-    eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a self clearing bit
+  using SW_RESET = ftl::mmio::Field<1, 0, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_USBPHY2_fields_
 
-  CTRL_USBPHY2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_USBPHY2 &ref() { return *reinterpret_cast<volatile CTRL_USBPHY2*>(0x40C04324); }
+struct CTRL_USBPHY2 : ftl::mmio::Register<
+    0x40C04324u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_USBPHY2_fields_::SW_RESET,
+    ftl::mmio::Reserved<31, 1>> {
+  using eSW_RESET = CTRL_USBPHY2_fields_::eSW_RESET;
+  using SW_RESET = CTRL_USBPHY2_fields_::SW_RESET;
 };
 
+
 // Slice Setpoint Config Register
-union SETPOINT_USBPHY2 {
-  
-  // SETPOINT0
-  enum class eSETPOINT0 : uint32_t {
+struct SETPOINT_USBPHY2_fields_ {
+
+  enum class eSETPOINT0 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT0_1 = 1,
   };
-  
-  // SETPOINT1
-  enum class eSETPOINT1 : uint32_t {
+
+  enum class eSETPOINT1 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT1_1 = 1,
   };
-  
-  // SETPOINT2
-  enum class eSETPOINT2 : uint32_t {
+
+  enum class eSETPOINT2 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT2_1 = 1,
   };
-  
-  // SETPOINT3
-  enum class eSETPOINT3 : uint32_t {
+
+  enum class eSETPOINT3 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT3_1 = 1,
   };
-  
-  // SETPOINT4
-  enum class eSETPOINT4 : uint32_t {
+
+  enum class eSETPOINT4 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT4_1 = 1,
   };
-  
-  // SETPOINT5
-  enum class eSETPOINT5 : uint32_t {
+
+  enum class eSETPOINT5 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT5_1 = 1,
   };
-  
-  // SETPOINT6
-  enum class eSETPOINT6 : uint32_t {
+
+  enum class eSETPOINT6 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT6_1 = 1,
   };
-  
-  // SETPOINT7
-  enum class eSETPOINT7 : uint32_t {
+
+  enum class eSETPOINT7 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT7_1 = 1,
   };
-  
-  // SETPOINT8
-  enum class eSETPOINT8 : uint32_t {
+
+  enum class eSETPOINT8 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT8_1 = 1,
   };
-  
-  // SETPOINT9
-  enum class eSETPOINT9 : uint32_t {
+
+  enum class eSETPOINT9 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT9_1 = 1,
   };
-  
-  // SETPOINT10
-  enum class eSETPOINT10 : uint32_t {
+
+  enum class eSETPOINT10 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT10_1 = 1,
   };
-  
-  // SETPOINT11
-  enum class eSETPOINT11 : uint32_t {
+
+  enum class eSETPOINT11 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT11_1 = 1,
   };
-  
-  // SETPOINT12
-  enum class eSETPOINT12 : uint32_t {
+
+  enum class eSETPOINT12 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT12_1 = 1,
   };
-  
-  // SETPOINT13
-  enum class eSETPOINT13 : uint32_t {
+
+  enum class eSETPOINT13 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT13_1 = 1,
   };
-  
-  // SETPOINT14
-  enum class eSETPOINT14 : uint32_t {
+
+  enum class eSETPOINT14 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT14_1 = 1,
   };
-  
-  // SETPOINT15
-  enum class eSETPOINT15 : uint32_t {
+
+  enum class eSETPOINT15 : std::uint32_t {
     // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_0 = 0,
     // Slice reset will be asserted when system in Setpoint n
     eSETPOINT15_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - SETPOINT0
-    eSETPOINT0 SETPOINT0 : 1;
-    // read-write - SETPOINT1
-    eSETPOINT1 SETPOINT1 : 1;
-    // read-write - SETPOINT2
-    eSETPOINT2 SETPOINT2 : 1;
-    // read-write - SETPOINT3
-    eSETPOINT3 SETPOINT3 : 1;
-    // read-write - SETPOINT4
-    eSETPOINT4 SETPOINT4 : 1;
-    // read-write - SETPOINT5
-    eSETPOINT5 SETPOINT5 : 1;
-    // read-write - SETPOINT6
-    eSETPOINT6 SETPOINT6 : 1;
-    // read-write - SETPOINT7
-    eSETPOINT7 SETPOINT7 : 1;
-    // read-write - SETPOINT8
-    eSETPOINT8 SETPOINT8 : 1;
-    // read-write - SETPOINT9
-    eSETPOINT9 SETPOINT9 : 1;
-    // read-write - SETPOINT10
-    eSETPOINT10 SETPOINT10 : 1;
-    // read-write - SETPOINT11
-    eSETPOINT11 SETPOINT11 : 1;
-    // read-write - SETPOINT12
-    eSETPOINT12 SETPOINT12 : 1;
-    // read-write - SETPOINT13
-    eSETPOINT13 SETPOINT13 : 1;
-    // read-write - SETPOINT14
-    eSETPOINT14 SETPOINT14 : 1;
-    // read-write - SETPOINT15
-    eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // SETPOINT0
+  using SETPOINT0 = ftl::mmio::Field<1, 0, eSETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT1
+  using SETPOINT1 = ftl::mmio::Field<1, 1, eSETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT2
+  using SETPOINT2 = ftl::mmio::Field<1, 2, eSETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT3
+  using SETPOINT3 = ftl::mmio::Field<1, 3, eSETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT4
+  using SETPOINT4 = ftl::mmio::Field<1, 4, eSETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT5
+  using SETPOINT5 = ftl::mmio::Field<1, 5, eSETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT6
+  using SETPOINT6 = ftl::mmio::Field<1, 6, eSETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT7
+  using SETPOINT7 = ftl::mmio::Field<1, 7, eSETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT8
+  using SETPOINT8 = ftl::mmio::Field<1, 8, eSETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT9
+  using SETPOINT9 = ftl::mmio::Field<1, 9, eSETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT10
+  using SETPOINT10 = ftl::mmio::Field<1, 10, eSETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT11
+  using SETPOINT11 = ftl::mmio::Field<1, 11, eSETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT12
+  using SETPOINT12 = ftl::mmio::Field<1, 12, eSETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT13
+  using SETPOINT13 = ftl::mmio::Field<1, 13, eSETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT14
+  using SETPOINT14 = ftl::mmio::Field<1, 14, eSETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SETPOINT15
+  using SETPOINT15 = ftl::mmio::Field<1, 15, eSETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SETPOINT_USBPHY2_fields_
 
-  SETPOINT_USBPHY2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SETPOINT_USBPHY2 &ref() { return *reinterpret_cast<volatile SETPOINT_USBPHY2*>(0x40C04328); }
+struct SETPOINT_USBPHY2 : ftl::mmio::Register<
+    0x40C04328u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SETPOINT_USBPHY2_fields_::SETPOINT0,
+    SETPOINT_USBPHY2_fields_::SETPOINT1,
+    SETPOINT_USBPHY2_fields_::SETPOINT2,
+    SETPOINT_USBPHY2_fields_::SETPOINT3,
+    SETPOINT_USBPHY2_fields_::SETPOINT4,
+    SETPOINT_USBPHY2_fields_::SETPOINT5,
+    SETPOINT_USBPHY2_fields_::SETPOINT6,
+    SETPOINT_USBPHY2_fields_::SETPOINT7,
+    SETPOINT_USBPHY2_fields_::SETPOINT8,
+    SETPOINT_USBPHY2_fields_::SETPOINT9,
+    SETPOINT_USBPHY2_fields_::SETPOINT10,
+    SETPOINT_USBPHY2_fields_::SETPOINT11,
+    SETPOINT_USBPHY2_fields_::SETPOINT12,
+    SETPOINT_USBPHY2_fields_::SETPOINT13,
+    SETPOINT_USBPHY2_fields_::SETPOINT14,
+    SETPOINT_USBPHY2_fields_::SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSETPOINT0 = SETPOINT_USBPHY2_fields_::eSETPOINT0;
+  using eSETPOINT1 = SETPOINT_USBPHY2_fields_::eSETPOINT1;
+  using eSETPOINT2 = SETPOINT_USBPHY2_fields_::eSETPOINT2;
+  using eSETPOINT3 = SETPOINT_USBPHY2_fields_::eSETPOINT3;
+  using eSETPOINT4 = SETPOINT_USBPHY2_fields_::eSETPOINT4;
+  using eSETPOINT5 = SETPOINT_USBPHY2_fields_::eSETPOINT5;
+  using eSETPOINT6 = SETPOINT_USBPHY2_fields_::eSETPOINT6;
+  using eSETPOINT7 = SETPOINT_USBPHY2_fields_::eSETPOINT7;
+  using eSETPOINT8 = SETPOINT_USBPHY2_fields_::eSETPOINT8;
+  using eSETPOINT9 = SETPOINT_USBPHY2_fields_::eSETPOINT9;
+  using eSETPOINT10 = SETPOINT_USBPHY2_fields_::eSETPOINT10;
+  using eSETPOINT11 = SETPOINT_USBPHY2_fields_::eSETPOINT11;
+  using eSETPOINT12 = SETPOINT_USBPHY2_fields_::eSETPOINT12;
+  using eSETPOINT13 = SETPOINT_USBPHY2_fields_::eSETPOINT13;
+  using eSETPOINT14 = SETPOINT_USBPHY2_fields_::eSETPOINT14;
+  using eSETPOINT15 = SETPOINT_USBPHY2_fields_::eSETPOINT15;
+  using SETPOINT0 = SETPOINT_USBPHY2_fields_::SETPOINT0;
+  using SETPOINT1 = SETPOINT_USBPHY2_fields_::SETPOINT1;
+  using SETPOINT2 = SETPOINT_USBPHY2_fields_::SETPOINT2;
+  using SETPOINT3 = SETPOINT_USBPHY2_fields_::SETPOINT3;
+  using SETPOINT4 = SETPOINT_USBPHY2_fields_::SETPOINT4;
+  using SETPOINT5 = SETPOINT_USBPHY2_fields_::SETPOINT5;
+  using SETPOINT6 = SETPOINT_USBPHY2_fields_::SETPOINT6;
+  using SETPOINT7 = SETPOINT_USBPHY2_fields_::SETPOINT7;
+  using SETPOINT8 = SETPOINT_USBPHY2_fields_::SETPOINT8;
+  using SETPOINT9 = SETPOINT_USBPHY2_fields_::SETPOINT9;
+  using SETPOINT10 = SETPOINT_USBPHY2_fields_::SETPOINT10;
+  using SETPOINT11 = SETPOINT_USBPHY2_fields_::SETPOINT11;
+  using SETPOINT12 = SETPOINT_USBPHY2_fields_::SETPOINT12;
+  using SETPOINT13 = SETPOINT_USBPHY2_fields_::SETPOINT13;
+  using SETPOINT14 = SETPOINT_USBPHY2_fields_::SETPOINT14;
+  using SETPOINT15 = SETPOINT_USBPHY2_fields_::SETPOINT15;
 };
 
+
 // Slice Domain Config Register
-union DOMAIN_USBPHY2 {
-  
-  // CPU mode setting for RUN
-  enum class eCPU0_RUN : uint32_t {
+struct DOMAIN_USBPHY2_fields_ {
+
+  enum class eCPU0_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_0 = 0,
     // Slice reset will be asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU0_WAIT : uint32_t {
+
+  enum class eCPU0_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_0 = 0,
     // Slice reset will be asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU0_STOP : uint32_t {
+
+  enum class eCPU0_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_0 = 0,
     // Slice reset will be asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU0_SUSP : uint32_t {
+
+  enum class eCPU0_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_0 = 0,
     // Slice reset will be asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1,
   };
-  
-  // CPU mode setting for RUN
-  enum class eCPU1_RUN : uint32_t {
+
+  enum class eCPU1_RUN : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_0 = 0,
     // Slice reset will be asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1,
   };
-  
-  // CPU mode setting for WAIT
-  enum class eCPU1_WAIT : uint32_t {
+
+  enum class eCPU1_WAIT : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_0 = 0,
     // Slice reset will be asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1,
   };
-  
-  // CPU mode setting for STOP
-  enum class eCPU1_STOP : uint32_t {
+
+  enum class eCPU1_STOP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_0 = 0,
     // Slice reset will be asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1,
   };
-  
-  // CPU mode setting for SUSPEND
-  enum class eCPU1_SUSP : uint32_t {
+
+  enum class eCPU1_SUSP : std::uint32_t {
     // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_0 = 0,
     // Slice reset will be asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - CPU mode setting for RUN
-    eCPU0_RUN CPU0_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU0_WAIT CPU0_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU0_STOP CPU0_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU0_SUSP CPU0_SUSP : 1;
-    // read-write - CPU mode setting for RUN
-    eCPU1_RUN CPU1_RUN : 1;
-    // read-write - CPU mode setting for WAIT
-    eCPU1_WAIT CPU1_WAIT : 1;
-    // read-write - CPU mode setting for STOP
-    eCPU1_STOP CPU1_STOP : 1;
-    // read-write - CPU mode setting for SUSPEND
-    eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // CPU mode setting for RUN
+  using CPU0_RUN = ftl::mmio::Field<1, 0, eCPU0_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU0_WAIT = ftl::mmio::Field<1, 1, eCPU0_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU0_STOP = ftl::mmio::Field<1, 2, eCPU0_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU0_SUSP = ftl::mmio::Field<1, 3, eCPU0_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for RUN
+  using CPU1_RUN = ftl::mmio::Field<1, 4, eCPU1_RUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for WAIT
+  using CPU1_WAIT = ftl::mmio::Field<1, 5, eCPU1_WAIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for STOP
+  using CPU1_STOP = ftl::mmio::Field<1, 6, eCPU1_STOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CPU mode setting for SUSPEND
+  using CPU1_SUSP = ftl::mmio::Field<1, 7, eCPU1_SUSP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DOMAIN_USBPHY2_fields_
 
-  DOMAIN_USBPHY2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DOMAIN_USBPHY2 &ref() { return *reinterpret_cast<volatile DOMAIN_USBPHY2*>(0x40C0432C); }
+struct DOMAIN_USBPHY2 : ftl::mmio::Register<
+    0x40C0432Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DOMAIN_USBPHY2_fields_::CPU0_RUN,
+    DOMAIN_USBPHY2_fields_::CPU0_WAIT,
+    DOMAIN_USBPHY2_fields_::CPU0_STOP,
+    DOMAIN_USBPHY2_fields_::CPU0_SUSP,
+    DOMAIN_USBPHY2_fields_::CPU1_RUN,
+    DOMAIN_USBPHY2_fields_::CPU1_WAIT,
+    DOMAIN_USBPHY2_fields_::CPU1_STOP,
+    DOMAIN_USBPHY2_fields_::CPU1_SUSP,
+    ftl::mmio::Reserved<24, 8>> {
+  using eCPU0_RUN = DOMAIN_USBPHY2_fields_::eCPU0_RUN;
+  using eCPU0_WAIT = DOMAIN_USBPHY2_fields_::eCPU0_WAIT;
+  using eCPU0_STOP = DOMAIN_USBPHY2_fields_::eCPU0_STOP;
+  using eCPU0_SUSP = DOMAIN_USBPHY2_fields_::eCPU0_SUSP;
+  using eCPU1_RUN = DOMAIN_USBPHY2_fields_::eCPU1_RUN;
+  using eCPU1_WAIT = DOMAIN_USBPHY2_fields_::eCPU1_WAIT;
+  using eCPU1_STOP = DOMAIN_USBPHY2_fields_::eCPU1_STOP;
+  using eCPU1_SUSP = DOMAIN_USBPHY2_fields_::eCPU1_SUSP;
+  using CPU0_RUN = DOMAIN_USBPHY2_fields_::CPU0_RUN;
+  using CPU0_WAIT = DOMAIN_USBPHY2_fields_::CPU0_WAIT;
+  using CPU0_STOP = DOMAIN_USBPHY2_fields_::CPU0_STOP;
+  using CPU0_SUSP = DOMAIN_USBPHY2_fields_::CPU0_SUSP;
+  using CPU1_RUN = DOMAIN_USBPHY2_fields_::CPU1_RUN;
+  using CPU1_WAIT = DOMAIN_USBPHY2_fields_::CPU1_WAIT;
+  using CPU1_STOP = DOMAIN_USBPHY2_fields_::CPU1_STOP;
+  using CPU1_SUSP = DOMAIN_USBPHY2_fields_::CPU1_SUSP;
 };
 
+
 // Slice Status Register
-union STAT_USBPHY2 {
-  
-  // This is a Read Only bit. It indicate if the reset is in process.
-  enum class eUNDER_RST : uint32_t {
+struct STAT_USBPHY2_fields_ {
+
+  enum class eUNDER_RST : std::uint32_t {
     // the reset is finished
     eUNDER_RST_0 = 0,
     // the reset is in process
     eUNDER_RST_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by the power mode transfer.
-  enum class eRST_BY_HW : uint32_t {
+
+  enum class eRST_BY_HW : std::uint32_t {
     // the reset is not caused by the power mode transfer
     eRST_BY_HW_0 = 0,
     // the reset is caused by the power mode transfer
     eRST_BY_HW_1 = 1,
   };
-  
-  // This bit indicate if the reset is caused by setting SW_RESET bit.
-  enum class eRST_BY_SW : uint32_t {
+
+  enum class eRST_BY_SW : std::uint32_t {
     // the reset is not caused by software setting
     eRST_BY_SW_0 = 0,
     // the reset is caused by software setting
     eRST_BY_SW_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - This is a Read Only bit. It indicate if the reset is in process.
-    eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - This bit indicate if the reset is caused by the power mode transfer.
-    eRST_BY_HW RST_BY_HW : 1;
-    // read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
-    eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_1 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This is a Read Only bit. It indicate if the reset is in process.
+  using UNDER_RST = ftl::mmio::Field<1, 0, eUNDER_RST, ftl::mmio::RO, ftl::mmio::Normal>;
+  // This bit indicate if the reset is caused by the power mode transfer.
+  using RST_BY_HW = ftl::mmio::Field<1, 2, eRST_BY_HW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // This bit indicate if the reset is caused by setting SW_RESET bit.
+  using RST_BY_SW = ftl::mmio::Field<1, 3, eRST_BY_SW, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct STAT_USBPHY2_fields_
 
-  STAT_USBPHY2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT_USBPHY2 &ref() { return *reinterpret_cast<volatile STAT_USBPHY2*>(0x40C04330); }
+struct STAT_USBPHY2 : ftl::mmio::Register<
+    0x40C04330u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    STAT_USBPHY2_fields_::UNDER_RST,
+    ftl::mmio::Reserved<1, 1>,
+    STAT_USBPHY2_fields_::RST_BY_HW,
+    STAT_USBPHY2_fields_::RST_BY_SW,
+    ftl::mmio::Reserved<28, 4>> {
+  using eUNDER_RST = STAT_USBPHY2_fields_::eUNDER_RST;
+  using eRST_BY_HW = STAT_USBPHY2_fields_::eRST_BY_HW;
+  using eRST_BY_SW = STAT_USBPHY2_fields_::eRST_BY_SW;
+  using UNDER_RST = STAT_USBPHY2_fields_::UNDER_RST;
+  using RST_BY_HW = STAT_USBPHY2_fields_::RST_BY_HW;
+  using RST_BY_SW = STAT_USBPHY2_fields_::RST_BY_SW;
 };
 
-
-} // namespace nSRC
+}  // namespace regs::src

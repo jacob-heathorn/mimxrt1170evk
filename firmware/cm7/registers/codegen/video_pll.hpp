@@ -1,68 +1,60 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // Fractional PLL
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nVIDEO_PLL {
+namespace regs::video_pll {
 
 
 // Fractional PLL Control Register
-union CTRL0 {
-  
-  // ENABLE_ALT
-  enum class eENABLE_ALT : uint32_t {
+struct CTRL0_fields_ {
+
+  enum class eENABLE_ALT : std::uint32_t {
     // Disable the alternate clock output
     eDISABLE = 0,
     // Enable the alternate clock output which is the output of the post_divider, and cannot be bypassed
     eENABLE = 1,
   };
-  
-  // PLL Start up initialization
-  enum class eHOLD_RING_OFF : uint32_t {
+
+  enum class eHOLD_RING_OFF : std::uint32_t {
     // Normal operation
     eNORMAL = 0,
     // Initialize PLL start up
     eENABLE = 1,
   };
-  
-  // POWERUP
-  enum class ePOWERUP : uint32_t {
+
+  enum class ePOWERUP : std::uint32_t {
     // Power down the PLL
     ePDOWN = 0,
     // Power Up the PLL
     ePUP = 1,
   };
-  
-  // ENABLE
-  enum class eENABLE : uint32_t {
+
+  enum class eENABLE : std::uint32_t {
     // Disable the clock output
     eDISABLE = 0,
     // Enable the clock output
     eENABLE = 1,
   };
-  
-  // BYPASS
-  enum class eBYPASS : uint32_t {
+
+  enum class eBYPASS : std::uint32_t {
     // No Bypass
     eNOBYPASS = 0,
     // Bypass the PLL
     eBYPASS = 1,
   };
-  
-  // DITHER_EN
-  enum class eDITHER_EN : uint32_t {
+
+  enum class eDITHER_EN : std::uint32_t {
     // Disable Dither
     eDISABLE = 0,
     // Enable Dither
     eENABLE = 1,
   };
-  
-  // Post Divide Select
-  enum class ePOST_DIV_SEL : uint32_t {
+
+  enum class ePOST_DIV_SEL : std::uint32_t {
     // Divide by 1
     eDIVIDE1 = 0,
     // Divide by 2
@@ -76,411 +68,496 @@ union CTRL0 {
     // Divide by 32
     eDIVIDE32 = 5,
   };
-  
-  // BIAS_SELECT
-  enum class eBIAS_SELECT : uint32_t {
+
+  enum class eBIAS_SELECT : std::uint32_t {
     // Used in SoCs with a bias current of 10uA
     eBAIS10 = 0,
     // Used in SoCs with a bias current of 2uA
     eBAIS2 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - DIV_SELECT
-    uint32_t DIV_SELECT : 7;
-    uint32_t _reserved_0 : 1;
-    // read-write - ENABLE_ALT
-    eENABLE_ALT ENABLE_ALT : 1;
-    uint32_t _reserved_1 : 4;
-    // read-write - PLL Start up initialization
-    eHOLD_RING_OFF HOLD_RING_OFF : 1;
-    // read-write - POWERUP
-    ePOWERUP POWERUP : 1;
-    // read-write - ENABLE
-    eENABLE ENABLE : 1;
-    // read-write - BYPASS
-    eBYPASS BYPASS : 1;
-    // read-write - DITHER_EN
-    eDITHER_EN DITHER_EN : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - BIAS_TRIM
-    uint32_t BIAS_TRIM : 3;
-    // read-write - PLL_REG_EN
-    uint32_t PLL_REG_EN : 1;
-    uint32_t _reserved_3 : 2;
-    // read-write - Post Divide Select
-    ePOST_DIV_SEL POST_DIV_SEL : 3;
-    uint32_t _reserved_4 : 1;
-    // read-write - BIAS_SELECT
-    eBIAS_SELECT BIAS_SELECT : 1;
-    uint32_t _reserved_5 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // DIV_SELECT
+  using DIV_SELECT = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENABLE_ALT
+  using ENABLE_ALT = ftl::mmio::Field<1, 8, eENABLE_ALT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // PLL Start up initialization
+  using HOLD_RING_OFF = ftl::mmio::Field<1, 13, eHOLD_RING_OFF, ftl::mmio::RW, ftl::mmio::Normal>;
+  // POWERUP
+  using POWERUP = ftl::mmio::Field<1, 14, ePOWERUP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ENABLE
+  using ENABLE = ftl::mmio::Field<1, 15, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS
+  using BYPASS = ftl::mmio::Field<1, 16, eBYPASS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // DITHER_EN
+  using DITHER_EN = ftl::mmio::Field<1, 17, eDITHER_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BIAS_TRIM
+  using BIAS_TRIM = ftl::mmio::Field<3, 19, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // PLL_REG_EN
+  using PLL_REG_EN = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Post Divide Select
+  using POST_DIV_SEL = ftl::mmio::Field<3, 25, ePOST_DIV_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BIAS_SELECT
+  using BIAS_SELECT = ftl::mmio::Field<1, 29, eBIAS_SELECT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL0_fields_
 
-  CTRL0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0 &ref() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
+struct CTRL0 : ftl::mmio::Register<
+    0x00000000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL0_fields_::DIV_SELECT,
+    ftl::mmio::Reserved<1, 7>,
+    CTRL0_fields_::ENABLE_ALT,
+    ftl::mmio::Reserved<4, 9>,
+    CTRL0_fields_::HOLD_RING_OFF,
+    CTRL0_fields_::POWERUP,
+    CTRL0_fields_::ENABLE,
+    CTRL0_fields_::BYPASS,
+    CTRL0_fields_::DITHER_EN,
+    ftl::mmio::Reserved<1, 18>,
+    CTRL0_fields_::BIAS_TRIM,
+    CTRL0_fields_::PLL_REG_EN,
+    ftl::mmio::Reserved<2, 23>,
+    CTRL0_fields_::POST_DIV_SEL,
+    ftl::mmio::Reserved<1, 28>,
+    CTRL0_fields_::BIAS_SELECT,
+    ftl::mmio::Reserved<2, 30>> {
+  using eENABLE_ALT = CTRL0_fields_::eENABLE_ALT;
+  using eHOLD_RING_OFF = CTRL0_fields_::eHOLD_RING_OFF;
+  using ePOWERUP = CTRL0_fields_::ePOWERUP;
+  using eENABLE = CTRL0_fields_::eENABLE;
+  using eBYPASS = CTRL0_fields_::eBYPASS;
+  using eDITHER_EN = CTRL0_fields_::eDITHER_EN;
+  using ePOST_DIV_SEL = CTRL0_fields_::ePOST_DIV_SEL;
+  using eBIAS_SELECT = CTRL0_fields_::eBIAS_SELECT;
+  using DIV_SELECT = CTRL0_fields_::DIV_SELECT;
+  using ENABLE_ALT = CTRL0_fields_::ENABLE_ALT;
+  using HOLD_RING_OFF = CTRL0_fields_::HOLD_RING_OFF;
+  using POWERUP = CTRL0_fields_::POWERUP;
+  using ENABLE = CTRL0_fields_::ENABLE;
+  using BYPASS = CTRL0_fields_::BYPASS;
+  using DITHER_EN = CTRL0_fields_::DITHER_EN;
+  using BIAS_TRIM = CTRL0_fields_::BIAS_TRIM;
+  using PLL_REG_EN = CTRL0_fields_::PLL_REG_EN;
+  using POST_DIV_SEL = CTRL0_fields_::POST_DIV_SEL;
+  using BIAS_SELECT = CTRL0_fields_::BIAS_SELECT;
 };
+
 
 // Fractional PLL Control Register
-union CTRL0_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-write - DIV_SELECT
-    uint32_t DIV_SELECT : 7;
-    uint32_t _reserved_0 : 1;
-    // read-write - ENABLE_ALT
-    uint32_t ENABLE_ALT : 1;
-    uint32_t _reserved_1 : 4;
-    // read-write - PLL Start up initialization
-    uint32_t HOLD_RING_OFF : 1;
-    // read-write - POWERUP
-    uint32_t POWERUP : 1;
-    // read-write - ENABLE
-    uint32_t ENABLE : 1;
-    // read-write - BYPASS
-    uint32_t BYPASS : 1;
-    // read-write - DITHER_EN
-    uint32_t DITHER_EN : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - BIAS_TRIM
-    uint32_t BIAS_TRIM : 3;
-    // read-write - PLL_REG_EN
-    uint32_t PLL_REG_EN : 1;
-    uint32_t _reserved_3 : 2;
-    // read-write - Post Divide Select
-    uint32_t POST_DIV_SEL : 3;
-    uint32_t _reserved_4 : 1;
-    // read-write - BIAS_SELECT
-    uint32_t BIAS_SELECT : 1;
-    uint32_t _reserved_5 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL0_SET_fields_ {
+  // DIV_SELECT
+  using DIV_SELECT = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // ENABLE_ALT
+  using ENABLE_ALT = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // PLL Start up initialization
+  using HOLD_RING_OFF = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // POWERUP
+  using POWERUP = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // ENABLE
+  using ENABLE = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // BYPASS
+  using BYPASS = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // DITHER_EN
+  using DITHER_EN = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // BIAS_TRIM
+  using BIAS_TRIM = ftl::mmio::Field<3, 19, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // PLL_REG_EN
+  using PLL_REG_EN = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Post Divide Select
+  using POST_DIV_SEL = ftl::mmio::Field<3, 25, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // BIAS_SELECT
+  using BIAS_SELECT = ftl::mmio::Field<1, 29, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+};  // struct CTRL0_SET_fields_
 
-  CTRL0_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_SET &ref() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
+struct CTRL0_SET : ftl::mmio::Register<
+    0x00000004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL0_SET_fields_::DIV_SELECT,
+    ftl::mmio::Reserved<1, 7>,
+    CTRL0_SET_fields_::ENABLE_ALT,
+    ftl::mmio::Reserved<4, 9>,
+    CTRL0_SET_fields_::HOLD_RING_OFF,
+    CTRL0_SET_fields_::POWERUP,
+    CTRL0_SET_fields_::ENABLE,
+    CTRL0_SET_fields_::BYPASS,
+    CTRL0_SET_fields_::DITHER_EN,
+    ftl::mmio::Reserved<1, 18>,
+    CTRL0_SET_fields_::BIAS_TRIM,
+    CTRL0_SET_fields_::PLL_REG_EN,
+    ftl::mmio::Reserved<2, 23>,
+    CTRL0_SET_fields_::POST_DIV_SEL,
+    ftl::mmio::Reserved<1, 28>,
+    CTRL0_SET_fields_::BIAS_SELECT,
+    ftl::mmio::Reserved<2, 30>> {
+  using DIV_SELECT = CTRL0_SET_fields_::DIV_SELECT;
+  using ENABLE_ALT = CTRL0_SET_fields_::ENABLE_ALT;
+  using HOLD_RING_OFF = CTRL0_SET_fields_::HOLD_RING_OFF;
+  using POWERUP = CTRL0_SET_fields_::POWERUP;
+  using ENABLE = CTRL0_SET_fields_::ENABLE;
+  using BYPASS = CTRL0_SET_fields_::BYPASS;
+  using DITHER_EN = CTRL0_SET_fields_::DITHER_EN;
+  using BIAS_TRIM = CTRL0_SET_fields_::BIAS_TRIM;
+  using PLL_REG_EN = CTRL0_SET_fields_::PLL_REG_EN;
+  using POST_DIV_SEL = CTRL0_SET_fields_::POST_DIV_SEL;
+  using BIAS_SELECT = CTRL0_SET_fields_::BIAS_SELECT;
 };
+
 
 // Fractional PLL Control Register
-union CTRL0_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - DIV_SELECT
-    uint32_t DIV_SELECT : 7;
-    uint32_t _reserved_0 : 1;
-    // read-write - ENABLE_ALT
-    uint32_t ENABLE_ALT : 1;
-    uint32_t _reserved_1 : 4;
-    // read-write - PLL Start up initialization
-    uint32_t HOLD_RING_OFF : 1;
-    // read-write - POWERUP
-    uint32_t POWERUP : 1;
-    // read-write - ENABLE
-    uint32_t ENABLE : 1;
-    // read-write - BYPASS
-    uint32_t BYPASS : 1;
-    // read-write - DITHER_EN
-    uint32_t DITHER_EN : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - BIAS_TRIM
-    uint32_t BIAS_TRIM : 3;
-    // read-write - PLL_REG_EN
-    uint32_t PLL_REG_EN : 1;
-    uint32_t _reserved_3 : 2;
-    // read-write - Post Divide Select
-    uint32_t POST_DIV_SEL : 3;
-    uint32_t _reserved_4 : 1;
-    // read-write - BIAS_SELECT
-    uint32_t BIAS_SELECT : 1;
-    uint32_t _reserved_5 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL0_CLR_fields_ {
+  // DIV_SELECT
+  using DIV_SELECT = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // ENABLE_ALT
+  using ENABLE_ALT = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // PLL Start up initialization
+  using HOLD_RING_OFF = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // POWERUP
+  using POWERUP = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // ENABLE
+  using ENABLE = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // BYPASS
+  using BYPASS = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // DITHER_EN
+  using DITHER_EN = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // BIAS_TRIM
+  using BIAS_TRIM = ftl::mmio::Field<3, 19, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // PLL_REG_EN
+  using PLL_REG_EN = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Post Divide Select
+  using POST_DIV_SEL = ftl::mmio::Field<3, 25, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // BIAS_SELECT
+  using BIAS_SELECT = ftl::mmio::Field<1, 29, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct CTRL0_CLR_fields_
 
-  CTRL0_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_CLR &ref() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
+struct CTRL0_CLR : ftl::mmio::Register<
+    0x00000008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL0_CLR_fields_::DIV_SELECT,
+    ftl::mmio::Reserved<1, 7>,
+    CTRL0_CLR_fields_::ENABLE_ALT,
+    ftl::mmio::Reserved<4, 9>,
+    CTRL0_CLR_fields_::HOLD_RING_OFF,
+    CTRL0_CLR_fields_::POWERUP,
+    CTRL0_CLR_fields_::ENABLE,
+    CTRL0_CLR_fields_::BYPASS,
+    CTRL0_CLR_fields_::DITHER_EN,
+    ftl::mmio::Reserved<1, 18>,
+    CTRL0_CLR_fields_::BIAS_TRIM,
+    CTRL0_CLR_fields_::PLL_REG_EN,
+    ftl::mmio::Reserved<2, 23>,
+    CTRL0_CLR_fields_::POST_DIV_SEL,
+    ftl::mmio::Reserved<1, 28>,
+    CTRL0_CLR_fields_::BIAS_SELECT,
+    ftl::mmio::Reserved<2, 30>> {
+  using DIV_SELECT = CTRL0_CLR_fields_::DIV_SELECT;
+  using ENABLE_ALT = CTRL0_CLR_fields_::ENABLE_ALT;
+  using HOLD_RING_OFF = CTRL0_CLR_fields_::HOLD_RING_OFF;
+  using POWERUP = CTRL0_CLR_fields_::POWERUP;
+  using ENABLE = CTRL0_CLR_fields_::ENABLE;
+  using BYPASS = CTRL0_CLR_fields_::BYPASS;
+  using DITHER_EN = CTRL0_CLR_fields_::DITHER_EN;
+  using BIAS_TRIM = CTRL0_CLR_fields_::BIAS_TRIM;
+  using PLL_REG_EN = CTRL0_CLR_fields_::PLL_REG_EN;
+  using POST_DIV_SEL = CTRL0_CLR_fields_::POST_DIV_SEL;
+  using BIAS_SELECT = CTRL0_CLR_fields_::BIAS_SELECT;
 };
+
 
 // Fractional PLL Control Register
-union CTRL0_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-write - DIV_SELECT
-    uint32_t DIV_SELECT : 7;
-    uint32_t _reserved_0 : 1;
-    // read-write - ENABLE_ALT
-    uint32_t ENABLE_ALT : 1;
-    uint32_t _reserved_1 : 4;
-    // read-write - PLL Start up initialization
-    uint32_t HOLD_RING_OFF : 1;
-    // read-write - POWERUP
-    uint32_t POWERUP : 1;
-    // read-write - ENABLE
-    uint32_t ENABLE : 1;
-    // read-write - BYPASS
-    uint32_t BYPASS : 1;
-    // read-write - DITHER_EN
-    uint32_t DITHER_EN : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - BIAS_TRIM
-    uint32_t BIAS_TRIM : 3;
-    // read-write - PLL_REG_EN
-    uint32_t PLL_REG_EN : 1;
-    uint32_t _reserved_3 : 2;
-    // read-write - Post Divide Select
-    uint32_t POST_DIV_SEL : 3;
-    uint32_t _reserved_4 : 1;
-    // read-write - BIAS_SELECT
-    uint32_t BIAS_SELECT : 1;
-    uint32_t _reserved_5 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL0_TOG_fields_ {
+  // DIV_SELECT
+  using DIV_SELECT = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // ENABLE_ALT
+  using ENABLE_ALT = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // PLL Start up initialization
+  using HOLD_RING_OFF = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // POWERUP
+  using POWERUP = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // ENABLE
+  using ENABLE = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // BYPASS
+  using BYPASS = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // DITHER_EN
+  using DITHER_EN = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // BIAS_TRIM
+  using BIAS_TRIM = ftl::mmio::Field<3, 19, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // PLL_REG_EN
+  using PLL_REG_EN = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Post Divide Select
+  using POST_DIV_SEL = ftl::mmio::Field<3, 25, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // BIAS_SELECT
+  using BIAS_SELECT = ftl::mmio::Field<1, 29, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+};  // struct CTRL0_TOG_fields_
 
-  CTRL0_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_TOG &ref() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
+struct CTRL0_TOG : ftl::mmio::Register<
+    0x0000000Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL0_TOG_fields_::DIV_SELECT,
+    ftl::mmio::Reserved<1, 7>,
+    CTRL0_TOG_fields_::ENABLE_ALT,
+    ftl::mmio::Reserved<4, 9>,
+    CTRL0_TOG_fields_::HOLD_RING_OFF,
+    CTRL0_TOG_fields_::POWERUP,
+    CTRL0_TOG_fields_::ENABLE,
+    CTRL0_TOG_fields_::BYPASS,
+    CTRL0_TOG_fields_::DITHER_EN,
+    ftl::mmio::Reserved<1, 18>,
+    CTRL0_TOG_fields_::BIAS_TRIM,
+    CTRL0_TOG_fields_::PLL_REG_EN,
+    ftl::mmio::Reserved<2, 23>,
+    CTRL0_TOG_fields_::POST_DIV_SEL,
+    ftl::mmio::Reserved<1, 28>,
+    CTRL0_TOG_fields_::BIAS_SELECT,
+    ftl::mmio::Reserved<2, 30>> {
+  using DIV_SELECT = CTRL0_TOG_fields_::DIV_SELECT;
+  using ENABLE_ALT = CTRL0_TOG_fields_::ENABLE_ALT;
+  using HOLD_RING_OFF = CTRL0_TOG_fields_::HOLD_RING_OFF;
+  using POWERUP = CTRL0_TOG_fields_::POWERUP;
+  using ENABLE = CTRL0_TOG_fields_::ENABLE;
+  using BYPASS = CTRL0_TOG_fields_::BYPASS;
+  using DITHER_EN = CTRL0_TOG_fields_::DITHER_EN;
+  using BIAS_TRIM = CTRL0_TOG_fields_::BIAS_TRIM;
+  using PLL_REG_EN = CTRL0_TOG_fields_::PLL_REG_EN;
+  using POST_DIV_SEL = CTRL0_TOG_fields_::POST_DIV_SEL;
+  using BIAS_SELECT = CTRL0_TOG_fields_::BIAS_SELECT;
 };
+
 
 // Fractional PLL Spread Spectrum Control Register
-union SPREAD_SPECTRUM {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step
-    uint32_t STEP : 15;
-    // read-write - Enable
-    uint32_t ENABLE : 1;
-    // read-write - Stop
-    uint32_t STOP : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SPREAD_SPECTRUM_fields_ {
+  // Step
+  using STEP = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable
+  using ENABLE = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Stop
+  using STOP = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SPREAD_SPECTRUM_fields_
 
-  SPREAD_SPECTRUM() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SPREAD_SPECTRUM &ref() { return *reinterpret_cast<volatile SPREAD_SPECTRUM*>(0x00000010); }
+struct SPREAD_SPECTRUM : ftl::mmio::Register<
+    0x00000010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SPREAD_SPECTRUM_fields_::STEP,
+    SPREAD_SPECTRUM_fields_::ENABLE,
+    SPREAD_SPECTRUM_fields_::STOP> {
+  using STEP = SPREAD_SPECTRUM_fields_::STEP;
+  using ENABLE = SPREAD_SPECTRUM_fields_::ENABLE;
+  using STOP = SPREAD_SPECTRUM_fields_::STOP;
 };
+
 
 // Fractional PLL Spread Spectrum Control Register
-union SPREAD_SPECTRUM_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step
-    uint32_t STEP : 15;
-    // read-write - Enable
-    uint32_t ENABLE : 1;
-    // read-write - Stop
-    uint32_t STOP : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SPREAD_SPECTRUM_SET_fields_ {
+  // Step
+  using STEP = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Enable
+  using ENABLE = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Stop
+  using STOP = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
+};  // struct SPREAD_SPECTRUM_SET_fields_
 
-  SPREAD_SPECTRUM_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SPREAD_SPECTRUM_SET &ref() { return *reinterpret_cast<volatile SPREAD_SPECTRUM_SET*>(0x00000014); }
+struct SPREAD_SPECTRUM_SET : ftl::mmio::Register<
+    0x00000014u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SPREAD_SPECTRUM_SET_fields_::STEP,
+    SPREAD_SPECTRUM_SET_fields_::ENABLE,
+    SPREAD_SPECTRUM_SET_fields_::STOP> {
+  using STEP = SPREAD_SPECTRUM_SET_fields_::STEP;
+  using ENABLE = SPREAD_SPECTRUM_SET_fields_::ENABLE;
+  using STOP = SPREAD_SPECTRUM_SET_fields_::STOP;
 };
+
 
 // Fractional PLL Spread Spectrum Control Register
-union SPREAD_SPECTRUM_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step
-    uint32_t STEP : 15;
-    // read-write - Enable
-    uint32_t ENABLE : 1;
-    // read-write - Stop
-    uint32_t STOP : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SPREAD_SPECTRUM_CLR_fields_ {
+  // Step
+  using STEP = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Enable
+  using ENABLE = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Stop
+  using STOP = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct SPREAD_SPECTRUM_CLR_fields_
 
-  SPREAD_SPECTRUM_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SPREAD_SPECTRUM_CLR &ref() { return *reinterpret_cast<volatile SPREAD_SPECTRUM_CLR*>(0x00000018); }
+struct SPREAD_SPECTRUM_CLR : ftl::mmio::Register<
+    0x00000018u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SPREAD_SPECTRUM_CLR_fields_::STEP,
+    SPREAD_SPECTRUM_CLR_fields_::ENABLE,
+    SPREAD_SPECTRUM_CLR_fields_::STOP> {
+  using STEP = SPREAD_SPECTRUM_CLR_fields_::STEP;
+  using ENABLE = SPREAD_SPECTRUM_CLR_fields_::ENABLE;
+  using STOP = SPREAD_SPECTRUM_CLR_fields_::STOP;
 };
+
 
 // Fractional PLL Spread Spectrum Control Register
-union SPREAD_SPECTRUM_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Step
-    uint32_t STEP : 15;
-    // read-write - Enable
-    uint32_t ENABLE : 1;
-    // read-write - Stop
-    uint32_t STOP : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SPREAD_SPECTRUM_TOG_fields_ {
+  // Step
+  using STEP = ftl::mmio::Field<15, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Enable
+  using ENABLE = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Stop
+  using STOP = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+};  // struct SPREAD_SPECTRUM_TOG_fields_
 
-  SPREAD_SPECTRUM_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SPREAD_SPECTRUM_TOG &ref() { return *reinterpret_cast<volatile SPREAD_SPECTRUM_TOG*>(0x0000001C); }
+struct SPREAD_SPECTRUM_TOG : ftl::mmio::Register<
+    0x0000001Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SPREAD_SPECTRUM_TOG_fields_::STEP,
+    SPREAD_SPECTRUM_TOG_fields_::ENABLE,
+    SPREAD_SPECTRUM_TOG_fields_::STOP> {
+  using STEP = SPREAD_SPECTRUM_TOG_fields_::STEP;
+  using ENABLE = SPREAD_SPECTRUM_TOG_fields_::ENABLE;
+  using STOP = SPREAD_SPECTRUM_TOG_fields_::STOP;
 };
+
 
 // Fractional PLL Numerator Control Register
-union NUMERATOR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Numerator
-    uint32_t NUM : 30;
-    uint32_t _reserved_0 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NUMERATOR_fields_ {
+  // Numerator
+  using NUM = ftl::mmio::Field<30, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NUMERATOR_fields_
 
-  NUMERATOR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NUMERATOR &ref() { return *reinterpret_cast<volatile NUMERATOR*>(0x00000020); }
+struct NUMERATOR : ftl::mmio::Register<
+    0x00000020u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NUMERATOR_fields_::NUM,
+    ftl::mmio::Reserved<2, 30>> {
+  using NUM = NUMERATOR_fields_::NUM;
 };
+
 
 // Fractional PLL Numerator Control Register
-union NUMERATOR_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Numerator
-    uint32_t NUM : 30;
-    uint32_t _reserved_0 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NUMERATOR_SET_fields_ {
+  // Numerator
+  using NUM = ftl::mmio::Field<30, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
+};  // struct NUMERATOR_SET_fields_
 
-  NUMERATOR_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NUMERATOR_SET &ref() { return *reinterpret_cast<volatile NUMERATOR_SET*>(0x00000024); }
+struct NUMERATOR_SET : ftl::mmio::Register<
+    0x00000024u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NUMERATOR_SET_fields_::NUM,
+    ftl::mmio::Reserved<2, 30>> {
+  using NUM = NUMERATOR_SET_fields_::NUM;
 };
+
 
 // Fractional PLL Numerator Control Register
-union NUMERATOR_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Numerator
-    uint32_t NUM : 30;
-    uint32_t _reserved_0 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NUMERATOR_CLR_fields_ {
+  // Numerator
+  using NUM = ftl::mmio::Field<30, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NUMERATOR_CLR_fields_
 
-  NUMERATOR_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NUMERATOR_CLR &ref() { return *reinterpret_cast<volatile NUMERATOR_CLR*>(0x00000028); }
+struct NUMERATOR_CLR : ftl::mmio::Register<
+    0x00000028u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NUMERATOR_CLR_fields_::NUM,
+    ftl::mmio::Reserved<2, 30>> {
+  using NUM = NUMERATOR_CLR_fields_::NUM;
 };
+
 
 // Fractional PLL Numerator Control Register
-union NUMERATOR_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Numerator
-    uint32_t NUM : 30;
-    uint32_t _reserved_0 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NUMERATOR_TOG_fields_ {
+  // Numerator
+  using NUM = ftl::mmio::Field<30, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+};  // struct NUMERATOR_TOG_fields_
 
-  NUMERATOR_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NUMERATOR_TOG &ref() { return *reinterpret_cast<volatile NUMERATOR_TOG*>(0x0000002C); }
+struct NUMERATOR_TOG : ftl::mmio::Register<
+    0x0000002Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NUMERATOR_TOG_fields_::NUM,
+    ftl::mmio::Reserved<2, 30>> {
+  using NUM = NUMERATOR_TOG_fields_::NUM;
 };
+
 
 // Fractional PLL Denominator Control Register
-union DENOMINATOR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Denominator
-    uint32_t DENOM : 30;
-    uint32_t _reserved_0 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DENOMINATOR_fields_ {
+  // Denominator
+  using DENOM = ftl::mmio::Field<30, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DENOMINATOR_fields_
 
-  DENOMINATOR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DENOMINATOR &ref() { return *reinterpret_cast<volatile DENOMINATOR*>(0x00000030); }
+struct DENOMINATOR : ftl::mmio::Register<
+    0x00000030u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DENOMINATOR_fields_::DENOM,
+    ftl::mmio::Reserved<2, 30>> {
+  using DENOM = DENOMINATOR_fields_::DENOM;
 };
+
 
 // Fractional PLL Denominator Control Register
-union DENOMINATOR_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Denominator
-    uint32_t DENOM : 30;
-    uint32_t _reserved_0 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DENOMINATOR_SET_fields_ {
+  // Denominator
+  using DENOM = ftl::mmio::Field<30, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
+};  // struct DENOMINATOR_SET_fields_
 
-  DENOMINATOR_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DENOMINATOR_SET &ref() { return *reinterpret_cast<volatile DENOMINATOR_SET*>(0x00000034); }
+struct DENOMINATOR_SET : ftl::mmio::Register<
+    0x00000034u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DENOMINATOR_SET_fields_::DENOM,
+    ftl::mmio::Reserved<2, 30>> {
+  using DENOM = DENOMINATOR_SET_fields_::DENOM;
 };
+
 
 // Fractional PLL Denominator Control Register
-union DENOMINATOR_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Denominator
-    uint32_t DENOM : 30;
-    uint32_t _reserved_0 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DENOMINATOR_CLR_fields_ {
+  // Denominator
+  using DENOM = ftl::mmio::Field<30, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct DENOMINATOR_CLR_fields_
 
-  DENOMINATOR_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DENOMINATOR_CLR &ref() { return *reinterpret_cast<volatile DENOMINATOR_CLR*>(0x00000038); }
+struct DENOMINATOR_CLR : ftl::mmio::Register<
+    0x00000038u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DENOMINATOR_CLR_fields_::DENOM,
+    ftl::mmio::Reserved<2, 30>> {
+  using DENOM = DENOMINATOR_CLR_fields_::DENOM;
 };
+
 
 // Fractional PLL Denominator Control Register
-union DENOMINATOR_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Denominator
-    uint32_t DENOM : 30;
-    uint32_t _reserved_0 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DENOMINATOR_TOG_fields_ {
+  // Denominator
+  using DENOM = ftl::mmio::Field<30, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+};  // struct DENOMINATOR_TOG_fields_
 
-  DENOMINATOR_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DENOMINATOR_TOG &ref() { return *reinterpret_cast<volatile DENOMINATOR_TOG*>(0x0000003C); }
+struct DENOMINATOR_TOG : ftl::mmio::Register<
+    0x0000003Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DENOMINATOR_TOG_fields_::DENOM,
+    ftl::mmio::Reserved<2, 30>> {
+  using DENOM = DENOMINATOR_TOG_fields_::DENOM;
 };
 
-
-} // namespace nVIDEO_PLL
+}  // namespace regs::video_pll
