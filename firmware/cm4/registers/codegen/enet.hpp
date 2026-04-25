@@ -1,399 +1,472 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // ENET
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nENET {
+namespace regs::enet {
 
 
 // Interrupt Event Register
-union EIR {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 15;
-    // read-write - Timestamp Timer
-    uint32_t TS_TIMER : 1;
-    // read-write - Transmit Timestamp Available
-    uint32_t TS_AVAIL : 1;
-    // read-write - Node Wakeup Request Indication
-    uint32_t WAKEUP : 1;
-    // read-write - Payload Receive Error
-    uint32_t PLR : 1;
-    // read-write - Transmit FIFO Underrun
-    uint32_t UN : 1;
-    // read-write - Collision Retry Limit
-    uint32_t RL : 1;
-    // read-write - Late Collision
-    uint32_t LC : 1;
-    // read-write - Ethernet Bus Error
-    uint32_t EBERR : 1;
-    // read-write - MII Interrupt.
-    uint32_t MII : 1;
-    // read-write - Receive Buffer Interrupt
-    uint32_t RXB : 1;
-    // read-write - Receive Frame Interrupt
-    uint32_t RXF : 1;
-    // read-write - Transmit Buffer Interrupt
-    uint32_t TXB : 1;
-    // read-write - Transmit Frame Interrupt
-    uint32_t TXF : 1;
-    // read-write - Graceful Stop Complete
-    uint32_t GRA : 1;
-    // read-write - Babbling Transmit Error
-    uint32_t BABT : 1;
-    // read-write - Babbling Receive Error
-    uint32_t BABR : 1;
-    uint32_t _reserved_1 : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct EIR_fields_ {
+  // Timestamp Timer
+  using TS_TIMER = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Transmit Timestamp Available
+  using TS_AVAIL = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Node Wakeup Request Indication
+  using WAKEUP = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Payload Receive Error
+  using PLR = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Transmit FIFO Underrun
+  using UN = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Collision Retry Limit
+  using RL = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Late Collision
+  using LC = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Ethernet Bus Error
+  using EBERR = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // MII Interrupt.
+  using MII = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Receive Buffer Interrupt
+  using RXB = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Receive Frame Interrupt
+  using RXF = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Transmit Buffer Interrupt
+  using TXB = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Transmit Frame Interrupt
+  using TXF = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Graceful Stop Complete
+  using GRA = ftl::mmio::Field<1, 28, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Babbling Transmit Error
+  using BABT = ftl::mmio::Field<1, 29, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Babbling Receive Error
+  using BABR = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct EIR_fields_
 
-  EIR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile EIR &ref() { return *reinterpret_cast<volatile EIR*>(0x40424004); }
+struct EIR : ftl::mmio::Register<
+    0x40424004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<15, 0>,
+    EIR_fields_::TS_TIMER,
+    EIR_fields_::TS_AVAIL,
+    EIR_fields_::WAKEUP,
+    EIR_fields_::PLR,
+    EIR_fields_::UN,
+    EIR_fields_::RL,
+    EIR_fields_::LC,
+    EIR_fields_::EBERR,
+    EIR_fields_::MII,
+    EIR_fields_::RXB,
+    EIR_fields_::RXF,
+    EIR_fields_::TXB,
+    EIR_fields_::TXF,
+    EIR_fields_::GRA,
+    EIR_fields_::BABT,
+    EIR_fields_::BABR,
+    ftl::mmio::Reserved<1, 31>> {
+  using TS_TIMER = EIR_fields_::TS_TIMER;
+  using TS_AVAIL = EIR_fields_::TS_AVAIL;
+  using WAKEUP = EIR_fields_::WAKEUP;
+  using PLR = EIR_fields_::PLR;
+  using UN = EIR_fields_::UN;
+  using RL = EIR_fields_::RL;
+  using LC = EIR_fields_::LC;
+  using EBERR = EIR_fields_::EBERR;
+  using MII = EIR_fields_::MII;
+  using RXB = EIR_fields_::RXB;
+  using RXF = EIR_fields_::RXF;
+  using TXB = EIR_fields_::TXB;
+  using TXF = EIR_fields_::TXF;
+  using GRA = EIR_fields_::GRA;
+  using BABT = EIR_fields_::BABT;
+  using BABR = EIR_fields_::BABR;
 };
 
+
 // Interrupt Mask Register
-union EIMR {
-  
-  // TS_TIMER Interrupt Mask
-  enum class eTS_TIMER : uint32_t {
+struct EIMR_fields_ {
+
+  enum class eTS_TIMER : std::uint32_t {
     // The corresponding interrupt source is masked.
     eZERO = 0,
     // The corresponding interrupt source is not masked.
     eONE = 1,
   };
-  
-  // TS_AVAIL Interrupt Mask
-  enum class eTS_AVAIL : uint32_t {
+
+  enum class eTS_AVAIL : std::uint32_t {
     // The corresponding interrupt source is masked.
     eZERO = 0,
     // The corresponding interrupt source is not masked.
     eONE = 1,
   };
-  
-  // WAKEUP Interrupt Mask
-  enum class eWAKEUP : uint32_t {
+
+  enum class eWAKEUP : std::uint32_t {
     // The corresponding interrupt source is masked.
     eZERO = 0,
     // The corresponding interrupt source is not masked.
     eONE = 1,
   };
-  
-  // PLR Interrupt Mask
-  enum class ePLR : uint32_t {
+
+  enum class ePLR : std::uint32_t {
     // The corresponding interrupt source is masked.
     eZERO = 0,
     // The corresponding interrupt source is not masked.
     eONE = 1,
   };
-  
-  // UN Interrupt Mask
-  enum class eUN : uint32_t {
+
+  enum class eUN : std::uint32_t {
     // The corresponding interrupt source is masked.
     eZERO = 0,
     // The corresponding interrupt source is not masked.
     eONE = 1,
   };
-  
-  // RL Interrupt Mask
-  enum class eRL : uint32_t {
+
+  enum class eRL : std::uint32_t {
     // The corresponding interrupt source is masked.
     eZERO = 0,
     // The corresponding interrupt source is not masked.
     eONE = 1,
   };
-  
-  // LC Interrupt Mask
-  enum class eLC : uint32_t {
+
+  enum class eLC : std::uint32_t {
     // The corresponding interrupt source is masked.
     eZERO = 0,
     // The corresponding interrupt source is not masked.
     eONE = 1,
   };
-  
-  // EBERR Interrupt Mask
-  enum class eEBERR : uint32_t {
+
+  enum class eEBERR : std::uint32_t {
     // The corresponding interrupt source is masked.
     eZERO = 0,
     // The corresponding interrupt source is not masked.
     eONE = 1,
   };
-  
-  // MII Interrupt Mask
-  enum class eMII : uint32_t {
+
+  enum class eMII : std::uint32_t {
     // The corresponding interrupt source is masked.
     eZERO = 0,
     // The corresponding interrupt source is not masked.
     eONE = 1,
   };
-  
-  // RXB Interrupt Mask
-  enum class eRXB : uint32_t {
+
+  enum class eRXB : std::uint32_t {
     // The corresponding interrupt source is masked.
     eZERO = 0,
     // The corresponding interrupt source is not masked.
     eONE = 1,
   };
-  
-  // RXF Interrupt Mask
-  enum class eRXF : uint32_t {
+
+  enum class eRXF : std::uint32_t {
     // The corresponding interrupt source is masked.
     eZERO = 0,
     // The corresponding interrupt source is not masked.
     eONE = 1,
   };
-  
-  // TXB Interrupt Mask
-  enum class eTXB : uint32_t {
+
+  enum class eTXB : std::uint32_t {
     // The corresponding interrupt source is masked.
     eMASKED = 0,
     // The corresponding interrupt source is not masked.
     eUNMASKED = 1,
   };
-  
-  // TXF Interrupt Mask
-  enum class eTXF : uint32_t {
+
+  enum class eTXF : std::uint32_t {
     // The corresponding interrupt source is masked.
     eMASKED = 0,
     // The corresponding interrupt source is not masked.
     eUNMASKED = 1,
   };
-  
-  // GRA Interrupt Mask
-  enum class eGRA : uint32_t {
+
+  enum class eGRA : std::uint32_t {
     // The corresponding interrupt source is masked.
     eMASKED = 0,
     // The corresponding interrupt source is not masked.
     eUMASKED = 1,
   };
-  
-  // BABT Interrupt Mask
-  enum class eBABT : uint32_t {
-    // The corresponding interrupt source is masked.
-    eZERO = 0,
-    // The corresponding interrupt source is not masked.
-    eONE = 1,
-  };
-  
-  // BABR Interrupt Mask
-  enum class eBABR : uint32_t {
-    // The corresponding interrupt source is masked.
-    eZERO = 0,
-    // The corresponding interrupt source is not masked.
-    eONE = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 15;
-    // read-write - TS_TIMER Interrupt Mask
-    eTS_TIMER TS_TIMER : 1;
-    // read-write - TS_AVAIL Interrupt Mask
-    eTS_AVAIL TS_AVAIL : 1;
-    // read-write - WAKEUP Interrupt Mask
-    eWAKEUP WAKEUP : 1;
-    // read-write - PLR Interrupt Mask
-    ePLR PLR : 1;
-    // read-write - UN Interrupt Mask
-    eUN UN : 1;
-    // read-write - RL Interrupt Mask
-    eRL RL : 1;
-    // read-write - LC Interrupt Mask
-    eLC LC : 1;
-    // read-write - EBERR Interrupt Mask
-    eEBERR EBERR : 1;
-    // read-write - MII Interrupt Mask
-    eMII MII : 1;
-    // read-write - RXB Interrupt Mask
-    eRXB RXB : 1;
-    // read-write - RXF Interrupt Mask
-    eRXF RXF : 1;
-    // read-write - TXB Interrupt Mask
-    eTXB TXB : 1;
-    // read-write - TXF Interrupt Mask
-    eTXF TXF : 1;
-    // read-write - GRA Interrupt Mask
-    eGRA GRA : 1;
-    // read-write - BABT Interrupt Mask
-    eBABT BABT : 1;
-    // read-write - BABR Interrupt Mask
-    eBABR BABR : 1;
-    uint32_t _reserved_1 : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
 
-  EIMR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile EIMR &ref() { return *reinterpret_cast<volatile EIMR*>(0x40424008); }
+  enum class eBABT : std::uint32_t {
+    // The corresponding interrupt source is masked.
+    eZERO = 0,
+    // The corresponding interrupt source is not masked.
+    eONE = 1,
+  };
+
+  enum class eBABR : std::uint32_t {
+    // The corresponding interrupt source is masked.
+    eZERO = 0,
+    // The corresponding interrupt source is not masked.
+    eONE = 1,
+  };
+  // TS_TIMER Interrupt Mask
+  using TS_TIMER = ftl::mmio::Field<1, 15, eTS_TIMER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TS_AVAIL Interrupt Mask
+  using TS_AVAIL = ftl::mmio::Field<1, 16, eTS_AVAIL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // WAKEUP Interrupt Mask
+  using WAKEUP = ftl::mmio::Field<1, 17, eWAKEUP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // PLR Interrupt Mask
+  using PLR = ftl::mmio::Field<1, 18, ePLR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // UN Interrupt Mask
+  using UN = ftl::mmio::Field<1, 19, eUN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RL Interrupt Mask
+  using RL = ftl::mmio::Field<1, 20, eRL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LC Interrupt Mask
+  using LC = ftl::mmio::Field<1, 21, eLC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // EBERR Interrupt Mask
+  using EBERR = ftl::mmio::Field<1, 22, eEBERR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MII Interrupt Mask
+  using MII = ftl::mmio::Field<1, 23, eMII, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RXB Interrupt Mask
+  using RXB = ftl::mmio::Field<1, 24, eRXB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RXF Interrupt Mask
+  using RXF = ftl::mmio::Field<1, 25, eRXF, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TXB Interrupt Mask
+  using TXB = ftl::mmio::Field<1, 26, eTXB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TXF Interrupt Mask
+  using TXF = ftl::mmio::Field<1, 27, eTXF, ftl::mmio::RW, ftl::mmio::Normal>;
+  // GRA Interrupt Mask
+  using GRA = ftl::mmio::Field<1, 28, eGRA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BABT Interrupt Mask
+  using BABT = ftl::mmio::Field<1, 29, eBABT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BABR Interrupt Mask
+  using BABR = ftl::mmio::Field<1, 30, eBABR, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct EIMR_fields_
+
+struct EIMR : ftl::mmio::Register<
+    0x40424008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<15, 0>,
+    EIMR_fields_::TS_TIMER,
+    EIMR_fields_::TS_AVAIL,
+    EIMR_fields_::WAKEUP,
+    EIMR_fields_::PLR,
+    EIMR_fields_::UN,
+    EIMR_fields_::RL,
+    EIMR_fields_::LC,
+    EIMR_fields_::EBERR,
+    EIMR_fields_::MII,
+    EIMR_fields_::RXB,
+    EIMR_fields_::RXF,
+    EIMR_fields_::TXB,
+    EIMR_fields_::TXF,
+    EIMR_fields_::GRA,
+    EIMR_fields_::BABT,
+    EIMR_fields_::BABR,
+    ftl::mmio::Reserved<1, 31>> {
+  using eTS_TIMER = EIMR_fields_::eTS_TIMER;
+  using eTS_AVAIL = EIMR_fields_::eTS_AVAIL;
+  using eWAKEUP = EIMR_fields_::eWAKEUP;
+  using ePLR = EIMR_fields_::ePLR;
+  using eUN = EIMR_fields_::eUN;
+  using eRL = EIMR_fields_::eRL;
+  using eLC = EIMR_fields_::eLC;
+  using eEBERR = EIMR_fields_::eEBERR;
+  using eMII = EIMR_fields_::eMII;
+  using eRXB = EIMR_fields_::eRXB;
+  using eRXF = EIMR_fields_::eRXF;
+  using eTXB = EIMR_fields_::eTXB;
+  using eTXF = EIMR_fields_::eTXF;
+  using eGRA = EIMR_fields_::eGRA;
+  using eBABT = EIMR_fields_::eBABT;
+  using eBABR = EIMR_fields_::eBABR;
+  using TS_TIMER = EIMR_fields_::TS_TIMER;
+  using TS_AVAIL = EIMR_fields_::TS_AVAIL;
+  using WAKEUP = EIMR_fields_::WAKEUP;
+  using PLR = EIMR_fields_::PLR;
+  using UN = EIMR_fields_::UN;
+  using RL = EIMR_fields_::RL;
+  using LC = EIMR_fields_::LC;
+  using EBERR = EIMR_fields_::EBERR;
+  using MII = EIMR_fields_::MII;
+  using RXB = EIMR_fields_::RXB;
+  using RXF = EIMR_fields_::RXF;
+  using TXB = EIMR_fields_::TXB;
+  using TXF = EIMR_fields_::TXF;
+  using GRA = EIMR_fields_::GRA;
+  using BABT = EIMR_fields_::BABT;
+  using BABR = EIMR_fields_::BABR;
 };
+
 
 // Receive Descriptor Active Register - Ring 0
-union RDAR {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 24;
-    // read-write - Receive Descriptor Active
-    uint32_t RDAR : 1;
-    uint32_t _reserved_1 : 7;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RDAR_fields_ {
+  // Receive Descriptor Active
+  using RDAR = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RDAR_fields_
 
-  RDAR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDAR &ref() { return *reinterpret_cast<volatile RDAR*>(0x40424010); }
+struct RDAR : ftl::mmio::Register<
+    0x40424010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<24, 0>,
+    RDAR_fields_::RDAR,
+    ftl::mmio::Reserved<7, 25>> {
+  using value_ = RDAR_fields_::RDAR;
 };
+
 
 // Transmit Descriptor Active Register - Ring 0
-union TDAR {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 24;
-    // read-write - Transmit Descriptor Active
-    uint32_t TDAR : 1;
-    uint32_t _reserved_1 : 7;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TDAR_fields_ {
+  // Transmit Descriptor Active
+  using TDAR = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TDAR_fields_
 
-  TDAR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDAR &ref() { return *reinterpret_cast<volatile TDAR*>(0x40424014); }
+struct TDAR : ftl::mmio::Register<
+    0x40424014u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<24, 0>,
+    TDAR_fields_::TDAR,
+    ftl::mmio::Reserved<7, 25>> {
+  using value_ = TDAR_fields_::TDAR;
 };
 
+
 // Ethernet Control Register
-union ECR {
-  
-  // Ethernet Enable
-  enum class eETHEREN : uint32_t {
+struct ECR_fields_ {
+
+  enum class eETHEREN : std::uint32_t {
     // Reception immediately stops and transmission stops after a bad CRC is appended to any currently transmitted frame.
     eZERO = 0,
     // MAC is enabled, and reception and transmission are possible.
     eONE = 1,
   };
-  
-  // Magic Packet Detection Enable
-  enum class eMAGICEN : uint32_t {
+
+  enum class eMAGICEN : std::uint32_t {
     // Magic detection logic disabled.
     eZERO = 0,
     // The MAC core detects magic packets and asserts EIR[WAKEUP] when a frame is detected.
     eONE = 1,
   };
-  
-  // Sleep Mode Enable
-  enum class eSLEEP : uint32_t {
+
+  enum class eSLEEP : std::uint32_t {
     // Normal operating mode.
     eZERO = 0,
     // Sleep mode.
     eONE = 1,
   };
-  
-  // EN1588 Enable
-  enum class eEN1588 : uint32_t {
+
+  enum class eEN1588 : std::uint32_t {
     // Legacy FEC buffer descriptors and functions enabled.
     eZERO = 0,
     // Enhanced frame time-stamping functions enabled. Has no effect within the MAC besides controlling the DMA control bit ena_1588.
     eONE = 1,
   };
-  
-  // Debug Enable
-  enum class eDBGEN : uint32_t {
+
+  enum class eDBGEN : std::uint32_t {
     // MAC continues operation in debug mode.
     eZERO = 0,
     // MAC enters hardware freeze mode when the processor is in debug mode.
     eONE = 1,
   };
-  
-  // Descriptor Byte Swapping Enable
-  enum class eDBSWP : uint32_t {
+
+  enum class eDBSWP : std::uint32_t {
     // The buffer descriptor bytes are not swapped to support big-endian devices.
     eZERO = 0,
     // The buffer descriptor bytes are swapped to support little-endian devices.
     eONE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Ethernet MAC Reset
-    uint32_t RESET : 1;
-    // read-write - Ethernet Enable
-    eETHEREN ETHEREN : 1;
-    // read-write - Magic Packet Detection Enable
-    eMAGICEN MAGICEN : 1;
-    // read-write - Sleep Mode Enable
-    eSLEEP SLEEP : 1;
-    // read-write - EN1588 Enable
-    eEN1588 EN1588 : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Debug Enable
-    eDBGEN DBGEN : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - Descriptor Byte Swapping Enable
-    eDBSWP DBSWP : 1;
-    uint32_t _reserved_2 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Ethernet MAC Reset
+  using RESET = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Ethernet Enable
+  using ETHEREN = ftl::mmio::Field<1, 1, eETHEREN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Magic Packet Detection Enable
+  using MAGICEN = ftl::mmio::Field<1, 2, eMAGICEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Sleep Mode Enable
+  using SLEEP = ftl::mmio::Field<1, 3, eSLEEP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // EN1588 Enable
+  using EN1588 = ftl::mmio::Field<1, 4, eEN1588, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Debug Enable
+  using DBGEN = ftl::mmio::Field<1, 6, eDBGEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Descriptor Byte Swapping Enable
+  using DBSWP = ftl::mmio::Field<1, 8, eDBSWP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ECR_fields_
 
-  ECR() = delete;
-  inline void Reset() volatile { this->value = 0x70000000; }
-  static inline volatile ECR &ref() { return *reinterpret_cast<volatile ECR*>(0x40424024); }
+struct ECR : ftl::mmio::Register<
+    0x40424024u,
+    std::uint32_t,
+    0x70000000u,
+    ftl::mmio::RW,
+    ECR_fields_::RESET,
+    ECR_fields_::ETHEREN,
+    ECR_fields_::MAGICEN,
+    ECR_fields_::SLEEP,
+    ECR_fields_::EN1588,
+    ftl::mmio::Reserved<1, 5>,
+    ECR_fields_::DBGEN,
+    ftl::mmio::Reserved<1, 7>,
+    ECR_fields_::DBSWP,
+    ftl::mmio::Reserved<23, 9>> {
+  using eETHEREN = ECR_fields_::eETHEREN;
+  using eMAGICEN = ECR_fields_::eMAGICEN;
+  using eSLEEP = ECR_fields_::eSLEEP;
+  using eEN1588 = ECR_fields_::eEN1588;
+  using eDBGEN = ECR_fields_::eDBGEN;
+  using eDBSWP = ECR_fields_::eDBSWP;
+  using RESET = ECR_fields_::RESET;
+  using ETHEREN = ECR_fields_::ETHEREN;
+  using MAGICEN = ECR_fields_::MAGICEN;
+  using SLEEP = ECR_fields_::SLEEP;
+  using EN1588 = ECR_fields_::EN1588;
+  using DBGEN = ECR_fields_::DBGEN;
+  using DBSWP = ECR_fields_::DBSWP;
 };
+
 
 // MII Management Frame Register
-union MMFR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Management Frame Data
-    uint32_t DATA : 16;
-    // read-write - Turn Around
-    uint32_t TA : 2;
-    // read-write - Register Address
-    uint32_t RA : 5;
-    // read-write - PHY Address
-    uint32_t PA : 5;
-    // read-write - Operation Code
-    uint32_t OP : 2;
-    // read-write - Start Of Frame Delimiter
-    uint32_t ST : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct MMFR_fields_ {
+  // Management Frame Data
+  using DATA = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Turn Around
+  using TA = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Register Address
+  using RA = ftl::mmio::Field<5, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // PHY Address
+  using PA = ftl::mmio::Field<5, 23, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Operation Code
+  using OP = ftl::mmio::Field<2, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Start Of Frame Delimiter
+  using ST = ftl::mmio::Field<2, 30, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct MMFR_fields_
 
-  MMFR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MMFR &ref() { return *reinterpret_cast<volatile MMFR*>(0x40424040); }
+struct MMFR : ftl::mmio::Register<
+    0x40424040u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    MMFR_fields_::DATA,
+    MMFR_fields_::TA,
+    MMFR_fields_::RA,
+    MMFR_fields_::PA,
+    MMFR_fields_::OP,
+    MMFR_fields_::ST> {
+  using DATA = MMFR_fields_::DATA;
+  using TA = MMFR_fields_::TA;
+  using RA = MMFR_fields_::RA;
+  using PA = MMFR_fields_::PA;
+  using OP = MMFR_fields_::OP;
+  using ST = MMFR_fields_::ST;
 };
 
+
 // MII Speed Control Register
-union MSCR {
-  
-  // Disable Preamble
-  enum class eDIS_PRE : uint32_t {
+struct MSCR_fields_ {
+
+  enum class eDIS_PRE : std::uint32_t {
     // Preamble enabled.
     eZERO = 0,
     // Preamble (32 ones) is not prepended to the MII management frame.
     eONE = 1,
   };
-  
-  // Hold time On MDIO Output
-  enum class eHOLDTIME : uint32_t {
+
+  enum class eHOLDTIME : std::uint32_t {
     // 1 internal module clock cycle
     eVAL_1 = 0,
     // 2 internal module clock cycles
@@ -403,677 +476,573 @@ union MSCR {
     // 8 internal module clock cycles
     eVAL8 = 7,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 1;
-    // read-write - MII Speed
-    uint32_t MII_SPEED : 6;
-    // read-write - Disable Preamble
-    eDIS_PRE DIS_PRE : 1;
-    // read-write - Hold time On MDIO Output
-    eHOLDTIME HOLDTIME : 3;
-    uint32_t _reserved_1 : 21;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MII Speed
+  using MII_SPEED = ftl::mmio::Field<6, 1, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable Preamble
+  using DIS_PRE = ftl::mmio::Field<1, 7, eDIS_PRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Hold time On MDIO Output
+  using HOLDTIME = ftl::mmio::Field<3, 8, eHOLDTIME, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct MSCR_fields_
 
-  MSCR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MSCR &ref() { return *reinterpret_cast<volatile MSCR*>(0x40424044); }
+struct MSCR : ftl::mmio::Register<
+    0x40424044u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<1, 0>,
+    MSCR_fields_::MII_SPEED,
+    MSCR_fields_::DIS_PRE,
+    MSCR_fields_::HOLDTIME,
+    ftl::mmio::Reserved<21, 11>> {
+  using eDIS_PRE = MSCR_fields_::eDIS_PRE;
+  using eHOLDTIME = MSCR_fields_::eHOLDTIME;
+  using MII_SPEED = MSCR_fields_::MII_SPEED;
+  using DIS_PRE = MSCR_fields_::DIS_PRE;
+  using HOLDTIME = MSCR_fields_::HOLDTIME;
 };
 
+
 // MIB Control Register
-union MIBC {
-  
-  // MIB Clear
-  enum class eMIB_CLEAR : uint32_t {
+struct MIBC_fields_ {
+
+  enum class eMIB_CLEAR : std::uint32_t {
     // See note above.
     eZERO = 0,
     // All statistics counters are reset to 0.
     eONE = 1,
   };
-  
-  // MIB Idle
-  enum class eMIB_IDLE : uint32_t {
+
+  enum class eMIB_IDLE : std::uint32_t {
     // The MIB block is updating MIB counters.
     eZERO = 0,
     // The MIB block is not currently updating any MIB counters.
     eONE = 1,
   };
-  
-  // Disable MIB Logic
-  enum class eMIB_DIS : uint32_t {
+
+  enum class eMIB_DIS : std::uint32_t {
     // MIB logic is enabled.
     eZERO = 0,
     // MIB logic is disabled. The MIB logic halts and does not update any MIB counters.
     eONE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 29;
-    // read-write - MIB Clear
-    eMIB_CLEAR MIB_CLEAR : 1;
-    // read-only - MIB Idle
-    eMIB_IDLE MIB_IDLE : 1;
-    // read-write - Disable MIB Logic
-    eMIB_DIS MIB_DIS : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MIB Clear
+  using MIB_CLEAR = ftl::mmio::Field<1, 29, eMIB_CLEAR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MIB Idle
+  using MIB_IDLE = ftl::mmio::Field<1, 30, eMIB_IDLE, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Disable MIB Logic
+  using MIB_DIS = ftl::mmio::Field<1, 31, eMIB_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct MIBC_fields_
 
-  MIBC() = delete;
-  inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile MIBC &ref() { return *reinterpret_cast<volatile MIBC*>(0x40424064); }
+struct MIBC : ftl::mmio::Register<
+    0x40424064u,
+    std::uint32_t,
+    0xC0000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<29, 0>,
+    MIBC_fields_::MIB_CLEAR,
+    MIBC_fields_::MIB_IDLE,
+    MIBC_fields_::MIB_DIS> {
+  using eMIB_CLEAR = MIBC_fields_::eMIB_CLEAR;
+  using eMIB_IDLE = MIBC_fields_::eMIB_IDLE;
+  using eMIB_DIS = MIBC_fields_::eMIB_DIS;
+  using MIB_CLEAR = MIBC_fields_::MIB_CLEAR;
+  using MIB_IDLE = MIBC_fields_::MIB_IDLE;
+  using MIB_DIS = MIBC_fields_::MIB_DIS;
 };
 
+
 // Receive Control Register
-union RCR {
-  
-  // Internal Loopback
-  enum class eLOOP : uint32_t {
+struct RCR_fields_ {
+
+  enum class eLOOP : std::uint32_t {
     // Loopback disabled.
     eZERO = 0,
     // Transmitted frames are looped back internal to the device and transmit MII output signals are not asserted. DRT must be cleared.
     eONE = 1,
   };
-  
-  // Disable Receive On Transmit
-  enum class eDRT : uint32_t {
+
+  enum class eDRT : std::uint32_t {
     // Receive path operates independently of transmit (i.e., full-duplex mode). Can also be used to monitor transmit activity in half-duplex mode.
     eZERO = 0,
     // Disable reception of frames while transmitting. (Normally used for half-duplex mode.)
     eONE = 1,
   };
-  
-  // Media Independent Interface Mode
-  enum class eMII_MODE : uint32_t {
+
+  enum class eMII_MODE : std::uint32_t {
     // MII or RMII mode, as indicated by the RMII_MODE field.
     eONE = 1,
   };
-  
-  // Promiscuous Mode
-  enum class ePROM : uint32_t {
+
+  enum class ePROM : std::uint32_t {
     // Disabled.
     eZERO = 0,
     // Enabled.
     eONE = 1,
   };
-  
-  // Broadcast Frame Reject
-  enum class eBC_REJ : uint32_t {
+
+  enum class eBC_REJ : std::uint32_t {
     // Will not reject frames as described above
     eZERO = 0,
     // Will reject frames as described above
     eONE = 1,
   };
-  
-  // Flow Control Enable
-  enum class eFCE : uint32_t {
+
+  enum class eFCE : std::uint32_t {
     // Disable flow control
     eZERO = 0,
     // Enable flow control
     eONE = 1,
   };
-  
-  // RMII Mode Enable
-  enum class eRMII_MODE : uint32_t {
+
+  enum class eRMII_MODE : std::uint32_t {
     // MAC configured for MII mode.
     eZERO = 0,
     // MAC configured for RMII operation.
     eONE = 1,
   };
-  
-  // Enables 10-Mbit/s mode of the RMII .
-  enum class eRMII_10T : uint32_t {
+
+  enum class eRMII_10T : std::uint32_t {
     // 100-Mbit/s operation.
     eZERO = 0,
     // 10-Mbit/s operation.
     eONE = 1,
   };
-  
-  // Enable Frame Padding Remove On Receive
-  enum class ePADEN : uint32_t {
+
+  enum class ePADEN : std::uint32_t {
     // No padding is removed on receive by the MAC.
     eZERO = 0,
     // Padding is removed from received frames.
     eONE = 1,
   };
-  
-  // Terminate/Forward Pause Frames
-  enum class ePAUFWD : uint32_t {
+
+  enum class ePAUFWD : std::uint32_t {
     // Pause frames are terminated and discarded in the MAC.
     eZERO = 0,
     // Pause frames are forwarded to the user application.
     eONE = 1,
   };
-  
-  // Terminate/Forward Received CRC
-  enum class eCRCFWD : uint32_t {
+
+  enum class eCRCFWD : std::uint32_t {
     // The CRC field of received frames is transmitted to the user application.
     eZERO = 0,
     // The CRC field is stripped from the frame.
     eONE = 1,
   };
-  
-  // MAC Control Frame Enable
-  enum class eCFEN : uint32_t {
+
+  enum class eCFEN : std::uint32_t {
     // MAC control frames with any opcode other than 0x0001 (pause frame) are accepted and forwarded to the client interface.
     eZERO = 0,
     // MAC control frames with any opcode other than 0x0001 (pause frame) are silently discarded.
     eONE = 1,
   };
-  
-  // Payload Length Check Disable
-  enum class eNLC : uint32_t {
+
+  enum class eNLC : std::uint32_t {
     // The payload length check is disabled.
     eZERO = 0,
     // The core checks the frame's payload length with the frame length/type field. Errors are indicated in the EIR[PLR] field.
     eONE = 1,
   };
-  
-  // Graceful Receive Stopped
-  enum class eGRS : uint32_t {
+
+  enum class eGRS : std::uint32_t {
     // Receive not stopped
     eZERO = 0,
     // Receive stopped
     eONE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Internal Loopback
-    eLOOP LOOP : 1;
-    // read-write - Disable Receive On Transmit
-    eDRT DRT : 1;
-    // read-write - Media Independent Interface Mode
-    eMII_MODE MII_MODE : 1;
-    // read-write - Promiscuous Mode
-    ePROM PROM : 1;
-    // read-write - Broadcast Frame Reject
-    eBC_REJ BC_REJ : 1;
-    // read-write - Flow Control Enable
-    eFCE FCE : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - RMII Mode Enable
-    eRMII_MODE RMII_MODE : 1;
-    // read-write - Enables 10-Mbit/s mode of the RMII .
-    eRMII_10T RMII_10T : 1;
-    uint32_t _reserved_1 : 2;
-    // read-write - Enable Frame Padding Remove On Receive
-    ePADEN PADEN : 1;
-    // read-write - Terminate/Forward Pause Frames
-    ePAUFWD PAUFWD : 1;
-    // read-write - Terminate/Forward Received CRC
-    eCRCFWD CRCFWD : 1;
-    // read-write - MAC Control Frame Enable
-    eCFEN CFEN : 1;
-    // read-write - Maximum Frame Length
-    uint32_t MAX_FL : 14;
-    // read-write - Payload Length Check Disable
-    eNLC NLC : 1;
-    // read-only - Graceful Receive Stopped
-    eGRS GRS : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Internal Loopback
+  using LOOP = ftl::mmio::Field<1, 0, eLOOP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Disable Receive On Transmit
+  using DRT = ftl::mmio::Field<1, 1, eDRT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Media Independent Interface Mode
+  using MII_MODE = ftl::mmio::Field<1, 2, eMII_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Promiscuous Mode
+  using PROM = ftl::mmio::Field<1, 3, ePROM, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Broadcast Frame Reject
+  using BC_REJ = ftl::mmio::Field<1, 4, eBC_REJ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Flow Control Enable
+  using FCE = ftl::mmio::Field<1, 5, eFCE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RMII Mode Enable
+  using RMII_MODE = ftl::mmio::Field<1, 8, eRMII_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enables 10-Mbit/s mode of the RMII .
+  using RMII_10T = ftl::mmio::Field<1, 9, eRMII_10T, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Frame Padding Remove On Receive
+  using PADEN = ftl::mmio::Field<1, 12, ePADEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Terminate/Forward Pause Frames
+  using PAUFWD = ftl::mmio::Field<1, 13, ePAUFWD, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Terminate/Forward Received CRC
+  using CRCFWD = ftl::mmio::Field<1, 14, eCRCFWD, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MAC Control Frame Enable
+  using CFEN = ftl::mmio::Field<1, 15, eCFEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Maximum Frame Length
+  using MAX_FL = ftl::mmio::Field<14, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Payload Length Check Disable
+  using NLC = ftl::mmio::Field<1, 30, eNLC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Graceful Receive Stopped
+  using GRS = ftl::mmio::Field<1, 31, eGRS, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RCR_fields_
 
-  RCR() = delete;
-  inline void Reset() volatile { this->value = 0x05EE0001; }
-  static inline volatile RCR &ref() { return *reinterpret_cast<volatile RCR*>(0x40424084); }
+struct RCR : ftl::mmio::Register<
+    0x40424084u,
+    std::uint32_t,
+    0x05EE0001u,
+    ftl::mmio::RW,
+    RCR_fields_::LOOP,
+    RCR_fields_::DRT,
+    RCR_fields_::MII_MODE,
+    RCR_fields_::PROM,
+    RCR_fields_::BC_REJ,
+    RCR_fields_::FCE,
+    ftl::mmio::Reserved<2, 6>,
+    RCR_fields_::RMII_MODE,
+    RCR_fields_::RMII_10T,
+    ftl::mmio::Reserved<2, 10>,
+    RCR_fields_::PADEN,
+    RCR_fields_::PAUFWD,
+    RCR_fields_::CRCFWD,
+    RCR_fields_::CFEN,
+    RCR_fields_::MAX_FL,
+    RCR_fields_::NLC,
+    RCR_fields_::GRS> {
+  using eLOOP = RCR_fields_::eLOOP;
+  using eDRT = RCR_fields_::eDRT;
+  using eMII_MODE = RCR_fields_::eMII_MODE;
+  using ePROM = RCR_fields_::ePROM;
+  using eBC_REJ = RCR_fields_::eBC_REJ;
+  using eFCE = RCR_fields_::eFCE;
+  using eRMII_MODE = RCR_fields_::eRMII_MODE;
+  using eRMII_10T = RCR_fields_::eRMII_10T;
+  using ePADEN = RCR_fields_::ePADEN;
+  using ePAUFWD = RCR_fields_::ePAUFWD;
+  using eCRCFWD = RCR_fields_::eCRCFWD;
+  using eCFEN = RCR_fields_::eCFEN;
+  using eNLC = RCR_fields_::eNLC;
+  using eGRS = RCR_fields_::eGRS;
+  using LOOP = RCR_fields_::LOOP;
+  using DRT = RCR_fields_::DRT;
+  using MII_MODE = RCR_fields_::MII_MODE;
+  using PROM = RCR_fields_::PROM;
+  using BC_REJ = RCR_fields_::BC_REJ;
+  using FCE = RCR_fields_::FCE;
+  using RMII_MODE = RCR_fields_::RMII_MODE;
+  using RMII_10T = RCR_fields_::RMII_10T;
+  using PADEN = RCR_fields_::PADEN;
+  using PAUFWD = RCR_fields_::PAUFWD;
+  using CRCFWD = RCR_fields_::CRCFWD;
+  using CFEN = RCR_fields_::CFEN;
+  using MAX_FL = RCR_fields_::MAX_FL;
+  using NLC = RCR_fields_::NLC;
+  using GRS = RCR_fields_::GRS;
 };
 
+
 // Transmit Control Register
-union TCR {
-  
-  // Graceful Transmit Stop
-  enum class eGTS : uint32_t {
+struct TCR_fields_ {
+
+  enum class eGTS : std::uint32_t {
     // Disable graceful transmit stop
     eZERO = 0,
     // Enable graceful transmit stop
     eONE = 1,
   };
-  
-  // Full-Duplex Enable
-  enum class eFDEN : uint32_t {
+
+  enum class eFDEN : std::uint32_t {
     // Disable full-duplex
     eZERO = 0,
     // Enable full-duplex
     eONE = 1,
   };
-  
-  // Transmit Frame Control Pause
-  enum class eTFC_PAUSE : uint32_t {
+
+  enum class eTFC_PAUSE : std::uint32_t {
     // No PAUSE frame transmitted.
     eZERO = 0,
     // The MAC stops transmission of data frames after the current transmission is complete.
     eONE = 1,
   };
-  
-  // Source MAC Address Select On Transmit
-  enum class eADDSEL : uint32_t {
+
+  enum class eADDSEL : std::uint32_t {
     // Node MAC address programmed on PADDR1/2 registers.
     eVAL_MAC = 0,
   };
-  
-  // Set MAC Address On Transmit
-  enum class eADDINS : uint32_t {
+
+  enum class eADDINS : std::uint32_t {
     // The source MAC address is not modified by the MAC.
     eZERO = 0,
     // The MAC overwrites the source MAC address with the programmed MAC address according to ADDSEL.
     eONE = 1,
   };
-  
-  // Forward Frame From Application With CRC
-  enum class eCRCFWD : uint32_t {
+
+  enum class eCRCFWD : std::uint32_t {
     // TxBD[TC] controls whether the frame has a CRC from the application.
     eZERO = 0,
     // The transmitter does not append any CRC to transmitted frames, as it is expecting a frame with CRC from the application.
     eONE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Graceful Transmit Stop
-    eGTS GTS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Full-Duplex Enable
-    eFDEN FDEN : 1;
-    // read-write - Transmit Frame Control Pause
-    eTFC_PAUSE TFC_PAUSE : 1;
-    // read-only - Receive Frame Control Pause
-    uint32_t RFC_PAUSE : 1;
-    // read-write - Source MAC Address Select On Transmit
-    eADDSEL ADDSEL : 3;
-    // read-write - Set MAC Address On Transmit
-    eADDINS ADDINS : 1;
-    // read-write - Forward Frame From Application With CRC
-    eCRCFWD CRCFWD : 1;
-    uint32_t _reserved_1 : 22;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Graceful Transmit Stop
+  using GTS = ftl::mmio::Field<1, 0, eGTS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Full-Duplex Enable
+  using FDEN = ftl::mmio::Field<1, 2, eFDEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmit Frame Control Pause
+  using TFC_PAUSE = ftl::mmio::Field<1, 3, eTFC_PAUSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receive Frame Control Pause
+  using RFC_PAUSE = ftl::mmio::Field<1, 4, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Source MAC Address Select On Transmit
+  using ADDSEL = ftl::mmio::Field<3, 5, eADDSEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set MAC Address On Transmit
+  using ADDINS = ftl::mmio::Field<1, 8, eADDINS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Forward Frame From Application With CRC
+  using CRCFWD = ftl::mmio::Field<1, 9, eCRCFWD, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TCR_fields_
 
-  TCR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCR &ref() { return *reinterpret_cast<volatile TCR*>(0x404240C4); }
+struct TCR : ftl::mmio::Register<
+    0x404240C4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCR_fields_::GTS,
+    ftl::mmio::Reserved<1, 1>,
+    TCR_fields_::FDEN,
+    TCR_fields_::TFC_PAUSE,
+    TCR_fields_::RFC_PAUSE,
+    TCR_fields_::ADDSEL,
+    TCR_fields_::ADDINS,
+    TCR_fields_::CRCFWD,
+    ftl::mmio::Reserved<22, 10>> {
+  using eGTS = TCR_fields_::eGTS;
+  using eFDEN = TCR_fields_::eFDEN;
+  using eTFC_PAUSE = TCR_fields_::eTFC_PAUSE;
+  using eADDSEL = TCR_fields_::eADDSEL;
+  using eADDINS = TCR_fields_::eADDINS;
+  using eCRCFWD = TCR_fields_::eCRCFWD;
+  using GTS = TCR_fields_::GTS;
+  using FDEN = TCR_fields_::FDEN;
+  using TFC_PAUSE = TCR_fields_::TFC_PAUSE;
+  using RFC_PAUSE = TCR_fields_::RFC_PAUSE;
+  using ADDSEL = TCR_fields_::ADDSEL;
+  using ADDINS = TCR_fields_::ADDINS;
+  using CRCFWD = TCR_fields_::CRCFWD;
 };
+
 
 // Physical Address Lower Register
-union PALR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Pause Address
-    uint32_t PADDR1 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PALR_fields_ {
+  // Pause Address
+  using PADDR1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PALR_fields_
 
-  PALR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PALR &ref() { return *reinterpret_cast<volatile PALR*>(0x404240E4); }
+struct PALR : ftl::mmio::Register<
+    0x404240E4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PALR_fields_::PADDR1> {
+  using PADDR1 = PALR_fields_::PADDR1;
 };
+
 
 // Physical Address Upper Register
-union PAUR {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Type Field In PAUSE Frames
-    uint32_t TYPE : 16;
-    // read-write - Bytes 4 (bits 31:24) and 5 (bits 23:16) of the 6-byte individual address used for exact match, and the source address field in PAUSE frames
-    uint32_t PADDR2 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PAUR_fields_ {
+  // Type Field In PAUSE Frames
+  using TYPE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Bytes 4 (bits 31:24) and 5 (bits 23:16) of the 6-byte individual address used for exact match, and the source address field in PAUSE frames
+  using PADDR2 = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PAUR_fields_
 
-  PAUR() = delete;
-  inline void Reset() volatile { this->value = 0x00008808; }
-  static inline volatile PAUR &ref() { return *reinterpret_cast<volatile PAUR*>(0x404240E8); }
+struct PAUR : ftl::mmio::Register<
+    0x404240E8u,
+    std::uint32_t,
+    0x00008808u,
+    ftl::mmio::RW,
+    PAUR_fields_::TYPE,
+    PAUR_fields_::PADDR2> {
+  using TYPE = PAUR_fields_::TYPE;
+  using PADDR2 = PAUR_fields_::PADDR2;
 };
+
 
 // Opcode/Pause Duration Register
-union OPD {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Pause Duration
-    uint32_t PAUSE_DUR : 16;
-    // read-only - Opcode Field In PAUSE Frames
-    uint32_t OPCODE : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct OPD_fields_ {
+  // Pause Duration
+  using PAUSE_DUR = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Opcode Field In PAUSE Frames
+  using OPCODE = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct OPD_fields_
 
-  OPD() = delete;
-  inline void Reset() volatile { this->value = 0x00010000; }
-  static inline volatile OPD &ref() { return *reinterpret_cast<volatile OPD*>(0x404240EC); }
+struct OPD : ftl::mmio::Register<
+    0x404240ECu,
+    std::uint32_t,
+    0x00010000u,
+    ftl::mmio::RW,
+    OPD_fields_::PAUSE_DUR,
+    OPD_fields_::OPCODE> {
+  using PAUSE_DUR = OPD_fields_::PAUSE_DUR;
+  using OPCODE = OPD_fields_::OPCODE;
 };
+
 
 // Transmit Interrupt Coalescing Register
-union TXIC_0 {
-  
-  // Interrupt Coalescing Timer Clock Source Select
-  enum class eICCS : uint32_t {
+struct TXIC_fields_ {
+
+  enum class eICCS : std::uint32_t {
     // Use MII/GMII TX clocks.
     eZERO = 0,
     // Use ENET system clock.
     eONE = 1,
   };
-  
-  // Interrupt Coalescing Enable
-  enum class eICEN : uint32_t {
+
+  enum class eICEN : std::uint32_t {
     // Disable Interrupt coalescing.
     eZERO = 0,
     // Enable Interrupt coalescing.
     eONE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt coalescing timer threshold
-    uint32_t ICTT : 16;
-    uint32_t _reserved_0 : 4;
-    // read-write - Interrupt coalescing frame count threshold
-    uint32_t ICFT : 8;
-    uint32_t _reserved_1 : 2;
-    // read-write - Interrupt Coalescing Timer Clock Source Select
-    eICCS ICCS : 1;
-    // read-write - Interrupt Coalescing Enable
-    eICEN ICEN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  TXIC_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TXIC_0 &ref() { return *reinterpret_cast<volatile TXIC_0*>(0x404240F0); }
-};
-// Transmit Interrupt Coalescing Register
-union TXIC_1 {
-  
+  // Interrupt coalescing timer threshold
+  using ICTT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt coalescing frame count threshold
+  using ICFT = ftl::mmio::Field<8, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt Coalescing Timer Clock Source Select
-  enum class eICCS : uint32_t {
-    // Use MII/GMII TX clocks.
-    eZERO = 0,
-    // Use ENET system clock.
-    eONE = 1,
-  };
-  
+  using ICCS = ftl::mmio::Field<1, 30, eICCS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt Coalescing Enable
-  enum class eICEN : uint32_t {
-    // Disable Interrupt coalescing.
-    eZERO = 0,
-    // Enable Interrupt coalescing.
-    eONE = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt coalescing timer threshold
-    uint32_t ICTT : 16;
-    uint32_t _reserved_0 : 4;
-    // read-write - Interrupt coalescing frame count threshold
-    uint32_t ICFT : 8;
-    uint32_t _reserved_1 : 2;
-    // read-write - Interrupt Coalescing Timer Clock Source Select
-    eICCS ICCS : 1;
-    // read-write - Interrupt Coalescing Enable
-    eICEN ICEN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  using ICEN = ftl::mmio::Field<1, 31, eICEN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TXIC_fields_
 
-  TXIC_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TXIC_1 &ref() { return *reinterpret_cast<volatile TXIC_1*>(0x404240F4); }
+template<std::uint32_t Index>
+struct TXIC : ftl::mmio::Register<
+    0x404240F0u + (Index * 0x4u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TXIC_fields_::ICTT,
+    ftl::mmio::Reserved<4, 16>,
+    TXIC_fields_::ICFT,
+    ftl::mmio::Reserved<2, 28>,
+    TXIC_fields_::ICCS,
+    TXIC_fields_::ICEN> {
+  static_assert(Index < 3u, "TXIC: Index out of range");
+  using eICCS = TXIC_fields_::eICCS;
+  using eICEN = TXIC_fields_::eICEN;
+  using ICTT = TXIC_fields_::ICTT;
+  using ICFT = TXIC_fields_::ICFT;
+  using ICCS = TXIC_fields_::ICCS;
+  using ICEN = TXIC_fields_::ICEN;
 };
-// Transmit Interrupt Coalescing Register
-union TXIC_2 {
-  
-  // Interrupt Coalescing Timer Clock Source Select
-  enum class eICCS : uint32_t {
-    // Use MII/GMII TX clocks.
-    eZERO = 0,
-    // Use ENET system clock.
-    eONE = 1,
-  };
-  
-  // Interrupt Coalescing Enable
-  enum class eICEN : uint32_t {
-    // Disable Interrupt coalescing.
-    eZERO = 0,
-    // Enable Interrupt coalescing.
-    eONE = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt coalescing timer threshold
-    uint32_t ICTT : 16;
-    uint32_t _reserved_0 : 4;
-    // read-write - Interrupt coalescing frame count threshold
-    uint32_t ICFT : 8;
-    uint32_t _reserved_1 : 2;
-    // read-write - Interrupt Coalescing Timer Clock Source Select
-    eICCS ICCS : 1;
-    // read-write - Interrupt Coalescing Enable
-    eICEN ICEN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
 
-  TXIC_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TXIC_2 &ref() { return *reinterpret_cast<volatile TXIC_2*>(0x404240F8); }
-};
 
 // Receive Interrupt Coalescing Register
-union RXIC_0 {
-  
-  // Interrupt Coalescing Timer Clock Source Select
-  enum class eICCS : uint32_t {
+struct RXIC_fields_ {
+
+  enum class eICCS : std::uint32_t {
     // Use MII/GMII TX clocks.
     eZERO = 0,
     // Use ENET system clock.
     eONE = 1,
   };
-  
-  // Interrupt Coalescing Enable
-  enum class eICEN : uint32_t {
+
+  enum class eICEN : std::uint32_t {
     // Disable Interrupt coalescing.
     eZERO = 0,
     // Enable Interrupt coalescing.
     eONE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt coalescing timer threshold
-    uint32_t ICTT : 16;
-    uint32_t _reserved_0 : 4;
-    // read-write - Interrupt coalescing frame count threshold
-    uint32_t ICFT : 8;
-    uint32_t _reserved_1 : 2;
-    // read-write - Interrupt Coalescing Timer Clock Source Select
-    eICCS ICCS : 1;
-    // read-write - Interrupt Coalescing Enable
-    eICEN ICEN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  RXIC_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIC_0 &ref() { return *reinterpret_cast<volatile RXIC_0*>(0x40424100); }
-};
-// Receive Interrupt Coalescing Register
-union RXIC_1 {
-  
+  // Interrupt coalescing timer threshold
+  using ICTT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt coalescing frame count threshold
+  using ICFT = ftl::mmio::Field<8, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt Coalescing Timer Clock Source Select
-  enum class eICCS : uint32_t {
-    // Use MII/GMII TX clocks.
-    eZERO = 0,
-    // Use ENET system clock.
-    eONE = 1,
-  };
-  
+  using ICCS = ftl::mmio::Field<1, 30, eICCS, ftl::mmio::RW, ftl::mmio::Normal>;
   // Interrupt Coalescing Enable
-  enum class eICEN : uint32_t {
-    // Disable Interrupt coalescing.
-    eZERO = 0,
-    // Enable Interrupt coalescing.
-    eONE = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt coalescing timer threshold
-    uint32_t ICTT : 16;
-    uint32_t _reserved_0 : 4;
-    // read-write - Interrupt coalescing frame count threshold
-    uint32_t ICFT : 8;
-    uint32_t _reserved_1 : 2;
-    // read-write - Interrupt Coalescing Timer Clock Source Select
-    eICCS ICCS : 1;
-    // read-write - Interrupt Coalescing Enable
-    eICEN ICEN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  using ICEN = ftl::mmio::Field<1, 31, eICEN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RXIC_fields_
 
-  RXIC_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIC_1 &ref() { return *reinterpret_cast<volatile RXIC_1*>(0x40424104); }
+template<std::uint32_t Index>
+struct RXIC : ftl::mmio::Register<
+    0x40424100u + (Index * 0x4u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    RXIC_fields_::ICTT,
+    ftl::mmio::Reserved<4, 16>,
+    RXIC_fields_::ICFT,
+    ftl::mmio::Reserved<2, 28>,
+    RXIC_fields_::ICCS,
+    RXIC_fields_::ICEN> {
+  static_assert(Index < 3u, "RXIC: Index out of range");
+  using eICCS = RXIC_fields_::eICCS;
+  using eICEN = RXIC_fields_::eICEN;
+  using ICTT = RXIC_fields_::ICTT;
+  using ICFT = RXIC_fields_::ICFT;
+  using ICCS = RXIC_fields_::ICCS;
+  using ICEN = RXIC_fields_::ICEN;
 };
-// Receive Interrupt Coalescing Register
-union RXIC_2 {
-  
-  // Interrupt Coalescing Timer Clock Source Select
-  enum class eICCS : uint32_t {
-    // Use MII/GMII TX clocks.
-    eZERO = 0,
-    // Use ENET system clock.
-    eONE = 1,
-  };
-  
-  // Interrupt Coalescing Enable
-  enum class eICEN : uint32_t {
-    // Disable Interrupt coalescing.
-    eZERO = 0,
-    // Enable Interrupt coalescing.
-    eONE = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt coalescing timer threshold
-    uint32_t ICTT : 16;
-    uint32_t _reserved_0 : 4;
-    // read-write - Interrupt coalescing frame count threshold
-    uint32_t ICFT : 8;
-    uint32_t _reserved_1 : 2;
-    // read-write - Interrupt Coalescing Timer Clock Source Select
-    eICCS ICCS : 1;
-    // read-write - Interrupt Coalescing Enable
-    eICEN ICEN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
 
-  RXIC_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RXIC_2 &ref() { return *reinterpret_cast<volatile RXIC_2*>(0x40424108); }
-};
 
 // Descriptor Individual Upper Address Register
-union IAUR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Contains the upper 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a unicast address
-    uint32_t IADDR1 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IAUR_fields_ {
+  // Contains the upper 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a unicast address
+  using IADDR1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct IAUR_fields_
 
-  IAUR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IAUR &ref() { return *reinterpret_cast<volatile IAUR*>(0x40424118); }
+struct IAUR : ftl::mmio::Register<
+    0x40424118u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    IAUR_fields_::IADDR1> {
+  using IADDR1 = IAUR_fields_::IADDR1;
 };
+
 
 // Descriptor Individual Lower Address Register
-union IALR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Contains the lower 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a unicast address
-    uint32_t IADDR2 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IALR_fields_ {
+  // Contains the lower 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a unicast address
+  using IADDR2 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct IALR_fields_
 
-  IALR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IALR &ref() { return *reinterpret_cast<volatile IALR*>(0x4042411C); }
+struct IALR : ftl::mmio::Register<
+    0x4042411Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    IALR_fields_::IADDR2> {
+  using IADDR2 = IALR_fields_::IADDR2;
 };
+
 
 // Descriptor Group Upper Address Register
-union GAUR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Contains the upper 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a multicast address
-    uint32_t GADDR1 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct GAUR_fields_ {
+  // Contains the upper 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a multicast address
+  using GADDR1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GAUR_fields_
 
-  GAUR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GAUR &ref() { return *reinterpret_cast<volatile GAUR*>(0x40424120); }
+struct GAUR : ftl::mmio::Register<
+    0x40424120u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GAUR_fields_::GADDR1> {
+  using GADDR1 = GAUR_fields_::GADDR1;
 };
+
 
 // Descriptor Group Lower Address Register
-union GALR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Contains the lower 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a multicast address
-    uint32_t GADDR2 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct GALR_fields_ {
+  // Contains the lower 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a multicast address
+  using GADDR2 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GALR_fields_
 
-  GALR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GALR &ref() { return *reinterpret_cast<volatile GALR*>(0x40424124); }
+struct GALR : ftl::mmio::Register<
+    0x40424124u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GALR_fields_::GADDR2> {
+  using GADDR2 = GALR_fields_::GADDR2;
 };
 
+
 // Transmit FIFO Watermark Register
-union TFWR {
-  
-  // Transmit FIFO Write
-  enum class eTFWR : uint32_t {
+struct TFWR_fields_ {
+
+  enum class eTFWR : std::uint32_t {
     // 64 bytes written.
     eVAL64_0 = 0,
     // 64 bytes written.
@@ -1085,1550 +1054,1513 @@ union TFWR {
     // 1984 bytes written.
     eVAL1984 = 31,
   };
-  
-  // Store And Forward Enable
-  enum class eSTRFWD : uint32_t {
+
+  enum class eSTRFWD : std::uint32_t {
     // Reset. The transmission start threshold is programmed in TFWR[TFWR].
     eZERO = 0,
     // Enabled.
     eONE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Transmit FIFO Write
-    eTFWR TFWR : 6;
-    uint32_t _reserved_0 : 2;
-    // read-write - Store And Forward Enable
-    eSTRFWD STRFWD : 1;
-    uint32_t _reserved_1 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Transmit FIFO Write
+  using TFWR = ftl::mmio::Field<6, 0, eTFWR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Store And Forward Enable
+  using STRFWD = ftl::mmio::Field<1, 8, eSTRFWD, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TFWR_fields_
 
-  TFWR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TFWR &ref() { return *reinterpret_cast<volatile TFWR*>(0x40424144); }
+struct TFWR : ftl::mmio::Register<
+    0x40424144u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TFWR_fields_::TFWR,
+    ftl::mmio::Reserved<2, 6>,
+    TFWR_fields_::STRFWD,
+    ftl::mmio::Reserved<23, 9>> {
+  using eTFWR = TFWR_fields_::eTFWR;
+  using eSTRFWD = TFWR_fields_::eSTRFWD;
+  using value_ = TFWR_fields_::TFWR;
+  using STRFWD = TFWR_fields_::STRFWD;
 };
+
 
 // Receive Descriptor Ring 0 Start Register
-union RDSR {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 3;
-    // read-write - Pointer to the beginning of the receive buffer descriptor queue.
-    uint32_t R_DES_START : 29;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RDSR_fields_ {
+  // Pointer to the beginning of the receive buffer descriptor queue.
+  using R_DES_START = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RDSR_fields_
 
-  RDSR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RDSR &ref() { return *reinterpret_cast<volatile RDSR*>(0x40424180); }
+struct RDSR : ftl::mmio::Register<
+    0x40424180u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<3, 0>,
+    RDSR_fields_::R_DES_START> {
+  using R_DES_START = RDSR_fields_::R_DES_START;
 };
+
 
 // Transmit Buffer Descriptor Ring 0 Start Register
-union TDSR {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 3;
-    // read-write - Pointer to the beginning of the transmit buffer descriptor queue.
-    uint32_t X_DES_START : 29;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TDSR_fields_ {
+  // Pointer to the beginning of the transmit buffer descriptor queue.
+  using X_DES_START = ftl::mmio::Field<29, 3, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TDSR_fields_
 
-  TDSR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TDSR &ref() { return *reinterpret_cast<volatile TDSR*>(0x40424184); }
+struct TDSR : ftl::mmio::Register<
+    0x40424184u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<3, 0>,
+    TDSR_fields_::X_DES_START> {
+  using X_DES_START = TDSR_fields_::X_DES_START;
 };
+
 
 // Maximum Receive Buffer Size Register - Ring 0
-union MRBR {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 4;
-    // read-write - Receive buffer size in bytes
-    uint32_t R_BUF_SIZE : 10;
-    uint32_t _reserved_1 : 18;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct MRBR_fields_ {
+  // Receive buffer size in bytes
+  using R_BUF_SIZE = ftl::mmio::Field<10, 4, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct MRBR_fields_
 
-  MRBR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MRBR &ref() { return *reinterpret_cast<volatile MRBR*>(0x40424188); }
+struct MRBR : ftl::mmio::Register<
+    0x40424188u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    MRBR_fields_::R_BUF_SIZE,
+    ftl::mmio::Reserved<18, 14>> {
+  using R_BUF_SIZE = MRBR_fields_::R_BUF_SIZE;
 };
+
 
 // Receive FIFO Section Full Threshold
-union RSFL {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Value Of Receive FIFO Section Full Threshold
-    uint32_t RX_SECTION_FULL : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RSFL_fields_ {
+  // Value Of Receive FIFO Section Full Threshold
+  using RX_SECTION_FULL = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RSFL_fields_
 
-  RSFL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RSFL &ref() { return *reinterpret_cast<volatile RSFL*>(0x40424190); }
+struct RSFL : ftl::mmio::Register<
+    0x40424190u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    RSFL_fields_::RX_SECTION_FULL,
+    ftl::mmio::Reserved<24, 8>> {
+  using RX_SECTION_FULL = RSFL_fields_::RX_SECTION_FULL;
 };
+
 
 // Receive FIFO Section Empty Threshold
-union RSEM {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Value Of The Receive FIFO Section Empty Threshold
-    uint32_t RX_SECTION_EMPTY : 8;
-    uint32_t _reserved_0 : 8;
-    // read-write - RX Status FIFO Section Empty Threshold
-    uint32_t STAT_SECTION_EMPTY : 5;
-    uint32_t _reserved_1 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RSEM_fields_ {
+  // Value Of The Receive FIFO Section Empty Threshold
+  using RX_SECTION_EMPTY = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RX Status FIFO Section Empty Threshold
+  using STAT_SECTION_EMPTY = ftl::mmio::Field<5, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RSEM_fields_
 
-  RSEM() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RSEM &ref() { return *reinterpret_cast<volatile RSEM*>(0x40424194); }
+struct RSEM : ftl::mmio::Register<
+    0x40424194u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    RSEM_fields_::RX_SECTION_EMPTY,
+    ftl::mmio::Reserved<8, 8>,
+    RSEM_fields_::STAT_SECTION_EMPTY,
+    ftl::mmio::Reserved<11, 21>> {
+  using RX_SECTION_EMPTY = RSEM_fields_::RX_SECTION_EMPTY;
+  using STAT_SECTION_EMPTY = RSEM_fields_::STAT_SECTION_EMPTY;
 };
+
 
 // Receive FIFO Almost Empty Threshold
-union RAEM {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Value Of The Receive FIFO Almost Empty Threshold
-    uint32_t RX_ALMOST_EMPTY : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RAEM_fields_ {
+  // Value Of The Receive FIFO Almost Empty Threshold
+  using RX_ALMOST_EMPTY = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RAEM_fields_
 
-  RAEM() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile RAEM &ref() { return *reinterpret_cast<volatile RAEM*>(0x40424198); }
+struct RAEM : ftl::mmio::Register<
+    0x40424198u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    RAEM_fields_::RX_ALMOST_EMPTY,
+    ftl::mmio::Reserved<24, 8>> {
+  using RX_ALMOST_EMPTY = RAEM_fields_::RX_ALMOST_EMPTY;
 };
+
 
 // Receive FIFO Almost Full Threshold
-union RAFL {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Value Of The Receive FIFO Almost Full Threshold
-    uint32_t RX_ALMOST_FULL : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RAFL_fields_ {
+  // Value Of The Receive FIFO Almost Full Threshold
+  using RX_ALMOST_FULL = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RAFL_fields_
 
-  RAFL() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile RAFL &ref() { return *reinterpret_cast<volatile RAFL*>(0x4042419C); }
+struct RAFL : ftl::mmio::Register<
+    0x4042419Cu,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    RAFL_fields_::RX_ALMOST_FULL,
+    ftl::mmio::Reserved<24, 8>> {
+  using RX_ALMOST_FULL = RAFL_fields_::RX_ALMOST_FULL;
 };
+
 
 // Transmit FIFO Section Empty Threshold
-union TSEM {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Value Of The Transmit FIFO Section Empty Threshold
-    uint32_t TX_SECTION_EMPTY : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TSEM_fields_ {
+  // Value Of The Transmit FIFO Section Empty Threshold
+  using TX_SECTION_EMPTY = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TSEM_fields_
 
-  TSEM() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TSEM &ref() { return *reinterpret_cast<volatile TSEM*>(0x404241A0); }
+struct TSEM : ftl::mmio::Register<
+    0x404241A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TSEM_fields_::TX_SECTION_EMPTY,
+    ftl::mmio::Reserved<24, 8>> {
+  using TX_SECTION_EMPTY = TSEM_fields_::TX_SECTION_EMPTY;
 };
+
 
 // Transmit FIFO Almost Empty Threshold
-union TAEM {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Value of Transmit FIFO Almost Empty Threshold
-    uint32_t TX_ALMOST_EMPTY : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TAEM_fields_ {
+  // Value of Transmit FIFO Almost Empty Threshold
+  using TX_ALMOST_EMPTY = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TAEM_fields_
 
-  TAEM() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile TAEM &ref() { return *reinterpret_cast<volatile TAEM*>(0x404241A4); }
+struct TAEM : ftl::mmio::Register<
+    0x404241A4u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    TAEM_fields_::TX_ALMOST_EMPTY,
+    ftl::mmio::Reserved<24, 8>> {
+  using TX_ALMOST_EMPTY = TAEM_fields_::TX_ALMOST_EMPTY;
 };
+
 
 // Transmit FIFO Almost Full Threshold
-union TAFL {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Value Of The Transmit FIFO Almost Full Threshold
-    uint32_t TX_ALMOST_FULL : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TAFL_fields_ {
+  // Value Of The Transmit FIFO Almost Full Threshold
+  using TX_ALMOST_FULL = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TAFL_fields_
 
-  TAFL() = delete;
-  inline void Reset() volatile { this->value = 0x00000008; }
-  static inline volatile TAFL &ref() { return *reinterpret_cast<volatile TAFL*>(0x404241A8); }
+struct TAFL : ftl::mmio::Register<
+    0x404241A8u,
+    std::uint32_t,
+    0x00000008u,
+    ftl::mmio::RW,
+    TAFL_fields_::TX_ALMOST_FULL,
+    ftl::mmio::Reserved<24, 8>> {
+  using TX_ALMOST_FULL = TAFL_fields_::TX_ALMOST_FULL;
 };
+
 
 // Transmit Inter-Packet Gap
-union TIPG {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Transmit Inter-Packet Gap
-    uint32_t IPG : 5;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TIPG_fields_ {
+  // Transmit Inter-Packet Gap
+  using IPG = ftl::mmio::Field<5, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TIPG_fields_
 
-  TIPG() = delete;
-  inline void Reset() volatile { this->value = 0x0000000C; }
-  static inline volatile TIPG &ref() { return *reinterpret_cast<volatile TIPG*>(0x404241AC); }
+struct TIPG : ftl::mmio::Register<
+    0x404241ACu,
+    std::uint32_t,
+    0x0000000Cu,
+    ftl::mmio::RW,
+    TIPG_fields_::IPG,
+    ftl::mmio::Reserved<27, 5>> {
+  using IPG = TIPG_fields_::IPG;
 };
+
 
 // Frame Truncation Length
-union FTRL {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Frame Truncation Length
-    uint32_t TRUNC_FL : 14;
-    uint32_t _reserved_0 : 18;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct FTRL_fields_ {
+  // Frame Truncation Length
+  using TRUNC_FL = ftl::mmio::Field<14, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct FTRL_fields_
 
-  FTRL() = delete;
-  inline void Reset() volatile { this->value = 0x000007FF; }
-  static inline volatile FTRL &ref() { return *reinterpret_cast<volatile FTRL*>(0x404241B0); }
+struct FTRL : ftl::mmio::Register<
+    0x404241B0u,
+    std::uint32_t,
+    0x000007FFu,
+    ftl::mmio::RW,
+    FTRL_fields_::TRUNC_FL,
+    ftl::mmio::Reserved<18, 14>> {
+  using TRUNC_FL = FTRL_fields_::TRUNC_FL;
 };
 
+
 // Transmit Accelerator Function Configuration
-union TACC {
-  
-  // TX FIFO Shift-16
-  enum class eSHIFT16 : uint32_t {
+struct TACC_fields_ {
+
+  enum class eSHIFT16 : std::uint32_t {
     // Disabled.
     eZERO = 0,
     // Indicates to the transmit data FIFO that the written frames contain two additional octets before the frame data. This means the actual frame begins at bit 16 of the first word written into the FIFO. This function allows putting the frame payload on a 32-bit boundary in memory, as the 14-byte Ethernet header is extended to a 16-byte header.
     eONE = 1,
   };
-  
-  // Enables insertion of IP header checksum.
-  enum class eIPCHK : uint32_t {
+
+  enum class eIPCHK : std::uint32_t {
     // Checksum is not inserted.
     eZERO = 0,
     // If an IP frame is transmitted, the checksum is inserted automatically. The IP header checksum field must be cleared. If a non-IP frame is transmitted the frame is not modified.
     eONE = 1,
   };
-  
-  // Enables insertion of protocol checksum.
-  enum class ePROCHK : uint32_t {
+
+  enum class ePROCHK : std::uint32_t {
     // Checksum not inserted.
     eZERO = 0,
     // If an IP frame with a known protocol is transmitted, the checksum is inserted automatically into the frame. The checksum field must be cleared. The other frames are not modified.
     eONE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - TX FIFO Shift-16
-    eSHIFT16 SHIFT16 : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - Enables insertion of IP header checksum.
-    eIPCHK IPCHK : 1;
-    // read-write - Enables insertion of protocol checksum.
-    ePROCHK PROCHK : 1;
-    uint32_t _reserved_1 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // TX FIFO Shift-16
+  using SHIFT16 = ftl::mmio::Field<1, 0, eSHIFT16, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enables insertion of IP header checksum.
+  using IPCHK = ftl::mmio::Field<1, 3, eIPCHK, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enables insertion of protocol checksum.
+  using PROCHK = ftl::mmio::Field<1, 4, ePROCHK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TACC_fields_
 
-  TACC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TACC &ref() { return *reinterpret_cast<volatile TACC*>(0x404241C0); }
+struct TACC : ftl::mmio::Register<
+    0x404241C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TACC_fields_::SHIFT16,
+    ftl::mmio::Reserved<2, 1>,
+    TACC_fields_::IPCHK,
+    TACC_fields_::PROCHK,
+    ftl::mmio::Reserved<27, 5>> {
+  using eSHIFT16 = TACC_fields_::eSHIFT16;
+  using eIPCHK = TACC_fields_::eIPCHK;
+  using ePROCHK = TACC_fields_::ePROCHK;
+  using SHIFT16 = TACC_fields_::SHIFT16;
+  using IPCHK = TACC_fields_::IPCHK;
+  using PROCHK = TACC_fields_::PROCHK;
 };
 
+
 // Receive Accelerator Function Configuration
-union RACC {
-  
-  // Enable Padding Removal For Short IP Frames
-  enum class ePADREM : uint32_t {
+struct RACC_fields_ {
+
+  enum class ePADREM : std::uint32_t {
     // Padding not removed.
     eZERO = 0,
     // Any bytes following the IP payload section of the frame are removed from the frame.
     eONE = 1,
   };
-  
-  // Enable Discard Of Frames With Wrong IPv4 Header Checksum
-  enum class eIPDIS : uint32_t {
+
+  enum class eIPDIS : std::uint32_t {
     // Frames with wrong IPv4 header checksum are not discarded.
     eZERO = 0,
     // If an IPv4 frame is received with a mismatching header checksum, the frame is discarded. IPv6 has no header checksum and is not affected by this setting. Discarding is only available when the RX FIFO operates in store and forward mode (RSFL cleared).
     eONE = 1,
   };
-  
-  // Enable Discard Of Frames With Wrong Protocol Checksum
-  enum class ePRODIS : uint32_t {
+
+  enum class ePRODIS : std::uint32_t {
     // Frames with wrong checksum are not discarded.
     eZERO = 0,
     // If a TCP/IP, UDP/IP, or ICMP/IP frame is received that has a wrong TCP, UDP, or ICMP checksum, the frame is discarded. Discarding is only available when the RX FIFO operates in store and forward mode (RSFL cleared).
     eONE = 1,
   };
-  
-  // Enable Discard Of Frames With MAC Layer Errors
-  enum class eLINEDIS : uint32_t {
+
+  enum class eLINEDIS : std::uint32_t {
     // Frames with errors are not discarded.
     eZERO = 0,
     // Any frame received with a CRC, length, or PHY error is automatically discarded and not forwarded to the user application interface.
     eONE = 1,
   };
-  
-  // RX FIFO Shift-16
-  enum class eSHIFT16 : uint32_t {
+
+  enum class eSHIFT16 : std::uint32_t {
     // Disabled.
     eZERO = 0,
     // Instructs the MAC to write two additional bytes in front of each frame received into the RX FIFO.
     eONE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable Padding Removal For Short IP Frames
-    ePADREM PADREM : 1;
-    // read-write - Enable Discard Of Frames With Wrong IPv4 Header Checksum
-    eIPDIS IPDIS : 1;
-    // read-write - Enable Discard Of Frames With Wrong Protocol Checksum
-    ePRODIS PRODIS : 1;
-    uint32_t _reserved_0 : 3;
-    // read-write - Enable Discard Of Frames With MAC Layer Errors
-    eLINEDIS LINEDIS : 1;
-    // read-write - RX FIFO Shift-16
-    eSHIFT16 SHIFT16 : 1;
-    uint32_t _reserved_1 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable Padding Removal For Short IP Frames
+  using PADREM = ftl::mmio::Field<1, 0, ePADREM, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Discard Of Frames With Wrong IPv4 Header Checksum
+  using IPDIS = ftl::mmio::Field<1, 1, eIPDIS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Discard Of Frames With Wrong Protocol Checksum
+  using PRODIS = ftl::mmio::Field<1, 2, ePRODIS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Discard Of Frames With MAC Layer Errors
+  using LINEDIS = ftl::mmio::Field<1, 6, eLINEDIS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RX FIFO Shift-16
+  using SHIFT16 = ftl::mmio::Field<1, 7, eSHIFT16, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RACC_fields_
 
-  RACC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RACC &ref() { return *reinterpret_cast<volatile RACC*>(0x404241C4); }
+struct RACC : ftl::mmio::Register<
+    0x404241C4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    RACC_fields_::PADREM,
+    RACC_fields_::IPDIS,
+    RACC_fields_::PRODIS,
+    ftl::mmio::Reserved<3, 3>,
+    RACC_fields_::LINEDIS,
+    RACC_fields_::SHIFT16,
+    ftl::mmio::Reserved<24, 8>> {
+  using ePADREM = RACC_fields_::ePADREM;
+  using eIPDIS = RACC_fields_::eIPDIS;
+  using ePRODIS = RACC_fields_::ePRODIS;
+  using eLINEDIS = RACC_fields_::eLINEDIS;
+  using eSHIFT16 = RACC_fields_::eSHIFT16;
+  using PADREM = RACC_fields_::PADREM;
+  using IPDIS = RACC_fields_::IPDIS;
+  using PRODIS = RACC_fields_::PRODIS;
+  using LINEDIS = RACC_fields_::LINEDIS;
+  using SHIFT16 = RACC_fields_::SHIFT16;
 };
+
 
 // Tx Packet Count Statistic Register
-union RMON_T_PACKETS {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Packet count
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_PACKETS_fields_ {
+  // Packet count
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_PACKETS_fields_
 
-  RMON_T_PACKETS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_PACKETS &ref() { return *reinterpret_cast<volatile RMON_T_PACKETS*>(0x40424204); }
+struct RMON_T_PACKETS : ftl::mmio::Register<
+    0x40424204u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_PACKETS_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_PACKETS_fields_::TXPKTS;
 };
+
 
 // Tx Broadcast Packets Statistic Register
-union RMON_T_BC_PKT {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of broadcast packets
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_BC_PKT_fields_ {
+  // Number of broadcast packets
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_BC_PKT_fields_
 
-  RMON_T_BC_PKT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_BC_PKT &ref() { return *reinterpret_cast<volatile RMON_T_BC_PKT*>(0x40424208); }
+struct RMON_T_BC_PKT : ftl::mmio::Register<
+    0x40424208u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_BC_PKT_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_BC_PKT_fields_::TXPKTS;
 };
+
 
 // Tx Multicast Packets Statistic Register
-union RMON_T_MC_PKT {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of multicast packets
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_MC_PKT_fields_ {
+  // Number of multicast packets
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_MC_PKT_fields_
 
-  RMON_T_MC_PKT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_MC_PKT &ref() { return *reinterpret_cast<volatile RMON_T_MC_PKT*>(0x4042420C); }
+struct RMON_T_MC_PKT : ftl::mmio::Register<
+    0x4042420Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_MC_PKT_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_MC_PKT_fields_::TXPKTS;
 };
+
 
 // Tx Packets with CRC/Align Error Statistic Register
-union RMON_T_CRC_ALIGN {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of packets with CRC/align error
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_CRC_ALIGN_fields_ {
+  // Number of packets with CRC/align error
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_CRC_ALIGN_fields_
 
-  RMON_T_CRC_ALIGN() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_CRC_ALIGN &ref() { return *reinterpret_cast<volatile RMON_T_CRC_ALIGN*>(0x40424210); }
+struct RMON_T_CRC_ALIGN : ftl::mmio::Register<
+    0x40424210u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_CRC_ALIGN_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_CRC_ALIGN_fields_::TXPKTS;
 };
+
 
 // Tx Packets Less Than Bytes and Good CRC Statistic Register
-union RMON_T_UNDERSIZE {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of transmit packets less than 64 bytes with good CRC
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_UNDERSIZE_fields_ {
+  // Number of transmit packets less than 64 bytes with good CRC
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_UNDERSIZE_fields_
 
-  RMON_T_UNDERSIZE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_UNDERSIZE &ref() { return *reinterpret_cast<volatile RMON_T_UNDERSIZE*>(0x40424214); }
+struct RMON_T_UNDERSIZE : ftl::mmio::Register<
+    0x40424214u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_UNDERSIZE_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_UNDERSIZE_fields_::TXPKTS;
 };
+
 
 // Tx Packets GT MAX_FL bytes and Good CRC Statistic Register
-union RMON_T_OVERSIZE {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of transmit packets greater than MAX_FL bytes with good CRC
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_OVERSIZE_fields_ {
+  // Number of transmit packets greater than MAX_FL bytes with good CRC
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_OVERSIZE_fields_
 
-  RMON_T_OVERSIZE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_OVERSIZE &ref() { return *reinterpret_cast<volatile RMON_T_OVERSIZE*>(0x40424218); }
+struct RMON_T_OVERSIZE : ftl::mmio::Register<
+    0x40424218u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_OVERSIZE_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_OVERSIZE_fields_::TXPKTS;
 };
+
 
 // Tx Packets Less Than 64 Bytes and Bad CRC Statistic Register
-union RMON_T_FRAG {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of packets less than 64 bytes with bad CRC
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_FRAG_fields_ {
+  // Number of packets less than 64 bytes with bad CRC
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_FRAG_fields_
 
-  RMON_T_FRAG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_FRAG &ref() { return *reinterpret_cast<volatile RMON_T_FRAG*>(0x4042421C); }
+struct RMON_T_FRAG : ftl::mmio::Register<
+    0x4042421Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_FRAG_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_FRAG_fields_::TXPKTS;
 };
+
 
 // Tx Packets Greater Than MAX_FL bytes and Bad CRC Statistic Register
-union RMON_T_JAB {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of transmit packets greater than MAX_FL bytes and bad CRC
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_JAB_fields_ {
+  // Number of transmit packets greater than MAX_FL bytes and bad CRC
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_JAB_fields_
 
-  RMON_T_JAB() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_JAB &ref() { return *reinterpret_cast<volatile RMON_T_JAB*>(0x40424220); }
+struct RMON_T_JAB : ftl::mmio::Register<
+    0x40424220u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_JAB_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_JAB_fields_::TXPKTS;
 };
+
 
 // Tx Collision Count Statistic Register
-union RMON_T_COL {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of transmit collisions
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_COL_fields_ {
+  // Number of transmit collisions
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_COL_fields_
 
-  RMON_T_COL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_COL &ref() { return *reinterpret_cast<volatile RMON_T_COL*>(0x40424224); }
+struct RMON_T_COL : ftl::mmio::Register<
+    0x40424224u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_COL_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_COL_fields_::TXPKTS;
 };
+
 
 // Tx 64-Byte Packets Statistic Register
-union RMON_T_P64 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of 64-byte transmit packets
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_P64_fields_ {
+  // Number of 64-byte transmit packets
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_P64_fields_
 
-  RMON_T_P64() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P64 &ref() { return *reinterpret_cast<volatile RMON_T_P64*>(0x40424228); }
+struct RMON_T_P64 : ftl::mmio::Register<
+    0x40424228u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_P64_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_P64_fields_::TXPKTS;
 };
+
 
 // Tx 65- to 127-byte Packets Statistic Register
-union RMON_T_P65TO127 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of 65- to 127-byte transmit packets
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_P65TO127_fields_ {
+  // Number of 65- to 127-byte transmit packets
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_P65TO127_fields_
 
-  RMON_T_P65TO127() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P65TO127 &ref() { return *reinterpret_cast<volatile RMON_T_P65TO127*>(0x4042422C); }
+struct RMON_T_P65TO127 : ftl::mmio::Register<
+    0x4042422Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_P65TO127_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_P65TO127_fields_::TXPKTS;
 };
+
 
 // Tx 128- to 255-byte Packets Statistic Register
-union RMON_T_P128TO255 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of 128- to 255-byte transmit packets
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_P128TO255_fields_ {
+  // Number of 128- to 255-byte transmit packets
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_P128TO255_fields_
 
-  RMON_T_P128TO255() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P128TO255 &ref() { return *reinterpret_cast<volatile RMON_T_P128TO255*>(0x40424230); }
+struct RMON_T_P128TO255 : ftl::mmio::Register<
+    0x40424230u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_P128TO255_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_P128TO255_fields_::TXPKTS;
 };
+
 
 // Tx 256- to 511-byte Packets Statistic Register
-union RMON_T_P256TO511 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of 256- to 511-byte transmit packets
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_P256TO511_fields_ {
+  // Number of 256- to 511-byte transmit packets
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_P256TO511_fields_
 
-  RMON_T_P256TO511() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P256TO511 &ref() { return *reinterpret_cast<volatile RMON_T_P256TO511*>(0x40424234); }
+struct RMON_T_P256TO511 : ftl::mmio::Register<
+    0x40424234u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_P256TO511_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_P256TO511_fields_::TXPKTS;
 };
+
 
 // Tx 512- to 1023-byte Packets Statistic Register
-union RMON_T_P512TO1023 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of 512- to 1023-byte transmit packets
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_P512TO1023_fields_ {
+  // Number of 512- to 1023-byte transmit packets
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_P512TO1023_fields_
 
-  RMON_T_P512TO1023() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P512TO1023 &ref() { return *reinterpret_cast<volatile RMON_T_P512TO1023*>(0x40424238); }
+struct RMON_T_P512TO1023 : ftl::mmio::Register<
+    0x40424238u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_P512TO1023_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_P512TO1023_fields_::TXPKTS;
 };
+
 
 // Tx 1024- to 2047-byte Packets Statistic Register
-union RMON_T_P1024TO2047 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of 1024- to 2047-byte transmit packets
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_P1024TO2047_fields_ {
+  // Number of 1024- to 2047-byte transmit packets
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_P1024TO2047_fields_
 
-  RMON_T_P1024TO2047() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P1024TO2047 &ref() { return *reinterpret_cast<volatile RMON_T_P1024TO2047*>(0x4042423C); }
+struct RMON_T_P1024TO2047 : ftl::mmio::Register<
+    0x4042423Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_P1024TO2047_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_P1024TO2047_fields_::TXPKTS;
 };
+
 
 // Tx Packets Greater Than 2048 Bytes Statistic Register
-union RMON_T_P_GTE2048 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of transmit packets greater than 2048 bytes
-    uint32_t TXPKTS : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_P_GTE2048_fields_ {
+  // Number of transmit packets greater than 2048 bytes
+  using TXPKTS = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_P_GTE2048_fields_
 
-  RMON_T_P_GTE2048() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_P_GTE2048 &ref() { return *reinterpret_cast<volatile RMON_T_P_GTE2048*>(0x40424240); }
+struct RMON_T_P_GTE2048 : ftl::mmio::Register<
+    0x40424240u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_P_GTE2048_fields_::TXPKTS,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXPKTS = RMON_T_P_GTE2048_fields_::TXPKTS;
 };
+
 
 // Tx Octets Statistic Register
-union RMON_T_OCTETS {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of transmit octets
-    uint32_t TXOCTS : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_T_OCTETS_fields_ {
+  // Number of transmit octets
+  using TXOCTS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_T_OCTETS_fields_
 
-  RMON_T_OCTETS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_T_OCTETS &ref() { return *reinterpret_cast<volatile RMON_T_OCTETS*>(0x40424244); }
+struct RMON_T_OCTETS : ftl::mmio::Register<
+    0x40424244u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_T_OCTETS_fields_::TXOCTS> {
+  using TXOCTS = RMON_T_OCTETS_fields_::TXOCTS;
 };
+
 
 // Frames Transmitted OK Statistic Register
-union IEEE_T_FRAME_OK {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of frames transmitted OK
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_T_FRAME_OK_fields_ {
+  // Number of frames transmitted OK
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_T_FRAME_OK_fields_
 
-  IEEE_T_FRAME_OK() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_FRAME_OK &ref() { return *reinterpret_cast<volatile IEEE_T_FRAME_OK*>(0x4042424C); }
+struct IEEE_T_FRAME_OK : ftl::mmio::Register<
+    0x4042424Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_T_FRAME_OK_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_T_FRAME_OK_fields_::COUNT;
 };
+
 
 // Frames Transmitted with Single Collision Statistic Register
-union IEEE_T_1COL {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of frames transmitted with one collision
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_T_1COL_fields_ {
+  // Number of frames transmitted with one collision
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_T_1COL_fields_
 
-  IEEE_T_1COL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_1COL &ref() { return *reinterpret_cast<volatile IEEE_T_1COL*>(0x40424250); }
+struct IEEE_T_1COL : ftl::mmio::Register<
+    0x40424250u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_T_1COL_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_T_1COL_fields_::COUNT;
 };
+
 
 // Frames Transmitted with Multiple Collisions Statistic Register
-union IEEE_T_MCOL {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of frames transmitted with multiple collisions
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_T_MCOL_fields_ {
+  // Number of frames transmitted with multiple collisions
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_T_MCOL_fields_
 
-  IEEE_T_MCOL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_MCOL &ref() { return *reinterpret_cast<volatile IEEE_T_MCOL*>(0x40424254); }
+struct IEEE_T_MCOL : ftl::mmio::Register<
+    0x40424254u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_T_MCOL_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_T_MCOL_fields_::COUNT;
 };
+
 
 // Frames Transmitted after Deferral Delay Statistic Register
-union IEEE_T_DEF {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of frames transmitted with deferral delay
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_T_DEF_fields_ {
+  // Number of frames transmitted with deferral delay
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_T_DEF_fields_
 
-  IEEE_T_DEF() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_DEF &ref() { return *reinterpret_cast<volatile IEEE_T_DEF*>(0x40424258); }
+struct IEEE_T_DEF : ftl::mmio::Register<
+    0x40424258u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_T_DEF_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_T_DEF_fields_::COUNT;
 };
+
 
 // Frames Transmitted with Late Collision Statistic Register
-union IEEE_T_LCOL {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of frames transmitted with late collision
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_T_LCOL_fields_ {
+  // Number of frames transmitted with late collision
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_T_LCOL_fields_
 
-  IEEE_T_LCOL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_LCOL &ref() { return *reinterpret_cast<volatile IEEE_T_LCOL*>(0x4042425C); }
+struct IEEE_T_LCOL : ftl::mmio::Register<
+    0x4042425Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_T_LCOL_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_T_LCOL_fields_::COUNT;
 };
+
 
 // Frames Transmitted with Excessive Collisions Statistic Register
-union IEEE_T_EXCOL {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of frames transmitted with excessive collisions
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_T_EXCOL_fields_ {
+  // Number of frames transmitted with excessive collisions
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_T_EXCOL_fields_
 
-  IEEE_T_EXCOL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_EXCOL &ref() { return *reinterpret_cast<volatile IEEE_T_EXCOL*>(0x40424260); }
+struct IEEE_T_EXCOL : ftl::mmio::Register<
+    0x40424260u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_T_EXCOL_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_T_EXCOL_fields_::COUNT;
 };
+
 
 // Frames Transmitted with Tx FIFO Underrun Statistic Register
-union IEEE_T_MACERR {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of frames transmitted with transmit FIFO underrun
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_T_MACERR_fields_ {
+  // Number of frames transmitted with transmit FIFO underrun
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_T_MACERR_fields_
 
-  IEEE_T_MACERR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_MACERR &ref() { return *reinterpret_cast<volatile IEEE_T_MACERR*>(0x40424264); }
+struct IEEE_T_MACERR : ftl::mmio::Register<
+    0x40424264u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_T_MACERR_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_T_MACERR_fields_::COUNT;
 };
+
 
 // Frames Transmitted with Carrier Sense Error Statistic Register
-union IEEE_T_CSERR {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of frames transmitted with carrier sense error
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_T_CSERR_fields_ {
+  // Number of frames transmitted with carrier sense error
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_T_CSERR_fields_
 
-  IEEE_T_CSERR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_CSERR &ref() { return *reinterpret_cast<volatile IEEE_T_CSERR*>(0x40424268); }
+struct IEEE_T_CSERR : ftl::mmio::Register<
+    0x40424268u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_T_CSERR_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_T_CSERR_fields_::COUNT;
 };
+
 
 // Reserved Statistic Register
-union IEEE_T_SQE {
-  
-  // Bit field definition.
-  struct {
-    // read-only - This read-only field is reserved and always has the value 0
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_T_SQE_fields_ {
+  // This read-only field is reserved and always has the value 0
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_T_SQE_fields_
 
-  IEEE_T_SQE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_SQE &ref() { return *reinterpret_cast<volatile IEEE_T_SQE*>(0x4042426C); }
+struct IEEE_T_SQE : ftl::mmio::Register<
+    0x4042426Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_T_SQE_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_T_SQE_fields_::COUNT;
 };
+
 
 // Flow Control Pause Frames Transmitted Statistic Register
-union IEEE_T_FDXFC {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of flow-control pause frames transmitted
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_T_FDXFC_fields_ {
+  // Number of flow-control pause frames transmitted
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_T_FDXFC_fields_
 
-  IEEE_T_FDXFC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_FDXFC &ref() { return *reinterpret_cast<volatile IEEE_T_FDXFC*>(0x40424270); }
+struct IEEE_T_FDXFC : ftl::mmio::Register<
+    0x40424270u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_T_FDXFC_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_T_FDXFC_fields_::COUNT;
 };
+
 
 // Octet Count for Frames Transmitted w/o Error Statistic Register
-union IEEE_T_OCTETS_OK {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Octet count for frames transmitted without error Counts total octets (includes header and FCS fields).
-    uint32_t COUNT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_T_OCTETS_OK_fields_ {
+  // Octet count for frames transmitted without error Counts total octets (includes header and FCS fields).
+  using COUNT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_T_OCTETS_OK_fields_
 
-  IEEE_T_OCTETS_OK() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_OCTETS_OK &ref() { return *reinterpret_cast<volatile IEEE_T_OCTETS_OK*>(0x40424274); }
+struct IEEE_T_OCTETS_OK : ftl::mmio::Register<
+    0x40424274u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_T_OCTETS_OK_fields_::COUNT> {
+  using COUNT = IEEE_T_OCTETS_OK_fields_::COUNT;
 };
+
 
 // Rx Packet Count Statistic Register
-union RMON_R_PACKETS {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of packets received
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_PACKETS_fields_ {
+  // Number of packets received
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_PACKETS_fields_
 
-  RMON_R_PACKETS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_PACKETS &ref() { return *reinterpret_cast<volatile RMON_R_PACKETS*>(0x40424284); }
+struct RMON_R_PACKETS : ftl::mmio::Register<
+    0x40424284u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_PACKETS_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_PACKETS_fields_::COUNT;
 };
+
 
 // Rx Broadcast Packets Statistic Register
-union RMON_R_BC_PKT {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of receive broadcast packets
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_BC_PKT_fields_ {
+  // Number of receive broadcast packets
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_BC_PKT_fields_
 
-  RMON_R_BC_PKT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_BC_PKT &ref() { return *reinterpret_cast<volatile RMON_R_BC_PKT*>(0x40424288); }
+struct RMON_R_BC_PKT : ftl::mmio::Register<
+    0x40424288u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_BC_PKT_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_BC_PKT_fields_::COUNT;
 };
+
 
 // Rx Multicast Packets Statistic Register
-union RMON_R_MC_PKT {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of receive multicast packets
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_MC_PKT_fields_ {
+  // Number of receive multicast packets
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_MC_PKT_fields_
 
-  RMON_R_MC_PKT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_MC_PKT &ref() { return *reinterpret_cast<volatile RMON_R_MC_PKT*>(0x4042428C); }
+struct RMON_R_MC_PKT : ftl::mmio::Register<
+    0x4042428Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_MC_PKT_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_MC_PKT_fields_::COUNT;
 };
+
 
 // Rx Packets with CRC/Align Error Statistic Register
-union RMON_R_CRC_ALIGN {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of receive packets with CRC or align error
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_CRC_ALIGN_fields_ {
+  // Number of receive packets with CRC or align error
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_CRC_ALIGN_fields_
 
-  RMON_R_CRC_ALIGN() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_CRC_ALIGN &ref() { return *reinterpret_cast<volatile RMON_R_CRC_ALIGN*>(0x40424290); }
+struct RMON_R_CRC_ALIGN : ftl::mmio::Register<
+    0x40424290u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_CRC_ALIGN_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_CRC_ALIGN_fields_::COUNT;
 };
+
 
 // Rx Packets with Less Than 64 Bytes and Good CRC Statistic Register
-union RMON_R_UNDERSIZE {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of receive packets with less than 64 bytes and good CRC
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_UNDERSIZE_fields_ {
+  // Number of receive packets with less than 64 bytes and good CRC
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_UNDERSIZE_fields_
 
-  RMON_R_UNDERSIZE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_UNDERSIZE &ref() { return *reinterpret_cast<volatile RMON_R_UNDERSIZE*>(0x40424294); }
+struct RMON_R_UNDERSIZE : ftl::mmio::Register<
+    0x40424294u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_UNDERSIZE_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_UNDERSIZE_fields_::COUNT;
 };
+
 
 // Rx Packets Greater Than MAX_FL and Good CRC Statistic Register
-union RMON_R_OVERSIZE {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of receive packets greater than MAX_FL and good CRC
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_OVERSIZE_fields_ {
+  // Number of receive packets greater than MAX_FL and good CRC
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_OVERSIZE_fields_
 
-  RMON_R_OVERSIZE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_OVERSIZE &ref() { return *reinterpret_cast<volatile RMON_R_OVERSIZE*>(0x40424298); }
+struct RMON_R_OVERSIZE : ftl::mmio::Register<
+    0x40424298u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_OVERSIZE_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_OVERSIZE_fields_::COUNT;
 };
+
 
 // Rx Packets Less Than 64 Bytes and Bad CRC Statistic Register
-union RMON_R_FRAG {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of receive packets with less than 64 bytes and bad CRC
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_FRAG_fields_ {
+  // Number of receive packets with less than 64 bytes and bad CRC
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_FRAG_fields_
 
-  RMON_R_FRAG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_FRAG &ref() { return *reinterpret_cast<volatile RMON_R_FRAG*>(0x4042429C); }
+struct RMON_R_FRAG : ftl::mmio::Register<
+    0x4042429Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_FRAG_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_FRAG_fields_::COUNT;
 };
+
 
 // Rx Packets Greater Than MAX_FL Bytes and Bad CRC Statistic Register
-union RMON_R_JAB {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of receive packets greater than MAX_FL and bad CRC
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_JAB_fields_ {
+  // Number of receive packets greater than MAX_FL and bad CRC
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_JAB_fields_
 
-  RMON_R_JAB() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_JAB &ref() { return *reinterpret_cast<volatile RMON_R_JAB*>(0x404242A0); }
+struct RMON_R_JAB : ftl::mmio::Register<
+    0x404242A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_JAB_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_JAB_fields_::COUNT;
 };
+
 
 // Rx 64-Byte Packets Statistic Register
-union RMON_R_P64 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of 64-byte receive packets
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_P64_fields_ {
+  // Number of 64-byte receive packets
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_P64_fields_
 
-  RMON_R_P64() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P64 &ref() { return *reinterpret_cast<volatile RMON_R_P64*>(0x404242A8); }
+struct RMON_R_P64 : ftl::mmio::Register<
+    0x404242A8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_P64_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_P64_fields_::COUNT;
 };
+
 
 // Rx 65- to 127-Byte Packets Statistic Register
-union RMON_R_P65TO127 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of 65- to 127-byte receive packets
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_P65TO127_fields_ {
+  // Number of 65- to 127-byte receive packets
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_P65TO127_fields_
 
-  RMON_R_P65TO127() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P65TO127 &ref() { return *reinterpret_cast<volatile RMON_R_P65TO127*>(0x404242AC); }
+struct RMON_R_P65TO127 : ftl::mmio::Register<
+    0x404242ACu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_P65TO127_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_P65TO127_fields_::COUNT;
 };
+
 
 // Rx 128- to 255-Byte Packets Statistic Register
-union RMON_R_P128TO255 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of 128- to 255-byte receive packets
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_P128TO255_fields_ {
+  // Number of 128- to 255-byte receive packets
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_P128TO255_fields_
 
-  RMON_R_P128TO255() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P128TO255 &ref() { return *reinterpret_cast<volatile RMON_R_P128TO255*>(0x404242B0); }
+struct RMON_R_P128TO255 : ftl::mmio::Register<
+    0x404242B0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_P128TO255_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_P128TO255_fields_::COUNT;
 };
+
 
 // Rx 256- to 511-Byte Packets Statistic Register
-union RMON_R_P256TO511 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of 256- to 511-byte receive packets
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_P256TO511_fields_ {
+  // Number of 256- to 511-byte receive packets
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_P256TO511_fields_
 
-  RMON_R_P256TO511() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P256TO511 &ref() { return *reinterpret_cast<volatile RMON_R_P256TO511*>(0x404242B4); }
+struct RMON_R_P256TO511 : ftl::mmio::Register<
+    0x404242B4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_P256TO511_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_P256TO511_fields_::COUNT;
 };
+
 
 // Rx 512- to 1023-Byte Packets Statistic Register
-union RMON_R_P512TO1023 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of 512- to 1023-byte receive packets
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_P512TO1023_fields_ {
+  // Number of 512- to 1023-byte receive packets
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_P512TO1023_fields_
 
-  RMON_R_P512TO1023() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P512TO1023 &ref() { return *reinterpret_cast<volatile RMON_R_P512TO1023*>(0x404242B8); }
+struct RMON_R_P512TO1023 : ftl::mmio::Register<
+    0x404242B8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_P512TO1023_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_P512TO1023_fields_::COUNT;
 };
+
 
 // Rx 1024- to 2047-Byte Packets Statistic Register
-union RMON_R_P1024TO2047 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of 1024- to 2047-byte receive packets
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_P1024TO2047_fields_ {
+  // Number of 1024- to 2047-byte receive packets
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_P1024TO2047_fields_
 
-  RMON_R_P1024TO2047() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P1024TO2047 &ref() { return *reinterpret_cast<volatile RMON_R_P1024TO2047*>(0x404242BC); }
+struct RMON_R_P1024TO2047 : ftl::mmio::Register<
+    0x404242BCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_P1024TO2047_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_P1024TO2047_fields_::COUNT;
 };
+
 
 // Rx Packets Greater than 2048 Bytes Statistic Register
-union RMON_R_P_GTE2048 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of greater-than-2048-byte receive packets
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_P_GTE2048_fields_ {
+  // Number of greater-than-2048-byte receive packets
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_P_GTE2048_fields_
 
-  RMON_R_P_GTE2048() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_P_GTE2048 &ref() { return *reinterpret_cast<volatile RMON_R_P_GTE2048*>(0x404242C0); }
+struct RMON_R_P_GTE2048 : ftl::mmio::Register<
+    0x404242C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_P_GTE2048_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = RMON_R_P_GTE2048_fields_::COUNT;
 };
+
 
 // Rx Octets Statistic Register
-union RMON_R_OCTETS {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of receive octets
-    uint32_t COUNT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RMON_R_OCTETS_fields_ {
+  // Number of receive octets
+  using COUNT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RMON_R_OCTETS_fields_
 
-  RMON_R_OCTETS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RMON_R_OCTETS &ref() { return *reinterpret_cast<volatile RMON_R_OCTETS*>(0x404242C4); }
+struct RMON_R_OCTETS : ftl::mmio::Register<
+    0x404242C4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RMON_R_OCTETS_fields_::COUNT> {
+  using COUNT = RMON_R_OCTETS_fields_::COUNT;
 };
+
 
 // Frames not Counted Correctly Statistic Register
-union IEEE_R_DROP {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Frame count
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_R_DROP_fields_ {
+  // Frame count
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_R_DROP_fields_
 
-  IEEE_R_DROP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_DROP &ref() { return *reinterpret_cast<volatile IEEE_R_DROP*>(0x404242C8); }
+struct IEEE_R_DROP : ftl::mmio::Register<
+    0x404242C8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_R_DROP_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_R_DROP_fields_::COUNT;
 };
+
 
 // Frames Received OK Statistic Register
-union IEEE_R_FRAME_OK {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of frames received OK
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_R_FRAME_OK_fields_ {
+  // Number of frames received OK
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_R_FRAME_OK_fields_
 
-  IEEE_R_FRAME_OK() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_FRAME_OK &ref() { return *reinterpret_cast<volatile IEEE_R_FRAME_OK*>(0x404242CC); }
+struct IEEE_R_FRAME_OK : ftl::mmio::Register<
+    0x404242CCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_R_FRAME_OK_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_R_FRAME_OK_fields_::COUNT;
 };
+
 
 // Frames Received with CRC Error Statistic Register
-union IEEE_R_CRC {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of frames received with CRC error
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_R_CRC_fields_ {
+  // Number of frames received with CRC error
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_R_CRC_fields_
 
-  IEEE_R_CRC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_CRC &ref() { return *reinterpret_cast<volatile IEEE_R_CRC*>(0x404242D0); }
+struct IEEE_R_CRC : ftl::mmio::Register<
+    0x404242D0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_R_CRC_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_R_CRC_fields_::COUNT;
 };
+
 
 // Frames Received with Alignment Error Statistic Register
-union IEEE_R_ALIGN {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of frames received with alignment error
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_R_ALIGN_fields_ {
+  // Number of frames received with alignment error
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_R_ALIGN_fields_
 
-  IEEE_R_ALIGN() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_ALIGN &ref() { return *reinterpret_cast<volatile IEEE_R_ALIGN*>(0x404242D4); }
+struct IEEE_R_ALIGN : ftl::mmio::Register<
+    0x404242D4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_R_ALIGN_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_R_ALIGN_fields_::COUNT;
 };
+
 
 // Receive FIFO Overflow Count Statistic Register
-union IEEE_R_MACERR {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Receive FIFO overflow count
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_R_MACERR_fields_ {
+  // Receive FIFO overflow count
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_R_MACERR_fields_
 
-  IEEE_R_MACERR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_MACERR &ref() { return *reinterpret_cast<volatile IEEE_R_MACERR*>(0x404242D8); }
+struct IEEE_R_MACERR : ftl::mmio::Register<
+    0x404242D8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_R_MACERR_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_R_MACERR_fields_::COUNT;
 };
+
 
 // Flow Control Pause Frames Received Statistic Register
-union IEEE_R_FDXFC {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of flow-control pause frames received
-    uint32_t COUNT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_R_FDXFC_fields_ {
+  // Number of flow-control pause frames received
+  using COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_R_FDXFC_fields_
 
-  IEEE_R_FDXFC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_FDXFC &ref() { return *reinterpret_cast<volatile IEEE_R_FDXFC*>(0x404242DC); }
+struct IEEE_R_FDXFC : ftl::mmio::Register<
+    0x404242DCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_R_FDXFC_fields_::COUNT,
+    ftl::mmio::Reserved<16, 16>> {
+  using COUNT = IEEE_R_FDXFC_fields_::COUNT;
 };
+
 
 // Octet Count for Frames Received without Error Statistic Register
-union IEEE_R_OCTETS_OK {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of octets for frames received without error
-    uint32_t COUNT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IEEE_R_OCTETS_OK_fields_ {
+  // Number of octets for frames received without error
+  using COUNT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IEEE_R_OCTETS_OK_fields_
 
-  IEEE_R_OCTETS_OK() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_R_OCTETS_OK &ref() { return *reinterpret_cast<volatile IEEE_R_OCTETS_OK*>(0x404242E0); }
+struct IEEE_R_OCTETS_OK : ftl::mmio::Register<
+    0x404242E0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IEEE_R_OCTETS_OK_fields_::COUNT> {
+  using COUNT = IEEE_R_OCTETS_OK_fields_::COUNT;
 };
 
+
 // Adjustable Timer Control Register
-union ATCR {
-  
-  // Enable Timer
-  enum class eEN : uint32_t {
+struct ATCR_fields_ {
+
+  enum class eEN : std::uint32_t {
     // The timer stops at the current value.
     eZERO = 0,
     // The timer starts incrementing.
     eONE = 1,
   };
-  
-  // Enable One-Shot Offset Event
-  enum class eOFFEN : uint32_t {
+
+  enum class eOFFEN : std::uint32_t {
     // Disable.
     eZERO = 0,
     // The timer can be reset to zero when the given offset time is reached (offset event). The field is cleared when the offset event is reached, so no further event occurs until the field is set again. The timer offset value must be set before setting this field.
     eONE = 1,
   };
-  
-  // Reset Timer On Offset Event
-  enum class eOFFRST : uint32_t {
+
+  enum class eOFFRST : std::uint32_t {
     // The timer is not affected and no action occurs, besides clearing OFFEN, when the offset is reached.
     eZERO = 0,
     // If OFFEN is set, the timer resets to zero when the offset setting is reached. The offset event does not cause a timer interrupt.
     eONE = 1,
   };
-  
-  // Enable Periodical Event
-  enum class ePEREN : uint32_t {
+
+  enum class ePEREN : std::uint32_t {
     // Disable.
     eZERO = 0,
     // A period event interrupt can be generated (EIR[TS_TIMER]) and the event signal output is asserted when the timer wraps around according to the periodic setting ATPER. The timer period value must be set before setting this bit. Not all devices contain the event signal output. See the chip configuration details.
     eONE = 1,
   };
-  
-  // Enables event signal output external pin frc_evt_period assertion on period event
-  enum class ePINPER : uint32_t {
+
+  enum class ePINPER : std::uint32_t {
     // Disable.
     eZERO = 0,
     // Enable.
     eONE = 1,
   };
-  
-  // Capture Timer Value
-  enum class eCAPTURE : uint32_t {
+
+  enum class eCAPTURE : std::uint32_t {
     // No effect.
     eZERO = 0,
     // The current time is captured and can be read from the ATVR register.
     eONE = 1,
   };
-  
-  // Enable Timer Slave Mode
-  enum class eSLAVE : uint32_t {
+
+  enum class eSLAVE : std::uint32_t {
     // The timer is active and all configuration fields in this register are relevant.
     eZERO = 0,
     // The internal timer is disabled and the externally provided timer value is used. All other fields, except CAPTURE, in this register have no effect. CAPTURE can still be used to capture the current timer value.
     eONE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable Timer
-    eEN EN : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Enable One-Shot Offset Event
-    eOFFEN OFFEN : 1;
-    // read-write - Reset Timer On Offset Event
-    eOFFRST OFFRST : 1;
-    // read-write - Enable Periodical Event
-    ePEREN PEREN : 1;
-    uint32_t _reserved_1 : 2;
-    // read-write - Enables event signal output external pin frc_evt_period assertion on period event
-    ePINPER PINPER : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - Reset Timer
-    uint32_t RESTART : 1;
-    uint32_t _reserved_3 : 1;
-    // read-write - Capture Timer Value
-    eCAPTURE CAPTURE : 1;
-    uint32_t _reserved_4 : 1;
-    // read-write - Enable Timer Slave Mode
-    eSLAVE SLAVE : 1;
-    uint32_t _reserved_5 : 18;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable Timer
+  using EN = ftl::mmio::Field<1, 0, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable One-Shot Offset Event
+  using OFFEN = ftl::mmio::Field<1, 2, eOFFEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Reset Timer On Offset Event
+  using OFFRST = ftl::mmio::Field<1, 3, eOFFRST, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Periodical Event
+  using PEREN = ftl::mmio::Field<1, 4, ePEREN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enables event signal output external pin frc_evt_period assertion on period event
+  using PINPER = ftl::mmio::Field<1, 7, ePINPER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Reset Timer
+  using RESTART = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Capture Timer Value
+  using CAPTURE = ftl::mmio::Field<1, 11, eCAPTURE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Timer Slave Mode
+  using SLAVE = ftl::mmio::Field<1, 13, eSLAVE, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ATCR_fields_
 
-  ATCR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ATCR &ref() { return *reinterpret_cast<volatile ATCR*>(0x40424400); }
+struct ATCR : ftl::mmio::Register<
+    0x40424400u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ATCR_fields_::EN,
+    ftl::mmio::Reserved<1, 1>,
+    ATCR_fields_::OFFEN,
+    ATCR_fields_::OFFRST,
+    ATCR_fields_::PEREN,
+    ftl::mmio::Reserved<2, 5>,
+    ATCR_fields_::PINPER,
+    ftl::mmio::Reserved<1, 8>,
+    ATCR_fields_::RESTART,
+    ftl::mmio::Reserved<1, 10>,
+    ATCR_fields_::CAPTURE,
+    ftl::mmio::Reserved<1, 12>,
+    ATCR_fields_::SLAVE,
+    ftl::mmio::Reserved<18, 14>> {
+  using eEN = ATCR_fields_::eEN;
+  using eOFFEN = ATCR_fields_::eOFFEN;
+  using eOFFRST = ATCR_fields_::eOFFRST;
+  using ePEREN = ATCR_fields_::ePEREN;
+  using ePINPER = ATCR_fields_::ePINPER;
+  using eCAPTURE = ATCR_fields_::eCAPTURE;
+  using eSLAVE = ATCR_fields_::eSLAVE;
+  using EN = ATCR_fields_::EN;
+  using OFFEN = ATCR_fields_::OFFEN;
+  using OFFRST = ATCR_fields_::OFFRST;
+  using PEREN = ATCR_fields_::PEREN;
+  using PINPER = ATCR_fields_::PINPER;
+  using RESTART = ATCR_fields_::RESTART;
+  using CAPTURE = ATCR_fields_::CAPTURE;
+  using SLAVE = ATCR_fields_::SLAVE;
 };
+
 
 // Timer Value Register
-union ATVR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - A write sets the timer
-    uint32_t ATIME : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ATVR_fields_ {
+  // A write sets the timer
+  using ATIME = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ATVR_fields_
 
-  ATVR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ATVR &ref() { return *reinterpret_cast<volatile ATVR*>(0x40424404); }
+struct ATVR : ftl::mmio::Register<
+    0x40424404u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ATVR_fields_::ATIME> {
+  using ATIME = ATVR_fields_::ATIME;
 };
+
 
 // Timer Offset Register
-union ATOFF {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Offset value for one-shot event generation
-    uint32_t OFFSET : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ATOFF_fields_ {
+  // Offset value for one-shot event generation
+  using OFFSET = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ATOFF_fields_
 
-  ATOFF() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ATOFF &ref() { return *reinterpret_cast<volatile ATOFF*>(0x40424408); }
+struct ATOFF : ftl::mmio::Register<
+    0x40424408u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ATOFF_fields_::OFFSET> {
+  using OFFSET = ATOFF_fields_::OFFSET;
 };
+
 
 // Timer Period Register
-union ATPER {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Value for generating periodic events
-    uint32_t PERIOD : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ATPER_fields_ {
+  // Value for generating periodic events
+  using PERIOD = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ATPER_fields_
 
-  ATPER() = delete;
-  inline void Reset() volatile { this->value = 0x3B9ACA00; }
-  static inline volatile ATPER &ref() { return *reinterpret_cast<volatile ATPER*>(0x4042440C); }
+struct ATPER : ftl::mmio::Register<
+    0x4042440Cu,
+    std::uint32_t,
+    0x3B9ACA00u,
+    ftl::mmio::RW,
+    ATPER_fields_::PERIOD> {
+  using PERIOD = ATPER_fields_::PERIOD;
 };
+
 
 // Timer Correction Register
-union ATCOR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Correction Counter Wrap-Around Value
-    uint32_t COR : 31;
-    uint32_t _reserved_0 : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ATCOR_fields_ {
+  // Correction Counter Wrap-Around Value
+  using COR = ftl::mmio::Field<31, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ATCOR_fields_
 
-  ATCOR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ATCOR &ref() { return *reinterpret_cast<volatile ATCOR*>(0x40424410); }
+struct ATCOR : ftl::mmio::Register<
+    0x40424410u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ATCOR_fields_::COR,
+    ftl::mmio::Reserved<1, 31>> {
+  using COR = ATCOR_fields_::COR;
 };
+
 
 // Time-Stamping Clock Period Register
-union ATINC {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Clock Period Of The Timestamping Clock (ts_clk) In Nanoseconds
-    uint32_t INC : 7;
-    uint32_t _reserved_0 : 1;
-    // read-write - Correction Increment Value
-    uint32_t INC_CORR : 7;
-    uint32_t _reserved_1 : 17;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ATINC_fields_ {
+  // Clock Period Of The Timestamping Clock (ts_clk) In Nanoseconds
+  using INC = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Correction Increment Value
+  using INC_CORR = ftl::mmio::Field<7, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ATINC_fields_
 
-  ATINC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ATINC &ref() { return *reinterpret_cast<volatile ATINC*>(0x40424414); }
+struct ATINC : ftl::mmio::Register<
+    0x40424414u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ATINC_fields_::INC,
+    ftl::mmio::Reserved<1, 7>,
+    ATINC_fields_::INC_CORR,
+    ftl::mmio::Reserved<17, 15>> {
+  using INC = ATINC_fields_::INC;
+  using INC_CORR = ATINC_fields_::INC_CORR;
 };
+
 
 // Timestamp of Last Transmitted Frame
-union ATSTMP {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Timestamp of the last frame transmitted by the core that had TxBD[TS] set the ff_tx_ts_frm signal asserted from the user application
-    uint32_t TIMESTAMP : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ATSTMP_fields_ {
+  // Timestamp of the last frame transmitted by the core that had TxBD[TS] set the ff_tx_ts_frm signal asserted from the user application
+  using TIMESTAMP = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ATSTMP_fields_
 
-  ATSTMP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ATSTMP &ref() { return *reinterpret_cast<volatile ATSTMP*>(0x40424418); }
+struct ATSTMP : ftl::mmio::Register<
+    0x40424418u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    ATSTMP_fields_::TIMESTAMP> {
+  using TIMESTAMP = ATSTMP_fields_::TIMESTAMP;
 };
 
+
 // Timer Global Status Register
-union TGSR {
-  
-  // Copy Of Timer Flag For Channel 0
-  enum class eTF0 : uint32_t {
+struct TGSR_fields_ {
+
+  enum class eTF0 : std::uint32_t {
     // Timer Flag for Channel 0 is clear
     eZERO = 0,
     // Timer Flag for Channel 0 is set
     eONE = 1,
   };
-  
-  // Copy Of Timer Flag For Channel 1
-  enum class eTF1 : uint32_t {
+
+  enum class eTF1 : std::uint32_t {
     // Timer Flag for Channel 1 is clear
     eZERO = 0,
     // Timer Flag for Channel 1 is set
     eONE = 1,
   };
-  
-  // Copy Of Timer Flag For Channel 2
-  enum class eTF2 : uint32_t {
+
+  enum class eTF2 : std::uint32_t {
     // Timer Flag for Channel 2 is clear
     eZERO = 0,
     // Timer Flag for Channel 2 is set
     eONE = 1,
   };
-  
-  // Copy Of Timer Flag For Channel 3
-  enum class eTF3 : uint32_t {
+
+  enum class eTF3 : std::uint32_t {
     // Timer Flag for Channel 3 is clear
     eZERO = 0,
     // Timer Flag for Channel 3 is set
     eONE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Copy Of Timer Flag For Channel 0
-    eTF0 TF0 : 1;
-    // read-write - Copy Of Timer Flag For Channel 1
-    eTF1 TF1 : 1;
-    // read-write - Copy Of Timer Flag For Channel 2
-    eTF2 TF2 : 1;
-    // read-write - Copy Of Timer Flag For Channel 3
-    eTF3 TF3 : 1;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Copy Of Timer Flag For Channel 0
+  using TF0 = ftl::mmio::Field<1, 0, eTF0, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Copy Of Timer Flag For Channel 1
+  using TF1 = ftl::mmio::Field<1, 1, eTF1, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Copy Of Timer Flag For Channel 2
+  using TF2 = ftl::mmio::Field<1, 2, eTF2, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Copy Of Timer Flag For Channel 3
+  using TF3 = ftl::mmio::Field<1, 3, eTF3, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct TGSR_fields_
 
-  TGSR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TGSR &ref() { return *reinterpret_cast<volatile TGSR*>(0x40424604); }
+struct TGSR : ftl::mmio::Register<
+    0x40424604u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TGSR_fields_::TF0,
+    TGSR_fields_::TF1,
+    TGSR_fields_::TF2,
+    TGSR_fields_::TF3,
+    ftl::mmio::Reserved<28, 4>> {
+  using eTF0 = TGSR_fields_::eTF0;
+  using eTF1 = TGSR_fields_::eTF1;
+  using eTF2 = TGSR_fields_::eTF2;
+  using eTF3 = TGSR_fields_::eTF3;
+  using TF0 = TGSR_fields_::TF0;
+  using TF1 = TGSR_fields_::TF1;
+  using TF2 = TGSR_fields_::TF2;
+  using TF3 = TGSR_fields_::TF3;
 };
 
+
 // Timer Control Status Register
-union TCSR0 {
-  
-  // Timer DMA Request Enable
-  enum class eTDRE : uint32_t {
+struct TCSR0_fields_ {
+
+  enum class eTDRE : std::uint32_t {
     // DMA request is disabled
     eZERO = 0,
     // DMA request is enabled
     eONE = 1,
   };
-  
-  // Timer Mode
-  enum class eTMODE : uint32_t {
+
+  enum class eTMODE : std::uint32_t {
     // Timer Channel is disabled.
     eTMR_DIS = 0,
     // Timer Channel is configured for Input Capture on rising edge.
@@ -2654,25 +2586,22 @@ union TCSR0 {
     // Timer Channel is configured for Output Compare - pulse output high on compare for 1 to 32 1588-clock cycles as specified by TPWC.
     eTMR_OUT_CMP_HIGH = 15,
   };
-  
-  // Timer Interrupt Enable
-  enum class eTIE : uint32_t {
+
+  enum class eTIE : std::uint32_t {
     // Interrupt is disabled
     eZERO = 0,
     // Interrupt is enabled
     eONE = 1,
   };
-  
-  // Timer Flag
-  enum class eTF : uint32_t {
+
+  enum class eTF : std::uint32_t {
     // Input Capture or Output Compare has not occurred.
     eZERO = 0,
     // Input Capture or Output Compare has occurred.
     eONE = 1,
   };
-  
-  // Timer Pulse Width Control
-  enum class eTPWC : uint32_t {
+
+  enum class eTPWC : std::uint32_t {
     // Pulse width is one 1588-clock cycle.
     eVALW1 = 0,
     // Pulse width is two 1588-clock cycles.
@@ -2684,62 +2613,71 @@ union TCSR0 {
     // Pulse width is 32 1588-clock cycles.
     eVALW32 = 31,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Timer DMA Request Enable
-    eTDRE TDRE : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Timer Mode
-    eTMODE TMODE : 4;
-    // read-write - Timer Interrupt Enable
-    eTIE TIE : 1;
-    // read-write - Timer Flag
-    eTF TF : 1;
-    uint32_t _reserved_1 : 3;
-    // read-write - Timer Pulse Width Control
-    eTPWC TPWC : 5;
-    uint32_t _reserved_2 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Timer DMA Request Enable
+  using TDRE = ftl::mmio::Field<1, 0, eTDRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Timer Mode
+  using TMODE = ftl::mmio::Field<4, 2, eTMODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Timer Interrupt Enable
+  using TIE = ftl::mmio::Field<1, 6, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Timer Flag
+  using TF = ftl::mmio::Field<1, 7, eTF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Timer Pulse Width Control
+  using TPWC = ftl::mmio::Field<5, 11, eTPWC, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TCSR0_fields_
 
-  TCSR0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCSR0 &ref() { return *reinterpret_cast<volatile TCSR0*>(0x40424608); }
+struct TCSR0 : ftl::mmio::Register<
+    0x40424608u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCSR0_fields_::TDRE,
+    ftl::mmio::Reserved<1, 1>,
+    TCSR0_fields_::TMODE,
+    TCSR0_fields_::TIE,
+    TCSR0_fields_::TF,
+    ftl::mmio::Reserved<3, 8>,
+    TCSR0_fields_::TPWC,
+    ftl::mmio::Reserved<16, 16>> {
+  using eTDRE = TCSR0_fields_::eTDRE;
+  using eTMODE = TCSR0_fields_::eTMODE;
+  using eTIE = TCSR0_fields_::eTIE;
+  using eTF = TCSR0_fields_::eTF;
+  using eTPWC = TCSR0_fields_::eTPWC;
+  using TDRE = TCSR0_fields_::TDRE;
+  using TMODE = TCSR0_fields_::TMODE;
+  using TIE = TCSR0_fields_::TIE;
+  using TF = TCSR0_fields_::TF;
+  using TPWC = TCSR0_fields_::TPWC;
 };
+
 
 // Timer Compare Capture Register
-union TCCR0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Timer Capture Compare
-    uint32_t TCC : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TCCR0_fields_ {
+  // Timer Capture Compare
+  using TCC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TCCR0_fields_
 
-  TCCR0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCCR0 &ref() { return *reinterpret_cast<volatile TCCR0*>(0x4042460C); }
+struct TCCR0 : ftl::mmio::Register<
+    0x4042460Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCCR0_fields_::TCC> {
+  using TCC = TCCR0_fields_::TCC;
 };
 
+
 // Timer Control Status Register
-union TCSR1 {
-  
-  // Timer DMA Request Enable
-  enum class eTDRE : uint32_t {
+struct TCSR1_fields_ {
+
+  enum class eTDRE : std::uint32_t {
     // DMA request is disabled
     eZERO = 0,
     // DMA request is enabled
     eONE = 1,
   };
-  
-  // Timer Mode
-  enum class eTMODE : uint32_t {
+
+  enum class eTMODE : std::uint32_t {
     // Timer Channel is disabled.
     eTMR_DIS = 0,
     // Timer Channel is configured for Input Capture on rising edge.
@@ -2765,25 +2703,22 @@ union TCSR1 {
     // Timer Channel is configured for Output Compare - pulse output high on compare for 1 to 32 1588-clock cycles as specified by TPWC.
     eTMR_OUT_CMP_HIGH = 15,
   };
-  
-  // Timer Interrupt Enable
-  enum class eTIE : uint32_t {
+
+  enum class eTIE : std::uint32_t {
     // Interrupt is disabled
     eZERO = 0,
     // Interrupt is enabled
     eONE = 1,
   };
-  
-  // Timer Flag
-  enum class eTF : uint32_t {
+
+  enum class eTF : std::uint32_t {
     // Input Capture or Output Compare has not occurred.
     eZERO = 0,
     // Input Capture or Output Compare has occurred.
     eONE = 1,
   };
-  
-  // Timer Pulse Width Control
-  enum class eTPWC : uint32_t {
+
+  enum class eTPWC : std::uint32_t {
     // Pulse width is one 1588-clock cycle.
     eVALW1 = 0,
     // Pulse width is two 1588-clock cycles.
@@ -2795,62 +2730,71 @@ union TCSR1 {
     // Pulse width is 32 1588-clock cycles.
     eVALW32 = 31,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Timer DMA Request Enable
-    eTDRE TDRE : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Timer Mode
-    eTMODE TMODE : 4;
-    // read-write - Timer Interrupt Enable
-    eTIE TIE : 1;
-    // read-write - Timer Flag
-    eTF TF : 1;
-    uint32_t _reserved_1 : 3;
-    // read-write - Timer Pulse Width Control
-    eTPWC TPWC : 5;
-    uint32_t _reserved_2 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Timer DMA Request Enable
+  using TDRE = ftl::mmio::Field<1, 0, eTDRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Timer Mode
+  using TMODE = ftl::mmio::Field<4, 2, eTMODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Timer Interrupt Enable
+  using TIE = ftl::mmio::Field<1, 6, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Timer Flag
+  using TF = ftl::mmio::Field<1, 7, eTF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Timer Pulse Width Control
+  using TPWC = ftl::mmio::Field<5, 11, eTPWC, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TCSR1_fields_
 
-  TCSR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCSR1 &ref() { return *reinterpret_cast<volatile TCSR1*>(0x40424610); }
+struct TCSR1 : ftl::mmio::Register<
+    0x40424610u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCSR1_fields_::TDRE,
+    ftl::mmio::Reserved<1, 1>,
+    TCSR1_fields_::TMODE,
+    TCSR1_fields_::TIE,
+    TCSR1_fields_::TF,
+    ftl::mmio::Reserved<3, 8>,
+    TCSR1_fields_::TPWC,
+    ftl::mmio::Reserved<16, 16>> {
+  using eTDRE = TCSR1_fields_::eTDRE;
+  using eTMODE = TCSR1_fields_::eTMODE;
+  using eTIE = TCSR1_fields_::eTIE;
+  using eTF = TCSR1_fields_::eTF;
+  using eTPWC = TCSR1_fields_::eTPWC;
+  using TDRE = TCSR1_fields_::TDRE;
+  using TMODE = TCSR1_fields_::TMODE;
+  using TIE = TCSR1_fields_::TIE;
+  using TF = TCSR1_fields_::TF;
+  using TPWC = TCSR1_fields_::TPWC;
 };
+
 
 // Timer Compare Capture Register
-union TCCR1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Timer Capture Compare
-    uint32_t TCC : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TCCR1_fields_ {
+  // Timer Capture Compare
+  using TCC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TCCR1_fields_
 
-  TCCR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCCR1 &ref() { return *reinterpret_cast<volatile TCCR1*>(0x40424614); }
+struct TCCR1 : ftl::mmio::Register<
+    0x40424614u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCCR1_fields_::TCC> {
+  using TCC = TCCR1_fields_::TCC;
 };
 
+
 // Timer Control Status Register
-union TCSR2 {
-  
-  // Timer DMA Request Enable
-  enum class eTDRE : uint32_t {
+struct TCSR2_fields_ {
+
+  enum class eTDRE : std::uint32_t {
     // DMA request is disabled
     eZERO = 0,
     // DMA request is enabled
     eONE = 1,
   };
-  
-  // Timer Mode
-  enum class eTMODE : uint32_t {
+
+  enum class eTMODE : std::uint32_t {
     // Timer Channel is disabled.
     eTMR_DIS = 0,
     // Timer Channel is configured for Input Capture on rising edge.
@@ -2876,25 +2820,22 @@ union TCSR2 {
     // Timer Channel is configured for Output Compare - pulse output high on compare for 1 to 32 1588-clock cycles as specified by TPWC.
     eTMR_OUT_CMP_HIGH = 15,
   };
-  
-  // Timer Interrupt Enable
-  enum class eTIE : uint32_t {
+
+  enum class eTIE : std::uint32_t {
     // Interrupt is disabled
     eZERO = 0,
     // Interrupt is enabled
     eONE = 1,
   };
-  
-  // Timer Flag
-  enum class eTF : uint32_t {
+
+  enum class eTF : std::uint32_t {
     // Input Capture or Output Compare has not occurred.
     eZERO = 0,
     // Input Capture or Output Compare has occurred.
     eONE = 1,
   };
-  
-  // Timer Pulse Width Control
-  enum class eTPWC : uint32_t {
+
+  enum class eTPWC : std::uint32_t {
     // Pulse width is one 1588-clock cycle.
     eVALW1 = 0,
     // Pulse width is two 1588-clock cycles.
@@ -2906,62 +2847,71 @@ union TCSR2 {
     // Pulse width is 32 1588-clock cycles.
     eVALW32 = 31,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Timer DMA Request Enable
-    eTDRE TDRE : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Timer Mode
-    eTMODE TMODE : 4;
-    // read-write - Timer Interrupt Enable
-    eTIE TIE : 1;
-    // read-write - Timer Flag
-    eTF TF : 1;
-    uint32_t _reserved_1 : 3;
-    // read-write - Timer Pulse Width Control
-    eTPWC TPWC : 5;
-    uint32_t _reserved_2 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Timer DMA Request Enable
+  using TDRE = ftl::mmio::Field<1, 0, eTDRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Timer Mode
+  using TMODE = ftl::mmio::Field<4, 2, eTMODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Timer Interrupt Enable
+  using TIE = ftl::mmio::Field<1, 6, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Timer Flag
+  using TF = ftl::mmio::Field<1, 7, eTF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Timer Pulse Width Control
+  using TPWC = ftl::mmio::Field<5, 11, eTPWC, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TCSR2_fields_
 
-  TCSR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCSR2 &ref() { return *reinterpret_cast<volatile TCSR2*>(0x40424618); }
+struct TCSR2 : ftl::mmio::Register<
+    0x40424618u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCSR2_fields_::TDRE,
+    ftl::mmio::Reserved<1, 1>,
+    TCSR2_fields_::TMODE,
+    TCSR2_fields_::TIE,
+    TCSR2_fields_::TF,
+    ftl::mmio::Reserved<3, 8>,
+    TCSR2_fields_::TPWC,
+    ftl::mmio::Reserved<16, 16>> {
+  using eTDRE = TCSR2_fields_::eTDRE;
+  using eTMODE = TCSR2_fields_::eTMODE;
+  using eTIE = TCSR2_fields_::eTIE;
+  using eTF = TCSR2_fields_::eTF;
+  using eTPWC = TCSR2_fields_::eTPWC;
+  using TDRE = TCSR2_fields_::TDRE;
+  using TMODE = TCSR2_fields_::TMODE;
+  using TIE = TCSR2_fields_::TIE;
+  using TF = TCSR2_fields_::TF;
+  using TPWC = TCSR2_fields_::TPWC;
 };
+
 
 // Timer Compare Capture Register
-union TCCR2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Timer Capture Compare
-    uint32_t TCC : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TCCR2_fields_ {
+  // Timer Capture Compare
+  using TCC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TCCR2_fields_
 
-  TCCR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCCR2 &ref() { return *reinterpret_cast<volatile TCCR2*>(0x4042461C); }
+struct TCCR2 : ftl::mmio::Register<
+    0x4042461Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCCR2_fields_::TCC> {
+  using TCC = TCCR2_fields_::TCC;
 };
 
+
 // Timer Control Status Register
-union TCSR3 {
-  
-  // Timer DMA Request Enable
-  enum class eTDRE : uint32_t {
+struct TCSR3_fields_ {
+
+  enum class eTDRE : std::uint32_t {
     // DMA request is disabled
     eZERO = 0,
     // DMA request is enabled
     eONE = 1,
   };
-  
-  // Timer Mode
-  enum class eTMODE : uint32_t {
+
+  enum class eTMODE : std::uint32_t {
     // Timer Channel is disabled.
     eTMR_DIS = 0,
     // Timer Channel is configured for Input Capture on rising edge.
@@ -2987,25 +2937,22 @@ union TCSR3 {
     // Timer Channel is configured for Output Compare - pulse output high on compare for 1 to 32 1588-clock cycles as specified by TPWC.
     eTMR_OUT_CMP_HIGH = 15,
   };
-  
-  // Timer Interrupt Enable
-  enum class eTIE : uint32_t {
+
+  enum class eTIE : std::uint32_t {
     // Interrupt is disabled
     eZERO = 0,
     // Interrupt is enabled
     eONE = 1,
   };
-  
-  // Timer Flag
-  enum class eTF : uint32_t {
+
+  enum class eTF : std::uint32_t {
     // Input Capture or Output Compare has not occurred.
     eZERO = 0,
     // Input Capture or Output Compare has occurred.
     eONE = 1,
   };
-  
-  // Timer Pulse Width Control
-  enum class eTPWC : uint32_t {
+
+  enum class eTPWC : std::uint32_t {
     // Pulse width is one 1588-clock cycle.
     eVALW1 = 0,
     // Pulse width is two 1588-clock cycles.
@@ -3017,48 +2964,57 @@ union TCSR3 {
     // Pulse width is 32 1588-clock cycles.
     eVALW32 = 31,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Timer DMA Request Enable
-    eTDRE TDRE : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Timer Mode
-    eTMODE TMODE : 4;
-    // read-write - Timer Interrupt Enable
-    eTIE TIE : 1;
-    // read-write - Timer Flag
-    eTF TF : 1;
-    uint32_t _reserved_1 : 3;
-    // read-write - Timer Pulse Width Control
-    eTPWC TPWC : 5;
-    uint32_t _reserved_2 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Timer DMA Request Enable
+  using TDRE = ftl::mmio::Field<1, 0, eTDRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Timer Mode
+  using TMODE = ftl::mmio::Field<4, 2, eTMODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Timer Interrupt Enable
+  using TIE = ftl::mmio::Field<1, 6, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Timer Flag
+  using TF = ftl::mmio::Field<1, 7, eTF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Timer Pulse Width Control
+  using TPWC = ftl::mmio::Field<5, 11, eTPWC, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TCSR3_fields_
 
-  TCSR3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCSR3 &ref() { return *reinterpret_cast<volatile TCSR3*>(0x40424620); }
+struct TCSR3 : ftl::mmio::Register<
+    0x40424620u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCSR3_fields_::TDRE,
+    ftl::mmio::Reserved<1, 1>,
+    TCSR3_fields_::TMODE,
+    TCSR3_fields_::TIE,
+    TCSR3_fields_::TF,
+    ftl::mmio::Reserved<3, 8>,
+    TCSR3_fields_::TPWC,
+    ftl::mmio::Reserved<16, 16>> {
+  using eTDRE = TCSR3_fields_::eTDRE;
+  using eTMODE = TCSR3_fields_::eTMODE;
+  using eTIE = TCSR3_fields_::eTIE;
+  using eTF = TCSR3_fields_::eTF;
+  using eTPWC = TCSR3_fields_::eTPWC;
+  using TDRE = TCSR3_fields_::TDRE;
+  using TMODE = TCSR3_fields_::TMODE;
+  using TIE = TCSR3_fields_::TIE;
+  using TF = TCSR3_fields_::TF;
+  using TPWC = TCSR3_fields_::TPWC;
 };
+
 
 // Timer Compare Capture Register
-union TCCR3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Timer Capture Compare
-    uint32_t TCC : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TCCR3_fields_ {
+  // Timer Capture Compare
+  using TCC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TCCR3_fields_
 
-  TCCR3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TCCR3 &ref() { return *reinterpret_cast<volatile TCCR3*>(0x40424624); }
+struct TCCR3 : ftl::mmio::Register<
+    0x40424624u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TCCR3_fields_::TCC> {
+  using TCC = TCCR3_fields_::TCC;
 };
 
-
-} // namespace nENET
+}  // namespace regs::enet

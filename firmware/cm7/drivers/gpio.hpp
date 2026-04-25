@@ -65,9 +65,12 @@ void Gpio<GPIO_NUM>::configure(GpioDirection dir, GpioPull pull) {
   configurePinMux();
 
   if (dir == GpioDirection::eOutput) {
-    regs::IMR::raw()  &= ~(1UL << pin_);
-    regs::DR::raw()   &= ~(1UL << pin_);
-    regs::GDIR::raw() |=  (1UL << pin_);
+    // IMR / GDIR have no atomic-bit registers in the SVD; runtime-indexed bit
+    // twiddling has to go through raw() + RMW. DR uses its W1C/W1S sibling
+    // (DR_CLEAR) for atomic single-bit ops with no RMW hazard.
+    regs::IMR::raw()  &= ~(1UL << pin_);  // mask interrupt for this pin
+    regs::DR_CLEAR::raw() = (1UL << pin_);  // drive low before flipping to output
+    regs::GDIR::raw() |=  (1UL << pin_);  // direction = output
   } else {
     assert(false);  // TODO: implement eInput
   }
@@ -81,10 +84,11 @@ void Gpio<GPIO_NUM>::configure(GpioDirection dir, GpioPull pull) {
 
 template <uint32_t GPIO_NUM>
 void Gpio<GPIO_NUM>::write(bool state) {
+  // Atomic single-bit set/clear via the dedicated W1-style registers.
   if (state) {
-    regs::DR::raw() |=  (1UL << pin_);
+    regs::DR_SET::raw()   = (1UL << pin_);
   } else {
-    regs::DR::raw() &= ~(1UL << pin_);
+    regs::DR_CLEAR::raw() = (1UL << pin_);
   }
 }
 
@@ -96,5 +100,6 @@ bool Gpio<GPIO_NUM>::read() {
 
 template <uint32_t GPIO_NUM>
 void Gpio<GPIO_NUM>::toggle() {
+  // DR_TOGGLE: write a 1-bit pattern to atomically toggle the matching DR bits.
   regs::DR_TOGGLE::raw() = (1UL << pin_);
 }

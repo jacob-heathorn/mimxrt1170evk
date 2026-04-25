@@ -1,75 +1,81 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // Secure RAM
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nSRAM {
+namespace regs::sram {
 
 
 // Control Register
-union CTRL {
-  
-  // RAM Read Enable (with lock)
-  enum class eRAM_RD_EN : uint32_t {
+struct CTRL_fields_ {
+
+  enum class eRAM_RD_EN : std::uint32_t {
     // Disable read access
     eDISABLE = 0,
     // Enable read access
     eENABLE = 1,
   };
-  
-  // RAM Write Enable (with lock)
-  enum class eRAM_WR_EN : uint32_t {
+
+  enum class eRAM_WR_EN : std::uint32_t {
     // Disable write access
     eDISABLE = 0,
     // Enable write access
     eENABLE = 1,
   };
-  
-  // Tamper Block Enable (with lock)
-  enum class eTAMPER_BLOCK_EN : uint32_t {
+
+  enum class eTAMPER_BLOCK_EN : std::uint32_t {
     // Allow R/W access to secure RAM when tamper is detected
     eACCESS = 0,
     // Block R/W access to secure RAM when tamper is detected
     eBLOCK = 1,
   };
-  
-  // Turn off power on tamper event (with lock)
-  enum class eTAMPER_PWR_OFF_EN : uint32_t {
+
+  enum class eTAMPER_PWR_OFF_EN : std::uint32_t {
     // Disable the turn off function when tamper is detected
     eOFF = 0,
     // Turn off power for all secure RAM banks when tamper is detected
     eON = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - RAM Read Enable (with lock)
-    eRAM_RD_EN RAM_RD_EN : 1;
-    // read-write - RAM Write Enable (with lock)
-    eRAM_WR_EN RAM_WR_EN : 1;
-    // read-write - Power Enable (with lock)
-    uint32_t PWR_EN : 4;
-    // read-write - Tamper Block Enable (with lock)
-    eTAMPER_BLOCK_EN TAMPER_BLOCK_EN : 1;
-    // read-write - Turn off power on tamper event (with lock)
-    eTAMPER_PWR_OFF_EN TAMPER_PWR_OFF_EN : 1;
-    uint32_t _reserved_0 : 8;
-    // read-write - Lock bits
-    uint32_t LOCK_BIT : 8;
-    uint32_t _reserved_1 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // RAM Read Enable (with lock)
+  using RAM_RD_EN = ftl::mmio::Field<1, 0, eRAM_RD_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RAM Write Enable (with lock)
+  using RAM_WR_EN = ftl::mmio::Field<1, 1, eRAM_WR_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Power Enable (with lock)
+  using PWR_EN = ftl::mmio::Field<4, 2, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Tamper Block Enable (with lock)
+  using TAMPER_BLOCK_EN = ftl::mmio::Field<1, 6, eTAMPER_BLOCK_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Turn off power on tamper event (with lock)
+  using TAMPER_PWR_OFF_EN = ftl::mmio::Field<1, 7, eTAMPER_PWR_OFF_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock bits
+  using LOCK_BIT = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_fields_
 
-  CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40C9F000); }
+struct CTRL : ftl::mmio::Register<
+    0x40C9F000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_fields_::RAM_RD_EN,
+    CTRL_fields_::RAM_WR_EN,
+    CTRL_fields_::PWR_EN,
+    CTRL_fields_::TAMPER_BLOCK_EN,
+    CTRL_fields_::TAMPER_PWR_OFF_EN,
+    ftl::mmio::Reserved<8, 8>,
+    CTRL_fields_::LOCK_BIT,
+    ftl::mmio::Reserved<8, 24>> {
+  using eRAM_RD_EN = CTRL_fields_::eRAM_RD_EN;
+  using eRAM_WR_EN = CTRL_fields_::eRAM_WR_EN;
+  using eTAMPER_BLOCK_EN = CTRL_fields_::eTAMPER_BLOCK_EN;
+  using eTAMPER_PWR_OFF_EN = CTRL_fields_::eTAMPER_PWR_OFF_EN;
+  using RAM_RD_EN = CTRL_fields_::RAM_RD_EN;
+  using RAM_WR_EN = CTRL_fields_::RAM_WR_EN;
+  using PWR_EN = CTRL_fields_::PWR_EN;
+  using TAMPER_BLOCK_EN = CTRL_fields_::TAMPER_BLOCK_EN;
+  using TAMPER_PWR_OFF_EN = CTRL_fields_::TAMPER_PWR_OFF_EN;
+  using LOCK_BIT = CTRL_fields_::LOCK_BIT;
 };
 
-
-} // namespace nSRAM
+}  // namespace regs::sram

@@ -1,214 +1,259 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // no description available
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nVMBANDGAP {
+namespace regs::vmbandgap {
 
 
 // Analog Control Register CTRL0
-union CTRL0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Master power-down for bandgap module
-    uint32_t REFTOP_PWD : 1;
-    // read-write - Power-down for bandgap voltage-reference buffer
-    uint32_t REFTOP_LINREGREF_PWD : 1;
-    // read-write - Power-down VBGUP detector in bandgap
-    uint32_t REFTOP_PWDVBGUP : 1;
-    // read-write - Low-power control bit
-    uint32_t REFTOP_LOWPOWER : 1;
-    // read-write - bandgap self-bias control bit
-    uint32_t REFTOP_SELFBIASOFF : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL0_fields_ {
+  // Master power-down for bandgap module
+  using REFTOP_PWD = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Power-down for bandgap voltage-reference buffer
+  using REFTOP_LINREGREF_PWD = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Power-down VBGUP detector in bandgap
+  using REFTOP_PWDVBGUP = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Low-power control bit
+  using REFTOP_LOWPOWER = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // bandgap self-bias control bit
+  using REFTOP_SELFBIASOFF = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL0_fields_
 
-  CTRL0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0 &ref() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
+struct CTRL0 : ftl::mmio::Register<
+    0x00000000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL0_fields_::REFTOP_PWD,
+    CTRL0_fields_::REFTOP_LINREGREF_PWD,
+    CTRL0_fields_::REFTOP_PWDVBGUP,
+    CTRL0_fields_::REFTOP_LOWPOWER,
+    CTRL0_fields_::REFTOP_SELFBIASOFF,
+    ftl::mmio::Reserved<27, 5>> {
+  using REFTOP_PWD = CTRL0_fields_::REFTOP_PWD;
+  using REFTOP_LINREGREF_PWD = CTRL0_fields_::REFTOP_LINREGREF_PWD;
+  using REFTOP_PWDVBGUP = CTRL0_fields_::REFTOP_PWDVBGUP;
+  using REFTOP_LOWPOWER = CTRL0_fields_::REFTOP_LOWPOWER;
+  using REFTOP_SELFBIASOFF = CTRL0_fields_::REFTOP_SELFBIASOFF;
 };
+
 
 // Analog Control Register CTRL0
-union CTRL0_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Master power-down for bandgap module
-    uint32_t REFTOP_PWD : 1;
-    // read-write - Power-down for bandgap voltage-reference buffer
-    uint32_t REFTOP_LINREGREF_PWD : 1;
-    // read-write - Power-down VBGUP detector in bandgap
-    uint32_t REFTOP_PWDVBGUP : 1;
-    // read-write - Low-power control bit
-    uint32_t REFTOP_LOWPOWER : 1;
-    // read-write - bandgap self-bias control bit
-    uint32_t REFTOP_SELFBIASOFF : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL0_SET_fields_ {
+  // Master power-down for bandgap module
+  using REFTOP_PWD = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Power-down for bandgap voltage-reference buffer
+  using REFTOP_LINREGREF_PWD = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Power-down VBGUP detector in bandgap
+  using REFTOP_PWDVBGUP = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Low-power control bit
+  using REFTOP_LOWPOWER = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // bandgap self-bias control bit
+  using REFTOP_SELFBIASOFF = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+};  // struct CTRL0_SET_fields_
 
-  CTRL0_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_SET &ref() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
+struct CTRL0_SET : ftl::mmio::Register<
+    0x00000004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL0_SET_fields_::REFTOP_PWD,
+    CTRL0_SET_fields_::REFTOP_LINREGREF_PWD,
+    CTRL0_SET_fields_::REFTOP_PWDVBGUP,
+    CTRL0_SET_fields_::REFTOP_LOWPOWER,
+    CTRL0_SET_fields_::REFTOP_SELFBIASOFF,
+    ftl::mmio::Reserved<27, 5>> {
+  using REFTOP_PWD = CTRL0_SET_fields_::REFTOP_PWD;
+  using REFTOP_LINREGREF_PWD = CTRL0_SET_fields_::REFTOP_LINREGREF_PWD;
+  using REFTOP_PWDVBGUP = CTRL0_SET_fields_::REFTOP_PWDVBGUP;
+  using REFTOP_LOWPOWER = CTRL0_SET_fields_::REFTOP_LOWPOWER;
+  using REFTOP_SELFBIASOFF = CTRL0_SET_fields_::REFTOP_SELFBIASOFF;
 };
+
 
 // Analog Control Register CTRL0
-union CTRL0_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Master power-down for bandgap module
-    uint32_t REFTOP_PWD : 1;
-    // read-write - Power-down for bandgap voltage-reference buffer
-    uint32_t REFTOP_LINREGREF_PWD : 1;
-    // read-write - Power-down VBGUP detector in bandgap
-    uint32_t REFTOP_PWDVBGUP : 1;
-    // read-write - Low-power control bit
-    uint32_t REFTOP_LOWPOWER : 1;
-    // read-write - bandgap self-bias control bit
-    uint32_t REFTOP_SELFBIASOFF : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL0_CLR_fields_ {
+  // Master power-down for bandgap module
+  using REFTOP_PWD = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Power-down for bandgap voltage-reference buffer
+  using REFTOP_LINREGREF_PWD = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Power-down VBGUP detector in bandgap
+  using REFTOP_PWDVBGUP = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Low-power control bit
+  using REFTOP_LOWPOWER = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // bandgap self-bias control bit
+  using REFTOP_SELFBIASOFF = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct CTRL0_CLR_fields_
 
-  CTRL0_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_CLR &ref() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
+struct CTRL0_CLR : ftl::mmio::Register<
+    0x00000008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL0_CLR_fields_::REFTOP_PWD,
+    CTRL0_CLR_fields_::REFTOP_LINREGREF_PWD,
+    CTRL0_CLR_fields_::REFTOP_PWDVBGUP,
+    CTRL0_CLR_fields_::REFTOP_LOWPOWER,
+    CTRL0_CLR_fields_::REFTOP_SELFBIASOFF,
+    ftl::mmio::Reserved<27, 5>> {
+  using REFTOP_PWD = CTRL0_CLR_fields_::REFTOP_PWD;
+  using REFTOP_LINREGREF_PWD = CTRL0_CLR_fields_::REFTOP_LINREGREF_PWD;
+  using REFTOP_PWDVBGUP = CTRL0_CLR_fields_::REFTOP_PWDVBGUP;
+  using REFTOP_LOWPOWER = CTRL0_CLR_fields_::REFTOP_LOWPOWER;
+  using REFTOP_SELFBIASOFF = CTRL0_CLR_fields_::REFTOP_SELFBIASOFF;
 };
+
 
 // Analog Control Register CTRL0
-union CTRL0_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Master power-down for bandgap module
-    uint32_t REFTOP_PWD : 1;
-    // read-write - Power-down for bandgap voltage-reference buffer
-    uint32_t REFTOP_LINREGREF_PWD : 1;
-    // read-write - Power-down VBGUP detector in bandgap
-    uint32_t REFTOP_PWDVBGUP : 1;
-    // read-write - Low-power control bit
-    uint32_t REFTOP_LOWPOWER : 1;
-    // read-write - bandgap self-bias control bit
-    uint32_t REFTOP_SELFBIASOFF : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL0_TOG_fields_ {
+  // Master power-down for bandgap module
+  using REFTOP_PWD = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Power-down for bandgap voltage-reference buffer
+  using REFTOP_LINREGREF_PWD = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Power-down VBGUP detector in bandgap
+  using REFTOP_PWDVBGUP = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Low-power control bit
+  using REFTOP_LOWPOWER = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // bandgap self-bias control bit
+  using REFTOP_SELFBIASOFF = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+};  // struct CTRL0_TOG_fields_
 
-  CTRL0_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_TOG &ref() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
+struct CTRL0_TOG : ftl::mmio::Register<
+    0x0000000Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL0_TOG_fields_::REFTOP_PWD,
+    CTRL0_TOG_fields_::REFTOP_LINREGREF_PWD,
+    CTRL0_TOG_fields_::REFTOP_PWDVBGUP,
+    CTRL0_TOG_fields_::REFTOP_LOWPOWER,
+    CTRL0_TOG_fields_::REFTOP_SELFBIASOFF,
+    ftl::mmio::Reserved<27, 5>> {
+  using REFTOP_PWD = CTRL0_TOG_fields_::REFTOP_PWD;
+  using REFTOP_LINREGREF_PWD = CTRL0_TOG_fields_::REFTOP_LINREGREF_PWD;
+  using REFTOP_PWDVBGUP = CTRL0_TOG_fields_::REFTOP_PWDVBGUP;
+  using REFTOP_LOWPOWER = CTRL0_TOG_fields_::REFTOP_LOWPOWER;
+  using REFTOP_SELFBIASOFF = CTRL0_TOG_fields_::REFTOP_SELFBIASOFF;
 };
+
 
 // Analog Status Register STAT0
-union STAT0 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Brief description here
-    uint32_t REFTOP_VBGUP : 1;
-    // read-only - Brief description here
-    uint32_t VDD1_PORB : 1;
-    // read-only - Brief description here
-    uint32_t VDD2_PORB : 1;
-    // read-only - Brief description here
-    uint32_t VDD3_PORB : 1;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct STAT0_fields_ {
+  // Brief description here
+  using REFTOP_VBGUP = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Brief description here
+  using VDD1_PORB = ftl::mmio::Field<1, 1, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Brief description here
+  using VDD2_PORB = ftl::mmio::Field<1, 2, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Brief description here
+  using VDD3_PORB = ftl::mmio::Field<1, 3, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct STAT0_fields_
 
-  STAT0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0 &ref() { return *reinterpret_cast<volatile STAT0*>(0x00000050); }
+struct STAT0 : ftl::mmio::Register<
+    0x00000050u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    STAT0_fields_::REFTOP_VBGUP,
+    STAT0_fields_::VDD1_PORB,
+    STAT0_fields_::VDD2_PORB,
+    STAT0_fields_::VDD3_PORB,
+    ftl::mmio::Reserved<28, 4>> {
+  using REFTOP_VBGUP = STAT0_fields_::REFTOP_VBGUP;
+  using VDD1_PORB = STAT0_fields_::VDD1_PORB;
+  using VDD2_PORB = STAT0_fields_::VDD2_PORB;
+  using VDD3_PORB = STAT0_fields_::VDD3_PORB;
 };
+
 
 // Analog Status Register STAT0
-union STAT0_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Brief description here
-    uint32_t REFTOP_VBGUP : 1;
-    // read-only - Brief description here
-    uint32_t VDD1_PORB : 1;
-    // read-only - Brief description here
-    uint32_t VDD2_PORB : 1;
-    // read-only - Brief description here
-    uint32_t VDD3_PORB : 1;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct STAT0_SET_fields_ {
+  // Brief description here
+  using REFTOP_VBGUP = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::OneToSet>;
+  // Brief description here
+  using VDD1_PORB = ftl::mmio::Field<1, 1, bool, ftl::mmio::RO, ftl::mmio::OneToSet>;
+  // Brief description here
+  using VDD2_PORB = ftl::mmio::Field<1, 2, bool, ftl::mmio::RO, ftl::mmio::OneToSet>;
+  // Brief description here
+  using VDD3_PORB = ftl::mmio::Field<1, 3, bool, ftl::mmio::RO, ftl::mmio::OneToSet>;
+};  // struct STAT0_SET_fields_
 
-  STAT0_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0_SET &ref() { return *reinterpret_cast<volatile STAT0_SET*>(0x00000054); }
+struct STAT0_SET : ftl::mmio::Register<
+    0x00000054u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    STAT0_SET_fields_::REFTOP_VBGUP,
+    STAT0_SET_fields_::VDD1_PORB,
+    STAT0_SET_fields_::VDD2_PORB,
+    STAT0_SET_fields_::VDD3_PORB,
+    ftl::mmio::Reserved<28, 4>> {
+  using REFTOP_VBGUP = STAT0_SET_fields_::REFTOP_VBGUP;
+  using VDD1_PORB = STAT0_SET_fields_::VDD1_PORB;
+  using VDD2_PORB = STAT0_SET_fields_::VDD2_PORB;
+  using VDD3_PORB = STAT0_SET_fields_::VDD3_PORB;
 };
+
 
 // Analog Status Register STAT0
-union STAT0_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Brief description here
-    uint32_t REFTOP_VBGUP : 1;
-    // read-only - Brief description here
-    uint32_t VDD1_PORB : 1;
-    // read-only - Brief description here
-    uint32_t VDD2_PORB : 1;
-    // read-only - Brief description here
-    uint32_t VDD3_PORB : 1;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct STAT0_CLR_fields_ {
+  // Brief description here
+  using REFTOP_VBGUP = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::OneToClear>;
+  // Brief description here
+  using VDD1_PORB = ftl::mmio::Field<1, 1, bool, ftl::mmio::RO, ftl::mmio::OneToClear>;
+  // Brief description here
+  using VDD2_PORB = ftl::mmio::Field<1, 2, bool, ftl::mmio::RO, ftl::mmio::OneToClear>;
+  // Brief description here
+  using VDD3_PORB = ftl::mmio::Field<1, 3, bool, ftl::mmio::RO, ftl::mmio::OneToClear>;
+};  // struct STAT0_CLR_fields_
 
-  STAT0_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0_CLR &ref() { return *reinterpret_cast<volatile STAT0_CLR*>(0x00000058); }
+struct STAT0_CLR : ftl::mmio::Register<
+    0x00000058u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    STAT0_CLR_fields_::REFTOP_VBGUP,
+    STAT0_CLR_fields_::VDD1_PORB,
+    STAT0_CLR_fields_::VDD2_PORB,
+    STAT0_CLR_fields_::VDD3_PORB,
+    ftl::mmio::Reserved<28, 4>> {
+  using REFTOP_VBGUP = STAT0_CLR_fields_::REFTOP_VBGUP;
+  using VDD1_PORB = STAT0_CLR_fields_::VDD1_PORB;
+  using VDD2_PORB = STAT0_CLR_fields_::VDD2_PORB;
+  using VDD3_PORB = STAT0_CLR_fields_::VDD3_PORB;
 };
+
 
 // Analog Status Register STAT0
-union STAT0_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Brief description here
-    uint32_t REFTOP_VBGUP : 1;
-    // read-only - Brief description here
-    uint32_t VDD1_PORB : 1;
-    // read-only - Brief description here
-    uint32_t VDD2_PORB : 1;
-    // read-only - Brief description here
-    uint32_t VDD3_PORB : 1;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct STAT0_TOG_fields_ {
+  // Brief description here
+  using REFTOP_VBGUP = ftl::mmio::Field<1, 0, bool, ftl::mmio::RO, ftl::mmio::OneToToggle>;
+  // Brief description here
+  using VDD1_PORB = ftl::mmio::Field<1, 1, bool, ftl::mmio::RO, ftl::mmio::OneToToggle>;
+  // Brief description here
+  using VDD2_PORB = ftl::mmio::Field<1, 2, bool, ftl::mmio::RO, ftl::mmio::OneToToggle>;
+  // Brief description here
+  using VDD3_PORB = ftl::mmio::Field<1, 3, bool, ftl::mmio::RO, ftl::mmio::OneToToggle>;
+};  // struct STAT0_TOG_fields_
 
-  STAT0_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0_TOG &ref() { return *reinterpret_cast<volatile STAT0_TOG*>(0x0000005C); }
+struct STAT0_TOG : ftl::mmio::Register<
+    0x0000005Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    STAT0_TOG_fields_::REFTOP_VBGUP,
+    STAT0_TOG_fields_::VDD1_PORB,
+    STAT0_TOG_fields_::VDD2_PORB,
+    STAT0_TOG_fields_::VDD3_PORB,
+    ftl::mmio::Reserved<28, 4>> {
+  using REFTOP_VBGUP = STAT0_TOG_fields_::REFTOP_VBGUP;
+  using VDD1_PORB = STAT0_TOG_fields_::VDD1_PORB;
+  using VDD2_PORB = STAT0_TOG_fields_::VDD2_PORB;
+  using VDD3_PORB = STAT0_TOG_fields_::VDD3_PORB;
 };
 
-
-} // namespace nVMBANDGAP
+}  // namespace regs::vmbandgap

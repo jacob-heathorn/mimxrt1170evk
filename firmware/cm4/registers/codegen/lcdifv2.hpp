@@ -1,180 +1,214 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // LCDIF_V2
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nLCDIFV2 {
+namespace regs::lcdifv2 {
 
 
 // LCDIFv2 display control Register
-union CTRL {
-  
-  // Invert Horizontal synchronization signal
-  enum class eINV_HS : uint32_t {
+struct CTRL_fields_ {
+
+  enum class eINV_HS : std::uint32_t {
     // HSYNC signal not inverted (active HIGH)
     ebf_val0 = 0,
     // Invert HSYNC signal (active LOW)
     ebf_val1 = 1,
   };
-  
-  // Invert Vertical synchronization signal
-  enum class eINV_VS : uint32_t {
+
+  enum class eINV_VS : std::uint32_t {
     // VSYNC signal not inverted (active HIGH)
     ebf_val0 = 0,
     // Invert VSYNC signal (active LOW)
     ebf_val1 = 1,
   };
-  
-  // Invert Data Enable polarity
-  enum class eINV_DE : uint32_t {
+
+  enum class eINV_DE : std::uint32_t {
     // Data enable is active high
     ebf_val0 = 0,
     // Data enable is active low
     ebf_val1 = 1,
   };
-  
-  // Polarity change of Pixel Clock
-  enum class eINV_PXCK : uint32_t {
+
+  enum class eINV_PXCK : std::uint32_t {
     // Display samples data on the falling edge
     ebf_val0 = 0,
     // Display samples data on the rising edge
     ebf_val1 = 1,
   };
-  
-  // Indicates if value at the output (pixel data output) needs to be negated
-  enum class eNEG : uint32_t {
+
+  enum class eNEG : std::uint32_t {
     // Output is to remain same
     ebf_val0 = 0,
     // Output to be negated
     ebf_val1 = 1,
   };
-  
-  // Software Reset
-  enum class eSW_RESET : uint32_t {
+
+  enum class eSW_RESET : std::uint32_t {
     // No action
     ebf_val0 = 0,
     // All LCDIFv2 internal registers are forced into their reset state. User registers are not affected
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Invert Horizontal synchronization signal
-    eINV_HS INV_HS : 1;
-    // read-write - Invert Vertical synchronization signal
-    eINV_VS INV_VS : 1;
-    // read-write - Invert Data Enable polarity
-    eINV_DE INV_DE : 1;
-    // read-write - Polarity change of Pixel Clock
-    eINV_PXCK INV_PXCK : 1;
-    // read-write - Indicates if value at the output (pixel data output) needs to be negated
-    eNEG NEG : 1;
-    uint32_t _reserved_0 : 26;
-    // read-write - Software Reset
-    eSW_RESET SW_RESET : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Invert Horizontal synchronization signal
+  using INV_HS = ftl::mmio::Field<1, 0, eINV_HS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Invert Vertical synchronization signal
+  using INV_VS = ftl::mmio::Field<1, 1, eINV_VS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Invert Data Enable polarity
+  using INV_DE = ftl::mmio::Field<1, 2, eINV_DE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity change of Pixel Clock
+  using INV_PXCK = ftl::mmio::Field<1, 3, eINV_PXCK, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Indicates if value at the output (pixel data output) needs to be negated
+  using NEG = ftl::mmio::Field<1, 4, eNEG, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Reset
+  using SW_RESET = ftl::mmio::Field<1, 31, eSW_RESET, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_fields_
 
-  CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40808000); }
+struct CTRL : ftl::mmio::Register<
+    0x40808000u,
+    std::uint32_t,
+    0x80000000u,
+    ftl::mmio::RW,
+    CTRL_fields_::INV_HS,
+    CTRL_fields_::INV_VS,
+    CTRL_fields_::INV_DE,
+    CTRL_fields_::INV_PXCK,
+    CTRL_fields_::NEG,
+    ftl::mmio::Reserved<26, 5>,
+    CTRL_fields_::SW_RESET> {
+  using eINV_HS = CTRL_fields_::eINV_HS;
+  using eINV_VS = CTRL_fields_::eINV_VS;
+  using eINV_DE = CTRL_fields_::eINV_DE;
+  using eINV_PXCK = CTRL_fields_::eINV_PXCK;
+  using eNEG = CTRL_fields_::eNEG;
+  using eSW_RESET = CTRL_fields_::eSW_RESET;
+  using INV_HS = CTRL_fields_::INV_HS;
+  using INV_VS = CTRL_fields_::INV_VS;
+  using INV_DE = CTRL_fields_::INV_DE;
+  using INV_PXCK = CTRL_fields_::INV_PXCK;
+  using NEG = CTRL_fields_::NEG;
+  using SW_RESET = CTRL_fields_::SW_RESET;
 };
+
 
 // LCDIFv2 display control Register
-union CTRL_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Invert Horizontal synchronization signal
-    uint32_t INV_HS : 1;
-    // read-write - Invert Vertical synchronization signal
-    uint32_t INV_VS : 1;
-    // read-write - Invert Data Enable polarity
-    uint32_t INV_DE : 1;
-    // read-write - Polarity change of Pixel Clock
-    uint32_t INV_PXCK : 1;
-    // read-write - Indicates if value at the output (pixel data output) needs to be negated
-    uint32_t NEG : 1;
-    uint32_t _reserved_0 : 26;
-    // read-write - Software Reset
-    uint32_t SW_RESET : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL_SET_fields_ {
+  // Invert Horizontal synchronization signal
+  using INV_HS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Invert Vertical synchronization signal
+  using INV_VS = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Invert Data Enable polarity
+  using INV_DE = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Polarity change of Pixel Clock
+  using INV_PXCK = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Indicates if value at the output (pixel data output) needs to be negated
+  using NEG = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Software Reset
+  using SW_RESET = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+};  // struct CTRL_SET_fields_
 
-  CTRL_SET() = delete;
-  inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile CTRL_SET &ref() { return *reinterpret_cast<volatile CTRL_SET*>(0x40808004); }
+struct CTRL_SET : ftl::mmio::Register<
+    0x40808004u,
+    std::uint32_t,
+    0x80000000u,
+    ftl::mmio::RW,
+    CTRL_SET_fields_::INV_HS,
+    CTRL_SET_fields_::INV_VS,
+    CTRL_SET_fields_::INV_DE,
+    CTRL_SET_fields_::INV_PXCK,
+    CTRL_SET_fields_::NEG,
+    ftl::mmio::Reserved<26, 5>,
+    CTRL_SET_fields_::SW_RESET> {
+  using INV_HS = CTRL_SET_fields_::INV_HS;
+  using INV_VS = CTRL_SET_fields_::INV_VS;
+  using INV_DE = CTRL_SET_fields_::INV_DE;
+  using INV_PXCK = CTRL_SET_fields_::INV_PXCK;
+  using NEG = CTRL_SET_fields_::NEG;
+  using SW_RESET = CTRL_SET_fields_::SW_RESET;
 };
+
 
 // LCDIFv2 display control Register
-union CTRL_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Invert Horizontal synchronization signal
-    uint32_t INV_HS : 1;
-    // read-write - Invert Vertical synchronization signal
-    uint32_t INV_VS : 1;
-    // read-write - Invert Data Enable polarity
-    uint32_t INV_DE : 1;
-    // read-write - Polarity change of Pixel Clock
-    uint32_t INV_PXCK : 1;
-    // read-write - Indicates if value at the output (pixel data output) needs to be negated
-    uint32_t NEG : 1;
-    uint32_t _reserved_0 : 26;
-    // read-write - Software Reset
-    uint32_t SW_RESET : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL_CLR_fields_ {
+  // Invert Horizontal synchronization signal
+  using INV_HS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Invert Vertical synchronization signal
+  using INV_VS = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Invert Data Enable polarity
+  using INV_DE = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Polarity change of Pixel Clock
+  using INV_PXCK = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates if value at the output (pixel data output) needs to be negated
+  using NEG = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Software Reset
+  using SW_RESET = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct CTRL_CLR_fields_
 
-  CTRL_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile CTRL_CLR &ref() { return *reinterpret_cast<volatile CTRL_CLR*>(0x40808008); }
+struct CTRL_CLR : ftl::mmio::Register<
+    0x40808008u,
+    std::uint32_t,
+    0x80000000u,
+    ftl::mmio::RW,
+    CTRL_CLR_fields_::INV_HS,
+    CTRL_CLR_fields_::INV_VS,
+    CTRL_CLR_fields_::INV_DE,
+    CTRL_CLR_fields_::INV_PXCK,
+    CTRL_CLR_fields_::NEG,
+    ftl::mmio::Reserved<26, 5>,
+    CTRL_CLR_fields_::SW_RESET> {
+  using INV_HS = CTRL_CLR_fields_::INV_HS;
+  using INV_VS = CTRL_CLR_fields_::INV_VS;
+  using INV_DE = CTRL_CLR_fields_::INV_DE;
+  using INV_PXCK = CTRL_CLR_fields_::INV_PXCK;
+  using NEG = CTRL_CLR_fields_::NEG;
+  using SW_RESET = CTRL_CLR_fields_::SW_RESET;
 };
+
 
 // LCDIFv2 display control Register
-union CTRL_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Invert Horizontal synchronization signal
-    uint32_t INV_HS : 1;
-    // read-write - Invert Vertical synchronization signal
-    uint32_t INV_VS : 1;
-    // read-write - Invert Data Enable polarity
-    uint32_t INV_DE : 1;
-    // read-write - Polarity change of Pixel Clock
-    uint32_t INV_PXCK : 1;
-    // read-write - Indicates if value at the output (pixel data output) needs to be negated
-    uint32_t NEG : 1;
-    uint32_t _reserved_0 : 26;
-    // read-write - Software Reset
-    uint32_t SW_RESET : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL_TOG_fields_ {
+  // Invert Horizontal synchronization signal
+  using INV_HS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Invert Vertical synchronization signal
+  using INV_VS = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Invert Data Enable polarity
+  using INV_DE = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Polarity change of Pixel Clock
+  using INV_PXCK = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Indicates if value at the output (pixel data output) needs to be negated
+  using NEG = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Software Reset
+  using SW_RESET = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+};  // struct CTRL_TOG_fields_
 
-  CTRL_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile CTRL_TOG &ref() { return *reinterpret_cast<volatile CTRL_TOG*>(0x4080800C); }
+struct CTRL_TOG : ftl::mmio::Register<
+    0x4080800Cu,
+    std::uint32_t,
+    0x80000000u,
+    ftl::mmio::RW,
+    CTRL_TOG_fields_::INV_HS,
+    CTRL_TOG_fields_::INV_VS,
+    CTRL_TOG_fields_::INV_DE,
+    CTRL_TOG_fields_::INV_PXCK,
+    CTRL_TOG_fields_::NEG,
+    ftl::mmio::Reserved<26, 5>,
+    CTRL_TOG_fields_::SW_RESET> {
+  using INV_HS = CTRL_TOG_fields_::INV_HS;
+  using INV_VS = CTRL_TOG_fields_::INV_VS;
+  using INV_DE = CTRL_TOG_fields_::INV_DE;
+  using INV_PXCK = CTRL_TOG_fields_::INV_PXCK;
+  using NEG = CTRL_TOG_fields_::NEG;
+  using SW_RESET = CTRL_TOG_fields_::SW_RESET;
 };
+
 
 // Display Parameter Register
-union DISP_PARA {
-  
-  // LCDIFv2 operating mode
-  enum class eDISP_MODE : uint32_t {
+struct DISP_PARA_fields_ {
+
+  enum class eDISP_MODE : std::uint32_t {
     // Normal mode. Panel content controlled by layer configuration
     ebf_val0 = 0,
     // Test Mode1(BGND Color Display)
@@ -184,9 +218,8 @@ union DISP_PARA {
     // Test Mode3(Row Color Bar)
     ebf_val3 = 3,
   };
-  
-  // LCDIFv2 line output order
-  enum class eLINE_PATTERN : uint32_t {
+
+  enum class eLINE_PATTERN : std::uint32_t {
     // RGB
     ebf_val0 = 0,
     // RBG
@@ -200,367 +233,417 @@ union DISP_PARA {
     // BGR
     ebf_val5 = 5,
   };
-  
-  // Display panel On/Off mode
-  enum class eDISP_ON : uint32_t {
+
+  enum class eDISP_ON : std::uint32_t {
     // Display Off
     ebf_val0 = 0,
     // Display On
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Blue component of the default color displayed in the sectors where no layer is active
-    uint32_t BGND_B : 8;
-    // read-write - Green component of the default color displayed in the sectors where no layer is active
-    uint32_t BGND_G : 8;
-    // read-write - Red component of the default color displayed in the sectors where no layer is active
-    uint32_t BGND_R : 8;
-    // read-write - LCDIFv2 operating mode
-    eDISP_MODE DISP_MODE : 2;
-    // read-write - LCDIFv2 line output order
-    eLINE_PATTERN LINE_PATTERN : 3;
-    uint32_t _reserved_0 : 2;
-    // read-write - Display panel On/Off mode
-    eDISP_ON DISP_ON : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Blue component of the default color displayed in the sectors where no layer is active
+  using BGND_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Green component of the default color displayed in the sectors where no layer is active
+  using BGND_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Red component of the default color displayed in the sectors where no layer is active
+  using BGND_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LCDIFv2 operating mode
+  using DISP_MODE = ftl::mmio::Field<2, 24, eDISP_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LCDIFv2 line output order
+  using LINE_PATTERN = ftl::mmio::Field<3, 26, eLINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Display panel On/Off mode
+  using DISP_ON = ftl::mmio::Field<1, 31, eDISP_ON, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DISP_PARA_fields_
 
-  DISP_PARA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DISP_PARA &ref() { return *reinterpret_cast<volatile DISP_PARA*>(0x40808010); }
+struct DISP_PARA : ftl::mmio::Register<
+    0x40808010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DISP_PARA_fields_::BGND_B,
+    DISP_PARA_fields_::BGND_G,
+    DISP_PARA_fields_::BGND_R,
+    DISP_PARA_fields_::DISP_MODE,
+    DISP_PARA_fields_::LINE_PATTERN,
+    ftl::mmio::Reserved<2, 29>,
+    DISP_PARA_fields_::DISP_ON> {
+  using eDISP_MODE = DISP_PARA_fields_::eDISP_MODE;
+  using eLINE_PATTERN = DISP_PARA_fields_::eLINE_PATTERN;
+  using eDISP_ON = DISP_PARA_fields_::eDISP_ON;
+  using BGND_B = DISP_PARA_fields_::BGND_B;
+  using BGND_G = DISP_PARA_fields_::BGND_G;
+  using BGND_R = DISP_PARA_fields_::BGND_R;
+  using DISP_MODE = DISP_PARA_fields_::DISP_MODE;
+  using LINE_PATTERN = DISP_PARA_fields_::LINE_PATTERN;
+  using DISP_ON = DISP_PARA_fields_::DISP_ON;
 };
+
 
 // Display Size Register
-union DISP_SIZE {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the display size horizontal resolution in pixels
-    uint32_t DELTA_X : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Sets the display size vertical resolution in pixels
-    uint32_t DELTA_Y : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DISP_SIZE_fields_ {
+  // Sets the display size horizontal resolution in pixels
+  using DELTA_X = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Sets the display size vertical resolution in pixels
+  using DELTA_Y = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DISP_SIZE_fields_
 
-  DISP_SIZE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DISP_SIZE &ref() { return *reinterpret_cast<volatile DISP_SIZE*>(0x40808014); }
+struct DISP_SIZE : ftl::mmio::Register<
+    0x40808014u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DISP_SIZE_fields_::DELTA_X,
+    ftl::mmio::Reserved<4, 12>,
+    DISP_SIZE_fields_::DELTA_Y,
+    ftl::mmio::Reserved<4, 28>> {
+  using DELTA_X = DISP_SIZE_fields_::DELTA_X;
+  using DELTA_Y = DISP_SIZE_fields_::DELTA_Y;
 };
+
 
 // Horizontal Sync Parameter Register
-union HSYN_PARA {
-  
-  // Bit field definition.
-  struct {
-    // read-write - HSYNC front-porch pulse width (in pixel clock cycles). Pulse width has a minimum value of 1
-    uint32_t FP_H : 9;
-    uint32_t _reserved_0 : 2;
-    // read-write - HSYNC active pulse width (in pixel clock cycles). Pulse width has a minimum value of 1
-    uint32_t PW_H : 9;
-    uint32_t _reserved_1 : 2;
-    // read-write - HSYNC back-porch pulse width (in pixel clock cycles). Pulse width has a minimum value of 1
-    uint32_t BP_H : 9;
-    uint32_t _reserved_2 : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct HSYN_PARA_fields_ {
+  // HSYNC front-porch pulse width (in pixel clock cycles). Pulse width has a minimum value of 1
+  using FP_H = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // HSYNC active pulse width (in pixel clock cycles). Pulse width has a minimum value of 1
+  using PW_H = ftl::mmio::Field<9, 11, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // HSYNC back-porch pulse width (in pixel clock cycles). Pulse width has a minimum value of 1
+  using BP_H = ftl::mmio::Field<9, 22, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct HSYN_PARA_fields_
 
-  HSYN_PARA() = delete;
-  inline void Reset() volatile { this->value = 0x00C01803; }
-  static inline volatile HSYN_PARA &ref() { return *reinterpret_cast<volatile HSYN_PARA*>(0x40808018); }
+struct HSYN_PARA : ftl::mmio::Register<
+    0x40808018u,
+    std::uint32_t,
+    0x00C01803u,
+    ftl::mmio::RW,
+    HSYN_PARA_fields_::FP_H,
+    ftl::mmio::Reserved<2, 9>,
+    HSYN_PARA_fields_::PW_H,
+    ftl::mmio::Reserved<2, 20>,
+    HSYN_PARA_fields_::BP_H,
+    ftl::mmio::Reserved<1, 31>> {
+  using FP_H = HSYN_PARA_fields_::FP_H;
+  using PW_H = HSYN_PARA_fields_::PW_H;
+  using BP_H = HSYN_PARA_fields_::BP_H;
 };
+
 
 // Vertical Sync Parameter Register
-union VSYN_PARA {
-  
-  // Bit field definition.
-  struct {
-    // read-write - VSYNC front-porch pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
-    uint32_t FP_V : 9;
-    uint32_t _reserved_0 : 2;
-    // read-write - VSYNC active pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
-    uint32_t PW_V : 9;
-    uint32_t _reserved_1 : 2;
-    // read-write - VSYNC back-porch pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
-    uint32_t BP_V : 9;
-    uint32_t _reserved_2 : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct VSYN_PARA_fields_ {
+  // VSYNC front-porch pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
+  using FP_V = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VSYNC active pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
+  using PW_V = ftl::mmio::Field<9, 11, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VSYNC back-porch pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
+  using BP_V = ftl::mmio::Field<9, 22, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct VSYN_PARA_fields_
 
-  VSYN_PARA() = delete;
-  inline void Reset() volatile { this->value = 0x00C01803; }
-  static inline volatile VSYN_PARA &ref() { return *reinterpret_cast<volatile VSYN_PARA*>(0x4080801C); }
+struct VSYN_PARA : ftl::mmio::Register<
+    0x4080801Cu,
+    std::uint32_t,
+    0x00C01803u,
+    ftl::mmio::RW,
+    VSYN_PARA_fields_::FP_V,
+    ftl::mmio::Reserved<2, 9>,
+    VSYN_PARA_fields_::PW_V,
+    ftl::mmio::Reserved<2, 20>,
+    VSYN_PARA_fields_::BP_V,
+    ftl::mmio::Reserved<1, 31>> {
+  using FP_V = VSYN_PARA_fields_::FP_V;
+  using PW_V = VSYN_PARA_fields_::PW_V;
+  using BP_V = VSYN_PARA_fields_::BP_V;
 };
 
+
 // Interrupt Status Register for domain 0
-union INT_STATUS_D0 {
-  
-  // Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
-  enum class eVSYNC : uint32_t {
+struct INT_STATUS_D0_fields_ {
+
+  enum class eVSYNC : std::uint32_t {
     // VSYNC has not started
     ebf_val0 = 0,
     // VSYNC has started
     ebf_val1 = 1,
   };
-  
-  // Interrupt flag to indicate the output buffer underrun condition
-  enum class eUNDERRUN : uint32_t {
+
+  enum class eUNDERRUN : std::uint32_t {
     // Output buffer not underrun
     ebf_val0 = 0,
     // Output buffer underrun
     ebf_val1 = 1,
   };
-  
-  // Interrupt flag to indicate vertical blanking period
-  enum class eVS_BLANK : uint32_t {
+
+  enum class eVS_BLANK : std::uint32_t {
     // Vertical blanking period has not started
     ebf_val0 = 0,
     // Vertical blanking period has started
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
-    eVSYNC VSYNC : 1;
-    // read-write - Interrupt flag to indicate the output buffer underrun condition
-    eUNDERRUN UNDERRUN : 1;
-    // read-write - Interrupt flag to indicate vertical blanking period
-    eVS_BLANK VS_BLANK : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Interrupt flag to indicate that which PLANE has Read Error on the AXI interface
-    uint32_t DMA_ERR : 8;
-    // read-write - Interrupt flag to indicate that which PLANE has fetched the last pixel from memory
-    uint32_t DMA_DONE : 8;
-    // read-write - Interrupt flag to indicate that which FIFO in the pixel blending underflowed
-    uint32_t FIFO_EMPTY : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
+  using VSYNC = ftl::mmio::Field<1, 0, eVSYNC, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Interrupt flag to indicate the output buffer underrun condition
+  using UNDERRUN = ftl::mmio::Field<1, 1, eUNDERRUN, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Interrupt flag to indicate vertical blanking period
+  using VS_BLANK = ftl::mmio::Field<1, 2, eVS_BLANK, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Interrupt flag to indicate that which PLANE has Read Error on the AXI interface
+  using DMA_ERR = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Interrupt flag to indicate that which PLANE has fetched the last pixel from memory
+  using DMA_DONE = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Interrupt flag to indicate that which FIFO in the pixel blending underflowed
+  using FIFO_EMPTY = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct INT_STATUS_D0_fields_
 
-  INT_STATUS_D0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_STATUS_D0 &ref() { return *reinterpret_cast<volatile INT_STATUS_D0*>(0x40808020); }
+struct INT_STATUS_D0 : ftl::mmio::Register<
+    0x40808020u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    INT_STATUS_D0_fields_::VSYNC,
+    INT_STATUS_D0_fields_::UNDERRUN,
+    INT_STATUS_D0_fields_::VS_BLANK,
+    ftl::mmio::Reserved<5, 3>,
+    INT_STATUS_D0_fields_::DMA_ERR,
+    INT_STATUS_D0_fields_::DMA_DONE,
+    INT_STATUS_D0_fields_::FIFO_EMPTY> {
+  using eVSYNC = INT_STATUS_D0_fields_::eVSYNC;
+  using eUNDERRUN = INT_STATUS_D0_fields_::eUNDERRUN;
+  using eVS_BLANK = INT_STATUS_D0_fields_::eVS_BLANK;
+  using VSYNC = INT_STATUS_D0_fields_::VSYNC;
+  using UNDERRUN = INT_STATUS_D0_fields_::UNDERRUN;
+  using VS_BLANK = INT_STATUS_D0_fields_::VS_BLANK;
+  using DMA_ERR = INT_STATUS_D0_fields_::DMA_ERR;
+  using DMA_DONE = INT_STATUS_D0_fields_::DMA_DONE;
+  using FIFO_EMPTY = INT_STATUS_D0_fields_::FIFO_EMPTY;
 };
 
+
 // Interrupt Enable Register for domain 0
-union INT_ENABLE_D0 {
-  
-  // Enable Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
-  enum class eVSYNC_EN : uint32_t {
+struct INT_ENABLE_D0_fields_ {
+
+  enum class eVSYNC_EN : std::uint32_t {
     // VSYNC interrupt disable
     ebf_val0 = 0,
     // VSYNC interrupt enable
     ebf_val1 = 1,
   };
-  
-  // Enable Interrupt flag to indicate the output buffer underrun condition
-  enum class eUNDERRUN_EN : uint32_t {
+
+  enum class eUNDERRUN_EN : std::uint32_t {
     // Output buffer underrun disable
     ebf_val0 = 0,
     // Output buffer underrun enable
     ebf_val1 = 1,
   };
-  
-  // Enable Interrupt flag to indicate vertical blanking period
-  enum class eVS_BLANK_EN : uint32_t {
+
+  enum class eVS_BLANK_EN : std::uint32_t {
     // Vertical blanking start interrupt disable
     ebf_val0 = 0,
     // Vertical blanking start interrupt enable
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
-    eVSYNC_EN VSYNC_EN : 1;
-    // read-write - Enable Interrupt flag to indicate the output buffer underrun condition
-    eUNDERRUN_EN UNDERRUN_EN : 1;
-    // read-write - Enable Interrupt flag to indicate vertical blanking period
-    eVS_BLANK_EN VS_BLANK_EN : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Enable Interrupt flag to indicate that which PLANE has Read Error on the AXI interface
-    uint32_t DMA_ERR_EN : 8;
-    // read-write - Enable Interrupt flag to indicate that which PLANE has fetched the last pixel from memory
-    uint32_t DMA_DONE_EN : 8;
-    // read-write - Enable Interrupt flag to indicate that which FIFO in the pixel blending underflowed
-    uint32_t FIFO_EMPTY_EN : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
+  using VSYNC_EN = ftl::mmio::Field<1, 0, eVSYNC_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Interrupt flag to indicate the output buffer underrun condition
+  using UNDERRUN_EN = ftl::mmio::Field<1, 1, eUNDERRUN_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Interrupt flag to indicate vertical blanking period
+  using VS_BLANK_EN = ftl::mmio::Field<1, 2, eVS_BLANK_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Interrupt flag to indicate that which PLANE has Read Error on the AXI interface
+  using DMA_ERR_EN = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Interrupt flag to indicate that which PLANE has fetched the last pixel from memory
+  using DMA_DONE_EN = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Interrupt flag to indicate that which FIFO in the pixel blending underflowed
+  using FIFO_EMPTY_EN = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct INT_ENABLE_D0_fields_
 
-  INT_ENABLE_D0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_ENABLE_D0 &ref() { return *reinterpret_cast<volatile INT_ENABLE_D0*>(0x40808024); }
+struct INT_ENABLE_D0 : ftl::mmio::Register<
+    0x40808024u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    INT_ENABLE_D0_fields_::VSYNC_EN,
+    INT_ENABLE_D0_fields_::UNDERRUN_EN,
+    INT_ENABLE_D0_fields_::VS_BLANK_EN,
+    ftl::mmio::Reserved<5, 3>,
+    INT_ENABLE_D0_fields_::DMA_ERR_EN,
+    INT_ENABLE_D0_fields_::DMA_DONE_EN,
+    INT_ENABLE_D0_fields_::FIFO_EMPTY_EN> {
+  using eVSYNC_EN = INT_ENABLE_D0_fields_::eVSYNC_EN;
+  using eUNDERRUN_EN = INT_ENABLE_D0_fields_::eUNDERRUN_EN;
+  using eVS_BLANK_EN = INT_ENABLE_D0_fields_::eVS_BLANK_EN;
+  using VSYNC_EN = INT_ENABLE_D0_fields_::VSYNC_EN;
+  using UNDERRUN_EN = INT_ENABLE_D0_fields_::UNDERRUN_EN;
+  using VS_BLANK_EN = INT_ENABLE_D0_fields_::VS_BLANK_EN;
+  using DMA_ERR_EN = INT_ENABLE_D0_fields_::DMA_ERR_EN;
+  using DMA_DONE_EN = INT_ENABLE_D0_fields_::DMA_DONE_EN;
+  using FIFO_EMPTY_EN = INT_ENABLE_D0_fields_::FIFO_EMPTY_EN;
 };
+
 
 // Interrupt Status Register for domain 1
-union INT_STATUS_D1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
-    uint32_t VSYNC : 1;
-    // read-write - Interrupt flag to indicate the output buffer underrun condition
-    uint32_t UNDERRUN : 1;
-    // read-write - Interrupt flag to indicate vertical blanking period
-    uint32_t VS_BLANK : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Interrupt flag to indicate that which PLANE has Read Error on the AXI interface
-    uint32_t DMA_ERR : 8;
-    // read-write - Interrupt flag to indicate that which PLANE has fetched the last pixel from memory
-    uint32_t DMA_DONE : 8;
-    // read-write - Interrupt flag to indicate that which FIFO in the pixel blending underflowed
-    uint32_t FIFO_EMPTY : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct INT_STATUS_D1_fields_ {
+  // Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
+  using VSYNC = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Interrupt flag to indicate the output buffer underrun condition
+  using UNDERRUN = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Interrupt flag to indicate vertical blanking period
+  using VS_BLANK = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Interrupt flag to indicate that which PLANE has Read Error on the AXI interface
+  using DMA_ERR = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Interrupt flag to indicate that which PLANE has fetched the last pixel from memory
+  using DMA_DONE = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Interrupt flag to indicate that which FIFO in the pixel blending underflowed
+  using FIFO_EMPTY = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct INT_STATUS_D1_fields_
 
-  INT_STATUS_D1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_STATUS_D1 &ref() { return *reinterpret_cast<volatile INT_STATUS_D1*>(0x40808030); }
+struct INT_STATUS_D1 : ftl::mmio::Register<
+    0x40808030u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    INT_STATUS_D1_fields_::VSYNC,
+    INT_STATUS_D1_fields_::UNDERRUN,
+    INT_STATUS_D1_fields_::VS_BLANK,
+    ftl::mmio::Reserved<5, 3>,
+    INT_STATUS_D1_fields_::DMA_ERR,
+    INT_STATUS_D1_fields_::DMA_DONE,
+    INT_STATUS_D1_fields_::FIFO_EMPTY> {
+  using VSYNC = INT_STATUS_D1_fields_::VSYNC;
+  using UNDERRUN = INT_STATUS_D1_fields_::UNDERRUN;
+  using VS_BLANK = INT_STATUS_D1_fields_::VS_BLANK;
+  using DMA_ERR = INT_STATUS_D1_fields_::DMA_ERR;
+  using DMA_DONE = INT_STATUS_D1_fields_::DMA_DONE;
+  using FIFO_EMPTY = INT_STATUS_D1_fields_::FIFO_EMPTY;
 };
+
 
 // Interrupt Enable Register for domain 1
-union INT_ENABLE_D1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
-    uint32_t VSYNC_EN : 1;
-    // read-write - Enable Interrupt flag to indicate the output buffer underrun condition
-    uint32_t UNDERRUN_EN : 1;
-    // read-write - Enable Interrupt flag to indicate vertical blanking period
-    uint32_t VS_BLANK_EN : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - Enable Interrupt flag to indicate that which PLANE has Read Error on the AXI interface
-    uint32_t DMA_ERR_EN : 8;
-    // read-write - Enable Interrupt flag to indicate that which PLANE has fetched the last pixel from memory
-    uint32_t DMA_DONE_EN : 8;
-    // read-write - Enable Interrupt flag to indicate that which FIFO in the pixel blending underflowed
-    uint32_t FIFO_EMPTY_EN : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct INT_ENABLE_D1_fields_ {
+  // Enable Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
+  using VSYNC_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Interrupt flag to indicate the output buffer underrun condition
+  using UNDERRUN_EN = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Interrupt flag to indicate vertical blanking period
+  using VS_BLANK_EN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Interrupt flag to indicate that which PLANE has Read Error on the AXI interface
+  using DMA_ERR_EN = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Interrupt flag to indicate that which PLANE has fetched the last pixel from memory
+  using DMA_DONE_EN = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable Interrupt flag to indicate that which FIFO in the pixel blending underflowed
+  using FIFO_EMPTY_EN = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct INT_ENABLE_D1_fields_
 
-  INT_ENABLE_D1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INT_ENABLE_D1 &ref() { return *reinterpret_cast<volatile INT_ENABLE_D1*>(0x40808034); }
+struct INT_ENABLE_D1 : ftl::mmio::Register<
+    0x40808034u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    INT_ENABLE_D1_fields_::VSYNC_EN,
+    INT_ENABLE_D1_fields_::UNDERRUN_EN,
+    INT_ENABLE_D1_fields_::VS_BLANK_EN,
+    ftl::mmio::Reserved<5, 3>,
+    INT_ENABLE_D1_fields_::DMA_ERR_EN,
+    INT_ENABLE_D1_fields_::DMA_DONE_EN,
+    INT_ENABLE_D1_fields_::FIFO_EMPTY_EN> {
+  using VSYNC_EN = INT_ENABLE_D1_fields_::VSYNC_EN;
+  using UNDERRUN_EN = INT_ENABLE_D1_fields_::UNDERRUN_EN;
+  using VS_BLANK_EN = INT_ENABLE_D1_fields_::VS_BLANK_EN;
+  using DMA_ERR_EN = INT_ENABLE_D1_fields_::DMA_ERR_EN;
+  using DMA_DONE_EN = INT_ENABLE_D1_fields_::DMA_DONE_EN;
+  using FIFO_EMPTY_EN = INT_ENABLE_D1_fields_::FIFO_EMPTY_EN;
 };
+
 
 // Reserved
-union PDI_PARA {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PDI_PARA_fields_ {
+};  // struct PDI_PARA_fields_
 
-  PDI_PARA() = delete;
-  inline void Reset() volatile { this->value = 0x00001000; }
-  static inline volatile PDI_PARA &ref() { return *reinterpret_cast<volatile PDI_PARA*>(0x40808040); }
+struct PDI_PARA : ftl::mmio::Register<
+    0x40808040u,
+    std::uint32_t,
+    0x00001000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<32, 0>> {
 };
+
 
 // Control Descriptor Layer 1 Register
-union CTRLDESCL0_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Width of the layer in pixels
-    uint32_t WIDTH : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Height of the layer in pixels
-    uint32_t HEIGHT : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL0_1_fields_ {
+  // Width of the layer in pixels
+  using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Height of the layer in pixels
+  using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL0_1_fields_
 
-  CTRLDESCL0_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL0_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL0_1*>(0x40808200); }
+struct CTRLDESCL0_1 : ftl::mmio::Register<
+    0x40808200u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL0_1_fields_::WIDTH,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL0_1_fields_::HEIGHT,
+    ftl::mmio::Reserved<4, 28>> {
+  using WIDTH = CTRLDESCL0_1_fields_::WIDTH;
+  using HEIGHT = CTRLDESCL0_1_fields_::HEIGHT;
 };
+
 
 // Control Descriptor Layer 2 Register
-union CTRLDESCL0_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - POS X
-    uint32_t POSX : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
-    uint32_t POSY : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL0_2_fields_ {
+  // POS X
+  using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
+  using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL0_2_fields_
 
-  CTRLDESCL0_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL0_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL0_2*>(0x40808204); }
+struct CTRLDESCL0_2 : ftl::mmio::Register<
+    0x40808204u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL0_2_fields_::POSX,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL0_2_fields_::POSY,
+    ftl::mmio::Reserved<4, 28>> {
+  using POSX = CTRLDESCL0_2_fields_::POSX;
+  using POSY = CTRLDESCL0_2_fields_::POSY;
 };
+
 
 // Control Descriptor Layer 3 Register
-union CTRLDESCL0_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
-    uint32_t PITCH : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL0_3_fields_ {
+  // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
+  using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL0_3_fields_
 
-  CTRLDESCL0_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL0_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL0_3*>(0x40808208); }
+struct CTRLDESCL0_3 : ftl::mmio::Register<
+    0x40808208u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL0_3_fields_::PITCH,
+    ftl::mmio::Reserved<16, 16>> {
+  using PITCH = CTRLDESCL0_3_fields_::PITCH;
 };
+
 
 // Control Descriptor Layer 4 Register
-union CTRLDESCL0_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
-    uint32_t ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL0_4_fields_ {
+  // Address of layer data in the memory. The address programmed should be 64-bit aligned
+  using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL0_4_fields_
 
-  CTRLDESCL0_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL0_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL0_4*>(0x4080820C); }
+struct CTRLDESCL0_4 : ftl::mmio::Register<
+    0x4080820Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL0_4_fields_::ADDR> {
+  using ADDR = CTRLDESCL0_4_fields_::ADDR;
 };
 
+
 // Control Descriptor Layer 5 Register
-union CTRLDESCL0_5 {
-  
-  // Alpha Blending Mode
-  enum class eAB_MODE : uint32_t {
+struct CTRLDESCL0_5_fields_ {
+
+  enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
     // Blend with global ALPHA
@@ -570,9 +653,8 @@ union CTRLDESCL0_5 {
     // Blend with Porter Duff enable
     ebf_val3 = 3,
   };
-  
-  // Porter Duff factor mode
-  enum class ePD_FACTOR_MODE : uint32_t {
+
+  enum class ePD_FACTOR_MODE : std::uint32_t {
     // Using 1
     ebf_val0 = 0,
     // Using 0
@@ -582,9 +664,8 @@ union CTRLDESCL0_5 {
     // Using inverse alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff global alpha mode
-  enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
+
+  enum class ePD_GLOBAL_ALPHA_MODE : std::uint32_t {
     // Using global alpha
     ebf_val0 = 0,
     // Using local alpha
@@ -594,25 +675,22 @@ union CTRLDESCL0_5 {
     // Using scaled alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_ALPHA_MODE : uint32_t {
+
+  enum class ePD_ALPHA_MODE : std::uint32_t {
     // Straight mode for Porter Duff alpha
     ebf_val0 = 0,
     // Inversed mode for Porter Duff alpha
     ebf_val1 = 1,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_COLOR_MODE : uint32_t {
+
+  enum class ePD_COLOR_MODE : std::uint32_t {
     // Straight mode for Porter Duff color
     ebf_val0 = 0,
     // Inversed mode for Porter Duff color
     ebf_val1 = 1,
   };
-  
-  // The YUV422 input format selection
-  enum class eYUV_FORMAT : uint32_t {
+
+  enum class eYUV_FORMAT : std::uint32_t {
     // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     ebf_val0 = 0,
     // The YVYU422 8bit sequence is V1,Y1,U1,Y2
@@ -622,9 +700,8 @@ union CTRLDESCL0_5 {
     // The YVYU422 8bit sequence is Y1,V1,Y2,U1
     ebf_val3 = 3,
   };
-  
-  // Layer encoding format (bit per pixel)
-  enum class eBPP : uint32_t {
+
+  enum class eBPP : std::uint32_t {
     // 1 bpp
     ebf_val0 = 0,
     // 2 bpp
@@ -648,248 +725,285 @@ union CTRLDESCL0_5 {
     // 32 bpp (ABGR8888)
     ebf_val10 = 10,
   };
-  
-  // Safety Mode Enable Bit
-  enum class eSAFETY_EN : uint32_t {
+
+  enum class eSAFETY_EN : std::uint32_t {
     // Safety Mode is disabled
     ebf_val0 = 0,
     // Safety Mode is enabled for this layer
     ebf_val1 = 1,
   };
-  
-  // Enable the layer for DMA
-  enum class eEN : uint32_t {
+
+  enum class eEN : std::uint32_t {
     // OFF
     ebf_val0 = 0,
     // ON
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Alpha Blending Mode
-    eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_0 : 2;
-    // read-write - Porter Duff factor mode
-    ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
-    // read-write - Porter Duff global alpha mode
-    ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
-    // read-write - Porter Duff alpha mode
-    ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
-    // read-write - Porter Duff alpha mode
-    ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_1 : 4;
-    // read-write - The YUV422 input format selection
-    eYUV_FORMAT YUV_FORMAT : 2;
-    // read-write - Global Alpha
-    uint32_t GLOBAL_ALPHA : 8;
-    // read-write - Layer encoding format (bit per pixel)
-    eBPP BPP : 4;
-    // read-write - Safety Mode Enable Bit
-    eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - Shadow Load Enable
-    uint32_t SHADOW_LOAD_EN : 1;
-    // read-write - Enable the layer for DMA
-    eEN EN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Alpha Blending Mode
+  using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff factor mode
+  using PD_FACTOR_MODE = ftl::mmio::Field<2, 4, ePD_FACTOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff global alpha mode
+  using PD_GLOBAL_ALPHA_MODE = ftl::mmio::Field<2, 6, ePD_GLOBAL_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_ALPHA_MODE = ftl::mmio::Field<1, 8, ePD_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_COLOR_MODE = ftl::mmio::Field<1, 9, ePD_COLOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The YUV422 input format selection
+  using YUV_FORMAT = ftl::mmio::Field<2, 14, eYUV_FORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Global Alpha
+  using GLOBAL_ALPHA = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Layer encoding format (bit per pixel)
+  using BPP = ftl::mmio::Field<4, 24, eBPP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Safety Mode Enable Bit
+  using SAFETY_EN = ftl::mmio::Field<1, 28, eSAFETY_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Shadow Load Enable
+  using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable the layer for DMA
+  using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL0_5_fields_
 
-  CTRLDESCL0_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL0_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL0_5*>(0x40808210); }
+struct CTRLDESCL0_5 : ftl::mmio::Register<
+    0x40808210u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL0_5_fields_::AB_MODE,
+    ftl::mmio::Reserved<2, 2>,
+    CTRLDESCL0_5_fields_::PD_FACTOR_MODE,
+    CTRLDESCL0_5_fields_::PD_GLOBAL_ALPHA_MODE,
+    CTRLDESCL0_5_fields_::PD_ALPHA_MODE,
+    CTRLDESCL0_5_fields_::PD_COLOR_MODE,
+    ftl::mmio::Reserved<4, 10>,
+    CTRLDESCL0_5_fields_::YUV_FORMAT,
+    CTRLDESCL0_5_fields_::GLOBAL_ALPHA,
+    CTRLDESCL0_5_fields_::BPP,
+    CTRLDESCL0_5_fields_::SAFETY_EN,
+    ftl::mmio::Reserved<1, 29>,
+    CTRLDESCL0_5_fields_::SHADOW_LOAD_EN,
+    CTRLDESCL0_5_fields_::EN> {
+  using eAB_MODE = CTRLDESCL0_5_fields_::eAB_MODE;
+  using ePD_FACTOR_MODE = CTRLDESCL0_5_fields_::ePD_FACTOR_MODE;
+  using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL0_5_fields_::ePD_GLOBAL_ALPHA_MODE;
+  using ePD_ALPHA_MODE = CTRLDESCL0_5_fields_::ePD_ALPHA_MODE;
+  using ePD_COLOR_MODE = CTRLDESCL0_5_fields_::ePD_COLOR_MODE;
+  using eYUV_FORMAT = CTRLDESCL0_5_fields_::eYUV_FORMAT;
+  using eBPP = CTRLDESCL0_5_fields_::eBPP;
+  using eSAFETY_EN = CTRLDESCL0_5_fields_::eSAFETY_EN;
+  using eEN = CTRLDESCL0_5_fields_::eEN;
+  using AB_MODE = CTRLDESCL0_5_fields_::AB_MODE;
+  using PD_FACTOR_MODE = CTRLDESCL0_5_fields_::PD_FACTOR_MODE;
+  using PD_GLOBAL_ALPHA_MODE = CTRLDESCL0_5_fields_::PD_GLOBAL_ALPHA_MODE;
+  using PD_ALPHA_MODE = CTRLDESCL0_5_fields_::PD_ALPHA_MODE;
+  using PD_COLOR_MODE = CTRLDESCL0_5_fields_::PD_COLOR_MODE;
+  using YUV_FORMAT = CTRLDESCL0_5_fields_::YUV_FORMAT;
+  using GLOBAL_ALPHA = CTRLDESCL0_5_fields_::GLOBAL_ALPHA;
+  using BPP = CTRLDESCL0_5_fields_::BPP;
+  using SAFETY_EN = CTRLDESCL0_5_fields_::SAFETY_EN;
+  using SHADOW_LOAD_EN = CTRLDESCL0_5_fields_::SHADOW_LOAD_EN;
+  using EN = CTRLDESCL0_5_fields_::EN;
 };
+
 
 // Control Descriptor Layer 6 Register
-union CTRLDESCL0_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Background B component value
-    uint32_t BCLR_B : 8;
-    // read-write - Background G component value
-    uint32_t BCLR_G : 8;
-    // read-write - Background R component value
-    uint32_t BCLR_R : 8;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL0_6_fields_ {
+  // Background B component value
+  using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background G component value
+  using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background R component value
+  using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL0_6_fields_
 
-  CTRLDESCL0_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL0_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL0_6*>(0x40808214); }
+struct CTRLDESCL0_6 : ftl::mmio::Register<
+    0x40808214u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL0_6_fields_::BCLR_B,
+    CTRLDESCL0_6_fields_::BCLR_G,
+    CTRLDESCL0_6_fields_::BCLR_R,
+    ftl::mmio::Reserved<8, 24>> {
+  using BCLR_B = CTRLDESCL0_6_fields_::BCLR_B;
+  using BCLR_G = CTRLDESCL0_6_fields_::BCLR_G;
+  using BCLR_R = CTRLDESCL0_6_fields_::BCLR_R;
 };
 
+
 // Color Space Conversion Coefficient Register 0
-union CSC0_COEF0 {
-  
-  // Enable the CSC unit in the LCDIFv2 plane data path
-  enum class eENABLE : uint32_t {
+struct CSC0_COEF0_fields_ {
+
+  enum class eENABLE : std::uint32_t {
     // The CSC is bypassed and the input pixels are RGB data already
     ebf_val0 = 0,
     // The CSC is enabled and the pixels will be converted to RGB data
     ebf_val1 = 1,
   };
-  
-  // This bit changes the behavior when performing U/V converting
-  enum class eYCBCR_MODE : uint32_t {
+
+  enum class eYCBCR_MODE : std::uint32_t {
     // Converting YUV to RGB data
     ebf_val0 = 0,
     // Converting YCbCr to RGB data
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Y OFFSET
-    uint32_t Y_OFFSET : 9;
-    // read-write - UV OFFSET
-    uint32_t UV_OFFSET : 9;
-    // read-write - Two's compliment Y multiplier coefficient. YUV=0x100 (1.000) YCbCr=0x12A (1.164)
-    uint32_t C0 : 11;
-    uint32_t _reserved_0 : 1;
-    // read-write - Enable the CSC unit in the LCDIFv2 plane data path
-    eENABLE ENABLE : 1;
-    // read-write - This bit changes the behavior when performing U/V converting
-    eYCBCR_MODE YCBCR_MODE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Y OFFSET
+  using Y_OFFSET = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // UV OFFSET
+  using UV_OFFSET = ftl::mmio::Field<9, 9, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Two's compliment Y multiplier coefficient. YUV=0x100 (1.000) YCbCr=0x12A (1.164)
+  using C0 = ftl::mmio::Field<11, 18, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable the CSC unit in the LCDIFv2 plane data path
+  using ENABLE = ftl::mmio::Field<1, 30, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit changes the behavior when performing U/V converting
+  using YCBCR_MODE = ftl::mmio::Field<1, 31, eYCBCR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CSC0_COEF0_fields_
 
-  CSC0_COEF0() = delete;
-  inline void Reset() volatile { this->value = 0x04000000; }
-  static inline volatile CSC0_COEF0 &ref() { return *reinterpret_cast<volatile CSC0_COEF0*>(0x40808218); }
+struct CSC0_COEF0 : ftl::mmio::Register<
+    0x40808218u,
+    std::uint32_t,
+    0x04000000u,
+    ftl::mmio::RW,
+    CSC0_COEF0_fields_::Y_OFFSET,
+    CSC0_COEF0_fields_::UV_OFFSET,
+    CSC0_COEF0_fields_::C0,
+    ftl::mmio::Reserved<1, 29>,
+    CSC0_COEF0_fields_::ENABLE,
+    CSC0_COEF0_fields_::YCBCR_MODE> {
+  using eENABLE = CSC0_COEF0_fields_::eENABLE;
+  using eYCBCR_MODE = CSC0_COEF0_fields_::eYCBCR_MODE;
+  using Y_OFFSET = CSC0_COEF0_fields_::Y_OFFSET;
+  using UV_OFFSET = CSC0_COEF0_fields_::UV_OFFSET;
+  using C0 = CSC0_COEF0_fields_::C0;
+  using ENABLE = CSC0_COEF0_fields_::ENABLE;
+  using YCBCR_MODE = CSC0_COEF0_fields_::YCBCR_MODE;
 };
+
 
 // Color Space Conversion Coefficient Register 1
-union CSC0_COEF1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
-    uint32_t C4 : 11;
-    uint32_t _reserved_0 : 5;
-    // read-write - Two's compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)
-    uint32_t C1 : 11;
-    uint32_t _reserved_1 : 5;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CSC0_COEF1_fields_ {
+  // Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
+  using C4 = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Two's compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)
+  using C1 = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CSC0_COEF1_fields_
 
-  CSC0_COEF1() = delete;
-  inline void Reset() volatile { this->value = 0x01230208; }
-  static inline volatile CSC0_COEF1 &ref() { return *reinterpret_cast<volatile CSC0_COEF1*>(0x4080821C); }
+struct CSC0_COEF1 : ftl::mmio::Register<
+    0x4080821Cu,
+    std::uint32_t,
+    0x01230208u,
+    ftl::mmio::RW,
+    CSC0_COEF1_fields_::C4,
+    ftl::mmio::Reserved<5, 11>,
+    CSC0_COEF1_fields_::C1,
+    ftl::mmio::Reserved<5, 27>> {
+  using C4 = CSC0_COEF1_fields_::C4;
+  using C1 = CSC0_COEF1_fields_::C1;
 };
+
 
 // Color Space Conversion Coefficient Register 2
-union CSC0_COEF2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Two's compliment Green U/Cb multiplier coefficient. YUV=0x79C (-0.394) YCbCr=0x79C (-0.392)
-    uint32_t C3 : 11;
-    uint32_t _reserved_0 : 5;
-    // read-write - Two's compliment Green V/Cr multiplier coefficient. YUV=0x76B (-0.581) YCbCr=0x730 (-0.813)
-    uint32_t C2 : 11;
-    uint32_t _reserved_1 : 5;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CSC0_COEF2_fields_ {
+  // Two's compliment Green U/Cb multiplier coefficient. YUV=0x79C (-0.394) YCbCr=0x79C (-0.392)
+  using C3 = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Two's compliment Green V/Cr multiplier coefficient. YUV=0x76B (-0.581) YCbCr=0x730 (-0.813)
+  using C2 = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CSC0_COEF2_fields_
 
-  CSC0_COEF2() = delete;
-  inline void Reset() volatile { this->value = 0x076B079C; }
-  static inline volatile CSC0_COEF2 &ref() { return *reinterpret_cast<volatile CSC0_COEF2*>(0x40808220); }
+struct CSC0_COEF2 : ftl::mmio::Register<
+    0x40808220u,
+    std::uint32_t,
+    0x076B079Cu,
+    ftl::mmio::RW,
+    CSC0_COEF2_fields_::C3,
+    ftl::mmio::Reserved<5, 11>,
+    CSC0_COEF2_fields_::C2,
+    ftl::mmio::Reserved<5, 27>> {
+  using C3 = CSC0_COEF2_fields_::C3;
+  using C2 = CSC0_COEF2_fields_::C2;
 };
+
 
 // Control Descriptor Layer 1 Register
-union CTRLDESCL1_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Width of the layer in pixels
-    uint32_t WIDTH : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Height of the layer in pixels
-    uint32_t HEIGHT : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL1_1_fields_ {
+  // Width of the layer in pixels
+  using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Height of the layer in pixels
+  using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL1_1_fields_
 
-  CTRLDESCL1_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL1_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL1_1*>(0x40808240); }
+struct CTRLDESCL1_1 : ftl::mmio::Register<
+    0x40808240u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL1_1_fields_::WIDTH,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL1_1_fields_::HEIGHT,
+    ftl::mmio::Reserved<4, 28>> {
+  using WIDTH = CTRLDESCL1_1_fields_::WIDTH;
+  using HEIGHT = CTRLDESCL1_1_fields_::HEIGHT;
 };
+
 
 // Control Descriptor Layer 2 Register
-union CTRLDESCL1_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - POS X
-    uint32_t POSX : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
-    uint32_t POSY : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL1_2_fields_ {
+  // POS X
+  using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
+  using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL1_2_fields_
 
-  CTRLDESCL1_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL1_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL1_2*>(0x40808244); }
+struct CTRLDESCL1_2 : ftl::mmio::Register<
+    0x40808244u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL1_2_fields_::POSX,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL1_2_fields_::POSY,
+    ftl::mmio::Reserved<4, 28>> {
+  using POSX = CTRLDESCL1_2_fields_::POSX;
+  using POSY = CTRLDESCL1_2_fields_::POSY;
 };
+
 
 // Control Descriptor Layer 3 Register
-union CTRLDESCL1_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
-    uint32_t PITCH : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL1_3_fields_ {
+  // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
+  using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL1_3_fields_
 
-  CTRLDESCL1_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL1_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL1_3*>(0x40808248); }
+struct CTRLDESCL1_3 : ftl::mmio::Register<
+    0x40808248u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL1_3_fields_::PITCH,
+    ftl::mmio::Reserved<16, 16>> {
+  using PITCH = CTRLDESCL1_3_fields_::PITCH;
 };
+
 
 // Control Descriptor Layer 4 Register
-union CTRLDESCL1_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
-    uint32_t ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL1_4_fields_ {
+  // Address of layer data in the memory. The address programmed should be 64-bit aligned
+  using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL1_4_fields_
 
-  CTRLDESCL1_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL1_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL1_4*>(0x4080824C); }
+struct CTRLDESCL1_4 : ftl::mmio::Register<
+    0x4080824Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL1_4_fields_::ADDR> {
+  using ADDR = CTRLDESCL1_4_fields_::ADDR;
 };
 
+
 // Control Descriptor Layer 5 Register
-union CTRLDESCL1_5 {
-  
-  // Alpha Blending Mode
-  enum class eAB_MODE : uint32_t {
+struct CTRLDESCL1_5_fields_ {
+
+  enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
     // Blend with global ALPHA
@@ -899,9 +1013,8 @@ union CTRLDESCL1_5 {
     // Blend with Porter Duff enable
     ebf_val3 = 3,
   };
-  
-  // Porter Duff factor mode
-  enum class ePD_FACTOR_MODE : uint32_t {
+
+  enum class ePD_FACTOR_MODE : std::uint32_t {
     // Using 1
     ebf_val0 = 0,
     // Using 0
@@ -911,9 +1024,8 @@ union CTRLDESCL1_5 {
     // Using inverse alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff global alpha mode
-  enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
+
+  enum class ePD_GLOBAL_ALPHA_MODE : std::uint32_t {
     // Using global alpha
     ebf_val0 = 0,
     // Using local alpha
@@ -923,25 +1035,22 @@ union CTRLDESCL1_5 {
     // Using scaled alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_ALPHA_MODE : uint32_t {
+
+  enum class ePD_ALPHA_MODE : std::uint32_t {
     // Straight mode for Porter Duff alpha
     ebf_val0 = 0,
     // Inversed mode for Porter Duff alpha
     ebf_val1 = 1,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_COLOR_MODE : uint32_t {
+
+  enum class ePD_COLOR_MODE : std::uint32_t {
     // Straight mode for Porter Duff color
     ebf_val0 = 0,
     // Inversed mode for Porter Duff color
     ebf_val1 = 1,
   };
-  
-  // The YUV422 input format selection
-  enum class eYUV_FORMAT : uint32_t {
+
+  enum class eYUV_FORMAT : std::uint32_t {
     // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     ebf_val0 = 0,
     // The YVYU422 8bit sequence is V1,Y1,U1,Y2
@@ -951,9 +1060,8 @@ union CTRLDESCL1_5 {
     // The YVYU422 8bit sequence is Y1,V1,Y2,U1
     ebf_val3 = 3,
   };
-  
-  // Layer encoding format (bit per pixel)
-  enum class eBPP : uint32_t {
+
+  enum class eBPP : std::uint32_t {
     // 1 bpp
     ebf_val0 = 0,
     // 2 bpp
@@ -977,248 +1085,285 @@ union CTRLDESCL1_5 {
     // 32 bpp (ABGR8888)
     ebf_val10 = 10,
   };
-  
-  // Safety Mode Enable Bit
-  enum class eSAFETY_EN : uint32_t {
+
+  enum class eSAFETY_EN : std::uint32_t {
     // Safety Mode is disabled
     ebf_val0 = 0,
     // Safety Mode is enabled for this layer
     ebf_val1 = 1,
   };
-  
-  // Enable the layer for DMA
-  enum class eEN : uint32_t {
+
+  enum class eEN : std::uint32_t {
     // OFF
     ebf_val0 = 0,
     // ON
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Alpha Blending Mode
-    eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_0 : 2;
-    // read-write - Porter Duff factor mode
-    ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
-    // read-write - Porter Duff global alpha mode
-    ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
-    // read-write - Porter Duff alpha mode
-    ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
-    // read-write - Porter Duff alpha mode
-    ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_1 : 4;
-    // read-write - The YUV422 input format selection
-    eYUV_FORMAT YUV_FORMAT : 2;
-    // read-write - Global Alpha
-    uint32_t GLOBAL_ALPHA : 8;
-    // read-write - Layer encoding format (bit per pixel)
-    eBPP BPP : 4;
-    // read-write - Safety Mode Enable Bit
-    eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - Shadow Load Enable
-    uint32_t SHADOW_LOAD_EN : 1;
-    // read-write - Enable the layer for DMA
-    eEN EN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Alpha Blending Mode
+  using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff factor mode
+  using PD_FACTOR_MODE = ftl::mmio::Field<2, 4, ePD_FACTOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff global alpha mode
+  using PD_GLOBAL_ALPHA_MODE = ftl::mmio::Field<2, 6, ePD_GLOBAL_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_ALPHA_MODE = ftl::mmio::Field<1, 8, ePD_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_COLOR_MODE = ftl::mmio::Field<1, 9, ePD_COLOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The YUV422 input format selection
+  using YUV_FORMAT = ftl::mmio::Field<2, 14, eYUV_FORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Global Alpha
+  using GLOBAL_ALPHA = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Layer encoding format (bit per pixel)
+  using BPP = ftl::mmio::Field<4, 24, eBPP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Safety Mode Enable Bit
+  using SAFETY_EN = ftl::mmio::Field<1, 28, eSAFETY_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Shadow Load Enable
+  using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable the layer for DMA
+  using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL1_5_fields_
 
-  CTRLDESCL1_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL1_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL1_5*>(0x40808250); }
+struct CTRLDESCL1_5 : ftl::mmio::Register<
+    0x40808250u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL1_5_fields_::AB_MODE,
+    ftl::mmio::Reserved<2, 2>,
+    CTRLDESCL1_5_fields_::PD_FACTOR_MODE,
+    CTRLDESCL1_5_fields_::PD_GLOBAL_ALPHA_MODE,
+    CTRLDESCL1_5_fields_::PD_ALPHA_MODE,
+    CTRLDESCL1_5_fields_::PD_COLOR_MODE,
+    ftl::mmio::Reserved<4, 10>,
+    CTRLDESCL1_5_fields_::YUV_FORMAT,
+    CTRLDESCL1_5_fields_::GLOBAL_ALPHA,
+    CTRLDESCL1_5_fields_::BPP,
+    CTRLDESCL1_5_fields_::SAFETY_EN,
+    ftl::mmio::Reserved<1, 29>,
+    CTRLDESCL1_5_fields_::SHADOW_LOAD_EN,
+    CTRLDESCL1_5_fields_::EN> {
+  using eAB_MODE = CTRLDESCL1_5_fields_::eAB_MODE;
+  using ePD_FACTOR_MODE = CTRLDESCL1_5_fields_::ePD_FACTOR_MODE;
+  using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL1_5_fields_::ePD_GLOBAL_ALPHA_MODE;
+  using ePD_ALPHA_MODE = CTRLDESCL1_5_fields_::ePD_ALPHA_MODE;
+  using ePD_COLOR_MODE = CTRLDESCL1_5_fields_::ePD_COLOR_MODE;
+  using eYUV_FORMAT = CTRLDESCL1_5_fields_::eYUV_FORMAT;
+  using eBPP = CTRLDESCL1_5_fields_::eBPP;
+  using eSAFETY_EN = CTRLDESCL1_5_fields_::eSAFETY_EN;
+  using eEN = CTRLDESCL1_5_fields_::eEN;
+  using AB_MODE = CTRLDESCL1_5_fields_::AB_MODE;
+  using PD_FACTOR_MODE = CTRLDESCL1_5_fields_::PD_FACTOR_MODE;
+  using PD_GLOBAL_ALPHA_MODE = CTRLDESCL1_5_fields_::PD_GLOBAL_ALPHA_MODE;
+  using PD_ALPHA_MODE = CTRLDESCL1_5_fields_::PD_ALPHA_MODE;
+  using PD_COLOR_MODE = CTRLDESCL1_5_fields_::PD_COLOR_MODE;
+  using YUV_FORMAT = CTRLDESCL1_5_fields_::YUV_FORMAT;
+  using GLOBAL_ALPHA = CTRLDESCL1_5_fields_::GLOBAL_ALPHA;
+  using BPP = CTRLDESCL1_5_fields_::BPP;
+  using SAFETY_EN = CTRLDESCL1_5_fields_::SAFETY_EN;
+  using SHADOW_LOAD_EN = CTRLDESCL1_5_fields_::SHADOW_LOAD_EN;
+  using EN = CTRLDESCL1_5_fields_::EN;
 };
+
 
 // Control Descriptor Layer 6 Register
-union CTRLDESCL1_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Background B component value
-    uint32_t BCLR_B : 8;
-    // read-write - Background G component value
-    uint32_t BCLR_G : 8;
-    // read-write - Background R component value
-    uint32_t BCLR_R : 8;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL1_6_fields_ {
+  // Background B component value
+  using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background G component value
+  using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background R component value
+  using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL1_6_fields_
 
-  CTRLDESCL1_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL1_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL1_6*>(0x40808254); }
+struct CTRLDESCL1_6 : ftl::mmio::Register<
+    0x40808254u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL1_6_fields_::BCLR_B,
+    CTRLDESCL1_6_fields_::BCLR_G,
+    CTRLDESCL1_6_fields_::BCLR_R,
+    ftl::mmio::Reserved<8, 24>> {
+  using BCLR_B = CTRLDESCL1_6_fields_::BCLR_B;
+  using BCLR_G = CTRLDESCL1_6_fields_::BCLR_G;
+  using BCLR_R = CTRLDESCL1_6_fields_::BCLR_R;
 };
 
+
 // Color Space Conversion Coefficient Register 0
-union CSC1_COEF0 {
-  
-  // Enable the CSC unit in the LCDIFv2 plane data path
-  enum class eENABLE : uint32_t {
+struct CSC1_COEF0_fields_ {
+
+  enum class eENABLE : std::uint32_t {
     // The CSC is bypassed and the input pixels are RGB data already
     ebf_val0 = 0,
     // The CSC is enabled and the pixels will be converted to RGB data
     ebf_val1 = 1,
   };
-  
-  // This bit changes the behavior when performing U/V converting
-  enum class eYCBCR_MODE : uint32_t {
+
+  enum class eYCBCR_MODE : std::uint32_t {
     // Converting YUV to RGB data
     ebf_val0 = 0,
     // Converting YCbCr to RGB data
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Y OFFSET
-    uint32_t Y_OFFSET : 9;
-    // read-write - UV OFFSET
-    uint32_t UV_OFFSET : 9;
-    // read-write - Two's compliment Y multiplier coefficient. YUV=0x100 (1.000) YCbCr=0x12A (1.164)
-    uint32_t C0 : 11;
-    uint32_t _reserved_0 : 1;
-    // read-write - Enable the CSC unit in the LCDIFv2 plane data path
-    eENABLE ENABLE : 1;
-    // read-write - This bit changes the behavior when performing U/V converting
-    eYCBCR_MODE YCBCR_MODE : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Y OFFSET
+  using Y_OFFSET = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // UV OFFSET
+  using UV_OFFSET = ftl::mmio::Field<9, 9, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Two's compliment Y multiplier coefficient. YUV=0x100 (1.000) YCbCr=0x12A (1.164)
+  using C0 = ftl::mmio::Field<11, 18, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable the CSC unit in the LCDIFv2 plane data path
+  using ENABLE = ftl::mmio::Field<1, 30, eENABLE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit changes the behavior when performing U/V converting
+  using YCBCR_MODE = ftl::mmio::Field<1, 31, eYCBCR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CSC1_COEF0_fields_
 
-  CSC1_COEF0() = delete;
-  inline void Reset() volatile { this->value = 0x04000000; }
-  static inline volatile CSC1_COEF0 &ref() { return *reinterpret_cast<volatile CSC1_COEF0*>(0x40808258); }
+struct CSC1_COEF0 : ftl::mmio::Register<
+    0x40808258u,
+    std::uint32_t,
+    0x04000000u,
+    ftl::mmio::RW,
+    CSC1_COEF0_fields_::Y_OFFSET,
+    CSC1_COEF0_fields_::UV_OFFSET,
+    CSC1_COEF0_fields_::C0,
+    ftl::mmio::Reserved<1, 29>,
+    CSC1_COEF0_fields_::ENABLE,
+    CSC1_COEF0_fields_::YCBCR_MODE> {
+  using eENABLE = CSC1_COEF0_fields_::eENABLE;
+  using eYCBCR_MODE = CSC1_COEF0_fields_::eYCBCR_MODE;
+  using Y_OFFSET = CSC1_COEF0_fields_::Y_OFFSET;
+  using UV_OFFSET = CSC1_COEF0_fields_::UV_OFFSET;
+  using C0 = CSC1_COEF0_fields_::C0;
+  using ENABLE = CSC1_COEF0_fields_::ENABLE;
+  using YCBCR_MODE = CSC1_COEF0_fields_::YCBCR_MODE;
 };
+
 
 // Color Space Conversion Coefficient Register 1
-union CSC1_COEF1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
-    uint32_t C4 : 11;
-    uint32_t _reserved_0 : 5;
-    // read-write - Two's compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)
-    uint32_t C1 : 11;
-    uint32_t _reserved_1 : 5;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CSC1_COEF1_fields_ {
+  // Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
+  using C4 = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Two's compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)
+  using C1 = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CSC1_COEF1_fields_
 
-  CSC1_COEF1() = delete;
-  inline void Reset() volatile { this->value = 0x01230208; }
-  static inline volatile CSC1_COEF1 &ref() { return *reinterpret_cast<volatile CSC1_COEF1*>(0x4080825C); }
+struct CSC1_COEF1 : ftl::mmio::Register<
+    0x4080825Cu,
+    std::uint32_t,
+    0x01230208u,
+    ftl::mmio::RW,
+    CSC1_COEF1_fields_::C4,
+    ftl::mmio::Reserved<5, 11>,
+    CSC1_COEF1_fields_::C1,
+    ftl::mmio::Reserved<5, 27>> {
+  using C4 = CSC1_COEF1_fields_::C4;
+  using C1 = CSC1_COEF1_fields_::C1;
 };
+
 
 // Color Space Conversion Coefficient Register 2
-union CSC1_COEF2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Two's compliment Green U/Cb multiplier coefficient. YUV=0x79C (-0.394) YCbCr=0x79C (-0.392)
-    uint32_t C3 : 11;
-    uint32_t _reserved_0 : 5;
-    // read-write - Two's compliment Green V/Cr multiplier coefficient. YUV=0x76B (-0.581) YCbCr=0x730 (-0.813)
-    uint32_t C2 : 11;
-    uint32_t _reserved_1 : 5;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CSC1_COEF2_fields_ {
+  // Two's compliment Green U/Cb multiplier coefficient. YUV=0x79C (-0.394) YCbCr=0x79C (-0.392)
+  using C3 = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Two's compliment Green V/Cr multiplier coefficient. YUV=0x76B (-0.581) YCbCr=0x730 (-0.813)
+  using C2 = ftl::mmio::Field<11, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CSC1_COEF2_fields_
 
-  CSC1_COEF2() = delete;
-  inline void Reset() volatile { this->value = 0x076B079C; }
-  static inline volatile CSC1_COEF2 &ref() { return *reinterpret_cast<volatile CSC1_COEF2*>(0x40808260); }
+struct CSC1_COEF2 : ftl::mmio::Register<
+    0x40808260u,
+    std::uint32_t,
+    0x076B079Cu,
+    ftl::mmio::RW,
+    CSC1_COEF2_fields_::C3,
+    ftl::mmio::Reserved<5, 11>,
+    CSC1_COEF2_fields_::C2,
+    ftl::mmio::Reserved<5, 27>> {
+  using C3 = CSC1_COEF2_fields_::C3;
+  using C2 = CSC1_COEF2_fields_::C2;
 };
+
 
 // Control Descriptor Layer 1 Register
-union CTRLDESCL2_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Width of the layer in pixels
-    uint32_t WIDTH : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Height of the layer in pixels
-    uint32_t HEIGHT : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL2_1_fields_ {
+  // Width of the layer in pixels
+  using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Height of the layer in pixels
+  using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL2_1_fields_
 
-  CTRLDESCL2_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL2_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL2_1*>(0x40808280); }
+struct CTRLDESCL2_1 : ftl::mmio::Register<
+    0x40808280u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL2_1_fields_::WIDTH,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL2_1_fields_::HEIGHT,
+    ftl::mmio::Reserved<4, 28>> {
+  using WIDTH = CTRLDESCL2_1_fields_::WIDTH;
+  using HEIGHT = CTRLDESCL2_1_fields_::HEIGHT;
 };
+
 
 // Control Descriptor Layer 2 Register
-union CTRLDESCL2_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - POS X
-    uint32_t POSX : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
-    uint32_t POSY : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL2_2_fields_ {
+  // POS X
+  using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
+  using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL2_2_fields_
 
-  CTRLDESCL2_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL2_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL2_2*>(0x40808284); }
+struct CTRLDESCL2_2 : ftl::mmio::Register<
+    0x40808284u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL2_2_fields_::POSX,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL2_2_fields_::POSY,
+    ftl::mmio::Reserved<4, 28>> {
+  using POSX = CTRLDESCL2_2_fields_::POSX;
+  using POSY = CTRLDESCL2_2_fields_::POSY;
 };
+
 
 // Control Descriptor Layer 3 Register
-union CTRLDESCL2_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
-    uint32_t PITCH : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL2_3_fields_ {
+  // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
+  using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL2_3_fields_
 
-  CTRLDESCL2_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL2_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL2_3*>(0x40808288); }
+struct CTRLDESCL2_3 : ftl::mmio::Register<
+    0x40808288u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL2_3_fields_::PITCH,
+    ftl::mmio::Reserved<16, 16>> {
+  using PITCH = CTRLDESCL2_3_fields_::PITCH;
 };
+
 
 // Control Descriptor Layer 4 Register
-union CTRLDESCL2_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
-    uint32_t ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL2_4_fields_ {
+  // Address of layer data in the memory. The address programmed should be 64-bit aligned
+  using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL2_4_fields_
 
-  CTRLDESCL2_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL2_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL2_4*>(0x4080828C); }
+struct CTRLDESCL2_4 : ftl::mmio::Register<
+    0x4080828Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL2_4_fields_::ADDR> {
+  using ADDR = CTRLDESCL2_4_fields_::ADDR;
 };
 
+
 // Control Descriptor Layer 5 Register
-union CTRLDESCL2_5 {
-  
-  // Alpha Blending Mode
-  enum class eAB_MODE : uint32_t {
+struct CTRLDESCL2_5_fields_ {
+
+  enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
     // Blend with global ALPHA
@@ -1228,9 +1373,8 @@ union CTRLDESCL2_5 {
     // Blend with Porter Duff enable
     ebf_val3 = 3,
   };
-  
-  // Porter Duff factor mode
-  enum class ePD_FACTOR_MODE : uint32_t {
+
+  enum class ePD_FACTOR_MODE : std::uint32_t {
     // Using 1
     ebf_val0 = 0,
     // Using 0
@@ -1240,9 +1384,8 @@ union CTRLDESCL2_5 {
     // Using inverse alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff global alpha mode
-  enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
+
+  enum class ePD_GLOBAL_ALPHA_MODE : std::uint32_t {
     // Using global alpha
     ebf_val0 = 0,
     // Using local alpha
@@ -1252,25 +1395,22 @@ union CTRLDESCL2_5 {
     // Using scaled alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_ALPHA_MODE : uint32_t {
+
+  enum class ePD_ALPHA_MODE : std::uint32_t {
     // Straight mode for Porter Duff alpha
     ebf_val0 = 0,
     // Inversed mode for Porter Duff alpha
     ebf_val1 = 1,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_COLOR_MODE : uint32_t {
+
+  enum class ePD_COLOR_MODE : std::uint32_t {
     // Straight mode for Porter Duff color
     ebf_val0 = 0,
     // Inversed mode for Porter Duff color
     ebf_val1 = 1,
   };
-  
-  // The YUV422 input format selection
-  enum class eYUV_FORMAT : uint32_t {
+
+  enum class eYUV_FORMAT : std::uint32_t {
     // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     ebf_val0 = 0,
     // The YVYU422 8bit sequence is V1,Y1,U1,Y2
@@ -1280,9 +1420,8 @@ union CTRLDESCL2_5 {
     // The YVYU422 8bit sequence is Y1,V1,Y2,U1
     ebf_val3 = 3,
   };
-  
-  // Layer encoding format (bit per pixel)
-  enum class eBPP : uint32_t {
+
+  enum class eBPP : std::uint32_t {
     // 1 bpp
     ebf_val0 = 0,
     // 2 bpp
@@ -1306,164 +1445,192 @@ union CTRLDESCL2_5 {
     // 32 bpp (ABGR8888)
     ebf_val10 = 10,
   };
-  
-  // Safety Mode Enable Bit
-  enum class eSAFETY_EN : uint32_t {
+
+  enum class eSAFETY_EN : std::uint32_t {
     // Safety Mode is disabled
     ebf_val0 = 0,
     // Safety Mode is enabled for this layer
     ebf_val1 = 1,
   };
-  
-  // Enable the layer for DMA
-  enum class eEN : uint32_t {
+
+  enum class eEN : std::uint32_t {
     // OFF
     ebf_val0 = 0,
     // ON
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Alpha Blending Mode
-    eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_0 : 2;
-    // read-write - Porter Duff factor mode
-    ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
-    // read-write - Porter Duff global alpha mode
-    ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
-    // read-write - Porter Duff alpha mode
-    ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
-    // read-write - Porter Duff alpha mode
-    ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_1 : 4;
-    // read-write - The YUV422 input format selection
-    eYUV_FORMAT YUV_FORMAT : 2;
-    // read-write - Global Alpha
-    uint32_t GLOBAL_ALPHA : 8;
-    // read-write - Layer encoding format (bit per pixel)
-    eBPP BPP : 4;
-    // read-write - Safety Mode Enable Bit
-    eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - Shadow Load Enable
-    uint32_t SHADOW_LOAD_EN : 1;
-    // read-write - Enable the layer for DMA
-    eEN EN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Alpha Blending Mode
+  using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff factor mode
+  using PD_FACTOR_MODE = ftl::mmio::Field<2, 4, ePD_FACTOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff global alpha mode
+  using PD_GLOBAL_ALPHA_MODE = ftl::mmio::Field<2, 6, ePD_GLOBAL_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_ALPHA_MODE = ftl::mmio::Field<1, 8, ePD_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_COLOR_MODE = ftl::mmio::Field<1, 9, ePD_COLOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The YUV422 input format selection
+  using YUV_FORMAT = ftl::mmio::Field<2, 14, eYUV_FORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Global Alpha
+  using GLOBAL_ALPHA = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Layer encoding format (bit per pixel)
+  using BPP = ftl::mmio::Field<4, 24, eBPP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Safety Mode Enable Bit
+  using SAFETY_EN = ftl::mmio::Field<1, 28, eSAFETY_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Shadow Load Enable
+  using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable the layer for DMA
+  using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL2_5_fields_
 
-  CTRLDESCL2_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL2_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL2_5*>(0x40808290); }
+struct CTRLDESCL2_5 : ftl::mmio::Register<
+    0x40808290u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL2_5_fields_::AB_MODE,
+    ftl::mmio::Reserved<2, 2>,
+    CTRLDESCL2_5_fields_::PD_FACTOR_MODE,
+    CTRLDESCL2_5_fields_::PD_GLOBAL_ALPHA_MODE,
+    CTRLDESCL2_5_fields_::PD_ALPHA_MODE,
+    CTRLDESCL2_5_fields_::PD_COLOR_MODE,
+    ftl::mmio::Reserved<4, 10>,
+    CTRLDESCL2_5_fields_::YUV_FORMAT,
+    CTRLDESCL2_5_fields_::GLOBAL_ALPHA,
+    CTRLDESCL2_5_fields_::BPP,
+    CTRLDESCL2_5_fields_::SAFETY_EN,
+    ftl::mmio::Reserved<1, 29>,
+    CTRLDESCL2_5_fields_::SHADOW_LOAD_EN,
+    CTRLDESCL2_5_fields_::EN> {
+  using eAB_MODE = CTRLDESCL2_5_fields_::eAB_MODE;
+  using ePD_FACTOR_MODE = CTRLDESCL2_5_fields_::ePD_FACTOR_MODE;
+  using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL2_5_fields_::ePD_GLOBAL_ALPHA_MODE;
+  using ePD_ALPHA_MODE = CTRLDESCL2_5_fields_::ePD_ALPHA_MODE;
+  using ePD_COLOR_MODE = CTRLDESCL2_5_fields_::ePD_COLOR_MODE;
+  using eYUV_FORMAT = CTRLDESCL2_5_fields_::eYUV_FORMAT;
+  using eBPP = CTRLDESCL2_5_fields_::eBPP;
+  using eSAFETY_EN = CTRLDESCL2_5_fields_::eSAFETY_EN;
+  using eEN = CTRLDESCL2_5_fields_::eEN;
+  using AB_MODE = CTRLDESCL2_5_fields_::AB_MODE;
+  using PD_FACTOR_MODE = CTRLDESCL2_5_fields_::PD_FACTOR_MODE;
+  using PD_GLOBAL_ALPHA_MODE = CTRLDESCL2_5_fields_::PD_GLOBAL_ALPHA_MODE;
+  using PD_ALPHA_MODE = CTRLDESCL2_5_fields_::PD_ALPHA_MODE;
+  using PD_COLOR_MODE = CTRLDESCL2_5_fields_::PD_COLOR_MODE;
+  using YUV_FORMAT = CTRLDESCL2_5_fields_::YUV_FORMAT;
+  using GLOBAL_ALPHA = CTRLDESCL2_5_fields_::GLOBAL_ALPHA;
+  using BPP = CTRLDESCL2_5_fields_::BPP;
+  using SAFETY_EN = CTRLDESCL2_5_fields_::SAFETY_EN;
+  using SHADOW_LOAD_EN = CTRLDESCL2_5_fields_::SHADOW_LOAD_EN;
+  using EN = CTRLDESCL2_5_fields_::EN;
 };
+
 
 // Control Descriptor Layer 6 Register
-union CTRLDESCL2_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Background B component value
-    uint32_t BCLR_B : 8;
-    // read-write - Background G component value
-    uint32_t BCLR_G : 8;
-    // read-write - Background R component value
-    uint32_t BCLR_R : 8;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL2_6_fields_ {
+  // Background B component value
+  using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background G component value
+  using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background R component value
+  using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL2_6_fields_
 
-  CTRLDESCL2_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL2_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL2_6*>(0x40808294); }
+struct CTRLDESCL2_6 : ftl::mmio::Register<
+    0x40808294u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL2_6_fields_::BCLR_B,
+    CTRLDESCL2_6_fields_::BCLR_G,
+    CTRLDESCL2_6_fields_::BCLR_R,
+    ftl::mmio::Reserved<8, 24>> {
+  using BCLR_B = CTRLDESCL2_6_fields_::BCLR_B;
+  using BCLR_G = CTRLDESCL2_6_fields_::BCLR_G;
+  using BCLR_R = CTRLDESCL2_6_fields_::BCLR_R;
 };
+
 
 // Control Descriptor Layer 1 Register
-union CTRLDESCL3_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Width of the layer in pixels
-    uint32_t WIDTH : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Height of the layer in pixels
-    uint32_t HEIGHT : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL3_1_fields_ {
+  // Width of the layer in pixels
+  using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Height of the layer in pixels
+  using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL3_1_fields_
 
-  CTRLDESCL3_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL3_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL3_1*>(0x408082C0); }
+struct CTRLDESCL3_1 : ftl::mmio::Register<
+    0x408082C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL3_1_fields_::WIDTH,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL3_1_fields_::HEIGHT,
+    ftl::mmio::Reserved<4, 28>> {
+  using WIDTH = CTRLDESCL3_1_fields_::WIDTH;
+  using HEIGHT = CTRLDESCL3_1_fields_::HEIGHT;
 };
+
 
 // Control Descriptor Layer 2 Register
-union CTRLDESCL3_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - POS X
-    uint32_t POSX : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
-    uint32_t POSY : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL3_2_fields_ {
+  // POS X
+  using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
+  using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL3_2_fields_
 
-  CTRLDESCL3_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL3_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL3_2*>(0x408082C4); }
+struct CTRLDESCL3_2 : ftl::mmio::Register<
+    0x408082C4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL3_2_fields_::POSX,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL3_2_fields_::POSY,
+    ftl::mmio::Reserved<4, 28>> {
+  using POSX = CTRLDESCL3_2_fields_::POSX;
+  using POSY = CTRLDESCL3_2_fields_::POSY;
 };
+
 
 // Control Descriptor Layer 3 Register
-union CTRLDESCL3_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
-    uint32_t PITCH : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL3_3_fields_ {
+  // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
+  using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL3_3_fields_
 
-  CTRLDESCL3_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL3_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL3_3*>(0x408082C8); }
+struct CTRLDESCL3_3 : ftl::mmio::Register<
+    0x408082C8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL3_3_fields_::PITCH,
+    ftl::mmio::Reserved<16, 16>> {
+  using PITCH = CTRLDESCL3_3_fields_::PITCH;
 };
+
 
 // Control Descriptor Layer 4 Register
-union CTRLDESCL3_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
-    uint32_t ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL3_4_fields_ {
+  // Address of layer data in the memory. The address programmed should be 64-bit aligned
+  using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL3_4_fields_
 
-  CTRLDESCL3_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL3_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL3_4*>(0x408082CC); }
+struct CTRLDESCL3_4 : ftl::mmio::Register<
+    0x408082CCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL3_4_fields_::ADDR> {
+  using ADDR = CTRLDESCL3_4_fields_::ADDR;
 };
 
+
 // Control Descriptor Layer 5 Register
-union CTRLDESCL3_5 {
-  
-  // Alpha Blending Mode
-  enum class eAB_MODE : uint32_t {
+struct CTRLDESCL3_5_fields_ {
+
+  enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
     // Blend with global ALPHA
@@ -1473,9 +1640,8 @@ union CTRLDESCL3_5 {
     // Blend with Porter Duff enable
     ebf_val3 = 3,
   };
-  
-  // Porter Duff factor mode
-  enum class ePD_FACTOR_MODE : uint32_t {
+
+  enum class ePD_FACTOR_MODE : std::uint32_t {
     // Using 1
     ebf_val0 = 0,
     // Using 0
@@ -1485,9 +1651,8 @@ union CTRLDESCL3_5 {
     // Using inverse alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff global alpha mode
-  enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
+
+  enum class ePD_GLOBAL_ALPHA_MODE : std::uint32_t {
     // Using global alpha
     ebf_val0 = 0,
     // Using local alpha
@@ -1497,25 +1662,22 @@ union CTRLDESCL3_5 {
     // Using scaled alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_ALPHA_MODE : uint32_t {
+
+  enum class ePD_ALPHA_MODE : std::uint32_t {
     // Straight mode for Porter Duff alpha
     ebf_val0 = 0,
     // Inversed mode for Porter Duff alpha
     ebf_val1 = 1,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_COLOR_MODE : uint32_t {
+
+  enum class ePD_COLOR_MODE : std::uint32_t {
     // Straight mode for Porter Duff color
     ebf_val0 = 0,
     // Inversed mode for Porter Duff color
     ebf_val1 = 1,
   };
-  
-  // The YUV422 input format selection
-  enum class eYUV_FORMAT : uint32_t {
+
+  enum class eYUV_FORMAT : std::uint32_t {
     // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     ebf_val0 = 0,
     // The YVYU422 8bit sequence is V1,Y1,U1,Y2
@@ -1525,9 +1687,8 @@ union CTRLDESCL3_5 {
     // The YVYU422 8bit sequence is Y1,V1,Y2,U1
     ebf_val3 = 3,
   };
-  
-  // Layer encoding format (bit per pixel)
-  enum class eBPP : uint32_t {
+
+  enum class eBPP : std::uint32_t {
     // 1 bpp
     ebf_val0 = 0,
     // 2 bpp
@@ -1551,164 +1712,192 @@ union CTRLDESCL3_5 {
     // 32 bpp (ABGR8888)
     ebf_val10 = 10,
   };
-  
-  // Safety Mode Enable Bit
-  enum class eSAFETY_EN : uint32_t {
+
+  enum class eSAFETY_EN : std::uint32_t {
     // Safety Mode is disabled
     ebf_val0 = 0,
     // Safety Mode is enabled for this layer
     ebf_val1 = 1,
   };
-  
-  // Enable the layer for DMA
-  enum class eEN : uint32_t {
+
+  enum class eEN : std::uint32_t {
     // OFF
     ebf_val0 = 0,
     // ON
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Alpha Blending Mode
-    eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_0 : 2;
-    // read-write - Porter Duff factor mode
-    ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
-    // read-write - Porter Duff global alpha mode
-    ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
-    // read-write - Porter Duff alpha mode
-    ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
-    // read-write - Porter Duff alpha mode
-    ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_1 : 4;
-    // read-write - The YUV422 input format selection
-    eYUV_FORMAT YUV_FORMAT : 2;
-    // read-write - Global Alpha
-    uint32_t GLOBAL_ALPHA : 8;
-    // read-write - Layer encoding format (bit per pixel)
-    eBPP BPP : 4;
-    // read-write - Safety Mode Enable Bit
-    eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - Shadow Load Enable
-    uint32_t SHADOW_LOAD_EN : 1;
-    // read-write - Enable the layer for DMA
-    eEN EN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Alpha Blending Mode
+  using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff factor mode
+  using PD_FACTOR_MODE = ftl::mmio::Field<2, 4, ePD_FACTOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff global alpha mode
+  using PD_GLOBAL_ALPHA_MODE = ftl::mmio::Field<2, 6, ePD_GLOBAL_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_ALPHA_MODE = ftl::mmio::Field<1, 8, ePD_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_COLOR_MODE = ftl::mmio::Field<1, 9, ePD_COLOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The YUV422 input format selection
+  using YUV_FORMAT = ftl::mmio::Field<2, 14, eYUV_FORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Global Alpha
+  using GLOBAL_ALPHA = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Layer encoding format (bit per pixel)
+  using BPP = ftl::mmio::Field<4, 24, eBPP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Safety Mode Enable Bit
+  using SAFETY_EN = ftl::mmio::Field<1, 28, eSAFETY_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Shadow Load Enable
+  using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable the layer for DMA
+  using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL3_5_fields_
 
-  CTRLDESCL3_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL3_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL3_5*>(0x408082D0); }
+struct CTRLDESCL3_5 : ftl::mmio::Register<
+    0x408082D0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL3_5_fields_::AB_MODE,
+    ftl::mmio::Reserved<2, 2>,
+    CTRLDESCL3_5_fields_::PD_FACTOR_MODE,
+    CTRLDESCL3_5_fields_::PD_GLOBAL_ALPHA_MODE,
+    CTRLDESCL3_5_fields_::PD_ALPHA_MODE,
+    CTRLDESCL3_5_fields_::PD_COLOR_MODE,
+    ftl::mmio::Reserved<4, 10>,
+    CTRLDESCL3_5_fields_::YUV_FORMAT,
+    CTRLDESCL3_5_fields_::GLOBAL_ALPHA,
+    CTRLDESCL3_5_fields_::BPP,
+    CTRLDESCL3_5_fields_::SAFETY_EN,
+    ftl::mmio::Reserved<1, 29>,
+    CTRLDESCL3_5_fields_::SHADOW_LOAD_EN,
+    CTRLDESCL3_5_fields_::EN> {
+  using eAB_MODE = CTRLDESCL3_5_fields_::eAB_MODE;
+  using ePD_FACTOR_MODE = CTRLDESCL3_5_fields_::ePD_FACTOR_MODE;
+  using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL3_5_fields_::ePD_GLOBAL_ALPHA_MODE;
+  using ePD_ALPHA_MODE = CTRLDESCL3_5_fields_::ePD_ALPHA_MODE;
+  using ePD_COLOR_MODE = CTRLDESCL3_5_fields_::ePD_COLOR_MODE;
+  using eYUV_FORMAT = CTRLDESCL3_5_fields_::eYUV_FORMAT;
+  using eBPP = CTRLDESCL3_5_fields_::eBPP;
+  using eSAFETY_EN = CTRLDESCL3_5_fields_::eSAFETY_EN;
+  using eEN = CTRLDESCL3_5_fields_::eEN;
+  using AB_MODE = CTRLDESCL3_5_fields_::AB_MODE;
+  using PD_FACTOR_MODE = CTRLDESCL3_5_fields_::PD_FACTOR_MODE;
+  using PD_GLOBAL_ALPHA_MODE = CTRLDESCL3_5_fields_::PD_GLOBAL_ALPHA_MODE;
+  using PD_ALPHA_MODE = CTRLDESCL3_5_fields_::PD_ALPHA_MODE;
+  using PD_COLOR_MODE = CTRLDESCL3_5_fields_::PD_COLOR_MODE;
+  using YUV_FORMAT = CTRLDESCL3_5_fields_::YUV_FORMAT;
+  using GLOBAL_ALPHA = CTRLDESCL3_5_fields_::GLOBAL_ALPHA;
+  using BPP = CTRLDESCL3_5_fields_::BPP;
+  using SAFETY_EN = CTRLDESCL3_5_fields_::SAFETY_EN;
+  using SHADOW_LOAD_EN = CTRLDESCL3_5_fields_::SHADOW_LOAD_EN;
+  using EN = CTRLDESCL3_5_fields_::EN;
 };
+
 
 // Control Descriptor Layer 6 Register
-union CTRLDESCL3_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Background B component value
-    uint32_t BCLR_B : 8;
-    // read-write - Background G component value
-    uint32_t BCLR_G : 8;
-    // read-write - Background R component value
-    uint32_t BCLR_R : 8;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL3_6_fields_ {
+  // Background B component value
+  using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background G component value
+  using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background R component value
+  using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL3_6_fields_
 
-  CTRLDESCL3_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL3_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL3_6*>(0x408082D4); }
+struct CTRLDESCL3_6 : ftl::mmio::Register<
+    0x408082D4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL3_6_fields_::BCLR_B,
+    CTRLDESCL3_6_fields_::BCLR_G,
+    CTRLDESCL3_6_fields_::BCLR_R,
+    ftl::mmio::Reserved<8, 24>> {
+  using BCLR_B = CTRLDESCL3_6_fields_::BCLR_B;
+  using BCLR_G = CTRLDESCL3_6_fields_::BCLR_G;
+  using BCLR_R = CTRLDESCL3_6_fields_::BCLR_R;
 };
+
 
 // Control Descriptor Layer 1 Register
-union CTRLDESCL4_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Width of the layer in pixels
-    uint32_t WIDTH : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Height of the layer in pixels
-    uint32_t HEIGHT : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL4_1_fields_ {
+  // Width of the layer in pixels
+  using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Height of the layer in pixels
+  using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL4_1_fields_
 
-  CTRLDESCL4_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL4_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL4_1*>(0x40808300); }
+struct CTRLDESCL4_1 : ftl::mmio::Register<
+    0x40808300u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL4_1_fields_::WIDTH,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL4_1_fields_::HEIGHT,
+    ftl::mmio::Reserved<4, 28>> {
+  using WIDTH = CTRLDESCL4_1_fields_::WIDTH;
+  using HEIGHT = CTRLDESCL4_1_fields_::HEIGHT;
 };
+
 
 // Control Descriptor Layer 2 Register
-union CTRLDESCL4_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - POS X
-    uint32_t POSX : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
-    uint32_t POSY : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL4_2_fields_ {
+  // POS X
+  using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
+  using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL4_2_fields_
 
-  CTRLDESCL4_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL4_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL4_2*>(0x40808304); }
+struct CTRLDESCL4_2 : ftl::mmio::Register<
+    0x40808304u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL4_2_fields_::POSX,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL4_2_fields_::POSY,
+    ftl::mmio::Reserved<4, 28>> {
+  using POSX = CTRLDESCL4_2_fields_::POSX;
+  using POSY = CTRLDESCL4_2_fields_::POSY;
 };
+
 
 // Control Descriptor Layer 3 Register
-union CTRLDESCL4_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
-    uint32_t PITCH : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL4_3_fields_ {
+  // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
+  using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL4_3_fields_
 
-  CTRLDESCL4_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL4_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL4_3*>(0x40808308); }
+struct CTRLDESCL4_3 : ftl::mmio::Register<
+    0x40808308u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL4_3_fields_::PITCH,
+    ftl::mmio::Reserved<16, 16>> {
+  using PITCH = CTRLDESCL4_3_fields_::PITCH;
 };
+
 
 // Control Descriptor Layer 4 Register
-union CTRLDESCL4_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
-    uint32_t ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL4_4_fields_ {
+  // Address of layer data in the memory. The address programmed should be 64-bit aligned
+  using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL4_4_fields_
 
-  CTRLDESCL4_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL4_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL4_4*>(0x4080830C); }
+struct CTRLDESCL4_4 : ftl::mmio::Register<
+    0x4080830Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL4_4_fields_::ADDR> {
+  using ADDR = CTRLDESCL4_4_fields_::ADDR;
 };
 
+
 // Control Descriptor Layer 5 Register
-union CTRLDESCL4_5 {
-  
-  // Alpha Blending Mode
-  enum class eAB_MODE : uint32_t {
+struct CTRLDESCL4_5_fields_ {
+
+  enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
     // Blend with global ALPHA
@@ -1718,9 +1907,8 @@ union CTRLDESCL4_5 {
     // Blend with Porter Duff enable
     ebf_val3 = 3,
   };
-  
-  // Porter Duff factor mode
-  enum class ePD_FACTOR_MODE : uint32_t {
+
+  enum class ePD_FACTOR_MODE : std::uint32_t {
     // Using 1
     ebf_val0 = 0,
     // Using 0
@@ -1730,9 +1918,8 @@ union CTRLDESCL4_5 {
     // Using inverse alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff global alpha mode
-  enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
+
+  enum class ePD_GLOBAL_ALPHA_MODE : std::uint32_t {
     // Using global alpha
     ebf_val0 = 0,
     // Using local alpha
@@ -1742,25 +1929,22 @@ union CTRLDESCL4_5 {
     // Using scaled alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_ALPHA_MODE : uint32_t {
+
+  enum class ePD_ALPHA_MODE : std::uint32_t {
     // Straight mode for Porter Duff alpha
     ebf_val0 = 0,
     // Inversed mode for Porter Duff alpha
     ebf_val1 = 1,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_COLOR_MODE : uint32_t {
+
+  enum class ePD_COLOR_MODE : std::uint32_t {
     // Straight mode for Porter Duff color
     ebf_val0 = 0,
     // Inversed mode for Porter Duff color
     ebf_val1 = 1,
   };
-  
-  // The YUV422 input format selection
-  enum class eYUV_FORMAT : uint32_t {
+
+  enum class eYUV_FORMAT : std::uint32_t {
     // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     ebf_val0 = 0,
     // The YVYU422 8bit sequence is V1,Y1,U1,Y2
@@ -1770,9 +1954,8 @@ union CTRLDESCL4_5 {
     // The YVYU422 8bit sequence is Y1,V1,Y2,U1
     ebf_val3 = 3,
   };
-  
-  // Layer encoding format (bit per pixel)
-  enum class eBPP : uint32_t {
+
+  enum class eBPP : std::uint32_t {
     // 1 bpp
     ebf_val0 = 0,
     // 2 bpp
@@ -1796,164 +1979,192 @@ union CTRLDESCL4_5 {
     // 32 bpp (ABGR8888)
     ebf_val10 = 10,
   };
-  
-  // Safety Mode Enable Bit
-  enum class eSAFETY_EN : uint32_t {
+
+  enum class eSAFETY_EN : std::uint32_t {
     // Safety Mode is disabled
     ebf_val0 = 0,
     // Safety Mode is enabled for this layer
     ebf_val1 = 1,
   };
-  
-  // Enable the layer for DMA
-  enum class eEN : uint32_t {
+
+  enum class eEN : std::uint32_t {
     // OFF
     ebf_val0 = 0,
     // ON
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Alpha Blending Mode
-    eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_0 : 2;
-    // read-write - Porter Duff factor mode
-    ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
-    // read-write - Porter Duff global alpha mode
-    ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
-    // read-write - Porter Duff alpha mode
-    ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
-    // read-write - Porter Duff alpha mode
-    ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_1 : 4;
-    // read-write - The YUV422 input format selection
-    eYUV_FORMAT YUV_FORMAT : 2;
-    // read-write - Global Alpha
-    uint32_t GLOBAL_ALPHA : 8;
-    // read-write - Layer encoding format (bit per pixel)
-    eBPP BPP : 4;
-    // read-write - Safety Mode Enable Bit
-    eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - Shadow Load Enable
-    uint32_t SHADOW_LOAD_EN : 1;
-    // read-write - Enable the layer for DMA
-    eEN EN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Alpha Blending Mode
+  using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff factor mode
+  using PD_FACTOR_MODE = ftl::mmio::Field<2, 4, ePD_FACTOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff global alpha mode
+  using PD_GLOBAL_ALPHA_MODE = ftl::mmio::Field<2, 6, ePD_GLOBAL_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_ALPHA_MODE = ftl::mmio::Field<1, 8, ePD_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_COLOR_MODE = ftl::mmio::Field<1, 9, ePD_COLOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The YUV422 input format selection
+  using YUV_FORMAT = ftl::mmio::Field<2, 14, eYUV_FORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Global Alpha
+  using GLOBAL_ALPHA = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Layer encoding format (bit per pixel)
+  using BPP = ftl::mmio::Field<4, 24, eBPP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Safety Mode Enable Bit
+  using SAFETY_EN = ftl::mmio::Field<1, 28, eSAFETY_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Shadow Load Enable
+  using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable the layer for DMA
+  using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL4_5_fields_
 
-  CTRLDESCL4_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL4_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL4_5*>(0x40808310); }
+struct CTRLDESCL4_5 : ftl::mmio::Register<
+    0x40808310u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL4_5_fields_::AB_MODE,
+    ftl::mmio::Reserved<2, 2>,
+    CTRLDESCL4_5_fields_::PD_FACTOR_MODE,
+    CTRLDESCL4_5_fields_::PD_GLOBAL_ALPHA_MODE,
+    CTRLDESCL4_5_fields_::PD_ALPHA_MODE,
+    CTRLDESCL4_5_fields_::PD_COLOR_MODE,
+    ftl::mmio::Reserved<4, 10>,
+    CTRLDESCL4_5_fields_::YUV_FORMAT,
+    CTRLDESCL4_5_fields_::GLOBAL_ALPHA,
+    CTRLDESCL4_5_fields_::BPP,
+    CTRLDESCL4_5_fields_::SAFETY_EN,
+    ftl::mmio::Reserved<1, 29>,
+    CTRLDESCL4_5_fields_::SHADOW_LOAD_EN,
+    CTRLDESCL4_5_fields_::EN> {
+  using eAB_MODE = CTRLDESCL4_5_fields_::eAB_MODE;
+  using ePD_FACTOR_MODE = CTRLDESCL4_5_fields_::ePD_FACTOR_MODE;
+  using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL4_5_fields_::ePD_GLOBAL_ALPHA_MODE;
+  using ePD_ALPHA_MODE = CTRLDESCL4_5_fields_::ePD_ALPHA_MODE;
+  using ePD_COLOR_MODE = CTRLDESCL4_5_fields_::ePD_COLOR_MODE;
+  using eYUV_FORMAT = CTRLDESCL4_5_fields_::eYUV_FORMAT;
+  using eBPP = CTRLDESCL4_5_fields_::eBPP;
+  using eSAFETY_EN = CTRLDESCL4_5_fields_::eSAFETY_EN;
+  using eEN = CTRLDESCL4_5_fields_::eEN;
+  using AB_MODE = CTRLDESCL4_5_fields_::AB_MODE;
+  using PD_FACTOR_MODE = CTRLDESCL4_5_fields_::PD_FACTOR_MODE;
+  using PD_GLOBAL_ALPHA_MODE = CTRLDESCL4_5_fields_::PD_GLOBAL_ALPHA_MODE;
+  using PD_ALPHA_MODE = CTRLDESCL4_5_fields_::PD_ALPHA_MODE;
+  using PD_COLOR_MODE = CTRLDESCL4_5_fields_::PD_COLOR_MODE;
+  using YUV_FORMAT = CTRLDESCL4_5_fields_::YUV_FORMAT;
+  using GLOBAL_ALPHA = CTRLDESCL4_5_fields_::GLOBAL_ALPHA;
+  using BPP = CTRLDESCL4_5_fields_::BPP;
+  using SAFETY_EN = CTRLDESCL4_5_fields_::SAFETY_EN;
+  using SHADOW_LOAD_EN = CTRLDESCL4_5_fields_::SHADOW_LOAD_EN;
+  using EN = CTRLDESCL4_5_fields_::EN;
 };
+
 
 // Control Descriptor Layer 6 Register
-union CTRLDESCL4_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Background B component value
-    uint32_t BCLR_B : 8;
-    // read-write - Background G component value
-    uint32_t BCLR_G : 8;
-    // read-write - Background R component value
-    uint32_t BCLR_R : 8;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL4_6_fields_ {
+  // Background B component value
+  using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background G component value
+  using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background R component value
+  using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL4_6_fields_
 
-  CTRLDESCL4_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL4_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL4_6*>(0x40808314); }
+struct CTRLDESCL4_6 : ftl::mmio::Register<
+    0x40808314u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL4_6_fields_::BCLR_B,
+    CTRLDESCL4_6_fields_::BCLR_G,
+    CTRLDESCL4_6_fields_::BCLR_R,
+    ftl::mmio::Reserved<8, 24>> {
+  using BCLR_B = CTRLDESCL4_6_fields_::BCLR_B;
+  using BCLR_G = CTRLDESCL4_6_fields_::BCLR_G;
+  using BCLR_R = CTRLDESCL4_6_fields_::BCLR_R;
 };
+
 
 // Control Descriptor Layer 1 Register
-union CTRLDESCL5_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Width of the layer in pixels
-    uint32_t WIDTH : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Height of the layer in pixels
-    uint32_t HEIGHT : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL5_1_fields_ {
+  // Width of the layer in pixels
+  using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Height of the layer in pixels
+  using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL5_1_fields_
 
-  CTRLDESCL5_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL5_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL5_1*>(0x40808340); }
+struct CTRLDESCL5_1 : ftl::mmio::Register<
+    0x40808340u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL5_1_fields_::WIDTH,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL5_1_fields_::HEIGHT,
+    ftl::mmio::Reserved<4, 28>> {
+  using WIDTH = CTRLDESCL5_1_fields_::WIDTH;
+  using HEIGHT = CTRLDESCL5_1_fields_::HEIGHT;
 };
+
 
 // Control Descriptor Layer 2 Register
-union CTRLDESCL5_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - POS X
-    uint32_t POSX : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
-    uint32_t POSY : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL5_2_fields_ {
+  // POS X
+  using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
+  using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL5_2_fields_
 
-  CTRLDESCL5_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL5_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL5_2*>(0x40808344); }
+struct CTRLDESCL5_2 : ftl::mmio::Register<
+    0x40808344u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL5_2_fields_::POSX,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL5_2_fields_::POSY,
+    ftl::mmio::Reserved<4, 28>> {
+  using POSX = CTRLDESCL5_2_fields_::POSX;
+  using POSY = CTRLDESCL5_2_fields_::POSY;
 };
+
 
 // Control Descriptor Layer 3 Register
-union CTRLDESCL5_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
-    uint32_t PITCH : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL5_3_fields_ {
+  // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
+  using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL5_3_fields_
 
-  CTRLDESCL5_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL5_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL5_3*>(0x40808348); }
+struct CTRLDESCL5_3 : ftl::mmio::Register<
+    0x40808348u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL5_3_fields_::PITCH,
+    ftl::mmio::Reserved<16, 16>> {
+  using PITCH = CTRLDESCL5_3_fields_::PITCH;
 };
+
 
 // Control Descriptor Layer 4 Register
-union CTRLDESCL5_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
-    uint32_t ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL5_4_fields_ {
+  // Address of layer data in the memory. The address programmed should be 64-bit aligned
+  using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL5_4_fields_
 
-  CTRLDESCL5_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL5_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL5_4*>(0x4080834C); }
+struct CTRLDESCL5_4 : ftl::mmio::Register<
+    0x4080834Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL5_4_fields_::ADDR> {
+  using ADDR = CTRLDESCL5_4_fields_::ADDR;
 };
 
+
 // Control Descriptor Layer 5 Register
-union CTRLDESCL5_5 {
-  
-  // Alpha Blending Mode
-  enum class eAB_MODE : uint32_t {
+struct CTRLDESCL5_5_fields_ {
+
+  enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
     // Blend with global ALPHA
@@ -1963,9 +2174,8 @@ union CTRLDESCL5_5 {
     // Blend with Porter Duff enable
     ebf_val3 = 3,
   };
-  
-  // Porter Duff factor mode
-  enum class ePD_FACTOR_MODE : uint32_t {
+
+  enum class ePD_FACTOR_MODE : std::uint32_t {
     // Using 1
     ebf_val0 = 0,
     // Using 0
@@ -1975,9 +2185,8 @@ union CTRLDESCL5_5 {
     // Using inverse alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff global alpha mode
-  enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
+
+  enum class ePD_GLOBAL_ALPHA_MODE : std::uint32_t {
     // Using global alpha
     ebf_val0 = 0,
     // Using local alpha
@@ -1987,25 +2196,22 @@ union CTRLDESCL5_5 {
     // Using scaled alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_ALPHA_MODE : uint32_t {
+
+  enum class ePD_ALPHA_MODE : std::uint32_t {
     // Straight mode for Porter Duff alpha
     ebf_val0 = 0,
     // Inversed mode for Porter Duff alpha
     ebf_val1 = 1,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_COLOR_MODE : uint32_t {
+
+  enum class ePD_COLOR_MODE : std::uint32_t {
     // Straight mode for Porter Duff color
     ebf_val0 = 0,
     // Inversed mode for Porter Duff color
     ebf_val1 = 1,
   };
-  
-  // The YUV422 input format selection
-  enum class eYUV_FORMAT : uint32_t {
+
+  enum class eYUV_FORMAT : std::uint32_t {
     // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     ebf_val0 = 0,
     // The YVYU422 8bit sequence is V1,Y1,U1,Y2
@@ -2015,9 +2221,8 @@ union CTRLDESCL5_5 {
     // The YVYU422 8bit sequence is Y1,V1,Y2,U1
     ebf_val3 = 3,
   };
-  
-  // Layer encoding format (bit per pixel)
-  enum class eBPP : uint32_t {
+
+  enum class eBPP : std::uint32_t {
     // 1 bpp
     ebf_val0 = 0,
     // 2 bpp
@@ -2041,164 +2246,192 @@ union CTRLDESCL5_5 {
     // 32 bpp (ABGR8888)
     ebf_val10 = 10,
   };
-  
-  // Safety Mode Enable Bit
-  enum class eSAFETY_EN : uint32_t {
+
+  enum class eSAFETY_EN : std::uint32_t {
     // Safety Mode is disabled
     ebf_val0 = 0,
     // Safety Mode is enabled for this layer
     ebf_val1 = 1,
   };
-  
-  // Enable the layer for DMA
-  enum class eEN : uint32_t {
+
+  enum class eEN : std::uint32_t {
     // OFF
     ebf_val0 = 0,
     // ON
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Alpha Blending Mode
-    eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_0 : 2;
-    // read-write - Porter Duff factor mode
-    ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
-    // read-write - Porter Duff global alpha mode
-    ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
-    // read-write - Porter Duff alpha mode
-    ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
-    // read-write - Porter Duff alpha mode
-    ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_1 : 4;
-    // read-write - The YUV422 input format selection
-    eYUV_FORMAT YUV_FORMAT : 2;
-    // read-write - Global Alpha
-    uint32_t GLOBAL_ALPHA : 8;
-    // read-write - Layer encoding format (bit per pixel)
-    eBPP BPP : 4;
-    // read-write - Safety Mode Enable Bit
-    eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - Shadow Load Enable
-    uint32_t SHADOW_LOAD_EN : 1;
-    // read-write - Enable the layer for DMA
-    eEN EN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Alpha Blending Mode
+  using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff factor mode
+  using PD_FACTOR_MODE = ftl::mmio::Field<2, 4, ePD_FACTOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff global alpha mode
+  using PD_GLOBAL_ALPHA_MODE = ftl::mmio::Field<2, 6, ePD_GLOBAL_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_ALPHA_MODE = ftl::mmio::Field<1, 8, ePD_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_COLOR_MODE = ftl::mmio::Field<1, 9, ePD_COLOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The YUV422 input format selection
+  using YUV_FORMAT = ftl::mmio::Field<2, 14, eYUV_FORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Global Alpha
+  using GLOBAL_ALPHA = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Layer encoding format (bit per pixel)
+  using BPP = ftl::mmio::Field<4, 24, eBPP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Safety Mode Enable Bit
+  using SAFETY_EN = ftl::mmio::Field<1, 28, eSAFETY_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Shadow Load Enable
+  using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable the layer for DMA
+  using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL5_5_fields_
 
-  CTRLDESCL5_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL5_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL5_5*>(0x40808350); }
+struct CTRLDESCL5_5 : ftl::mmio::Register<
+    0x40808350u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL5_5_fields_::AB_MODE,
+    ftl::mmio::Reserved<2, 2>,
+    CTRLDESCL5_5_fields_::PD_FACTOR_MODE,
+    CTRLDESCL5_5_fields_::PD_GLOBAL_ALPHA_MODE,
+    CTRLDESCL5_5_fields_::PD_ALPHA_MODE,
+    CTRLDESCL5_5_fields_::PD_COLOR_MODE,
+    ftl::mmio::Reserved<4, 10>,
+    CTRLDESCL5_5_fields_::YUV_FORMAT,
+    CTRLDESCL5_5_fields_::GLOBAL_ALPHA,
+    CTRLDESCL5_5_fields_::BPP,
+    CTRLDESCL5_5_fields_::SAFETY_EN,
+    ftl::mmio::Reserved<1, 29>,
+    CTRLDESCL5_5_fields_::SHADOW_LOAD_EN,
+    CTRLDESCL5_5_fields_::EN> {
+  using eAB_MODE = CTRLDESCL5_5_fields_::eAB_MODE;
+  using ePD_FACTOR_MODE = CTRLDESCL5_5_fields_::ePD_FACTOR_MODE;
+  using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL5_5_fields_::ePD_GLOBAL_ALPHA_MODE;
+  using ePD_ALPHA_MODE = CTRLDESCL5_5_fields_::ePD_ALPHA_MODE;
+  using ePD_COLOR_MODE = CTRLDESCL5_5_fields_::ePD_COLOR_MODE;
+  using eYUV_FORMAT = CTRLDESCL5_5_fields_::eYUV_FORMAT;
+  using eBPP = CTRLDESCL5_5_fields_::eBPP;
+  using eSAFETY_EN = CTRLDESCL5_5_fields_::eSAFETY_EN;
+  using eEN = CTRLDESCL5_5_fields_::eEN;
+  using AB_MODE = CTRLDESCL5_5_fields_::AB_MODE;
+  using PD_FACTOR_MODE = CTRLDESCL5_5_fields_::PD_FACTOR_MODE;
+  using PD_GLOBAL_ALPHA_MODE = CTRLDESCL5_5_fields_::PD_GLOBAL_ALPHA_MODE;
+  using PD_ALPHA_MODE = CTRLDESCL5_5_fields_::PD_ALPHA_MODE;
+  using PD_COLOR_MODE = CTRLDESCL5_5_fields_::PD_COLOR_MODE;
+  using YUV_FORMAT = CTRLDESCL5_5_fields_::YUV_FORMAT;
+  using GLOBAL_ALPHA = CTRLDESCL5_5_fields_::GLOBAL_ALPHA;
+  using BPP = CTRLDESCL5_5_fields_::BPP;
+  using SAFETY_EN = CTRLDESCL5_5_fields_::SAFETY_EN;
+  using SHADOW_LOAD_EN = CTRLDESCL5_5_fields_::SHADOW_LOAD_EN;
+  using EN = CTRLDESCL5_5_fields_::EN;
 };
+
 
 // Control Descriptor Layer 6 Register
-union CTRLDESCL5_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Background B component value
-    uint32_t BCLR_B : 8;
-    // read-write - Background G component value
-    uint32_t BCLR_G : 8;
-    // read-write - Background R component value
-    uint32_t BCLR_R : 8;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL5_6_fields_ {
+  // Background B component value
+  using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background G component value
+  using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background R component value
+  using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL5_6_fields_
 
-  CTRLDESCL5_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL5_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL5_6*>(0x40808354); }
+struct CTRLDESCL5_6 : ftl::mmio::Register<
+    0x40808354u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL5_6_fields_::BCLR_B,
+    CTRLDESCL5_6_fields_::BCLR_G,
+    CTRLDESCL5_6_fields_::BCLR_R,
+    ftl::mmio::Reserved<8, 24>> {
+  using BCLR_B = CTRLDESCL5_6_fields_::BCLR_B;
+  using BCLR_G = CTRLDESCL5_6_fields_::BCLR_G;
+  using BCLR_R = CTRLDESCL5_6_fields_::BCLR_R;
 };
+
 
 // Control Descriptor Layer 1 Register
-union CTRLDESCL6_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Width of the layer in pixels
-    uint32_t WIDTH : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Height of the layer in pixels
-    uint32_t HEIGHT : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL6_1_fields_ {
+  // Width of the layer in pixels
+  using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Height of the layer in pixels
+  using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL6_1_fields_
 
-  CTRLDESCL6_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL6_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL6_1*>(0x40808380); }
+struct CTRLDESCL6_1 : ftl::mmio::Register<
+    0x40808380u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL6_1_fields_::WIDTH,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL6_1_fields_::HEIGHT,
+    ftl::mmio::Reserved<4, 28>> {
+  using WIDTH = CTRLDESCL6_1_fields_::WIDTH;
+  using HEIGHT = CTRLDESCL6_1_fields_::HEIGHT;
 };
+
 
 // Control Descriptor Layer 2 Register
-union CTRLDESCL6_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - POS X
-    uint32_t POSX : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
-    uint32_t POSY : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL6_2_fields_ {
+  // POS X
+  using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
+  using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL6_2_fields_
 
-  CTRLDESCL6_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL6_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL6_2*>(0x40808384); }
+struct CTRLDESCL6_2 : ftl::mmio::Register<
+    0x40808384u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL6_2_fields_::POSX,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL6_2_fields_::POSY,
+    ftl::mmio::Reserved<4, 28>> {
+  using POSX = CTRLDESCL6_2_fields_::POSX;
+  using POSY = CTRLDESCL6_2_fields_::POSY;
 };
+
 
 // Control Descriptor Layer 3 Register
-union CTRLDESCL6_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
-    uint32_t PITCH : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL6_3_fields_ {
+  // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
+  using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL6_3_fields_
 
-  CTRLDESCL6_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL6_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL6_3*>(0x40808388); }
+struct CTRLDESCL6_3 : ftl::mmio::Register<
+    0x40808388u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL6_3_fields_::PITCH,
+    ftl::mmio::Reserved<16, 16>> {
+  using PITCH = CTRLDESCL6_3_fields_::PITCH;
 };
+
 
 // Control Descriptor Layer 4 Register
-union CTRLDESCL6_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
-    uint32_t ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL6_4_fields_ {
+  // Address of layer data in the memory. The address programmed should be 64-bit aligned
+  using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL6_4_fields_
 
-  CTRLDESCL6_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL6_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL6_4*>(0x4080838C); }
+struct CTRLDESCL6_4 : ftl::mmio::Register<
+    0x4080838Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL6_4_fields_::ADDR> {
+  using ADDR = CTRLDESCL6_4_fields_::ADDR;
 };
 
+
 // Control Descriptor Layer 5 Register
-union CTRLDESCL6_5 {
-  
-  // Alpha Blending Mode
-  enum class eAB_MODE : uint32_t {
+struct CTRLDESCL6_5_fields_ {
+
+  enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
     // Blend with global ALPHA
@@ -2208,9 +2441,8 @@ union CTRLDESCL6_5 {
     // Blend with Porter Duff enable
     ebf_val3 = 3,
   };
-  
-  // Porter Duff factor mode
-  enum class ePD_FACTOR_MODE : uint32_t {
+
+  enum class ePD_FACTOR_MODE : std::uint32_t {
     // Using 1
     ebf_val0 = 0,
     // Using 0
@@ -2220,9 +2452,8 @@ union CTRLDESCL6_5 {
     // Using inverse alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff global alpha mode
-  enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
+
+  enum class ePD_GLOBAL_ALPHA_MODE : std::uint32_t {
     // Using global alpha
     ebf_val0 = 0,
     // Using local alpha
@@ -2232,25 +2463,22 @@ union CTRLDESCL6_5 {
     // Using scaled alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_ALPHA_MODE : uint32_t {
+
+  enum class ePD_ALPHA_MODE : std::uint32_t {
     // Straight mode for Porter Duff alpha
     ebf_val0 = 0,
     // Inversed mode for Porter Duff alpha
     ebf_val1 = 1,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_COLOR_MODE : uint32_t {
+
+  enum class ePD_COLOR_MODE : std::uint32_t {
     // Straight mode for Porter Duff color
     ebf_val0 = 0,
     // Inversed mode for Porter Duff color
     ebf_val1 = 1,
   };
-  
-  // The YUV422 input format selection
-  enum class eYUV_FORMAT : uint32_t {
+
+  enum class eYUV_FORMAT : std::uint32_t {
     // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     ebf_val0 = 0,
     // The YVYU422 8bit sequence is V1,Y1,U1,Y2
@@ -2260,9 +2488,8 @@ union CTRLDESCL6_5 {
     // The YVYU422 8bit sequence is Y1,V1,Y2,U1
     ebf_val3 = 3,
   };
-  
-  // Layer encoding format (bit per pixel)
-  enum class eBPP : uint32_t {
+
+  enum class eBPP : std::uint32_t {
     // 1 bpp
     ebf_val0 = 0,
     // 2 bpp
@@ -2286,164 +2513,192 @@ union CTRLDESCL6_5 {
     // 32 bpp (ABGR8888)
     ebf_val10 = 10,
   };
-  
-  // Safety Mode Enable Bit
-  enum class eSAFETY_EN : uint32_t {
+
+  enum class eSAFETY_EN : std::uint32_t {
     // Safety Mode is disabled
     ebf_val0 = 0,
     // Safety Mode is enabled for this layer
     ebf_val1 = 1,
   };
-  
-  // Enable the layer for DMA
-  enum class eEN : uint32_t {
+
+  enum class eEN : std::uint32_t {
     // OFF
     ebf_val0 = 0,
     // ON
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Alpha Blending Mode
-    eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_0 : 2;
-    // read-write - Porter Duff factor mode
-    ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
-    // read-write - Porter Duff global alpha mode
-    ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
-    // read-write - Porter Duff alpha mode
-    ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
-    // read-write - Porter Duff alpha mode
-    ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_1 : 4;
-    // read-write - The YUV422 input format selection
-    eYUV_FORMAT YUV_FORMAT : 2;
-    // read-write - Global Alpha
-    uint32_t GLOBAL_ALPHA : 8;
-    // read-write - Layer encoding format (bit per pixel)
-    eBPP BPP : 4;
-    // read-write - Safety Mode Enable Bit
-    eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - Shadow Load Enable
-    uint32_t SHADOW_LOAD_EN : 1;
-    // read-write - Enable the layer for DMA
-    eEN EN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Alpha Blending Mode
+  using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff factor mode
+  using PD_FACTOR_MODE = ftl::mmio::Field<2, 4, ePD_FACTOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff global alpha mode
+  using PD_GLOBAL_ALPHA_MODE = ftl::mmio::Field<2, 6, ePD_GLOBAL_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_ALPHA_MODE = ftl::mmio::Field<1, 8, ePD_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_COLOR_MODE = ftl::mmio::Field<1, 9, ePD_COLOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The YUV422 input format selection
+  using YUV_FORMAT = ftl::mmio::Field<2, 14, eYUV_FORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Global Alpha
+  using GLOBAL_ALPHA = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Layer encoding format (bit per pixel)
+  using BPP = ftl::mmio::Field<4, 24, eBPP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Safety Mode Enable Bit
+  using SAFETY_EN = ftl::mmio::Field<1, 28, eSAFETY_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Shadow Load Enable
+  using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable the layer for DMA
+  using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL6_5_fields_
 
-  CTRLDESCL6_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL6_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL6_5*>(0x40808390); }
+struct CTRLDESCL6_5 : ftl::mmio::Register<
+    0x40808390u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL6_5_fields_::AB_MODE,
+    ftl::mmio::Reserved<2, 2>,
+    CTRLDESCL6_5_fields_::PD_FACTOR_MODE,
+    CTRLDESCL6_5_fields_::PD_GLOBAL_ALPHA_MODE,
+    CTRLDESCL6_5_fields_::PD_ALPHA_MODE,
+    CTRLDESCL6_5_fields_::PD_COLOR_MODE,
+    ftl::mmio::Reserved<4, 10>,
+    CTRLDESCL6_5_fields_::YUV_FORMAT,
+    CTRLDESCL6_5_fields_::GLOBAL_ALPHA,
+    CTRLDESCL6_5_fields_::BPP,
+    CTRLDESCL6_5_fields_::SAFETY_EN,
+    ftl::mmio::Reserved<1, 29>,
+    CTRLDESCL6_5_fields_::SHADOW_LOAD_EN,
+    CTRLDESCL6_5_fields_::EN> {
+  using eAB_MODE = CTRLDESCL6_5_fields_::eAB_MODE;
+  using ePD_FACTOR_MODE = CTRLDESCL6_5_fields_::ePD_FACTOR_MODE;
+  using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL6_5_fields_::ePD_GLOBAL_ALPHA_MODE;
+  using ePD_ALPHA_MODE = CTRLDESCL6_5_fields_::ePD_ALPHA_MODE;
+  using ePD_COLOR_MODE = CTRLDESCL6_5_fields_::ePD_COLOR_MODE;
+  using eYUV_FORMAT = CTRLDESCL6_5_fields_::eYUV_FORMAT;
+  using eBPP = CTRLDESCL6_5_fields_::eBPP;
+  using eSAFETY_EN = CTRLDESCL6_5_fields_::eSAFETY_EN;
+  using eEN = CTRLDESCL6_5_fields_::eEN;
+  using AB_MODE = CTRLDESCL6_5_fields_::AB_MODE;
+  using PD_FACTOR_MODE = CTRLDESCL6_5_fields_::PD_FACTOR_MODE;
+  using PD_GLOBAL_ALPHA_MODE = CTRLDESCL6_5_fields_::PD_GLOBAL_ALPHA_MODE;
+  using PD_ALPHA_MODE = CTRLDESCL6_5_fields_::PD_ALPHA_MODE;
+  using PD_COLOR_MODE = CTRLDESCL6_5_fields_::PD_COLOR_MODE;
+  using YUV_FORMAT = CTRLDESCL6_5_fields_::YUV_FORMAT;
+  using GLOBAL_ALPHA = CTRLDESCL6_5_fields_::GLOBAL_ALPHA;
+  using BPP = CTRLDESCL6_5_fields_::BPP;
+  using SAFETY_EN = CTRLDESCL6_5_fields_::SAFETY_EN;
+  using SHADOW_LOAD_EN = CTRLDESCL6_5_fields_::SHADOW_LOAD_EN;
+  using EN = CTRLDESCL6_5_fields_::EN;
 };
+
 
 // Control Descriptor Layer 6 Register
-union CTRLDESCL6_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Background B component value
-    uint32_t BCLR_B : 8;
-    // read-write - Background G component value
-    uint32_t BCLR_G : 8;
-    // read-write - Background R component value
-    uint32_t BCLR_R : 8;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL6_6_fields_ {
+  // Background B component value
+  using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background G component value
+  using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background R component value
+  using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL6_6_fields_
 
-  CTRLDESCL6_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL6_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL6_6*>(0x40808394); }
+struct CTRLDESCL6_6 : ftl::mmio::Register<
+    0x40808394u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL6_6_fields_::BCLR_B,
+    CTRLDESCL6_6_fields_::BCLR_G,
+    CTRLDESCL6_6_fields_::BCLR_R,
+    ftl::mmio::Reserved<8, 24>> {
+  using BCLR_B = CTRLDESCL6_6_fields_::BCLR_B;
+  using BCLR_G = CTRLDESCL6_6_fields_::BCLR_G;
+  using BCLR_R = CTRLDESCL6_6_fields_::BCLR_R;
 };
+
 
 // Control Descriptor Layer 1 Register
-union CTRLDESCL7_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Width of the layer in pixels
-    uint32_t WIDTH : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Height of the layer in pixels
-    uint32_t HEIGHT : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL7_1_fields_ {
+  // Width of the layer in pixels
+  using WIDTH = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Height of the layer in pixels
+  using HEIGHT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL7_1_fields_
 
-  CTRLDESCL7_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL7_1 &ref() { return *reinterpret_cast<volatile CTRLDESCL7_1*>(0x408083C0); }
+struct CTRLDESCL7_1 : ftl::mmio::Register<
+    0x408083C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL7_1_fields_::WIDTH,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL7_1_fields_::HEIGHT,
+    ftl::mmio::Reserved<4, 28>> {
+  using WIDTH = CTRLDESCL7_1_fields_::WIDTH;
+  using HEIGHT = CTRLDESCL7_1_fields_::HEIGHT;
 };
+
 
 // Control Descriptor Layer 2 Register
-union CTRLDESCL7_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - POS X
-    uint32_t POSX : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
-    uint32_t POSY : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL7_2_fields_ {
+  // POS X
+  using POSX = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
+  using POSY = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL7_2_fields_
 
-  CTRLDESCL7_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL7_2 &ref() { return *reinterpret_cast<volatile CTRLDESCL7_2*>(0x408083C4); }
+struct CTRLDESCL7_2 : ftl::mmio::Register<
+    0x408083C4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL7_2_fields_::POSX,
+    ftl::mmio::Reserved<4, 12>,
+    CTRLDESCL7_2_fields_::POSY,
+    ftl::mmio::Reserved<4, 28>> {
+  using POSX = CTRLDESCL7_2_fields_::POSX;
+  using POSY = CTRLDESCL7_2_fields_::POSY;
 };
+
 
 // Control Descriptor Layer 3 Register
-union CTRLDESCL7_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
-    uint32_t PITCH : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL7_3_fields_ {
+  // Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
+  using PITCH = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL7_3_fields_
 
-  CTRLDESCL7_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL7_3 &ref() { return *reinterpret_cast<volatile CTRLDESCL7_3*>(0x408083C8); }
+struct CTRLDESCL7_3 : ftl::mmio::Register<
+    0x408083C8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL7_3_fields_::PITCH,
+    ftl::mmio::Reserved<16, 16>> {
+  using PITCH = CTRLDESCL7_3_fields_::PITCH;
 };
+
 
 // Control Descriptor Layer 4 Register
-union CTRLDESCL7_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
-    uint32_t ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL7_4_fields_ {
+  // Address of layer data in the memory. The address programmed should be 64-bit aligned
+  using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL7_4_fields_
 
-  CTRLDESCL7_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL7_4 &ref() { return *reinterpret_cast<volatile CTRLDESCL7_4*>(0x408083CC); }
+struct CTRLDESCL7_4 : ftl::mmio::Register<
+    0x408083CCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL7_4_fields_::ADDR> {
+  using ADDR = CTRLDESCL7_4_fields_::ADDR;
 };
 
+
 // Control Descriptor Layer 5 Register
-union CTRLDESCL7_5 {
-  
-  // Alpha Blending Mode
-  enum class eAB_MODE : uint32_t {
+struct CTRLDESCL7_5_fields_ {
+
+  enum class eAB_MODE : std::uint32_t {
     // No alpha Blending (The SAFETY_EN bit need set to 1)
     ebf_val0 = 0,
     // Blend with global ALPHA
@@ -2453,9 +2708,8 @@ union CTRLDESCL7_5 {
     // Blend with Porter Duff enable
     ebf_val3 = 3,
   };
-  
-  // Porter Duff factor mode
-  enum class ePD_FACTOR_MODE : uint32_t {
+
+  enum class ePD_FACTOR_MODE : std::uint32_t {
     // Using 1
     ebf_val0 = 0,
     // Using 0
@@ -2465,9 +2719,8 @@ union CTRLDESCL7_5 {
     // Using inverse alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff global alpha mode
-  enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
+
+  enum class ePD_GLOBAL_ALPHA_MODE : std::uint32_t {
     // Using global alpha
     ebf_val0 = 0,
     // Using local alpha
@@ -2477,25 +2730,22 @@ union CTRLDESCL7_5 {
     // Using scaled alpha
     ebf_val3 = 3,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_ALPHA_MODE : uint32_t {
+
+  enum class ePD_ALPHA_MODE : std::uint32_t {
     // Straight mode for Porter Duff alpha
     ebf_val0 = 0,
     // Inversed mode for Porter Duff alpha
     ebf_val1 = 1,
   };
-  
-  // Porter Duff alpha mode
-  enum class ePD_COLOR_MODE : uint32_t {
+
+  enum class ePD_COLOR_MODE : std::uint32_t {
     // Straight mode for Porter Duff color
     ebf_val0 = 0,
     // Inversed mode for Porter Duff color
     ebf_val1 = 1,
   };
-  
-  // The YUV422 input format selection
-  enum class eYUV_FORMAT : uint32_t {
+
+  enum class eYUV_FORMAT : std::uint32_t {
     // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     ebf_val0 = 0,
     // The YVYU422 8bit sequence is V1,Y1,U1,Y2
@@ -2505,9 +2755,8 @@ union CTRLDESCL7_5 {
     // The YVYU422 8bit sequence is Y1,V1,Y2,U1
     ebf_val3 = 3,
   };
-  
-  // Layer encoding format (bit per pixel)
-  enum class eBPP : uint32_t {
+
+  enum class eBPP : std::uint32_t {
     // 1 bpp
     ebf_val0 = 0,
     // 2 bpp
@@ -2531,102 +2780,130 @@ union CTRLDESCL7_5 {
     // 32 bpp (ABGR8888)
     ebf_val10 = 10,
   };
-  
-  // Safety Mode Enable Bit
-  enum class eSAFETY_EN : uint32_t {
+
+  enum class eSAFETY_EN : std::uint32_t {
     // Safety Mode is disabled
     ebf_val0 = 0,
     // Safety Mode is enabled for this layer
     ebf_val1 = 1,
   };
-  
-  // Enable the layer for DMA
-  enum class eEN : uint32_t {
+
+  enum class eEN : std::uint32_t {
     // OFF
     ebf_val0 = 0,
     // ON
     ebf_val1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Alpha Blending Mode
-    eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_0 : 2;
-    // read-write - Porter Duff factor mode
-    ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
-    // read-write - Porter Duff global alpha mode
-    ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
-    // read-write - Porter Duff alpha mode
-    ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
-    // read-write - Porter Duff alpha mode
-    ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_1 : 4;
-    // read-write - The YUV422 input format selection
-    eYUV_FORMAT YUV_FORMAT : 2;
-    // read-write - Global Alpha
-    uint32_t GLOBAL_ALPHA : 8;
-    // read-write - Layer encoding format (bit per pixel)
-    eBPP BPP : 4;
-    // read-write - Safety Mode Enable Bit
-    eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - Shadow Load Enable
-    uint32_t SHADOW_LOAD_EN : 1;
-    // read-write - Enable the layer for DMA
-    eEN EN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Alpha Blending Mode
+  using AB_MODE = ftl::mmio::Field<2, 0, eAB_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff factor mode
+  using PD_FACTOR_MODE = ftl::mmio::Field<2, 4, ePD_FACTOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff global alpha mode
+  using PD_GLOBAL_ALPHA_MODE = ftl::mmio::Field<2, 6, ePD_GLOBAL_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_ALPHA_MODE = ftl::mmio::Field<1, 8, ePD_ALPHA_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Porter Duff alpha mode
+  using PD_COLOR_MODE = ftl::mmio::Field<1, 9, ePD_COLOR_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The YUV422 input format selection
+  using YUV_FORMAT = ftl::mmio::Field<2, 14, eYUV_FORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Global Alpha
+  using GLOBAL_ALPHA = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Layer encoding format (bit per pixel)
+  using BPP = ftl::mmio::Field<4, 24, eBPP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Safety Mode Enable Bit
+  using SAFETY_EN = ftl::mmio::Field<1, 28, eSAFETY_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Shadow Load Enable
+  using SHADOW_LOAD_EN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable the layer for DMA
+  using EN = ftl::mmio::Field<1, 31, eEN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL7_5_fields_
 
-  CTRLDESCL7_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL7_5 &ref() { return *reinterpret_cast<volatile CTRLDESCL7_5*>(0x408083D0); }
+struct CTRLDESCL7_5 : ftl::mmio::Register<
+    0x408083D0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL7_5_fields_::AB_MODE,
+    ftl::mmio::Reserved<2, 2>,
+    CTRLDESCL7_5_fields_::PD_FACTOR_MODE,
+    CTRLDESCL7_5_fields_::PD_GLOBAL_ALPHA_MODE,
+    CTRLDESCL7_5_fields_::PD_ALPHA_MODE,
+    CTRLDESCL7_5_fields_::PD_COLOR_MODE,
+    ftl::mmio::Reserved<4, 10>,
+    CTRLDESCL7_5_fields_::YUV_FORMAT,
+    CTRLDESCL7_5_fields_::GLOBAL_ALPHA,
+    CTRLDESCL7_5_fields_::BPP,
+    CTRLDESCL7_5_fields_::SAFETY_EN,
+    ftl::mmio::Reserved<1, 29>,
+    CTRLDESCL7_5_fields_::SHADOW_LOAD_EN,
+    CTRLDESCL7_5_fields_::EN> {
+  using eAB_MODE = CTRLDESCL7_5_fields_::eAB_MODE;
+  using ePD_FACTOR_MODE = CTRLDESCL7_5_fields_::ePD_FACTOR_MODE;
+  using ePD_GLOBAL_ALPHA_MODE = CTRLDESCL7_5_fields_::ePD_GLOBAL_ALPHA_MODE;
+  using ePD_ALPHA_MODE = CTRLDESCL7_5_fields_::ePD_ALPHA_MODE;
+  using ePD_COLOR_MODE = CTRLDESCL7_5_fields_::ePD_COLOR_MODE;
+  using eYUV_FORMAT = CTRLDESCL7_5_fields_::eYUV_FORMAT;
+  using eBPP = CTRLDESCL7_5_fields_::eBPP;
+  using eSAFETY_EN = CTRLDESCL7_5_fields_::eSAFETY_EN;
+  using eEN = CTRLDESCL7_5_fields_::eEN;
+  using AB_MODE = CTRLDESCL7_5_fields_::AB_MODE;
+  using PD_FACTOR_MODE = CTRLDESCL7_5_fields_::PD_FACTOR_MODE;
+  using PD_GLOBAL_ALPHA_MODE = CTRLDESCL7_5_fields_::PD_GLOBAL_ALPHA_MODE;
+  using PD_ALPHA_MODE = CTRLDESCL7_5_fields_::PD_ALPHA_MODE;
+  using PD_COLOR_MODE = CTRLDESCL7_5_fields_::PD_COLOR_MODE;
+  using YUV_FORMAT = CTRLDESCL7_5_fields_::YUV_FORMAT;
+  using GLOBAL_ALPHA = CTRLDESCL7_5_fields_::GLOBAL_ALPHA;
+  using BPP = CTRLDESCL7_5_fields_::BPP;
+  using SAFETY_EN = CTRLDESCL7_5_fields_::SAFETY_EN;
+  using SHADOW_LOAD_EN = CTRLDESCL7_5_fields_::SHADOW_LOAD_EN;
+  using EN = CTRLDESCL7_5_fields_::EN;
 };
+
 
 // Control Descriptor Layer 6 Register
-union CTRLDESCL7_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Background B component value
-    uint32_t BCLR_B : 8;
-    // read-write - Background G component value
-    uint32_t BCLR_G : 8;
-    // read-write - Background R component value
-    uint32_t BCLR_R : 8;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRLDESCL7_6_fields_ {
+  // Background B component value
+  using BCLR_B = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background G component value
+  using BCLR_G = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Background R component value
+  using BCLR_R = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRLDESCL7_6_fields_
 
-  CTRLDESCL7_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRLDESCL7_6 &ref() { return *reinterpret_cast<volatile CTRLDESCL7_6*>(0x408083D4); }
+struct CTRLDESCL7_6 : ftl::mmio::Register<
+    0x408083D4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRLDESCL7_6_fields_::BCLR_B,
+    CTRLDESCL7_6_fields_::BCLR_G,
+    CTRLDESCL7_6_fields_::BCLR_R,
+    ftl::mmio::Reserved<8, 24>> {
+  using BCLR_B = CTRLDESCL7_6_fields_::BCLR_B;
+  using BCLR_G = CTRLDESCL7_6_fields_::BCLR_G;
+  using BCLR_R = CTRLDESCL7_6_fields_::BCLR_R;
 };
+
 
 // LCDIFv2 CLUT load Register
-union CLUT_LOAD {
-  
-  // Bit field definition.
-  struct {
-    // read-write - CLUT Update Enable
-    uint32_t CLUT_UPDATE_EN : 1;
-    uint32_t _reserved_0 : 3;
-    // read-write - Selected CLUT Number
-    uint32_t SEL_CLUT_NUM : 3;
-    uint32_t _reserved_1 : 25;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CLUT_LOAD_fields_ {
+  // CLUT Update Enable
+  using CLUT_UPDATE_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Selected CLUT Number
+  using SEL_CLUT_NUM = ftl::mmio::Field<3, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CLUT_LOAD_fields_
 
-  CLUT_LOAD() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLUT_LOAD &ref() { return *reinterpret_cast<volatile CLUT_LOAD*>(0x40808400); }
+struct CLUT_LOAD : ftl::mmio::Register<
+    0x40808400u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CLUT_LOAD_fields_::CLUT_UPDATE_EN,
+    ftl::mmio::Reserved<3, 1>,
+    CLUT_LOAD_fields_::SEL_CLUT_NUM,
+    ftl::mmio::Reserved<25, 7>> {
+  using CLUT_UPDATE_EN = CLUT_LOAD_fields_::CLUT_UPDATE_EN;
+  using SEL_CLUT_NUM = CLUT_LOAD_fields_::SEL_CLUT_NUM;
 };
 
-
-} // namespace nLCDIFV2
+}  // namespace regs::lcdifv2

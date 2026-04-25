@@ -1,56 +1,52 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // DSI Host DPI Interface
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nDSI_HOST_DPI_INTFC {
+namespace regs::dsi_host_dpi_intfc {
 
 
 // PIXEL_PAYLOAD_SIZE
-union PIXEL_PAYLOAD_SIZE {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Maximum number of pixels that should be sent as one DSI packet. Recommended to be evenly divisible by the line size (in pixels).
-    uint32_t PAYLOAD_SIZE : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PIXEL_PAYLOAD_SIZE_fields_ {
+  // Maximum number of pixels that should be sent as one DSI packet. Recommended to be evenly divisible by the line size (in pixels).
+  using PAYLOAD_SIZE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PIXEL_PAYLOAD_SIZE_fields_
 
-  PIXEL_PAYLOAD_SIZE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PIXEL_PAYLOAD_SIZE &ref() { return *reinterpret_cast<volatile PIXEL_PAYLOAD_SIZE*>(0x4080C200); }
+struct PIXEL_PAYLOAD_SIZE : ftl::mmio::Register<
+    0x4080C200u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PIXEL_PAYLOAD_SIZE_fields_::PAYLOAD_SIZE,
+    ftl::mmio::Reserved<16, 16>> {
+  using PAYLOAD_SIZE = PIXEL_PAYLOAD_SIZE_fields_::PAYLOAD_SIZE;
 };
+
 
 // PIXEL_FIFO_SEND_LEVEL
-union PIXEL_FIFO_SEND_LEVEL {
-  
-  // Bit field definition.
-  struct {
-    // read-write - In order to optimize DSI utility, the DPI bridge buffers a certain number of DPI pixels before initiating a DSI packet. This configuration port controls the level at which the DPI Host bridge begins sending pixels.
-    uint32_t FIFO_SEND_LEVEL : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PIXEL_FIFO_SEND_LEVEL_fields_ {
+  // In order to optimize DSI utility, the DPI bridge buffers a certain number of DPI pixels before initiating a DSI packet. This configuration port controls the level at which the DPI Host bridge begins sending pixels.
+  using FIFO_SEND_LEVEL = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PIXEL_FIFO_SEND_LEVEL_fields_
 
-  PIXEL_FIFO_SEND_LEVEL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PIXEL_FIFO_SEND_LEVEL &ref() { return *reinterpret_cast<volatile PIXEL_FIFO_SEND_LEVEL*>(0x4080C204); }
+struct PIXEL_FIFO_SEND_LEVEL : ftl::mmio::Register<
+    0x4080C204u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PIXEL_FIFO_SEND_LEVEL_fields_::FIFO_SEND_LEVEL,
+    ftl::mmio::Reserved<16, 16>> {
+  using FIFO_SEND_LEVEL = PIXEL_FIFO_SEND_LEVEL_fields_::FIFO_SEND_LEVEL;
 };
 
+
 // INTERFACE_COLOR_CODING
-union INTERFACE_COLOR_CODING {
-  
-  // Sets the distribution of RGB bits within the 24-bit d bus, as specified by the DPI specification.
-  enum class eRGB_CONFIG : uint32_t {
+struct INTERFACE_COLOR_CODING_fields_ {
+
+  enum class eRGB_CONFIG : std::uint32_t {
     // 16-bit Configuration 1
     eRGB_CONFIG_0 = 0,
     // 16-bit Configuration 2
@@ -64,27 +60,26 @@ union INTERFACE_COLOR_CODING {
     // 24-bit
     eRGB_CONFIG_5 = 5,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the distribution of RGB bits within the 24-bit d bus, as specified by the DPI specification.
-    eRGB_CONFIG RGB_CONFIG : 3;
-    uint32_t _reserved_0 : 29;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Sets the distribution of RGB bits within the 24-bit d bus, as specified by the DPI specification.
+  using RGB_CONFIG = ftl::mmio::Field<3, 0, eRGB_CONFIG, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct INTERFACE_COLOR_CODING_fields_
 
-  INTERFACE_COLOR_CODING() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile INTERFACE_COLOR_CODING &ref() { return *reinterpret_cast<volatile INTERFACE_COLOR_CODING*>(0x4080C208); }
+struct INTERFACE_COLOR_CODING : ftl::mmio::Register<
+    0x4080C208u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    INTERFACE_COLOR_CODING_fields_::RGB_CONFIG,
+    ftl::mmio::Reserved<29, 3>> {
+  using eRGB_CONFIG = INTERFACE_COLOR_CODING_fields_::eRGB_CONFIG;
+  using RGB_CONFIG = INTERFACE_COLOR_CODING_fields_::RGB_CONFIG;
 };
 
+
 // PIXEL_FORMAT
-union PIXEL_FORMAT {
-  
-  // Sets the DSI packet type of the pixels
-  enum class ePIXEL_FORMAT : uint32_t {
+struct PIXEL_FORMAT_fields_ {
+
+  enum class ePIXEL_FORMAT : std::uint32_t {
     // 16 bit
     ePIXEL_FORMAT_0 = 0,
     // 18 bit
@@ -94,79 +89,76 @@ union PIXEL_FORMAT {
     // 24 bit
     ePIXEL_FORMAT_3 = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the DSI packet type of the pixels
-    ePIXEL_FORMAT PIXEL_FORMAT : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Sets the DSI packet type of the pixels
+  using PIXEL_FORMAT = ftl::mmio::Field<2, 0, ePIXEL_FORMAT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PIXEL_FORMAT_fields_
 
-  PIXEL_FORMAT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PIXEL_FORMAT &ref() { return *reinterpret_cast<volatile PIXEL_FORMAT*>(0x4080C20C); }
+struct PIXEL_FORMAT : ftl::mmio::Register<
+    0x4080C20Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PIXEL_FORMAT_fields_::PIXEL_FORMAT,
+    ftl::mmio::Reserved<30, 2>> {
+  using ePIXEL_FORMAT = PIXEL_FORMAT_fields_::ePIXEL_FORMAT;
+  using value_ = PIXEL_FORMAT_fields_::PIXEL_FORMAT;
 };
 
+
 // VSYNC_POLARITY
-union VSYNC_POLARITY {
-  
-  // Sets polarity of dpi_vsync_input
-  enum class eVSYNC_POLARITY : uint32_t {
+struct VSYNC_POLARITY_fields_ {
+
+  enum class eVSYNC_POLARITY : std::uint32_t {
     // active low
     eVSYNC_POLARITY_0 = 0,
     // active high
     eVSYNC_POLARITY_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets polarity of dpi_vsync_input
-    eVSYNC_POLARITY VSYNC_POLARITY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Sets polarity of dpi_vsync_input
+  using VSYNC_POLARITY = ftl::mmio::Field<1, 0, eVSYNC_POLARITY, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct VSYNC_POLARITY_fields_
 
-  VSYNC_POLARITY() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VSYNC_POLARITY &ref() { return *reinterpret_cast<volatile VSYNC_POLARITY*>(0x4080C210); }
+struct VSYNC_POLARITY : ftl::mmio::Register<
+    0x4080C210u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    VSYNC_POLARITY_fields_::VSYNC_POLARITY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eVSYNC_POLARITY = VSYNC_POLARITY_fields_::eVSYNC_POLARITY;
+  using value_ = VSYNC_POLARITY_fields_::VSYNC_POLARITY;
 };
 
+
 // HSYNC_POLARITY
-union HSYNC_POLARITY {
-  
-  // Sets polarity of dpi_hsync_input
-  enum class eHSYNC_POLARITY : uint32_t {
+struct HSYNC_POLARITY_fields_ {
+
+  enum class eHSYNC_POLARITY : std::uint32_t {
     // active low
     eHSYNC_POLARITY_0 = 0,
     // active high
     eHSYNC_POLARITY_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets polarity of dpi_hsync_input
-    eHSYNC_POLARITY HSYNC_POLARITY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Sets polarity of dpi_hsync_input
+  using HSYNC_POLARITY = ftl::mmio::Field<1, 0, eHSYNC_POLARITY, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct HSYNC_POLARITY_fields_
 
-  HSYNC_POLARITY() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HSYNC_POLARITY &ref() { return *reinterpret_cast<volatile HSYNC_POLARITY*>(0x4080C214); }
+struct HSYNC_POLARITY : ftl::mmio::Register<
+    0x4080C214u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    HSYNC_POLARITY_fields_::HSYNC_POLARITY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eHSYNC_POLARITY = HSYNC_POLARITY_fields_::eHSYNC_POLARITY;
+  using value_ = HSYNC_POLARITY_fields_::HSYNC_POLARITY;
 };
 
+
 // VIDEO_MODE
-union VIDEO_MODE {
-  
-  // Select DSI video mode that the host DPI module should generate packets for.
-  enum class eVIDEO_MODE : uint32_t {
+struct VIDEO_MODE_fields_ {
+
+  enum class eVIDEO_MODE : std::uint32_t {
     // Non-Burst mode with Sync Pulses
     eVIDEO_MODE_0 = 0,
     // Non-Burst mode with Sync Events
@@ -174,207 +166,196 @@ union VIDEO_MODE {
     // Burst mode
     eVIDEO_MODE_2 = 2,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Select DSI video mode that the host DPI module should generate packets for.
-    eVIDEO_MODE VIDEO_MODE : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Select DSI video mode that the host DPI module should generate packets for.
+  using VIDEO_MODE = ftl::mmio::Field<2, 0, eVIDEO_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct VIDEO_MODE_fields_
 
-  VIDEO_MODE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VIDEO_MODE &ref() { return *reinterpret_cast<volatile VIDEO_MODE*>(0x4080C218); }
+struct VIDEO_MODE : ftl::mmio::Register<
+    0x4080C218u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    VIDEO_MODE_fields_::VIDEO_MODE,
+    ftl::mmio::Reserved<30, 2>> {
+  using eVIDEO_MODE = VIDEO_MODE_fields_::eVIDEO_MODE;
+  using value_ = VIDEO_MODE_fields_::VIDEO_MODE;
 };
+
 
 // HFP
-union HFP {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the DSI packet payload size, in bytes, of the horizontal front porch blanking packet.
-    uint32_t PAYLOAD_SIZE : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct HFP_fields_ {
+  // Sets the DSI packet payload size, in bytes, of the horizontal front porch blanking packet.
+  using PAYLOAD_SIZE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct HFP_fields_
 
-  HFP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HFP &ref() { return *reinterpret_cast<volatile HFP*>(0x4080C21C); }
+struct HFP : ftl::mmio::Register<
+    0x4080C21Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    HFP_fields_::PAYLOAD_SIZE,
+    ftl::mmio::Reserved<16, 16>> {
+  using PAYLOAD_SIZE = HFP_fields_::PAYLOAD_SIZE;
 };
+
 
 // HBP
-union HBP {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the DSI packet payload size, in bytes, of the horizontal back porch blanking packet.
-    uint32_t PAYLOAD_SIZE : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct HBP_fields_ {
+  // Sets the DSI packet payload size, in bytes, of the horizontal back porch blanking packet.
+  using PAYLOAD_SIZE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct HBP_fields_
 
-  HBP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HBP &ref() { return *reinterpret_cast<volatile HBP*>(0x4080C220); }
+struct HBP : ftl::mmio::Register<
+    0x4080C220u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    HBP_fields_::PAYLOAD_SIZE,
+    ftl::mmio::Reserved<16, 16>> {
+  using PAYLOAD_SIZE = HBP_fields_::PAYLOAD_SIZE;
 };
+
 
 // HSA
-union HSA {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the DSI packet payload size, in bytes, of the horizontal sync width filler blanking packet.
-    uint32_t PAYLOAD_SIZE : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct HSA_fields_ {
+  // Sets the DSI packet payload size, in bytes, of the horizontal sync width filler blanking packet.
+  using PAYLOAD_SIZE = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct HSA_fields_
 
-  HSA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile HSA &ref() { return *reinterpret_cast<volatile HSA*>(0x4080C224); }
+struct HSA : ftl::mmio::Register<
+    0x4080C224u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    HSA_fields_::PAYLOAD_SIZE,
+    ftl::mmio::Reserved<16, 16>> {
+  using PAYLOAD_SIZE = HSA_fields_::PAYLOAD_SIZE;
 };
 
+
 // ENABLE_MULT_PKTS
-union ENABLE_MULT_PKTS {
-  
-  // Enable Multiple packets per video line. When enabled, PIXEL_PAYLOAD_SIZE[PAYLOAD_SIZE] must be set to exactly half the size of the video line
-  enum class eENABLE_MULT_PKTS : uint32_t {
+struct ENABLE_MULT_PKTS_fields_ {
+
+  enum class eENABLE_MULT_PKTS : std::uint32_t {
     // Video Line is sent in a single packet
     eENABLE_MULT_PKTS_0 = 0,
     // Video Line is sent in two packets
     eENABLE_MULT_PKTS_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable Multiple packets per video line. When enabled, PIXEL_PAYLOAD_SIZE[PAYLOAD_SIZE] must be set to exactly half the size of the video line
-    eENABLE_MULT_PKTS ENABLE_MULT_PKTS : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable Multiple packets per video line. When enabled, PIXEL_PAYLOAD_SIZE[PAYLOAD_SIZE] must be set to exactly half the size of the video line
+  using ENABLE_MULT_PKTS = ftl::mmio::Field<1, 0, eENABLE_MULT_PKTS, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ENABLE_MULT_PKTS_fields_
 
-  ENABLE_MULT_PKTS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ENABLE_MULT_PKTS &ref() { return *reinterpret_cast<volatile ENABLE_MULT_PKTS*>(0x4080C228); }
+struct ENABLE_MULT_PKTS : ftl::mmio::Register<
+    0x4080C228u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ENABLE_MULT_PKTS_fields_::ENABLE_MULT_PKTS,
+    ftl::mmio::Reserved<31, 1>> {
+  using eENABLE_MULT_PKTS = ENABLE_MULT_PKTS_fields_::eENABLE_MULT_PKTS;
+  using value_ = ENABLE_MULT_PKTS_fields_::ENABLE_MULT_PKTS;
 };
+
 
 // VBP
-union VBP {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the number of lines in the vertical back porch.
-    uint32_t NUM_LINES : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct VBP_fields_ {
+  // Sets the number of lines in the vertical back porch.
+  using NUM_LINES = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct VBP_fields_
 
-  VBP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VBP &ref() { return *reinterpret_cast<volatile VBP*>(0x4080C22C); }
+struct VBP : ftl::mmio::Register<
+    0x4080C22Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    VBP_fields_::NUM_LINES,
+    ftl::mmio::Reserved<24, 8>> {
+  using NUM_LINES = VBP_fields_::NUM_LINES;
 };
+
 
 // VFP
-union VFP {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the number of lines in the vertical front porch.
-    uint32_t NUM_LINES : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct VFP_fields_ {
+  // Sets the number of lines in the vertical front porch.
+  using NUM_LINES = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct VFP_fields_
 
-  VFP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VFP &ref() { return *reinterpret_cast<volatile VFP*>(0x4080C230); }
+struct VFP : ftl::mmio::Register<
+    0x4080C230u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    VFP_fields_::NUM_LINES,
+    ftl::mmio::Reserved<24, 8>> {
+  using NUM_LINES = VFP_fields_::NUM_LINES;
 };
 
+
 // BLLP_MODE
-union BLLP_MODE {
-  
-  // Optimize bllp periods to Low Power mode when possible
-  enum class eLP : uint32_t {
+struct BLLP_MODE_fields_ {
+
+  enum class eLP : std::uint32_t {
     // Blanking packets are sent during BLLP periods
     eLP_0 = 0,
     // LP mode is used for BLLP periods
     eLP_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Optimize bllp periods to Low Power mode when possible
-    eLP LP : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Optimize bllp periods to Low Power mode when possible
+  using LP = ftl::mmio::Field<1, 0, eLP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct BLLP_MODE_fields_
 
-  BLLP_MODE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BLLP_MODE &ref() { return *reinterpret_cast<volatile BLLP_MODE*>(0x4080C234); }
+struct BLLP_MODE : ftl::mmio::Register<
+    0x4080C234u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    BLLP_MODE_fields_::LP,
+    ftl::mmio::Reserved<31, 1>> {
+  using eLP = BLLP_MODE_fields_::eLP;
+  using LP = BLLP_MODE_fields_::LP;
 };
 
+
 // USE_NULL_PKT_BLLP
-union USE_NULL_PKT_BLLP {
-  
-  // Selects type of blanking packet to be sent during bllp
-  enum class eNULL : uint32_t {
+struct USE_NULL_PKT_BLLP_fields_ {
+
+  enum class eNULL : std::uint32_t {
     // Blanking packet used in bllp region 1
     eNULL_0 = 0,
     // Null packet used in bllp region
     eNULL_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selects type of blanking packet to be sent during bllp
-    eNULL NULL : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selects type of blanking packet to be sent during bllp
+  using NULL = ftl::mmio::Field<1, 0, eNULL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct USE_NULL_PKT_BLLP_fields_
 
-  USE_NULL_PKT_BLLP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile USE_NULL_PKT_BLLP &ref() { return *reinterpret_cast<volatile USE_NULL_PKT_BLLP*>(0x4080C238); }
+struct USE_NULL_PKT_BLLP : ftl::mmio::Register<
+    0x4080C238u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    USE_NULL_PKT_BLLP_fields_::NULL,
+    ftl::mmio::Reserved<31, 1>> {
+  using eNULL = USE_NULL_PKT_BLLP_fields_::eNULL;
+  using NULL = USE_NULL_PKT_BLLP_fields_::NULL;
 };
+
 
 // VACTIVE
-union VACTIVE {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the number of lines in the vertical active aread.
-    uint32_t NUM_LINES : 14;
-    uint32_t _reserved_0 : 18;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct VACTIVE_fields_ {
+  // Sets the number of lines in the vertical active aread.
+  using NUM_LINES = ftl::mmio::Field<14, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct VACTIVE_fields_
 
-  VACTIVE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VACTIVE &ref() { return *reinterpret_cast<volatile VACTIVE*>(0x4080C23C); }
+struct VACTIVE : ftl::mmio::Register<
+    0x4080C23Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    VACTIVE_fields_::NUM_LINES,
+    ftl::mmio::Reserved<18, 14>> {
+  using NUM_LINES = VACTIVE_fields_::NUM_LINES;
 };
 
-
-} // namespace nDSI_HOST_DPI_INTFC
+}  // namespace regs::dsi_host_dpi_intfc

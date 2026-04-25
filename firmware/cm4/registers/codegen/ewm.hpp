@@ -1,156 +1,153 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // EWM
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nEWM {
+namespace regs::ewm {
 
 
 // Control Register
-union CTRL {
-  
-  // EWM enable.
-  enum class eEWMEN : uint8_t {
+struct CTRL_fields_ {
+
+  enum class eEWMEN : std::uint32_t {
     // EWM module is disabled.
     eDISABLE = 0,
     // EWM module is enabled.
     eENABLE = 1,
   };
-  
-  // EWM_in's Assertion State Select.
-  enum class eASSIN : uint8_t {
+
+  enum class eASSIN : std::uint32_t {
     // Default assert state of the EWM_in signal.
     eDISABLE = 0,
     // Inverts the assert state of EWM_in signal.
     eENABLE = 1,
   };
-  
-  // Input Enable.
-  enum class eINEN : uint8_t {
+
+  enum class eINEN : std::uint32_t {
     // EWM_in port is disabled.
     eDISABLE = 0,
     // EWM_in port is enabled.
     eENABLE = 1,
   };
-  
-  // Interrupt Enable.
-  enum class eINTEN : uint8_t {
+
+  enum class eINTEN : std::uint32_t {
     // Deasserts the interrupt request.
     eZERO = 0,
     // Generates an interrupt request, when EWM_OUT_b is asserted.
     eINT_REQ = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-writeOnce - EWM enable.
-    eEWMEN EWMEN : 1;
-    // read-writeOnce - EWM_in's Assertion State Select.
-    eASSIN ASSIN : 1;
-    // read-writeOnce - Input Enable.
-    eINEN INEN : 1;
-    // read-write - Interrupt Enable.
-    eINTEN INTEN : 1;
-    uint8_t _reserved_0 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+  // EWM enable.
+  using EWMEN = ftl::mmio::Field<1, 0, eEWMEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // EWM_in's Assertion State Select.
+  using ASSIN = ftl::mmio::Field<1, 1, eASSIN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Input Enable.
+  using INEN = ftl::mmio::Field<1, 2, eINEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Interrupt Enable.
+  using INTEN = ftl::mmio::Field<1, 3, eINTEN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_fields_
 
-  CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x4002C000); }
+struct CTRL : ftl::mmio::Register<
+    0x4002C000u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    CTRL_fields_::EWMEN,
+    CTRL_fields_::ASSIN,
+    CTRL_fields_::INEN,
+    CTRL_fields_::INTEN,
+    ftl::mmio::Reserved<4, 4>> {
+  using eEWMEN = CTRL_fields_::eEWMEN;
+  using eASSIN = CTRL_fields_::eASSIN;
+  using eINEN = CTRL_fields_::eINEN;
+  using eINTEN = CTRL_fields_::eINTEN;
+  using EWMEN = CTRL_fields_::EWMEN;
+  using ASSIN = CTRL_fields_::ASSIN;
+  using INEN = CTRL_fields_::INEN;
+  using INTEN = CTRL_fields_::INTEN;
 };
+
 
 // Service Register
-union SERV {
-  
-  // Bit field definition.
-  struct {
-    // read-write - SERVICE
-    uint8_t SERVICE : 8;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct SERV_fields_ {
+  // SERVICE
+  using SERVICE = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SERV_fields_
 
-  SERV() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SERV &ref() { return *reinterpret_cast<volatile SERV*>(0x4002C001); }
+struct SERV : ftl::mmio::Register<
+    0x4002C001u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    SERV_fields_::SERVICE> {
+  using SERVICE = SERV_fields_::SERVICE;
 };
+
 
 // Compare Low Register
-union CMPL {
-  
-  // Bit field definition.
-  struct {
-    // read-writeOnce - COMPAREL
-    uint8_t COMPAREL : 8;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct CMPL_fields_ {
+  // COMPAREL
+  using COMPAREL = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CMPL_fields_
 
-  CMPL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CMPL &ref() { return *reinterpret_cast<volatile CMPL*>(0x4002C002); }
+struct CMPL : ftl::mmio::Register<
+    0x4002C002u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    CMPL_fields_::COMPAREL> {
+  using COMPAREL = CMPL_fields_::COMPAREL;
 };
+
 
 // Compare High Register
-union CMPH {
-  
-  // Bit field definition.
-  struct {
-    // read-writeOnce - COMPAREH
-    uint8_t COMPAREH : 8;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct CMPH_fields_ {
+  // COMPAREH
+  using COMPAREH = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CMPH_fields_
 
-  CMPH() = delete;
-  inline void Reset() volatile { this->value = 0x000000FF; }
-  static inline volatile CMPH &ref() { return *reinterpret_cast<volatile CMPH*>(0x4002C003); }
+struct CMPH : ftl::mmio::Register<
+    0x4002C003u,
+    std::uint8_t,
+    0xFFu,
+    ftl::mmio::RW,
+    CMPH_fields_::COMPAREH> {
+  using COMPAREH = CMPH_fields_::COMPAREH;
 };
+
 
 // Clock Control Register
-union CLKCTRL {
-  
-  // Bit field definition.
-  struct {
-    // read-writeOnce - CLKSEL
-    uint8_t CLKSEL : 2;
-    uint8_t _reserved_0 : 6;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct CLKCTRL_fields_ {
+  // CLKSEL
+  using CLKSEL = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CLKCTRL_fields_
 
-  CLKCTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLKCTRL &ref() { return *reinterpret_cast<volatile CLKCTRL*>(0x4002C004); }
+struct CLKCTRL : ftl::mmio::Register<
+    0x4002C004u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    CLKCTRL_fields_::CLKSEL,
+    ftl::mmio::Reserved<6, 2>> {
+  using CLKSEL = CLKCTRL_fields_::CLKSEL;
 };
+
 
 // Clock Prescaler Register
-union CLKPRESCALER {
-  
-  // Bit field definition.
-  struct {
-    // read-writeOnce - CLK_DIV
-    uint8_t CLK_DIV : 8;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct CLKPRESCALER_fields_ {
+  // CLK_DIV
+  using CLK_DIV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CLKPRESCALER_fields_
 
-  CLKPRESCALER() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CLKPRESCALER &ref() { return *reinterpret_cast<volatile CLKPRESCALER*>(0x4002C005); }
+struct CLKPRESCALER : ftl::mmio::Register<
+    0x4002C005u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    CLKPRESCALER_fields_::CLK_DIV> {
+  using CLK_DIV = CLKPRESCALER_fields_::CLK_DIV;
 };
 
-
-} // namespace nEWM
+}  // namespace regs::ewm

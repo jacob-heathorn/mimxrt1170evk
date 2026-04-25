@@ -1,28 +1,25 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // no description available
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nPHY_LDO {
+namespace regs::phy_ldo {
 
 
 // Analog Control Register CTRL0
-union CTRL0 {
-  
-  // LinReg power-up load disable
-  enum class eLINREG_PWRUPLOAD_DIS : uint32_t {
+struct CTRL0_fields_ {
+
+  enum class eLINREG_PWRUPLOAD_DIS : std::uint32_t {
     // Internal pull-down enabled
     eLINREG_PWRUPLOAD_DIS_0 = 0,
     // Internal pull-down disabled
     eLINREG_PWRUPLOAD_DIS_1 = 1,
   };
-  
-  // LinReg output voltage target setting
-  enum class eLINREG_OUTPUT_TRG : uint32_t {
+
+  enum class eLINREG_OUTPUT_TRG : std::uint32_t {
     // Set output voltage to x.xV
     eLINREG_OUTPUT_TRG_0 = 0,
     // Sets output voltage to 1.0V
@@ -30,187 +27,211 @@ union CTRL0 {
     // Set output voltage to x.xV
     eLINREG_OUTPUT_TRG_31 = 31,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - LinrReg master enable
-    uint32_t LINREG_EN : 1;
-    // read-write - LinReg power-up load disable
-    eLINREG_PWRUPLOAD_DIS LINREG_PWRUPLOAD_DIS : 1;
-    // read-write - LinReg current-limit enable
-    uint32_t LINREG_ILIMIT_EN : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - LinReg output voltage target setting
-    eLINREG_OUTPUT_TRG LINREG_OUTPUT_TRG : 5;
-    uint32_t _reserved_1 : 6;
-    // read-write - Isolation control for attached PHY load
-    uint32_t LINREG_PHY_ISO_B : 1;
-    uint32_t _reserved_2 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // LinrReg master enable
+  using LINREG_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LinReg power-up load disable
+  using LINREG_PWRUPLOAD_DIS = ftl::mmio::Field<1, 1, eLINREG_PWRUPLOAD_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LinReg current-limit enable
+  using LINREG_ILIMIT_EN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LinReg output voltage target setting
+  using LINREG_OUTPUT_TRG = ftl::mmio::Field<5, 4, eLINREG_OUTPUT_TRG, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Isolation control for attached PHY load
+  using LINREG_PHY_ISO_B = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL0_fields_
 
-  CTRL0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0 &ref() { return *reinterpret_cast<volatile CTRL0*>(0x00000000); }
+struct CTRL0 : ftl::mmio::Register<
+    0x00000000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL0_fields_::LINREG_EN,
+    CTRL0_fields_::LINREG_PWRUPLOAD_DIS,
+    CTRL0_fields_::LINREG_ILIMIT_EN,
+    ftl::mmio::Reserved<1, 3>,
+    CTRL0_fields_::LINREG_OUTPUT_TRG,
+    ftl::mmio::Reserved<6, 9>,
+    CTRL0_fields_::LINREG_PHY_ISO_B,
+    ftl::mmio::Reserved<16, 16>> {
+  using eLINREG_PWRUPLOAD_DIS = CTRL0_fields_::eLINREG_PWRUPLOAD_DIS;
+  using eLINREG_OUTPUT_TRG = CTRL0_fields_::eLINREG_OUTPUT_TRG;
+  using LINREG_EN = CTRL0_fields_::LINREG_EN;
+  using LINREG_PWRUPLOAD_DIS = CTRL0_fields_::LINREG_PWRUPLOAD_DIS;
+  using LINREG_ILIMIT_EN = CTRL0_fields_::LINREG_ILIMIT_EN;
+  using LINREG_OUTPUT_TRG = CTRL0_fields_::LINREG_OUTPUT_TRG;
+  using LINREG_PHY_ISO_B = CTRL0_fields_::LINREG_PHY_ISO_B;
 };
+
 
 // Analog Control Register CTRL0
-union CTRL0_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-write - LinrReg master enable
-    uint32_t LINREG_EN : 1;
-    // read-write - LinReg power-up load disable
-    uint32_t LINREG_PWRUPLOAD_DIS : 1;
-    // read-write - LinReg current-limit enable
-    uint32_t LINREG_ILIMIT_EN : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - LinReg output voltage target setting
-    uint32_t LINREG_OUTPUT_TRG : 5;
-    uint32_t _reserved_1 : 6;
-    // read-write - Isolation control for attached PHY load
-    uint32_t LINREG_PHY_ISO_B : 1;
-    uint32_t _reserved_2 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL0_SET_fields_ {
+  // LinrReg master enable
+  using LINREG_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // LinReg power-up load disable
+  using LINREG_PWRUPLOAD_DIS = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // LinReg current-limit enable
+  using LINREG_ILIMIT_EN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // LinReg output voltage target setting
+  using LINREG_OUTPUT_TRG = ftl::mmio::Field<5, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Isolation control for attached PHY load
+  using LINREG_PHY_ISO_B = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+};  // struct CTRL0_SET_fields_
 
-  CTRL0_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_SET &ref() { return *reinterpret_cast<volatile CTRL0_SET*>(0x00000004); }
+struct CTRL0_SET : ftl::mmio::Register<
+    0x00000004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL0_SET_fields_::LINREG_EN,
+    CTRL0_SET_fields_::LINREG_PWRUPLOAD_DIS,
+    CTRL0_SET_fields_::LINREG_ILIMIT_EN,
+    ftl::mmio::Reserved<1, 3>,
+    CTRL0_SET_fields_::LINREG_OUTPUT_TRG,
+    ftl::mmio::Reserved<6, 9>,
+    CTRL0_SET_fields_::LINREG_PHY_ISO_B,
+    ftl::mmio::Reserved<16, 16>> {
+  using LINREG_EN = CTRL0_SET_fields_::LINREG_EN;
+  using LINREG_PWRUPLOAD_DIS = CTRL0_SET_fields_::LINREG_PWRUPLOAD_DIS;
+  using LINREG_ILIMIT_EN = CTRL0_SET_fields_::LINREG_ILIMIT_EN;
+  using LINREG_OUTPUT_TRG = CTRL0_SET_fields_::LINREG_OUTPUT_TRG;
+  using LINREG_PHY_ISO_B = CTRL0_SET_fields_::LINREG_PHY_ISO_B;
 };
+
 
 // Analog Control Register CTRL0
-union CTRL0_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - LinrReg master enable
-    uint32_t LINREG_EN : 1;
-    // read-write - LinReg power-up load disable
-    uint32_t LINREG_PWRUPLOAD_DIS : 1;
-    // read-write - LinReg current-limit enable
-    uint32_t LINREG_ILIMIT_EN : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - LinReg output voltage target setting
-    uint32_t LINREG_OUTPUT_TRG : 5;
-    uint32_t _reserved_1 : 6;
-    // read-write - Isolation control for attached PHY load
-    uint32_t LINREG_PHY_ISO_B : 1;
-    uint32_t _reserved_2 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL0_CLR_fields_ {
+  // LinrReg master enable
+  using LINREG_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // LinReg power-up load disable
+  using LINREG_PWRUPLOAD_DIS = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // LinReg current-limit enable
+  using LINREG_ILIMIT_EN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // LinReg output voltage target setting
+  using LINREG_OUTPUT_TRG = ftl::mmio::Field<5, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Isolation control for attached PHY load
+  using LINREG_PHY_ISO_B = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct CTRL0_CLR_fields_
 
-  CTRL0_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_CLR &ref() { return *reinterpret_cast<volatile CTRL0_CLR*>(0x00000008); }
+struct CTRL0_CLR : ftl::mmio::Register<
+    0x00000008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL0_CLR_fields_::LINREG_EN,
+    CTRL0_CLR_fields_::LINREG_PWRUPLOAD_DIS,
+    CTRL0_CLR_fields_::LINREG_ILIMIT_EN,
+    ftl::mmio::Reserved<1, 3>,
+    CTRL0_CLR_fields_::LINREG_OUTPUT_TRG,
+    ftl::mmio::Reserved<6, 9>,
+    CTRL0_CLR_fields_::LINREG_PHY_ISO_B,
+    ftl::mmio::Reserved<16, 16>> {
+  using LINREG_EN = CTRL0_CLR_fields_::LINREG_EN;
+  using LINREG_PWRUPLOAD_DIS = CTRL0_CLR_fields_::LINREG_PWRUPLOAD_DIS;
+  using LINREG_ILIMIT_EN = CTRL0_CLR_fields_::LINREG_ILIMIT_EN;
+  using LINREG_OUTPUT_TRG = CTRL0_CLR_fields_::LINREG_OUTPUT_TRG;
+  using LINREG_PHY_ISO_B = CTRL0_CLR_fields_::LINREG_PHY_ISO_B;
 };
+
 
 // Analog Control Register CTRL0
-union CTRL0_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-write - LinrReg master enable
-    uint32_t LINREG_EN : 1;
-    // read-write - LinReg power-up load disable
-    uint32_t LINREG_PWRUPLOAD_DIS : 1;
-    // read-write - LinReg current-limit enable
-    uint32_t LINREG_ILIMIT_EN : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - LinReg output voltage target setting
-    uint32_t LINREG_OUTPUT_TRG : 5;
-    uint32_t _reserved_1 : 6;
-    // read-write - Isolation control for attached PHY load
-    uint32_t LINREG_PHY_ISO_B : 1;
-    uint32_t _reserved_2 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL0_TOG_fields_ {
+  // LinrReg master enable
+  using LINREG_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // LinReg power-up load disable
+  using LINREG_PWRUPLOAD_DIS = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // LinReg current-limit enable
+  using LINREG_ILIMIT_EN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // LinReg output voltage target setting
+  using LINREG_OUTPUT_TRG = ftl::mmio::Field<5, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Isolation control for attached PHY load
+  using LINREG_PHY_ISO_B = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+};  // struct CTRL0_TOG_fields_
 
-  CTRL0_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL0_TOG &ref() { return *reinterpret_cast<volatile CTRL0_TOG*>(0x0000000C); }
+struct CTRL0_TOG : ftl::mmio::Register<
+    0x0000000Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL0_TOG_fields_::LINREG_EN,
+    CTRL0_TOG_fields_::LINREG_PWRUPLOAD_DIS,
+    CTRL0_TOG_fields_::LINREG_ILIMIT_EN,
+    ftl::mmio::Reserved<1, 3>,
+    CTRL0_TOG_fields_::LINREG_OUTPUT_TRG,
+    ftl::mmio::Reserved<6, 9>,
+    CTRL0_TOG_fields_::LINREG_PHY_ISO_B,
+    ftl::mmio::Reserved<16, 16>> {
+  using LINREG_EN = CTRL0_TOG_fields_::LINREG_EN;
+  using LINREG_PWRUPLOAD_DIS = CTRL0_TOG_fields_::LINREG_PWRUPLOAD_DIS;
+  using LINREG_ILIMIT_EN = CTRL0_TOG_fields_::LINREG_ILIMIT_EN;
+  using LINREG_OUTPUT_TRG = CTRL0_TOG_fields_::LINREG_OUTPUT_TRG;
+  using LINREG_PHY_ISO_B = CTRL0_TOG_fields_::LINREG_PHY_ISO_B;
 };
+
 
 // Analog Status Register STAT0
-union STAT0 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - LinReg Status Bits
-    uint32_t LINREG_STAT : 4;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct STAT0_fields_ {
+  // LinReg Status Bits
+  using LINREG_STAT = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct STAT0_fields_
 
-  STAT0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0 &ref() { return *reinterpret_cast<volatile STAT0*>(0x00000050); }
+struct STAT0 : ftl::mmio::Register<
+    0x00000050u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    STAT0_fields_::LINREG_STAT,
+    ftl::mmio::Reserved<28, 4>> {
+  using LINREG_STAT = STAT0_fields_::LINREG_STAT;
 };
+
 
 // Analog Status Register STAT0
-union STAT0_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-only - LinReg Status Bits
-    uint32_t LINREG_STAT : 4;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct STAT0_SET_fields_ {
+  // LinReg Status Bits
+  using LINREG_STAT = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::OneToSet>;
+};  // struct STAT0_SET_fields_
 
-  STAT0_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0_SET &ref() { return *reinterpret_cast<volatile STAT0_SET*>(0x00000054); }
+struct STAT0_SET : ftl::mmio::Register<
+    0x00000054u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    STAT0_SET_fields_::LINREG_STAT,
+    ftl::mmio::Reserved<28, 4>> {
+  using LINREG_STAT = STAT0_SET_fields_::LINREG_STAT;
 };
+
 
 // Analog Status Register STAT0
-union STAT0_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-only - LinReg Status Bits
-    uint32_t LINREG_STAT : 4;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct STAT0_CLR_fields_ {
+  // LinReg Status Bits
+  using LINREG_STAT = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::OneToClear>;
+};  // struct STAT0_CLR_fields_
 
-  STAT0_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0_CLR &ref() { return *reinterpret_cast<volatile STAT0_CLR*>(0x00000058); }
+struct STAT0_CLR : ftl::mmio::Register<
+    0x00000058u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    STAT0_CLR_fields_::LINREG_STAT,
+    ftl::mmio::Reserved<28, 4>> {
+  using LINREG_STAT = STAT0_CLR_fields_::LINREG_STAT;
 };
+
 
 // Analog Status Register STAT0
-union STAT0_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-only - LinReg Status Bits
-    uint32_t LINREG_STAT : 4;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct STAT0_TOG_fields_ {
+  // LinReg Status Bits
+  using LINREG_STAT = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::OneToToggle>;
+};  // struct STAT0_TOG_fields_
 
-  STAT0_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT0_TOG &ref() { return *reinterpret_cast<volatile STAT0_TOG*>(0x0000005C); }
+struct STAT0_TOG : ftl::mmio::Register<
+    0x0000005Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    STAT0_TOG_fields_::LINREG_STAT,
+    ftl::mmio::Reserved<28, 4>> {
+  using LINREG_STAT = STAT0_TOG_fields_::LINREG_STAT;
 };
 
-
-} // namespace nPHY_LDO
+}  // namespace regs::phy_ldo
