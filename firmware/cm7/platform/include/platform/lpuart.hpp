@@ -17,6 +17,7 @@
 #include "board.h"
 #include "cachel1_armv7.h"
 
+namespace ccm     = regs::ccm;
 namespace dma0    = regs::dma0;
 namespace dmamux0 = regs::dmamux0;
 namespace lpuart1 = regs::lpuart1;
@@ -34,19 +35,22 @@ private:
         this->tx_buffer_ = reinterpret_cast<uint8_t *>(ocram2.allocate(kTxBufferSize, 4));
         assert(tx_buffer_ != nullptr);
 
-        // 1. Enable Clocks (CCM still on old union-style codegen for now).
-        auto &dma0_clk_direct = nCCM::LPCG22_DIRECT::ref();
-        auto &dma0_clk_status = nCCM::LPCG22_STATUS0::ref();
-        if (dma0_clk_status.bits.ON != nCCM::LPCG22_STATUS0::eON::eON_1) {
-            dma0_clk_direct.bits.ON = nCCM::LPCG22_DIRECT::eON::eON_1;
-            while (dma0_clk_status.bits.ON != nCCM::LPCG22_STATUS0::eON::eON_1) {}
+        // 1. Enable Clocks.
+        {
+            using direct = ccm::LPCG22_DIRECT;
+            using status = ccm::LPCG22_STATUS0;
+            if (status::read().get<status::ON>() != status::eON::eON_1) {
+                direct::modify(direct::ON{direct::eON::eON_1});
+                while (status::read().get<status::ON>() != status::eON::eON_1) {}
+            }
         }
-
-        auto &lpuart_clk_direct = nCCM::LPCG86_DIRECT::ref();
-        auto &lpuart_clk_status = nCCM::LPCG86_STATUS0::ref();
-        if (lpuart_clk_status.bits.ON != nCCM::LPCG86_STATUS0::eON::eON_1) {
-            lpuart_clk_direct.bits.ON = nCCM::LPCG86_DIRECT::eON::eON_1;
-            while (lpuart_clk_status.bits.ON != nCCM::LPCG86_STATUS0::eON::eON_1) {}
+        {
+            using direct = ccm::LPCG86_DIRECT;
+            using status = ccm::LPCG86_STATUS0;
+            if (status::read().get<status::ON>() != status::eON::eON_1) {
+                direct::modify(direct::ON{direct::eON::eON_1});
+                while (status::read().get<status::ON>() != status::eON::eON_1) {}
+            }
         }
 
         // 2. Configure LPUART (transmitter disabled initially).

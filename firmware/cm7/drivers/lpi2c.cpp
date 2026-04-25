@@ -4,6 +4,7 @@
 #include "registers/codegen/iomuxc_lpsr.hpp"
 #include "registers/codegen/lpi2c5.hpp"
 
+namespace ccm = regs::ccm;
 namespace lp = regs::lpi2c5;
 
 namespace {
@@ -31,11 +32,11 @@ Lpi2c5::Lpi2c5() {
 }
 
 void Lpi2c5::enableClock() {
-  auto& direct = nCCM::LPCG102_DIRECT::ref();
-  auto& status = nCCM::LPCG102_STATUS0::ref();
-  if (status.bits.ON != nCCM::LPCG102_STATUS0::eON::eON_1) {
-    direct.bits.ON = nCCM::LPCG102_DIRECT::eON::eON_1;
-    while (status.bits.ON != nCCM::LPCG102_STATUS0::eON::eON_1) {}
+  using direct = ccm::LPCG102_DIRECT;
+  using status = ccm::LPCG102_STATUS0;
+  if (status::read().get<status::ON>() != status::eON::eON_1) {
+    direct::modify(direct::ON{direct::eON::eON_1});
+    while (status::read().get<status::ON>() != status::eON::eON_1) {}
   }
 }
 

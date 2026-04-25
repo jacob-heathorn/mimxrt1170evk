@@ -146,8 +146,11 @@ namespace
 {
   void EnableGpioClock()
   {
-    nCCM::LPCG51_DIRECT::ref().bits.ON = nCCM::LPCG51_DIRECT::eON::eON_1;
-    while (nCCM::LPCG51_STATUS0::ref().bits.ON != nCCM::LPCG51_STATUS0::eON::eON_1) {}
+    namespace ccm = regs::ccm;
+    using direct = ccm::LPCG51_DIRECT;
+    using status = ccm::LPCG51_STATUS0;
+    direct::modify(direct::ON{direct::eON::eON_1});
+    while (status::read().get<status::ON>() != status::eON::eON_1) {}
   }
 }
 

@@ -17,9 +17,12 @@ extern "C" {
 
 void BoardInitPins()
 {
+    namespace ccm = regs::ccm;
+    using lpcg49_direct = ccm::LPCG49_DIRECT;
+    using lpcg49_status = ccm::LPCG49_STATUS0;
     // Enable the IOMUXC clock and wait for it.
-    nCCM::LPCG49_DIRECT::ref().bits.ON = nCCM::LPCG49_DIRECT::eON::eON_1;
-    while (nCCM::LPCG49_STATUS0::ref().bits.ON != nCCM::LPCG49_STATUS0::eON::eON_1) {}
+    lpcg49_direct::modify(lpcg49_direct::ON{lpcg49_direct::eON::eON_1});
+    while (lpcg49_status::read().get<lpcg49_status::ON>() != lpcg49_status::eON::eON_1) {}
 
     // Enable lpuartt1 RX and TX.
     nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_24::ref().bits.MUX_MODE =
