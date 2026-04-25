@@ -37,10 +37,11 @@ function(add_platform_flags target)
     --specs=nosys.specs
     -Wl,--start-group  -lm -lc -lgcc -lnosys  -Wl,--end-group
 
-    # Exe linker flags?
-    # Debug
+    -flto=auto                       # Link-time optimization (whole-program inlining + DCE)
     -g
     -mcpu=cortex-m4
+    -mfpu=fpv4-sp-d16
+    -mfloat-abi=hard
     -Wall
     -fno-common
     -ffunction-sections
@@ -49,15 +50,9 @@ function(add_platform_flags target)
     -fno-builtin
     -mthumb
     -mapcs
-    -Xlinker
-    --gc-sections
-    -Xlinker
-    -static
-    -Xlinker
-    -z
-    -Xlinker
-    muldefs
-    #-Map=output.map
+    -Xlinker --gc-sections
+    -Xlinker -static
+    -Xlinker -z -Xlinker muldefs
     -Wl,--print-memory-usage
     -static
     # # Release
@@ -88,13 +83,14 @@ function(add_platform_flags target)
   
   # Compiler flags
   target_compile_options(${target} PRIVATE
-    -mcpu=cortex-m4            # Specifies the target processor (Cortex-M7)
-    -mfpu=fpv4-sp-d16          # Specifies the floating-point hardware
-    -mfloat-abi=hard           # Specifies that we are using hardware floating-point instructions
-    -mthumb                    # Enables generation of Thumb (compressed) instructions
-    -fno-exceptions            # Disables exceptions in C++
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti> # Disables Run-Time Type Information (RTTI) in C++
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit> # Avoids registering destructors for global/static objects with __cxa_atexit
+    -mcpu=cortex-m4            # Cortex-M4
+    -mfpu=fpv4-sp-d16          # Single-precision FPU
+    -mfloat-abi=hard           # Hardware FP instructions
+    -mthumb                    # Thumb (compressed) instructions
+    -flto=auto                 # Emit IR rather than object code; final codegen at link
+    -fno-exceptions            # No C++ exceptions
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>           # No RTTI
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit> # Don't register destructors with __cxa_atexit
   )
 
 

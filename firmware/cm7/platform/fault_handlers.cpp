@@ -50,7 +50,10 @@ void BusFault_Handler(void)
     );
 }
 
-extern "C" void BusFault_HandlerC(uint32_t *stack_pointer)
+// `used` keeps LTO from pruning this — it's only referenced from the inline
+// asm `b BusFault_HandlerC` above, which LTO can't see.
+extern "C" __attribute__((used))
+void BusFault_HandlerC(uint32_t *stack_pointer)
 {
     printf("BusFault triggerd!\r\n");
     [[maybe_unused]] volatile uint32_t cfsr = SCB->CFSR;

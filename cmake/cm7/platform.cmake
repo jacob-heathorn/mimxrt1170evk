@@ -51,27 +51,34 @@ endfunction()
 # Adds platform-specific compile and link options to the target.
 function(add_platform_flags target)
 
-  # Linker flags
+  # Linker flags. Target-arch flags must be repeated on the link line because
+  # LTO does final codegen during link and needs to know cpu/fpu/abi.
   target_link_options(${target} PRIVATE
-    -static                          # Links libraries statically, not dynamically    -Wl,--gc-sections                # Enables garbage collection of unused input sections
-    --specs=nano.specs    # Links against a smaller version of C standard library
-    -u _printf_float      # Re-enable %f/%g in nano-specs printf
-    # --specs=nosys.specs
-    -Wl,--undefined=_sbrk # Keep fsl_sbrk.c implementation
-    #-Wl,--undefined=_sbrk -Wl,--start-group -lm -lc -lgcc -lnosys -Wl,--end-group
+    -mcpu=cortex-m7
+    -mfpu=fpv5-d16
+    -mfloat-abi=hard
+    -mthumb
+    -flto=auto                       # Link-time optimization (whole-program inlining + DCE)
+    -static                          # Links libraries statically, not dynamically
+    -Wl,--gc-sections                # Enables garbage collection of unused input sections
+    --specs=nano.specs               # Links against a smaller version of C standard library
+    -u _printf_float                 # Re-enable %f/%g in nano-specs printf
+    -Wl,--undefined=_sbrk            # Keep fsl_sbrk.c implementation
     -Wl,-Map=output.map
     -Wl,--print-memory-usage
     -Wl,--no-warn-rwx-segments
   )
-  
+
   # Compiler flags
   target_compile_options(${target} PRIVATE
     -mcpu=cortex-m7            # Specifies the target processor (Cortex-M7)
     -mfpu=fpv5-d16             # Specifies the floating-point hardware (FPv5-D16)
     -mfloat-abi=hard           # Specifies that we are using hardware floating-point instructions
     -mthumb                    # Enables generation of Thumb (compressed) instructions
+    -ffunction-sections        # One section per function so --gc-sections can prune at fine grain
+    -fdata-sections            # One section per data symbol (same)
+    -flto=auto                 # Emit IR rather than object code; final codegen happens at link
     -fno-exceptions            # Disables exceptions in C++
-    # $<$<COMPILE_LANGUAGE:CXX>:-nostdinc++> # Don't allow standard library usage
     $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>   # Disables Run-Time Type Information (RTTI) in C++
     $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit> # Avoids registering destructors for global/static objects with __cxa_atexit
     $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
