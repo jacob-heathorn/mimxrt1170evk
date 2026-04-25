@@ -17,18 +17,19 @@ extern "C" {
 
 void BoardInitPins()
 {
-    namespace ccm = regs::ccm;
+    namespace ccm    = regs::ccm;
+    namespace iomuxc = regs::iomuxc;
     using lpcg49_direct = ccm::LPCG49_DIRECT;
     using lpcg49_status = ccm::LPCG49_STATUS0;
     // Enable the IOMUXC clock and wait for it.
     lpcg49_direct::modify(lpcg49_direct::ON{lpcg49_direct::eON::eON_1});
     while (lpcg49_status::read().get<lpcg49_status::ON>() != lpcg49_status::eON::eON_1) {}
 
-    // Enable lpuartt1 RX and TX.
-    nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_24::ref().bits.MUX_MODE =
-        nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_24::eMUX_MODE::eALT0_lpuart1_TX;
-    nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_25::ref().bits.MUX_MODE =
-        nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_25::eMUX_MODE::eALT0_lpuart1_RX;
+    // Enable lpuart1 RX and TX.
+    using tx_pad = iomuxc::SW_MUX_CTL_PAD_GPIO_AD_24;
+    using rx_pad = iomuxc::SW_MUX_CTL_PAD_GPIO_AD_25;
+    tx_pad::modify(tx_pad::MUX_MODE{tx_pad::eMUX_MODE::eALT0_lpuart1_TX});
+    rx_pad::modify(rx_pad::MUX_MODE{rx_pad::eMUX_MODE::eALT0_lpuart1_RX});
 }
 
 

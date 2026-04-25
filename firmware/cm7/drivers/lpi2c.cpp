@@ -5,6 +5,7 @@
 #include "registers/codegen/lpi2c5.hpp"
 
 namespace ccm = regs::ccm;
+namespace iomuxc_lpsr = regs::iomuxc_lpsr;
 namespace lp = regs::lpi2c5;
 
 namespace {
@@ -42,13 +43,13 @@ void Lpi2c5::enableClock() {
 
 void Lpi2c5::configurePins() {
   // SION enabled so the master can sense SDA/SCL for ACK and arbitration.
-  auto& sda = nIOMUXC_LPSR::SW_MUX_CTL_PAD_GPIO_LPSR_04::ref();
-  sda.bits.MUX_MODE = nIOMUXC_LPSR::SW_MUX_CTL_PAD_GPIO_LPSR_04::eMUX_MODE::eALT0_lpi2c5_SDA;
-  sda.bits.SION     = nIOMUXC_LPSR::SW_MUX_CTL_PAD_GPIO_LPSR_04::eSION::eENABLED;
+  using sda = iomuxc_lpsr::SW_MUX_CTL_PAD_GPIO_LPSR_04;
+  sda::modify(sda::MUX_MODE{sda::eMUX_MODE::eALT0_lpi2c5_SDA},
+              sda::SION    {sda::eSION::eENABLED});
 
-  auto& scl = nIOMUXC_LPSR::SW_MUX_CTL_PAD_GPIO_LPSR_05::ref();
-  scl.bits.MUX_MODE = nIOMUXC_LPSR::SW_MUX_CTL_PAD_GPIO_LPSR_05::eMUX_MODE::eALT0_lpi2c5_SCL;
-  scl.bits.SION     = nIOMUXC_LPSR::SW_MUX_CTL_PAD_GPIO_LPSR_05::eSION::eENABLED;
+  using scl = iomuxc_lpsr::SW_MUX_CTL_PAD_GPIO_LPSR_05;
+  scl::modify(scl::MUX_MODE{scl::eMUX_MODE::eALT0_lpi2c5_SCL},
+              scl::SION    {scl::eSION::eENABLED});
 }
 
 void Lpi2c5::resetAndConfigureMaster() {

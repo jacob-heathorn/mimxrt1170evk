@@ -1,20 +1,17 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // IOMUXC LPSR
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nIOMUXC_LPSR {
-
+namespace regs::iomuxc_lpsr {
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_00 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_00 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_00_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: FLEXCAN3_TX of instance: FLEXCAN3
     eALT0_can3_TX = 0,
     // Select mux mode: ALT1 mux port: MIC_CLK of instance: MIC
@@ -32,37 +29,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_00 {
     // Select mux mode: ALT10 mux port: GPIO12_IO00 of instance: GPIO12
     eALT10_gpio12_IO0 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_00
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_00_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_00() = delete;
-  inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_00 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_00*>(0x40C08000); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_00 : ftl::mmio::Register<
+    0x40C08000u,
+    std::uint32_t,
+    0x0000000Au,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_00_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_00_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_00_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_00_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_00_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_00_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_01 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_01 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_01_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: FLEXCAN3_RX of instance: FLEXCAN3
     eALT0_can3_RX = 0,
     // Select mux mode: ALT1 mux port: MIC_BITSTREAM0 of instance: MIC
@@ -78,37 +75,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_01 {
     // Select mux mode: ALT10 mux port: GPIO12_IO01 of instance: GPIO12
     eALT10_gpio12_IO1 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_01
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_01_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_01() = delete;
-  inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_01 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_01*>(0x40C08004); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_01 : ftl::mmio::Register<
+    0x40C08004u,
+    std::uint32_t,
+    0x0000000Au,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_01_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_01_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_01_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_01_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_01_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_01_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_02 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_02 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_02_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SRC_BOOT_MODE00 of instance: SRC
     eALT0_src_BOOT_MODE0 = 0,
     // Select mux mode: ALT1 mux port: LPSPI5_SCK of instance: LPSPI5
@@ -122,37 +119,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_02 {
     // Select mux mode: ALT10 mux port: GPIO12_IO02 of instance: GPIO12
     eALT10_gpio12_IO2 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_02
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_02_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_02() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_02 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_02*>(0x40C08008); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_02 : ftl::mmio::Register<
+    0x40C08008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_02_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_02_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_02_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_02_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_02_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_02_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_03 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_03 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_03_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: SRC_BOOT_MODE01 of instance: SRC
     eALT0_src_BOOT_MODE1 = 0,
     // Select mux mode: ALT1 mux port: LPSPI5_PCS0 of instance: LPSPI5
@@ -166,37 +163,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_03 {
     // Select mux mode: ALT10 mux port: GPIO12_IO03 of instance: GPIO12
     eALT10_gpio12_IO3 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_03
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_03_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_03() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_03 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_03*>(0x40C0800C); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_03 : ftl::mmio::Register<
+    0x40C0800Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_03_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_03_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_03_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_03_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_03_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_03_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_04 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_04 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_04_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: LPI2C5_SDA of instance: LPI2C5
     eALT0_lpi2c5_SDA = 0,
     // Select mux mode: ALT1 mux port: LPSPI5_SOUT of instance: LPSPI5
@@ -212,37 +209,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_04 {
     // Select mux mode: ALT10 mux port: GPIO12_IO04 of instance: GPIO12
     eALT10_gpio12_IO4 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_04
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_04_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_04() = delete;
-  inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_04 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_04*>(0x40C08010); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_04 : ftl::mmio::Register<
+    0x40C08010u,
+    std::uint32_t,
+    0x0000000Au,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_04_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_04_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_04_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_04_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_04_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_04_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_05 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_05 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_05_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: LPI2C5_SCL of instance: LPI2C5
     eALT0_lpi2c5_SCL = 0,
     // Select mux mode: ALT1 mux port: LPSPI5_SIN of instance: LPSPI5
@@ -260,37 +257,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_05 {
     // Select mux mode: ALT10 mux port: GPIO12_IO05 of instance: GPIO12
     eALT10_gpio12_IO5 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_05
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_05_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_05() = delete;
-  inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_05 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_05*>(0x40C08014); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_05 : ftl::mmio::Register<
+    0x40C08014u,
+    std::uint32_t,
+    0x0000000Au,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_05_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_05_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_05_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_05_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_05_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_05_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_06 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_06 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_06_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: LPI2C6_SDA of instance: LPI2C6
     eALT0_lpi2c6_SDA = 0,
     // Select mux mode: ALT2 mux port: SAI4_RX_DATA of instance: SAI4
@@ -310,37 +307,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_06 {
     // Select mux mode: ALT10 mux port: GPIO12_IO06 of instance: GPIO12
     eALT10_gpio12_IO6 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_06
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_06_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_06() = delete;
-  inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_06 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_06*>(0x40C08018); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_06 : ftl::mmio::Register<
+    0x40C08018u,
+    std::uint32_t,
+    0x0000000Au,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_06_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_06_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_06_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_06_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_06_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_06_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_07 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_07 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_07_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: LPI2C6_SCL of instance: LPI2C6
     eALT0_lpi2c6_SCL = 0,
     // Select mux mode: ALT2 mux port: SAI4_RX_BCLK of instance: SAI4
@@ -360,37 +357,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_07 {
     // Select mux mode: ALT10 mux port: GPIO12_IO07 of instance: GPIO12
     eALT10_gpio12_IO7 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_07
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_07_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_07() = delete;
-  inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_07 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_07*>(0x40C0801C); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_07 : ftl::mmio::Register<
+    0x40C0801Cu,
+    std::uint32_t,
+    0x0000000Au,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_07_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_07_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_07_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_07_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_07_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_07_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_08 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_08 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_08_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: LPUART11_TXD of instance: LPUART11
     eALT0_lpuart11_TX = 0,
     // Select mux mode: ALT1 mux port: FLEXCAN3_TX of instance: FLEXCAN3
@@ -412,37 +409,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_08 {
     // Select mux mode: ALT10 mux port: GPIO12_IO08 of instance: GPIO12
     eALT10_gpio12_IO8 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_08
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_08_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_08() = delete;
-  inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_08 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_08*>(0x40C08020); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_08 : ftl::mmio::Register<
+    0x40C08020u,
+    std::uint32_t,
+    0x0000000Au,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_08_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_08_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_08_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_08_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_08_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_08_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_09 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_09 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_09_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: LPUART11_RXD of instance: LPUART11
     eALT0_lpuart11_RX = 0,
     // Select mux mode: ALT1 mux port: FLEXCAN3_RX of instance: FLEXCAN3
@@ -462,37 +459,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_09 {
     // Select mux mode: ALT10 mux port: GPIO12_IO09 of instance: GPIO12
     eALT10_gpio12_IO9 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_09
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_09_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_09() = delete;
-  inline void Reset() volatile { this->value = 0x0000000A; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_09 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_09*>(0x40C08024); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_09 : ftl::mmio::Register<
+    0x40C08024u,
+    std::uint32_t,
+    0x0000000Au,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_09_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_09_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_09_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_09_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_09_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_09_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_10 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_10 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_10_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: JTAG_MUX_TRSTB of instance: JTAG_MUX
     eALT0_jtag_mux_TRSTB = 0,
     // Select mux mode: ALT1 mux port: LPUART11_CTS_B of instance: LPUART11
@@ -514,37 +511,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_10 {
     // Select mux mode: ALT10 mux port: GPIO12_IO10 of instance: GPIO12
     eALT10_gpio12_IO10 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_10
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_10_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_10() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_10 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_10*>(0x40C08028); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_10 : ftl::mmio::Register<
+    0x40C08028u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_10_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_10_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_10_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_10_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_10_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_10_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_11 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_11 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_11_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: JTAG_MUX_TDO of instance: JTAG_MUX
     eALT0_jtag_mux_TDO = 0,
     // Select mux mode: ALT1 mux port: LPUART11_RTS_B of instance: LPUART11
@@ -566,37 +563,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_11 {
     // Select mux mode: ALT10 mux port: GPIO12_IO11 of instance: GPIO12
     eALT10_gpio12_IO11 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_11
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_11_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_11() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_11 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_11*>(0x40C0802C); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_11 : ftl::mmio::Register<
+    0x40C0802Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_11_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_11_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_11_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_11_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_11_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_11_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_12 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_12 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_12_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: JTAG_MUX_TDI of instance: JTAG_MUX
     eALT0_jtag_mux_TDI = 0,
     // Select mux mode: ALT1 mux port: PIT2_TRIGGER0 of instance: PIT2
@@ -616,37 +613,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_12 {
     // Select mux mode: ALT10 mux port: GPIO12_IO12 of instance: GPIO12
     eALT10_gpio12_IO12 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_12
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_12_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_12() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_12 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_12*>(0x40C08030); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_12 : ftl::mmio::Register<
+    0x40C08030u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_12_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_12_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_12_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_12_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_12_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_12_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_13 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_13 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_13_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: JTAG_MUX_MOD of instance: JTAG_MUX
     eALT0_jtag_mux_MOD = 0,
     // Select mux mode: ALT1 mux port: MIC_BITSTREAM1 of instance: MIC
@@ -662,37 +659,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_13 {
     // Select mux mode: ALT10 mux port: GPIO12_IO13 of instance: GPIO12
     eALT10_gpio12_IO13 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_13
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_13_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_13() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_13 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_13*>(0x40C08034); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_13 : ftl::mmio::Register<
+    0x40C08034u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_13_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_13_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_13_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_13_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_13_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_13_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_14 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_14 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_14_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: JTAG_MUX_TCK of instance: JTAG_MUX/SWD_CLK
     eALT0_jtag_mux_TCK = 0,
     // Select mux mode: ALT1 mux port: MIC_BITSTREAM2 of instance: MIC
@@ -708,37 +705,37 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_14 {
     // Select mux mode: ALT10 mux port: GPIO12_IO14 of instance: GPIO12
     eALT10_gpio12_IO14 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_14
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_14_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_14() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_14 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_14*>(0x40C08038); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_14 : ftl::mmio::Register<
+    0x40C08038u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_14_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_14_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_14_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_14_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_14_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_14_fields_::SION;
 };
 
 // SW_MUX_CTL_PAD_GPIO_LPSR_15 SW MUX Control Register
-union SW_MUX_CTL_PAD_GPIO_LPSR_15 {
-  
-  // MUX Mode Select Field.
-  enum class eMUX_MODE : uint32_t {
+namespace SW_MUX_CTL_PAD_GPIO_LPSR_15_fields_ {
+
+  enum class eMUX_MODE : std::uint32_t {
     // Select mux mode: ALT0 mux port: JTAG_MUX_TMS of instance: JTAG_MUX/SWD_DIO
     eALT0_jtag_mux_TMS = 0,
     // Select mux mode: ALT1 mux port: MIC_BITSTREAM3 of instance: MIC
@@ -754,77 +751,72 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_15 {
     // Select mux mode: ALT10 mux port: GPIO12_IO15 of instance: GPIO12
     eALT10_gpio12_IO15 = 10,
   };
-  
-  // Software Input On Field.
-  enum class eSION : uint32_t {
+
+  enum class eSION : std::uint32_t {
     // Input Path is determined by functionality
     eDISABLED = 0,
     // Force input path of pad GPIO_LPSR_15
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - MUX Mode Select Field.
-    eMUX_MODE MUX_MODE : 4;
-    // read-write - Software Input On Field.
-    eSION SION : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // MUX Mode Select Field.
+  using MUX_MODE = ftl::mmio::Field<4, 0, eMUX_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software Input On Field.
+  using SION = ftl::mmio::Field<1, 4, eSION, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_MUX_CTL_PAD_GPIO_LPSR_15_fields_
 
-  SW_MUX_CTL_PAD_GPIO_LPSR_15() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_MUX_CTL_PAD_GPIO_LPSR_15 &ref() { return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_LPSR_15*>(0x40C0803C); }
+struct SW_MUX_CTL_PAD_GPIO_LPSR_15 : ftl::mmio::Register<
+    0x40C0803Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SW_MUX_CTL_PAD_GPIO_LPSR_15_fields_::MUX_MODE,
+    SW_MUX_CTL_PAD_GPIO_LPSR_15_fields_::SION,
+    ftl::mmio::Reserved<27, 5>> {
+  using eMUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_15_fields_::eMUX_MODE;
+  using eSION = SW_MUX_CTL_PAD_GPIO_LPSR_15_fields_::eSION;
+  using MUX_MODE = SW_MUX_CTL_PAD_GPIO_LPSR_15_fields_::MUX_MODE;
+  using SION = SW_MUX_CTL_PAD_GPIO_LPSR_15_fields_::SION;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_00 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_00 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -834,9 +826,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_00 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -846,80 +837,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_00 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_00() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_00 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_00*>(0x40C08040); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_00 : ftl::mmio::Register<
+    0x40C08040u,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_00_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_01 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_01 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -929,9 +931,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_01 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -941,80 +942,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_01 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_01() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_01 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_01*>(0x40C08044); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_01 : ftl::mmio::Register<
+    0x40C08044u,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_01_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_02 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_02 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1024,9 +1036,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_02 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1036,80 +1047,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_02 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_02() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_02 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_02*>(0x40C08048); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_02 : ftl::mmio::Register<
+    0x40C08048u,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_02_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_03 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_03 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1119,9 +1141,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_03 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1131,80 +1152,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_03 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_03() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_03 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_03*>(0x40C0804C); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_03 : ftl::mmio::Register<
+    0x40C0804Cu,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_03_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_04 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_04 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1214,9 +1246,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_04 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1226,80 +1257,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_04 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_04() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_04 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_04*>(0x40C08050); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_04 : ftl::mmio::Register<
+    0x40C08050u,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_04_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_05 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_05 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1309,9 +1351,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_05 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1321,80 +1362,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_05 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_05() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_05 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_05*>(0x40C08054); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_05 : ftl::mmio::Register<
+    0x40C08054u,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_05_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_06 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_06 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1404,9 +1456,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_06 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1416,80 +1467,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_06 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_06() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_06 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_06*>(0x40C08058); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_06 : ftl::mmio::Register<
+    0x40C08058u,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_06_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_07 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_07 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1499,9 +1561,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_07 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1511,80 +1572,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_07 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_07() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_07 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_07*>(0x40C0805C); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_07 : ftl::mmio::Register<
+    0x40C0805Cu,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_07_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_08 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_08 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1594,9 +1666,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_08 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1606,80 +1677,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_08 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_08() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_08 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_08*>(0x40C08060); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_08 : ftl::mmio::Register<
+    0x40C08060u,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_08_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_09 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_09 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1689,9 +1771,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_09 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1701,80 +1782,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_09 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_09() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_09 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_09*>(0x40C08064); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_09 : ftl::mmio::Register<
+    0x40C08064u,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_09_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_10 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_10 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1784,9 +1876,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_10 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1796,80 +1887,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_10 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_10() = delete;
-  inline void Reset() volatile { this->value = 0x0000000E; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_10 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_10*>(0x40C08068); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_10 : ftl::mmio::Register<
+    0x40C08068u,
+    std::uint32_t,
+    0x0000000Eu,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_10_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_11 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_11 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1879,9 +1981,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_11 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1891,80 +1992,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_11 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_11() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_11 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_11*>(0x40C0806C); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_11 : ftl::mmio::Register<
+    0x40C0806Cu,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_11_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_12 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_12 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -1974,9 +2086,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_12 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -1986,80 +2097,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_12 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_12() = delete;
-  inline void Reset() volatile { this->value = 0x0000000E; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_12 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_12*>(0x40C08070); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_12 : ftl::mmio::Register<
+    0x40C08070u,
+    std::uint32_t,
+    0x0000000Eu,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_12_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_13 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_13 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2069,9 +2191,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_13 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2081,80 +2202,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_13 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_13() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_13 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_13*>(0x40C08074); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_13 : ftl::mmio::Register<
+    0x40C08074u,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_13_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_14 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_14 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2164,9 +2296,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_14 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2176,80 +2307,91 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_14 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_14() = delete;
-  inline void Reset() volatile { this->value = 0x00000006; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_14 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_14*>(0x40C08078); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_14 : ftl::mmio::Register<
+    0x40C08078u,
+    std::uint32_t,
+    0x00000006u,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_14_fields_::DWP_LOCK;
 };
 
 // SW_PAD_CTL_PAD_GPIO_LPSR_15 SW PAD Control Register
-union SW_PAD_CTL_PAD_GPIO_LPSR_15 {
-  
-  // Slew Rate Field
-  enum class eSRE : uint32_t {
+namespace SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_ {
+
+  enum class eSRE : std::uint32_t {
     // Slow Slew Rate
     eSRE_0_Slow_Slew_Rate = 0,
     // Fast Slew Rate
     eSRE_1_Fast_Slew_Rate = 1,
   };
-  
-  // Drive Strength Field
-  enum class eDSE : uint32_t {
+
+  enum class eDSE : std::uint32_t {
     // normal driver
     eDSE_0_normal_driver = 0,
     // high driver
     eDSE_1_high_driver = 1,
   };
-  
-  // Pull Select Field
-  enum class ePUE : uint32_t {
+
+  enum class ePUE : std::uint32_t {
     // Pull Disable
     ePUE_0_Disable = 0,
     // Pull Enable
     ePUE_1_Pull = 1,
   };
-  
-  // Pull Up / Down Config. Field
-  enum class ePUS : uint32_t {
+
+  enum class ePUS : std::uint32_t {
     // Weak pull down
     ePUS_0_Weak_pull_down = 0,
     // Weak pull up
     ePUS_1_Weak_pull_up = 1,
   };
-  
-  // Open Drain LPSR Field
-  enum class eODE_LPSR : uint32_t {
+
+  enum class eODE_LPSR : std::uint32_t {
     // Disabled
     eODE_LPSR_0_Disabled = 0,
     // Enabled
     eODE_LPSR_1_Enabled = 1,
   };
-  
-  // Domain write protection
-  enum class eDWP : uint32_t {
+
+  enum class eDWP : std::uint32_t {
     // Both cores are allowed
     eforbid_none = 0,
     // CM7 is forbidden
@@ -2259,9 +2401,8 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_15 {
     // Both cores are forbidden
     eforbid_both = 3,
   };
-  
-  // Domain write protection lock
-  enum class eDWP_LOCK : uint32_t {
+
+  enum class eDWP_LOCK : std::uint32_t {
     // Neither of DWP bits is locked
     elock_none = 0,
     // The lower DWP bit is locked
@@ -2271,40 +2412,56 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_15 {
     // Both DWP bits are locked
     elock_both = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slew Rate Field
-    eSRE SRE : 1;
-    // read-write - Drive Strength Field
-    eDSE DSE : 1;
-    // read-write - Pull Select Field
-    ePUE PUE : 1;
-    // read-write - Pull Up / Down Config. Field
-    ePUS PUS : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Open Drain LPSR Field
-    eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_1 : 22;
-    // read-write - Domain write protection
-    eDWP DWP : 2;
-    // read-writeOnce - Domain write protection lock
-    eDWP_LOCK DWP_LOCK : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Slew Rate Field
+  using SRE = ftl::mmio::Field<1, 0, eSRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Drive Strength Field
+  using DSE = ftl::mmio::Field<1, 1, eDSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Select Field
+  using PUE = ftl::mmio::Field<1, 2, ePUE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pull Up / Down Config. Field
+  using PUS = ftl::mmio::Field<1, 3, ePUS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Open Drain LPSR Field
+  using ODE_LPSR = ftl::mmio::Field<1, 5, eODE_LPSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection
+  using DWP = ftl::mmio::Field<2, 28, eDWP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Domain write protection lock
+  using DWP_LOCK = ftl::mmio::Field<2, 30, eDWP_LOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_
 
-  SW_PAD_CTL_PAD_GPIO_LPSR_15() = delete;
-  inline void Reset() volatile { this->value = 0x0000000E; }
-  static inline volatile SW_PAD_CTL_PAD_GPIO_LPSR_15 &ref() { return *reinterpret_cast<volatile SW_PAD_CTL_PAD_GPIO_LPSR_15*>(0x40C0807C); }
+struct SW_PAD_CTL_PAD_GPIO_LPSR_15 : ftl::mmio::Register<
+    0x40C0807Cu,
+    std::uint32_t,
+    0x0000000Eu,
+    ftl::mmio::RW,
+    SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::SRE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::DSE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::PUE,
+    SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::PUS,
+    ftl::mmio::Reserved<1, 4>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::ODE_LPSR,
+    ftl::mmio::Reserved<22, 6>,
+    SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::DWP,
+    SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::DWP_LOCK> {
+  using eSRE = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::eSRE;
+  using eDSE = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::eDSE;
+  using ePUE = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::ePUE;
+  using ePUS = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::ePUS;
+  using eODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::eODE_LPSR;
+  using eDWP = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::eDWP;
+  using eDWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::eDWP_LOCK;
+  using SRE = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::SRE;
+  using DSE = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::DSE;
+  using PUE = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::PUE;
+  using PUS = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::PUS;
+  using ODE_LPSR = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::ODE_LPSR;
+  using DWP = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::DWP;
+  using DWP_LOCK = SW_PAD_CTL_PAD_GPIO_LPSR_15_fields_::DWP_LOCK;
 };
 
 // CAN3_IPP_IND_CANRX_SELECT_INPUT DAISY Register
-union CAN3_IPP_IND_CANRX_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace CAN3_IPP_IND_CANRX_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_01 for Mode: ALT0
     eSELECT_GPIO_LPSR_01_ALT0 = 0,
     // Selecting Pad: GPIO_LPSR_07 for Mode: ALT6
@@ -2312,287 +2469,265 @@ union CAN3_IPP_IND_CANRX_SELECT_INPUT {
     // Selecting Pad: GPIO_LPSR_09 for Mode: ALT1
     eSELECT_GPIO_LPSR_09_ALT1 = 2,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<2, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace CAN3_IPP_IND_CANRX_SELECT_INPUT_fields_
 
-  CAN3_IPP_IND_CANRX_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CAN3_IPP_IND_CANRX_SELECT_INPUT &ref() { return *reinterpret_cast<volatile CAN3_IPP_IND_CANRX_SELECT_INPUT*>(0x40C08080); }
+struct CAN3_IPP_IND_CANRX_SELECT_INPUT : ftl::mmio::Register<
+    0x40C08080u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CAN3_IPP_IND_CANRX_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<30, 2>> {
+  using eDAISY = CAN3_IPP_IND_CANRX_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = CAN3_IPP_IND_CANRX_SELECT_INPUT_fields_::DAISY;
 };
 
 // LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT DAISY Register
-union LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_05 for Mode: ALT0
     eSELECT_GPIO_LPSR_05_ALT0 = 0,
     // Selecting Pad: GPIO_LPSR_09 for Mode: ALT6
     eSELECT_GPIO_LPSR_09_ALT6 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_
 
-  LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT*>(0x40C08084); }
+struct LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT : ftl::mmio::Register<
+    0x40C08084u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_::DAISY;
 };
 
 // LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT DAISY Register
-union LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_04 for Mode: ALT0
     eSELECT_GPIO_LPSR_04_ALT0 = 0,
     // Selecting Pad: GPIO_LPSR_08 for Mode: ALT6
     eSELECT_GPIO_LPSR_08_ALT6 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_
 
-  LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT*>(0x40C08088); }
+struct LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT : ftl::mmio::Register<
+    0x40C08088u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_::DAISY;
 };
 
 // LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT DAISY Register
-union LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_07 for Mode: ALT0
     eSELECT_GPIO_LPSR_07_ALT0 = 0,
     // Selecting Pad: GPIO_LPSR_11 for Mode: ALT2
     eSELECT_GPIO_LPSR_11_ALT2 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_
 
-  LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT*>(0x40C0808C); }
+struct LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT : ftl::mmio::Register<
+    0x40C0808Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT_fields_::DAISY;
 };
 
 // LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT DAISY Register
-union LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_06 for Mode: ALT0
     eSELECT_GPIO_LPSR_06_ALT0 = 0,
     // Selecting Pad: GPIO_LPSR_10 for Mode: ALT2
     eSELECT_GPIO_LPSR_10_ALT2 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_
 
-  LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT*>(0x40C08090); }
+struct LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT : ftl::mmio::Register<
+    0x40C08090u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT_fields_::DAISY;
 };
 
 // LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0 DAISY Register
-union LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0 {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_03 for Mode: ALT1
     eSELECT_GPIO_LPSR_03_ALT1 = 0,
     // Selecting Pad: GPIO_LPSR_13 for Mode: ALT8
     eSELECT_GPIO_LPSR_13_ALT8 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0_fields_
 
-  LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0 &ref() { return *reinterpret_cast<volatile LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0*>(0x40C08094); }
+struct LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0 : ftl::mmio::Register<
+    0x40C08094u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0_fields_::eDAISY;
+  using DAISY = LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0_fields_::DAISY;
 };
 
 // LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT DAISY Register
-union LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_02 for Mode: ALT1
     eSELECT_GPIO_LPSR_02_ALT1 = 0,
     // Selecting Pad: GPIO_LPSR_12 for Mode: ALT8
     eSELECT_GPIO_LPSR_12_ALT8 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT_fields_
 
-  LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT*>(0x40C08098); }
+struct LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT : ftl::mmio::Register<
+    0x40C08098u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT_fields_::DAISY;
 };
 
 // LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT DAISY Register
-union LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_05 for Mode: ALT1
     eSELECT_GPIO_LPSR_05_ALT1 = 0,
     // Selecting Pad: GPIO_LPSR_15 for Mode: ALT8
     eSELECT_GPIO_LPSR_15_ALT8 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT_fields_
 
-  LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT*>(0x40C0809C); }
+struct LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT : ftl::mmio::Register<
+    0x40C0809Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT_fields_::DAISY;
 };
 
 // LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT DAISY Register
-union LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_04 for Mode: ALT1
     eSELECT_GPIO_LPSR_04_ALT1 = 0,
     // Selecting Pad: GPIO_LPSR_14 for Mode: ALT8
     eSELECT_GPIO_LPSR_14_ALT8 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT_fields_
 
-  LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT*>(0x40C080A0); }
+struct LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT : ftl::mmio::Register<
+    0x40C080A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT_fields_::DAISY;
 };
 
 // LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT DAISY Register
-union LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_05 for Mode: ALT6
     eSELECT_GPIO_LPSR_05_ALT6 = 0,
     // Selecting Pad: GPIO_LPSR_09 for Mode: ALT0
     eSELECT_GPIO_LPSR_09_ALT0 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_
 
-  LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT*>(0x40C080A4); }
+struct LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT : ftl::mmio::Register<
+    0x40C080A4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_::DAISY;
 };
 
 // LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT DAISY Register
-union LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_04 for Mode: ALT6
     eSELECT_GPIO_LPSR_04_ALT6 = 0,
     // Selecting Pad: GPIO_LPSR_08 for Mode: ALT0
     eSELECT_GPIO_LPSR_08_ALT0 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_
 
-  LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT*>(0x40C080A8); }
+struct LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT : ftl::mmio::Register<
+    0x40C080A8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_::DAISY;
 };
 
 // LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT DAISY Register
-union LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_01 for Mode: ALT6
     eSELECT_GPIO_LPSR_01_ALT6 = 0,
     // Selecting Pad: GPIO_LPSR_07 for Mode: ALT3
@@ -2600,27 +2735,25 @@ union LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT {
     // Selecting Pad: GPIO_LPSR_11 for Mode: ALT8
     eSELECT_GPIO_LPSR_11_ALT8 = 2,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<2, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_
 
-  LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT*>(0x40C080AC); }
+struct LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT : ftl::mmio::Register<
+    0x40C080ACu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<30, 2>> {
+  using eDAISY = LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT_fields_::DAISY;
 };
 
 // LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT DAISY Register
-union LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_00 for Mode: ALT6
     eSELECT_GPIO_LPSR_00_ALT6 = 0,
     // Selecting Pad: GPIO_LPSR_06 for Mode: ALT3
@@ -2628,307 +2761,283 @@ union LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT {
     // Selecting Pad: GPIO_LPSR_10 for Mode: ALT8
     eSELECT_GPIO_LPSR_10_ALT8 = 2,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<2, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_
 
-  LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT &ref() { return *reinterpret_cast<volatile LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT*>(0x40C080B0); }
+struct LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT : ftl::mmio::Register<
+    0x40C080B0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<30, 2>> {
+  using eDAISY = LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT_fields_::DAISY;
 };
 
 // MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0 DAISY Register
-union MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0 {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_01 for Mode: ALT1
     eSELECT_GPIO_LPSR_01_ALT1 = 0,
     // Selecting Pad: GPIO_LPSR_09 for Mode: ALT3
     eSELECT_GPIO_LPSR_09_ALT3 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0_fields_
 
-  MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0 &ref() { return *reinterpret_cast<volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0*>(0x40C080B4); }
+struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0 : ftl::mmio::Register<
+    0x40C080B4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0_fields_::eDAISY;
+  using DAISY = MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0_fields_::DAISY;
 };
 
 // MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1 DAISY Register
-union MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1 {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_10 for Mode: ALT3
     eSELECT_GPIO_LPSR_10_ALT3 = 0,
     // Selecting Pad: GPIO_LPSR_13 for Mode: ALT1
     eSELECT_GPIO_LPSR_13_ALT1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1_fields_
 
-  MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1 &ref() { return *reinterpret_cast<volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1*>(0x40C080B8); }
+struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1 : ftl::mmio::Register<
+    0x40C080B8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1_fields_::eDAISY;
+  using DAISY = MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1_fields_::DAISY;
 };
 
 // MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2 DAISY Register
-union MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2 {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_11 for Mode: ALT3
     eSELECT_GPIO_LPSR_11_ALT3 = 0,
     // Selecting Pad: GPIO_LPSR_14 for Mode: ALT1
     eSELECT_GPIO_LPSR_14_ALT1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2_fields_
 
-  MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2 &ref() { return *reinterpret_cast<volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2*>(0x40C080BC); }
+struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2 : ftl::mmio::Register<
+    0x40C080BCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2_fields_::eDAISY;
+  using DAISY = MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2_fields_::DAISY;
 };
 
 // MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3 DAISY Register
-union MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3 {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_12 for Mode: ALT3
     eSELECT_GPIO_LPSR_12_ALT3 = 0,
     // Selecting Pad: GPIO_LPSR_15 for Mode: ALT1
     eSELECT_GPIO_LPSR_15_ALT1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3_fields_
 
-  MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3 &ref() { return *reinterpret_cast<volatile MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3*>(0x40C080C0); }
+struct MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3 : ftl::mmio::Register<
+    0x40C080C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3_fields_::eDAISY;
+  using DAISY = MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3_fields_::DAISY;
 };
 
 // NMI_GLUE_IPP_IND_NMI_SELECT_INPUT DAISY Register
-union NMI_GLUE_IPP_IND_NMI_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace NMI_GLUE_IPP_IND_NMI_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_05 for Mode: ALT7
     eSELECT_GPIO_LPSR_05_ALT7 = 0,
     // Selecting Pad: WAKEUP_DIG for Mode: ALT7
     eSELECT_WAKEUP_DIG_ALT7 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace NMI_GLUE_IPP_IND_NMI_SELECT_INPUT_fields_
 
-  NMI_GLUE_IPP_IND_NMI_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NMI_GLUE_IPP_IND_NMI_SELECT_INPUT &ref() { return *reinterpret_cast<volatile NMI_GLUE_IPP_IND_NMI_SELECT_INPUT*>(0x40C080C4); }
+struct NMI_GLUE_IPP_IND_NMI_SELECT_INPUT : ftl::mmio::Register<
+    0x40C080C4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NMI_GLUE_IPP_IND_NMI_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = NMI_GLUE_IPP_IND_NMI_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = NMI_GLUE_IPP_IND_NMI_SELECT_INPUT_fields_::DAISY;
 };
 
 // SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT DAISY Register
-union SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_00 for Mode: ALT7
     eSELECT_GPIO_LPSR_00_ALT7 = 0,
     // Selecting Pad: GPIO_LPSR_05 for Mode: ALT2
     eSELECT_GPIO_LPSR_05_ALT2 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT_fields_
 
-  SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT &ref() { return *reinterpret_cast<volatile SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT*>(0x40C080C8); }
+struct SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT : ftl::mmio::Register<
+    0x40C080C8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT_fields_::DAISY;
 };
 
 // SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT DAISY Register
-union SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_07 for Mode: ALT2
     eSELECT_GPIO_LPSR_07_ALT2 = 0,
     // Selecting Pad: GPIO_LPSR_14 for Mode: ALT7
     eSELECT_GPIO_LPSR_14_ALT7 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT_fields_
 
-  SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT &ref() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT*>(0x40C080CC); }
+struct SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT : ftl::mmio::Register<
+    0x40C080CCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT_fields_::DAISY;
 };
 
 // SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0 DAISY Register
-union SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0 {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_06 for Mode: ALT2
     eSELECT_GPIO_LPSR_06_ALT2 = 0,
     // Selecting Pad: GPIO_LPSR_13 for Mode: ALT7
     eSELECT_GPIO_LPSR_13_ALT7 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0_fields_
 
-  SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0 &ref() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0*>(0x40C080D0); }
+struct SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0 : ftl::mmio::Register<
+    0x40C080D0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0_fields_::eDAISY;
+  using DAISY = SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0_fields_::DAISY;
 };
 
 // SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT DAISY Register
-union SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_08 for Mode: ALT2
     eSELECT_GPIO_LPSR_08_ALT2 = 0,
     // Selecting Pad: GPIO_LPSR_15 for Mode: ALT7
     eSELECT_GPIO_LPSR_15_ALT7 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT_fields_
 
-  SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT &ref() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT*>(0x40C080D4); }
+struct SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT : ftl::mmio::Register<
+    0x40C080D4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT_fields_::DAISY;
 };
 
 // SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT DAISY Register
-union SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_04 for Mode: ALT2
     eSELECT_GPIO_LPSR_04_ALT2 = 0,
     // Selecting Pad: GPIO_LPSR_12 for Mode: ALT7
     eSELECT_GPIO_LPSR_12_ALT7 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT_fields_
 
-  SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT &ref() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT*>(0x40C080D8); }
+struct SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT : ftl::mmio::Register<
+    0x40C080D8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT_fields_::DAISY;
 };
 
 // SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT DAISY Register
-union SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT {
-  
-  // Selecting Pads Involved in Daisy Chain.
-  enum class eDAISY : uint32_t {
+namespace SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT_fields_ {
+
+  enum class eDAISY : std::uint32_t {
     // Selecting Pad: GPIO_LPSR_03 for Mode: ALT2
     eSELECT_GPIO_LPSR_03_ALT2 = 0,
     // Selecting Pad: GPIO_LPSR_10 for Mode: ALT7
     eSELECT_GPIO_LPSR_10_ALT7 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Selecting Pads Involved in Daisy Chain.
-    eDAISY DAISY : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Selecting Pads Involved in Daisy Chain.
+  using DAISY = ftl::mmio::Field<1, 0, eDAISY, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT_fields_
 
-  SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT &ref() { return *reinterpret_cast<volatile SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT*>(0x40C080DC); }
+struct SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT : ftl::mmio::Register<
+    0x40C080DCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT_fields_::DAISY,
+    ftl::mmio::Reserved<31, 1>> {
+  using eDAISY = SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT_fields_::eDAISY;
+  using DAISY = SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT_fields_::DAISY;
 };
 
-
-} // namespace nIOMUXC_LPSR
+}  // namespace regs::iomuxc_lpsr
