@@ -8,7 +8,7 @@
 #include "clock_config.h"
 #include "board.h"
 #include "mcmgr.h"
-#include "registers/codegen/gpio9.hpp"
+#include "registers/codegen/gpio.hpp"
 #include "registers/codegen/iomuxc.hpp"
 #include "registers/codegen/ccm.hpp"
 #include "drivers_new/gpio.hpp"

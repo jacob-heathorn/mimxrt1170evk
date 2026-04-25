@@ -1,83 +1,87 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // MX6RT_ANADIG_REGISTER
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nANADIG_PMU {
+namespace regs::anadig_pmu {
 
 
 // PMU_LDO_PLL_REGISTER
-union PMU_LDO_PLL {
-  
-  // LDO_PLL_CONTROL_MODE
-  enum class eLDO_PLL_CONTROL_MODE : uint32_t {
+struct PMU_LDO_PLL_fields_ {
+
+  enum class eLDO_PLL_CONTROL_MODE : std::uint32_t {
     // SW Control
     esw = 0,
     // HW Control
     ehw = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - LDO_PLL_ENABLE
-    uint32_t LDO_PLL_ENABLE : 1;
-    // read-write - LDO_PLL_CONTROL_MODE
-    eLDO_PLL_CONTROL_MODE LDO_PLL_CONTROL_MODE : 1;
-    uint32_t _reserved_0 : 14;
-    // read-write - ldo_pll_ai_toggle
-    uint32_t LDO_PLL_AI_TOGGLE : 1;
-    uint32_t _reserved_1 : 13;
-    // read-only - ldo_pll_busy
-    uint32_t LDO_PLL_AI_BUSY : 1;
-    uint32_t _reserved_2 : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // LDO_PLL_ENABLE
+  using LDO_PLL_ENABLE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LDO_PLL_CONTROL_MODE
+  using LDO_PLL_CONTROL_MODE = ftl::mmio::Field<1, 1, eLDO_PLL_CONTROL_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ldo_pll_ai_toggle
+  using LDO_PLL_AI_TOGGLE = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ldo_pll_busy
+  using LDO_PLL_AI_BUSY = ftl::mmio::Field<1, 30, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PMU_LDO_PLL_fields_
 
-  PMU_LDO_PLL() = delete;
-  inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile PMU_LDO_PLL &ref() { return *reinterpret_cast<volatile PMU_LDO_PLL*>(0x40C84500); }
+struct PMU_LDO_PLL : ftl::mmio::Register<
+    0x40C84500u,
+    std::uint32_t,
+    0x00000001u,
+    ftl::mmio::RW,
+    PMU_LDO_PLL_fields_::LDO_PLL_ENABLE,
+    PMU_LDO_PLL_fields_::LDO_PLL_CONTROL_MODE,
+    ftl::mmio::Reserved<14, 2>,
+    PMU_LDO_PLL_fields_::LDO_PLL_AI_TOGGLE,
+    ftl::mmio::Reserved<13, 17>,
+    PMU_LDO_PLL_fields_::LDO_PLL_AI_BUSY,
+    ftl::mmio::Reserved<1, 31>> {
+  using eLDO_PLL_CONTROL_MODE = PMU_LDO_PLL_fields_::eLDO_PLL_CONTROL_MODE;
+  using LDO_PLL_ENABLE = PMU_LDO_PLL_fields_::LDO_PLL_ENABLE;
+  using LDO_PLL_CONTROL_MODE = PMU_LDO_PLL_fields_::LDO_PLL_CONTROL_MODE;
+  using LDO_PLL_AI_TOGGLE = PMU_LDO_PLL_fields_::LDO_PLL_AI_TOGGLE;
+  using LDO_PLL_AI_BUSY = PMU_LDO_PLL_fields_::LDO_PLL_AI_BUSY;
 };
 
+
 // PMU_BIAS_CTRL_REGISTER
-union PMU_BIAS_CTRL {
-  
-  // wb_vdd_sel_1p8
-  enum class eWB_VDD_SEL_1P8 : uint32_t {
+struct PMU_BIAS_CTRL_fields_ {
+
+  enum class eWB_VDD_SEL_1P8 : std::uint32_t {
     // VDD_LV1
     elv1 = 0,
     // VDD_LV2
     elv2 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - wb_cfg_1p8
-    uint32_t WB_CFG_1P8 : 13;
-    uint32_t _reserved_0 : 1;
-    // read-write - wb_vdd_sel_1p8
-    eWB_VDD_SEL_1P8 WB_VDD_SEL_1P8 : 1;
-    uint32_t _reserved_1 : 17;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // wb_cfg_1p8
+  using WB_CFG_1P8 = ftl::mmio::Field<13, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // wb_vdd_sel_1p8
+  using WB_VDD_SEL_1P8 = ftl::mmio::Field<1, 14, eWB_VDD_SEL_1P8, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PMU_BIAS_CTRL_fields_
 
-  PMU_BIAS_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PMU_BIAS_CTRL &ref() { return *reinterpret_cast<volatile PMU_BIAS_CTRL*>(0x40C84550); }
+struct PMU_BIAS_CTRL : ftl::mmio::Register<
+    0x40C84550u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PMU_BIAS_CTRL_fields_::WB_CFG_1P8,
+    ftl::mmio::Reserved<1, 13>,
+    PMU_BIAS_CTRL_fields_::WB_VDD_SEL_1P8,
+    ftl::mmio::Reserved<17, 15>> {
+  using eWB_VDD_SEL_1P8 = PMU_BIAS_CTRL_fields_::eWB_VDD_SEL_1P8;
+  using WB_CFG_1P8 = PMU_BIAS_CTRL_fields_::WB_CFG_1P8;
+  using WB_VDD_SEL_1P8 = PMU_BIAS_CTRL_fields_::WB_VDD_SEL_1P8;
 };
 
+
 // PMU_BIAS_CTRL2_REGISTER
-union PMU_BIAS_CTRL2 {
-  
-  // MODSEL_wb_tst_md_1p8
-  enum class eWB_PWR_SW_EN_1P8 : uint32_t {
+struct PMU_BIAS_CTRL2_fields_ {
+
+  enum class eWB_PWR_SW_EN_1P8 : std::uint32_t {
     // No BB
     ebb0 = 1,
     // BB
@@ -85,9 +89,8 @@ union PMU_BIAS_CTRL2 {
     // BB
     ebb2 = 4,
   };
-  
-  // wb_adj_1p8
-  enum class eWB_ADJ_1P8 : uint32_t {
+
+  enum class eWB_ADJ_1P8 : std::uint32_t {
     // Cref= 0fF Cspl= 0fF DeltaC= 0fF
     ewb00000000 = 0,
     // Cref= 0fF Cspl= 30fF DeltaC= -30fF
@@ -121,3841 +124,4481 @@ union PMU_BIAS_CTRL2 {
     // Cref=0fF Cspl=0fF DeltaC= 0fF
     ewb00001111 = 15,
   };
-  
-  // FBB_M7_CONTROL_MODE
-  enum class eFBB_M7_CONTROL_MODE : uint32_t {
-    // SW Control
-    esw = 0,
-    // HW Control
-    ehw = 1,
-  };
-  
-  // RBB_SOC_CONTROL_MODE
-  enum class eRBB_SOC_CONTROL_MODE : uint32_t {
-    // SW Control
-    esw = 0,
-    // HW Control
-    ehw = 1,
-  };
-  
-  // RBB_LPSR_CONTROL_MODE
-  enum class eRBB_LPSR_CONTROL_MODE : uint32_t {
-    // SW Control
-    esw = 0,
-    // HW Control
-    ehw = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 1;
-    // read-write - TMOD_wb_tst_md_1p8
-    uint32_t WB_TST_MD : 9;
-    // read-write - MODSEL_wb_tst_md_1p8
-    eWB_PWR_SW_EN_1P8 WB_PWR_SW_EN_1P8 : 3;
-    // read-write - wb_adj_1p8
-    eWB_ADJ_1P8 WB_ADJ_1P8 : 8;
-    // read-write - FBB_M7_CONTROL_MODE
-    eFBB_M7_CONTROL_MODE FBB_M7_CONTROL_MODE : 1;
-    // read-write - RBB_SOC_CONTROL_MODE
-    eRBB_SOC_CONTROL_MODE RBB_SOC_CONTROL_MODE : 1;
-    // read-write - RBB_LPSR_CONTROL_MODE
-    eRBB_LPSR_CONTROL_MODE RBB_LPSR_CONTROL_MODE : 1;
-    // read-write - wb_en
-    uint32_t WB_EN : 1;
-    // read-only - Digital output
-    uint32_t WB_TST_DIG_OUT : 1;
-    // read-only - Digital Output pin.
-    uint32_t WB_OK : 1;
-    uint32_t _reserved_1 : 5;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
 
-  PMU_BIAS_CTRL2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PMU_BIAS_CTRL2 &ref() { return *reinterpret_cast<volatile PMU_BIAS_CTRL2*>(0x40C84560); }
+  enum class eFBB_M7_CONTROL_MODE : std::uint32_t {
+    // SW Control
+    esw = 0,
+    // HW Control
+    ehw = 1,
+  };
+
+  enum class eRBB_SOC_CONTROL_MODE : std::uint32_t {
+    // SW Control
+    esw = 0,
+    // HW Control
+    ehw = 1,
+  };
+
+  enum class eRBB_LPSR_CONTROL_MODE : std::uint32_t {
+    // SW Control
+    esw = 0,
+    // HW Control
+    ehw = 1,
+  };
+  // TMOD_wb_tst_md_1p8
+  using WB_TST_MD = ftl::mmio::Field<9, 1, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MODSEL_wb_tst_md_1p8
+  using WB_PWR_SW_EN_1P8 = ftl::mmio::Field<3, 10, eWB_PWR_SW_EN_1P8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // wb_adj_1p8
+  using WB_ADJ_1P8 = ftl::mmio::Field<8, 13, eWB_ADJ_1P8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FBB_M7_CONTROL_MODE
+  using FBB_M7_CONTROL_MODE = ftl::mmio::Field<1, 21, eFBB_M7_CONTROL_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RBB_SOC_CONTROL_MODE
+  using RBB_SOC_CONTROL_MODE = ftl::mmio::Field<1, 22, eRBB_SOC_CONTROL_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RBB_LPSR_CONTROL_MODE
+  using RBB_LPSR_CONTROL_MODE = ftl::mmio::Field<1, 23, eRBB_LPSR_CONTROL_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // wb_en
+  using WB_EN = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Digital output
+  using WB_TST_DIG_OUT = ftl::mmio::Field<1, 25, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Digital Output pin.
+  using WB_OK = ftl::mmio::Field<1, 26, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PMU_BIAS_CTRL2_fields_
+
+struct PMU_BIAS_CTRL2 : ftl::mmio::Register<
+    0x40C84560u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<1, 0>,
+    PMU_BIAS_CTRL2_fields_::WB_TST_MD,
+    PMU_BIAS_CTRL2_fields_::WB_PWR_SW_EN_1P8,
+    PMU_BIAS_CTRL2_fields_::WB_ADJ_1P8,
+    PMU_BIAS_CTRL2_fields_::FBB_M7_CONTROL_MODE,
+    PMU_BIAS_CTRL2_fields_::RBB_SOC_CONTROL_MODE,
+    PMU_BIAS_CTRL2_fields_::RBB_LPSR_CONTROL_MODE,
+    PMU_BIAS_CTRL2_fields_::WB_EN,
+    PMU_BIAS_CTRL2_fields_::WB_TST_DIG_OUT,
+    PMU_BIAS_CTRL2_fields_::WB_OK,
+    ftl::mmio::Reserved<5, 27>> {
+  using eWB_PWR_SW_EN_1P8 = PMU_BIAS_CTRL2_fields_::eWB_PWR_SW_EN_1P8;
+  using eWB_ADJ_1P8 = PMU_BIAS_CTRL2_fields_::eWB_ADJ_1P8;
+  using eFBB_M7_CONTROL_MODE = PMU_BIAS_CTRL2_fields_::eFBB_M7_CONTROL_MODE;
+  using eRBB_SOC_CONTROL_MODE = PMU_BIAS_CTRL2_fields_::eRBB_SOC_CONTROL_MODE;
+  using eRBB_LPSR_CONTROL_MODE = PMU_BIAS_CTRL2_fields_::eRBB_LPSR_CONTROL_MODE;
+  using WB_TST_MD = PMU_BIAS_CTRL2_fields_::WB_TST_MD;
+  using WB_PWR_SW_EN_1P8 = PMU_BIAS_CTRL2_fields_::WB_PWR_SW_EN_1P8;
+  using WB_ADJ_1P8 = PMU_BIAS_CTRL2_fields_::WB_ADJ_1P8;
+  using FBB_M7_CONTROL_MODE = PMU_BIAS_CTRL2_fields_::FBB_M7_CONTROL_MODE;
+  using RBB_SOC_CONTROL_MODE = PMU_BIAS_CTRL2_fields_::RBB_SOC_CONTROL_MODE;
+  using RBB_LPSR_CONTROL_MODE = PMU_BIAS_CTRL2_fields_::RBB_LPSR_CONTROL_MODE;
+  using WB_EN = PMU_BIAS_CTRL2_fields_::WB_EN;
+  using WB_TST_DIG_OUT = PMU_BIAS_CTRL2_fields_::WB_TST_DIG_OUT;
+  using WB_OK = PMU_BIAS_CTRL2_fields_::WB_OK;
 };
+
 
 // PMU_REF_CTRL_REGISTER
-union PMU_REF_CTRL {
-  
-  // REF_CONTROL_MODE
-  enum class eREF_CONTROL_MODE : uint32_t {
+struct PMU_REF_CTRL_fields_ {
+
+  enum class eREF_CONTROL_MODE : std::uint32_t {
     // SW Control
     esw = 0,
     // HW Control
     ehw = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ref_ai_toggle
-    uint32_t REF_AI_TOGGLE : 1;
-    // read-only - ref_ai_busy
-    uint32_t REF_AI_BUSY : 1;
-    // read-write - REF_ENABLE
-    uint32_t REF_ENABLE : 1;
-    // read-write - REF_CONTROL_MODE
-    eREF_CONTROL_MODE REF_CONTROL_MODE : 1;
-    // read-write - en_pll_vol_ref_buffer
-    uint32_t EN_PLL_VOL_REF_BUFFER : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // ref_ai_toggle
+  using REF_AI_TOGGLE = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ref_ai_busy
+  using REF_AI_BUSY = ftl::mmio::Field<1, 1, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // REF_ENABLE
+  using REF_ENABLE = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // REF_CONTROL_MODE
+  using REF_CONTROL_MODE = ftl::mmio::Field<1, 3, eREF_CONTROL_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // en_pll_vol_ref_buffer
+  using EN_PLL_VOL_REF_BUFFER = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PMU_REF_CTRL_fields_
 
-  PMU_REF_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PMU_REF_CTRL &ref() { return *reinterpret_cast<volatile PMU_REF_CTRL*>(0x40C84570); }
+struct PMU_REF_CTRL : ftl::mmio::Register<
+    0x40C84570u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PMU_REF_CTRL_fields_::REF_AI_TOGGLE,
+    PMU_REF_CTRL_fields_::REF_AI_BUSY,
+    PMU_REF_CTRL_fields_::REF_ENABLE,
+    PMU_REF_CTRL_fields_::REF_CONTROL_MODE,
+    PMU_REF_CTRL_fields_::EN_PLL_VOL_REF_BUFFER,
+    ftl::mmio::Reserved<27, 5>> {
+  using eREF_CONTROL_MODE = PMU_REF_CTRL_fields_::eREF_CONTROL_MODE;
+  using REF_AI_TOGGLE = PMU_REF_CTRL_fields_::REF_AI_TOGGLE;
+  using REF_AI_BUSY = PMU_REF_CTRL_fields_::REF_AI_BUSY;
+  using REF_ENABLE = PMU_REF_CTRL_fields_::REF_ENABLE;
+  using REF_CONTROL_MODE = PMU_REF_CTRL_fields_::REF_CONTROL_MODE;
+  using EN_PLL_VOL_REF_BUFFER = PMU_REF_CTRL_fields_::EN_PLL_VOL_REF_BUFFER;
 };
+
 
 // PMU_POWER_DETECT_CTRL_REGISTER
-union PMU_POWER_DETECT_CTRL {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 8;
-    // read-write - ckgb_lpsr1p0
-    uint32_t CKGB_LPSR1P0 : 1;
-    uint32_t _reserved_1 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PMU_POWER_DETECT_CTRL_fields_ {
+  // ckgb_lpsr1p0
+  using CKGB_LPSR1P0 = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PMU_POWER_DETECT_CTRL_fields_
 
-  PMU_POWER_DETECT_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PMU_POWER_DETECT_CTRL &ref() { return *reinterpret_cast<volatile PMU_POWER_DETECT_CTRL*>(0x40C84580); }
+struct PMU_POWER_DETECT_CTRL : ftl::mmio::Register<
+    0x40C84580u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<8, 0>,
+    PMU_POWER_DETECT_CTRL_fields_::CKGB_LPSR1P0,
+    ftl::mmio::Reserved<23, 9>> {
+  using CKGB_LPSR1P0 = PMU_POWER_DETECT_CTRL_fields_::CKGB_LPSR1P0;
 };
+
 
 // LDO_PLL_ENABLE_SP_REGISTER
-union LDO_PLL_ENABLE_SP {
-  
-  // ON_OFF_SETPOINT0
-  enum class eON_OFF_SETPOINT0 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT1
-  enum class eON_OFF_SETPOINT1 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT2
-  enum class eON_OFF_SETPOINT2 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT3
-  enum class eON_OFF_SETPOINT3 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT4
-  enum class eON_OFF_SETPOINT4 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT5
-  enum class eON_OFF_SETPOINT5 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT6
-  enum class eON_OFF_SETPOINT6 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT7
-  enum class eON_OFF_SETPOINT7 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT8
-  enum class eON_OFF_SETPOINT8 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT9
-  enum class eON_OFF_SETPOINT9 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT10
-  enum class eON_OFF_SETPOINT10 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT11
-  enum class eON_OFF_SETPOINT11 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT12
-  enum class eON_OFF_SETPOINT12 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT13
-  enum class eON_OFF_SETPOINT13 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT14
-  enum class eON_OFF_SETPOINT14 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT15
-  enum class eON_OFF_SETPOINT15 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ON_OFF_SETPOINT0
-    eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
-    // read-write - ON_OFF_SETPOINT1
-    eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
-    // read-write - ON_OFF_SETPOINT2
-    eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
-    // read-write - ON_OFF_SETPOINT3
-    eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
-    // read-write - ON_OFF_SETPOINT4
-    eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
-    // read-write - ON_OFF_SETPOINT5
-    eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
-    // read-write - ON_OFF_SETPOINT6
-    eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
-    // read-write - ON_OFF_SETPOINT7
-    eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
-    // read-write - ON_OFF_SETPOINT8
-    eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
-    // read-write - ON_OFF_SETPOINT9
-    eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
-    // read-write - ON_OFF_SETPOINT10
-    eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
-    // read-write - ON_OFF_SETPOINT11
-    eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
-    // read-write - ON_OFF_SETPOINT12
-    eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
-    // read-write - ON_OFF_SETPOINT13
-    eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
-    // read-write - ON_OFF_SETPOINT14
-    eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
-    // read-write - ON_OFF_SETPOINT15
-    eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_PLL_ENABLE_SP_fields_ {
 
-  LDO_PLL_ENABLE_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_PLL_ENABLE_SP &ref() { return *reinterpret_cast<volatile LDO_PLL_ENABLE_SP*>(0x40C84600); }
+  enum class eON_OFF_SETPOINT0 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT1 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT2 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT3 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT4 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT5 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT6 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT7 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT8 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT9 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT10 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT11 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT12 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT13 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT14 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT15 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+  // ON_OFF_SETPOINT0
+  using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT1
+  using ON_OFF_SETPOINT1 = ftl::mmio::Field<1, 1, eON_OFF_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT2
+  using ON_OFF_SETPOINT2 = ftl::mmio::Field<1, 2, eON_OFF_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT3
+  using ON_OFF_SETPOINT3 = ftl::mmio::Field<1, 3, eON_OFF_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT4
+  using ON_OFF_SETPOINT4 = ftl::mmio::Field<1, 4, eON_OFF_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT5
+  using ON_OFF_SETPOINT5 = ftl::mmio::Field<1, 5, eON_OFF_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT6
+  using ON_OFF_SETPOINT6 = ftl::mmio::Field<1, 6, eON_OFF_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT7
+  using ON_OFF_SETPOINT7 = ftl::mmio::Field<1, 7, eON_OFF_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT8
+  using ON_OFF_SETPOINT8 = ftl::mmio::Field<1, 8, eON_OFF_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT9
+  using ON_OFF_SETPOINT9 = ftl::mmio::Field<1, 9, eON_OFF_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT10
+  using ON_OFF_SETPOINT10 = ftl::mmio::Field<1, 10, eON_OFF_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT11
+  using ON_OFF_SETPOINT11 = ftl::mmio::Field<1, 11, eON_OFF_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT12
+  using ON_OFF_SETPOINT12 = ftl::mmio::Field<1, 12, eON_OFF_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT13
+  using ON_OFF_SETPOINT13 = ftl::mmio::Field<1, 13, eON_OFF_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT14
+  using ON_OFF_SETPOINT14 = ftl::mmio::Field<1, 14, eON_OFF_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT15
+  using ON_OFF_SETPOINT15 = ftl::mmio::Field<1, 15, eON_OFF_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_PLL_ENABLE_SP_fields_
+
+struct LDO_PLL_ENABLE_SP : ftl::mmio::Register<
+    0x40C84600u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT0,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT1,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT2,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT3,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT4,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT5,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT6,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT7,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT8,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT9,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT10,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT11,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT12,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT13,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT14,
+    LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eON_OFF_SETPOINT0 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT0;
+  using eON_OFF_SETPOINT1 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT1;
+  using eON_OFF_SETPOINT2 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT2;
+  using eON_OFF_SETPOINT3 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT3;
+  using eON_OFF_SETPOINT4 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT4;
+  using eON_OFF_SETPOINT5 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT5;
+  using eON_OFF_SETPOINT6 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT6;
+  using eON_OFF_SETPOINT7 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT7;
+  using eON_OFF_SETPOINT8 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT8;
+  using eON_OFF_SETPOINT9 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT9;
+  using eON_OFF_SETPOINT10 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT10;
+  using eON_OFF_SETPOINT11 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT11;
+  using eON_OFF_SETPOINT12 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT12;
+  using eON_OFF_SETPOINT13 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT13;
+  using eON_OFF_SETPOINT14 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT14;
+  using eON_OFF_SETPOINT15 = LDO_PLL_ENABLE_SP_fields_::eON_OFF_SETPOINT15;
+  using ON_OFF_SETPOINT0 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT0;
+  using ON_OFF_SETPOINT1 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT1;
+  using ON_OFF_SETPOINT2 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT2;
+  using ON_OFF_SETPOINT3 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT3;
+  using ON_OFF_SETPOINT4 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT4;
+  using ON_OFF_SETPOINT5 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT5;
+  using ON_OFF_SETPOINT6 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT6;
+  using ON_OFF_SETPOINT7 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT7;
+  using ON_OFF_SETPOINT8 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT8;
+  using ON_OFF_SETPOINT9 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT9;
+  using ON_OFF_SETPOINT10 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT10;
+  using ON_OFF_SETPOINT11 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT11;
+  using ON_OFF_SETPOINT12 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT12;
+  using ON_OFF_SETPOINT13 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT13;
+  using ON_OFF_SETPOINT14 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT14;
+  using ON_OFF_SETPOINT15 = LDO_PLL_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
+
 
 // LDO_LPSR_ANA_ENABLE_SP_REGISTER
-union LDO_LPSR_ANA_ENABLE_SP {
-  
-  // ON_OFF_SETPOINT0
-  enum class eON_OFF_SETPOINT0 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT1
-  enum class eON_OFF_SETPOINT1 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT2
-  enum class eON_OFF_SETPOINT2 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT3
-  enum class eON_OFF_SETPOINT3 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT4
-  enum class eON_OFF_SETPOINT4 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT5
-  enum class eON_OFF_SETPOINT5 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT6
-  enum class eON_OFF_SETPOINT6 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT7
-  enum class eON_OFF_SETPOINT7 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT8
-  enum class eON_OFF_SETPOINT8 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT9
-  enum class eON_OFF_SETPOINT9 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT10
-  enum class eON_OFF_SETPOINT10 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT11
-  enum class eON_OFF_SETPOINT11 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT12
-  enum class eON_OFF_SETPOINT12 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT13
-  enum class eON_OFF_SETPOINT13 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT14
-  enum class eON_OFF_SETPOINT14 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT15
-  enum class eON_OFF_SETPOINT15 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ON_OFF_SETPOINT0
-    eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
-    // read-write - ON_OFF_SETPOINT1
-    eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
-    // read-write - ON_OFF_SETPOINT2
-    eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
-    // read-write - ON_OFF_SETPOINT3
-    eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
-    // read-write - ON_OFF_SETPOINT4
-    eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
-    // read-write - ON_OFF_SETPOINT5
-    eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
-    // read-write - ON_OFF_SETPOINT6
-    eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
-    // read-write - ON_OFF_SETPOINT7
-    eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
-    // read-write - ON_OFF_SETPOINT8
-    eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
-    // read-write - ON_OFF_SETPOINT9
-    eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
-    // read-write - ON_OFF_SETPOINT10
-    eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
-    // read-write - ON_OFF_SETPOINT11
-    eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
-    // read-write - ON_OFF_SETPOINT12
-    eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
-    // read-write - ON_OFF_SETPOINT13
-    eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
-    // read-write - ON_OFF_SETPOINT14
-    eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
-    // read-write - ON_OFF_SETPOINT15
-    eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_ANA_ENABLE_SP_fields_ {
 
-  LDO_LPSR_ANA_ENABLE_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_ANA_ENABLE_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_ENABLE_SP*>(0x40C84610); }
+  enum class eON_OFF_SETPOINT0 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT1 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT2 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT3 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT4 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT5 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT6 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT7 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT8 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT9 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT10 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT11 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT12 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT13 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT14 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT15 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+  // ON_OFF_SETPOINT0
+  using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT1
+  using ON_OFF_SETPOINT1 = ftl::mmio::Field<1, 1, eON_OFF_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT2
+  using ON_OFF_SETPOINT2 = ftl::mmio::Field<1, 2, eON_OFF_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT3
+  using ON_OFF_SETPOINT3 = ftl::mmio::Field<1, 3, eON_OFF_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT4
+  using ON_OFF_SETPOINT4 = ftl::mmio::Field<1, 4, eON_OFF_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT5
+  using ON_OFF_SETPOINT5 = ftl::mmio::Field<1, 5, eON_OFF_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT6
+  using ON_OFF_SETPOINT6 = ftl::mmio::Field<1, 6, eON_OFF_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT7
+  using ON_OFF_SETPOINT7 = ftl::mmio::Field<1, 7, eON_OFF_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT8
+  using ON_OFF_SETPOINT8 = ftl::mmio::Field<1, 8, eON_OFF_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT9
+  using ON_OFF_SETPOINT9 = ftl::mmio::Field<1, 9, eON_OFF_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT10
+  using ON_OFF_SETPOINT10 = ftl::mmio::Field<1, 10, eON_OFF_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT11
+  using ON_OFF_SETPOINT11 = ftl::mmio::Field<1, 11, eON_OFF_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT12
+  using ON_OFF_SETPOINT12 = ftl::mmio::Field<1, 12, eON_OFF_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT13
+  using ON_OFF_SETPOINT13 = ftl::mmio::Field<1, 13, eON_OFF_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT14
+  using ON_OFF_SETPOINT14 = ftl::mmio::Field<1, 14, eON_OFF_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT15
+  using ON_OFF_SETPOINT15 = ftl::mmio::Field<1, 15, eON_OFF_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_ANA_ENABLE_SP_fields_
+
+struct LDO_LPSR_ANA_ENABLE_SP : ftl::mmio::Register<
+    0x40C84610u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT0,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT1,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT2,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT3,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT4,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT5,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT6,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT7,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT8,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT9,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT10,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT11,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT12,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT13,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT14,
+    LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eON_OFF_SETPOINT0 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT0;
+  using eON_OFF_SETPOINT1 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT1;
+  using eON_OFF_SETPOINT2 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT2;
+  using eON_OFF_SETPOINT3 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT3;
+  using eON_OFF_SETPOINT4 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT4;
+  using eON_OFF_SETPOINT5 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT5;
+  using eON_OFF_SETPOINT6 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT6;
+  using eON_OFF_SETPOINT7 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT7;
+  using eON_OFF_SETPOINT8 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT8;
+  using eON_OFF_SETPOINT9 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT9;
+  using eON_OFF_SETPOINT10 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT10;
+  using eON_OFF_SETPOINT11 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT11;
+  using eON_OFF_SETPOINT12 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT12;
+  using eON_OFF_SETPOINT13 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT13;
+  using eON_OFF_SETPOINT14 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT14;
+  using eON_OFF_SETPOINT15 = LDO_LPSR_ANA_ENABLE_SP_fields_::eON_OFF_SETPOINT15;
+  using ON_OFF_SETPOINT0 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT0;
+  using ON_OFF_SETPOINT1 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT1;
+  using ON_OFF_SETPOINT2 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT2;
+  using ON_OFF_SETPOINT3 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT3;
+  using ON_OFF_SETPOINT4 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT4;
+  using ON_OFF_SETPOINT5 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT5;
+  using ON_OFF_SETPOINT6 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT6;
+  using ON_OFF_SETPOINT7 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT7;
+  using ON_OFF_SETPOINT8 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT8;
+  using ON_OFF_SETPOINT9 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT9;
+  using ON_OFF_SETPOINT10 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT10;
+  using ON_OFF_SETPOINT11 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT11;
+  using ON_OFF_SETPOINT12 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT12;
+  using ON_OFF_SETPOINT13 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT13;
+  using ON_OFF_SETPOINT14 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT14;
+  using ON_OFF_SETPOINT15 = LDO_LPSR_ANA_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
+
 
 // LDO_LPSR_ANA_LP_MODE_SP_REGISTER
-union LDO_LPSR_ANA_LP_MODE_SP {
-  
-  // LP_MODE_SETPOINT0
-  enum class eLP_MODE_SETPOINT0 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT1
-  enum class eLP_MODE_SETPOINT1 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT2
-  enum class eLP_MODE_SETPONIT2 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT3
-  enum class eLP_MODE_SETPONIT3 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT4
-  enum class eLP_MODE_SETPONIT4 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT5
-  enum class eLP_MODE_SETPONIT5 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT6
-  enum class eLP_MODE_SETPONIT6 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT7
-  enum class eLP_MODE_SETPONIT7 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT8
-  enum class eLP_MODE_SETPONIT8 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT9
-  enum class eLP_MODE_SETPONIT9 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT10
-  enum class eLP_MODE_SETPONIT10 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT11
-  enum class eLP_MODE_SETPONIT11 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT12
-  enum class eLP_MODE_SETPONIT12 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT13
-  enum class eLP_MODE_SETPONIT13 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT14
-  enum class eLP_MODE_SETPONIT14 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT15
-  enum class eLP_MODE_SETPONIT15 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - LP_MODE_SETPOINT0
-    eLP_MODE_SETPOINT0 LP_MODE_SETPOINT0 : 1;
-    // read-write - LP_MODE_SETPOINT1
-    eLP_MODE_SETPOINT1 LP_MODE_SETPOINT1 : 1;
-    // read-write - LP_MODE_SETPOINT2
-    eLP_MODE_SETPONIT2 LP_MODE_SETPONIT2 : 1;
-    // read-write - LP_MODE_SETPOINT3
-    eLP_MODE_SETPONIT3 LP_MODE_SETPONIT3 : 1;
-    // read-write - LP_MODE_SETPOINT4
-    eLP_MODE_SETPONIT4 LP_MODE_SETPONIT4 : 1;
-    // read-write - LP_MODE_SETPOINT5
-    eLP_MODE_SETPONIT5 LP_MODE_SETPONIT5 : 1;
-    // read-write - LP_MODE_SETPOINT6
-    eLP_MODE_SETPONIT6 LP_MODE_SETPONIT6 : 1;
-    // read-write - LP_MODE_SETPOINT7
-    eLP_MODE_SETPONIT7 LP_MODE_SETPONIT7 : 1;
-    // read-write - LP_MODE_SETPOINT8
-    eLP_MODE_SETPONIT8 LP_MODE_SETPONIT8 : 1;
-    // read-write - LP_MODE_SETPOINT9
-    eLP_MODE_SETPONIT9 LP_MODE_SETPONIT9 : 1;
-    // read-write - LP_MODE_SETPOINT10
-    eLP_MODE_SETPONIT10 LP_MODE_SETPONIT10 : 1;
-    // read-write - LP_MODE_SETPOINT11
-    eLP_MODE_SETPONIT11 LP_MODE_SETPONIT11 : 1;
-    // read-write - LP_MODE_SETPOINT12
-    eLP_MODE_SETPONIT12 LP_MODE_SETPONIT12 : 1;
-    // read-write - LP_MODE_SETPOINT13
-    eLP_MODE_SETPONIT13 LP_MODE_SETPONIT13 : 1;
-    // read-write - LP_MODE_SETPOINT14
-    eLP_MODE_SETPONIT14 LP_MODE_SETPONIT14 : 1;
-    // read-write - LP_MODE_SETPOINT15
-    eLP_MODE_SETPONIT15 LP_MODE_SETPONIT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_ANA_LP_MODE_SP_fields_ {
 
-  LDO_LPSR_ANA_LP_MODE_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_ANA_LP_MODE_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_LP_MODE_SP*>(0x40C84620); }
+  enum class eLP_MODE_SETPOINT0 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT1 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT2 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT3 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT4 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT5 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT6 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT7 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT8 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT9 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT10 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT11 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT12 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT13 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT14 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPONIT15 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+  // LP_MODE_SETPOINT0
+  using LP_MODE_SETPOINT0 = ftl::mmio::Field<1, 0, eLP_MODE_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT1
+  using LP_MODE_SETPOINT1 = ftl::mmio::Field<1, 1, eLP_MODE_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT2
+  using LP_MODE_SETPONIT2 = ftl::mmio::Field<1, 2, eLP_MODE_SETPONIT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT3
+  using LP_MODE_SETPONIT3 = ftl::mmio::Field<1, 3, eLP_MODE_SETPONIT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT4
+  using LP_MODE_SETPONIT4 = ftl::mmio::Field<1, 4, eLP_MODE_SETPONIT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT5
+  using LP_MODE_SETPONIT5 = ftl::mmio::Field<1, 5, eLP_MODE_SETPONIT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT6
+  using LP_MODE_SETPONIT6 = ftl::mmio::Field<1, 6, eLP_MODE_SETPONIT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT7
+  using LP_MODE_SETPONIT7 = ftl::mmio::Field<1, 7, eLP_MODE_SETPONIT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT8
+  using LP_MODE_SETPONIT8 = ftl::mmio::Field<1, 8, eLP_MODE_SETPONIT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT9
+  using LP_MODE_SETPONIT9 = ftl::mmio::Field<1, 9, eLP_MODE_SETPONIT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT10
+  using LP_MODE_SETPONIT10 = ftl::mmio::Field<1, 10, eLP_MODE_SETPONIT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT11
+  using LP_MODE_SETPONIT11 = ftl::mmio::Field<1, 11, eLP_MODE_SETPONIT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT12
+  using LP_MODE_SETPONIT12 = ftl::mmio::Field<1, 12, eLP_MODE_SETPONIT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT13
+  using LP_MODE_SETPONIT13 = ftl::mmio::Field<1, 13, eLP_MODE_SETPONIT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT14
+  using LP_MODE_SETPONIT14 = ftl::mmio::Field<1, 14, eLP_MODE_SETPONIT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT15
+  using LP_MODE_SETPONIT15 = ftl::mmio::Field<1, 15, eLP_MODE_SETPONIT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_ANA_LP_MODE_SP_fields_
+
+struct LDO_LPSR_ANA_LP_MODE_SP : ftl::mmio::Register<
+    0x40C84620u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPOINT0,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPOINT1,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT2,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT3,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT4,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT5,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT6,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT7,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT8,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT9,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT10,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT11,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT12,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT13,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT14,
+    LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eLP_MODE_SETPOINT0 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPOINT0;
+  using eLP_MODE_SETPOINT1 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPOINT1;
+  using eLP_MODE_SETPONIT2 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT2;
+  using eLP_MODE_SETPONIT3 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT3;
+  using eLP_MODE_SETPONIT4 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT4;
+  using eLP_MODE_SETPONIT5 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT5;
+  using eLP_MODE_SETPONIT6 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT6;
+  using eLP_MODE_SETPONIT7 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT7;
+  using eLP_MODE_SETPONIT8 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT8;
+  using eLP_MODE_SETPONIT9 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT9;
+  using eLP_MODE_SETPONIT10 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT10;
+  using eLP_MODE_SETPONIT11 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT11;
+  using eLP_MODE_SETPONIT12 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT12;
+  using eLP_MODE_SETPONIT13 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT13;
+  using eLP_MODE_SETPONIT14 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT14;
+  using eLP_MODE_SETPONIT15 = LDO_LPSR_ANA_LP_MODE_SP_fields_::eLP_MODE_SETPONIT15;
+  using LP_MODE_SETPOINT0 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPOINT0;
+  using LP_MODE_SETPOINT1 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPOINT1;
+  using LP_MODE_SETPONIT2 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT2;
+  using LP_MODE_SETPONIT3 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT3;
+  using LP_MODE_SETPONIT4 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT4;
+  using LP_MODE_SETPONIT5 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT5;
+  using LP_MODE_SETPONIT6 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT6;
+  using LP_MODE_SETPONIT7 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT7;
+  using LP_MODE_SETPONIT8 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT8;
+  using LP_MODE_SETPONIT9 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT9;
+  using LP_MODE_SETPONIT10 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT10;
+  using LP_MODE_SETPONIT11 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT11;
+  using LP_MODE_SETPONIT12 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT12;
+  using LP_MODE_SETPONIT13 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT13;
+  using LP_MODE_SETPONIT14 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT14;
+  using LP_MODE_SETPONIT15 = LDO_LPSR_ANA_LP_MODE_SP_fields_::LP_MODE_SETPONIT15;
 };
+
 
 // LDO_LPSR_ANA_TRACKING_EN_SP_REGISTER
-union LDO_LPSR_ANA_TRACKING_EN_SP {
-  
-  // TRACKING_EN_SETPOINT0
-  enum class eTRACKING_EN_SETPOINT0 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT1
-  enum class eTRACKING_EN_SETPOINT1 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT2
-  enum class eTRACKING_EN_SETPOINT2 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT3
-  enum class eTRACKING_EN_SETPOINT3 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT4
-  enum class eTRACKING_EN_SETPOINT4 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT5
-  enum class eTRACKING_EN_SETPOINT5 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT6
-  enum class eTRACKING_EN_SETPOINT6 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT7
-  enum class eTRACKING_EN_SETPOINT7 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT8
-  enum class eTRACKING_EN_SETPOINT8 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT9
-  enum class eTRACKING_EN_SETPOINT9 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT10
-  enum class eTRACKING_EN_SETPOINT10 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT11
-  enum class eTRACKING_EN_SETPOINT11 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT12
-  enum class eTRACKING_EN_SETPOINT12 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT13
-  enum class eTRACKING_EN_SETPOINT13 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT14
-  enum class eTRACKING_EN_SETPOINT14 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT15
-  enum class eTRACKING_EN_SETPOINT15 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - TRACKING_EN_SETPOINT0
-    eTRACKING_EN_SETPOINT0 TRACKING_EN_SETPOINT0 : 1;
-    // read-write - TRACKING_EN_SETPOINT1
-    eTRACKING_EN_SETPOINT1 TRACKING_EN_SETPOINT1 : 1;
-    // read-write - TRACKING_EN_SETPOINT2
-    eTRACKING_EN_SETPOINT2 TRACKING_EN_SETPOINT2 : 1;
-    // read-write - TRACKING_EN_SETPOINT3
-    eTRACKING_EN_SETPOINT3 TRACKING_EN_SETPOINT3 : 1;
-    // read-write - TRACKING_EN_SETPOINT4
-    eTRACKING_EN_SETPOINT4 TRACKING_EN_SETPOINT4 : 1;
-    // read-write - TRACKING_EN_SETPOINT5
-    eTRACKING_EN_SETPOINT5 TRACKING_EN_SETPOINT5 : 1;
-    // read-write - TRACKING_EN_SETPOINT6
-    eTRACKING_EN_SETPOINT6 TRACKING_EN_SETPOINT6 : 1;
-    // read-write - TRACKING_EN_SETPOINT7
-    eTRACKING_EN_SETPOINT7 TRACKING_EN_SETPOINT7 : 1;
-    // read-write - TRACKING_EN_SETPOINT8
-    eTRACKING_EN_SETPOINT8 TRACKING_EN_SETPOINT8 : 1;
-    // read-write - TRACKING_EN_SETPOINT9
-    eTRACKING_EN_SETPOINT9 TRACKING_EN_SETPOINT9 : 1;
-    // read-write - TRACKING_EN_SETPOINT10
-    eTRACKING_EN_SETPOINT10 TRACKING_EN_SETPOINT10 : 1;
-    // read-write - TRACKING_EN_SETPOINT11
-    eTRACKING_EN_SETPOINT11 TRACKING_EN_SETPOINT11 : 1;
-    // read-write - TRACKING_EN_SETPOINT12
-    eTRACKING_EN_SETPOINT12 TRACKING_EN_SETPOINT12 : 1;
-    // read-write - TRACKING_EN_SETPOINT13
-    eTRACKING_EN_SETPOINT13 TRACKING_EN_SETPOINT13 : 1;
-    // read-write - TRACKING_EN_SETPOINT14
-    eTRACKING_EN_SETPOINT14 TRACKING_EN_SETPOINT14 : 1;
-    // read-write - TRACKING_EN_SETPOINT15
-    eTRACKING_EN_SETPOINT15 TRACKING_EN_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_ANA_TRACKING_EN_SP_fields_ {
 
-  LDO_LPSR_ANA_TRACKING_EN_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_ANA_TRACKING_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_TRACKING_EN_SP*>(0x40C84630); }
+  enum class eTRACKING_EN_SETPOINT0 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT1 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT2 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT3 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT4 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT5 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT6 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT7 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT8 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT9 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT10 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT11 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT12 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT13 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT14 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT15 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+  // TRACKING_EN_SETPOINT0
+  using TRACKING_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eTRACKING_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT1
+  using TRACKING_EN_SETPOINT1 = ftl::mmio::Field<1, 1, eTRACKING_EN_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT2
+  using TRACKING_EN_SETPOINT2 = ftl::mmio::Field<1, 2, eTRACKING_EN_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT3
+  using TRACKING_EN_SETPOINT3 = ftl::mmio::Field<1, 3, eTRACKING_EN_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT4
+  using TRACKING_EN_SETPOINT4 = ftl::mmio::Field<1, 4, eTRACKING_EN_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT5
+  using TRACKING_EN_SETPOINT5 = ftl::mmio::Field<1, 5, eTRACKING_EN_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT6
+  using TRACKING_EN_SETPOINT6 = ftl::mmio::Field<1, 6, eTRACKING_EN_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT7
+  using TRACKING_EN_SETPOINT7 = ftl::mmio::Field<1, 7, eTRACKING_EN_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT8
+  using TRACKING_EN_SETPOINT8 = ftl::mmio::Field<1, 8, eTRACKING_EN_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT9
+  using TRACKING_EN_SETPOINT9 = ftl::mmio::Field<1, 9, eTRACKING_EN_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT10
+  using TRACKING_EN_SETPOINT10 = ftl::mmio::Field<1, 10, eTRACKING_EN_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT11
+  using TRACKING_EN_SETPOINT11 = ftl::mmio::Field<1, 11, eTRACKING_EN_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT12
+  using TRACKING_EN_SETPOINT12 = ftl::mmio::Field<1, 12, eTRACKING_EN_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT13
+  using TRACKING_EN_SETPOINT13 = ftl::mmio::Field<1, 13, eTRACKING_EN_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT14
+  using TRACKING_EN_SETPOINT14 = ftl::mmio::Field<1, 14, eTRACKING_EN_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT15
+  using TRACKING_EN_SETPOINT15 = ftl::mmio::Field<1, 15, eTRACKING_EN_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_ANA_TRACKING_EN_SP_fields_
+
+struct LDO_LPSR_ANA_TRACKING_EN_SP : ftl::mmio::Register<
+    0x40C84630u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT0,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT1,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT2,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT3,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT4,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT5,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT6,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT7,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT8,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT9,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT10,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT11,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT12,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT13,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT14,
+    LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eTRACKING_EN_SETPOINT0 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT0;
+  using eTRACKING_EN_SETPOINT1 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT1;
+  using eTRACKING_EN_SETPOINT2 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT2;
+  using eTRACKING_EN_SETPOINT3 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT3;
+  using eTRACKING_EN_SETPOINT4 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT4;
+  using eTRACKING_EN_SETPOINT5 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT5;
+  using eTRACKING_EN_SETPOINT6 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT6;
+  using eTRACKING_EN_SETPOINT7 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT7;
+  using eTRACKING_EN_SETPOINT8 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT8;
+  using eTRACKING_EN_SETPOINT9 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT9;
+  using eTRACKING_EN_SETPOINT10 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT10;
+  using eTRACKING_EN_SETPOINT11 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT11;
+  using eTRACKING_EN_SETPOINT12 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT12;
+  using eTRACKING_EN_SETPOINT13 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT13;
+  using eTRACKING_EN_SETPOINT14 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT14;
+  using eTRACKING_EN_SETPOINT15 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT15;
+  using TRACKING_EN_SETPOINT0 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT0;
+  using TRACKING_EN_SETPOINT1 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT1;
+  using TRACKING_EN_SETPOINT2 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT2;
+  using TRACKING_EN_SETPOINT3 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT3;
+  using TRACKING_EN_SETPOINT4 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT4;
+  using TRACKING_EN_SETPOINT5 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT5;
+  using TRACKING_EN_SETPOINT6 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT6;
+  using TRACKING_EN_SETPOINT7 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT7;
+  using TRACKING_EN_SETPOINT8 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT8;
+  using TRACKING_EN_SETPOINT9 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT9;
+  using TRACKING_EN_SETPOINT10 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT10;
+  using TRACKING_EN_SETPOINT11 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT11;
+  using TRACKING_EN_SETPOINT12 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT12;
+  using TRACKING_EN_SETPOINT13 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT13;
+  using TRACKING_EN_SETPOINT14 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT14;
+  using TRACKING_EN_SETPOINT15 = LDO_LPSR_ANA_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT15;
 };
+
 
 // LDO_LPSR_ANA_BYPASS_EN_SP_REGISTER
-union LDO_LPSR_ANA_BYPASS_EN_SP {
-  
-  // BYPASS_EN_SETPOINT0
-  enum class eBYPASS_EN_SETPOINT0 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT1
-  enum class eBYPASS_EN_SETPOINT1 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT2
-  enum class eBYPASS_EN_SETPOINT2 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT3
-  enum class eBYPASS_EN_SETPOINT3 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT4
-  enum class eBYPASS_EN_SETPOINT4 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT5
-  enum class eBYPASS_EN_SETPOINT5 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT6
-  enum class eBYPASS_EN_SETPOINT6 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT7
-  enum class eBYPASS_EN_SETPOINT7 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT
-  enum class eBYPASS_EN_SETPOINT8 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT9
-  enum class eBYPASS_EN_SETPOINT9 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT10
-  enum class eBYPASS_EN_SETPOINT10 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT11
-  enum class eBYPASS_EN_SETPOINT11 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT12
-  enum class eBYPASS_EN_SETPOINT12 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT13
-  enum class eBYPASS_EN_SETPOINT13 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT14
-  enum class eBYPASS_EN_SETPOINT14 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT15
-  enum class eBYPASS_EN_SETPOINT15 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - BYPASS_EN_SETPOINT0
-    eBYPASS_EN_SETPOINT0 BYPASS_EN_SETPOINT0 : 1;
-    // read-write - BYPASS_EN_SETPOINT1
-    eBYPASS_EN_SETPOINT1 BYPASS_EN_SETPOINT1 : 1;
-    // read-write - BYPASS_EN_SETPOINT2
-    eBYPASS_EN_SETPOINT2 BYPASS_EN_SETPOINT2 : 1;
-    // read-write - BYPASS_EN_SETPOINT3
-    eBYPASS_EN_SETPOINT3 BYPASS_EN_SETPOINT3 : 1;
-    // read-write - BYPASS_EN_SETPOINT4
-    eBYPASS_EN_SETPOINT4 BYPASS_EN_SETPOINT4 : 1;
-    // read-write - BYPASS_EN_SETPOINT5
-    eBYPASS_EN_SETPOINT5 BYPASS_EN_SETPOINT5 : 1;
-    // read-write - BYPASS_EN_SETPOINT6
-    eBYPASS_EN_SETPOINT6 BYPASS_EN_SETPOINT6 : 1;
-    // read-write - BYPASS_EN_SETPOINT7
-    eBYPASS_EN_SETPOINT7 BYPASS_EN_SETPOINT7 : 1;
-    // read-write - BYPASS_EN_SETPOINT
-    eBYPASS_EN_SETPOINT8 BYPASS_EN_SETPOINT8 : 1;
-    // read-write - BYPASS_EN_SETPOINT9
-    eBYPASS_EN_SETPOINT9 BYPASS_EN_SETPOINT9 : 1;
-    // read-write - BYPASS_EN_SETPOINT10
-    eBYPASS_EN_SETPOINT10 BYPASS_EN_SETPOINT10 : 1;
-    // read-write - BYPASS_EN_SETPOINT11
-    eBYPASS_EN_SETPOINT11 BYPASS_EN_SETPOINT11 : 1;
-    // read-write - BYPASS_EN_SETPOINT12
-    eBYPASS_EN_SETPOINT12 BYPASS_EN_SETPOINT12 : 1;
-    // read-write - BYPASS_EN_SETPOINT13
-    eBYPASS_EN_SETPOINT13 BYPASS_EN_SETPOINT13 : 1;
-    // read-write - BYPASS_EN_SETPOINT14
-    eBYPASS_EN_SETPOINT14 BYPASS_EN_SETPOINT14 : 1;
-    // read-write - BYPASS_EN_SETPOINT15
-    eBYPASS_EN_SETPOINT15 BYPASS_EN_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_ANA_BYPASS_EN_SP_fields_ {
 
-  LDO_LPSR_ANA_BYPASS_EN_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_ANA_BYPASS_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_BYPASS_EN_SP*>(0x40C84640); }
+  enum class eBYPASS_EN_SETPOINT0 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT1 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT2 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT3 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT4 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT5 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT6 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT7 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT8 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT9 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT10 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT11 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT12 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT13 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT14 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT15 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+  // BYPASS_EN_SETPOINT0
+  using BYPASS_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eBYPASS_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT1
+  using BYPASS_EN_SETPOINT1 = ftl::mmio::Field<1, 1, eBYPASS_EN_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT2
+  using BYPASS_EN_SETPOINT2 = ftl::mmio::Field<1, 2, eBYPASS_EN_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT3
+  using BYPASS_EN_SETPOINT3 = ftl::mmio::Field<1, 3, eBYPASS_EN_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT4
+  using BYPASS_EN_SETPOINT4 = ftl::mmio::Field<1, 4, eBYPASS_EN_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT5
+  using BYPASS_EN_SETPOINT5 = ftl::mmio::Field<1, 5, eBYPASS_EN_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT6
+  using BYPASS_EN_SETPOINT6 = ftl::mmio::Field<1, 6, eBYPASS_EN_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT7
+  using BYPASS_EN_SETPOINT7 = ftl::mmio::Field<1, 7, eBYPASS_EN_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT
+  using BYPASS_EN_SETPOINT8 = ftl::mmio::Field<1, 8, eBYPASS_EN_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT9
+  using BYPASS_EN_SETPOINT9 = ftl::mmio::Field<1, 9, eBYPASS_EN_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT10
+  using BYPASS_EN_SETPOINT10 = ftl::mmio::Field<1, 10, eBYPASS_EN_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT11
+  using BYPASS_EN_SETPOINT11 = ftl::mmio::Field<1, 11, eBYPASS_EN_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT12
+  using BYPASS_EN_SETPOINT12 = ftl::mmio::Field<1, 12, eBYPASS_EN_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT13
+  using BYPASS_EN_SETPOINT13 = ftl::mmio::Field<1, 13, eBYPASS_EN_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT14
+  using BYPASS_EN_SETPOINT14 = ftl::mmio::Field<1, 14, eBYPASS_EN_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT15
+  using BYPASS_EN_SETPOINT15 = ftl::mmio::Field<1, 15, eBYPASS_EN_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_ANA_BYPASS_EN_SP_fields_
+
+struct LDO_LPSR_ANA_BYPASS_EN_SP : ftl::mmio::Register<
+    0x40C84640u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT0,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT1,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT2,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT3,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT4,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT5,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT6,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT7,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT8,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT9,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT10,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT11,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT12,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT13,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT14,
+    LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eBYPASS_EN_SETPOINT0 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT0;
+  using eBYPASS_EN_SETPOINT1 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT1;
+  using eBYPASS_EN_SETPOINT2 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT2;
+  using eBYPASS_EN_SETPOINT3 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT3;
+  using eBYPASS_EN_SETPOINT4 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT4;
+  using eBYPASS_EN_SETPOINT5 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT5;
+  using eBYPASS_EN_SETPOINT6 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT6;
+  using eBYPASS_EN_SETPOINT7 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT7;
+  using eBYPASS_EN_SETPOINT8 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT8;
+  using eBYPASS_EN_SETPOINT9 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT9;
+  using eBYPASS_EN_SETPOINT10 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT10;
+  using eBYPASS_EN_SETPOINT11 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT11;
+  using eBYPASS_EN_SETPOINT12 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT12;
+  using eBYPASS_EN_SETPOINT13 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT13;
+  using eBYPASS_EN_SETPOINT14 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT14;
+  using eBYPASS_EN_SETPOINT15 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT15;
+  using BYPASS_EN_SETPOINT0 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT0;
+  using BYPASS_EN_SETPOINT1 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT1;
+  using BYPASS_EN_SETPOINT2 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT2;
+  using BYPASS_EN_SETPOINT3 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT3;
+  using BYPASS_EN_SETPOINT4 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT4;
+  using BYPASS_EN_SETPOINT5 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT5;
+  using BYPASS_EN_SETPOINT6 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT6;
+  using BYPASS_EN_SETPOINT7 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT7;
+  using BYPASS_EN_SETPOINT8 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT8;
+  using BYPASS_EN_SETPOINT9 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT9;
+  using BYPASS_EN_SETPOINT10 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT10;
+  using BYPASS_EN_SETPOINT11 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT11;
+  using BYPASS_EN_SETPOINT12 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT12;
+  using BYPASS_EN_SETPOINT13 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT13;
+  using BYPASS_EN_SETPOINT14 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT14;
+  using BYPASS_EN_SETPOINT15 = LDO_LPSR_ANA_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT15;
 };
+
 
 // LDO_LPSR_ANA_STBY_EN_SP_REGISTER
-union LDO_LPSR_ANA_STBY_EN_SP {
-  
-  // STBY_EN_SETPOINT0
-  enum class eSTBY_EN_SETPOINT0 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT1
-  enum class eSTBY_EN_SETPOINT1 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT2
-  enum class eSTBY_EN_SETPOINT2 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT3
-  enum class eSTBY_EN_SETPOINT3 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT4
-  enum class eSTBY_EN_SETPOINT4 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT5
-  enum class eSTBY_EN_SETPOINT5 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT6
-  enum class eSTBY_EN_SETPOINT6 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT7
-  enum class eSTBY_EN_SETPOINT7 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT8
-  enum class eSTBY_EN_SETPOINT8 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT9
-  enum class eSTBY_EN_SETPOINT9 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT10
-  enum class eSTBY_EN_SETPOINT10 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT11
-  enum class eSTBY_EN_SETPOINT11 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT12
-  enum class eSTBY_EN_SETPOINT12 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT13
-  enum class eSTBY_EN_SETPOINT13 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT14
-  enum class eSTBY_EN_SETPOINT14 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT15
-  enum class eSTBY_EN_SETPOINT15 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - STBY_EN_SETPOINT0
-    eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
-    // read-write - STBY_EN_SETPOINT1
-    eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
-    // read-write - STBY_EN_SETPOINT2
-    eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
-    // read-write - STBY_EN_SETPOINT3
-    eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
-    // read-write - STBY_EN_SETPOINT4
-    eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
-    // read-write - STBY_EN_SETPOINT5
-    eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
-    // read-write - STBY_EN_SETPOINT6
-    eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
-    // read-write - STBY_EN_SETPOINT7
-    eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
-    // read-write - STBY_EN_SETPOINT8
-    eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
-    // read-write - STBY_EN_SETPOINT9
-    eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
-    // read-write - STBY_EN_SETPOINT10
-    eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
-    // read-write - STBY_EN_SETPOINT11
-    eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
-    // read-write - STBY_EN_SETPOINT12
-    eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
-    // read-write - STBY_EN_SETPOINT13
-    eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
-    // read-write - STBY_EN_SETPOINT14
-    eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
-    // read-write - STBY_EN_SETPOINT15
-    eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_ANA_STBY_EN_SP_fields_ {
 
-  LDO_LPSR_ANA_STBY_EN_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_ANA_STBY_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_ANA_STBY_EN_SP*>(0x40C84650); }
+  enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT1 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT2 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT3 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT4 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT5 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT6 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT7 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT8 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT9 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT10 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT11 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT12 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT13 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT14 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT15 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+  // STBY_EN_SETPOINT0
+  using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT1
+  using STBY_EN_SETPOINT1 = ftl::mmio::Field<1, 1, eSTBY_EN_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT2
+  using STBY_EN_SETPOINT2 = ftl::mmio::Field<1, 2, eSTBY_EN_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT3
+  using STBY_EN_SETPOINT3 = ftl::mmio::Field<1, 3, eSTBY_EN_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT4
+  using STBY_EN_SETPOINT4 = ftl::mmio::Field<1, 4, eSTBY_EN_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT5
+  using STBY_EN_SETPOINT5 = ftl::mmio::Field<1, 5, eSTBY_EN_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT6
+  using STBY_EN_SETPOINT6 = ftl::mmio::Field<1, 6, eSTBY_EN_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT7
+  using STBY_EN_SETPOINT7 = ftl::mmio::Field<1, 7, eSTBY_EN_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT8
+  using STBY_EN_SETPOINT8 = ftl::mmio::Field<1, 8, eSTBY_EN_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT9
+  using STBY_EN_SETPOINT9 = ftl::mmio::Field<1, 9, eSTBY_EN_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT10
+  using STBY_EN_SETPOINT10 = ftl::mmio::Field<1, 10, eSTBY_EN_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT11
+  using STBY_EN_SETPOINT11 = ftl::mmio::Field<1, 11, eSTBY_EN_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT12
+  using STBY_EN_SETPOINT12 = ftl::mmio::Field<1, 12, eSTBY_EN_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT13
+  using STBY_EN_SETPOINT13 = ftl::mmio::Field<1, 13, eSTBY_EN_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT14
+  using STBY_EN_SETPOINT14 = ftl::mmio::Field<1, 14, eSTBY_EN_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT15
+  using STBY_EN_SETPOINT15 = ftl::mmio::Field<1, 15, eSTBY_EN_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_ANA_STBY_EN_SP_fields_
+
+struct LDO_LPSR_ANA_STBY_EN_SP : ftl::mmio::Register<
+    0x40C84650u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT0,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT1,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT2,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT3,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT4,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT5,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT6,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT7,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT8,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT9,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT10,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT11,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT12,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT13,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT14,
+    LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSTBY_EN_SETPOINT0 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT0;
+  using eSTBY_EN_SETPOINT1 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT1;
+  using eSTBY_EN_SETPOINT2 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT2;
+  using eSTBY_EN_SETPOINT3 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT3;
+  using eSTBY_EN_SETPOINT4 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT4;
+  using eSTBY_EN_SETPOINT5 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT5;
+  using eSTBY_EN_SETPOINT6 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT6;
+  using eSTBY_EN_SETPOINT7 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT7;
+  using eSTBY_EN_SETPOINT8 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT8;
+  using eSTBY_EN_SETPOINT9 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT9;
+  using eSTBY_EN_SETPOINT10 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT10;
+  using eSTBY_EN_SETPOINT11 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT11;
+  using eSTBY_EN_SETPOINT12 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT12;
+  using eSTBY_EN_SETPOINT13 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT13;
+  using eSTBY_EN_SETPOINT14 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT14;
+  using eSTBY_EN_SETPOINT15 = LDO_LPSR_ANA_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT15;
+  using STBY_EN_SETPOINT0 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT0;
+  using STBY_EN_SETPOINT1 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT1;
+  using STBY_EN_SETPOINT2 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT2;
+  using STBY_EN_SETPOINT3 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT3;
+  using STBY_EN_SETPOINT4 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT4;
+  using STBY_EN_SETPOINT5 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT5;
+  using STBY_EN_SETPOINT6 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT6;
+  using STBY_EN_SETPOINT7 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT7;
+  using STBY_EN_SETPOINT8 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT8;
+  using STBY_EN_SETPOINT9 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT9;
+  using STBY_EN_SETPOINT10 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT10;
+  using STBY_EN_SETPOINT11 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT11;
+  using STBY_EN_SETPOINT12 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT12;
+  using STBY_EN_SETPOINT13 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT13;
+  using STBY_EN_SETPOINT14 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT14;
+  using STBY_EN_SETPOINT15 = LDO_LPSR_ANA_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
+
 
 // LDO_LPSR_DIG_ENABLE_SP_REGISTER
-union LDO_LPSR_DIG_ENABLE_SP {
-  
-  // ON_OFF_SETPOINT0
-  enum class eON_OFF_SETPOINT0 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT1
-  enum class eON_OFF_SETPOINT1 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT2
-  enum class eON_OFF_SETPOINT2 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT3
-  enum class eON_OFF_SETPOINT3 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT4
-  enum class eON_OFF_SETPOINT4 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT5
-  enum class eON_OFF_SETPOINT5 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT6
-  enum class eON_OFF_SETPOINT6 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT7
-  enum class eON_OFF_SETPOINT7 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT8
-  enum class eON_OFF_SETPOINT8 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT9
-  enum class eON_OFF_SETPOINT9 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT10
-  enum class eON_OFF_SETPOINT10 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT11
-  enum class eON_OFF_SETPOINT11 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT12
-  enum class eON_OFF_SETPOINT12 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT13
-  enum class eON_OFF_SETPOINT13 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT14
-  enum class eON_OFF_SETPOINT14 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT15
-  enum class eON_OFF_SETPOINT15 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ON_OFF_SETPOINT0
-    eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
-    // read-write - ON_OFF_SETPOINT1
-    eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
-    // read-write - ON_OFF_SETPOINT2
-    eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
-    // read-write - ON_OFF_SETPOINT3
-    eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
-    // read-write - ON_OFF_SETPOINT4
-    eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
-    // read-write - ON_OFF_SETPOINT5
-    eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
-    // read-write - ON_OFF_SETPOINT6
-    eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
-    // read-write - ON_OFF_SETPOINT7
-    eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
-    // read-write - ON_OFF_SETPOINT8
-    eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
-    // read-write - ON_OFF_SETPOINT9
-    eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
-    // read-write - ON_OFF_SETPOINT10
-    eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
-    // read-write - ON_OFF_SETPOINT11
-    eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
-    // read-write - ON_OFF_SETPOINT12
-    eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
-    // read-write - ON_OFF_SETPOINT13
-    eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
-    // read-write - ON_OFF_SETPOINT14
-    eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
-    // read-write - ON_OFF_SETPOINT15
-    eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_DIG_ENABLE_SP_fields_ {
 
-  LDO_LPSR_DIG_ENABLE_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_ENABLE_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_ENABLE_SP*>(0x40C84660); }
+  enum class eON_OFF_SETPOINT0 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT1 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT2 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT3 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT4 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT5 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT6 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT7 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT8 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT9 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT10 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT11 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT12 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT13 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT14 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT15 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+  // ON_OFF_SETPOINT0
+  using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT1
+  using ON_OFF_SETPOINT1 = ftl::mmio::Field<1, 1, eON_OFF_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT2
+  using ON_OFF_SETPOINT2 = ftl::mmio::Field<1, 2, eON_OFF_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT3
+  using ON_OFF_SETPOINT3 = ftl::mmio::Field<1, 3, eON_OFF_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT4
+  using ON_OFF_SETPOINT4 = ftl::mmio::Field<1, 4, eON_OFF_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT5
+  using ON_OFF_SETPOINT5 = ftl::mmio::Field<1, 5, eON_OFF_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT6
+  using ON_OFF_SETPOINT6 = ftl::mmio::Field<1, 6, eON_OFF_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT7
+  using ON_OFF_SETPOINT7 = ftl::mmio::Field<1, 7, eON_OFF_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT8
+  using ON_OFF_SETPOINT8 = ftl::mmio::Field<1, 8, eON_OFF_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT9
+  using ON_OFF_SETPOINT9 = ftl::mmio::Field<1, 9, eON_OFF_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT10
+  using ON_OFF_SETPOINT10 = ftl::mmio::Field<1, 10, eON_OFF_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT11
+  using ON_OFF_SETPOINT11 = ftl::mmio::Field<1, 11, eON_OFF_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT12
+  using ON_OFF_SETPOINT12 = ftl::mmio::Field<1, 12, eON_OFF_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT13
+  using ON_OFF_SETPOINT13 = ftl::mmio::Field<1, 13, eON_OFF_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT14
+  using ON_OFF_SETPOINT14 = ftl::mmio::Field<1, 14, eON_OFF_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT15
+  using ON_OFF_SETPOINT15 = ftl::mmio::Field<1, 15, eON_OFF_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_DIG_ENABLE_SP_fields_
+
+struct LDO_LPSR_DIG_ENABLE_SP : ftl::mmio::Register<
+    0x40C84660u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT0,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT1,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT2,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT3,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT4,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT5,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT6,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT7,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT8,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT9,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT10,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT11,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT12,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT13,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT14,
+    LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eON_OFF_SETPOINT0 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT0;
+  using eON_OFF_SETPOINT1 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT1;
+  using eON_OFF_SETPOINT2 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT2;
+  using eON_OFF_SETPOINT3 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT3;
+  using eON_OFF_SETPOINT4 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT4;
+  using eON_OFF_SETPOINT5 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT5;
+  using eON_OFF_SETPOINT6 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT6;
+  using eON_OFF_SETPOINT7 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT7;
+  using eON_OFF_SETPOINT8 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT8;
+  using eON_OFF_SETPOINT9 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT9;
+  using eON_OFF_SETPOINT10 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT10;
+  using eON_OFF_SETPOINT11 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT11;
+  using eON_OFF_SETPOINT12 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT12;
+  using eON_OFF_SETPOINT13 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT13;
+  using eON_OFF_SETPOINT14 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT14;
+  using eON_OFF_SETPOINT15 = LDO_LPSR_DIG_ENABLE_SP_fields_::eON_OFF_SETPOINT15;
+  using ON_OFF_SETPOINT0 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT0;
+  using ON_OFF_SETPOINT1 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT1;
+  using ON_OFF_SETPOINT2 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT2;
+  using ON_OFF_SETPOINT3 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT3;
+  using ON_OFF_SETPOINT4 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT4;
+  using ON_OFF_SETPOINT5 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT5;
+  using ON_OFF_SETPOINT6 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT6;
+  using ON_OFF_SETPOINT7 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT7;
+  using ON_OFF_SETPOINT8 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT8;
+  using ON_OFF_SETPOINT9 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT9;
+  using ON_OFF_SETPOINT10 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT10;
+  using ON_OFF_SETPOINT11 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT11;
+  using ON_OFF_SETPOINT12 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT12;
+  using ON_OFF_SETPOINT13 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT13;
+  using ON_OFF_SETPOINT14 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT14;
+  using ON_OFF_SETPOINT15 = LDO_LPSR_DIG_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
+
 
 // LDO_LPSR_DIG_TRG_SP0_REGISTER
-union LDO_LPSR_DIG_TRG_SP0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - VOLTAGE_SETPOINT0
-    uint32_t VOLTAGE_SETPOINT0 : 8;
-    // read-write - VOLTAGE_SETPOINT1
-    uint32_t VOLTAGE_SETPOINT1 : 8;
-    // read-write - VOLTAGE_SETPOINT2
-    uint32_t VOLTAGE_SETPOINT2 : 8;
-    // read-write - VOLTAGE_SETPOINT3
-    uint32_t VOLTAGE_SETPOINT3 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_DIG_TRG_SP0_fields_ {
+  // VOLTAGE_SETPOINT0
+  using VOLTAGE_SETPOINT0 = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VOLTAGE_SETPOINT1
+  using VOLTAGE_SETPOINT1 = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VOLTAGE_SETPOINT2
+  using VOLTAGE_SETPOINT2 = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VOLTAGE_SETPOINT3
+  using VOLTAGE_SETPOINT3 = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_DIG_TRG_SP0_fields_
 
-  LDO_LPSR_DIG_TRG_SP0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_TRG_SP0 &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP0*>(0x40C84670); }
+struct LDO_LPSR_DIG_TRG_SP0 : ftl::mmio::Register<
+    0x40C84670u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_DIG_TRG_SP0_fields_::VOLTAGE_SETPOINT0,
+    LDO_LPSR_DIG_TRG_SP0_fields_::VOLTAGE_SETPOINT1,
+    LDO_LPSR_DIG_TRG_SP0_fields_::VOLTAGE_SETPOINT2,
+    LDO_LPSR_DIG_TRG_SP0_fields_::VOLTAGE_SETPOINT3> {
+  using VOLTAGE_SETPOINT0 = LDO_LPSR_DIG_TRG_SP0_fields_::VOLTAGE_SETPOINT0;
+  using VOLTAGE_SETPOINT1 = LDO_LPSR_DIG_TRG_SP0_fields_::VOLTAGE_SETPOINT1;
+  using VOLTAGE_SETPOINT2 = LDO_LPSR_DIG_TRG_SP0_fields_::VOLTAGE_SETPOINT2;
+  using VOLTAGE_SETPOINT3 = LDO_LPSR_DIG_TRG_SP0_fields_::VOLTAGE_SETPOINT3;
 };
+
 
 // LDO_LPSR_DIG_TRG_SP1_REGISTER
-union LDO_LPSR_DIG_TRG_SP1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - VOLTAGE_SETPOINT4
-    uint32_t VOLTAGE_SETPOINT4 : 8;
-    // read-write - VOLTAGE_SETPOINT5
-    uint32_t VOLTAGE_SETPOINT5 : 8;
-    // read-write - VOLTAGE_SETPOINT6
-    uint32_t VOLTAGE_SETPOINT6 : 8;
-    // read-write - VOLTAGE_SETPOINT7
-    uint32_t VOLTAGE_SETPOINT7 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_DIG_TRG_SP1_fields_ {
+  // VOLTAGE_SETPOINT4
+  using VOLTAGE_SETPOINT4 = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VOLTAGE_SETPOINT5
+  using VOLTAGE_SETPOINT5 = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VOLTAGE_SETPOINT6
+  using VOLTAGE_SETPOINT6 = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VOLTAGE_SETPOINT7
+  using VOLTAGE_SETPOINT7 = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_DIG_TRG_SP1_fields_
 
-  LDO_LPSR_DIG_TRG_SP1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_TRG_SP1 &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP1*>(0x40C84680); }
+struct LDO_LPSR_DIG_TRG_SP1 : ftl::mmio::Register<
+    0x40C84680u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_DIG_TRG_SP1_fields_::VOLTAGE_SETPOINT4,
+    LDO_LPSR_DIG_TRG_SP1_fields_::VOLTAGE_SETPOINT5,
+    LDO_LPSR_DIG_TRG_SP1_fields_::VOLTAGE_SETPOINT6,
+    LDO_LPSR_DIG_TRG_SP1_fields_::VOLTAGE_SETPOINT7> {
+  using VOLTAGE_SETPOINT4 = LDO_LPSR_DIG_TRG_SP1_fields_::VOLTAGE_SETPOINT4;
+  using VOLTAGE_SETPOINT5 = LDO_LPSR_DIG_TRG_SP1_fields_::VOLTAGE_SETPOINT5;
+  using VOLTAGE_SETPOINT6 = LDO_LPSR_DIG_TRG_SP1_fields_::VOLTAGE_SETPOINT6;
+  using VOLTAGE_SETPOINT7 = LDO_LPSR_DIG_TRG_SP1_fields_::VOLTAGE_SETPOINT7;
 };
+
 
 // LDO_LPSR_DIG_TRG_SP2_REGISTER
-union LDO_LPSR_DIG_TRG_SP2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - VOLTAGE_SETPOINT8
-    uint32_t VOLTAGE_SETPOINT8 : 8;
-    // read-write - VOLTAGE_SETPOINT9
-    uint32_t VOLTAGE_SETPOINT9 : 8;
-    // read-write - VOLTAGE_SETPOINT10
-    uint32_t VOLTAGE_SETPOINT10 : 8;
-    // read-write - VOLTAGE_SETPOINT11
-    uint32_t VOLTAGE_SETPOINT11 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_DIG_TRG_SP2_fields_ {
+  // VOLTAGE_SETPOINT8
+  using VOLTAGE_SETPOINT8 = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VOLTAGE_SETPOINT9
+  using VOLTAGE_SETPOINT9 = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VOLTAGE_SETPOINT10
+  using VOLTAGE_SETPOINT10 = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VOLTAGE_SETPOINT11
+  using VOLTAGE_SETPOINT11 = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_DIG_TRG_SP2_fields_
 
-  LDO_LPSR_DIG_TRG_SP2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_TRG_SP2 &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP2*>(0x40C84690); }
+struct LDO_LPSR_DIG_TRG_SP2 : ftl::mmio::Register<
+    0x40C84690u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_DIG_TRG_SP2_fields_::VOLTAGE_SETPOINT8,
+    LDO_LPSR_DIG_TRG_SP2_fields_::VOLTAGE_SETPOINT9,
+    LDO_LPSR_DIG_TRG_SP2_fields_::VOLTAGE_SETPOINT10,
+    LDO_LPSR_DIG_TRG_SP2_fields_::VOLTAGE_SETPOINT11> {
+  using VOLTAGE_SETPOINT8 = LDO_LPSR_DIG_TRG_SP2_fields_::VOLTAGE_SETPOINT8;
+  using VOLTAGE_SETPOINT9 = LDO_LPSR_DIG_TRG_SP2_fields_::VOLTAGE_SETPOINT9;
+  using VOLTAGE_SETPOINT10 = LDO_LPSR_DIG_TRG_SP2_fields_::VOLTAGE_SETPOINT10;
+  using VOLTAGE_SETPOINT11 = LDO_LPSR_DIG_TRG_SP2_fields_::VOLTAGE_SETPOINT11;
 };
+
 
 // LDO_LPSR_DIG_TRG_SP3_REGISTER
-union LDO_LPSR_DIG_TRG_SP3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - VOLTAGE_SETPOINT12
-    uint32_t VOLTAGE_SETPOINT12 : 8;
-    // read-write - VOLTAGE_SETPOINT13
-    uint32_t VOLTAGE_SETPOINT13 : 8;
-    // read-write - VOLTAGE_SETPOINT14
-    uint32_t VOLTAGE_SETPOINT14 : 8;
-    // read-write - VOLTAGE_SETPOINT15
-    uint32_t VOLTAGE_SETPOINT15 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_DIG_TRG_SP3_fields_ {
+  // VOLTAGE_SETPOINT12
+  using VOLTAGE_SETPOINT12 = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VOLTAGE_SETPOINT13
+  using VOLTAGE_SETPOINT13 = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VOLTAGE_SETPOINT14
+  using VOLTAGE_SETPOINT14 = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // VOLTAGE_SETPOINT15
+  using VOLTAGE_SETPOINT15 = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_DIG_TRG_SP3_fields_
 
-  LDO_LPSR_DIG_TRG_SP3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_TRG_SP3 &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRG_SP3*>(0x40C846A0); }
+struct LDO_LPSR_DIG_TRG_SP3 : ftl::mmio::Register<
+    0x40C846A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_DIG_TRG_SP3_fields_::VOLTAGE_SETPOINT12,
+    LDO_LPSR_DIG_TRG_SP3_fields_::VOLTAGE_SETPOINT13,
+    LDO_LPSR_DIG_TRG_SP3_fields_::VOLTAGE_SETPOINT14,
+    LDO_LPSR_DIG_TRG_SP3_fields_::VOLTAGE_SETPOINT15> {
+  using VOLTAGE_SETPOINT12 = LDO_LPSR_DIG_TRG_SP3_fields_::VOLTAGE_SETPOINT12;
+  using VOLTAGE_SETPOINT13 = LDO_LPSR_DIG_TRG_SP3_fields_::VOLTAGE_SETPOINT13;
+  using VOLTAGE_SETPOINT14 = LDO_LPSR_DIG_TRG_SP3_fields_::VOLTAGE_SETPOINT14;
+  using VOLTAGE_SETPOINT15 = LDO_LPSR_DIG_TRG_SP3_fields_::VOLTAGE_SETPOINT15;
 };
+
 
 // LDO_LPSR_DIG_LP_MODE_SP_REGISTER
-union LDO_LPSR_DIG_LP_MODE_SP {
-  
-  // LP_MODE_SETPOINT0
-  enum class eLP_MODE_SETPOINT0 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT1
-  enum class eLP_MODE_SETPOINT1 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT2
-  enum class eLP_MODE_SETPOINT2 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT3
-  enum class eLP_MODE_SETPOINT3 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT4
-  enum class eLP_MODE_SETPOINT4 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT5
-  enum class eLP_MODE_SETPOINT5 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT6
-  enum class eLP_MODE_SETPOINT6 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT7
-  enum class eLP_MODE_SETPOINT7 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT8
-  enum class eLP_MODE_SETPOINT8 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT9
-  enum class eLP_MODE_SETPOINT9 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT10
-  enum class eLP_MODE_SETPOINT10 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT11
-  enum class eLP_MODE_SETPOINT11 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT12
-  enum class eLP_MODE_SETPOINT12 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT13
-  enum class eLP_MODE_SETPOINT13 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT14
-  enum class eLP_MODE_SETPOINT14 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // LP_MODE_SETPOINT15
-  enum class eLP_MODE_SETPOINT15 : uint32_t {
-    // LP
-    elp0 = 0,
-    // HP
-    ehp1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - LP_MODE_SETPOINT0
-    eLP_MODE_SETPOINT0 LP_MODE_SETPOINT0 : 1;
-    // read-write - LP_MODE_SETPOINT1
-    eLP_MODE_SETPOINT1 LP_MODE_SETPOINT1 : 1;
-    // read-write - LP_MODE_SETPOINT2
-    eLP_MODE_SETPOINT2 LP_MODE_SETPOINT2 : 1;
-    // read-write - LP_MODE_SETPOINT3
-    eLP_MODE_SETPOINT3 LP_MODE_SETPOINT3 : 1;
-    // read-write - LP_MODE_SETPOINT4
-    eLP_MODE_SETPOINT4 LP_MODE_SETPOINT4 : 1;
-    // read-write - LP_MODE_SETPOINT5
-    eLP_MODE_SETPOINT5 LP_MODE_SETPOINT5 : 1;
-    // read-write - LP_MODE_SETPOINT6
-    eLP_MODE_SETPOINT6 LP_MODE_SETPOINT6 : 1;
-    // read-write - LP_MODE_SETPOINT7
-    eLP_MODE_SETPOINT7 LP_MODE_SETPOINT7 : 1;
-    // read-write - LP_MODE_SETPOINT8
-    eLP_MODE_SETPOINT8 LP_MODE_SETPOINT8 : 1;
-    // read-write - LP_MODE_SETPOINT9
-    eLP_MODE_SETPOINT9 LP_MODE_SETPOINT9 : 1;
-    // read-write - LP_MODE_SETPOINT10
-    eLP_MODE_SETPOINT10 LP_MODE_SETPOINT10 : 1;
-    // read-write - LP_MODE_SETPOINT11
-    eLP_MODE_SETPOINT11 LP_MODE_SETPOINT11 : 1;
-    // read-write - LP_MODE_SETPOINT12
-    eLP_MODE_SETPOINT12 LP_MODE_SETPOINT12 : 1;
-    // read-write - LP_MODE_SETPOINT13
-    eLP_MODE_SETPOINT13 LP_MODE_SETPOINT13 : 1;
-    // read-write - LP_MODE_SETPOINT14
-    eLP_MODE_SETPOINT14 LP_MODE_SETPOINT14 : 1;
-    // read-write - LP_MODE_SETPOINT15
-    eLP_MODE_SETPOINT15 LP_MODE_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_DIG_LP_MODE_SP_fields_ {
 
-  LDO_LPSR_DIG_LP_MODE_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_LP_MODE_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_LP_MODE_SP*>(0x40C846B0); }
+  enum class eLP_MODE_SETPOINT0 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT1 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT2 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT3 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT4 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT5 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT6 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT7 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT8 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT9 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT10 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT11 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT12 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT13 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT14 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+
+  enum class eLP_MODE_SETPOINT15 : std::uint32_t {
+    // LP
+    elp0 = 0,
+    // HP
+    ehp1 = 1,
+  };
+  // LP_MODE_SETPOINT0
+  using LP_MODE_SETPOINT0 = ftl::mmio::Field<1, 0, eLP_MODE_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT1
+  using LP_MODE_SETPOINT1 = ftl::mmio::Field<1, 1, eLP_MODE_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT2
+  using LP_MODE_SETPOINT2 = ftl::mmio::Field<1, 2, eLP_MODE_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT3
+  using LP_MODE_SETPOINT3 = ftl::mmio::Field<1, 3, eLP_MODE_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT4
+  using LP_MODE_SETPOINT4 = ftl::mmio::Field<1, 4, eLP_MODE_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT5
+  using LP_MODE_SETPOINT5 = ftl::mmio::Field<1, 5, eLP_MODE_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT6
+  using LP_MODE_SETPOINT6 = ftl::mmio::Field<1, 6, eLP_MODE_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT7
+  using LP_MODE_SETPOINT7 = ftl::mmio::Field<1, 7, eLP_MODE_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT8
+  using LP_MODE_SETPOINT8 = ftl::mmio::Field<1, 8, eLP_MODE_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT9
+  using LP_MODE_SETPOINT9 = ftl::mmio::Field<1, 9, eLP_MODE_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT10
+  using LP_MODE_SETPOINT10 = ftl::mmio::Field<1, 10, eLP_MODE_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT11
+  using LP_MODE_SETPOINT11 = ftl::mmio::Field<1, 11, eLP_MODE_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT12
+  using LP_MODE_SETPOINT12 = ftl::mmio::Field<1, 12, eLP_MODE_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT13
+  using LP_MODE_SETPOINT13 = ftl::mmio::Field<1, 13, eLP_MODE_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT14
+  using LP_MODE_SETPOINT14 = ftl::mmio::Field<1, 14, eLP_MODE_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LP_MODE_SETPOINT15
+  using LP_MODE_SETPOINT15 = ftl::mmio::Field<1, 15, eLP_MODE_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_DIG_LP_MODE_SP_fields_
+
+struct LDO_LPSR_DIG_LP_MODE_SP : ftl::mmio::Register<
+    0x40C846B0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT0,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT1,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT2,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT3,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT4,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT5,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT6,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT7,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT8,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT9,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT10,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT11,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT12,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT13,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT14,
+    LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eLP_MODE_SETPOINT0 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT0;
+  using eLP_MODE_SETPOINT1 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT1;
+  using eLP_MODE_SETPOINT2 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT2;
+  using eLP_MODE_SETPOINT3 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT3;
+  using eLP_MODE_SETPOINT4 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT4;
+  using eLP_MODE_SETPOINT5 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT5;
+  using eLP_MODE_SETPOINT6 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT6;
+  using eLP_MODE_SETPOINT7 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT7;
+  using eLP_MODE_SETPOINT8 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT8;
+  using eLP_MODE_SETPOINT9 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT9;
+  using eLP_MODE_SETPOINT10 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT10;
+  using eLP_MODE_SETPOINT11 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT11;
+  using eLP_MODE_SETPOINT12 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT12;
+  using eLP_MODE_SETPOINT13 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT13;
+  using eLP_MODE_SETPOINT14 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT14;
+  using eLP_MODE_SETPOINT15 = LDO_LPSR_DIG_LP_MODE_SP_fields_::eLP_MODE_SETPOINT15;
+  using LP_MODE_SETPOINT0 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT0;
+  using LP_MODE_SETPOINT1 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT1;
+  using LP_MODE_SETPOINT2 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT2;
+  using LP_MODE_SETPOINT3 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT3;
+  using LP_MODE_SETPOINT4 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT4;
+  using LP_MODE_SETPOINT5 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT5;
+  using LP_MODE_SETPOINT6 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT6;
+  using LP_MODE_SETPOINT7 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT7;
+  using LP_MODE_SETPOINT8 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT8;
+  using LP_MODE_SETPOINT9 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT9;
+  using LP_MODE_SETPOINT10 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT10;
+  using LP_MODE_SETPOINT11 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT11;
+  using LP_MODE_SETPOINT12 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT12;
+  using LP_MODE_SETPOINT13 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT13;
+  using LP_MODE_SETPOINT14 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT14;
+  using LP_MODE_SETPOINT15 = LDO_LPSR_DIG_LP_MODE_SP_fields_::LP_MODE_SETPOINT15;
 };
+
 
 // LDO_LPSR_DIG_TRACKING_EN_SP_REGISTER
-union LDO_LPSR_DIG_TRACKING_EN_SP {
-  
-  // TRACKING_EN_SETPOINT0
-  enum class eTRACKING_EN_SETPOINT0 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT1
-  enum class eTRACKING_EN_SETPOINT1 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT2
-  enum class eTRACKING_EN_SETPOINT2 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT3
-  enum class eTRACKING_EN_SETPOINT3 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT4
-  enum class eTRACKING_EN_SETPOINT4 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT5
-  enum class eTRACKING_EN_SETPOINT5 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT6
-  enum class eTRACKING_EN_SETPOINT6 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT7
-  enum class eTRACKING_EN_SETPOINT7 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT8
-  enum class eTRACKING_EN_SETPOINT8 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT9
-  enum class eTRACKING_EN_SETPOINT9 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT10
-  enum class eTRACKING_EN_SETPOINT10 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT11
-  enum class eTRACKING_EN_SETPOINT11 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT12
-  enum class eTRACKING_EN_SETPOINT12 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT13
-  enum class eTRACKING_EN_SETPOINT13 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT14
-  enum class eTRACKING_EN_SETPOINT14 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // TRACKING_EN_SETPOINT15
-  enum class eTRACKING_EN_SETPOINT15 : uint32_t {
-    // Disabled
-    etrack0 = 0,
-    // Enabled
-    etrack1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - TRACKING_EN_SETPOINT0
-    eTRACKING_EN_SETPOINT0 TRACKING_EN_SETPOINT0 : 1;
-    // read-write - TRACKING_EN_SETPOINT1
-    eTRACKING_EN_SETPOINT1 TRACKING_EN_SETPOINT1 : 1;
-    // read-write - TRACKING_EN_SETPOINT2
-    eTRACKING_EN_SETPOINT2 TRACKING_EN_SETPOINT2 : 1;
-    // read-write - TRACKING_EN_SETPOINT3
-    eTRACKING_EN_SETPOINT3 TRACKING_EN_SETPOINT3 : 1;
-    // read-write - TRACKING_EN_SETPOINT4
-    eTRACKING_EN_SETPOINT4 TRACKING_EN_SETPOINT4 : 1;
-    // read-write - TRACKING_EN_SETPOINT5
-    eTRACKING_EN_SETPOINT5 TRACKING_EN_SETPOINT5 : 1;
-    // read-write - TRACKING_EN_SETPOINT6
-    eTRACKING_EN_SETPOINT6 TRACKING_EN_SETPOINT6 : 1;
-    // read-write - TRACKING_EN_SETPOINT7
-    eTRACKING_EN_SETPOINT7 TRACKING_EN_SETPOINT7 : 1;
-    // read-write - TRACKING_EN_SETPOINT8
-    eTRACKING_EN_SETPOINT8 TRACKING_EN_SETPOINT8 : 1;
-    // read-write - TRACKING_EN_SETPOINT9
-    eTRACKING_EN_SETPOINT9 TRACKING_EN_SETPOINT9 : 1;
-    // read-write - TRACKING_EN_SETPOINT10
-    eTRACKING_EN_SETPOINT10 TRACKING_EN_SETPOINT10 : 1;
-    // read-write - TRACKING_EN_SETPOINT11
-    eTRACKING_EN_SETPOINT11 TRACKING_EN_SETPOINT11 : 1;
-    // read-write - TRACKING_EN_SETPOINT12
-    eTRACKING_EN_SETPOINT12 TRACKING_EN_SETPOINT12 : 1;
-    // read-write - TRACKING_EN_SETPOINT13
-    eTRACKING_EN_SETPOINT13 TRACKING_EN_SETPOINT13 : 1;
-    // read-write - TRACKING_EN_SETPOINT14
-    eTRACKING_EN_SETPOINT14 TRACKING_EN_SETPOINT14 : 1;
-    // read-write - TRACKING_EN_SETPOINT15
-    eTRACKING_EN_SETPOINT15 TRACKING_EN_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_DIG_TRACKING_EN_SP_fields_ {
 
-  LDO_LPSR_DIG_TRACKING_EN_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_TRACKING_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_TRACKING_EN_SP*>(0x40C846C0); }
+  enum class eTRACKING_EN_SETPOINT0 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT1 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT2 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT3 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT4 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT5 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT6 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT7 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT8 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT9 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT10 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT11 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT12 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT13 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT14 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+
+  enum class eTRACKING_EN_SETPOINT15 : std::uint32_t {
+    // Disabled
+    etrack0 = 0,
+    // Enabled
+    etrack1 = 1,
+  };
+  // TRACKING_EN_SETPOINT0
+  using TRACKING_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eTRACKING_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT1
+  using TRACKING_EN_SETPOINT1 = ftl::mmio::Field<1, 1, eTRACKING_EN_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT2
+  using TRACKING_EN_SETPOINT2 = ftl::mmio::Field<1, 2, eTRACKING_EN_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT3
+  using TRACKING_EN_SETPOINT3 = ftl::mmio::Field<1, 3, eTRACKING_EN_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT4
+  using TRACKING_EN_SETPOINT4 = ftl::mmio::Field<1, 4, eTRACKING_EN_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT5
+  using TRACKING_EN_SETPOINT5 = ftl::mmio::Field<1, 5, eTRACKING_EN_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT6
+  using TRACKING_EN_SETPOINT6 = ftl::mmio::Field<1, 6, eTRACKING_EN_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT7
+  using TRACKING_EN_SETPOINT7 = ftl::mmio::Field<1, 7, eTRACKING_EN_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT8
+  using TRACKING_EN_SETPOINT8 = ftl::mmio::Field<1, 8, eTRACKING_EN_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT9
+  using TRACKING_EN_SETPOINT9 = ftl::mmio::Field<1, 9, eTRACKING_EN_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT10
+  using TRACKING_EN_SETPOINT10 = ftl::mmio::Field<1, 10, eTRACKING_EN_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT11
+  using TRACKING_EN_SETPOINT11 = ftl::mmio::Field<1, 11, eTRACKING_EN_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT12
+  using TRACKING_EN_SETPOINT12 = ftl::mmio::Field<1, 12, eTRACKING_EN_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT13
+  using TRACKING_EN_SETPOINT13 = ftl::mmio::Field<1, 13, eTRACKING_EN_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT14
+  using TRACKING_EN_SETPOINT14 = ftl::mmio::Field<1, 14, eTRACKING_EN_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TRACKING_EN_SETPOINT15
+  using TRACKING_EN_SETPOINT15 = ftl::mmio::Field<1, 15, eTRACKING_EN_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_DIG_TRACKING_EN_SP_fields_
+
+struct LDO_LPSR_DIG_TRACKING_EN_SP : ftl::mmio::Register<
+    0x40C846C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT0,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT1,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT2,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT3,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT4,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT5,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT6,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT7,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT8,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT9,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT10,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT11,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT12,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT13,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT14,
+    LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eTRACKING_EN_SETPOINT0 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT0;
+  using eTRACKING_EN_SETPOINT1 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT1;
+  using eTRACKING_EN_SETPOINT2 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT2;
+  using eTRACKING_EN_SETPOINT3 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT3;
+  using eTRACKING_EN_SETPOINT4 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT4;
+  using eTRACKING_EN_SETPOINT5 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT5;
+  using eTRACKING_EN_SETPOINT6 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT6;
+  using eTRACKING_EN_SETPOINT7 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT7;
+  using eTRACKING_EN_SETPOINT8 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT8;
+  using eTRACKING_EN_SETPOINT9 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT9;
+  using eTRACKING_EN_SETPOINT10 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT10;
+  using eTRACKING_EN_SETPOINT11 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT11;
+  using eTRACKING_EN_SETPOINT12 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT12;
+  using eTRACKING_EN_SETPOINT13 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT13;
+  using eTRACKING_EN_SETPOINT14 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT14;
+  using eTRACKING_EN_SETPOINT15 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::eTRACKING_EN_SETPOINT15;
+  using TRACKING_EN_SETPOINT0 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT0;
+  using TRACKING_EN_SETPOINT1 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT1;
+  using TRACKING_EN_SETPOINT2 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT2;
+  using TRACKING_EN_SETPOINT3 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT3;
+  using TRACKING_EN_SETPOINT4 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT4;
+  using TRACKING_EN_SETPOINT5 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT5;
+  using TRACKING_EN_SETPOINT6 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT6;
+  using TRACKING_EN_SETPOINT7 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT7;
+  using TRACKING_EN_SETPOINT8 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT8;
+  using TRACKING_EN_SETPOINT9 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT9;
+  using TRACKING_EN_SETPOINT10 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT10;
+  using TRACKING_EN_SETPOINT11 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT11;
+  using TRACKING_EN_SETPOINT12 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT12;
+  using TRACKING_EN_SETPOINT13 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT13;
+  using TRACKING_EN_SETPOINT14 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT14;
+  using TRACKING_EN_SETPOINT15 = LDO_LPSR_DIG_TRACKING_EN_SP_fields_::TRACKING_EN_SETPOINT15;
 };
+
 
 // LDO_LPSR_DIG_BYPASS_EN_SP_REGISTER
-union LDO_LPSR_DIG_BYPASS_EN_SP {
-  
-  // BYPASS_EN_SETPOINT0
-  enum class eBYPASS_EN_SETPOINT0 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT1
-  enum class eBYPASS_EN_SETPOINT1 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT2
-  enum class eBYPASS_EN_SETPOINT2 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT3
-  enum class eBYPASS_EN_SETPOINT3 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT4
-  enum class eBYPASS_EN_SETPOINT4 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT5
-  enum class eBYPASS_EN_SETPOINT5 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT6
-  enum class eBYPASS_EN_SETPOINT6 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT7
-  enum class eBYPASS_EN_SETPOINT7 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT8
-  enum class eBYPASS_EN_SETPOINT8 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT9
-  enum class eBYPASS_EN_SETPOINT9 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT10
-  enum class eBYPASS_EN_SETPOINT10 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT11
-  enum class eBYPASS_EN_SETPOINT11 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT12
-  enum class eBYPASS_EN_SETPOINT12 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT13
-  enum class eBYPASS_EN_SETPOINT13 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT14
-  enum class eBYPASS_EN_SETPOINT14 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // BYPASS_EN_SETPOINT15
-  enum class eBYPASS_EN_SETPOINT15 : uint32_t {
-    // Disabled
-    ebyp0 = 0,
-    // Enabled
-    ebyp1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - BYPASS_EN_SETPOINT0
-    eBYPASS_EN_SETPOINT0 BYPASS_EN_SETPOINT0 : 1;
-    // read-write - BYPASS_EN_SETPOINT1
-    eBYPASS_EN_SETPOINT1 BYPASS_EN_SETPOINT1 : 1;
-    // read-write - BYPASS_EN_SETPOINT2
-    eBYPASS_EN_SETPOINT2 BYPASS_EN_SETPOINT2 : 1;
-    // read-write - BYPASS_EN_SETPOINT3
-    eBYPASS_EN_SETPOINT3 BYPASS_EN_SETPOINT3 : 1;
-    // read-write - BYPASS_EN_SETPOINT4
-    eBYPASS_EN_SETPOINT4 BYPASS_EN_SETPOINT4 : 1;
-    // read-write - BYPASS_EN_SETPOINT5
-    eBYPASS_EN_SETPOINT5 BYPASS_EN_SETPOINT5 : 1;
-    // read-write - BYPASS_EN_SETPOINT6
-    eBYPASS_EN_SETPOINT6 BYPASS_EN_SETPOINT6 : 1;
-    // read-write - BYPASS_EN_SETPOINT7
-    eBYPASS_EN_SETPOINT7 BYPASS_EN_SETPOINT7 : 1;
-    // read-write - BYPASS_EN_SETPOINT8
-    eBYPASS_EN_SETPOINT8 BYPASS_EN_SETPOINT8 : 1;
-    // read-write - BYPASS_EN_SETPOINT9
-    eBYPASS_EN_SETPOINT9 BYPASS_EN_SETPOINT9 : 1;
-    // read-write - BYPASS_EN_SETPOINT10
-    eBYPASS_EN_SETPOINT10 BYPASS_EN_SETPOINT10 : 1;
-    // read-write - BYPASS_EN_SETPOINT11
-    eBYPASS_EN_SETPOINT11 BYPASS_EN_SETPOINT11 : 1;
-    // read-write - BYPASS_EN_SETPOINT12
-    eBYPASS_EN_SETPOINT12 BYPASS_EN_SETPOINT12 : 1;
-    // read-write - BYPASS_EN_SETPOINT13
-    eBYPASS_EN_SETPOINT13 BYPASS_EN_SETPOINT13 : 1;
-    // read-write - BYPASS_EN_SETPOINT14
-    eBYPASS_EN_SETPOINT14 BYPASS_EN_SETPOINT14 : 1;
-    // read-write - BYPASS_EN_SETPOINT15
-    eBYPASS_EN_SETPOINT15 BYPASS_EN_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_DIG_BYPASS_EN_SP_fields_ {
 
-  LDO_LPSR_DIG_BYPASS_EN_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_BYPASS_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_BYPASS_EN_SP*>(0x40C846D0); }
+  enum class eBYPASS_EN_SETPOINT0 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT1 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT2 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT3 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT4 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT5 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT6 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT7 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT8 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT9 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT10 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT11 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT12 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT13 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT14 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+
+  enum class eBYPASS_EN_SETPOINT15 : std::uint32_t {
+    // Disabled
+    ebyp0 = 0,
+    // Enabled
+    ebyp1 = 1,
+  };
+  // BYPASS_EN_SETPOINT0
+  using BYPASS_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eBYPASS_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT1
+  using BYPASS_EN_SETPOINT1 = ftl::mmio::Field<1, 1, eBYPASS_EN_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT2
+  using BYPASS_EN_SETPOINT2 = ftl::mmio::Field<1, 2, eBYPASS_EN_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT3
+  using BYPASS_EN_SETPOINT3 = ftl::mmio::Field<1, 3, eBYPASS_EN_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT4
+  using BYPASS_EN_SETPOINT4 = ftl::mmio::Field<1, 4, eBYPASS_EN_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT5
+  using BYPASS_EN_SETPOINT5 = ftl::mmio::Field<1, 5, eBYPASS_EN_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT6
+  using BYPASS_EN_SETPOINT6 = ftl::mmio::Field<1, 6, eBYPASS_EN_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT7
+  using BYPASS_EN_SETPOINT7 = ftl::mmio::Field<1, 7, eBYPASS_EN_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT8
+  using BYPASS_EN_SETPOINT8 = ftl::mmio::Field<1, 8, eBYPASS_EN_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT9
+  using BYPASS_EN_SETPOINT9 = ftl::mmio::Field<1, 9, eBYPASS_EN_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT10
+  using BYPASS_EN_SETPOINT10 = ftl::mmio::Field<1, 10, eBYPASS_EN_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT11
+  using BYPASS_EN_SETPOINT11 = ftl::mmio::Field<1, 11, eBYPASS_EN_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT12
+  using BYPASS_EN_SETPOINT12 = ftl::mmio::Field<1, 12, eBYPASS_EN_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT13
+  using BYPASS_EN_SETPOINT13 = ftl::mmio::Field<1, 13, eBYPASS_EN_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT14
+  using BYPASS_EN_SETPOINT14 = ftl::mmio::Field<1, 14, eBYPASS_EN_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASS_EN_SETPOINT15
+  using BYPASS_EN_SETPOINT15 = ftl::mmio::Field<1, 15, eBYPASS_EN_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_DIG_BYPASS_EN_SP_fields_
+
+struct LDO_LPSR_DIG_BYPASS_EN_SP : ftl::mmio::Register<
+    0x40C846D0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT0,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT1,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT2,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT3,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT4,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT5,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT6,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT7,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT8,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT9,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT10,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT11,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT12,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT13,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT14,
+    LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eBYPASS_EN_SETPOINT0 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT0;
+  using eBYPASS_EN_SETPOINT1 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT1;
+  using eBYPASS_EN_SETPOINT2 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT2;
+  using eBYPASS_EN_SETPOINT3 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT3;
+  using eBYPASS_EN_SETPOINT4 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT4;
+  using eBYPASS_EN_SETPOINT5 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT5;
+  using eBYPASS_EN_SETPOINT6 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT6;
+  using eBYPASS_EN_SETPOINT7 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT7;
+  using eBYPASS_EN_SETPOINT8 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT8;
+  using eBYPASS_EN_SETPOINT9 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT9;
+  using eBYPASS_EN_SETPOINT10 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT10;
+  using eBYPASS_EN_SETPOINT11 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT11;
+  using eBYPASS_EN_SETPOINT12 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT12;
+  using eBYPASS_EN_SETPOINT13 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT13;
+  using eBYPASS_EN_SETPOINT14 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT14;
+  using eBYPASS_EN_SETPOINT15 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::eBYPASS_EN_SETPOINT15;
+  using BYPASS_EN_SETPOINT0 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT0;
+  using BYPASS_EN_SETPOINT1 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT1;
+  using BYPASS_EN_SETPOINT2 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT2;
+  using BYPASS_EN_SETPOINT3 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT3;
+  using BYPASS_EN_SETPOINT4 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT4;
+  using BYPASS_EN_SETPOINT5 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT5;
+  using BYPASS_EN_SETPOINT6 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT6;
+  using BYPASS_EN_SETPOINT7 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT7;
+  using BYPASS_EN_SETPOINT8 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT8;
+  using BYPASS_EN_SETPOINT9 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT9;
+  using BYPASS_EN_SETPOINT10 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT10;
+  using BYPASS_EN_SETPOINT11 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT11;
+  using BYPASS_EN_SETPOINT12 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT12;
+  using BYPASS_EN_SETPOINT13 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT13;
+  using BYPASS_EN_SETPOINT14 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT14;
+  using BYPASS_EN_SETPOINT15 = LDO_LPSR_DIG_BYPASS_EN_SP_fields_::BYPASS_EN_SETPOINT15;
 };
+
 
 // LDO_LPSR_DIG_STBY_EN_SP_REGISTER
-union LDO_LPSR_DIG_STBY_EN_SP {
-  
-  // STBY_EN_SETPOINT0
-  enum class eSTBY_EN_SETPOINT0 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT1
-  enum class eSTBY_EN_SETPOINT1 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT2
-  enum class eSTBY_EN_SETPOINT2 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT3
-  enum class eSTBY_EN_SETPOINT3 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT4
-  enum class eSTBY_EN_SETPOINT4 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT5
-  enum class eSTBY_EN_SETPOINT5 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT6
-  enum class eSTBY_EN_SETPOINT6 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT7
-  enum class eSTBY_EN_SETPOINT7 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT8
-  enum class eSTBY_EN_SETPOINT8 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT9
-  enum class eSTBY_EN_SETPOINT9 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT10
-  enum class eSTBY_EN_SETPOINT10 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT11
-  enum class eSTBY_EN_SETPOINT11 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT12
-  enum class eSTBY_EN_SETPOINT12 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT13
-  enum class eSTBY_EN_SETPOINT13 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT14
-  enum class eSTBY_EN_SETPOINT14 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT15
-  enum class eSTBY_EN_SETPOINT15 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - STBY_EN_SETPOINT0
-    eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
-    // read-write - STBY_EN_SETPOINT1
-    eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
-    // read-write - STBY_EN_SETPOINT2
-    eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
-    // read-write - STBY_EN_SETPOINT3
-    eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
-    // read-write - STBY_EN_SETPOINT4
-    eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
-    // read-write - STBY_EN_SETPOINT5
-    eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
-    // read-write - STBY_EN_SETPOINT6
-    eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
-    // read-write - STBY_EN_SETPOINT7
-    eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
-    // read-write - STBY_EN_SETPOINT8
-    eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
-    // read-write - STBY_EN_SETPOINT9
-    eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
-    // read-write - STBY_EN_SETPOINT10
-    eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
-    // read-write - STBY_EN_SETPOINT11
-    eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
-    // read-write - STBY_EN_SETPOINT12
-    eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
-    // read-write - STBY_EN_SETPOINT13
-    eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
-    // read-write - STBY_EN_SETPOINT14
-    eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
-    // read-write - STBY_EN_SETPOINT15
-    eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LDO_LPSR_DIG_STBY_EN_SP_fields_ {
 
-  LDO_LPSR_DIG_STBY_EN_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LDO_LPSR_DIG_STBY_EN_SP &ref() { return *reinterpret_cast<volatile LDO_LPSR_DIG_STBY_EN_SP*>(0x40C846E0); }
+  enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT1 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT2 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT3 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT4 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT5 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT6 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT7 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT8 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT9 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT10 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT11 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT12 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT13 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT14 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT15 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+  // STBY_EN_SETPOINT0
+  using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT1
+  using STBY_EN_SETPOINT1 = ftl::mmio::Field<1, 1, eSTBY_EN_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT2
+  using STBY_EN_SETPOINT2 = ftl::mmio::Field<1, 2, eSTBY_EN_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT3
+  using STBY_EN_SETPOINT3 = ftl::mmio::Field<1, 3, eSTBY_EN_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT4
+  using STBY_EN_SETPOINT4 = ftl::mmio::Field<1, 4, eSTBY_EN_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT5
+  using STBY_EN_SETPOINT5 = ftl::mmio::Field<1, 5, eSTBY_EN_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT6
+  using STBY_EN_SETPOINT6 = ftl::mmio::Field<1, 6, eSTBY_EN_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT7
+  using STBY_EN_SETPOINT7 = ftl::mmio::Field<1, 7, eSTBY_EN_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT8
+  using STBY_EN_SETPOINT8 = ftl::mmio::Field<1, 8, eSTBY_EN_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT9
+  using STBY_EN_SETPOINT9 = ftl::mmio::Field<1, 9, eSTBY_EN_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT10
+  using STBY_EN_SETPOINT10 = ftl::mmio::Field<1, 10, eSTBY_EN_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT11
+  using STBY_EN_SETPOINT11 = ftl::mmio::Field<1, 11, eSTBY_EN_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT12
+  using STBY_EN_SETPOINT12 = ftl::mmio::Field<1, 12, eSTBY_EN_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT13
+  using STBY_EN_SETPOINT13 = ftl::mmio::Field<1, 13, eSTBY_EN_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT14
+  using STBY_EN_SETPOINT14 = ftl::mmio::Field<1, 14, eSTBY_EN_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT15
+  using STBY_EN_SETPOINT15 = ftl::mmio::Field<1, 15, eSTBY_EN_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LDO_LPSR_DIG_STBY_EN_SP_fields_
+
+struct LDO_LPSR_DIG_STBY_EN_SP : ftl::mmio::Register<
+    0x40C846E0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT0,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT1,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT2,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT3,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT4,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT5,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT6,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT7,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT8,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT9,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT10,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT11,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT12,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT13,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT14,
+    LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSTBY_EN_SETPOINT0 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT0;
+  using eSTBY_EN_SETPOINT1 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT1;
+  using eSTBY_EN_SETPOINT2 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT2;
+  using eSTBY_EN_SETPOINT3 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT3;
+  using eSTBY_EN_SETPOINT4 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT4;
+  using eSTBY_EN_SETPOINT5 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT5;
+  using eSTBY_EN_SETPOINT6 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT6;
+  using eSTBY_EN_SETPOINT7 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT7;
+  using eSTBY_EN_SETPOINT8 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT8;
+  using eSTBY_EN_SETPOINT9 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT9;
+  using eSTBY_EN_SETPOINT10 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT10;
+  using eSTBY_EN_SETPOINT11 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT11;
+  using eSTBY_EN_SETPOINT12 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT12;
+  using eSTBY_EN_SETPOINT13 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT13;
+  using eSTBY_EN_SETPOINT14 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT14;
+  using eSTBY_EN_SETPOINT15 = LDO_LPSR_DIG_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT15;
+  using STBY_EN_SETPOINT0 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT0;
+  using STBY_EN_SETPOINT1 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT1;
+  using STBY_EN_SETPOINT2 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT2;
+  using STBY_EN_SETPOINT3 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT3;
+  using STBY_EN_SETPOINT4 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT4;
+  using STBY_EN_SETPOINT5 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT5;
+  using STBY_EN_SETPOINT6 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT6;
+  using STBY_EN_SETPOINT7 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT7;
+  using STBY_EN_SETPOINT8 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT8;
+  using STBY_EN_SETPOINT9 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT9;
+  using STBY_EN_SETPOINT10 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT10;
+  using STBY_EN_SETPOINT11 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT11;
+  using STBY_EN_SETPOINT12 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT12;
+  using STBY_EN_SETPOINT13 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT13;
+  using STBY_EN_SETPOINT14 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT14;
+  using STBY_EN_SETPOINT15 = LDO_LPSR_DIG_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
+
 
 // BANDGAP_ENABLE_SP_REGISTER
-union BANDGAP_ENABLE_SP {
-  
-  // ON_OFF_SETPOINT0
-  enum class eON_OFF_SETPOINT0 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT1
-  enum class eON_OFF_SETPOINT1 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT2
-  enum class eON_OFF_SETPOINT2 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT3
-  enum class eON_OFF_SETPOINT3 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT4
-  enum class eON_OFF_SETPOINT4 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT5
-  enum class eON_OFF_SETPOINT5 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT5
-  enum class eON_OFF_SETPOINT6 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT7
-  enum class eON_OFF_SETPOINT7 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT8
-  enum class eON_OFF_SETPOINT8 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT9
-  enum class eON_OFF_SETPOINT9 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT10
-  enum class eON_OFF_SETPOINT10 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT11
-  enum class eON_OFF_SETPOINT11 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT12
-  enum class eON_OFF_SETPOINT12 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT13
-  enum class eON_OFF_SETPOINT13 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT14
-  enum class eON_OFF_SETPOINT14 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT15
-  enum class eON_OFF_SETPOINT15 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ON_OFF_SETPOINT0
-    eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
-    // read-write - ON_OFF_SETPOINT1
-    eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
-    // read-write - ON_OFF_SETPOINT2
-    eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
-    // read-write - ON_OFF_SETPOINT3
-    eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
-    // read-write - ON_OFF_SETPOINT4
-    eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
-    // read-write - ON_OFF_SETPOINT5
-    eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
-    // read-write - ON_OFF_SETPOINT5
-    eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
-    // read-write - ON_OFF_SETPOINT7
-    eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
-    // read-write - ON_OFF_SETPOINT8
-    eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
-    // read-write - ON_OFF_SETPOINT9
-    eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
-    // read-write - ON_OFF_SETPOINT10
-    eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
-    // read-write - ON_OFF_SETPOINT11
-    eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
-    // read-write - ON_OFF_SETPOINT12
-    eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
-    // read-write - ON_OFF_SETPOINT13
-    eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
-    // read-write - ON_OFF_SETPOINT14
-    eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
-    // read-write - ON_OFF_SETPOINT15
-    eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct BANDGAP_ENABLE_SP_fields_ {
 
-  BANDGAP_ENABLE_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BANDGAP_ENABLE_SP &ref() { return *reinterpret_cast<volatile BANDGAP_ENABLE_SP*>(0x40C846F0); }
+  enum class eON_OFF_SETPOINT0 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT1 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT2 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT3 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT4 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT5 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT6 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT7 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT8 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT9 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT10 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT11 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT12 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT13 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT14 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT15 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+  // ON_OFF_SETPOINT0
+  using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT1
+  using ON_OFF_SETPOINT1 = ftl::mmio::Field<1, 1, eON_OFF_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT2
+  using ON_OFF_SETPOINT2 = ftl::mmio::Field<1, 2, eON_OFF_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT3
+  using ON_OFF_SETPOINT3 = ftl::mmio::Field<1, 3, eON_OFF_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT4
+  using ON_OFF_SETPOINT4 = ftl::mmio::Field<1, 4, eON_OFF_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT5
+  using ON_OFF_SETPOINT5 = ftl::mmio::Field<1, 5, eON_OFF_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT5
+  using ON_OFF_SETPOINT6 = ftl::mmio::Field<1, 6, eON_OFF_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT7
+  using ON_OFF_SETPOINT7 = ftl::mmio::Field<1, 7, eON_OFF_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT8
+  using ON_OFF_SETPOINT8 = ftl::mmio::Field<1, 8, eON_OFF_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT9
+  using ON_OFF_SETPOINT9 = ftl::mmio::Field<1, 9, eON_OFF_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT10
+  using ON_OFF_SETPOINT10 = ftl::mmio::Field<1, 10, eON_OFF_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT11
+  using ON_OFF_SETPOINT11 = ftl::mmio::Field<1, 11, eON_OFF_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT12
+  using ON_OFF_SETPOINT12 = ftl::mmio::Field<1, 12, eON_OFF_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT13
+  using ON_OFF_SETPOINT13 = ftl::mmio::Field<1, 13, eON_OFF_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT14
+  using ON_OFF_SETPOINT14 = ftl::mmio::Field<1, 14, eON_OFF_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT15
+  using ON_OFF_SETPOINT15 = ftl::mmio::Field<1, 15, eON_OFF_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct BANDGAP_ENABLE_SP_fields_
+
+struct BANDGAP_ENABLE_SP : ftl::mmio::Register<
+    0x40C846F0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT0,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT1,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT2,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT3,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT4,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT5,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT6,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT7,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT8,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT9,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT10,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT11,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT12,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT13,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT14,
+    BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eON_OFF_SETPOINT0 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT0;
+  using eON_OFF_SETPOINT1 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT1;
+  using eON_OFF_SETPOINT2 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT2;
+  using eON_OFF_SETPOINT3 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT3;
+  using eON_OFF_SETPOINT4 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT4;
+  using eON_OFF_SETPOINT5 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT5;
+  using eON_OFF_SETPOINT6 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT6;
+  using eON_OFF_SETPOINT7 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT7;
+  using eON_OFF_SETPOINT8 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT8;
+  using eON_OFF_SETPOINT9 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT9;
+  using eON_OFF_SETPOINT10 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT10;
+  using eON_OFF_SETPOINT11 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT11;
+  using eON_OFF_SETPOINT12 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT12;
+  using eON_OFF_SETPOINT13 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT13;
+  using eON_OFF_SETPOINT14 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT14;
+  using eON_OFF_SETPOINT15 = BANDGAP_ENABLE_SP_fields_::eON_OFF_SETPOINT15;
+  using ON_OFF_SETPOINT0 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT0;
+  using ON_OFF_SETPOINT1 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT1;
+  using ON_OFF_SETPOINT2 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT2;
+  using ON_OFF_SETPOINT3 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT3;
+  using ON_OFF_SETPOINT4 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT4;
+  using ON_OFF_SETPOINT5 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT5;
+  using ON_OFF_SETPOINT6 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT6;
+  using ON_OFF_SETPOINT7 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT7;
+  using ON_OFF_SETPOINT8 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT8;
+  using ON_OFF_SETPOINT9 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT9;
+  using ON_OFF_SETPOINT10 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT10;
+  using ON_OFF_SETPOINT11 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT11;
+  using ON_OFF_SETPOINT12 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT12;
+  using ON_OFF_SETPOINT13 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT13;
+  using ON_OFF_SETPOINT14 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT14;
+  using ON_OFF_SETPOINT15 = BANDGAP_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
+
 
 // FBB_M7_ENABLE_SP_REGISTER
-union FBB_M7_ENABLE_SP {
-  
-  // ON_OFF_SETPOINT0
-  enum class eON_OFF_SETPOINT0 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT1
-  enum class eON_OFF_SETPOINT1 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT2
-  enum class eON_OFF_SETPOINT2 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT3
-  enum class eON_OFF_SETPOINT3 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT4
-  enum class eON_OFF_SETPOINT4 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT5
-  enum class eON_OFF_SETPOINT5 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT6
-  enum class eON_OFF_SETPOINT6 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT7
-  enum class eON_OFF_SETPOINT7 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT8
-  enum class eON_OFF_SETPOINT8 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT9
-  enum class eON_OFF_SETPOINT9 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT10
-  enum class eON_OFF_SETPOINT10 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT11
-  enum class eON_OFF_SETPOINT11 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT12
-  enum class eON_OFF_SETPOINT12 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT13
-  enum class eON_OFF_SETPOINT13 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT14
-  enum class eON_OFF_SETPOINT14 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT15
-  enum class eON_OFF_SETPOINT15 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ON_OFF_SETPOINT0
-    eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
-    // read-write - ON_OFF_SETPOINT1
-    eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
-    // read-write - ON_OFF_SETPOINT2
-    eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
-    // read-write - ON_OFF_SETPOINT3
-    eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
-    // read-write - ON_OFF_SETPOINT4
-    eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
-    // read-write - ON_OFF_SETPOINT5
-    eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
-    // read-write - ON_OFF_SETPOINT6
-    eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
-    // read-write - ON_OFF_SETPOINT7
-    eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
-    // read-write - ON_OFF_SETPOINT8
-    eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
-    // read-write - ON_OFF_SETPOINT9
-    eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
-    // read-write - ON_OFF_SETPOINT10
-    eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
-    // read-write - ON_OFF_SETPOINT11
-    eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
-    // read-write - ON_OFF_SETPOINT12
-    eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
-    // read-write - ON_OFF_SETPOINT13
-    eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
-    // read-write - ON_OFF_SETPOINT14
-    eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
-    // read-write - ON_OFF_SETPOINT15
-    eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct FBB_M7_ENABLE_SP_fields_ {
 
-  FBB_M7_ENABLE_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FBB_M7_ENABLE_SP &ref() { return *reinterpret_cast<volatile FBB_M7_ENABLE_SP*>(0x40C84700); }
+  enum class eON_OFF_SETPOINT0 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT1 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT2 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT3 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT4 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT5 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT6 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT7 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT8 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT9 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT10 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT11 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT12 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT13 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT14 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT15 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+  // ON_OFF_SETPOINT0
+  using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT1
+  using ON_OFF_SETPOINT1 = ftl::mmio::Field<1, 1, eON_OFF_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT2
+  using ON_OFF_SETPOINT2 = ftl::mmio::Field<1, 2, eON_OFF_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT3
+  using ON_OFF_SETPOINT3 = ftl::mmio::Field<1, 3, eON_OFF_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT4
+  using ON_OFF_SETPOINT4 = ftl::mmio::Field<1, 4, eON_OFF_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT5
+  using ON_OFF_SETPOINT5 = ftl::mmio::Field<1, 5, eON_OFF_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT6
+  using ON_OFF_SETPOINT6 = ftl::mmio::Field<1, 6, eON_OFF_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT7
+  using ON_OFF_SETPOINT7 = ftl::mmio::Field<1, 7, eON_OFF_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT8
+  using ON_OFF_SETPOINT8 = ftl::mmio::Field<1, 8, eON_OFF_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT9
+  using ON_OFF_SETPOINT9 = ftl::mmio::Field<1, 9, eON_OFF_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT10
+  using ON_OFF_SETPOINT10 = ftl::mmio::Field<1, 10, eON_OFF_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT11
+  using ON_OFF_SETPOINT11 = ftl::mmio::Field<1, 11, eON_OFF_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT12
+  using ON_OFF_SETPOINT12 = ftl::mmio::Field<1, 12, eON_OFF_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT13
+  using ON_OFF_SETPOINT13 = ftl::mmio::Field<1, 13, eON_OFF_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT14
+  using ON_OFF_SETPOINT14 = ftl::mmio::Field<1, 14, eON_OFF_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT15
+  using ON_OFF_SETPOINT15 = ftl::mmio::Field<1, 15, eON_OFF_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct FBB_M7_ENABLE_SP_fields_
+
+struct FBB_M7_ENABLE_SP : ftl::mmio::Register<
+    0x40C84700u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT0,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT1,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT2,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT3,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT4,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT5,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT6,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT7,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT8,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT9,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT10,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT11,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT12,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT13,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT14,
+    FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eON_OFF_SETPOINT0 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT0;
+  using eON_OFF_SETPOINT1 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT1;
+  using eON_OFF_SETPOINT2 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT2;
+  using eON_OFF_SETPOINT3 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT3;
+  using eON_OFF_SETPOINT4 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT4;
+  using eON_OFF_SETPOINT5 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT5;
+  using eON_OFF_SETPOINT6 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT6;
+  using eON_OFF_SETPOINT7 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT7;
+  using eON_OFF_SETPOINT8 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT8;
+  using eON_OFF_SETPOINT9 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT9;
+  using eON_OFF_SETPOINT10 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT10;
+  using eON_OFF_SETPOINT11 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT11;
+  using eON_OFF_SETPOINT12 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT12;
+  using eON_OFF_SETPOINT13 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT13;
+  using eON_OFF_SETPOINT14 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT14;
+  using eON_OFF_SETPOINT15 = FBB_M7_ENABLE_SP_fields_::eON_OFF_SETPOINT15;
+  using ON_OFF_SETPOINT0 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT0;
+  using ON_OFF_SETPOINT1 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT1;
+  using ON_OFF_SETPOINT2 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT2;
+  using ON_OFF_SETPOINT3 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT3;
+  using ON_OFF_SETPOINT4 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT4;
+  using ON_OFF_SETPOINT5 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT5;
+  using ON_OFF_SETPOINT6 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT6;
+  using ON_OFF_SETPOINT7 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT7;
+  using ON_OFF_SETPOINT8 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT8;
+  using ON_OFF_SETPOINT9 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT9;
+  using ON_OFF_SETPOINT10 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT10;
+  using ON_OFF_SETPOINT11 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT11;
+  using ON_OFF_SETPOINT12 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT12;
+  using ON_OFF_SETPOINT13 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT13;
+  using ON_OFF_SETPOINT14 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT14;
+  using ON_OFF_SETPOINT15 = FBB_M7_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
+
 
 // RBB_SOC_ENABLE_SP_REGISTER
-union RBB_SOC_ENABLE_SP {
-  
-  // ON_OFF_SETPOINT0
-  enum class eON_OFF_SETPOINT0 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT1
-  enum class eON_OFF_SETPOINT1 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT2
-  enum class eON_OFF_SETPOINT2 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT3
-  enum class eON_OFF_SETPOINT3 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT4
-  enum class eON_OFF_SETPOINT4 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT5
-  enum class eON_OFF_SETPOINT5 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT6
-  enum class eON_OFF_SETPOINT6 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT7
-  enum class eON_OFF_SETPOINT7 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT8
-  enum class eON_OFF_SETPOINT8 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT9
-  enum class eON_OFF_SETPOINT9 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT10
-  enum class eON_OFF_SETPOINT10 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT11
-  enum class eON_OFF_SETPOINT11 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT12
-  enum class eON_OFF_SETPOINT12 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT13
-  enum class eON_OFF_SETPOINT13 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT14
-  enum class eON_OFF_SETPOINT14 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT15
-  enum class eON_OFF_SETPOINT15 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ON_OFF_SETPOINT0
-    eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
-    // read-write - ON_OFF_SETPOINT1
-    eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
-    // read-write - ON_OFF_SETPOINT2
-    eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
-    // read-write - ON_OFF_SETPOINT3
-    eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
-    // read-write - ON_OFF_SETPOINT4
-    eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
-    // read-write - ON_OFF_SETPOINT5
-    eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
-    // read-write - ON_OFF_SETPOINT6
-    eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
-    // read-write - ON_OFF_SETPOINT7
-    eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
-    // read-write - ON_OFF_SETPOINT8
-    eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
-    // read-write - ON_OFF_SETPOINT9
-    eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
-    // read-write - ON_OFF_SETPOINT10
-    eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
-    // read-write - ON_OFF_SETPOINT11
-    eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
-    // read-write - ON_OFF_SETPOINT12
-    eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
-    // read-write - ON_OFF_SETPOINT13
-    eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
-    // read-write - ON_OFF_SETPOINT14
-    eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
-    // read-write - ON_OFF_SETPOINT15
-    eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RBB_SOC_ENABLE_SP_fields_ {
 
-  RBB_SOC_ENABLE_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RBB_SOC_ENABLE_SP &ref() { return *reinterpret_cast<volatile RBB_SOC_ENABLE_SP*>(0x40C84710); }
+  enum class eON_OFF_SETPOINT0 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT1 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT2 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT3 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT4 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT5 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT6 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT7 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT8 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT9 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT10 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT11 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT12 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT13 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT14 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT15 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+  // ON_OFF_SETPOINT0
+  using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT1
+  using ON_OFF_SETPOINT1 = ftl::mmio::Field<1, 1, eON_OFF_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT2
+  using ON_OFF_SETPOINT2 = ftl::mmio::Field<1, 2, eON_OFF_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT3
+  using ON_OFF_SETPOINT3 = ftl::mmio::Field<1, 3, eON_OFF_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT4
+  using ON_OFF_SETPOINT4 = ftl::mmio::Field<1, 4, eON_OFF_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT5
+  using ON_OFF_SETPOINT5 = ftl::mmio::Field<1, 5, eON_OFF_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT6
+  using ON_OFF_SETPOINT6 = ftl::mmio::Field<1, 6, eON_OFF_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT7
+  using ON_OFF_SETPOINT7 = ftl::mmio::Field<1, 7, eON_OFF_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT8
+  using ON_OFF_SETPOINT8 = ftl::mmio::Field<1, 8, eON_OFF_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT9
+  using ON_OFF_SETPOINT9 = ftl::mmio::Field<1, 9, eON_OFF_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT10
+  using ON_OFF_SETPOINT10 = ftl::mmio::Field<1, 10, eON_OFF_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT11
+  using ON_OFF_SETPOINT11 = ftl::mmio::Field<1, 11, eON_OFF_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT12
+  using ON_OFF_SETPOINT12 = ftl::mmio::Field<1, 12, eON_OFF_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT13
+  using ON_OFF_SETPOINT13 = ftl::mmio::Field<1, 13, eON_OFF_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT14
+  using ON_OFF_SETPOINT14 = ftl::mmio::Field<1, 14, eON_OFF_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT15
+  using ON_OFF_SETPOINT15 = ftl::mmio::Field<1, 15, eON_OFF_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RBB_SOC_ENABLE_SP_fields_
+
+struct RBB_SOC_ENABLE_SP : ftl::mmio::Register<
+    0x40C84710u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT0,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT1,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT2,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT3,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT4,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT5,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT6,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT7,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT8,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT9,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT10,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT11,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT12,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT13,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT14,
+    RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eON_OFF_SETPOINT0 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT0;
+  using eON_OFF_SETPOINT1 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT1;
+  using eON_OFF_SETPOINT2 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT2;
+  using eON_OFF_SETPOINT3 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT3;
+  using eON_OFF_SETPOINT4 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT4;
+  using eON_OFF_SETPOINT5 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT5;
+  using eON_OFF_SETPOINT6 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT6;
+  using eON_OFF_SETPOINT7 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT7;
+  using eON_OFF_SETPOINT8 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT8;
+  using eON_OFF_SETPOINT9 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT9;
+  using eON_OFF_SETPOINT10 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT10;
+  using eON_OFF_SETPOINT11 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT11;
+  using eON_OFF_SETPOINT12 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT12;
+  using eON_OFF_SETPOINT13 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT13;
+  using eON_OFF_SETPOINT14 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT14;
+  using eON_OFF_SETPOINT15 = RBB_SOC_ENABLE_SP_fields_::eON_OFF_SETPOINT15;
+  using ON_OFF_SETPOINT0 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT0;
+  using ON_OFF_SETPOINT1 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT1;
+  using ON_OFF_SETPOINT2 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT2;
+  using ON_OFF_SETPOINT3 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT3;
+  using ON_OFF_SETPOINT4 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT4;
+  using ON_OFF_SETPOINT5 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT5;
+  using ON_OFF_SETPOINT6 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT6;
+  using ON_OFF_SETPOINT7 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT7;
+  using ON_OFF_SETPOINT8 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT8;
+  using ON_OFF_SETPOINT9 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT9;
+  using ON_OFF_SETPOINT10 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT10;
+  using ON_OFF_SETPOINT11 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT11;
+  using ON_OFF_SETPOINT12 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT12;
+  using ON_OFF_SETPOINT13 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT13;
+  using ON_OFF_SETPOINT14 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT14;
+  using ON_OFF_SETPOINT15 = RBB_SOC_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
+
 
 // RBB_LPSR_ENABLE_SP_REGISTER
-union RBB_LPSR_ENABLE_SP {
-  
-  // ON_OFF_SETPOINT0
-  enum class eON_OFF_SETPOINT0 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT1
-  enum class eON_OFF_SETPOINT1 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT2
-  enum class eON_OFF_SETPOINT2 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT3
-  enum class eON_OFF_SETPOINT3 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT4
-  enum class eON_OFF_SETPOINT4 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT5
-  enum class eON_OFF_SETPOINT5 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT6
-  enum class eON_OFF_SETPOINT6 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT7
-  enum class eON_OFF_SETPOINT7 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT8
-  enum class eON_OFF_SETPOINT8 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT9
-  enum class eON_OFF_SETPOINT9 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT10
-  enum class eON_OFF_SETPOINT10 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT11
-  enum class eON_OFF_SETPOINT11 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT12
-  enum class eON_OFF_SETPOINT12 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT13
-  enum class eON_OFF_SETPOINT13 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT14
-  enum class eON_OFF_SETPOINT14 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // ON_OFF_SETPOINT15
-  enum class eON_OFF_SETPOINT15 : uint32_t {
-    // ON
-    es0 = 0,
-    // OFF
-    es1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ON_OFF_SETPOINT0
-    eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
-    // read-write - ON_OFF_SETPOINT1
-    eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
-    // read-write - ON_OFF_SETPOINT2
-    eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
-    // read-write - ON_OFF_SETPOINT3
-    eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
-    // read-write - ON_OFF_SETPOINT4
-    eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
-    // read-write - ON_OFF_SETPOINT5
-    eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
-    // read-write - ON_OFF_SETPOINT6
-    eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
-    // read-write - ON_OFF_SETPOINT7
-    eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
-    // read-write - ON_OFF_SETPOINT8
-    eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
-    // read-write - ON_OFF_SETPOINT9
-    eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
-    // read-write - ON_OFF_SETPOINT10
-    eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
-    // read-write - ON_OFF_SETPOINT11
-    eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
-    // read-write - ON_OFF_SETPOINT12
-    eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
-    // read-write - ON_OFF_SETPOINT13
-    eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
-    // read-write - ON_OFF_SETPOINT14
-    eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
-    // read-write - ON_OFF_SETPOINT15
-    eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RBB_LPSR_ENABLE_SP_fields_ {
 
-  RBB_LPSR_ENABLE_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RBB_LPSR_ENABLE_SP &ref() { return *reinterpret_cast<volatile RBB_LPSR_ENABLE_SP*>(0x40C84720); }
+  enum class eON_OFF_SETPOINT0 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT1 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT2 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT3 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT4 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT5 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT6 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT7 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT8 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT9 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT10 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT11 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT12 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT13 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT14 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+
+  enum class eON_OFF_SETPOINT15 : std::uint32_t {
+    // ON
+    es0 = 0,
+    // OFF
+    es1 = 1,
+  };
+  // ON_OFF_SETPOINT0
+  using ON_OFF_SETPOINT0 = ftl::mmio::Field<1, 0, eON_OFF_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT1
+  using ON_OFF_SETPOINT1 = ftl::mmio::Field<1, 1, eON_OFF_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT2
+  using ON_OFF_SETPOINT2 = ftl::mmio::Field<1, 2, eON_OFF_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT3
+  using ON_OFF_SETPOINT3 = ftl::mmio::Field<1, 3, eON_OFF_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT4
+  using ON_OFF_SETPOINT4 = ftl::mmio::Field<1, 4, eON_OFF_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT5
+  using ON_OFF_SETPOINT5 = ftl::mmio::Field<1, 5, eON_OFF_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT6
+  using ON_OFF_SETPOINT6 = ftl::mmio::Field<1, 6, eON_OFF_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT7
+  using ON_OFF_SETPOINT7 = ftl::mmio::Field<1, 7, eON_OFF_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT8
+  using ON_OFF_SETPOINT8 = ftl::mmio::Field<1, 8, eON_OFF_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT9
+  using ON_OFF_SETPOINT9 = ftl::mmio::Field<1, 9, eON_OFF_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT10
+  using ON_OFF_SETPOINT10 = ftl::mmio::Field<1, 10, eON_OFF_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT11
+  using ON_OFF_SETPOINT11 = ftl::mmio::Field<1, 11, eON_OFF_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT12
+  using ON_OFF_SETPOINT12 = ftl::mmio::Field<1, 12, eON_OFF_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT13
+  using ON_OFF_SETPOINT13 = ftl::mmio::Field<1, 13, eON_OFF_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT14
+  using ON_OFF_SETPOINT14 = ftl::mmio::Field<1, 14, eON_OFF_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ON_OFF_SETPOINT15
+  using ON_OFF_SETPOINT15 = ftl::mmio::Field<1, 15, eON_OFF_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RBB_LPSR_ENABLE_SP_fields_
+
+struct RBB_LPSR_ENABLE_SP : ftl::mmio::Register<
+    0x40C84720u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT0,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT1,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT2,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT3,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT4,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT5,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT6,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT7,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT8,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT9,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT10,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT11,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT12,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT13,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT14,
+    RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eON_OFF_SETPOINT0 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT0;
+  using eON_OFF_SETPOINT1 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT1;
+  using eON_OFF_SETPOINT2 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT2;
+  using eON_OFF_SETPOINT3 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT3;
+  using eON_OFF_SETPOINT4 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT4;
+  using eON_OFF_SETPOINT5 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT5;
+  using eON_OFF_SETPOINT6 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT6;
+  using eON_OFF_SETPOINT7 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT7;
+  using eON_OFF_SETPOINT8 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT8;
+  using eON_OFF_SETPOINT9 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT9;
+  using eON_OFF_SETPOINT10 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT10;
+  using eON_OFF_SETPOINT11 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT11;
+  using eON_OFF_SETPOINT12 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT12;
+  using eON_OFF_SETPOINT13 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT13;
+  using eON_OFF_SETPOINT14 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT14;
+  using eON_OFF_SETPOINT15 = RBB_LPSR_ENABLE_SP_fields_::eON_OFF_SETPOINT15;
+  using ON_OFF_SETPOINT0 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT0;
+  using ON_OFF_SETPOINT1 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT1;
+  using ON_OFF_SETPOINT2 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT2;
+  using ON_OFF_SETPOINT3 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT3;
+  using ON_OFF_SETPOINT4 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT4;
+  using ON_OFF_SETPOINT5 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT5;
+  using ON_OFF_SETPOINT6 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT6;
+  using ON_OFF_SETPOINT7 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT7;
+  using ON_OFF_SETPOINT8 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT8;
+  using ON_OFF_SETPOINT9 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT9;
+  using ON_OFF_SETPOINT10 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT10;
+  using ON_OFF_SETPOINT11 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT11;
+  using ON_OFF_SETPOINT12 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT12;
+  using ON_OFF_SETPOINT13 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT13;
+  using ON_OFF_SETPOINT14 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT14;
+  using ON_OFF_SETPOINT15 = RBB_LPSR_ENABLE_SP_fields_::ON_OFF_SETPOINT15;
 };
+
 
 // BANDGAP_STBY_EN_SP_REGISTER
-union BANDGAP_STBY_EN_SP {
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT0 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT1 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT2 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT3 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT4 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT5 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT6 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT7 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT8 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT9 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT10 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT11 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT12 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT13 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT14 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // STBY_EN_SETPOINT
-  enum class eSTBY_EN_SETPOINT15 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
-    // read-write - STBY_EN_SETPOINT
-    eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct BANDGAP_STBY_EN_SP_fields_ {
 
-  BANDGAP_STBY_EN_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BANDGAP_STBY_EN_SP &ref() { return *reinterpret_cast<volatile BANDGAP_STBY_EN_SP*>(0x40C84730); }
+  enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT1 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT2 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT3 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT4 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT5 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT6 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT7 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT8 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT9 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT10 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT11 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT12 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT13 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT14 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT15 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT1 = ftl::mmio::Field<1, 1, eSTBY_EN_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT2 = ftl::mmio::Field<1, 2, eSTBY_EN_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT3 = ftl::mmio::Field<1, 3, eSTBY_EN_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT4 = ftl::mmio::Field<1, 4, eSTBY_EN_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT5 = ftl::mmio::Field<1, 5, eSTBY_EN_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT6 = ftl::mmio::Field<1, 6, eSTBY_EN_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT7 = ftl::mmio::Field<1, 7, eSTBY_EN_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT8 = ftl::mmio::Field<1, 8, eSTBY_EN_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT9 = ftl::mmio::Field<1, 9, eSTBY_EN_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT10 = ftl::mmio::Field<1, 10, eSTBY_EN_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT11 = ftl::mmio::Field<1, 11, eSTBY_EN_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT12 = ftl::mmio::Field<1, 12, eSTBY_EN_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT13 = ftl::mmio::Field<1, 13, eSTBY_EN_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT14 = ftl::mmio::Field<1, 14, eSTBY_EN_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // STBY_EN_SETPOINT
+  using STBY_EN_SETPOINT15 = ftl::mmio::Field<1, 15, eSTBY_EN_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct BANDGAP_STBY_EN_SP_fields_
+
+struct BANDGAP_STBY_EN_SP : ftl::mmio::Register<
+    0x40C84730u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT0,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT1,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT2,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT3,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT4,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT5,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT6,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT7,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT8,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT9,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT10,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT11,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT12,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT13,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT14,
+    BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSTBY_EN_SETPOINT0 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT0;
+  using eSTBY_EN_SETPOINT1 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT1;
+  using eSTBY_EN_SETPOINT2 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT2;
+  using eSTBY_EN_SETPOINT3 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT3;
+  using eSTBY_EN_SETPOINT4 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT4;
+  using eSTBY_EN_SETPOINT5 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT5;
+  using eSTBY_EN_SETPOINT6 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT6;
+  using eSTBY_EN_SETPOINT7 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT7;
+  using eSTBY_EN_SETPOINT8 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT8;
+  using eSTBY_EN_SETPOINT9 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT9;
+  using eSTBY_EN_SETPOINT10 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT10;
+  using eSTBY_EN_SETPOINT11 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT11;
+  using eSTBY_EN_SETPOINT12 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT12;
+  using eSTBY_EN_SETPOINT13 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT13;
+  using eSTBY_EN_SETPOINT14 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT14;
+  using eSTBY_EN_SETPOINT15 = BANDGAP_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT15;
+  using STBY_EN_SETPOINT0 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT0;
+  using STBY_EN_SETPOINT1 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT1;
+  using STBY_EN_SETPOINT2 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT2;
+  using STBY_EN_SETPOINT3 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT3;
+  using STBY_EN_SETPOINT4 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT4;
+  using STBY_EN_SETPOINT5 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT5;
+  using STBY_EN_SETPOINT6 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT6;
+  using STBY_EN_SETPOINT7 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT7;
+  using STBY_EN_SETPOINT8 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT8;
+  using STBY_EN_SETPOINT9 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT9;
+  using STBY_EN_SETPOINT10 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT10;
+  using STBY_EN_SETPOINT11 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT11;
+  using STBY_EN_SETPOINT12 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT12;
+  using STBY_EN_SETPOINT13 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT13;
+  using STBY_EN_SETPOINT14 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT14;
+  using STBY_EN_SETPOINT15 = BANDGAP_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
+
 
 // PLL_LDO_STBY_EN_SP_REGISTER
-union PLL_LDO_STBY_EN_SP {
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT0 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT1 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT2 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT3 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT4 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT5 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT6 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT7 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT8 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT9 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT10 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT11 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT12 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT13 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT14 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT15 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PLL_LDO_STBY_EN_SP_fields_ {
 
-  PLL_LDO_STBY_EN_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PLL_LDO_STBY_EN_SP &ref() { return *reinterpret_cast<volatile PLL_LDO_STBY_EN_SP*>(0x40C84740); }
+  enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT1 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT2 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT3 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT4 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT5 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT6 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT7 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT8 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT9 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT10 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT11 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT12 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT13 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT14 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT15 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+  // Standby mode
+  using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT1 = ftl::mmio::Field<1, 1, eSTBY_EN_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT2 = ftl::mmio::Field<1, 2, eSTBY_EN_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT3 = ftl::mmio::Field<1, 3, eSTBY_EN_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT4 = ftl::mmio::Field<1, 4, eSTBY_EN_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT5 = ftl::mmio::Field<1, 5, eSTBY_EN_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT6 = ftl::mmio::Field<1, 6, eSTBY_EN_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT7 = ftl::mmio::Field<1, 7, eSTBY_EN_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT8 = ftl::mmio::Field<1, 8, eSTBY_EN_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT9 = ftl::mmio::Field<1, 9, eSTBY_EN_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT10 = ftl::mmio::Field<1, 10, eSTBY_EN_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT11 = ftl::mmio::Field<1, 11, eSTBY_EN_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT12 = ftl::mmio::Field<1, 12, eSTBY_EN_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT13 = ftl::mmio::Field<1, 13, eSTBY_EN_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT14 = ftl::mmio::Field<1, 14, eSTBY_EN_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT15 = ftl::mmio::Field<1, 15, eSTBY_EN_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PLL_LDO_STBY_EN_SP_fields_
+
+struct PLL_LDO_STBY_EN_SP : ftl::mmio::Register<
+    0x40C84740u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT0,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT1,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT2,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT3,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT4,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT5,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT6,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT7,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT8,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT9,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT10,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT11,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT12,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT13,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT14,
+    PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSTBY_EN_SETPOINT0 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT0;
+  using eSTBY_EN_SETPOINT1 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT1;
+  using eSTBY_EN_SETPOINT2 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT2;
+  using eSTBY_EN_SETPOINT3 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT3;
+  using eSTBY_EN_SETPOINT4 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT4;
+  using eSTBY_EN_SETPOINT5 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT5;
+  using eSTBY_EN_SETPOINT6 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT6;
+  using eSTBY_EN_SETPOINT7 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT7;
+  using eSTBY_EN_SETPOINT8 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT8;
+  using eSTBY_EN_SETPOINT9 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT9;
+  using eSTBY_EN_SETPOINT10 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT10;
+  using eSTBY_EN_SETPOINT11 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT11;
+  using eSTBY_EN_SETPOINT12 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT12;
+  using eSTBY_EN_SETPOINT13 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT13;
+  using eSTBY_EN_SETPOINT14 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT14;
+  using eSTBY_EN_SETPOINT15 = PLL_LDO_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT15;
+  using STBY_EN_SETPOINT0 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT0;
+  using STBY_EN_SETPOINT1 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT1;
+  using STBY_EN_SETPOINT2 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT2;
+  using STBY_EN_SETPOINT3 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT3;
+  using STBY_EN_SETPOINT4 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT4;
+  using STBY_EN_SETPOINT5 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT5;
+  using STBY_EN_SETPOINT6 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT6;
+  using STBY_EN_SETPOINT7 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT7;
+  using STBY_EN_SETPOINT8 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT8;
+  using STBY_EN_SETPOINT9 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT9;
+  using STBY_EN_SETPOINT10 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT10;
+  using STBY_EN_SETPOINT11 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT11;
+  using STBY_EN_SETPOINT12 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT12;
+  using STBY_EN_SETPOINT13 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT13;
+  using STBY_EN_SETPOINT14 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT14;
+  using STBY_EN_SETPOINT15 = PLL_LDO_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
+
 
 // FBB_M7_STBY_EN_SP_REGISTER
-union FBB_M7_STBY_EN_SP {
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT0 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT1 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT2 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT3 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT4 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT5 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT6 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT7 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT8 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT9 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT10 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT11 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT12 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT13 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT14 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT15 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct FBB_M7_STBY_EN_SP_fields_ {
 
-  FBB_M7_STBY_EN_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FBB_M7_STBY_EN_SP &ref() { return *reinterpret_cast<volatile FBB_M7_STBY_EN_SP*>(0x40C84750); }
+  enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT1 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT2 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT3 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT4 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT5 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT6 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT7 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT8 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT9 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT10 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT11 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT12 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT13 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT14 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT15 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+  // Standby mode
+  using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT1 = ftl::mmio::Field<1, 1, eSTBY_EN_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT2 = ftl::mmio::Field<1, 2, eSTBY_EN_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT3 = ftl::mmio::Field<1, 3, eSTBY_EN_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT4 = ftl::mmio::Field<1, 4, eSTBY_EN_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT5 = ftl::mmio::Field<1, 5, eSTBY_EN_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT6 = ftl::mmio::Field<1, 6, eSTBY_EN_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT7 = ftl::mmio::Field<1, 7, eSTBY_EN_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT8 = ftl::mmio::Field<1, 8, eSTBY_EN_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT9 = ftl::mmio::Field<1, 9, eSTBY_EN_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT10 = ftl::mmio::Field<1, 10, eSTBY_EN_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT11 = ftl::mmio::Field<1, 11, eSTBY_EN_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT12 = ftl::mmio::Field<1, 12, eSTBY_EN_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT13 = ftl::mmio::Field<1, 13, eSTBY_EN_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT14 = ftl::mmio::Field<1, 14, eSTBY_EN_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT15 = ftl::mmio::Field<1, 15, eSTBY_EN_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct FBB_M7_STBY_EN_SP_fields_
+
+struct FBB_M7_STBY_EN_SP : ftl::mmio::Register<
+    0x40C84750u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT0,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT1,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT2,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT3,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT4,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT5,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT6,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT7,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT8,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT9,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT10,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT11,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT12,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT13,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT14,
+    FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSTBY_EN_SETPOINT0 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT0;
+  using eSTBY_EN_SETPOINT1 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT1;
+  using eSTBY_EN_SETPOINT2 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT2;
+  using eSTBY_EN_SETPOINT3 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT3;
+  using eSTBY_EN_SETPOINT4 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT4;
+  using eSTBY_EN_SETPOINT5 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT5;
+  using eSTBY_EN_SETPOINT6 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT6;
+  using eSTBY_EN_SETPOINT7 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT7;
+  using eSTBY_EN_SETPOINT8 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT8;
+  using eSTBY_EN_SETPOINT9 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT9;
+  using eSTBY_EN_SETPOINT10 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT10;
+  using eSTBY_EN_SETPOINT11 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT11;
+  using eSTBY_EN_SETPOINT12 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT12;
+  using eSTBY_EN_SETPOINT13 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT13;
+  using eSTBY_EN_SETPOINT14 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT14;
+  using eSTBY_EN_SETPOINT15 = FBB_M7_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT15;
+  using STBY_EN_SETPOINT0 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT0;
+  using STBY_EN_SETPOINT1 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT1;
+  using STBY_EN_SETPOINT2 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT2;
+  using STBY_EN_SETPOINT3 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT3;
+  using STBY_EN_SETPOINT4 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT4;
+  using STBY_EN_SETPOINT5 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT5;
+  using STBY_EN_SETPOINT6 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT6;
+  using STBY_EN_SETPOINT7 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT7;
+  using STBY_EN_SETPOINT8 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT8;
+  using STBY_EN_SETPOINT9 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT9;
+  using STBY_EN_SETPOINT10 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT10;
+  using STBY_EN_SETPOINT11 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT11;
+  using STBY_EN_SETPOINT12 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT12;
+  using STBY_EN_SETPOINT13 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT13;
+  using STBY_EN_SETPOINT14 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT14;
+  using STBY_EN_SETPOINT15 = FBB_M7_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
+
 
 // RBB_SOC_STBY_EN_SP_REGISTER
-union RBB_SOC_STBY_EN_SP {
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT0 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT1 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT2 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT3 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT4 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT5 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT6 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT7 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT8 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT9 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT10 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT11 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT12 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT13 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT14 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT15 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RBB_SOC_STBY_EN_SP_fields_ {
 
-  RBB_SOC_STBY_EN_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RBB_SOC_STBY_EN_SP &ref() { return *reinterpret_cast<volatile RBB_SOC_STBY_EN_SP*>(0x40C84760); }
+  enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT1 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT2 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT3 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT4 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT5 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT6 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT7 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT8 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT9 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT10 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT11 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT12 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT13 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT14 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT15 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+  // Standby mode
+  using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT1 = ftl::mmio::Field<1, 1, eSTBY_EN_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT2 = ftl::mmio::Field<1, 2, eSTBY_EN_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT3 = ftl::mmio::Field<1, 3, eSTBY_EN_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT4 = ftl::mmio::Field<1, 4, eSTBY_EN_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT5 = ftl::mmio::Field<1, 5, eSTBY_EN_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT6 = ftl::mmio::Field<1, 6, eSTBY_EN_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT7 = ftl::mmio::Field<1, 7, eSTBY_EN_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT8 = ftl::mmio::Field<1, 8, eSTBY_EN_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT9 = ftl::mmio::Field<1, 9, eSTBY_EN_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT10 = ftl::mmio::Field<1, 10, eSTBY_EN_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT11 = ftl::mmio::Field<1, 11, eSTBY_EN_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT12 = ftl::mmio::Field<1, 12, eSTBY_EN_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT13 = ftl::mmio::Field<1, 13, eSTBY_EN_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT14 = ftl::mmio::Field<1, 14, eSTBY_EN_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT15 = ftl::mmio::Field<1, 15, eSTBY_EN_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RBB_SOC_STBY_EN_SP_fields_
+
+struct RBB_SOC_STBY_EN_SP : ftl::mmio::Register<
+    0x40C84760u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT0,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT1,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT2,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT3,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT4,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT5,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT6,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT7,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT8,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT9,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT10,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT11,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT12,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT13,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT14,
+    RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSTBY_EN_SETPOINT0 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT0;
+  using eSTBY_EN_SETPOINT1 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT1;
+  using eSTBY_EN_SETPOINT2 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT2;
+  using eSTBY_EN_SETPOINT3 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT3;
+  using eSTBY_EN_SETPOINT4 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT4;
+  using eSTBY_EN_SETPOINT5 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT5;
+  using eSTBY_EN_SETPOINT6 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT6;
+  using eSTBY_EN_SETPOINT7 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT7;
+  using eSTBY_EN_SETPOINT8 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT8;
+  using eSTBY_EN_SETPOINT9 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT9;
+  using eSTBY_EN_SETPOINT10 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT10;
+  using eSTBY_EN_SETPOINT11 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT11;
+  using eSTBY_EN_SETPOINT12 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT12;
+  using eSTBY_EN_SETPOINT13 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT13;
+  using eSTBY_EN_SETPOINT14 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT14;
+  using eSTBY_EN_SETPOINT15 = RBB_SOC_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT15;
+  using STBY_EN_SETPOINT0 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT0;
+  using STBY_EN_SETPOINT1 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT1;
+  using STBY_EN_SETPOINT2 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT2;
+  using STBY_EN_SETPOINT3 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT3;
+  using STBY_EN_SETPOINT4 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT4;
+  using STBY_EN_SETPOINT5 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT5;
+  using STBY_EN_SETPOINT6 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT6;
+  using STBY_EN_SETPOINT7 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT7;
+  using STBY_EN_SETPOINT8 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT8;
+  using STBY_EN_SETPOINT9 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT9;
+  using STBY_EN_SETPOINT10 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT10;
+  using STBY_EN_SETPOINT11 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT11;
+  using STBY_EN_SETPOINT12 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT12;
+  using STBY_EN_SETPOINT13 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT13;
+  using STBY_EN_SETPOINT14 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT14;
+  using STBY_EN_SETPOINT15 = RBB_SOC_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
+
 
 // RBB_LPSR_STBY_EN_SP_REGISTER
-union RBB_LPSR_STBY_EN_SP {
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT0 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT1 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT2 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT3 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT4 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT5 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT6 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT7 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT8 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT9 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT10 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT11 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT12 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT13 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT14 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Standby mode
-  enum class eSTBY_EN_SETPOINT15 : uint32_t {
-    // Disabled
-    eb0 = 0,
-    // Enabled
-    eb1 = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
-    // read-write - Standby mode
-    eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RBB_LPSR_STBY_EN_SP_fields_ {
 
-  RBB_LPSR_STBY_EN_SP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RBB_LPSR_STBY_EN_SP &ref() { return *reinterpret_cast<volatile RBB_LPSR_STBY_EN_SP*>(0x40C84770); }
+  enum class eSTBY_EN_SETPOINT0 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT1 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT2 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT3 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT4 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT5 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT6 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT7 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT8 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT9 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT10 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT11 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT12 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT13 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT14 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+
+  enum class eSTBY_EN_SETPOINT15 : std::uint32_t {
+    // Disabled
+    eb0 = 0,
+    // Enabled
+    eb1 = 1,
+  };
+  // Standby mode
+  using STBY_EN_SETPOINT0 = ftl::mmio::Field<1, 0, eSTBY_EN_SETPOINT0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT1 = ftl::mmio::Field<1, 1, eSTBY_EN_SETPOINT1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT2 = ftl::mmio::Field<1, 2, eSTBY_EN_SETPOINT2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT3 = ftl::mmio::Field<1, 3, eSTBY_EN_SETPOINT3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT4 = ftl::mmio::Field<1, 4, eSTBY_EN_SETPOINT4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT5 = ftl::mmio::Field<1, 5, eSTBY_EN_SETPOINT5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT6 = ftl::mmio::Field<1, 6, eSTBY_EN_SETPOINT6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT7 = ftl::mmio::Field<1, 7, eSTBY_EN_SETPOINT7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT8 = ftl::mmio::Field<1, 8, eSTBY_EN_SETPOINT8, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT9 = ftl::mmio::Field<1, 9, eSTBY_EN_SETPOINT9, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT10 = ftl::mmio::Field<1, 10, eSTBY_EN_SETPOINT10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT11 = ftl::mmio::Field<1, 11, eSTBY_EN_SETPOINT11, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT12 = ftl::mmio::Field<1, 12, eSTBY_EN_SETPOINT12, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT13 = ftl::mmio::Field<1, 13, eSTBY_EN_SETPOINT13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT14 = ftl::mmio::Field<1, 14, eSTBY_EN_SETPOINT14, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Standby mode
+  using STBY_EN_SETPOINT15 = ftl::mmio::Field<1, 15, eSTBY_EN_SETPOINT15, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RBB_LPSR_STBY_EN_SP_fields_
+
+struct RBB_LPSR_STBY_EN_SP : ftl::mmio::Register<
+    0x40C84770u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT0,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT1,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT2,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT3,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT4,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT5,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT6,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT7,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT8,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT9,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT10,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT11,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT12,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT13,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT14,
+    RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT15,
+    ftl::mmio::Reserved<16, 16>> {
+  using eSTBY_EN_SETPOINT0 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT0;
+  using eSTBY_EN_SETPOINT1 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT1;
+  using eSTBY_EN_SETPOINT2 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT2;
+  using eSTBY_EN_SETPOINT3 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT3;
+  using eSTBY_EN_SETPOINT4 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT4;
+  using eSTBY_EN_SETPOINT5 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT5;
+  using eSTBY_EN_SETPOINT6 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT6;
+  using eSTBY_EN_SETPOINT7 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT7;
+  using eSTBY_EN_SETPOINT8 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT8;
+  using eSTBY_EN_SETPOINT9 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT9;
+  using eSTBY_EN_SETPOINT10 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT10;
+  using eSTBY_EN_SETPOINT11 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT11;
+  using eSTBY_EN_SETPOINT12 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT12;
+  using eSTBY_EN_SETPOINT13 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT13;
+  using eSTBY_EN_SETPOINT14 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT14;
+  using eSTBY_EN_SETPOINT15 = RBB_LPSR_STBY_EN_SP_fields_::eSTBY_EN_SETPOINT15;
+  using STBY_EN_SETPOINT0 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT0;
+  using STBY_EN_SETPOINT1 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT1;
+  using STBY_EN_SETPOINT2 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT2;
+  using STBY_EN_SETPOINT3 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT3;
+  using STBY_EN_SETPOINT4 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT4;
+  using STBY_EN_SETPOINT5 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT5;
+  using STBY_EN_SETPOINT6 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT6;
+  using STBY_EN_SETPOINT7 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT7;
+  using STBY_EN_SETPOINT8 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT8;
+  using STBY_EN_SETPOINT9 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT9;
+  using STBY_EN_SETPOINT10 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT10;
+  using STBY_EN_SETPOINT11 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT11;
+  using STBY_EN_SETPOINT12 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT12;
+  using STBY_EN_SETPOINT13 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT13;
+  using STBY_EN_SETPOINT14 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT14;
+  using STBY_EN_SETPOINT15 = RBB_LPSR_STBY_EN_SP_fields_::STBY_EN_SETPOINT15;
 };
+
 
 // FBB_M7_CONFIGURE_REGISTER
-union FBB_M7_CONFIGURE {
-  
-  // Bit field definition.
-  struct {
-    // read-write - wb_cfg_pw
-    uint32_t WB_CFG_PW : 4;
-    // read-write - wb_cfg_nw
-    uint32_t WB_CFG_NW : 4;
-    // read-write - oscillator_bits
-    uint32_t OSCILLATOR_BITS : 3;
-    // read-write - regulator_strength
-    uint32_t REGULATOR_STRENGTH : 3;
-    uint32_t _reserved_0 : 18;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct FBB_M7_CONFIGURE_fields_ {
+  // wb_cfg_pw
+  using WB_CFG_PW = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // wb_cfg_nw
+  using WB_CFG_NW = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // oscillator_bits
+  using OSCILLATOR_BITS = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // regulator_strength
+  using REGULATOR_STRENGTH = ftl::mmio::Field<3, 11, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct FBB_M7_CONFIGURE_fields_
 
-  FBB_M7_CONFIGURE() = delete;
-  inline void Reset() volatile { this->value = 0x00002F11; }
-  static inline volatile FBB_M7_CONFIGURE &ref() { return *reinterpret_cast<volatile FBB_M7_CONFIGURE*>(0x40C84780); }
+struct FBB_M7_CONFIGURE : ftl::mmio::Register<
+    0x40C84780u,
+    std::uint32_t,
+    0x00002F11u,
+    ftl::mmio::RW,
+    FBB_M7_CONFIGURE_fields_::WB_CFG_PW,
+    FBB_M7_CONFIGURE_fields_::WB_CFG_NW,
+    FBB_M7_CONFIGURE_fields_::OSCILLATOR_BITS,
+    FBB_M7_CONFIGURE_fields_::REGULATOR_STRENGTH,
+    ftl::mmio::Reserved<18, 14>> {
+  using WB_CFG_PW = FBB_M7_CONFIGURE_fields_::WB_CFG_PW;
+  using WB_CFG_NW = FBB_M7_CONFIGURE_fields_::WB_CFG_NW;
+  using OSCILLATOR_BITS = FBB_M7_CONFIGURE_fields_::OSCILLATOR_BITS;
+  using REGULATOR_STRENGTH = FBB_M7_CONFIGURE_fields_::REGULATOR_STRENGTH;
 };
+
 
 // RBB_LPSR_CONFIGURE_REGISTER
-union RBB_LPSR_CONFIGURE {
-  
-  // Bit field definition.
-  struct {
-    // read-write - wb_cfg_pw
-    uint32_t WB_CFG_PW : 4;
-    // read-write - wb_cfg_nw
-    uint32_t WB_CFG_NW : 4;
-    // read-write - oscillator_bits
-    uint32_t OSCILLATOR_BITS : 3;
-    // read-write - regulator_strength
-    uint32_t REGULATOR_STRENGTH : 3;
-    uint32_t _reserved_0 : 18;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RBB_LPSR_CONFIGURE_fields_ {
+  // wb_cfg_pw
+  using WB_CFG_PW = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // wb_cfg_nw
+  using WB_CFG_NW = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // oscillator_bits
+  using OSCILLATOR_BITS = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // regulator_strength
+  using REGULATOR_STRENGTH = ftl::mmio::Field<3, 11, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RBB_LPSR_CONFIGURE_fields_
 
-  RBB_LPSR_CONFIGURE() = delete;
-  inline void Reset() volatile { this->value = 0x00003022; }
-  static inline volatile RBB_LPSR_CONFIGURE &ref() { return *reinterpret_cast<volatile RBB_LPSR_CONFIGURE*>(0x40C84790); }
+struct RBB_LPSR_CONFIGURE : ftl::mmio::Register<
+    0x40C84790u,
+    std::uint32_t,
+    0x00003022u,
+    ftl::mmio::RW,
+    RBB_LPSR_CONFIGURE_fields_::WB_CFG_PW,
+    RBB_LPSR_CONFIGURE_fields_::WB_CFG_NW,
+    RBB_LPSR_CONFIGURE_fields_::OSCILLATOR_BITS,
+    RBB_LPSR_CONFIGURE_fields_::REGULATOR_STRENGTH,
+    ftl::mmio::Reserved<18, 14>> {
+  using WB_CFG_PW = RBB_LPSR_CONFIGURE_fields_::WB_CFG_PW;
+  using WB_CFG_NW = RBB_LPSR_CONFIGURE_fields_::WB_CFG_NW;
+  using OSCILLATOR_BITS = RBB_LPSR_CONFIGURE_fields_::OSCILLATOR_BITS;
+  using REGULATOR_STRENGTH = RBB_LPSR_CONFIGURE_fields_::REGULATOR_STRENGTH;
 };
+
 
 // RBB_SOC_CONFIGURE_REGISTER
-union RBB_SOC_CONFIGURE {
-  
-  // Bit field definition.
-  struct {
-    // read-write - wb_cfg_pw
-    uint32_t WB_CFG_PW : 4;
-    // read-write - wb_cfg_nw
-    uint32_t WB_CFG_NW : 4;
-    // read-write - oscillator_bits
-    uint32_t OSCILLATOR_BITS : 3;
-    // read-write - regulator_strength
-    uint32_t REGULATOR_STRENGTH : 3;
-    uint32_t _reserved_0 : 18;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RBB_SOC_CONFIGURE_fields_ {
+  // wb_cfg_pw
+  using WB_CFG_PW = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // wb_cfg_nw
+  using WB_CFG_NW = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // oscillator_bits
+  using OSCILLATOR_BITS = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // regulator_strength
+  using REGULATOR_STRENGTH = ftl::mmio::Field<3, 11, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RBB_SOC_CONFIGURE_fields_
 
-  RBB_SOC_CONFIGURE() = delete;
-  inline void Reset() volatile { this->value = 0x00000044; }
-  static inline volatile RBB_SOC_CONFIGURE &ref() { return *reinterpret_cast<volatile RBB_SOC_CONFIGURE*>(0x40C847A0); }
+struct RBB_SOC_CONFIGURE : ftl::mmio::Register<
+    0x40C847A0u,
+    std::uint32_t,
+    0x00000044u,
+    ftl::mmio::RW,
+    RBB_SOC_CONFIGURE_fields_::WB_CFG_PW,
+    RBB_SOC_CONFIGURE_fields_::WB_CFG_NW,
+    RBB_SOC_CONFIGURE_fields_::OSCILLATOR_BITS,
+    RBB_SOC_CONFIGURE_fields_::REGULATOR_STRENGTH,
+    ftl::mmio::Reserved<18, 14>> {
+  using WB_CFG_PW = RBB_SOC_CONFIGURE_fields_::WB_CFG_PW;
+  using WB_CFG_NW = RBB_SOC_CONFIGURE_fields_::WB_CFG_NW;
+  using OSCILLATOR_BITS = RBB_SOC_CONFIGURE_fields_::OSCILLATOR_BITS;
+  using REGULATOR_STRENGTH = RBB_SOC_CONFIGURE_fields_::REGULATOR_STRENGTH;
 };
+
 
 // REFTOP_OTP_TRIM_VALUE_REGISTER
-union REFTOP_OTP_TRIM_VALUE {
-  
-  // Bit field definition.
-  struct {
-    // read-only - REFTOP_IBZTCADJ
-    uint32_t REFTOP_IBZTCADJ : 3;
-    // read-only - REFTOP_VBGADJ
-    uint32_t REFTOP_VBGADJ : 3;
-    // read-only - REFTOP_TRIM_EN
-    uint32_t REFTOP_TRIM_EN : 1;
-    uint32_t _reserved_0 : 25;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct REFTOP_OTP_TRIM_VALUE_fields_ {
+  // REFTOP_IBZTCADJ
+  using REFTOP_IBZTCADJ = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // REFTOP_VBGADJ
+  using REFTOP_VBGADJ = ftl::mmio::Field<3, 3, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // REFTOP_TRIM_EN
+  using REFTOP_TRIM_EN = ftl::mmio::Field<1, 6, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct REFTOP_OTP_TRIM_VALUE_fields_
 
-  REFTOP_OTP_TRIM_VALUE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile REFTOP_OTP_TRIM_VALUE &ref() { return *reinterpret_cast<volatile REFTOP_OTP_TRIM_VALUE*>(0x40C847B0); }
+struct REFTOP_OTP_TRIM_VALUE : ftl::mmio::Register<
+    0x40C847B0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    REFTOP_OTP_TRIM_VALUE_fields_::REFTOP_IBZTCADJ,
+    REFTOP_OTP_TRIM_VALUE_fields_::REFTOP_VBGADJ,
+    REFTOP_OTP_TRIM_VALUE_fields_::REFTOP_TRIM_EN,
+    ftl::mmio::Reserved<25, 7>> {
+  using REFTOP_IBZTCADJ = REFTOP_OTP_TRIM_VALUE_fields_::REFTOP_IBZTCADJ;
+  using REFTOP_VBGADJ = REFTOP_OTP_TRIM_VALUE_fields_::REFTOP_VBGADJ;
+  using REFTOP_TRIM_EN = REFTOP_OTP_TRIM_VALUE_fields_::REFTOP_TRIM_EN;
 };
+
 
 // LPSR_1P8_LDO_OTP_TRIM_VALUE_REGISTER
-union LPSR_1P8_LDO_OTP_TRIM_VALUE {
-  
-  // Bit field definition.
-  struct {
-    // read-only - LPSR_LDO_1P8_TRIM
-    uint32_t LPSR_LDO_1P8_TRIM : 2;
-    // read-only - LPSR_LDO_1P8_TRIM_EN
-    uint32_t LPSR_LDO_1P8_TRIM_EN : 1;
-    uint32_t _reserved_0 : 29;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LPSR_1P8_LDO_OTP_TRIM_VALUE_fields_ {
+  // LPSR_LDO_1P8_TRIM
+  using LPSR_LDO_1P8_TRIM = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LPSR_LDO_1P8_TRIM_EN
+  using LPSR_LDO_1P8_TRIM_EN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct LPSR_1P8_LDO_OTP_TRIM_VALUE_fields_
 
-  LPSR_1P8_LDO_OTP_TRIM_VALUE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LPSR_1P8_LDO_OTP_TRIM_VALUE &ref() { return *reinterpret_cast<volatile LPSR_1P8_LDO_OTP_TRIM_VALUE*>(0x40C847D0); }
+struct LPSR_1P8_LDO_OTP_TRIM_VALUE : ftl::mmio::Register<
+    0x40C847D0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    LPSR_1P8_LDO_OTP_TRIM_VALUE_fields_::LPSR_LDO_1P8_TRIM,
+    LPSR_1P8_LDO_OTP_TRIM_VALUE_fields_::LPSR_LDO_1P8_TRIM_EN,
+    ftl::mmio::Reserved<29, 3>> {
+  using LPSR_LDO_1P8_TRIM = LPSR_1P8_LDO_OTP_TRIM_VALUE_fields_::LPSR_LDO_1P8_TRIM;
+  using LPSR_LDO_1P8_TRIM_EN = LPSR_1P8_LDO_OTP_TRIM_VALUE_fields_::LPSR_LDO_1P8_TRIM_EN;
 };
 
-
-} // namespace nANADIG_PMU
+}  // namespace regs::anadig_pmu

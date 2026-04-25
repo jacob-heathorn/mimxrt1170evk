@@ -1,294 +1,312 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // no description available
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nMIPI_CSI2RX {
+namespace regs::mipi_csi2rx {
 
 
 // Lane Configuration Register
-union CFG_NUM_LANES {
-  
-  // This field is used to set the number of active lanes for receiving data.
-  enum class eCFG_NUM_LANES : uint32_t {
+struct CFG_NUM_LANES_fields_ {
+
+  enum class eCFG_NUM_LANES : std::uint32_t {
     // 1 Lane
     eONE_LANE = 0,
     // 2 Lane
     eTWO_LANE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - This field is used to set the number of active lanes for receiving data.
-    eCFG_NUM_LANES CFG_NUM_LANES : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This field is used to set the number of active lanes for receiving data.
+  using CFG_NUM_LANES = ftl::mmio::Field<2, 0, eCFG_NUM_LANES, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_NUM_LANES_fields_
 
-  CFG_NUM_LANES() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_NUM_LANES &ref() { return *reinterpret_cast<volatile CFG_NUM_LANES*>(0x40810100); }
+struct CFG_NUM_LANES : ftl::mmio::Register<
+    0x40810100u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_NUM_LANES_fields_::CFG_NUM_LANES,
+    ftl::mmio::Reserved<30, 2>> {
+  using eCFG_NUM_LANES = CFG_NUM_LANES_fields_::eCFG_NUM_LANES;
+  using value_ = CFG_NUM_LANES_fields_::CFG_NUM_LANES;
 };
+
 
 // Disable Data Lane Register
-union CFG_DISABLE_DATA_LANES {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Used to disable data lanes.
-    uint32_t CFG_DISABLE_DATA_LANES : 4;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CFG_DISABLE_DATA_LANES_fields_ {
+  // Used to disable data lanes.
+  using CFG_DISABLE_DATA_LANES = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_DISABLE_DATA_LANES_fields_
 
-  CFG_DISABLE_DATA_LANES() = delete;
-  inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile CFG_DISABLE_DATA_LANES &ref() { return *reinterpret_cast<volatile CFG_DISABLE_DATA_LANES*>(0x40810104); }
+struct CFG_DISABLE_DATA_LANES : ftl::mmio::Register<
+    0x40810104u,
+    std::uint32_t,
+    0x0000000Fu,
+    ftl::mmio::RW,
+    CFG_DISABLE_DATA_LANES_fields_::CFG_DISABLE_DATA_LANES,
+    ftl::mmio::Reserved<28, 4>> {
+  using value_ = CFG_DISABLE_DATA_LANES_fields_::CFG_DISABLE_DATA_LANES;
 };
+
 
 // ECC and CRC Error Status Register
-union BIT_ERR {
-  
-  // Bit field definition.
-  struct {
-    // read-only - This field shows the error status of ECC and CRC
-    uint32_t BIT_ERR : 10;
-    uint32_t _reserved_0 : 22;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct BIT_ERR_fields_ {
+  // This field shows the error status of ECC and CRC
+  using BIT_ERR = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct BIT_ERR_fields_
 
-  BIT_ERR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BIT_ERR &ref() { return *reinterpret_cast<volatile BIT_ERR*>(0x40810108); }
+struct BIT_ERR : ftl::mmio::Register<
+    0x40810108u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    BIT_ERR_fields_::BIT_ERR,
+    ftl::mmio::Reserved<22, 10>> {
+  using value_ = BIT_ERR_fields_::BIT_ERR;
 };
+
 
 // IRQ Status Register
-union IRQ_STATUS {
-  
-  // Bit field definition.
-  struct {
-    // read-only - This field shows the IRQ status
-    uint32_t IRQ_STATUS : 9;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IRQ_STATUS_fields_ {
+  // This field shows the IRQ status
+  using IRQ_STATUS = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IRQ_STATUS_fields_
 
-  IRQ_STATUS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRQ_STATUS &ref() { return *reinterpret_cast<volatile IRQ_STATUS*>(0x4081010C); }
+struct IRQ_STATUS : ftl::mmio::Register<
+    0x4081010Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IRQ_STATUS_fields_::IRQ_STATUS,
+    ftl::mmio::Reserved<23, 9>> {
+  using value_ = IRQ_STATUS_fields_::IRQ_STATUS;
 };
+
 
 // IRQ Mask Setting Register
-union IRQ_MASK {
-  
-  // Bit field definition.
-  struct {
-    // read-write - This field shows the IRQ Mask setting
-    uint32_t IRQ_MASK : 9;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IRQ_MASK_fields_ {
+  // This field shows the IRQ Mask setting
+  using IRQ_MASK = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct IRQ_MASK_fields_
 
-  IRQ_MASK() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRQ_MASK &ref() { return *reinterpret_cast<volatile IRQ_MASK*>(0x40810110); }
+struct IRQ_MASK : ftl::mmio::Register<
+    0x40810110u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    IRQ_MASK_fields_::IRQ_MASK,
+    ftl::mmio::Reserved<23, 9>> {
+  using value_ = IRQ_MASK_fields_::IRQ_MASK;
 };
+
 
 // Ultra Low Power State (ULPS) Status Register
-union ULPS_STATUS {
-  
-  // Bit field definition.
-  struct {
-    // read-only - This field shows the status of Rx D-PHY ULPS state
-    uint32_t STATUS : 10;
-    uint32_t _reserved_0 : 22;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ULPS_STATUS_fields_ {
+  // This field shows the status of Rx D-PHY ULPS state
+  using STATUS = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ULPS_STATUS_fields_
 
-  ULPS_STATUS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ULPS_STATUS &ref() { return *reinterpret_cast<volatile ULPS_STATUS*>(0x40810114); }
+struct ULPS_STATUS : ftl::mmio::Register<
+    0x40810114u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    ULPS_STATUS_fields_::STATUS,
+    ftl::mmio::Reserved<22, 10>> {
+  using STATUS = ULPS_STATUS_fields_::STATUS;
 };
+
 
 // ERRSotHS Status Register
-union PPI_ERRSOT_HS {
-  
-  // Bit field definition.
-  struct {
-    // read-only - This field indicates PPI ErrSotHS captured status from D-PHY
-    uint32_t STATUS : 4;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PPI_ERRSOT_HS_fields_ {
+  // This field indicates PPI ErrSotHS captured status from D-PHY
+  using STATUS = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PPI_ERRSOT_HS_fields_
 
-  PPI_ERRSOT_HS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PPI_ERRSOT_HS &ref() { return *reinterpret_cast<volatile PPI_ERRSOT_HS*>(0x40810118); }
+struct PPI_ERRSOT_HS : ftl::mmio::Register<
+    0x40810118u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    PPI_ERRSOT_HS_fields_::STATUS,
+    ftl::mmio::Reserved<28, 4>> {
+  using STATUS = PPI_ERRSOT_HS_fields_::STATUS;
 };
+
 
 // ErrSotSync HS Status Register
-union PPI_ERRSOTSYNC_HS {
-  
-  // Bit field definition.
-  struct {
-    // read-only - This field indicates PPI ErrSotSync_HS captured status from D-PHY
-    uint32_t STATUS : 4;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PPI_ERRSOTSYNC_HS_fields_ {
+  // This field indicates PPI ErrSotSync_HS captured status from D-PHY
+  using STATUS = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PPI_ERRSOTSYNC_HS_fields_
 
-  PPI_ERRSOTSYNC_HS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PPI_ERRSOTSYNC_HS &ref() { return *reinterpret_cast<volatile PPI_ERRSOTSYNC_HS*>(0x4081011C); }
+struct PPI_ERRSOTSYNC_HS : ftl::mmio::Register<
+    0x4081011Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    PPI_ERRSOTSYNC_HS_fields_::STATUS,
+    ftl::mmio::Reserved<28, 4>> {
+  using STATUS = PPI_ERRSOTSYNC_HS_fields_::STATUS;
 };
+
 
 // ErrEsc Status Register
-union PPI_ERRESC {
-  
-  // Bit field definition.
-  struct {
-    // read-only - This field indicates PPI ErrEsc captured status from D-PHY
-    uint32_t STATUS : 4;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PPI_ERRESC_fields_ {
+  // This field indicates PPI ErrEsc captured status from D-PHY
+  using STATUS = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PPI_ERRESC_fields_
 
-  PPI_ERRESC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PPI_ERRESC &ref() { return *reinterpret_cast<volatile PPI_ERRESC*>(0x40810120); }
+struct PPI_ERRESC : ftl::mmio::Register<
+    0x40810120u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    PPI_ERRESC_fields_::STATUS,
+    ftl::mmio::Reserved<28, 4>> {
+  using STATUS = PPI_ERRESC_fields_::STATUS;
 };
+
 
 // ErrSyncEsc Status Register
-union PPI_ERRSYNCESC {
-  
-  // Bit field definition.
-  struct {
-    // read-only - This field indicates PPI ErrSyncEsc captured status from D-PHY
-    uint32_t STATUS : 4;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PPI_ERRSYNCESC_fields_ {
+  // This field indicates PPI ErrSyncEsc captured status from D-PHY
+  using STATUS = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PPI_ERRSYNCESC_fields_
 
-  PPI_ERRSYNCESC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PPI_ERRSYNCESC &ref() { return *reinterpret_cast<volatile PPI_ERRSYNCESC*>(0x40810124); }
+struct PPI_ERRSYNCESC : ftl::mmio::Register<
+    0x40810124u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    PPI_ERRSYNCESC_fields_::STATUS,
+    ftl::mmio::Reserved<28, 4>> {
+  using STATUS = PPI_ERRSYNCESC_fields_::STATUS;
 };
+
 
 // ErrControl Status Register
-union PPI_ERRCONTROL {
-  
-  // Bit field definition.
-  struct {
-    // read-only - This field indicates PPI ErrControl captured status from D-PHY
-    uint32_t STATUS : 4;
-    uint32_t _reserved_0 : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PPI_ERRCONTROL_fields_ {
+  // This field indicates PPI ErrControl captured status from D-PHY
+  using STATUS = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PPI_ERRCONTROL_fields_
 
-  PPI_ERRCONTROL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PPI_ERRCONTROL &ref() { return *reinterpret_cast<volatile PPI_ERRCONTROL*>(0x40810128); }
+struct PPI_ERRCONTROL : ftl::mmio::Register<
+    0x40810128u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    PPI_ERRCONTROL_fields_::STATUS,
+    ftl::mmio::Reserved<28, 4>> {
+  using STATUS = PPI_ERRCONTROL_fields_::STATUS;
 };
+
 
 // Disable Payload 0 Register
-union CFG_DISABLE_PAYLOAD_0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Null
-    uint32_t DIS_PAYLOAD_NULL : 1;
-    // read-write - Blank
-    uint32_t DIS_PAYLOAD_BLANK : 1;
-    // read-write - Embedded
-    uint32_t DIS_PAYLOAD_EMBEDDED : 1;
-    uint32_t _reserved_0 : 7;
-    // read-write - Legacy YUV 420 8 bit
-    uint32_t DIS_PAYLOAD_YUV420 : 1;
-    uint32_t _reserved_1 : 3;
-    // read-write - YUV422 8 bit
-    uint32_t DIS_PAYLOAD_YUV422_8BIT : 1;
-    uint32_t _reserved_2 : 1;
-    // read-write - RGB444
-    uint32_t DIS_PAYLOAD_RGB444 : 1;
-    // read-write - RGB555
-    uint32_t DIS_PAYLOAD_RGB555 : 1;
-    // read-write - RGB565
-    uint32_t DIS_PAYLOAD_RGB565 : 1;
-    // read-write - RGB666
-    uint32_t DIS_PAYLOAD_RGB666 : 1;
-    // read-write - RGB888
-    uint32_t DIS_PAYLOAD_RGB888 : 1;
-    uint32_t _reserved_3 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CFG_DISABLE_PAYLOAD_0_fields_ {
+  // Null
+  using DIS_PAYLOAD_NULL = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Blank
+  using DIS_PAYLOAD_BLANK = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Embedded
+  using DIS_PAYLOAD_EMBEDDED = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Legacy YUV 420 8 bit
+  using DIS_PAYLOAD_YUV420 = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // YUV422 8 bit
+  using DIS_PAYLOAD_YUV422_8BIT = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RGB444
+  using DIS_PAYLOAD_RGB444 = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RGB555
+  using DIS_PAYLOAD_RGB555 = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RGB565
+  using DIS_PAYLOAD_RGB565 = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RGB666
+  using DIS_PAYLOAD_RGB666 = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RGB888
+  using DIS_PAYLOAD_RGB888 = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_DISABLE_PAYLOAD_0_fields_
 
-  CFG_DISABLE_PAYLOAD_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_DISABLE_PAYLOAD_0 &ref() { return *reinterpret_cast<volatile CFG_DISABLE_PAYLOAD_0*>(0x4081012C); }
+struct CFG_DISABLE_PAYLOAD_0 : ftl::mmio::Register<
+    0x4081012Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_NULL,
+    CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_BLANK,
+    CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_EMBEDDED,
+    ftl::mmio::Reserved<7, 3>,
+    CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_YUV420,
+    ftl::mmio::Reserved<3, 11>,
+    CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_YUV422_8BIT,
+    ftl::mmio::Reserved<1, 15>,
+    CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_RGB444,
+    CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_RGB555,
+    CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_RGB565,
+    CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_RGB666,
+    CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_RGB888,
+    ftl::mmio::Reserved<11, 21>> {
+  using DIS_PAYLOAD_NULL = CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_NULL;
+  using DIS_PAYLOAD_BLANK = CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_BLANK;
+  using DIS_PAYLOAD_EMBEDDED = CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_EMBEDDED;
+  using DIS_PAYLOAD_YUV420 = CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_YUV420;
+  using DIS_PAYLOAD_YUV422_8BIT = CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_YUV422_8BIT;
+  using DIS_PAYLOAD_RGB444 = CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_RGB444;
+  using DIS_PAYLOAD_RGB555 = CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_RGB555;
+  using DIS_PAYLOAD_RGB565 = CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_RGB565;
+  using DIS_PAYLOAD_RGB666 = CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_RGB666;
+  using DIS_PAYLOAD_RGB888 = CFG_DISABLE_PAYLOAD_0_fields_::DIS_PAYLOAD_RGB888;
 };
+
 
 // Disable Payload 1 Register
-union CFG_DISABLE_PAYLOAD_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - User defined type 0x31
-    uint32_t DIS_PAYLOAD_UDEF_30 : 1;
-    // read-write - User defined type 0x32
-    uint32_t DIS_PAYLOAD_UDEF_31 : 1;
-    // read-write - User defined type 0x33
-    uint32_t DIS_PAYLOAD_UDEF_32 : 1;
-    // read-write - User defined type 0x34
-    uint32_t DIS_PAYLOAD_UDEF_33 : 1;
-    // read-write - User defined type 0x35
-    uint32_t DIS_PAYLOAD_UDEF_34 : 1;
-    // read-write - User defined type 0x35
-    uint32_t DIS_PAYLOAD_UDEF_35 : 1;
-    // read-write - User defined type 0x36
-    uint32_t DIS_PAYLOAD_UDEF_36 : 1;
-    // read-write - User defined type 0x37
-    uint32_t DIS_PAYLOAD_UDEF_37 : 1;
-    uint32_t _reserved_0 : 8;
-    // read-write - Unsupported Data Types
-    uint32_t DIS_PAYLOAD_UNSUPPORTED : 1;
-    uint32_t _reserved_1 : 15;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CFG_DISABLE_PAYLOAD_1_fields_ {
+  // User defined type 0x31
+  using DIS_PAYLOAD_UDEF_30 = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // User defined type 0x32
+  using DIS_PAYLOAD_UDEF_31 = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // User defined type 0x33
+  using DIS_PAYLOAD_UDEF_32 = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // User defined type 0x34
+  using DIS_PAYLOAD_UDEF_33 = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // User defined type 0x35
+  using DIS_PAYLOAD_UDEF_34 = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // User defined type 0x35
+  using DIS_PAYLOAD_UDEF_35 = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // User defined type 0x36
+  using DIS_PAYLOAD_UDEF_36 = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // User defined type 0x37
+  using DIS_PAYLOAD_UDEF_37 = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Unsupported Data Types
+  using DIS_PAYLOAD_UNSUPPORTED = ftl::mmio::Field<1, 16, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_DISABLE_PAYLOAD_1_fields_
 
-  CFG_DISABLE_PAYLOAD_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_DISABLE_PAYLOAD_1 &ref() { return *reinterpret_cast<volatile CFG_DISABLE_PAYLOAD_1*>(0x40810130); }
+struct CFG_DISABLE_PAYLOAD_1 : ftl::mmio::Register<
+    0x40810130u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_30,
+    CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_31,
+    CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_32,
+    CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_33,
+    CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_34,
+    CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_35,
+    CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_36,
+    CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_37,
+    ftl::mmio::Reserved<8, 8>,
+    CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UNSUPPORTED,
+    ftl::mmio::Reserved<15, 17>> {
+  using DIS_PAYLOAD_UDEF_30 = CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_30;
+  using DIS_PAYLOAD_UDEF_31 = CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_31;
+  using DIS_PAYLOAD_UDEF_32 = CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_32;
+  using DIS_PAYLOAD_UDEF_33 = CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_33;
+  using DIS_PAYLOAD_UDEF_34 = CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_34;
+  using DIS_PAYLOAD_UDEF_35 = CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_35;
+  using DIS_PAYLOAD_UDEF_36 = CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_36;
+  using DIS_PAYLOAD_UDEF_37 = CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UDEF_37;
+  using DIS_PAYLOAD_UNSUPPORTED = CFG_DISABLE_PAYLOAD_1_fields_::DIS_PAYLOAD_UNSUPPORTED;
 };
 
-
-} // namespace nMIPI_CSI2RX
+}  // namespace regs::mipi_csi2rx

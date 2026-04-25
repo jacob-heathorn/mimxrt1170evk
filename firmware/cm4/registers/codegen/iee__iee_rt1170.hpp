@@ -1,1436 +1,1071 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // IEE
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nIEE__IEE_RT1170 {
+namespace regs::iee__iee_rt1170 {
 
 
 // IEE Global Configuration
-union GCFG {
-  
-  // Region lock 0 bit
-  enum class eRL0 : uint32_t {
+struct GCFG_fields_ {
+
+  enum class eRL0 : std::uint32_t {
     // Unlocked.
     eRL0_0 = 0,
     // Key, Offset and Attribute registers are locked.
     eRL0_1 = 1,
   };
-  
-  // Region lock 1 bit
-  enum class eRL1 : uint32_t {
+
+  enum class eRL1 : std::uint32_t {
     // Unlocked.
     eRL1_0 = 0,
     // Key, Offset and Attribute registers are locked.
     eRL1_1 = 1,
   };
-  
-  // Region lock 2 bit
-  enum class eRL2 : uint32_t {
+
+  enum class eRL2 : std::uint32_t {
     // Unlocked.
     eRL2_0 = 0,
     // Key, Offset and Attribute registers are locked.
     eRL2_1 = 1,
   };
-  
-  // Region lock 3 bit
-  enum class eRL3 : uint32_t {
+
+  enum class eRL3 : std::uint32_t {
     // Unlocked.
     eRL3_0 = 0,
     // Key, Offset and Attribute registers are locked.
     eRL3_1 = 1,
   };
-  
-  // Region lock 4 bit
-  enum class eRL4 : uint32_t {
+
+  enum class eRL4 : std::uint32_t {
     // Unlocked.
     eRL4_0 = 0,
     // Key, Offset and Attribute registers are locked.
     eRL4_1 = 1,
   };
-  
-  // Region lock 5 bit
-  enum class eRL5 : uint32_t {
+
+  enum class eRL5 : std::uint32_t {
     // Unlocked.
     eRL5_0 = 0,
     // Key, Offset and Attribute registers are locked.
     eRL5_1 = 1,
   };
-  
-  // Region lock 6 bit
-  enum class eRL6 : uint32_t {
+
+  enum class eRL6 : std::uint32_t {
     // Unlocked.
     eRL6_0 = 0,
     // Key, Offset and Attribute registers are locked.
     eRL6_1 = 1,
   };
-  
-  // Region lock 7 bit
-  enum class eRL7 : uint32_t {
+
+  enum class eRL7 : std::uint32_t {
     // Unlocked.
     eRL7_0 = 0,
     // Key, Offset and Attribute registers are locked.
     eRL7_1 = 1,
   };
-  
-  // Test mode enable bit
-  enum class eTME : uint32_t {
+
+  enum class eTME : std::uint32_t {
     // Disabled.
     eTME_0 = 0,
     // Enabled.
     eTME_1 = 1,
   };
-  
-  // Test mode disable bit
-  enum class eTMD : uint32_t {
+
+  enum class eTMD : std::uint32_t {
     // Test mode is usable.
     eTMD_0 = 0,
     // Test mode is disabled.
     eTMD_1 = 1,
   };
-  
-  // Key read disable bit
-  enum class eKEY_RD_DIS : uint32_t {
+
+  enum class eKEY_RD_DIS : std::uint32_t {
     // Key read enabled. Reading the key registers is allowed.
     eKEY_RD_DIS_0 = 0,
     // Key read disabled. Reading the key registers is disabled.
     eKEY_RD_DIS_1 = 1,
   };
-  
-  // Monitor enable bit
-  enum class eMON_EN : uint32_t {
+
+  enum class eMON_EN : std::uint32_t {
     // Performance monitoring disabled. Writing of the performance counter registers is enabled.
     eMON_EN_0 = 0,
     // Performance monitoring enabled. Writing of the performance counter registers is disabled.
     eMON_EN_1 = 1,
   };
-  
-  // Clear monitor bit
-  enum class eCLR_MON : uint32_t {
+
+  enum class eCLR_MON : std::uint32_t {
     // Do not reset.
     eCLR_MON_0 = 0,
     // Reset performance counters.
     eCLR_MON_1 = 1,
   };
-  
-  // Reset bit
-  enum class eRST : uint32_t {
+
+  enum class eRST : std::uint32_t {
     // Do Not Reset.
     eRST_0 = 0,
     // Reset IEE.
     eRST_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Region lock 0 bit
-    eRL0 RL0 : 1;
-    // read-write - Region lock 1 bit
-    eRL1 RL1 : 1;
-    // read-write - Region lock 2 bit
-    eRL2 RL2 : 1;
-    // read-write - Region lock 3 bit
-    eRL3 RL3 : 1;
-    // read-write - Region lock 4 bit
-    eRL4 RL4 : 1;
-    // read-write - Region lock 5 bit
-    eRL5 RL5 : 1;
-    // read-write - Region lock 6 bit
-    eRL6 RL6 : 1;
-    // read-write - Region lock 7 bit
-    eRL7 RL7 : 1;
-    uint32_t _reserved_0 : 8;
-    // read-write - Test mode enable bit
-    eTME TME : 1;
-    // read-write - Test mode disable bit
-    eTMD TMD : 1;
-    uint32_t _reserved_1 : 7;
-    // read-write - Key read disable bit
-    eKEY_RD_DIS KEY_RD_DIS : 1;
-    uint32_t _reserved_2 : 2;
-    // read-write - Monitor enable bit
-    eMON_EN MON_EN : 1;
-    // write-only - Clear monitor bit
-    eCLR_MON CLR_MON : 1;
-    uint32_t _reserved_3 : 1;
-    // write-only - Reset bit
-    eRST RST : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Region lock 0 bit
+  using RL0 = ftl::mmio::Field<1, 0, eRL0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Region lock 1 bit
+  using RL1 = ftl::mmio::Field<1, 1, eRL1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Region lock 2 bit
+  using RL2 = ftl::mmio::Field<1, 2, eRL2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Region lock 3 bit
+  using RL3 = ftl::mmio::Field<1, 3, eRL3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Region lock 4 bit
+  using RL4 = ftl::mmio::Field<1, 4, eRL4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Region lock 5 bit
+  using RL5 = ftl::mmio::Field<1, 5, eRL5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Region lock 6 bit
+  using RL6 = ftl::mmio::Field<1, 6, eRL6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Region lock 7 bit
+  using RL7 = ftl::mmio::Field<1, 7, eRL7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Test mode enable bit
+  using TME = ftl::mmio::Field<1, 16, eTME, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Test mode disable bit
+  using TMD = ftl::mmio::Field<1, 17, eTMD, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Key read disable bit
+  using KEY_RD_DIS = ftl::mmio::Field<1, 25, eKEY_RD_DIS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Monitor enable bit
+  using MON_EN = ftl::mmio::Field<1, 28, eMON_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Clear monitor bit
+  using CLR_MON = ftl::mmio::Field<1, 29, eCLR_MON, ftl::mmio::WO, ftl::mmio::Normal>;
+  // Reset bit
+  using RST = ftl::mmio::Field<1, 31, eRST, ftl::mmio::WO, ftl::mmio::Normal>;
+};  // struct GCFG_fields_
 
-  GCFG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GCFG &ref() { return *reinterpret_cast<volatile GCFG*>(0x4006C000); }
+struct GCFG : ftl::mmio::Register<
+    0x4006C000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GCFG_fields_::RL0,
+    GCFG_fields_::RL1,
+    GCFG_fields_::RL2,
+    GCFG_fields_::RL3,
+    GCFG_fields_::RL4,
+    GCFG_fields_::RL5,
+    GCFG_fields_::RL6,
+    GCFG_fields_::RL7,
+    ftl::mmio::Reserved<8, 8>,
+    GCFG_fields_::TME,
+    GCFG_fields_::TMD,
+    ftl::mmio::Reserved<7, 18>,
+    GCFG_fields_::KEY_RD_DIS,
+    ftl::mmio::Reserved<2, 26>,
+    GCFG_fields_::MON_EN,
+    GCFG_fields_::CLR_MON,
+    ftl::mmio::Reserved<1, 30>,
+    GCFG_fields_::RST> {
+  using eRL0 = GCFG_fields_::eRL0;
+  using eRL1 = GCFG_fields_::eRL1;
+  using eRL2 = GCFG_fields_::eRL2;
+  using eRL3 = GCFG_fields_::eRL3;
+  using eRL4 = GCFG_fields_::eRL4;
+  using eRL5 = GCFG_fields_::eRL5;
+  using eRL6 = GCFG_fields_::eRL6;
+  using eRL7 = GCFG_fields_::eRL7;
+  using eTME = GCFG_fields_::eTME;
+  using eTMD = GCFG_fields_::eTMD;
+  using eKEY_RD_DIS = GCFG_fields_::eKEY_RD_DIS;
+  using eMON_EN = GCFG_fields_::eMON_EN;
+  using eCLR_MON = GCFG_fields_::eCLR_MON;
+  using eRST = GCFG_fields_::eRST;
+  using RL0 = GCFG_fields_::RL0;
+  using RL1 = GCFG_fields_::RL1;
+  using RL2 = GCFG_fields_::RL2;
+  using RL3 = GCFG_fields_::RL3;
+  using RL4 = GCFG_fields_::RL4;
+  using RL5 = GCFG_fields_::RL5;
+  using RL6 = GCFG_fields_::RL6;
+  using RL7 = GCFG_fields_::RL7;
+  using TME = GCFG_fields_::TME;
+  using TMD = GCFG_fields_::TMD;
+  using KEY_RD_DIS = GCFG_fields_::KEY_RD_DIS;
+  using MON_EN = GCFG_fields_::MON_EN;
+  using CLR_MON = GCFG_fields_::CLR_MON;
+  using RST = GCFG_fields_::RST;
 };
 
+
 // IEE Status
-union STA {
-  
-  // DPA seed request bit
-  enum class eDSR : uint32_t {
+struct STA_fields_ {
+
+  enum class eDSR : std::uint32_t {
     // No seed request present
     eDSR_0 = 0,
     // Seed request present
     eDSR_1 = 1,
   };
-  
-  // AES fault detected bit
-  enum class eAFD : uint32_t {
+
+  enum class eAFD : std::uint32_t {
     // No fault detected
     eAFD_0 = 0,
     // Fault detected
     eAFD_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - DPA seed request bit
-    eDSR DSR : 1;
-    uint32_t _reserved_0 : 3;
-    // read-only - AES fault detected bit
-    eAFD AFD : 1;
-    uint32_t _reserved_1 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // DPA seed request bit
+  using DSR = ftl::mmio::Field<1, 0, eDSR, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AES fault detected bit
+  using AFD = ftl::mmio::Field<1, 4, eAFD, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct STA_fields_
 
-  STA() = delete;
-  inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile STA &ref() { return *reinterpret_cast<volatile STA*>(0x4006C004); }
+struct STA : ftl::mmio::Register<
+    0x4006C004u,
+    std::uint32_t,
+    0x00000001u,
+    ftl::mmio::RO,
+    STA_fields_::DSR,
+    ftl::mmio::Reserved<3, 1>,
+    STA_fields_::AFD,
+    ftl::mmio::Reserved<27, 5>> {
+  using eDSR = STA_fields_::eDSR;
+  using eAFD = STA_fields_::eAFD;
+  using DSR = STA_fields_::DSR;
+  using AFD = STA_fields_::AFD;
 };
 
+
 // IEE Test Mode Register
-union TSTMD {
-  
-  // Test mode ready bit. All AXI transactions have stopped and test can begin.
-  enum class eTMRDY : uint32_t {
+struct TSTMD_fields_ {
+
+  enum class eTMRDY : std::uint32_t {
     // Not Ready.
     eTMRDY_0 = 0,
     // Ready.
     eTMRDY_1 = 1,
   };
-  
-  // Test mode run bit
-  enum class eTMR : uint32_t {
+
+  enum class eTMR : std::uint32_t {
     // Not running. May be written if IEE_GCFG[TME] = 1
     eTMR_0 = 0,
     // Run AES Test until TMDONE is indicated.
     eTMR_1 = 1,
   };
-  
-  // Test mode encrypt/decrypt bit.
-  enum class eTMENCR : uint32_t {
+
+  enum class eTMENCR : std::uint32_t {
     // AES Test mode will do decryption.
     eTMENCR_0 = 0,
     // AES Test mode will do encryption.
     eTMENCR_1 = 1,
   };
-  
-  // Test mode continue bit. Set to indicate that operation will be followed by more data.
-  enum class eTMCONT : uint32_t {
+
+  enum class eTMCONT : std::uint32_t {
     // Do not continue. This is the last block of data for AES.
     eTMCONT_0 = 0,
     // Continue. Do not initialize AES after this block.
     eTMCONT_1 = 1,
   };
-  
-  // Test mode done bit
-  enum class eTMDONE : uint32_t {
+
+  enum class eTMDONE : std::uint32_t {
     // Not Done.
     eTMDONE_0 = 0,
     // Test Done.
     eTMDONE_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - Test mode ready bit. All AXI transactions have stopped and test can begin.
-    eTMRDY TMRDY : 1;
-    // read-write - Test mode run bit
-    eTMR TMR : 1;
-    // read-write - Test mode encrypt/decrypt bit.
-    eTMENCR TMENCR : 1;
-    // read-write - Test mode continue bit. Set to indicate that operation will be followed by more data.
-    eTMCONT TMCONT : 1;
-    // read-only - Test mode done bit
-    eTMDONE TMDONE : 1;
-    uint32_t _reserved_0 : 3;
-    // read-write - Test mode length field
-    uint32_t TMLEN : 4;
-    uint32_t _reserved_1 : 20;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Test mode ready bit. All AXI transactions have stopped and test can begin.
+  using TMRDY = ftl::mmio::Field<1, 0, eTMRDY, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Test mode run bit
+  using TMR = ftl::mmio::Field<1, 1, eTMR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Test mode encrypt/decrypt bit.
+  using TMENCR = ftl::mmio::Field<1, 2, eTMENCR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Test mode continue bit. Set to indicate that operation will be followed by more data.
+  using TMCONT = ftl::mmio::Field<1, 3, eTMCONT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Test mode done bit
+  using TMDONE = ftl::mmio::Field<1, 4, eTMDONE, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Test mode length field
+  using TMLEN = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TSTMD_fields_
 
-  TSTMD() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TSTMD &ref() { return *reinterpret_cast<volatile TSTMD*>(0x4006C008); }
+struct TSTMD : ftl::mmio::Register<
+    0x4006C008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TSTMD_fields_::TMRDY,
+    TSTMD_fields_::TMR,
+    TSTMD_fields_::TMENCR,
+    TSTMD_fields_::TMCONT,
+    TSTMD_fields_::TMDONE,
+    ftl::mmio::Reserved<3, 5>,
+    TSTMD_fields_::TMLEN,
+    ftl::mmio::Reserved<20, 12>> {
+  using eTMRDY = TSTMD_fields_::eTMRDY;
+  using eTMR = TSTMD_fields_::eTMR;
+  using eTMENCR = TSTMD_fields_::eTMENCR;
+  using eTMCONT = TSTMD_fields_::eTMCONT;
+  using eTMDONE = TSTMD_fields_::eTMDONE;
+  using TMRDY = TSTMD_fields_::TMRDY;
+  using TMR = TSTMD_fields_::TMR;
+  using TMENCR = TSTMD_fields_::TMENCR;
+  using TMCONT = TSTMD_fields_::TMCONT;
+  using TMDONE = TSTMD_fields_::TMDONE;
+  using TMLEN = TSTMD_fields_::TMLEN;
 };
+
 
 // AES Mask Generation Seed
-union DPAMS {
-  
-  // Bit field definition.
-  struct {
-    // write-only - DPA mask seed
-    uint32_t DPAMS : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DPAMS_fields_ {
+  // DPA mask seed
+  using DPAMS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
+};  // struct DPAMS_fields_
 
-  DPAMS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DPAMS &ref() { return *reinterpret_cast<volatile DPAMS*>(0x4006C00C); }
+struct DPAMS : ftl::mmio::Register<
+    0x4006C00Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::WO,
+    DPAMS_fields_::DPAMS> {
+  using value_ = DPAMS_fields_::DPAMS;
 };
+
 
 // Performance Counter, AES Slave Latency Threshold Value
-union PC_S_LT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Slave write latency threshold in AXI clock cycles.
-    uint32_t SW_LT : 16;
-    // read-write - Slave read latency threshold in AXI clock cycles.
-    uint32_t SR_LT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_S_LT_fields_ {
+  // Slave write latency threshold in AXI clock cycles.
+  using SW_LT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Slave read latency threshold in AXI clock cycles.
+  using SR_LT = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_S_LT_fields_
 
-  PC_S_LT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_S_LT &ref() { return *reinterpret_cast<volatile PC_S_LT*>(0x4006C020); }
+struct PC_S_LT : ftl::mmio::Register<
+    0x4006C020u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_S_LT_fields_::SW_LT,
+    PC_S_LT_fields_::SR_LT> {
+  using SW_LT = PC_S_LT_fields_::SW_LT;
+  using SR_LT = PC_S_LT_fields_::SR_LT;
 };
+
 
 // Performance Counter, AES Master Latency Threshold
-union PC_M_LT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Master write latency threshold in AXI clock cycles.
-    uint32_t MW_LT : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Master read latency threshold in AXI clock cycles.
-    uint32_t MR_LT : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_M_LT_fields_ {
+  // Master write latency threshold in AXI clock cycles.
+  using MW_LT = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Master read latency threshold in AXI clock cycles.
+  using MR_LT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_M_LT_fields_
 
-  PC_M_LT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_M_LT &ref() { return *reinterpret_cast<volatile PC_M_LT*>(0x4006C024); }
+struct PC_M_LT : ftl::mmio::Register<
+    0x4006C024u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_M_LT_fields_::MW_LT,
+    ftl::mmio::Reserved<4, 12>,
+    PC_M_LT_fields_::MR_LT,
+    ftl::mmio::Reserved<4, 28>> {
+  using MW_LT = PC_M_LT_fields_::MW_LT;
+  using MR_LT = PC_M_LT_fields_::MR_LT;
 };
+
 
 // Performance Counter, Number of AES Block Encryptions
-union PC_BLK_ENC {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of AES block encryptions. Does not roll over if value maxes out.
-    uint32_t BLK_ENC : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_BLK_ENC_fields_ {
+  // Number of AES block encryptions. Does not roll over if value maxes out.
+  using BLK_ENC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_BLK_ENC_fields_
 
-  PC_BLK_ENC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_BLK_ENC &ref() { return *reinterpret_cast<volatile PC_BLK_ENC*>(0x4006C040); }
+struct PC_BLK_ENC : ftl::mmio::Register<
+    0x4006C040u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_BLK_ENC_fields_::BLK_ENC> {
+  using BLK_ENC = PC_BLK_ENC_fields_::BLK_ENC;
 };
+
 
 // Performance Counter, Number of AES Block Decryptions
-union PC_BLK_DEC {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of AES block decryptions. Does not roll over if value maxes out.
-    uint32_t BLK_DEC : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_BLK_DEC_fields_ {
+  // Number of AES block decryptions. Does not roll over if value maxes out.
+  using BLK_DEC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_BLK_DEC_fields_
 
-  PC_BLK_DEC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_BLK_DEC &ref() { return *reinterpret_cast<volatile PC_BLK_DEC*>(0x4006C044); }
+struct PC_BLK_DEC : ftl::mmio::Register<
+    0x4006C044u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_BLK_DEC_fields_::BLK_DEC> {
+  using BLK_DEC = PC_BLK_DEC_fields_::BLK_DEC;
 };
+
 
 // Performance Counter, Number of AXI Slave Read Transactions
-union PC_SR_TRANS {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of slave read transactions.
-    uint32_t SR_TRANS : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SR_TRANS_fields_ {
+  // Number of slave read transactions.
+  using SR_TRANS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SR_TRANS_fields_
 
-  PC_SR_TRANS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TRANS &ref() { return *reinterpret_cast<volatile PC_SR_TRANS*>(0x4006C050); }
+struct PC_SR_TRANS : ftl::mmio::Register<
+    0x4006C050u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SR_TRANS_fields_::SR_TRANS> {
+  using SR_TRANS = PC_SR_TRANS_fields_::SR_TRANS;
 };
+
 
 // Performance Counter, Number of AXI Slave Write Transactions
-union PC_SW_TRANS {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of slave write transactions.
-    uint32_t SW_TRANS : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SW_TRANS_fields_ {
+  // Number of slave write transactions.
+  using SW_TRANS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SW_TRANS_fields_
 
-  PC_SW_TRANS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TRANS &ref() { return *reinterpret_cast<volatile PC_SW_TRANS*>(0x4006C054); }
+struct PC_SW_TRANS : ftl::mmio::Register<
+    0x4006C054u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SW_TRANS_fields_::SW_TRANS> {
+  using SW_TRANS = PC_SW_TRANS_fields_::SW_TRANS;
 };
+
 
 // Performance Counter, Number of AXI Master Read Transactions
-union PC_MR_TRANS {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of master read transactions.
-    uint32_t MR_TRANS : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_MR_TRANS_fields_ {
+  // Number of master read transactions.
+  using MR_TRANS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_MR_TRANS_fields_
 
-  PC_MR_TRANS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MR_TRANS &ref() { return *reinterpret_cast<volatile PC_MR_TRANS*>(0x4006C058); }
+struct PC_MR_TRANS : ftl::mmio::Register<
+    0x4006C058u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_MR_TRANS_fields_::MR_TRANS> {
+  using MR_TRANS = PC_MR_TRANS_fields_::MR_TRANS;
 };
+
 
 // Performance Counter, Number of AXI Master Write Transactions
-union PC_MW_TRANS {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of master write transactions.
-    uint32_t MW_TRANS : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_MW_TRANS_fields_ {
+  // Number of master write transactions.
+  using MW_TRANS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_MW_TRANS_fields_
 
-  PC_MW_TRANS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MW_TRANS &ref() { return *reinterpret_cast<volatile PC_MW_TRANS*>(0x4006C05C); }
+struct PC_MW_TRANS : ftl::mmio::Register<
+    0x4006C05Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_MW_TRANS_fields_::MW_TRANS> {
+  using MW_TRANS = PC_MW_TRANS_fields_::MW_TRANS;
 };
+
 
 // Performance Counter, Number of AXI Master Merge Buffer Read Transactions
-union PC_M_MBR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of master merge buffer read transactions.
-    uint32_t M_MBR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_M_MBR_fields_ {
+  // Number of master merge buffer read transactions.
+  using M_MBR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_M_MBR_fields_
 
-  PC_M_MBR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_M_MBR &ref() { return *reinterpret_cast<volatile PC_M_MBR*>(0x4006C064); }
+struct PC_M_MBR : ftl::mmio::Register<
+    0x4006C064u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_M_MBR_fields_::M_MBR> {
+  using M_MBR = PC_M_MBR_fields_::M_MBR;
 };
+
 
 // Performance Counter, Upper Slave Read Transactions Byte Count
-union PC_SR_TBC_U {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes in slave read transactions. Upper 16 bits of SR_TBC[47:0].
-    uint32_t SR_TBC : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SR_TBC_U_fields_ {
+  // Number of bytes in slave read transactions. Upper 16 bits of SR_TBC[47:0].
+  using SR_TBC = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SR_TBC_U_fields_
 
-  PC_SR_TBC_U() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TBC_U &ref() { return *reinterpret_cast<volatile PC_SR_TBC_U*>(0x4006C070); }
+struct PC_SR_TBC_U : ftl::mmio::Register<
+    0x4006C070u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SR_TBC_U_fields_::SR_TBC,
+    ftl::mmio::Reserved<16, 16>> {
+  using SR_TBC = PC_SR_TBC_U_fields_::SR_TBC;
 };
+
 
 // Performance Counter, Lower Slave Read Transactions Byte Count
-union PC_SR_TBC_L {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes in slave read transactions. Lower 32 bits of SR_TBC[47:0].
-    uint32_t SR_TBC : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SR_TBC_L_fields_ {
+  // Number of bytes in slave read transactions. Lower 32 bits of SR_TBC[47:0].
+  using SR_TBC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SR_TBC_L_fields_
 
-  PC_SR_TBC_L() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TBC_L &ref() { return *reinterpret_cast<volatile PC_SR_TBC_L*>(0x4006C074); }
+struct PC_SR_TBC_L : ftl::mmio::Register<
+    0x4006C074u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SR_TBC_L_fields_::SR_TBC> {
+  using SR_TBC = PC_SR_TBC_L_fields_::SR_TBC;
 };
+
 
 // Performance Counter, Upper Slave Write Transactions Byte Count
-union PC_SW_TBC_U {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes in slave write transactions. Upper 16 bits of SW_TBC[47:0].
-    uint32_t SW_TBC : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SW_TBC_U_fields_ {
+  // Number of bytes in slave write transactions. Upper 16 bits of SW_TBC[47:0].
+  using SW_TBC = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SW_TBC_U_fields_
 
-  PC_SW_TBC_U() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TBC_U &ref() { return *reinterpret_cast<volatile PC_SW_TBC_U*>(0x4006C078); }
+struct PC_SW_TBC_U : ftl::mmio::Register<
+    0x4006C078u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SW_TBC_U_fields_::SW_TBC,
+    ftl::mmio::Reserved<16, 16>> {
+  using SW_TBC = PC_SW_TBC_U_fields_::SW_TBC;
 };
+
 
 // Performance Counter, Lower Slave Write Transactions Byte Count
-union PC_SW_TBC_L {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes in slave write transactions. Lower 32 bits of SW_TBC[47:0].
-    uint32_t SW_TBC : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SW_TBC_L_fields_ {
+  // Number of bytes in slave write transactions. Lower 32 bits of SW_TBC[47:0].
+  using SW_TBC = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SW_TBC_L_fields_
 
-  PC_SW_TBC_L() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TBC_L &ref() { return *reinterpret_cast<volatile PC_SW_TBC_L*>(0x4006C07C); }
+struct PC_SW_TBC_L : ftl::mmio::Register<
+    0x4006C07Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SW_TBC_L_fields_::SW_TBC> {
+  using SW_TBC = PC_SW_TBC_L_fields_::SW_TBC;
 };
+
 
 // Performance Counter, Upper Master Read Transactions Byte Count
-union PC_MR_TBC_U {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes in master read transactions. 44 MSBs. Upper 16 bits of MR_TBC[43:0].
-    uint32_t MR_TBC : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_MR_TBC_U_fields_ {
+  // Number of bytes in master read transactions. 44 MSBs. Upper 16 bits of MR_TBC[43:0].
+  using MR_TBC = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_MR_TBC_U_fields_
 
-  PC_MR_TBC_U() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MR_TBC_U &ref() { return *reinterpret_cast<volatile PC_MR_TBC_U*>(0x4006C080); }
+struct PC_MR_TBC_U : ftl::mmio::Register<
+    0x4006C080u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_MR_TBC_U_fields_::MR_TBC,
+    ftl::mmio::Reserved<16, 16>> {
+  using MR_TBC = PC_MR_TBC_U_fields_::MR_TBC;
 };
+
 
 // Performance Counter, Lower Master Read Transactions Byte Count
-union PC_MR_TBC_L {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of bytes in master read transactions. 4 LSBs, always 0.
-    uint32_t MR_TBC_LSB : 4;
-    // read-write - Number of bytes in master read transactions. 44 MSBs. Lower 28 bits of MR_TBC[43:0].
-    uint32_t MR_TBC : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_MR_TBC_L_fields_ {
+  // Number of bytes in master read transactions. 4 LSBs, always 0.
+  using MR_TBC_LSB = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Number of bytes in master read transactions. 44 MSBs. Lower 28 bits of MR_TBC[43:0].
+  using MR_TBC = ftl::mmio::Field<28, 4, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_MR_TBC_L_fields_
 
-  PC_MR_TBC_L() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MR_TBC_L &ref() { return *reinterpret_cast<volatile PC_MR_TBC_L*>(0x4006C084); }
+struct PC_MR_TBC_L : ftl::mmio::Register<
+    0x4006C084u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_MR_TBC_L_fields_::MR_TBC_LSB,
+    PC_MR_TBC_L_fields_::MR_TBC> {
+  using MR_TBC_LSB = PC_MR_TBC_L_fields_::MR_TBC_LSB;
+  using MR_TBC = PC_MR_TBC_L_fields_::MR_TBC;
 };
+
 
 // Performance Counter, Upper Master Write Transactions Byte Count
-union PC_MW_TBC_U {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of bytes in master write transactions. 44 MSBs. Upper 16 bits of MW_TBC[43:0].
-    uint32_t MW_TBC : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_MW_TBC_U_fields_ {
+  // Number of bytes in master write transactions. 44 MSBs. Upper 16 bits of MW_TBC[43:0].
+  using MW_TBC = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_MW_TBC_U_fields_
 
-  PC_MW_TBC_U() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MW_TBC_U &ref() { return *reinterpret_cast<volatile PC_MW_TBC_U*>(0x4006C088); }
+struct PC_MW_TBC_U : ftl::mmio::Register<
+    0x4006C088u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_MW_TBC_U_fields_::MW_TBC,
+    ftl::mmio::Reserved<16, 16>> {
+  using MW_TBC = PC_MW_TBC_U_fields_::MW_TBC;
 };
+
 
 // Performance Counter, Lower Master Write Transactions Byte Count
-union PC_MW_TBC_L {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Number of bytes in master write transactions. 4 LSBs, always 0.
-    uint32_t MW_TBC_LSB : 4;
-    // read-write - Number of bytes in master write transactions. 44 MSBs. Lower 28 bits of MR_TBC[43:0].
-    uint32_t MW_TBC : 28;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_MW_TBC_L_fields_ {
+  // Number of bytes in master write transactions. 4 LSBs, always 0.
+  using MW_TBC_LSB = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Number of bytes in master write transactions. 44 MSBs. Lower 28 bits of MR_TBC[43:0].
+  using MW_TBC = ftl::mmio::Field<28, 4, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_MW_TBC_L_fields_
 
-  PC_MW_TBC_L() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MW_TBC_L &ref() { return *reinterpret_cast<volatile PC_MW_TBC_L*>(0x4006C08C); }
+struct PC_MW_TBC_L : ftl::mmio::Register<
+    0x4006C08Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_MW_TBC_L_fields_::MW_TBC_LSB,
+    PC_MW_TBC_L_fields_::MW_TBC> {
+  using MW_TBC_LSB = PC_MW_TBC_L_fields_::MW_TBC_LSB;
+  using MW_TBC = PC_MW_TBC_L_fields_::MW_TBC;
 };
+
 
 // Performance Counter, Number of AXI Slave Read Transactions with Latency Greater than the
 // Threshold
-union PC_SR_TLGTT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of slave read transactions with latency greater than the threshold.
-    uint32_t SR_TLGTT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SR_TLGTT_fields_ {
+  // Number of slave read transactions with latency greater than the threshold.
+  using SR_TLGTT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SR_TLGTT_fields_
 
-  PC_SR_TLGTT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TLGTT &ref() { return *reinterpret_cast<volatile PC_SR_TLGTT*>(0x4006C090); }
+struct PC_SR_TLGTT : ftl::mmio::Register<
+    0x4006C090u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SR_TLGTT_fields_::SR_TLGTT> {
+  using SR_TLGTT = PC_SR_TLGTT_fields_::SR_TLGTT;
 };
+
 
 // Performance Counter, Number of AXI Slave Write Transactions with Latency Greater than the
 // Threshold
-union PC_SW_TLGTT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of slave write transactions with latency greater than the threshold.
-    uint32_t SW_TLGTT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SW_TLGTT_fields_ {
+  // Number of slave write transactions with latency greater than the threshold.
+  using SW_TLGTT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SW_TLGTT_fields_
 
-  PC_SW_TLGTT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TLGTT &ref() { return *reinterpret_cast<volatile PC_SW_TLGTT*>(0x4006C094); }
+struct PC_SW_TLGTT : ftl::mmio::Register<
+    0x4006C094u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SW_TLGTT_fields_::SW_TLGTT> {
+  using SW_TLGTT = PC_SW_TLGTT_fields_::SW_TLGTT;
 };
+
 
 // Performance Counter, Number of AXI Master Read Transactions with Latency Greater than the
 // Threshold
-union PC_MR_TLGTT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of master read transactions with latency greater than the threshold.
-    uint32_t MR_TLGTT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_MR_TLGTT_fields_ {
+  // Number of master read transactions with latency greater than the threshold.
+  using MR_TLGTT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_MR_TLGTT_fields_
 
-  PC_MR_TLGTT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MR_TLGTT &ref() { return *reinterpret_cast<volatile PC_MR_TLGTT*>(0x4006C098); }
+struct PC_MR_TLGTT : ftl::mmio::Register<
+    0x4006C098u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_MR_TLGTT_fields_::MR_TLGTT> {
+  using MR_TLGTT = PC_MR_TLGTT_fields_::MR_TLGTT;
 };
+
 
 // Performance Counter, Number of AXI Master Write Transactions with Latency Greater than the
 // Threshold
-union PC_MW_TLGTT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of master write transactions with latency greater than the threshold.
-    uint32_t MW_TGTT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_MW_TLGTT_fields_ {
+  // Number of master write transactions with latency greater than the threshold.
+  using MW_TGTT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_MW_TLGTT_fields_
 
-  PC_MW_TLGTT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MW_TLGTT &ref() { return *reinterpret_cast<volatile PC_MW_TLGTT*>(0x4006C09C); }
+struct PC_MW_TLGTT : ftl::mmio::Register<
+    0x4006C09Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_MW_TLGTT_fields_::MW_TGTT> {
+  using MW_TGTT = PC_MW_TLGTT_fields_::MW_TGTT;
 };
+
 
 // Performance Counter, Upper Slave Read Latency Count
-union PC_SR_TLAT_U {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total slave read latency in AXI clock cycles. Upper 16 bits of SR_TLAT[47:0].
-    uint32_t SR_TLAT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SR_TLAT_U_fields_ {
+  // Total slave read latency in AXI clock cycles. Upper 16 bits of SR_TLAT[47:0].
+  using SR_TLAT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SR_TLAT_U_fields_
 
-  PC_SR_TLAT_U() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TLAT_U &ref() { return *reinterpret_cast<volatile PC_SR_TLAT_U*>(0x4006C0A0); }
+struct PC_SR_TLAT_U : ftl::mmio::Register<
+    0x4006C0A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SR_TLAT_U_fields_::SR_TLAT,
+    ftl::mmio::Reserved<16, 16>> {
+  using SR_TLAT = PC_SR_TLAT_U_fields_::SR_TLAT;
 };
+
 
 // Performance Counter, Lower Slave Read Latency Count
-union PC_SR_TLAT_L {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total slave read latency in AXI clock cycles. Lower 32 bits of SR_TLAT[47:0].
-    uint32_t SR_TLAT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SR_TLAT_L_fields_ {
+  // Total slave read latency in AXI clock cycles. Lower 32 bits of SR_TLAT[47:0].
+  using SR_TLAT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SR_TLAT_L_fields_
 
-  PC_SR_TLAT_L() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TLAT_L &ref() { return *reinterpret_cast<volatile PC_SR_TLAT_L*>(0x4006C0A4); }
+struct PC_SR_TLAT_L : ftl::mmio::Register<
+    0x4006C0A4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SR_TLAT_L_fields_::SR_TLAT> {
+  using SR_TLAT = PC_SR_TLAT_L_fields_::SR_TLAT;
 };
+
 
 // Performance Counter, Upper Slave Write Latency Count
-union PC_SW_TLAT_U {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total slave write latency in AXI clock cycles. Upper 16 bits of SW_TLAT[47:0].
-    uint32_t SW_TLAT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SW_TLAT_U_fields_ {
+  // Total slave write latency in AXI clock cycles. Upper 16 bits of SW_TLAT[47:0].
+  using SW_TLAT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SW_TLAT_U_fields_
 
-  PC_SW_TLAT_U() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TLAT_U &ref() { return *reinterpret_cast<volatile PC_SW_TLAT_U*>(0x4006C0A8); }
+struct PC_SW_TLAT_U : ftl::mmio::Register<
+    0x4006C0A8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SW_TLAT_U_fields_::SW_TLAT,
+    ftl::mmio::Reserved<16, 16>> {
+  using SW_TLAT = PC_SW_TLAT_U_fields_::SW_TLAT;
 };
+
 
 // Performance Counter, Lower Slave Write Latency Count
-union PC_SW_TLAT_L {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total slave write latency in AXI clock cycles. Lower 32 bits of SW_TLAT[47:0].
-    uint32_t SW_TLAT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SW_TLAT_L_fields_ {
+  // Total slave write latency in AXI clock cycles. Lower 32 bits of SW_TLAT[47:0].
+  using SW_TLAT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SW_TLAT_L_fields_
 
-  PC_SW_TLAT_L() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TLAT_L &ref() { return *reinterpret_cast<volatile PC_SW_TLAT_L*>(0x4006C0AC); }
+struct PC_SW_TLAT_L : ftl::mmio::Register<
+    0x4006C0ACu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SW_TLAT_L_fields_::SW_TLAT> {
+  using SW_TLAT = PC_SW_TLAT_L_fields_::SW_TLAT;
 };
+
 
 // Performance Counter, Upper Master Read Latency Count
-union PC_MR_TLAT_U {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total master read latency in AXI clock cycles. Upper 16 bits of MR_TLAT[47:0].
-    uint32_t MR_TLAT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_MR_TLAT_U_fields_ {
+  // Total master read latency in AXI clock cycles. Upper 16 bits of MR_TLAT[47:0].
+  using MR_TLAT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_MR_TLAT_U_fields_
 
-  PC_MR_TLAT_U() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MR_TLAT_U &ref() { return *reinterpret_cast<volatile PC_MR_TLAT_U*>(0x4006C0B0); }
+struct PC_MR_TLAT_U : ftl::mmio::Register<
+    0x4006C0B0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_MR_TLAT_U_fields_::MR_TLAT,
+    ftl::mmio::Reserved<16, 16>> {
+  using MR_TLAT = PC_MR_TLAT_U_fields_::MR_TLAT;
 };
+
 
 // Performance Counter, Lower Master Read Latency Count
-union PC_MR_TLAT_L {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total master read latency in AXI clock cycles. Lower 32 bits of MR_TLAT[47:0].
-    uint32_t MR_TLAT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_MR_TLAT_L_fields_ {
+  // Total master read latency in AXI clock cycles. Lower 32 bits of MR_TLAT[47:0].
+  using MR_TLAT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_MR_TLAT_L_fields_
 
-  PC_MR_TLAT_L() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MR_TLAT_L &ref() { return *reinterpret_cast<volatile PC_MR_TLAT_L*>(0x4006C0B4); }
+struct PC_MR_TLAT_L : ftl::mmio::Register<
+    0x4006C0B4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_MR_TLAT_L_fields_::MR_TLAT> {
+  using MR_TLAT = PC_MR_TLAT_L_fields_::MR_TLAT;
 };
+
 
 // Performance Counter, Upper Master Write Latency Count
-union PC_MW_TLAT_U {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total master write latency in AXI clock cycles. Upper 16 bits of MW_TLAT[47:0].
-    uint32_t MW_TLAT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_MW_TLAT_U_fields_ {
+  // Total master write latency in AXI clock cycles. Upper 16 bits of MW_TLAT[47:0].
+  using MW_TLAT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_MW_TLAT_U_fields_
 
-  PC_MW_TLAT_U() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MW_TLAT_U &ref() { return *reinterpret_cast<volatile PC_MW_TLAT_U*>(0x4006C0B8); }
+struct PC_MW_TLAT_U : ftl::mmio::Register<
+    0x4006C0B8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_MW_TLAT_U_fields_::MW_TLAT,
+    ftl::mmio::Reserved<16, 16>> {
+  using MW_TLAT = PC_MW_TLAT_U_fields_::MW_TLAT;
 };
+
 
 // Performance Counter, Lower Master Write Latency Count
-union PC_MW_TLAT_L {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total master write latency in AXI clock cycles. Lower 32 bits of MW_TLAT[47:0].
-    uint32_t MW_TLAT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_MW_TLAT_L_fields_ {
+  // Total master write latency in AXI clock cycles. Lower 32 bits of MW_TLAT[47:0].
+  using MW_TLAT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_MW_TLAT_L_fields_
 
-  PC_MW_TLAT_L() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_MW_TLAT_L &ref() { return *reinterpret_cast<volatile PC_MW_TLAT_L*>(0x4006C0BC); }
+struct PC_MW_TLAT_L : ftl::mmio::Register<
+    0x4006C0BCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_MW_TLAT_L_fields_::MW_TLAT> {
+  using MW_TLAT = PC_MW_TLAT_L_fields_::MW_TLAT;
 };
+
 
 // Performance Counter, Upper Slave Read Total Non-Responding Time
-union PC_SR_TNRT_U {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total slave read non-responding time in AXI clock cycles. Upper 16 bits of SR_TNRT[47:0].
-    uint32_t SR_TNRT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SR_TNRT_U_fields_ {
+  // Total slave read non-responding time in AXI clock cycles. Upper 16 bits of SR_TNRT[47:0].
+  using SR_TNRT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SR_TNRT_U_fields_
 
-  PC_SR_TNRT_U() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TNRT_U &ref() { return *reinterpret_cast<volatile PC_SR_TNRT_U*>(0x4006C0C0); }
+struct PC_SR_TNRT_U : ftl::mmio::Register<
+    0x4006C0C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SR_TNRT_U_fields_::SR_TNRT,
+    ftl::mmio::Reserved<16, 16>> {
+  using SR_TNRT = PC_SR_TNRT_U_fields_::SR_TNRT;
 };
+
 
 // Performance Counter, Lower Slave Read Total Non-Responding Time
-union PC_SR_TNRT_L {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total slave read non-responding time in AXI clock cycles. Lower 32 bits of SR_TNRT[47:0].
-    uint32_t SR_TNRT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SR_TNRT_L_fields_ {
+  // Total slave read non-responding time in AXI clock cycles. Lower 32 bits of SR_TNRT[47:0].
+  using SR_TNRT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SR_TNRT_L_fields_
 
-  PC_SR_TNRT_L() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SR_TNRT_L &ref() { return *reinterpret_cast<volatile PC_SR_TNRT_L*>(0x4006C0C4); }
+struct PC_SR_TNRT_L : ftl::mmio::Register<
+    0x4006C0C4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SR_TNRT_L_fields_::SR_TNRT> {
+  using SR_TNRT = PC_SR_TNRT_L_fields_::SR_TNRT;
 };
+
 
 // Performance Counter, Upper Slave Write Total Non-Responding Time
-union PC_SW_TNRT_U {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total slave write non-responding time in AXI clock cycles. Upper 16 bits of SW_TNRT[47:0].
-    uint32_t SW_TNRT : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SW_TNRT_U_fields_ {
+  // Total slave write non-responding time in AXI clock cycles. Upper 16 bits of SW_TNRT[47:0].
+  using SW_TNRT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SW_TNRT_U_fields_
 
-  PC_SW_TNRT_U() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TNRT_U &ref() { return *reinterpret_cast<volatile PC_SW_TNRT_U*>(0x4006C0C8); }
+struct PC_SW_TNRT_U : ftl::mmio::Register<
+    0x4006C0C8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SW_TNRT_U_fields_::SW_TNRT,
+    ftl::mmio::Reserved<16, 16>> {
+  using SW_TNRT = PC_SW_TNRT_U_fields_::SW_TNRT;
 };
+
 
 // Performance Counter, Lower Slave Write Total Non-Responding Time
-union PC_SW_TNRT_L {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total slave write non-responding time in AXI clock cycles. Lower 32 bits of SW_TNRT[47:0].
-    uint32_t SW_TNRT : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PC_SW_TNRT_L_fields_ {
+  // Total slave write non-responding time in AXI clock cycles. Lower 32 bits of SW_TNRT[47:0].
+  using SW_TNRT = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PC_SW_TNRT_L_fields_
 
-  PC_SW_TNRT_L() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PC_SW_TNRT_L &ref() { return *reinterpret_cast<volatile PC_SW_TNRT_L*>(0x4006C0CC); }
+struct PC_SW_TNRT_L : ftl::mmio::Register<
+    0x4006C0CCu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PC_SW_TNRT_L_fields_::SW_TNRT> {
+  using SW_TNRT = PC_SW_TNRT_L_fields_::SW_TNRT;
 };
+
 
 // IEE Version ID Register 1
-union VIDR1 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Minor revision number for IEE.
-    uint32_t MIN_REV : 8;
-    // read-only - Major revision number for IEE.
-    uint32_t MAJ_REV : 8;
-    // read-only - ID for IEE.
-    uint32_t IP_ID : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct VIDR1_fields_ {
+  // Minor revision number for IEE.
+  using MIN_REV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Major revision number for IEE.
+  using MAJ_REV = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // ID for IEE.
+  using IP_ID = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct VIDR1_fields_
 
-  VIDR1() = delete;
-  inline void Reset() volatile { this->value = 0x00340102; }
-  static inline volatile VIDR1 &ref() { return *reinterpret_cast<volatile VIDR1*>(0x4006C0F0); }
+struct VIDR1 : ftl::mmio::Register<
+    0x4006C0F0u,
+    std::uint32_t,
+    0x00340102u,
+    ftl::mmio::RO,
+    VIDR1_fields_::MIN_REV,
+    VIDR1_fields_::MAJ_REV,
+    VIDR1_fields_::IP_ID> {
+  using MIN_REV = VIDR1_fields_::MIN_REV;
+  using MAJ_REV = VIDR1_fields_::MAJ_REV;
+  using IP_ID = VIDR1_fields_::IP_ID;
 };
+
 
 // IEE AES Version ID Register
-union AESVID {
-  
-  // Bit field definition.
-  struct {
-    // read-only - AES revision number.
-    uint32_t AESRN : 4;
-    // read-only - AES version ID.
-    uint32_t AESVID : 4;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct AESVID_fields_ {
+  // AES revision number.
+  using AESRN = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AES version ID.
+  using AESVID = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct AESVID_fields_
 
-  AESVID() = delete;
-  inline void Reset() volatile { this->value = 0x00000020; }
-  static inline volatile AESVID &ref() { return *reinterpret_cast<volatile AESVID*>(0x4006C0F8); }
+struct AESVID : ftl::mmio::Register<
+    0x4006C0F8u,
+    std::uint32_t,
+    0x00000020u,
+    ftl::mmio::RO,
+    AESVID_fields_::AESRN,
+    AESVID_fields_::AESVID,
+    ftl::mmio::Reserved<24, 8>> {
+  using AESRN = AESVID_fields_::AESRN;
+  using value_ = AESVID_fields_::AESVID;
 };
+
 
 // IEE AES Test Mode Data Buffer
-union AES_TST_DB_0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct AES_TST_DB_fields_ {
+  // AES test mode data buffer.
+  using AES_TST_DB0 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct AES_TST_DB_fields_
 
-  AES_TST_DB_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_0 &ref() { return *reinterpret_cast<volatile AES_TST_DB_0*>(0x4006CF00); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_1 &ref() { return *reinterpret_cast<volatile AES_TST_DB_1*>(0x4006CF04); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_2 &ref() { return *reinterpret_cast<volatile AES_TST_DB_2*>(0x4006CF08); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_3 &ref() { return *reinterpret_cast<volatile AES_TST_DB_3*>(0x4006CF0C); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_4 &ref() { return *reinterpret_cast<volatile AES_TST_DB_4*>(0x4006CF10); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_5 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_5 &ref() { return *reinterpret_cast<volatile AES_TST_DB_5*>(0x4006CF14); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_6 &ref() { return *reinterpret_cast<volatile AES_TST_DB_6*>(0x4006CF18); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_7 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_7() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_7 &ref() { return *reinterpret_cast<volatile AES_TST_DB_7*>(0x4006CF1C); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_8 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_8() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_8 &ref() { return *reinterpret_cast<volatile AES_TST_DB_8*>(0x4006CF20); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_9 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_9() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_9 &ref() { return *reinterpret_cast<volatile AES_TST_DB_9*>(0x4006CF24); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_10 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_10() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_10 &ref() { return *reinterpret_cast<volatile AES_TST_DB_10*>(0x4006CF28); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_11 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_11() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_11 &ref() { return *reinterpret_cast<volatile AES_TST_DB_11*>(0x4006CF2C); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_12 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_12() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_12 &ref() { return *reinterpret_cast<volatile AES_TST_DB_12*>(0x4006CF30); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_13 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_13() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_13 &ref() { return *reinterpret_cast<volatile AES_TST_DB_13*>(0x4006CF34); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_14 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_14() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_14 &ref() { return *reinterpret_cast<volatile AES_TST_DB_14*>(0x4006CF38); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_15 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_15() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_15 &ref() { return *reinterpret_cast<volatile AES_TST_DB_15*>(0x4006CF3C); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_16 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_16() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_16 &ref() { return *reinterpret_cast<volatile AES_TST_DB_16*>(0x4006CF40); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_17 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_17() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_17 &ref() { return *reinterpret_cast<volatile AES_TST_DB_17*>(0x4006CF44); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_18 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_18() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_18 &ref() { return *reinterpret_cast<volatile AES_TST_DB_18*>(0x4006CF48); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_19 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_19() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_19 &ref() { return *reinterpret_cast<volatile AES_TST_DB_19*>(0x4006CF4C); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_20 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_20() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_20 &ref() { return *reinterpret_cast<volatile AES_TST_DB_20*>(0x4006CF50); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_21 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_21() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_21 &ref() { return *reinterpret_cast<volatile AES_TST_DB_21*>(0x4006CF54); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_22 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_22() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_22 &ref() { return *reinterpret_cast<volatile AES_TST_DB_22*>(0x4006CF58); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_23 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_23() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_23 &ref() { return *reinterpret_cast<volatile AES_TST_DB_23*>(0x4006CF5C); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_24 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_24() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_24 &ref() { return *reinterpret_cast<volatile AES_TST_DB_24*>(0x4006CF60); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_25 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_25() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_25 &ref() { return *reinterpret_cast<volatile AES_TST_DB_25*>(0x4006CF64); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_26 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_26() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_26 &ref() { return *reinterpret_cast<volatile AES_TST_DB_26*>(0x4006CF68); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_27 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_27() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_27 &ref() { return *reinterpret_cast<volatile AES_TST_DB_27*>(0x4006CF6C); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_28 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_28() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_28 &ref() { return *reinterpret_cast<volatile AES_TST_DB_28*>(0x4006CF70); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_29 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_29() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_29 &ref() { return *reinterpret_cast<volatile AES_TST_DB_29*>(0x4006CF74); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_30 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_30() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_30 &ref() { return *reinterpret_cast<volatile AES_TST_DB_30*>(0x4006CF78); }
-};
-// IEE AES Test Mode Data Buffer
-union AES_TST_DB_31 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AES test mode data buffer.
-    uint32_t AES_TST_DB0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  AES_TST_DB_31() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile AES_TST_DB_31 &ref() { return *reinterpret_cast<volatile AES_TST_DB_31*>(0x4006CF7C); }
+template<std::uint32_t Index>
+struct AES_TST_DB : ftl::mmio::Register<
+    0x4006CF00u + (Index * 0x4u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    AES_TST_DB_fields_::AES_TST_DB0> {
+  static_assert(Index < 32u, "AES_TST_DB: Index out of range");
+  using AES_TST_DB0 = AES_TST_DB_fields_::AES_TST_DB0;
 };
 
 
+// IEE Region REGION Attribute Register.
+struct REGATTR_fields_ {
 
-} // namespace nIEE__IEE_RT1170
+  enum class eKS : std::uint32_t {
+    // 128 bits (CTR), 256 bits (XTS).
+    eKS_0 = 0,
+    // 256 bits (CTR), 512 bits (XTS).
+    eKS_1 = 1,
+  };
+
+  enum class eMD : std::uint32_t {
+    // None (AXI error if accessed)
+    eMD_0 = 0,
+    // XTS
+    eMD_1 = 1,
+    // CTR w/ address binding
+    eMD_2 = 2,
+    // CTR w/o address binding
+    eMD_3 = 3,
+    // CTR keystream only
+    eMD_4 = 4,
+    // Undefined, AXI error if used
+    eMD_5 = 5,
+    // Undefined, AXI error if used
+    eMD_6 = 6,
+    // Undefined, AXI error if used
+    eMD_7 = 7,
+  };
+
+  enum class eBYP : std::uint32_t {
+    // use MD field
+    eBYP_0 = 0,
+    // Bypass AES, no encrypt/decrypt
+    eBYP_1 = 1,
+  };
+  // AES key size.
+  using KS = ftl::mmio::Field<1, 0, eKS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AES Mode.
+  using MD = ftl::mmio::Field<3, 4, eMD, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AES Bypass.
+  using BYP = ftl::mmio::Field<1, 7, eBYP, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct REGATTR_fields_
+
+template<std::uint32_t ClusterIndex>
+struct REGATTR : ftl::mmio::Register<
+    0x4006C100u + (ClusterIndex * 0x100u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    REGATTR_fields_::KS,
+    ftl::mmio::Reserved<3, 1>,
+    REGATTR_fields_::MD,
+    REGATTR_fields_::BYP,
+    ftl::mmio::Reserved<24, 8>> {
+  static_assert(ClusterIndex < 8u, "REGATTR: ClusterIndex out of range");
+  using eKS = REGATTR_fields_::eKS;
+  using eMD = REGATTR_fields_::eMD;
+  using eBYP = REGATTR_fields_::eBYP;
+  using KS = REGATTR_fields_::KS;
+  using MD = REGATTR_fields_::MD;
+  using BYP = REGATTR_fields_::BYP;
+};
+
+
+// IEE Region REGION Page Offset Register
+struct REGPO_fields_ {
+  // This field represents a 4Kb page offset
+  using PGOFF = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct REGPO_fields_
+
+template<std::uint32_t ClusterIndex>
+struct REGPO : ftl::mmio::Register<
+    0x4006C108u + (ClusterIndex * 0x100u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    REGPO_fields_::PGOFF,
+    ftl::mmio::Reserved<8, 24>> {
+  static_assert(ClusterIndex < 8u, "REGPO: ClusterIndex out of range");
+  using PGOFF = REGPO_fields_::PGOFF;
+};
+
+
+// IEE Region REGION Key 1 Register
+struct REGKEY1__fields_ {
+  // Key 1.
+  using KEY1 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
+};  // struct REGKEY1__fields_
+
+template<std::uint32_t ClusterIndex, std::uint32_t ArrayIndex>
+struct REGKEY1_ : ftl::mmio::Register<
+    0x4006C140u + (ClusterIndex * 0x100u) + (ArrayIndex * 0x4u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::WO,
+    REGKEY1__fields_::KEY1> {
+  static_assert(ClusterIndex < 8u, "REGKEY1_: ClusterIndex out of range");
+  static_assert(ArrayIndex < 8u, "REGKEY1_: ArrayIndex out of range");
+  using KEY1 = REGKEY1__fields_::KEY1;
+};
+
+
+// IEE Region REGION Key 2 Register
+struct REGKEY2__fields_ {
+  // Key 2.
+  using KEY2 = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
+};  // struct REGKEY2__fields_
+
+template<std::uint32_t ClusterIndex, std::uint32_t ArrayIndex>
+struct REGKEY2_ : ftl::mmio::Register<
+    0x4006C180u + (ClusterIndex * 0x100u) + (ArrayIndex * 0x4u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::WO,
+    REGKEY2__fields_::KEY2> {
+  static_assert(ClusterIndex < 8u, "REGKEY2_: ClusterIndex out of range");
+  static_assert(ArrayIndex < 8u, "REGKEY2_: ArrayIndex out of range");
+  using KEY2 = REGKEY2__fields_::KEY2;
+};
+
+}  // namespace regs::iee__iee_rt1170

@@ -1,4551 +1,4294 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // Nested Vectored Interrupt Controller
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nCM7_NVIC {
+namespace regs::cm7_nvic {
 
 
 // Interrupt Set Enable Register n
-union NVICISER0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set enable bits
-    uint32_t SETENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISER0_fields_ {
+  // Interrupt set enable bits
+  using SETENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISER0_fields_
 
-  NVICISER0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER0 &ref() { return *reinterpret_cast<volatile NVICISER0*>(0xE000E100); }
+struct NVICISER0 : ftl::mmio::Register<
+    0xE000E100u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISER0_fields_::SETENA> {
+  using SETENA = NVICISER0_fields_::SETENA;
 };
+
 
 // Interrupt Set Enable Register n
-union NVICISER1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set enable bits
-    uint32_t SETENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISER1_fields_ {
+  // Interrupt set enable bits
+  using SETENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISER1_fields_
 
-  NVICISER1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER1 &ref() { return *reinterpret_cast<volatile NVICISER1*>(0xE000E104); }
+struct NVICISER1 : ftl::mmio::Register<
+    0xE000E104u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISER1_fields_::SETENA> {
+  using SETENA = NVICISER1_fields_::SETENA;
 };
+
 
 // Interrupt Set Enable Register n
-union NVICISER2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set enable bits
-    uint32_t SETENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISER2_fields_ {
+  // Interrupt set enable bits
+  using SETENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISER2_fields_
 
-  NVICISER2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER2 &ref() { return *reinterpret_cast<volatile NVICISER2*>(0xE000E108); }
+struct NVICISER2 : ftl::mmio::Register<
+    0xE000E108u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISER2_fields_::SETENA> {
+  using SETENA = NVICISER2_fields_::SETENA;
 };
+
 
 // Interrupt Set Enable Register n
-union NVICISER3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set enable bits
-    uint32_t SETENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISER3_fields_ {
+  // Interrupt set enable bits
+  using SETENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISER3_fields_
 
-  NVICISER3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER3 &ref() { return *reinterpret_cast<volatile NVICISER3*>(0xE000E10C); }
+struct NVICISER3 : ftl::mmio::Register<
+    0xE000E10Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISER3_fields_::SETENA> {
+  using SETENA = NVICISER3_fields_::SETENA;
 };
+
 
 // Interrupt Set Enable Register n
-union NVICISER4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set enable bits
-    uint32_t SETENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISER4_fields_ {
+  // Interrupt set enable bits
+  using SETENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISER4_fields_
 
-  NVICISER4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER4 &ref() { return *reinterpret_cast<volatile NVICISER4*>(0xE000E110); }
+struct NVICISER4 : ftl::mmio::Register<
+    0xE000E110u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISER4_fields_::SETENA> {
+  using SETENA = NVICISER4_fields_::SETENA;
 };
+
 
 // Interrupt Set Enable Register n
-union NVICISER5 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set enable bits
-    uint32_t SETENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISER5_fields_ {
+  // Interrupt set enable bits
+  using SETENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISER5_fields_
 
-  NVICISER5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER5 &ref() { return *reinterpret_cast<volatile NVICISER5*>(0xE000E114); }
+struct NVICISER5 : ftl::mmio::Register<
+    0xE000E114u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISER5_fields_::SETENA> {
+  using SETENA = NVICISER5_fields_::SETENA;
 };
+
 
 // Interrupt Set Enable Register n
-union NVICISER6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set enable bits
-    uint32_t SETENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISER6_fields_ {
+  // Interrupt set enable bits
+  using SETENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISER6_fields_
 
-  NVICISER6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISER6 &ref() { return *reinterpret_cast<volatile NVICISER6*>(0xE000E118); }
+struct NVICISER6 : ftl::mmio::Register<
+    0xE000E118u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISER6_fields_::SETENA> {
+  using SETENA = NVICISER6_fields_::SETENA;
 };
+
 
 // Interrupt Clear Enable Register n
-union NVICICER0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-enable bits
-    uint32_t CLRENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICER0_fields_ {
+  // Interrupt clear-enable bits
+  using CLRENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICER0_fields_
 
-  NVICICER0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER0 &ref() { return *reinterpret_cast<volatile NVICICER0*>(0xE000E180); }
+struct NVICICER0 : ftl::mmio::Register<
+    0xE000E180u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICER0_fields_::CLRENA> {
+  using CLRENA = NVICICER0_fields_::CLRENA;
 };
+
 
 // Interrupt Clear Enable Register n
-union NVICICER1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-enable bits
-    uint32_t CLRENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICER1_fields_ {
+  // Interrupt clear-enable bits
+  using CLRENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICER1_fields_
 
-  NVICICER1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER1 &ref() { return *reinterpret_cast<volatile NVICICER1*>(0xE000E184); }
+struct NVICICER1 : ftl::mmio::Register<
+    0xE000E184u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICER1_fields_::CLRENA> {
+  using CLRENA = NVICICER1_fields_::CLRENA;
 };
+
 
 // Interrupt Clear Enable Register n
-union NVICICER2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-enable bits
-    uint32_t CLRENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICER2_fields_ {
+  // Interrupt clear-enable bits
+  using CLRENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICER2_fields_
 
-  NVICICER2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER2 &ref() { return *reinterpret_cast<volatile NVICICER2*>(0xE000E188); }
+struct NVICICER2 : ftl::mmio::Register<
+    0xE000E188u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICER2_fields_::CLRENA> {
+  using CLRENA = NVICICER2_fields_::CLRENA;
 };
+
 
 // Interrupt Clear Enable Register n
-union NVICICER3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-enable bits
-    uint32_t CLRENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICER3_fields_ {
+  // Interrupt clear-enable bits
+  using CLRENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICER3_fields_
 
-  NVICICER3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER3 &ref() { return *reinterpret_cast<volatile NVICICER3*>(0xE000E18C); }
+struct NVICICER3 : ftl::mmio::Register<
+    0xE000E18Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICER3_fields_::CLRENA> {
+  using CLRENA = NVICICER3_fields_::CLRENA;
 };
+
 
 // Interrupt Clear Enable Register n
-union NVICICER4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-enable bits
-    uint32_t CLRENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICER4_fields_ {
+  // Interrupt clear-enable bits
+  using CLRENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICER4_fields_
 
-  NVICICER4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER4 &ref() { return *reinterpret_cast<volatile NVICICER4*>(0xE000E190); }
+struct NVICICER4 : ftl::mmio::Register<
+    0xE000E190u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICER4_fields_::CLRENA> {
+  using CLRENA = NVICICER4_fields_::CLRENA;
 };
+
 
 // Interrupt Clear Enable Register n
-union NVICICER5 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-enable bits
-    uint32_t CLRENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICER5_fields_ {
+  // Interrupt clear-enable bits
+  using CLRENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICER5_fields_
 
-  NVICICER5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER5 &ref() { return *reinterpret_cast<volatile NVICICER5*>(0xE000E194); }
+struct NVICICER5 : ftl::mmio::Register<
+    0xE000E194u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICER5_fields_::CLRENA> {
+  using CLRENA = NVICICER5_fields_::CLRENA;
 };
+
 
 // Interrupt Clear Enable Register n
-union NVICICER6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-enable bits
-    uint32_t CLRENA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICER6_fields_ {
+  // Interrupt clear-enable bits
+  using CLRENA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICER6_fields_
 
-  NVICICER6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICER6 &ref() { return *reinterpret_cast<volatile NVICICER6*>(0xE000E198); }
+struct NVICICER6 : ftl::mmio::Register<
+    0xE000E198u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICER6_fields_::CLRENA> {
+  using CLRENA = NVICICER6_fields_::CLRENA;
 };
+
 
 // Interrupt Set Pending Register n
-union NVICISPR0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set-pending bits
-    uint32_t SETPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISPR0_fields_ {
+  // Interrupt set-pending bits
+  using SETPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISPR0_fields_
 
-  NVICISPR0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR0 &ref() { return *reinterpret_cast<volatile NVICISPR0*>(0xE000E200); }
+struct NVICISPR0 : ftl::mmio::Register<
+    0xE000E200u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISPR0_fields_::SETPEND> {
+  using SETPEND = NVICISPR0_fields_::SETPEND;
 };
+
 
 // Interrupt Set Pending Register n
-union NVICISPR1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set-pending bits
-    uint32_t SETPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISPR1_fields_ {
+  // Interrupt set-pending bits
+  using SETPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISPR1_fields_
 
-  NVICISPR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR1 &ref() { return *reinterpret_cast<volatile NVICISPR1*>(0xE000E204); }
+struct NVICISPR1 : ftl::mmio::Register<
+    0xE000E204u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISPR1_fields_::SETPEND> {
+  using SETPEND = NVICISPR1_fields_::SETPEND;
 };
+
 
 // Interrupt Set Pending Register n
-union NVICISPR2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set-pending bits
-    uint32_t SETPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISPR2_fields_ {
+  // Interrupt set-pending bits
+  using SETPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISPR2_fields_
 
-  NVICISPR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR2 &ref() { return *reinterpret_cast<volatile NVICISPR2*>(0xE000E208); }
+struct NVICISPR2 : ftl::mmio::Register<
+    0xE000E208u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISPR2_fields_::SETPEND> {
+  using SETPEND = NVICISPR2_fields_::SETPEND;
 };
+
 
 // Interrupt Set Pending Register n
-union NVICISPR3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set-pending bits
-    uint32_t SETPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISPR3_fields_ {
+  // Interrupt set-pending bits
+  using SETPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISPR3_fields_
 
-  NVICISPR3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR3 &ref() { return *reinterpret_cast<volatile NVICISPR3*>(0xE000E20C); }
+struct NVICISPR3 : ftl::mmio::Register<
+    0xE000E20Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISPR3_fields_::SETPEND> {
+  using SETPEND = NVICISPR3_fields_::SETPEND;
 };
+
 
 // Interrupt Set Pending Register n
-union NVICISPR4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set-pending bits
-    uint32_t SETPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISPR4_fields_ {
+  // Interrupt set-pending bits
+  using SETPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISPR4_fields_
 
-  NVICISPR4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR4 &ref() { return *reinterpret_cast<volatile NVICISPR4*>(0xE000E210); }
+struct NVICISPR4 : ftl::mmio::Register<
+    0xE000E210u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISPR4_fields_::SETPEND> {
+  using SETPEND = NVICISPR4_fields_::SETPEND;
 };
+
 
 // Interrupt Set Pending Register n
-union NVICISPR5 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set-pending bits
-    uint32_t SETPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISPR5_fields_ {
+  // Interrupt set-pending bits
+  using SETPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISPR5_fields_
 
-  NVICISPR5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR5 &ref() { return *reinterpret_cast<volatile NVICISPR5*>(0xE000E214); }
+struct NVICISPR5 : ftl::mmio::Register<
+    0xE000E214u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISPR5_fields_::SETPEND> {
+  using SETPEND = NVICISPR5_fields_::SETPEND;
 };
+
 
 // Interrupt Set Pending Register n
-union NVICISPR6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt set-pending bits
-    uint32_t SETPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICISPR6_fields_ {
+  // Interrupt set-pending bits
+  using SETPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICISPR6_fields_
 
-  NVICISPR6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICISPR6 &ref() { return *reinterpret_cast<volatile NVICISPR6*>(0xE000E218); }
+struct NVICISPR6 : ftl::mmio::Register<
+    0xE000E218u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICISPR6_fields_::SETPEND> {
+  using SETPEND = NVICISPR6_fields_::SETPEND;
 };
+
 
 // Interrupt Clear Pending Register n
-union NVICICPR0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-pending bits
-    uint32_t CLRPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICPR0_fields_ {
+  // Interrupt clear-pending bits
+  using CLRPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICPR0_fields_
 
-  NVICICPR0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR0 &ref() { return *reinterpret_cast<volatile NVICICPR0*>(0xE000E280); }
+struct NVICICPR0 : ftl::mmio::Register<
+    0xE000E280u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICPR0_fields_::CLRPEND> {
+  using CLRPEND = NVICICPR0_fields_::CLRPEND;
 };
+
 
 // Interrupt Clear Pending Register n
-union NVICICPR1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-pending bits
-    uint32_t CLRPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICPR1_fields_ {
+  // Interrupt clear-pending bits
+  using CLRPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICPR1_fields_
 
-  NVICICPR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR1 &ref() { return *reinterpret_cast<volatile NVICICPR1*>(0xE000E284); }
+struct NVICICPR1 : ftl::mmio::Register<
+    0xE000E284u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICPR1_fields_::CLRPEND> {
+  using CLRPEND = NVICICPR1_fields_::CLRPEND;
 };
+
 
 // Interrupt Clear Pending Register n
-union NVICICPR2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-pending bits
-    uint32_t CLRPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICPR2_fields_ {
+  // Interrupt clear-pending bits
+  using CLRPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICPR2_fields_
 
-  NVICICPR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR2 &ref() { return *reinterpret_cast<volatile NVICICPR2*>(0xE000E288); }
+struct NVICICPR2 : ftl::mmio::Register<
+    0xE000E288u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICPR2_fields_::CLRPEND> {
+  using CLRPEND = NVICICPR2_fields_::CLRPEND;
 };
+
 
 // Interrupt Clear Pending Register n
-union NVICICPR3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-pending bits
-    uint32_t CLRPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICPR3_fields_ {
+  // Interrupt clear-pending bits
+  using CLRPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICPR3_fields_
 
-  NVICICPR3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR3 &ref() { return *reinterpret_cast<volatile NVICICPR3*>(0xE000E28C); }
+struct NVICICPR3 : ftl::mmio::Register<
+    0xE000E28Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICPR3_fields_::CLRPEND> {
+  using CLRPEND = NVICICPR3_fields_::CLRPEND;
 };
+
 
 // Interrupt Clear Pending Register n
-union NVICICPR4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-pending bits
-    uint32_t CLRPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICPR4_fields_ {
+  // Interrupt clear-pending bits
+  using CLRPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICPR4_fields_
 
-  NVICICPR4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR4 &ref() { return *reinterpret_cast<volatile NVICICPR4*>(0xE000E290); }
+struct NVICICPR4 : ftl::mmio::Register<
+    0xE000E290u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICPR4_fields_::CLRPEND> {
+  using CLRPEND = NVICICPR4_fields_::CLRPEND;
 };
+
 
 // Interrupt Clear Pending Register n
-union NVICICPR5 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-pending bits
-    uint32_t CLRPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICPR5_fields_ {
+  // Interrupt clear-pending bits
+  using CLRPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICPR5_fields_
 
-  NVICICPR5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR5 &ref() { return *reinterpret_cast<volatile NVICICPR5*>(0xE000E294); }
+struct NVICICPR5 : ftl::mmio::Register<
+    0xE000E294u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICPR5_fields_::CLRPEND> {
+  using CLRPEND = NVICICPR5_fields_::CLRPEND;
 };
+
 
 // Interrupt Clear Pending Register n
-union NVICICPR6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt clear-pending bits
-    uint32_t CLRPEND : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICICPR6_fields_ {
+  // Interrupt clear-pending bits
+  using CLRPEND = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct NVICICPR6_fields_
 
-  NVICICPR6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICICPR6 &ref() { return *reinterpret_cast<volatile NVICICPR6*>(0xE000E298); }
+struct NVICICPR6 : ftl::mmio::Register<
+    0xE000E298u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICICPR6_fields_::CLRPEND> {
+  using CLRPEND = NVICICPR6_fields_::CLRPEND;
 };
+
 
 // Interrupt Active bit Register n
-union NVICIABR0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt active flags
-    uint32_t ACTIVE : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICIABR0_fields_ {
+  // Interrupt active flags
+  using ACTIVE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIABR0_fields_
 
-  NVICIABR0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR0 &ref() { return *reinterpret_cast<volatile NVICIABR0*>(0xE000E300); }
+struct NVICIABR0 : ftl::mmio::Register<
+    0xE000E300u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICIABR0_fields_::ACTIVE> {
+  using ACTIVE = NVICIABR0_fields_::ACTIVE;
 };
+
 
 // Interrupt Active bit Register n
-union NVICIABR1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt active flags
-    uint32_t ACTIVE : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICIABR1_fields_ {
+  // Interrupt active flags
+  using ACTIVE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIABR1_fields_
 
-  NVICIABR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR1 &ref() { return *reinterpret_cast<volatile NVICIABR1*>(0xE000E304); }
+struct NVICIABR1 : ftl::mmio::Register<
+    0xE000E304u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICIABR1_fields_::ACTIVE> {
+  using ACTIVE = NVICIABR1_fields_::ACTIVE;
 };
+
 
 // Interrupt Active bit Register n
-union NVICIABR2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt active flags
-    uint32_t ACTIVE : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICIABR2_fields_ {
+  // Interrupt active flags
+  using ACTIVE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIABR2_fields_
 
-  NVICIABR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR2 &ref() { return *reinterpret_cast<volatile NVICIABR2*>(0xE000E308); }
+struct NVICIABR2 : ftl::mmio::Register<
+    0xE000E308u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICIABR2_fields_::ACTIVE> {
+  using ACTIVE = NVICIABR2_fields_::ACTIVE;
 };
+
 
 // Interrupt Active bit Register n
-union NVICIABR3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt active flags
-    uint32_t ACTIVE : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICIABR3_fields_ {
+  // Interrupt active flags
+  using ACTIVE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIABR3_fields_
 
-  NVICIABR3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR3 &ref() { return *reinterpret_cast<volatile NVICIABR3*>(0xE000E30C); }
+struct NVICIABR3 : ftl::mmio::Register<
+    0xE000E30Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICIABR3_fields_::ACTIVE> {
+  using ACTIVE = NVICIABR3_fields_::ACTIVE;
 };
+
 
 // Interrupt Active bit Register n
-union NVICIABR4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt active flags
-    uint32_t ACTIVE : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICIABR4_fields_ {
+  // Interrupt active flags
+  using ACTIVE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIABR4_fields_
 
-  NVICIABR4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR4 &ref() { return *reinterpret_cast<volatile NVICIABR4*>(0xE000E310); }
+struct NVICIABR4 : ftl::mmio::Register<
+    0xE000E310u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICIABR4_fields_::ACTIVE> {
+  using ACTIVE = NVICIABR4_fields_::ACTIVE;
 };
+
 
 // Interrupt Active bit Register n
-union NVICIABR5 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt active flags
-    uint32_t ACTIVE : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICIABR5_fields_ {
+  // Interrupt active flags
+  using ACTIVE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIABR5_fields_
 
-  NVICIABR5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR5 &ref() { return *reinterpret_cast<volatile NVICIABR5*>(0xE000E314); }
+struct NVICIABR5 : ftl::mmio::Register<
+    0xE000E314u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICIABR5_fields_::ACTIVE> {
+  using ACTIVE = NVICIABR5_fields_::ACTIVE;
 };
+
 
 // Interrupt Active bit Register n
-union NVICIABR6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt active flags
-    uint32_t ACTIVE : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICIABR6_fields_ {
+  // Interrupt active flags
+  using ACTIVE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIABR6_fields_
 
-  NVICIABR6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIABR6 &ref() { return *reinterpret_cast<volatile NVICIABR6*>(0xE000E318); }
+struct NVICIABR6 : ftl::mmio::Register<
+    0xE000E318u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICIABR6_fields_::ACTIVE> {
+  using ACTIVE = NVICIABR6_fields_::ACTIVE;
 };
+
 
 // Interrupt Priority Register 0
-union NVICIP0 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 0
-    uint8_t PRI0 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP0_fields_ {
+  // Priority of interrupt 0
+  using PRI0 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP0_fields_
 
-  NVICIP0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP0 &ref() { return *reinterpret_cast<volatile NVICIP0*>(0xE000E400); }
+struct NVICIP0 : ftl::mmio::Register<
+    0xE000E400u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP0_fields_::PRI0> {
+  using PRI0 = NVICIP0_fields_::PRI0;
 };
+
 
 // Interrupt Priority Register 1
-union NVICIP1 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 1
-    uint8_t PRI1 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP1_fields_ {
+  // Priority of interrupt 1
+  using PRI1 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP1_fields_
 
-  NVICIP1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP1 &ref() { return *reinterpret_cast<volatile NVICIP1*>(0xE000E401); }
+struct NVICIP1 : ftl::mmio::Register<
+    0xE000E401u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP1_fields_::PRI1> {
+  using PRI1 = NVICIP1_fields_::PRI1;
 };
+
 
 // Interrupt Priority Register 2
-union NVICIP2 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 2
-    uint8_t PRI2 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP2_fields_ {
+  // Priority of interrupt 2
+  using PRI2 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP2_fields_
 
-  NVICIP2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP2 &ref() { return *reinterpret_cast<volatile NVICIP2*>(0xE000E402); }
+struct NVICIP2 : ftl::mmio::Register<
+    0xE000E402u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP2_fields_::PRI2> {
+  using PRI2 = NVICIP2_fields_::PRI2;
 };
+
 
 // Interrupt Priority Register 3
-union NVICIP3 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 3
-    uint8_t PRI3 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP3_fields_ {
+  // Priority of interrupt 3
+  using PRI3 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP3_fields_
 
-  NVICIP3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP3 &ref() { return *reinterpret_cast<volatile NVICIP3*>(0xE000E403); }
+struct NVICIP3 : ftl::mmio::Register<
+    0xE000E403u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP3_fields_::PRI3> {
+  using PRI3 = NVICIP3_fields_::PRI3;
 };
+
 
 // Interrupt Priority Register 4
-union NVICIP4 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 4
-    uint8_t PRI4 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP4_fields_ {
+  // Priority of interrupt 4
+  using PRI4 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP4_fields_
 
-  NVICIP4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP4 &ref() { return *reinterpret_cast<volatile NVICIP4*>(0xE000E404); }
+struct NVICIP4 : ftl::mmio::Register<
+    0xE000E404u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP4_fields_::PRI4> {
+  using PRI4 = NVICIP4_fields_::PRI4;
 };
+
 
 // Interrupt Priority Register 5
-union NVICIP5 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 5
-    uint8_t PRI5 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP5_fields_ {
+  // Priority of interrupt 5
+  using PRI5 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP5_fields_
 
-  NVICIP5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP5 &ref() { return *reinterpret_cast<volatile NVICIP5*>(0xE000E405); }
+struct NVICIP5 : ftl::mmio::Register<
+    0xE000E405u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP5_fields_::PRI5> {
+  using PRI5 = NVICIP5_fields_::PRI5;
 };
+
 
 // Interrupt Priority Register 6
-union NVICIP6 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 6
-    uint8_t PRI6 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP6_fields_ {
+  // Priority of interrupt 6
+  using PRI6 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP6_fields_
 
-  NVICIP6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP6 &ref() { return *reinterpret_cast<volatile NVICIP6*>(0xE000E406); }
+struct NVICIP6 : ftl::mmio::Register<
+    0xE000E406u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP6_fields_::PRI6> {
+  using PRI6 = NVICIP6_fields_::PRI6;
 };
+
 
 // Interrupt Priority Register 7
-union NVICIP7 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 7
-    uint8_t PRI7 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP7_fields_ {
+  // Priority of interrupt 7
+  using PRI7 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP7_fields_
 
-  NVICIP7() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP7 &ref() { return *reinterpret_cast<volatile NVICIP7*>(0xE000E407); }
+struct NVICIP7 : ftl::mmio::Register<
+    0xE000E407u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP7_fields_::PRI7> {
+  using PRI7 = NVICIP7_fields_::PRI7;
 };
+
 
 // Interrupt Priority Register 8
-union NVICIP8 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 8
-    uint8_t PRI8 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP8_fields_ {
+  // Priority of interrupt 8
+  using PRI8 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP8_fields_
 
-  NVICIP8() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP8 &ref() { return *reinterpret_cast<volatile NVICIP8*>(0xE000E408); }
+struct NVICIP8 : ftl::mmio::Register<
+    0xE000E408u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP8_fields_::PRI8> {
+  using PRI8 = NVICIP8_fields_::PRI8;
 };
+
 
 // Interrupt Priority Register 9
-union NVICIP9 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 9
-    uint8_t PRI9 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP9_fields_ {
+  // Priority of interrupt 9
+  using PRI9 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP9_fields_
 
-  NVICIP9() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP9 &ref() { return *reinterpret_cast<volatile NVICIP9*>(0xE000E409); }
+struct NVICIP9 : ftl::mmio::Register<
+    0xE000E409u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP9_fields_::PRI9> {
+  using PRI9 = NVICIP9_fields_::PRI9;
 };
+
 
 // Interrupt Priority Register 10
-union NVICIP10 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 10
-    uint8_t PRI10 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP10_fields_ {
+  // Priority of interrupt 10
+  using PRI10 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP10_fields_
 
-  NVICIP10() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP10 &ref() { return *reinterpret_cast<volatile NVICIP10*>(0xE000E40A); }
+struct NVICIP10 : ftl::mmio::Register<
+    0xE000E40Au,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP10_fields_::PRI10> {
+  using PRI10 = NVICIP10_fields_::PRI10;
 };
+
 
 // Interrupt Priority Register 11
-union NVICIP11 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 11
-    uint8_t PRI11 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP11_fields_ {
+  // Priority of interrupt 11
+  using PRI11 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP11_fields_
 
-  NVICIP11() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP11 &ref() { return *reinterpret_cast<volatile NVICIP11*>(0xE000E40B); }
+struct NVICIP11 : ftl::mmio::Register<
+    0xE000E40Bu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP11_fields_::PRI11> {
+  using PRI11 = NVICIP11_fields_::PRI11;
 };
+
 
 // Interrupt Priority Register 12
-union NVICIP12 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 12
-    uint8_t PRI12 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP12_fields_ {
+  // Priority of interrupt 12
+  using PRI12 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP12_fields_
 
-  NVICIP12() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP12 &ref() { return *reinterpret_cast<volatile NVICIP12*>(0xE000E40C); }
+struct NVICIP12 : ftl::mmio::Register<
+    0xE000E40Cu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP12_fields_::PRI12> {
+  using PRI12 = NVICIP12_fields_::PRI12;
 };
+
 
 // Interrupt Priority Register 13
-union NVICIP13 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 13
-    uint8_t PRI13 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP13_fields_ {
+  // Priority of interrupt 13
+  using PRI13 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP13_fields_
 
-  NVICIP13() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP13 &ref() { return *reinterpret_cast<volatile NVICIP13*>(0xE000E40D); }
+struct NVICIP13 : ftl::mmio::Register<
+    0xE000E40Du,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP13_fields_::PRI13> {
+  using PRI13 = NVICIP13_fields_::PRI13;
 };
+
 
 // Interrupt Priority Register 14
-union NVICIP14 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 14
-    uint8_t PRI14 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP14_fields_ {
+  // Priority of interrupt 14
+  using PRI14 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP14_fields_
 
-  NVICIP14() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP14 &ref() { return *reinterpret_cast<volatile NVICIP14*>(0xE000E40E); }
+struct NVICIP14 : ftl::mmio::Register<
+    0xE000E40Eu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP14_fields_::PRI14> {
+  using PRI14 = NVICIP14_fields_::PRI14;
 };
+
 
 // Interrupt Priority Register 15
-union NVICIP15 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 15
-    uint8_t PRI15 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP15_fields_ {
+  // Priority of interrupt 15
+  using PRI15 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP15_fields_
 
-  NVICIP15() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP15 &ref() { return *reinterpret_cast<volatile NVICIP15*>(0xE000E40F); }
+struct NVICIP15 : ftl::mmio::Register<
+    0xE000E40Fu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP15_fields_::PRI15> {
+  using PRI15 = NVICIP15_fields_::PRI15;
 };
+
 
 // Interrupt Priority Register 16
-union NVICIP16 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 16
-    uint8_t PRI16 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP16_fields_ {
+  // Priority of interrupt 16
+  using PRI16 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP16_fields_
 
-  NVICIP16() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP16 &ref() { return *reinterpret_cast<volatile NVICIP16*>(0xE000E410); }
+struct NVICIP16 : ftl::mmio::Register<
+    0xE000E410u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP16_fields_::PRI16> {
+  using PRI16 = NVICIP16_fields_::PRI16;
 };
+
 
 // Interrupt Priority Register 17
-union NVICIP17 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 17
-    uint8_t PRI17 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP17_fields_ {
+  // Priority of interrupt 17
+  using PRI17 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP17_fields_
 
-  NVICIP17() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP17 &ref() { return *reinterpret_cast<volatile NVICIP17*>(0xE000E411); }
+struct NVICIP17 : ftl::mmio::Register<
+    0xE000E411u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP17_fields_::PRI17> {
+  using PRI17 = NVICIP17_fields_::PRI17;
 };
+
 
 // Interrupt Priority Register 18
-union NVICIP18 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 18
-    uint8_t PRI18 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP18_fields_ {
+  // Priority of interrupt 18
+  using PRI18 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP18_fields_
 
-  NVICIP18() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP18 &ref() { return *reinterpret_cast<volatile NVICIP18*>(0xE000E412); }
+struct NVICIP18 : ftl::mmio::Register<
+    0xE000E412u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP18_fields_::PRI18> {
+  using PRI18 = NVICIP18_fields_::PRI18;
 };
+
 
 // Interrupt Priority Register 19
-union NVICIP19 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 19
-    uint8_t PRI19 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP19_fields_ {
+  // Priority of interrupt 19
+  using PRI19 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP19_fields_
 
-  NVICIP19() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP19 &ref() { return *reinterpret_cast<volatile NVICIP19*>(0xE000E413); }
+struct NVICIP19 : ftl::mmio::Register<
+    0xE000E413u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP19_fields_::PRI19> {
+  using PRI19 = NVICIP19_fields_::PRI19;
 };
+
 
 // Interrupt Priority Register 20
-union NVICIP20 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 20
-    uint8_t PRI20 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP20_fields_ {
+  // Priority of interrupt 20
+  using PRI20 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP20_fields_
 
-  NVICIP20() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP20 &ref() { return *reinterpret_cast<volatile NVICIP20*>(0xE000E414); }
+struct NVICIP20 : ftl::mmio::Register<
+    0xE000E414u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP20_fields_::PRI20> {
+  using PRI20 = NVICIP20_fields_::PRI20;
 };
+
 
 // Interrupt Priority Register 21
-union NVICIP21 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 21
-    uint8_t PRI21 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP21_fields_ {
+  // Priority of interrupt 21
+  using PRI21 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP21_fields_
 
-  NVICIP21() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP21 &ref() { return *reinterpret_cast<volatile NVICIP21*>(0xE000E415); }
+struct NVICIP21 : ftl::mmio::Register<
+    0xE000E415u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP21_fields_::PRI21> {
+  using PRI21 = NVICIP21_fields_::PRI21;
 };
+
 
 // Interrupt Priority Register 22
-union NVICIP22 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 22
-    uint8_t PRI22 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP22_fields_ {
+  // Priority of interrupt 22
+  using PRI22 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP22_fields_
 
-  NVICIP22() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP22 &ref() { return *reinterpret_cast<volatile NVICIP22*>(0xE000E416); }
+struct NVICIP22 : ftl::mmio::Register<
+    0xE000E416u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP22_fields_::PRI22> {
+  using PRI22 = NVICIP22_fields_::PRI22;
 };
+
 
 // Interrupt Priority Register 23
-union NVICIP23 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 23
-    uint8_t PRI23 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP23_fields_ {
+  // Priority of interrupt 23
+  using PRI23 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP23_fields_
 
-  NVICIP23() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP23 &ref() { return *reinterpret_cast<volatile NVICIP23*>(0xE000E417); }
+struct NVICIP23 : ftl::mmio::Register<
+    0xE000E417u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP23_fields_::PRI23> {
+  using PRI23 = NVICIP23_fields_::PRI23;
 };
+
 
 // Interrupt Priority Register 24
-union NVICIP24 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 24
-    uint8_t PRI24 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP24_fields_ {
+  // Priority of interrupt 24
+  using PRI24 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP24_fields_
 
-  NVICIP24() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP24 &ref() { return *reinterpret_cast<volatile NVICIP24*>(0xE000E418); }
+struct NVICIP24 : ftl::mmio::Register<
+    0xE000E418u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP24_fields_::PRI24> {
+  using PRI24 = NVICIP24_fields_::PRI24;
 };
+
 
 // Interrupt Priority Register 25
-union NVICIP25 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 25
-    uint8_t PRI25 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP25_fields_ {
+  // Priority of interrupt 25
+  using PRI25 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP25_fields_
 
-  NVICIP25() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP25 &ref() { return *reinterpret_cast<volatile NVICIP25*>(0xE000E419); }
+struct NVICIP25 : ftl::mmio::Register<
+    0xE000E419u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP25_fields_::PRI25> {
+  using PRI25 = NVICIP25_fields_::PRI25;
 };
+
 
 // Interrupt Priority Register 26
-union NVICIP26 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 26
-    uint8_t PRI26 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP26_fields_ {
+  // Priority of interrupt 26
+  using PRI26 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP26_fields_
 
-  NVICIP26() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP26 &ref() { return *reinterpret_cast<volatile NVICIP26*>(0xE000E41A); }
+struct NVICIP26 : ftl::mmio::Register<
+    0xE000E41Au,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP26_fields_::PRI26> {
+  using PRI26 = NVICIP26_fields_::PRI26;
 };
+
 
 // Interrupt Priority Register 27
-union NVICIP27 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 27
-    uint8_t PRI27 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP27_fields_ {
+  // Priority of interrupt 27
+  using PRI27 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP27_fields_
 
-  NVICIP27() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP27 &ref() { return *reinterpret_cast<volatile NVICIP27*>(0xE000E41B); }
+struct NVICIP27 : ftl::mmio::Register<
+    0xE000E41Bu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP27_fields_::PRI27> {
+  using PRI27 = NVICIP27_fields_::PRI27;
 };
+
 
 // Interrupt Priority Register 28
-union NVICIP28 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 28
-    uint8_t PRI28 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP28_fields_ {
+  // Priority of interrupt 28
+  using PRI28 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP28_fields_
 
-  NVICIP28() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP28 &ref() { return *reinterpret_cast<volatile NVICIP28*>(0xE000E41C); }
+struct NVICIP28 : ftl::mmio::Register<
+    0xE000E41Cu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP28_fields_::PRI28> {
+  using PRI28 = NVICIP28_fields_::PRI28;
 };
+
 
 // Interrupt Priority Register 29
-union NVICIP29 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 29
-    uint8_t PRI29 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP29_fields_ {
+  // Priority of interrupt 29
+  using PRI29 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP29_fields_
 
-  NVICIP29() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP29 &ref() { return *reinterpret_cast<volatile NVICIP29*>(0xE000E41D); }
+struct NVICIP29 : ftl::mmio::Register<
+    0xE000E41Du,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP29_fields_::PRI29> {
+  using PRI29 = NVICIP29_fields_::PRI29;
 };
+
 
 // Interrupt Priority Register 30
-union NVICIP30 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 30
-    uint8_t PRI30 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP30_fields_ {
+  // Priority of interrupt 30
+  using PRI30 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP30_fields_
 
-  NVICIP30() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP30 &ref() { return *reinterpret_cast<volatile NVICIP30*>(0xE000E41E); }
+struct NVICIP30 : ftl::mmio::Register<
+    0xE000E41Eu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP30_fields_::PRI30> {
+  using PRI30 = NVICIP30_fields_::PRI30;
 };
+
 
 // Interrupt Priority Register 31
-union NVICIP31 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 31
-    uint8_t PRI31 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP31_fields_ {
+  // Priority of interrupt 31
+  using PRI31 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP31_fields_
 
-  NVICIP31() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP31 &ref() { return *reinterpret_cast<volatile NVICIP31*>(0xE000E41F); }
+struct NVICIP31 : ftl::mmio::Register<
+    0xE000E41Fu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP31_fields_::PRI31> {
+  using PRI31 = NVICIP31_fields_::PRI31;
 };
+
 
 // Interrupt Priority Register 32
-union NVICIP32 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 32
-    uint8_t PRI32 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP32_fields_ {
+  // Priority of interrupt 32
+  using PRI32 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP32_fields_
 
-  NVICIP32() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP32 &ref() { return *reinterpret_cast<volatile NVICIP32*>(0xE000E420); }
+struct NVICIP32 : ftl::mmio::Register<
+    0xE000E420u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP32_fields_::PRI32> {
+  using PRI32 = NVICIP32_fields_::PRI32;
 };
+
 
 // Interrupt Priority Register 33
-union NVICIP33 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 33
-    uint8_t PRI33 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP33_fields_ {
+  // Priority of interrupt 33
+  using PRI33 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP33_fields_
 
-  NVICIP33() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP33 &ref() { return *reinterpret_cast<volatile NVICIP33*>(0xE000E421); }
+struct NVICIP33 : ftl::mmio::Register<
+    0xE000E421u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP33_fields_::PRI33> {
+  using PRI33 = NVICIP33_fields_::PRI33;
 };
+
 
 // Interrupt Priority Register 34
-union NVICIP34 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 34
-    uint8_t PRI34 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP34_fields_ {
+  // Priority of interrupt 34
+  using PRI34 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP34_fields_
 
-  NVICIP34() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP34 &ref() { return *reinterpret_cast<volatile NVICIP34*>(0xE000E422); }
+struct NVICIP34 : ftl::mmio::Register<
+    0xE000E422u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP34_fields_::PRI34> {
+  using PRI34 = NVICIP34_fields_::PRI34;
 };
+
 
 // Interrupt Priority Register 35
-union NVICIP35 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 35
-    uint8_t PRI35 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP35_fields_ {
+  // Priority of interrupt 35
+  using PRI35 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP35_fields_
 
-  NVICIP35() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP35 &ref() { return *reinterpret_cast<volatile NVICIP35*>(0xE000E423); }
+struct NVICIP35 : ftl::mmio::Register<
+    0xE000E423u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP35_fields_::PRI35> {
+  using PRI35 = NVICIP35_fields_::PRI35;
 };
+
 
 // Interrupt Priority Register 36
-union NVICIP36 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 36
-    uint8_t PRI36 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP36_fields_ {
+  // Priority of interrupt 36
+  using PRI36 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP36_fields_
 
-  NVICIP36() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP36 &ref() { return *reinterpret_cast<volatile NVICIP36*>(0xE000E424); }
+struct NVICIP36 : ftl::mmio::Register<
+    0xE000E424u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP36_fields_::PRI36> {
+  using PRI36 = NVICIP36_fields_::PRI36;
 };
+
 
 // Interrupt Priority Register 37
-union NVICIP37 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 37
-    uint8_t PRI37 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP37_fields_ {
+  // Priority of interrupt 37
+  using PRI37 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP37_fields_
 
-  NVICIP37() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP37 &ref() { return *reinterpret_cast<volatile NVICIP37*>(0xE000E425); }
+struct NVICIP37 : ftl::mmio::Register<
+    0xE000E425u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP37_fields_::PRI37> {
+  using PRI37 = NVICIP37_fields_::PRI37;
 };
+
 
 // Interrupt Priority Register 38
-union NVICIP38 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 38
-    uint8_t PRI38 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP38_fields_ {
+  // Priority of interrupt 38
+  using PRI38 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP38_fields_
 
-  NVICIP38() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP38 &ref() { return *reinterpret_cast<volatile NVICIP38*>(0xE000E426); }
+struct NVICIP38 : ftl::mmio::Register<
+    0xE000E426u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP38_fields_::PRI38> {
+  using PRI38 = NVICIP38_fields_::PRI38;
 };
+
 
 // Interrupt Priority Register 39
-union NVICIP39 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 39
-    uint8_t PRI39 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP39_fields_ {
+  // Priority of interrupt 39
+  using PRI39 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP39_fields_
 
-  NVICIP39() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP39 &ref() { return *reinterpret_cast<volatile NVICIP39*>(0xE000E427); }
+struct NVICIP39 : ftl::mmio::Register<
+    0xE000E427u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP39_fields_::PRI39> {
+  using PRI39 = NVICIP39_fields_::PRI39;
 };
+
 
 // Interrupt Priority Register 40
-union NVICIP40 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 40
-    uint8_t PRI40 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP40_fields_ {
+  // Priority of interrupt 40
+  using PRI40 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP40_fields_
 
-  NVICIP40() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP40 &ref() { return *reinterpret_cast<volatile NVICIP40*>(0xE000E428); }
+struct NVICIP40 : ftl::mmio::Register<
+    0xE000E428u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP40_fields_::PRI40> {
+  using PRI40 = NVICIP40_fields_::PRI40;
 };
+
 
 // Interrupt Priority Register 41
-union NVICIP41 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 41
-    uint8_t PRI41 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP41_fields_ {
+  // Priority of interrupt 41
+  using PRI41 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP41_fields_
 
-  NVICIP41() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP41 &ref() { return *reinterpret_cast<volatile NVICIP41*>(0xE000E429); }
+struct NVICIP41 : ftl::mmio::Register<
+    0xE000E429u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP41_fields_::PRI41> {
+  using PRI41 = NVICIP41_fields_::PRI41;
 };
+
 
 // Interrupt Priority Register 42
-union NVICIP42 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 42
-    uint8_t PRI42 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP42_fields_ {
+  // Priority of interrupt 42
+  using PRI42 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP42_fields_
 
-  NVICIP42() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP42 &ref() { return *reinterpret_cast<volatile NVICIP42*>(0xE000E42A); }
+struct NVICIP42 : ftl::mmio::Register<
+    0xE000E42Au,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP42_fields_::PRI42> {
+  using PRI42 = NVICIP42_fields_::PRI42;
 };
+
 
 // Interrupt Priority Register 43
-union NVICIP43 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 43
-    uint8_t PRI43 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP43_fields_ {
+  // Priority of interrupt 43
+  using PRI43 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP43_fields_
 
-  NVICIP43() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP43 &ref() { return *reinterpret_cast<volatile NVICIP43*>(0xE000E42B); }
+struct NVICIP43 : ftl::mmio::Register<
+    0xE000E42Bu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP43_fields_::PRI43> {
+  using PRI43 = NVICIP43_fields_::PRI43;
 };
+
 
 // Interrupt Priority Register 44
-union NVICIP44 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 44
-    uint8_t PRI44 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP44_fields_ {
+  // Priority of interrupt 44
+  using PRI44 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP44_fields_
 
-  NVICIP44() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP44 &ref() { return *reinterpret_cast<volatile NVICIP44*>(0xE000E42C); }
+struct NVICIP44 : ftl::mmio::Register<
+    0xE000E42Cu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP44_fields_::PRI44> {
+  using PRI44 = NVICIP44_fields_::PRI44;
 };
+
 
 // Interrupt Priority Register 45
-union NVICIP45 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 45
-    uint8_t PRI45 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP45_fields_ {
+  // Priority of interrupt 45
+  using PRI45 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP45_fields_
 
-  NVICIP45() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP45 &ref() { return *reinterpret_cast<volatile NVICIP45*>(0xE000E42D); }
+struct NVICIP45 : ftl::mmio::Register<
+    0xE000E42Du,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP45_fields_::PRI45> {
+  using PRI45 = NVICIP45_fields_::PRI45;
 };
+
 
 // Interrupt Priority Register 46
-union NVICIP46 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 46
-    uint8_t PRI46 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP46_fields_ {
+  // Priority of interrupt 46
+  using PRI46 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP46_fields_
 
-  NVICIP46() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP46 &ref() { return *reinterpret_cast<volatile NVICIP46*>(0xE000E42E); }
+struct NVICIP46 : ftl::mmio::Register<
+    0xE000E42Eu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP46_fields_::PRI46> {
+  using PRI46 = NVICIP46_fields_::PRI46;
 };
+
 
 // Interrupt Priority Register 47
-union NVICIP47 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 47
-    uint8_t PRI47 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP47_fields_ {
+  // Priority of interrupt 47
+  using PRI47 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP47_fields_
 
-  NVICIP47() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP47 &ref() { return *reinterpret_cast<volatile NVICIP47*>(0xE000E42F); }
+struct NVICIP47 : ftl::mmio::Register<
+    0xE000E42Fu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP47_fields_::PRI47> {
+  using PRI47 = NVICIP47_fields_::PRI47;
 };
+
 
 // Interrupt Priority Register 48
-union NVICIP48 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 48
-    uint8_t PRI48 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP48_fields_ {
+  // Priority of interrupt 48
+  using PRI48 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP48_fields_
 
-  NVICIP48() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP48 &ref() { return *reinterpret_cast<volatile NVICIP48*>(0xE000E430); }
+struct NVICIP48 : ftl::mmio::Register<
+    0xE000E430u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP48_fields_::PRI48> {
+  using PRI48 = NVICIP48_fields_::PRI48;
 };
+
 
 // Interrupt Priority Register 49
-union NVICIP49 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 49
-    uint8_t PRI49 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP49_fields_ {
+  // Priority of interrupt 49
+  using PRI49 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP49_fields_
 
-  NVICIP49() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP49 &ref() { return *reinterpret_cast<volatile NVICIP49*>(0xE000E431); }
+struct NVICIP49 : ftl::mmio::Register<
+    0xE000E431u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP49_fields_::PRI49> {
+  using PRI49 = NVICIP49_fields_::PRI49;
 };
+
 
 // Interrupt Priority Register 50
-union NVICIP50 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 50
-    uint8_t PRI50 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP50_fields_ {
+  // Priority of interrupt 50
+  using PRI50 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP50_fields_
 
-  NVICIP50() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP50 &ref() { return *reinterpret_cast<volatile NVICIP50*>(0xE000E432); }
+struct NVICIP50 : ftl::mmio::Register<
+    0xE000E432u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP50_fields_::PRI50> {
+  using PRI50 = NVICIP50_fields_::PRI50;
 };
+
 
 // Interrupt Priority Register 51
-union NVICIP51 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 51
-    uint8_t PRI51 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP51_fields_ {
+  // Priority of interrupt 51
+  using PRI51 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP51_fields_
 
-  NVICIP51() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP51 &ref() { return *reinterpret_cast<volatile NVICIP51*>(0xE000E433); }
+struct NVICIP51 : ftl::mmio::Register<
+    0xE000E433u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP51_fields_::PRI51> {
+  using PRI51 = NVICIP51_fields_::PRI51;
 };
+
 
 // Interrupt Priority Register 52
-union NVICIP52 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 52
-    uint8_t PRI52 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP52_fields_ {
+  // Priority of interrupt 52
+  using PRI52 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP52_fields_
 
-  NVICIP52() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP52 &ref() { return *reinterpret_cast<volatile NVICIP52*>(0xE000E434); }
+struct NVICIP52 : ftl::mmio::Register<
+    0xE000E434u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP52_fields_::PRI52> {
+  using PRI52 = NVICIP52_fields_::PRI52;
 };
+
 
 // Interrupt Priority Register 53
-union NVICIP53 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 53
-    uint8_t PRI53 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP53_fields_ {
+  // Priority of interrupt 53
+  using PRI53 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP53_fields_
 
-  NVICIP53() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP53 &ref() { return *reinterpret_cast<volatile NVICIP53*>(0xE000E435); }
+struct NVICIP53 : ftl::mmio::Register<
+    0xE000E435u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP53_fields_::PRI53> {
+  using PRI53 = NVICIP53_fields_::PRI53;
 };
+
 
 // Interrupt Priority Register 54
-union NVICIP54 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 54
-    uint8_t PRI54 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP54_fields_ {
+  // Priority of interrupt 54
+  using PRI54 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP54_fields_
 
-  NVICIP54() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP54 &ref() { return *reinterpret_cast<volatile NVICIP54*>(0xE000E436); }
+struct NVICIP54 : ftl::mmio::Register<
+    0xE000E436u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP54_fields_::PRI54> {
+  using PRI54 = NVICIP54_fields_::PRI54;
 };
+
 
 // Interrupt Priority Register 55
-union NVICIP55 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 55
-    uint8_t PRI55 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP55_fields_ {
+  // Priority of interrupt 55
+  using PRI55 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP55_fields_
 
-  NVICIP55() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP55 &ref() { return *reinterpret_cast<volatile NVICIP55*>(0xE000E437); }
+struct NVICIP55 : ftl::mmio::Register<
+    0xE000E437u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP55_fields_::PRI55> {
+  using PRI55 = NVICIP55_fields_::PRI55;
 };
+
 
 // Interrupt Priority Register 56
-union NVICIP56 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 56
-    uint8_t PRI56 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP56_fields_ {
+  // Priority of interrupt 56
+  using PRI56 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP56_fields_
 
-  NVICIP56() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP56 &ref() { return *reinterpret_cast<volatile NVICIP56*>(0xE000E438); }
+struct NVICIP56 : ftl::mmio::Register<
+    0xE000E438u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP56_fields_::PRI56> {
+  using PRI56 = NVICIP56_fields_::PRI56;
 };
+
 
 // Interrupt Priority Register 57
-union NVICIP57 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 57
-    uint8_t PRI57 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP57_fields_ {
+  // Priority of interrupt 57
+  using PRI57 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP57_fields_
 
-  NVICIP57() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP57 &ref() { return *reinterpret_cast<volatile NVICIP57*>(0xE000E439); }
+struct NVICIP57 : ftl::mmio::Register<
+    0xE000E439u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP57_fields_::PRI57> {
+  using PRI57 = NVICIP57_fields_::PRI57;
 };
+
 
 // Interrupt Priority Register 58
-union NVICIP58 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 58
-    uint8_t PRI58 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP58_fields_ {
+  // Priority of interrupt 58
+  using PRI58 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP58_fields_
 
-  NVICIP58() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP58 &ref() { return *reinterpret_cast<volatile NVICIP58*>(0xE000E43A); }
+struct NVICIP58 : ftl::mmio::Register<
+    0xE000E43Au,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP58_fields_::PRI58> {
+  using PRI58 = NVICIP58_fields_::PRI58;
 };
+
 
 // Interrupt Priority Register 59
-union NVICIP59 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 59
-    uint8_t PRI59 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP59_fields_ {
+  // Priority of interrupt 59
+  using PRI59 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP59_fields_
 
-  NVICIP59() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP59 &ref() { return *reinterpret_cast<volatile NVICIP59*>(0xE000E43B); }
+struct NVICIP59 : ftl::mmio::Register<
+    0xE000E43Bu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP59_fields_::PRI59> {
+  using PRI59 = NVICIP59_fields_::PRI59;
 };
+
 
 // Interrupt Priority Register 60
-union NVICIP60 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 60
-    uint8_t PRI60 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP60_fields_ {
+  // Priority of interrupt 60
+  using PRI60 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP60_fields_
 
-  NVICIP60() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP60 &ref() { return *reinterpret_cast<volatile NVICIP60*>(0xE000E43C); }
+struct NVICIP60 : ftl::mmio::Register<
+    0xE000E43Cu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP60_fields_::PRI60> {
+  using PRI60 = NVICIP60_fields_::PRI60;
 };
+
 
 // Interrupt Priority Register 61
-union NVICIP61 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 61
-    uint8_t PRI61 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP61_fields_ {
+  // Priority of interrupt 61
+  using PRI61 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP61_fields_
 
-  NVICIP61() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP61 &ref() { return *reinterpret_cast<volatile NVICIP61*>(0xE000E43D); }
+struct NVICIP61 : ftl::mmio::Register<
+    0xE000E43Du,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP61_fields_::PRI61> {
+  using PRI61 = NVICIP61_fields_::PRI61;
 };
+
 
 // Interrupt Priority Register 62
-union NVICIP62 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 62
-    uint8_t PRI62 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP62_fields_ {
+  // Priority of interrupt 62
+  using PRI62 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP62_fields_
 
-  NVICIP62() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP62 &ref() { return *reinterpret_cast<volatile NVICIP62*>(0xE000E43E); }
+struct NVICIP62 : ftl::mmio::Register<
+    0xE000E43Eu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP62_fields_::PRI62> {
+  using PRI62 = NVICIP62_fields_::PRI62;
 };
+
 
 // Interrupt Priority Register 63
-union NVICIP63 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 63
-    uint8_t PRI63 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP63_fields_ {
+  // Priority of interrupt 63
+  using PRI63 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP63_fields_
 
-  NVICIP63() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP63 &ref() { return *reinterpret_cast<volatile NVICIP63*>(0xE000E43F); }
+struct NVICIP63 : ftl::mmio::Register<
+    0xE000E43Fu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP63_fields_::PRI63> {
+  using PRI63 = NVICIP63_fields_::PRI63;
 };
+
 
 // Interrupt Priority Register 64
-union NVICIP64 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 64
-    uint8_t PRI64 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP64_fields_ {
+  // Priority of interrupt 64
+  using PRI64 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP64_fields_
 
-  NVICIP64() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP64 &ref() { return *reinterpret_cast<volatile NVICIP64*>(0xE000E440); }
+struct NVICIP64 : ftl::mmio::Register<
+    0xE000E440u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP64_fields_::PRI64> {
+  using PRI64 = NVICIP64_fields_::PRI64;
 };
+
 
 // Interrupt Priority Register 65
-union NVICIP65 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 65
-    uint8_t PRI65 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP65_fields_ {
+  // Priority of interrupt 65
+  using PRI65 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP65_fields_
 
-  NVICIP65() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP65 &ref() { return *reinterpret_cast<volatile NVICIP65*>(0xE000E441); }
+struct NVICIP65 : ftl::mmio::Register<
+    0xE000E441u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP65_fields_::PRI65> {
+  using PRI65 = NVICIP65_fields_::PRI65;
 };
+
 
 // Interrupt Priority Register 66
-union NVICIP66 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 66
-    uint8_t PRI66 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP66_fields_ {
+  // Priority of interrupt 66
+  using PRI66 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP66_fields_
 
-  NVICIP66() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP66 &ref() { return *reinterpret_cast<volatile NVICIP66*>(0xE000E442); }
+struct NVICIP66 : ftl::mmio::Register<
+    0xE000E442u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP66_fields_::PRI66> {
+  using PRI66 = NVICIP66_fields_::PRI66;
 };
+
 
 // Interrupt Priority Register 67
-union NVICIP67 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 67
-    uint8_t PRI67 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP67_fields_ {
+  // Priority of interrupt 67
+  using PRI67 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP67_fields_
 
-  NVICIP67() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP67 &ref() { return *reinterpret_cast<volatile NVICIP67*>(0xE000E443); }
+struct NVICIP67 : ftl::mmio::Register<
+    0xE000E443u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP67_fields_::PRI67> {
+  using PRI67 = NVICIP67_fields_::PRI67;
 };
+
 
 // Interrupt Priority Register 68
-union NVICIP68 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 68
-    uint8_t PRI68 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP68_fields_ {
+  // Priority of interrupt 68
+  using PRI68 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP68_fields_
 
-  NVICIP68() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP68 &ref() { return *reinterpret_cast<volatile NVICIP68*>(0xE000E444); }
+struct NVICIP68 : ftl::mmio::Register<
+    0xE000E444u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP68_fields_::PRI68> {
+  using PRI68 = NVICIP68_fields_::PRI68;
 };
+
 
 // Interrupt Priority Register 69
-union NVICIP69 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 69
-    uint8_t PRI69 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP69_fields_ {
+  // Priority of interrupt 69
+  using PRI69 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP69_fields_
 
-  NVICIP69() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP69 &ref() { return *reinterpret_cast<volatile NVICIP69*>(0xE000E445); }
+struct NVICIP69 : ftl::mmio::Register<
+    0xE000E445u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP69_fields_::PRI69> {
+  using PRI69 = NVICIP69_fields_::PRI69;
 };
+
 
 // Interrupt Priority Register 70
-union NVICIP70 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 70
-    uint8_t PRI70 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP70_fields_ {
+  // Priority of interrupt 70
+  using PRI70 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP70_fields_
 
-  NVICIP70() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP70 &ref() { return *reinterpret_cast<volatile NVICIP70*>(0xE000E446); }
+struct NVICIP70 : ftl::mmio::Register<
+    0xE000E446u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP70_fields_::PRI70> {
+  using PRI70 = NVICIP70_fields_::PRI70;
 };
+
 
 // Interrupt Priority Register 71
-union NVICIP71 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 71
-    uint8_t PRI71 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP71_fields_ {
+  // Priority of interrupt 71
+  using PRI71 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP71_fields_
 
-  NVICIP71() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP71 &ref() { return *reinterpret_cast<volatile NVICIP71*>(0xE000E447); }
+struct NVICIP71 : ftl::mmio::Register<
+    0xE000E447u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP71_fields_::PRI71> {
+  using PRI71 = NVICIP71_fields_::PRI71;
 };
+
 
 // Interrupt Priority Register 72
-union NVICIP72 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 72
-    uint8_t PRI72 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP72_fields_ {
+  // Priority of interrupt 72
+  using PRI72 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP72_fields_
 
-  NVICIP72() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP72 &ref() { return *reinterpret_cast<volatile NVICIP72*>(0xE000E448); }
+struct NVICIP72 : ftl::mmio::Register<
+    0xE000E448u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP72_fields_::PRI72> {
+  using PRI72 = NVICIP72_fields_::PRI72;
 };
+
 
 // Interrupt Priority Register 73
-union NVICIP73 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 73
-    uint8_t PRI73 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP73_fields_ {
+  // Priority of interrupt 73
+  using PRI73 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP73_fields_
 
-  NVICIP73() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP73 &ref() { return *reinterpret_cast<volatile NVICIP73*>(0xE000E449); }
+struct NVICIP73 : ftl::mmio::Register<
+    0xE000E449u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP73_fields_::PRI73> {
+  using PRI73 = NVICIP73_fields_::PRI73;
 };
+
 
 // Interrupt Priority Register 74
-union NVICIP74 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 74
-    uint8_t PRI74 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP74_fields_ {
+  // Priority of interrupt 74
+  using PRI74 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP74_fields_
 
-  NVICIP74() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP74 &ref() { return *reinterpret_cast<volatile NVICIP74*>(0xE000E44A); }
+struct NVICIP74 : ftl::mmio::Register<
+    0xE000E44Au,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP74_fields_::PRI74> {
+  using PRI74 = NVICIP74_fields_::PRI74;
 };
+
 
 // Interrupt Priority Register 75
-union NVICIP75 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 75
-    uint8_t PRI75 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP75_fields_ {
+  // Priority of interrupt 75
+  using PRI75 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP75_fields_
 
-  NVICIP75() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP75 &ref() { return *reinterpret_cast<volatile NVICIP75*>(0xE000E44B); }
+struct NVICIP75 : ftl::mmio::Register<
+    0xE000E44Bu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP75_fields_::PRI75> {
+  using PRI75 = NVICIP75_fields_::PRI75;
 };
+
 
 // Interrupt Priority Register 76
-union NVICIP76 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 76
-    uint8_t PRI76 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP76_fields_ {
+  // Priority of interrupt 76
+  using PRI76 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP76_fields_
 
-  NVICIP76() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP76 &ref() { return *reinterpret_cast<volatile NVICIP76*>(0xE000E44C); }
+struct NVICIP76 : ftl::mmio::Register<
+    0xE000E44Cu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP76_fields_::PRI76> {
+  using PRI76 = NVICIP76_fields_::PRI76;
 };
+
 
 // Interrupt Priority Register 77
-union NVICIP77 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 77
-    uint8_t PRI77 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP77_fields_ {
+  // Priority of interrupt 77
+  using PRI77 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP77_fields_
 
-  NVICIP77() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP77 &ref() { return *reinterpret_cast<volatile NVICIP77*>(0xE000E44D); }
+struct NVICIP77 : ftl::mmio::Register<
+    0xE000E44Du,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP77_fields_::PRI77> {
+  using PRI77 = NVICIP77_fields_::PRI77;
 };
+
 
 // Interrupt Priority Register 78
-union NVICIP78 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 78
-    uint8_t PRI78 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP78_fields_ {
+  // Priority of interrupt 78
+  using PRI78 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP78_fields_
 
-  NVICIP78() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP78 &ref() { return *reinterpret_cast<volatile NVICIP78*>(0xE000E44E); }
+struct NVICIP78 : ftl::mmio::Register<
+    0xE000E44Eu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP78_fields_::PRI78> {
+  using PRI78 = NVICIP78_fields_::PRI78;
 };
+
 
 // Interrupt Priority Register 79
-union NVICIP79 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 79
-    uint8_t PRI79 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP79_fields_ {
+  // Priority of interrupt 79
+  using PRI79 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP79_fields_
 
-  NVICIP79() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP79 &ref() { return *reinterpret_cast<volatile NVICIP79*>(0xE000E44F); }
+struct NVICIP79 : ftl::mmio::Register<
+    0xE000E44Fu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP79_fields_::PRI79> {
+  using PRI79 = NVICIP79_fields_::PRI79;
 };
+
 
 // Interrupt Priority Register 80
-union NVICIP80 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 80
-    uint8_t PRI80 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP80_fields_ {
+  // Priority of interrupt 80
+  using PRI80 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP80_fields_
 
-  NVICIP80() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP80 &ref() { return *reinterpret_cast<volatile NVICIP80*>(0xE000E450); }
+struct NVICIP80 : ftl::mmio::Register<
+    0xE000E450u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP80_fields_::PRI80> {
+  using PRI80 = NVICIP80_fields_::PRI80;
 };
+
 
 // Interrupt Priority Register 81
-union NVICIP81 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 81
-    uint8_t PRI81 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP81_fields_ {
+  // Priority of interrupt 81
+  using PRI81 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP81_fields_
 
-  NVICIP81() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP81 &ref() { return *reinterpret_cast<volatile NVICIP81*>(0xE000E451); }
+struct NVICIP81 : ftl::mmio::Register<
+    0xE000E451u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP81_fields_::PRI81> {
+  using PRI81 = NVICIP81_fields_::PRI81;
 };
+
 
 // Interrupt Priority Register 82
-union NVICIP82 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 82
-    uint8_t PRI82 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP82_fields_ {
+  // Priority of interrupt 82
+  using PRI82 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP82_fields_
 
-  NVICIP82() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP82 &ref() { return *reinterpret_cast<volatile NVICIP82*>(0xE000E452); }
+struct NVICIP82 : ftl::mmio::Register<
+    0xE000E452u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP82_fields_::PRI82> {
+  using PRI82 = NVICIP82_fields_::PRI82;
 };
+
 
 // Interrupt Priority Register 83
-union NVICIP83 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 83
-    uint8_t PRI83 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP83_fields_ {
+  // Priority of interrupt 83
+  using PRI83 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP83_fields_
 
-  NVICIP83() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP83 &ref() { return *reinterpret_cast<volatile NVICIP83*>(0xE000E453); }
+struct NVICIP83 : ftl::mmio::Register<
+    0xE000E453u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP83_fields_::PRI83> {
+  using PRI83 = NVICIP83_fields_::PRI83;
 };
+
 
 // Interrupt Priority Register 84
-union NVICIP84 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 84
-    uint8_t PRI84 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP84_fields_ {
+  // Priority of interrupt 84
+  using PRI84 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP84_fields_
 
-  NVICIP84() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP84 &ref() { return *reinterpret_cast<volatile NVICIP84*>(0xE000E454); }
+struct NVICIP84 : ftl::mmio::Register<
+    0xE000E454u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP84_fields_::PRI84> {
+  using PRI84 = NVICIP84_fields_::PRI84;
 };
+
 
 // Interrupt Priority Register 85
-union NVICIP85 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 85
-    uint8_t PRI85 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP85_fields_ {
+  // Priority of interrupt 85
+  using PRI85 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP85_fields_
 
-  NVICIP85() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP85 &ref() { return *reinterpret_cast<volatile NVICIP85*>(0xE000E455); }
+struct NVICIP85 : ftl::mmio::Register<
+    0xE000E455u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP85_fields_::PRI85> {
+  using PRI85 = NVICIP85_fields_::PRI85;
 };
+
 
 // Interrupt Priority Register 86
-union NVICIP86 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 86
-    uint8_t PRI86 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP86_fields_ {
+  // Priority of interrupt 86
+  using PRI86 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP86_fields_
 
-  NVICIP86() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP86 &ref() { return *reinterpret_cast<volatile NVICIP86*>(0xE000E456); }
+struct NVICIP86 : ftl::mmio::Register<
+    0xE000E456u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP86_fields_::PRI86> {
+  using PRI86 = NVICIP86_fields_::PRI86;
 };
+
 
 // Interrupt Priority Register 87
-union NVICIP87 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 87
-    uint8_t PRI87 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP87_fields_ {
+  // Priority of interrupt 87
+  using PRI87 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP87_fields_
 
-  NVICIP87() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP87 &ref() { return *reinterpret_cast<volatile NVICIP87*>(0xE000E457); }
+struct NVICIP87 : ftl::mmio::Register<
+    0xE000E457u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP87_fields_::PRI87> {
+  using PRI87 = NVICIP87_fields_::PRI87;
 };
+
 
 // Interrupt Priority Register 88
-union NVICIP88 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 88
-    uint8_t PRI88 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP88_fields_ {
+  // Priority of interrupt 88
+  using PRI88 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP88_fields_
 
-  NVICIP88() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP88 &ref() { return *reinterpret_cast<volatile NVICIP88*>(0xE000E458); }
+struct NVICIP88 : ftl::mmio::Register<
+    0xE000E458u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP88_fields_::PRI88> {
+  using PRI88 = NVICIP88_fields_::PRI88;
 };
+
 
 // Interrupt Priority Register 89
-union NVICIP89 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 89
-    uint8_t PRI89 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP89_fields_ {
+  // Priority of interrupt 89
+  using PRI89 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP89_fields_
 
-  NVICIP89() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP89 &ref() { return *reinterpret_cast<volatile NVICIP89*>(0xE000E459); }
+struct NVICIP89 : ftl::mmio::Register<
+    0xE000E459u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP89_fields_::PRI89> {
+  using PRI89 = NVICIP89_fields_::PRI89;
 };
+
 
 // Interrupt Priority Register 90
-union NVICIP90 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 90
-    uint8_t PRI90 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP90_fields_ {
+  // Priority of interrupt 90
+  using PRI90 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP90_fields_
 
-  NVICIP90() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP90 &ref() { return *reinterpret_cast<volatile NVICIP90*>(0xE000E45A); }
+struct NVICIP90 : ftl::mmio::Register<
+    0xE000E45Au,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP90_fields_::PRI90> {
+  using PRI90 = NVICIP90_fields_::PRI90;
 };
+
 
 // Interrupt Priority Register 91
-union NVICIP91 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 91
-    uint8_t PRI91 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP91_fields_ {
+  // Priority of interrupt 91
+  using PRI91 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP91_fields_
 
-  NVICIP91() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP91 &ref() { return *reinterpret_cast<volatile NVICIP91*>(0xE000E45B); }
+struct NVICIP91 : ftl::mmio::Register<
+    0xE000E45Bu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP91_fields_::PRI91> {
+  using PRI91 = NVICIP91_fields_::PRI91;
 };
+
 
 // Interrupt Priority Register 92
-union NVICIP92 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 92
-    uint8_t PRI92 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP92_fields_ {
+  // Priority of interrupt 92
+  using PRI92 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP92_fields_
 
-  NVICIP92() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP92 &ref() { return *reinterpret_cast<volatile NVICIP92*>(0xE000E45C); }
+struct NVICIP92 : ftl::mmio::Register<
+    0xE000E45Cu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP92_fields_::PRI92> {
+  using PRI92 = NVICIP92_fields_::PRI92;
 };
+
 
 // Interrupt Priority Register 93
-union NVICIP93 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 93
-    uint8_t PRI93 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP93_fields_ {
+  // Priority of interrupt 93
+  using PRI93 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP93_fields_
 
-  NVICIP93() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP93 &ref() { return *reinterpret_cast<volatile NVICIP93*>(0xE000E45D); }
+struct NVICIP93 : ftl::mmio::Register<
+    0xE000E45Du,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP93_fields_::PRI93> {
+  using PRI93 = NVICIP93_fields_::PRI93;
 };
+
 
 // Interrupt Priority Register 94
-union NVICIP94 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 94
-    uint8_t PRI94 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP94_fields_ {
+  // Priority of interrupt 94
+  using PRI94 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP94_fields_
 
-  NVICIP94() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP94 &ref() { return *reinterpret_cast<volatile NVICIP94*>(0xE000E45E); }
+struct NVICIP94 : ftl::mmio::Register<
+    0xE000E45Eu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP94_fields_::PRI94> {
+  using PRI94 = NVICIP94_fields_::PRI94;
 };
+
 
 // Interrupt Priority Register 95
-union NVICIP95 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 95
-    uint8_t PRI95 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP95_fields_ {
+  // Priority of interrupt 95
+  using PRI95 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP95_fields_
 
-  NVICIP95() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP95 &ref() { return *reinterpret_cast<volatile NVICIP95*>(0xE000E45F); }
+struct NVICIP95 : ftl::mmio::Register<
+    0xE000E45Fu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP95_fields_::PRI95> {
+  using PRI95 = NVICIP95_fields_::PRI95;
 };
+
 
 // Interrupt Priority Register 96
-union NVICIP96 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 96
-    uint8_t PRI96 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP96_fields_ {
+  // Priority of interrupt 96
+  using PRI96 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP96_fields_
 
-  NVICIP96() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP96 &ref() { return *reinterpret_cast<volatile NVICIP96*>(0xE000E460); }
+struct NVICIP96 : ftl::mmio::Register<
+    0xE000E460u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP96_fields_::PRI96> {
+  using PRI96 = NVICIP96_fields_::PRI96;
 };
+
 
 // Interrupt Priority Register 97
-union NVICIP97 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 97
-    uint8_t PRI97 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP97_fields_ {
+  // Priority of interrupt 97
+  using PRI97 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP97_fields_
 
-  NVICIP97() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP97 &ref() { return *reinterpret_cast<volatile NVICIP97*>(0xE000E461); }
+struct NVICIP97 : ftl::mmio::Register<
+    0xE000E461u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP97_fields_::PRI97> {
+  using PRI97 = NVICIP97_fields_::PRI97;
 };
+
 
 // Interrupt Priority Register 98
-union NVICIP98 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 98
-    uint8_t PRI98 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP98_fields_ {
+  // Priority of interrupt 98
+  using PRI98 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP98_fields_
 
-  NVICIP98() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP98 &ref() { return *reinterpret_cast<volatile NVICIP98*>(0xE000E462); }
+struct NVICIP98 : ftl::mmio::Register<
+    0xE000E462u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP98_fields_::PRI98> {
+  using PRI98 = NVICIP98_fields_::PRI98;
 };
+
 
 // Interrupt Priority Register 99
-union NVICIP99 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 99
-    uint8_t PRI99 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP99_fields_ {
+  // Priority of interrupt 99
+  using PRI99 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP99_fields_
 
-  NVICIP99() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP99 &ref() { return *reinterpret_cast<volatile NVICIP99*>(0xE000E463); }
+struct NVICIP99 : ftl::mmio::Register<
+    0xE000E463u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP99_fields_::PRI99> {
+  using PRI99 = NVICIP99_fields_::PRI99;
 };
+
 
 // Interrupt Priority Register 100
-union NVICIP100 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 100
-    uint8_t PRI100 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP100_fields_ {
+  // Priority of interrupt 100
+  using PRI100 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP100_fields_
 
-  NVICIP100() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP100 &ref() { return *reinterpret_cast<volatile NVICIP100*>(0xE000E464); }
+struct NVICIP100 : ftl::mmio::Register<
+    0xE000E464u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP100_fields_::PRI100> {
+  using PRI100 = NVICIP100_fields_::PRI100;
 };
+
 
 // Interrupt Priority Register 101
-union NVICIP101 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 101
-    uint8_t PRI101 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP101_fields_ {
+  // Priority of interrupt 101
+  using PRI101 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP101_fields_
 
-  NVICIP101() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP101 &ref() { return *reinterpret_cast<volatile NVICIP101*>(0xE000E465); }
+struct NVICIP101 : ftl::mmio::Register<
+    0xE000E465u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP101_fields_::PRI101> {
+  using PRI101 = NVICIP101_fields_::PRI101;
 };
+
 
 // Interrupt Priority Register 102
-union NVICIP102 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 102
-    uint8_t PRI102 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP102_fields_ {
+  // Priority of interrupt 102
+  using PRI102 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP102_fields_
 
-  NVICIP102() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP102 &ref() { return *reinterpret_cast<volatile NVICIP102*>(0xE000E466); }
+struct NVICIP102 : ftl::mmio::Register<
+    0xE000E466u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP102_fields_::PRI102> {
+  using PRI102 = NVICIP102_fields_::PRI102;
 };
+
 
 // Interrupt Priority Register 103
-union NVICIP103 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 103
-    uint8_t PRI103 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP103_fields_ {
+  // Priority of interrupt 103
+  using PRI103 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP103_fields_
 
-  NVICIP103() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP103 &ref() { return *reinterpret_cast<volatile NVICIP103*>(0xE000E467); }
+struct NVICIP103 : ftl::mmio::Register<
+    0xE000E467u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP103_fields_::PRI103> {
+  using PRI103 = NVICIP103_fields_::PRI103;
 };
+
 
 // Interrupt Priority Register 104
-union NVICIP104 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 104
-    uint8_t PRI104 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP104_fields_ {
+  // Priority of interrupt 104
+  using PRI104 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP104_fields_
 
-  NVICIP104() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP104 &ref() { return *reinterpret_cast<volatile NVICIP104*>(0xE000E468); }
+struct NVICIP104 : ftl::mmio::Register<
+    0xE000E468u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP104_fields_::PRI104> {
+  using PRI104 = NVICIP104_fields_::PRI104;
 };
+
 
 // Interrupt Priority Register 105
-union NVICIP105 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 105
-    uint8_t PRI105 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP105_fields_ {
+  // Priority of interrupt 105
+  using PRI105 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP105_fields_
 
-  NVICIP105() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP105 &ref() { return *reinterpret_cast<volatile NVICIP105*>(0xE000E469); }
+struct NVICIP105 : ftl::mmio::Register<
+    0xE000E469u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP105_fields_::PRI105> {
+  using PRI105 = NVICIP105_fields_::PRI105;
 };
+
 
 // Interrupt Priority Register 106
-union NVICIP106 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 106
-    uint8_t PRI106 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP106_fields_ {
+  // Priority of interrupt 106
+  using PRI106 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP106_fields_
 
-  NVICIP106() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP106 &ref() { return *reinterpret_cast<volatile NVICIP106*>(0xE000E46A); }
+struct NVICIP106 : ftl::mmio::Register<
+    0xE000E46Au,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP106_fields_::PRI106> {
+  using PRI106 = NVICIP106_fields_::PRI106;
 };
+
 
 // Interrupt Priority Register 107
-union NVICIP107 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 107
-    uint8_t PRI107 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP107_fields_ {
+  // Priority of interrupt 107
+  using PRI107 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP107_fields_
 
-  NVICIP107() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP107 &ref() { return *reinterpret_cast<volatile NVICIP107*>(0xE000E46B); }
+struct NVICIP107 : ftl::mmio::Register<
+    0xE000E46Bu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP107_fields_::PRI107> {
+  using PRI107 = NVICIP107_fields_::PRI107;
 };
+
 
 // Interrupt Priority Register 108
-union NVICIP108 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 108
-    uint8_t PRI108 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP108_fields_ {
+  // Priority of interrupt 108
+  using PRI108 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP108_fields_
 
-  NVICIP108() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP108 &ref() { return *reinterpret_cast<volatile NVICIP108*>(0xE000E46C); }
+struct NVICIP108 : ftl::mmio::Register<
+    0xE000E46Cu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP108_fields_::PRI108> {
+  using PRI108 = NVICIP108_fields_::PRI108;
 };
+
 
 // Interrupt Priority Register 109
-union NVICIP109 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 109
-    uint8_t PRI109 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP109_fields_ {
+  // Priority of interrupt 109
+  using PRI109 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP109_fields_
 
-  NVICIP109() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP109 &ref() { return *reinterpret_cast<volatile NVICIP109*>(0xE000E46D); }
+struct NVICIP109 : ftl::mmio::Register<
+    0xE000E46Du,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP109_fields_::PRI109> {
+  using PRI109 = NVICIP109_fields_::PRI109;
 };
+
 
 // Interrupt Priority Register 110
-union NVICIP110 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 110
-    uint8_t PRI110 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP110_fields_ {
+  // Priority of interrupt 110
+  using PRI110 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP110_fields_
 
-  NVICIP110() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP110 &ref() { return *reinterpret_cast<volatile NVICIP110*>(0xE000E46E); }
+struct NVICIP110 : ftl::mmio::Register<
+    0xE000E46Eu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP110_fields_::PRI110> {
+  using PRI110 = NVICIP110_fields_::PRI110;
 };
+
 
 // Interrupt Priority Register 111
-union NVICIP111 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 111
-    uint8_t PRI111 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP111_fields_ {
+  // Priority of interrupt 111
+  using PRI111 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP111_fields_
 
-  NVICIP111() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP111 &ref() { return *reinterpret_cast<volatile NVICIP111*>(0xE000E46F); }
+struct NVICIP111 : ftl::mmio::Register<
+    0xE000E46Fu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP111_fields_::PRI111> {
+  using PRI111 = NVICIP111_fields_::PRI111;
 };
+
 
 // Interrupt Priority Register 112
-union NVICIP112 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 112
-    uint8_t PRI112 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP112_fields_ {
+  // Priority of interrupt 112
+  using PRI112 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP112_fields_
 
-  NVICIP112() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP112 &ref() { return *reinterpret_cast<volatile NVICIP112*>(0xE000E470); }
+struct NVICIP112 : ftl::mmio::Register<
+    0xE000E470u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP112_fields_::PRI112> {
+  using PRI112 = NVICIP112_fields_::PRI112;
 };
+
 
 // Interrupt Priority Register 113
-union NVICIP113 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 113
-    uint8_t PRI113 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP113_fields_ {
+  // Priority of interrupt 113
+  using PRI113 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP113_fields_
 
-  NVICIP113() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP113 &ref() { return *reinterpret_cast<volatile NVICIP113*>(0xE000E471); }
+struct NVICIP113 : ftl::mmio::Register<
+    0xE000E471u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP113_fields_::PRI113> {
+  using PRI113 = NVICIP113_fields_::PRI113;
 };
+
 
 // Interrupt Priority Register 114
-union NVICIP114 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 114
-    uint8_t PRI114 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP114_fields_ {
+  // Priority of interrupt 114
+  using PRI114 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP114_fields_
 
-  NVICIP114() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP114 &ref() { return *reinterpret_cast<volatile NVICIP114*>(0xE000E472); }
+struct NVICIP114 : ftl::mmio::Register<
+    0xE000E472u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP114_fields_::PRI114> {
+  using PRI114 = NVICIP114_fields_::PRI114;
 };
+
 
 // Interrupt Priority Register 115
-union NVICIP115 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 115
-    uint8_t PRI115 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP115_fields_ {
+  // Priority of interrupt 115
+  using PRI115 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP115_fields_
 
-  NVICIP115() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP115 &ref() { return *reinterpret_cast<volatile NVICIP115*>(0xE000E473); }
+struct NVICIP115 : ftl::mmio::Register<
+    0xE000E473u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP115_fields_::PRI115> {
+  using PRI115 = NVICIP115_fields_::PRI115;
 };
+
 
 // Interrupt Priority Register 116
-union NVICIP116 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 116
-    uint8_t PRI116 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP116_fields_ {
+  // Priority of interrupt 116
+  using PRI116 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP116_fields_
 
-  NVICIP116() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP116 &ref() { return *reinterpret_cast<volatile NVICIP116*>(0xE000E474); }
+struct NVICIP116 : ftl::mmio::Register<
+    0xE000E474u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP116_fields_::PRI116> {
+  using PRI116 = NVICIP116_fields_::PRI116;
 };
+
 
 // Interrupt Priority Register 117
-union NVICIP117 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 117
-    uint8_t PRI117 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP117_fields_ {
+  // Priority of interrupt 117
+  using PRI117 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP117_fields_
 
-  NVICIP117() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP117 &ref() { return *reinterpret_cast<volatile NVICIP117*>(0xE000E475); }
+struct NVICIP117 : ftl::mmio::Register<
+    0xE000E475u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP117_fields_::PRI117> {
+  using PRI117 = NVICIP117_fields_::PRI117;
 };
+
 
 // Interrupt Priority Register 118
-union NVICIP118 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 118
-    uint8_t PRI118 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP118_fields_ {
+  // Priority of interrupt 118
+  using PRI118 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP118_fields_
 
-  NVICIP118() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP118 &ref() { return *reinterpret_cast<volatile NVICIP118*>(0xE000E476); }
+struct NVICIP118 : ftl::mmio::Register<
+    0xE000E476u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP118_fields_::PRI118> {
+  using PRI118 = NVICIP118_fields_::PRI118;
 };
+
 
 // Interrupt Priority Register 119
-union NVICIP119 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 119
-    uint8_t PRI119 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP119_fields_ {
+  // Priority of interrupt 119
+  using PRI119 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP119_fields_
 
-  NVICIP119() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP119 &ref() { return *reinterpret_cast<volatile NVICIP119*>(0xE000E477); }
+struct NVICIP119 : ftl::mmio::Register<
+    0xE000E477u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP119_fields_::PRI119> {
+  using PRI119 = NVICIP119_fields_::PRI119;
 };
+
 
 // Interrupt Priority Register 120
-union NVICIP120 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 120
-    uint8_t PRI120 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP120_fields_ {
+  // Priority of interrupt 120
+  using PRI120 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP120_fields_
 
-  NVICIP120() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP120 &ref() { return *reinterpret_cast<volatile NVICIP120*>(0xE000E478); }
+struct NVICIP120 : ftl::mmio::Register<
+    0xE000E478u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP120_fields_::PRI120> {
+  using PRI120 = NVICIP120_fields_::PRI120;
 };
+
 
 // Interrupt Priority Register 121
-union NVICIP121 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 121
-    uint8_t PRI121 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP121_fields_ {
+  // Priority of interrupt 121
+  using PRI121 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP121_fields_
 
-  NVICIP121() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP121 &ref() { return *reinterpret_cast<volatile NVICIP121*>(0xE000E479); }
+struct NVICIP121 : ftl::mmio::Register<
+    0xE000E479u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP121_fields_::PRI121> {
+  using PRI121 = NVICIP121_fields_::PRI121;
 };
+
 
 // Interrupt Priority Register 122
-union NVICIP122 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 122
-    uint8_t PRI122 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP122_fields_ {
+  // Priority of interrupt 122
+  using PRI122 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP122_fields_
 
-  NVICIP122() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP122 &ref() { return *reinterpret_cast<volatile NVICIP122*>(0xE000E47A); }
+struct NVICIP122 : ftl::mmio::Register<
+    0xE000E47Au,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP122_fields_::PRI122> {
+  using PRI122 = NVICIP122_fields_::PRI122;
 };
+
 
 // Interrupt Priority Register 123
-union NVICIP123 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 123
-    uint8_t PRI123 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP123_fields_ {
+  // Priority of interrupt 123
+  using PRI123 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP123_fields_
 
-  NVICIP123() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP123 &ref() { return *reinterpret_cast<volatile NVICIP123*>(0xE000E47B); }
+struct NVICIP123 : ftl::mmio::Register<
+    0xE000E47Bu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP123_fields_::PRI123> {
+  using PRI123 = NVICIP123_fields_::PRI123;
 };
+
 
 // Interrupt Priority Register 124
-union NVICIP124 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 124
-    uint8_t PRI124 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP124_fields_ {
+  // Priority of interrupt 124
+  using PRI124 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP124_fields_
 
-  NVICIP124() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP124 &ref() { return *reinterpret_cast<volatile NVICIP124*>(0xE000E47C); }
+struct NVICIP124 : ftl::mmio::Register<
+    0xE000E47Cu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP124_fields_::PRI124> {
+  using PRI124 = NVICIP124_fields_::PRI124;
 };
+
 
 // Interrupt Priority Register 125
-union NVICIP125 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 125
-    uint8_t PRI125 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP125_fields_ {
+  // Priority of interrupt 125
+  using PRI125 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP125_fields_
 
-  NVICIP125() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP125 &ref() { return *reinterpret_cast<volatile NVICIP125*>(0xE000E47D); }
+struct NVICIP125 : ftl::mmio::Register<
+    0xE000E47Du,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP125_fields_::PRI125> {
+  using PRI125 = NVICIP125_fields_::PRI125;
 };
+
 
 // Interrupt Priority Register 126
-union NVICIP126 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 126
-    uint8_t PRI126 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP126_fields_ {
+  // Priority of interrupt 126
+  using PRI126 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP126_fields_
 
-  NVICIP126() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP126 &ref() { return *reinterpret_cast<volatile NVICIP126*>(0xE000E47E); }
+struct NVICIP126 : ftl::mmio::Register<
+    0xE000E47Eu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP126_fields_::PRI126> {
+  using PRI126 = NVICIP126_fields_::PRI126;
 };
+
 
 // Interrupt Priority Register 127
-union NVICIP127 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 127
-    uint8_t PRI127 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP127_fields_ {
+  // Priority of interrupt 127
+  using PRI127 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP127_fields_
 
-  NVICIP127() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP127 &ref() { return *reinterpret_cast<volatile NVICIP127*>(0xE000E47F); }
+struct NVICIP127 : ftl::mmio::Register<
+    0xE000E47Fu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP127_fields_::PRI127> {
+  using PRI127 = NVICIP127_fields_::PRI127;
 };
+
 
 // Interrupt Priority Register 128
-union NVICIP128 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 128
-    uint8_t PRI128 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP128_fields_ {
+  // Priority of interrupt 128
+  using PRI128 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP128_fields_
 
-  NVICIP128() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP128 &ref() { return *reinterpret_cast<volatile NVICIP128*>(0xE000E480); }
+struct NVICIP128 : ftl::mmio::Register<
+    0xE000E480u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP128_fields_::PRI128> {
+  using PRI128 = NVICIP128_fields_::PRI128;
 };
+
 
 // Interrupt Priority Register 129
-union NVICIP129 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 129
-    uint8_t PRI129 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP129_fields_ {
+  // Priority of interrupt 129
+  using PRI129 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP129_fields_
 
-  NVICIP129() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP129 &ref() { return *reinterpret_cast<volatile NVICIP129*>(0xE000E481); }
+struct NVICIP129 : ftl::mmio::Register<
+    0xE000E481u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP129_fields_::PRI129> {
+  using PRI129 = NVICIP129_fields_::PRI129;
 };
+
 
 // Interrupt Priority Register 130
-union NVICIP130 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 130
-    uint8_t PRI130 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP130_fields_ {
+  // Priority of interrupt 130
+  using PRI130 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP130_fields_
 
-  NVICIP130() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP130 &ref() { return *reinterpret_cast<volatile NVICIP130*>(0xE000E482); }
+struct NVICIP130 : ftl::mmio::Register<
+    0xE000E482u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP130_fields_::PRI130> {
+  using PRI130 = NVICIP130_fields_::PRI130;
 };
+
 
 // Interrupt Priority Register 131
-union NVICIP131 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 131
-    uint8_t PRI131 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP131_fields_ {
+  // Priority of interrupt 131
+  using PRI131 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP131_fields_
 
-  NVICIP131() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP131 &ref() { return *reinterpret_cast<volatile NVICIP131*>(0xE000E483); }
+struct NVICIP131 : ftl::mmio::Register<
+    0xE000E483u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP131_fields_::PRI131> {
+  using PRI131 = NVICIP131_fields_::PRI131;
 };
+
 
 // Interrupt Priority Register 132
-union NVICIP132 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 132
-    uint8_t PRI132 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP132_fields_ {
+  // Priority of interrupt 132
+  using PRI132 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP132_fields_
 
-  NVICIP132() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP132 &ref() { return *reinterpret_cast<volatile NVICIP132*>(0xE000E484); }
+struct NVICIP132 : ftl::mmio::Register<
+    0xE000E484u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP132_fields_::PRI132> {
+  using PRI132 = NVICIP132_fields_::PRI132;
 };
+
 
 // Interrupt Priority Register 133
-union NVICIP133 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 133
-    uint8_t PRI133 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP133_fields_ {
+  // Priority of interrupt 133
+  using PRI133 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP133_fields_
 
-  NVICIP133() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP133 &ref() { return *reinterpret_cast<volatile NVICIP133*>(0xE000E485); }
+struct NVICIP133 : ftl::mmio::Register<
+    0xE000E485u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP133_fields_::PRI133> {
+  using PRI133 = NVICIP133_fields_::PRI133;
 };
+
 
 // Interrupt Priority Register 134
-union NVICIP134 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 134
-    uint8_t PRI134 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP134_fields_ {
+  // Priority of interrupt 134
+  using PRI134 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP134_fields_
 
-  NVICIP134() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP134 &ref() { return *reinterpret_cast<volatile NVICIP134*>(0xE000E486); }
+struct NVICIP134 : ftl::mmio::Register<
+    0xE000E486u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP134_fields_::PRI134> {
+  using PRI134 = NVICIP134_fields_::PRI134;
 };
+
 
 // Interrupt Priority Register 135
-union NVICIP135 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 135
-    uint8_t PRI135 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP135_fields_ {
+  // Priority of interrupt 135
+  using PRI135 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP135_fields_
 
-  NVICIP135() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP135 &ref() { return *reinterpret_cast<volatile NVICIP135*>(0xE000E487); }
+struct NVICIP135 : ftl::mmio::Register<
+    0xE000E487u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP135_fields_::PRI135> {
+  using PRI135 = NVICIP135_fields_::PRI135;
 };
+
 
 // Interrupt Priority Register 136
-union NVICIP136 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 136
-    uint8_t PRI136 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP136_fields_ {
+  // Priority of interrupt 136
+  using PRI136 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP136_fields_
 
-  NVICIP136() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP136 &ref() { return *reinterpret_cast<volatile NVICIP136*>(0xE000E488); }
+struct NVICIP136 : ftl::mmio::Register<
+    0xE000E488u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP136_fields_::PRI136> {
+  using PRI136 = NVICIP136_fields_::PRI136;
 };
+
 
 // Interrupt Priority Register 137
-union NVICIP137 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 137
-    uint8_t PRI137 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP137_fields_ {
+  // Priority of interrupt 137
+  using PRI137 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP137_fields_
 
-  NVICIP137() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP137 &ref() { return *reinterpret_cast<volatile NVICIP137*>(0xE000E489); }
+struct NVICIP137 : ftl::mmio::Register<
+    0xE000E489u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP137_fields_::PRI137> {
+  using PRI137 = NVICIP137_fields_::PRI137;
 };
+
 
 // Interrupt Priority Register 138
-union NVICIP138 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 138
-    uint8_t PRI138 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP138_fields_ {
+  // Priority of interrupt 138
+  using PRI138 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP138_fields_
 
-  NVICIP138() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP138 &ref() { return *reinterpret_cast<volatile NVICIP138*>(0xE000E48A); }
+struct NVICIP138 : ftl::mmio::Register<
+    0xE000E48Au,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP138_fields_::PRI138> {
+  using PRI138 = NVICIP138_fields_::PRI138;
 };
+
 
 // Interrupt Priority Register 139
-union NVICIP139 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 139
-    uint8_t PRI139 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP139_fields_ {
+  // Priority of interrupt 139
+  using PRI139 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP139_fields_
 
-  NVICIP139() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP139 &ref() { return *reinterpret_cast<volatile NVICIP139*>(0xE000E48B); }
+struct NVICIP139 : ftl::mmio::Register<
+    0xE000E48Bu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP139_fields_::PRI139> {
+  using PRI139 = NVICIP139_fields_::PRI139;
 };
+
 
 // Interrupt Priority Register 140
-union NVICIP140 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 140
-    uint8_t PRI140 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP140_fields_ {
+  // Priority of interrupt 140
+  using PRI140 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP140_fields_
 
-  NVICIP140() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP140 &ref() { return *reinterpret_cast<volatile NVICIP140*>(0xE000E48C); }
+struct NVICIP140 : ftl::mmio::Register<
+    0xE000E48Cu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP140_fields_::PRI140> {
+  using PRI140 = NVICIP140_fields_::PRI140;
 };
+
 
 // Interrupt Priority Register 141
-union NVICIP141 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 141
-    uint8_t PRI141 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP141_fields_ {
+  // Priority of interrupt 141
+  using PRI141 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP141_fields_
 
-  NVICIP141() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP141 &ref() { return *reinterpret_cast<volatile NVICIP141*>(0xE000E48D); }
+struct NVICIP141 : ftl::mmio::Register<
+    0xE000E48Du,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP141_fields_::PRI141> {
+  using PRI141 = NVICIP141_fields_::PRI141;
 };
+
 
 // Interrupt Priority Register 142
-union NVICIP142 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 142
-    uint8_t PRI142 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP142_fields_ {
+  // Priority of interrupt 142
+  using PRI142 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP142_fields_
 
-  NVICIP142() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP142 &ref() { return *reinterpret_cast<volatile NVICIP142*>(0xE000E48E); }
+struct NVICIP142 : ftl::mmio::Register<
+    0xE000E48Eu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP142_fields_::PRI142> {
+  using PRI142 = NVICIP142_fields_::PRI142;
 };
+
 
 // Interrupt Priority Register 143
-union NVICIP143 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 143
-    uint8_t PRI143 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP143_fields_ {
+  // Priority of interrupt 143
+  using PRI143 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP143_fields_
 
-  NVICIP143() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP143 &ref() { return *reinterpret_cast<volatile NVICIP143*>(0xE000E48F); }
+struct NVICIP143 : ftl::mmio::Register<
+    0xE000E48Fu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP143_fields_::PRI143> {
+  using PRI143 = NVICIP143_fields_::PRI143;
 };
+
 
 // Interrupt Priority Register 144
-union NVICIP144 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 144
-    uint8_t PRI144 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP144_fields_ {
+  // Priority of interrupt 144
+  using PRI144 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP144_fields_
 
-  NVICIP144() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP144 &ref() { return *reinterpret_cast<volatile NVICIP144*>(0xE000E490); }
+struct NVICIP144 : ftl::mmio::Register<
+    0xE000E490u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP144_fields_::PRI144> {
+  using PRI144 = NVICIP144_fields_::PRI144;
 };
+
 
 // Interrupt Priority Register 145
-union NVICIP145 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 145
-    uint8_t PRI145 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP145_fields_ {
+  // Priority of interrupt 145
+  using PRI145 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP145_fields_
 
-  NVICIP145() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP145 &ref() { return *reinterpret_cast<volatile NVICIP145*>(0xE000E491); }
+struct NVICIP145 : ftl::mmio::Register<
+    0xE000E491u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP145_fields_::PRI145> {
+  using PRI145 = NVICIP145_fields_::PRI145;
 };
+
 
 // Interrupt Priority Register 146
-union NVICIP146 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 146
-    uint8_t PRI146 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP146_fields_ {
+  // Priority of interrupt 146
+  using PRI146 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP146_fields_
 
-  NVICIP146() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP146 &ref() { return *reinterpret_cast<volatile NVICIP146*>(0xE000E492); }
+struct NVICIP146 : ftl::mmio::Register<
+    0xE000E492u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP146_fields_::PRI146> {
+  using PRI146 = NVICIP146_fields_::PRI146;
 };
+
 
 // Interrupt Priority Register 147
-union NVICIP147 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 147
-    uint8_t PRI147 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP147_fields_ {
+  // Priority of interrupt 147
+  using PRI147 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP147_fields_
 
-  NVICIP147() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP147 &ref() { return *reinterpret_cast<volatile NVICIP147*>(0xE000E493); }
+struct NVICIP147 : ftl::mmio::Register<
+    0xE000E493u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP147_fields_::PRI147> {
+  using PRI147 = NVICIP147_fields_::PRI147;
 };
+
 
 // Interrupt Priority Register 148
-union NVICIP148 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 148
-    uint8_t PRI148 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP148_fields_ {
+  // Priority of interrupt 148
+  using PRI148 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP148_fields_
 
-  NVICIP148() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP148 &ref() { return *reinterpret_cast<volatile NVICIP148*>(0xE000E494); }
+struct NVICIP148 : ftl::mmio::Register<
+    0xE000E494u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP148_fields_::PRI148> {
+  using PRI148 = NVICIP148_fields_::PRI148;
 };
+
 
 // Interrupt Priority Register 149
-union NVICIP149 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 149
-    uint8_t PRI149 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP149_fields_ {
+  // Priority of interrupt 149
+  using PRI149 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP149_fields_
 
-  NVICIP149() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP149 &ref() { return *reinterpret_cast<volatile NVICIP149*>(0xE000E495); }
+struct NVICIP149 : ftl::mmio::Register<
+    0xE000E495u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP149_fields_::PRI149> {
+  using PRI149 = NVICIP149_fields_::PRI149;
 };
+
 
 // Interrupt Priority Register 150
-union NVICIP150 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 150
-    uint8_t PRI150 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP150_fields_ {
+  // Priority of interrupt 150
+  using PRI150 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP150_fields_
 
-  NVICIP150() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP150 &ref() { return *reinterpret_cast<volatile NVICIP150*>(0xE000E496); }
+struct NVICIP150 : ftl::mmio::Register<
+    0xE000E496u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP150_fields_::PRI150> {
+  using PRI150 = NVICIP150_fields_::PRI150;
 };
+
 
 // Interrupt Priority Register 151
-union NVICIP151 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 151
-    uint8_t PRI151 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP151_fields_ {
+  // Priority of interrupt 151
+  using PRI151 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP151_fields_
 
-  NVICIP151() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP151 &ref() { return *reinterpret_cast<volatile NVICIP151*>(0xE000E497); }
+struct NVICIP151 : ftl::mmio::Register<
+    0xE000E497u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP151_fields_::PRI151> {
+  using PRI151 = NVICIP151_fields_::PRI151;
 };
+
 
 // Interrupt Priority Register 152
-union NVICIP152 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 152
-    uint8_t PRI152 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP152_fields_ {
+  // Priority of interrupt 152
+  using PRI152 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP152_fields_
 
-  NVICIP152() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP152 &ref() { return *reinterpret_cast<volatile NVICIP152*>(0xE000E498); }
+struct NVICIP152 : ftl::mmio::Register<
+    0xE000E498u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP152_fields_::PRI152> {
+  using PRI152 = NVICIP152_fields_::PRI152;
 };
+
 
 // Interrupt Priority Register 153
-union NVICIP153 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 153
-    uint8_t PRI153 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP153_fields_ {
+  // Priority of interrupt 153
+  using PRI153 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP153_fields_
 
-  NVICIP153() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP153 &ref() { return *reinterpret_cast<volatile NVICIP153*>(0xE000E499); }
+struct NVICIP153 : ftl::mmio::Register<
+    0xE000E499u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP153_fields_::PRI153> {
+  using PRI153 = NVICIP153_fields_::PRI153;
 };
+
 
 // Interrupt Priority Register 154
-union NVICIP154 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 154
-    uint8_t PRI154 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP154_fields_ {
+  // Priority of interrupt 154
+  using PRI154 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP154_fields_
 
-  NVICIP154() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP154 &ref() { return *reinterpret_cast<volatile NVICIP154*>(0xE000E49A); }
+struct NVICIP154 : ftl::mmio::Register<
+    0xE000E49Au,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP154_fields_::PRI154> {
+  using PRI154 = NVICIP154_fields_::PRI154;
 };
+
 
 // Interrupt Priority Register 155
-union NVICIP155 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 155
-    uint8_t PRI155 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP155_fields_ {
+  // Priority of interrupt 155
+  using PRI155 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP155_fields_
 
-  NVICIP155() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP155 &ref() { return *reinterpret_cast<volatile NVICIP155*>(0xE000E49B); }
+struct NVICIP155 : ftl::mmio::Register<
+    0xE000E49Bu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP155_fields_::PRI155> {
+  using PRI155 = NVICIP155_fields_::PRI155;
 };
+
 
 // Interrupt Priority Register 156
-union NVICIP156 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 156
-    uint8_t PRI156 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP156_fields_ {
+  // Priority of interrupt 156
+  using PRI156 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP156_fields_
 
-  NVICIP156() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP156 &ref() { return *reinterpret_cast<volatile NVICIP156*>(0xE000E49C); }
+struct NVICIP156 : ftl::mmio::Register<
+    0xE000E49Cu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP156_fields_::PRI156> {
+  using PRI156 = NVICIP156_fields_::PRI156;
 };
+
 
 // Interrupt Priority Register 157
-union NVICIP157 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 157
-    uint8_t PRI157 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP157_fields_ {
+  // Priority of interrupt 157
+  using PRI157 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP157_fields_
 
-  NVICIP157() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP157 &ref() { return *reinterpret_cast<volatile NVICIP157*>(0xE000E49D); }
+struct NVICIP157 : ftl::mmio::Register<
+    0xE000E49Du,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP157_fields_::PRI157> {
+  using PRI157 = NVICIP157_fields_::PRI157;
 };
+
 
 // Interrupt Priority Register 158
-union NVICIP158 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 158
-    uint8_t PRI158 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP158_fields_ {
+  // Priority of interrupt 158
+  using PRI158 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP158_fields_
 
-  NVICIP158() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP158 &ref() { return *reinterpret_cast<volatile NVICIP158*>(0xE000E49E); }
+struct NVICIP158 : ftl::mmio::Register<
+    0xE000E49Eu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP158_fields_::PRI158> {
+  using PRI158 = NVICIP158_fields_::PRI158;
 };
+
 
 // Interrupt Priority Register 159
-union NVICIP159 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 159
-    uint8_t PRI159 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP159_fields_ {
+  // Priority of interrupt 159
+  using PRI159 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP159_fields_
 
-  NVICIP159() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP159 &ref() { return *reinterpret_cast<volatile NVICIP159*>(0xE000E49F); }
+struct NVICIP159 : ftl::mmio::Register<
+    0xE000E49Fu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP159_fields_::PRI159> {
+  using PRI159 = NVICIP159_fields_::PRI159;
 };
+
 
 // Interrupt Priority Register 160
-union NVICIP160 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 160
-    uint8_t PRI160 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP160_fields_ {
+  // Priority of interrupt 160
+  using PRI160 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP160_fields_
 
-  NVICIP160() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP160 &ref() { return *reinterpret_cast<volatile NVICIP160*>(0xE000E4A0); }
+struct NVICIP160 : ftl::mmio::Register<
+    0xE000E4A0u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP160_fields_::PRI160> {
+  using PRI160 = NVICIP160_fields_::PRI160;
 };
+
 
 // Interrupt Priority Register 161
-union NVICIP161 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 161
-    uint8_t PRI161 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP161_fields_ {
+  // Priority of interrupt 161
+  using PRI161 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP161_fields_
 
-  NVICIP161() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP161 &ref() { return *reinterpret_cast<volatile NVICIP161*>(0xE000E4A1); }
+struct NVICIP161 : ftl::mmio::Register<
+    0xE000E4A1u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP161_fields_::PRI161> {
+  using PRI161 = NVICIP161_fields_::PRI161;
 };
+
 
 // Interrupt Priority Register 162
-union NVICIP162 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 162
-    uint8_t PRI162 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP162_fields_ {
+  // Priority of interrupt 162
+  using PRI162 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP162_fields_
 
-  NVICIP162() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP162 &ref() { return *reinterpret_cast<volatile NVICIP162*>(0xE000E4A2); }
+struct NVICIP162 : ftl::mmio::Register<
+    0xE000E4A2u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP162_fields_::PRI162> {
+  using PRI162 = NVICIP162_fields_::PRI162;
 };
+
 
 // Interrupt Priority Register 163
-union NVICIP163 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 163
-    uint8_t PRI163 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP163_fields_ {
+  // Priority of interrupt 163
+  using PRI163 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP163_fields_
 
-  NVICIP163() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP163 &ref() { return *reinterpret_cast<volatile NVICIP163*>(0xE000E4A3); }
+struct NVICIP163 : ftl::mmio::Register<
+    0xE000E4A3u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP163_fields_::PRI163> {
+  using PRI163 = NVICIP163_fields_::PRI163;
 };
+
 
 // Interrupt Priority Register 164
-union NVICIP164 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 164
-    uint8_t PRI164 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP164_fields_ {
+  // Priority of interrupt 164
+  using PRI164 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP164_fields_
 
-  NVICIP164() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP164 &ref() { return *reinterpret_cast<volatile NVICIP164*>(0xE000E4A4); }
+struct NVICIP164 : ftl::mmio::Register<
+    0xE000E4A4u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP164_fields_::PRI164> {
+  using PRI164 = NVICIP164_fields_::PRI164;
 };
+
 
 // Interrupt Priority Register 165
-union NVICIP165 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 165
-    uint8_t PRI165 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP165_fields_ {
+  // Priority of interrupt 165
+  using PRI165 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP165_fields_
 
-  NVICIP165() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP165 &ref() { return *reinterpret_cast<volatile NVICIP165*>(0xE000E4A5); }
+struct NVICIP165 : ftl::mmio::Register<
+    0xE000E4A5u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP165_fields_::PRI165> {
+  using PRI165 = NVICIP165_fields_::PRI165;
 };
+
 
 // Interrupt Priority Register 166
-union NVICIP166 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 166
-    uint8_t PRI166 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP166_fields_ {
+  // Priority of interrupt 166
+  using PRI166 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP166_fields_
 
-  NVICIP166() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP166 &ref() { return *reinterpret_cast<volatile NVICIP166*>(0xE000E4A6); }
+struct NVICIP166 : ftl::mmio::Register<
+    0xE000E4A6u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP166_fields_::PRI166> {
+  using PRI166 = NVICIP166_fields_::PRI166;
 };
+
 
 // Interrupt Priority Register 167
-union NVICIP167 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 167
-    uint8_t PRI167 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP167_fields_ {
+  // Priority of interrupt 167
+  using PRI167 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP167_fields_
 
-  NVICIP167() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP167 &ref() { return *reinterpret_cast<volatile NVICIP167*>(0xE000E4A7); }
+struct NVICIP167 : ftl::mmio::Register<
+    0xE000E4A7u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP167_fields_::PRI167> {
+  using PRI167 = NVICIP167_fields_::PRI167;
 };
+
 
 // Interrupt Priority Register 168
-union NVICIP168 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 168
-    uint8_t PRI168 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP168_fields_ {
+  // Priority of interrupt 168
+  using PRI168 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP168_fields_
 
-  NVICIP168() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP168 &ref() { return *reinterpret_cast<volatile NVICIP168*>(0xE000E4A8); }
+struct NVICIP168 : ftl::mmio::Register<
+    0xE000E4A8u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP168_fields_::PRI168> {
+  using PRI168 = NVICIP168_fields_::PRI168;
 };
+
 
 // Interrupt Priority Register 169
-union NVICIP169 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 169
-    uint8_t PRI169 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP169_fields_ {
+  // Priority of interrupt 169
+  using PRI169 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP169_fields_
 
-  NVICIP169() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP169 &ref() { return *reinterpret_cast<volatile NVICIP169*>(0xE000E4A9); }
+struct NVICIP169 : ftl::mmio::Register<
+    0xE000E4A9u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP169_fields_::PRI169> {
+  using PRI169 = NVICIP169_fields_::PRI169;
 };
+
 
 // Interrupt Priority Register 170
-union NVICIP170 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 170
-    uint8_t PRI170 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP170_fields_ {
+  // Priority of interrupt 170
+  using PRI170 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP170_fields_
 
-  NVICIP170() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP170 &ref() { return *reinterpret_cast<volatile NVICIP170*>(0xE000E4AA); }
+struct NVICIP170 : ftl::mmio::Register<
+    0xE000E4AAu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP170_fields_::PRI170> {
+  using PRI170 = NVICIP170_fields_::PRI170;
 };
+
 
 // Interrupt Priority Register 171
-union NVICIP171 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 171
-    uint8_t PRI171 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP171_fields_ {
+  // Priority of interrupt 171
+  using PRI171 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP171_fields_
 
-  NVICIP171() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP171 &ref() { return *reinterpret_cast<volatile NVICIP171*>(0xE000E4AB); }
+struct NVICIP171 : ftl::mmio::Register<
+    0xE000E4ABu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP171_fields_::PRI171> {
+  using PRI171 = NVICIP171_fields_::PRI171;
 };
+
 
 // Interrupt Priority Register 172
-union NVICIP172 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 172
-    uint8_t PRI172 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP172_fields_ {
+  // Priority of interrupt 172
+  using PRI172 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP172_fields_
 
-  NVICIP172() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP172 &ref() { return *reinterpret_cast<volatile NVICIP172*>(0xE000E4AC); }
+struct NVICIP172 : ftl::mmio::Register<
+    0xE000E4ACu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP172_fields_::PRI172> {
+  using PRI172 = NVICIP172_fields_::PRI172;
 };
+
 
 // Interrupt Priority Register 173
-union NVICIP173 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 173
-    uint8_t PRI173 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP173_fields_ {
+  // Priority of interrupt 173
+  using PRI173 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP173_fields_
 
-  NVICIP173() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP173 &ref() { return *reinterpret_cast<volatile NVICIP173*>(0xE000E4AD); }
+struct NVICIP173 : ftl::mmio::Register<
+    0xE000E4ADu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP173_fields_::PRI173> {
+  using PRI173 = NVICIP173_fields_::PRI173;
 };
+
 
 // Interrupt Priority Register 174
-union NVICIP174 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 174
-    uint8_t PRI174 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP174_fields_ {
+  // Priority of interrupt 174
+  using PRI174 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP174_fields_
 
-  NVICIP174() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP174 &ref() { return *reinterpret_cast<volatile NVICIP174*>(0xE000E4AE); }
+struct NVICIP174 : ftl::mmio::Register<
+    0xE000E4AEu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP174_fields_::PRI174> {
+  using PRI174 = NVICIP174_fields_::PRI174;
 };
+
 
 // Interrupt Priority Register 175
-union NVICIP175 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 175
-    uint8_t PRI175 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP175_fields_ {
+  // Priority of interrupt 175
+  using PRI175 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP175_fields_
 
-  NVICIP175() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP175 &ref() { return *reinterpret_cast<volatile NVICIP175*>(0xE000E4AF); }
+struct NVICIP175 : ftl::mmio::Register<
+    0xE000E4AFu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP175_fields_::PRI175> {
+  using PRI175 = NVICIP175_fields_::PRI175;
 };
+
 
 // Interrupt Priority Register 176
-union NVICIP176 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 176
-    uint8_t PRI176 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP176_fields_ {
+  // Priority of interrupt 176
+  using PRI176 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP176_fields_
 
-  NVICIP176() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP176 &ref() { return *reinterpret_cast<volatile NVICIP176*>(0xE000E4B0); }
+struct NVICIP176 : ftl::mmio::Register<
+    0xE000E4B0u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP176_fields_::PRI176> {
+  using PRI176 = NVICIP176_fields_::PRI176;
 };
+
 
 // Interrupt Priority Register 177
-union NVICIP177 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 177
-    uint8_t PRI177 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP177_fields_ {
+  // Priority of interrupt 177
+  using PRI177 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP177_fields_
 
-  NVICIP177() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP177 &ref() { return *reinterpret_cast<volatile NVICIP177*>(0xE000E4B1); }
+struct NVICIP177 : ftl::mmio::Register<
+    0xE000E4B1u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP177_fields_::PRI177> {
+  using PRI177 = NVICIP177_fields_::PRI177;
 };
+
 
 // Interrupt Priority Register 178
-union NVICIP178 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 178
-    uint8_t PRI178 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP178_fields_ {
+  // Priority of interrupt 178
+  using PRI178 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP178_fields_
 
-  NVICIP178() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP178 &ref() { return *reinterpret_cast<volatile NVICIP178*>(0xE000E4B2); }
+struct NVICIP178 : ftl::mmio::Register<
+    0xE000E4B2u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP178_fields_::PRI178> {
+  using PRI178 = NVICIP178_fields_::PRI178;
 };
+
 
 // Interrupt Priority Register 179
-union NVICIP179 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 179
-    uint8_t PRI179 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP179_fields_ {
+  // Priority of interrupt 179
+  using PRI179 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP179_fields_
 
-  NVICIP179() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP179 &ref() { return *reinterpret_cast<volatile NVICIP179*>(0xE000E4B3); }
+struct NVICIP179 : ftl::mmio::Register<
+    0xE000E4B3u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP179_fields_::PRI179> {
+  using PRI179 = NVICIP179_fields_::PRI179;
 };
+
 
 // Interrupt Priority Register 180
-union NVICIP180 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 180
-    uint8_t PRI180 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP180_fields_ {
+  // Priority of interrupt 180
+  using PRI180 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP180_fields_
 
-  NVICIP180() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP180 &ref() { return *reinterpret_cast<volatile NVICIP180*>(0xE000E4B4); }
+struct NVICIP180 : ftl::mmio::Register<
+    0xE000E4B4u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP180_fields_::PRI180> {
+  using PRI180 = NVICIP180_fields_::PRI180;
 };
+
 
 // Interrupt Priority Register 181
-union NVICIP181 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 181
-    uint8_t PRI181 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP181_fields_ {
+  // Priority of interrupt 181
+  using PRI181 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP181_fields_
 
-  NVICIP181() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP181 &ref() { return *reinterpret_cast<volatile NVICIP181*>(0xE000E4B5); }
+struct NVICIP181 : ftl::mmio::Register<
+    0xE000E4B5u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP181_fields_::PRI181> {
+  using PRI181 = NVICIP181_fields_::PRI181;
 };
+
 
 // Interrupt Priority Register 182
-union NVICIP182 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 182
-    uint8_t PRI182 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP182_fields_ {
+  // Priority of interrupt 182
+  using PRI182 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP182_fields_
 
-  NVICIP182() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP182 &ref() { return *reinterpret_cast<volatile NVICIP182*>(0xE000E4B6); }
+struct NVICIP182 : ftl::mmio::Register<
+    0xE000E4B6u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP182_fields_::PRI182> {
+  using PRI182 = NVICIP182_fields_::PRI182;
 };
+
 
 // Interrupt Priority Register 183
-union NVICIP183 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 183
-    uint8_t PRI183 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP183_fields_ {
+  // Priority of interrupt 183
+  using PRI183 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP183_fields_
 
-  NVICIP183() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP183 &ref() { return *reinterpret_cast<volatile NVICIP183*>(0xE000E4B7); }
+struct NVICIP183 : ftl::mmio::Register<
+    0xE000E4B7u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP183_fields_::PRI183> {
+  using PRI183 = NVICIP183_fields_::PRI183;
 };
+
 
 // Interrupt Priority Register 184
-union NVICIP184 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 184
-    uint8_t PRI184 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP184_fields_ {
+  // Priority of interrupt 184
+  using PRI184 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP184_fields_
 
-  NVICIP184() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP184 &ref() { return *reinterpret_cast<volatile NVICIP184*>(0xE000E4B8); }
+struct NVICIP184 : ftl::mmio::Register<
+    0xE000E4B8u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP184_fields_::PRI184> {
+  using PRI184 = NVICIP184_fields_::PRI184;
 };
+
 
 // Interrupt Priority Register 185
-union NVICIP185 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 185
-    uint8_t PRI185 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP185_fields_ {
+  // Priority of interrupt 185
+  using PRI185 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP185_fields_
 
-  NVICIP185() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP185 &ref() { return *reinterpret_cast<volatile NVICIP185*>(0xE000E4B9); }
+struct NVICIP185 : ftl::mmio::Register<
+    0xE000E4B9u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP185_fields_::PRI185> {
+  using PRI185 = NVICIP185_fields_::PRI185;
 };
+
 
 // Interrupt Priority Register 186
-union NVICIP186 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 186
-    uint8_t PRI186 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP186_fields_ {
+  // Priority of interrupt 186
+  using PRI186 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP186_fields_
 
-  NVICIP186() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP186 &ref() { return *reinterpret_cast<volatile NVICIP186*>(0xE000E4BA); }
+struct NVICIP186 : ftl::mmio::Register<
+    0xE000E4BAu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP186_fields_::PRI186> {
+  using PRI186 = NVICIP186_fields_::PRI186;
 };
+
 
 // Interrupt Priority Register 187
-union NVICIP187 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 187
-    uint8_t PRI187 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP187_fields_ {
+  // Priority of interrupt 187
+  using PRI187 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP187_fields_
 
-  NVICIP187() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP187 &ref() { return *reinterpret_cast<volatile NVICIP187*>(0xE000E4BB); }
+struct NVICIP187 : ftl::mmio::Register<
+    0xE000E4BBu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP187_fields_::PRI187> {
+  using PRI187 = NVICIP187_fields_::PRI187;
 };
+
 
 // Interrupt Priority Register 188
-union NVICIP188 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 188
-    uint8_t PRI188 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP188_fields_ {
+  // Priority of interrupt 188
+  using PRI188 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP188_fields_
 
-  NVICIP188() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP188 &ref() { return *reinterpret_cast<volatile NVICIP188*>(0xE000E4BC); }
+struct NVICIP188 : ftl::mmio::Register<
+    0xE000E4BCu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP188_fields_::PRI188> {
+  using PRI188 = NVICIP188_fields_::PRI188;
 };
+
 
 // Interrupt Priority Register 189
-union NVICIP189 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 189
-    uint8_t PRI189 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP189_fields_ {
+  // Priority of interrupt 189
+  using PRI189 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP189_fields_
 
-  NVICIP189() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP189 &ref() { return *reinterpret_cast<volatile NVICIP189*>(0xE000E4BD); }
+struct NVICIP189 : ftl::mmio::Register<
+    0xE000E4BDu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP189_fields_::PRI189> {
+  using PRI189 = NVICIP189_fields_::PRI189;
 };
+
 
 // Interrupt Priority Register 190
-union NVICIP190 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 190
-    uint8_t PRI190 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP190_fields_ {
+  // Priority of interrupt 190
+  using PRI190 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP190_fields_
 
-  NVICIP190() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP190 &ref() { return *reinterpret_cast<volatile NVICIP190*>(0xE000E4BE); }
+struct NVICIP190 : ftl::mmio::Register<
+    0xE000E4BEu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP190_fields_::PRI190> {
+  using PRI190 = NVICIP190_fields_::PRI190;
 };
+
 
 // Interrupt Priority Register 191
-union NVICIP191 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 191
-    uint8_t PRI191 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP191_fields_ {
+  // Priority of interrupt 191
+  using PRI191 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP191_fields_
 
-  NVICIP191() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP191 &ref() { return *reinterpret_cast<volatile NVICIP191*>(0xE000E4BF); }
+struct NVICIP191 : ftl::mmio::Register<
+    0xE000E4BFu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP191_fields_::PRI191> {
+  using PRI191 = NVICIP191_fields_::PRI191;
 };
+
 
 // Interrupt Priority Register 192
-union NVICIP192 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 192
-    uint8_t PRI192 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP192_fields_ {
+  // Priority of interrupt 192
+  using PRI192 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP192_fields_
 
-  NVICIP192() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP192 &ref() { return *reinterpret_cast<volatile NVICIP192*>(0xE000E4C0); }
+struct NVICIP192 : ftl::mmio::Register<
+    0xE000E4C0u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP192_fields_::PRI192> {
+  using PRI192 = NVICIP192_fields_::PRI192;
 };
+
 
 // Interrupt Priority Register 193
-union NVICIP193 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 193
-    uint8_t PRI193 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP193_fields_ {
+  // Priority of interrupt 193
+  using PRI193 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP193_fields_
 
-  NVICIP193() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP193 &ref() { return *reinterpret_cast<volatile NVICIP193*>(0xE000E4C1); }
+struct NVICIP193 : ftl::mmio::Register<
+    0xE000E4C1u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP193_fields_::PRI193> {
+  using PRI193 = NVICIP193_fields_::PRI193;
 };
+
 
 // Interrupt Priority Register 194
-union NVICIP194 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 194
-    uint8_t PRI194 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP194_fields_ {
+  // Priority of interrupt 194
+  using PRI194 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP194_fields_
 
-  NVICIP194() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP194 &ref() { return *reinterpret_cast<volatile NVICIP194*>(0xE000E4C2); }
+struct NVICIP194 : ftl::mmio::Register<
+    0xE000E4C2u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP194_fields_::PRI194> {
+  using PRI194 = NVICIP194_fields_::PRI194;
 };
+
 
 // Interrupt Priority Register 195
-union NVICIP195 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 195
-    uint8_t PRI195 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP195_fields_ {
+  // Priority of interrupt 195
+  using PRI195 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP195_fields_
 
-  NVICIP195() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP195 &ref() { return *reinterpret_cast<volatile NVICIP195*>(0xE000E4C3); }
+struct NVICIP195 : ftl::mmio::Register<
+    0xE000E4C3u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP195_fields_::PRI195> {
+  using PRI195 = NVICIP195_fields_::PRI195;
 };
+
 
 // Interrupt Priority Register 196
-union NVICIP196 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 196
-    uint8_t PRI196 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP196_fields_ {
+  // Priority of interrupt 196
+  using PRI196 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP196_fields_
 
-  NVICIP196() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP196 &ref() { return *reinterpret_cast<volatile NVICIP196*>(0xE000E4C4); }
+struct NVICIP196 : ftl::mmio::Register<
+    0xE000E4C4u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP196_fields_::PRI196> {
+  using PRI196 = NVICIP196_fields_::PRI196;
 };
+
 
 // Interrupt Priority Register 197
-union NVICIP197 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 197
-    uint8_t PRI197 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP197_fields_ {
+  // Priority of interrupt 197
+  using PRI197 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP197_fields_
 
-  NVICIP197() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP197 &ref() { return *reinterpret_cast<volatile NVICIP197*>(0xE000E4C5); }
+struct NVICIP197 : ftl::mmio::Register<
+    0xE000E4C5u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP197_fields_::PRI197> {
+  using PRI197 = NVICIP197_fields_::PRI197;
 };
+
 
 // Interrupt Priority Register 198
-union NVICIP198 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 198
-    uint8_t PRI198 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP198_fields_ {
+  // Priority of interrupt 198
+  using PRI198 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP198_fields_
 
-  NVICIP198() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP198 &ref() { return *reinterpret_cast<volatile NVICIP198*>(0xE000E4C6); }
+struct NVICIP198 : ftl::mmio::Register<
+    0xE000E4C6u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP198_fields_::PRI198> {
+  using PRI198 = NVICIP198_fields_::PRI198;
 };
+
 
 // Interrupt Priority Register 199
-union NVICIP199 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 199
-    uint8_t PRI199 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP199_fields_ {
+  // Priority of interrupt 199
+  using PRI199 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP199_fields_
 
-  NVICIP199() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP199 &ref() { return *reinterpret_cast<volatile NVICIP199*>(0xE000E4C7); }
+struct NVICIP199 : ftl::mmio::Register<
+    0xE000E4C7u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP199_fields_::PRI199> {
+  using PRI199 = NVICIP199_fields_::PRI199;
 };
+
 
 // Interrupt Priority Register 200
-union NVICIP200 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 200
-    uint8_t PRI200 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP200_fields_ {
+  // Priority of interrupt 200
+  using PRI200 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP200_fields_
 
-  NVICIP200() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP200 &ref() { return *reinterpret_cast<volatile NVICIP200*>(0xE000E4C8); }
+struct NVICIP200 : ftl::mmio::Register<
+    0xE000E4C8u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP200_fields_::PRI200> {
+  using PRI200 = NVICIP200_fields_::PRI200;
 };
+
 
 // Interrupt Priority Register 201
-union NVICIP201 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 201
-    uint8_t PRI201 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP201_fields_ {
+  // Priority of interrupt 201
+  using PRI201 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP201_fields_
 
-  NVICIP201() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP201 &ref() { return *reinterpret_cast<volatile NVICIP201*>(0xE000E4C9); }
+struct NVICIP201 : ftl::mmio::Register<
+    0xE000E4C9u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP201_fields_::PRI201> {
+  using PRI201 = NVICIP201_fields_::PRI201;
 };
+
 
 // Interrupt Priority Register 202
-union NVICIP202 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 202
-    uint8_t PRI202 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP202_fields_ {
+  // Priority of interrupt 202
+  using PRI202 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP202_fields_
 
-  NVICIP202() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP202 &ref() { return *reinterpret_cast<volatile NVICIP202*>(0xE000E4CA); }
+struct NVICIP202 : ftl::mmio::Register<
+    0xE000E4CAu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP202_fields_::PRI202> {
+  using PRI202 = NVICIP202_fields_::PRI202;
 };
+
 
 // Interrupt Priority Register 203
-union NVICIP203 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 203
-    uint8_t PRI203 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP203_fields_ {
+  // Priority of interrupt 203
+  using PRI203 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP203_fields_
 
-  NVICIP203() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP203 &ref() { return *reinterpret_cast<volatile NVICIP203*>(0xE000E4CB); }
+struct NVICIP203 : ftl::mmio::Register<
+    0xE000E4CBu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP203_fields_::PRI203> {
+  using PRI203 = NVICIP203_fields_::PRI203;
 };
+
 
 // Interrupt Priority Register 204
-union NVICIP204 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 204
-    uint8_t PRI204 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP204_fields_ {
+  // Priority of interrupt 204
+  using PRI204 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP204_fields_
 
-  NVICIP204() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP204 &ref() { return *reinterpret_cast<volatile NVICIP204*>(0xE000E4CC); }
+struct NVICIP204 : ftl::mmio::Register<
+    0xE000E4CCu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP204_fields_::PRI204> {
+  using PRI204 = NVICIP204_fields_::PRI204;
 };
+
 
 // Interrupt Priority Register 205
-union NVICIP205 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 205
-    uint8_t PRI205 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP205_fields_ {
+  // Priority of interrupt 205
+  using PRI205 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP205_fields_
 
-  NVICIP205() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP205 &ref() { return *reinterpret_cast<volatile NVICIP205*>(0xE000E4CD); }
+struct NVICIP205 : ftl::mmio::Register<
+    0xE000E4CDu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP205_fields_::PRI205> {
+  using PRI205 = NVICIP205_fields_::PRI205;
 };
+
 
 // Interrupt Priority Register 206
-union NVICIP206 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 206
-    uint8_t PRI206 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP206_fields_ {
+  // Priority of interrupt 206
+  using PRI206 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP206_fields_
 
-  NVICIP206() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP206 &ref() { return *reinterpret_cast<volatile NVICIP206*>(0xE000E4CE); }
+struct NVICIP206 : ftl::mmio::Register<
+    0xE000E4CEu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP206_fields_::PRI206> {
+  using PRI206 = NVICIP206_fields_::PRI206;
 };
+
 
 // Interrupt Priority Register 207
-union NVICIP207 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 207
-    uint8_t PRI207 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP207_fields_ {
+  // Priority of interrupt 207
+  using PRI207 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP207_fields_
 
-  NVICIP207() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP207 &ref() { return *reinterpret_cast<volatile NVICIP207*>(0xE000E4CF); }
+struct NVICIP207 : ftl::mmio::Register<
+    0xE000E4CFu,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP207_fields_::PRI207> {
+  using PRI207 = NVICIP207_fields_::PRI207;
 };
+
 
 // Interrupt Priority Register 208
-union NVICIP208 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 208
-    uint8_t PRI208 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP208_fields_ {
+  // Priority of interrupt 208
+  using PRI208 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP208_fields_
 
-  NVICIP208() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP208 &ref() { return *reinterpret_cast<volatile NVICIP208*>(0xE000E4D0); }
+struct NVICIP208 : ftl::mmio::Register<
+    0xE000E4D0u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP208_fields_::PRI208> {
+  using PRI208 = NVICIP208_fields_::PRI208;
 };
+
 
 // Interrupt Priority Register 209
-union NVICIP209 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 209
-    uint8_t PRI209 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP209_fields_ {
+  // Priority of interrupt 209
+  using PRI209 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP209_fields_
 
-  NVICIP209() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP209 &ref() { return *reinterpret_cast<volatile NVICIP209*>(0xE000E4D1); }
+struct NVICIP209 : ftl::mmio::Register<
+    0xE000E4D1u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP209_fields_::PRI209> {
+  using PRI209 = NVICIP209_fields_::PRI209;
 };
+
 
 // Interrupt Priority Register 210
-union NVICIP210 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 210
-    uint8_t PRI210 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP210_fields_ {
+  // Priority of interrupt 210
+  using PRI210 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP210_fields_
 
-  NVICIP210() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP210 &ref() { return *reinterpret_cast<volatile NVICIP210*>(0xE000E4D2); }
+struct NVICIP210 : ftl::mmio::Register<
+    0xE000E4D2u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP210_fields_::PRI210> {
+  using PRI210 = NVICIP210_fields_::PRI210;
 };
+
 
 // Interrupt Priority Register 211
-union NVICIP211 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 211
-    uint8_t PRI211 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP211_fields_ {
+  // Priority of interrupt 211
+  using PRI211 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP211_fields_
 
-  NVICIP211() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP211 &ref() { return *reinterpret_cast<volatile NVICIP211*>(0xE000E4D3); }
+struct NVICIP211 : ftl::mmio::Register<
+    0xE000E4D3u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP211_fields_::PRI211> {
+  using PRI211 = NVICIP211_fields_::PRI211;
 };
+
 
 // Interrupt Priority Register 212
-union NVICIP212 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 212
-    uint8_t PRI212 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP212_fields_ {
+  // Priority of interrupt 212
+  using PRI212 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP212_fields_
 
-  NVICIP212() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP212 &ref() { return *reinterpret_cast<volatile NVICIP212*>(0xE000E4D4); }
+struct NVICIP212 : ftl::mmio::Register<
+    0xE000E4D4u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP212_fields_::PRI212> {
+  using PRI212 = NVICIP212_fields_::PRI212;
 };
+
 
 // Interrupt Priority Register 213
-union NVICIP213 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 213
-    uint8_t PRI213 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP213_fields_ {
+  // Priority of interrupt 213
+  using PRI213 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP213_fields_
 
-  NVICIP213() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP213 &ref() { return *reinterpret_cast<volatile NVICIP213*>(0xE000E4D5); }
+struct NVICIP213 : ftl::mmio::Register<
+    0xE000E4D5u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP213_fields_::PRI213> {
+  using PRI213 = NVICIP213_fields_::PRI213;
 };
+
 
 // Interrupt Priority Register 214
-union NVICIP214 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 214
-    uint8_t PRI214 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP214_fields_ {
+  // Priority of interrupt 214
+  using PRI214 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP214_fields_
 
-  NVICIP214() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP214 &ref() { return *reinterpret_cast<volatile NVICIP214*>(0xE000E4D6); }
+struct NVICIP214 : ftl::mmio::Register<
+    0xE000E4D6u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP214_fields_::PRI214> {
+  using PRI214 = NVICIP214_fields_::PRI214;
 };
+
 
 // Interrupt Priority Register 215
-union NVICIP215 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 215
-    uint8_t PRI215 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP215_fields_ {
+  // Priority of interrupt 215
+  using PRI215 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP215_fields_
 
-  NVICIP215() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP215 &ref() { return *reinterpret_cast<volatile NVICIP215*>(0xE000E4D7); }
+struct NVICIP215 : ftl::mmio::Register<
+    0xE000E4D7u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP215_fields_::PRI215> {
+  using PRI215 = NVICIP215_fields_::PRI215;
 };
+
 
 // Interrupt Priority Register 216
-union NVICIP216 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 216
-    uint8_t PRI216 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP216_fields_ {
+  // Priority of interrupt 216
+  using PRI216 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP216_fields_
 
-  NVICIP216() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP216 &ref() { return *reinterpret_cast<volatile NVICIP216*>(0xE000E4D8); }
+struct NVICIP216 : ftl::mmio::Register<
+    0xE000E4D8u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP216_fields_::PRI216> {
+  using PRI216 = NVICIP216_fields_::PRI216;
 };
+
 
 // Interrupt Priority Register 217
-union NVICIP217 {
-  
-  // Bit field definition.
-  struct {
-    uint8_t _reserved_0 : 4;
-    // read-write - Priority of interrupt 217
-    uint8_t PRI217 : 4;
-  } bits;
-  
-  // Full 8-bit register value.
-  uint8_t value;
+struct NVICIP217_fields_ {
+  // Priority of interrupt 217
+  using PRI217 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICIP217_fields_
 
-  NVICIP217() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICIP217 &ref() { return *reinterpret_cast<volatile NVICIP217*>(0xE000E4D9); }
+struct NVICIP217 : ftl::mmio::Register<
+    0xE000E4D9u,
+    std::uint8_t,
+    0x00u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<4, 0>,
+    NVICIP217_fields_::PRI217> {
+  using PRI217 = NVICIP217_fields_::PRI217;
 };
+
 
 // Software Trigger Interrupt Register
-union NVICSTIR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Interrupt ID of the interrupt to trigger, in the range 0-239. For example, a value of 0x03 specifies interrupt IRQ3.
-    uint32_t INTID : 9;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct NVICSTIR_fields_ {
+  // Interrupt ID of the interrupt to trigger, in the range 0-239. For example, a value of 0x03 specifies interrupt IRQ3.
+  using INTID = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct NVICSTIR_fields_
 
-  NVICSTIR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile NVICSTIR &ref() { return *reinterpret_cast<volatile NVICSTIR*>(0xE000EF00); }
+struct NVICSTIR : ftl::mmio::Register<
+    0xE000EF00u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    NVICSTIR_fields_::INTID,
+    ftl::mmio::Reserved<23, 9>> {
+  using INTID = NVICSTIR_fields_::INTID;
 };
 
-
-} // namespace nCM7_NVIC
+}  // namespace regs::cm7_nvic

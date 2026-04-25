@@ -1,54 +1,51 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // MX6RT_ANADIG_REGISTER
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nANADIG_TEMPSENSOR {
+namespace regs::anadig_tempsensor {
 
 
 // Tempsensor Register
-union TEMPSENSOR {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 15;
-    // read-write - AI toggle
-    uint32_t TEMPSNS_AI_TOGGLE : 1;
-    // read-only - AI Busy monitor
-    uint32_t TEMPSNS_AI_BUSY : 1;
-    uint32_t _reserved_1 : 15;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TEMPSENSOR_fields_ {
+  // AI toggle
+  using TEMPSNS_AI_TOGGLE = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AI Busy monitor
+  using TEMPSNS_AI_BUSY = ftl::mmio::Field<1, 16, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct TEMPSENSOR_fields_
 
-  TEMPSENSOR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TEMPSENSOR &ref() { return *reinterpret_cast<volatile TEMPSENSOR*>(0x40C84400); }
+struct TEMPSENSOR : ftl::mmio::Register<
+    0x40C84400u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<15, 0>,
+    TEMPSENSOR_fields_::TEMPSNS_AI_TOGGLE,
+    TEMPSENSOR_fields_::TEMPSNS_AI_BUSY,
+    ftl::mmio::Reserved<15, 17>> {
+  using TEMPSNS_AI_TOGGLE = TEMPSENSOR_fields_::TEMPSNS_AI_TOGGLE;
+  using TEMPSNS_AI_BUSY = TEMPSENSOR_fields_::TEMPSNS_AI_BUSY;
 };
+
 
 // TEMPSNS_OTP_TRIM_VALUE_REGISTER
-union TEMPSNS_OTP_TRIM_VALUE {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 10;
-    // read-only - Temperature Value at 25C
-    uint32_t TEMPSNS_TEMP_VAL : 12;
-    uint32_t _reserved_1 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TEMPSNS_OTP_TRIM_VALUE_fields_ {
+  // Temperature Value at 25C
+  using TEMPSNS_TEMP_VAL = ftl::mmio::Field<12, 10, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct TEMPSNS_OTP_TRIM_VALUE_fields_
 
-  TEMPSNS_OTP_TRIM_VALUE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TEMPSNS_OTP_TRIM_VALUE &ref() { return *reinterpret_cast<volatile TEMPSNS_OTP_TRIM_VALUE*>(0x40C84430); }
+struct TEMPSNS_OTP_TRIM_VALUE : ftl::mmio::Register<
+    0x40C84430u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    ftl::mmio::Reserved<10, 0>,
+    TEMPSNS_OTP_TRIM_VALUE_fields_::TEMPSNS_TEMP_VAL,
+    ftl::mmio::Reserved<10, 22>> {
+  using TEMPSNS_TEMP_VAL = TEMPSNS_OTP_TRIM_VALUE_fields_::TEMPSNS_TEMP_VAL;
 };
 
-
-} // namespace nANADIG_TEMPSENSOR
+}  // namespace regs::anadig_tempsensor

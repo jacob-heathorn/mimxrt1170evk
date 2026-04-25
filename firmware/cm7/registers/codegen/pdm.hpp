@@ -1,28 +1,25 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // PDM
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nPDM {
+namespace regs::pdm {
 
 
 // PDM Control register 1
-union CTRL_1 {
-  
-  // Error Interruption Enable
-  enum class eERREN : uint32_t {
+struct CTRL_1_fields_ {
+
+  enum class eERREN : std::uint32_t {
     // Error Interrupts disabled
     edisabled = 0,
     // Error Interrupts enabled
     eenabled = 1,
   };
-  
-  // DMA Interrupt Selection
-  enum class eDISEL : uint32_t {
+
+  enum class eDISEL : std::uint32_t {
     // DMA and interrupt requests disabled
     eall_disabled = 0,
     // DMA requests enabled
@@ -30,97 +27,127 @@ union CTRL_1 {
     // Interrupt requests enabled
     eintreq_enabled = 2,
   };
-  
-  // Module Enable in Debug
-  enum class eDBGE : uint32_t {
+
+  enum class eDBGE : std::uint32_t {
     // Disabled after completing the current frame
     edisabled = 0,
     // Enabled
     eenabled = 1,
   };
-  
-  // Software-reset bit
-  enum class eSRES : uint32_t {
+
+  enum class eSRES : std::uint32_t {
     // No action
     eno_action = 0,
     // Software reset
     esw_reset = 1,
   };
-  
-  // Debug Mode
-  enum class eDBG : uint32_t {
+
+  enum class eDBG : std::uint32_t {
     // Normal Mode
     enormal = 0,
     // Debug Mode
     edebug = 1,
   };
-  
-  // PDM Enable
-  enum class ePDMIEN : uint32_t {
+
+  enum class ePDMIEN : std::uint32_t {
     // PDM stopped
     estopped = 0,
     // PDM operation started
     estarted = 1,
   };
-  
-  // Module Disable
-  enum class eMDIS : uint32_t {
+
+  enum class eMDIS : std::uint32_t {
     // Normal Mode
     enormal = 0,
     // Disable/Low Leakage Mode
     elow_leakage = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Channel 0 Enable
-    uint32_t CH0EN : 1;
-    // read-write - Channel 1 Enable
-    uint32_t CH1EN : 1;
-    // read-write - Channel 2 Enable
-    uint32_t CH2EN : 1;
-    // read-write - Channel 3 Enable
-    uint32_t CH3EN : 1;
-    // read-write - Channel 4 Enable
-    uint32_t CH4EN : 1;
-    // read-write - Channel 5 Enable
-    uint32_t CH5EN : 1;
-    // read-write - Channel 6 Enable
-    uint32_t CH6EN : 1;
-    // read-write - Channel 7 Enable
-    uint32_t CH7EN : 1;
-    uint32_t _reserved_0 : 15;
-    // read-write - Error Interruption Enable
-    eERREN ERREN : 1;
-    // read-write - DMA Interrupt Selection
-    eDISEL DISEL : 2;
-    // read-write - Module Enable in Debug
-    eDBGE DBGE : 1;
-    // read-write - Software-reset bit
-    eSRES SRES : 1;
-    // read-write - Debug Mode
-    eDBG DBG : 1;
-    // read-write - PDM Enable
-    ePDMIEN PDMIEN : 1;
-    // read-write - DOZE enable
-    uint32_t DOZEN : 1;
-    // read-write - Module Disable
-    eMDIS MDIS : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Channel 0 Enable
+  using CH0EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 1 Enable
+  using CH1EN = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 2 Enable
+  using CH2EN = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 3 Enable
+  using CH3EN = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 4 Enable
+  using CH4EN = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 5 Enable
+  using CH5EN = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 6 Enable
+  using CH6EN = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 7 Enable
+  using CH7EN = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Error Interruption Enable
+  using ERREN = ftl::mmio::Field<1, 23, eERREN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // DMA Interrupt Selection
+  using DISEL = ftl::mmio::Field<2, 24, eDISEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Module Enable in Debug
+  using DBGE = ftl::mmio::Field<1, 26, eDBGE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software-reset bit
+  using SRES = ftl::mmio::Field<1, 27, eSRES, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Debug Mode
+  using DBG = ftl::mmio::Field<1, 28, eDBG, ftl::mmio::RW, ftl::mmio::Normal>;
+  // PDM Enable
+  using PDMIEN = ftl::mmio::Field<1, 29, ePDMIEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // DOZE enable
+  using DOZEN = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Module Disable
+  using MDIS = ftl::mmio::Field<1, 31, eMDIS, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_1_fields_
 
-  CTRL_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_1 &ref() { return *reinterpret_cast<volatile CTRL_1*>(0x40C20000); }
+struct CTRL_1 : ftl::mmio::Register<
+    0x40C20000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_1_fields_::CH0EN,
+    CTRL_1_fields_::CH1EN,
+    CTRL_1_fields_::CH2EN,
+    CTRL_1_fields_::CH3EN,
+    CTRL_1_fields_::CH4EN,
+    CTRL_1_fields_::CH5EN,
+    CTRL_1_fields_::CH6EN,
+    CTRL_1_fields_::CH7EN,
+    ftl::mmio::Reserved<15, 8>,
+    CTRL_1_fields_::ERREN,
+    CTRL_1_fields_::DISEL,
+    CTRL_1_fields_::DBGE,
+    CTRL_1_fields_::SRES,
+    CTRL_1_fields_::DBG,
+    CTRL_1_fields_::PDMIEN,
+    CTRL_1_fields_::DOZEN,
+    CTRL_1_fields_::MDIS> {
+  using eERREN = CTRL_1_fields_::eERREN;
+  using eDISEL = CTRL_1_fields_::eDISEL;
+  using eDBGE = CTRL_1_fields_::eDBGE;
+  using eSRES = CTRL_1_fields_::eSRES;
+  using eDBG = CTRL_1_fields_::eDBG;
+  using ePDMIEN = CTRL_1_fields_::ePDMIEN;
+  using eMDIS = CTRL_1_fields_::eMDIS;
+  using CH0EN = CTRL_1_fields_::CH0EN;
+  using CH1EN = CTRL_1_fields_::CH1EN;
+  using CH2EN = CTRL_1_fields_::CH2EN;
+  using CH3EN = CTRL_1_fields_::CH3EN;
+  using CH4EN = CTRL_1_fields_::CH4EN;
+  using CH5EN = CTRL_1_fields_::CH5EN;
+  using CH6EN = CTRL_1_fields_::CH6EN;
+  using CH7EN = CTRL_1_fields_::CH7EN;
+  using ERREN = CTRL_1_fields_::ERREN;
+  using DISEL = CTRL_1_fields_::DISEL;
+  using DBGE = CTRL_1_fields_::DBGE;
+  using SRES = CTRL_1_fields_::SRES;
+  using DBG = CTRL_1_fields_::DBG;
+  using PDMIEN = CTRL_1_fields_::PDMIEN;
+  using DOZEN = CTRL_1_fields_::DOZEN;
+  using MDIS = CTRL_1_fields_::MDIS;
 };
 
+
 // PDM Control register 2
-union CTRL_2 {
-  
-  // Quality Mode
-  enum class eQSEL : uint32_t {
+struct CTRL_2_fields_ {
+
+  enum class eQSEL : std::uint32_t {
     // Medium quality mode
     emq_mode = 0,
     // High quality mode
@@ -134,885 +161,892 @@ union CTRL_2 {
     // Low quality mode
     elq_mode = 7,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Clock Divider
-    uint32_t CLKDIV : 8;
-    uint32_t _reserved_0 : 8;
-    // read-write - CIC Decimation Rate
-    uint32_t CICOSR : 4;
-    uint32_t _reserved_1 : 5;
-    // read-write - Quality Mode
-    eQSEL QSEL : 3;
-    uint32_t _reserved_2 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Clock Divider
+  using CLKDIV = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // CIC Decimation Rate
+  using CICOSR = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Quality Mode
+  using QSEL = ftl::mmio::Field<3, 25, eQSEL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_2_fields_
 
-  CTRL_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_2 &ref() { return *reinterpret_cast<volatile CTRL_2*>(0x40C20004); }
+struct CTRL_2 : ftl::mmio::Register<
+    0x40C20004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_2_fields_::CLKDIV,
+    ftl::mmio::Reserved<8, 8>,
+    CTRL_2_fields_::CICOSR,
+    ftl::mmio::Reserved<5, 20>,
+    CTRL_2_fields_::QSEL,
+    ftl::mmio::Reserved<4, 28>> {
+  using eQSEL = CTRL_2_fields_::eQSEL;
+  using CLKDIV = CTRL_2_fields_::CLKDIV;
+  using CICOSR = CTRL_2_fields_::CICOSR;
+  using QSEL = CTRL_2_fields_::QSEL;
 };
 
+
 // PDM Status register
-union STAT {
-  
-  // Channel 0 Output Data Flag
-  enum class eCH0F : uint32_t {
+struct STAT_fields_ {
+
+  enum class eCH0F : std::uint32_t {
     // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_notreached = 0,
     // Channel's FIFO reached the number of elements configured in watermark bit-field
     ewm_reached = 1,
   };
-  
-  // Channel 1 Output Data Flag
-  enum class eCH1F : uint32_t {
+
+  enum class eCH1F : std::uint32_t {
     // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_notreached = 0,
     // Channel's FIFO reached the number of elements configured in watermark bit-field
     ewm_reached = 1,
   };
-  
-  // Channel 2 Output Data Flag
-  enum class eCH2F : uint32_t {
+
+  enum class eCH2F : std::uint32_t {
     // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_notreached = 0,
     // Channel's FIFO reached the number of elements configured in watermark bit-field
     ewm_reached = 1,
   };
-  
-  // Channel 3 Output Data Flag
-  enum class eCH3F : uint32_t {
+
+  enum class eCH3F : std::uint32_t {
     // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_notreached = 0,
     // Channel's FIFO reached the number of elements configured in watermark bit-field
     ewm_reached = 1,
   };
-  
-  // Channel 4 Output Data Flag
-  enum class eCH4F : uint32_t {
+
+  enum class eCH4F : std::uint32_t {
     // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_notreached = 0,
     // Channel's FIFO reached the number of elements configured in watermark bit-field
     ewm_reached = 1,
   };
-  
-  // Channel 5 Output Data Flag
-  enum class eCH5F : uint32_t {
+
+  enum class eCH5F : std::uint32_t {
     // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_notreached = 0,
     // Channel's FIFO reached the number of elements configured in watermark bit-field
     ewm_reached = 1,
   };
-  
-  // Channel 6 Output Data Flag
-  enum class eCH6F : uint32_t {
+
+  enum class eCH6F : std::uint32_t {
     // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_notreached = 0,
     // Channel's FIFO reached the number of elements configured in watermark bit-field
     ewm_reached = 1,
   };
-  
-  // Channel 7 Output Data Flag
-  enum class eCH7F : uint32_t {
+
+  enum class eCH7F : std::uint32_t {
     // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_notreached = 0,
     // Channel's FIFO reached the number of elements configured in watermark bit-field
     ewm_reached = 1,
   };
-  
-  // Low Frequency Flag
-  enum class eLOWFREQF : uint32_t {
+
+  enum class eLOWFREQF : std::uint32_t {
     // CLKDIV value is OK
     eclkdiv_ok = 0,
     // CLKDIV value is too low
     eclkdiv_low = 1,
   };
-  
-  // Filter Data Ready
-  enum class eFIR_RDY : uint32_t {
+
+  enum class eFIR_RDY : std::uint32_t {
     // Filter data is not reliable
     enot_reliable = 0,
     // Filter data is reliable
     ereliable = 1,
   };
-  
-  // Busy Flag
-  enum class eBSY_FIL : uint32_t {
+
+  enum class eBSY_FIL : std::uint32_t {
     // PDM is stopped
     estopped = 0,
     // PDM is running
     erunning = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Channel 0 Output Data Flag
-    eCH0F CH0F : 1;
-    // read-write - Channel 1 Output Data Flag
-    eCH1F CH1F : 1;
-    // read-write - Channel 2 Output Data Flag
-    eCH2F CH2F : 1;
-    // read-write - Channel 3 Output Data Flag
-    eCH3F CH3F : 1;
-    // read-write - Channel 4 Output Data Flag
-    eCH4F CH4F : 1;
-    // read-write - Channel 5 Output Data Flag
-    eCH5F CH5F : 1;
-    // read-write - Channel 6 Output Data Flag
-    eCH6F CH6F : 1;
-    // read-write - Channel 7 Output Data Flag
-    eCH7F CH7F : 1;
-    uint32_t _reserved_0 : 21;
-    // read-write - Low Frequency Flag
-    eLOWFREQF LOWFREQF : 1;
-    // read-only - Filter Data Ready
-    eFIR_RDY FIR_RDY : 1;
-    // read-only - Busy Flag
-    eBSY_FIL BSY_FIL : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Channel 0 Output Data Flag
+  using CH0F = ftl::mmio::Field<1, 0, eCH0F, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 1 Output Data Flag
+  using CH1F = ftl::mmio::Field<1, 1, eCH1F, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 2 Output Data Flag
+  using CH2F = ftl::mmio::Field<1, 2, eCH2F, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 3 Output Data Flag
+  using CH3F = ftl::mmio::Field<1, 3, eCH3F, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 4 Output Data Flag
+  using CH4F = ftl::mmio::Field<1, 4, eCH4F, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 5 Output Data Flag
+  using CH5F = ftl::mmio::Field<1, 5, eCH5F, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 6 Output Data Flag
+  using CH6F = ftl::mmio::Field<1, 6, eCH6F, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 7 Output Data Flag
+  using CH7F = ftl::mmio::Field<1, 7, eCH7F, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Low Frequency Flag
+  using LOWFREQF = ftl::mmio::Field<1, 29, eLOWFREQF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Filter Data Ready
+  using FIR_RDY = ftl::mmio::Field<1, 30, eFIR_RDY, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Busy Flag
+  using BSY_FIL = ftl::mmio::Field<1, 31, eBSY_FIL, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct STAT_fields_
 
-  STAT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile STAT &ref() { return *reinterpret_cast<volatile STAT*>(0x40C20008); }
+struct STAT : ftl::mmio::Register<
+    0x40C20008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    STAT_fields_::CH0F,
+    STAT_fields_::CH1F,
+    STAT_fields_::CH2F,
+    STAT_fields_::CH3F,
+    STAT_fields_::CH4F,
+    STAT_fields_::CH5F,
+    STAT_fields_::CH6F,
+    STAT_fields_::CH7F,
+    ftl::mmio::Reserved<21, 8>,
+    STAT_fields_::LOWFREQF,
+    STAT_fields_::FIR_RDY,
+    STAT_fields_::BSY_FIL> {
+  using eCH0F = STAT_fields_::eCH0F;
+  using eCH1F = STAT_fields_::eCH1F;
+  using eCH2F = STAT_fields_::eCH2F;
+  using eCH3F = STAT_fields_::eCH3F;
+  using eCH4F = STAT_fields_::eCH4F;
+  using eCH5F = STAT_fields_::eCH5F;
+  using eCH6F = STAT_fields_::eCH6F;
+  using eCH7F = STAT_fields_::eCH7F;
+  using eLOWFREQF = STAT_fields_::eLOWFREQF;
+  using eFIR_RDY = STAT_fields_::eFIR_RDY;
+  using eBSY_FIL = STAT_fields_::eBSY_FIL;
+  using CH0F = STAT_fields_::CH0F;
+  using CH1F = STAT_fields_::CH1F;
+  using CH2F = STAT_fields_::CH2F;
+  using CH3F = STAT_fields_::CH3F;
+  using CH4F = STAT_fields_::CH4F;
+  using CH5F = STAT_fields_::CH5F;
+  using CH6F = STAT_fields_::CH6F;
+  using CH7F = STAT_fields_::CH7F;
+  using LOWFREQF = STAT_fields_::LOWFREQF;
+  using FIR_RDY = STAT_fields_::FIR_RDY;
+  using BSY_FIL = STAT_fields_::BSY_FIL;
 };
+
 
 // PDM FIFO Control register
-union FIFO_CTRL {
-  
-  // Bit field definition.
-  struct {
-    // read-write - FIFO Watermark Control
-    uint32_t FIFOWMK : 3;
-    uint32_t _reserved_0 : 29;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct FIFO_CTRL_fields_ {
+  // FIFO Watermark Control
+  using FIFOWMK = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct FIFO_CTRL_fields_
 
-  FIFO_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000007; }
-  static inline volatile FIFO_CTRL &ref() { return *reinterpret_cast<volatile FIFO_CTRL*>(0x40C20010); }
+struct FIFO_CTRL : ftl::mmio::Register<
+    0x40C20010u,
+    std::uint32_t,
+    0x00000007u,
+    ftl::mmio::RW,
+    FIFO_CTRL_fields_::FIFOWMK,
+    ftl::mmio::Reserved<29, 3>> {
+  using FIFOWMK = FIFO_CTRL_fields_::FIFOWMK;
 };
+
 
 // PDM FIFO Status register
-union FIFO_STAT {
-  
+struct FIFO_STAT_fields_ {
+
+  enum class eFIFOOVF0 : std::uint32_t {
+    // No exception by FIFO overflow
+    eno_exception = 0,
+    // Exception by FIFO overflow
+    eexception = 1,
+  };
+
+  enum class eFIFOOVF1 : std::uint32_t {
+    // No exception by FIFO overflow
+    eno_exception = 0,
+    // Exception by FIFO overflow
+    eexception = 1,
+  };
+
+  enum class eFIFOOVF2 : std::uint32_t {
+    // No exception by FIFO overflow
+    eno_exception = 0,
+    // Exception by FIFO overflow
+    eexception = 1,
+  };
+
+  enum class eFIFOOVF3 : std::uint32_t {
+    // No exception by FIFO overflow
+    eno_exception = 0,
+    // Exception by FIFO overflow
+    eexception = 1,
+  };
+
+  enum class eFIFOOVF4 : std::uint32_t {
+    // No exception by FIFO overflow
+    eno_exception = 0,
+    // Exception by FIFO overflow
+    eexception = 1,
+  };
+
+  enum class eFIFOOVF5 : std::uint32_t {
+    // No exception by FIFO overflow
+    eno_exception = 0,
+    // Exception by FIFO overflow
+    eexception = 1,
+  };
+
+  enum class eFIFOOVF6 : std::uint32_t {
+    // No exception by FIFO overflow
+    eno_exception = 0,
+    // Exception by FIFO overflow
+    eexception = 1,
+  };
+
+  enum class eFIFOOVF7 : std::uint32_t {
+    // No exception by FIFO overflow
+    eno_exception = 0,
+    // Exception by FIFO overflow
+    eexception = 1,
+  };
+
+  enum class eFIFOUND0 : std::uint32_t {
+    // No exception by FIFO Underflow
+    eno_exception = 0,
+    // Exception by FIFO underflow
+    eexception = 1,
+  };
+
+  enum class eFIFOUND1 : std::uint32_t {
+    // No exception by FIFO Underflow
+    eno_exception = 0,
+    // Exception by FIFO underflow
+    eexception = 1,
+  };
+
+  enum class eFIFOUND2 : std::uint32_t {
+    // No exception by FIFO Underflow
+    eno_exception = 0,
+    // Exception by FIFO underflow
+    eexception = 1,
+  };
+
+  enum class eFIFOUND3 : std::uint32_t {
+    // No exception by FIFO Underflow
+    eno_exception = 0,
+    // Exception by FIFO underflow
+    eexception = 1,
+  };
+
+  enum class eFIFOUND4 : std::uint32_t {
+    // No exception by FIFO Underflow
+    eno_exception = 0,
+    // Exception by FIFO underflow
+    eexception = 1,
+  };
+
+  enum class eFIFOUND5 : std::uint32_t {
+    // No exception by FIFO Underflow
+    eno_exception = 0,
+    // Exception by FIFO underflow
+    eexception = 1,
+  };
+
+  enum class eFIFOUND6 : std::uint32_t {
+    // No exception by FIFO Underflow
+    eno_exception = 0,
+    // Exception by FIFO underflow
+    eexception = 1,
+  };
+
+  enum class eFIFOUND7 : std::uint32_t {
+    // No exception by FIFO Underflow
+    eno_exception = 0,
+    // Exception by FIFO underflow
+    eexception = 1,
+  };
   // FIFO Overflow Exception flag for Channel 0
-  enum class eFIFOOVF0 : uint32_t {
-    // No exception by FIFO overflow
-    eno_exception = 0,
-    // Exception by FIFO overflow
-    eexception = 1,
-  };
-  
+  using FIFOOVF0 = ftl::mmio::Field<1, 0, eFIFOOVF0, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Overflow Exception flag for Channel 1
-  enum class eFIFOOVF1 : uint32_t {
-    // No exception by FIFO overflow
-    eno_exception = 0,
-    // Exception by FIFO overflow
-    eexception = 1,
-  };
-  
+  using FIFOOVF1 = ftl::mmio::Field<1, 1, eFIFOOVF1, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Overflow Exception flag for Channel 2
-  enum class eFIFOOVF2 : uint32_t {
-    // No exception by FIFO overflow
-    eno_exception = 0,
-    // Exception by FIFO overflow
-    eexception = 1,
-  };
-  
+  using FIFOOVF2 = ftl::mmio::Field<1, 2, eFIFOOVF2, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Overflow Exception flag for Channel 3
-  enum class eFIFOOVF3 : uint32_t {
-    // No exception by FIFO overflow
-    eno_exception = 0,
-    // Exception by FIFO overflow
-    eexception = 1,
-  };
-  
+  using FIFOOVF3 = ftl::mmio::Field<1, 3, eFIFOOVF3, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Overflow Exception flag for Channel 4
-  enum class eFIFOOVF4 : uint32_t {
-    // No exception by FIFO overflow
-    eno_exception = 0,
-    // Exception by FIFO overflow
-    eexception = 1,
-  };
-  
+  using FIFOOVF4 = ftl::mmio::Field<1, 4, eFIFOOVF4, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Overflow Exception flag for Channel 5
-  enum class eFIFOOVF5 : uint32_t {
-    // No exception by FIFO overflow
-    eno_exception = 0,
-    // Exception by FIFO overflow
-    eexception = 1,
-  };
-  
+  using FIFOOVF5 = ftl::mmio::Field<1, 5, eFIFOOVF5, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Overflow Exception flag for Channel 6
-  enum class eFIFOOVF6 : uint32_t {
-    // No exception by FIFO overflow
-    eno_exception = 0,
-    // Exception by FIFO overflow
-    eexception = 1,
-  };
-  
+  using FIFOOVF6 = ftl::mmio::Field<1, 6, eFIFOOVF6, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Overflow Exception flag for Channel 7
-  enum class eFIFOOVF7 : uint32_t {
-    // No exception by FIFO overflow
-    eno_exception = 0,
-    // Exception by FIFO overflow
-    eexception = 1,
-  };
-  
+  using FIFOOVF7 = ftl::mmio::Field<1, 7, eFIFOOVF7, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Underflow Exception flag for Channel 0
-  enum class eFIFOUND0 : uint32_t {
-    // No exception by FIFO Underflow
-    eno_exception = 0,
-    // Exception by FIFO underflow
-    eexception = 1,
-  };
-  
+  using FIFOUND0 = ftl::mmio::Field<1, 8, eFIFOUND0, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Underflow Exception flag for Channel 1
-  enum class eFIFOUND1 : uint32_t {
-    // No exception by FIFO Underflow
-    eno_exception = 0,
-    // Exception by FIFO underflow
-    eexception = 1,
-  };
-  
+  using FIFOUND1 = ftl::mmio::Field<1, 9, eFIFOUND1, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Underflow Exception flag for Channel 2
-  enum class eFIFOUND2 : uint32_t {
-    // No exception by FIFO Underflow
-    eno_exception = 0,
-    // Exception by FIFO underflow
-    eexception = 1,
-  };
-  
+  using FIFOUND2 = ftl::mmio::Field<1, 10, eFIFOUND2, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Underflow Exception flag for Channel 3
-  enum class eFIFOUND3 : uint32_t {
-    // No exception by FIFO Underflow
-    eno_exception = 0,
-    // Exception by FIFO underflow
-    eexception = 1,
-  };
-  
+  using FIFOUND3 = ftl::mmio::Field<1, 11, eFIFOUND3, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Underflow Exception flag for Channel 4
-  enum class eFIFOUND4 : uint32_t {
-    // No exception by FIFO Underflow
-    eno_exception = 0,
-    // Exception by FIFO underflow
-    eexception = 1,
-  };
-  
+  using FIFOUND4 = ftl::mmio::Field<1, 12, eFIFOUND4, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Underflow Exception flag for Channel 5
-  enum class eFIFOUND5 : uint32_t {
-    // No exception by FIFO Underflow
-    eno_exception = 0,
-    // Exception by FIFO underflow
-    eexception = 1,
-  };
-  
+  using FIFOUND5 = ftl::mmio::Field<1, 13, eFIFOUND5, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Underflow Exception flag for Channel 6
-  enum class eFIFOUND6 : uint32_t {
-    // No exception by FIFO Underflow
-    eno_exception = 0,
-    // Exception by FIFO underflow
-    eexception = 1,
-  };
-  
+  using FIFOUND6 = ftl::mmio::Field<1, 14, eFIFOUND6, ftl::mmio::RW, ftl::mmio::OneToClear>;
   // FIFO Underflow Exception flag for Channel 7
-  enum class eFIFOUND7 : uint32_t {
-    // No exception by FIFO Underflow
-    eno_exception = 0,
-    // Exception by FIFO underflow
-    eexception = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - FIFO Overflow Exception flag for Channel 0
-    eFIFOOVF0 FIFOOVF0 : 1;
-    // read-write - FIFO Overflow Exception flag for Channel 1
-    eFIFOOVF1 FIFOOVF1 : 1;
-    // read-write - FIFO Overflow Exception flag for Channel 2
-    eFIFOOVF2 FIFOOVF2 : 1;
-    // read-write - FIFO Overflow Exception flag for Channel 3
-    eFIFOOVF3 FIFOOVF3 : 1;
-    // read-write - FIFO Overflow Exception flag for Channel 4
-    eFIFOOVF4 FIFOOVF4 : 1;
-    // read-write - FIFO Overflow Exception flag for Channel 5
-    eFIFOOVF5 FIFOOVF5 : 1;
-    // read-write - FIFO Overflow Exception flag for Channel 6
-    eFIFOOVF6 FIFOOVF6 : 1;
-    // read-write - FIFO Overflow Exception flag for Channel 7
-    eFIFOOVF7 FIFOOVF7 : 1;
-    // read-write - FIFO Underflow Exception flag for Channel 0
-    eFIFOUND0 FIFOUND0 : 1;
-    // read-write - FIFO Underflow Exception flag for Channel 1
-    eFIFOUND1 FIFOUND1 : 1;
-    // read-write - FIFO Underflow Exception flag for Channel 2
-    eFIFOUND2 FIFOUND2 : 1;
-    // read-write - FIFO Underflow Exception flag for Channel 3
-    eFIFOUND3 FIFOUND3 : 1;
-    // read-write - FIFO Underflow Exception flag for Channel 4
-    eFIFOUND4 FIFOUND4 : 1;
-    // read-write - FIFO Underflow Exception flag for Channel 5
-    eFIFOUND5 FIFOUND5 : 1;
-    // read-write - FIFO Underflow Exception flag for Channel 6
-    eFIFOUND6 FIFOUND6 : 1;
-    // read-write - FIFO Underflow Exception flag for Channel 7
-    eFIFOUND7 FIFOUND7 : 1;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  using FIFOUND7 = ftl::mmio::Field<1, 15, eFIFOUND7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct FIFO_STAT_fields_
 
-  FIFO_STAT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile FIFO_STAT &ref() { return *reinterpret_cast<volatile FIFO_STAT*>(0x40C20014); }
+struct FIFO_STAT : ftl::mmio::Register<
+    0x40C20014u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    FIFO_STAT_fields_::FIFOOVF0,
+    FIFO_STAT_fields_::FIFOOVF1,
+    FIFO_STAT_fields_::FIFOOVF2,
+    FIFO_STAT_fields_::FIFOOVF3,
+    FIFO_STAT_fields_::FIFOOVF4,
+    FIFO_STAT_fields_::FIFOOVF5,
+    FIFO_STAT_fields_::FIFOOVF6,
+    FIFO_STAT_fields_::FIFOOVF7,
+    FIFO_STAT_fields_::FIFOUND0,
+    FIFO_STAT_fields_::FIFOUND1,
+    FIFO_STAT_fields_::FIFOUND2,
+    FIFO_STAT_fields_::FIFOUND3,
+    FIFO_STAT_fields_::FIFOUND4,
+    FIFO_STAT_fields_::FIFOUND5,
+    FIFO_STAT_fields_::FIFOUND6,
+    FIFO_STAT_fields_::FIFOUND7,
+    ftl::mmio::Reserved<16, 16>> {
+  using eFIFOOVF0 = FIFO_STAT_fields_::eFIFOOVF0;
+  using eFIFOOVF1 = FIFO_STAT_fields_::eFIFOOVF1;
+  using eFIFOOVF2 = FIFO_STAT_fields_::eFIFOOVF2;
+  using eFIFOOVF3 = FIFO_STAT_fields_::eFIFOOVF3;
+  using eFIFOOVF4 = FIFO_STAT_fields_::eFIFOOVF4;
+  using eFIFOOVF5 = FIFO_STAT_fields_::eFIFOOVF5;
+  using eFIFOOVF6 = FIFO_STAT_fields_::eFIFOOVF6;
+  using eFIFOOVF7 = FIFO_STAT_fields_::eFIFOOVF7;
+  using eFIFOUND0 = FIFO_STAT_fields_::eFIFOUND0;
+  using eFIFOUND1 = FIFO_STAT_fields_::eFIFOUND1;
+  using eFIFOUND2 = FIFO_STAT_fields_::eFIFOUND2;
+  using eFIFOUND3 = FIFO_STAT_fields_::eFIFOUND3;
+  using eFIFOUND4 = FIFO_STAT_fields_::eFIFOUND4;
+  using eFIFOUND5 = FIFO_STAT_fields_::eFIFOUND5;
+  using eFIFOUND6 = FIFO_STAT_fields_::eFIFOUND6;
+  using eFIFOUND7 = FIFO_STAT_fields_::eFIFOUND7;
+  using FIFOOVF0 = FIFO_STAT_fields_::FIFOOVF0;
+  using FIFOOVF1 = FIFO_STAT_fields_::FIFOOVF1;
+  using FIFOOVF2 = FIFO_STAT_fields_::FIFOOVF2;
+  using FIFOOVF3 = FIFO_STAT_fields_::FIFOOVF3;
+  using FIFOOVF4 = FIFO_STAT_fields_::FIFOOVF4;
+  using FIFOOVF5 = FIFO_STAT_fields_::FIFOOVF5;
+  using FIFOOVF6 = FIFO_STAT_fields_::FIFOOVF6;
+  using FIFOOVF7 = FIFO_STAT_fields_::FIFOOVF7;
+  using FIFOUND0 = FIFO_STAT_fields_::FIFOUND0;
+  using FIFOUND1 = FIFO_STAT_fields_::FIFOUND1;
+  using FIFOUND2 = FIFO_STAT_fields_::FIFOUND2;
+  using FIFOUND3 = FIFO_STAT_fields_::FIFOUND3;
+  using FIFOUND4 = FIFO_STAT_fields_::FIFOUND4;
+  using FIFOUND5 = FIFO_STAT_fields_::FIFOUND5;
+  using FIFOUND6 = FIFO_STAT_fields_::FIFOUND6;
+  using FIFOUND7 = FIFO_STAT_fields_::FIFOUND7;
 };
+
 
 // PDM Output Result Register
-union DATACH_0 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Channel n Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DATACH_fields_ {
+  // Channel n Data
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct DATACH_fields_
 
-  DATACH_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_0 &ref() { return *reinterpret_cast<volatile DATACH_0*>(0x40C20024); }
+template<std::uint32_t Index>
+struct DATACH : ftl::mmio::Register<
+    0x40C20024u + (Index * 0x4u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    DATACH_fields_::DATA> {
+  static_assert(Index < 8u, "DATACH: Index out of range");
+  using DATA = DATACH_fields_::DATA;
 };
-// PDM Output Result Register
-union DATACH_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Channel n Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
 
-  DATACH_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_1 &ref() { return *reinterpret_cast<volatile DATACH_1*>(0x40C20028); }
-};
-// PDM Output Result Register
-union DATACH_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Channel n Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  DATACH_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_2 &ref() { return *reinterpret_cast<volatile DATACH_2*>(0x40C2002C); }
-};
-// PDM Output Result Register
-union DATACH_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Channel n Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  DATACH_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_3 &ref() { return *reinterpret_cast<volatile DATACH_3*>(0x40C20030); }
-};
-// PDM Output Result Register
-union DATACH_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Channel n Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  DATACH_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_4 &ref() { return *reinterpret_cast<volatile DATACH_4*>(0x40C20034); }
-};
-// PDM Output Result Register
-union DATACH_5 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Channel n Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  DATACH_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_5 &ref() { return *reinterpret_cast<volatile DATACH_5*>(0x40C20038); }
-};
-// PDM Output Result Register
-union DATACH_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Channel n Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  DATACH_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_6 &ref() { return *reinterpret_cast<volatile DATACH_6*>(0x40C2003C); }
-};
-// PDM Output Result Register
-union DATACH_7 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Channel n Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  DATACH_7() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATACH_7 &ref() { return *reinterpret_cast<volatile DATACH_7*>(0x40C20040); }
-};
 
 // PDM DC Remover Control register
-union DC_CTRL {
-  
-  // Channel 0 DC Remover Configuration
-  enum class eDCCONFIG0 : uint32_t {
-    // DC Remover cut-off at 21Hz
-    edc_rem_21Hz = 0,
-    // DC Remover cut-off at 83Hz
-    edc_rem_83Hz = 1,
-    // DC Remover cut-off at 152Hz
-    edc_rem_152Hz = 2,
-    // DC Remover is bypassed
-    edc_rem_bypass = 3,
-  };
-  
-  // Channel 1 DC Remover Configuration
-  enum class eDCCONFIG1 : uint32_t {
-    // DC Remover cut-off at 21Hz
-    edc_rem_21Hz = 0,
-    // DC Remover cut-off at 83Hz
-    edc_rem_83Hz = 1,
-    // DC Remover cut-off at 152Hz
-    edc_rem_152Hz = 2,
-    // DC Remover is bypassed
-    edc_rem_bypass = 3,
-  };
-  
-  // Channel 2 DC Remover Configuration
-  enum class eDCCONFIG2 : uint32_t {
-    // DC Remover cut-off at 21Hz
-    edc_rem_21Hz = 0,
-    // DC Remover cut-off at 83Hz
-    edc_rem_83Hz = 1,
-    // DC Remover cut-off at 152Hz
-    edc_rem_152Hz = 2,
-    // DC Remover is bypassed
-    edc_rem_bypass = 3,
-  };
-  
-  // Channel 3 DC Remover Configuration
-  enum class eDCCONFIG3 : uint32_t {
-    // DC Remover cut-off at 21Hz
-    edc_rem_21Hz = 0,
-    // DC Remover cut-off at 83Hz
-    edc_rem_83Hz = 1,
-    // DC Remover cut-off at 152Hz
-    edc_rem_152Hz = 2,
-    // DC Remover is bypassed
-    edc_rem_bypass = 3,
-  };
-  
-  // Channel 4 DC Remover Configuration
-  enum class eDCCONFIG4 : uint32_t {
-    // DC Remover cut-off at 21Hz
-    edc_rem_21Hz = 0,
-    // DC Remover cut-off at 83Hz
-    edc_rem_83Hz = 1,
-    // DC Remover cut-off at 152Hz
-    edc_rem_152Hz = 2,
-    // DC Remover is bypassed
-    edc_rem_bypass = 3,
-  };
-  
-  // Channel 5 DC Remover Configuration
-  enum class eDCCONFIG5 : uint32_t {
-    // DC Remover cut-off at 21Hz
-    edc_rem_21Hz = 0,
-    // DC Remover cut-off at 83Hz
-    edc_rem_83Hz = 1,
-    // DC Remover cut-off at 152Hz
-    edc_rem_152Hz = 2,
-    // DC Remover is bypassed
-    edc_rem_bypass = 3,
-  };
-  
-  // Channel 6 DC Remover Configuration
-  enum class eDCCONFIG6 : uint32_t {
-    // DC Remover cut-off at 21Hz
-    edc_rem_21Hz = 0,
-    // DC Remover cut-off at 83Hz
-    edc_rem_83Hz = 1,
-    // DC Remover cut-off at 152Hz
-    edc_rem_152Hz = 2,
-    // DC Remover is bypassed
-    edc_rem_bypass = 3,
-  };
-  
-  // Channel 7 DC Remover Configuration
-  enum class eDCCONFIG7 : uint32_t {
-    // DC Remover cut-off at 21Hz
-    edc_rem_21Hz = 0,
-    // DC Remover cut-off at 83Hz
-    edc_rem_83Hz = 1,
-    // DC Remover cut-off at 152Hz
-    edc_rem_152Hz = 2,
-    // DC Remover is bypassed
-    edc_rem_bypass = 3,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Channel 0 DC Remover Configuration
-    eDCCONFIG0 DCCONFIG0 : 2;
-    // read-write - Channel 1 DC Remover Configuration
-    eDCCONFIG1 DCCONFIG1 : 2;
-    // read-write - Channel 2 DC Remover Configuration
-    eDCCONFIG2 DCCONFIG2 : 2;
-    // read-write - Channel 3 DC Remover Configuration
-    eDCCONFIG3 DCCONFIG3 : 2;
-    // read-write - Channel 4 DC Remover Configuration
-    eDCCONFIG4 DCCONFIG4 : 2;
-    // read-write - Channel 5 DC Remover Configuration
-    eDCCONFIG5 DCCONFIG5 : 2;
-    // read-write - Channel 6 DC Remover Configuration
-    eDCCONFIG6 DCCONFIG6 : 2;
-    // read-write - Channel 7 DC Remover Configuration
-    eDCCONFIG7 DCCONFIG7 : 2;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DC_CTRL_fields_ {
 
-  DC_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DC_CTRL &ref() { return *reinterpret_cast<volatile DC_CTRL*>(0x40C20064); }
+  enum class eDCCONFIG0 : std::uint32_t {
+    // DC Remover cut-off at 21Hz
+    edc_rem_21Hz = 0,
+    // DC Remover cut-off at 83Hz
+    edc_rem_83Hz = 1,
+    // DC Remover cut-off at 152Hz
+    edc_rem_152Hz = 2,
+    // DC Remover is bypassed
+    edc_rem_bypass = 3,
+  };
+
+  enum class eDCCONFIG1 : std::uint32_t {
+    // DC Remover cut-off at 21Hz
+    edc_rem_21Hz = 0,
+    // DC Remover cut-off at 83Hz
+    edc_rem_83Hz = 1,
+    // DC Remover cut-off at 152Hz
+    edc_rem_152Hz = 2,
+    // DC Remover is bypassed
+    edc_rem_bypass = 3,
+  };
+
+  enum class eDCCONFIG2 : std::uint32_t {
+    // DC Remover cut-off at 21Hz
+    edc_rem_21Hz = 0,
+    // DC Remover cut-off at 83Hz
+    edc_rem_83Hz = 1,
+    // DC Remover cut-off at 152Hz
+    edc_rem_152Hz = 2,
+    // DC Remover is bypassed
+    edc_rem_bypass = 3,
+  };
+
+  enum class eDCCONFIG3 : std::uint32_t {
+    // DC Remover cut-off at 21Hz
+    edc_rem_21Hz = 0,
+    // DC Remover cut-off at 83Hz
+    edc_rem_83Hz = 1,
+    // DC Remover cut-off at 152Hz
+    edc_rem_152Hz = 2,
+    // DC Remover is bypassed
+    edc_rem_bypass = 3,
+  };
+
+  enum class eDCCONFIG4 : std::uint32_t {
+    // DC Remover cut-off at 21Hz
+    edc_rem_21Hz = 0,
+    // DC Remover cut-off at 83Hz
+    edc_rem_83Hz = 1,
+    // DC Remover cut-off at 152Hz
+    edc_rem_152Hz = 2,
+    // DC Remover is bypassed
+    edc_rem_bypass = 3,
+  };
+
+  enum class eDCCONFIG5 : std::uint32_t {
+    // DC Remover cut-off at 21Hz
+    edc_rem_21Hz = 0,
+    // DC Remover cut-off at 83Hz
+    edc_rem_83Hz = 1,
+    // DC Remover cut-off at 152Hz
+    edc_rem_152Hz = 2,
+    // DC Remover is bypassed
+    edc_rem_bypass = 3,
+  };
+
+  enum class eDCCONFIG6 : std::uint32_t {
+    // DC Remover cut-off at 21Hz
+    edc_rem_21Hz = 0,
+    // DC Remover cut-off at 83Hz
+    edc_rem_83Hz = 1,
+    // DC Remover cut-off at 152Hz
+    edc_rem_152Hz = 2,
+    // DC Remover is bypassed
+    edc_rem_bypass = 3,
+  };
+
+  enum class eDCCONFIG7 : std::uint32_t {
+    // DC Remover cut-off at 21Hz
+    edc_rem_21Hz = 0,
+    // DC Remover cut-off at 83Hz
+    edc_rem_83Hz = 1,
+    // DC Remover cut-off at 152Hz
+    edc_rem_152Hz = 2,
+    // DC Remover is bypassed
+    edc_rem_bypass = 3,
+  };
+  // Channel 0 DC Remover Configuration
+  using DCCONFIG0 = ftl::mmio::Field<2, 0, eDCCONFIG0, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 1 DC Remover Configuration
+  using DCCONFIG1 = ftl::mmio::Field<2, 2, eDCCONFIG1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 2 DC Remover Configuration
+  using DCCONFIG2 = ftl::mmio::Field<2, 4, eDCCONFIG2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 3 DC Remover Configuration
+  using DCCONFIG3 = ftl::mmio::Field<2, 6, eDCCONFIG3, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 4 DC Remover Configuration
+  using DCCONFIG4 = ftl::mmio::Field<2, 8, eDCCONFIG4, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 5 DC Remover Configuration
+  using DCCONFIG5 = ftl::mmio::Field<2, 10, eDCCONFIG5, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 6 DC Remover Configuration
+  using DCCONFIG6 = ftl::mmio::Field<2, 12, eDCCONFIG6, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 7 DC Remover Configuration
+  using DCCONFIG7 = ftl::mmio::Field<2, 14, eDCCONFIG7, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DC_CTRL_fields_
+
+struct DC_CTRL : ftl::mmio::Register<
+    0x40C20064u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DC_CTRL_fields_::DCCONFIG0,
+    DC_CTRL_fields_::DCCONFIG1,
+    DC_CTRL_fields_::DCCONFIG2,
+    DC_CTRL_fields_::DCCONFIG3,
+    DC_CTRL_fields_::DCCONFIG4,
+    DC_CTRL_fields_::DCCONFIG5,
+    DC_CTRL_fields_::DCCONFIG6,
+    DC_CTRL_fields_::DCCONFIG7,
+    ftl::mmio::Reserved<16, 16>> {
+  using eDCCONFIG0 = DC_CTRL_fields_::eDCCONFIG0;
+  using eDCCONFIG1 = DC_CTRL_fields_::eDCCONFIG1;
+  using eDCCONFIG2 = DC_CTRL_fields_::eDCCONFIG2;
+  using eDCCONFIG3 = DC_CTRL_fields_::eDCCONFIG3;
+  using eDCCONFIG4 = DC_CTRL_fields_::eDCCONFIG4;
+  using eDCCONFIG5 = DC_CTRL_fields_::eDCCONFIG5;
+  using eDCCONFIG6 = DC_CTRL_fields_::eDCCONFIG6;
+  using eDCCONFIG7 = DC_CTRL_fields_::eDCCONFIG7;
+  using DCCONFIG0 = DC_CTRL_fields_::DCCONFIG0;
+  using DCCONFIG1 = DC_CTRL_fields_::DCCONFIG1;
+  using DCCONFIG2 = DC_CTRL_fields_::DCCONFIG2;
+  using DCCONFIG3 = DC_CTRL_fields_::DCCONFIG3;
+  using DCCONFIG4 = DC_CTRL_fields_::DCCONFIG4;
+  using DCCONFIG5 = DC_CTRL_fields_::DCCONFIG5;
+  using DCCONFIG6 = DC_CTRL_fields_::DCCONFIG6;
+  using DCCONFIG7 = DC_CTRL_fields_::DCCONFIG7;
 };
+
 
 // PDM Range Control register
-union RANGE_CTRL {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Channel 0 Range Adjustment
-    uint32_t RANGEADJ0 : 4;
-    // read-write - Channel 1 Range Adjustment
-    uint32_t RANGEADJ1 : 4;
-    // read-write - Channel 2 Range Adjustment
-    uint32_t RANGEADJ2 : 4;
-    // read-write - Channel 3 Range Adjustment
-    uint32_t RANGEADJ3 : 4;
-    // read-write - Channel 4 Range Adjustment
-    uint32_t RANGEADJ4 : 4;
-    // read-write - Channel 5 Range Adjustment
-    uint32_t RANGEADJ5 : 4;
-    // read-write - Channel 6 Range Adjustment
-    uint32_t RANGEADJ6 : 4;
-    // read-write - Channel 7 Range Adjustment
-    uint32_t RANGEADJ7 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RANGE_CTRL_fields_ {
+  // Channel 0 Range Adjustment
+  using RANGEADJ0 = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 1 Range Adjustment
+  using RANGEADJ1 = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 2 Range Adjustment
+  using RANGEADJ2 = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 3 Range Adjustment
+  using RANGEADJ3 = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 4 Range Adjustment
+  using RANGEADJ4 = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 5 Range Adjustment
+  using RANGEADJ5 = ftl::mmio::Field<4, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 6 Range Adjustment
+  using RANGEADJ6 = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Channel 7 Range Adjustment
+  using RANGEADJ7 = ftl::mmio::Field<4, 28, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct RANGE_CTRL_fields_
 
-  RANGE_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RANGE_CTRL &ref() { return *reinterpret_cast<volatile RANGE_CTRL*>(0x40C20074); }
+struct RANGE_CTRL : ftl::mmio::Register<
+    0x40C20074u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    RANGE_CTRL_fields_::RANGEADJ0,
+    RANGE_CTRL_fields_::RANGEADJ1,
+    RANGE_CTRL_fields_::RANGEADJ2,
+    RANGE_CTRL_fields_::RANGEADJ3,
+    RANGE_CTRL_fields_::RANGEADJ4,
+    RANGE_CTRL_fields_::RANGEADJ5,
+    RANGE_CTRL_fields_::RANGEADJ6,
+    RANGE_CTRL_fields_::RANGEADJ7> {
+  using RANGEADJ0 = RANGE_CTRL_fields_::RANGEADJ0;
+  using RANGEADJ1 = RANGE_CTRL_fields_::RANGEADJ1;
+  using RANGEADJ2 = RANGE_CTRL_fields_::RANGEADJ2;
+  using RANGEADJ3 = RANGE_CTRL_fields_::RANGEADJ3;
+  using RANGEADJ4 = RANGE_CTRL_fields_::RANGEADJ4;
+  using RANGEADJ5 = RANGE_CTRL_fields_::RANGEADJ5;
+  using RANGEADJ6 = RANGE_CTRL_fields_::RANGEADJ6;
+  using RANGEADJ7 = RANGE_CTRL_fields_::RANGEADJ7;
 };
+
 
 // PDM Range Status register
-union RANGE_STAT {
-  
-  // Channel 0 Range Overflow Error Flag
-  enum class eRANGEOVF0 : uint32_t {
-    // No exception by range overflow
-    eno_exception = 0,
-    // Exception by range overflow
-    eexception = 1,
-  };
-  
-  // Channel 1 Range Overflow Error Flag
-  enum class eRANGEOVF1 : uint32_t {
-    // No exception by range overflow
-    eno_exception = 0,
-    // Exception by range overflow
-    eexception = 1,
-  };
-  
-  // Channel 2 Range Overflow Error Flag
-  enum class eRANGEOVF2 : uint32_t {
-    // No exception by range overflow
-    eno_exception = 0,
-    // Exception by range overflow
-    eexception = 1,
-  };
-  
-  // Channel 3 Range Overflow Error Flag
-  enum class eRANGEOVF3 : uint32_t {
-    // No exception by range overflow
-    eno_exception = 0,
-    // Exception by range overflow
-    eexception = 1,
-  };
-  
-  // Channel 4 Range Overflow Error Flag
-  enum class eRANGEOVF4 : uint32_t {
-    // No exception by range overflow
-    eno_exception = 0,
-    // Exception by range overflow
-    eexception = 1,
-  };
-  
-  // Channel 5 Range Overflow Error Flag
-  enum class eRANGEOVF5 : uint32_t {
-    // No exception by range overflow
-    eno_exception = 0,
-    // Exception by range overflow
-    eexception = 1,
-  };
-  
-  // Channel 6 Range Overflow Error Flag
-  enum class eRANGEOVF6 : uint32_t {
-    // No exception by range overflow
-    eno_exception = 0,
-    // Exception by range overflow
-    eexception = 1,
-  };
-  
-  // Channel 7 Range Overflow Error Flag
-  enum class eRANGEOVF7 : uint32_t {
-    // No exception by range overflow
-    eno_exception = 0,
-    // Exception by range overflow
-    eexception = 1,
-  };
-  
-  // Channel 0 Range Underflow Error Flag
-  enum class eRANGEUNF0 : uint32_t {
-    // No exception by range underflow
-    eno_exception = 0,
-    // Exception by range underflow
-    eexception = 1,
-  };
-  
-  // Channel 1 Range Underflow Error Flag
-  enum class eRANGEUNF1 : uint32_t {
-    // No exception by range underflow
-    eno_exception = 0,
-    // Exception by range underflow
-    eexception = 1,
-  };
-  
-  // Channel 2 Range Underflow Error Flag
-  enum class eRANGEUNF2 : uint32_t {
-    // No exception by range underflow
-    eno_exception = 0,
-    // Exception by range underflow
-    eexception = 1,
-  };
-  
-  // Channel 3 Range Underflow Error Flag
-  enum class eRANGEUNF3 : uint32_t {
-    // No exception by range underflow
-    eno_exception = 0,
-    // Exception by range underflow
-    eexception = 1,
-  };
-  
-  // Channel 4 Range Underflow Error Flag
-  enum class eRANGEUNF4 : uint32_t {
-    // No exception by range underflow
-    eno_exception = 0,
-    // Exception by range underflow
-    eexception = 1,
-  };
-  
-  // Channel 5 Range Underflow Error Flag
-  enum class eRANGEUNF5 : uint32_t {
-    // No exception by range underflow
-    eno_exception = 0,
-    // Exception by range underflow
-    eexception = 1,
-  };
-  
-  // Channel 6 Range Underflow Error Flag
-  enum class eRANGEUNF6 : uint32_t {
-    // No exception by range underflow
-    eno_exception = 0,
-    // Exception by range underflow
-    eexception = 1,
-  };
-  
-  // Channel 7 Range Underflow Error Flag
-  enum class eRANGEUNF7 : uint32_t {
-    // No exception by range underflow
-    eno_exception = 0,
-    // Exception by range underflow
-    eexception = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Channel 0 Range Overflow Error Flag
-    eRANGEOVF0 RANGEOVF0 : 1;
-    // read-write - Channel 1 Range Overflow Error Flag
-    eRANGEOVF1 RANGEOVF1 : 1;
-    // read-write - Channel 2 Range Overflow Error Flag
-    eRANGEOVF2 RANGEOVF2 : 1;
-    // read-write - Channel 3 Range Overflow Error Flag
-    eRANGEOVF3 RANGEOVF3 : 1;
-    // read-write - Channel 4 Range Overflow Error Flag
-    eRANGEOVF4 RANGEOVF4 : 1;
-    // read-write - Channel 5 Range Overflow Error Flag
-    eRANGEOVF5 RANGEOVF5 : 1;
-    // read-write - Channel 6 Range Overflow Error Flag
-    eRANGEOVF6 RANGEOVF6 : 1;
-    // read-write - Channel 7 Range Overflow Error Flag
-    eRANGEOVF7 RANGEOVF7 : 1;
-    uint32_t _reserved_0 : 8;
-    // read-write - Channel 0 Range Underflow Error Flag
-    eRANGEUNF0 RANGEUNF0 : 1;
-    // read-write - Channel 1 Range Underflow Error Flag
-    eRANGEUNF1 RANGEUNF1 : 1;
-    // read-write - Channel 2 Range Underflow Error Flag
-    eRANGEUNF2 RANGEUNF2 : 1;
-    // read-write - Channel 3 Range Underflow Error Flag
-    eRANGEUNF3 RANGEUNF3 : 1;
-    // read-write - Channel 4 Range Underflow Error Flag
-    eRANGEUNF4 RANGEUNF4 : 1;
-    // read-write - Channel 5 Range Underflow Error Flag
-    eRANGEUNF5 RANGEUNF5 : 1;
-    // read-write - Channel 6 Range Underflow Error Flag
-    eRANGEUNF6 RANGEUNF6 : 1;
-    // read-write - Channel 7 Range Underflow Error Flag
-    eRANGEUNF7 RANGEUNF7 : 1;
-    uint32_t _reserved_1 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RANGE_STAT_fields_ {
 
-  RANGE_STAT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RANGE_STAT &ref() { return *reinterpret_cast<volatile RANGE_STAT*>(0x40C2007C); }
+  enum class eRANGEOVF0 : std::uint32_t {
+    // No exception by range overflow
+    eno_exception = 0,
+    // Exception by range overflow
+    eexception = 1,
+  };
+
+  enum class eRANGEOVF1 : std::uint32_t {
+    // No exception by range overflow
+    eno_exception = 0,
+    // Exception by range overflow
+    eexception = 1,
+  };
+
+  enum class eRANGEOVF2 : std::uint32_t {
+    // No exception by range overflow
+    eno_exception = 0,
+    // Exception by range overflow
+    eexception = 1,
+  };
+
+  enum class eRANGEOVF3 : std::uint32_t {
+    // No exception by range overflow
+    eno_exception = 0,
+    // Exception by range overflow
+    eexception = 1,
+  };
+
+  enum class eRANGEOVF4 : std::uint32_t {
+    // No exception by range overflow
+    eno_exception = 0,
+    // Exception by range overflow
+    eexception = 1,
+  };
+
+  enum class eRANGEOVF5 : std::uint32_t {
+    // No exception by range overflow
+    eno_exception = 0,
+    // Exception by range overflow
+    eexception = 1,
+  };
+
+  enum class eRANGEOVF6 : std::uint32_t {
+    // No exception by range overflow
+    eno_exception = 0,
+    // Exception by range overflow
+    eexception = 1,
+  };
+
+  enum class eRANGEOVF7 : std::uint32_t {
+    // No exception by range overflow
+    eno_exception = 0,
+    // Exception by range overflow
+    eexception = 1,
+  };
+
+  enum class eRANGEUNF0 : std::uint32_t {
+    // No exception by range underflow
+    eno_exception = 0,
+    // Exception by range underflow
+    eexception = 1,
+  };
+
+  enum class eRANGEUNF1 : std::uint32_t {
+    // No exception by range underflow
+    eno_exception = 0,
+    // Exception by range underflow
+    eexception = 1,
+  };
+
+  enum class eRANGEUNF2 : std::uint32_t {
+    // No exception by range underflow
+    eno_exception = 0,
+    // Exception by range underflow
+    eexception = 1,
+  };
+
+  enum class eRANGEUNF3 : std::uint32_t {
+    // No exception by range underflow
+    eno_exception = 0,
+    // Exception by range underflow
+    eexception = 1,
+  };
+
+  enum class eRANGEUNF4 : std::uint32_t {
+    // No exception by range underflow
+    eno_exception = 0,
+    // Exception by range underflow
+    eexception = 1,
+  };
+
+  enum class eRANGEUNF5 : std::uint32_t {
+    // No exception by range underflow
+    eno_exception = 0,
+    // Exception by range underflow
+    eexception = 1,
+  };
+
+  enum class eRANGEUNF6 : std::uint32_t {
+    // No exception by range underflow
+    eno_exception = 0,
+    // Exception by range underflow
+    eexception = 1,
+  };
+
+  enum class eRANGEUNF7 : std::uint32_t {
+    // No exception by range underflow
+    eno_exception = 0,
+    // Exception by range underflow
+    eexception = 1,
+  };
+  // Channel 0 Range Overflow Error Flag
+  using RANGEOVF0 = ftl::mmio::Field<1, 0, eRANGEOVF0, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 1 Range Overflow Error Flag
+  using RANGEOVF1 = ftl::mmio::Field<1, 1, eRANGEOVF1, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 2 Range Overflow Error Flag
+  using RANGEOVF2 = ftl::mmio::Field<1, 2, eRANGEOVF2, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 3 Range Overflow Error Flag
+  using RANGEOVF3 = ftl::mmio::Field<1, 3, eRANGEOVF3, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 4 Range Overflow Error Flag
+  using RANGEOVF4 = ftl::mmio::Field<1, 4, eRANGEOVF4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 5 Range Overflow Error Flag
+  using RANGEOVF5 = ftl::mmio::Field<1, 5, eRANGEOVF5, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 6 Range Overflow Error Flag
+  using RANGEOVF6 = ftl::mmio::Field<1, 6, eRANGEOVF6, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 7 Range Overflow Error Flag
+  using RANGEOVF7 = ftl::mmio::Field<1, 7, eRANGEOVF7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 0 Range Underflow Error Flag
+  using RANGEUNF0 = ftl::mmio::Field<1, 16, eRANGEUNF0, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 1 Range Underflow Error Flag
+  using RANGEUNF1 = ftl::mmio::Field<1, 17, eRANGEUNF1, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 2 Range Underflow Error Flag
+  using RANGEUNF2 = ftl::mmio::Field<1, 18, eRANGEUNF2, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 3 Range Underflow Error Flag
+  using RANGEUNF3 = ftl::mmio::Field<1, 19, eRANGEUNF3, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 4 Range Underflow Error Flag
+  using RANGEUNF4 = ftl::mmio::Field<1, 20, eRANGEUNF4, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 5 Range Underflow Error Flag
+  using RANGEUNF5 = ftl::mmio::Field<1, 21, eRANGEUNF5, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 6 Range Underflow Error Flag
+  using RANGEUNF6 = ftl::mmio::Field<1, 22, eRANGEUNF6, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Channel 7 Range Underflow Error Flag
+  using RANGEUNF7 = ftl::mmio::Field<1, 23, eRANGEUNF7, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct RANGE_STAT_fields_
+
+struct RANGE_STAT : ftl::mmio::Register<
+    0x40C2007Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    RANGE_STAT_fields_::RANGEOVF0,
+    RANGE_STAT_fields_::RANGEOVF1,
+    RANGE_STAT_fields_::RANGEOVF2,
+    RANGE_STAT_fields_::RANGEOVF3,
+    RANGE_STAT_fields_::RANGEOVF4,
+    RANGE_STAT_fields_::RANGEOVF5,
+    RANGE_STAT_fields_::RANGEOVF6,
+    RANGE_STAT_fields_::RANGEOVF7,
+    ftl::mmio::Reserved<8, 8>,
+    RANGE_STAT_fields_::RANGEUNF0,
+    RANGE_STAT_fields_::RANGEUNF1,
+    RANGE_STAT_fields_::RANGEUNF2,
+    RANGE_STAT_fields_::RANGEUNF3,
+    RANGE_STAT_fields_::RANGEUNF4,
+    RANGE_STAT_fields_::RANGEUNF5,
+    RANGE_STAT_fields_::RANGEUNF6,
+    RANGE_STAT_fields_::RANGEUNF7,
+    ftl::mmio::Reserved<8, 24>> {
+  using eRANGEOVF0 = RANGE_STAT_fields_::eRANGEOVF0;
+  using eRANGEOVF1 = RANGE_STAT_fields_::eRANGEOVF1;
+  using eRANGEOVF2 = RANGE_STAT_fields_::eRANGEOVF2;
+  using eRANGEOVF3 = RANGE_STAT_fields_::eRANGEOVF3;
+  using eRANGEOVF4 = RANGE_STAT_fields_::eRANGEOVF4;
+  using eRANGEOVF5 = RANGE_STAT_fields_::eRANGEOVF5;
+  using eRANGEOVF6 = RANGE_STAT_fields_::eRANGEOVF6;
+  using eRANGEOVF7 = RANGE_STAT_fields_::eRANGEOVF7;
+  using eRANGEUNF0 = RANGE_STAT_fields_::eRANGEUNF0;
+  using eRANGEUNF1 = RANGE_STAT_fields_::eRANGEUNF1;
+  using eRANGEUNF2 = RANGE_STAT_fields_::eRANGEUNF2;
+  using eRANGEUNF3 = RANGE_STAT_fields_::eRANGEUNF3;
+  using eRANGEUNF4 = RANGE_STAT_fields_::eRANGEUNF4;
+  using eRANGEUNF5 = RANGE_STAT_fields_::eRANGEUNF5;
+  using eRANGEUNF6 = RANGE_STAT_fields_::eRANGEUNF6;
+  using eRANGEUNF7 = RANGE_STAT_fields_::eRANGEUNF7;
+  using RANGEOVF0 = RANGE_STAT_fields_::RANGEOVF0;
+  using RANGEOVF1 = RANGE_STAT_fields_::RANGEOVF1;
+  using RANGEOVF2 = RANGE_STAT_fields_::RANGEOVF2;
+  using RANGEOVF3 = RANGE_STAT_fields_::RANGEOVF3;
+  using RANGEOVF4 = RANGE_STAT_fields_::RANGEOVF4;
+  using RANGEOVF5 = RANGE_STAT_fields_::RANGEOVF5;
+  using RANGEOVF6 = RANGE_STAT_fields_::RANGEOVF6;
+  using RANGEOVF7 = RANGE_STAT_fields_::RANGEOVF7;
+  using RANGEUNF0 = RANGE_STAT_fields_::RANGEUNF0;
+  using RANGEUNF1 = RANGE_STAT_fields_::RANGEUNF1;
+  using RANGEUNF2 = RANGE_STAT_fields_::RANGEUNF2;
+  using RANGEUNF3 = RANGE_STAT_fields_::RANGEUNF3;
+  using RANGEUNF4 = RANGE_STAT_fields_::RANGEUNF4;
+  using RANGEUNF5 = RANGE_STAT_fields_::RANGEUNF5;
+  using RANGEUNF6 = RANGE_STAT_fields_::RANGEUNF6;
+  using RANGEUNF7 = RANGE_STAT_fields_::RANGEUNF7;
 };
 
+
 // Voice Activity Detector 0 Control register
-union VAD0_CTRL_1 {
-  
-  // Voice Activity Detector Enable
-  enum class eVADEN : uint32_t {
+struct VAD0_CTRL_1_fields_ {
+
+  enum class eVADEN : std::uint32_t {
     // The HWVAD is disabled
     edisabled = 0,
     // The HWVAD is enabled
     eenabled = 1,
   };
-  
-  // Voice Activity Detector Interruption Enable
-  enum class eVADIE : uint32_t {
+
+  enum class eVADIE : std::uint32_t {
     // HWVAD Interrupts disabled
     edisabled = 0,
     // HWVAD Interrupts enabled
     eenabled = 1,
   };
-  
-  // Voice Activity Detector Error Interruption Enable
-  enum class eVADERIE : uint32_t {
+
+  enum class eVADERIE : std::uint32_t {
     // HWVAD Error Interrupts disabled
     edisabled = 0,
     // HWVAD Error Interrupts enabled
     eenabled = 1,
   };
-  
-  // Voice Activity Detector Internal Filters Initialization
-  enum class eVADST10 : uint32_t {
+
+  enum class eVADST10 : std::uint32_t {
     // Normal operation.
     enormal_op = 0,
     // Filters are initialized.
     efilt_init = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Voice Activity Detector Enable
-    eVADEN VADEN : 1;
-    // read-write - Voice Activity Detector Reset
-    uint32_t VADRST : 1;
-    // read-write - Voice Activity Detector Interruption Enable
-    eVADIE VADIE : 1;
-    // read-write - Voice Activity Detector Error Interruption Enable
-    eVADERIE VADERIE : 1;
-    // read-write - Voice Activity Detector Internal Filters Initialization
-    eVADST10 VADST10 : 1;
-    uint32_t _reserved_0 : 3;
-    // read-write - Voice Activity Detector Initialization Time
-    uint32_t VADINITT : 5;
-    uint32_t _reserved_1 : 3;
-    // read-write - Voice Activity Detector CIC Oversampling Rate
-    uint32_t VADCICOSR : 4;
-    uint32_t _reserved_2 : 4;
-    // read-write - Voice Activity Detector Channel Selector
-    uint32_t VADCHSEL : 3;
-    uint32_t _reserved_3 : 5;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Voice Activity Detector Enable
+  using VADEN = ftl::mmio::Field<1, 0, eVADEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Reset
+  using VADRST = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Interruption Enable
+  using VADIE = ftl::mmio::Field<1, 2, eVADIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Error Interruption Enable
+  using VADERIE = ftl::mmio::Field<1, 3, eVADERIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Internal Filters Initialization
+  using VADST10 = ftl::mmio::Field<1, 4, eVADST10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Initialization Time
+  using VADINITT = ftl::mmio::Field<5, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector CIC Oversampling Rate
+  using VADCICOSR = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Channel Selector
+  using VADCHSEL = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct VAD0_CTRL_1_fields_
 
-  VAD0_CTRL_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VAD0_CTRL_1 &ref() { return *reinterpret_cast<volatile VAD0_CTRL_1*>(0x40C20090); }
+struct VAD0_CTRL_1 : ftl::mmio::Register<
+    0x40C20090u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    VAD0_CTRL_1_fields_::VADEN,
+    VAD0_CTRL_1_fields_::VADRST,
+    VAD0_CTRL_1_fields_::VADIE,
+    VAD0_CTRL_1_fields_::VADERIE,
+    VAD0_CTRL_1_fields_::VADST10,
+    ftl::mmio::Reserved<3, 5>,
+    VAD0_CTRL_1_fields_::VADINITT,
+    ftl::mmio::Reserved<3, 13>,
+    VAD0_CTRL_1_fields_::VADCICOSR,
+    ftl::mmio::Reserved<4, 20>,
+    VAD0_CTRL_1_fields_::VADCHSEL,
+    ftl::mmio::Reserved<5, 27>> {
+  using eVADEN = VAD0_CTRL_1_fields_::eVADEN;
+  using eVADIE = VAD0_CTRL_1_fields_::eVADIE;
+  using eVADERIE = VAD0_CTRL_1_fields_::eVADERIE;
+  using eVADST10 = VAD0_CTRL_1_fields_::eVADST10;
+  using VADEN = VAD0_CTRL_1_fields_::VADEN;
+  using VADRST = VAD0_CTRL_1_fields_::VADRST;
+  using VADIE = VAD0_CTRL_1_fields_::VADIE;
+  using VADERIE = VAD0_CTRL_1_fields_::VADERIE;
+  using VADST10 = VAD0_CTRL_1_fields_::VADST10;
+  using VADINITT = VAD0_CTRL_1_fields_::VADINITT;
+  using VADCICOSR = VAD0_CTRL_1_fields_::VADCICOSR;
+  using VADCHSEL = VAD0_CTRL_1_fields_::VADCHSEL;
 };
 
+
 // Voice Activity Detector 0 Control register
-union VAD0_CTRL_2 {
-  
-  // Voice Activity Detector High-Pass Filter
-  enum class eVADHPF : uint32_t {
+struct VAD0_CTRL_2_fields_ {
+
+  enum class eVADHPF : std::uint32_t {
     // Filter bypassed.
     efilt_bypass = 0,
     // Cut-off frequency at 1750Hz.
@@ -1022,286 +1056,317 @@ union VAD0_CTRL_2 {
     // Cut-off frequency at 102Hz.
     ecutoff_102Hz = 3,
   };
-  
-  // Voice Activity Detector Force Output Disable
-  enum class eVADFOUTDIS : uint32_t {
+
+  enum class eVADFOUTDIS : std::uint32_t {
     // Output is enabled.
     eout_enabled = 0,
     // Output is disabled.
     eout_disabled = 1,
   };
-  
-  // Voice Activity Detector Pre Filter Enable
-  enum class eVADPREFEN : uint32_t {
+
+  enum class eVADPREFEN : std::uint32_t {
     // Pre-filter is bypassed.
     ebypassed = 0,
     // Pre-filter is enabled.
     eenabled = 1,
   };
-  
-  // Voice Activity Detector Frame Energy Disable
-  enum class eVADFRENDIS : uint32_t {
+
+  enum class eVADFRENDIS : std::uint32_t {
     // Frame energy calculus enabled.
     eenabled = 0,
     // Frame energy calculus disabled.
     edisabled = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Voice Activity Detector High-Pass Filter
-    eVADHPF VADHPF : 2;
-    uint32_t _reserved_0 : 6;
-    // read-write - Voice Activity Detector Input Gain
-    uint32_t VADINPGAIN : 4;
-    uint32_t _reserved_1 : 4;
-    // read-write - Voice Activity Detector Frame Time
-    uint32_t VADFRAMET : 6;
-    uint32_t _reserved_2 : 6;
-    // read-write - Voice Activity Detector Force Output Disable
-    eVADFOUTDIS VADFOUTDIS : 1;
-    uint32_t _reserved_3 : 1;
-    // read-write - Voice Activity Detector Pre Filter Enable
-    eVADPREFEN VADPREFEN : 1;
-    // read-write - Voice Activity Detector Frame Energy Disable
-    eVADFRENDIS VADFRENDIS : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Voice Activity Detector High-Pass Filter
+  using VADHPF = ftl::mmio::Field<2, 0, eVADHPF, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Input Gain
+  using VADINPGAIN = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Frame Time
+  using VADFRAMET = ftl::mmio::Field<6, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Force Output Disable
+  using VADFOUTDIS = ftl::mmio::Field<1, 28, eVADFOUTDIS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Pre Filter Enable
+  using VADPREFEN = ftl::mmio::Field<1, 30, eVADPREFEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Frame Energy Disable
+  using VADFRENDIS = ftl::mmio::Field<1, 31, eVADFRENDIS, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct VAD0_CTRL_2_fields_
 
-  VAD0_CTRL_2() = delete;
-  inline void Reset() volatile { this->value = 0x000A0000; }
-  static inline volatile VAD0_CTRL_2 &ref() { return *reinterpret_cast<volatile VAD0_CTRL_2*>(0x40C20094); }
+struct VAD0_CTRL_2 : ftl::mmio::Register<
+    0x40C20094u,
+    std::uint32_t,
+    0x000A0000u,
+    ftl::mmio::RW,
+    VAD0_CTRL_2_fields_::VADHPF,
+    ftl::mmio::Reserved<6, 2>,
+    VAD0_CTRL_2_fields_::VADINPGAIN,
+    ftl::mmio::Reserved<4, 12>,
+    VAD0_CTRL_2_fields_::VADFRAMET,
+    ftl::mmio::Reserved<6, 22>,
+    VAD0_CTRL_2_fields_::VADFOUTDIS,
+    ftl::mmio::Reserved<1, 29>,
+    VAD0_CTRL_2_fields_::VADPREFEN,
+    VAD0_CTRL_2_fields_::VADFRENDIS> {
+  using eVADHPF = VAD0_CTRL_2_fields_::eVADHPF;
+  using eVADFOUTDIS = VAD0_CTRL_2_fields_::eVADFOUTDIS;
+  using eVADPREFEN = VAD0_CTRL_2_fields_::eVADPREFEN;
+  using eVADFRENDIS = VAD0_CTRL_2_fields_::eVADFRENDIS;
+  using VADHPF = VAD0_CTRL_2_fields_::VADHPF;
+  using VADINPGAIN = VAD0_CTRL_2_fields_::VADINPGAIN;
+  using VADFRAMET = VAD0_CTRL_2_fields_::VADFRAMET;
+  using VADFOUTDIS = VAD0_CTRL_2_fields_::VADFOUTDIS;
+  using VADPREFEN = VAD0_CTRL_2_fields_::VADPREFEN;
+  using VADFRENDIS = VAD0_CTRL_2_fields_::VADFRENDIS;
 };
 
+
 // Voice Activity Detector 0 Status register
-union VAD0_STAT {
-  
-  // Voice Activity Detector Interrupt Flag
-  enum class eVADIF : uint32_t {
+struct VAD0_STAT_fields_ {
+
+  enum class eVADIF : std::uint32_t {
     // Voice activity not detected
     eno_detect = 0,
     // Voice activity detected
     edetect = 1,
   };
-  
-  // Voice Activity Detector Event Flag
-  enum class eVADEF : uint32_t {
+
+  enum class eVADEF : std::uint32_t {
     // Voice activity not detected
     eno_detect = 0,
     // Voice activity detected
     edetect = 1,
   };
-  
-  // Voice Activity Detector Input Saturation Flag
-  enum class eVADINSATF : uint32_t {
+
+  enum class eVADINSATF : std::uint32_t {
     // No exception
     eno_exception = 0,
     // Exception
     eexception = 1,
   };
-  
-  // Voice Activity Detector Initialization Flag
-  enum class eVADINITF : uint32_t {
+
+  enum class eVADINITF : std::uint32_t {
     // HWVAD is not being initialized.
     enot_init = 0,
     // HWVAD is being initialized.
     einit = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Voice Activity Detector Interrupt Flag
-    eVADIF VADIF : 1;
-    uint32_t _reserved_0 : 14;
-    // read-only - Voice Activity Detector Event Flag
-    eVADEF VADEF : 1;
-    // read-write - Voice Activity Detector Input Saturation Flag
-    eVADINSATF VADINSATF : 1;
-    uint32_t _reserved_1 : 14;
-    // read-only - Voice Activity Detector Initialization Flag
-    eVADINITF VADINITF : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Voice Activity Detector Interrupt Flag
+  using VADIF = ftl::mmio::Field<1, 0, eVADIF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Voice Activity Detector Event Flag
+  using VADEF = ftl::mmio::Field<1, 15, eVADEF, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Voice Activity Detector Input Saturation Flag
+  using VADINSATF = ftl::mmio::Field<1, 16, eVADINSATF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Voice Activity Detector Initialization Flag
+  using VADINITF = ftl::mmio::Field<1, 31, eVADINITF, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct VAD0_STAT_fields_
 
-  VAD0_STAT() = delete;
-  inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile VAD0_STAT &ref() { return *reinterpret_cast<volatile VAD0_STAT*>(0x40C20098); }
+struct VAD0_STAT : ftl::mmio::Register<
+    0x40C20098u,
+    std::uint32_t,
+    0x80000000u,
+    ftl::mmio::RW,
+    VAD0_STAT_fields_::VADIF,
+    ftl::mmio::Reserved<14, 1>,
+    VAD0_STAT_fields_::VADEF,
+    VAD0_STAT_fields_::VADINSATF,
+    ftl::mmio::Reserved<14, 17>,
+    VAD0_STAT_fields_::VADINITF> {
+  using eVADIF = VAD0_STAT_fields_::eVADIF;
+  using eVADEF = VAD0_STAT_fields_::eVADEF;
+  using eVADINSATF = VAD0_STAT_fields_::eVADINSATF;
+  using eVADINITF = VAD0_STAT_fields_::eVADINITF;
+  using VADIF = VAD0_STAT_fields_::VADIF;
+  using VADEF = VAD0_STAT_fields_::VADEF;
+  using VADINSATF = VAD0_STAT_fields_::VADINSATF;
+  using VADINITF = VAD0_STAT_fields_::VADINITF;
 };
 
+
 // Voice Activity Detector 0 Signal Configuration
-union VAD0_SCONFIG {
-  
-  // Voice Activity Detector Signal Maximum Enable
-  enum class eVADSMAXEN : uint32_t {
+struct VAD0_SCONFIG_fields_ {
+
+  enum class eVADSMAXEN : std::uint32_t {
     // Maximum block is bypassed.
     ebypassed = 0,
     // Maximum block is enabled.
     eenabled = 1,
   };
-  
-  // Voice Activity Detector Signal Filter Enable
-  enum class eVADSFILEN : uint32_t {
+
+  enum class eVADSFILEN : std::uint32_t {
     // Signal filter is disabled.
     edisabled = 0,
     // Signal filter is enabled.
     eenabled = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Voice Activity Detector Signal Gain
-    uint32_t VADSGAIN : 4;
-    uint32_t _reserved_0 : 26;
-    // read-write - Voice Activity Detector Signal Maximum Enable
-    eVADSMAXEN VADSMAXEN : 1;
-    // read-write - Voice Activity Detector Signal Filter Enable
-    eVADSFILEN VADSFILEN : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Voice Activity Detector Signal Gain
+  using VADSGAIN = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Signal Maximum Enable
+  using VADSMAXEN = ftl::mmio::Field<1, 30, eVADSMAXEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Signal Filter Enable
+  using VADSFILEN = ftl::mmio::Field<1, 31, eVADSFILEN, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct VAD0_SCONFIG_fields_
 
-  VAD0_SCONFIG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VAD0_SCONFIG &ref() { return *reinterpret_cast<volatile VAD0_SCONFIG*>(0x40C2009C); }
+struct VAD0_SCONFIG : ftl::mmio::Register<
+    0x40C2009Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    VAD0_SCONFIG_fields_::VADSGAIN,
+    ftl::mmio::Reserved<26, 4>,
+    VAD0_SCONFIG_fields_::VADSMAXEN,
+    VAD0_SCONFIG_fields_::VADSFILEN> {
+  using eVADSMAXEN = VAD0_SCONFIG_fields_::eVADSMAXEN;
+  using eVADSFILEN = VAD0_SCONFIG_fields_::eVADSFILEN;
+  using VADSGAIN = VAD0_SCONFIG_fields_::VADSGAIN;
+  using VADSMAXEN = VAD0_SCONFIG_fields_::VADSMAXEN;
+  using VADSFILEN = VAD0_SCONFIG_fields_::VADSFILEN;
 };
 
+
 // Voice Activity Detector 0 Noise Configuration
-union VAD0_NCONFIG {
-  
-  // Voice Activity Detector Noise OR Enable
-  enum class eVADNOREN : uint32_t {
+struct VAD0_NCONFIG_fields_ {
+
+  enum class eVADNOREN : std::uint32_t {
     // Noise input is not decimated.
     enot_decimated = 0,
     // Noise input is decimated.
     edecimated = 1,
   };
-  
-  // Voice Activity Detector Noise Decimation Enable
-  enum class eVADNDECEN : uint32_t {
+
+  enum class eVADNDECEN : std::uint32_t {
     // Noise input is not decimated.
     enot_decimated = 0,
     // Noise input is decimated.
     edecimated = 1,
   };
-  
-  // Voice Activity Detector Noise Minimum Enable
-  enum class eVADNMINEN : uint32_t {
+
+  enum class eVADNMINEN : std::uint32_t {
     // Minimum block is bypassed.
     ebypassed = 0,
     // Minimum block is enabled.
     eenabled = 1,
   };
-  
-  // Voice Activity Detector Noise Filter Auto
-  enum class eVADNFILAUTO : uint32_t {
+
+  enum class eVADNFILAUTO : std::uint32_t {
     // Noise filter is always enabled.
     enf_always_en = 0,
     // Noise filter is enabled/disabled based on voice activity information.
     enf_cond_en = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Voice Activity Detector Noise Gain
-    uint32_t VADNGAIN : 4;
-    uint32_t _reserved_0 : 4;
-    // read-write - Voice Activity Detector Noise Filter Adjustment
-    uint32_t VADNFILADJ : 5;
-    uint32_t _reserved_1 : 15;
-    // read-write - Voice Activity Detector Noise OR Enable
-    eVADNOREN VADNOREN : 1;
-    // read-write - Voice Activity Detector Noise Decimation Enable
-    eVADNDECEN VADNDECEN : 1;
-    // read-write - Voice Activity Detector Noise Minimum Enable
-    eVADNMINEN VADNMINEN : 1;
-    // read-write - Voice Activity Detector Noise Filter Auto
-    eVADNFILAUTO VADNFILAUTO : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Voice Activity Detector Noise Gain
+  using VADNGAIN = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Noise Filter Adjustment
+  using VADNFILADJ = ftl::mmio::Field<5, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Noise OR Enable
+  using VADNOREN = ftl::mmio::Field<1, 28, eVADNOREN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Noise Decimation Enable
+  using VADNDECEN = ftl::mmio::Field<1, 29, eVADNDECEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Noise Minimum Enable
+  using VADNMINEN = ftl::mmio::Field<1, 30, eVADNMINEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Voice Activity Detector Noise Filter Auto
+  using VADNFILAUTO = ftl::mmio::Field<1, 31, eVADNFILAUTO, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct VAD0_NCONFIG_fields_
 
-  VAD0_NCONFIG() = delete;
-  inline void Reset() volatile { this->value = 0x80000000; }
-  static inline volatile VAD0_NCONFIG &ref() { return *reinterpret_cast<volatile VAD0_NCONFIG*>(0x40C200A0); }
+struct VAD0_NCONFIG : ftl::mmio::Register<
+    0x40C200A0u,
+    std::uint32_t,
+    0x80000000u,
+    ftl::mmio::RW,
+    VAD0_NCONFIG_fields_::VADNGAIN,
+    ftl::mmio::Reserved<4, 4>,
+    VAD0_NCONFIG_fields_::VADNFILADJ,
+    ftl::mmio::Reserved<15, 13>,
+    VAD0_NCONFIG_fields_::VADNOREN,
+    VAD0_NCONFIG_fields_::VADNDECEN,
+    VAD0_NCONFIG_fields_::VADNMINEN,
+    VAD0_NCONFIG_fields_::VADNFILAUTO> {
+  using eVADNOREN = VAD0_NCONFIG_fields_::eVADNOREN;
+  using eVADNDECEN = VAD0_NCONFIG_fields_::eVADNDECEN;
+  using eVADNMINEN = VAD0_NCONFIG_fields_::eVADNMINEN;
+  using eVADNFILAUTO = VAD0_NCONFIG_fields_::eVADNFILAUTO;
+  using VADNGAIN = VAD0_NCONFIG_fields_::VADNGAIN;
+  using VADNFILADJ = VAD0_NCONFIG_fields_::VADNFILADJ;
+  using VADNOREN = VAD0_NCONFIG_fields_::VADNOREN;
+  using VADNDECEN = VAD0_NCONFIG_fields_::VADNDECEN;
+  using VADNMINEN = VAD0_NCONFIG_fields_::VADNMINEN;
+  using VADNFILAUTO = VAD0_NCONFIG_fields_::VADNFILAUTO;
 };
+
 
 // Voice Activity Detector 0 Noise Data
-union VAD0_NDATA {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Voice Activity Detector Noise Data
-    uint32_t VADNDATA : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct VAD0_NDATA_fields_ {
+  // Voice Activity Detector Noise Data
+  using VADNDATA = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct VAD0_NDATA_fields_
 
-  VAD0_NDATA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile VAD0_NDATA &ref() { return *reinterpret_cast<volatile VAD0_NDATA*>(0x40C200A4); }
+struct VAD0_NDATA : ftl::mmio::Register<
+    0x40C200A4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    VAD0_NDATA_fields_::VADNDATA,
+    ftl::mmio::Reserved<16, 16>> {
+  using VADNDATA = VAD0_NDATA_fields_::VADNDATA;
 };
 
+
 // Voice Activity Detector 0 Zero-Crossing Detector
-union VAD0_ZCD {
-  
-  // Zero-Crossing Detector Enable
-  enum class eVADZCDEN : uint32_t {
+struct VAD0_ZCD_fields_ {
+
+  enum class eVADZCDEN : std::uint32_t {
     // The ZCD is disabled
     edisabled = 0,
     // The ZCD is enabled
     eenabled = 1,
   };
-  
-  // Zero-Crossing Detector Automatic Threshold
-  enum class eVADZCDAUTO : uint32_t {
+
+  enum class eVADZCDAUTO : std::uint32_t {
     // The ZCD threshold is not estimated automatically
     enot_estimated = 0,
     // The ZCD threshold is estimated automatically
     eestimated = 1,
   };
-  
-  // Zero-Crossing Detector AND Behavior
-  enum class eVADZCDAND : uint32_t {
+
+  enum class eVADZCDAND : std::uint32_t {
     // The ZCD result is OR'ed with the energy-based detection.
     eored = 0,
     // The ZCD result is AND'ed with the energy-based detection.
     eanded = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Zero-Crossing Detector Enable
-    eVADZCDEN VADZCDEN : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Zero-Crossing Detector Automatic Threshold
-    eVADZCDAUTO VADZCDAUTO : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - Zero-Crossing Detector AND Behavior
-    eVADZCDAND VADZCDAND : 1;
-    uint32_t _reserved_2 : 3;
-    // read-write - Zero-Crossing Detector Adjustment
-    uint32_t VADZCDADJ : 4;
-    uint32_t _reserved_3 : 4;
-    // read-write - Zero-Crossing Detector Threshold
-    uint32_t VADZCDTH : 10;
-    uint32_t _reserved_4 : 6;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Zero-Crossing Detector Enable
+  using VADZCDEN = ftl::mmio::Field<1, 0, eVADZCDEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Zero-Crossing Detector Automatic Threshold
+  using VADZCDAUTO = ftl::mmio::Field<1, 2, eVADZCDAUTO, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Zero-Crossing Detector AND Behavior
+  using VADZCDAND = ftl::mmio::Field<1, 4, eVADZCDAND, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Zero-Crossing Detector Adjustment
+  using VADZCDADJ = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Zero-Crossing Detector Threshold
+  using VADZCDTH = ftl::mmio::Field<10, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct VAD0_ZCD_fields_
 
-  VAD0_ZCD() = delete;
-  inline void Reset() volatile { this->value = 0x00000004; }
-  static inline volatile VAD0_ZCD &ref() { return *reinterpret_cast<volatile VAD0_ZCD*>(0x40C200A8); }
+struct VAD0_ZCD : ftl::mmio::Register<
+    0x40C200A8u,
+    std::uint32_t,
+    0x00000004u,
+    ftl::mmio::RW,
+    VAD0_ZCD_fields_::VADZCDEN,
+    ftl::mmio::Reserved<1, 1>,
+    VAD0_ZCD_fields_::VADZCDAUTO,
+    ftl::mmio::Reserved<1, 3>,
+    VAD0_ZCD_fields_::VADZCDAND,
+    ftl::mmio::Reserved<3, 5>,
+    VAD0_ZCD_fields_::VADZCDADJ,
+    ftl::mmio::Reserved<4, 12>,
+    VAD0_ZCD_fields_::VADZCDTH,
+    ftl::mmio::Reserved<6, 26>> {
+  using eVADZCDEN = VAD0_ZCD_fields_::eVADZCDEN;
+  using eVADZCDAUTO = VAD0_ZCD_fields_::eVADZCDAUTO;
+  using eVADZCDAND = VAD0_ZCD_fields_::eVADZCDAND;
+  using VADZCDEN = VAD0_ZCD_fields_::VADZCDEN;
+  using VADZCDAUTO = VAD0_ZCD_fields_::VADZCDAUTO;
+  using VADZCDAND = VAD0_ZCD_fields_::VADZCDAND;
+  using VADZCDADJ = VAD0_ZCD_fields_::VADZCDADJ;
+  using VADZCDTH = VAD0_ZCD_fields_::VADZCDTH;
 };
 
-
-} // namespace nPDM
+}  // namespace regs::pdm

@@ -1,36 +1,32 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // LCDIF Register Reference Index
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nLCDIF {
+namespace regs::lcdif {
 
 
 // LCDIF General Control Register
-union LCDIF_CTRL {
-  
-  // Used only when WORD_LENGTH = 3, i
-  enum class eDATA_FORMAT_24_BIT : uint32_t {
+struct LCDIF_CTRL_fields_ {
+
+  enum class eDATA_FORMAT_24_BIT : std::uint32_t {
     // Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits.
     eALL_24_BITS_VALID = 0,
     // Data input to the block is actually RGB 18 bpp, but there is 1 color per byte, hence the upper 2 bits in each byte do not contain any useful data, and should be dropped.
     eDROP_UPPER_2_BITS_PER_BYTE = 1,
   };
-  
-  // Used only when WORD_LENGTH = 2, i.e. 18-bit.
-  enum class eDATA_FORMAT_18_BIT : uint32_t {
+
+  enum class eDATA_FORMAT_18_BIT : std::uint32_t {
     // Data input to the block is in 18 bpp format, such that lower 18 bits contain RGB 666 and upper 14 bits do not contain any useful data.
     eLOWER_18_BITS_VALID = 0,
     // Data input to the block is in 18 bpp format, such that upper 18 bits contain RGB 666 and lower 14 bits do not contain any useful data.
     eUPPER_18_BITS_VALID = 1,
   };
-  
-  // Input data format.
-  enum class eWORD_LENGTH : uint32_t {
+
+  enum class eWORD_LENGTH : std::uint32_t {
     // Input data is 16 bits per pixel.
     e16_BIT = 0,
     // Input data is 8 bits wide.
@@ -40,9 +36,8 @@ union LCDIF_CTRL {
     // Input data is 24 bits per pixel.
     e24_BIT = 3,
   };
-  
-  // LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
-  enum class eLCD_DATABUS_WIDTH : uint32_t {
+
+  enum class eLCD_DATABUS_WIDTH : std::uint32_t {
     // 16-bit data bus mode.
     e16_BIT = 0,
     // 8-bit data bus mode.
@@ -52,9 +47,8 @@ union LCDIF_CTRL {
     // 24-bit data bus mode.
     e24_BIT = 3,
   };
-  
-  // This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
-  enum class eCSC_DATA_SWIZZLE : uint32_t {
+
+  enum class eCSC_DATA_SWIZZLE : std::uint32_t {
     // No byte swapping.(Little endian)
     eNO_SWAP = 0,
     // Big Endian swap (swap bytes 0,3 and 1,2).
@@ -64,9 +58,8 @@ union LCDIF_CTRL {
     // Swap bytes within each half-word.
     eHWD_BYTE_SWAP = 3,
   };
-  
-  // This field specifies how to swap the bytes fetched by the bus master interface
-  enum class eINPUT_DATA_SWIZZLE : uint32_t {
+
+  enum class eINPUT_DATA_SWIZZLE : std::uint32_t {
     // No byte swapping.(Little endian)
     eNO_SWAP = 0,
     // Big Endian swap (swap bytes 0,3 and 1,2).
@@ -76,86 +69,118 @@ union LCDIF_CTRL {
     // Swap bytes within each half-word.
     eHWD_BYTE_SWAP = 3,
   };
-  
-  // Use this bit to determine the direction of shift of transmit data.
-  enum class eDATA_SHIFT_DIR : uint32_t {
+
+  enum class eDATA_SHIFT_DIR : std::uint32_t {
     // Data to be transmitted is shifted LEFT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_LEFT = 0,
     // Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_RIGHT = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
-    uint32_t RUN : 1;
-    // read-write - Used only when WORD_LENGTH = 3, i
-    eDATA_FORMAT_24_BIT DATA_FORMAT_24_BIT : 1;
-    // read-write - Used only when WORD_LENGTH = 2, i.e. 18-bit.
-    eDATA_FORMAT_18_BIT DATA_FORMAT_18_BIT : 1;
-    // read-write - When this bit is 1 and WORD_LENGTH = 0, it implies that the 16-bit data is in ARGB555 format
-    uint32_t DATA_FORMAT_16_BIT : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Set this bit to make the LCDIF act as a bus master
-    uint32_t MASTER : 1;
-    // read-write - If this bit is set and LCDIF_MASTER bit is set, the LCDIF will act as bus master and the handshake mechanism between LCDIF and PXP will be turned on
-    uint32_t ENABLE_PXP_HANDSHAKE : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - Input data format.
-    eWORD_LENGTH WORD_LENGTH : 2;
-    // read-write - LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
-    eLCD_DATABUS_WIDTH LCD_DATABUS_WIDTH : 2;
-    // read-write - This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
-    eCSC_DATA_SWIZZLE CSC_DATA_SWIZZLE : 2;
-    // read-write - This field specifies how to swap the bytes fetched by the bus master interface
-    eINPUT_DATA_SWIZZLE INPUT_DATA_SWIZZLE : 2;
-    uint32_t _reserved_2 : 1;
-    // read-write - Set this bit to 1 to make the hardware go into the DOTCLK mode, i
-    uint32_t DOTCLK_MODE : 1;
-    uint32_t _reserved_3 : 1;
-    // read-write - When this bit is 0, it means that LCDIF will stop the block operation and turn off the RUN bit after the amount of data indicated by the LCDIF_TRANSFER_COUNT register has been transferred out
-    uint32_t BYPASS_COUNT : 1;
-    uint32_t _reserved_4 : 1;
-    // read-write - The data to be transmitted is shifted left or right by this number of bits.
-    uint32_t SHIFT_NUM_BITS : 5;
-    // read-write - Use this bit to determine the direction of shift of transmit data.
-    eDATA_SHIFT_DIR DATA_SHIFT_DIR : 1;
-    uint32_t _reserved_5 : 3;
-    // read-write - This bit must be set to zero for normal operation
-    uint32_t CLKGATE : 1;
-    // read-write - This bit must be set to zero to enable normal operation of the LCDIF
-    uint32_t SFTRST : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
+  using RUN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Used only when WORD_LENGTH = 3, i
+  using DATA_FORMAT_24_BIT = ftl::mmio::Field<1, 1, eDATA_FORMAT_24_BIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Used only when WORD_LENGTH = 2, i.e. 18-bit.
+  using DATA_FORMAT_18_BIT = ftl::mmio::Field<1, 2, eDATA_FORMAT_18_BIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is 1 and WORD_LENGTH = 0, it implies that the 16-bit data is in ARGB555 format
+  using DATA_FORMAT_16_BIT = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to make the LCDIF act as a bus master
+  using MASTER = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // If this bit is set and LCDIF_MASTER bit is set, the LCDIF will act as bus master and the handshake mechanism between LCDIF and PXP will be turned on
+  using ENABLE_PXP_HANDSHAKE = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Input data format.
+  using WORD_LENGTH = ftl::mmio::Field<2, 8, eWORD_LENGTH, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
+  using LCD_DATABUS_WIDTH = ftl::mmio::Field<2, 10, eLCD_DATABUS_WIDTH, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
+  using CSC_DATA_SWIZZLE = ftl::mmio::Field<2, 12, eCSC_DATA_SWIZZLE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field specifies how to swap the bytes fetched by the bus master interface
+  using INPUT_DATA_SWIZZLE = ftl::mmio::Field<2, 14, eINPUT_DATA_SWIZZLE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to 1 to make the hardware go into the DOTCLK mode, i
+  using DOTCLK_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is 0, it means that LCDIF will stop the block operation and turn off the RUN bit after the amount of data indicated by the LCDIF_TRANSFER_COUNT register has been transferred out
+  using BYPASS_COUNT = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The data to be transmitted is shifted left or right by this number of bits.
+  using SHIFT_NUM_BITS = ftl::mmio::Field<5, 21, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Use this bit to determine the direction of shift of transmit data.
+  using DATA_SHIFT_DIR = ftl::mmio::Field<1, 26, eDATA_SHIFT_DIR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit must be set to zero for normal operation
+  using CLKGATE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit must be set to zero to enable normal operation of the LCDIF
+  using SFTRST = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CTRL_fields_
 
-  LCDIF_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile LCDIF_CTRL &ref() { return *reinterpret_cast<volatile LCDIF_CTRL*>(0x40804000); }
+struct LCDIF_CTRL : ftl::mmio::Register<
+    0x40804000u,
+    std::uint32_t,
+    0xC0000000u,
+    ftl::mmio::RW,
+    LCDIF_CTRL_fields_::RUN,
+    LCDIF_CTRL_fields_::DATA_FORMAT_24_BIT,
+    LCDIF_CTRL_fields_::DATA_FORMAT_18_BIT,
+    LCDIF_CTRL_fields_::DATA_FORMAT_16_BIT,
+    ftl::mmio::Reserved<1, 4>,
+    LCDIF_CTRL_fields_::MASTER,
+    LCDIF_CTRL_fields_::ENABLE_PXP_HANDSHAKE,
+    ftl::mmio::Reserved<1, 7>,
+    LCDIF_CTRL_fields_::WORD_LENGTH,
+    LCDIF_CTRL_fields_::LCD_DATABUS_WIDTH,
+    LCDIF_CTRL_fields_::CSC_DATA_SWIZZLE,
+    LCDIF_CTRL_fields_::INPUT_DATA_SWIZZLE,
+    ftl::mmio::Reserved<1, 16>,
+    LCDIF_CTRL_fields_::DOTCLK_MODE,
+    ftl::mmio::Reserved<1, 18>,
+    LCDIF_CTRL_fields_::BYPASS_COUNT,
+    ftl::mmio::Reserved<1, 20>,
+    LCDIF_CTRL_fields_::SHIFT_NUM_BITS,
+    LCDIF_CTRL_fields_::DATA_SHIFT_DIR,
+    ftl::mmio::Reserved<3, 27>,
+    LCDIF_CTRL_fields_::CLKGATE,
+    LCDIF_CTRL_fields_::SFTRST> {
+  using eDATA_FORMAT_24_BIT = LCDIF_CTRL_fields_::eDATA_FORMAT_24_BIT;
+  using eDATA_FORMAT_18_BIT = LCDIF_CTRL_fields_::eDATA_FORMAT_18_BIT;
+  using eWORD_LENGTH = LCDIF_CTRL_fields_::eWORD_LENGTH;
+  using eLCD_DATABUS_WIDTH = LCDIF_CTRL_fields_::eLCD_DATABUS_WIDTH;
+  using eCSC_DATA_SWIZZLE = LCDIF_CTRL_fields_::eCSC_DATA_SWIZZLE;
+  using eINPUT_DATA_SWIZZLE = LCDIF_CTRL_fields_::eINPUT_DATA_SWIZZLE;
+  using eDATA_SHIFT_DIR = LCDIF_CTRL_fields_::eDATA_SHIFT_DIR;
+  using RUN = LCDIF_CTRL_fields_::RUN;
+  using DATA_FORMAT_24_BIT = LCDIF_CTRL_fields_::DATA_FORMAT_24_BIT;
+  using DATA_FORMAT_18_BIT = LCDIF_CTRL_fields_::DATA_FORMAT_18_BIT;
+  using DATA_FORMAT_16_BIT = LCDIF_CTRL_fields_::DATA_FORMAT_16_BIT;
+  using MASTER = LCDIF_CTRL_fields_::MASTER;
+  using ENABLE_PXP_HANDSHAKE = LCDIF_CTRL_fields_::ENABLE_PXP_HANDSHAKE;
+  using WORD_LENGTH = LCDIF_CTRL_fields_::WORD_LENGTH;
+  using LCD_DATABUS_WIDTH = LCDIF_CTRL_fields_::LCD_DATABUS_WIDTH;
+  using CSC_DATA_SWIZZLE = LCDIF_CTRL_fields_::CSC_DATA_SWIZZLE;
+  using INPUT_DATA_SWIZZLE = LCDIF_CTRL_fields_::INPUT_DATA_SWIZZLE;
+  using DOTCLK_MODE = LCDIF_CTRL_fields_::DOTCLK_MODE;
+  using BYPASS_COUNT = LCDIF_CTRL_fields_::BYPASS_COUNT;
+  using SHIFT_NUM_BITS = LCDIF_CTRL_fields_::SHIFT_NUM_BITS;
+  using DATA_SHIFT_DIR = LCDIF_CTRL_fields_::DATA_SHIFT_DIR;
+  using CLKGATE = LCDIF_CTRL_fields_::CLKGATE;
+  using SFTRST = LCDIF_CTRL_fields_::SFTRST;
 };
 
+
 // LCDIF General Control Register
-union LCDIF_CTRL_SET {
-  
-  // Used only when WORD_LENGTH = 3, i
-  enum class eDATA_FORMAT_24_BIT : uint32_t {
+struct LCDIF_CTRL_SET_fields_ {
+
+  enum class eDATA_FORMAT_24_BIT : std::uint32_t {
     // Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits.
     eALL_24_BITS_VALID = 0,
     // Data input to the block is actually RGB 18 bpp, but there is 1 color per byte, hence the upper 2 bits in each byte do not contain any useful data, and should be dropped.
     eDROP_UPPER_2_BITS_PER_BYTE = 1,
   };
-  
-  // Used only when WORD_LENGTH = 2, i.e. 18-bit.
-  enum class eDATA_FORMAT_18_BIT : uint32_t {
+
+  enum class eDATA_FORMAT_18_BIT : std::uint32_t {
     // Data input to the block is in 18 bpp format, such that lower 18 bits contain RGB 666 and upper 14 bits do not contain any useful data.
     eLOWER_18_BITS_VALID = 0,
     // Data input to the block is in 18 bpp format, such that upper 18 bits contain RGB 666 and lower 14 bits do not contain any useful data.
     eUPPER_18_BITS_VALID = 1,
   };
-  
-  // Input data format.
-  enum class eWORD_LENGTH : uint32_t {
+
+  enum class eWORD_LENGTH : std::uint32_t {
     // Input data is 16 bits per pixel.
     e16_BIT = 0,
     // Input data is 8 bits wide.
@@ -165,9 +190,8 @@ union LCDIF_CTRL_SET {
     // Input data is 24 bits per pixel.
     e24_BIT = 3,
   };
-  
-  // LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
-  enum class eLCD_DATABUS_WIDTH : uint32_t {
+
+  enum class eLCD_DATABUS_WIDTH : std::uint32_t {
     // 16-bit data bus mode.
     e16_BIT = 0,
     // 8-bit data bus mode.
@@ -177,9 +201,8 @@ union LCDIF_CTRL_SET {
     // 24-bit data bus mode.
     e24_BIT = 3,
   };
-  
-  // This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
-  enum class eCSC_DATA_SWIZZLE : uint32_t {
+
+  enum class eCSC_DATA_SWIZZLE : std::uint32_t {
     // No byte swapping.(Little endian)
     eNO_SWAP = 0,
     // Big Endian swap (swap bytes 0,3 and 1,2).
@@ -189,9 +212,8 @@ union LCDIF_CTRL_SET {
     // Swap bytes within each half-word.
     eHWD_BYTE_SWAP = 3,
   };
-  
-  // This field specifies how to swap the bytes fetched by the bus master interface
-  enum class eINPUT_DATA_SWIZZLE : uint32_t {
+
+  enum class eINPUT_DATA_SWIZZLE : std::uint32_t {
     // No byte swapping.(Little endian)
     eNO_SWAP = 0,
     // Big Endian swap (swap bytes 0,3 and 1,2).
@@ -201,86 +223,118 @@ union LCDIF_CTRL_SET {
     // Swap bytes within each half-word.
     eHWD_BYTE_SWAP = 3,
   };
-  
-  // Use this bit to determine the direction of shift of transmit data.
-  enum class eDATA_SHIFT_DIR : uint32_t {
+
+  enum class eDATA_SHIFT_DIR : std::uint32_t {
     // Data to be transmitted is shifted LEFT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_LEFT = 0,
     // Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_RIGHT = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
-    uint32_t RUN : 1;
-    // read-write - Used only when WORD_LENGTH = 3, i
-    eDATA_FORMAT_24_BIT DATA_FORMAT_24_BIT : 1;
-    // read-write - Used only when WORD_LENGTH = 2, i.e. 18-bit.
-    eDATA_FORMAT_18_BIT DATA_FORMAT_18_BIT : 1;
-    // read-write - When this bit is 1 and WORD_LENGTH = 0, it implies that the 16-bit data is in ARGB555 format
-    uint32_t DATA_FORMAT_16_BIT : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Set this bit to make the LCDIF act as a bus master
-    uint32_t MASTER : 1;
-    // read-write - If this bit is set and LCDIF_MASTER bit is set, the LCDIF will act as bus master and the handshake mechanism between LCDIF and PXP will be turned on
-    uint32_t ENABLE_PXP_HANDSHAKE : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - Input data format.
-    eWORD_LENGTH WORD_LENGTH : 2;
-    // read-write - LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
-    eLCD_DATABUS_WIDTH LCD_DATABUS_WIDTH : 2;
-    // read-write - This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
-    eCSC_DATA_SWIZZLE CSC_DATA_SWIZZLE : 2;
-    // read-write - This field specifies how to swap the bytes fetched by the bus master interface
-    eINPUT_DATA_SWIZZLE INPUT_DATA_SWIZZLE : 2;
-    uint32_t _reserved_2 : 1;
-    // read-write - Set this bit to 1 to make the hardware go into the DOTCLK mode, i
-    uint32_t DOTCLK_MODE : 1;
-    uint32_t _reserved_3 : 1;
-    // read-write - When this bit is 0, it means that LCDIF will stop the block operation and turn off the RUN bit after the amount of data indicated by the LCDIF_TRANSFER_COUNT register has been transferred out
-    uint32_t BYPASS_COUNT : 1;
-    uint32_t _reserved_4 : 1;
-    // read-write - The data to be transmitted is shifted left or right by this number of bits.
-    uint32_t SHIFT_NUM_BITS : 5;
-    // read-write - Use this bit to determine the direction of shift of transmit data.
-    eDATA_SHIFT_DIR DATA_SHIFT_DIR : 1;
-    uint32_t _reserved_5 : 3;
-    // read-write - This bit must be set to zero for normal operation
-    uint32_t CLKGATE : 1;
-    // read-write - This bit must be set to zero to enable normal operation of the LCDIF
-    uint32_t SFTRST : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
+  using RUN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Used only when WORD_LENGTH = 3, i
+  using DATA_FORMAT_24_BIT = ftl::mmio::Field<1, 1, eDATA_FORMAT_24_BIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Used only when WORD_LENGTH = 2, i.e. 18-bit.
+  using DATA_FORMAT_18_BIT = ftl::mmio::Field<1, 2, eDATA_FORMAT_18_BIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is 1 and WORD_LENGTH = 0, it implies that the 16-bit data is in ARGB555 format
+  using DATA_FORMAT_16_BIT = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to make the LCDIF act as a bus master
+  using MASTER = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // If this bit is set and LCDIF_MASTER bit is set, the LCDIF will act as bus master and the handshake mechanism between LCDIF and PXP will be turned on
+  using ENABLE_PXP_HANDSHAKE = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Input data format.
+  using WORD_LENGTH = ftl::mmio::Field<2, 8, eWORD_LENGTH, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
+  using LCD_DATABUS_WIDTH = ftl::mmio::Field<2, 10, eLCD_DATABUS_WIDTH, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
+  using CSC_DATA_SWIZZLE = ftl::mmio::Field<2, 12, eCSC_DATA_SWIZZLE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field specifies how to swap the bytes fetched by the bus master interface
+  using INPUT_DATA_SWIZZLE = ftl::mmio::Field<2, 14, eINPUT_DATA_SWIZZLE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to 1 to make the hardware go into the DOTCLK mode, i
+  using DOTCLK_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is 0, it means that LCDIF will stop the block operation and turn off the RUN bit after the amount of data indicated by the LCDIF_TRANSFER_COUNT register has been transferred out
+  using BYPASS_COUNT = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The data to be transmitted is shifted left or right by this number of bits.
+  using SHIFT_NUM_BITS = ftl::mmio::Field<5, 21, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Use this bit to determine the direction of shift of transmit data.
+  using DATA_SHIFT_DIR = ftl::mmio::Field<1, 26, eDATA_SHIFT_DIR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit must be set to zero for normal operation
+  using CLKGATE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit must be set to zero to enable normal operation of the LCDIF
+  using SFTRST = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CTRL_SET_fields_
 
-  LCDIF_CTRL_SET() = delete;
-  inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile LCDIF_CTRL_SET &ref() { return *reinterpret_cast<volatile LCDIF_CTRL_SET*>(0x40804004); }
+struct LCDIF_CTRL_SET : ftl::mmio::Register<
+    0x40804004u,
+    std::uint32_t,
+    0xC0000000u,
+    ftl::mmio::RW,
+    LCDIF_CTRL_SET_fields_::RUN,
+    LCDIF_CTRL_SET_fields_::DATA_FORMAT_24_BIT,
+    LCDIF_CTRL_SET_fields_::DATA_FORMAT_18_BIT,
+    LCDIF_CTRL_SET_fields_::DATA_FORMAT_16_BIT,
+    ftl::mmio::Reserved<1, 4>,
+    LCDIF_CTRL_SET_fields_::MASTER,
+    LCDIF_CTRL_SET_fields_::ENABLE_PXP_HANDSHAKE,
+    ftl::mmio::Reserved<1, 7>,
+    LCDIF_CTRL_SET_fields_::WORD_LENGTH,
+    LCDIF_CTRL_SET_fields_::LCD_DATABUS_WIDTH,
+    LCDIF_CTRL_SET_fields_::CSC_DATA_SWIZZLE,
+    LCDIF_CTRL_SET_fields_::INPUT_DATA_SWIZZLE,
+    ftl::mmio::Reserved<1, 16>,
+    LCDIF_CTRL_SET_fields_::DOTCLK_MODE,
+    ftl::mmio::Reserved<1, 18>,
+    LCDIF_CTRL_SET_fields_::BYPASS_COUNT,
+    ftl::mmio::Reserved<1, 20>,
+    LCDIF_CTRL_SET_fields_::SHIFT_NUM_BITS,
+    LCDIF_CTRL_SET_fields_::DATA_SHIFT_DIR,
+    ftl::mmio::Reserved<3, 27>,
+    LCDIF_CTRL_SET_fields_::CLKGATE,
+    LCDIF_CTRL_SET_fields_::SFTRST> {
+  using eDATA_FORMAT_24_BIT = LCDIF_CTRL_SET_fields_::eDATA_FORMAT_24_BIT;
+  using eDATA_FORMAT_18_BIT = LCDIF_CTRL_SET_fields_::eDATA_FORMAT_18_BIT;
+  using eWORD_LENGTH = LCDIF_CTRL_SET_fields_::eWORD_LENGTH;
+  using eLCD_DATABUS_WIDTH = LCDIF_CTRL_SET_fields_::eLCD_DATABUS_WIDTH;
+  using eCSC_DATA_SWIZZLE = LCDIF_CTRL_SET_fields_::eCSC_DATA_SWIZZLE;
+  using eINPUT_DATA_SWIZZLE = LCDIF_CTRL_SET_fields_::eINPUT_DATA_SWIZZLE;
+  using eDATA_SHIFT_DIR = LCDIF_CTRL_SET_fields_::eDATA_SHIFT_DIR;
+  using RUN = LCDIF_CTRL_SET_fields_::RUN;
+  using DATA_FORMAT_24_BIT = LCDIF_CTRL_SET_fields_::DATA_FORMAT_24_BIT;
+  using DATA_FORMAT_18_BIT = LCDIF_CTRL_SET_fields_::DATA_FORMAT_18_BIT;
+  using DATA_FORMAT_16_BIT = LCDIF_CTRL_SET_fields_::DATA_FORMAT_16_BIT;
+  using MASTER = LCDIF_CTRL_SET_fields_::MASTER;
+  using ENABLE_PXP_HANDSHAKE = LCDIF_CTRL_SET_fields_::ENABLE_PXP_HANDSHAKE;
+  using WORD_LENGTH = LCDIF_CTRL_SET_fields_::WORD_LENGTH;
+  using LCD_DATABUS_WIDTH = LCDIF_CTRL_SET_fields_::LCD_DATABUS_WIDTH;
+  using CSC_DATA_SWIZZLE = LCDIF_CTRL_SET_fields_::CSC_DATA_SWIZZLE;
+  using INPUT_DATA_SWIZZLE = LCDIF_CTRL_SET_fields_::INPUT_DATA_SWIZZLE;
+  using DOTCLK_MODE = LCDIF_CTRL_SET_fields_::DOTCLK_MODE;
+  using BYPASS_COUNT = LCDIF_CTRL_SET_fields_::BYPASS_COUNT;
+  using SHIFT_NUM_BITS = LCDIF_CTRL_SET_fields_::SHIFT_NUM_BITS;
+  using DATA_SHIFT_DIR = LCDIF_CTRL_SET_fields_::DATA_SHIFT_DIR;
+  using CLKGATE = LCDIF_CTRL_SET_fields_::CLKGATE;
+  using SFTRST = LCDIF_CTRL_SET_fields_::SFTRST;
 };
 
+
 // LCDIF General Control Register
-union LCDIF_CTRL_CLR {
-  
-  // Used only when WORD_LENGTH = 3, i
-  enum class eDATA_FORMAT_24_BIT : uint32_t {
+struct LCDIF_CTRL_CLR_fields_ {
+
+  enum class eDATA_FORMAT_24_BIT : std::uint32_t {
     // Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits.
     eALL_24_BITS_VALID = 0,
     // Data input to the block is actually RGB 18 bpp, but there is 1 color per byte, hence the upper 2 bits in each byte do not contain any useful data, and should be dropped.
     eDROP_UPPER_2_BITS_PER_BYTE = 1,
   };
-  
-  // Used only when WORD_LENGTH = 2, i.e. 18-bit.
-  enum class eDATA_FORMAT_18_BIT : uint32_t {
+
+  enum class eDATA_FORMAT_18_BIT : std::uint32_t {
     // Data input to the block is in 18 bpp format, such that lower 18 bits contain RGB 666 and upper 14 bits do not contain any useful data.
     eLOWER_18_BITS_VALID = 0,
     // Data input to the block is in 18 bpp format, such that upper 18 bits contain RGB 666 and lower 14 bits do not contain any useful data.
     eUPPER_18_BITS_VALID = 1,
   };
-  
-  // Input data format.
-  enum class eWORD_LENGTH : uint32_t {
+
+  enum class eWORD_LENGTH : std::uint32_t {
     // Input data is 16 bits per pixel.
     e16_BIT = 0,
     // Input data is 8 bits wide.
@@ -290,9 +344,8 @@ union LCDIF_CTRL_CLR {
     // Input data is 24 bits per pixel.
     e24_BIT = 3,
   };
-  
-  // LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
-  enum class eLCD_DATABUS_WIDTH : uint32_t {
+
+  enum class eLCD_DATABUS_WIDTH : std::uint32_t {
     // 16-bit data bus mode.
     e16_BIT = 0,
     // 8-bit data bus mode.
@@ -302,9 +355,8 @@ union LCDIF_CTRL_CLR {
     // 24-bit data bus mode.
     e24_BIT = 3,
   };
-  
-  // This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
-  enum class eCSC_DATA_SWIZZLE : uint32_t {
+
+  enum class eCSC_DATA_SWIZZLE : std::uint32_t {
     // No byte swapping.(Little endian)
     eNO_SWAP = 0,
     // Big Endian swap (swap bytes 0,3 and 1,2).
@@ -314,9 +366,8 @@ union LCDIF_CTRL_CLR {
     // Swap bytes within each half-word.
     eHWD_BYTE_SWAP = 3,
   };
-  
-  // This field specifies how to swap the bytes fetched by the bus master interface
-  enum class eINPUT_DATA_SWIZZLE : uint32_t {
+
+  enum class eINPUT_DATA_SWIZZLE : std::uint32_t {
     // No byte swapping.(Little endian)
     eNO_SWAP = 0,
     // Big Endian swap (swap bytes 0,3 and 1,2).
@@ -326,86 +377,118 @@ union LCDIF_CTRL_CLR {
     // Swap bytes within each half-word.
     eHWD_BYTE_SWAP = 3,
   };
-  
-  // Use this bit to determine the direction of shift of transmit data.
-  enum class eDATA_SHIFT_DIR : uint32_t {
+
+  enum class eDATA_SHIFT_DIR : std::uint32_t {
     // Data to be transmitted is shifted LEFT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_LEFT = 0,
     // Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_RIGHT = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
-    uint32_t RUN : 1;
-    // read-write - Used only when WORD_LENGTH = 3, i
-    eDATA_FORMAT_24_BIT DATA_FORMAT_24_BIT : 1;
-    // read-write - Used only when WORD_LENGTH = 2, i.e. 18-bit.
-    eDATA_FORMAT_18_BIT DATA_FORMAT_18_BIT : 1;
-    // read-write - When this bit is 1 and WORD_LENGTH = 0, it implies that the 16-bit data is in ARGB555 format
-    uint32_t DATA_FORMAT_16_BIT : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Set this bit to make the LCDIF act as a bus master
-    uint32_t MASTER : 1;
-    // read-write - If this bit is set and LCDIF_MASTER bit is set, the LCDIF will act as bus master and the handshake mechanism between LCDIF and PXP will be turned on
-    uint32_t ENABLE_PXP_HANDSHAKE : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - Input data format.
-    eWORD_LENGTH WORD_LENGTH : 2;
-    // read-write - LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
-    eLCD_DATABUS_WIDTH LCD_DATABUS_WIDTH : 2;
-    // read-write - This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
-    eCSC_DATA_SWIZZLE CSC_DATA_SWIZZLE : 2;
-    // read-write - This field specifies how to swap the bytes fetched by the bus master interface
-    eINPUT_DATA_SWIZZLE INPUT_DATA_SWIZZLE : 2;
-    uint32_t _reserved_2 : 1;
-    // read-write - Set this bit to 1 to make the hardware go into the DOTCLK mode, i
-    uint32_t DOTCLK_MODE : 1;
-    uint32_t _reserved_3 : 1;
-    // read-write - When this bit is 0, it means that LCDIF will stop the block operation and turn off the RUN bit after the amount of data indicated by the LCDIF_TRANSFER_COUNT register has been transferred out
-    uint32_t BYPASS_COUNT : 1;
-    uint32_t _reserved_4 : 1;
-    // read-write - The data to be transmitted is shifted left or right by this number of bits.
-    uint32_t SHIFT_NUM_BITS : 5;
-    // read-write - Use this bit to determine the direction of shift of transmit data.
-    eDATA_SHIFT_DIR DATA_SHIFT_DIR : 1;
-    uint32_t _reserved_5 : 3;
-    // read-write - This bit must be set to zero for normal operation
-    uint32_t CLKGATE : 1;
-    // read-write - This bit must be set to zero to enable normal operation of the LCDIF
-    uint32_t SFTRST : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
+  using RUN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Used only when WORD_LENGTH = 3, i
+  using DATA_FORMAT_24_BIT = ftl::mmio::Field<1, 1, eDATA_FORMAT_24_BIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Used only when WORD_LENGTH = 2, i.e. 18-bit.
+  using DATA_FORMAT_18_BIT = ftl::mmio::Field<1, 2, eDATA_FORMAT_18_BIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is 1 and WORD_LENGTH = 0, it implies that the 16-bit data is in ARGB555 format
+  using DATA_FORMAT_16_BIT = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to make the LCDIF act as a bus master
+  using MASTER = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // If this bit is set and LCDIF_MASTER bit is set, the LCDIF will act as bus master and the handshake mechanism between LCDIF and PXP will be turned on
+  using ENABLE_PXP_HANDSHAKE = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Input data format.
+  using WORD_LENGTH = ftl::mmio::Field<2, 8, eWORD_LENGTH, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
+  using LCD_DATABUS_WIDTH = ftl::mmio::Field<2, 10, eLCD_DATABUS_WIDTH, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
+  using CSC_DATA_SWIZZLE = ftl::mmio::Field<2, 12, eCSC_DATA_SWIZZLE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field specifies how to swap the bytes fetched by the bus master interface
+  using INPUT_DATA_SWIZZLE = ftl::mmio::Field<2, 14, eINPUT_DATA_SWIZZLE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to 1 to make the hardware go into the DOTCLK mode, i
+  using DOTCLK_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is 0, it means that LCDIF will stop the block operation and turn off the RUN bit after the amount of data indicated by the LCDIF_TRANSFER_COUNT register has been transferred out
+  using BYPASS_COUNT = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The data to be transmitted is shifted left or right by this number of bits.
+  using SHIFT_NUM_BITS = ftl::mmio::Field<5, 21, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Use this bit to determine the direction of shift of transmit data.
+  using DATA_SHIFT_DIR = ftl::mmio::Field<1, 26, eDATA_SHIFT_DIR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit must be set to zero for normal operation
+  using CLKGATE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit must be set to zero to enable normal operation of the LCDIF
+  using SFTRST = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CTRL_CLR_fields_
 
-  LCDIF_CTRL_CLR() = delete;
-  inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile LCDIF_CTRL_CLR &ref() { return *reinterpret_cast<volatile LCDIF_CTRL_CLR*>(0x40804008); }
+struct LCDIF_CTRL_CLR : ftl::mmio::Register<
+    0x40804008u,
+    std::uint32_t,
+    0xC0000000u,
+    ftl::mmio::RW,
+    LCDIF_CTRL_CLR_fields_::RUN,
+    LCDIF_CTRL_CLR_fields_::DATA_FORMAT_24_BIT,
+    LCDIF_CTRL_CLR_fields_::DATA_FORMAT_18_BIT,
+    LCDIF_CTRL_CLR_fields_::DATA_FORMAT_16_BIT,
+    ftl::mmio::Reserved<1, 4>,
+    LCDIF_CTRL_CLR_fields_::MASTER,
+    LCDIF_CTRL_CLR_fields_::ENABLE_PXP_HANDSHAKE,
+    ftl::mmio::Reserved<1, 7>,
+    LCDIF_CTRL_CLR_fields_::WORD_LENGTH,
+    LCDIF_CTRL_CLR_fields_::LCD_DATABUS_WIDTH,
+    LCDIF_CTRL_CLR_fields_::CSC_DATA_SWIZZLE,
+    LCDIF_CTRL_CLR_fields_::INPUT_DATA_SWIZZLE,
+    ftl::mmio::Reserved<1, 16>,
+    LCDIF_CTRL_CLR_fields_::DOTCLK_MODE,
+    ftl::mmio::Reserved<1, 18>,
+    LCDIF_CTRL_CLR_fields_::BYPASS_COUNT,
+    ftl::mmio::Reserved<1, 20>,
+    LCDIF_CTRL_CLR_fields_::SHIFT_NUM_BITS,
+    LCDIF_CTRL_CLR_fields_::DATA_SHIFT_DIR,
+    ftl::mmio::Reserved<3, 27>,
+    LCDIF_CTRL_CLR_fields_::CLKGATE,
+    LCDIF_CTRL_CLR_fields_::SFTRST> {
+  using eDATA_FORMAT_24_BIT = LCDIF_CTRL_CLR_fields_::eDATA_FORMAT_24_BIT;
+  using eDATA_FORMAT_18_BIT = LCDIF_CTRL_CLR_fields_::eDATA_FORMAT_18_BIT;
+  using eWORD_LENGTH = LCDIF_CTRL_CLR_fields_::eWORD_LENGTH;
+  using eLCD_DATABUS_WIDTH = LCDIF_CTRL_CLR_fields_::eLCD_DATABUS_WIDTH;
+  using eCSC_DATA_SWIZZLE = LCDIF_CTRL_CLR_fields_::eCSC_DATA_SWIZZLE;
+  using eINPUT_DATA_SWIZZLE = LCDIF_CTRL_CLR_fields_::eINPUT_DATA_SWIZZLE;
+  using eDATA_SHIFT_DIR = LCDIF_CTRL_CLR_fields_::eDATA_SHIFT_DIR;
+  using RUN = LCDIF_CTRL_CLR_fields_::RUN;
+  using DATA_FORMAT_24_BIT = LCDIF_CTRL_CLR_fields_::DATA_FORMAT_24_BIT;
+  using DATA_FORMAT_18_BIT = LCDIF_CTRL_CLR_fields_::DATA_FORMAT_18_BIT;
+  using DATA_FORMAT_16_BIT = LCDIF_CTRL_CLR_fields_::DATA_FORMAT_16_BIT;
+  using MASTER = LCDIF_CTRL_CLR_fields_::MASTER;
+  using ENABLE_PXP_HANDSHAKE = LCDIF_CTRL_CLR_fields_::ENABLE_PXP_HANDSHAKE;
+  using WORD_LENGTH = LCDIF_CTRL_CLR_fields_::WORD_LENGTH;
+  using LCD_DATABUS_WIDTH = LCDIF_CTRL_CLR_fields_::LCD_DATABUS_WIDTH;
+  using CSC_DATA_SWIZZLE = LCDIF_CTRL_CLR_fields_::CSC_DATA_SWIZZLE;
+  using INPUT_DATA_SWIZZLE = LCDIF_CTRL_CLR_fields_::INPUT_DATA_SWIZZLE;
+  using DOTCLK_MODE = LCDIF_CTRL_CLR_fields_::DOTCLK_MODE;
+  using BYPASS_COUNT = LCDIF_CTRL_CLR_fields_::BYPASS_COUNT;
+  using SHIFT_NUM_BITS = LCDIF_CTRL_CLR_fields_::SHIFT_NUM_BITS;
+  using DATA_SHIFT_DIR = LCDIF_CTRL_CLR_fields_::DATA_SHIFT_DIR;
+  using CLKGATE = LCDIF_CTRL_CLR_fields_::CLKGATE;
+  using SFTRST = LCDIF_CTRL_CLR_fields_::SFTRST;
 };
 
+
 // LCDIF General Control Register
-union LCDIF_CTRL_TOG {
-  
-  // Used only when WORD_LENGTH = 3, i
-  enum class eDATA_FORMAT_24_BIT : uint32_t {
+struct LCDIF_CTRL_TOG_fields_ {
+
+  enum class eDATA_FORMAT_24_BIT : std::uint32_t {
     // Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits.
     eALL_24_BITS_VALID = 0,
     // Data input to the block is actually RGB 18 bpp, but there is 1 color per byte, hence the upper 2 bits in each byte do not contain any useful data, and should be dropped.
     eDROP_UPPER_2_BITS_PER_BYTE = 1,
   };
-  
-  // Used only when WORD_LENGTH = 2, i.e. 18-bit.
-  enum class eDATA_FORMAT_18_BIT : uint32_t {
+
+  enum class eDATA_FORMAT_18_BIT : std::uint32_t {
     // Data input to the block is in 18 bpp format, such that lower 18 bits contain RGB 666 and upper 14 bits do not contain any useful data.
     eLOWER_18_BITS_VALID = 0,
     // Data input to the block is in 18 bpp format, such that upper 18 bits contain RGB 666 and lower 14 bits do not contain any useful data.
     eUPPER_18_BITS_VALID = 1,
   };
-  
-  // Input data format.
-  enum class eWORD_LENGTH : uint32_t {
+
+  enum class eWORD_LENGTH : std::uint32_t {
     // Input data is 16 bits per pixel.
     e16_BIT = 0,
     // Input data is 8 bits wide.
@@ -415,9 +498,8 @@ union LCDIF_CTRL_TOG {
     // Input data is 24 bits per pixel.
     e24_BIT = 3,
   };
-  
-  // LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
-  enum class eLCD_DATABUS_WIDTH : uint32_t {
+
+  enum class eLCD_DATABUS_WIDTH : std::uint32_t {
     // 16-bit data bus mode.
     e16_BIT = 0,
     // 8-bit data bus mode.
@@ -427,9 +509,8 @@ union LCDIF_CTRL_TOG {
     // 24-bit data bus mode.
     e24_BIT = 3,
   };
-  
-  // This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
-  enum class eCSC_DATA_SWIZZLE : uint32_t {
+
+  enum class eCSC_DATA_SWIZZLE : std::uint32_t {
     // No byte swapping.(Little endian)
     eNO_SWAP = 0,
     // Big Endian swap (swap bytes 0,3 and 1,2).
@@ -439,9 +520,8 @@ union LCDIF_CTRL_TOG {
     // Swap bytes within each half-word.
     eHWD_BYTE_SWAP = 3,
   };
-  
-  // This field specifies how to swap the bytes fetched by the bus master interface
-  enum class eINPUT_DATA_SWIZZLE : uint32_t {
+
+  enum class eINPUT_DATA_SWIZZLE : std::uint32_t {
     // No byte swapping.(Little endian)
     eNO_SWAP = 0,
     // Big Endian swap (swap bytes 0,3 and 1,2).
@@ -451,442 +531,608 @@ union LCDIF_CTRL_TOG {
     // Swap bytes within each half-word.
     eHWD_BYTE_SWAP = 3,
   };
-  
-  // Use this bit to determine the direction of shift of transmit data.
-  enum class eDATA_SHIFT_DIR : uint32_t {
+
+  enum class eDATA_SHIFT_DIR : std::uint32_t {
     // Data to be transmitted is shifted LEFT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_LEFT = 0,
     // Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_RIGHT = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
-    uint32_t RUN : 1;
-    // read-write - Used only when WORD_LENGTH = 3, i
-    eDATA_FORMAT_24_BIT DATA_FORMAT_24_BIT : 1;
-    // read-write - Used only when WORD_LENGTH = 2, i.e. 18-bit.
-    eDATA_FORMAT_18_BIT DATA_FORMAT_18_BIT : 1;
-    // read-write - When this bit is 1 and WORD_LENGTH = 0, it implies that the 16-bit data is in ARGB555 format
-    uint32_t DATA_FORMAT_16_BIT : 1;
-    uint32_t _reserved_0 : 1;
-    // read-write - Set this bit to make the LCDIF act as a bus master
-    uint32_t MASTER : 1;
-    // read-write - If this bit is set and LCDIF_MASTER bit is set, the LCDIF will act as bus master and the handshake mechanism between LCDIF and PXP will be turned on
-    uint32_t ENABLE_PXP_HANDSHAKE : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - Input data format.
-    eWORD_LENGTH WORD_LENGTH : 2;
-    // read-write - LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
-    eLCD_DATABUS_WIDTH LCD_DATABUS_WIDTH : 2;
-    // read-write - This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
-    eCSC_DATA_SWIZZLE CSC_DATA_SWIZZLE : 2;
-    // read-write - This field specifies how to swap the bytes fetched by the bus master interface
-    eINPUT_DATA_SWIZZLE INPUT_DATA_SWIZZLE : 2;
-    uint32_t _reserved_2 : 1;
-    // read-write - Set this bit to 1 to make the hardware go into the DOTCLK mode, i
-    uint32_t DOTCLK_MODE : 1;
-    uint32_t _reserved_3 : 1;
-    // read-write - When this bit is 0, it means that LCDIF will stop the block operation and turn off the RUN bit after the amount of data indicated by the LCDIF_TRANSFER_COUNT register has been transferred out
-    uint32_t BYPASS_COUNT : 1;
-    uint32_t _reserved_4 : 1;
-    // read-write - The data to be transmitted is shifted left or right by this number of bits.
-    uint32_t SHIFT_NUM_BITS : 5;
-    // read-write - Use this bit to determine the direction of shift of transmit data.
-    eDATA_SHIFT_DIR DATA_SHIFT_DIR : 1;
-    uint32_t _reserved_5 : 3;
-    // read-write - This bit must be set to zero for normal operation
-    uint32_t CLKGATE : 1;
-    // read-write - This bit must be set to zero to enable normal operation of the LCDIF
-    uint32_t SFTRST : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
+  using RUN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Used only when WORD_LENGTH = 3, i
+  using DATA_FORMAT_24_BIT = ftl::mmio::Field<1, 1, eDATA_FORMAT_24_BIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Used only when WORD_LENGTH = 2, i.e. 18-bit.
+  using DATA_FORMAT_18_BIT = ftl::mmio::Field<1, 2, eDATA_FORMAT_18_BIT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is 1 and WORD_LENGTH = 0, it implies that the 16-bit data is in ARGB555 format
+  using DATA_FORMAT_16_BIT = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to make the LCDIF act as a bus master
+  using MASTER = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // If this bit is set and LCDIF_MASTER bit is set, the LCDIF will act as bus master and the handshake mechanism between LCDIF and PXP will be turned on
+  using ENABLE_PXP_HANDSHAKE = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Input data format.
+  using WORD_LENGTH = ftl::mmio::Field<2, 8, eWORD_LENGTH, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
+  using LCD_DATABUS_WIDTH = ftl::mmio::Field<2, 10, eLCD_DATABUS_WIDTH, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
+  using CSC_DATA_SWIZZLE = ftl::mmio::Field<2, 12, eCSC_DATA_SWIZZLE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field specifies how to swap the bytes fetched by the bus master interface
+  using INPUT_DATA_SWIZZLE = ftl::mmio::Field<2, 14, eINPUT_DATA_SWIZZLE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to 1 to make the hardware go into the DOTCLK mode, i
+  using DOTCLK_MODE = ftl::mmio::Field<1, 17, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is 0, it means that LCDIF will stop the block operation and turn off the RUN bit after the amount of data indicated by the LCDIF_TRANSFER_COUNT register has been transferred out
+  using BYPASS_COUNT = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The data to be transmitted is shifted left or right by this number of bits.
+  using SHIFT_NUM_BITS = ftl::mmio::Field<5, 21, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Use this bit to determine the direction of shift of transmit data.
+  using DATA_SHIFT_DIR = ftl::mmio::Field<1, 26, eDATA_SHIFT_DIR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit must be set to zero for normal operation
+  using CLKGATE = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit must be set to zero to enable normal operation of the LCDIF
+  using SFTRST = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CTRL_TOG_fields_
 
-  LCDIF_CTRL_TOG() = delete;
-  inline void Reset() volatile { this->value = 0xC0000000; }
-  static inline volatile LCDIF_CTRL_TOG &ref() { return *reinterpret_cast<volatile LCDIF_CTRL_TOG*>(0x4080400C); }
+struct LCDIF_CTRL_TOG : ftl::mmio::Register<
+    0x4080400Cu,
+    std::uint32_t,
+    0xC0000000u,
+    ftl::mmio::RW,
+    LCDIF_CTRL_TOG_fields_::RUN,
+    LCDIF_CTRL_TOG_fields_::DATA_FORMAT_24_BIT,
+    LCDIF_CTRL_TOG_fields_::DATA_FORMAT_18_BIT,
+    LCDIF_CTRL_TOG_fields_::DATA_FORMAT_16_BIT,
+    ftl::mmio::Reserved<1, 4>,
+    LCDIF_CTRL_TOG_fields_::MASTER,
+    LCDIF_CTRL_TOG_fields_::ENABLE_PXP_HANDSHAKE,
+    ftl::mmio::Reserved<1, 7>,
+    LCDIF_CTRL_TOG_fields_::WORD_LENGTH,
+    LCDIF_CTRL_TOG_fields_::LCD_DATABUS_WIDTH,
+    LCDIF_CTRL_TOG_fields_::CSC_DATA_SWIZZLE,
+    LCDIF_CTRL_TOG_fields_::INPUT_DATA_SWIZZLE,
+    ftl::mmio::Reserved<1, 16>,
+    LCDIF_CTRL_TOG_fields_::DOTCLK_MODE,
+    ftl::mmio::Reserved<1, 18>,
+    LCDIF_CTRL_TOG_fields_::BYPASS_COUNT,
+    ftl::mmio::Reserved<1, 20>,
+    LCDIF_CTRL_TOG_fields_::SHIFT_NUM_BITS,
+    LCDIF_CTRL_TOG_fields_::DATA_SHIFT_DIR,
+    ftl::mmio::Reserved<3, 27>,
+    LCDIF_CTRL_TOG_fields_::CLKGATE,
+    LCDIF_CTRL_TOG_fields_::SFTRST> {
+  using eDATA_FORMAT_24_BIT = LCDIF_CTRL_TOG_fields_::eDATA_FORMAT_24_BIT;
+  using eDATA_FORMAT_18_BIT = LCDIF_CTRL_TOG_fields_::eDATA_FORMAT_18_BIT;
+  using eWORD_LENGTH = LCDIF_CTRL_TOG_fields_::eWORD_LENGTH;
+  using eLCD_DATABUS_WIDTH = LCDIF_CTRL_TOG_fields_::eLCD_DATABUS_WIDTH;
+  using eCSC_DATA_SWIZZLE = LCDIF_CTRL_TOG_fields_::eCSC_DATA_SWIZZLE;
+  using eINPUT_DATA_SWIZZLE = LCDIF_CTRL_TOG_fields_::eINPUT_DATA_SWIZZLE;
+  using eDATA_SHIFT_DIR = LCDIF_CTRL_TOG_fields_::eDATA_SHIFT_DIR;
+  using RUN = LCDIF_CTRL_TOG_fields_::RUN;
+  using DATA_FORMAT_24_BIT = LCDIF_CTRL_TOG_fields_::DATA_FORMAT_24_BIT;
+  using DATA_FORMAT_18_BIT = LCDIF_CTRL_TOG_fields_::DATA_FORMAT_18_BIT;
+  using DATA_FORMAT_16_BIT = LCDIF_CTRL_TOG_fields_::DATA_FORMAT_16_BIT;
+  using MASTER = LCDIF_CTRL_TOG_fields_::MASTER;
+  using ENABLE_PXP_HANDSHAKE = LCDIF_CTRL_TOG_fields_::ENABLE_PXP_HANDSHAKE;
+  using WORD_LENGTH = LCDIF_CTRL_TOG_fields_::WORD_LENGTH;
+  using LCD_DATABUS_WIDTH = LCDIF_CTRL_TOG_fields_::LCD_DATABUS_WIDTH;
+  using CSC_DATA_SWIZZLE = LCDIF_CTRL_TOG_fields_::CSC_DATA_SWIZZLE;
+  using INPUT_DATA_SWIZZLE = LCDIF_CTRL_TOG_fields_::INPUT_DATA_SWIZZLE;
+  using DOTCLK_MODE = LCDIF_CTRL_TOG_fields_::DOTCLK_MODE;
+  using BYPASS_COUNT = LCDIF_CTRL_TOG_fields_::BYPASS_COUNT;
+  using SHIFT_NUM_BITS = LCDIF_CTRL_TOG_fields_::SHIFT_NUM_BITS;
+  using DATA_SHIFT_DIR = LCDIF_CTRL_TOG_fields_::DATA_SHIFT_DIR;
+  using CLKGATE = LCDIF_CTRL_TOG_fields_::CLKGATE;
+  using SFTRST = LCDIF_CTRL_TOG_fields_::SFTRST;
 };
+
 
 // LCDIF General Control1 Register
-union LCDIF_CTRL1 {
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eVSYNC_EDGE_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eCUR_FRAME_DONE_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eUNDERFLOW_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eOVERFLOW_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eBM_ERROR_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 8;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eVSYNC_EDGE_IRQ VSYNC_EDGE_IRQ : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eCUR_FRAME_DONE_IRQ CUR_FRAME_DONE_IRQ : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eUNDERFLOW_IRQ UNDERFLOW_IRQ : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eOVERFLOW_IRQ OVERFLOW_IRQ : 1;
-    // read-write - This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode
-    uint32_t VSYNC_EDGE_IRQ_EN : 1;
-    // read-write - This bit is set to 1 enable an interrupt every time the hardware enters in the vertical blanking state
-    uint32_t CUR_FRAME_DONE_IRQ_EN : 1;
-    // read-write - This bit is set to enable an underflow interrupt in the TXFIFO in the write mode.
-    uint32_t UNDERFLOW_IRQ_EN : 1;
-    // read-write - This bit is set to enable an overflow interrupt in the TXFIFO in the write mode.
-    uint32_t OVERFLOW_IRQ_EN : 1;
-    // read-write - This bitfield is used to show which data bytes in a 32-bit word are valid
-    uint32_t BYTE_PACKING_FORMAT : 4;
-    // read-write - If this bit is set, the LCDIF block will assert the cur_frame_done interrupt only on alternate fields, otherwise it will issue the interrupt on both odd and even field
-    uint32_t IRQ_ON_ALTERNATE_FIELDS : 1;
-    // read-write - Set this bit to clear all the data in the latency FIFO (LFIFO), TXFIFO and the RXFIFO.
-    uint32_t FIFO_CLEAR : 1;
-    // read-write - The default is to grab the odd lines first and then the even lines
-    uint32_t START_INTERLACE_FROM_SECOND_FIELD : 1;
-    // read-write - Set this bit if it is required that the LCDIF block fetches odd lines in one field and even lines in the other field
-    uint32_t INTERLACE_FIELDS : 1;
-    // read-write - Set this bit to enable the LCDIF block to recover in the next field/frame if there was an underflow in the current field/frame
-    uint32_t RECOVER_ON_UNDERFLOW : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eBM_ERROR_IRQ BM_ERROR_IRQ : 1;
-    // read-write - This bit is set to enable bus master error interrupt in the LCDIF master mode.
-    uint32_t BM_ERROR_IRQ_EN : 1;
-    uint32_t _reserved_1 : 3;
-    // read-write - This bit is CS0/CS1 valid select signals
-    uint32_t CS_OUT_SELECT : 1;
-    // read-write - Command Mode MIPI image data select bit
-    uint32_t IMAGE_DATA_SELECT : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_CTRL1_fields_ {
 
-  LCDIF_CTRL1() = delete;
-  inline void Reset() volatile { this->value = 0x000F0000; }
-  static inline volatile LCDIF_CTRL1 &ref() { return *reinterpret_cast<volatile LCDIF_CTRL1*>(0x40804010); }
+  enum class eVSYNC_EDGE_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eCUR_FRAME_DONE_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eUNDERFLOW_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eOVERFLOW_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eBM_ERROR_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using VSYNC_EDGE_IRQ = ftl::mmio::Field<1, 8, eVSYNC_EDGE_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using CUR_FRAME_DONE_IRQ = ftl::mmio::Field<1, 9, eCUR_FRAME_DONE_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using UNDERFLOW_IRQ = ftl::mmio::Field<1, 10, eUNDERFLOW_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using OVERFLOW_IRQ = ftl::mmio::Field<1, 11, eOVERFLOW_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode
+  using VSYNC_EDGE_IRQ_EN = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to 1 enable an interrupt every time the hardware enters in the vertical blanking state
+  using CUR_FRAME_DONE_IRQ_EN = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable an underflow interrupt in the TXFIFO in the write mode.
+  using UNDERFLOW_IRQ_EN = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable an overflow interrupt in the TXFIFO in the write mode.
+  using OVERFLOW_IRQ_EN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bitfield is used to show which data bytes in a 32-bit word are valid
+  using BYTE_PACKING_FORMAT = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // If this bit is set, the LCDIF block will assert the cur_frame_done interrupt only on alternate fields, otherwise it will issue the interrupt on both odd and even field
+  using IRQ_ON_ALTERNATE_FIELDS = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to clear all the data in the latency FIFO (LFIFO), TXFIFO and the RXFIFO.
+  using FIFO_CLEAR = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The default is to grab the odd lines first and then the even lines
+  using START_INTERLACE_FROM_SECOND_FIELD = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit if it is required that the LCDIF block fetches odd lines in one field and even lines in the other field
+  using INTERLACE_FIELDS = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to enable the LCDIF block to recover in the next field/frame if there was an underflow in the current field/frame
+  using RECOVER_ON_UNDERFLOW = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using BM_ERROR_IRQ = ftl::mmio::Field<1, 25, eBM_ERROR_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable bus master error interrupt in the LCDIF master mode.
+  using BM_ERROR_IRQ_EN = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is CS0/CS1 valid select signals
+  using CS_OUT_SELECT = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Command Mode MIPI image data select bit
+  using IMAGE_DATA_SELECT = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CTRL1_fields_
+
+struct LCDIF_CTRL1 : ftl::mmio::Register<
+    0x40804010u,
+    std::uint32_t,
+    0x000F0000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<8, 0>,
+    LCDIF_CTRL1_fields_::VSYNC_EDGE_IRQ,
+    LCDIF_CTRL1_fields_::CUR_FRAME_DONE_IRQ,
+    LCDIF_CTRL1_fields_::UNDERFLOW_IRQ,
+    LCDIF_CTRL1_fields_::OVERFLOW_IRQ,
+    LCDIF_CTRL1_fields_::VSYNC_EDGE_IRQ_EN,
+    LCDIF_CTRL1_fields_::CUR_FRAME_DONE_IRQ_EN,
+    LCDIF_CTRL1_fields_::UNDERFLOW_IRQ_EN,
+    LCDIF_CTRL1_fields_::OVERFLOW_IRQ_EN,
+    LCDIF_CTRL1_fields_::BYTE_PACKING_FORMAT,
+    LCDIF_CTRL1_fields_::IRQ_ON_ALTERNATE_FIELDS,
+    LCDIF_CTRL1_fields_::FIFO_CLEAR,
+    LCDIF_CTRL1_fields_::START_INTERLACE_FROM_SECOND_FIELD,
+    LCDIF_CTRL1_fields_::INTERLACE_FIELDS,
+    LCDIF_CTRL1_fields_::RECOVER_ON_UNDERFLOW,
+    LCDIF_CTRL1_fields_::BM_ERROR_IRQ,
+    LCDIF_CTRL1_fields_::BM_ERROR_IRQ_EN,
+    ftl::mmio::Reserved<3, 27>,
+    LCDIF_CTRL1_fields_::CS_OUT_SELECT,
+    LCDIF_CTRL1_fields_::IMAGE_DATA_SELECT> {
+  using eVSYNC_EDGE_IRQ = LCDIF_CTRL1_fields_::eVSYNC_EDGE_IRQ;
+  using eCUR_FRAME_DONE_IRQ = LCDIF_CTRL1_fields_::eCUR_FRAME_DONE_IRQ;
+  using eUNDERFLOW_IRQ = LCDIF_CTRL1_fields_::eUNDERFLOW_IRQ;
+  using eOVERFLOW_IRQ = LCDIF_CTRL1_fields_::eOVERFLOW_IRQ;
+  using eBM_ERROR_IRQ = LCDIF_CTRL1_fields_::eBM_ERROR_IRQ;
+  using VSYNC_EDGE_IRQ = LCDIF_CTRL1_fields_::VSYNC_EDGE_IRQ;
+  using CUR_FRAME_DONE_IRQ = LCDIF_CTRL1_fields_::CUR_FRAME_DONE_IRQ;
+  using UNDERFLOW_IRQ = LCDIF_CTRL1_fields_::UNDERFLOW_IRQ;
+  using OVERFLOW_IRQ = LCDIF_CTRL1_fields_::OVERFLOW_IRQ;
+  using VSYNC_EDGE_IRQ_EN = LCDIF_CTRL1_fields_::VSYNC_EDGE_IRQ_EN;
+  using CUR_FRAME_DONE_IRQ_EN = LCDIF_CTRL1_fields_::CUR_FRAME_DONE_IRQ_EN;
+  using UNDERFLOW_IRQ_EN = LCDIF_CTRL1_fields_::UNDERFLOW_IRQ_EN;
+  using OVERFLOW_IRQ_EN = LCDIF_CTRL1_fields_::OVERFLOW_IRQ_EN;
+  using BYTE_PACKING_FORMAT = LCDIF_CTRL1_fields_::BYTE_PACKING_FORMAT;
+  using IRQ_ON_ALTERNATE_FIELDS = LCDIF_CTRL1_fields_::IRQ_ON_ALTERNATE_FIELDS;
+  using FIFO_CLEAR = LCDIF_CTRL1_fields_::FIFO_CLEAR;
+  using START_INTERLACE_FROM_SECOND_FIELD = LCDIF_CTRL1_fields_::START_INTERLACE_FROM_SECOND_FIELD;
+  using INTERLACE_FIELDS = LCDIF_CTRL1_fields_::INTERLACE_FIELDS;
+  using RECOVER_ON_UNDERFLOW = LCDIF_CTRL1_fields_::RECOVER_ON_UNDERFLOW;
+  using BM_ERROR_IRQ = LCDIF_CTRL1_fields_::BM_ERROR_IRQ;
+  using BM_ERROR_IRQ_EN = LCDIF_CTRL1_fields_::BM_ERROR_IRQ_EN;
+  using CS_OUT_SELECT = LCDIF_CTRL1_fields_::CS_OUT_SELECT;
+  using IMAGE_DATA_SELECT = LCDIF_CTRL1_fields_::IMAGE_DATA_SELECT;
 };
+
 
 // LCDIF General Control1 Register
-union LCDIF_CTRL1_SET {
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eVSYNC_EDGE_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eCUR_FRAME_DONE_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eUNDERFLOW_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eOVERFLOW_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eBM_ERROR_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 8;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eVSYNC_EDGE_IRQ VSYNC_EDGE_IRQ : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eCUR_FRAME_DONE_IRQ CUR_FRAME_DONE_IRQ : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eUNDERFLOW_IRQ UNDERFLOW_IRQ : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eOVERFLOW_IRQ OVERFLOW_IRQ : 1;
-    // read-write - This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode
-    uint32_t VSYNC_EDGE_IRQ_EN : 1;
-    // read-write - This bit is set to 1 enable an interrupt every time the hardware enters in the vertical blanking state
-    uint32_t CUR_FRAME_DONE_IRQ_EN : 1;
-    // read-write - This bit is set to enable an underflow interrupt in the TXFIFO in the write mode.
-    uint32_t UNDERFLOW_IRQ_EN : 1;
-    // read-write - This bit is set to enable an overflow interrupt in the TXFIFO in the write mode.
-    uint32_t OVERFLOW_IRQ_EN : 1;
-    // read-write - This bitfield is used to show which data bytes in a 32-bit word are valid
-    uint32_t BYTE_PACKING_FORMAT : 4;
-    // read-write - If this bit is set, the LCDIF block will assert the cur_frame_done interrupt only on alternate fields, otherwise it will issue the interrupt on both odd and even field
-    uint32_t IRQ_ON_ALTERNATE_FIELDS : 1;
-    // read-write - Set this bit to clear all the data in the latency FIFO (LFIFO), TXFIFO and the RXFIFO.
-    uint32_t FIFO_CLEAR : 1;
-    // read-write - The default is to grab the odd lines first and then the even lines
-    uint32_t START_INTERLACE_FROM_SECOND_FIELD : 1;
-    // read-write - Set this bit if it is required that the LCDIF block fetches odd lines in one field and even lines in the other field
-    uint32_t INTERLACE_FIELDS : 1;
-    // read-write - Set this bit to enable the LCDIF block to recover in the next field/frame if there was an underflow in the current field/frame
-    uint32_t RECOVER_ON_UNDERFLOW : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eBM_ERROR_IRQ BM_ERROR_IRQ : 1;
-    // read-write - This bit is set to enable bus master error interrupt in the LCDIF master mode.
-    uint32_t BM_ERROR_IRQ_EN : 1;
-    uint32_t _reserved_1 : 3;
-    // read-write - This bit is CS0/CS1 valid select signals
-    uint32_t CS_OUT_SELECT : 1;
-    // read-write - Command Mode MIPI image data select bit
-    uint32_t IMAGE_DATA_SELECT : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_CTRL1_SET_fields_ {
 
-  LCDIF_CTRL1_SET() = delete;
-  inline void Reset() volatile { this->value = 0x000F0000; }
-  static inline volatile LCDIF_CTRL1_SET &ref() { return *reinterpret_cast<volatile LCDIF_CTRL1_SET*>(0x40804014); }
+  enum class eVSYNC_EDGE_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eCUR_FRAME_DONE_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eUNDERFLOW_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eOVERFLOW_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eBM_ERROR_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using VSYNC_EDGE_IRQ = ftl::mmio::Field<1, 8, eVSYNC_EDGE_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using CUR_FRAME_DONE_IRQ = ftl::mmio::Field<1, 9, eCUR_FRAME_DONE_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using UNDERFLOW_IRQ = ftl::mmio::Field<1, 10, eUNDERFLOW_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using OVERFLOW_IRQ = ftl::mmio::Field<1, 11, eOVERFLOW_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode
+  using VSYNC_EDGE_IRQ_EN = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to 1 enable an interrupt every time the hardware enters in the vertical blanking state
+  using CUR_FRAME_DONE_IRQ_EN = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable an underflow interrupt in the TXFIFO in the write mode.
+  using UNDERFLOW_IRQ_EN = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable an overflow interrupt in the TXFIFO in the write mode.
+  using OVERFLOW_IRQ_EN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bitfield is used to show which data bytes in a 32-bit word are valid
+  using BYTE_PACKING_FORMAT = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // If this bit is set, the LCDIF block will assert the cur_frame_done interrupt only on alternate fields, otherwise it will issue the interrupt on both odd and even field
+  using IRQ_ON_ALTERNATE_FIELDS = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to clear all the data in the latency FIFO (LFIFO), TXFIFO and the RXFIFO.
+  using FIFO_CLEAR = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The default is to grab the odd lines first and then the even lines
+  using START_INTERLACE_FROM_SECOND_FIELD = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit if it is required that the LCDIF block fetches odd lines in one field and even lines in the other field
+  using INTERLACE_FIELDS = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to enable the LCDIF block to recover in the next field/frame if there was an underflow in the current field/frame
+  using RECOVER_ON_UNDERFLOW = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using BM_ERROR_IRQ = ftl::mmio::Field<1, 25, eBM_ERROR_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable bus master error interrupt in the LCDIF master mode.
+  using BM_ERROR_IRQ_EN = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is CS0/CS1 valid select signals
+  using CS_OUT_SELECT = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Command Mode MIPI image data select bit
+  using IMAGE_DATA_SELECT = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CTRL1_SET_fields_
+
+struct LCDIF_CTRL1_SET : ftl::mmio::Register<
+    0x40804014u,
+    std::uint32_t,
+    0x000F0000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<8, 0>,
+    LCDIF_CTRL1_SET_fields_::VSYNC_EDGE_IRQ,
+    LCDIF_CTRL1_SET_fields_::CUR_FRAME_DONE_IRQ,
+    LCDIF_CTRL1_SET_fields_::UNDERFLOW_IRQ,
+    LCDIF_CTRL1_SET_fields_::OVERFLOW_IRQ,
+    LCDIF_CTRL1_SET_fields_::VSYNC_EDGE_IRQ_EN,
+    LCDIF_CTRL1_SET_fields_::CUR_FRAME_DONE_IRQ_EN,
+    LCDIF_CTRL1_SET_fields_::UNDERFLOW_IRQ_EN,
+    LCDIF_CTRL1_SET_fields_::OVERFLOW_IRQ_EN,
+    LCDIF_CTRL1_SET_fields_::BYTE_PACKING_FORMAT,
+    LCDIF_CTRL1_SET_fields_::IRQ_ON_ALTERNATE_FIELDS,
+    LCDIF_CTRL1_SET_fields_::FIFO_CLEAR,
+    LCDIF_CTRL1_SET_fields_::START_INTERLACE_FROM_SECOND_FIELD,
+    LCDIF_CTRL1_SET_fields_::INTERLACE_FIELDS,
+    LCDIF_CTRL1_SET_fields_::RECOVER_ON_UNDERFLOW,
+    LCDIF_CTRL1_SET_fields_::BM_ERROR_IRQ,
+    LCDIF_CTRL1_SET_fields_::BM_ERROR_IRQ_EN,
+    ftl::mmio::Reserved<3, 27>,
+    LCDIF_CTRL1_SET_fields_::CS_OUT_SELECT,
+    LCDIF_CTRL1_SET_fields_::IMAGE_DATA_SELECT> {
+  using eVSYNC_EDGE_IRQ = LCDIF_CTRL1_SET_fields_::eVSYNC_EDGE_IRQ;
+  using eCUR_FRAME_DONE_IRQ = LCDIF_CTRL1_SET_fields_::eCUR_FRAME_DONE_IRQ;
+  using eUNDERFLOW_IRQ = LCDIF_CTRL1_SET_fields_::eUNDERFLOW_IRQ;
+  using eOVERFLOW_IRQ = LCDIF_CTRL1_SET_fields_::eOVERFLOW_IRQ;
+  using eBM_ERROR_IRQ = LCDIF_CTRL1_SET_fields_::eBM_ERROR_IRQ;
+  using VSYNC_EDGE_IRQ = LCDIF_CTRL1_SET_fields_::VSYNC_EDGE_IRQ;
+  using CUR_FRAME_DONE_IRQ = LCDIF_CTRL1_SET_fields_::CUR_FRAME_DONE_IRQ;
+  using UNDERFLOW_IRQ = LCDIF_CTRL1_SET_fields_::UNDERFLOW_IRQ;
+  using OVERFLOW_IRQ = LCDIF_CTRL1_SET_fields_::OVERFLOW_IRQ;
+  using VSYNC_EDGE_IRQ_EN = LCDIF_CTRL1_SET_fields_::VSYNC_EDGE_IRQ_EN;
+  using CUR_FRAME_DONE_IRQ_EN = LCDIF_CTRL1_SET_fields_::CUR_FRAME_DONE_IRQ_EN;
+  using UNDERFLOW_IRQ_EN = LCDIF_CTRL1_SET_fields_::UNDERFLOW_IRQ_EN;
+  using OVERFLOW_IRQ_EN = LCDIF_CTRL1_SET_fields_::OVERFLOW_IRQ_EN;
+  using BYTE_PACKING_FORMAT = LCDIF_CTRL1_SET_fields_::BYTE_PACKING_FORMAT;
+  using IRQ_ON_ALTERNATE_FIELDS = LCDIF_CTRL1_SET_fields_::IRQ_ON_ALTERNATE_FIELDS;
+  using FIFO_CLEAR = LCDIF_CTRL1_SET_fields_::FIFO_CLEAR;
+  using START_INTERLACE_FROM_SECOND_FIELD = LCDIF_CTRL1_SET_fields_::START_INTERLACE_FROM_SECOND_FIELD;
+  using INTERLACE_FIELDS = LCDIF_CTRL1_SET_fields_::INTERLACE_FIELDS;
+  using RECOVER_ON_UNDERFLOW = LCDIF_CTRL1_SET_fields_::RECOVER_ON_UNDERFLOW;
+  using BM_ERROR_IRQ = LCDIF_CTRL1_SET_fields_::BM_ERROR_IRQ;
+  using BM_ERROR_IRQ_EN = LCDIF_CTRL1_SET_fields_::BM_ERROR_IRQ_EN;
+  using CS_OUT_SELECT = LCDIF_CTRL1_SET_fields_::CS_OUT_SELECT;
+  using IMAGE_DATA_SELECT = LCDIF_CTRL1_SET_fields_::IMAGE_DATA_SELECT;
 };
+
 
 // LCDIF General Control1 Register
-union LCDIF_CTRL1_CLR {
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eVSYNC_EDGE_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eCUR_FRAME_DONE_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eUNDERFLOW_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eOVERFLOW_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eBM_ERROR_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 8;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eVSYNC_EDGE_IRQ VSYNC_EDGE_IRQ : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eCUR_FRAME_DONE_IRQ CUR_FRAME_DONE_IRQ : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eUNDERFLOW_IRQ UNDERFLOW_IRQ : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eOVERFLOW_IRQ OVERFLOW_IRQ : 1;
-    // read-write - This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode
-    uint32_t VSYNC_EDGE_IRQ_EN : 1;
-    // read-write - This bit is set to 1 enable an interrupt every time the hardware enters in the vertical blanking state
-    uint32_t CUR_FRAME_DONE_IRQ_EN : 1;
-    // read-write - This bit is set to enable an underflow interrupt in the TXFIFO in the write mode.
-    uint32_t UNDERFLOW_IRQ_EN : 1;
-    // read-write - This bit is set to enable an overflow interrupt in the TXFIFO in the write mode.
-    uint32_t OVERFLOW_IRQ_EN : 1;
-    // read-write - This bitfield is used to show which data bytes in a 32-bit word are valid
-    uint32_t BYTE_PACKING_FORMAT : 4;
-    // read-write - If this bit is set, the LCDIF block will assert the cur_frame_done interrupt only on alternate fields, otherwise it will issue the interrupt on both odd and even field
-    uint32_t IRQ_ON_ALTERNATE_FIELDS : 1;
-    // read-write - Set this bit to clear all the data in the latency FIFO (LFIFO), TXFIFO and the RXFIFO.
-    uint32_t FIFO_CLEAR : 1;
-    // read-write - The default is to grab the odd lines first and then the even lines
-    uint32_t START_INTERLACE_FROM_SECOND_FIELD : 1;
-    // read-write - Set this bit if it is required that the LCDIF block fetches odd lines in one field and even lines in the other field
-    uint32_t INTERLACE_FIELDS : 1;
-    // read-write - Set this bit to enable the LCDIF block to recover in the next field/frame if there was an underflow in the current field/frame
-    uint32_t RECOVER_ON_UNDERFLOW : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eBM_ERROR_IRQ BM_ERROR_IRQ : 1;
-    // read-write - This bit is set to enable bus master error interrupt in the LCDIF master mode.
-    uint32_t BM_ERROR_IRQ_EN : 1;
-    uint32_t _reserved_1 : 3;
-    // read-write - This bit is CS0/CS1 valid select signals
-    uint32_t CS_OUT_SELECT : 1;
-    // read-write - Command Mode MIPI image data select bit
-    uint32_t IMAGE_DATA_SELECT : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_CTRL1_CLR_fields_ {
 
-  LCDIF_CTRL1_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x000F0000; }
-  static inline volatile LCDIF_CTRL1_CLR &ref() { return *reinterpret_cast<volatile LCDIF_CTRL1_CLR*>(0x40804018); }
+  enum class eVSYNC_EDGE_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eCUR_FRAME_DONE_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eUNDERFLOW_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eOVERFLOW_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eBM_ERROR_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using VSYNC_EDGE_IRQ = ftl::mmio::Field<1, 8, eVSYNC_EDGE_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using CUR_FRAME_DONE_IRQ = ftl::mmio::Field<1, 9, eCUR_FRAME_DONE_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using UNDERFLOW_IRQ = ftl::mmio::Field<1, 10, eUNDERFLOW_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using OVERFLOW_IRQ = ftl::mmio::Field<1, 11, eOVERFLOW_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode
+  using VSYNC_EDGE_IRQ_EN = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to 1 enable an interrupt every time the hardware enters in the vertical blanking state
+  using CUR_FRAME_DONE_IRQ_EN = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable an underflow interrupt in the TXFIFO in the write mode.
+  using UNDERFLOW_IRQ_EN = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable an overflow interrupt in the TXFIFO in the write mode.
+  using OVERFLOW_IRQ_EN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bitfield is used to show which data bytes in a 32-bit word are valid
+  using BYTE_PACKING_FORMAT = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // If this bit is set, the LCDIF block will assert the cur_frame_done interrupt only on alternate fields, otherwise it will issue the interrupt on both odd and even field
+  using IRQ_ON_ALTERNATE_FIELDS = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to clear all the data in the latency FIFO (LFIFO), TXFIFO and the RXFIFO.
+  using FIFO_CLEAR = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The default is to grab the odd lines first and then the even lines
+  using START_INTERLACE_FROM_SECOND_FIELD = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit if it is required that the LCDIF block fetches odd lines in one field and even lines in the other field
+  using INTERLACE_FIELDS = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to enable the LCDIF block to recover in the next field/frame if there was an underflow in the current field/frame
+  using RECOVER_ON_UNDERFLOW = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using BM_ERROR_IRQ = ftl::mmio::Field<1, 25, eBM_ERROR_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable bus master error interrupt in the LCDIF master mode.
+  using BM_ERROR_IRQ_EN = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is CS0/CS1 valid select signals
+  using CS_OUT_SELECT = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Command Mode MIPI image data select bit
+  using IMAGE_DATA_SELECT = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CTRL1_CLR_fields_
+
+struct LCDIF_CTRL1_CLR : ftl::mmio::Register<
+    0x40804018u,
+    std::uint32_t,
+    0x000F0000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<8, 0>,
+    LCDIF_CTRL1_CLR_fields_::VSYNC_EDGE_IRQ,
+    LCDIF_CTRL1_CLR_fields_::CUR_FRAME_DONE_IRQ,
+    LCDIF_CTRL1_CLR_fields_::UNDERFLOW_IRQ,
+    LCDIF_CTRL1_CLR_fields_::OVERFLOW_IRQ,
+    LCDIF_CTRL1_CLR_fields_::VSYNC_EDGE_IRQ_EN,
+    LCDIF_CTRL1_CLR_fields_::CUR_FRAME_DONE_IRQ_EN,
+    LCDIF_CTRL1_CLR_fields_::UNDERFLOW_IRQ_EN,
+    LCDIF_CTRL1_CLR_fields_::OVERFLOW_IRQ_EN,
+    LCDIF_CTRL1_CLR_fields_::BYTE_PACKING_FORMAT,
+    LCDIF_CTRL1_CLR_fields_::IRQ_ON_ALTERNATE_FIELDS,
+    LCDIF_CTRL1_CLR_fields_::FIFO_CLEAR,
+    LCDIF_CTRL1_CLR_fields_::START_INTERLACE_FROM_SECOND_FIELD,
+    LCDIF_CTRL1_CLR_fields_::INTERLACE_FIELDS,
+    LCDIF_CTRL1_CLR_fields_::RECOVER_ON_UNDERFLOW,
+    LCDIF_CTRL1_CLR_fields_::BM_ERROR_IRQ,
+    LCDIF_CTRL1_CLR_fields_::BM_ERROR_IRQ_EN,
+    ftl::mmio::Reserved<3, 27>,
+    LCDIF_CTRL1_CLR_fields_::CS_OUT_SELECT,
+    LCDIF_CTRL1_CLR_fields_::IMAGE_DATA_SELECT> {
+  using eVSYNC_EDGE_IRQ = LCDIF_CTRL1_CLR_fields_::eVSYNC_EDGE_IRQ;
+  using eCUR_FRAME_DONE_IRQ = LCDIF_CTRL1_CLR_fields_::eCUR_FRAME_DONE_IRQ;
+  using eUNDERFLOW_IRQ = LCDIF_CTRL1_CLR_fields_::eUNDERFLOW_IRQ;
+  using eOVERFLOW_IRQ = LCDIF_CTRL1_CLR_fields_::eOVERFLOW_IRQ;
+  using eBM_ERROR_IRQ = LCDIF_CTRL1_CLR_fields_::eBM_ERROR_IRQ;
+  using VSYNC_EDGE_IRQ = LCDIF_CTRL1_CLR_fields_::VSYNC_EDGE_IRQ;
+  using CUR_FRAME_DONE_IRQ = LCDIF_CTRL1_CLR_fields_::CUR_FRAME_DONE_IRQ;
+  using UNDERFLOW_IRQ = LCDIF_CTRL1_CLR_fields_::UNDERFLOW_IRQ;
+  using OVERFLOW_IRQ = LCDIF_CTRL1_CLR_fields_::OVERFLOW_IRQ;
+  using VSYNC_EDGE_IRQ_EN = LCDIF_CTRL1_CLR_fields_::VSYNC_EDGE_IRQ_EN;
+  using CUR_FRAME_DONE_IRQ_EN = LCDIF_CTRL1_CLR_fields_::CUR_FRAME_DONE_IRQ_EN;
+  using UNDERFLOW_IRQ_EN = LCDIF_CTRL1_CLR_fields_::UNDERFLOW_IRQ_EN;
+  using OVERFLOW_IRQ_EN = LCDIF_CTRL1_CLR_fields_::OVERFLOW_IRQ_EN;
+  using BYTE_PACKING_FORMAT = LCDIF_CTRL1_CLR_fields_::BYTE_PACKING_FORMAT;
+  using IRQ_ON_ALTERNATE_FIELDS = LCDIF_CTRL1_CLR_fields_::IRQ_ON_ALTERNATE_FIELDS;
+  using FIFO_CLEAR = LCDIF_CTRL1_CLR_fields_::FIFO_CLEAR;
+  using START_INTERLACE_FROM_SECOND_FIELD = LCDIF_CTRL1_CLR_fields_::START_INTERLACE_FROM_SECOND_FIELD;
+  using INTERLACE_FIELDS = LCDIF_CTRL1_CLR_fields_::INTERLACE_FIELDS;
+  using RECOVER_ON_UNDERFLOW = LCDIF_CTRL1_CLR_fields_::RECOVER_ON_UNDERFLOW;
+  using BM_ERROR_IRQ = LCDIF_CTRL1_CLR_fields_::BM_ERROR_IRQ;
+  using BM_ERROR_IRQ_EN = LCDIF_CTRL1_CLR_fields_::BM_ERROR_IRQ_EN;
+  using CS_OUT_SELECT = LCDIF_CTRL1_CLR_fields_::CS_OUT_SELECT;
+  using IMAGE_DATA_SELECT = LCDIF_CTRL1_CLR_fields_::IMAGE_DATA_SELECT;
 };
+
 
 // LCDIF General Control1 Register
-union LCDIF_CTRL1_TOG {
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eVSYNC_EDGE_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eCUR_FRAME_DONE_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eUNDERFLOW_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eOVERFLOW_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // This bit is set to indicate that an interrupt is requested by the LCDIF block
-  enum class eBM_ERROR_IRQ : uint32_t {
-    // No Interrupt Request Pending.
-    eNO_REQUEST = 0,
-    // Interrupt Request Pending.
-    eREQUEST = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 8;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eVSYNC_EDGE_IRQ VSYNC_EDGE_IRQ : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eCUR_FRAME_DONE_IRQ CUR_FRAME_DONE_IRQ : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eUNDERFLOW_IRQ UNDERFLOW_IRQ : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eOVERFLOW_IRQ OVERFLOW_IRQ : 1;
-    // read-write - This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode
-    uint32_t VSYNC_EDGE_IRQ_EN : 1;
-    // read-write - This bit is set to 1 enable an interrupt every time the hardware enters in the vertical blanking state
-    uint32_t CUR_FRAME_DONE_IRQ_EN : 1;
-    // read-write - This bit is set to enable an underflow interrupt in the TXFIFO in the write mode.
-    uint32_t UNDERFLOW_IRQ_EN : 1;
-    // read-write - This bit is set to enable an overflow interrupt in the TXFIFO in the write mode.
-    uint32_t OVERFLOW_IRQ_EN : 1;
-    // read-write - This bitfield is used to show which data bytes in a 32-bit word are valid
-    uint32_t BYTE_PACKING_FORMAT : 4;
-    // read-write - If this bit is set, the LCDIF block will assert the cur_frame_done interrupt only on alternate fields, otherwise it will issue the interrupt on both odd and even field
-    uint32_t IRQ_ON_ALTERNATE_FIELDS : 1;
-    // read-write - Set this bit to clear all the data in the latency FIFO (LFIFO), TXFIFO and the RXFIFO.
-    uint32_t FIFO_CLEAR : 1;
-    // read-write - The default is to grab the odd lines first and then the even lines
-    uint32_t START_INTERLACE_FROM_SECOND_FIELD : 1;
-    // read-write - Set this bit if it is required that the LCDIF block fetches odd lines in one field and even lines in the other field
-    uint32_t INTERLACE_FIELDS : 1;
-    // read-write - Set this bit to enable the LCDIF block to recover in the next field/frame if there was an underflow in the current field/frame
-    uint32_t RECOVER_ON_UNDERFLOW : 1;
-    // read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
-    eBM_ERROR_IRQ BM_ERROR_IRQ : 1;
-    // read-write - This bit is set to enable bus master error interrupt in the LCDIF master mode.
-    uint32_t BM_ERROR_IRQ_EN : 1;
-    uint32_t _reserved_1 : 3;
-    // read-write - This bit is CS0/CS1 valid select signals
-    uint32_t CS_OUT_SELECT : 1;
-    // read-write - Command Mode MIPI image data select bit
-    uint32_t IMAGE_DATA_SELECT : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_CTRL1_TOG_fields_ {
 
-  LCDIF_CTRL1_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x000F0000; }
-  static inline volatile LCDIF_CTRL1_TOG &ref() { return *reinterpret_cast<volatile LCDIF_CTRL1_TOG*>(0x4080401C); }
+  enum class eVSYNC_EDGE_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eCUR_FRAME_DONE_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eUNDERFLOW_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eOVERFLOW_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+
+  enum class eBM_ERROR_IRQ : std::uint32_t {
+    // No Interrupt Request Pending.
+    eNO_REQUEST = 0,
+    // Interrupt Request Pending.
+    eREQUEST = 1,
+  };
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using VSYNC_EDGE_IRQ = ftl::mmio::Field<1, 8, eVSYNC_EDGE_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using CUR_FRAME_DONE_IRQ = ftl::mmio::Field<1, 9, eCUR_FRAME_DONE_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using UNDERFLOW_IRQ = ftl::mmio::Field<1, 10, eUNDERFLOW_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using OVERFLOW_IRQ = ftl::mmio::Field<1, 11, eOVERFLOW_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode
+  using VSYNC_EDGE_IRQ_EN = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to 1 enable an interrupt every time the hardware enters in the vertical blanking state
+  using CUR_FRAME_DONE_IRQ_EN = ftl::mmio::Field<1, 13, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable an underflow interrupt in the TXFIFO in the write mode.
+  using UNDERFLOW_IRQ_EN = ftl::mmio::Field<1, 14, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable an overflow interrupt in the TXFIFO in the write mode.
+  using OVERFLOW_IRQ_EN = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bitfield is used to show which data bytes in a 32-bit word are valid
+  using BYTE_PACKING_FORMAT = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // If this bit is set, the LCDIF block will assert the cur_frame_done interrupt only on alternate fields, otherwise it will issue the interrupt on both odd and even field
+  using IRQ_ON_ALTERNATE_FIELDS = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to clear all the data in the latency FIFO (LFIFO), TXFIFO and the RXFIFO.
+  using FIFO_CLEAR = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // The default is to grab the odd lines first and then the even lines
+  using START_INTERLACE_FROM_SECOND_FIELD = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit if it is required that the LCDIF block fetches odd lines in one field and even lines in the other field
+  using INTERLACE_FIELDS = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this bit to enable the LCDIF block to recover in the next field/frame if there was an underflow in the current field/frame
+  using RECOVER_ON_UNDERFLOW = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to indicate that an interrupt is requested by the LCDIF block
+  using BM_ERROR_IRQ = ftl::mmio::Field<1, 25, eBM_ERROR_IRQ, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is set to enable bus master error interrupt in the LCDIF master mode.
+  using BM_ERROR_IRQ_EN = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit is CS0/CS1 valid select signals
+  using CS_OUT_SELECT = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Command Mode MIPI image data select bit
+  using IMAGE_DATA_SELECT = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CTRL1_TOG_fields_
+
+struct LCDIF_CTRL1_TOG : ftl::mmio::Register<
+    0x4080401Cu,
+    std::uint32_t,
+    0x000F0000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<8, 0>,
+    LCDIF_CTRL1_TOG_fields_::VSYNC_EDGE_IRQ,
+    LCDIF_CTRL1_TOG_fields_::CUR_FRAME_DONE_IRQ,
+    LCDIF_CTRL1_TOG_fields_::UNDERFLOW_IRQ,
+    LCDIF_CTRL1_TOG_fields_::OVERFLOW_IRQ,
+    LCDIF_CTRL1_TOG_fields_::VSYNC_EDGE_IRQ_EN,
+    LCDIF_CTRL1_TOG_fields_::CUR_FRAME_DONE_IRQ_EN,
+    LCDIF_CTRL1_TOG_fields_::UNDERFLOW_IRQ_EN,
+    LCDIF_CTRL1_TOG_fields_::OVERFLOW_IRQ_EN,
+    LCDIF_CTRL1_TOG_fields_::BYTE_PACKING_FORMAT,
+    LCDIF_CTRL1_TOG_fields_::IRQ_ON_ALTERNATE_FIELDS,
+    LCDIF_CTRL1_TOG_fields_::FIFO_CLEAR,
+    LCDIF_CTRL1_TOG_fields_::START_INTERLACE_FROM_SECOND_FIELD,
+    LCDIF_CTRL1_TOG_fields_::INTERLACE_FIELDS,
+    LCDIF_CTRL1_TOG_fields_::RECOVER_ON_UNDERFLOW,
+    LCDIF_CTRL1_TOG_fields_::BM_ERROR_IRQ,
+    LCDIF_CTRL1_TOG_fields_::BM_ERROR_IRQ_EN,
+    ftl::mmio::Reserved<3, 27>,
+    LCDIF_CTRL1_TOG_fields_::CS_OUT_SELECT,
+    LCDIF_CTRL1_TOG_fields_::IMAGE_DATA_SELECT> {
+  using eVSYNC_EDGE_IRQ = LCDIF_CTRL1_TOG_fields_::eVSYNC_EDGE_IRQ;
+  using eCUR_FRAME_DONE_IRQ = LCDIF_CTRL1_TOG_fields_::eCUR_FRAME_DONE_IRQ;
+  using eUNDERFLOW_IRQ = LCDIF_CTRL1_TOG_fields_::eUNDERFLOW_IRQ;
+  using eOVERFLOW_IRQ = LCDIF_CTRL1_TOG_fields_::eOVERFLOW_IRQ;
+  using eBM_ERROR_IRQ = LCDIF_CTRL1_TOG_fields_::eBM_ERROR_IRQ;
+  using VSYNC_EDGE_IRQ = LCDIF_CTRL1_TOG_fields_::VSYNC_EDGE_IRQ;
+  using CUR_FRAME_DONE_IRQ = LCDIF_CTRL1_TOG_fields_::CUR_FRAME_DONE_IRQ;
+  using UNDERFLOW_IRQ = LCDIF_CTRL1_TOG_fields_::UNDERFLOW_IRQ;
+  using OVERFLOW_IRQ = LCDIF_CTRL1_TOG_fields_::OVERFLOW_IRQ;
+  using VSYNC_EDGE_IRQ_EN = LCDIF_CTRL1_TOG_fields_::VSYNC_EDGE_IRQ_EN;
+  using CUR_FRAME_DONE_IRQ_EN = LCDIF_CTRL1_TOG_fields_::CUR_FRAME_DONE_IRQ_EN;
+  using UNDERFLOW_IRQ_EN = LCDIF_CTRL1_TOG_fields_::UNDERFLOW_IRQ_EN;
+  using OVERFLOW_IRQ_EN = LCDIF_CTRL1_TOG_fields_::OVERFLOW_IRQ_EN;
+  using BYTE_PACKING_FORMAT = LCDIF_CTRL1_TOG_fields_::BYTE_PACKING_FORMAT;
+  using IRQ_ON_ALTERNATE_FIELDS = LCDIF_CTRL1_TOG_fields_::IRQ_ON_ALTERNATE_FIELDS;
+  using FIFO_CLEAR = LCDIF_CTRL1_TOG_fields_::FIFO_CLEAR;
+  using START_INTERLACE_FROM_SECOND_FIELD = LCDIF_CTRL1_TOG_fields_::START_INTERLACE_FROM_SECOND_FIELD;
+  using INTERLACE_FIELDS = LCDIF_CTRL1_TOG_fields_::INTERLACE_FIELDS;
+  using RECOVER_ON_UNDERFLOW = LCDIF_CTRL1_TOG_fields_::RECOVER_ON_UNDERFLOW;
+  using BM_ERROR_IRQ = LCDIF_CTRL1_TOG_fields_::BM_ERROR_IRQ;
+  using BM_ERROR_IRQ_EN = LCDIF_CTRL1_TOG_fields_::BM_ERROR_IRQ_EN;
+  using CS_OUT_SELECT = LCDIF_CTRL1_TOG_fields_::CS_OUT_SELECT;
+  using IMAGE_DATA_SELECT = LCDIF_CTRL1_TOG_fields_::IMAGE_DATA_SELECT;
 };
+
 
 // LCDIF General Control2 Register
-union LCDIF_CTRL2 {
-  
-  // This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
-  enum class eEVEN_LINE_PATTERN : uint32_t {
+struct LCDIF_CTRL2_fields_ {
+
+  enum class eEVEN_LINE_PATTERN : std::uint32_t {
     // RGB
     eRGB = 0,
     // RBG
@@ -900,9 +1146,8 @@ union LCDIF_CTRL2 {
     // BGR
     eBGR = 5,
   };
-  
-  // This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
-  enum class eODD_LINE_PATTERN : uint32_t {
+
+  enum class eODD_LINE_PATTERN : std::uint32_t {
     // RGB
     eRGB = 0,
     // RBG
@@ -916,9 +1161,8 @@ union LCDIF_CTRL2 {
     // BGR
     eBGR = 5,
   };
-  
-  // This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
-  enum class eOUTSTANDING_REQS : uint32_t {
+
+  enum class eOUTSTANDING_REQS : std::uint32_t {
     // REQ_1
     eREQ_1 = 0,
     // REQ_2
@@ -930,36 +1174,43 @@ union LCDIF_CTRL2 {
     // REQ_16
     eREQ_16 = 4,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 12;
-    // read-write - This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
-    eEVEN_LINE_PATTERN EVEN_LINE_PATTERN : 3;
-    uint32_t _reserved_1 : 1;
-    // read-write - This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
-    eODD_LINE_PATTERN ODD_LINE_PATTERN : 3;
-    uint32_t _reserved_2 : 1;
-    // read-write - By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)
-    uint32_t BURST_LEN_8 : 1;
-    // read-write - This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
-    eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
-    uint32_t _reserved_3 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
+  using EVEN_LINE_PATTERN = ftl::mmio::Field<3, 12, eEVEN_LINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
+  using ODD_LINE_PATTERN = ftl::mmio::Field<3, 16, eODD_LINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)
+  using BURST_LEN_8 = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
+  using OUTSTANDING_REQS = ftl::mmio::Field<3, 21, eOUTSTANDING_REQS, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CTRL2_fields_
 
-  LCDIF_CTRL2() = delete;
-  inline void Reset() volatile { this->value = 0x00200000; }
-  static inline volatile LCDIF_CTRL2 &ref() { return *reinterpret_cast<volatile LCDIF_CTRL2*>(0x40804020); }
+struct LCDIF_CTRL2 : ftl::mmio::Register<
+    0x40804020u,
+    std::uint32_t,
+    0x00200000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<12, 0>,
+    LCDIF_CTRL2_fields_::EVEN_LINE_PATTERN,
+    ftl::mmio::Reserved<1, 15>,
+    LCDIF_CTRL2_fields_::ODD_LINE_PATTERN,
+    ftl::mmio::Reserved<1, 19>,
+    LCDIF_CTRL2_fields_::BURST_LEN_8,
+    LCDIF_CTRL2_fields_::OUTSTANDING_REQS,
+    ftl::mmio::Reserved<8, 24>> {
+  using eEVEN_LINE_PATTERN = LCDIF_CTRL2_fields_::eEVEN_LINE_PATTERN;
+  using eODD_LINE_PATTERN = LCDIF_CTRL2_fields_::eODD_LINE_PATTERN;
+  using eOUTSTANDING_REQS = LCDIF_CTRL2_fields_::eOUTSTANDING_REQS;
+  using EVEN_LINE_PATTERN = LCDIF_CTRL2_fields_::EVEN_LINE_PATTERN;
+  using ODD_LINE_PATTERN = LCDIF_CTRL2_fields_::ODD_LINE_PATTERN;
+  using BURST_LEN_8 = LCDIF_CTRL2_fields_::BURST_LEN_8;
+  using OUTSTANDING_REQS = LCDIF_CTRL2_fields_::OUTSTANDING_REQS;
 };
 
+
 // LCDIF General Control2 Register
-union LCDIF_CTRL2_SET {
-  
-  // This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
-  enum class eEVEN_LINE_PATTERN : uint32_t {
+struct LCDIF_CTRL2_SET_fields_ {
+
+  enum class eEVEN_LINE_PATTERN : std::uint32_t {
     // RGB
     eRGB = 0,
     // RBG
@@ -973,9 +1224,8 @@ union LCDIF_CTRL2_SET {
     // BGR
     eBGR = 5,
   };
-  
-  // This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
-  enum class eODD_LINE_PATTERN : uint32_t {
+
+  enum class eODD_LINE_PATTERN : std::uint32_t {
     // RGB
     eRGB = 0,
     // RBG
@@ -989,9 +1239,8 @@ union LCDIF_CTRL2_SET {
     // BGR
     eBGR = 5,
   };
-  
-  // This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
-  enum class eOUTSTANDING_REQS : uint32_t {
+
+  enum class eOUTSTANDING_REQS : std::uint32_t {
     // REQ_1
     eREQ_1 = 0,
     // REQ_2
@@ -1003,36 +1252,43 @@ union LCDIF_CTRL2_SET {
     // REQ_16
     eREQ_16 = 4,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 12;
-    // read-write - This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
-    eEVEN_LINE_PATTERN EVEN_LINE_PATTERN : 3;
-    uint32_t _reserved_1 : 1;
-    // read-write - This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
-    eODD_LINE_PATTERN ODD_LINE_PATTERN : 3;
-    uint32_t _reserved_2 : 1;
-    // read-write - By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)
-    uint32_t BURST_LEN_8 : 1;
-    // read-write - This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
-    eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
-    uint32_t _reserved_3 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
+  using EVEN_LINE_PATTERN = ftl::mmio::Field<3, 12, eEVEN_LINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
+  using ODD_LINE_PATTERN = ftl::mmio::Field<3, 16, eODD_LINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)
+  using BURST_LEN_8 = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
+  using OUTSTANDING_REQS = ftl::mmio::Field<3, 21, eOUTSTANDING_REQS, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CTRL2_SET_fields_
 
-  LCDIF_CTRL2_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00200000; }
-  static inline volatile LCDIF_CTRL2_SET &ref() { return *reinterpret_cast<volatile LCDIF_CTRL2_SET*>(0x40804024); }
+struct LCDIF_CTRL2_SET : ftl::mmio::Register<
+    0x40804024u,
+    std::uint32_t,
+    0x00200000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<12, 0>,
+    LCDIF_CTRL2_SET_fields_::EVEN_LINE_PATTERN,
+    ftl::mmio::Reserved<1, 15>,
+    LCDIF_CTRL2_SET_fields_::ODD_LINE_PATTERN,
+    ftl::mmio::Reserved<1, 19>,
+    LCDIF_CTRL2_SET_fields_::BURST_LEN_8,
+    LCDIF_CTRL2_SET_fields_::OUTSTANDING_REQS,
+    ftl::mmio::Reserved<8, 24>> {
+  using eEVEN_LINE_PATTERN = LCDIF_CTRL2_SET_fields_::eEVEN_LINE_PATTERN;
+  using eODD_LINE_PATTERN = LCDIF_CTRL2_SET_fields_::eODD_LINE_PATTERN;
+  using eOUTSTANDING_REQS = LCDIF_CTRL2_SET_fields_::eOUTSTANDING_REQS;
+  using EVEN_LINE_PATTERN = LCDIF_CTRL2_SET_fields_::EVEN_LINE_PATTERN;
+  using ODD_LINE_PATTERN = LCDIF_CTRL2_SET_fields_::ODD_LINE_PATTERN;
+  using BURST_LEN_8 = LCDIF_CTRL2_SET_fields_::BURST_LEN_8;
+  using OUTSTANDING_REQS = LCDIF_CTRL2_SET_fields_::OUTSTANDING_REQS;
 };
 
+
 // LCDIF General Control2 Register
-union LCDIF_CTRL2_CLR {
-  
-  // This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
-  enum class eEVEN_LINE_PATTERN : uint32_t {
+struct LCDIF_CTRL2_CLR_fields_ {
+
+  enum class eEVEN_LINE_PATTERN : std::uint32_t {
     // RGB
     eRGB = 0,
     // RBG
@@ -1046,9 +1302,8 @@ union LCDIF_CTRL2_CLR {
     // BGR
     eBGR = 5,
   };
-  
-  // This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
-  enum class eODD_LINE_PATTERN : uint32_t {
+
+  enum class eODD_LINE_PATTERN : std::uint32_t {
     // RGB
     eRGB = 0,
     // RBG
@@ -1062,9 +1317,8 @@ union LCDIF_CTRL2_CLR {
     // BGR
     eBGR = 5,
   };
-  
-  // This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
-  enum class eOUTSTANDING_REQS : uint32_t {
+
+  enum class eOUTSTANDING_REQS : std::uint32_t {
     // REQ_1
     eREQ_1 = 0,
     // REQ_2
@@ -1076,36 +1330,43 @@ union LCDIF_CTRL2_CLR {
     // REQ_16
     eREQ_16 = 4,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 12;
-    // read-write - This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
-    eEVEN_LINE_PATTERN EVEN_LINE_PATTERN : 3;
-    uint32_t _reserved_1 : 1;
-    // read-write - This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
-    eODD_LINE_PATTERN ODD_LINE_PATTERN : 3;
-    uint32_t _reserved_2 : 1;
-    // read-write - By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)
-    uint32_t BURST_LEN_8 : 1;
-    // read-write - This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
-    eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
-    uint32_t _reserved_3 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
+  using EVEN_LINE_PATTERN = ftl::mmio::Field<3, 12, eEVEN_LINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
+  using ODD_LINE_PATTERN = ftl::mmio::Field<3, 16, eODD_LINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)
+  using BURST_LEN_8 = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
+  using OUTSTANDING_REQS = ftl::mmio::Field<3, 21, eOUTSTANDING_REQS, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CTRL2_CLR_fields_
 
-  LCDIF_CTRL2_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00200000; }
-  static inline volatile LCDIF_CTRL2_CLR &ref() { return *reinterpret_cast<volatile LCDIF_CTRL2_CLR*>(0x40804028); }
+struct LCDIF_CTRL2_CLR : ftl::mmio::Register<
+    0x40804028u,
+    std::uint32_t,
+    0x00200000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<12, 0>,
+    LCDIF_CTRL2_CLR_fields_::EVEN_LINE_PATTERN,
+    ftl::mmio::Reserved<1, 15>,
+    LCDIF_CTRL2_CLR_fields_::ODD_LINE_PATTERN,
+    ftl::mmio::Reserved<1, 19>,
+    LCDIF_CTRL2_CLR_fields_::BURST_LEN_8,
+    LCDIF_CTRL2_CLR_fields_::OUTSTANDING_REQS,
+    ftl::mmio::Reserved<8, 24>> {
+  using eEVEN_LINE_PATTERN = LCDIF_CTRL2_CLR_fields_::eEVEN_LINE_PATTERN;
+  using eODD_LINE_PATTERN = LCDIF_CTRL2_CLR_fields_::eODD_LINE_PATTERN;
+  using eOUTSTANDING_REQS = LCDIF_CTRL2_CLR_fields_::eOUTSTANDING_REQS;
+  using EVEN_LINE_PATTERN = LCDIF_CTRL2_CLR_fields_::EVEN_LINE_PATTERN;
+  using ODD_LINE_PATTERN = LCDIF_CTRL2_CLR_fields_::ODD_LINE_PATTERN;
+  using BURST_LEN_8 = LCDIF_CTRL2_CLR_fields_::BURST_LEN_8;
+  using OUTSTANDING_REQS = LCDIF_CTRL2_CLR_fields_::OUTSTANDING_REQS;
 };
 
+
 // LCDIF General Control2 Register
-union LCDIF_CTRL2_TOG {
-  
-  // This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
-  enum class eEVEN_LINE_PATTERN : uint32_t {
+struct LCDIF_CTRL2_TOG_fields_ {
+
+  enum class eEVEN_LINE_PATTERN : std::uint32_t {
     // RGB
     eRGB = 0,
     // RBG
@@ -1119,9 +1380,8 @@ union LCDIF_CTRL2_TOG {
     // BGR
     eBGR = 5,
   };
-  
-  // This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
-  enum class eODD_LINE_PATTERN : uint32_t {
+
+  enum class eODD_LINE_PATTERN : std::uint32_t {
     // RGB
     eRGB = 0,
     // RBG
@@ -1135,9 +1395,8 @@ union LCDIF_CTRL2_TOG {
     // BGR
     eBGR = 5,
   };
-  
-  // This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
-  enum class eOUTSTANDING_REQS : uint32_t {
+
+  enum class eOUTSTANDING_REQS : std::uint32_t {
     // REQ_1
     eREQ_1 = 0,
     // REQ_2
@@ -1149,698 +1408,807 @@ union LCDIF_CTRL2_TOG {
     // REQ_16
     eREQ_16 = 4,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 12;
-    // read-write - This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
-    eEVEN_LINE_PATTERN EVEN_LINE_PATTERN : 3;
-    uint32_t _reserved_1 : 1;
-    // read-write - This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
-    eODD_LINE_PATTERN ODD_LINE_PATTERN : 3;
-    uint32_t _reserved_2 : 1;
-    // read-write - By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)
-    uint32_t BURST_LEN_8 : 1;
-    // read-write - This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
-    eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
-    uint32_t _reserved_3 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
+  using EVEN_LINE_PATTERN = ftl::mmio::Field<3, 12, eEVEN_LINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
+  using ODD_LINE_PATTERN = ftl::mmio::Field<3, 16, eODD_LINE_PATTERN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)
+  using BURST_LEN_8 = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
+  using OUTSTANDING_REQS = ftl::mmio::Field<3, 21, eOUTSTANDING_REQS, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CTRL2_TOG_fields_
 
-  LCDIF_CTRL2_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00200000; }
-  static inline volatile LCDIF_CTRL2_TOG &ref() { return *reinterpret_cast<volatile LCDIF_CTRL2_TOG*>(0x4080402C); }
+struct LCDIF_CTRL2_TOG : ftl::mmio::Register<
+    0x4080402Cu,
+    std::uint32_t,
+    0x00200000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<12, 0>,
+    LCDIF_CTRL2_TOG_fields_::EVEN_LINE_PATTERN,
+    ftl::mmio::Reserved<1, 15>,
+    LCDIF_CTRL2_TOG_fields_::ODD_LINE_PATTERN,
+    ftl::mmio::Reserved<1, 19>,
+    LCDIF_CTRL2_TOG_fields_::BURST_LEN_8,
+    LCDIF_CTRL2_TOG_fields_::OUTSTANDING_REQS,
+    ftl::mmio::Reserved<8, 24>> {
+  using eEVEN_LINE_PATTERN = LCDIF_CTRL2_TOG_fields_::eEVEN_LINE_PATTERN;
+  using eODD_LINE_PATTERN = LCDIF_CTRL2_TOG_fields_::eODD_LINE_PATTERN;
+  using eOUTSTANDING_REQS = LCDIF_CTRL2_TOG_fields_::eOUTSTANDING_REQS;
+  using EVEN_LINE_PATTERN = LCDIF_CTRL2_TOG_fields_::EVEN_LINE_PATTERN;
+  using ODD_LINE_PATTERN = LCDIF_CTRL2_TOG_fields_::ODD_LINE_PATTERN;
+  using BURST_LEN_8 = LCDIF_CTRL2_TOG_fields_::BURST_LEN_8;
+  using OUTSTANDING_REQS = LCDIF_CTRL2_TOG_fields_::OUTSTANDING_REQS;
 };
+
 
 // LCDIF Horizontal and Vertical Valid Data Count Register
-union LCDIF_TRANSFER_COUNT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total valid data (pixels) in each horizontal line
-    uint32_t H_COUNT : 16;
-    // read-write - Number of horizontal lines per frame which contain valid data
-    uint32_t V_COUNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_TRANSFER_COUNT_fields_ {
+  // Total valid data (pixels) in each horizontal line
+  using H_COUNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Number of horizontal lines per frame which contain valid data
+  using V_COUNT = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_TRANSFER_COUNT_fields_
 
-  LCDIF_TRANSFER_COUNT() = delete;
-  inline void Reset() volatile { this->value = 0x00010000; }
-  static inline volatile LCDIF_TRANSFER_COUNT &ref() { return *reinterpret_cast<volatile LCDIF_TRANSFER_COUNT*>(0x40804030); }
+struct LCDIF_TRANSFER_COUNT : ftl::mmio::Register<
+    0x40804030u,
+    std::uint32_t,
+    0x00010000u,
+    ftl::mmio::RW,
+    LCDIF_TRANSFER_COUNT_fields_::H_COUNT,
+    LCDIF_TRANSFER_COUNT_fields_::V_COUNT> {
+  using H_COUNT = LCDIF_TRANSFER_COUNT_fields_::H_COUNT;
+  using V_COUNT = LCDIF_TRANSFER_COUNT_fields_::V_COUNT;
 };
+
 
 // LCD Interface Current Buffer Address Register
-union LCDIF_CUR_BUF {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address of the current frame being transmitted by LCDIF.
-    uint32_t ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_CUR_BUF_fields_ {
+  // Address of the current frame being transmitted by LCDIF.
+  using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CUR_BUF_fields_
 
-  LCDIF_CUR_BUF() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_CUR_BUF &ref() { return *reinterpret_cast<volatile LCDIF_CUR_BUF*>(0x40804040); }
+struct LCDIF_CUR_BUF : ftl::mmio::Register<
+    0x40804040u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_CUR_BUF_fields_::ADDR> {
+  using ADDR = LCDIF_CUR_BUF_fields_::ADDR;
 };
+
 
 // LCD Interface Next Buffer Address Register
-union LCDIF_NEXT_BUF {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Address of the next frame that will be transmitted by LCDIF.
-    uint32_t ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_NEXT_BUF_fields_ {
+  // Address of the next frame that will be transmitted by LCDIF.
+  using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_NEXT_BUF_fields_
 
-  LCDIF_NEXT_BUF() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_NEXT_BUF &ref() { return *reinterpret_cast<volatile LCDIF_NEXT_BUF*>(0x40804050); }
+struct LCDIF_NEXT_BUF : ftl::mmio::Register<
+    0x40804050u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_NEXT_BUF_fields_::ADDR> {
+  using ADDR = LCDIF_NEXT_BUF_fields_::ADDR;
 };
 
+
 // LCDIF VSYNC Mode and Dotclk Mode Control Register0
-union LCDIF_VDCTRL0 {
-  
-  // 0 means the VSYNC signal is an output, 1 means it is an input
-  enum class eVSYNC_OEB : uint32_t {
+struct LCDIF_VDCTRL0_fields_ {
+
+  enum class eVSYNC_OEB : std::uint32_t {
     // The VSYNC pin is in the output mode and the VSYNC signal has to be generated by the LCDIF block.
     eVSYNC_OUTPUT = 0,
     // The VSYNC pin is in the input mode and the LCD controller sends the VSYNC signal to the block.
     eVSYNC_INPUT = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of units for which VSYNC signal is active
-    uint32_t VSYNC_PULSE_WIDTH : 18;
-    // read-write - When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
-    uint32_t HALF_LINE_MODE : 1;
-    // read-write - Setting this bit to 1 will make the total VSYNC period equal to the VSYNC_PERIOD field plus half the HORIZONTAL_PERIOD field (i
-    uint32_t HALF_LINE : 1;
-    // read-write - Default 0 for counting VSYNC_PULSE_WIDTH in terms of DISPLAY CLOCK (pix_clk) cycles
-    uint32_t VSYNC_PULSE_WIDTH_UNIT : 1;
-    // read-write - Default 0 for counting VSYNC_PERIOD in terms of DISPLAY CLOCK (pix_clk) cycles
-    uint32_t VSYNC_PERIOD_UNIT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - Default 0 active low during valid data transfer on each horizontal line.
-    uint32_t ENABLE_POL : 1;
-    // read-write - Default is data launched at negative edge of DOTCLK and captured at positive edge
-    uint32_t DOTCLK_POL : 1;
-    // read-write - Default 0 active low during HSYNC_PULSE_WIDTH time and will be high during the rest of the HSYNC period
-    uint32_t HSYNC_POL : 1;
-    // read-write - Default 0 active low during VSYNC_PULSE_WIDTH time and will be high during the rest of the VSYNC period
-    uint32_t VSYNC_POL : 1;
-    // read-write - Setting this bit to 1 will make the hardware generate the ENABLE signal in the DOTCLK mode, thereby making it the true RGB interface along with the remaining three signals VSYNC, HSYNC and DOTCLK
-    uint32_t ENABLE_PRESENT : 1;
-    // read-write - 0 means the VSYNC signal is an output, 1 means it is an input
-    eVSYNC_OEB VSYNC_OEB : 1;
-    uint32_t _reserved_1 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Number of units for which VSYNC signal is active
+  using VSYNC_PULSE_WIDTH = ftl::mmio::Field<18, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
+  using HALF_LINE_MODE = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Setting this bit to 1 will make the total VSYNC period equal to the VSYNC_PERIOD field plus half the HORIZONTAL_PERIOD field (i
+  using HALF_LINE = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 for counting VSYNC_PULSE_WIDTH in terms of DISPLAY CLOCK (pix_clk) cycles
+  using VSYNC_PULSE_WIDTH_UNIT = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 for counting VSYNC_PERIOD in terms of DISPLAY CLOCK (pix_clk) cycles
+  using VSYNC_PERIOD_UNIT = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 active low during valid data transfer on each horizontal line.
+  using ENABLE_POL = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default is data launched at negative edge of DOTCLK and captured at positive edge
+  using DOTCLK_POL = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 active low during HSYNC_PULSE_WIDTH time and will be high during the rest of the HSYNC period
+  using HSYNC_POL = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 active low during VSYNC_PULSE_WIDTH time and will be high during the rest of the VSYNC period
+  using VSYNC_POL = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Setting this bit to 1 will make the hardware generate the ENABLE signal in the DOTCLK mode, thereby making it the true RGB interface along with the remaining three signals VSYNC, HSYNC and DOTCLK
+  using ENABLE_PRESENT = ftl::mmio::Field<1, 28, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // 0 means the VSYNC signal is an output, 1 means it is an input
+  using VSYNC_OEB = ftl::mmio::Field<1, 29, eVSYNC_OEB, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_VDCTRL0_fields_
 
-  LCDIF_VDCTRL0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL0 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL0*>(0x40804070); }
+struct LCDIF_VDCTRL0 : ftl::mmio::Register<
+    0x40804070u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_VDCTRL0_fields_::VSYNC_PULSE_WIDTH,
+    LCDIF_VDCTRL0_fields_::HALF_LINE_MODE,
+    LCDIF_VDCTRL0_fields_::HALF_LINE,
+    LCDIF_VDCTRL0_fields_::VSYNC_PULSE_WIDTH_UNIT,
+    LCDIF_VDCTRL0_fields_::VSYNC_PERIOD_UNIT,
+    ftl::mmio::Reserved<2, 22>,
+    LCDIF_VDCTRL0_fields_::ENABLE_POL,
+    LCDIF_VDCTRL0_fields_::DOTCLK_POL,
+    LCDIF_VDCTRL0_fields_::HSYNC_POL,
+    LCDIF_VDCTRL0_fields_::VSYNC_POL,
+    LCDIF_VDCTRL0_fields_::ENABLE_PRESENT,
+    LCDIF_VDCTRL0_fields_::VSYNC_OEB,
+    ftl::mmio::Reserved<2, 30>> {
+  using eVSYNC_OEB = LCDIF_VDCTRL0_fields_::eVSYNC_OEB;
+  using VSYNC_PULSE_WIDTH = LCDIF_VDCTRL0_fields_::VSYNC_PULSE_WIDTH;
+  using HALF_LINE_MODE = LCDIF_VDCTRL0_fields_::HALF_LINE_MODE;
+  using HALF_LINE = LCDIF_VDCTRL0_fields_::HALF_LINE;
+  using VSYNC_PULSE_WIDTH_UNIT = LCDIF_VDCTRL0_fields_::VSYNC_PULSE_WIDTH_UNIT;
+  using VSYNC_PERIOD_UNIT = LCDIF_VDCTRL0_fields_::VSYNC_PERIOD_UNIT;
+  using ENABLE_POL = LCDIF_VDCTRL0_fields_::ENABLE_POL;
+  using DOTCLK_POL = LCDIF_VDCTRL0_fields_::DOTCLK_POL;
+  using HSYNC_POL = LCDIF_VDCTRL0_fields_::HSYNC_POL;
+  using VSYNC_POL = LCDIF_VDCTRL0_fields_::VSYNC_POL;
+  using ENABLE_PRESENT = LCDIF_VDCTRL0_fields_::ENABLE_PRESENT;
+  using VSYNC_OEB = LCDIF_VDCTRL0_fields_::VSYNC_OEB;
 };
 
+
 // LCDIF VSYNC Mode and Dotclk Mode Control Register0
-union LCDIF_VDCTRL0_SET {
-  
-  // 0 means the VSYNC signal is an output, 1 means it is an input
-  enum class eVSYNC_OEB : uint32_t {
+struct LCDIF_VDCTRL0_SET_fields_ {
+
+  enum class eVSYNC_OEB : std::uint32_t {
     // The VSYNC pin is in the output mode and the VSYNC signal has to be generated by the LCDIF block.
     eVSYNC_OUTPUT = 0,
     // The VSYNC pin is in the input mode and the LCD controller sends the VSYNC signal to the block.
     eVSYNC_INPUT = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of units for which VSYNC signal is active
-    uint32_t VSYNC_PULSE_WIDTH : 18;
-    // read-write - When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
-    uint32_t HALF_LINE_MODE : 1;
-    // read-write - Setting this bit to 1 will make the total VSYNC period equal to the VSYNC_PERIOD field plus half the HORIZONTAL_PERIOD field (i
-    uint32_t HALF_LINE : 1;
-    // read-write - Default 0 for counting VSYNC_PULSE_WIDTH in terms of DISPLAY CLOCK (pix_clk) cycles
-    uint32_t VSYNC_PULSE_WIDTH_UNIT : 1;
-    // read-write - Default 0 for counting VSYNC_PERIOD in terms of DISPLAY CLOCK (pix_clk) cycles
-    uint32_t VSYNC_PERIOD_UNIT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - Default 0 active low during valid data transfer on each horizontal line.
-    uint32_t ENABLE_POL : 1;
-    // read-write - Default is data launched at negative edge of DOTCLK and captured at positive edge
-    uint32_t DOTCLK_POL : 1;
-    // read-write - Default 0 active low during HSYNC_PULSE_WIDTH time and will be high during the rest of the HSYNC period
-    uint32_t HSYNC_POL : 1;
-    // read-write - Default 0 active low during VSYNC_PULSE_WIDTH time and will be high during the rest of the VSYNC period
-    uint32_t VSYNC_POL : 1;
-    // read-write - Setting this bit to 1 will make the hardware generate the ENABLE signal in the DOTCLK mode, thereby making it the true RGB interface along with the remaining three signals VSYNC, HSYNC and DOTCLK
-    uint32_t ENABLE_PRESENT : 1;
-    // read-write - 0 means the VSYNC signal is an output, 1 means it is an input
-    eVSYNC_OEB VSYNC_OEB : 1;
-    uint32_t _reserved_1 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Number of units for which VSYNC signal is active
+  using VSYNC_PULSE_WIDTH = ftl::mmio::Field<18, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
+  using HALF_LINE_MODE = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Setting this bit to 1 will make the total VSYNC period equal to the VSYNC_PERIOD field plus half the HORIZONTAL_PERIOD field (i
+  using HALF_LINE = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 for counting VSYNC_PULSE_WIDTH in terms of DISPLAY CLOCK (pix_clk) cycles
+  using VSYNC_PULSE_WIDTH_UNIT = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 for counting VSYNC_PERIOD in terms of DISPLAY CLOCK (pix_clk) cycles
+  using VSYNC_PERIOD_UNIT = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 active low during valid data transfer on each horizontal line.
+  using ENABLE_POL = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default is data launched at negative edge of DOTCLK and captured at positive edge
+  using DOTCLK_POL = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 active low during HSYNC_PULSE_WIDTH time and will be high during the rest of the HSYNC period
+  using HSYNC_POL = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 active low during VSYNC_PULSE_WIDTH time and will be high during the rest of the VSYNC period
+  using VSYNC_POL = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Setting this bit to 1 will make the hardware generate the ENABLE signal in the DOTCLK mode, thereby making it the true RGB interface along with the remaining three signals VSYNC, HSYNC and DOTCLK
+  using ENABLE_PRESENT = ftl::mmio::Field<1, 28, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // 0 means the VSYNC signal is an output, 1 means it is an input
+  using VSYNC_OEB = ftl::mmio::Field<1, 29, eVSYNC_OEB, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_VDCTRL0_SET_fields_
 
-  LCDIF_VDCTRL0_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL0_SET &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL0_SET*>(0x40804074); }
+struct LCDIF_VDCTRL0_SET : ftl::mmio::Register<
+    0x40804074u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_VDCTRL0_SET_fields_::VSYNC_PULSE_WIDTH,
+    LCDIF_VDCTRL0_SET_fields_::HALF_LINE_MODE,
+    LCDIF_VDCTRL0_SET_fields_::HALF_LINE,
+    LCDIF_VDCTRL0_SET_fields_::VSYNC_PULSE_WIDTH_UNIT,
+    LCDIF_VDCTRL0_SET_fields_::VSYNC_PERIOD_UNIT,
+    ftl::mmio::Reserved<2, 22>,
+    LCDIF_VDCTRL0_SET_fields_::ENABLE_POL,
+    LCDIF_VDCTRL0_SET_fields_::DOTCLK_POL,
+    LCDIF_VDCTRL0_SET_fields_::HSYNC_POL,
+    LCDIF_VDCTRL0_SET_fields_::VSYNC_POL,
+    LCDIF_VDCTRL0_SET_fields_::ENABLE_PRESENT,
+    LCDIF_VDCTRL0_SET_fields_::VSYNC_OEB,
+    ftl::mmio::Reserved<2, 30>> {
+  using eVSYNC_OEB = LCDIF_VDCTRL0_SET_fields_::eVSYNC_OEB;
+  using VSYNC_PULSE_WIDTH = LCDIF_VDCTRL0_SET_fields_::VSYNC_PULSE_WIDTH;
+  using HALF_LINE_MODE = LCDIF_VDCTRL0_SET_fields_::HALF_LINE_MODE;
+  using HALF_LINE = LCDIF_VDCTRL0_SET_fields_::HALF_LINE;
+  using VSYNC_PULSE_WIDTH_UNIT = LCDIF_VDCTRL0_SET_fields_::VSYNC_PULSE_WIDTH_UNIT;
+  using VSYNC_PERIOD_UNIT = LCDIF_VDCTRL0_SET_fields_::VSYNC_PERIOD_UNIT;
+  using ENABLE_POL = LCDIF_VDCTRL0_SET_fields_::ENABLE_POL;
+  using DOTCLK_POL = LCDIF_VDCTRL0_SET_fields_::DOTCLK_POL;
+  using HSYNC_POL = LCDIF_VDCTRL0_SET_fields_::HSYNC_POL;
+  using VSYNC_POL = LCDIF_VDCTRL0_SET_fields_::VSYNC_POL;
+  using ENABLE_PRESENT = LCDIF_VDCTRL0_SET_fields_::ENABLE_PRESENT;
+  using VSYNC_OEB = LCDIF_VDCTRL0_SET_fields_::VSYNC_OEB;
 };
 
+
 // LCDIF VSYNC Mode and Dotclk Mode Control Register0
-union LCDIF_VDCTRL0_CLR {
-  
-  // 0 means the VSYNC signal is an output, 1 means it is an input
-  enum class eVSYNC_OEB : uint32_t {
+struct LCDIF_VDCTRL0_CLR_fields_ {
+
+  enum class eVSYNC_OEB : std::uint32_t {
     // The VSYNC pin is in the output mode and the VSYNC signal has to be generated by the LCDIF block.
     eVSYNC_OUTPUT = 0,
     // The VSYNC pin is in the input mode and the LCD controller sends the VSYNC signal to the block.
     eVSYNC_INPUT = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of units for which VSYNC signal is active
-    uint32_t VSYNC_PULSE_WIDTH : 18;
-    // read-write - When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
-    uint32_t HALF_LINE_MODE : 1;
-    // read-write - Setting this bit to 1 will make the total VSYNC period equal to the VSYNC_PERIOD field plus half the HORIZONTAL_PERIOD field (i
-    uint32_t HALF_LINE : 1;
-    // read-write - Default 0 for counting VSYNC_PULSE_WIDTH in terms of DISPLAY CLOCK (pix_clk) cycles
-    uint32_t VSYNC_PULSE_WIDTH_UNIT : 1;
-    // read-write - Default 0 for counting VSYNC_PERIOD in terms of DISPLAY CLOCK (pix_clk) cycles
-    uint32_t VSYNC_PERIOD_UNIT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - Default 0 active low during valid data transfer on each horizontal line.
-    uint32_t ENABLE_POL : 1;
-    // read-write - Default is data launched at negative edge of DOTCLK and captured at positive edge
-    uint32_t DOTCLK_POL : 1;
-    // read-write - Default 0 active low during HSYNC_PULSE_WIDTH time and will be high during the rest of the HSYNC period
-    uint32_t HSYNC_POL : 1;
-    // read-write - Default 0 active low during VSYNC_PULSE_WIDTH time and will be high during the rest of the VSYNC period
-    uint32_t VSYNC_POL : 1;
-    // read-write - Setting this bit to 1 will make the hardware generate the ENABLE signal in the DOTCLK mode, thereby making it the true RGB interface along with the remaining three signals VSYNC, HSYNC and DOTCLK
-    uint32_t ENABLE_PRESENT : 1;
-    // read-write - 0 means the VSYNC signal is an output, 1 means it is an input
-    eVSYNC_OEB VSYNC_OEB : 1;
-    uint32_t _reserved_1 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Number of units for which VSYNC signal is active
+  using VSYNC_PULSE_WIDTH = ftl::mmio::Field<18, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
+  using HALF_LINE_MODE = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Setting this bit to 1 will make the total VSYNC period equal to the VSYNC_PERIOD field plus half the HORIZONTAL_PERIOD field (i
+  using HALF_LINE = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 for counting VSYNC_PULSE_WIDTH in terms of DISPLAY CLOCK (pix_clk) cycles
+  using VSYNC_PULSE_WIDTH_UNIT = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 for counting VSYNC_PERIOD in terms of DISPLAY CLOCK (pix_clk) cycles
+  using VSYNC_PERIOD_UNIT = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 active low during valid data transfer on each horizontal line.
+  using ENABLE_POL = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default is data launched at negative edge of DOTCLK and captured at positive edge
+  using DOTCLK_POL = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 active low during HSYNC_PULSE_WIDTH time and will be high during the rest of the HSYNC period
+  using HSYNC_POL = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 active low during VSYNC_PULSE_WIDTH time and will be high during the rest of the VSYNC period
+  using VSYNC_POL = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Setting this bit to 1 will make the hardware generate the ENABLE signal in the DOTCLK mode, thereby making it the true RGB interface along with the remaining three signals VSYNC, HSYNC and DOTCLK
+  using ENABLE_PRESENT = ftl::mmio::Field<1, 28, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // 0 means the VSYNC signal is an output, 1 means it is an input
+  using VSYNC_OEB = ftl::mmio::Field<1, 29, eVSYNC_OEB, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_VDCTRL0_CLR_fields_
 
-  LCDIF_VDCTRL0_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL0_CLR &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL0_CLR*>(0x40804078); }
+struct LCDIF_VDCTRL0_CLR : ftl::mmio::Register<
+    0x40804078u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_VDCTRL0_CLR_fields_::VSYNC_PULSE_WIDTH,
+    LCDIF_VDCTRL0_CLR_fields_::HALF_LINE_MODE,
+    LCDIF_VDCTRL0_CLR_fields_::HALF_LINE,
+    LCDIF_VDCTRL0_CLR_fields_::VSYNC_PULSE_WIDTH_UNIT,
+    LCDIF_VDCTRL0_CLR_fields_::VSYNC_PERIOD_UNIT,
+    ftl::mmio::Reserved<2, 22>,
+    LCDIF_VDCTRL0_CLR_fields_::ENABLE_POL,
+    LCDIF_VDCTRL0_CLR_fields_::DOTCLK_POL,
+    LCDIF_VDCTRL0_CLR_fields_::HSYNC_POL,
+    LCDIF_VDCTRL0_CLR_fields_::VSYNC_POL,
+    LCDIF_VDCTRL0_CLR_fields_::ENABLE_PRESENT,
+    LCDIF_VDCTRL0_CLR_fields_::VSYNC_OEB,
+    ftl::mmio::Reserved<2, 30>> {
+  using eVSYNC_OEB = LCDIF_VDCTRL0_CLR_fields_::eVSYNC_OEB;
+  using VSYNC_PULSE_WIDTH = LCDIF_VDCTRL0_CLR_fields_::VSYNC_PULSE_WIDTH;
+  using HALF_LINE_MODE = LCDIF_VDCTRL0_CLR_fields_::HALF_LINE_MODE;
+  using HALF_LINE = LCDIF_VDCTRL0_CLR_fields_::HALF_LINE;
+  using VSYNC_PULSE_WIDTH_UNIT = LCDIF_VDCTRL0_CLR_fields_::VSYNC_PULSE_WIDTH_UNIT;
+  using VSYNC_PERIOD_UNIT = LCDIF_VDCTRL0_CLR_fields_::VSYNC_PERIOD_UNIT;
+  using ENABLE_POL = LCDIF_VDCTRL0_CLR_fields_::ENABLE_POL;
+  using DOTCLK_POL = LCDIF_VDCTRL0_CLR_fields_::DOTCLK_POL;
+  using HSYNC_POL = LCDIF_VDCTRL0_CLR_fields_::HSYNC_POL;
+  using VSYNC_POL = LCDIF_VDCTRL0_CLR_fields_::VSYNC_POL;
+  using ENABLE_PRESENT = LCDIF_VDCTRL0_CLR_fields_::ENABLE_PRESENT;
+  using VSYNC_OEB = LCDIF_VDCTRL0_CLR_fields_::VSYNC_OEB;
 };
 
+
 // LCDIF VSYNC Mode and Dotclk Mode Control Register0
-union LCDIF_VDCTRL0_TOG {
-  
-  // 0 means the VSYNC signal is an output, 1 means it is an input
-  enum class eVSYNC_OEB : uint32_t {
+struct LCDIF_VDCTRL0_TOG_fields_ {
+
+  enum class eVSYNC_OEB : std::uint32_t {
     // The VSYNC pin is in the output mode and the VSYNC signal has to be generated by the LCDIF block.
     eVSYNC_OUTPUT = 0,
     // The VSYNC pin is in the input mode and the LCD controller sends the VSYNC signal to the block.
     eVSYNC_INPUT = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Number of units for which VSYNC signal is active
-    uint32_t VSYNC_PULSE_WIDTH : 18;
-    // read-write - When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
-    uint32_t HALF_LINE_MODE : 1;
-    // read-write - Setting this bit to 1 will make the total VSYNC period equal to the VSYNC_PERIOD field plus half the HORIZONTAL_PERIOD field (i
-    uint32_t HALF_LINE : 1;
-    // read-write - Default 0 for counting VSYNC_PULSE_WIDTH in terms of DISPLAY CLOCK (pix_clk) cycles
-    uint32_t VSYNC_PULSE_WIDTH_UNIT : 1;
-    // read-write - Default 0 for counting VSYNC_PERIOD in terms of DISPLAY CLOCK (pix_clk) cycles
-    uint32_t VSYNC_PERIOD_UNIT : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - Default 0 active low during valid data transfer on each horizontal line.
-    uint32_t ENABLE_POL : 1;
-    // read-write - Default is data launched at negative edge of DOTCLK and captured at positive edge
-    uint32_t DOTCLK_POL : 1;
-    // read-write - Default 0 active low during HSYNC_PULSE_WIDTH time and will be high during the rest of the HSYNC period
-    uint32_t HSYNC_POL : 1;
-    // read-write - Default 0 active low during VSYNC_PULSE_WIDTH time and will be high during the rest of the VSYNC period
-    uint32_t VSYNC_POL : 1;
-    // read-write - Setting this bit to 1 will make the hardware generate the ENABLE signal in the DOTCLK mode, thereby making it the true RGB interface along with the remaining three signals VSYNC, HSYNC and DOTCLK
-    uint32_t ENABLE_PRESENT : 1;
-    // read-write - 0 means the VSYNC signal is an output, 1 means it is an input
-    eVSYNC_OEB VSYNC_OEB : 1;
-    uint32_t _reserved_1 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Number of units for which VSYNC signal is active
+  using VSYNC_PULSE_WIDTH = ftl::mmio::Field<18, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
+  using HALF_LINE_MODE = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Setting this bit to 1 will make the total VSYNC period equal to the VSYNC_PERIOD field plus half the HORIZONTAL_PERIOD field (i
+  using HALF_LINE = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 for counting VSYNC_PULSE_WIDTH in terms of DISPLAY CLOCK (pix_clk) cycles
+  using VSYNC_PULSE_WIDTH_UNIT = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 for counting VSYNC_PERIOD in terms of DISPLAY CLOCK (pix_clk) cycles
+  using VSYNC_PERIOD_UNIT = ftl::mmio::Field<1, 21, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 active low during valid data transfer on each horizontal line.
+  using ENABLE_POL = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default is data launched at negative edge of DOTCLK and captured at positive edge
+  using DOTCLK_POL = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 active low during HSYNC_PULSE_WIDTH time and will be high during the rest of the HSYNC period
+  using HSYNC_POL = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Default 0 active low during VSYNC_PULSE_WIDTH time and will be high during the rest of the VSYNC period
+  using VSYNC_POL = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Setting this bit to 1 will make the hardware generate the ENABLE signal in the DOTCLK mode, thereby making it the true RGB interface along with the remaining three signals VSYNC, HSYNC and DOTCLK
+  using ENABLE_PRESENT = ftl::mmio::Field<1, 28, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // 0 means the VSYNC signal is an output, 1 means it is an input
+  using VSYNC_OEB = ftl::mmio::Field<1, 29, eVSYNC_OEB, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_VDCTRL0_TOG_fields_
 
-  LCDIF_VDCTRL0_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL0_TOG &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL0_TOG*>(0x4080407C); }
+struct LCDIF_VDCTRL0_TOG : ftl::mmio::Register<
+    0x4080407Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_VDCTRL0_TOG_fields_::VSYNC_PULSE_WIDTH,
+    LCDIF_VDCTRL0_TOG_fields_::HALF_LINE_MODE,
+    LCDIF_VDCTRL0_TOG_fields_::HALF_LINE,
+    LCDIF_VDCTRL0_TOG_fields_::VSYNC_PULSE_WIDTH_UNIT,
+    LCDIF_VDCTRL0_TOG_fields_::VSYNC_PERIOD_UNIT,
+    ftl::mmio::Reserved<2, 22>,
+    LCDIF_VDCTRL0_TOG_fields_::ENABLE_POL,
+    LCDIF_VDCTRL0_TOG_fields_::DOTCLK_POL,
+    LCDIF_VDCTRL0_TOG_fields_::HSYNC_POL,
+    LCDIF_VDCTRL0_TOG_fields_::VSYNC_POL,
+    LCDIF_VDCTRL0_TOG_fields_::ENABLE_PRESENT,
+    LCDIF_VDCTRL0_TOG_fields_::VSYNC_OEB,
+    ftl::mmio::Reserved<2, 30>> {
+  using eVSYNC_OEB = LCDIF_VDCTRL0_TOG_fields_::eVSYNC_OEB;
+  using VSYNC_PULSE_WIDTH = LCDIF_VDCTRL0_TOG_fields_::VSYNC_PULSE_WIDTH;
+  using HALF_LINE_MODE = LCDIF_VDCTRL0_TOG_fields_::HALF_LINE_MODE;
+  using HALF_LINE = LCDIF_VDCTRL0_TOG_fields_::HALF_LINE;
+  using VSYNC_PULSE_WIDTH_UNIT = LCDIF_VDCTRL0_TOG_fields_::VSYNC_PULSE_WIDTH_UNIT;
+  using VSYNC_PERIOD_UNIT = LCDIF_VDCTRL0_TOG_fields_::VSYNC_PERIOD_UNIT;
+  using ENABLE_POL = LCDIF_VDCTRL0_TOG_fields_::ENABLE_POL;
+  using DOTCLK_POL = LCDIF_VDCTRL0_TOG_fields_::DOTCLK_POL;
+  using HSYNC_POL = LCDIF_VDCTRL0_TOG_fields_::HSYNC_POL;
+  using VSYNC_POL = LCDIF_VDCTRL0_TOG_fields_::VSYNC_POL;
+  using ENABLE_PRESENT = LCDIF_VDCTRL0_TOG_fields_::ENABLE_PRESENT;
+  using VSYNC_OEB = LCDIF_VDCTRL0_TOG_fields_::VSYNC_OEB;
 };
+
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register1
-union LCDIF_VDCTRL1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total number of units between two positive or two negative edges of the VSYNC signal
-    uint32_t VSYNC_PERIOD : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_VDCTRL1_fields_ {
+  // Total number of units between two positive or two negative edges of the VSYNC signal
+  using VSYNC_PERIOD = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_VDCTRL1_fields_
 
-  LCDIF_VDCTRL1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL1 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL1*>(0x40804080); }
+struct LCDIF_VDCTRL1 : ftl::mmio::Register<
+    0x40804080u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_VDCTRL1_fields_::VSYNC_PERIOD> {
+  using VSYNC_PERIOD = LCDIF_VDCTRL1_fields_::VSYNC_PERIOD;
 };
+
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register2
-union LCDIF_VDCTRL2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total number of DISPLAY CLOCK (pix_clk) cycles between two positive or two negative edges of the HSYNC signal
-    uint32_t HSYNC_PERIOD : 18;
-    // read-write - Number of DISPLAY CLOCK (pix_clk) cycles for which HSYNC signal is active.
-    uint32_t HSYNC_PULSE_WIDTH : 14;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_VDCTRL2_fields_ {
+  // Total number of DISPLAY CLOCK (pix_clk) cycles between two positive or two negative edges of the HSYNC signal
+  using HSYNC_PERIOD = ftl::mmio::Field<18, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Number of DISPLAY CLOCK (pix_clk) cycles for which HSYNC signal is active.
+  using HSYNC_PULSE_WIDTH = ftl::mmio::Field<14, 18, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_VDCTRL2_fields_
 
-  LCDIF_VDCTRL2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL2 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL2*>(0x40804090); }
+struct LCDIF_VDCTRL2 : ftl::mmio::Register<
+    0x40804090u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_VDCTRL2_fields_::HSYNC_PERIOD,
+    LCDIF_VDCTRL2_fields_::HSYNC_PULSE_WIDTH> {
+  using HSYNC_PERIOD = LCDIF_VDCTRL2_fields_::HSYNC_PERIOD;
+  using HSYNC_PULSE_WIDTH = LCDIF_VDCTRL2_fields_::HSYNC_PULSE_WIDTH;
 };
+
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register3
-union LCDIF_VDCTRL3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - In the VSYNC interface mode, wait for this number of DISPLAY CLOCK (pix_clk) cycles from the falling VSYNC edge (or rising if VSYNC_POL is 1) before starting LCD transactions and is applicable only if WAIT_FOR_VSYNC_EDGE is set
-    uint32_t VERTICAL_WAIT_CNT : 16;
-    // read-write - In the DOTCLK mode, wait for this number of clocks from falling edge (or rising if HSYNC_POL is 1) of HSYNC signal to account for horizontal back porch plus the number of DOTCLKs before the moving picture information begins
-    uint32_t HORIZONTAL_WAIT_CNT : 12;
-    // read-write - This bit must be set to 1 in the VSYNC mode of operation, and 0 in the DOTCLK mode of operation.
-    uint32_t VSYNC_ONLY : 1;
-    // read-write - When this bit is set, the LCDIF block will internally mux HSYNC with LCD_D14, DOTCLK with LCD_D13 and ENABLE with LCD_D12, otherwise these signals will go out on separate pins
-    uint32_t MUX_SYNC_SIGNALS : 1;
-    uint32_t _reserved_0 : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_VDCTRL3_fields_ {
+  // In the VSYNC interface mode, wait for this number of DISPLAY CLOCK (pix_clk) cycles from the falling VSYNC edge (or rising if VSYNC_POL is 1) before starting LCD transactions and is applicable only if WAIT_FOR_VSYNC_EDGE is set
+  using VERTICAL_WAIT_CNT = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // In the DOTCLK mode, wait for this number of clocks from falling edge (or rising if HSYNC_POL is 1) of HSYNC signal to account for horizontal back porch plus the number of DOTCLKs before the moving picture information begins
+  using HORIZONTAL_WAIT_CNT = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bit must be set to 1 in the VSYNC mode of operation, and 0 in the DOTCLK mode of operation.
+  using VSYNC_ONLY = ftl::mmio::Field<1, 28, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When this bit is set, the LCDIF block will internally mux HSYNC with LCD_D14, DOTCLK with LCD_D13 and ENABLE with LCD_D12, otherwise these signals will go out on separate pins
+  using MUX_SYNC_SIGNALS = ftl::mmio::Field<1, 29, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_VDCTRL3_fields_
 
-  LCDIF_VDCTRL3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL3 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL3*>(0x408040A0); }
+struct LCDIF_VDCTRL3 : ftl::mmio::Register<
+    0x408040A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_VDCTRL3_fields_::VERTICAL_WAIT_CNT,
+    LCDIF_VDCTRL3_fields_::HORIZONTAL_WAIT_CNT,
+    LCDIF_VDCTRL3_fields_::VSYNC_ONLY,
+    LCDIF_VDCTRL3_fields_::MUX_SYNC_SIGNALS,
+    ftl::mmio::Reserved<2, 30>> {
+  using VERTICAL_WAIT_CNT = LCDIF_VDCTRL3_fields_::VERTICAL_WAIT_CNT;
+  using HORIZONTAL_WAIT_CNT = LCDIF_VDCTRL3_fields_::HORIZONTAL_WAIT_CNT;
+  using VSYNC_ONLY = LCDIF_VDCTRL3_fields_::VSYNC_ONLY;
+  using MUX_SYNC_SIGNALS = LCDIF_VDCTRL3_fields_::MUX_SYNC_SIGNALS;
 };
+
 
 // LCDIF VSYNC Mode and Dotclk Mode Control Register4
-union LCDIF_VDCTRL4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Total number of DISPLAY CLOCK (pix_clk) cycles on each horizontal line that carry valid data in DOTCLK mode
-    uint32_t DOTCLK_H_VALID_DATA_CNT : 18;
-    // read-write - Set this field to 1 if the LCD controller requires that the VSYNC or VSYNC/HSYNC/DOTCLK control signals should be active at least one frame before the data transfers actually start and remain active at least one frame after the data transfers end
-    uint32_t SYNC_SIGNALS_ON : 1;
-    uint32_t _reserved_0 : 10;
-    // read-write - This bitfield selects the amount of time by which the DOTCLK signal should be delayed before coming out of the LCD_DOTCK pin
-    uint32_t DOTCLK_DLY_SEL : 3;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_VDCTRL4_fields_ {
+  // Total number of DISPLAY CLOCK (pix_clk) cycles on each horizontal line that carry valid data in DOTCLK mode
+  using DOTCLK_H_VALID_DATA_CNT = ftl::mmio::Field<18, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Set this field to 1 if the LCD controller requires that the VSYNC or VSYNC/HSYNC/DOTCLK control signals should be active at least one frame before the data transfers actually start and remain active at least one frame after the data transfers end
+  using SYNC_SIGNALS_ON = ftl::mmio::Field<1, 18, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // This bitfield selects the amount of time by which the DOTCLK signal should be delayed before coming out of the LCD_DOTCK pin
+  using DOTCLK_DLY_SEL = ftl::mmio::Field<3, 29, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_VDCTRL4_fields_
 
-  LCDIF_VDCTRL4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_VDCTRL4 &ref() { return *reinterpret_cast<volatile LCDIF_VDCTRL4*>(0x408040B0); }
+struct LCDIF_VDCTRL4 : ftl::mmio::Register<
+    0x408040B0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_VDCTRL4_fields_::DOTCLK_H_VALID_DATA_CNT,
+    LCDIF_VDCTRL4_fields_::SYNC_SIGNALS_ON,
+    ftl::mmio::Reserved<10, 19>,
+    LCDIF_VDCTRL4_fields_::DOTCLK_DLY_SEL> {
+  using DOTCLK_H_VALID_DATA_CNT = LCDIF_VDCTRL4_fields_::DOTCLK_H_VALID_DATA_CNT;
+  using SYNC_SIGNALS_ON = LCDIF_VDCTRL4_fields_::SYNC_SIGNALS_ON;
+  using DOTCLK_DLY_SEL = LCDIF_VDCTRL4_fields_::DOTCLK_DLY_SEL;
 };
+
 
 // Bus Master Error Status Register
-union LCDIF_BM_ERROR_STAT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Virtual address at which bus master error occurred.
-    uint32_t ADDR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_BM_ERROR_STAT_fields_ {
+  // Virtual address at which bus master error occurred.
+  using ADDR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_BM_ERROR_STAT_fields_
 
-  LCDIF_BM_ERROR_STAT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_BM_ERROR_STAT &ref() { return *reinterpret_cast<volatile LCDIF_BM_ERROR_STAT*>(0x40804190); }
+struct LCDIF_BM_ERROR_STAT : ftl::mmio::Register<
+    0x40804190u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_BM_ERROR_STAT_fields_::ADDR> {
+  using ADDR = LCDIF_BM_ERROR_STAT_fields_::ADDR;
 };
+
 
 // CRC Status Register
-union LCDIF_CRC_STAT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Calculated CRC value.
-    uint32_t CRC_VALUE : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_CRC_STAT_fields_ {
+  // Calculated CRC value.
+  using CRC_VALUE = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_CRC_STAT_fields_
 
-  LCDIF_CRC_STAT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_CRC_STAT &ref() { return *reinterpret_cast<volatile LCDIF_CRC_STAT*>(0x408041A0); }
+struct LCDIF_CRC_STAT : ftl::mmio::Register<
+    0x408041A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_CRC_STAT_fields_::CRC_VALUE> {
+  using CRC_VALUE = LCDIF_CRC_STAT_fields_::CRC_VALUE;
 };
+
 
 // LCD Interface Status Register
-union LCDIF_STAT {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Read only view of the current count in Latency buffer (LFIFO).
-    uint32_t LFIFO_COUNT : 9;
-    uint32_t _reserved_0 : 17;
-    // read-only - Read only view of the signals that indicates LCD TXFIFO is empty.
-    uint32_t TXFIFO_EMPTY : 1;
-    // read-only - Read only view of the signals that indicates LCD TXFIFO is full.
-    uint32_t TXFIFO_FULL : 1;
-    // read-only - Read only view of the signals that indicates LCD LFIFO is empty.
-    uint32_t LFIFO_EMPTY : 1;
-    // read-only - Read only view of the signals that indicates LCD LFIFO is full.
-    uint32_t LFIFO_FULL : 1;
-    // read-only - Reflects the current state of the DMA Request line for the LCDIF
-    uint32_t DMA_REQ : 1;
-    // read-only - 0: LCDIF not present on this product 1: LCDIF is present.
-    uint32_t PRESENT : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_STAT_fields_ {
+  // Read only view of the current count in Latency buffer (LFIFO).
+  using LFIFO_COUNT = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Read only view of the signals that indicates LCD TXFIFO is empty.
+  using TXFIFO_EMPTY = ftl::mmio::Field<1, 26, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Read only view of the signals that indicates LCD TXFIFO is full.
+  using TXFIFO_FULL = ftl::mmio::Field<1, 27, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Read only view of the signals that indicates LCD LFIFO is empty.
+  using LFIFO_EMPTY = ftl::mmio::Field<1, 28, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Read only view of the signals that indicates LCD LFIFO is full.
+  using LFIFO_FULL = ftl::mmio::Field<1, 29, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Reflects the current state of the DMA Request line for the LCDIF
+  using DMA_REQ = ftl::mmio::Field<1, 30, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // 0: LCDIF not present on this product 1: LCDIF is present.
+  using PRESENT = ftl::mmio::Field<1, 31, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct LCDIF_STAT_fields_
 
-  LCDIF_STAT() = delete;
-  inline void Reset() volatile { this->value = 0x95000000; }
-  static inline volatile LCDIF_STAT &ref() { return *reinterpret_cast<volatile LCDIF_STAT*>(0x408041B0); }
+struct LCDIF_STAT : ftl::mmio::Register<
+    0x408041B0u,
+    std::uint32_t,
+    0x95000000u,
+    ftl::mmio::RO,
+    LCDIF_STAT_fields_::LFIFO_COUNT,
+    ftl::mmio::Reserved<17, 9>,
+    LCDIF_STAT_fields_::TXFIFO_EMPTY,
+    LCDIF_STAT_fields_::TXFIFO_FULL,
+    LCDIF_STAT_fields_::LFIFO_EMPTY,
+    LCDIF_STAT_fields_::LFIFO_FULL,
+    LCDIF_STAT_fields_::DMA_REQ,
+    LCDIF_STAT_fields_::PRESENT> {
+  using LFIFO_COUNT = LCDIF_STAT_fields_::LFIFO_COUNT;
+  using TXFIFO_EMPTY = LCDIF_STAT_fields_::TXFIFO_EMPTY;
+  using TXFIFO_FULL = LCDIF_STAT_fields_::TXFIFO_FULL;
+  using LFIFO_EMPTY = LCDIF_STAT_fields_::LFIFO_EMPTY;
+  using LFIFO_FULL = LCDIF_STAT_fields_::LFIFO_FULL;
+  using DMA_REQ = LCDIF_STAT_fields_::DMA_REQ;
+  using PRESENT = LCDIF_STAT_fields_::PRESENT;
 };
+
 
 // LCDIF Threshold Register
-union LCDIF_THRES {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 16;
-    // read-write - This value should be set to a value of pixels, from 0 to 511
-    uint32_t FASTCLOCK : 9;
-    uint32_t _reserved_1 : 7;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_THRES_fields_ {
+  // This value should be set to a value of pixels, from 0 to 511
+  using FASTCLOCK = ftl::mmio::Field<9, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_THRES_fields_
 
-  LCDIF_THRES() = delete;
-  inline void Reset() volatile { this->value = 0x0100000F; }
-  static inline volatile LCDIF_THRES &ref() { return *reinterpret_cast<volatile LCDIF_THRES*>(0x40804200); }
+struct LCDIF_THRES : ftl::mmio::Register<
+    0x40804200u,
+    std::uint32_t,
+    0x0100000Fu,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<16, 0>,
+    LCDIF_THRES_fields_::FASTCLOCK,
+    ftl::mmio::Reserved<7, 25>> {
+  using FASTCLOCK = LCDIF_THRES_fields_::FASTCLOCK;
 };
+
 
 // LCDIF Pigeon Mode Control0 Register
-union LCDIF_PIGEONCTRL0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Period of line counter during FD phase
-    uint32_t FD_PERIOD : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Period of pclk counter during LD phase
-    uint32_t LD_PERIOD : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_PIGEONCTRL0_fields_ {
+  // Period of line counter during FD phase
+  using FD_PERIOD = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Period of pclk counter during LD phase
+  using LD_PERIOD = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEONCTRL0_fields_
 
-  LCDIF_PIGEONCTRL0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0*>(0x40804380); }
+struct LCDIF_PIGEONCTRL0 : ftl::mmio::Register<
+    0x40804380u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEONCTRL0_fields_::FD_PERIOD,
+    ftl::mmio::Reserved<4, 12>,
+    LCDIF_PIGEONCTRL0_fields_::LD_PERIOD,
+    ftl::mmio::Reserved<4, 28>> {
+  using FD_PERIOD = LCDIF_PIGEONCTRL0_fields_::FD_PERIOD;
+  using LD_PERIOD = LCDIF_PIGEONCTRL0_fields_::LD_PERIOD;
 };
+
 
 // LCDIF Pigeon Mode Control0 Register
-union LCDIF_PIGEONCTRL0_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Period of line counter during FD phase
-    uint32_t FD_PERIOD : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Period of pclk counter during LD phase
-    uint32_t LD_PERIOD : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_PIGEONCTRL0_SET_fields_ {
+  // Period of line counter during FD phase
+  using FD_PERIOD = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Period of pclk counter during LD phase
+  using LD_PERIOD = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEONCTRL0_SET_fields_
 
-  LCDIF_PIGEONCTRL0_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL0_SET &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0_SET*>(0x40804384); }
+struct LCDIF_PIGEONCTRL0_SET : ftl::mmio::Register<
+    0x40804384u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEONCTRL0_SET_fields_::FD_PERIOD,
+    ftl::mmio::Reserved<4, 12>,
+    LCDIF_PIGEONCTRL0_SET_fields_::LD_PERIOD,
+    ftl::mmio::Reserved<4, 28>> {
+  using FD_PERIOD = LCDIF_PIGEONCTRL0_SET_fields_::FD_PERIOD;
+  using LD_PERIOD = LCDIF_PIGEONCTRL0_SET_fields_::LD_PERIOD;
 };
+
 
 // LCDIF Pigeon Mode Control0 Register
-union LCDIF_PIGEONCTRL0_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Period of line counter during FD phase
-    uint32_t FD_PERIOD : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Period of pclk counter during LD phase
-    uint32_t LD_PERIOD : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_PIGEONCTRL0_CLR_fields_ {
+  // Period of line counter during FD phase
+  using FD_PERIOD = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Period of pclk counter during LD phase
+  using LD_PERIOD = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEONCTRL0_CLR_fields_
 
-  LCDIF_PIGEONCTRL0_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL0_CLR &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0_CLR*>(0x40804388); }
+struct LCDIF_PIGEONCTRL0_CLR : ftl::mmio::Register<
+    0x40804388u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEONCTRL0_CLR_fields_::FD_PERIOD,
+    ftl::mmio::Reserved<4, 12>,
+    LCDIF_PIGEONCTRL0_CLR_fields_::LD_PERIOD,
+    ftl::mmio::Reserved<4, 28>> {
+  using FD_PERIOD = LCDIF_PIGEONCTRL0_CLR_fields_::FD_PERIOD;
+  using LD_PERIOD = LCDIF_PIGEONCTRL0_CLR_fields_::LD_PERIOD;
 };
+
 
 // LCDIF Pigeon Mode Control0 Register
-union LCDIF_PIGEONCTRL0_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Period of line counter during FD phase
-    uint32_t FD_PERIOD : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Period of pclk counter during LD phase
-    uint32_t LD_PERIOD : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_PIGEONCTRL0_TOG_fields_ {
+  // Period of line counter during FD phase
+  using FD_PERIOD = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Period of pclk counter during LD phase
+  using LD_PERIOD = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEONCTRL0_TOG_fields_
 
-  LCDIF_PIGEONCTRL0_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL0_TOG &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL0_TOG*>(0x4080438C); }
+struct LCDIF_PIGEONCTRL0_TOG : ftl::mmio::Register<
+    0x4080438Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEONCTRL0_TOG_fields_::FD_PERIOD,
+    ftl::mmio::Reserved<4, 12>,
+    LCDIF_PIGEONCTRL0_TOG_fields_::LD_PERIOD,
+    ftl::mmio::Reserved<4, 28>> {
+  using FD_PERIOD = LCDIF_PIGEONCTRL0_TOG_fields_::FD_PERIOD;
+  using LD_PERIOD = LCDIF_PIGEONCTRL0_TOG_fields_::LD_PERIOD;
 };
+
 
 // LCDIF Pigeon Mode Control1 Register
-union LCDIF_PIGEONCTRL1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Period of frame counter
-    uint32_t FRAME_CNT_PERIOD : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Max cycles of frame counter
-    uint32_t FRAME_CNT_CYCLES : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_PIGEONCTRL1_fields_ {
+  // Period of frame counter
+  using FRAME_CNT_PERIOD = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Max cycles of frame counter
+  using FRAME_CNT_CYCLES = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEONCTRL1_fields_
 
-  LCDIF_PIGEONCTRL1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1*>(0x40804390); }
+struct LCDIF_PIGEONCTRL1 : ftl::mmio::Register<
+    0x40804390u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEONCTRL1_fields_::FRAME_CNT_PERIOD,
+    ftl::mmio::Reserved<4, 12>,
+    LCDIF_PIGEONCTRL1_fields_::FRAME_CNT_CYCLES,
+    ftl::mmio::Reserved<4, 28>> {
+  using FRAME_CNT_PERIOD = LCDIF_PIGEONCTRL1_fields_::FRAME_CNT_PERIOD;
+  using FRAME_CNT_CYCLES = LCDIF_PIGEONCTRL1_fields_::FRAME_CNT_CYCLES;
 };
+
 
 // LCDIF Pigeon Mode Control1 Register
-union LCDIF_PIGEONCTRL1_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Period of frame counter
-    uint32_t FRAME_CNT_PERIOD : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Max cycles of frame counter
-    uint32_t FRAME_CNT_CYCLES : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_PIGEONCTRL1_SET_fields_ {
+  // Period of frame counter
+  using FRAME_CNT_PERIOD = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Max cycles of frame counter
+  using FRAME_CNT_CYCLES = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEONCTRL1_SET_fields_
 
-  LCDIF_PIGEONCTRL1_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL1_SET &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1_SET*>(0x40804394); }
+struct LCDIF_PIGEONCTRL1_SET : ftl::mmio::Register<
+    0x40804394u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEONCTRL1_SET_fields_::FRAME_CNT_PERIOD,
+    ftl::mmio::Reserved<4, 12>,
+    LCDIF_PIGEONCTRL1_SET_fields_::FRAME_CNT_CYCLES,
+    ftl::mmio::Reserved<4, 28>> {
+  using FRAME_CNT_PERIOD = LCDIF_PIGEONCTRL1_SET_fields_::FRAME_CNT_PERIOD;
+  using FRAME_CNT_CYCLES = LCDIF_PIGEONCTRL1_SET_fields_::FRAME_CNT_CYCLES;
 };
+
 
 // LCDIF Pigeon Mode Control1 Register
-union LCDIF_PIGEONCTRL1_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Period of frame counter
-    uint32_t FRAME_CNT_PERIOD : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Max cycles of frame counter
-    uint32_t FRAME_CNT_CYCLES : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_PIGEONCTRL1_CLR_fields_ {
+  // Period of frame counter
+  using FRAME_CNT_PERIOD = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Max cycles of frame counter
+  using FRAME_CNT_CYCLES = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEONCTRL1_CLR_fields_
 
-  LCDIF_PIGEONCTRL1_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL1_CLR &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1_CLR*>(0x40804398); }
+struct LCDIF_PIGEONCTRL1_CLR : ftl::mmio::Register<
+    0x40804398u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEONCTRL1_CLR_fields_::FRAME_CNT_PERIOD,
+    ftl::mmio::Reserved<4, 12>,
+    LCDIF_PIGEONCTRL1_CLR_fields_::FRAME_CNT_CYCLES,
+    ftl::mmio::Reserved<4, 28>> {
+  using FRAME_CNT_PERIOD = LCDIF_PIGEONCTRL1_CLR_fields_::FRAME_CNT_PERIOD;
+  using FRAME_CNT_CYCLES = LCDIF_PIGEONCTRL1_CLR_fields_::FRAME_CNT_CYCLES;
 };
+
 
 // LCDIF Pigeon Mode Control1 Register
-union LCDIF_PIGEONCTRL1_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Period of frame counter
-    uint32_t FRAME_CNT_PERIOD : 12;
-    uint32_t _reserved_0 : 4;
-    // read-write - Max cycles of frame counter
-    uint32_t FRAME_CNT_CYCLES : 12;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_PIGEONCTRL1_TOG_fields_ {
+  // Period of frame counter
+  using FRAME_CNT_PERIOD = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Max cycles of frame counter
+  using FRAME_CNT_CYCLES = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEONCTRL1_TOG_fields_
 
-  LCDIF_PIGEONCTRL1_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL1_TOG &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL1_TOG*>(0x4080439C); }
+struct LCDIF_PIGEONCTRL1_TOG : ftl::mmio::Register<
+    0x4080439Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEONCTRL1_TOG_fields_::FRAME_CNT_PERIOD,
+    ftl::mmio::Reserved<4, 12>,
+    LCDIF_PIGEONCTRL1_TOG_fields_::FRAME_CNT_CYCLES,
+    ftl::mmio::Reserved<4, 28>> {
+  using FRAME_CNT_PERIOD = LCDIF_PIGEONCTRL1_TOG_fields_::FRAME_CNT_PERIOD;
+  using FRAME_CNT_CYCLES = LCDIF_PIGEONCTRL1_TOG_fields_::FRAME_CNT_CYCLES;
 };
+
 
 // LCDIF Pigeon Mode Control2 Register
-union LCDIF_PIGEONCTRL2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Pigeon mode data enable
-    uint32_t PIGEON_DATA_EN : 1;
-    // read-write - Pigeon mode dot clock gate enable
-    uint32_t PIGEON_CLK_GATE : 1;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_PIGEONCTRL2_fields_ {
+  // Pigeon mode data enable
+  using PIGEON_DATA_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pigeon mode dot clock gate enable
+  using PIGEON_CLK_GATE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEONCTRL2_fields_
 
-  LCDIF_PIGEONCTRL2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2*>(0x408043A0); }
+struct LCDIF_PIGEONCTRL2 : ftl::mmio::Register<
+    0x408043A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEONCTRL2_fields_::PIGEON_DATA_EN,
+    LCDIF_PIGEONCTRL2_fields_::PIGEON_CLK_GATE,
+    ftl::mmio::Reserved<30, 2>> {
+  using PIGEON_DATA_EN = LCDIF_PIGEONCTRL2_fields_::PIGEON_DATA_EN;
+  using PIGEON_CLK_GATE = LCDIF_PIGEONCTRL2_fields_::PIGEON_CLK_GATE;
 };
+
 
 // LCDIF Pigeon Mode Control2 Register
-union LCDIF_PIGEONCTRL2_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Pigeon mode data enable
-    uint32_t PIGEON_DATA_EN : 1;
-    // read-write - Pigeon mode dot clock gate enable
-    uint32_t PIGEON_CLK_GATE : 1;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_PIGEONCTRL2_SET_fields_ {
+  // Pigeon mode data enable
+  using PIGEON_DATA_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pigeon mode dot clock gate enable
+  using PIGEON_CLK_GATE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEONCTRL2_SET_fields_
 
-  LCDIF_PIGEONCTRL2_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL2_SET &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2_SET*>(0x408043A4); }
+struct LCDIF_PIGEONCTRL2_SET : ftl::mmio::Register<
+    0x408043A4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEONCTRL2_SET_fields_::PIGEON_DATA_EN,
+    LCDIF_PIGEONCTRL2_SET_fields_::PIGEON_CLK_GATE,
+    ftl::mmio::Reserved<30, 2>> {
+  using PIGEON_DATA_EN = LCDIF_PIGEONCTRL2_SET_fields_::PIGEON_DATA_EN;
+  using PIGEON_CLK_GATE = LCDIF_PIGEONCTRL2_SET_fields_::PIGEON_CLK_GATE;
 };
+
 
 // LCDIF Pigeon Mode Control2 Register
-union LCDIF_PIGEONCTRL2_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Pigeon mode data enable
-    uint32_t PIGEON_DATA_EN : 1;
-    // read-write - Pigeon mode dot clock gate enable
-    uint32_t PIGEON_CLK_GATE : 1;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_PIGEONCTRL2_CLR_fields_ {
+  // Pigeon mode data enable
+  using PIGEON_DATA_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pigeon mode dot clock gate enable
+  using PIGEON_CLK_GATE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEONCTRL2_CLR_fields_
 
-  LCDIF_PIGEONCTRL2_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL2_CLR &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2_CLR*>(0x408043A8); }
+struct LCDIF_PIGEONCTRL2_CLR : ftl::mmio::Register<
+    0x408043A8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEONCTRL2_CLR_fields_::PIGEON_DATA_EN,
+    LCDIF_PIGEONCTRL2_CLR_fields_::PIGEON_CLK_GATE,
+    ftl::mmio::Reserved<30, 2>> {
+  using PIGEON_DATA_EN = LCDIF_PIGEONCTRL2_CLR_fields_::PIGEON_DATA_EN;
+  using PIGEON_CLK_GATE = LCDIF_PIGEONCTRL2_CLR_fields_::PIGEON_CLK_GATE;
 };
+
 
 // LCDIF Pigeon Mode Control2 Register
-union LCDIF_PIGEONCTRL2_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Pigeon mode data enable
-    uint32_t PIGEON_DATA_EN : 1;
-    // read-write - Pigeon mode dot clock gate enable
-    uint32_t PIGEON_CLK_GATE : 1;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_PIGEONCTRL2_TOG_fields_ {
+  // Pigeon mode data enable
+  using PIGEON_DATA_EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Pigeon mode dot clock gate enable
+  using PIGEON_CLK_GATE = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEONCTRL2_TOG_fields_
 
-  LCDIF_PIGEONCTRL2_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEONCTRL2_TOG &ref() { return *reinterpret_cast<volatile LCDIF_PIGEONCTRL2_TOG*>(0x408043AC); }
+struct LCDIF_PIGEONCTRL2_TOG : ftl::mmio::Register<
+    0x408043ACu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEONCTRL2_TOG_fields_::PIGEON_DATA_EN,
+    LCDIF_PIGEONCTRL2_TOG_fields_::PIGEON_CLK_GATE,
+    ftl::mmio::Reserved<30, 2>> {
+  using PIGEON_DATA_EN = LCDIF_PIGEONCTRL2_TOG_fields_::PIGEON_DATA_EN;
+  using PIGEON_CLK_GATE = LCDIF_PIGEONCTRL2_TOG_fields_::PIGEON_CLK_GATE;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_0_0 {
-  
-  // Polarity of signal output
-  enum class ePOL : uint32_t {
+struct LCDIF_PIGEON_0_0_fields_ {
+
+  enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
     // Inverted signal (Active low)
     eACTIVE_LOW = 1,
   };
-  
-  // Event to incrment local counter
-  enum class eINC_SEL : uint32_t {
+
+  enum class eINC_SEL : std::uint32_t {
     // pclk
     ePCLK = 0,
     // Line start pulse
@@ -1850,9 +2218,8 @@ union LCDIF_PIGEON_0_0 {
     // Use another signal as tick event
     eSIG_ANOTHER = 3,
   };
-  
-  // select global counters as mask condition, use together with MASK_CNT
-  enum class eMASK_CNT_SEL : uint32_t {
+
+  enum class eMASK_CNT_SEL : std::uint32_t {
     // pclk counter within one hscan state
     eHSTATE_CNT = 0,
     // pclk cycle within one hscan state
@@ -1870,9 +2237,8 @@ union LCDIF_PIGEON_0_0 {
     // vertical counter (line counter within one frame)
     eVCNT = 7,
   };
-  
-  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-  enum class eSTATE_MASK : uint32_t {
+
+  enum class eSTATE_MASK : std::uint32_t {
     // FRAME SYNC
     eFS = 1,
     // FRAME BEGIN
@@ -1890,69 +2256,84 @@ union LCDIF_PIGEON_0_0 {
     // LINE END
     eLE = 128,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable pigeon Mode on this signal
-    uint32_t EN : 1;
-    // read-write - Polarity of signal output
-    ePOL POL : 1;
-    // read-write - Event to incrment local counter
-    eINC_SEL INC_SEL : 2;
-    // read-write - offset on pclk unit
-    uint32_t OFFSET : 4;
-    // read-write - select global counters as mask condition, use together with MASK_CNT
-    eMASK_CNT_SEL MASK_CNT_SEL : 4;
-    // read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
-    uint32_t MASK_CNT : 12;
-    // read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-    eSTATE_MASK STATE_MASK : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable pigeon Mode on this signal
+  using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity of signal output
+  using POL = ftl::mmio::Field<1, 1, ePOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Event to incrment local counter
+  using INC_SEL = ftl::mmio::Field<2, 2, eINC_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // offset on pclk unit
+  using OFFSET = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // select global counters as mask condition, use together with MASK_CNT
+  using MASK_CNT_SEL = ftl::mmio::Field<4, 8, eMASK_CNT_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
+  using MASK_CNT = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
+  using STATE_MASK = ftl::mmio::Field<8, 24, eSTATE_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_0_0_fields_
 
-  LCDIF_PIGEON_0_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_0_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_0_0*>(0x40804800); }
+struct LCDIF_PIGEON_0_0 : ftl::mmio::Register<
+    0x40804800u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_0_0_fields_::EN,
+    LCDIF_PIGEON_0_0_fields_::POL,
+    LCDIF_PIGEON_0_0_fields_::INC_SEL,
+    LCDIF_PIGEON_0_0_fields_::OFFSET,
+    LCDIF_PIGEON_0_0_fields_::MASK_CNT_SEL,
+    LCDIF_PIGEON_0_0_fields_::MASK_CNT,
+    LCDIF_PIGEON_0_0_fields_::STATE_MASK> {
+  using ePOL = LCDIF_PIGEON_0_0_fields_::ePOL;
+  using eINC_SEL = LCDIF_PIGEON_0_0_fields_::eINC_SEL;
+  using eMASK_CNT_SEL = LCDIF_PIGEON_0_0_fields_::eMASK_CNT_SEL;
+  using eSTATE_MASK = LCDIF_PIGEON_0_0_fields_::eSTATE_MASK;
+  using EN = LCDIF_PIGEON_0_0_fields_::EN;
+  using POL = LCDIF_PIGEON_0_0_fields_::POL;
+  using INC_SEL = LCDIF_PIGEON_0_0_fields_::INC_SEL;
+  using OFFSET = LCDIF_PIGEON_0_0_fields_::OFFSET;
+  using MASK_CNT_SEL = LCDIF_PIGEON_0_0_fields_::MASK_CNT_SEL;
+  using MASK_CNT = LCDIF_PIGEON_0_0_fields_::MASK_CNT;
+  using STATE_MASK = LCDIF_PIGEON_0_0_fields_::STATE_MASK;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_0_1 {
-  
-  // Assert signal output when counter match this value
-  enum class eSET_CNT : uint32_t {
+struct LCDIF_PIGEON_0_1_fields_ {
+
+  enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
   };
-  
-  // Deassert signal output when counter match this value
-  enum class eCLR_CNT : uint32_t {
+
+  enum class eCLR_CNT : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Assert signal output when counter match this value
-    eSET_CNT SET_CNT : 16;
-    // read-write - Deassert signal output when counter match this value
-    eCLR_CNT CLR_CNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Assert signal output when counter match this value
+  using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Deassert signal output when counter match this value
+  using CLR_CNT = ftl::mmio::Field<16, 16, eCLR_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_0_1_fields_
 
-  LCDIF_PIGEON_0_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_0_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_0_1*>(0x40804810); }
+struct LCDIF_PIGEON_0_1 : ftl::mmio::Register<
+    0x40804810u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_0_1_fields_::SET_CNT,
+    LCDIF_PIGEON_0_1_fields_::CLR_CNT> {
+  using eSET_CNT = LCDIF_PIGEON_0_1_fields_::eSET_CNT;
+  using eCLR_CNT = LCDIF_PIGEON_0_1_fields_::eCLR_CNT;
+  using SET_CNT = LCDIF_PIGEON_0_1_fields_::SET_CNT;
+  using CLR_CNT = LCDIF_PIGEON_0_1_fields_::CLR_CNT;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_0_2 {
-  
-  // Logic operation with another signal: DIS/AND/OR/COND
-  enum class eSIG_LOGIC : uint32_t {
+struct LCDIF_PIGEON_0_2_fields_ {
+
+  enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
     // sigout = sig_another AND this_sig
@@ -1962,43 +2343,43 @@ union LCDIF_PIGEON_0_2 {
     // mask = sig_another AND other_masks
     eMASK = 3,
   };
-  
-  // Select another signal for logic operation or as mask or counter tick event
-  enum class eSIG_ANOTHER : uint32_t {
+
+  enum class eSIG_ANOTHER : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Logic operation with another signal: DIS/AND/OR/COND
-    eSIG_LOGIC SIG_LOGIC : 4;
-    // read-write - Select another signal for logic operation or as mask or counter tick event
-    eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Logic operation with another signal: DIS/AND/OR/COND
+  using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Select another signal for logic operation or as mask or counter tick event
+  using SIG_ANOTHER = ftl::mmio::Field<5, 4, eSIG_ANOTHER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_0_2_fields_
 
-  LCDIF_PIGEON_0_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_0_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_0_2*>(0x40804820); }
+struct LCDIF_PIGEON_0_2 : ftl::mmio::Register<
+    0x40804820u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_0_2_fields_::SIG_LOGIC,
+    LCDIF_PIGEON_0_2_fields_::SIG_ANOTHER,
+    ftl::mmio::Reserved<23, 9>> {
+  using eSIG_LOGIC = LCDIF_PIGEON_0_2_fields_::eSIG_LOGIC;
+  using eSIG_ANOTHER = LCDIF_PIGEON_0_2_fields_::eSIG_ANOTHER;
+  using SIG_LOGIC = LCDIF_PIGEON_0_2_fields_::SIG_LOGIC;
+  using SIG_ANOTHER = LCDIF_PIGEON_0_2_fields_::SIG_ANOTHER;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_1_0 {
-  
-  // Polarity of signal output
-  enum class ePOL : uint32_t {
+struct LCDIF_PIGEON_1_0_fields_ {
+
+  enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
     // Inverted signal (Active low)
     eACTIVE_LOW = 1,
   };
-  
-  // Event to incrment local counter
-  enum class eINC_SEL : uint32_t {
+
+  enum class eINC_SEL : std::uint32_t {
     // pclk
     ePCLK = 0,
     // Line start pulse
@@ -2008,9 +2389,8 @@ union LCDIF_PIGEON_1_0 {
     // Use another signal as tick event
     eSIG_ANOTHER = 3,
   };
-  
-  // select global counters as mask condition, use together with MASK_CNT
-  enum class eMASK_CNT_SEL : uint32_t {
+
+  enum class eMASK_CNT_SEL : std::uint32_t {
     // pclk counter within one hscan state
     eHSTATE_CNT = 0,
     // pclk cycle within one hscan state
@@ -2028,9 +2408,8 @@ union LCDIF_PIGEON_1_0 {
     // vertical counter (line counter within one frame)
     eVCNT = 7,
   };
-  
-  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-  enum class eSTATE_MASK : uint32_t {
+
+  enum class eSTATE_MASK : std::uint32_t {
     // FRAME SYNC
     eFS = 1,
     // FRAME BEGIN
@@ -2048,69 +2427,84 @@ union LCDIF_PIGEON_1_0 {
     // LINE END
     eLE = 128,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable pigeon Mode on this signal
-    uint32_t EN : 1;
-    // read-write - Polarity of signal output
-    ePOL POL : 1;
-    // read-write - Event to incrment local counter
-    eINC_SEL INC_SEL : 2;
-    // read-write - offset on pclk unit
-    uint32_t OFFSET : 4;
-    // read-write - select global counters as mask condition, use together with MASK_CNT
-    eMASK_CNT_SEL MASK_CNT_SEL : 4;
-    // read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
-    uint32_t MASK_CNT : 12;
-    // read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-    eSTATE_MASK STATE_MASK : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable pigeon Mode on this signal
+  using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity of signal output
+  using POL = ftl::mmio::Field<1, 1, ePOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Event to incrment local counter
+  using INC_SEL = ftl::mmio::Field<2, 2, eINC_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // offset on pclk unit
+  using OFFSET = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // select global counters as mask condition, use together with MASK_CNT
+  using MASK_CNT_SEL = ftl::mmio::Field<4, 8, eMASK_CNT_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
+  using MASK_CNT = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
+  using STATE_MASK = ftl::mmio::Field<8, 24, eSTATE_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_1_0_fields_
 
-  LCDIF_PIGEON_1_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_1_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_1_0*>(0x40804840); }
+struct LCDIF_PIGEON_1_0 : ftl::mmio::Register<
+    0x40804840u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_1_0_fields_::EN,
+    LCDIF_PIGEON_1_0_fields_::POL,
+    LCDIF_PIGEON_1_0_fields_::INC_SEL,
+    LCDIF_PIGEON_1_0_fields_::OFFSET,
+    LCDIF_PIGEON_1_0_fields_::MASK_CNT_SEL,
+    LCDIF_PIGEON_1_0_fields_::MASK_CNT,
+    LCDIF_PIGEON_1_0_fields_::STATE_MASK> {
+  using ePOL = LCDIF_PIGEON_1_0_fields_::ePOL;
+  using eINC_SEL = LCDIF_PIGEON_1_0_fields_::eINC_SEL;
+  using eMASK_CNT_SEL = LCDIF_PIGEON_1_0_fields_::eMASK_CNT_SEL;
+  using eSTATE_MASK = LCDIF_PIGEON_1_0_fields_::eSTATE_MASK;
+  using EN = LCDIF_PIGEON_1_0_fields_::EN;
+  using POL = LCDIF_PIGEON_1_0_fields_::POL;
+  using INC_SEL = LCDIF_PIGEON_1_0_fields_::INC_SEL;
+  using OFFSET = LCDIF_PIGEON_1_0_fields_::OFFSET;
+  using MASK_CNT_SEL = LCDIF_PIGEON_1_0_fields_::MASK_CNT_SEL;
+  using MASK_CNT = LCDIF_PIGEON_1_0_fields_::MASK_CNT;
+  using STATE_MASK = LCDIF_PIGEON_1_0_fields_::STATE_MASK;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_1_1 {
-  
-  // Assert signal output when counter match this value
-  enum class eSET_CNT : uint32_t {
+struct LCDIF_PIGEON_1_1_fields_ {
+
+  enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
   };
-  
-  // Deassert signal output when counter match this value
-  enum class eCLR_CNT : uint32_t {
+
+  enum class eCLR_CNT : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Assert signal output when counter match this value
-    eSET_CNT SET_CNT : 16;
-    // read-write - Deassert signal output when counter match this value
-    eCLR_CNT CLR_CNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Assert signal output when counter match this value
+  using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Deassert signal output when counter match this value
+  using CLR_CNT = ftl::mmio::Field<16, 16, eCLR_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_1_1_fields_
 
-  LCDIF_PIGEON_1_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_1_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_1_1*>(0x40804850); }
+struct LCDIF_PIGEON_1_1 : ftl::mmio::Register<
+    0x40804850u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_1_1_fields_::SET_CNT,
+    LCDIF_PIGEON_1_1_fields_::CLR_CNT> {
+  using eSET_CNT = LCDIF_PIGEON_1_1_fields_::eSET_CNT;
+  using eCLR_CNT = LCDIF_PIGEON_1_1_fields_::eCLR_CNT;
+  using SET_CNT = LCDIF_PIGEON_1_1_fields_::SET_CNT;
+  using CLR_CNT = LCDIF_PIGEON_1_1_fields_::CLR_CNT;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_1_2 {
-  
-  // Logic operation with another signal: DIS/AND/OR/COND
-  enum class eSIG_LOGIC : uint32_t {
+struct LCDIF_PIGEON_1_2_fields_ {
+
+  enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
     // sigout = sig_another AND this_sig
@@ -2120,43 +2514,43 @@ union LCDIF_PIGEON_1_2 {
     // mask = sig_another AND other_masks
     eMASK = 3,
   };
-  
-  // Select another signal for logic operation or as mask or counter tick event
-  enum class eSIG_ANOTHER : uint32_t {
+
+  enum class eSIG_ANOTHER : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Logic operation with another signal: DIS/AND/OR/COND
-    eSIG_LOGIC SIG_LOGIC : 4;
-    // read-write - Select another signal for logic operation or as mask or counter tick event
-    eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Logic operation with another signal: DIS/AND/OR/COND
+  using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Select another signal for logic operation or as mask or counter tick event
+  using SIG_ANOTHER = ftl::mmio::Field<5, 4, eSIG_ANOTHER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_1_2_fields_
 
-  LCDIF_PIGEON_1_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_1_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_1_2*>(0x40804860); }
+struct LCDIF_PIGEON_1_2 : ftl::mmio::Register<
+    0x40804860u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_1_2_fields_::SIG_LOGIC,
+    LCDIF_PIGEON_1_2_fields_::SIG_ANOTHER,
+    ftl::mmio::Reserved<23, 9>> {
+  using eSIG_LOGIC = LCDIF_PIGEON_1_2_fields_::eSIG_LOGIC;
+  using eSIG_ANOTHER = LCDIF_PIGEON_1_2_fields_::eSIG_ANOTHER;
+  using SIG_LOGIC = LCDIF_PIGEON_1_2_fields_::SIG_LOGIC;
+  using SIG_ANOTHER = LCDIF_PIGEON_1_2_fields_::SIG_ANOTHER;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_2_0 {
-  
-  // Polarity of signal output
-  enum class ePOL : uint32_t {
+struct LCDIF_PIGEON_2_0_fields_ {
+
+  enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
     // Inverted signal (Active low)
     eACTIVE_LOW = 1,
   };
-  
-  // Event to incrment local counter
-  enum class eINC_SEL : uint32_t {
+
+  enum class eINC_SEL : std::uint32_t {
     // pclk
     ePCLK = 0,
     // Line start pulse
@@ -2166,9 +2560,8 @@ union LCDIF_PIGEON_2_0 {
     // Use another signal as tick event
     eSIG_ANOTHER = 3,
   };
-  
-  // select global counters as mask condition, use together with MASK_CNT
-  enum class eMASK_CNT_SEL : uint32_t {
+
+  enum class eMASK_CNT_SEL : std::uint32_t {
     // pclk counter within one hscan state
     eHSTATE_CNT = 0,
     // pclk cycle within one hscan state
@@ -2186,9 +2579,8 @@ union LCDIF_PIGEON_2_0 {
     // vertical counter (line counter within one frame)
     eVCNT = 7,
   };
-  
-  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-  enum class eSTATE_MASK : uint32_t {
+
+  enum class eSTATE_MASK : std::uint32_t {
     // FRAME SYNC
     eFS = 1,
     // FRAME BEGIN
@@ -2206,69 +2598,84 @@ union LCDIF_PIGEON_2_0 {
     // LINE END
     eLE = 128,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable pigeon Mode on this signal
-    uint32_t EN : 1;
-    // read-write - Polarity of signal output
-    ePOL POL : 1;
-    // read-write - Event to incrment local counter
-    eINC_SEL INC_SEL : 2;
-    // read-write - offset on pclk unit
-    uint32_t OFFSET : 4;
-    // read-write - select global counters as mask condition, use together with MASK_CNT
-    eMASK_CNT_SEL MASK_CNT_SEL : 4;
-    // read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
-    uint32_t MASK_CNT : 12;
-    // read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-    eSTATE_MASK STATE_MASK : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable pigeon Mode on this signal
+  using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity of signal output
+  using POL = ftl::mmio::Field<1, 1, ePOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Event to incrment local counter
+  using INC_SEL = ftl::mmio::Field<2, 2, eINC_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // offset on pclk unit
+  using OFFSET = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // select global counters as mask condition, use together with MASK_CNT
+  using MASK_CNT_SEL = ftl::mmio::Field<4, 8, eMASK_CNT_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
+  using MASK_CNT = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
+  using STATE_MASK = ftl::mmio::Field<8, 24, eSTATE_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_2_0_fields_
 
-  LCDIF_PIGEON_2_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_2_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_2_0*>(0x40804880); }
+struct LCDIF_PIGEON_2_0 : ftl::mmio::Register<
+    0x40804880u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_2_0_fields_::EN,
+    LCDIF_PIGEON_2_0_fields_::POL,
+    LCDIF_PIGEON_2_0_fields_::INC_SEL,
+    LCDIF_PIGEON_2_0_fields_::OFFSET,
+    LCDIF_PIGEON_2_0_fields_::MASK_CNT_SEL,
+    LCDIF_PIGEON_2_0_fields_::MASK_CNT,
+    LCDIF_PIGEON_2_0_fields_::STATE_MASK> {
+  using ePOL = LCDIF_PIGEON_2_0_fields_::ePOL;
+  using eINC_SEL = LCDIF_PIGEON_2_0_fields_::eINC_SEL;
+  using eMASK_CNT_SEL = LCDIF_PIGEON_2_0_fields_::eMASK_CNT_SEL;
+  using eSTATE_MASK = LCDIF_PIGEON_2_0_fields_::eSTATE_MASK;
+  using EN = LCDIF_PIGEON_2_0_fields_::EN;
+  using POL = LCDIF_PIGEON_2_0_fields_::POL;
+  using INC_SEL = LCDIF_PIGEON_2_0_fields_::INC_SEL;
+  using OFFSET = LCDIF_PIGEON_2_0_fields_::OFFSET;
+  using MASK_CNT_SEL = LCDIF_PIGEON_2_0_fields_::MASK_CNT_SEL;
+  using MASK_CNT = LCDIF_PIGEON_2_0_fields_::MASK_CNT;
+  using STATE_MASK = LCDIF_PIGEON_2_0_fields_::STATE_MASK;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_2_1 {
-  
-  // Assert signal output when counter match this value
-  enum class eSET_CNT : uint32_t {
+struct LCDIF_PIGEON_2_1_fields_ {
+
+  enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
   };
-  
-  // Deassert signal output when counter match this value
-  enum class eCLR_CNT : uint32_t {
+
+  enum class eCLR_CNT : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Assert signal output when counter match this value
-    eSET_CNT SET_CNT : 16;
-    // read-write - Deassert signal output when counter match this value
-    eCLR_CNT CLR_CNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Assert signal output when counter match this value
+  using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Deassert signal output when counter match this value
+  using CLR_CNT = ftl::mmio::Field<16, 16, eCLR_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_2_1_fields_
 
-  LCDIF_PIGEON_2_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_2_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_2_1*>(0x40804890); }
+struct LCDIF_PIGEON_2_1 : ftl::mmio::Register<
+    0x40804890u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_2_1_fields_::SET_CNT,
+    LCDIF_PIGEON_2_1_fields_::CLR_CNT> {
+  using eSET_CNT = LCDIF_PIGEON_2_1_fields_::eSET_CNT;
+  using eCLR_CNT = LCDIF_PIGEON_2_1_fields_::eCLR_CNT;
+  using SET_CNT = LCDIF_PIGEON_2_1_fields_::SET_CNT;
+  using CLR_CNT = LCDIF_PIGEON_2_1_fields_::CLR_CNT;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_2_2 {
-  
-  // Logic operation with another signal: DIS/AND/OR/COND
-  enum class eSIG_LOGIC : uint32_t {
+struct LCDIF_PIGEON_2_2_fields_ {
+
+  enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
     // sigout = sig_another AND this_sig
@@ -2278,43 +2685,43 @@ union LCDIF_PIGEON_2_2 {
     // mask = sig_another AND other_masks
     eMASK = 3,
   };
-  
-  // Select another signal for logic operation or as mask or counter tick event
-  enum class eSIG_ANOTHER : uint32_t {
+
+  enum class eSIG_ANOTHER : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Logic operation with another signal: DIS/AND/OR/COND
-    eSIG_LOGIC SIG_LOGIC : 4;
-    // read-write - Select another signal for logic operation or as mask or counter tick event
-    eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Logic operation with another signal: DIS/AND/OR/COND
+  using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Select another signal for logic operation or as mask or counter tick event
+  using SIG_ANOTHER = ftl::mmio::Field<5, 4, eSIG_ANOTHER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_2_2_fields_
 
-  LCDIF_PIGEON_2_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_2_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_2_2*>(0x408048A0); }
+struct LCDIF_PIGEON_2_2 : ftl::mmio::Register<
+    0x408048A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_2_2_fields_::SIG_LOGIC,
+    LCDIF_PIGEON_2_2_fields_::SIG_ANOTHER,
+    ftl::mmio::Reserved<23, 9>> {
+  using eSIG_LOGIC = LCDIF_PIGEON_2_2_fields_::eSIG_LOGIC;
+  using eSIG_ANOTHER = LCDIF_PIGEON_2_2_fields_::eSIG_ANOTHER;
+  using SIG_LOGIC = LCDIF_PIGEON_2_2_fields_::SIG_LOGIC;
+  using SIG_ANOTHER = LCDIF_PIGEON_2_2_fields_::SIG_ANOTHER;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_3_0 {
-  
-  // Polarity of signal output
-  enum class ePOL : uint32_t {
+struct LCDIF_PIGEON_3_0_fields_ {
+
+  enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
     // Inverted signal (Active low)
     eACTIVE_LOW = 1,
   };
-  
-  // Event to incrment local counter
-  enum class eINC_SEL : uint32_t {
+
+  enum class eINC_SEL : std::uint32_t {
     // pclk
     ePCLK = 0,
     // Line start pulse
@@ -2324,9 +2731,8 @@ union LCDIF_PIGEON_3_0 {
     // Use another signal as tick event
     eSIG_ANOTHER = 3,
   };
-  
-  // select global counters as mask condition, use together with MASK_CNT
-  enum class eMASK_CNT_SEL : uint32_t {
+
+  enum class eMASK_CNT_SEL : std::uint32_t {
     // pclk counter within one hscan state
     eHSTATE_CNT = 0,
     // pclk cycle within one hscan state
@@ -2344,9 +2750,8 @@ union LCDIF_PIGEON_3_0 {
     // vertical counter (line counter within one frame)
     eVCNT = 7,
   };
-  
-  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-  enum class eSTATE_MASK : uint32_t {
+
+  enum class eSTATE_MASK : std::uint32_t {
     // FRAME SYNC
     eFS = 1,
     // FRAME BEGIN
@@ -2364,69 +2769,84 @@ union LCDIF_PIGEON_3_0 {
     // LINE END
     eLE = 128,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable pigeon Mode on this signal
-    uint32_t EN : 1;
-    // read-write - Polarity of signal output
-    ePOL POL : 1;
-    // read-write - Event to incrment local counter
-    eINC_SEL INC_SEL : 2;
-    // read-write - offset on pclk unit
-    uint32_t OFFSET : 4;
-    // read-write - select global counters as mask condition, use together with MASK_CNT
-    eMASK_CNT_SEL MASK_CNT_SEL : 4;
-    // read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
-    uint32_t MASK_CNT : 12;
-    // read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-    eSTATE_MASK STATE_MASK : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable pigeon Mode on this signal
+  using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity of signal output
+  using POL = ftl::mmio::Field<1, 1, ePOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Event to incrment local counter
+  using INC_SEL = ftl::mmio::Field<2, 2, eINC_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // offset on pclk unit
+  using OFFSET = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // select global counters as mask condition, use together with MASK_CNT
+  using MASK_CNT_SEL = ftl::mmio::Field<4, 8, eMASK_CNT_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
+  using MASK_CNT = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
+  using STATE_MASK = ftl::mmio::Field<8, 24, eSTATE_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_3_0_fields_
 
-  LCDIF_PIGEON_3_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_3_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_3_0*>(0x408048C0); }
+struct LCDIF_PIGEON_3_0 : ftl::mmio::Register<
+    0x408048C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_3_0_fields_::EN,
+    LCDIF_PIGEON_3_0_fields_::POL,
+    LCDIF_PIGEON_3_0_fields_::INC_SEL,
+    LCDIF_PIGEON_3_0_fields_::OFFSET,
+    LCDIF_PIGEON_3_0_fields_::MASK_CNT_SEL,
+    LCDIF_PIGEON_3_0_fields_::MASK_CNT,
+    LCDIF_PIGEON_3_0_fields_::STATE_MASK> {
+  using ePOL = LCDIF_PIGEON_3_0_fields_::ePOL;
+  using eINC_SEL = LCDIF_PIGEON_3_0_fields_::eINC_SEL;
+  using eMASK_CNT_SEL = LCDIF_PIGEON_3_0_fields_::eMASK_CNT_SEL;
+  using eSTATE_MASK = LCDIF_PIGEON_3_0_fields_::eSTATE_MASK;
+  using EN = LCDIF_PIGEON_3_0_fields_::EN;
+  using POL = LCDIF_PIGEON_3_0_fields_::POL;
+  using INC_SEL = LCDIF_PIGEON_3_0_fields_::INC_SEL;
+  using OFFSET = LCDIF_PIGEON_3_0_fields_::OFFSET;
+  using MASK_CNT_SEL = LCDIF_PIGEON_3_0_fields_::MASK_CNT_SEL;
+  using MASK_CNT = LCDIF_PIGEON_3_0_fields_::MASK_CNT;
+  using STATE_MASK = LCDIF_PIGEON_3_0_fields_::STATE_MASK;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_3_1 {
-  
-  // Assert signal output when counter match this value
-  enum class eSET_CNT : uint32_t {
+struct LCDIF_PIGEON_3_1_fields_ {
+
+  enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
   };
-  
-  // Deassert signal output when counter match this value
-  enum class eCLR_CNT : uint32_t {
+
+  enum class eCLR_CNT : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Assert signal output when counter match this value
-    eSET_CNT SET_CNT : 16;
-    // read-write - Deassert signal output when counter match this value
-    eCLR_CNT CLR_CNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Assert signal output when counter match this value
+  using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Deassert signal output when counter match this value
+  using CLR_CNT = ftl::mmio::Field<16, 16, eCLR_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_3_1_fields_
 
-  LCDIF_PIGEON_3_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_3_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_3_1*>(0x408048D0); }
+struct LCDIF_PIGEON_3_1 : ftl::mmio::Register<
+    0x408048D0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_3_1_fields_::SET_CNT,
+    LCDIF_PIGEON_3_1_fields_::CLR_CNT> {
+  using eSET_CNT = LCDIF_PIGEON_3_1_fields_::eSET_CNT;
+  using eCLR_CNT = LCDIF_PIGEON_3_1_fields_::eCLR_CNT;
+  using SET_CNT = LCDIF_PIGEON_3_1_fields_::SET_CNT;
+  using CLR_CNT = LCDIF_PIGEON_3_1_fields_::CLR_CNT;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_3_2 {
-  
-  // Logic operation with another signal: DIS/AND/OR/COND
-  enum class eSIG_LOGIC : uint32_t {
+struct LCDIF_PIGEON_3_2_fields_ {
+
+  enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
     // sigout = sig_another AND this_sig
@@ -2436,43 +2856,43 @@ union LCDIF_PIGEON_3_2 {
     // mask = sig_another AND other_masks
     eMASK = 3,
   };
-  
-  // Select another signal for logic operation or as mask or counter tick event
-  enum class eSIG_ANOTHER : uint32_t {
+
+  enum class eSIG_ANOTHER : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Logic operation with another signal: DIS/AND/OR/COND
-    eSIG_LOGIC SIG_LOGIC : 4;
-    // read-write - Select another signal for logic operation or as mask or counter tick event
-    eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Logic operation with another signal: DIS/AND/OR/COND
+  using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Select another signal for logic operation or as mask or counter tick event
+  using SIG_ANOTHER = ftl::mmio::Field<5, 4, eSIG_ANOTHER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_3_2_fields_
 
-  LCDIF_PIGEON_3_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_3_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_3_2*>(0x408048E0); }
+struct LCDIF_PIGEON_3_2 : ftl::mmio::Register<
+    0x408048E0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_3_2_fields_::SIG_LOGIC,
+    LCDIF_PIGEON_3_2_fields_::SIG_ANOTHER,
+    ftl::mmio::Reserved<23, 9>> {
+  using eSIG_LOGIC = LCDIF_PIGEON_3_2_fields_::eSIG_LOGIC;
+  using eSIG_ANOTHER = LCDIF_PIGEON_3_2_fields_::eSIG_ANOTHER;
+  using SIG_LOGIC = LCDIF_PIGEON_3_2_fields_::SIG_LOGIC;
+  using SIG_ANOTHER = LCDIF_PIGEON_3_2_fields_::SIG_ANOTHER;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_4_0 {
-  
-  // Polarity of signal output
-  enum class ePOL : uint32_t {
+struct LCDIF_PIGEON_4_0_fields_ {
+
+  enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
     // Inverted signal (Active low)
     eACTIVE_LOW = 1,
   };
-  
-  // Event to incrment local counter
-  enum class eINC_SEL : uint32_t {
+
+  enum class eINC_SEL : std::uint32_t {
     // pclk
     ePCLK = 0,
     // Line start pulse
@@ -2482,9 +2902,8 @@ union LCDIF_PIGEON_4_0 {
     // Use another signal as tick event
     eSIG_ANOTHER = 3,
   };
-  
-  // select global counters as mask condition, use together with MASK_CNT
-  enum class eMASK_CNT_SEL : uint32_t {
+
+  enum class eMASK_CNT_SEL : std::uint32_t {
     // pclk counter within one hscan state
     eHSTATE_CNT = 0,
     // pclk cycle within one hscan state
@@ -2502,9 +2921,8 @@ union LCDIF_PIGEON_4_0 {
     // vertical counter (line counter within one frame)
     eVCNT = 7,
   };
-  
-  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-  enum class eSTATE_MASK : uint32_t {
+
+  enum class eSTATE_MASK : std::uint32_t {
     // FRAME SYNC
     eFS = 1,
     // FRAME BEGIN
@@ -2522,69 +2940,84 @@ union LCDIF_PIGEON_4_0 {
     // LINE END
     eLE = 128,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable pigeon Mode on this signal
-    uint32_t EN : 1;
-    // read-write - Polarity of signal output
-    ePOL POL : 1;
-    // read-write - Event to incrment local counter
-    eINC_SEL INC_SEL : 2;
-    // read-write - offset on pclk unit
-    uint32_t OFFSET : 4;
-    // read-write - select global counters as mask condition, use together with MASK_CNT
-    eMASK_CNT_SEL MASK_CNT_SEL : 4;
-    // read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
-    uint32_t MASK_CNT : 12;
-    // read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-    eSTATE_MASK STATE_MASK : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable pigeon Mode on this signal
+  using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity of signal output
+  using POL = ftl::mmio::Field<1, 1, ePOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Event to incrment local counter
+  using INC_SEL = ftl::mmio::Field<2, 2, eINC_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // offset on pclk unit
+  using OFFSET = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // select global counters as mask condition, use together with MASK_CNT
+  using MASK_CNT_SEL = ftl::mmio::Field<4, 8, eMASK_CNT_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
+  using MASK_CNT = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
+  using STATE_MASK = ftl::mmio::Field<8, 24, eSTATE_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_4_0_fields_
 
-  LCDIF_PIGEON_4_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_4_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_4_0*>(0x40804900); }
+struct LCDIF_PIGEON_4_0 : ftl::mmio::Register<
+    0x40804900u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_4_0_fields_::EN,
+    LCDIF_PIGEON_4_0_fields_::POL,
+    LCDIF_PIGEON_4_0_fields_::INC_SEL,
+    LCDIF_PIGEON_4_0_fields_::OFFSET,
+    LCDIF_PIGEON_4_0_fields_::MASK_CNT_SEL,
+    LCDIF_PIGEON_4_0_fields_::MASK_CNT,
+    LCDIF_PIGEON_4_0_fields_::STATE_MASK> {
+  using ePOL = LCDIF_PIGEON_4_0_fields_::ePOL;
+  using eINC_SEL = LCDIF_PIGEON_4_0_fields_::eINC_SEL;
+  using eMASK_CNT_SEL = LCDIF_PIGEON_4_0_fields_::eMASK_CNT_SEL;
+  using eSTATE_MASK = LCDIF_PIGEON_4_0_fields_::eSTATE_MASK;
+  using EN = LCDIF_PIGEON_4_0_fields_::EN;
+  using POL = LCDIF_PIGEON_4_0_fields_::POL;
+  using INC_SEL = LCDIF_PIGEON_4_0_fields_::INC_SEL;
+  using OFFSET = LCDIF_PIGEON_4_0_fields_::OFFSET;
+  using MASK_CNT_SEL = LCDIF_PIGEON_4_0_fields_::MASK_CNT_SEL;
+  using MASK_CNT = LCDIF_PIGEON_4_0_fields_::MASK_CNT;
+  using STATE_MASK = LCDIF_PIGEON_4_0_fields_::STATE_MASK;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_4_1 {
-  
-  // Assert signal output when counter match this value
-  enum class eSET_CNT : uint32_t {
+struct LCDIF_PIGEON_4_1_fields_ {
+
+  enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
   };
-  
-  // Deassert signal output when counter match this value
-  enum class eCLR_CNT : uint32_t {
+
+  enum class eCLR_CNT : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Assert signal output when counter match this value
-    eSET_CNT SET_CNT : 16;
-    // read-write - Deassert signal output when counter match this value
-    eCLR_CNT CLR_CNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Assert signal output when counter match this value
+  using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Deassert signal output when counter match this value
+  using CLR_CNT = ftl::mmio::Field<16, 16, eCLR_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_4_1_fields_
 
-  LCDIF_PIGEON_4_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_4_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_4_1*>(0x40804910); }
+struct LCDIF_PIGEON_4_1 : ftl::mmio::Register<
+    0x40804910u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_4_1_fields_::SET_CNT,
+    LCDIF_PIGEON_4_1_fields_::CLR_CNT> {
+  using eSET_CNT = LCDIF_PIGEON_4_1_fields_::eSET_CNT;
+  using eCLR_CNT = LCDIF_PIGEON_4_1_fields_::eCLR_CNT;
+  using SET_CNT = LCDIF_PIGEON_4_1_fields_::SET_CNT;
+  using CLR_CNT = LCDIF_PIGEON_4_1_fields_::CLR_CNT;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_4_2 {
-  
-  // Logic operation with another signal: DIS/AND/OR/COND
-  enum class eSIG_LOGIC : uint32_t {
+struct LCDIF_PIGEON_4_2_fields_ {
+
+  enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
     // sigout = sig_another AND this_sig
@@ -2594,43 +3027,43 @@ union LCDIF_PIGEON_4_2 {
     // mask = sig_another AND other_masks
     eMASK = 3,
   };
-  
-  // Select another signal for logic operation or as mask or counter tick event
-  enum class eSIG_ANOTHER : uint32_t {
+
+  enum class eSIG_ANOTHER : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Logic operation with another signal: DIS/AND/OR/COND
-    eSIG_LOGIC SIG_LOGIC : 4;
-    // read-write - Select another signal for logic operation or as mask or counter tick event
-    eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Logic operation with another signal: DIS/AND/OR/COND
+  using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Select another signal for logic operation or as mask or counter tick event
+  using SIG_ANOTHER = ftl::mmio::Field<5, 4, eSIG_ANOTHER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_4_2_fields_
 
-  LCDIF_PIGEON_4_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_4_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_4_2*>(0x40804920); }
+struct LCDIF_PIGEON_4_2 : ftl::mmio::Register<
+    0x40804920u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_4_2_fields_::SIG_LOGIC,
+    LCDIF_PIGEON_4_2_fields_::SIG_ANOTHER,
+    ftl::mmio::Reserved<23, 9>> {
+  using eSIG_LOGIC = LCDIF_PIGEON_4_2_fields_::eSIG_LOGIC;
+  using eSIG_ANOTHER = LCDIF_PIGEON_4_2_fields_::eSIG_ANOTHER;
+  using SIG_LOGIC = LCDIF_PIGEON_4_2_fields_::SIG_LOGIC;
+  using SIG_ANOTHER = LCDIF_PIGEON_4_2_fields_::SIG_ANOTHER;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_5_0 {
-  
-  // Polarity of signal output
-  enum class ePOL : uint32_t {
+struct LCDIF_PIGEON_5_0_fields_ {
+
+  enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
     // Inverted signal (Active low)
     eACTIVE_LOW = 1,
   };
-  
-  // Event to incrment local counter
-  enum class eINC_SEL : uint32_t {
+
+  enum class eINC_SEL : std::uint32_t {
     // pclk
     ePCLK = 0,
     // Line start pulse
@@ -2640,9 +3073,8 @@ union LCDIF_PIGEON_5_0 {
     // Use another signal as tick event
     eSIG_ANOTHER = 3,
   };
-  
-  // select global counters as mask condition, use together with MASK_CNT
-  enum class eMASK_CNT_SEL : uint32_t {
+
+  enum class eMASK_CNT_SEL : std::uint32_t {
     // pclk counter within one hscan state
     eHSTATE_CNT = 0,
     // pclk cycle within one hscan state
@@ -2660,9 +3092,8 @@ union LCDIF_PIGEON_5_0 {
     // vertical counter (line counter within one frame)
     eVCNT = 7,
   };
-  
-  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-  enum class eSTATE_MASK : uint32_t {
+
+  enum class eSTATE_MASK : std::uint32_t {
     // FRAME SYNC
     eFS = 1,
     // FRAME BEGIN
@@ -2680,69 +3111,84 @@ union LCDIF_PIGEON_5_0 {
     // LINE END
     eLE = 128,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable pigeon Mode on this signal
-    uint32_t EN : 1;
-    // read-write - Polarity of signal output
-    ePOL POL : 1;
-    // read-write - Event to incrment local counter
-    eINC_SEL INC_SEL : 2;
-    // read-write - offset on pclk unit
-    uint32_t OFFSET : 4;
-    // read-write - select global counters as mask condition, use together with MASK_CNT
-    eMASK_CNT_SEL MASK_CNT_SEL : 4;
-    // read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
-    uint32_t MASK_CNT : 12;
-    // read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-    eSTATE_MASK STATE_MASK : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable pigeon Mode on this signal
+  using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity of signal output
+  using POL = ftl::mmio::Field<1, 1, ePOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Event to incrment local counter
+  using INC_SEL = ftl::mmio::Field<2, 2, eINC_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // offset on pclk unit
+  using OFFSET = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // select global counters as mask condition, use together with MASK_CNT
+  using MASK_CNT_SEL = ftl::mmio::Field<4, 8, eMASK_CNT_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
+  using MASK_CNT = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
+  using STATE_MASK = ftl::mmio::Field<8, 24, eSTATE_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_5_0_fields_
 
-  LCDIF_PIGEON_5_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_5_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_5_0*>(0x40804940); }
+struct LCDIF_PIGEON_5_0 : ftl::mmio::Register<
+    0x40804940u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_5_0_fields_::EN,
+    LCDIF_PIGEON_5_0_fields_::POL,
+    LCDIF_PIGEON_5_0_fields_::INC_SEL,
+    LCDIF_PIGEON_5_0_fields_::OFFSET,
+    LCDIF_PIGEON_5_0_fields_::MASK_CNT_SEL,
+    LCDIF_PIGEON_5_0_fields_::MASK_CNT,
+    LCDIF_PIGEON_5_0_fields_::STATE_MASK> {
+  using ePOL = LCDIF_PIGEON_5_0_fields_::ePOL;
+  using eINC_SEL = LCDIF_PIGEON_5_0_fields_::eINC_SEL;
+  using eMASK_CNT_SEL = LCDIF_PIGEON_5_0_fields_::eMASK_CNT_SEL;
+  using eSTATE_MASK = LCDIF_PIGEON_5_0_fields_::eSTATE_MASK;
+  using EN = LCDIF_PIGEON_5_0_fields_::EN;
+  using POL = LCDIF_PIGEON_5_0_fields_::POL;
+  using INC_SEL = LCDIF_PIGEON_5_0_fields_::INC_SEL;
+  using OFFSET = LCDIF_PIGEON_5_0_fields_::OFFSET;
+  using MASK_CNT_SEL = LCDIF_PIGEON_5_0_fields_::MASK_CNT_SEL;
+  using MASK_CNT = LCDIF_PIGEON_5_0_fields_::MASK_CNT;
+  using STATE_MASK = LCDIF_PIGEON_5_0_fields_::STATE_MASK;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_5_1 {
-  
-  // Assert signal output when counter match this value
-  enum class eSET_CNT : uint32_t {
+struct LCDIF_PIGEON_5_1_fields_ {
+
+  enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
   };
-  
-  // Deassert signal output when counter match this value
-  enum class eCLR_CNT : uint32_t {
+
+  enum class eCLR_CNT : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Assert signal output when counter match this value
-    eSET_CNT SET_CNT : 16;
-    // read-write - Deassert signal output when counter match this value
-    eCLR_CNT CLR_CNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Assert signal output when counter match this value
+  using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Deassert signal output when counter match this value
+  using CLR_CNT = ftl::mmio::Field<16, 16, eCLR_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_5_1_fields_
 
-  LCDIF_PIGEON_5_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_5_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_5_1*>(0x40804950); }
+struct LCDIF_PIGEON_5_1 : ftl::mmio::Register<
+    0x40804950u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_5_1_fields_::SET_CNT,
+    LCDIF_PIGEON_5_1_fields_::CLR_CNT> {
+  using eSET_CNT = LCDIF_PIGEON_5_1_fields_::eSET_CNT;
+  using eCLR_CNT = LCDIF_PIGEON_5_1_fields_::eCLR_CNT;
+  using SET_CNT = LCDIF_PIGEON_5_1_fields_::SET_CNT;
+  using CLR_CNT = LCDIF_PIGEON_5_1_fields_::CLR_CNT;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_5_2 {
-  
-  // Logic operation with another signal: DIS/AND/OR/COND
-  enum class eSIG_LOGIC : uint32_t {
+struct LCDIF_PIGEON_5_2_fields_ {
+
+  enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
     // sigout = sig_another AND this_sig
@@ -2752,43 +3198,43 @@ union LCDIF_PIGEON_5_2 {
     // mask = sig_another AND other_masks
     eMASK = 3,
   };
-  
-  // Select another signal for logic operation or as mask or counter tick event
-  enum class eSIG_ANOTHER : uint32_t {
+
+  enum class eSIG_ANOTHER : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Logic operation with another signal: DIS/AND/OR/COND
-    eSIG_LOGIC SIG_LOGIC : 4;
-    // read-write - Select another signal for logic operation or as mask or counter tick event
-    eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Logic operation with another signal: DIS/AND/OR/COND
+  using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Select another signal for logic operation or as mask or counter tick event
+  using SIG_ANOTHER = ftl::mmio::Field<5, 4, eSIG_ANOTHER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_5_2_fields_
 
-  LCDIF_PIGEON_5_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_5_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_5_2*>(0x40804960); }
+struct LCDIF_PIGEON_5_2 : ftl::mmio::Register<
+    0x40804960u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_5_2_fields_::SIG_LOGIC,
+    LCDIF_PIGEON_5_2_fields_::SIG_ANOTHER,
+    ftl::mmio::Reserved<23, 9>> {
+  using eSIG_LOGIC = LCDIF_PIGEON_5_2_fields_::eSIG_LOGIC;
+  using eSIG_ANOTHER = LCDIF_PIGEON_5_2_fields_::eSIG_ANOTHER;
+  using SIG_LOGIC = LCDIF_PIGEON_5_2_fields_::SIG_LOGIC;
+  using SIG_ANOTHER = LCDIF_PIGEON_5_2_fields_::SIG_ANOTHER;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_6_0 {
-  
-  // Polarity of signal output
-  enum class ePOL : uint32_t {
+struct LCDIF_PIGEON_6_0_fields_ {
+
+  enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
     // Inverted signal (Active low)
     eACTIVE_LOW = 1,
   };
-  
-  // Event to incrment local counter
-  enum class eINC_SEL : uint32_t {
+
+  enum class eINC_SEL : std::uint32_t {
     // pclk
     ePCLK = 0,
     // Line start pulse
@@ -2798,9 +3244,8 @@ union LCDIF_PIGEON_6_0 {
     // Use another signal as tick event
     eSIG_ANOTHER = 3,
   };
-  
-  // select global counters as mask condition, use together with MASK_CNT
-  enum class eMASK_CNT_SEL : uint32_t {
+
+  enum class eMASK_CNT_SEL : std::uint32_t {
     // pclk counter within one hscan state
     eHSTATE_CNT = 0,
     // pclk cycle within one hscan state
@@ -2818,9 +3263,8 @@ union LCDIF_PIGEON_6_0 {
     // vertical counter (line counter within one frame)
     eVCNT = 7,
   };
-  
-  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-  enum class eSTATE_MASK : uint32_t {
+
+  enum class eSTATE_MASK : std::uint32_t {
     // FRAME SYNC
     eFS = 1,
     // FRAME BEGIN
@@ -2838,69 +3282,84 @@ union LCDIF_PIGEON_6_0 {
     // LINE END
     eLE = 128,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable pigeon Mode on this signal
-    uint32_t EN : 1;
-    // read-write - Polarity of signal output
-    ePOL POL : 1;
-    // read-write - Event to incrment local counter
-    eINC_SEL INC_SEL : 2;
-    // read-write - offset on pclk unit
-    uint32_t OFFSET : 4;
-    // read-write - select global counters as mask condition, use together with MASK_CNT
-    eMASK_CNT_SEL MASK_CNT_SEL : 4;
-    // read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
-    uint32_t MASK_CNT : 12;
-    // read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-    eSTATE_MASK STATE_MASK : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable pigeon Mode on this signal
+  using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity of signal output
+  using POL = ftl::mmio::Field<1, 1, ePOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Event to incrment local counter
+  using INC_SEL = ftl::mmio::Field<2, 2, eINC_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // offset on pclk unit
+  using OFFSET = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // select global counters as mask condition, use together with MASK_CNT
+  using MASK_CNT_SEL = ftl::mmio::Field<4, 8, eMASK_CNT_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
+  using MASK_CNT = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
+  using STATE_MASK = ftl::mmio::Field<8, 24, eSTATE_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_6_0_fields_
 
-  LCDIF_PIGEON_6_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_6_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_6_0*>(0x40804980); }
+struct LCDIF_PIGEON_6_0 : ftl::mmio::Register<
+    0x40804980u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_6_0_fields_::EN,
+    LCDIF_PIGEON_6_0_fields_::POL,
+    LCDIF_PIGEON_6_0_fields_::INC_SEL,
+    LCDIF_PIGEON_6_0_fields_::OFFSET,
+    LCDIF_PIGEON_6_0_fields_::MASK_CNT_SEL,
+    LCDIF_PIGEON_6_0_fields_::MASK_CNT,
+    LCDIF_PIGEON_6_0_fields_::STATE_MASK> {
+  using ePOL = LCDIF_PIGEON_6_0_fields_::ePOL;
+  using eINC_SEL = LCDIF_PIGEON_6_0_fields_::eINC_SEL;
+  using eMASK_CNT_SEL = LCDIF_PIGEON_6_0_fields_::eMASK_CNT_SEL;
+  using eSTATE_MASK = LCDIF_PIGEON_6_0_fields_::eSTATE_MASK;
+  using EN = LCDIF_PIGEON_6_0_fields_::EN;
+  using POL = LCDIF_PIGEON_6_0_fields_::POL;
+  using INC_SEL = LCDIF_PIGEON_6_0_fields_::INC_SEL;
+  using OFFSET = LCDIF_PIGEON_6_0_fields_::OFFSET;
+  using MASK_CNT_SEL = LCDIF_PIGEON_6_0_fields_::MASK_CNT_SEL;
+  using MASK_CNT = LCDIF_PIGEON_6_0_fields_::MASK_CNT;
+  using STATE_MASK = LCDIF_PIGEON_6_0_fields_::STATE_MASK;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_6_1 {
-  
-  // Assert signal output when counter match this value
-  enum class eSET_CNT : uint32_t {
+struct LCDIF_PIGEON_6_1_fields_ {
+
+  enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
   };
-  
-  // Deassert signal output when counter match this value
-  enum class eCLR_CNT : uint32_t {
+
+  enum class eCLR_CNT : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Assert signal output when counter match this value
-    eSET_CNT SET_CNT : 16;
-    // read-write - Deassert signal output when counter match this value
-    eCLR_CNT CLR_CNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Assert signal output when counter match this value
+  using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Deassert signal output when counter match this value
+  using CLR_CNT = ftl::mmio::Field<16, 16, eCLR_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_6_1_fields_
 
-  LCDIF_PIGEON_6_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_6_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_6_1*>(0x40804990); }
+struct LCDIF_PIGEON_6_1 : ftl::mmio::Register<
+    0x40804990u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_6_1_fields_::SET_CNT,
+    LCDIF_PIGEON_6_1_fields_::CLR_CNT> {
+  using eSET_CNT = LCDIF_PIGEON_6_1_fields_::eSET_CNT;
+  using eCLR_CNT = LCDIF_PIGEON_6_1_fields_::eCLR_CNT;
+  using SET_CNT = LCDIF_PIGEON_6_1_fields_::SET_CNT;
+  using CLR_CNT = LCDIF_PIGEON_6_1_fields_::CLR_CNT;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_6_2 {
-  
-  // Logic operation with another signal: DIS/AND/OR/COND
-  enum class eSIG_LOGIC : uint32_t {
+struct LCDIF_PIGEON_6_2_fields_ {
+
+  enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
     // sigout = sig_another AND this_sig
@@ -2910,43 +3369,43 @@ union LCDIF_PIGEON_6_2 {
     // mask = sig_another AND other_masks
     eMASK = 3,
   };
-  
-  // Select another signal for logic operation or as mask or counter tick event
-  enum class eSIG_ANOTHER : uint32_t {
+
+  enum class eSIG_ANOTHER : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Logic operation with another signal: DIS/AND/OR/COND
-    eSIG_LOGIC SIG_LOGIC : 4;
-    // read-write - Select another signal for logic operation or as mask or counter tick event
-    eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Logic operation with another signal: DIS/AND/OR/COND
+  using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Select another signal for logic operation or as mask or counter tick event
+  using SIG_ANOTHER = ftl::mmio::Field<5, 4, eSIG_ANOTHER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_6_2_fields_
 
-  LCDIF_PIGEON_6_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_6_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_6_2*>(0x408049A0); }
+struct LCDIF_PIGEON_6_2 : ftl::mmio::Register<
+    0x408049A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_6_2_fields_::SIG_LOGIC,
+    LCDIF_PIGEON_6_2_fields_::SIG_ANOTHER,
+    ftl::mmio::Reserved<23, 9>> {
+  using eSIG_LOGIC = LCDIF_PIGEON_6_2_fields_::eSIG_LOGIC;
+  using eSIG_ANOTHER = LCDIF_PIGEON_6_2_fields_::eSIG_ANOTHER;
+  using SIG_LOGIC = LCDIF_PIGEON_6_2_fields_::SIG_LOGIC;
+  using SIG_ANOTHER = LCDIF_PIGEON_6_2_fields_::SIG_ANOTHER;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_7_0 {
-  
-  // Polarity of signal output
-  enum class ePOL : uint32_t {
+struct LCDIF_PIGEON_7_0_fields_ {
+
+  enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
     // Inverted signal (Active low)
     eACTIVE_LOW = 1,
   };
-  
-  // Event to incrment local counter
-  enum class eINC_SEL : uint32_t {
+
+  enum class eINC_SEL : std::uint32_t {
     // pclk
     ePCLK = 0,
     // Line start pulse
@@ -2956,9 +3415,8 @@ union LCDIF_PIGEON_7_0 {
     // Use another signal as tick event
     eSIG_ANOTHER = 3,
   };
-  
-  // select global counters as mask condition, use together with MASK_CNT
-  enum class eMASK_CNT_SEL : uint32_t {
+
+  enum class eMASK_CNT_SEL : std::uint32_t {
     // pclk counter within one hscan state
     eHSTATE_CNT = 0,
     // pclk cycle within one hscan state
@@ -2976,9 +3434,8 @@ union LCDIF_PIGEON_7_0 {
     // vertical counter (line counter within one frame)
     eVCNT = 7,
   };
-  
-  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-  enum class eSTATE_MASK : uint32_t {
+
+  enum class eSTATE_MASK : std::uint32_t {
     // FRAME SYNC
     eFS = 1,
     // FRAME BEGIN
@@ -2996,69 +3453,84 @@ union LCDIF_PIGEON_7_0 {
     // LINE END
     eLE = 128,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable pigeon Mode on this signal
-    uint32_t EN : 1;
-    // read-write - Polarity of signal output
-    ePOL POL : 1;
-    // read-write - Event to incrment local counter
-    eINC_SEL INC_SEL : 2;
-    // read-write - offset on pclk unit
-    uint32_t OFFSET : 4;
-    // read-write - select global counters as mask condition, use together with MASK_CNT
-    eMASK_CNT_SEL MASK_CNT_SEL : 4;
-    // read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
-    uint32_t MASK_CNT : 12;
-    // read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-    eSTATE_MASK STATE_MASK : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable pigeon Mode on this signal
+  using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity of signal output
+  using POL = ftl::mmio::Field<1, 1, ePOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Event to incrment local counter
+  using INC_SEL = ftl::mmio::Field<2, 2, eINC_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // offset on pclk unit
+  using OFFSET = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // select global counters as mask condition, use together with MASK_CNT
+  using MASK_CNT_SEL = ftl::mmio::Field<4, 8, eMASK_CNT_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
+  using MASK_CNT = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
+  using STATE_MASK = ftl::mmio::Field<8, 24, eSTATE_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_7_0_fields_
 
-  LCDIF_PIGEON_7_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_7_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_7_0*>(0x408049C0); }
+struct LCDIF_PIGEON_7_0 : ftl::mmio::Register<
+    0x408049C0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_7_0_fields_::EN,
+    LCDIF_PIGEON_7_0_fields_::POL,
+    LCDIF_PIGEON_7_0_fields_::INC_SEL,
+    LCDIF_PIGEON_7_0_fields_::OFFSET,
+    LCDIF_PIGEON_7_0_fields_::MASK_CNT_SEL,
+    LCDIF_PIGEON_7_0_fields_::MASK_CNT,
+    LCDIF_PIGEON_7_0_fields_::STATE_MASK> {
+  using ePOL = LCDIF_PIGEON_7_0_fields_::ePOL;
+  using eINC_SEL = LCDIF_PIGEON_7_0_fields_::eINC_SEL;
+  using eMASK_CNT_SEL = LCDIF_PIGEON_7_0_fields_::eMASK_CNT_SEL;
+  using eSTATE_MASK = LCDIF_PIGEON_7_0_fields_::eSTATE_MASK;
+  using EN = LCDIF_PIGEON_7_0_fields_::EN;
+  using POL = LCDIF_PIGEON_7_0_fields_::POL;
+  using INC_SEL = LCDIF_PIGEON_7_0_fields_::INC_SEL;
+  using OFFSET = LCDIF_PIGEON_7_0_fields_::OFFSET;
+  using MASK_CNT_SEL = LCDIF_PIGEON_7_0_fields_::MASK_CNT_SEL;
+  using MASK_CNT = LCDIF_PIGEON_7_0_fields_::MASK_CNT;
+  using STATE_MASK = LCDIF_PIGEON_7_0_fields_::STATE_MASK;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_7_1 {
-  
-  // Assert signal output when counter match this value
-  enum class eSET_CNT : uint32_t {
+struct LCDIF_PIGEON_7_1_fields_ {
+
+  enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
   };
-  
-  // Deassert signal output when counter match this value
-  enum class eCLR_CNT : uint32_t {
+
+  enum class eCLR_CNT : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Assert signal output when counter match this value
-    eSET_CNT SET_CNT : 16;
-    // read-write - Deassert signal output when counter match this value
-    eCLR_CNT CLR_CNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Assert signal output when counter match this value
+  using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Deassert signal output when counter match this value
+  using CLR_CNT = ftl::mmio::Field<16, 16, eCLR_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_7_1_fields_
 
-  LCDIF_PIGEON_7_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_7_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_7_1*>(0x408049D0); }
+struct LCDIF_PIGEON_7_1 : ftl::mmio::Register<
+    0x408049D0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_7_1_fields_::SET_CNT,
+    LCDIF_PIGEON_7_1_fields_::CLR_CNT> {
+  using eSET_CNT = LCDIF_PIGEON_7_1_fields_::eSET_CNT;
+  using eCLR_CNT = LCDIF_PIGEON_7_1_fields_::eCLR_CNT;
+  using SET_CNT = LCDIF_PIGEON_7_1_fields_::SET_CNT;
+  using CLR_CNT = LCDIF_PIGEON_7_1_fields_::CLR_CNT;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_7_2 {
-  
-  // Logic operation with another signal: DIS/AND/OR/COND
-  enum class eSIG_LOGIC : uint32_t {
+struct LCDIF_PIGEON_7_2_fields_ {
+
+  enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
     // sigout = sig_another AND this_sig
@@ -3068,43 +3540,43 @@ union LCDIF_PIGEON_7_2 {
     // mask = sig_another AND other_masks
     eMASK = 3,
   };
-  
-  // Select another signal for logic operation or as mask or counter tick event
-  enum class eSIG_ANOTHER : uint32_t {
+
+  enum class eSIG_ANOTHER : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Logic operation with another signal: DIS/AND/OR/COND
-    eSIG_LOGIC SIG_LOGIC : 4;
-    // read-write - Select another signal for logic operation or as mask or counter tick event
-    eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Logic operation with another signal: DIS/AND/OR/COND
+  using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Select another signal for logic operation or as mask or counter tick event
+  using SIG_ANOTHER = ftl::mmio::Field<5, 4, eSIG_ANOTHER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_7_2_fields_
 
-  LCDIF_PIGEON_7_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_7_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_7_2*>(0x408049E0); }
+struct LCDIF_PIGEON_7_2 : ftl::mmio::Register<
+    0x408049E0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_7_2_fields_::SIG_LOGIC,
+    LCDIF_PIGEON_7_2_fields_::SIG_ANOTHER,
+    ftl::mmio::Reserved<23, 9>> {
+  using eSIG_LOGIC = LCDIF_PIGEON_7_2_fields_::eSIG_LOGIC;
+  using eSIG_ANOTHER = LCDIF_PIGEON_7_2_fields_::eSIG_ANOTHER;
+  using SIG_LOGIC = LCDIF_PIGEON_7_2_fields_::SIG_LOGIC;
+  using SIG_ANOTHER = LCDIF_PIGEON_7_2_fields_::SIG_ANOTHER;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_8_0 {
-  
-  // Polarity of signal output
-  enum class ePOL : uint32_t {
+struct LCDIF_PIGEON_8_0_fields_ {
+
+  enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
     // Inverted signal (Active low)
     eACTIVE_LOW = 1,
   };
-  
-  // Event to incrment local counter
-  enum class eINC_SEL : uint32_t {
+
+  enum class eINC_SEL : std::uint32_t {
     // pclk
     ePCLK = 0,
     // Line start pulse
@@ -3114,9 +3586,8 @@ union LCDIF_PIGEON_8_0 {
     // Use another signal as tick event
     eSIG_ANOTHER = 3,
   };
-  
-  // select global counters as mask condition, use together with MASK_CNT
-  enum class eMASK_CNT_SEL : uint32_t {
+
+  enum class eMASK_CNT_SEL : std::uint32_t {
     // pclk counter within one hscan state
     eHSTATE_CNT = 0,
     // pclk cycle within one hscan state
@@ -3134,9 +3605,8 @@ union LCDIF_PIGEON_8_0 {
     // vertical counter (line counter within one frame)
     eVCNT = 7,
   };
-  
-  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-  enum class eSTATE_MASK : uint32_t {
+
+  enum class eSTATE_MASK : std::uint32_t {
     // FRAME SYNC
     eFS = 1,
     // FRAME BEGIN
@@ -3154,69 +3624,84 @@ union LCDIF_PIGEON_8_0 {
     // LINE END
     eLE = 128,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable pigeon Mode on this signal
-    uint32_t EN : 1;
-    // read-write - Polarity of signal output
-    ePOL POL : 1;
-    // read-write - Event to incrment local counter
-    eINC_SEL INC_SEL : 2;
-    // read-write - offset on pclk unit
-    uint32_t OFFSET : 4;
-    // read-write - select global counters as mask condition, use together with MASK_CNT
-    eMASK_CNT_SEL MASK_CNT_SEL : 4;
-    // read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
-    uint32_t MASK_CNT : 12;
-    // read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-    eSTATE_MASK STATE_MASK : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable pigeon Mode on this signal
+  using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity of signal output
+  using POL = ftl::mmio::Field<1, 1, ePOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Event to incrment local counter
+  using INC_SEL = ftl::mmio::Field<2, 2, eINC_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // offset on pclk unit
+  using OFFSET = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // select global counters as mask condition, use together with MASK_CNT
+  using MASK_CNT_SEL = ftl::mmio::Field<4, 8, eMASK_CNT_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
+  using MASK_CNT = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
+  using STATE_MASK = ftl::mmio::Field<8, 24, eSTATE_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_8_0_fields_
 
-  LCDIF_PIGEON_8_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_8_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_8_0*>(0x40804A00); }
+struct LCDIF_PIGEON_8_0 : ftl::mmio::Register<
+    0x40804A00u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_8_0_fields_::EN,
+    LCDIF_PIGEON_8_0_fields_::POL,
+    LCDIF_PIGEON_8_0_fields_::INC_SEL,
+    LCDIF_PIGEON_8_0_fields_::OFFSET,
+    LCDIF_PIGEON_8_0_fields_::MASK_CNT_SEL,
+    LCDIF_PIGEON_8_0_fields_::MASK_CNT,
+    LCDIF_PIGEON_8_0_fields_::STATE_MASK> {
+  using ePOL = LCDIF_PIGEON_8_0_fields_::ePOL;
+  using eINC_SEL = LCDIF_PIGEON_8_0_fields_::eINC_SEL;
+  using eMASK_CNT_SEL = LCDIF_PIGEON_8_0_fields_::eMASK_CNT_SEL;
+  using eSTATE_MASK = LCDIF_PIGEON_8_0_fields_::eSTATE_MASK;
+  using EN = LCDIF_PIGEON_8_0_fields_::EN;
+  using POL = LCDIF_PIGEON_8_0_fields_::POL;
+  using INC_SEL = LCDIF_PIGEON_8_0_fields_::INC_SEL;
+  using OFFSET = LCDIF_PIGEON_8_0_fields_::OFFSET;
+  using MASK_CNT_SEL = LCDIF_PIGEON_8_0_fields_::MASK_CNT_SEL;
+  using MASK_CNT = LCDIF_PIGEON_8_0_fields_::MASK_CNT;
+  using STATE_MASK = LCDIF_PIGEON_8_0_fields_::STATE_MASK;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_8_1 {
-  
-  // Assert signal output when counter match this value
-  enum class eSET_CNT : uint32_t {
+struct LCDIF_PIGEON_8_1_fields_ {
+
+  enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
   };
-  
-  // Deassert signal output when counter match this value
-  enum class eCLR_CNT : uint32_t {
+
+  enum class eCLR_CNT : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Assert signal output when counter match this value
-    eSET_CNT SET_CNT : 16;
-    // read-write - Deassert signal output when counter match this value
-    eCLR_CNT CLR_CNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Assert signal output when counter match this value
+  using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Deassert signal output when counter match this value
+  using CLR_CNT = ftl::mmio::Field<16, 16, eCLR_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_8_1_fields_
 
-  LCDIF_PIGEON_8_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_8_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_8_1*>(0x40804A10); }
+struct LCDIF_PIGEON_8_1 : ftl::mmio::Register<
+    0x40804A10u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_8_1_fields_::SET_CNT,
+    LCDIF_PIGEON_8_1_fields_::CLR_CNT> {
+  using eSET_CNT = LCDIF_PIGEON_8_1_fields_::eSET_CNT;
+  using eCLR_CNT = LCDIF_PIGEON_8_1_fields_::eCLR_CNT;
+  using SET_CNT = LCDIF_PIGEON_8_1_fields_::SET_CNT;
+  using CLR_CNT = LCDIF_PIGEON_8_1_fields_::CLR_CNT;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_8_2 {
-  
-  // Logic operation with another signal: DIS/AND/OR/COND
-  enum class eSIG_LOGIC : uint32_t {
+struct LCDIF_PIGEON_8_2_fields_ {
+
+  enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
     // sigout = sig_another AND this_sig
@@ -3226,43 +3711,43 @@ union LCDIF_PIGEON_8_2 {
     // mask = sig_another AND other_masks
     eMASK = 3,
   };
-  
-  // Select another signal for logic operation or as mask or counter tick event
-  enum class eSIG_ANOTHER : uint32_t {
+
+  enum class eSIG_ANOTHER : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Logic operation with another signal: DIS/AND/OR/COND
-    eSIG_LOGIC SIG_LOGIC : 4;
-    // read-write - Select another signal for logic operation or as mask or counter tick event
-    eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Logic operation with another signal: DIS/AND/OR/COND
+  using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Select another signal for logic operation or as mask or counter tick event
+  using SIG_ANOTHER = ftl::mmio::Field<5, 4, eSIG_ANOTHER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_8_2_fields_
 
-  LCDIF_PIGEON_8_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_8_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_8_2*>(0x40804A20); }
+struct LCDIF_PIGEON_8_2 : ftl::mmio::Register<
+    0x40804A20u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_8_2_fields_::SIG_LOGIC,
+    LCDIF_PIGEON_8_2_fields_::SIG_ANOTHER,
+    ftl::mmio::Reserved<23, 9>> {
+  using eSIG_LOGIC = LCDIF_PIGEON_8_2_fields_::eSIG_LOGIC;
+  using eSIG_ANOTHER = LCDIF_PIGEON_8_2_fields_::eSIG_ANOTHER;
+  using SIG_LOGIC = LCDIF_PIGEON_8_2_fields_::SIG_LOGIC;
+  using SIG_ANOTHER = LCDIF_PIGEON_8_2_fields_::SIG_ANOTHER;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_9_0 {
-  
-  // Polarity of signal output
-  enum class ePOL : uint32_t {
+struct LCDIF_PIGEON_9_0_fields_ {
+
+  enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
     // Inverted signal (Active low)
     eACTIVE_LOW = 1,
   };
-  
-  // Event to incrment local counter
-  enum class eINC_SEL : uint32_t {
+
+  enum class eINC_SEL : std::uint32_t {
     // pclk
     ePCLK = 0,
     // Line start pulse
@@ -3272,9 +3757,8 @@ union LCDIF_PIGEON_9_0 {
     // Use another signal as tick event
     eSIG_ANOTHER = 3,
   };
-  
-  // select global counters as mask condition, use together with MASK_CNT
-  enum class eMASK_CNT_SEL : uint32_t {
+
+  enum class eMASK_CNT_SEL : std::uint32_t {
     // pclk counter within one hscan state
     eHSTATE_CNT = 0,
     // pclk cycle within one hscan state
@@ -3292,9 +3776,8 @@ union LCDIF_PIGEON_9_0 {
     // vertical counter (line counter within one frame)
     eVCNT = 7,
   };
-  
-  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-  enum class eSTATE_MASK : uint32_t {
+
+  enum class eSTATE_MASK : std::uint32_t {
     // FRAME SYNC
     eFS = 1,
     // FRAME BEGIN
@@ -3312,69 +3795,84 @@ union LCDIF_PIGEON_9_0 {
     // LINE END
     eLE = 128,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable pigeon Mode on this signal
-    uint32_t EN : 1;
-    // read-write - Polarity of signal output
-    ePOL POL : 1;
-    // read-write - Event to incrment local counter
-    eINC_SEL INC_SEL : 2;
-    // read-write - offset on pclk unit
-    uint32_t OFFSET : 4;
-    // read-write - select global counters as mask condition, use together with MASK_CNT
-    eMASK_CNT_SEL MASK_CNT_SEL : 4;
-    // read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
-    uint32_t MASK_CNT : 12;
-    // read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-    eSTATE_MASK STATE_MASK : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable pigeon Mode on this signal
+  using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity of signal output
+  using POL = ftl::mmio::Field<1, 1, ePOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Event to incrment local counter
+  using INC_SEL = ftl::mmio::Field<2, 2, eINC_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // offset on pclk unit
+  using OFFSET = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // select global counters as mask condition, use together with MASK_CNT
+  using MASK_CNT_SEL = ftl::mmio::Field<4, 8, eMASK_CNT_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
+  using MASK_CNT = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
+  using STATE_MASK = ftl::mmio::Field<8, 24, eSTATE_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_9_0_fields_
 
-  LCDIF_PIGEON_9_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_9_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_9_0*>(0x40804A40); }
+struct LCDIF_PIGEON_9_0 : ftl::mmio::Register<
+    0x40804A40u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_9_0_fields_::EN,
+    LCDIF_PIGEON_9_0_fields_::POL,
+    LCDIF_PIGEON_9_0_fields_::INC_SEL,
+    LCDIF_PIGEON_9_0_fields_::OFFSET,
+    LCDIF_PIGEON_9_0_fields_::MASK_CNT_SEL,
+    LCDIF_PIGEON_9_0_fields_::MASK_CNT,
+    LCDIF_PIGEON_9_0_fields_::STATE_MASK> {
+  using ePOL = LCDIF_PIGEON_9_0_fields_::ePOL;
+  using eINC_SEL = LCDIF_PIGEON_9_0_fields_::eINC_SEL;
+  using eMASK_CNT_SEL = LCDIF_PIGEON_9_0_fields_::eMASK_CNT_SEL;
+  using eSTATE_MASK = LCDIF_PIGEON_9_0_fields_::eSTATE_MASK;
+  using EN = LCDIF_PIGEON_9_0_fields_::EN;
+  using POL = LCDIF_PIGEON_9_0_fields_::POL;
+  using INC_SEL = LCDIF_PIGEON_9_0_fields_::INC_SEL;
+  using OFFSET = LCDIF_PIGEON_9_0_fields_::OFFSET;
+  using MASK_CNT_SEL = LCDIF_PIGEON_9_0_fields_::MASK_CNT_SEL;
+  using MASK_CNT = LCDIF_PIGEON_9_0_fields_::MASK_CNT;
+  using STATE_MASK = LCDIF_PIGEON_9_0_fields_::STATE_MASK;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_9_1 {
-  
-  // Assert signal output when counter match this value
-  enum class eSET_CNT : uint32_t {
+struct LCDIF_PIGEON_9_1_fields_ {
+
+  enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
   };
-  
-  // Deassert signal output when counter match this value
-  enum class eCLR_CNT : uint32_t {
+
+  enum class eCLR_CNT : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Assert signal output when counter match this value
-    eSET_CNT SET_CNT : 16;
-    // read-write - Deassert signal output when counter match this value
-    eCLR_CNT CLR_CNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Assert signal output when counter match this value
+  using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Deassert signal output when counter match this value
+  using CLR_CNT = ftl::mmio::Field<16, 16, eCLR_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_9_1_fields_
 
-  LCDIF_PIGEON_9_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_9_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_9_1*>(0x40804A50); }
+struct LCDIF_PIGEON_9_1 : ftl::mmio::Register<
+    0x40804A50u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_9_1_fields_::SET_CNT,
+    LCDIF_PIGEON_9_1_fields_::CLR_CNT> {
+  using eSET_CNT = LCDIF_PIGEON_9_1_fields_::eSET_CNT;
+  using eCLR_CNT = LCDIF_PIGEON_9_1_fields_::eCLR_CNT;
+  using SET_CNT = LCDIF_PIGEON_9_1_fields_::SET_CNT;
+  using CLR_CNT = LCDIF_PIGEON_9_1_fields_::CLR_CNT;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_9_2 {
-  
-  // Logic operation with another signal: DIS/AND/OR/COND
-  enum class eSIG_LOGIC : uint32_t {
+struct LCDIF_PIGEON_9_2_fields_ {
+
+  enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
     // sigout = sig_another AND this_sig
@@ -3384,43 +3882,43 @@ union LCDIF_PIGEON_9_2 {
     // mask = sig_another AND other_masks
     eMASK = 3,
   };
-  
-  // Select another signal for logic operation or as mask or counter tick event
-  enum class eSIG_ANOTHER : uint32_t {
+
+  enum class eSIG_ANOTHER : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Logic operation with another signal: DIS/AND/OR/COND
-    eSIG_LOGIC SIG_LOGIC : 4;
-    // read-write - Select another signal for logic operation or as mask or counter tick event
-    eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Logic operation with another signal: DIS/AND/OR/COND
+  using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Select another signal for logic operation or as mask or counter tick event
+  using SIG_ANOTHER = ftl::mmio::Field<5, 4, eSIG_ANOTHER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_9_2_fields_
 
-  LCDIF_PIGEON_9_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_9_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_9_2*>(0x40804A60); }
+struct LCDIF_PIGEON_9_2 : ftl::mmio::Register<
+    0x40804A60u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_9_2_fields_::SIG_LOGIC,
+    LCDIF_PIGEON_9_2_fields_::SIG_ANOTHER,
+    ftl::mmio::Reserved<23, 9>> {
+  using eSIG_LOGIC = LCDIF_PIGEON_9_2_fields_::eSIG_LOGIC;
+  using eSIG_ANOTHER = LCDIF_PIGEON_9_2_fields_::eSIG_ANOTHER;
+  using SIG_LOGIC = LCDIF_PIGEON_9_2_fields_::SIG_LOGIC;
+  using SIG_ANOTHER = LCDIF_PIGEON_9_2_fields_::SIG_ANOTHER;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_10_0 {
-  
-  // Polarity of signal output
-  enum class ePOL : uint32_t {
+struct LCDIF_PIGEON_10_0_fields_ {
+
+  enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
     // Inverted signal (Active low)
     eACTIVE_LOW = 1,
   };
-  
-  // Event to incrment local counter
-  enum class eINC_SEL : uint32_t {
+
+  enum class eINC_SEL : std::uint32_t {
     // pclk
     ePCLK = 0,
     // Line start pulse
@@ -3430,9 +3928,8 @@ union LCDIF_PIGEON_10_0 {
     // Use another signal as tick event
     eSIG_ANOTHER = 3,
   };
-  
-  // select global counters as mask condition, use together with MASK_CNT
-  enum class eMASK_CNT_SEL : uint32_t {
+
+  enum class eMASK_CNT_SEL : std::uint32_t {
     // pclk counter within one hscan state
     eHSTATE_CNT = 0,
     // pclk cycle within one hscan state
@@ -3450,9 +3947,8 @@ union LCDIF_PIGEON_10_0 {
     // vertical counter (line counter within one frame)
     eVCNT = 7,
   };
-  
-  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-  enum class eSTATE_MASK : uint32_t {
+
+  enum class eSTATE_MASK : std::uint32_t {
     // FRAME SYNC
     eFS = 1,
     // FRAME BEGIN
@@ -3470,69 +3966,84 @@ union LCDIF_PIGEON_10_0 {
     // LINE END
     eLE = 128,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable pigeon Mode on this signal
-    uint32_t EN : 1;
-    // read-write - Polarity of signal output
-    ePOL POL : 1;
-    // read-write - Event to incrment local counter
-    eINC_SEL INC_SEL : 2;
-    // read-write - offset on pclk unit
-    uint32_t OFFSET : 4;
-    // read-write - select global counters as mask condition, use together with MASK_CNT
-    eMASK_CNT_SEL MASK_CNT_SEL : 4;
-    // read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
-    uint32_t MASK_CNT : 12;
-    // read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-    eSTATE_MASK STATE_MASK : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable pigeon Mode on this signal
+  using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity of signal output
+  using POL = ftl::mmio::Field<1, 1, ePOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Event to incrment local counter
+  using INC_SEL = ftl::mmio::Field<2, 2, eINC_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // offset on pclk unit
+  using OFFSET = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // select global counters as mask condition, use together with MASK_CNT
+  using MASK_CNT_SEL = ftl::mmio::Field<4, 8, eMASK_CNT_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
+  using MASK_CNT = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
+  using STATE_MASK = ftl::mmio::Field<8, 24, eSTATE_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_10_0_fields_
 
-  LCDIF_PIGEON_10_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_10_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_10_0*>(0x40804A80); }
+struct LCDIF_PIGEON_10_0 : ftl::mmio::Register<
+    0x40804A80u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_10_0_fields_::EN,
+    LCDIF_PIGEON_10_0_fields_::POL,
+    LCDIF_PIGEON_10_0_fields_::INC_SEL,
+    LCDIF_PIGEON_10_0_fields_::OFFSET,
+    LCDIF_PIGEON_10_0_fields_::MASK_CNT_SEL,
+    LCDIF_PIGEON_10_0_fields_::MASK_CNT,
+    LCDIF_PIGEON_10_0_fields_::STATE_MASK> {
+  using ePOL = LCDIF_PIGEON_10_0_fields_::ePOL;
+  using eINC_SEL = LCDIF_PIGEON_10_0_fields_::eINC_SEL;
+  using eMASK_CNT_SEL = LCDIF_PIGEON_10_0_fields_::eMASK_CNT_SEL;
+  using eSTATE_MASK = LCDIF_PIGEON_10_0_fields_::eSTATE_MASK;
+  using EN = LCDIF_PIGEON_10_0_fields_::EN;
+  using POL = LCDIF_PIGEON_10_0_fields_::POL;
+  using INC_SEL = LCDIF_PIGEON_10_0_fields_::INC_SEL;
+  using OFFSET = LCDIF_PIGEON_10_0_fields_::OFFSET;
+  using MASK_CNT_SEL = LCDIF_PIGEON_10_0_fields_::MASK_CNT_SEL;
+  using MASK_CNT = LCDIF_PIGEON_10_0_fields_::MASK_CNT;
+  using STATE_MASK = LCDIF_PIGEON_10_0_fields_::STATE_MASK;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_10_1 {
-  
-  // Assert signal output when counter match this value
-  enum class eSET_CNT : uint32_t {
+struct LCDIF_PIGEON_10_1_fields_ {
+
+  enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
   };
-  
-  // Deassert signal output when counter match this value
-  enum class eCLR_CNT : uint32_t {
+
+  enum class eCLR_CNT : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Assert signal output when counter match this value
-    eSET_CNT SET_CNT : 16;
-    // read-write - Deassert signal output when counter match this value
-    eCLR_CNT CLR_CNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Assert signal output when counter match this value
+  using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Deassert signal output when counter match this value
+  using CLR_CNT = ftl::mmio::Field<16, 16, eCLR_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_10_1_fields_
 
-  LCDIF_PIGEON_10_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_10_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_10_1*>(0x40804A90); }
+struct LCDIF_PIGEON_10_1 : ftl::mmio::Register<
+    0x40804A90u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_10_1_fields_::SET_CNT,
+    LCDIF_PIGEON_10_1_fields_::CLR_CNT> {
+  using eSET_CNT = LCDIF_PIGEON_10_1_fields_::eSET_CNT;
+  using eCLR_CNT = LCDIF_PIGEON_10_1_fields_::eCLR_CNT;
+  using SET_CNT = LCDIF_PIGEON_10_1_fields_::SET_CNT;
+  using CLR_CNT = LCDIF_PIGEON_10_1_fields_::CLR_CNT;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_10_2 {
-  
-  // Logic operation with another signal: DIS/AND/OR/COND
-  enum class eSIG_LOGIC : uint32_t {
+struct LCDIF_PIGEON_10_2_fields_ {
+
+  enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
     // sigout = sig_another AND this_sig
@@ -3542,43 +4053,43 @@ union LCDIF_PIGEON_10_2 {
     // mask = sig_another AND other_masks
     eMASK = 3,
   };
-  
-  // Select another signal for logic operation or as mask or counter tick event
-  enum class eSIG_ANOTHER : uint32_t {
+
+  enum class eSIG_ANOTHER : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Logic operation with another signal: DIS/AND/OR/COND
-    eSIG_LOGIC SIG_LOGIC : 4;
-    // read-write - Select another signal for logic operation or as mask or counter tick event
-    eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Logic operation with another signal: DIS/AND/OR/COND
+  using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Select another signal for logic operation or as mask or counter tick event
+  using SIG_ANOTHER = ftl::mmio::Field<5, 4, eSIG_ANOTHER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_10_2_fields_
 
-  LCDIF_PIGEON_10_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_10_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_10_2*>(0x40804AA0); }
+struct LCDIF_PIGEON_10_2 : ftl::mmio::Register<
+    0x40804AA0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_10_2_fields_::SIG_LOGIC,
+    LCDIF_PIGEON_10_2_fields_::SIG_ANOTHER,
+    ftl::mmio::Reserved<23, 9>> {
+  using eSIG_LOGIC = LCDIF_PIGEON_10_2_fields_::eSIG_LOGIC;
+  using eSIG_ANOTHER = LCDIF_PIGEON_10_2_fields_::eSIG_ANOTHER;
+  using SIG_LOGIC = LCDIF_PIGEON_10_2_fields_::SIG_LOGIC;
+  using SIG_ANOTHER = LCDIF_PIGEON_10_2_fields_::SIG_ANOTHER;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_11_0 {
-  
-  // Polarity of signal output
-  enum class ePOL : uint32_t {
+struct LCDIF_PIGEON_11_0_fields_ {
+
+  enum class ePOL : std::uint32_t {
     // Normal Signal (Active high)
     eACTIVE_HIGH = 0,
     // Inverted signal (Active low)
     eACTIVE_LOW = 1,
   };
-  
-  // Event to incrment local counter
-  enum class eINC_SEL : uint32_t {
+
+  enum class eINC_SEL : std::uint32_t {
     // pclk
     ePCLK = 0,
     // Line start pulse
@@ -3588,9 +4099,8 @@ union LCDIF_PIGEON_11_0 {
     // Use another signal as tick event
     eSIG_ANOTHER = 3,
   };
-  
-  // select global counters as mask condition, use together with MASK_CNT
-  enum class eMASK_CNT_SEL : uint32_t {
+
+  enum class eMASK_CNT_SEL : std::uint32_t {
     // pclk counter within one hscan state
     eHSTATE_CNT = 0,
     // pclk cycle within one hscan state
@@ -3608,9 +4118,8 @@ union LCDIF_PIGEON_11_0 {
     // vertical counter (line counter within one frame)
     eVCNT = 7,
   };
-  
-  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-  enum class eSTATE_MASK : uint32_t {
+
+  enum class eSTATE_MASK : std::uint32_t {
     // FRAME SYNC
     eFS = 1,
     // FRAME BEGIN
@@ -3628,69 +4137,84 @@ union LCDIF_PIGEON_11_0 {
     // LINE END
     eLE = 128,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enable pigeon Mode on this signal
-    uint32_t EN : 1;
-    // read-write - Polarity of signal output
-    ePOL POL : 1;
-    // read-write - Event to incrment local counter
-    eINC_SEL INC_SEL : 2;
-    // read-write - offset on pclk unit
-    uint32_t OFFSET : 4;
-    // read-write - select global counters as mask condition, use together with MASK_CNT
-    eMASK_CNT_SEL MASK_CNT_SEL : 4;
-    // read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
-    uint32_t MASK_CNT : 12;
-    // read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
-    eSTATE_MASK STATE_MASK : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enable pigeon Mode on this signal
+  using EN = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Polarity of signal output
+  using POL = ftl::mmio::Field<1, 1, ePOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Event to incrment local counter
+  using INC_SEL = ftl::mmio::Field<2, 2, eINC_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // offset on pclk unit
+  using OFFSET = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // select global counters as mask condition, use together with MASK_CNT
+  using MASK_CNT_SEL = ftl::mmio::Field<4, 8, eMASK_CNT_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
+  using MASK_CNT = ftl::mmio::Field<12, 12, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
+  using STATE_MASK = ftl::mmio::Field<8, 24, eSTATE_MASK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_11_0_fields_
 
-  LCDIF_PIGEON_11_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_11_0 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_11_0*>(0x40804AC0); }
+struct LCDIF_PIGEON_11_0 : ftl::mmio::Register<
+    0x40804AC0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_11_0_fields_::EN,
+    LCDIF_PIGEON_11_0_fields_::POL,
+    LCDIF_PIGEON_11_0_fields_::INC_SEL,
+    LCDIF_PIGEON_11_0_fields_::OFFSET,
+    LCDIF_PIGEON_11_0_fields_::MASK_CNT_SEL,
+    LCDIF_PIGEON_11_0_fields_::MASK_CNT,
+    LCDIF_PIGEON_11_0_fields_::STATE_MASK> {
+  using ePOL = LCDIF_PIGEON_11_0_fields_::ePOL;
+  using eINC_SEL = LCDIF_PIGEON_11_0_fields_::eINC_SEL;
+  using eMASK_CNT_SEL = LCDIF_PIGEON_11_0_fields_::eMASK_CNT_SEL;
+  using eSTATE_MASK = LCDIF_PIGEON_11_0_fields_::eSTATE_MASK;
+  using EN = LCDIF_PIGEON_11_0_fields_::EN;
+  using POL = LCDIF_PIGEON_11_0_fields_::POL;
+  using INC_SEL = LCDIF_PIGEON_11_0_fields_::INC_SEL;
+  using OFFSET = LCDIF_PIGEON_11_0_fields_::OFFSET;
+  using MASK_CNT_SEL = LCDIF_PIGEON_11_0_fields_::MASK_CNT_SEL;
+  using MASK_CNT = LCDIF_PIGEON_11_0_fields_::MASK_CNT;
+  using STATE_MASK = LCDIF_PIGEON_11_0_fields_::STATE_MASK;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_11_1 {
-  
-  // Assert signal output when counter match this value
-  enum class eSET_CNT : uint32_t {
+struct LCDIF_PIGEON_11_1_fields_ {
+
+  enum class eSET_CNT : std::uint32_t {
     // Start as active
     eSTART_ACTIVE = 0,
   };
-  
-  // Deassert signal output when counter match this value
-  enum class eCLR_CNT : uint32_t {
+
+  enum class eCLR_CNT : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Assert signal output when counter match this value
-    eSET_CNT SET_CNT : 16;
-    // read-write - Deassert signal output when counter match this value
-    eCLR_CNT CLR_CNT : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Assert signal output when counter match this value
+  using SET_CNT = ftl::mmio::Field<16, 0, eSET_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Deassert signal output when counter match this value
+  using CLR_CNT = ftl::mmio::Field<16, 16, eCLR_CNT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_11_1_fields_
 
-  LCDIF_PIGEON_11_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_11_1 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_11_1*>(0x40804AD0); }
+struct LCDIF_PIGEON_11_1 : ftl::mmio::Register<
+    0x40804AD0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_11_1_fields_::SET_CNT,
+    LCDIF_PIGEON_11_1_fields_::CLR_CNT> {
+  using eSET_CNT = LCDIF_PIGEON_11_1_fields_::eSET_CNT;
+  using eCLR_CNT = LCDIF_PIGEON_11_1_fields_::eCLR_CNT;
+  using SET_CNT = LCDIF_PIGEON_11_1_fields_::SET_CNT;
+  using CLR_CNT = LCDIF_PIGEON_11_1_fields_::CLR_CNT;
 };
 
+
 // Panel Interface Signal Generator Register
-union LCDIF_PIGEON_11_2 {
-  
-  // Logic operation with another signal: DIS/AND/OR/COND
-  enum class eSIG_LOGIC : uint32_t {
+struct LCDIF_PIGEON_11_2_fields_ {
+
+  enum class eSIG_LOGIC : std::uint32_t {
     // No logic operation
     eDIS = 0,
     // sigout = sig_another AND this_sig
@@ -3700,117 +4224,112 @@ union LCDIF_PIGEON_11_2 {
     // mask = sig_another AND other_masks
     eMASK = 3,
   };
-  
-  // Select another signal for logic operation or as mask or counter tick event
-  enum class eSIG_ANOTHER : uint32_t {
+
+  enum class eSIG_ANOTHER : std::uint32_t {
     // Keep active until mask off
     eCLEAR_USING_MASK = 0,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Logic operation with another signal: DIS/AND/OR/COND
-    eSIG_LOGIC SIG_LOGIC : 4;
-    // read-write - Select another signal for logic operation or as mask or counter tick event
-    eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Logic operation with another signal: DIS/AND/OR/COND
+  using SIG_LOGIC = ftl::mmio::Field<4, 0, eSIG_LOGIC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Select another signal for logic operation or as mask or counter tick event
+  using SIG_ANOTHER = ftl::mmio::Field<5, 4, eSIG_ANOTHER, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_PIGEON_11_2_fields_
 
-  LCDIF_PIGEON_11_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_PIGEON_11_2 &ref() { return *reinterpret_cast<volatile LCDIF_PIGEON_11_2*>(0x40804AE0); }
+struct LCDIF_PIGEON_11_2 : ftl::mmio::Register<
+    0x40804AE0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_PIGEON_11_2_fields_::SIG_LOGIC,
+    LCDIF_PIGEON_11_2_fields_::SIG_ANOTHER,
+    ftl::mmio::Reserved<23, 9>> {
+  using eSIG_LOGIC = LCDIF_PIGEON_11_2_fields_::eSIG_LOGIC;
+  using eSIG_ANOTHER = LCDIF_PIGEON_11_2_fields_::eSIG_ANOTHER;
+  using SIG_LOGIC = LCDIF_PIGEON_11_2_fields_::SIG_LOGIC;
+  using SIG_ANOTHER = LCDIF_PIGEON_11_2_fields_::SIG_ANOTHER;
 };
+
 
 // Look Up Table Control Register
-union LCDIF_LUT_CTRL {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Setting this bit will bypass the LUT memory resource completely
-    uint32_t LUT_BYPASS : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_LUT_CTRL_fields_ {
+  // Setting this bit will bypass the LUT memory resource completely
+  using LUT_BYPASS = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_LUT_CTRL_fields_
 
-  LCDIF_LUT_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000001; }
-  static inline volatile LCDIF_LUT_CTRL &ref() { return *reinterpret_cast<volatile LCDIF_LUT_CTRL*>(0x40804B00); }
+struct LCDIF_LUT_CTRL : ftl::mmio::Register<
+    0x40804B00u,
+    std::uint32_t,
+    0x00000001u,
+    ftl::mmio::RW,
+    LCDIF_LUT_CTRL_fields_::LUT_BYPASS,
+    ftl::mmio::Reserved<31, 1>> {
+  using LUT_BYPASS = LCDIF_LUT_CTRL_fields_::LUT_BYPASS;
 };
+
 
 // Lookup Table 0 Index Register
-union LCDIF_LUT0_ADDR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - LUT indexed address pointer
-    uint32_t ADDR : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_LUT0_ADDR_fields_ {
+  // LUT indexed address pointer
+  using ADDR = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_LUT0_ADDR_fields_
 
-  LCDIF_LUT0_ADDR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_LUT0_ADDR &ref() { return *reinterpret_cast<volatile LCDIF_LUT0_ADDR*>(0x40804B10); }
+struct LCDIF_LUT0_ADDR : ftl::mmio::Register<
+    0x40804B10u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_LUT0_ADDR_fields_::ADDR,
+    ftl::mmio::Reserved<24, 8>> {
+  using ADDR = LCDIF_LUT0_ADDR_fields_::ADDR;
 };
+
 
 // Lookup Table 0 Data Register
-union LCDIF_LUT0_DATA {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Writing this field will load 4 bytes, aligned to four byte boundaries, of data indexed by the ADDR field of the REG_LUT_CTRL register
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_LUT0_DATA_fields_ {
+  // Writing this field will load 4 bytes, aligned to four byte boundaries, of data indexed by the ADDR field of the REG_LUT_CTRL register
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_LUT0_DATA_fields_
 
-  LCDIF_LUT0_DATA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_LUT0_DATA &ref() { return *reinterpret_cast<volatile LCDIF_LUT0_DATA*>(0x40804B20); }
+struct LCDIF_LUT0_DATA : ftl::mmio::Register<
+    0x40804B20u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_LUT0_DATA_fields_::DATA> {
+  using DATA = LCDIF_LUT0_DATA_fields_::DATA;
 };
+
 
 // Lookup Table 1 Index Register
-union LCDIF_LUT1_ADDR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - LUT indexed address pointer
-    uint32_t ADDR : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_LUT1_ADDR_fields_ {
+  // LUT indexed address pointer
+  using ADDR = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_LUT1_ADDR_fields_
 
-  LCDIF_LUT1_ADDR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_LUT1_ADDR &ref() { return *reinterpret_cast<volatile LCDIF_LUT1_ADDR*>(0x40804B30); }
+struct LCDIF_LUT1_ADDR : ftl::mmio::Register<
+    0x40804B30u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_LUT1_ADDR_fields_::ADDR,
+    ftl::mmio::Reserved<24, 8>> {
+  using ADDR = LCDIF_LUT1_ADDR_fields_::ADDR;
 };
+
 
 // Lookup Table 1 Data Register
-union LCDIF_LUT1_DATA {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Writing this field will load 4 bytes, aligned to four byte boundaries, of data indexed by the ADDR field of the REG_LUT_CTRL register
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LCDIF_LUT1_DATA_fields_ {
+  // Writing this field will load 4 bytes, aligned to four byte boundaries, of data indexed by the ADDR field of the REG_LUT_CTRL register
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct LCDIF_LUT1_DATA_fields_
 
-  LCDIF_LUT1_DATA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LCDIF_LUT1_DATA &ref() { return *reinterpret_cast<volatile LCDIF_LUT1_DATA*>(0x40804B40); }
+struct LCDIF_LUT1_DATA : ftl::mmio::Register<
+    0x40804B40u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    LCDIF_LUT1_DATA_fields_::DATA> {
+  using DATA = LCDIF_LUT1_DATA_fields_::DATA;
 };
 
-
-} // namespace nLCDIF
+}  // namespace regs::lcdif

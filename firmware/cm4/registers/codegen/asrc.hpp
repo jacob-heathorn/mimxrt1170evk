@@ -1,274 +1,310 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // ASRC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nASRC {
+namespace regs::asrc {
 
 
 // ASRC Control Register
-union ASRCTR {
-  
-  // ASRCEN
-  enum class eASRCEN : uint32_t {
+struct ASRCTR_fields_ {
+
+  enum class eASRCEN : std::uint32_t {
     // operation of ASRC disabled
     edisabled = 0,
     // operation ASRC is enabled
     eenabled = 1,
   };
-  
-  // ASREA
-  enum class eASREA : uint32_t {
+
+  enum class eASREA : std::uint32_t {
     // operation of conversion A is disabled
     edisabled = 0,
     // operation of conversion A is enabled
     eenabled = 1,
   };
-  
-  // ASREB
-  enum class eASREB : uint32_t {
+
+  enum class eASREB : std::uint32_t {
     // operation of conversion B is disabled
     edisabled = 0,
     // operation of conversion B is enabled
     eenabled = 1,
   };
-  
-  // ASREC
-  enum class eASREC : uint32_t {
+
+  enum class eASREC : std::uint32_t {
     // operation of conversion C is disabled
     edisabled = 0,
     // operation of conversion C is enabled
     eenabled = 1,
   };
-  
-  // SRST
-  enum class eSRST : uint32_t {
+
+  enum class eSRST : std::uint32_t {
     // ASRC Software reset cleared
     ecleared = 0,
     // ASRC Software reset generated. NOTE: This is a self-clear bit
     ereset = 1,
   };
-  
-  // IDRA
-  enum class eIDRA : uint32_t {
+
+  enum class eIDRA : std::uint32_t {
     // ASRC internal measured ratio is used
     eidra_measured = 0,
     // Ideal ratio from the interface register ASRIDRHA, ASRIDRLA is used
     eidra_ideal = 1,
   };
-  
-  // USRA
-  enum class eUSRA : uint32_t {
+
+  enum class eUSRA : std::uint32_t {
     // Do not use ratio as the input to ASRC for pair A
     euse_ratio_no = 0,
     // Use ratio as the input to ASRC for pair A
     euse_ratio = 1,
   };
-  
-  // IDRB
-  enum class eIDRB : uint32_t {
+
+  enum class eIDRB : std::uint32_t {
     // ASRC internal measured ratio is used
     eidra_measured = 0,
     // Ideal ratio from the interface register ASRIDRHB, ASRIDRLB is used
     eidra_ideal = 1,
   };
-  
-  // USRB
-  enum class eUSRB : uint32_t {
+
+  enum class eUSRB : std::uint32_t {
     // Do not use ratio as the input to ASRC for pair B
     euse_ratio_no = 0,
     // Use ratio as the input to ASRC for pair B
     euse_ratio = 1,
   };
-  
-  // IDRC
-  enum class eIDRC : uint32_t {
+
+  enum class eIDRC : std::uint32_t {
     // ASRC internal measured ratio is used
     eidra_measured = 0,
     // Ideal ratio from the interface register ASRIDRHC, ASRIDRLC is used
     eidra_ideal = 1,
   };
-  
-  // USRC
-  enum class eUSRC : uint32_t {
+
+  enum class eUSRC : std::uint32_t {
     // Do not use ratio as the input to ASRC for pair C
     euse_ratio_no = 0,
     // Use ratio as the input to ASRC for pair C
     euse_ratio = 1,
   };
-  
-  // ATSA
-  enum class eATSA : uint32_t {
+
+  enum class eATSA : std::uint32_t {
     // Pair A does not automatically update its pre-processing and post-processing options
     eno_auto_select = 0,
     // Pair A automatically updates its pre-processing and post-processing options
     eauto_select = 1,
   };
-  
-  // ATSB
-  enum class eATSB : uint32_t {
+
+  enum class eATSB : std::uint32_t {
     // Pair B does not automatically update its pre-processing and post-processing options
     eno_auto_select = 0,
     // Pair B automatically updates its pre-processing and post-processing options
     eauto_select = 1,
   };
-  
-  // ATSC
-  enum class eATSC : uint32_t {
+
+  enum class eATSC : std::uint32_t {
     // Pair C does not automatically update its pre-processing and post-processing options
     eno_auto_select = 0,
     // Pair C automatically updates its pre-processing and post-processing options
     eauto_select = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ASRCEN
-    eASRCEN ASRCEN : 1;
-    // read-write - ASREA
-    eASREA ASREA : 1;
-    // read-write - ASREB
-    eASREB ASREB : 1;
-    // read-write - ASREC
-    eASREC ASREC : 1;
-    // write-only - SRST
-    eSRST SRST : 1;
-    uint32_t _reserved_0 : 8;
-    // read-write - IDRA
-    eIDRA IDRA : 1;
-    // read-write - USRA
-    eUSRA USRA : 1;
-    // read-write - IDRB
-    eIDRB IDRB : 1;
-    // read-write - USRB
-    eUSRB USRB : 1;
-    // read-write - IDRC
-    eIDRC IDRC : 1;
-    // read-write - USRC
-    eUSRC USRC : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - ATSA
-    eATSA ATSA : 1;
-    // read-write - ATSB
-    eATSB ATSB : 1;
-    // read-write - ATSC
-    eATSC ATSC : 1;
-    uint32_t _reserved_2 : 9;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // ASRCEN
+  using ASRCEN = ftl::mmio::Field<1, 0, eASRCEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ASREA
+  using ASREA = ftl::mmio::Field<1, 1, eASREA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ASREB
+  using ASREB = ftl::mmio::Field<1, 2, eASREB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ASREC
+  using ASREC = ftl::mmio::Field<1, 3, eASREC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SRST
+  using SRST = ftl::mmio::Field<1, 4, eSRST, ftl::mmio::WO, ftl::mmio::Normal>;
+  // IDRA
+  using IDRA = ftl::mmio::Field<1, 13, eIDRA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // USRA
+  using USRA = ftl::mmio::Field<1, 14, eUSRA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IDRB
+  using IDRB = ftl::mmio::Field<1, 15, eIDRB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // USRB
+  using USRB = ftl::mmio::Field<1, 16, eUSRB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // IDRC
+  using IDRC = ftl::mmio::Field<1, 17, eIDRC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // USRC
+  using USRC = ftl::mmio::Field<1, 18, eUSRC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ATSA
+  using ATSA = ftl::mmio::Field<1, 20, eATSA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ATSB
+  using ATSB = ftl::mmio::Field<1, 21, eATSB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ATSC
+  using ATSC = ftl::mmio::Field<1, 22, eATSC, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRCTR_fields_
 
-  ASRCTR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCTR &ref() { return *reinterpret_cast<volatile ASRCTR*>(0x40414000); }
+struct ASRCTR : ftl::mmio::Register<
+    0x40414000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRCTR_fields_::ASRCEN,
+    ASRCTR_fields_::ASREA,
+    ASRCTR_fields_::ASREB,
+    ASRCTR_fields_::ASREC,
+    ASRCTR_fields_::SRST,
+    ftl::mmio::Reserved<8, 5>,
+    ASRCTR_fields_::IDRA,
+    ASRCTR_fields_::USRA,
+    ASRCTR_fields_::IDRB,
+    ASRCTR_fields_::USRB,
+    ASRCTR_fields_::IDRC,
+    ASRCTR_fields_::USRC,
+    ftl::mmio::Reserved<1, 19>,
+    ASRCTR_fields_::ATSA,
+    ASRCTR_fields_::ATSB,
+    ASRCTR_fields_::ATSC,
+    ftl::mmio::Reserved<9, 23>> {
+  using eASRCEN = ASRCTR_fields_::eASRCEN;
+  using eASREA = ASRCTR_fields_::eASREA;
+  using eASREB = ASRCTR_fields_::eASREB;
+  using eASREC = ASRCTR_fields_::eASREC;
+  using eSRST = ASRCTR_fields_::eSRST;
+  using eIDRA = ASRCTR_fields_::eIDRA;
+  using eUSRA = ASRCTR_fields_::eUSRA;
+  using eIDRB = ASRCTR_fields_::eIDRB;
+  using eUSRB = ASRCTR_fields_::eUSRB;
+  using eIDRC = ASRCTR_fields_::eIDRC;
+  using eUSRC = ASRCTR_fields_::eUSRC;
+  using eATSA = ASRCTR_fields_::eATSA;
+  using eATSB = ASRCTR_fields_::eATSB;
+  using eATSC = ASRCTR_fields_::eATSC;
+  using ASRCEN = ASRCTR_fields_::ASRCEN;
+  using ASREA = ASRCTR_fields_::ASREA;
+  using ASREB = ASRCTR_fields_::ASREB;
+  using ASREC = ASRCTR_fields_::ASREC;
+  using SRST = ASRCTR_fields_::SRST;
+  using IDRA = ASRCTR_fields_::IDRA;
+  using USRA = ASRCTR_fields_::USRA;
+  using IDRB = ASRCTR_fields_::IDRB;
+  using USRB = ASRCTR_fields_::USRB;
+  using IDRC = ASRCTR_fields_::IDRC;
+  using USRC = ASRCTR_fields_::USRC;
+  using ATSA = ASRCTR_fields_::ATSA;
+  using ATSB = ASRCTR_fields_::ATSB;
+  using ATSC = ASRCTR_fields_::ATSC;
 };
+
 
 // ASRC Interrupt Enable Register
-union ASRIER {
-  
-  // ADIEA
-  enum class eADIEA : uint32_t {
-    // interrupt disabled
-    edisabled = 0,
-    // interrupt enabled
-    eenabled = 1,
-  };
-  
-  // ADIEB
-  enum class eADIEB : uint32_t {
-    // interrupt disabled
-    edisabled = 0,
-    // interrupt enabled
-    eenabled = 1,
-  };
-  
-  // ADIEC
-  enum class eADIEC : uint32_t {
-    // interrupt disabled
-    edisabled = 0,
-    // interrupt enabled
-    eenabled = 1,
-  };
-  
-  // ADOEA
-  enum class eADOEA : uint32_t {
-    // interrupt disabled
-    edisabled = 0,
-    // interrupt enabled
-    eenabled = 1,
-  };
-  
-  // ADOEB
-  enum class eADOEB : uint32_t {
-    // interrupt disabled
-    edisabled = 0,
-    // interrupt enabled
-    eenabled = 1,
-  };
-  
-  // ADOEC
-  enum class eADOEC : uint32_t {
-    // interrupt disabled
-    edisabled = 0,
-    // interrupt enabled
-    eenabled = 1,
-  };
-  
-  // AOLIE
-  enum class eAOLIE : uint32_t {
-    // interrupt disabled
-    edisabled = 0,
-    // interrupt enabled
-    eenabled = 1,
-  };
-  
-  // AFPWE
-  enum class eAFPWE : uint32_t {
-    // interrupt disabled
-    edisabled = 0,
-    // interrupt enabled
-    eenabled = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ADIEA
-    eADIEA ADIEA : 1;
-    // read-write - ADIEB
-    eADIEB ADIEB : 1;
-    // read-write - ADIEC
-    eADIEC ADIEC : 1;
-    // read-write - ADOEA
-    eADOEA ADOEA : 1;
-    // read-write - ADOEB
-    eADOEB ADOEB : 1;
-    // read-write - ADOEC
-    eADOEC ADOEC : 1;
-    // read-write - AOLIE
-    eAOLIE AOLIE : 1;
-    // read-write - AFPWE
-    eAFPWE AFPWE : 1;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRIER_fields_ {
 
-  ASRIER() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIER &ref() { return *reinterpret_cast<volatile ASRIER*>(0x40414004); }
+  enum class eADIEA : std::uint32_t {
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
+  };
+
+  enum class eADIEB : std::uint32_t {
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
+  };
+
+  enum class eADIEC : std::uint32_t {
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
+  };
+
+  enum class eADOEA : std::uint32_t {
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
+  };
+
+  enum class eADOEB : std::uint32_t {
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
+  };
+
+  enum class eADOEC : std::uint32_t {
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
+  };
+
+  enum class eAOLIE : std::uint32_t {
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
+  };
+
+  enum class eAFPWE : std::uint32_t {
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
+  };
+  // ADIEA
+  using ADIEA = ftl::mmio::Field<1, 0, eADIEA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ADIEB
+  using ADIEB = ftl::mmio::Field<1, 1, eADIEB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ADIEC
+  using ADIEC = ftl::mmio::Field<1, 2, eADIEC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ADOEA
+  using ADOEA = ftl::mmio::Field<1, 3, eADOEA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ADOEB
+  using ADOEB = ftl::mmio::Field<1, 4, eADOEB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ADOEC
+  using ADOEC = ftl::mmio::Field<1, 5, eADOEC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AOLIE
+  using AOLIE = ftl::mmio::Field<1, 6, eAOLIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AFPWE
+  using AFPWE = ftl::mmio::Field<1, 7, eAFPWE, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRIER_fields_
+
+struct ASRIER : ftl::mmio::Register<
+    0x40414004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRIER_fields_::ADIEA,
+    ASRIER_fields_::ADIEB,
+    ASRIER_fields_::ADIEC,
+    ASRIER_fields_::ADOEA,
+    ASRIER_fields_::ADOEB,
+    ASRIER_fields_::ADOEC,
+    ASRIER_fields_::AOLIE,
+    ASRIER_fields_::AFPWE,
+    ftl::mmio::Reserved<24, 8>> {
+  using eADIEA = ASRIER_fields_::eADIEA;
+  using eADIEB = ASRIER_fields_::eADIEB;
+  using eADIEC = ASRIER_fields_::eADIEC;
+  using eADOEA = ASRIER_fields_::eADOEA;
+  using eADOEB = ASRIER_fields_::eADOEB;
+  using eADOEC = ASRIER_fields_::eADOEC;
+  using eAOLIE = ASRIER_fields_::eAOLIE;
+  using eAFPWE = ASRIER_fields_::eAFPWE;
+  using ADIEA = ASRIER_fields_::ADIEA;
+  using ADIEB = ASRIER_fields_::ADIEB;
+  using ADIEC = ASRIER_fields_::ADIEC;
+  using ADOEA = ASRIER_fields_::ADOEA;
+  using ADOEB = ASRIER_fields_::ADOEB;
+  using ADOEC = ASRIER_fields_::ADOEC;
+  using AOLIE = ASRIER_fields_::AOLIE;
+  using AFPWE = ASRIER_fields_::AFPWE;
 };
 
+
 // ASRC Channel Number Configuration Register
-union ASRCNCR {
-  
-  // ANCA
-  enum class eANCA : uint32_t {
+struct ASRCNCR_fields_ {
+
+  enum class eANCA : std::uint32_t {
     // 0 channels in A (Pair A is disabled)
     ezero_chan = 0,
     // 1 channel in A
@@ -302,9 +338,8 @@ union ASRCNCR {
     // Should not be used.
     enot_used_15 = 15,
   };
-  
-  // ANCB
-  enum class eANCB : uint32_t {
+
+  enum class eANCB : std::uint32_t {
     // 0 channels in B (Pair B is disabled)
     ezero_chan = 0,
     // 1 channel in B
@@ -338,9 +373,8 @@ union ASRCNCR {
     // Should not be used.
     enot_used_15 = 15,
   };
-  
-  // ANCC
-  enum class eANCC : uint32_t {
+
+  enum class eANCC : std::uint32_t {
     // 0 channels in C (Pair C is disabled)
     ezero_chan = 0,
     // 1 channel in C
@@ -374,31 +408,36 @@ union ASRCNCR {
     // Should not be used.
     enot_used_15 = 15,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - ANCA
-    eANCA ANCA : 4;
-    // read-write - ANCB
-    eANCB ANCB : 4;
-    // read-write - ANCC
-    eANCC ANCC : 4;
-    uint32_t _reserved_0 : 20;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // ANCA
+  using ANCA = ftl::mmio::Field<4, 0, eANCA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ANCB
+  using ANCB = ftl::mmio::Field<4, 4, eANCB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ANCC
+  using ANCC = ftl::mmio::Field<4, 8, eANCC, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRCNCR_fields_
 
-  ASRCNCR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCNCR &ref() { return *reinterpret_cast<volatile ASRCNCR*>(0x4041400C); }
+struct ASRCNCR : ftl::mmio::Register<
+    0x4041400Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRCNCR_fields_::ANCA,
+    ASRCNCR_fields_::ANCB,
+    ASRCNCR_fields_::ANCC,
+    ftl::mmio::Reserved<20, 12>> {
+  using eANCA = ASRCNCR_fields_::eANCA;
+  using eANCB = ASRCNCR_fields_::eANCB;
+  using eANCC = ASRCNCR_fields_::eANCC;
+  using ANCA = ASRCNCR_fields_::ANCA;
+  using ANCB = ASRCNCR_fields_::ANCB;
+  using ANCC = ASRCNCR_fields_::ANCC;
 };
 
+
 // ASRC Filter Configuration Status Register
-union ASRCFG {
-  
-  // PREMODA
-  enum class ePREMODA : uint32_t {
+struct ASRCFG_fields_ {
+
+  enum class ePREMODA : std::uint32_t {
     // Select Upsampling-by-2
     eupsamp_2 = 0,
     // Select Direct-Connection
@@ -408,9 +447,8 @@ union ASRCFG {
     // Select passthrough mode. In this case, POSTMODA[1:0] have no use.
     epassthru = 3,
   };
-  
-  // POSTMODA
-  enum class ePOSTMODA : uint32_t {
+
+  enum class ePOSTMODA : std::uint32_t {
     // Select Upsampling-by-2
     eupsamp_2 = 0,
     // Select Direct-Connection
@@ -418,9 +456,8 @@ union ASRCFG {
     // Select Downsampling-by-2
     edownsamp_2 = 2,
   };
-  
-  // PREMODB
-  enum class ePREMODB : uint32_t {
+
+  enum class ePREMODB : std::uint32_t {
     // Select Upsampling-by-2
     eupsamp_2 = 0,
     // Select Direct-Connection
@@ -430,9 +467,8 @@ union ASRCFG {
     // Select passthrough mode. In this case, POSTMODB[1:0] have no use.
     epassthru = 3,
   };
-  
-  // POSTMODB
-  enum class ePOSTMODB : uint32_t {
+
+  enum class ePOSTMODB : std::uint32_t {
     // Select Upsampling-by-2
     eupsamp_2 = 0,
     // Select Direct-Connection
@@ -440,9 +476,8 @@ union ASRCFG {
     // Select Downsampling-by-2
     edownsamp_2 = 2,
   };
-  
-  // PREMODC
-  enum class ePREMODC : uint32_t {
+
+  enum class ePREMODC : std::uint32_t {
     // Select Upsampling-by-2
     eupsamp_2 = 0,
     // Select Direct-Connection
@@ -452,9 +487,8 @@ union ASRCFG {
     // Select passthrough mode. In this case, POSTMODC[1:0] have no use.
     epassthru = 3,
   };
-  
-  // POSTMODC
-  enum class ePOSTMODC : uint32_t {
+
+  enum class ePOSTMODC : std::uint32_t {
     // Select Upsampling-by-2 as defined in Signal Processing Flow.
     eupsamp_2 = 0,
     // Select Direct-Connection as defined in Signal Processing Flow.
@@ -462,1425 +496,1498 @@ union ASRCFG {
     // Select Downsampling-by-2 as defined in Signal Processing Flow.
     edownsamp_2 = 2,
   };
-  
-  // NDPRA
-  enum class eNDPRA : uint32_t {
+
+  enum class eNDPRA : std::uint32_t {
     // Use default parameters for RAM-stored parameters. Override any parameters already in RAM.
     euse_default = 0,
     // Don't use default parameters for RAM-stored parameters. Use the parameters already stored in RAM.
     enot_default = 1,
   };
-  
-  // NDPRB
-  enum class eNDPRB : uint32_t {
+
+  enum class eNDPRB : std::uint32_t {
     // Use default parameters for RAM-stored parameters. Override any parameters already in RAM.
     euse_default = 0,
     // Don't use default parameters for RAM-stored parameter. Use the parameters already stored in RAM.
     enot_default = 1,
   };
-  
-  // NDPRC
-  enum class eNDPRC : uint32_t {
+
+  enum class eNDPRC : std::uint32_t {
     // Use default parameters for RAM-stored parameters. Override any parameters already in RAM.
     euse_default = 0,
     // Don't use default parameters for RAM-stored parameters. Use the parameters already stored in RAM.
     enot_default = 1,
   };
-  
-  // INIRQA
-  enum class eINIRQA : uint32_t {
+
+  enum class eINIRQA : std::uint32_t {
     // Initialization for Conversion Pair A not served
     einit_notserved = 0,
     // Initialization for Conversion Pair A served
     einit_served = 1,
   };
-  
-  // INIRQB
-  enum class eINIRQB : uint32_t {
+
+  enum class eINIRQB : std::uint32_t {
     // Initialization for Conversion Pair B not served
     einit_notserved = 0,
     // Initialization for Conversion Pair B served
     einit_served = 1,
   };
-  
-  // INIRQC
-  enum class eINIRQC : uint32_t {
+
+  enum class eINIRQC : std::uint32_t {
     // Initialization for Conversion Pair C not served
     einit_notserved = 0,
     // Initialization for Conversion Pair C served
     einit_served = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 6;
-    // read-write - PREMODA
-    ePREMODA PREMODA : 2;
-    // read-write - POSTMODA
-    ePOSTMODA POSTMODA : 2;
-    // read-write - PREMODB
-    ePREMODB PREMODB : 2;
-    // read-write - POSTMODB
-    ePOSTMODB POSTMODB : 2;
-    // read-write - PREMODC
-    ePREMODC PREMODC : 2;
-    // read-write - POSTMODC
-    ePOSTMODC POSTMODC : 2;
-    // read-write - NDPRA
-    eNDPRA NDPRA : 1;
-    // read-write - NDPRB
-    eNDPRB NDPRB : 1;
-    // read-write - NDPRC
-    eNDPRC NDPRC : 1;
-    // read-only - INIRQA
-    eINIRQA INIRQA : 1;
-    // read-only - INIRQB
-    eINIRQB INIRQB : 1;
-    // read-only - INIRQC
-    eINIRQC INIRQC : 1;
-    uint32_t _reserved_1 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // PREMODA
+  using PREMODA = ftl::mmio::Field<2, 6, ePREMODA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // POSTMODA
+  using POSTMODA = ftl::mmio::Field<2, 8, ePOSTMODA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // PREMODB
+  using PREMODB = ftl::mmio::Field<2, 10, ePREMODB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // POSTMODB
+  using POSTMODB = ftl::mmio::Field<2, 12, ePOSTMODB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // PREMODC
+  using PREMODC = ftl::mmio::Field<2, 14, ePREMODC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // POSTMODC
+  using POSTMODC = ftl::mmio::Field<2, 16, ePOSTMODC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // NDPRA
+  using NDPRA = ftl::mmio::Field<1, 18, eNDPRA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // NDPRB
+  using NDPRB = ftl::mmio::Field<1, 19, eNDPRB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // NDPRC
+  using NDPRC = ftl::mmio::Field<1, 20, eNDPRC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // INIRQA
+  using INIRQA = ftl::mmio::Field<1, 21, eINIRQA, ftl::mmio::RO, ftl::mmio::Normal>;
+  // INIRQB
+  using INIRQB = ftl::mmio::Field<1, 22, eINIRQB, ftl::mmio::RO, ftl::mmio::Normal>;
+  // INIRQC
+  using INIRQC = ftl::mmio::Field<1, 23, eINIRQC, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ASRCFG_fields_
 
-  ASRCFG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCFG &ref() { return *reinterpret_cast<volatile ASRCFG*>(0x40414010); }
+struct ASRCFG : ftl::mmio::Register<
+    0x40414010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<6, 0>,
+    ASRCFG_fields_::PREMODA,
+    ASRCFG_fields_::POSTMODA,
+    ASRCFG_fields_::PREMODB,
+    ASRCFG_fields_::POSTMODB,
+    ASRCFG_fields_::PREMODC,
+    ASRCFG_fields_::POSTMODC,
+    ASRCFG_fields_::NDPRA,
+    ASRCFG_fields_::NDPRB,
+    ASRCFG_fields_::NDPRC,
+    ASRCFG_fields_::INIRQA,
+    ASRCFG_fields_::INIRQB,
+    ASRCFG_fields_::INIRQC,
+    ftl::mmio::Reserved<8, 24>> {
+  using ePREMODA = ASRCFG_fields_::ePREMODA;
+  using ePOSTMODA = ASRCFG_fields_::ePOSTMODA;
+  using ePREMODB = ASRCFG_fields_::ePREMODB;
+  using ePOSTMODB = ASRCFG_fields_::ePOSTMODB;
+  using ePREMODC = ASRCFG_fields_::ePREMODC;
+  using ePOSTMODC = ASRCFG_fields_::ePOSTMODC;
+  using eNDPRA = ASRCFG_fields_::eNDPRA;
+  using eNDPRB = ASRCFG_fields_::eNDPRB;
+  using eNDPRC = ASRCFG_fields_::eNDPRC;
+  using eINIRQA = ASRCFG_fields_::eINIRQA;
+  using eINIRQB = ASRCFG_fields_::eINIRQB;
+  using eINIRQC = ASRCFG_fields_::eINIRQC;
+  using PREMODA = ASRCFG_fields_::PREMODA;
+  using POSTMODA = ASRCFG_fields_::POSTMODA;
+  using PREMODB = ASRCFG_fields_::PREMODB;
+  using POSTMODB = ASRCFG_fields_::POSTMODB;
+  using PREMODC = ASRCFG_fields_::PREMODC;
+  using POSTMODC = ASRCFG_fields_::POSTMODC;
+  using NDPRA = ASRCFG_fields_::NDPRA;
+  using NDPRB = ASRCFG_fields_::NDPRB;
+  using NDPRC = ASRCFG_fields_::NDPRC;
+  using INIRQA = ASRCFG_fields_::INIRQA;
+  using INIRQB = ASRCFG_fields_::INIRQB;
+  using INIRQC = ASRCFG_fields_::INIRQC;
 };
+
 
 // ASRC Clock Source Register
-union ASRCSR {
-  
-  // AICSA
-  enum class eAICSA : uint32_t {
-    // bit clock 0
-    ebitclk0 = 0,
-    // bit clock 1
-    ebitclk1 = 1,
-    // bit clock 2
-    ebitclk2 = 2,
-    // bit clock 3
-    ebitclk3 = 3,
-    // bit clock 4
-    ebitclk4 = 4,
-    // bit clock 5
-    ebitclk5 = 5,
-    // bit clock 6
-    ebitclk6 = 6,
-    // bit clock 7
-    ebitclk7 = 7,
-    // bit clock 8
-    ebitclk8 = 8,
-    // bit clock 9
-    ebitclk9 = 9,
-    // bit clock A
-    ebitclka = 10,
-    // bit clock B
-    ebitclkb = 11,
-    // bit clock C
-    ebitclkc = 12,
-    // bit clock D
-    ebitclkd = 13,
-    // bit clock E
-    ebitclke = 14,
-    // clock disabled, connected to zero
-    eclk_disabled = 15,
-  };
-  
-  // AICSB
-  enum class eAICSB : uint32_t {
-    // bit clock 0
-    ebitclk0 = 0,
-    // bit clock 1
-    ebitclk1 = 1,
-    // bit clock 2
-    ebitclk2 = 2,
-    // bit clock 3
-    ebitclk3 = 3,
-    // bit clock 4
-    ebitclk4 = 4,
-    // bit clock 5
-    ebitclk5 = 5,
-    // bit clock 6
-    ebitclk6 = 6,
-    // bit clock 7
-    ebitclk7 = 7,
-    // bit clock 8
-    ebitclk8 = 8,
-    // bit clock 9
-    ebitclk9 = 9,
-    // bit clock A
-    ebitclka = 10,
-    // bit clock B
-    ebitclkb = 11,
-    // bit clock C
-    ebitclkc = 12,
-    // bit clock D
-    ebitclkd = 13,
-    // bit clock E
-    ebitclke = 14,
-    // clock disabled, connected to zero
-    eclk_disabled = 15,
-  };
-  
-  // AICSC
-  enum class eAICSC : uint32_t {
-    // bit clock 0
-    ebitclk0 = 0,
-    // bit clock 1
-    ebitclk1 = 1,
-    // bit clock 2
-    ebitclk2 = 2,
-    // bit clock 3
-    ebitclk3 = 3,
-    // bit clock 4
-    ebitclk4 = 4,
-    // bit clock 5
-    ebitclk5 = 5,
-    // bit clock 6
-    ebitclk6 = 6,
-    // bit clock 7
-    ebitclk7 = 7,
-    // bit clock 8
-    ebitclk8 = 8,
-    // bit clock 9
-    ebitclk9 = 9,
-    // bit clock A
-    ebitclka = 10,
-    // bit clock B
-    ebitclkb = 11,
-    // bit clock C
-    ebitclkc = 12,
-    // bit clock D
-    ebitclkd = 13,
-    // bit clock E
-    ebitclke = 14,
-    // clock disabled, connected to zero
-    eclk_disabled = 15,
-  };
-  
-  // AOCSA
-  enum class eAOCSA : uint32_t {
-    // bit clock 0
-    ebitclk0 = 0,
-    // bit clock 1
-    ebitclk1 = 1,
-    // bit clock 2
-    ebitclk2 = 2,
-    // bit clock 3
-    ebitclk3 = 3,
-    // bit clock 4
-    ebitclk4 = 4,
-    // bit clock 5
-    ebitclk5 = 5,
-    // bit clock 6
-    ebitclk6 = 6,
-    // bit clock 7
-    ebitclk7 = 7,
-    // bit clock 8
-    ebitclk8 = 8,
-    // bit clock 9
-    ebitclk9 = 9,
-    // bit clock A
-    ebitclka = 10,
-    // bit clock B
-    ebitclkb = 11,
-    // bit clock C
-    ebitclkc = 12,
-    // bit clock D
-    ebitclkd = 13,
-    // bit clock E
-    ebitclke = 14,
-    // clock disabled, connected to zero
-    eclk_disabled = 15,
-  };
-  
-  // AOCSB
-  enum class eAOCSB : uint32_t {
-    // bit clock 0
-    ebitclk0 = 0,
-    // bit clock 1
-    ebitclk1 = 1,
-    // bit clock 2
-    ebitclk2 = 2,
-    // bit clock 3
-    ebitclk3 = 3,
-    // bit clock 4
-    ebitclk4 = 4,
-    // bit clock 5
-    ebitclk5 = 5,
-    // bit clock 6
-    ebitclk6 = 6,
-    // bit clock 7
-    ebitclk7 = 7,
-    // bit clock 8
-    ebitclk8 = 8,
-    // bit clock 9
-    ebitclk9 = 9,
-    // bit clock A
-    ebitclka = 10,
-    // bit clock B
-    ebitclkb = 11,
-    // bit clock C
-    ebitclkc = 12,
-    // bit clock D
-    ebitclkd = 13,
-    // bit clock E
-    ebitclke = 14,
-    // clock disabled, connected to zero
-    eclk_disabled = 15,
-  };
-  
-  // AOCSC
-  enum class eAOCSC : uint32_t {
-    // bit clock 0
-    ebitclk0 = 0,
-    // bit clock 1
-    ebitclk1 = 1,
-    // bit clock 2
-    ebitclk2 = 2,
-    // bit clock 3
-    ebitclk3 = 3,
-    // bit clock 4
-    ebitclk4 = 4,
-    // bit clock 5
-    ebitclk5 = 5,
-    // bit clock 6
-    ebitclk6 = 6,
-    // bit clock 7
-    ebitclk7 = 7,
-    // bit clock 8
-    ebitclk8 = 8,
-    // bit clock 9
-    ebitclk9 = 9,
-    // bit clock A
-    ebitclka = 10,
-    // bit clock B
-    ebitclkb = 11,
-    // bit clock C
-    ebitclkc = 12,
-    // bit clock D
-    ebitclkd = 13,
-    // bit clock E
-    ebitclke = 14,
-    // clock disabled, connected to zero
-    eclk_disabled = 15,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - AICSA
-    eAICSA AICSA : 4;
-    // read-write - AICSB
-    eAICSB AICSB : 4;
-    // read-write - AICSC
-    eAICSC AICSC : 4;
-    // read-write - AOCSA
-    eAOCSA AOCSA : 4;
-    // read-write - AOCSB
-    eAOCSB AOCSB : 4;
-    // read-write - AOCSC
-    eAOCSC AOCSC : 4;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRCSR_fields_ {
 
-  ASRCSR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCSR &ref() { return *reinterpret_cast<volatile ASRCSR*>(0x40414014); }
+  enum class eAICSA : std::uint32_t {
+    // bit clock 0
+    ebitclk0 = 0,
+    // bit clock 1
+    ebitclk1 = 1,
+    // bit clock 2
+    ebitclk2 = 2,
+    // bit clock 3
+    ebitclk3 = 3,
+    // bit clock 4
+    ebitclk4 = 4,
+    // bit clock 5
+    ebitclk5 = 5,
+    // bit clock 6
+    ebitclk6 = 6,
+    // bit clock 7
+    ebitclk7 = 7,
+    // bit clock 8
+    ebitclk8 = 8,
+    // bit clock 9
+    ebitclk9 = 9,
+    // bit clock A
+    ebitclka = 10,
+    // bit clock B
+    ebitclkb = 11,
+    // bit clock C
+    ebitclkc = 12,
+    // bit clock D
+    ebitclkd = 13,
+    // bit clock E
+    ebitclke = 14,
+    // clock disabled, connected to zero
+    eclk_disabled = 15,
+  };
+
+  enum class eAICSB : std::uint32_t {
+    // bit clock 0
+    ebitclk0 = 0,
+    // bit clock 1
+    ebitclk1 = 1,
+    // bit clock 2
+    ebitclk2 = 2,
+    // bit clock 3
+    ebitclk3 = 3,
+    // bit clock 4
+    ebitclk4 = 4,
+    // bit clock 5
+    ebitclk5 = 5,
+    // bit clock 6
+    ebitclk6 = 6,
+    // bit clock 7
+    ebitclk7 = 7,
+    // bit clock 8
+    ebitclk8 = 8,
+    // bit clock 9
+    ebitclk9 = 9,
+    // bit clock A
+    ebitclka = 10,
+    // bit clock B
+    ebitclkb = 11,
+    // bit clock C
+    ebitclkc = 12,
+    // bit clock D
+    ebitclkd = 13,
+    // bit clock E
+    ebitclke = 14,
+    // clock disabled, connected to zero
+    eclk_disabled = 15,
+  };
+
+  enum class eAICSC : std::uint32_t {
+    // bit clock 0
+    ebitclk0 = 0,
+    // bit clock 1
+    ebitclk1 = 1,
+    // bit clock 2
+    ebitclk2 = 2,
+    // bit clock 3
+    ebitclk3 = 3,
+    // bit clock 4
+    ebitclk4 = 4,
+    // bit clock 5
+    ebitclk5 = 5,
+    // bit clock 6
+    ebitclk6 = 6,
+    // bit clock 7
+    ebitclk7 = 7,
+    // bit clock 8
+    ebitclk8 = 8,
+    // bit clock 9
+    ebitclk9 = 9,
+    // bit clock A
+    ebitclka = 10,
+    // bit clock B
+    ebitclkb = 11,
+    // bit clock C
+    ebitclkc = 12,
+    // bit clock D
+    ebitclkd = 13,
+    // bit clock E
+    ebitclke = 14,
+    // clock disabled, connected to zero
+    eclk_disabled = 15,
+  };
+
+  enum class eAOCSA : std::uint32_t {
+    // bit clock 0
+    ebitclk0 = 0,
+    // bit clock 1
+    ebitclk1 = 1,
+    // bit clock 2
+    ebitclk2 = 2,
+    // bit clock 3
+    ebitclk3 = 3,
+    // bit clock 4
+    ebitclk4 = 4,
+    // bit clock 5
+    ebitclk5 = 5,
+    // bit clock 6
+    ebitclk6 = 6,
+    // bit clock 7
+    ebitclk7 = 7,
+    // bit clock 8
+    ebitclk8 = 8,
+    // bit clock 9
+    ebitclk9 = 9,
+    // bit clock A
+    ebitclka = 10,
+    // bit clock B
+    ebitclkb = 11,
+    // bit clock C
+    ebitclkc = 12,
+    // bit clock D
+    ebitclkd = 13,
+    // bit clock E
+    ebitclke = 14,
+    // clock disabled, connected to zero
+    eclk_disabled = 15,
+  };
+
+  enum class eAOCSB : std::uint32_t {
+    // bit clock 0
+    ebitclk0 = 0,
+    // bit clock 1
+    ebitclk1 = 1,
+    // bit clock 2
+    ebitclk2 = 2,
+    // bit clock 3
+    ebitclk3 = 3,
+    // bit clock 4
+    ebitclk4 = 4,
+    // bit clock 5
+    ebitclk5 = 5,
+    // bit clock 6
+    ebitclk6 = 6,
+    // bit clock 7
+    ebitclk7 = 7,
+    // bit clock 8
+    ebitclk8 = 8,
+    // bit clock 9
+    ebitclk9 = 9,
+    // bit clock A
+    ebitclka = 10,
+    // bit clock B
+    ebitclkb = 11,
+    // bit clock C
+    ebitclkc = 12,
+    // bit clock D
+    ebitclkd = 13,
+    // bit clock E
+    ebitclke = 14,
+    // clock disabled, connected to zero
+    eclk_disabled = 15,
+  };
+
+  enum class eAOCSC : std::uint32_t {
+    // bit clock 0
+    ebitclk0 = 0,
+    // bit clock 1
+    ebitclk1 = 1,
+    // bit clock 2
+    ebitclk2 = 2,
+    // bit clock 3
+    ebitclk3 = 3,
+    // bit clock 4
+    ebitclk4 = 4,
+    // bit clock 5
+    ebitclk5 = 5,
+    // bit clock 6
+    ebitclk6 = 6,
+    // bit clock 7
+    ebitclk7 = 7,
+    // bit clock 8
+    ebitclk8 = 8,
+    // bit clock 9
+    ebitclk9 = 9,
+    // bit clock A
+    ebitclka = 10,
+    // bit clock B
+    ebitclkb = 11,
+    // bit clock C
+    ebitclkc = 12,
+    // bit clock D
+    ebitclkd = 13,
+    // bit clock E
+    ebitclke = 14,
+    // clock disabled, connected to zero
+    eclk_disabled = 15,
+  };
+  // AICSA
+  using AICSA = ftl::mmio::Field<4, 0, eAICSA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AICSB
+  using AICSB = ftl::mmio::Field<4, 4, eAICSB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AICSC
+  using AICSC = ftl::mmio::Field<4, 8, eAICSC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AOCSA
+  using AOCSA = ftl::mmio::Field<4, 12, eAOCSA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AOCSB
+  using AOCSB = ftl::mmio::Field<4, 16, eAOCSB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AOCSC
+  using AOCSC = ftl::mmio::Field<4, 20, eAOCSC, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRCSR_fields_
+
+struct ASRCSR : ftl::mmio::Register<
+    0x40414014u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRCSR_fields_::AICSA,
+    ASRCSR_fields_::AICSB,
+    ASRCSR_fields_::AICSC,
+    ASRCSR_fields_::AOCSA,
+    ASRCSR_fields_::AOCSB,
+    ASRCSR_fields_::AOCSC,
+    ftl::mmio::Reserved<8, 24>> {
+  using eAICSA = ASRCSR_fields_::eAICSA;
+  using eAICSB = ASRCSR_fields_::eAICSB;
+  using eAICSC = ASRCSR_fields_::eAICSC;
+  using eAOCSA = ASRCSR_fields_::eAOCSA;
+  using eAOCSB = ASRCSR_fields_::eAOCSB;
+  using eAOCSC = ASRCSR_fields_::eAOCSC;
+  using AICSA = ASRCSR_fields_::AICSA;
+  using AICSB = ASRCSR_fields_::AICSB;
+  using AICSC = ASRCSR_fields_::AICSC;
+  using AOCSA = ASRCSR_fields_::AOCSA;
+  using AOCSB = ASRCSR_fields_::AOCSB;
+  using AOCSC = ASRCSR_fields_::AOCSC;
 };
+
 
 // ASRC Clock Divider Register 1
-union ASRCDR1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AICPA
-    uint32_t AICPA : 3;
-    // read-write - AICDA
-    uint32_t AICDA : 3;
-    // read-write - AICPB
-    uint32_t AICPB : 3;
-    // read-write - AICDB
-    uint32_t AICDB : 3;
-    // read-write - AOCPA
-    uint32_t AOCPA : 3;
-    // read-write - AOCDA
-    uint32_t AOCDA : 3;
-    // read-write - AOCPB
-    uint32_t AOCPB : 3;
-    // read-write - AOCDB
-    uint32_t AOCDB : 3;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRCDR1_fields_ {
+  // AICPA
+  using AICPA = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AICDA
+  using AICDA = ftl::mmio::Field<3, 3, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AICPB
+  using AICPB = ftl::mmio::Field<3, 6, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AICDB
+  using AICDB = ftl::mmio::Field<3, 9, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AOCPA
+  using AOCPA = ftl::mmio::Field<3, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AOCDA
+  using AOCDA = ftl::mmio::Field<3, 15, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AOCPB
+  using AOCPB = ftl::mmio::Field<3, 18, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AOCDB
+  using AOCDB = ftl::mmio::Field<3, 21, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRCDR1_fields_
 
-  ASRCDR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCDR1 &ref() { return *reinterpret_cast<volatile ASRCDR1*>(0x40414018); }
+struct ASRCDR1 : ftl::mmio::Register<
+    0x40414018u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRCDR1_fields_::AICPA,
+    ASRCDR1_fields_::AICDA,
+    ASRCDR1_fields_::AICPB,
+    ASRCDR1_fields_::AICDB,
+    ASRCDR1_fields_::AOCPA,
+    ASRCDR1_fields_::AOCDA,
+    ASRCDR1_fields_::AOCPB,
+    ASRCDR1_fields_::AOCDB,
+    ftl::mmio::Reserved<8, 24>> {
+  using AICPA = ASRCDR1_fields_::AICPA;
+  using AICDA = ASRCDR1_fields_::AICDA;
+  using AICPB = ASRCDR1_fields_::AICPB;
+  using AICDB = ASRCDR1_fields_::AICDB;
+  using AOCPA = ASRCDR1_fields_::AOCPA;
+  using AOCDA = ASRCDR1_fields_::AOCDA;
+  using AOCPB = ASRCDR1_fields_::AOCPB;
+  using AOCDB = ASRCDR1_fields_::AOCDB;
 };
+
 
 // ASRC Clock Divider Register 2
-union ASRCDR2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - AICPC
-    uint32_t AICPC : 3;
-    // read-write - AICDC
-    uint32_t AICDC : 3;
-    // read-write - AOCPC
-    uint32_t AOCPC : 3;
-    // read-write - AOCDC
-    uint32_t AOCDC : 3;
-    uint32_t _reserved_0 : 20;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRCDR2_fields_ {
+  // AICPC
+  using AICPC = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AICDC
+  using AICDC = ftl::mmio::Field<3, 3, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AOCPC
+  using AOCPC = ftl::mmio::Field<3, 6, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // AOCDC
+  using AOCDC = ftl::mmio::Field<3, 9, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRCDR2_fields_
 
-  ASRCDR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCDR2 &ref() { return *reinterpret_cast<volatile ASRCDR2*>(0x4041401C); }
+struct ASRCDR2 : ftl::mmio::Register<
+    0x4041401Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRCDR2_fields_::AICPC,
+    ASRCDR2_fields_::AICDC,
+    ASRCDR2_fields_::AOCPC,
+    ASRCDR2_fields_::AOCDC,
+    ftl::mmio::Reserved<20, 12>> {
+  using AICPC = ASRCDR2_fields_::AICPC;
+  using AICDC = ASRCDR2_fields_::AICDC;
+  using AOCPC = ASRCDR2_fields_::AOCPC;
+  using AOCDC = ASRCDR2_fields_::AOCDC;
 };
 
+
 // ASRC Status Register
-union ASRSTR {
-  
-  // AIDEA
-  enum class eAIDEA : uint32_t {
+struct ASRSTR_fields_ {
+
+  enum class eAIDEA : std::uint32_t {
     // The threshold has been met and no data input A interrupt is generated
     ethresh_met = 0,
     // When AIDEA is set, the ASRC generates data input A interrupt request to the processor if ASRIER[AIDEA] = 1
     elessthan_thresh = 1,
   };
-  
-  // AIDEB
-  enum class eAIDEB : uint32_t {
+
+  enum class eAIDEB : std::uint32_t {
     // The threshold has been met and no data input B interrupt is generated
     ethresh_met = 0,
     // When AIDEB is set, the ASRC generates data input B interrupt request to the processor if ASRIER[AIDEB] = 1
     elessthan_thresh = 1,
   };
-  
-  // AIDEC
-  enum class eAIDEC : uint32_t {
+
+  enum class eAIDEC : std::uint32_t {
     // The threshold has been met and no data input C interrupt is generated
     ethresh_met = 0,
     // When AIDEC is set, the ASRC generates data input C interrupt request to the processor if ASRIER[AIDEC] = 1
     elessthan_thresh = 1,
   };
-  
-  // AODFA
-  enum class eAODFA : uint32_t {
+
+  enum class eAODFA : std::uint32_t {
     // The threshold has not yet been met and no data output A interrupt is generated
     ethresh_notmet = 0,
     // When AODFA is set, the ASRC generates data output A interrupt request to the processor if ASRIER[ADOEA] = 1
     egreaterthan_thresh = 1,
   };
-  
-  // AODFB
-  enum class eAODFB : uint32_t {
+
+  enum class eAODFB : std::uint32_t {
     // The threshold has not yet been met and no data output B interrupt is generated
     ethresh_notmet = 0,
     // When AODFB is set, the ASRC generates data output B interrupt request to the processor if ASRIER[ADOEB] = 1
     egreaterthan_thresh = 1,
   };
-  
-  // AODFC
-  enum class eAODFC : uint32_t {
+
+  enum class eAODFC : std::uint32_t {
     // The threshold has not yet been met and no data output C interrupt is generated
     ethresh_notmet = 0,
     // When AODFC is set, the ASRC generates data output C interrupt request to the processor if ASRIER[ADOEC] = 1
     egreaterthan_thresh = 1,
   };
-  
-  // AOLE
-  enum class eAOLE : uint32_t {
+
+  enum class eAOLE : std::uint32_t {
     // No overload
     etask_ok = 0,
     // Task rate is too high
     etoo_high = 1,
   };
-  
-  // FPWT
-  enum class eFPWT : uint32_t {
+
+  enum class eFPWT : std::uint32_t {
     // ASRC is not in wait state
     eno_waitstate = 0,
     // ASRC is in wait state
     ewaitstate = 1,
   };
-  
-  // AIDUA
-  enum class eAIDUA : uint32_t {
+
+  enum class eAIDUA : std::uint32_t {
     // No Underflow in Input data buffer A
     eno_underflow = 0,
     // Underflow in Input data buffer A
     eunderflow = 1,
   };
-  
-  // AIDUB
-  enum class eAIDUB : uint32_t {
+
+  enum class eAIDUB : std::uint32_t {
     // No Underflow in Input data buffer B
     eno_underflow = 0,
     // Underflow in Input data buffer B
     eunderflow = 1,
   };
-  
-  // AIDUC
-  enum class eAIDUC : uint32_t {
+
+  enum class eAIDUC : std::uint32_t {
     // No Underflow in Input data buffer C
     eno_underflow = 0,
     // Underflow in Input data buffer C
     eunderflow = 1,
   };
-  
-  // AODOA
-  enum class eAODOA : uint32_t {
+
+  enum class eAODOA : std::uint32_t {
     // No Overflow in Output data buffer A
     eno_overflow = 0,
     // Overflow in Output data buffer A
     eoverflow = 1,
   };
-  
-  // AODOB
-  enum class eAODOB : uint32_t {
+
+  enum class eAODOB : std::uint32_t {
     // No Overflow in Output data buffer B
     eno_overflow = 0,
     // Overflow in Output data buffer B
     eoverflow = 1,
   };
-  
-  // AODOC
-  enum class eAODOC : uint32_t {
+
+  enum class eAODOC : std::uint32_t {
     // No Overflow in Output data buffer C
     eno_overflow = 0,
     // Overflow in Output data buffer C
     eoverflow = 1,
   };
-  
-  // AIOLA
-  enum class eAIOLA : uint32_t {
+
+  enum class eAIOLA : std::uint32_t {
     // Pair A input task is not oveloaded
     eno_overload = 0,
     // Pair A input task is oveloaded
     eoverload = 1,
   };
-  
-  // AIOLB
-  enum class eAIOLB : uint32_t {
+
+  enum class eAIOLB : std::uint32_t {
     // Pair B input task is not oveloaded
     eno_overload = 0,
     // Pair B input task is oveloaded
     eoverload = 1,
   };
-  
-  // AIOLC
-  enum class eAIOLC : uint32_t {
+
+  enum class eAIOLC : std::uint32_t {
     // Pair C input task is not oveloaded
     eno_overload = 0,
     // Pair C input task is oveloaded
     eoverload = 1,
   };
-  
-  // AOOLA
-  enum class eAOOLA : uint32_t {
+
+  enum class eAOOLA : std::uint32_t {
     // Pair A output task is not oveloaded
     eno_overload = 0,
     // Pair A output task is oveloaded
     eoverload = 1,
   };
-  
-  // AOOLB
-  enum class eAOOLB : uint32_t {
+
+  enum class eAOOLB : std::uint32_t {
     // Pair B output task is not oveloaded
     eno_overload = 0,
     // Pair B output task is oveloaded
     eoverload = 1,
   };
-  
-  // AOOLC
-  enum class eAOOLC : uint32_t {
+
+  enum class eAOOLC : std::uint32_t {
     // Pair C output task is not oveloaded
     eno_overload = 0,
     // Pair C output task is oveloaded
     eoverload = 1,
   };
-  
-  // ATQOL
-  enum class eATQOL : uint32_t {
+
+  enum class eATQOL : std::uint32_t {
     // Task queue FIFO logic is not oveloaded
     eno_overload = 0,
     // Task queue FIFO logic is oveloaded
     eoverload = 1,
   };
-  
-  // DSLCNT
-  enum class eDSLCNT : uint32_t {
+
+  enum class eDSLCNT : std::uint32_t {
     // New DSL counter information is in the process of storage into the internal ASRC FIFO
     edslcnt_proc = 0,
     // New DSL counter information is stored in the internal ASRC FIFO
     edslcnt_stored = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - AIDEA
-    eAIDEA AIDEA : 1;
-    // read-only - AIDEB
-    eAIDEB AIDEB : 1;
-    // read-only - AIDEC
-    eAIDEC AIDEC : 1;
-    // read-only - AODFA
-    eAODFA AODFA : 1;
-    // read-only - AODFB
-    eAODFB AODFB : 1;
-    // read-only - AODFC
-    eAODFC AODFC : 1;
-    // read-only - AOLE
-    eAOLE AOLE : 1;
-    // read-only - FPWT
-    eFPWT FPWT : 1;
-    // read-only - AIDUA
-    eAIDUA AIDUA : 1;
-    // read-only - AIDUB
-    eAIDUB AIDUB : 1;
-    // read-only - AIDUC
-    eAIDUC AIDUC : 1;
-    // read-only - AODOA
-    eAODOA AODOA : 1;
-    // read-only - AODOB
-    eAODOB AODOB : 1;
-    // read-only - AODOC
-    eAODOC AODOC : 1;
-    // read-only - AIOLA
-    eAIOLA AIOLA : 1;
-    // read-only - AIOLB
-    eAIOLB AIOLB : 1;
-    // read-only - AIOLC
-    eAIOLC AIOLC : 1;
-    // read-only - AOOLA
-    eAOOLA AOOLA : 1;
-    // read-only - AOOLB
-    eAOOLB AOOLB : 1;
-    // read-only - AOOLC
-    eAOOLC AOOLC : 1;
-    // read-only - ATQOL
-    eATQOL ATQOL : 1;
-    // read-only - DSLCNT
-    eDSLCNT DSLCNT : 1;
-    uint32_t _reserved_0 : 10;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // AIDEA
+  using AIDEA = ftl::mmio::Field<1, 0, eAIDEA, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AIDEB
+  using AIDEB = ftl::mmio::Field<1, 1, eAIDEB, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AIDEC
+  using AIDEC = ftl::mmio::Field<1, 2, eAIDEC, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AODFA
+  using AODFA = ftl::mmio::Field<1, 3, eAODFA, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AODFB
+  using AODFB = ftl::mmio::Field<1, 4, eAODFB, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AODFC
+  using AODFC = ftl::mmio::Field<1, 5, eAODFC, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AOLE
+  using AOLE = ftl::mmio::Field<1, 6, eAOLE, ftl::mmio::RO, ftl::mmio::Normal>;
+  // FPWT
+  using FPWT = ftl::mmio::Field<1, 7, eFPWT, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AIDUA
+  using AIDUA = ftl::mmio::Field<1, 8, eAIDUA, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AIDUB
+  using AIDUB = ftl::mmio::Field<1, 9, eAIDUB, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AIDUC
+  using AIDUC = ftl::mmio::Field<1, 10, eAIDUC, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AODOA
+  using AODOA = ftl::mmio::Field<1, 11, eAODOA, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AODOB
+  using AODOB = ftl::mmio::Field<1, 12, eAODOB, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AODOC
+  using AODOC = ftl::mmio::Field<1, 13, eAODOC, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AIOLA
+  using AIOLA = ftl::mmio::Field<1, 14, eAIOLA, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AIOLB
+  using AIOLB = ftl::mmio::Field<1, 15, eAIOLB, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AIOLC
+  using AIOLC = ftl::mmio::Field<1, 16, eAIOLC, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AOOLA
+  using AOOLA = ftl::mmio::Field<1, 17, eAOOLA, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AOOLB
+  using AOOLB = ftl::mmio::Field<1, 18, eAOOLB, ftl::mmio::RO, ftl::mmio::Normal>;
+  // AOOLC
+  using AOOLC = ftl::mmio::Field<1, 19, eAOOLC, ftl::mmio::RO, ftl::mmio::Normal>;
+  // ATQOL
+  using ATQOL = ftl::mmio::Field<1, 20, eATQOL, ftl::mmio::RO, ftl::mmio::Normal>;
+  // DSLCNT
+  using DSLCNT = ftl::mmio::Field<1, 21, eDSLCNT, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ASRSTR_fields_
 
-  ASRSTR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRSTR &ref() { return *reinterpret_cast<volatile ASRSTR*>(0x40414020); }
+struct ASRSTR : ftl::mmio::Register<
+    0x40414020u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    ASRSTR_fields_::AIDEA,
+    ASRSTR_fields_::AIDEB,
+    ASRSTR_fields_::AIDEC,
+    ASRSTR_fields_::AODFA,
+    ASRSTR_fields_::AODFB,
+    ASRSTR_fields_::AODFC,
+    ASRSTR_fields_::AOLE,
+    ASRSTR_fields_::FPWT,
+    ASRSTR_fields_::AIDUA,
+    ASRSTR_fields_::AIDUB,
+    ASRSTR_fields_::AIDUC,
+    ASRSTR_fields_::AODOA,
+    ASRSTR_fields_::AODOB,
+    ASRSTR_fields_::AODOC,
+    ASRSTR_fields_::AIOLA,
+    ASRSTR_fields_::AIOLB,
+    ASRSTR_fields_::AIOLC,
+    ASRSTR_fields_::AOOLA,
+    ASRSTR_fields_::AOOLB,
+    ASRSTR_fields_::AOOLC,
+    ASRSTR_fields_::ATQOL,
+    ASRSTR_fields_::DSLCNT,
+    ftl::mmio::Reserved<10, 22>> {
+  using eAIDEA = ASRSTR_fields_::eAIDEA;
+  using eAIDEB = ASRSTR_fields_::eAIDEB;
+  using eAIDEC = ASRSTR_fields_::eAIDEC;
+  using eAODFA = ASRSTR_fields_::eAODFA;
+  using eAODFB = ASRSTR_fields_::eAODFB;
+  using eAODFC = ASRSTR_fields_::eAODFC;
+  using eAOLE = ASRSTR_fields_::eAOLE;
+  using eFPWT = ASRSTR_fields_::eFPWT;
+  using eAIDUA = ASRSTR_fields_::eAIDUA;
+  using eAIDUB = ASRSTR_fields_::eAIDUB;
+  using eAIDUC = ASRSTR_fields_::eAIDUC;
+  using eAODOA = ASRSTR_fields_::eAODOA;
+  using eAODOB = ASRSTR_fields_::eAODOB;
+  using eAODOC = ASRSTR_fields_::eAODOC;
+  using eAIOLA = ASRSTR_fields_::eAIOLA;
+  using eAIOLB = ASRSTR_fields_::eAIOLB;
+  using eAIOLC = ASRSTR_fields_::eAIOLC;
+  using eAOOLA = ASRSTR_fields_::eAOOLA;
+  using eAOOLB = ASRSTR_fields_::eAOOLB;
+  using eAOOLC = ASRSTR_fields_::eAOOLC;
+  using eATQOL = ASRSTR_fields_::eATQOL;
+  using eDSLCNT = ASRSTR_fields_::eDSLCNT;
+  using AIDEA = ASRSTR_fields_::AIDEA;
+  using AIDEB = ASRSTR_fields_::AIDEB;
+  using AIDEC = ASRSTR_fields_::AIDEC;
+  using AODFA = ASRSTR_fields_::AODFA;
+  using AODFB = ASRSTR_fields_::AODFB;
+  using AODFC = ASRSTR_fields_::AODFC;
+  using AOLE = ASRSTR_fields_::AOLE;
+  using FPWT = ASRSTR_fields_::FPWT;
+  using AIDUA = ASRSTR_fields_::AIDUA;
+  using AIDUB = ASRSTR_fields_::AIDUB;
+  using AIDUC = ASRSTR_fields_::AIDUC;
+  using AODOA = ASRSTR_fields_::AODOA;
+  using AODOB = ASRSTR_fields_::AODOB;
+  using AODOC = ASRSTR_fields_::AODOC;
+  using AIOLA = ASRSTR_fields_::AIOLA;
+  using AIOLB = ASRSTR_fields_::AIOLB;
+  using AIOLC = ASRSTR_fields_::AIOLC;
+  using AOOLA = ASRSTR_fields_::AOOLA;
+  using AOOLB = ASRSTR_fields_::AOOLB;
+  using AOOLC = ASRSTR_fields_::AOOLC;
+  using ATQOL = ASRSTR_fields_::ATQOL;
+  using DSLCNT = ASRSTR_fields_::DSLCNT;
 };
+
 
 // ASRC Parameter Register n
-union ASRPM1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - PARAMETER_VALUE
-    uint32_t PARAMETER_VALUE : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRPM_fields_ {
+  // PARAMETER_VALUE
+  using PARAMETER_VALUE = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRPM_fields_
 
-  ASRPM1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRPM1 &ref() { return *reinterpret_cast<volatile ASRPM1*>(0x40414040); }
+template<std::uint32_t Index>
+struct ASRPM : ftl::mmio::Register<
+    0x40414040u + (Index * 0x4u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRPM_fields_::PARAMETER_VALUE,
+    ftl::mmio::Reserved<8, 24>> {
+  static_assert(Index < 5u, "ASRPM: Index out of range");
+  using PARAMETER_VALUE = ASRPM_fields_::PARAMETER_VALUE;
 };
-// ASRC Parameter Register n
-union ASRPM2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - PARAMETER_VALUE
-    uint32_t PARAMETER_VALUE : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
 
-  ASRPM2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRPM2 &ref() { return *reinterpret_cast<volatile ASRPM2*>(0x40414044); }
-};
-// ASRC Parameter Register n
-union ASRPM3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - PARAMETER_VALUE
-    uint32_t PARAMETER_VALUE : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  ASRPM3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRPM3 &ref() { return *reinterpret_cast<volatile ASRPM3*>(0x40414048); }
-};
-// ASRC Parameter Register n
-union ASRPM4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - PARAMETER_VALUE
-    uint32_t PARAMETER_VALUE : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  ASRPM4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRPM4 &ref() { return *reinterpret_cast<volatile ASRPM4*>(0x4041404C); }
-};
-// ASRC Parameter Register n
-union ASRPM5 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - PARAMETER_VALUE
-    uint32_t PARAMETER_VALUE : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  ASRPM5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRPM5 &ref() { return *reinterpret_cast<volatile ASRPM5*>(0x40414050); }
-};
 
 // ASRC Task Queue FIFO Register 1
-union ASRTFR1 {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 6;
-    // read-write - TF_BASE
-    uint32_t TF_BASE : 7;
-    // read-only - TF_FILL
-    uint32_t TF_FILL : 7;
-    uint32_t _reserved_1 : 12;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRTFR1_fields_ {
+  // TF_BASE
+  using TF_BASE = ftl::mmio::Field<7, 6, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TF_FILL
+  using TF_FILL = ftl::mmio::Field<7, 13, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ASRTFR1_fields_
 
-  ASRTFR1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRTFR1 &ref() { return *reinterpret_cast<volatile ASRTFR1*>(0x40414054); }
+struct ASRTFR1 : ftl::mmio::Register<
+    0x40414054u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<6, 0>,
+    ASRTFR1_fields_::TF_BASE,
+    ASRTFR1_fields_::TF_FILL,
+    ftl::mmio::Reserved<12, 20>> {
+  using TF_BASE = ASRTFR1_fields_::TF_BASE;
+  using TF_FILL = ASRTFR1_fields_::TF_FILL;
 };
+
 
 // ASRC Channel Counter Register
-union ASRCCR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - ACIA
-    uint32_t ACIA : 4;
-    // read-write - ACIB
-    uint32_t ACIB : 4;
-    // read-write - ACIC
-    uint32_t ACIC : 4;
-    // read-write - ACOA
-    uint32_t ACOA : 4;
-    // read-write - ACOB
-    uint32_t ACOB : 4;
-    // read-write - ACOC
-    uint32_t ACOC : 4;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRCCR_fields_ {
+  // ACIA
+  using ACIA = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ACIB
+  using ACIB = ftl::mmio::Field<4, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ACIC
+  using ACIC = ftl::mmio::Field<4, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ACOA
+  using ACOA = ftl::mmio::Field<4, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ACOB
+  using ACOB = ftl::mmio::Field<4, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ACOC
+  using ACOC = ftl::mmio::Field<4, 20, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRCCR_fields_
 
-  ASRCCR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRCCR &ref() { return *reinterpret_cast<volatile ASRCCR*>(0x4041405C); }
+struct ASRCCR : ftl::mmio::Register<
+    0x4041405Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRCCR_fields_::ACIA,
+    ASRCCR_fields_::ACIB,
+    ASRCCR_fields_::ACIC,
+    ASRCCR_fields_::ACOA,
+    ASRCCR_fields_::ACOB,
+    ASRCCR_fields_::ACOC,
+    ftl::mmio::Reserved<8, 24>> {
+  using ACIA = ASRCCR_fields_::ACIA;
+  using ACIB = ASRCCR_fields_::ACIB;
+  using ACIC = ASRCCR_fields_::ACIC;
+  using ACOA = ASRCCR_fields_::ACOA;
+  using ACOB = ASRCCR_fields_::ACOB;
+  using ACOC = ASRCCR_fields_::ACOC;
 };
+
 
 // ASRC Data Input Register for Pair x
-union ASRDIA {
-  
-  // Bit field definition.
-  struct {
-    // write-only - DATA
-    uint32_t DATA : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRDIA_fields_ {
+  // DATA
+  using DATA = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
+};  // struct ASRDIA_fields_
 
-  ASRDIA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRDIA &ref() { return *reinterpret_cast<volatile ASRDIA*>(0x40414060); }
+struct ASRDIA : ftl::mmio::Register<
+    0x40414060u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::WO,
+    ASRDIA_fields_::DATA,
+    ftl::mmio::Reserved<8, 24>> {
+  using DATA = ASRDIA_fields_::DATA;
 };
+
 
 // ASRC Data Output Register for Pair x
-union ASRDOA {
-  
-  // Bit field definition.
-  struct {
-    // read-only - DATA
-    uint32_t DATA : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRDOA_fields_ {
+  // DATA
+  using DATA = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ASRDOA_fields_
 
-  ASRDOA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRDOA &ref() { return *reinterpret_cast<volatile ASRDOA*>(0x40414064); }
+struct ASRDOA : ftl::mmio::Register<
+    0x40414064u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    ASRDOA_fields_::DATA,
+    ftl::mmio::Reserved<8, 24>> {
+  using DATA = ASRDOA_fields_::DATA;
 };
+
 
 // ASRC Data Input Register for Pair x
-union ASRDIB {
-  
-  // Bit field definition.
-  struct {
-    // write-only - DATA
-    uint32_t DATA : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRDIB_fields_ {
+  // DATA
+  using DATA = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
+};  // struct ASRDIB_fields_
 
-  ASRDIB() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRDIB &ref() { return *reinterpret_cast<volatile ASRDIB*>(0x40414068); }
+struct ASRDIB : ftl::mmio::Register<
+    0x40414068u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::WO,
+    ASRDIB_fields_::DATA,
+    ftl::mmio::Reserved<8, 24>> {
+  using DATA = ASRDIB_fields_::DATA;
 };
+
 
 // ASRC Data Output Register for Pair x
-union ASRDOB {
-  
-  // Bit field definition.
-  struct {
-    // read-only - DATA
-    uint32_t DATA : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRDOB_fields_ {
+  // DATA
+  using DATA = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ASRDOB_fields_
 
-  ASRDOB() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRDOB &ref() { return *reinterpret_cast<volatile ASRDOB*>(0x4041406C); }
+struct ASRDOB : ftl::mmio::Register<
+    0x4041406Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    ASRDOB_fields_::DATA,
+    ftl::mmio::Reserved<8, 24>> {
+  using DATA = ASRDOB_fields_::DATA;
 };
+
 
 // ASRC Data Input Register for Pair x
-union ASRDIC {
-  
-  // Bit field definition.
-  struct {
-    // write-only - DATA
-    uint32_t DATA : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRDIC_fields_ {
+  // DATA
+  using DATA = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::WO, ftl::mmio::Normal>;
+};  // struct ASRDIC_fields_
 
-  ASRDIC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRDIC &ref() { return *reinterpret_cast<volatile ASRDIC*>(0x40414070); }
+struct ASRDIC : ftl::mmio::Register<
+    0x40414070u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::WO,
+    ASRDIC_fields_::DATA,
+    ftl::mmio::Reserved<8, 24>> {
+  using DATA = ASRDIC_fields_::DATA;
 };
+
 
 // ASRC Data Output Register for Pair x
-union ASRDOC {
-  
-  // Bit field definition.
-  struct {
-    // read-only - DATA
-    uint32_t DATA : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRDOC_fields_ {
+  // DATA
+  using DATA = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ASRDOC_fields_
 
-  ASRDOC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRDOC &ref() { return *reinterpret_cast<volatile ASRDOC*>(0x40414074); }
+struct ASRDOC : ftl::mmio::Register<
+    0x40414074u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    ASRDOC_fields_::DATA,
+    ftl::mmio::Reserved<8, 24>> {
+  using DATA = ASRDOC_fields_::DATA;
 };
+
 
 // ASRC Ideal Ratio for Pair A-High Part
-union ASRIDRHA {
-  
-  // Bit field definition.
-  struct {
-    // read-write - IDRATIOA_H
-    uint32_t IDRATIOA_H : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRIDRHA_fields_ {
+  // IDRATIOA_H
+  using IDRATIOA_H = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRIDRHA_fields_
 
-  ASRIDRHA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIDRHA &ref() { return *reinterpret_cast<volatile ASRIDRHA*>(0x40414080); }
+struct ASRIDRHA : ftl::mmio::Register<
+    0x40414080u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRIDRHA_fields_::IDRATIOA_H,
+    ftl::mmio::Reserved<24, 8>> {
+  using IDRATIOA_H = ASRIDRHA_fields_::IDRATIOA_H;
 };
+
 
 // ASRC Ideal Ratio for Pair A -Low Part
-union ASRIDRLA {
-  
-  // Bit field definition.
-  struct {
-    // read-write - IDRATIOA_L
-    uint32_t IDRATIOA_L : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRIDRLA_fields_ {
+  // IDRATIOA_L
+  using IDRATIOA_L = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRIDRLA_fields_
 
-  ASRIDRLA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIDRLA &ref() { return *reinterpret_cast<volatile ASRIDRLA*>(0x40414084); }
+struct ASRIDRLA : ftl::mmio::Register<
+    0x40414084u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRIDRLA_fields_::IDRATIOA_L,
+    ftl::mmio::Reserved<8, 24>> {
+  using IDRATIOA_L = ASRIDRLA_fields_::IDRATIOA_L;
 };
+
 
 // ASRC Ideal Ratio for Pair B-High Part
-union ASRIDRHB {
-  
-  // Bit field definition.
-  struct {
-    // read-write - IDRATIOB_H
-    uint32_t IDRATIOB_H : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRIDRHB_fields_ {
+  // IDRATIOB_H
+  using IDRATIOB_H = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRIDRHB_fields_
 
-  ASRIDRHB() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIDRHB &ref() { return *reinterpret_cast<volatile ASRIDRHB*>(0x40414088); }
+struct ASRIDRHB : ftl::mmio::Register<
+    0x40414088u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRIDRHB_fields_::IDRATIOB_H,
+    ftl::mmio::Reserved<24, 8>> {
+  using IDRATIOB_H = ASRIDRHB_fields_::IDRATIOB_H;
 };
+
 
 // ASRC Ideal Ratio for Pair B-Low Part
-union ASRIDRLB {
-  
-  // Bit field definition.
-  struct {
-    // read-write - IDRATIOB_L
-    uint32_t IDRATIOB_L : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRIDRLB_fields_ {
+  // IDRATIOB_L
+  using IDRATIOB_L = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRIDRLB_fields_
 
-  ASRIDRLB() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIDRLB &ref() { return *reinterpret_cast<volatile ASRIDRLB*>(0x4041408C); }
+struct ASRIDRLB : ftl::mmio::Register<
+    0x4041408Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRIDRLB_fields_::IDRATIOB_L,
+    ftl::mmio::Reserved<8, 24>> {
+  using IDRATIOB_L = ASRIDRLB_fields_::IDRATIOB_L;
 };
+
 
 // ASRC Ideal Ratio for Pair C-High Part
-union ASRIDRHC {
-  
-  // Bit field definition.
-  struct {
-    // read-write - IDRATIOC_H
-    uint32_t IDRATIOC_H : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRIDRHC_fields_ {
+  // IDRATIOC_H
+  using IDRATIOC_H = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRIDRHC_fields_
 
-  ASRIDRHC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIDRHC &ref() { return *reinterpret_cast<volatile ASRIDRHC*>(0x40414090); }
+struct ASRIDRHC : ftl::mmio::Register<
+    0x40414090u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRIDRHC_fields_::IDRATIOC_H,
+    ftl::mmio::Reserved<24, 8>> {
+  using IDRATIOC_H = ASRIDRHC_fields_::IDRATIOC_H;
 };
+
 
 // ASRC Ideal Ratio for Pair C-Low Part
-union ASRIDRLC {
-  
-  // Bit field definition.
-  struct {
-    // read-write - IDRATIOC_L
-    uint32_t IDRATIOC_L : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASRIDRLC_fields_ {
+  // IDRATIOC_L
+  using IDRATIOC_L = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRIDRLC_fields_
 
-  ASRIDRLC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRIDRLC &ref() { return *reinterpret_cast<volatile ASRIDRLC*>(0x40414094); }
+struct ASRIDRLC : ftl::mmio::Register<
+    0x40414094u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRIDRLC_fields_::IDRATIOC_L,
+    ftl::mmio::Reserved<8, 24>> {
+  using IDRATIOC_L = ASRIDRLC_fields_::IDRATIOC_L;
 };
+
 
 // ASRC 76 kHz Period in terms of ASRC processing clock
-union ASR76K {
-  
-  // Bit field definition.
-  struct {
-    // read-write - ASR76K
-    uint32_t ASR76K : 17;
-    uint32_t _reserved_0 : 15;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASR76K_fields_ {
+  // ASR76K
+  using ASR76K = ftl::mmio::Field<17, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASR76K_fields_
 
-  ASR76K() = delete;
-  inline void Reset() volatile { this->value = 0x00000A47; }
-  static inline volatile ASR76K &ref() { return *reinterpret_cast<volatile ASR76K*>(0x40414098); }
+struct ASR76K : ftl::mmio::Register<
+    0x40414098u,
+    std::uint32_t,
+    0x00000A47u,
+    ftl::mmio::RW,
+    ASR76K_fields_::ASR76K,
+    ftl::mmio::Reserved<15, 17>> {
+  using value_ = ASR76K_fields_::ASR76K;
 };
+
 
 // ASRC 56 kHz Period in terms of ASRC processing clock
-union ASR56K {
-  
-  // Bit field definition.
-  struct {
-    // read-write - ASR56K
-    uint32_t ASR56K : 17;
-    uint32_t _reserved_0 : 15;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct ASR56K_fields_ {
+  // ASR56K
+  using ASR56K = ftl::mmio::Field<17, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASR56K_fields_
 
-  ASR56K() = delete;
-  inline void Reset() volatile { this->value = 0x00000DF3; }
-  static inline volatile ASR56K &ref() { return *reinterpret_cast<volatile ASR56K*>(0x4041409C); }
+struct ASR56K : ftl::mmio::Register<
+    0x4041409Cu,
+    std::uint32_t,
+    0x00000DF3u,
+    ftl::mmio::RW,
+    ASR56K_fields_::ASR56K,
+    ftl::mmio::Reserved<15, 17>> {
+  using value_ = ASR56K_fields_::ASR56K;
 };
 
+
 // ASRC Misc Control Register for Pair A
-union ASRMCRA {
-  
-  // RSYNOFA
-  enum class eRSYNOFA : uint32_t {
+struct ASRMCRA_fields_ {
+
+  enum class eRSYNOFA : std::uint32_t {
     // Do not touch ASRCCR[ACOA]
     eno_resync = 0,
     // Force ASRCCR[ACOA]=0
     eresync = 1,
   };
-  
-  // RSYNIFA
-  enum class eRSYNIFA : uint32_t {
+
+  enum class eRSYNIFA : std::uint32_t {
     // Do not touch ASRCCR[ACIA]
     eno_resync = 0,
     // Force ASRCCR[ACIA]=0
     eresync = 1,
   };
-  
-  // BYPASSPOLYA
-  enum class eBYPASSPOLYA : uint32_t {
+
+  enum class eBYPASSPOLYA : std::uint32_t {
     // Don't bypass polyphase filtering.
     eno_bypass = 0,
     // Bypass polyphase filtering.
     ebypass = 1,
   };
-  
-  // BUFSTALLA
-  enum class eBUFSTALLA : uint32_t {
+
+  enum class eBUFSTALLA : std::uint32_t {
     // Don't stall Pair A conversion even in case of near empty/full FIFO conditions.
     eno_stall = 0,
     // Stall Pair A conversion in case of near empty/full FIFO conditions.
     estall = 1,
   };
-  
-  // EXTTHRSHA
-  enum class eEXTTHRSHA : uint32_t {
+
+  enum class eEXTTHRSHA : std::uint32_t {
     // Use default thresholds.
     euse_default_thresh = 0,
     // Use external defined thresholds.
     euse_ext_thresh = 1,
   };
-  
-  // ZEROBUFA
-  enum class eZEROBUFA : uint32_t {
+
+  enum class eZEROBUFA : std::uint32_t {
     // Zeroize the buffer
     ezero_buf = 0,
     // Don't zeroize the buffer
     edo_not_zero_buf = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - INFIFO_THRESHOLDA
-    uint32_t INFIFO_THRESHOLDA : 6;
-    uint32_t _reserved_0 : 4;
-    // read-write - RSYNOFA
-    eRSYNOFA RSYNOFA : 1;
-    // read-write - RSYNIFA
-    eRSYNIFA RSYNIFA : 1;
-    // read-write - OUTFIFO_THRESHOLDA
-    uint32_t OUTFIFO_THRESHOLDA : 6;
-    uint32_t _reserved_1 : 2;
-    // read-write - BYPASSPOLYA
-    eBYPASSPOLYA BYPASSPOLYA : 1;
-    // read-write - BUFSTALLA
-    eBUFSTALLA BUFSTALLA : 1;
-    // read-write - EXTTHRSHA
-    eEXTTHRSHA EXTTHRSHA : 1;
-    // read-write - ZEROBUFA
-    eZEROBUFA ZEROBUFA : 1;
-    uint32_t _reserved_2 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // INFIFO_THRESHOLDA
+  using INFIFO_THRESHOLDA = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RSYNOFA
+  using RSYNOFA = ftl::mmio::Field<1, 10, eRSYNOFA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RSYNIFA
+  using RSYNIFA = ftl::mmio::Field<1, 11, eRSYNIFA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // OUTFIFO_THRESHOLDA
+  using OUTFIFO_THRESHOLDA = ftl::mmio::Field<6, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASSPOLYA
+  using BYPASSPOLYA = ftl::mmio::Field<1, 20, eBYPASSPOLYA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BUFSTALLA
+  using BUFSTALLA = ftl::mmio::Field<1, 21, eBUFSTALLA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // EXTTHRSHA
+  using EXTTHRSHA = ftl::mmio::Field<1, 22, eEXTTHRSHA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ZEROBUFA
+  using ZEROBUFA = ftl::mmio::Field<1, 23, eZEROBUFA, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRMCRA_fields_
 
-  ASRMCRA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRMCRA &ref() { return *reinterpret_cast<volatile ASRMCRA*>(0x404140A0); }
+struct ASRMCRA : ftl::mmio::Register<
+    0x404140A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRMCRA_fields_::INFIFO_THRESHOLDA,
+    ftl::mmio::Reserved<4, 6>,
+    ASRMCRA_fields_::RSYNOFA,
+    ASRMCRA_fields_::RSYNIFA,
+    ASRMCRA_fields_::OUTFIFO_THRESHOLDA,
+    ftl::mmio::Reserved<2, 18>,
+    ASRMCRA_fields_::BYPASSPOLYA,
+    ASRMCRA_fields_::BUFSTALLA,
+    ASRMCRA_fields_::EXTTHRSHA,
+    ASRMCRA_fields_::ZEROBUFA,
+    ftl::mmio::Reserved<8, 24>> {
+  using eRSYNOFA = ASRMCRA_fields_::eRSYNOFA;
+  using eRSYNIFA = ASRMCRA_fields_::eRSYNIFA;
+  using eBYPASSPOLYA = ASRMCRA_fields_::eBYPASSPOLYA;
+  using eBUFSTALLA = ASRMCRA_fields_::eBUFSTALLA;
+  using eEXTTHRSHA = ASRMCRA_fields_::eEXTTHRSHA;
+  using eZEROBUFA = ASRMCRA_fields_::eZEROBUFA;
+  using INFIFO_THRESHOLDA = ASRMCRA_fields_::INFIFO_THRESHOLDA;
+  using RSYNOFA = ASRMCRA_fields_::RSYNOFA;
+  using RSYNIFA = ASRMCRA_fields_::RSYNIFA;
+  using OUTFIFO_THRESHOLDA = ASRMCRA_fields_::OUTFIFO_THRESHOLDA;
+  using BYPASSPOLYA = ASRMCRA_fields_::BYPASSPOLYA;
+  using BUFSTALLA = ASRMCRA_fields_::BUFSTALLA;
+  using EXTTHRSHA = ASRMCRA_fields_::EXTTHRSHA;
+  using ZEROBUFA = ASRMCRA_fields_::ZEROBUFA;
 };
 
+
 // ASRC FIFO Status Register for Pair A
-union ASRFSTA {
-  
-  // IAEA
-  enum class eIAEA : uint32_t {
+struct ASRFSTA_fields_ {
+
+  enum class eIAEA : std::uint32_t {
     // Input FIFO is not near empty for Pair A
     enot_near_empty = 0,
     // Input FIFO is near empty for Pair A
     enear_empty = 1,
   };
-  
-  // OAFA
-  enum class eOAFA : uint32_t {
+
+  enum class eOAFA : std::uint32_t {
     // Output FIFO is not near full for Pair A
     enot_near_full = 0,
     // Output FIFO is near full for Pair A
     enear_full = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - INFIFO_FILLA
-    uint32_t INFIFO_FILLA : 7;
-    uint32_t _reserved_0 : 4;
-    // read-only - IAEA
-    eIAEA IAEA : 1;
-    // read-only - OUTFIFO_FILLA
-    uint32_t OUTFIFO_FILLA : 7;
-    uint32_t _reserved_1 : 4;
-    // read-only - OAFA
-    eOAFA OAFA : 1;
-    uint32_t _reserved_2 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // INFIFO_FILLA
+  using INFIFO_FILLA = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // IAEA
+  using IAEA = ftl::mmio::Field<1, 11, eIAEA, ftl::mmio::RO, ftl::mmio::Normal>;
+  // OUTFIFO_FILLA
+  using OUTFIFO_FILLA = ftl::mmio::Field<7, 12, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // OAFA
+  using OAFA = ftl::mmio::Field<1, 23, eOAFA, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ASRFSTA_fields_
 
-  ASRFSTA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRFSTA &ref() { return *reinterpret_cast<volatile ASRFSTA*>(0x404140A4); }
+struct ASRFSTA : ftl::mmio::Register<
+    0x404140A4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    ASRFSTA_fields_::INFIFO_FILLA,
+    ftl::mmio::Reserved<4, 7>,
+    ASRFSTA_fields_::IAEA,
+    ASRFSTA_fields_::OUTFIFO_FILLA,
+    ftl::mmio::Reserved<4, 19>,
+    ASRFSTA_fields_::OAFA,
+    ftl::mmio::Reserved<8, 24>> {
+  using eIAEA = ASRFSTA_fields_::eIAEA;
+  using eOAFA = ASRFSTA_fields_::eOAFA;
+  using INFIFO_FILLA = ASRFSTA_fields_::INFIFO_FILLA;
+  using IAEA = ASRFSTA_fields_::IAEA;
+  using OUTFIFO_FILLA = ASRFSTA_fields_::OUTFIFO_FILLA;
+  using OAFA = ASRFSTA_fields_::OAFA;
 };
 
+
 // ASRC Misc Control Register for Pair B
-union ASRMCRB {
-  
-  // RSYNOFB
-  enum class eRSYNOFB : uint32_t {
+struct ASRMCRB_fields_ {
+
+  enum class eRSYNOFB : std::uint32_t {
     // Do not touch ASRCCR[ACOB]
     eno_resync = 0,
     // Force ASRCCR[ACOB]=0
     eresync = 1,
   };
-  
-  // RSYNIFB
-  enum class eRSYNIFB : uint32_t {
+
+  enum class eRSYNIFB : std::uint32_t {
     // Do not touch ASRCCR[ACIB]
     eno_resync = 0,
     // Force ASRCCR[ACIB]=0
     eresync = 1,
   };
-  
-  // BYPASSPOLYB
-  enum class eBYPASSPOLYB : uint32_t {
+
+  enum class eBYPASSPOLYB : std::uint32_t {
     // Don't bypass polyphase filtering.
     eno_bypass = 0,
     // Bypass polyphase filtering.
     ebypass = 1,
   };
-  
-  // BUFSTALLB
-  enum class eBUFSTALLB : uint32_t {
+
+  enum class eBUFSTALLB : std::uint32_t {
     // Don't stall Pair B conversion even in case of near empty/full FIFO conditions.
     eno_stall = 0,
     // Stall Pair B conversion in case of near empty/full FIFO conditions.
     estall = 1,
   };
-  
-  // EXTTHRSHB
-  enum class eEXTTHRSHB : uint32_t {
+
+  enum class eEXTTHRSHB : std::uint32_t {
     // Use default thresholds.
     euse_default_thresh = 0,
     // Use external defined thresholds.
     euse_ext_thresh = 1,
   };
-  
-  // ZEROBUFB
-  enum class eZEROBUFB : uint32_t {
+
+  enum class eZEROBUFB : std::uint32_t {
     // Zeroize the buffer
     ezero_buf = 0,
     // Don't zeroize the buffer
     edo_not_zero_buf = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - INFIFO_THRESHOLDB
-    uint32_t INFIFO_THRESHOLDB : 6;
-    uint32_t _reserved_0 : 4;
-    // read-write - RSYNOFB
-    eRSYNOFB RSYNOFB : 1;
-    // read-write - RSYNIFB
-    eRSYNIFB RSYNIFB : 1;
-    // read-write - OUTFIFO_THRESHOLDB
-    uint32_t OUTFIFO_THRESHOLDB : 6;
-    uint32_t _reserved_1 : 2;
-    // read-write - BYPASSPOLYB
-    eBYPASSPOLYB BYPASSPOLYB : 1;
-    // read-write - BUFSTALLB
-    eBUFSTALLB BUFSTALLB : 1;
-    // read-write - EXTTHRSHB
-    eEXTTHRSHB EXTTHRSHB : 1;
-    // read-write - ZEROBUFB
-    eZEROBUFB ZEROBUFB : 1;
-    uint32_t _reserved_2 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // INFIFO_THRESHOLDB
+  using INFIFO_THRESHOLDB = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RSYNOFB
+  using RSYNOFB = ftl::mmio::Field<1, 10, eRSYNOFB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RSYNIFB
+  using RSYNIFB = ftl::mmio::Field<1, 11, eRSYNIFB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // OUTFIFO_THRESHOLDB
+  using OUTFIFO_THRESHOLDB = ftl::mmio::Field<6, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASSPOLYB
+  using BYPASSPOLYB = ftl::mmio::Field<1, 20, eBYPASSPOLYB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BUFSTALLB
+  using BUFSTALLB = ftl::mmio::Field<1, 21, eBUFSTALLB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // EXTTHRSHB
+  using EXTTHRSHB = ftl::mmio::Field<1, 22, eEXTTHRSHB, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ZEROBUFB
+  using ZEROBUFB = ftl::mmio::Field<1, 23, eZEROBUFB, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRMCRB_fields_
 
-  ASRMCRB() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRMCRB &ref() { return *reinterpret_cast<volatile ASRMCRB*>(0x404140A8); }
+struct ASRMCRB : ftl::mmio::Register<
+    0x404140A8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRMCRB_fields_::INFIFO_THRESHOLDB,
+    ftl::mmio::Reserved<4, 6>,
+    ASRMCRB_fields_::RSYNOFB,
+    ASRMCRB_fields_::RSYNIFB,
+    ASRMCRB_fields_::OUTFIFO_THRESHOLDB,
+    ftl::mmio::Reserved<2, 18>,
+    ASRMCRB_fields_::BYPASSPOLYB,
+    ASRMCRB_fields_::BUFSTALLB,
+    ASRMCRB_fields_::EXTTHRSHB,
+    ASRMCRB_fields_::ZEROBUFB,
+    ftl::mmio::Reserved<8, 24>> {
+  using eRSYNOFB = ASRMCRB_fields_::eRSYNOFB;
+  using eRSYNIFB = ASRMCRB_fields_::eRSYNIFB;
+  using eBYPASSPOLYB = ASRMCRB_fields_::eBYPASSPOLYB;
+  using eBUFSTALLB = ASRMCRB_fields_::eBUFSTALLB;
+  using eEXTTHRSHB = ASRMCRB_fields_::eEXTTHRSHB;
+  using eZEROBUFB = ASRMCRB_fields_::eZEROBUFB;
+  using INFIFO_THRESHOLDB = ASRMCRB_fields_::INFIFO_THRESHOLDB;
+  using RSYNOFB = ASRMCRB_fields_::RSYNOFB;
+  using RSYNIFB = ASRMCRB_fields_::RSYNIFB;
+  using OUTFIFO_THRESHOLDB = ASRMCRB_fields_::OUTFIFO_THRESHOLDB;
+  using BYPASSPOLYB = ASRMCRB_fields_::BYPASSPOLYB;
+  using BUFSTALLB = ASRMCRB_fields_::BUFSTALLB;
+  using EXTTHRSHB = ASRMCRB_fields_::EXTTHRSHB;
+  using ZEROBUFB = ASRMCRB_fields_::ZEROBUFB;
 };
 
+
 // ASRC FIFO Status Register for Pair B
-union ASRFSTB {
-  
-  // IAEB
-  enum class eIAEB : uint32_t {
+struct ASRFSTB_fields_ {
+
+  enum class eIAEB : std::uint32_t {
     // Input FIFO is not near empty for Pair B
     enot_near_empty = 0,
     // Input FIFO is near empty for Pair B
     enear_empty = 1,
   };
-  
-  // OAFB
-  enum class eOAFB : uint32_t {
+
+  enum class eOAFB : std::uint32_t {
     // Output FIFO is not near full for Pair B
     enot_near_full = 0,
     // Output FIFO is near full for Pair B
     enear_full = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - INFIFO_FILLB
-    uint32_t INFIFO_FILLB : 7;
-    uint32_t _reserved_0 : 4;
-    // read-only - IAEB
-    eIAEB IAEB : 1;
-    // read-only - OUTFIFO_FILLB
-    uint32_t OUTFIFO_FILLB : 7;
-    uint32_t _reserved_1 : 4;
-    // read-only - OAFB
-    eOAFB OAFB : 1;
-    uint32_t _reserved_2 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // INFIFO_FILLB
+  using INFIFO_FILLB = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // IAEB
+  using IAEB = ftl::mmio::Field<1, 11, eIAEB, ftl::mmio::RO, ftl::mmio::Normal>;
+  // OUTFIFO_FILLB
+  using OUTFIFO_FILLB = ftl::mmio::Field<7, 12, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // OAFB
+  using OAFB = ftl::mmio::Field<1, 23, eOAFB, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ASRFSTB_fields_
 
-  ASRFSTB() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRFSTB &ref() { return *reinterpret_cast<volatile ASRFSTB*>(0x404140AC); }
+struct ASRFSTB : ftl::mmio::Register<
+    0x404140ACu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    ASRFSTB_fields_::INFIFO_FILLB,
+    ftl::mmio::Reserved<4, 7>,
+    ASRFSTB_fields_::IAEB,
+    ASRFSTB_fields_::OUTFIFO_FILLB,
+    ftl::mmio::Reserved<4, 19>,
+    ASRFSTB_fields_::OAFB,
+    ftl::mmio::Reserved<8, 24>> {
+  using eIAEB = ASRFSTB_fields_::eIAEB;
+  using eOAFB = ASRFSTB_fields_::eOAFB;
+  using INFIFO_FILLB = ASRFSTB_fields_::INFIFO_FILLB;
+  using IAEB = ASRFSTB_fields_::IAEB;
+  using OUTFIFO_FILLB = ASRFSTB_fields_::OUTFIFO_FILLB;
+  using OAFB = ASRFSTB_fields_::OAFB;
 };
 
+
 // ASRC Misc Control Register for Pair C
-union ASRMCRC {
-  
-  // RSYNOFC
-  enum class eRSYNOFC : uint32_t {
+struct ASRMCRC_fields_ {
+
+  enum class eRSYNOFC : std::uint32_t {
     // Do not touch ASRCCR[ACOC]
     eno_resync = 0,
     // Force ASRCCR[ACOC]=0
     eresync = 1,
   };
-  
-  // RSYNIFC
-  enum class eRSYNIFC : uint32_t {
+
+  enum class eRSYNIFC : std::uint32_t {
     // Do not touch ASRCCR[ACIC]
     eno_resync = 0,
     // Force ASRCCR[ACIC]=0
     eresync = 1,
   };
-  
-  // BYPASSPOLYC
-  enum class eBYPASSPOLYC : uint32_t {
+
+  enum class eBYPASSPOLYC : std::uint32_t {
     // Don't bypass polyphase filtering.
     eno_bypass = 0,
     // Bypass polyphase filtering.
     ebypass = 1,
   };
-  
-  // BUFSTALLC
-  enum class eBUFSTALLC : uint32_t {
+
+  enum class eBUFSTALLC : std::uint32_t {
     // Don't stall Pair C conversion even in case of near empty/full FIFO conditions.
     eno_stall = 0,
     // Stall Pair C conversion in case of near empty/full FIFO conditions.
     estall = 1,
   };
-  
-  // EXTTHRSHC
-  enum class eEXTTHRSHC : uint32_t {
+
+  enum class eEXTTHRSHC : std::uint32_t {
     // Use default thresholds.
     euse_default_thresh = 0,
     // Use external defined thresholds.
     euse_ext_thresh = 1,
   };
-  
-  // ZEROBUFC
-  enum class eZEROBUFC : uint32_t {
+
+  enum class eZEROBUFC : std::uint32_t {
     // Zeroize the buffer
     ezero_buf = 0,
     // Don't zeroize the buffer
     edo_not_zero_buf = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - INFIFO_THRESHOLDC
-    uint32_t INFIFO_THRESHOLDC : 6;
-    uint32_t _reserved_0 : 4;
-    // read-write - RSYNOFC
-    eRSYNOFC RSYNOFC : 1;
-    // read-write - RSYNIFC
-    eRSYNIFC RSYNIFC : 1;
-    // read-write - OUTFIFO_THRESHOLDC
-    uint32_t OUTFIFO_THRESHOLDC : 6;
-    uint32_t _reserved_1 : 2;
-    // read-write - BYPASSPOLYC
-    eBYPASSPOLYC BYPASSPOLYC : 1;
-    // read-write - BUFSTALLC
-    eBUFSTALLC BUFSTALLC : 1;
-    // read-write - EXTTHRSHC
-    eEXTTHRSHC EXTTHRSHC : 1;
-    // read-write - ZEROBUFC
-    eZEROBUFC ZEROBUFC : 1;
-    uint32_t _reserved_2 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // INFIFO_THRESHOLDC
+  using INFIFO_THRESHOLDC = ftl::mmio::Field<6, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RSYNOFC
+  using RSYNOFC = ftl::mmio::Field<1, 10, eRSYNOFC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RSYNIFC
+  using RSYNIFC = ftl::mmio::Field<1, 11, eRSYNIFC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // OUTFIFO_THRESHOLDC
+  using OUTFIFO_THRESHOLDC = ftl::mmio::Field<6, 12, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BYPASSPOLYC
+  using BYPASSPOLYC = ftl::mmio::Field<1, 20, eBYPASSPOLYC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // BUFSTALLC
+  using BUFSTALLC = ftl::mmio::Field<1, 21, eBUFSTALLC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // EXTTHRSHC
+  using EXTTHRSHC = ftl::mmio::Field<1, 22, eEXTTHRSHC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // ZEROBUFC
+  using ZEROBUFC = ftl::mmio::Field<1, 23, eZEROBUFC, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRMCRC_fields_
 
-  ASRMCRC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRMCRC &ref() { return *reinterpret_cast<volatile ASRMCRC*>(0x404140B0); }
+struct ASRMCRC : ftl::mmio::Register<
+    0x404140B0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRMCRC_fields_::INFIFO_THRESHOLDC,
+    ftl::mmio::Reserved<4, 6>,
+    ASRMCRC_fields_::RSYNOFC,
+    ASRMCRC_fields_::RSYNIFC,
+    ASRMCRC_fields_::OUTFIFO_THRESHOLDC,
+    ftl::mmio::Reserved<2, 18>,
+    ASRMCRC_fields_::BYPASSPOLYC,
+    ASRMCRC_fields_::BUFSTALLC,
+    ASRMCRC_fields_::EXTTHRSHC,
+    ASRMCRC_fields_::ZEROBUFC,
+    ftl::mmio::Reserved<8, 24>> {
+  using eRSYNOFC = ASRMCRC_fields_::eRSYNOFC;
+  using eRSYNIFC = ASRMCRC_fields_::eRSYNIFC;
+  using eBYPASSPOLYC = ASRMCRC_fields_::eBYPASSPOLYC;
+  using eBUFSTALLC = ASRMCRC_fields_::eBUFSTALLC;
+  using eEXTTHRSHC = ASRMCRC_fields_::eEXTTHRSHC;
+  using eZEROBUFC = ASRMCRC_fields_::eZEROBUFC;
+  using INFIFO_THRESHOLDC = ASRMCRC_fields_::INFIFO_THRESHOLDC;
+  using RSYNOFC = ASRMCRC_fields_::RSYNOFC;
+  using RSYNIFC = ASRMCRC_fields_::RSYNIFC;
+  using OUTFIFO_THRESHOLDC = ASRMCRC_fields_::OUTFIFO_THRESHOLDC;
+  using BYPASSPOLYC = ASRMCRC_fields_::BYPASSPOLYC;
+  using BUFSTALLC = ASRMCRC_fields_::BUFSTALLC;
+  using EXTTHRSHC = ASRMCRC_fields_::EXTTHRSHC;
+  using ZEROBUFC = ASRMCRC_fields_::ZEROBUFC;
 };
 
+
 // ASRC FIFO Status Register for Pair C
-union ASRFSTC {
-  
-  // IAEC
-  enum class eIAEC : uint32_t {
+struct ASRFSTC_fields_ {
+
+  enum class eIAEC : std::uint32_t {
     // Input FIFO is not near empty for Pair C
     enot_near_empty = 0,
     // Input FIFO is near empty for Pair C
     enear_empty = 1,
   };
-  
-  // OAFC
-  enum class eOAFC : uint32_t {
+
+  enum class eOAFC : std::uint32_t {
     // Output FIFO is not near full for Pair C
     enot_near_full = 0,
     // Output FIFO is near full for Pair C
     enear_full = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - INFIFO_FILLC
-    uint32_t INFIFO_FILLC : 7;
-    uint32_t _reserved_0 : 4;
-    // read-only - IAEC
-    eIAEC IAEC : 1;
-    // read-only - OUTFIFO_FILLC
-    uint32_t OUTFIFO_FILLC : 7;
-    uint32_t _reserved_1 : 4;
-    // read-only - OAFC
-    eOAFC OAFC : 1;
-    uint32_t _reserved_2 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // INFIFO_FILLC
+  using INFIFO_FILLC = ftl::mmio::Field<7, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // IAEC
+  using IAEC = ftl::mmio::Field<1, 11, eIAEC, ftl::mmio::RO, ftl::mmio::Normal>;
+  // OUTFIFO_FILLC
+  using OUTFIFO_FILLC = ftl::mmio::Field<7, 12, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // OAFC
+  using OAFC = ftl::mmio::Field<1, 23, eOAFC, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct ASRFSTC_fields_
 
-  ASRFSTC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRFSTC &ref() { return *reinterpret_cast<volatile ASRFSTC*>(0x404140B4); }
+struct ASRFSTC : ftl::mmio::Register<
+    0x404140B4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    ASRFSTC_fields_::INFIFO_FILLC,
+    ftl::mmio::Reserved<4, 7>,
+    ASRFSTC_fields_::IAEC,
+    ASRFSTC_fields_::OUTFIFO_FILLC,
+    ftl::mmio::Reserved<4, 19>,
+    ASRFSTC_fields_::OAFC,
+    ftl::mmio::Reserved<8, 24>> {
+  using eIAEC = ASRFSTC_fields_::eIAEC;
+  using eOAFC = ASRFSTC_fields_::eOAFC;
+  using INFIFO_FILLC = ASRFSTC_fields_::INFIFO_FILLC;
+  using IAEC = ASRFSTC_fields_::IAEC;
+  using OUTFIFO_FILLC = ASRFSTC_fields_::OUTFIFO_FILLC;
+  using OAFC = ASRFSTC_fields_::OAFC;
 };
 
+
 // ASRC Misc Control Register 1 for Pair X
-union ASRMCR1A {
-  
-  // OW16
-  enum class eOW16 : uint32_t {
+struct ASRMCR1_fields_ {
+
+  enum class eOW16 : std::uint32_t {
     // 24-bit output data.
     eout_24bit = 0,
     // 16-bit output data
     eout_16bit = 1,
   };
-  
-  // OSGN
-  enum class eOSGN : uint32_t {
+
+  enum class eOSGN : std::uint32_t {
     // No sign extension.
     eno_sign_ext = 0,
     // Sign extension.
     esign_ext = 1,
   };
-  
-  // OMSB
-  enum class eOMSB : uint32_t {
+
+  enum class eOMSB : std::uint32_t {
     // LSB aligned.
     elsb_aligned = 0,
     // MSB aligned.
     emsb_aligned = 1,
   };
-  
-  // IMSB
-  enum class eIMSB : uint32_t {
+
+  enum class eIMSB : std::uint32_t {
     // LSB aligned.
     elsb_aligned = 0,
     // MSB aligned.
     emsb_aligned = 1,
   };
-  
-  // IWD
-  enum class eIWD : uint32_t {
+
+  enum class eIWD : std::uint32_t {
     // 24-bit audio data.
     eaudiodata_24bit = 0,
     // 16-bit audio data.
@@ -1888,166 +1995,42 @@ union ASRMCR1A {
     // 8-bit audio data.
     eaudiodata_8bit = 2,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - OW16
-    eOW16 OW16 : 1;
-    // read-write - OSGN
-    eOSGN OSGN : 1;
-    // read-write - OMSB
-    eOMSB OMSB : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - IMSB
-    eIMSB IMSB : 1;
-    // read-write - IWD
-    eIWD IWD : 2;
-    uint32_t _reserved_1 : 21;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  ASRMCR1A() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRMCR1A &ref() { return *reinterpret_cast<volatile ASRMCR1A*>(0x404140C0); }
-};
-// ASRC Misc Control Register 1 for Pair X
-union ASRMCR1B {
-  
   // OW16
-  enum class eOW16 : uint32_t {
-    // 24-bit output data.
-    eout_24bit = 0,
-    // 16-bit output data
-    eout_16bit = 1,
-  };
-  
+  using OW16 = ftl::mmio::Field<1, 0, eOW16, ftl::mmio::RW, ftl::mmio::Normal>;
   // OSGN
-  enum class eOSGN : uint32_t {
-    // No sign extension.
-    eno_sign_ext = 0,
-    // Sign extension.
-    esign_ext = 1,
-  };
-  
+  using OSGN = ftl::mmio::Field<1, 1, eOSGN, ftl::mmio::RW, ftl::mmio::Normal>;
   // OMSB
-  enum class eOMSB : uint32_t {
-    // LSB aligned.
-    elsb_aligned = 0,
-    // MSB aligned.
-    emsb_aligned = 1,
-  };
-  
+  using OMSB = ftl::mmio::Field<1, 2, eOMSB, ftl::mmio::RW, ftl::mmio::Normal>;
   // IMSB
-  enum class eIMSB : uint32_t {
-    // LSB aligned.
-    elsb_aligned = 0,
-    // MSB aligned.
-    emsb_aligned = 1,
-  };
-  
+  using IMSB = ftl::mmio::Field<1, 8, eIMSB, ftl::mmio::RW, ftl::mmio::Normal>;
   // IWD
-  enum class eIWD : uint32_t {
-    // 24-bit audio data.
-    eaudiodata_24bit = 0,
-    // 16-bit audio data.
-    eaudiodata_16bit = 1,
-    // 8-bit audio data.
-    eaudiodata_8bit = 2,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - OW16
-    eOW16 OW16 : 1;
-    // read-write - OSGN
-    eOSGN OSGN : 1;
-    // read-write - OMSB
-    eOMSB OMSB : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - IMSB
-    eIMSB IMSB : 1;
-    // read-write - IWD
-    eIWD IWD : 2;
-    uint32_t _reserved_1 : 21;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  using IWD = ftl::mmio::Field<2, 9, eIWD, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct ASRMCR1_fields_
 
-  ASRMCR1B() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRMCR1B &ref() { return *reinterpret_cast<volatile ASRMCR1B*>(0x404140C4); }
-};
-// ASRC Misc Control Register 1 for Pair X
-union ASRMCR1C {
-  
-  // OW16
-  enum class eOW16 : uint32_t {
-    // 24-bit output data.
-    eout_24bit = 0,
-    // 16-bit output data
-    eout_16bit = 1,
-  };
-  
-  // OSGN
-  enum class eOSGN : uint32_t {
-    // No sign extension.
-    eno_sign_ext = 0,
-    // Sign extension.
-    esign_ext = 1,
-  };
-  
-  // OMSB
-  enum class eOMSB : uint32_t {
-    // LSB aligned.
-    elsb_aligned = 0,
-    // MSB aligned.
-    emsb_aligned = 1,
-  };
-  
-  // IMSB
-  enum class eIMSB : uint32_t {
-    // LSB aligned.
-    elsb_aligned = 0,
-    // MSB aligned.
-    emsb_aligned = 1,
-  };
-  
-  // IWD
-  enum class eIWD : uint32_t {
-    // 24-bit audio data.
-    eaudiodata_24bit = 0,
-    // 16-bit audio data.
-    eaudiodata_16bit = 1,
-    // 8-bit audio data.
-    eaudiodata_8bit = 2,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - OW16
-    eOW16 OW16 : 1;
-    // read-write - OSGN
-    eOSGN OSGN : 1;
-    // read-write - OMSB
-    eOMSB OMSB : 1;
-    uint32_t _reserved_0 : 5;
-    // read-write - IMSB
-    eIMSB IMSB : 1;
-    // read-write - IWD
-    eIWD IWD : 2;
-    uint32_t _reserved_1 : 21;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  ASRMCR1C() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile ASRMCR1C &ref() { return *reinterpret_cast<volatile ASRMCR1C*>(0x404140C8); }
+template<std::uint32_t Index>
+struct ASRMCR1 : ftl::mmio::Register<
+    0x404140C0u + (Index * 0x4u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ASRMCR1_fields_::OW16,
+    ASRMCR1_fields_::OSGN,
+    ASRMCR1_fields_::OMSB,
+    ftl::mmio::Reserved<5, 3>,
+    ASRMCR1_fields_::IMSB,
+    ASRMCR1_fields_::IWD,
+    ftl::mmio::Reserved<21, 11>> {
+  static_assert(Index < 3u, "ASRMCR1: Index out of range");
+  using eOW16 = ASRMCR1_fields_::eOW16;
+  using eOSGN = ASRMCR1_fields_::eOSGN;
+  using eOMSB = ASRMCR1_fields_::eOMSB;
+  using eIMSB = ASRMCR1_fields_::eIMSB;
+  using eIWD = ASRMCR1_fields_::eIWD;
+  using OW16 = ASRMCR1_fields_::OW16;
+  using OSGN = ASRMCR1_fields_::OSGN;
+  using OMSB = ASRMCR1_fields_::OMSB;
+  using IMSB = ASRMCR1_fields_::IMSB;
+  using IWD = ASRMCR1_fields_::IWD;
 };
 
-
-} // namespace nASRC
+}  // namespace regs::asrc

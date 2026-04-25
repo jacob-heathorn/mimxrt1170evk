@@ -1,20 +1,18 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // no description available
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nOCOTP {
+namespace regs::ocotp {
 
 
 // OTP Controller Control and Status Register
-union CTRL {
-  
-  // OTP write and read access address register
-  enum class eADDR : uint32_t {
+struct CTRL_fields_ {
+
+  enum class eADDR : std::uint32_t {
     // Address of one of the 16 supplementary fuse words in OTP memory.
     esupp_word_0 = 0,
     // Address of one of the 16 supplementary fuse words in OTP memory.
@@ -548,212 +546,245 @@ union CTRL {
     // Address of one of the 256 user fuse words in OTP memory.
     euser_fuse_word_271 = 271,
   };
-  
-  // OTP controller status bit
-  enum class eBUSY : uint32_t {
+
+  enum class eBUSY : std::uint32_t {
     // No write or read access to OTP started.
     enot_busy = 0,
     // Write or read access to OTP started.
     ebusy = 1,
   };
-  
-  // Locked Region Access Error
-  enum class eERROR : uint32_t {
+
+  enum class eERROR : std::uint32_t {
     // No error.
     eno_error = 0,
     // Error - access to a locked region requested.
     eerror = 1,
   };
-  
-  // Reload Shadow Registers
-  enum class eRELOAD_SHADOWS : uint32_t {
+
+  enum class eRELOAD_SHADOWS : std::uint32_t {
     // Do not force shadow register re-load.
     eshadow_noforce_reload = 0,
     // Force shadow register re-load. This bit is cleared automatically after shadow registers are re-loaded.
     eshadow_force_reload = 1,
   };
-  
-  // Lock fuse word
-  enum class eWORDLOCK : uint32_t {
+
+  enum class eWORDLOCK : std::uint32_t {
     // No change to LOCK bit when programming a word using redundancy
     eNO_CHANGE = 0,
     // LOCK bit for fuse word will be set after successfully programming a word using redundancy
     eLOCK = 1,
   };
-  
-  // Write unlock
-  enum class eWR_UNLOCK : uint32_t {
+
+  enum class eWR_UNLOCK : std::uint32_t {
     // OTP write access is locked.
     eotp_w_locked = 0,
     // OTP write access is unlocked.
     eotp_w_unlocked = 15991,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - OTP write and read access address register
-    eADDR ADDR : 10;
-    // read-only - OTP controller status bit
-    eBUSY BUSY : 1;
-    // read-write - Locked Region Access Error
-    eERROR ERROR : 1;
-    // read-write - Reload Shadow Registers
-    eRELOAD_SHADOWS RELOAD_SHADOWS : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - Lock fuse word
-    eWORDLOCK WORDLOCK : 1;
-    // read-write - Write unlock
-    eWR_UNLOCK WR_UNLOCK : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // OTP write and read access address register
+  using ADDR = ftl::mmio::Field<10, 0, eADDR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // OTP controller status bit
+  using BUSY = ftl::mmio::Field<1, 10, eBUSY, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Locked Region Access Error
+  using ERROR = ftl::mmio::Field<1, 11, eERROR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Reload Shadow Registers
+  using RELOAD_SHADOWS = ftl::mmio::Field<1, 12, eRELOAD_SHADOWS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock fuse word
+  using WORDLOCK = ftl::mmio::Field<1, 15, eWORDLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Write unlock
+  using WR_UNLOCK = ftl::mmio::Field<16, 16, eWR_UNLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CTRL_fields_
 
-  CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x40CAC000); }
+struct CTRL : ftl::mmio::Register<
+    0x40CAC000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_fields_::ADDR,
+    CTRL_fields_::BUSY,
+    CTRL_fields_::ERROR,
+    CTRL_fields_::RELOAD_SHADOWS,
+    ftl::mmio::Reserved<2, 13>,
+    CTRL_fields_::WORDLOCK,
+    CTRL_fields_::WR_UNLOCK> {
+  using eADDR = CTRL_fields_::eADDR;
+  using eBUSY = CTRL_fields_::eBUSY;
+  using eERROR = CTRL_fields_::eERROR;
+  using eRELOAD_SHADOWS = CTRL_fields_::eRELOAD_SHADOWS;
+  using eWORDLOCK = CTRL_fields_::eWORDLOCK;
+  using eWR_UNLOCK = CTRL_fields_::eWR_UNLOCK;
+  using ADDR = CTRL_fields_::ADDR;
+  using BUSY = CTRL_fields_::BUSY;
+  using ERROR = CTRL_fields_::ERROR;
+  using RELOAD_SHADOWS = CTRL_fields_::RELOAD_SHADOWS;
+  using WORDLOCK = CTRL_fields_::WORDLOCK;
+  using WR_UNLOCK = CTRL_fields_::WR_UNLOCK;
 };
+
 
 // OTP Controller Control and Status Register
-union CTRL_SET {
-  
-  // Bit field definition.
-  struct {
-    // read-write - OTP write and read access address register
-    uint32_t ADDR : 10;
-    // read-only - OTP controller status bit
-    uint32_t BUSY : 1;
-    // read-write - Locked Region Access Error
-    uint32_t ERROR : 1;
-    // read-write - Reload Shadow Registers
-    uint32_t RELOAD_SHADOWS : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - Lock fuse word
-    uint32_t WORDLOCK : 1;
-    // read-write - Write unlock
-    uint32_t WR_UNLOCK : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL_SET_fields_ {
+  // OTP write and read access address register
+  using ADDR = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // OTP controller status bit
+  using BUSY = ftl::mmio::Field<1, 10, bool, ftl::mmio::RO, ftl::mmio::OneToSet>;
+  // Locked Region Access Error
+  using ERROR = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Reload Shadow Registers
+  using RELOAD_SHADOWS = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Lock fuse word
+  using WORDLOCK = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Write unlock
+  using WR_UNLOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToSet>;
+};  // struct CTRL_SET_fields_
 
-  CTRL_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_SET &ref() { return *reinterpret_cast<volatile CTRL_SET*>(0x40CAC004); }
+struct CTRL_SET : ftl::mmio::Register<
+    0x40CAC004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_SET_fields_::ADDR,
+    CTRL_SET_fields_::BUSY,
+    CTRL_SET_fields_::ERROR,
+    CTRL_SET_fields_::RELOAD_SHADOWS,
+    ftl::mmio::Reserved<2, 13>,
+    CTRL_SET_fields_::WORDLOCK,
+    CTRL_SET_fields_::WR_UNLOCK> {
+  using ADDR = CTRL_SET_fields_::ADDR;
+  using BUSY = CTRL_SET_fields_::BUSY;
+  using ERROR = CTRL_SET_fields_::ERROR;
+  using RELOAD_SHADOWS = CTRL_SET_fields_::RELOAD_SHADOWS;
+  using WORDLOCK = CTRL_SET_fields_::WORDLOCK;
+  using WR_UNLOCK = CTRL_SET_fields_::WR_UNLOCK;
 };
+
 
 // OTP Controller Control and Status Register
-union CTRL_CLR {
-  
-  // Bit field definition.
-  struct {
-    // read-write - OTP write and read access address register
-    uint32_t ADDR : 10;
-    // read-only - OTP controller status bit
-    uint32_t BUSY : 1;
-    // read-write - Locked Region Access Error
-    uint32_t ERROR : 1;
-    // read-write - Reload Shadow Registers
-    uint32_t RELOAD_SHADOWS : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - Lock fuse word
-    uint32_t WORDLOCK : 1;
-    // read-write - Write unlock
-    uint32_t WR_UNLOCK : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL_CLR_fields_ {
+  // OTP write and read access address register
+  using ADDR = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // OTP controller status bit
+  using BUSY = ftl::mmio::Field<1, 10, bool, ftl::mmio::RO, ftl::mmio::OneToClear>;
+  // Locked Region Access Error
+  using ERROR = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Reload Shadow Registers
+  using RELOAD_SHADOWS = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Lock fuse word
+  using WORDLOCK = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Write unlock
+  using WR_UNLOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct CTRL_CLR_fields_
 
-  CTRL_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_CLR &ref() { return *reinterpret_cast<volatile CTRL_CLR*>(0x40CAC008); }
+struct CTRL_CLR : ftl::mmio::Register<
+    0x40CAC008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_CLR_fields_::ADDR,
+    CTRL_CLR_fields_::BUSY,
+    CTRL_CLR_fields_::ERROR,
+    CTRL_CLR_fields_::RELOAD_SHADOWS,
+    ftl::mmio::Reserved<2, 13>,
+    CTRL_CLR_fields_::WORDLOCK,
+    CTRL_CLR_fields_::WR_UNLOCK> {
+  using ADDR = CTRL_CLR_fields_::ADDR;
+  using BUSY = CTRL_CLR_fields_::BUSY;
+  using ERROR = CTRL_CLR_fields_::ERROR;
+  using RELOAD_SHADOWS = CTRL_CLR_fields_::RELOAD_SHADOWS;
+  using WORDLOCK = CTRL_CLR_fields_::WORDLOCK;
+  using WR_UNLOCK = CTRL_CLR_fields_::WR_UNLOCK;
 };
+
 
 // OTP Controller Control and Status Register
-union CTRL_TOG {
-  
-  // Bit field definition.
-  struct {
-    // read-write - OTP write and read access address register
-    uint32_t ADDR : 10;
-    // read-only - OTP controller status bit
-    uint32_t BUSY : 1;
-    // read-write - Locked Region Access Error
-    uint32_t ERROR : 1;
-    // read-write - Reload Shadow Registers
-    uint32_t RELOAD_SHADOWS : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - Lock fuse word
-    uint32_t WORDLOCK : 1;
-    // read-write - Write unlock
-    uint32_t WR_UNLOCK : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CTRL_TOG_fields_ {
+  // OTP write and read access address register
+  using ADDR = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // OTP controller status bit
+  using BUSY = ftl::mmio::Field<1, 10, bool, ftl::mmio::RO, ftl::mmio::OneToToggle>;
+  // Locked Region Access Error
+  using ERROR = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Reload Shadow Registers
+  using RELOAD_SHADOWS = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Lock fuse word
+  using WORDLOCK = ftl::mmio::Field<1, 15, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Write unlock
+  using WR_UNLOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+};  // struct CTRL_TOG_fields_
 
-  CTRL_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL_TOG &ref() { return *reinterpret_cast<volatile CTRL_TOG*>(0x40CAC00C); }
+struct CTRL_TOG : ftl::mmio::Register<
+    0x40CAC00Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_TOG_fields_::ADDR,
+    CTRL_TOG_fields_::BUSY,
+    CTRL_TOG_fields_::ERROR,
+    CTRL_TOG_fields_::RELOAD_SHADOWS,
+    ftl::mmio::Reserved<2, 13>,
+    CTRL_TOG_fields_::WORDLOCK,
+    CTRL_TOG_fields_::WR_UNLOCK> {
+  using ADDR = CTRL_TOG_fields_::ADDR;
+  using BUSY = CTRL_TOG_fields_::BUSY;
+  using ERROR = CTRL_TOG_fields_::ERROR;
+  using RELOAD_SHADOWS = CTRL_TOG_fields_::RELOAD_SHADOWS;
+  using WORDLOCK = CTRL_TOG_fields_::WORDLOCK;
+  using WR_UNLOCK = CTRL_TOG_fields_::WR_UNLOCK;
 };
+
 
 // OTP Controller PDN Register
-union PDN {
-  
-  // PDN value
-  enum class ePDN : uint32_t {
+struct PDN_fields_ {
+
+  enum class ePDN : std::uint32_t {
     // OTP memory is not powered
     epower_off = 0,
     // OTP memory is powered
     epower_on = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - PDN value
-    ePDN PDN : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // PDN value
+  using PDN = ftl::mmio::Field<1, 0, ePDN, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct PDN_fields_
 
-  PDN() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PDN &ref() { return *reinterpret_cast<volatile PDN*>(0x40CAC010); }
+struct PDN : ftl::mmio::Register<
+    0x40CAC010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PDN_fields_::PDN,
+    ftl::mmio::Reserved<31, 1>> {
+  using ePDN = PDN_fields_::ePDN;
+  using value_ = PDN_fields_::PDN;
 };
+
 
 // OTP Controller Write Data Register
-union DATA {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DATA_fields_ {
+  // Data
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct DATA_fields_
 
-  DATA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATA &ref() { return *reinterpret_cast<volatile DATA*>(0x40CAC020); }
+struct DATA : ftl::mmio::Register<
+    0x40CAC020u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    DATA_fields_::DATA> {
+  using value_ = DATA_fields_::DATA;
 };
 
+
 // OTP Controller Read Control Register
-union READ_CTRL {
-  
-  // Read Fuse
-  enum class eREAD_FUSE : uint32_t {
+struct READ_CTRL_fields_ {
+
+  enum class eREAD_FUSE : std::uint32_t {
     // Do not initiate a read from OTP
     eDO_NOT_START_RD_OP = 0,
     // Initiate a read from OTP
     eSTART_RD_OP = 1,
   };
-  
-  // Number of words to read.
-  enum class eREAD_FUSE_CNTR : uint32_t {
+
+  enum class eREAD_FUSE_CNTR : std::uint32_t {
     // 1 word
     eONE_WORD = 0,
     // 2 words
@@ -763,406 +794,539 @@ union READ_CTRL {
     // 4 words
     eFOUR_WORDS = 3,
   };
-  
-  // Enable read-done interrupt
-  enum class eREAD_FUSE_DONE_INTR_ENA : uint32_t {
-    // Disable
-    eDISABLE = 0,
-    // Enable
-    eENABLE = 1,
-  };
-  
-  // Enable read-error interrupt
-  enum class eREAD_FUSE_ERROR_INTR_ENA : uint32_t {
-    // Disable
-    eDISABLE = 0,
-    // Enable
-    eENABLE = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Read Fuse
-    eREAD_FUSE READ_FUSE : 1;
-    // read-write - Number of words to read.
-    eREAD_FUSE_CNTR READ_FUSE_CNTR : 2;
-    // read-write - Enable read-done interrupt
-    eREAD_FUSE_DONE_INTR_ENA READ_FUSE_DONE_INTR_ENA : 1;
-    // read-write - Enable read-error interrupt
-    eREAD_FUSE_ERROR_INTR_ENA READ_FUSE_ERROR_INTR_ENA : 1;
-    uint32_t _reserved_0 : 27;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
 
-  READ_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile READ_CTRL &ref() { return *reinterpret_cast<volatile READ_CTRL*>(0x40CAC030); }
+  enum class eREAD_FUSE_DONE_INTR_ENA : std::uint32_t {
+    // Disable
+    eDISABLE = 0,
+    // Enable
+    eENABLE = 1,
+  };
+
+  enum class eREAD_FUSE_ERROR_INTR_ENA : std::uint32_t {
+    // Disable
+    eDISABLE = 0,
+    // Enable
+    eENABLE = 1,
+  };
+  // Read Fuse
+  using READ_FUSE = ftl::mmio::Field<1, 0, eREAD_FUSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Number of words to read.
+  using READ_FUSE_CNTR = ftl::mmio::Field<2, 1, eREAD_FUSE_CNTR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable read-done interrupt
+  using READ_FUSE_DONE_INTR_ENA = ftl::mmio::Field<1, 3, eREAD_FUSE_DONE_INTR_ENA, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Enable read-error interrupt
+  using READ_FUSE_ERROR_INTR_ENA = ftl::mmio::Field<1, 4, eREAD_FUSE_ERROR_INTR_ENA, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct READ_CTRL_fields_
+
+struct READ_CTRL : ftl::mmio::Register<
+    0x40CAC030u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    READ_CTRL_fields_::READ_FUSE,
+    READ_CTRL_fields_::READ_FUSE_CNTR,
+    READ_CTRL_fields_::READ_FUSE_DONE_INTR_ENA,
+    READ_CTRL_fields_::READ_FUSE_ERROR_INTR_ENA,
+    ftl::mmio::Reserved<27, 5>> {
+  using eREAD_FUSE = READ_CTRL_fields_::eREAD_FUSE;
+  using eREAD_FUSE_CNTR = READ_CTRL_fields_::eREAD_FUSE_CNTR;
+  using eREAD_FUSE_DONE_INTR_ENA = READ_CTRL_fields_::eREAD_FUSE_DONE_INTR_ENA;
+  using eREAD_FUSE_ERROR_INTR_ENA = READ_CTRL_fields_::eREAD_FUSE_ERROR_INTR_ENA;
+  using READ_FUSE = READ_CTRL_fields_::READ_FUSE;
+  using READ_FUSE_CNTR = READ_CTRL_fields_::READ_FUSE_CNTR;
+  using READ_FUSE_DONE_INTR_ENA = READ_CTRL_fields_::READ_FUSE_DONE_INTR_ENA;
+  using READ_FUSE_ERROR_INTR_ENA = READ_CTRL_fields_::READ_FUSE_ERROR_INTR_ENA;
 };
 
+
 // 8K OTP Memory STATUS Register
-union OUT_STATUS {
-  
-  // Fuse read error
-  enum class eREAD_ERROR_INTR : uint32_t {
+struct OUT_STATUS_fields_ {
+
+  enum class eREAD_ERROR_INTR : std::uint32_t {
     // Read operation finished with out any error
     eno_error = 0,
     // Read operation finished with an error
     eerror = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 9;
-    // read-write - Single Error Correct
-    uint32_t SEC : 1;
-    // read-write - Double error detect
-    uint32_t DED : 1;
-    // read-write - Word Locked
-    uint32_t LOCKED : 1;
-    // read-write - Programming failed
-    uint32_t PROGFAIL : 1;
-    // read-only - Acknowledge
-    uint32_t ACK : 1;
-    // read-only - Power OK
-    uint32_t PWOK : 1;
-    // read-only - Flag state
-    uint32_t FLAGSTATE : 4;
-    // read-write - Indicates single error correction occured on reload
-    uint32_t SEC_RELOAD : 1;
-    // read-write - Indicates double error detection occured on reload
-    uint32_t DED_RELOAD : 1;
-    // read-only - Calibrated status
-    uint32_t CALIBRATED : 1;
-    // read-write - Read fuse done
-    uint32_t READ_DONE_INTR : 1;
-    // read-write - Fuse read error
-    eREAD_ERROR_INTR READ_ERROR_INTR : 1;
-    // read-write - Double error detect
-    uint32_t DED0 : 1;
-    // read-write - Double error detect
-    uint32_t DED1 : 1;
-    // read-write - Double error detect
-    uint32_t DED2 : 1;
-    // read-write - Double error detect
-    uint32_t DED3 : 1;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Single Error Correct
+  using SEC = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Double error detect
+  using DED = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Word Locked
+  using LOCKED = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Programming failed
+  using PROGFAIL = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Acknowledge
+  using ACK = ftl::mmio::Field<1, 13, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Power OK
+  using PWOK = ftl::mmio::Field<1, 14, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Flag state
+  using FLAGSTATE = ftl::mmio::Field<4, 15, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Indicates single error correction occured on reload
+  using SEC_RELOAD = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Indicates double error detection occured on reload
+  using DED_RELOAD = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Calibrated status
+  using CALIBRATED = ftl::mmio::Field<1, 21, bool, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Read fuse done
+  using READ_DONE_INTR = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Fuse read error
+  using READ_ERROR_INTR = ftl::mmio::Field<1, 23, eREAD_ERROR_INTR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Double error detect
+  using DED0 = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Double error detect
+  using DED1 = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Double error detect
+  using DED2 = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Double error detect
+  using DED3 = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct OUT_STATUS_fields_
 
-  OUT_STATUS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OUT_STATUS &ref() { return *reinterpret_cast<volatile OUT_STATUS*>(0x40CAC090); }
+struct OUT_STATUS : ftl::mmio::Register<
+    0x40CAC090u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<9, 0>,
+    OUT_STATUS_fields_::SEC,
+    OUT_STATUS_fields_::DED,
+    OUT_STATUS_fields_::LOCKED,
+    OUT_STATUS_fields_::PROGFAIL,
+    OUT_STATUS_fields_::ACK,
+    OUT_STATUS_fields_::PWOK,
+    OUT_STATUS_fields_::FLAGSTATE,
+    OUT_STATUS_fields_::SEC_RELOAD,
+    OUT_STATUS_fields_::DED_RELOAD,
+    OUT_STATUS_fields_::CALIBRATED,
+    OUT_STATUS_fields_::READ_DONE_INTR,
+    OUT_STATUS_fields_::READ_ERROR_INTR,
+    OUT_STATUS_fields_::DED0,
+    OUT_STATUS_fields_::DED1,
+    OUT_STATUS_fields_::DED2,
+    OUT_STATUS_fields_::DED3,
+    ftl::mmio::Reserved<4, 28>> {
+  using eREAD_ERROR_INTR = OUT_STATUS_fields_::eREAD_ERROR_INTR;
+  using SEC = OUT_STATUS_fields_::SEC;
+  using DED = OUT_STATUS_fields_::DED;
+  using LOCKED = OUT_STATUS_fields_::LOCKED;
+  using PROGFAIL = OUT_STATUS_fields_::PROGFAIL;
+  using ACK = OUT_STATUS_fields_::ACK;
+  using PWOK = OUT_STATUS_fields_::PWOK;
+  using FLAGSTATE = OUT_STATUS_fields_::FLAGSTATE;
+  using SEC_RELOAD = OUT_STATUS_fields_::SEC_RELOAD;
+  using DED_RELOAD = OUT_STATUS_fields_::DED_RELOAD;
+  using CALIBRATED = OUT_STATUS_fields_::CALIBRATED;
+  using READ_DONE_INTR = OUT_STATUS_fields_::READ_DONE_INTR;
+  using READ_ERROR_INTR = OUT_STATUS_fields_::READ_ERROR_INTR;
+  using DED0 = OUT_STATUS_fields_::DED0;
+  using DED1 = OUT_STATUS_fields_::DED1;
+  using DED2 = OUT_STATUS_fields_::DED2;
+  using DED3 = OUT_STATUS_fields_::DED3;
 };
+
 
 // 8K OTP Memory STATUS Register
-union OUT_STATUS_SET {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 9;
-    // read-write - Single Error Correct
-    uint32_t SEC : 1;
-    // read-write - Double error detect
-    uint32_t DED : 1;
-    // read-write - Word Locked
-    uint32_t LOCKED : 1;
-    // read-write - Programming failed
-    uint32_t PROGFAIL : 1;
-    // read-only - Acknowledge
-    uint32_t ACK : 1;
-    // read-only - Power OK
-    uint32_t PWOK : 1;
-    // read-only - Flag state
-    uint32_t FLAGSTATE : 4;
-    // read-write - Indicates single error correction occured on reload
-    uint32_t SEC_RELOAD : 1;
-    // read-write - Indicates double error detection occured on reload
-    uint32_t DED_RELOAD : 1;
-    // read-only - Calibrated status
-    uint32_t CALIBRATED : 1;
-    // read-write - Read fuse done
-    uint32_t READ_DONE_INTR : 1;
-    // read-write - Fuse read error
-    uint32_t READ_ERROR_INTR : 1;
-    // read-write - Double error detect
-    uint32_t DED0 : 1;
-    // read-write - Double error detect
-    uint32_t DED1 : 1;
-    // read-write - Double error detect
-    uint32_t DED2 : 1;
-    // read-write - Double error detect
-    uint32_t DED3 : 1;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct OUT_STATUS_SET_fields_ {
+  // Single Error Correct
+  using SEC = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Double error detect
+  using DED = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Word Locked
+  using LOCKED = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Programming failed
+  using PROGFAIL = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Acknowledge
+  using ACK = ftl::mmio::Field<1, 13, bool, ftl::mmio::RO, ftl::mmio::OneToSet>;
+  // Power OK
+  using PWOK = ftl::mmio::Field<1, 14, bool, ftl::mmio::RO, ftl::mmio::OneToSet>;
+  // Flag state
+  using FLAGSTATE = ftl::mmio::Field<4, 15, std::uint8_t, ftl::mmio::RO, ftl::mmio::OneToSet>;
+  // Indicates single error correction occured on reload
+  using SEC_RELOAD = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Indicates double error detection occured on reload
+  using DED_RELOAD = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Calibrated status
+  using CALIBRATED = ftl::mmio::Field<1, 21, bool, ftl::mmio::RO, ftl::mmio::OneToSet>;
+  // Read fuse done
+  using READ_DONE_INTR = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Fuse read error
+  using READ_ERROR_INTR = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Double error detect
+  using DED0 = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Double error detect
+  using DED1 = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Double error detect
+  using DED2 = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Double error detect
+  using DED3 = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::OneToSet>;
+};  // struct OUT_STATUS_SET_fields_
 
-  OUT_STATUS_SET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OUT_STATUS_SET &ref() { return *reinterpret_cast<volatile OUT_STATUS_SET*>(0x40CAC094); }
+struct OUT_STATUS_SET : ftl::mmio::Register<
+    0x40CAC094u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<9, 0>,
+    OUT_STATUS_SET_fields_::SEC,
+    OUT_STATUS_SET_fields_::DED,
+    OUT_STATUS_SET_fields_::LOCKED,
+    OUT_STATUS_SET_fields_::PROGFAIL,
+    OUT_STATUS_SET_fields_::ACK,
+    OUT_STATUS_SET_fields_::PWOK,
+    OUT_STATUS_SET_fields_::FLAGSTATE,
+    OUT_STATUS_SET_fields_::SEC_RELOAD,
+    OUT_STATUS_SET_fields_::DED_RELOAD,
+    OUT_STATUS_SET_fields_::CALIBRATED,
+    OUT_STATUS_SET_fields_::READ_DONE_INTR,
+    OUT_STATUS_SET_fields_::READ_ERROR_INTR,
+    OUT_STATUS_SET_fields_::DED0,
+    OUT_STATUS_SET_fields_::DED1,
+    OUT_STATUS_SET_fields_::DED2,
+    OUT_STATUS_SET_fields_::DED3,
+    ftl::mmio::Reserved<4, 28>> {
+  using SEC = OUT_STATUS_SET_fields_::SEC;
+  using DED = OUT_STATUS_SET_fields_::DED;
+  using LOCKED = OUT_STATUS_SET_fields_::LOCKED;
+  using PROGFAIL = OUT_STATUS_SET_fields_::PROGFAIL;
+  using ACK = OUT_STATUS_SET_fields_::ACK;
+  using PWOK = OUT_STATUS_SET_fields_::PWOK;
+  using FLAGSTATE = OUT_STATUS_SET_fields_::FLAGSTATE;
+  using SEC_RELOAD = OUT_STATUS_SET_fields_::SEC_RELOAD;
+  using DED_RELOAD = OUT_STATUS_SET_fields_::DED_RELOAD;
+  using CALIBRATED = OUT_STATUS_SET_fields_::CALIBRATED;
+  using READ_DONE_INTR = OUT_STATUS_SET_fields_::READ_DONE_INTR;
+  using READ_ERROR_INTR = OUT_STATUS_SET_fields_::READ_ERROR_INTR;
+  using DED0 = OUT_STATUS_SET_fields_::DED0;
+  using DED1 = OUT_STATUS_SET_fields_::DED1;
+  using DED2 = OUT_STATUS_SET_fields_::DED2;
+  using DED3 = OUT_STATUS_SET_fields_::DED3;
 };
+
 
 // 8K OTP Memory STATUS Register
-union OUT_STATUS_CLR {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 9;
-    // read-write - Single Error Correct
-    uint32_t SEC : 1;
-    // read-write - Double error detect
-    uint32_t DED : 1;
-    // read-write - Word Locked
-    uint32_t LOCKED : 1;
-    // read-write - Programming failed
-    uint32_t PROGFAIL : 1;
-    // read-only - Acknowledge
-    uint32_t ACK : 1;
-    // read-only - Power OK
-    uint32_t PWOK : 1;
-    // read-only - Flag state
-    uint32_t FLAGSTATE : 4;
-    // read-write - Indicates single error correction occured on reload
-    uint32_t SEC_RELOAD : 1;
-    // read-write - Indicates double error detection occured on reload
-    uint32_t DED_RELOAD : 1;
-    // read-only - Calibrated status
-    uint32_t CALIBRATED : 1;
-    // read-write - Read fuse done
-    uint32_t READ_DONE_INTR : 1;
-    // read-write - Fuse read error
-    uint32_t READ_ERROR_INTR : 1;
-    // read-write - Double error detect
-    uint32_t DED0 : 1;
-    // read-write - Double error detect
-    uint32_t DED1 : 1;
-    // read-write - Double error detect
-    uint32_t DED2 : 1;
-    // read-write - Double error detect
-    uint32_t DED3 : 1;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct OUT_STATUS_CLR_fields_ {
+  // Single Error Correct
+  using SEC = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Double error detect
+  using DED = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Word Locked
+  using LOCKED = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Programming failed
+  using PROGFAIL = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Acknowledge
+  using ACK = ftl::mmio::Field<1, 13, bool, ftl::mmio::RO, ftl::mmio::OneToClear>;
+  // Power OK
+  using PWOK = ftl::mmio::Field<1, 14, bool, ftl::mmio::RO, ftl::mmio::OneToClear>;
+  // Flag state
+  using FLAGSTATE = ftl::mmio::Field<4, 15, std::uint8_t, ftl::mmio::RO, ftl::mmio::OneToClear>;
+  // Indicates single error correction occured on reload
+  using SEC_RELOAD = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Indicates double error detection occured on reload
+  using DED_RELOAD = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Calibrated status
+  using CALIBRATED = ftl::mmio::Field<1, 21, bool, ftl::mmio::RO, ftl::mmio::OneToClear>;
+  // Read fuse done
+  using READ_DONE_INTR = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Fuse read error
+  using READ_ERROR_INTR = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Double error detect
+  using DED0 = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Double error detect
+  using DED1 = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Double error detect
+  using DED2 = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Double error detect
+  using DED3 = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::OneToClear>;
+};  // struct OUT_STATUS_CLR_fields_
 
-  OUT_STATUS_CLR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OUT_STATUS_CLR &ref() { return *reinterpret_cast<volatile OUT_STATUS_CLR*>(0x40CAC098); }
+struct OUT_STATUS_CLR : ftl::mmio::Register<
+    0x40CAC098u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<9, 0>,
+    OUT_STATUS_CLR_fields_::SEC,
+    OUT_STATUS_CLR_fields_::DED,
+    OUT_STATUS_CLR_fields_::LOCKED,
+    OUT_STATUS_CLR_fields_::PROGFAIL,
+    OUT_STATUS_CLR_fields_::ACK,
+    OUT_STATUS_CLR_fields_::PWOK,
+    OUT_STATUS_CLR_fields_::FLAGSTATE,
+    OUT_STATUS_CLR_fields_::SEC_RELOAD,
+    OUT_STATUS_CLR_fields_::DED_RELOAD,
+    OUT_STATUS_CLR_fields_::CALIBRATED,
+    OUT_STATUS_CLR_fields_::READ_DONE_INTR,
+    OUT_STATUS_CLR_fields_::READ_ERROR_INTR,
+    OUT_STATUS_CLR_fields_::DED0,
+    OUT_STATUS_CLR_fields_::DED1,
+    OUT_STATUS_CLR_fields_::DED2,
+    OUT_STATUS_CLR_fields_::DED3,
+    ftl::mmio::Reserved<4, 28>> {
+  using SEC = OUT_STATUS_CLR_fields_::SEC;
+  using DED = OUT_STATUS_CLR_fields_::DED;
+  using LOCKED = OUT_STATUS_CLR_fields_::LOCKED;
+  using PROGFAIL = OUT_STATUS_CLR_fields_::PROGFAIL;
+  using ACK = OUT_STATUS_CLR_fields_::ACK;
+  using PWOK = OUT_STATUS_CLR_fields_::PWOK;
+  using FLAGSTATE = OUT_STATUS_CLR_fields_::FLAGSTATE;
+  using SEC_RELOAD = OUT_STATUS_CLR_fields_::SEC_RELOAD;
+  using DED_RELOAD = OUT_STATUS_CLR_fields_::DED_RELOAD;
+  using CALIBRATED = OUT_STATUS_CLR_fields_::CALIBRATED;
+  using READ_DONE_INTR = OUT_STATUS_CLR_fields_::READ_DONE_INTR;
+  using READ_ERROR_INTR = OUT_STATUS_CLR_fields_::READ_ERROR_INTR;
+  using DED0 = OUT_STATUS_CLR_fields_::DED0;
+  using DED1 = OUT_STATUS_CLR_fields_::DED1;
+  using DED2 = OUT_STATUS_CLR_fields_::DED2;
+  using DED3 = OUT_STATUS_CLR_fields_::DED3;
 };
+
 
 // 8K OTP Memory STATUS Register
-union OUT_STATUS_TOG {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 9;
-    // read-write - Single Error Correct
-    uint32_t SEC : 1;
-    // read-write - Double error detect
-    uint32_t DED : 1;
-    // read-write - Word Locked
-    uint32_t LOCKED : 1;
-    // read-write - Programming failed
-    uint32_t PROGFAIL : 1;
-    // read-only - Acknowledge
-    uint32_t ACK : 1;
-    // read-only - Power OK
-    uint32_t PWOK : 1;
-    // read-only - Flag state
-    uint32_t FLAGSTATE : 4;
-    // read-write - Indicates single error correction occured on reload
-    uint32_t SEC_RELOAD : 1;
-    // read-write - Indicates double error detection occured on reload
-    uint32_t DED_RELOAD : 1;
-    // read-only - Calibrated status
-    uint32_t CALIBRATED : 1;
-    // read-write - Read fuse done
-    uint32_t READ_DONE_INTR : 1;
-    // read-write - Fuse read error
-    uint32_t READ_ERROR_INTR : 1;
-    // read-write - Double error detect
-    uint32_t DED0 : 1;
-    // read-write - Double error detect
-    uint32_t DED1 : 1;
-    // read-write - Double error detect
-    uint32_t DED2 : 1;
-    // read-write - Double error detect
-    uint32_t DED3 : 1;
-    uint32_t _reserved_1 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct OUT_STATUS_TOG_fields_ {
+  // Single Error Correct
+  using SEC = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Double error detect
+  using DED = ftl::mmio::Field<1, 10, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Word Locked
+  using LOCKED = ftl::mmio::Field<1, 11, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Programming failed
+  using PROGFAIL = ftl::mmio::Field<1, 12, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Acknowledge
+  using ACK = ftl::mmio::Field<1, 13, bool, ftl::mmio::RO, ftl::mmio::OneToToggle>;
+  // Power OK
+  using PWOK = ftl::mmio::Field<1, 14, bool, ftl::mmio::RO, ftl::mmio::OneToToggle>;
+  // Flag state
+  using FLAGSTATE = ftl::mmio::Field<4, 15, std::uint8_t, ftl::mmio::RO, ftl::mmio::OneToToggle>;
+  // Indicates single error correction occured on reload
+  using SEC_RELOAD = ftl::mmio::Field<1, 19, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Indicates double error detection occured on reload
+  using DED_RELOAD = ftl::mmio::Field<1, 20, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Calibrated status
+  using CALIBRATED = ftl::mmio::Field<1, 21, bool, ftl::mmio::RO, ftl::mmio::OneToToggle>;
+  // Read fuse done
+  using READ_DONE_INTR = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Fuse read error
+  using READ_ERROR_INTR = ftl::mmio::Field<1, 23, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Double error detect
+  using DED0 = ftl::mmio::Field<1, 24, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Double error detect
+  using DED1 = ftl::mmio::Field<1, 25, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Double error detect
+  using DED2 = ftl::mmio::Field<1, 26, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+  // Double error detect
+  using DED3 = ftl::mmio::Field<1, 27, bool, ftl::mmio::RW, ftl::mmio::OneToToggle>;
+};  // struct OUT_STATUS_TOG_fields_
 
-  OUT_STATUS_TOG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OUT_STATUS_TOG &ref() { return *reinterpret_cast<volatile OUT_STATUS_TOG*>(0x40CAC09C); }
+struct OUT_STATUS_TOG : ftl::mmio::Register<
+    0x40CAC09Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<9, 0>,
+    OUT_STATUS_TOG_fields_::SEC,
+    OUT_STATUS_TOG_fields_::DED,
+    OUT_STATUS_TOG_fields_::LOCKED,
+    OUT_STATUS_TOG_fields_::PROGFAIL,
+    OUT_STATUS_TOG_fields_::ACK,
+    OUT_STATUS_TOG_fields_::PWOK,
+    OUT_STATUS_TOG_fields_::FLAGSTATE,
+    OUT_STATUS_TOG_fields_::SEC_RELOAD,
+    OUT_STATUS_TOG_fields_::DED_RELOAD,
+    OUT_STATUS_TOG_fields_::CALIBRATED,
+    OUT_STATUS_TOG_fields_::READ_DONE_INTR,
+    OUT_STATUS_TOG_fields_::READ_ERROR_INTR,
+    OUT_STATUS_TOG_fields_::DED0,
+    OUT_STATUS_TOG_fields_::DED1,
+    OUT_STATUS_TOG_fields_::DED2,
+    OUT_STATUS_TOG_fields_::DED3,
+    ftl::mmio::Reserved<4, 28>> {
+  using SEC = OUT_STATUS_TOG_fields_::SEC;
+  using DED = OUT_STATUS_TOG_fields_::DED;
+  using LOCKED = OUT_STATUS_TOG_fields_::LOCKED;
+  using PROGFAIL = OUT_STATUS_TOG_fields_::PROGFAIL;
+  using ACK = OUT_STATUS_TOG_fields_::ACK;
+  using PWOK = OUT_STATUS_TOG_fields_::PWOK;
+  using FLAGSTATE = OUT_STATUS_TOG_fields_::FLAGSTATE;
+  using SEC_RELOAD = OUT_STATUS_TOG_fields_::SEC_RELOAD;
+  using DED_RELOAD = OUT_STATUS_TOG_fields_::DED_RELOAD;
+  using CALIBRATED = OUT_STATUS_TOG_fields_::CALIBRATED;
+  using READ_DONE_INTR = OUT_STATUS_TOG_fields_::READ_DONE_INTR;
+  using READ_ERROR_INTR = OUT_STATUS_TOG_fields_::READ_ERROR_INTR;
+  using DED0 = OUT_STATUS_TOG_fields_::DED0;
+  using DED1 = OUT_STATUS_TOG_fields_::DED1;
+  using DED2 = OUT_STATUS_TOG_fields_::DED2;
+  using DED3 = OUT_STATUS_TOG_fields_::DED3;
 };
+
 
 // OTP Controller Version Register
-union VERSION {
-  
-  // Bit field definition.
-  struct {
-    // read-only - RTL Version Stepping
-    uint32_t STEP : 16;
-    // read-only - Minor RTL Version
-    uint32_t MINOR : 8;
-    // read-only - Major RTL Version
-    uint32_t MAJOR : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct VERSION_fields_ {
+  // RTL Version Stepping
+  using STEP = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Minor RTL Version
+  using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Major RTL Version
+  using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct VERSION_fields_
 
-  VERSION() = delete;
-  inline void Reset() volatile { this->value = 0x0A000000; }
-  static inline volatile VERSION &ref() { return *reinterpret_cast<volatile VERSION*>(0x40CAC0B0); }
+struct VERSION : ftl::mmio::Register<
+    0x40CAC0B0u,
+    std::uint32_t,
+    0x0A000000u,
+    ftl::mmio::RO,
+    VERSION_fields_::STEP,
+    VERSION_fields_::MINOR,
+    VERSION_fields_::MAJOR> {
+  using STEP = VERSION_fields_::STEP;
+  using MINOR = VERSION_fields_::MINOR;
+  using MAJOR = VERSION_fields_::MAJOR;
 };
+
 
 // OTP Controller Read Data 0 Register
-union READ_FUSE_DATA0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct READ_FUSE_DATA0_fields_ {
+  // Data
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct READ_FUSE_DATA0_fields_
 
-  READ_FUSE_DATA0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile READ_FUSE_DATA0 &ref() { return *reinterpret_cast<volatile READ_FUSE_DATA0*>(0x40CAC100); }
+struct READ_FUSE_DATA0 : ftl::mmio::Register<
+    0x40CAC100u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    READ_FUSE_DATA0_fields_::DATA> {
+  using DATA = READ_FUSE_DATA0_fields_::DATA;
 };
+
 
 // OTP Controller Read Data 1 Register
-union READ_FUSE_DATA1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct READ_FUSE_DATA1_fields_ {
+  // Data
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct READ_FUSE_DATA1_fields_
 
-  READ_FUSE_DATA1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile READ_FUSE_DATA1 &ref() { return *reinterpret_cast<volatile READ_FUSE_DATA1*>(0x40CAC110); }
+struct READ_FUSE_DATA1 : ftl::mmio::Register<
+    0x40CAC110u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    READ_FUSE_DATA1_fields_::DATA> {
+  using DATA = READ_FUSE_DATA1_fields_::DATA;
 };
+
 
 // OTP Controller Read Data 2 Register
-union READ_FUSE_DATA2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct READ_FUSE_DATA2_fields_ {
+  // Data
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct READ_FUSE_DATA2_fields_
 
-  READ_FUSE_DATA2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile READ_FUSE_DATA2 &ref() { return *reinterpret_cast<volatile READ_FUSE_DATA2*>(0x40CAC120); }
+struct READ_FUSE_DATA2 : ftl::mmio::Register<
+    0x40CAC120u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    READ_FUSE_DATA2_fields_::DATA> {
+  using DATA = READ_FUSE_DATA2_fields_::DATA;
 };
+
 
 // OTP Controller Read Data 3 Register
-union READ_FUSE_DATA3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Data
-    uint32_t DATA : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct READ_FUSE_DATA3_fields_ {
+  // Data
+  using DATA = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct READ_FUSE_DATA3_fields_
 
-  READ_FUSE_DATA3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile READ_FUSE_DATA3 &ref() { return *reinterpret_cast<volatile READ_FUSE_DATA3*>(0x40CAC130); }
+struct READ_FUSE_DATA3 : ftl::mmio::Register<
+    0x40CAC130u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    READ_FUSE_DATA3_fields_::DATA> {
+  using DATA = READ_FUSE_DATA3_fields_::DATA;
 };
+
 
 // SW_LOCK Register
-union SW_LOCK {
-  
-  // Bit field definition.
-  struct {
-    // read-write - This register contains lock information, which has the same function as the RLOCK fuse words (supplementary fuse words 8 (0x880) and 9 (0x890)) in fuse memory
-    uint32_t SW_LOCK : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct SW_LOCK_fields_ {
+  // This register contains lock information, which has the same function as the RLOCK fuse words (supplementary fuse words 8 (0x880) and 9 (0x890)) in fuse memory
+  using SW_LOCK = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SW_LOCK_fields_
 
-  SW_LOCK() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SW_LOCK &ref() { return *reinterpret_cast<volatile SW_LOCK*>(0x40CAC140); }
+struct SW_LOCK : ftl::mmio::Register<
+    0x40CAC140u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SW_LOCK_fields_::SW_LOCK> {
+  using value_ = SW_LOCK_fields_::SW_LOCK;
 };
+
 
 // BIT_LOCK Register
-union BIT_LOCK {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Each bit controls the corresponding bit in supplementary fuse word 13 and its shadow register
-    uint32_t BIT_LOCK : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct BIT_LOCK_fields_ {
+  // Each bit controls the corresponding bit in supplementary fuse word 13 and its shadow register
+  using BIT_LOCK = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct BIT_LOCK_fields_
 
-  BIT_LOCK() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile BIT_LOCK &ref() { return *reinterpret_cast<volatile BIT_LOCK*>(0x40CAC150); }
+struct BIT_LOCK : ftl::mmio::Register<
+    0x40CAC150u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    BIT_LOCK_fields_::BIT_LOCK> {
+  using value_ = BIT_LOCK_fields_::BIT_LOCK;
 };
+
 
 // OTP Controller Program Locked Status 0 Register
-union LOCKED0 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Stores program locked status for fuse words 0-15.
-    uint32_t LOCKED : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LOCKED0_fields_ {
+  // Stores program locked status for fuse words 0-15.
+  using LOCKED = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct LOCKED0_fields_
 
-  LOCKED0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LOCKED0 &ref() { return *reinterpret_cast<volatile LOCKED0*>(0x40CAC600); }
+struct LOCKED0 : ftl::mmio::Register<
+    0x40CAC600u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    LOCKED0_fields_::LOCKED,
+    ftl::mmio::Reserved<16, 16>> {
+  using LOCKED = LOCKED0_fields_::LOCKED;
 };
+
 
 // OTP Controller Program Locked Status 1 Register
-union LOCKED1 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Stores program locked status for fuse words 16-47
-    uint32_t LOCKED : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct LOCKED1_fields_ {
+  // Stores program locked status for fuse words 16-47
+  using LOCKED = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct LOCKED1_fields_
 
-  LOCKED1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile LOCKED1 &ref() { return *reinterpret_cast<volatile LOCKED1*>(0x40CAC610); }
+struct LOCKED1 : ftl::mmio::Register<
+    0x40CAC610u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    LOCKED1_fields_::LOCKED> {
+  using LOCKED = LOCKED1_fields_::LOCKED;
 };
 
 
+// Value of fuse word index
+struct FUSE_fields_ {
+  // Reflects value of the fuse word
+  using BITS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct FUSE_fields_
 
-} // namespace nOCOTP
+template<std::uint32_t ClusterIndex>
+struct FUSE : ftl::mmio::Register<
+    0x40CAC800u + (ClusterIndex * 0x10u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    FUSE_fields_::BITS> {
+  static_assert(ClusterIndex < 144u, "FUSE: ClusterIndex out of range");
+  using BITS = FUSE_fields_::BITS;
+};
+
+}  // namespace regs::ocotp

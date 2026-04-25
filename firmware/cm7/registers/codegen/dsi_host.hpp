@@ -1,271 +1,255 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // DSI HOST
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nDSI_HOST {
+namespace regs::dsi_host {
 
 
 // CFG_NUM_LANES
-union CFG_NUM_LANES {
-  
-  // Sets the number of active lanes that are to be used for transmitting data.
-  enum class eNUM_LANES : uint32_t {
+struct CFG_NUM_LANES_fields_ {
+
+  enum class eNUM_LANES : std::uint32_t {
     // 1 lane
     eNUM_LANES_0 = 0,
     // 2 lanes
     eNUM_LANES_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the number of active lanes that are to be used for transmitting data.
-    eNUM_LANES NUM_LANES : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Sets the number of active lanes that are to be used for transmitting data.
+  using NUM_LANES = ftl::mmio::Field<2, 0, eNUM_LANES, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_NUM_LANES_fields_
 
-  CFG_NUM_LANES() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_NUM_LANES &ref() { return *reinterpret_cast<volatile CFG_NUM_LANES*>(0x4080C000); }
+struct CFG_NUM_LANES : ftl::mmio::Register<
+    0x4080C000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_NUM_LANES_fields_::NUM_LANES,
+    ftl::mmio::Reserved<30, 2>> {
+  using eNUM_LANES = CFG_NUM_LANES_fields_::eNUM_LANES;
+  using NUM_LANES = CFG_NUM_LANES_fields_::NUM_LANES;
 };
 
+
 // CFG_NONCONTINUOUS_CLK
-union CFG_NONCONTINUOUS_CLK {
-  
-  // Sets the Host Controller into non-continuous MIPI clock mode. When in non-continuous clock mode, the high speed clock will transition into low power mode between transmissions.
-  enum class eCLK_MODE : uint32_t {
+struct CFG_NONCONTINUOUS_CLK_fields_ {
+
+  enum class eCLK_MODE : std::uint32_t {
     // Continuous high speed clock
     eCLK_MODE_0 = 0,
     // Non-Continuous high speed clock
     eCLK_MODE_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the Host Controller into non-continuous MIPI clock mode. When in non-continuous clock mode, the high speed clock will transition into low power mode between transmissions.
-    eCLK_MODE CLK_MODE : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Sets the Host Controller into non-continuous MIPI clock mode. When in non-continuous clock mode, the high speed clock will transition into low power mode between transmissions.
+  using CLK_MODE = ftl::mmio::Field<1, 0, eCLK_MODE, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_NONCONTINUOUS_CLK_fields_
 
-  CFG_NONCONTINUOUS_CLK() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_NONCONTINUOUS_CLK &ref() { return *reinterpret_cast<volatile CFG_NONCONTINUOUS_CLK*>(0x4080C004); }
+struct CFG_NONCONTINUOUS_CLK : ftl::mmio::Register<
+    0x4080C004u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_NONCONTINUOUS_CLK_fields_::CLK_MODE,
+    ftl::mmio::Reserved<31, 1>> {
+  using eCLK_MODE = CFG_NONCONTINUOUS_CLK_fields_::eCLK_MODE;
+  using CLK_MODE = CFG_NONCONTINUOUS_CLK_fields_::CLK_MODE;
 };
+
 
 // CFG_T_PRE
-union CFG_T_PRE {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the number of byte clock periods ('clk_byte' input) that the controller will wait after enabling the clock lane for HS operation before enabling the data lanes for HS operation. This setting represents the TCLK-PRE DPHY timing parameter. The minimum value for this port is 1.
-    uint32_t NUM_PERIODS : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CFG_T_PRE_fields_ {
+  // Sets the number of byte clock periods ('clk_byte' input) that the controller will wait after enabling the clock lane for HS operation before enabling the data lanes for HS operation. This setting represents the TCLK-PRE DPHY timing parameter. The minimum value for this port is 1.
+  using NUM_PERIODS = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_T_PRE_fields_
 
-  CFG_T_PRE() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_T_PRE &ref() { return *reinterpret_cast<volatile CFG_T_PRE*>(0x4080C008); }
+struct CFG_T_PRE : ftl::mmio::Register<
+    0x4080C008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_T_PRE_fields_::NUM_PERIODS,
+    ftl::mmio::Reserved<24, 8>> {
+  using NUM_PERIODS = CFG_T_PRE_fields_::NUM_PERIODS;
 };
+
 
 // CFG_T_POST
-union CFG_T_POST {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the number of byte clock periods ('clk_byte' input) to wait before putting the clock lane into LP mode after the data lanes have been detected to be in Stop State. This setting represents the DPHY timing parameters TLPX + TCLK-PREPARE + TCLK-ZERO + TCLK-PRE requirement for the clock lane before the data lane is allowed to change from LP11 to start a high speed transmission. The minimum value for this port is 1.
-    uint32_t NUM_PERIODS : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CFG_T_POST_fields_ {
+  // Sets the number of byte clock periods ('clk_byte' input) to wait before putting the clock lane into LP mode after the data lanes have been detected to be in Stop State. This setting represents the DPHY timing parameters TLPX + TCLK-PREPARE + TCLK-ZERO + TCLK-PRE requirement for the clock lane before the data lane is allowed to change from LP11 to start a high speed transmission. The minimum value for this port is 1.
+  using NUM_PERIODS = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_T_POST_fields_
 
-  CFG_T_POST() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_T_POST &ref() { return *reinterpret_cast<volatile CFG_T_POST*>(0x4080C00C); }
+struct CFG_T_POST : ftl::mmio::Register<
+    0x4080C00Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_T_POST_fields_::NUM_PERIODS,
+    ftl::mmio::Reserved<24, 8>> {
+  using NUM_PERIODS = CFG_T_POST_fields_::NUM_PERIODS;
 };
+
 
 // CFG_TX_GAP
-union CFG_TX_GAP {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the number of byte clock periods ('clk_byte' input) that the controller will wait after the clock lane has been put into LP mode before enabling the clock lane for HS mode again. This setting represents the THS-EXIT DPHY timing parameter. The minimum value for this port is 1.
-    uint32_t NUM_PERIODS : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CFG_TX_GAP_fields_ {
+  // Sets the number of byte clock periods ('clk_byte' input) that the controller will wait after the clock lane has been put into LP mode before enabling the clock lane for HS mode again. This setting represents the THS-EXIT DPHY timing parameter. The minimum value for this port is 1.
+  using NUM_PERIODS = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_TX_GAP_fields_
 
-  CFG_TX_GAP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_TX_GAP &ref() { return *reinterpret_cast<volatile CFG_TX_GAP*>(0x4080C010); }
+struct CFG_TX_GAP : ftl::mmio::Register<
+    0x4080C010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_TX_GAP_fields_::NUM_PERIODS,
+    ftl::mmio::Reserved<24, 8>> {
+  using NUM_PERIODS = CFG_TX_GAP_fields_::NUM_PERIODS;
 };
 
+
 // CFG_AUTOINSERT_EOTP
-union CFG_AUTOINSERT_EOTP {
-  
-  // Enables the Host Controller to automatically insert an EoTp short packet when switching from HS to LP mode.
-  enum class eAUTOINSERT : uint32_t {
+struct CFG_AUTOINSERT_EOTP_fields_ {
+
+  enum class eAUTOINSERT : std::uint32_t {
     // EoTp is not automatically inserted
     eNOT_AUTO = 0,
     // EoTp is automatically inserted
     eAUTO = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Enables the Host Controller to automatically insert an EoTp short packet when switching from HS to LP mode.
-    eAUTOINSERT AUTOINSERT : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Enables the Host Controller to automatically insert an EoTp short packet when switching from HS to LP mode.
+  using AUTOINSERT = ftl::mmio::Field<1, 0, eAUTOINSERT, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_AUTOINSERT_EOTP_fields_
 
-  CFG_AUTOINSERT_EOTP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_AUTOINSERT_EOTP &ref() { return *reinterpret_cast<volatile CFG_AUTOINSERT_EOTP*>(0x4080C014); }
+struct CFG_AUTOINSERT_EOTP : ftl::mmio::Register<
+    0x4080C014u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_AUTOINSERT_EOTP_fields_::AUTOINSERT,
+    ftl::mmio::Reserved<31, 1>> {
+  using eAUTOINSERT = CFG_AUTOINSERT_EOTP_fields_::eAUTOINSERT;
+  using AUTOINSERT = CFG_AUTOINSERT_EOTP_fields_::AUTOINSERT;
 };
+
 
 // CFG_EXTRA_CMDS_AFTER_EOTP
-union CFG_EXTRA_CMDS_AFTER_EOTP {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Configures the DSI Host Controller to send extra End Of Transmission Packets after the end of a packet. The value is the number of extra EOTP packets sent.
-    uint32_t EXTRA_EOTP : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CFG_EXTRA_CMDS_AFTER_EOTP_fields_ {
+  // Configures the DSI Host Controller to send extra End Of Transmission Packets after the end of a packet. The value is the number of extra EOTP packets sent.
+  using EXTRA_EOTP = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_EXTRA_CMDS_AFTER_EOTP_fields_
 
-  CFG_EXTRA_CMDS_AFTER_EOTP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_EXTRA_CMDS_AFTER_EOTP &ref() { return *reinterpret_cast<volatile CFG_EXTRA_CMDS_AFTER_EOTP*>(0x4080C018); }
+struct CFG_EXTRA_CMDS_AFTER_EOTP : ftl::mmio::Register<
+    0x4080C018u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_EXTRA_CMDS_AFTER_EOTP_fields_::EXTRA_EOTP,
+    ftl::mmio::Reserved<24, 8>> {
+  using EXTRA_EOTP = CFG_EXTRA_CMDS_AFTER_EOTP_fields_::EXTRA_EOTP;
 };
+
 
 // CFG_HTX_TO_COUNT
-union CFG_HTX_TO_COUNT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the value of the DSI Host High Speed TX timeout count in clk_byte clock periods that once reached will initiate a timeout error and follow the recovery procedure documented in the DSI specification.
-    uint32_t COUNT : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CFG_HTX_TO_COUNT_fields_ {
+  // Sets the value of the DSI Host High Speed TX timeout count in clk_byte clock periods that once reached will initiate a timeout error and follow the recovery procedure documented in the DSI specification.
+  using COUNT = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_HTX_TO_COUNT_fields_
 
-  CFG_HTX_TO_COUNT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_HTX_TO_COUNT &ref() { return *reinterpret_cast<volatile CFG_HTX_TO_COUNT*>(0x4080C01C); }
+struct CFG_HTX_TO_COUNT : ftl::mmio::Register<
+    0x4080C01Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_HTX_TO_COUNT_fields_::COUNT,
+    ftl::mmio::Reserved<8, 24>> {
+  using COUNT = CFG_HTX_TO_COUNT_fields_::COUNT;
 };
+
 
 // CFG_LRX_H_TO_COUNT
-union CFG_LRX_H_TO_COUNT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the value of the DSI Host low power RX timeout count in clk_byte clock periods that once reached will initiate a timeout error and follow the recovery procedure documented in the DSI specification.
-    uint32_t COUNT : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CFG_LRX_H_TO_COUNT_fields_ {
+  // Sets the value of the DSI Host low power RX timeout count in clk_byte clock periods that once reached will initiate a timeout error and follow the recovery procedure documented in the DSI specification.
+  using COUNT = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_LRX_H_TO_COUNT_fields_
 
-  CFG_LRX_H_TO_COUNT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_LRX_H_TO_COUNT &ref() { return *reinterpret_cast<volatile CFG_LRX_H_TO_COUNT*>(0x4080C020); }
+struct CFG_LRX_H_TO_COUNT : ftl::mmio::Register<
+    0x4080C020u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_LRX_H_TO_COUNT_fields_::COUNT,
+    ftl::mmio::Reserved<8, 24>> {
+  using COUNT = CFG_LRX_H_TO_COUNT_fields_::COUNT;
 };
+
 
 // CFG_BTA_H_TO_COUNT
-union CFG_BTA_H_TO_COUNT {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Sets the value of the DSI Host Bus Turn Around (BTA) timeout in clk_byte clock periods that once reached will initiate a timeout error.
-    uint32_t COUNT : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CFG_BTA_H_TO_COUNT_fields_ {
+  // Sets the value of the DSI Host Bus Turn Around (BTA) timeout in clk_byte clock periods that once reached will initiate a timeout error.
+  using COUNT = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_BTA_H_TO_COUNT_fields_
 
-  CFG_BTA_H_TO_COUNT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_BTA_H_TO_COUNT &ref() { return *reinterpret_cast<volatile CFG_BTA_H_TO_COUNT*>(0x4080C024); }
+struct CFG_BTA_H_TO_COUNT : ftl::mmio::Register<
+    0x4080C024u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_BTA_H_TO_COUNT_fields_::COUNT,
+    ftl::mmio::Reserved<8, 24>> {
+  using COUNT = CFG_BTA_H_TO_COUNT_fields_::COUNT;
 };
+
 
 // CFG_TWAKEUP
-union CFG_TWAKEUP {
-  
-  // Bit field definition.
-  struct {
-    // read-write - DPHY Twakeup timing parameter. Sets the number of clk_esc clock periods to keep a clock or data lane in Mark-1 state after exiting ULPS. The MIPI DPHY spec requires a minimum of 1ms in Mark-1 state after leaving ULPS.
-    uint32_t NUM_PERIODS : 19;
-    uint32_t _reserved_0 : 13;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CFG_TWAKEUP_fields_ {
+  // DPHY Twakeup timing parameter. Sets the number of clk_esc clock periods to keep a clock or data lane in Mark-1 state after exiting ULPS. The MIPI DPHY spec requires a minimum of 1ms in Mark-1 state after leaving ULPS.
+  using NUM_PERIODS = ftl::mmio::Field<19, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CFG_TWAKEUP_fields_
 
-  CFG_TWAKEUP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_TWAKEUP &ref() { return *reinterpret_cast<volatile CFG_TWAKEUP*>(0x4080C028); }
+struct CFG_TWAKEUP : ftl::mmio::Register<
+    0x4080C028u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CFG_TWAKEUP_fields_::NUM_PERIODS,
+    ftl::mmio::Reserved<13, 19>> {
+  using NUM_PERIODS = CFG_TWAKEUP_fields_::NUM_PERIODS;
 };
+
 
 // CFG_STATUS_OUT
-union CFG_STATUS_OUT {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Status Register
-    uint32_t STATUS : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct CFG_STATUS_OUT_fields_ {
+  // Status Register
+  using STATUS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct CFG_STATUS_OUT_fields_
 
-  CFG_STATUS_OUT() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_STATUS_OUT &ref() { return *reinterpret_cast<volatile CFG_STATUS_OUT*>(0x4080C02C); }
+struct CFG_STATUS_OUT : ftl::mmio::Register<
+    0x4080C02Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    CFG_STATUS_OUT_fields_::STATUS> {
+  using STATUS = CFG_STATUS_OUT_fields_::STATUS;
 };
+
 
 // RX_ERROR_STATUS
-union RX_ERROR_STATUS {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Status Register for Host receive error detection, ECC errors, CRC errors and for timeout indicators
-    uint32_t STATUS : 11;
-    uint32_t _reserved_0 : 21;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct RX_ERROR_STATUS_fields_ {
+  // Status Register for Host receive error detection, ECC errors, CRC errors and for timeout indicators
+  using STATUS = ftl::mmio::Field<11, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct RX_ERROR_STATUS_fields_
 
-  RX_ERROR_STATUS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile RX_ERROR_STATUS &ref() { return *reinterpret_cast<volatile RX_ERROR_STATUS*>(0x4080C030); }
+struct RX_ERROR_STATUS : ftl::mmio::Register<
+    0x4080C030u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    RX_ERROR_STATUS_fields_::STATUS,
+    ftl::mmio::Reserved<21, 11>> {
+  using STATUS = RX_ERROR_STATUS_fields_::STATUS;
 };
 
-
-} // namespace nDSI_HOST
+}  // namespace regs::dsi_host

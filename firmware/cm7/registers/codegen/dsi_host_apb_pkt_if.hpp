@@ -1,234 +1,219 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // DSI HOST APB PKT Interface
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nDSI_HOST_APB_PKT_IF {
+namespace regs::dsi_host_apb_pkt_if {
 
 
 // TX_PAYLOAD
-union TX_PAYLOAD {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Tx Payload data write register. Write to this register loads the payload FIFO with 32 bit values.
-    uint32_t PAYLOAD : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct TX_PAYLOAD_fields_ {
+  // Tx Payload data write register. Write to this register loads the payload FIFO with 32 bit values.
+  using PAYLOAD = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct TX_PAYLOAD_fields_
 
-  TX_PAYLOAD() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile TX_PAYLOAD &ref() { return *reinterpret_cast<volatile TX_PAYLOAD*>(0x4080C280); }
+struct TX_PAYLOAD : ftl::mmio::Register<
+    0x4080C280u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    TX_PAYLOAD_fields_::PAYLOAD> {
+  using PAYLOAD = TX_PAYLOAD_fields_::PAYLOAD;
 };
+
 
 // PKT_CONTROL
-union PKT_CONTROL {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Tx packet control
-    uint32_t CTRL : 27;
-    uint32_t _reserved_0 : 5;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PKT_CONTROL_fields_ {
+  // Tx packet control
+  using CTRL = ftl::mmio::Field<27, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PKT_CONTROL_fields_
 
-  PKT_CONTROL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PKT_CONTROL &ref() { return *reinterpret_cast<volatile PKT_CONTROL*>(0x4080C284); }
+struct PKT_CONTROL : ftl::mmio::Register<
+    0x4080C284u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PKT_CONTROL_fields_::CTRL,
+    ftl::mmio::Reserved<5, 27>> {
+  using CTRL = PKT_CONTROL_fields_::CTRL;
 };
 
+
 // SEND_PACKET
-union SEND_PACKET {
-  
-  // Tx send packet, writing to this register causes the packet described in dsi_host_pkt_control to be sent.
-  enum class eTX_SEND : uint32_t {
+struct SEND_PACKET_fields_ {
+
+  enum class eTX_SEND : std::uint32_t {
     // Packet not sent
     eTX_SEND_0 = 0,
     // Packet is sent
     eTX_SEND_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Tx send packet, writing to this register causes the packet described in dsi_host_pkt_control to be sent.
-    eTX_SEND TX_SEND : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Tx send packet, writing to this register causes the packet described in dsi_host_pkt_control to be sent.
+  using TX_SEND = ftl::mmio::Field<1, 0, eTX_SEND, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SEND_PACKET_fields_
 
-  SEND_PACKET() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile SEND_PACKET &ref() { return *reinterpret_cast<volatile SEND_PACKET*>(0x4080C288); }
+struct SEND_PACKET : ftl::mmio::Register<
+    0x4080C288u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    SEND_PACKET_fields_::TX_SEND,
+    ftl::mmio::Reserved<31, 1>> {
+  using eTX_SEND = SEND_PACKET_fields_::eTX_SEND;
+  using TX_SEND = SEND_PACKET_fields_::TX_SEND;
 };
+
 
 // PKT_STATUS
-union PKT_STATUS {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Status of APB to packet interface.
-    uint32_t STATUS : 9;
-    uint32_t _reserved_0 : 23;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PKT_STATUS_fields_ {
+  // Status of APB to packet interface.
+  using STATUS = ftl::mmio::Field<9, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PKT_STATUS_fields_
 
-  PKT_STATUS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PKT_STATUS &ref() { return *reinterpret_cast<volatile PKT_STATUS*>(0x4080C28C); }
+struct PKT_STATUS : ftl::mmio::Register<
+    0x4080C28Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    PKT_STATUS_fields_::STATUS,
+    ftl::mmio::Reserved<23, 9>> {
+  using STATUS = PKT_STATUS_fields_::STATUS;
 };
+
 
 // PKT_FIFO_WR_LEVEL
-union PKT_FIFO_WR_LEVEL {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Write level of APB to pkt interface FIFO
-    uint32_t WR : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PKT_FIFO_WR_LEVEL_fields_ {
+  // Write level of APB to pkt interface FIFO
+  using WR = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PKT_FIFO_WR_LEVEL_fields_
 
-  PKT_FIFO_WR_LEVEL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PKT_FIFO_WR_LEVEL &ref() { return *reinterpret_cast<volatile PKT_FIFO_WR_LEVEL*>(0x4080C290); }
+struct PKT_FIFO_WR_LEVEL : ftl::mmio::Register<
+    0x4080C290u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    PKT_FIFO_WR_LEVEL_fields_::WR,
+    ftl::mmio::Reserved<16, 16>> {
+  using WR = PKT_FIFO_WR_LEVEL_fields_::WR;
 };
+
 
 // PKT_FIFO_RD_LEVEL
-union PKT_FIFO_RD_LEVEL {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Read level of APB to pkt interface FIFO
-    uint32_t RD : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PKT_FIFO_RD_LEVEL_fields_ {
+  // Read level of APB to pkt interface FIFO
+  using RD = ftl::mmio::Field<16, 0, std::uint16_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PKT_FIFO_RD_LEVEL_fields_
 
-  PKT_FIFO_RD_LEVEL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PKT_FIFO_RD_LEVEL &ref() { return *reinterpret_cast<volatile PKT_FIFO_RD_LEVEL*>(0x4080C294); }
+struct PKT_FIFO_RD_LEVEL : ftl::mmio::Register<
+    0x4080C294u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    PKT_FIFO_RD_LEVEL_fields_::RD,
+    ftl::mmio::Reserved<16, 16>> {
+  using RD = PKT_FIFO_RD_LEVEL_fields_::RD;
 };
+
 
 // PKT_RX_PAYLOAD
-union PKT_RX_PAYLOAD {
-  
-  // Bit field definition.
-  struct {
-    // read-only - APB to pkt interface Rx payload read
-    uint32_t PAYLOAD : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PKT_RX_PAYLOAD_fields_ {
+  // APB to pkt interface Rx payload read
+  using PAYLOAD = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PKT_RX_PAYLOAD_fields_
 
-  PKT_RX_PAYLOAD() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PKT_RX_PAYLOAD &ref() { return *reinterpret_cast<volatile PKT_RX_PAYLOAD*>(0x4080C298); }
+struct PKT_RX_PAYLOAD : ftl::mmio::Register<
+    0x4080C298u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    PKT_RX_PAYLOAD_fields_::PAYLOAD> {
+  using PAYLOAD = PKT_RX_PAYLOAD_fields_::PAYLOAD;
 };
+
 
 // PKT_RX_PKT_HEADER
-union PKT_RX_PKT_HEADER {
-  
-  // Bit field definition.
-  struct {
-    // read-only - APB to pkt interface Rx packet header
-    uint32_t HEADER : 24;
-    uint32_t _reserved_0 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PKT_RX_PKT_HEADER_fields_ {
+  // APB to pkt interface Rx packet header
+  using HEADER = ftl::mmio::Field<24, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PKT_RX_PKT_HEADER_fields_
 
-  PKT_RX_PKT_HEADER() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PKT_RX_PKT_HEADER &ref() { return *reinterpret_cast<volatile PKT_RX_PKT_HEADER*>(0x4080C29C); }
+struct PKT_RX_PKT_HEADER : ftl::mmio::Register<
+    0x4080C29Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    PKT_RX_PKT_HEADER_fields_::HEADER,
+    ftl::mmio::Reserved<8, 24>> {
+  using HEADER = PKT_RX_PKT_HEADER_fields_::HEADER;
 };
+
 
 // IRQ_STATUS
-union IRQ_STATUS {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Status of APB to packet interface.
-    uint32_t STATUS : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IRQ_STATUS_fields_ {
+  // Status of APB to packet interface.
+  using STATUS = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IRQ_STATUS_fields_
 
-  IRQ_STATUS() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRQ_STATUS &ref() { return *reinterpret_cast<volatile IRQ_STATUS*>(0x4080C2A0); }
+struct IRQ_STATUS : ftl::mmio::Register<
+    0x4080C2A0u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IRQ_STATUS_fields_::STATUS> {
+  using STATUS = IRQ_STATUS_fields_::STATUS;
 };
+
 
 // IRQ_STATUS2
-union IRQ_STATUS2 {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Status of APB to packet interface part 2, read part 2 first then dsi_host_irq_status. Reading dsi_host_irq_status will clear both status and status2.
-    uint32_t STATUS2 : 3;
-    uint32_t _reserved_0 : 29;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IRQ_STATUS2_fields_ {
+  // Status of APB to packet interface part 2, read part 2 first then dsi_host_irq_status. Reading dsi_host_irq_status will clear both status and status2.
+  using STATUS2 = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct IRQ_STATUS2_fields_
 
-  IRQ_STATUS2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRQ_STATUS2 &ref() { return *reinterpret_cast<volatile IRQ_STATUS2*>(0x4080C2A4); }
+struct IRQ_STATUS2 : ftl::mmio::Register<
+    0x4080C2A4u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    IRQ_STATUS2_fields_::STATUS2,
+    ftl::mmio::Reserved<29, 3>> {
+  using STATUS2 = IRQ_STATUS2_fields_::STATUS2;
 };
+
 
 // IRQ_MASK
-union IRQ_MASK {
-  
-  // Bit field definition.
-  struct {
-    // read-write - IRQ Mask
-    uint32_t MASK : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IRQ_MASK_fields_ {
+  // IRQ Mask
+  using MASK = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct IRQ_MASK_fields_
 
-  IRQ_MASK() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRQ_MASK &ref() { return *reinterpret_cast<volatile IRQ_MASK*>(0x4080C2A8); }
+struct IRQ_MASK : ftl::mmio::Register<
+    0x4080C2A8u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    IRQ_MASK_fields_::MASK> {
+  using MASK = IRQ_MASK_fields_::MASK;
 };
+
 
 // IRQ_MASK2
-union IRQ_MASK2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - IRQ mask 2
-    uint32_t MASK2 : 3;
-    uint32_t _reserved_0 : 29;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct IRQ_MASK2_fields_ {
+  // IRQ mask 2
+  using MASK2 = ftl::mmio::Field<3, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct IRQ_MASK2_fields_
 
-  IRQ_MASK2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IRQ_MASK2 &ref() { return *reinterpret_cast<volatile IRQ_MASK2*>(0x4080C2AC); }
+struct IRQ_MASK2 : ftl::mmio::Register<
+    0x4080C2ACu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    IRQ_MASK2_fields_::MASK2,
+    ftl::mmio::Reserved<29, 3>> {
+  using MASK2 = IRQ_MASK2_fields_::MASK2;
 };
 
-
-} // namespace nDSI_HOST_APB_PKT_IF
+}  // namespace regs::dsi_host_apb_pkt_if

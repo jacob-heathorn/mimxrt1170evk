@@ -1,20 +1,18 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // DAC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nDAC {
+namespace regs::dac {
 
 
 // Version Identifier Register
-union VERID {
-  
-  // Feature Identification Number
-  enum class eFEATURE : uint32_t {
+struct VERID_fields_ {
+
+  enum class eFEATURE : std::uint32_t {
     // Standard feature set
     eFEATURE_0 = 0,
     // C40 feature set
@@ -24,30 +22,33 @@ union VERID {
     // ADC BIST feature set
     eFEATURE_4 = 4,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - Feature Identification Number
-    eFEATURE FEATURE : 16;
-    // read-only - Minor version number
-    uint32_t MINOR : 8;
-    // read-only - Major version number
-    uint32_t MAJOR : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Feature Identification Number
+  using FEATURE = ftl::mmio::Field<16, 0, eFEATURE, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Minor version number
+  using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Major version number
+  using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct VERID_fields_
 
-  VERID() = delete;
-  inline void Reset() volatile { this->value = 0x01000000; }
-  static inline volatile VERID &ref() { return *reinterpret_cast<volatile VERID*>(0x40064000); }
+struct VERID : ftl::mmio::Register<
+    0x40064000u,
+    std::uint32_t,
+    0x01000000u,
+    ftl::mmio::RO,
+    VERID_fields_::FEATURE,
+    VERID_fields_::MINOR,
+    VERID_fields_::MAJOR> {
+  using eFEATURE = VERID_fields_::eFEATURE;
+  using FEATURE = VERID_fields_::FEATURE;
+  using MINOR = VERID_fields_::MINOR;
+  using MAJOR = VERID_fields_::MAJOR;
 };
 
+
 // Parameter Register
-union PARAM {
-  
-  // FIFO size
-  enum class eFIFOSZ : uint32_t {
+struct PARAM_fields_ {
+
+  enum class eFIFOSZ : std::uint32_t {
     // FIFO depth is 2
     eFIFOSZ_0 = 0,
     // FIFO depth is 4
@@ -65,338 +66,382 @@ union PARAM {
     // FIFO depth is 256
     eFIFOSZ_7 = 7,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - FIFO size
-    eFIFOSZ FIFOSZ : 3;
-    uint32_t _reserved_0 : 29;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // FIFO size
+  using FIFOSZ = ftl::mmio::Field<3, 0, eFIFOSZ, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PARAM_fields_
 
-  PARAM() = delete;
-  inline void Reset() volatile { this->value = 0x00000003; }
-  static inline volatile PARAM &ref() { return *reinterpret_cast<volatile PARAM*>(0x40064004); }
+struct PARAM : ftl::mmio::Register<
+    0x40064004u,
+    std::uint32_t,
+    0x00000003u,
+    ftl::mmio::RO,
+    PARAM_fields_::FIFOSZ,
+    ftl::mmio::Reserved<29, 3>> {
+  using eFIFOSZ = PARAM_fields_::eFIFOSZ;
+  using FIFOSZ = PARAM_fields_::FIFOSZ;
 };
+
 
 // DAC Data Register
-union DATA {
-  
-  // Bit field definition.
-  struct {
-    // write-only - FIFO DATA0
-    uint32_t DATA0 : 12;
-    uint32_t _reserved_0 : 20;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct DATA_fields_ {
+  // FIFO DATA0
+  using DATA0 = ftl::mmio::Field<12, 0, std::uint16_t, ftl::mmio::WO, ftl::mmio::Normal>;
+};  // struct DATA_fields_
 
-  DATA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile DATA &ref() { return *reinterpret_cast<volatile DATA*>(0x40064008); }
+struct DATA : ftl::mmio::Register<
+    0x40064008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::WO,
+    DATA_fields_::DATA0,
+    ftl::mmio::Reserved<20, 12>> {
+  using DATA0 = DATA_fields_::DATA0;
 };
 
+
 // DAC Status and Control Register
-union CR {
-  
-  // Full Flag
-  enum class eFULLF : uint32_t {
+struct CR_fields_ {
+
+  enum class eFULLF : std::uint32_t {
     // FIFO is not full.
     eFULLF_0 = 0,
     // FIFO is full.
     eFULLF_1 = 1,
   };
-  
-  // Nearly Empty Flag
-  enum class eNEMPTF : uint32_t {
+
+  enum class eNEMPTF : std::uint32_t {
     // More than one data is available in the FIFO.
     eNEMPTF_0 = 0,
     // One data is available in the FIFO.
     eNEMPTF_1 = 1,
   };
-  
-  // FIFO Watermark Status Flag
-  enum class eWMF : uint32_t {
+
+  enum class eWMF : std::uint32_t {
     // The DAC buffer read pointer has not reached the watermark level.
     eWMF_0 = 0,
     // The DAC buffer read pointer has reached the watermark level.
     eWMF_1 = 1,
   };
-  
-  // Underflow Flag
-  enum class eUDFF : uint32_t {
+
+  enum class eUDFF : std::uint32_t {
     // No underflow has occurred since the last time the flag was cleared.
     eUDFF_0 = 0,
     // At least one trigger underflow has occurred since the last time the flag was cleared.
     eUDFF_1 = 1,
   };
-  
-  // Overflow Flag
-  enum class eOVFF : uint32_t {
+
+  enum class eOVFF : std::uint32_t {
     // No overflow has occurred since the last time the flag was cleared.
     eOVFF_0 = 0,
     // At least one FIFO overflow has occurred since the last time the flag was cleared.
     eOVFF_1 = 1,
   };
-  
-  // Full Interrupt Enable
-  enum class eFULLIE : uint32_t {
+
+  enum class eFULLIE : std::uint32_t {
     // FIFO Full interrupt is disabled.
     eFULLIE_0 = 0,
     // FIFO Full interrupt is enabled.
     eFULLIE_1 = 1,
   };
-  
-  // Nearly Empty Interrupt Enable
-  enum class eEMPTIE : uint32_t {
+
+  enum class eEMPTIE : std::uint32_t {
     // FIFO Nearly Empty interrupt is disabled.
     eEMPTIE_0 = 0,
     // FIFO Nearly Empty interrupt is enabled.
     eEMPTIE_1 = 1,
   };
-  
-  // Watermark Interrupt Enable
-  enum class eWTMIE : uint32_t {
+
+  enum class eWTMIE : std::uint32_t {
     // Watermark interrupt is disabled.
     eWTMIE_0 = 0,
     // Watermark interrupt is enabled.
     eWTMIE_1 = 1,
   };
-  
-  // DAC Software Trigger
-  enum class eSWTRG : uint32_t {
+
+  enum class eSWTRG : std::uint32_t {
     // The DAC soft trigger is not valid.
     eSWTRG_0 = 0,
     // The DAC soft trigger is valid.
     eSWTRG_1 = 1,
   };
-  
-  // DAC Trigger Select
-  enum class eTRGSEL : uint32_t {
+
+  enum class eTRGSEL : std::uint32_t {
     // The DAC hardware trigger is selected.
     eTRGSEL_0 = 0,
     // The DAC software trigger is selected.
     eTRGSEL_1 = 1,
   };
-  
-  // DAC Reference Select
-  enum class eDACRFS : uint32_t {
+
+  enum class eDACRFS : std::uint32_t {
     // The DAC selects DACREF_1 as the reference voltage.
     eDACRFS_0 = 0,
     // The DAC selects DACREF_2 as the reference voltage.
     eDACRFS_1 = 1,
   };
-  
-  // DAC Enable
-  enum class eDACEN : uint32_t {
+
+  enum class eDACEN : std::uint32_t {
     // The DAC system is disabled.
     eDACEN_0 = 0,
     // The DAC system is enabled.
     eDACEN_1 = 1,
   };
-  
-  // FIFO Enable
-  enum class eFIFOEN : uint32_t {
+
+  enum class eFIFOEN : std::uint32_t {
     // FIFO is disabled and only one level buffer is enabled. Any data written from this buffer goes to conversion.
     eFIFOEN_0 = 0,
     // FIFO is enabled. Data will first read from FIFO to buffer then go to conversion.
     eFIFOEN_1 = 1,
   };
-  
-  // DAC FIFO Mode Select
-  enum class eSWMD : uint32_t {
+
+  enum class eSWMD : std::uint32_t {
     // Normal mode
     eSWMD_0 = 0,
     // Swing back mode
     eSWMD_1 = 1,
   };
-  
-  // Underflow and overflow interrupt enable
-  enum class eUVIE : uint32_t {
+
+  enum class eUVIE : std::uint32_t {
     // Underflow and overflow interrupt is disabled.
     eUVIE_0 = 0,
     // Underflow and overflow interrupt is enabled.
     eUVIE_1 = 1,
   };
-  
-  // FIFO Reset
-  enum class eFIFORST : uint32_t {
+
+  enum class eFIFORST : std::uint32_t {
     // No effect
     eFIFORST_0 = 0,
     // FIFO reset
     eFIFORST_1 = 1,
   };
-  
-  // DMA Enable Select
-  enum class eDMAEN : uint32_t {
+
+  enum class eDMAEN : std::uint32_t {
     // DMA is disabled.
     eDMAEN_0 = 0,
     // DMA is enabled. When DMA is enabled, the DMA request will be generated by original interrupts. The interrupts will not be presented on this module at the same time.
     eDMAEN_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Full Flag
-    eFULLF FULLF : 1;
-    // read-write - Nearly Empty Flag
-    eNEMPTF NEMPTF : 1;
-    // read-write - FIFO Watermark Status Flag
-    eWMF WMF : 1;
-    // read-write - Underflow Flag
-    eUDFF UDFF : 1;
-    // read-write - Overflow Flag
-    eOVFF OVFF : 1;
-    uint32_t _reserved_0 : 3;
-    // read-write - Full Interrupt Enable
-    eFULLIE FULLIE : 1;
-    // read-write - Nearly Empty Interrupt Enable
-    eEMPTIE EMPTIE : 1;
-    // read-write - Watermark Interrupt Enable
-    eWTMIE WTMIE : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - DAC Software Trigger
-    eSWTRG SWTRG : 1;
-    // read-write - DAC Trigger Select
-    eTRGSEL TRGSEL : 1;
-    // read-write - DAC Reference Select
-    eDACRFS DACRFS : 1;
-    // read-write - DAC Enable
-    eDACEN DACEN : 1;
-    // read-write - FIFO Enable
-    eFIFOEN FIFOEN : 1;
-    // read-write - DAC FIFO Mode Select
-    eSWMD SWMD : 1;
-    // read-write - Underflow and overflow interrupt enable
-    eUVIE UVIE : 1;
-    uint32_t _reserved_2 : 2;
-    // read-write - FIFO Reset
-    eFIFORST FIFORST : 1;
-    // read-write - Software reset
-    uint32_t SWRST : 1;
-    // read-write - DMA Enable Select
-    eDMAEN DMAEN : 1;
-    // read-write - Watermark Level Select
-    uint32_t WML : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Full Flag
+  using FULLF = ftl::mmio::Field<1, 0, eFULLF, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Nearly Empty Flag
+  using NEMPTF = ftl::mmio::Field<1, 1, eNEMPTF, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FIFO Watermark Status Flag
+  using WMF = ftl::mmio::Field<1, 2, eWMF, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Underflow Flag
+  using UDFF = ftl::mmio::Field<1, 3, eUDFF, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Overflow Flag
+  using OVFF = ftl::mmio::Field<1, 4, eOVFF, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Full Interrupt Enable
+  using FULLIE = ftl::mmio::Field<1, 8, eFULLIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Nearly Empty Interrupt Enable
+  using EMPTIE = ftl::mmio::Field<1, 9, eEMPTIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Watermark Interrupt Enable
+  using WTMIE = ftl::mmio::Field<1, 10, eWTMIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // DAC Software Trigger
+  using SWTRG = ftl::mmio::Field<1, 12, eSWTRG, ftl::mmio::RW, ftl::mmio::Normal>;
+  // DAC Trigger Select
+  using TRGSEL = ftl::mmio::Field<1, 13, eTRGSEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // DAC Reference Select
+  using DACRFS = ftl::mmio::Field<1, 14, eDACRFS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // DAC Enable
+  using DACEN = ftl::mmio::Field<1, 15, eDACEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FIFO Enable
+  using FIFOEN = ftl::mmio::Field<1, 16, eFIFOEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // DAC FIFO Mode Select
+  using SWMD = ftl::mmio::Field<1, 17, eSWMD, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Underflow and overflow interrupt enable
+  using UVIE = ftl::mmio::Field<1, 18, eUVIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // FIFO Reset
+  using FIFORST = ftl::mmio::Field<1, 21, eFIFORST, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Software reset
+  using SWRST = ftl::mmio::Field<1, 22, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // DMA Enable Select
+  using DMAEN = ftl::mmio::Field<1, 23, eDMAEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Watermark Level Select
+  using WML = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CR_fields_
 
-  CR() = delete;
-  inline void Reset() volatile { this->value = 0x00000002; }
-  static inline volatile CR &ref() { return *reinterpret_cast<volatile CR*>(0x4006400C); }
+struct CR : ftl::mmio::Register<
+    0x4006400Cu,
+    std::uint32_t,
+    0x00000002u,
+    ftl::mmio::RW,
+    CR_fields_::FULLF,
+    CR_fields_::NEMPTF,
+    CR_fields_::WMF,
+    CR_fields_::UDFF,
+    CR_fields_::OVFF,
+    ftl::mmio::Reserved<3, 5>,
+    CR_fields_::FULLIE,
+    CR_fields_::EMPTIE,
+    CR_fields_::WTMIE,
+    ftl::mmio::Reserved<1, 11>,
+    CR_fields_::SWTRG,
+    CR_fields_::TRGSEL,
+    CR_fields_::DACRFS,
+    CR_fields_::DACEN,
+    CR_fields_::FIFOEN,
+    CR_fields_::SWMD,
+    CR_fields_::UVIE,
+    ftl::mmio::Reserved<2, 19>,
+    CR_fields_::FIFORST,
+    CR_fields_::SWRST,
+    CR_fields_::DMAEN,
+    CR_fields_::WML> {
+  using eFULLF = CR_fields_::eFULLF;
+  using eNEMPTF = CR_fields_::eNEMPTF;
+  using eWMF = CR_fields_::eWMF;
+  using eUDFF = CR_fields_::eUDFF;
+  using eOVFF = CR_fields_::eOVFF;
+  using eFULLIE = CR_fields_::eFULLIE;
+  using eEMPTIE = CR_fields_::eEMPTIE;
+  using eWTMIE = CR_fields_::eWTMIE;
+  using eSWTRG = CR_fields_::eSWTRG;
+  using eTRGSEL = CR_fields_::eTRGSEL;
+  using eDACRFS = CR_fields_::eDACRFS;
+  using eDACEN = CR_fields_::eDACEN;
+  using eFIFOEN = CR_fields_::eFIFOEN;
+  using eSWMD = CR_fields_::eSWMD;
+  using eUVIE = CR_fields_::eUVIE;
+  using eFIFORST = CR_fields_::eFIFORST;
+  using eDMAEN = CR_fields_::eDMAEN;
+  using FULLF = CR_fields_::FULLF;
+  using NEMPTF = CR_fields_::NEMPTF;
+  using WMF = CR_fields_::WMF;
+  using UDFF = CR_fields_::UDFF;
+  using OVFF = CR_fields_::OVFF;
+  using FULLIE = CR_fields_::FULLIE;
+  using EMPTIE = CR_fields_::EMPTIE;
+  using WTMIE = CR_fields_::WTMIE;
+  using SWTRG = CR_fields_::SWTRG;
+  using TRGSEL = CR_fields_::TRGSEL;
+  using DACRFS = CR_fields_::DACRFS;
+  using DACEN = CR_fields_::DACEN;
+  using FIFOEN = CR_fields_::FIFOEN;
+  using SWMD = CR_fields_::SWMD;
+  using UVIE = CR_fields_::UVIE;
+  using FIFORST = CR_fields_::FIFORST;
+  using SWRST = CR_fields_::SWRST;
+  using DMAEN = CR_fields_::DMAEN;
+  using WML = CR_fields_::WML;
 };
+
 
 // DAC FIFO Pointer Register
-union PTR {
-  
-  // Bit field definition.
-  struct {
-    // read-only - DACWFP
-    uint32_t DACWFP : 8;
-    uint32_t _reserved_0 : 8;
-    // read-only - DACRFP
-    uint32_t DACRFP : 8;
-    uint32_t _reserved_1 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct PTR_fields_ {
+  // DACWFP
+  using DACWFP = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // DACRFP
+  using DACRFP = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct PTR_fields_
 
-  PTR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PTR &ref() { return *reinterpret_cast<volatile PTR*>(0x40064010); }
+struct PTR : ftl::mmio::Register<
+    0x40064010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RO,
+    PTR_fields_::DACWFP,
+    ftl::mmio::Reserved<8, 8>,
+    PTR_fields_::DACRFP,
+    ftl::mmio::Reserved<8, 24>> {
+  using DACWFP = PTR_fields_::DACWFP;
+  using DACRFP = PTR_fields_::DACRFP;
 };
 
+
 // DAC Status and Control Register 2
-union CR2 {
-  
-  // Buffer Enable
-  enum class eBFEN : uint32_t {
+struct CR2_fields_ {
+
+  enum class eBFEN : std::uint32_t {
     // Opamp is not used as buffer
     eBFEN_0 = 0,
     // Opamp is used as buffer
     eBFEN_1 = 1,
   };
-  
-  // Optional Enable
-  enum class eOEN : uint32_t {
+
+  enum class eOEN : std::uint32_t {
     // Output buffer is not bypassed
     eOEN_0 = 0,
     // Output buffer is bypassed
     eOEN_1 = 1,
   };
-  
-  // Buffer Middle Speed Select
-  enum class eBFMS : uint32_t {
+
+  enum class eBFMS : std::uint32_t {
     // Buffer middle speed not selected
     eBFMS_0 = 0,
     // Buffer middle speed selected
     eBFMS_1 = 1,
   };
-  
-  // Buffer High Speed Select
-  enum class eBFHS : uint32_t {
+
+  enum class eBFHS : std::uint32_t {
     // Buffer high speed not selected
     eBFHS_0 = 0,
     // Buffer high speed selected
     eBFHS_1 = 1,
   };
-  
-  // Internal PTAT (Proportional To Absolute Temperature) Current Reference Select
-  enum class eIREF2 : uint32_t {
+
+  enum class eIREF2 : std::uint32_t {
     // Internal PTAT Current Reference not selected
     eIREF2_0 = 0,
     // Internal PTAT Current Reference selected
     eIREF2_1 = 1,
   };
-  
-  // Internal ZTC (Zero Temperature Coefficient) Current Reference Select
-  enum class eIREF1 : uint32_t {
+
+  enum class eIREF1 : std::uint32_t {
     // Internal ZTC Current Reference not selected
     eIREF1_0 = 0,
     // Internal ZTC Current Reference selected
     eIREF1_1 = 1,
   };
-  
-  // Internal Current Reference Select
-  enum class eIREF : uint32_t {
+
+  enum class eIREF : std::uint32_t {
     // Internal Current Reference not selected
     eIREF_0 = 0,
     // Internal Current Reference selected
     eIREF_1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Buffer Enable
-    eBFEN BFEN : 1;
-    // read-write - Optional Enable
-    eOEN OEN : 1;
-    // read-write - Buffer Middle Speed Select
-    eBFMS BFMS : 1;
-    // read-write - Buffer High Speed Select
-    eBFHS BFHS : 1;
-    // read-write - Internal PTAT (Proportional To Absolute Temperature) Current Reference Select
-    eIREF2 IREF2 : 1;
-    // read-write - Internal ZTC (Zero Temperature Coefficient) Current Reference Select
-    eIREF1 IREF1 : 1;
-    // read-write - Internal Current Reference Select
-    eIREF IREF : 1;
-    uint32_t _reserved_0 : 25;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Buffer Enable
+  using BFEN = ftl::mmio::Field<1, 0, eBFEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Optional Enable
+  using OEN = ftl::mmio::Field<1, 1, eOEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Buffer Middle Speed Select
+  using BFMS = ftl::mmio::Field<1, 2, eBFMS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Buffer High Speed Select
+  using BFHS = ftl::mmio::Field<1, 3, eBFHS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Internal PTAT (Proportional To Absolute Temperature) Current Reference Select
+  using IREF2 = ftl::mmio::Field<1, 4, eIREF2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Internal ZTC (Zero Temperature Coefficient) Current Reference Select
+  using IREF1 = ftl::mmio::Field<1, 5, eIREF1, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Internal Current Reference Select
+  using IREF = ftl::mmio::Field<1, 6, eIREF, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct CR2_fields_
 
-  CR2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CR2 &ref() { return *reinterpret_cast<volatile CR2*>(0x40064014); }
+struct CR2 : ftl::mmio::Register<
+    0x40064014u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CR2_fields_::BFEN,
+    CR2_fields_::OEN,
+    CR2_fields_::BFMS,
+    CR2_fields_::BFHS,
+    CR2_fields_::IREF2,
+    CR2_fields_::IREF1,
+    CR2_fields_::IREF,
+    ftl::mmio::Reserved<25, 7>> {
+  using eBFEN = CR2_fields_::eBFEN;
+  using eOEN = CR2_fields_::eOEN;
+  using eBFMS = CR2_fields_::eBFMS;
+  using eBFHS = CR2_fields_::eBFHS;
+  using eIREF2 = CR2_fields_::eIREF2;
+  using eIREF1 = CR2_fields_::eIREF1;
+  using eIREF = CR2_fields_::eIREF;
+  using BFEN = CR2_fields_::BFEN;
+  using OEN = CR2_fields_::OEN;
+  using BFMS = CR2_fields_::BFMS;
+  using BFHS = CR2_fields_::BFHS;
+  using IREF2 = CR2_fields_::IREF2;
+  using IREF1 = CR2_fields_::IREF1;
+  using IREF = CR2_fields_::IREF;
 };
 
-
-} // namespace nDAC
+}  // namespace regs::dac

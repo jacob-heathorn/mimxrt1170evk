@@ -1,472 +1,505 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // KEYMGR
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nKEY_MANAGER {
+namespace regs::key_manager {
 
 
 // CSR Master Key Control Register
-union MASTER_KEY_CTRL {
-  
-  // Key select for SNVS OTPMK. Default value comes from FUSE_MASTER_KEY_SEL.
-  enum class eSELECT : uint32_t {
+struct MASTER_KEY_CTRL_fields_ {
+
+  enum class eSELECT : std::uint32_t {
     // select key from UDF
     eSELECT_FROM_UDF = 0,
     // If LOCK = 1, select key from PUF, otherwise select key from fuse (bypass the fuse OTPMK to SNVS)
     eSELECT_FROM_PUF = 1,
   };
-  
-  // lock this register, prevent from writing. Default value comes from FUSE_MASTER_KEY_SEL_LOCK.
-  enum class eLOCK : uint32_t {
+
+  enum class eLOCK : std::uint32_t {
     // not locked
     eUNLOCK = 0,
     // locked
     eLOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Key select for SNVS OTPMK. Default value comes from FUSE_MASTER_KEY_SEL.
-    eSELECT SELECT : 1;
-    uint32_t _reserved_0 : 15;
-    // read-write - lock this register, prevent from writing. Default value comes from FUSE_MASTER_KEY_SEL_LOCK.
-    eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 15;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Key select for SNVS OTPMK. Default value comes from FUSE_MASTER_KEY_SEL.
+  using SELECT = ftl::mmio::Field<1, 0, eSELECT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // lock this register, prevent from writing. Default value comes from FUSE_MASTER_KEY_SEL_LOCK.
+  using LOCK = ftl::mmio::Field<1, 16, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct MASTER_KEY_CTRL_fields_
 
-  MASTER_KEY_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MASTER_KEY_CTRL &ref() { return *reinterpret_cast<volatile MASTER_KEY_CTRL*>(0x40C80000); }
+struct MASTER_KEY_CTRL : ftl::mmio::Register<
+    0x40C80000u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    MASTER_KEY_CTRL_fields_::SELECT,
+    ftl::mmio::Reserved<15, 1>,
+    MASTER_KEY_CTRL_fields_::LOCK,
+    ftl::mmio::Reserved<15, 17>> {
+  using eSELECT = MASTER_KEY_CTRL_fields_::eSELECT;
+  using eLOCK = MASTER_KEY_CTRL_fields_::eLOCK;
+  using SELECT = MASTER_KEY_CTRL_fields_::SELECT;
+  using LOCK = MASTER_KEY_CTRL_fields_::LOCK;
 };
 
+
 // CSR OTFAD-1 Key Control
-union OTFAD1_KEY_CTRL {
-  
-  // key select for OTFAD-1. Default value comes from FUSE_OTFAD1_KEY_SEL.
-  enum class eSELECT : uint32_t {
+struct OTFAD1_KEY_CTRL_fields_ {
+
+  enum class eSELECT : std::uint32_t {
     // Select key from OCOTP USER_KEY5
     eSELECT_FROM_USER_KEY5 = 0,
     // If PUF_KEY_CTRL[LOCK] is 1, select key from PUF, otherwise select key from OCOTP USER_KEY5
     eSELECT_FROM_PUF = 1,
   };
-  
-  // lock this register, prevent from writing. Default value comes from FUSE_OTFAD1_KEY_SEL_LOCK.
-  enum class eLOCK : uint32_t {
+
+  enum class eLOCK : std::uint32_t {
     // not locked
     eUNLOCK = 0,
     // locked
     eLOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - key select for OTFAD-1. Default value comes from FUSE_OTFAD1_KEY_SEL.
-    eSELECT SELECT : 1;
-    uint32_t _reserved_0 : 15;
-    // read-write - lock this register, prevent from writing. Default value comes from FUSE_OTFAD1_KEY_SEL_LOCK.
-    eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 15;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // key select for OTFAD-1. Default value comes from FUSE_OTFAD1_KEY_SEL.
+  using SELECT = ftl::mmio::Field<1, 0, eSELECT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // lock this register, prevent from writing. Default value comes from FUSE_OTFAD1_KEY_SEL_LOCK.
+  using LOCK = ftl::mmio::Field<1, 16, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct OTFAD1_KEY_CTRL_fields_
 
-  OTFAD1_KEY_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OTFAD1_KEY_CTRL &ref() { return *reinterpret_cast<volatile OTFAD1_KEY_CTRL*>(0x40C80010); }
+struct OTFAD1_KEY_CTRL : ftl::mmio::Register<
+    0x40C80010u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    OTFAD1_KEY_CTRL_fields_::SELECT,
+    ftl::mmio::Reserved<15, 1>,
+    OTFAD1_KEY_CTRL_fields_::LOCK,
+    ftl::mmio::Reserved<15, 17>> {
+  using eSELECT = OTFAD1_KEY_CTRL_fields_::eSELECT;
+  using eLOCK = OTFAD1_KEY_CTRL_fields_::eLOCK;
+  using SELECT = OTFAD1_KEY_CTRL_fields_::SELECT;
+  using LOCK = OTFAD1_KEY_CTRL_fields_::LOCK;
 };
 
+
 // CSR OTFAD-2 Key Control
-union OTFAD2_KEY_CTRL {
-  
-  // key select for OTFAD-2. Default value comes from FUSE_OTFAD1_KEY_SEL.
-  enum class eSELECT : uint32_t {
+struct OTFAD2_KEY_CTRL_fields_ {
+
+  enum class eSELECT : std::uint32_t {
     // select key from OCOTP USER_KEY5
     eSELECT_FROM_USER_KEY5 = 0,
     // If PUF_KEY_CTRL[LOCK] is 1, select key from PUF, otherwise select key from OCOTP USER_KEY5
     eSELECT_FROM_PUF = 1,
   };
-  
-  // lock this register, prevent from writing. Default value comes from FUSE_OTFAD2_KEY_SEL_LOCK.
-  enum class eLOCK : uint32_t {
+
+  enum class eLOCK : std::uint32_t {
     // not locked
     eUNLOCK = 0,
     // locked
     eLOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - key select for OTFAD-2. Default value comes from FUSE_OTFAD1_KEY_SEL.
-    eSELECT SELECT : 1;
-    uint32_t _reserved_0 : 15;
-    // read-write - lock this register, prevent from writing. Default value comes from FUSE_OTFAD2_KEY_SEL_LOCK.
-    eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 15;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // key select for OTFAD-2. Default value comes from FUSE_OTFAD1_KEY_SEL.
+  using SELECT = ftl::mmio::Field<1, 0, eSELECT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // lock this register, prevent from writing. Default value comes from FUSE_OTFAD2_KEY_SEL_LOCK.
+  using LOCK = ftl::mmio::Field<1, 16, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct OTFAD2_KEY_CTRL_fields_
 
-  OTFAD2_KEY_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile OTFAD2_KEY_CTRL &ref() { return *reinterpret_cast<volatile OTFAD2_KEY_CTRL*>(0x40C80018); }
+struct OTFAD2_KEY_CTRL : ftl::mmio::Register<
+    0x40C80018u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    OTFAD2_KEY_CTRL_fields_::SELECT,
+    ftl::mmio::Reserved<15, 1>,
+    OTFAD2_KEY_CTRL_fields_::LOCK,
+    ftl::mmio::Reserved<15, 17>> {
+  using eSELECT = OTFAD2_KEY_CTRL_fields_::eSELECT;
+  using eLOCK = OTFAD2_KEY_CTRL_fields_::eLOCK;
+  using SELECT = OTFAD2_KEY_CTRL_fields_::SELECT;
+  using LOCK = OTFAD2_KEY_CTRL_fields_::LOCK;
 };
 
+
 // CSR IEE Key Control
-union IEE_KEY_CTRL {
-  
-  // Restart load key signal for IEE
-  enum class eRELOAD : uint32_t {
+struct IEE_KEY_CTRL_fields_ {
+
+  enum class eRELOAD : std::uint32_t {
     // Do nothing
     eIDLE = 0,
     // Restart IEE key load flow
     eRESTART = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Restart load key signal for IEE
-    eRELOAD RELOAD : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Restart load key signal for IEE
+  using RELOAD = ftl::mmio::Field<1, 0, eRELOAD, ftl::mmio::RW, ftl::mmio::OneToSet>;
+};  // struct IEE_KEY_CTRL_fields_
 
-  IEE_KEY_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEE_KEY_CTRL &ref() { return *reinterpret_cast<volatile IEE_KEY_CTRL*>(0x40C80020); }
+struct IEE_KEY_CTRL : ftl::mmio::Register<
+    0x40C80020u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    IEE_KEY_CTRL_fields_::RELOAD,
+    ftl::mmio::Reserved<31, 1>> {
+  using eRELOAD = IEE_KEY_CTRL_fields_::eRELOAD;
+  using RELOAD = IEE_KEY_CTRL_fields_::RELOAD;
 };
 
+
 // CSR PUF Key Control
-union PUF_KEY_CTRL {
-  
-  // Lock signal for key select
-  enum class eLOCK : uint32_t {
+struct PUF_KEY_CTRL_fields_ {
+
+  enum class eLOCK : std::uint32_t {
     // Do not lock the key select
     eUNLOCK = 0,
     // Lock the key select to select key from PUF, otherwise bypass key from OCOPT and do not lock. Once it has been set to 1, it cannot be reset manually. It will be set to 0 when the IEE key reload operation is done.
     eLOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Lock signal for key select
-    eLOCK LOCK : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Lock signal for key select
+  using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct PUF_KEY_CTRL_fields_
 
-  PUF_KEY_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PUF_KEY_CTRL &ref() { return *reinterpret_cast<volatile PUF_KEY_CTRL*>(0x40C80030); }
+struct PUF_KEY_CTRL : ftl::mmio::Register<
+    0x40C80030u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PUF_KEY_CTRL_fields_::LOCK,
+    ftl::mmio::Reserved<31, 1>> {
+  using eLOCK = PUF_KEY_CTRL_fields_::eLOCK;
+  using LOCK = PUF_KEY_CTRL_fields_::LOCK;
 };
+
 
 // Slot 0 Control
-union SLOT0_CTRL {
-  
-  // Lock whitelist
-  enum class eLOCK_LIST : uint32_t {
+struct SLOT0_CTRL_fields_ {
+
+  enum class eLOCK_LIST : std::uint32_t {
     // Whitelist is not locked
     eUNLOCK = 0,
     // Whitelist is locked
     eLOCK = 1,
   };
-  
-  // Allow non-secure write access to this register and the slot it controls
-  enum class eTZ_NS : uint32_t {
+
+  enum class eTZ_NS : std::uint32_t {
     // Do not allow non-secure write access
     ePREVENT = 0,
     // Allow non-secure write access
     eALLOW = 1,
   };
-  
-  // Allow user write access to this register and the slot it controls
-  enum class eTZ_USER : uint32_t {
+
+  enum class eTZ_USER : std::uint32_t {
     // Do not allow user write access
     ePREVENT = 0,
     // Allow user write access
     eALLOW = 1,
   };
-  
-  // Lock control of this slot
-  enum class eLOCK_CONTROL : uint32_t {
+
+  enum class eLOCK_CONTROL : std::uint32_t {
     // Do not lock the control register of this slot
     eUNLOCK = 0,
     // Lock the control register of this slot
     eLOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Whitelist
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_0 : 11;
-    // read-write - Lock whitelist
-    eLOCK_LIST LOCK_LIST : 1;
-    // read-write - Allow non-secure write access to this register and the slot it controls
-    eTZ_NS TZ_NS : 1;
-    // read-write - Allow user write access to this register and the slot it controls
-    eTZ_USER TZ_USER : 1;
-    uint32_t _reserved_1 : 13;
-    // read-write - Lock control of this slot
-    eLOCK_CONTROL LOCK_CONTROL : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Whitelist
+  using WHITE_LIST = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock whitelist
+  using LOCK_LIST = ftl::mmio::Field<1, 15, eLOCK_LIST, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Allow non-secure write access to this register and the slot it controls
+  using TZ_NS = ftl::mmio::Field<1, 16, eTZ_NS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user write access to this register and the slot it controls
+  using TZ_USER = ftl::mmio::Field<1, 17, eTZ_USER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock control of this slot
+  using LOCK_CONTROL = ftl::mmio::Field<1, 31, eLOCK_CONTROL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SLOT0_CTRL_fields_
 
-  SLOT0_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile SLOT0_CTRL &ref() { return *reinterpret_cast<volatile SLOT0_CTRL*>(0x40C80400); }
+struct SLOT0_CTRL : ftl::mmio::Register<
+    0x40C80400u,
+    std::uint32_t,
+    0x0000000Fu,
+    ftl::mmio::RW,
+    SLOT0_CTRL_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<11, 4>,
+    SLOT0_CTRL_fields_::LOCK_LIST,
+    SLOT0_CTRL_fields_::TZ_NS,
+    SLOT0_CTRL_fields_::TZ_USER,
+    ftl::mmio::Reserved<13, 18>,
+    SLOT0_CTRL_fields_::LOCK_CONTROL> {
+  using eLOCK_LIST = SLOT0_CTRL_fields_::eLOCK_LIST;
+  using eTZ_NS = SLOT0_CTRL_fields_::eTZ_NS;
+  using eTZ_USER = SLOT0_CTRL_fields_::eTZ_USER;
+  using eLOCK_CONTROL = SLOT0_CTRL_fields_::eLOCK_CONTROL;
+  using WHITE_LIST = SLOT0_CTRL_fields_::WHITE_LIST;
+  using LOCK_LIST = SLOT0_CTRL_fields_::LOCK_LIST;
+  using TZ_NS = SLOT0_CTRL_fields_::TZ_NS;
+  using TZ_USER = SLOT0_CTRL_fields_::TZ_USER;
+  using LOCK_CONTROL = SLOT0_CTRL_fields_::LOCK_CONTROL;
 };
+
 
 // Slot1 Control
-union SLOT1_CTRL {
-  
-  // Lock whitelist
-  enum class eLOCK_LIST : uint32_t {
+struct SLOT1_CTRL_fields_ {
+
+  enum class eLOCK_LIST : std::uint32_t {
     // Whitelist is not locked
     eUNLOCK = 0,
     // Whitelist is locked
     eLOCK = 1,
   };
-  
-  // Allow non-secure write access to this register and the slot it controls
-  enum class eTZ_NS : uint32_t {
+
+  enum class eTZ_NS : std::uint32_t {
     // Do not allow non-secure write access
     ePREVENT = 0,
     // Allow non-secure write access
     eALLOW = 1,
   };
-  
-  // Allow user write access to this register and the slot it controls
-  enum class eTZ_USER : uint32_t {
+
+  enum class eTZ_USER : std::uint32_t {
     // Do not allow user write access
     ePREVENT = 0,
     // Allow user write access
     eALLOW = 1,
   };
-  
-  // Lock control of this slot
-  enum class eLOCK_CONTROL : uint32_t {
+
+  enum class eLOCK_CONTROL : std::uint32_t {
     // Do not lock the control register of this slot
     eUNLOCK = 0,
     // Lock the control register of this slot
     eLOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Whitelist
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_0 : 11;
-    // read-write - Lock whitelist
-    eLOCK_LIST LOCK_LIST : 1;
-    // read-write - Allow non-secure write access to this register and the slot it controls
-    eTZ_NS TZ_NS : 1;
-    // read-write - Allow user write access to this register and the slot it controls
-    eTZ_USER TZ_USER : 1;
-    uint32_t _reserved_1 : 13;
-    // read-write - Lock control of this slot
-    eLOCK_CONTROL LOCK_CONTROL : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Whitelist
+  using WHITE_LIST = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock whitelist
+  using LOCK_LIST = ftl::mmio::Field<1, 15, eLOCK_LIST, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Allow non-secure write access to this register and the slot it controls
+  using TZ_NS = ftl::mmio::Field<1, 16, eTZ_NS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user write access to this register and the slot it controls
+  using TZ_USER = ftl::mmio::Field<1, 17, eTZ_USER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock control of this slot
+  using LOCK_CONTROL = ftl::mmio::Field<1, 31, eLOCK_CONTROL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SLOT1_CTRL_fields_
 
-  SLOT1_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile SLOT1_CTRL &ref() { return *reinterpret_cast<volatile SLOT1_CTRL*>(0x40C80404); }
+struct SLOT1_CTRL : ftl::mmio::Register<
+    0x40C80404u,
+    std::uint32_t,
+    0x0000000Fu,
+    ftl::mmio::RW,
+    SLOT1_CTRL_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<11, 4>,
+    SLOT1_CTRL_fields_::LOCK_LIST,
+    SLOT1_CTRL_fields_::TZ_NS,
+    SLOT1_CTRL_fields_::TZ_USER,
+    ftl::mmio::Reserved<13, 18>,
+    SLOT1_CTRL_fields_::LOCK_CONTROL> {
+  using eLOCK_LIST = SLOT1_CTRL_fields_::eLOCK_LIST;
+  using eTZ_NS = SLOT1_CTRL_fields_::eTZ_NS;
+  using eTZ_USER = SLOT1_CTRL_fields_::eTZ_USER;
+  using eLOCK_CONTROL = SLOT1_CTRL_fields_::eLOCK_CONTROL;
+  using WHITE_LIST = SLOT1_CTRL_fields_::WHITE_LIST;
+  using LOCK_LIST = SLOT1_CTRL_fields_::LOCK_LIST;
+  using TZ_NS = SLOT1_CTRL_fields_::TZ_NS;
+  using TZ_USER = SLOT1_CTRL_fields_::TZ_USER;
+  using LOCK_CONTROL = SLOT1_CTRL_fields_::LOCK_CONTROL;
 };
+
 
 // Slot2 Control
-union SLOT2_CTRL {
-  
-  // Lock whitelist
-  enum class eLOCK_LIST : uint32_t {
+struct SLOT2_CTRL_fields_ {
+
+  enum class eLOCK_LIST : std::uint32_t {
     // Whitelist is not locked
     eUNLOCK = 0,
     // Whitelist is locked
     eLOCK = 1,
   };
-  
-  // Allow non-secure write access to this register and the slot it controls
-  enum class eTZ_NS : uint32_t {
+
+  enum class eTZ_NS : std::uint32_t {
     // Do not allow non-secure write access
     ePREVENT = 0,
     // Allow non-secure write access
     eALLOW = 1,
   };
-  
-  // Allow user write access to this register and the slot it controls
-  enum class eTZ_USER : uint32_t {
+
+  enum class eTZ_USER : std::uint32_t {
     // Do not allow user write access
     ePREVENT = 0,
     // Allow user write access
     eALLOW = 1,
   };
-  
-  // Lock control of this slot
-  enum class eLOCK_CONTROL : uint32_t {
+
+  enum class eLOCK_CONTROL : std::uint32_t {
     // Do not lock the control register of this slot
     eUNLOCK = 0,
     // Lock the control register of this slot
     eLOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Whitelist
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_0 : 11;
-    // read-write - Lock whitelist
-    eLOCK_LIST LOCK_LIST : 1;
-    // read-write - Allow non-secure write access to this register and the slot it controls
-    eTZ_NS TZ_NS : 1;
-    // read-write - Allow user write access to this register and the slot it controls
-    eTZ_USER TZ_USER : 1;
-    uint32_t _reserved_1 : 13;
-    // read-write - Lock control of this slot
-    eLOCK_CONTROL LOCK_CONTROL : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Whitelist
+  using WHITE_LIST = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock whitelist
+  using LOCK_LIST = ftl::mmio::Field<1, 15, eLOCK_LIST, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Allow non-secure write access to this register and the slot it controls
+  using TZ_NS = ftl::mmio::Field<1, 16, eTZ_NS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user write access to this register and the slot it controls
+  using TZ_USER = ftl::mmio::Field<1, 17, eTZ_USER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock control of this slot
+  using LOCK_CONTROL = ftl::mmio::Field<1, 31, eLOCK_CONTROL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SLOT2_CTRL_fields_
 
-  SLOT2_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile SLOT2_CTRL &ref() { return *reinterpret_cast<volatile SLOT2_CTRL*>(0x40C80408); }
+struct SLOT2_CTRL : ftl::mmio::Register<
+    0x40C80408u,
+    std::uint32_t,
+    0x0000000Fu,
+    ftl::mmio::RW,
+    SLOT2_CTRL_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<11, 4>,
+    SLOT2_CTRL_fields_::LOCK_LIST,
+    SLOT2_CTRL_fields_::TZ_NS,
+    SLOT2_CTRL_fields_::TZ_USER,
+    ftl::mmio::Reserved<13, 18>,
+    SLOT2_CTRL_fields_::LOCK_CONTROL> {
+  using eLOCK_LIST = SLOT2_CTRL_fields_::eLOCK_LIST;
+  using eTZ_NS = SLOT2_CTRL_fields_::eTZ_NS;
+  using eTZ_USER = SLOT2_CTRL_fields_::eTZ_USER;
+  using eLOCK_CONTROL = SLOT2_CTRL_fields_::eLOCK_CONTROL;
+  using WHITE_LIST = SLOT2_CTRL_fields_::WHITE_LIST;
+  using LOCK_LIST = SLOT2_CTRL_fields_::LOCK_LIST;
+  using TZ_NS = SLOT2_CTRL_fields_::TZ_NS;
+  using TZ_USER = SLOT2_CTRL_fields_::TZ_USER;
+  using LOCK_CONTROL = SLOT2_CTRL_fields_::LOCK_CONTROL;
 };
+
 
 // Slot3 Control
-union SLOT3_CTRL {
-  
-  // Lock whitelist
-  enum class eLOCK_LIST : uint32_t {
+struct SLOT3_CTRL_fields_ {
+
+  enum class eLOCK_LIST : std::uint32_t {
     // Whitelist is not locked
     eUNLOCK = 0,
     // Whitelist is locked
     eLOCK = 1,
   };
-  
-  // Allow non-secure write access to this register and the slot it controls
-  enum class eTZ_NS : uint32_t {
+
+  enum class eTZ_NS : std::uint32_t {
     // Do not allow non-secure write access
     ePREVENT = 0,
     // Allow non-secure write access
     eALLOW = 1,
   };
-  
-  // Allow user write access to this register and the slot it controls
-  enum class eTZ_USER : uint32_t {
+
+  enum class eTZ_USER : std::uint32_t {
     // Do not allow user write access
     ePREVENT = 0,
     // Allow user write access
     eALLOW = 1,
   };
-  
-  // Lock control of this slot
-  enum class eLOCK_CONTROL : uint32_t {
+
+  enum class eLOCK_CONTROL : std::uint32_t {
     // Do not lock the control register of this slot
     eUNLOCK = 0,
     // Lock the control register of this slot
     eLOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Whitelist
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_0 : 11;
-    // read-write - Lock whitelist
-    eLOCK_LIST LOCK_LIST : 1;
-    // read-write - Allow non-secure write access to this register and the slot it controls
-    eTZ_NS TZ_NS : 1;
-    // read-write - Allow user write access to this register and the slot it controls
-    eTZ_USER TZ_USER : 1;
-    uint32_t _reserved_1 : 13;
-    // read-write - Lock control of this slot
-    eLOCK_CONTROL LOCK_CONTROL : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Whitelist
+  using WHITE_LIST = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock whitelist
+  using LOCK_LIST = ftl::mmio::Field<1, 15, eLOCK_LIST, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Allow non-secure write access to this register and the slot it controls
+  using TZ_NS = ftl::mmio::Field<1, 16, eTZ_NS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user write access to this register and the slot it controls
+  using TZ_USER = ftl::mmio::Field<1, 17, eTZ_USER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock control of this slot
+  using LOCK_CONTROL = ftl::mmio::Field<1, 31, eLOCK_CONTROL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SLOT3_CTRL_fields_
 
-  SLOT3_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile SLOT3_CTRL &ref() { return *reinterpret_cast<volatile SLOT3_CTRL*>(0x40C8040C); }
+struct SLOT3_CTRL : ftl::mmio::Register<
+    0x40C8040Cu,
+    std::uint32_t,
+    0x0000000Fu,
+    ftl::mmio::RW,
+    SLOT3_CTRL_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<11, 4>,
+    SLOT3_CTRL_fields_::LOCK_LIST,
+    SLOT3_CTRL_fields_::TZ_NS,
+    SLOT3_CTRL_fields_::TZ_USER,
+    ftl::mmio::Reserved<13, 18>,
+    SLOT3_CTRL_fields_::LOCK_CONTROL> {
+  using eLOCK_LIST = SLOT3_CTRL_fields_::eLOCK_LIST;
+  using eTZ_NS = SLOT3_CTRL_fields_::eTZ_NS;
+  using eTZ_USER = SLOT3_CTRL_fields_::eTZ_USER;
+  using eLOCK_CONTROL = SLOT3_CTRL_fields_::eLOCK_CONTROL;
+  using WHITE_LIST = SLOT3_CTRL_fields_::WHITE_LIST;
+  using LOCK_LIST = SLOT3_CTRL_fields_::LOCK_LIST;
+  using TZ_NS = SLOT3_CTRL_fields_::TZ_NS;
+  using TZ_USER = SLOT3_CTRL_fields_::TZ_USER;
+  using LOCK_CONTROL = SLOT3_CTRL_fields_::LOCK_CONTROL;
 };
+
 
 // Slot 4 Control
-union SLOT4_CTRL {
-  
-  // Lock whitelist
-  enum class eLOCK_LIST : uint32_t {
+struct SLOT4_CTRL_fields_ {
+
+  enum class eLOCK_LIST : std::uint32_t {
     // Whitelist is not locked
     eUNLOCK = 0,
     // Whitelist is locked
     eLOCK = 1,
   };
-  
-  // Allow non-secure write access to this register and the slot it controls
-  enum class eTZ_NS : uint32_t {
+
+  enum class eTZ_NS : std::uint32_t {
     // Do not allow non-secure write access
     ePREVENT = 0,
     // Allow non-secure write access
     eALLOW = 1,
   };
-  
-  // Allow user write access to this register and the slot it controls
-  enum class eTZ_USER : uint32_t {
+
+  enum class eTZ_USER : std::uint32_t {
     // Do not allow user write access
     ePREVENT = 0,
     // Allow user write access
     eALLOW = 1,
   };
-  
-  // Lock control of this slot
-  enum class eLOCK_CONTROL : uint32_t {
+
+  enum class eLOCK_CONTROL : std::uint32_t {
     // Do not lock the control register of this slot
     eUNLOCK = 0,
     // Lock the control register of this slot
     eLOCK = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Whitelist
-    uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_0 : 11;
-    // read-write - Lock whitelist
-    eLOCK_LIST LOCK_LIST : 1;
-    // read-write - Allow non-secure write access to this register and the slot it controls
-    eTZ_NS TZ_NS : 1;
-    // read-write - Allow user write access to this register and the slot it controls
-    eTZ_USER TZ_USER : 1;
-    uint32_t _reserved_1 : 13;
-    // read-write - Lock control of this slot
-    eLOCK_CONTROL LOCK_CONTROL : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Whitelist
+  using WHITE_LIST = ftl::mmio::Field<4, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock whitelist
+  using LOCK_LIST = ftl::mmio::Field<1, 15, eLOCK_LIST, ftl::mmio::RW, ftl::mmio::OneToSet>;
+  // Allow non-secure write access to this register and the slot it controls
+  using TZ_NS = ftl::mmio::Field<1, 16, eTZ_NS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Allow user write access to this register and the slot it controls
+  using TZ_USER = ftl::mmio::Field<1, 17, eTZ_USER, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock control of this slot
+  using LOCK_CONTROL = ftl::mmio::Field<1, 31, eLOCK_CONTROL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct SLOT4_CTRL_fields_
 
-  SLOT4_CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x0000000F; }
-  static inline volatile SLOT4_CTRL &ref() { return *reinterpret_cast<volatile SLOT4_CTRL*>(0x40C80410); }
+struct SLOT4_CTRL : ftl::mmio::Register<
+    0x40C80410u,
+    std::uint32_t,
+    0x0000000Fu,
+    ftl::mmio::RW,
+    SLOT4_CTRL_fields_::WHITE_LIST,
+    ftl::mmio::Reserved<11, 4>,
+    SLOT4_CTRL_fields_::LOCK_LIST,
+    SLOT4_CTRL_fields_::TZ_NS,
+    SLOT4_CTRL_fields_::TZ_USER,
+    ftl::mmio::Reserved<13, 18>,
+    SLOT4_CTRL_fields_::LOCK_CONTROL> {
+  using eLOCK_LIST = SLOT4_CTRL_fields_::eLOCK_LIST;
+  using eTZ_NS = SLOT4_CTRL_fields_::eTZ_NS;
+  using eTZ_USER = SLOT4_CTRL_fields_::eTZ_USER;
+  using eLOCK_CONTROL = SLOT4_CTRL_fields_::eLOCK_CONTROL;
+  using WHITE_LIST = SLOT4_CTRL_fields_::WHITE_LIST;
+  using LOCK_LIST = SLOT4_CTRL_fields_::LOCK_LIST;
+  using TZ_NS = SLOT4_CTRL_fields_::TZ_NS;
+  using TZ_USER = SLOT4_CTRL_fields_::TZ_USER;
+  using LOCK_CONTROL = SLOT4_CTRL_fields_::LOCK_CONTROL;
 };
 
-
-} // namespace nKEY_MANAGER
+}  // namespace regs::key_manager

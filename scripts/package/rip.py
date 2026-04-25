@@ -22,16 +22,16 @@ def main():
   parser.add_argument('-d1', '--debug_core_1', type=str, help='Debug core 1 <preset:application>')
   parser.add_argument('-c', '--clean', action='store_true', help='Clean bin/ directories')
   parser.add_argument('-s', '--serial', action='store_true', help='Launch serial terminal')
-  parser.add_argument(
-      '-g0',
-      '--generate_core_0',
-      action='store_true',
-      help='Generate core0 (cm4) svd registers')
-  parser.add_argument(
-      '-g1',
-      '--generate_core_1',
-      action='store_true',
-      help='Generate core 1 (cm7) svd register')
+  subparsers = parser.add_subparsers(dest='command')
+  gen_parser = subparsers.add_parser(
+      'generate',
+      help='Generate SVD register headers for a core (optionally a single peripheral).')
+  gen_parser.add_argument('core', choices=['cm4', 'cm7'], help='Target core.')
+  gen_parser.add_argument(
+      'peripheral',
+      nargs='?',
+      default=None,
+      help='Optional peripheral name (e.g. DMA0). Omit to regenerate all.')
   args = parser.parse_args()
 
   # Do serial terminal.
@@ -59,19 +59,16 @@ def main():
   if args.debug_core_1:
     mimxrt1170evk.Core1Application(args.debug_core_1).debug()
 
-  # Do generate core 0 (cm4) registers.
-  if args.generate_core_0:
-    file = os.path.join(MCUX_SOC_SVD_ROOT, 'MIMXRT1176', 'MIMXRT1176_cm4.xml')
-    output_dir = os.path.join(PROJECT_ROOT, 'firmware', 'cm4', 'registers', 'codegen')
-    svd_parser_wrapper = forge.SVDParserWrapper(file, output_dir)
-    svd_parser_wrapper.generate()
-
-  # Do generate core 1 (cm7) registers.
-  if args.generate_core_1:
-    file = os.path.join(MCUX_SOC_SVD_ROOT, 'MIMXRT1176', 'MIMXRT1176_cm7.xml')
-    output_dir = os.path.join(PROJECT_ROOT, 'firmware', 'cm7', 'registers', 'codegen')
-    svd_parser_wrapper = forge.SVDParserWrapper(file, output_dir)
-    svd_parser_wrapper.generate()
+  # Do generate (whole core or single peripheral).
+  if args.command == 'generate':
+    svd_name = {'cm4': 'MIMXRT1176_cm4.xml', 'cm7': 'MIMXRT1176_cm7.xml'}[args.core]
+    svd_file = os.path.join(MCUX_SOC_SVD_ROOT, 'MIMXRT1176', svd_name)
+    output_dir = os.path.join(PROJECT_ROOT, 'firmware', args.core, 'registers', 'codegen')
+    wrapper = forge.SVDParserWrapper(svd_file, output_dir)
+    if args.peripheral:
+      wrapper.generate_peripheral(args.peripheral)
+    else:
+      wrapper.generate()
 
 
 if __name__ == '__main__':

@@ -1,665 +1,177 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // IOMUXC SNVS GPR
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nIOMUXC_SNVS_GPR {
+namespace regs::iomuxc_snvs_gpr {
 
 
 // GPR0 General Purpose Register
-union GPR_0 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct GPR_fields_ {
+  // General purpose bits
+  using GPR = ftl::mmio::Field<32, 0, std::uint32_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR_fields_
 
-  GPR_0() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_0 &ref() { return *reinterpret_cast<volatile GPR_0*>(0x40C98000); }
+template<std::uint32_t Index>
+struct GPR : ftl::mmio::Register<
+    0x40C98000u + (Index * 0x4u),
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR_fields_::GPR> {
+  static_assert(Index < 32u, "GPR: Index out of range");
+  using value_ = GPR_fields_::GPR;
 };
-// GPR0 General Purpose Register
-union GPR_1 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
 
-  GPR_1() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_1 &ref() { return *reinterpret_cast<volatile GPR_1*>(0x40C98004); }
-};
-// GPR0 General Purpose Register
-union GPR_2 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_2() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_2 &ref() { return *reinterpret_cast<volatile GPR_2*>(0x40C98008); }
-};
-// GPR0 General Purpose Register
-union GPR_3 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_3() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_3 &ref() { return *reinterpret_cast<volatile GPR_3*>(0x40C9800C); }
-};
-// GPR0 General Purpose Register
-union GPR_4 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_4() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_4 &ref() { return *reinterpret_cast<volatile GPR_4*>(0x40C98010); }
-};
-// GPR0 General Purpose Register
-union GPR_5 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_5() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_5 &ref() { return *reinterpret_cast<volatile GPR_5*>(0x40C98014); }
-};
-// GPR0 General Purpose Register
-union GPR_6 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_6() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_6 &ref() { return *reinterpret_cast<volatile GPR_6*>(0x40C98018); }
-};
-// GPR0 General Purpose Register
-union GPR_7 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_7() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_7 &ref() { return *reinterpret_cast<volatile GPR_7*>(0x40C9801C); }
-};
-// GPR0 General Purpose Register
-union GPR_8 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_8() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_8 &ref() { return *reinterpret_cast<volatile GPR_8*>(0x40C98020); }
-};
-// GPR0 General Purpose Register
-union GPR_9 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_9() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_9 &ref() { return *reinterpret_cast<volatile GPR_9*>(0x40C98024); }
-};
-// GPR0 General Purpose Register
-union GPR_10 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_10() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_10 &ref() { return *reinterpret_cast<volatile GPR_10*>(0x40C98028); }
-};
-// GPR0 General Purpose Register
-union GPR_11 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_11() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_11 &ref() { return *reinterpret_cast<volatile GPR_11*>(0x40C9802C); }
-};
-// GPR0 General Purpose Register
-union GPR_12 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_12() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_12 &ref() { return *reinterpret_cast<volatile GPR_12*>(0x40C98030); }
-};
-// GPR0 General Purpose Register
-union GPR_13 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_13() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_13 &ref() { return *reinterpret_cast<volatile GPR_13*>(0x40C98034); }
-};
-// GPR0 General Purpose Register
-union GPR_14 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_14() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_14 &ref() { return *reinterpret_cast<volatile GPR_14*>(0x40C98038); }
-};
-// GPR0 General Purpose Register
-union GPR_15 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_15() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_15 &ref() { return *reinterpret_cast<volatile GPR_15*>(0x40C9803C); }
-};
-// GPR0 General Purpose Register
-union GPR_16 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_16() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_16 &ref() { return *reinterpret_cast<volatile GPR_16*>(0x40C98040); }
-};
-// GPR0 General Purpose Register
-union GPR_17 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_17() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_17 &ref() { return *reinterpret_cast<volatile GPR_17*>(0x40C98044); }
-};
-// GPR0 General Purpose Register
-union GPR_18 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_18() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_18 &ref() { return *reinterpret_cast<volatile GPR_18*>(0x40C98048); }
-};
-// GPR0 General Purpose Register
-union GPR_19 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_19() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_19 &ref() { return *reinterpret_cast<volatile GPR_19*>(0x40C9804C); }
-};
-// GPR0 General Purpose Register
-union GPR_20 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_20() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_20 &ref() { return *reinterpret_cast<volatile GPR_20*>(0x40C98050); }
-};
-// GPR0 General Purpose Register
-union GPR_21 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_21() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_21 &ref() { return *reinterpret_cast<volatile GPR_21*>(0x40C98054); }
-};
-// GPR0 General Purpose Register
-union GPR_22 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_22() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_22 &ref() { return *reinterpret_cast<volatile GPR_22*>(0x40C98058); }
-};
-// GPR0 General Purpose Register
-union GPR_23 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_23() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_23 &ref() { return *reinterpret_cast<volatile GPR_23*>(0x40C9805C); }
-};
-// GPR0 General Purpose Register
-union GPR_24 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_24() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_24 &ref() { return *reinterpret_cast<volatile GPR_24*>(0x40C98060); }
-};
-// GPR0 General Purpose Register
-union GPR_25 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_25() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_25 &ref() { return *reinterpret_cast<volatile GPR_25*>(0x40C98064); }
-};
-// GPR0 General Purpose Register
-union GPR_26 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_26() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_26 &ref() { return *reinterpret_cast<volatile GPR_26*>(0x40C98068); }
-};
-// GPR0 General Purpose Register
-union GPR_27 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_27() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_27 &ref() { return *reinterpret_cast<volatile GPR_27*>(0x40C9806C); }
-};
-// GPR0 General Purpose Register
-union GPR_28 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_28() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_28 &ref() { return *reinterpret_cast<volatile GPR_28*>(0x40C98070); }
-};
-// GPR0 General Purpose Register
-union GPR_29 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_29() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_29 &ref() { return *reinterpret_cast<volatile GPR_29*>(0x40C98074); }
-};
-// GPR0 General Purpose Register
-union GPR_30 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_30() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_30 &ref() { return *reinterpret_cast<volatile GPR_30*>(0x40C98078); }
-};
-// GPR0 General Purpose Register
-union GPR_31 {
-  
-  // Bit field definition.
-  struct {
-    // read-write - General purpose bits
-    uint32_t GPR : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  GPR_31() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR_31 &ref() { return *reinterpret_cast<volatile GPR_31*>(0x40C9807C); }
-};
 
 // GPR32 General Purpose Register
-union GPR32 {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 1;
-    // read-write - General purpose bits
-    uint32_t GPR : 15;
-    // read-writeOnce - Lock the write to bit 15:0
-    uint32_t LOCK : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+struct GPR32_fields_ {
+  // General purpose bits
+  using GPR = ftl::mmio::Field<15, 1, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Lock the write to bit 15:0
+  using LOCK = ftl::mmio::Field<16, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR32_fields_
 
-  GPR32() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR32 &ref() { return *reinterpret_cast<volatile GPR32*>(0x40C98080); }
+struct GPR32 : ftl::mmio::Register<
+    0x40C98080u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<1, 0>,
+    GPR32_fields_::GPR,
+    GPR32_fields_::LOCK> {
+  using GPR = GPR32_fields_::GPR;
+  using LOCK = GPR32_fields_::LOCK;
 };
 
+
 // GPR33 General Purpose Register
-union GPR33 {
-  
-  // DCDC captured status clear
-  enum class eDCDC_STATUS_CAPT_CLR : uint32_t {
+struct GPR33_fields_ {
+
+  enum class eDCDC_STATUS_CAPT_CLR : std::uint32_t {
     // No change
     eOVER = 0,
     // Clear the 3 bits of DCDC captured status: DCDC_OVER_VOL, DCDC_OVER_CUR, and DCDC_IN_LOW_VOL
     eNO = 1,
   };
-  
-  // SNVS LDO_SNVS_ANA bypass enable
-  enum class eSNVS_BYPASS_EN : uint32_t {
+
+  enum class eSNVS_BYPASS_EN : std::uint32_t {
     // Disable bypass
     eNO = 0,
     // Enable bypass
     eOVER = 1,
   };
-  
-  // DCDC_IN low voltage detect
-  enum class eDCDC_IN_LOW_VOL : uint32_t {
+
+  enum class eDCDC_IN_LOW_VOL : std::uint32_t {
     // Voltage on DCDC_IN is higher than 2.6V
     eNO = 0,
     // Voltage on DCDC_IN is lower than 2.6V
     eOVER = 1,
   };
-  
-  // DCDC output over current alert
-  enum class eDCDC_OVER_CUR : uint32_t {
+
+  enum class eDCDC_OVER_CUR : std::uint32_t {
     // No Overcurrent on DCDC output
     eNO = 0,
     // Overcurrent on DCDC output
     eOVER = 1,
   };
-  
-  // DCDC output over voltage alert
-  enum class eDCDC_OVER_VOL : uint32_t {
+
+  enum class eDCDC_OVER_VOL : std::uint32_t {
     // No Overvoltage on DCDC VDDLP0 or VDDLP8 output
     eNO = 0,
     // Overvoltage on DCDC VDDLP0 or VDDLP8 output
     eOVERVOLTAGE = 1,
   };
-  
-  // DCDC status OK
-  enum class eDCDC_STS_DC_OK : uint32_t {
+
+  enum class eDCDC_STS_DC_OK : std::uint32_t {
     // DCDC is settling
     eDISABLE = 0,
     // DCDC already settled
     eENABLE = 1,
   };
-  
-  // 32K OSC ok flag
-  enum class eSNVS_XTAL_CLK_OK : uint32_t {
+
+  enum class eSNVS_XTAL_CLK_OK : std::uint32_t {
     // 32K oscillator is NOT stable into normal operation
     eUNSTABLE = 0,
     // 32K oscillator is stable into normal operation
     eSTABLE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 1;
-    // read-write - DCDC captured status clear
-    eDCDC_STATUS_CAPT_CLR DCDC_STATUS_CAPT_CLR : 1;
-    // read-write - SNVS LDO_SNVS_ANA bypass enable
-    eSNVS_BYPASS_EN SNVS_BYPASS_EN : 1;
-    uint32_t _reserved_1 : 13;
-    // read-only - DCDC_IN low voltage detect
-    eDCDC_IN_LOW_VOL DCDC_IN_LOW_VOL : 1;
-    // read-only - DCDC output over current alert
-    eDCDC_OVER_CUR DCDC_OVER_CUR : 1;
-    // read-only - DCDC output over voltage alert
-    eDCDC_OVER_VOL DCDC_OVER_VOL : 1;
-    // read-only - DCDC status OK
-    eDCDC_STS_DC_OK DCDC_STS_DC_OK : 1;
-    // read-only - 32K OSC ok flag
-    eSNVS_XTAL_CLK_OK SNVS_XTAL_CLK_OK : 1;
-    uint32_t _reserved_2 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // DCDC captured status clear
+  using DCDC_STATUS_CAPT_CLR = ftl::mmio::Field<1, 1, eDCDC_STATUS_CAPT_CLR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS LDO_SNVS_ANA bypass enable
+  using SNVS_BYPASS_EN = ftl::mmio::Field<1, 2, eSNVS_BYPASS_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // DCDC_IN low voltage detect
+  using DCDC_IN_LOW_VOL = ftl::mmio::Field<1, 16, eDCDC_IN_LOW_VOL, ftl::mmio::RO, ftl::mmio::Normal>;
+  // DCDC output over current alert
+  using DCDC_OVER_CUR = ftl::mmio::Field<1, 17, eDCDC_OVER_CUR, ftl::mmio::RO, ftl::mmio::Normal>;
+  // DCDC output over voltage alert
+  using DCDC_OVER_VOL = ftl::mmio::Field<1, 18, eDCDC_OVER_VOL, ftl::mmio::RO, ftl::mmio::Normal>;
+  // DCDC status OK
+  using DCDC_STS_DC_OK = ftl::mmio::Field<1, 19, eDCDC_STS_DC_OK, ftl::mmio::RO, ftl::mmio::Normal>;
+  // 32K OSC ok flag
+  using SNVS_XTAL_CLK_OK = ftl::mmio::Field<1, 20, eSNVS_XTAL_CLK_OK, ftl::mmio::RO, ftl::mmio::Normal>;
+};  // struct GPR33_fields_
 
-  GPR33() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR33 &ref() { return *reinterpret_cast<volatile GPR33*>(0x40C98084); }
+struct GPR33 : ftl::mmio::Register<
+    0x40C98084u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<1, 0>,
+    GPR33_fields_::DCDC_STATUS_CAPT_CLR,
+    GPR33_fields_::SNVS_BYPASS_EN,
+    ftl::mmio::Reserved<13, 3>,
+    GPR33_fields_::DCDC_IN_LOW_VOL,
+    GPR33_fields_::DCDC_OVER_CUR,
+    GPR33_fields_::DCDC_OVER_VOL,
+    GPR33_fields_::DCDC_STS_DC_OK,
+    GPR33_fields_::SNVS_XTAL_CLK_OK,
+    ftl::mmio::Reserved<11, 21>> {
+  using eDCDC_STATUS_CAPT_CLR = GPR33_fields_::eDCDC_STATUS_CAPT_CLR;
+  using eSNVS_BYPASS_EN = GPR33_fields_::eSNVS_BYPASS_EN;
+  using eDCDC_IN_LOW_VOL = GPR33_fields_::eDCDC_IN_LOW_VOL;
+  using eDCDC_OVER_CUR = GPR33_fields_::eDCDC_OVER_CUR;
+  using eDCDC_OVER_VOL = GPR33_fields_::eDCDC_OVER_VOL;
+  using eDCDC_STS_DC_OK = GPR33_fields_::eDCDC_STS_DC_OK;
+  using eSNVS_XTAL_CLK_OK = GPR33_fields_::eSNVS_XTAL_CLK_OK;
+  using DCDC_STATUS_CAPT_CLR = GPR33_fields_::DCDC_STATUS_CAPT_CLR;
+  using SNVS_BYPASS_EN = GPR33_fields_::SNVS_BYPASS_EN;
+  using DCDC_IN_LOW_VOL = GPR33_fields_::DCDC_IN_LOW_VOL;
+  using DCDC_OVER_CUR = GPR33_fields_::DCDC_OVER_CUR;
+  using DCDC_OVER_VOL = GPR33_fields_::DCDC_OVER_VOL;
+  using DCDC_STS_DC_OK = GPR33_fields_::DCDC_STS_DC_OK;
+  using SNVS_XTAL_CLK_OK = GPR33_fields_::SNVS_XTAL_CLK_OK;
 };
 
+
 // GPR34 General Purpose Register
-union GPR34 {
-  
-  // Lock the write to bit 31:1
-  enum class eLOCK : uint32_t {
+struct GPR34_fields_ {
+
+  enum class eLOCK : std::uint32_t {
     // Write access is not blocked
     eOVER1 = 0,
     // Write access is blocked
     eNO1 = 1,
   };
-  
-  // SNVS core voltage detect trim select
-  enum class eSNVS_CORE_VOLT_DET_TRIM_SEL : uint32_t {
+
+  enum class eSNVS_CORE_VOLT_DET_TRIM_SEL : std::uint32_t {
     // The trimming codes are selected from eFuse
     eOVER1 = 0,
     // The trimming codes of core voltage detectors used to change the voltage falling trip point are selected from SNVS_CORE_VOLT_DET_TRIM
     eNO1 = 1,
   };
-  
-  // SNVS clock detect trim select
-  enum class eSNVS_CLK_DET_TRIM_SEL : uint32_t {
+
+  enum class eSNVS_CLK_DET_TRIM_SEL : std::uint32_t {
     // The trimming codes are selected from eFuse
     eOVER1 = 0,
     // The trimming codes of clock detector used to change the boundary frequencies are selected from SNVS_CLK_DET_TRIM
     eNO1 = 1,
   };
-  
-  // SNVS clock detect offset of high boundary frequency
-  enum class eSNVS_CLK_DET_OFFSET_HIGH : uint32_t {
+
+  enum class eSNVS_CLK_DET_OFFSET_HIGH : std::uint32_t {
     // No change (Default)
     eOVER = 0,
     // Add +5 to the Trim
@@ -669,9 +181,8 @@ union GPR34 {
     // Add -5 to the Trim
     eNO1 = 3,
   };
-  
-  // SNVS clock detect offset of low boundary frequency
-  enum class eSNVS_CLK_DET_OFFSET_LOW : uint32_t {
+
+  enum class eSNVS_CLK_DET_OFFSET_LOW : std::uint32_t {
     // No change (Default)
     eOVER = 0,
     // Add +5 to the Trim
@@ -681,243 +192,286 @@ union GPR34 {
     // Add -5 to the Trim
     eNO1 = 3,
   };
-  
-  // SNVS OSC load capacitor trim select
-  enum class eSNVS_CAP_TRIM_SEL : uint32_t {
+
+  enum class eSNVS_CAP_TRIM_SEL : std::uint32_t {
     // The trimming codes are selected from eFuse
     eOVER = 0,
     // The trimming codes are used from SNVS_OSC_CAP_TRIM (osc32k's load capacitor)
     eNO = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-writeOnce - Lock the write to bit 31:1
-    eLOCK LOCK : 1;
-    // read-write - SNVS core voltage detect trim select
-    eSNVS_CORE_VOLT_DET_TRIM_SEL SNVS_CORE_VOLT_DET_TRIM_SEL : 1;
-    // read-write - SNVS core voltage detect trim
-    uint32_t SNVS_CORE_VOLT_DET_TRIM : 2;
-    uint32_t _reserved_0 : 3;
-    // read-write - SNVS clock detect trim select
-    eSNVS_CLK_DET_TRIM_SEL SNVS_CLK_DET_TRIM_SEL : 1;
-    // read-write - SNVS clock detect trim bits
-    uint32_t SNVS_CLK_DET_TRIM : 8;
-    // read-write - SNVS clock detect offset of high boundary frequency
-    eSNVS_CLK_DET_OFFSET_HIGH SNVS_CLK_DET_OFFSET_HIGH : 2;
-    // read-write - SNVS clock detect offset of low boundary frequency
-    eSNVS_CLK_DET_OFFSET_LOW SNVS_CLK_DET_OFFSET_LOW : 2;
-    uint32_t _reserved_1 : 3;
-    // read-write - SNVS OSC load capacitor trim select
-    eSNVS_CAP_TRIM_SEL SNVS_CAP_TRIM_SEL : 1;
-    // read-write - SNVS OSC load capacitor trim
-    uint32_t SNVS_OSC_CAP_TRIM : 4;
-    uint32_t _reserved_2 : 4;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Lock the write to bit 31:1
+  using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS core voltage detect trim select
+  using SNVS_CORE_VOLT_DET_TRIM_SEL = ftl::mmio::Field<1, 1, eSNVS_CORE_VOLT_DET_TRIM_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS core voltage detect trim
+  using SNVS_CORE_VOLT_DET_TRIM = ftl::mmio::Field<2, 2, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS clock detect trim select
+  using SNVS_CLK_DET_TRIM_SEL = ftl::mmio::Field<1, 7, eSNVS_CLK_DET_TRIM_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS clock detect trim bits
+  using SNVS_CLK_DET_TRIM = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS clock detect offset of high boundary frequency
+  using SNVS_CLK_DET_OFFSET_HIGH = ftl::mmio::Field<2, 16, eSNVS_CLK_DET_OFFSET_HIGH, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS clock detect offset of low boundary frequency
+  using SNVS_CLK_DET_OFFSET_LOW = ftl::mmio::Field<2, 18, eSNVS_CLK_DET_OFFSET_LOW, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS OSC load capacitor trim select
+  using SNVS_CAP_TRIM_SEL = ftl::mmio::Field<1, 23, eSNVS_CAP_TRIM_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS OSC load capacitor trim
+  using SNVS_OSC_CAP_TRIM = ftl::mmio::Field<4, 24, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR34_fields_
 
-  GPR34() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR34 &ref() { return *reinterpret_cast<volatile GPR34*>(0x40C98088); }
+struct GPR34 : ftl::mmio::Register<
+    0x40C98088u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR34_fields_::LOCK,
+    GPR34_fields_::SNVS_CORE_VOLT_DET_TRIM_SEL,
+    GPR34_fields_::SNVS_CORE_VOLT_DET_TRIM,
+    ftl::mmio::Reserved<3, 4>,
+    GPR34_fields_::SNVS_CLK_DET_TRIM_SEL,
+    GPR34_fields_::SNVS_CLK_DET_TRIM,
+    GPR34_fields_::SNVS_CLK_DET_OFFSET_HIGH,
+    GPR34_fields_::SNVS_CLK_DET_OFFSET_LOW,
+    ftl::mmio::Reserved<3, 20>,
+    GPR34_fields_::SNVS_CAP_TRIM_SEL,
+    GPR34_fields_::SNVS_OSC_CAP_TRIM,
+    ftl::mmio::Reserved<4, 28>> {
+  using eLOCK = GPR34_fields_::eLOCK;
+  using eSNVS_CORE_VOLT_DET_TRIM_SEL = GPR34_fields_::eSNVS_CORE_VOLT_DET_TRIM_SEL;
+  using eSNVS_CLK_DET_TRIM_SEL = GPR34_fields_::eSNVS_CLK_DET_TRIM_SEL;
+  using eSNVS_CLK_DET_OFFSET_HIGH = GPR34_fields_::eSNVS_CLK_DET_OFFSET_HIGH;
+  using eSNVS_CLK_DET_OFFSET_LOW = GPR34_fields_::eSNVS_CLK_DET_OFFSET_LOW;
+  using eSNVS_CAP_TRIM_SEL = GPR34_fields_::eSNVS_CAP_TRIM_SEL;
+  using LOCK = GPR34_fields_::LOCK;
+  using SNVS_CORE_VOLT_DET_TRIM_SEL = GPR34_fields_::SNVS_CORE_VOLT_DET_TRIM_SEL;
+  using SNVS_CORE_VOLT_DET_TRIM = GPR34_fields_::SNVS_CORE_VOLT_DET_TRIM;
+  using SNVS_CLK_DET_TRIM_SEL = GPR34_fields_::SNVS_CLK_DET_TRIM_SEL;
+  using SNVS_CLK_DET_TRIM = GPR34_fields_::SNVS_CLK_DET_TRIM;
+  using SNVS_CLK_DET_OFFSET_HIGH = GPR34_fields_::SNVS_CLK_DET_OFFSET_HIGH;
+  using SNVS_CLK_DET_OFFSET_LOW = GPR34_fields_::SNVS_CLK_DET_OFFSET_LOW;
+  using SNVS_CAP_TRIM_SEL = GPR34_fields_::SNVS_CAP_TRIM_SEL;
+  using SNVS_OSC_CAP_TRIM = GPR34_fields_::SNVS_OSC_CAP_TRIM;
 };
 
+
 // GPR35 General Purpose Register
-union GPR35 {
-  
-  // Lock the write to bit 31:1
-  enum class eLOCK : uint32_t {
+struct GPR35_fields_ {
+
+  enum class eLOCK : std::uint32_t {
     // Write access is not blocked
     eOVER1 = 0,
     // Write access is blocked
     eNO1 = 1,
   };
-  
-  // SNVS voltage detect trim select
-  enum class eSNVS_VOLT_DET_TRIM_SEL : uint32_t {
+
+  enum class eSNVS_VOLT_DET_TRIM_SEL : std::uint32_t {
     // The trimming codes are selected from eFuse
     eOVER1 = 0,
     // The trimming codes of voltage detectors to change the voltage boundaries in battery voltage detecting are selected from SNVS_VOLT_DET_TRIM
     eNO1 = 1,
   };
-  
-  // SNVS temperature detect trim select
-  enum class eSNVS_TEMP_DET_TRIM_SEL : uint32_t {
+
+  enum class eSNVS_TEMP_DET_TRIM_SEL : std::uint32_t {
     // The trimming codes are selected from eFuse
     eOVER1 = 0,
     // The trimming codes to define the temperature boundaries of temperature detector are selected from SNVS_TEMP_DET_TRIM
     eNO1 = 1,
   };
-  
-  // SNVS temperature detect offset of high temperature boundary
-  enum class eSNVS_TEMP_DET_OFFSET_HIGH : uint32_t {
-    // No change (Default)
-    eOVER = 0,
-    // Add +5 to the Trim
-    eNO = 1,
-    // Add +10 to the trim
-    eOVER1 = 2,
-    // Add -5 to the Trim
-    eNO1 = 3,
-  };
-  
-  // SNVS temperature detect offset of low temperature boundary
-  enum class eSNVS_TEMP_DET_OFFSET_LOW : uint32_t {
-    // No change (Default)
-    eOVER = 0,
-    // Add +5 to the Trim
-    eNO = 1,
-    // Add +10 to the trim
-    eOVER1 = 2,
-    // Add -5 to the Trim
-    eNO1 = 3,
-  };
-  
-  // Bit field definition.
-  struct {
-    // read-writeOnce - Lock the write to bit 31:1
-    eLOCK LOCK : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - SNVS voltage detect trim select
-    eSNVS_VOLT_DET_TRIM_SEL SNVS_VOLT_DET_TRIM_SEL : 1;
-    // read-write - SNVS voltage detect trim
-    uint32_t SNVS_VOLT_DET_TRIM : 8;
-    uint32_t _reserved_1 : 3;
-    // read-write - SNVS temperature detect trim select
-    eSNVS_TEMP_DET_TRIM_SEL SNVS_TEMP_DET_TRIM_SEL : 1;
-    // read-write - SNVS temperature detect trim
-    uint32_t SNVS_TEMP_DET_TRIM : 12;
-    // read-write - SNVS temperature detect offset of high temperature boundary
-    eSNVS_TEMP_DET_OFFSET_HIGH SNVS_TEMP_DET_OFFSET_HIGH : 2;
-    // read-write - SNVS temperature detect offset of low temperature boundary
-    eSNVS_TEMP_DET_OFFSET_LOW SNVS_TEMP_DET_OFFSET_LOW : 2;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
 
-  GPR35() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR35 &ref() { return *reinterpret_cast<volatile GPR35*>(0x40C9808C); }
+  enum class eSNVS_TEMP_DET_OFFSET_HIGH : std::uint32_t {
+    // No change (Default)
+    eOVER = 0,
+    // Add +5 to the Trim
+    eNO = 1,
+    // Add +10 to the trim
+    eOVER1 = 2,
+    // Add -5 to the Trim
+    eNO1 = 3,
+  };
+
+  enum class eSNVS_TEMP_DET_OFFSET_LOW : std::uint32_t {
+    // No change (Default)
+    eOVER = 0,
+    // Add +5 to the Trim
+    eNO = 1,
+    // Add +10 to the trim
+    eOVER1 = 2,
+    // Add -5 to the Trim
+    eNO1 = 3,
+  };
+  // Lock the write to bit 31:1
+  using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS voltage detect trim select
+  using SNVS_VOLT_DET_TRIM_SEL = ftl::mmio::Field<1, 3, eSNVS_VOLT_DET_TRIM_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS voltage detect trim
+  using SNVS_VOLT_DET_TRIM = ftl::mmio::Field<8, 4, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS temperature detect trim select
+  using SNVS_TEMP_DET_TRIM_SEL = ftl::mmio::Field<1, 15, eSNVS_TEMP_DET_TRIM_SEL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS temperature detect trim
+  using SNVS_TEMP_DET_TRIM = ftl::mmio::Field<12, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS temperature detect offset of high temperature boundary
+  using SNVS_TEMP_DET_OFFSET_HIGH = ftl::mmio::Field<2, 28, eSNVS_TEMP_DET_OFFSET_HIGH, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS temperature detect offset of low temperature boundary
+  using SNVS_TEMP_DET_OFFSET_LOW = ftl::mmio::Field<2, 30, eSNVS_TEMP_DET_OFFSET_LOW, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR35_fields_
+
+struct GPR35 : ftl::mmio::Register<
+    0x40C9808Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR35_fields_::LOCK,
+    ftl::mmio::Reserved<2, 1>,
+    GPR35_fields_::SNVS_VOLT_DET_TRIM_SEL,
+    GPR35_fields_::SNVS_VOLT_DET_TRIM,
+    ftl::mmio::Reserved<3, 12>,
+    GPR35_fields_::SNVS_TEMP_DET_TRIM_SEL,
+    GPR35_fields_::SNVS_TEMP_DET_TRIM,
+    GPR35_fields_::SNVS_TEMP_DET_OFFSET_HIGH,
+    GPR35_fields_::SNVS_TEMP_DET_OFFSET_LOW> {
+  using eLOCK = GPR35_fields_::eLOCK;
+  using eSNVS_VOLT_DET_TRIM_SEL = GPR35_fields_::eSNVS_VOLT_DET_TRIM_SEL;
+  using eSNVS_TEMP_DET_TRIM_SEL = GPR35_fields_::eSNVS_TEMP_DET_TRIM_SEL;
+  using eSNVS_TEMP_DET_OFFSET_HIGH = GPR35_fields_::eSNVS_TEMP_DET_OFFSET_HIGH;
+  using eSNVS_TEMP_DET_OFFSET_LOW = GPR35_fields_::eSNVS_TEMP_DET_OFFSET_LOW;
+  using LOCK = GPR35_fields_::LOCK;
+  using SNVS_VOLT_DET_TRIM_SEL = GPR35_fields_::SNVS_VOLT_DET_TRIM_SEL;
+  using SNVS_VOLT_DET_TRIM = GPR35_fields_::SNVS_VOLT_DET_TRIM;
+  using SNVS_TEMP_DET_TRIM_SEL = GPR35_fields_::SNVS_TEMP_DET_TRIM_SEL;
+  using SNVS_TEMP_DET_TRIM = GPR35_fields_::SNVS_TEMP_DET_TRIM;
+  using SNVS_TEMP_DET_OFFSET_HIGH = GPR35_fields_::SNVS_TEMP_DET_OFFSET_HIGH;
+  using SNVS_TEMP_DET_OFFSET_LOW = GPR35_fields_::SNVS_TEMP_DET_OFFSET_LOW;
 };
 
+
 // GPR36 General Purpose Register
-union GPR36 {
-  
-  // SNVS RAM isolation enable bit
-  enum class eSNVSDIG_SNVS1P8_ISO_EN : uint32_t {
+struct GPR36_fields_ {
+
+  enum class eSNVSDIG_SNVS1P8_ISO_EN : std::uint32_t {
     // Enable SRAM access (It should be cleared after LDO_SNVS_DIG and SNVS SRAM peripheral power is back)
     eDIS = 0,
     // Enable the isolation to avoid extra leakage power before SNVS SRAM peripheral power or LDO_SNVS_DIG is switched off
     eEN = 1,
   };
-  
-  // SNVS SRAM power-down enable bit
-  enum class eSNVS_SRAM_SLEEP : uint32_t {
+
+  enum class eSNVS_SRAM_SLEEP : std::uint32_t {
     // Enable SRAM access (It should be cleared after LDO_SNVS_DIG is enabled)
     eDIS = 0,
     // SNVS SRAM can go in Shutdown/ Periphery Off Array On/ Periphery On Array Off mode. In addition, this bit ensures power-up without stuck-at /high DC current states and hence must be held to 1 during wake-up, so this bit is default high.
     eEN = 1,
   };
-  
-  // SNVS SRAM standby enable bit
-  enum class eSNVS_SRAM_STDBY : uint32_t {
+
+  enum class eSNVS_SRAM_STDBY : std::uint32_t {
     // SNVS SRAM does not enter low leakage state
     eNo = 0,
     // SNVS SRAM enters low leakage state and large drivers are switched OFF
     eDISABLE = 1,
   };
-  
-  // SNVS SRAM large switch control bit for peripheral
-  enum class eSNVS_SRAM_PSWLARGEMP_FORCE : uint32_t {
-    // Switch on SNVS SRAM power for peripheral
-    eNo = 0,
-    // Switch off SNVS SRAM power for peripheral (SRAM array power is not impacted, and data can be retained)
-    eDISABLE = 1,
-  };
-  
-  // SNVS SRAM large switch control bit
-  enum class eSNVS_SRAM_PSWLARGE : uint32_t {
-    // Switch on SNVS SRAM power for peripheral and array
-    eNo = 0,
-    // Switch off SNVS SRAM power for peripheral and array
-    eDISABLE = 1,
-  };
-  
-  // SNVS SRAM small switch control bit for peripheral
-  enum class eSNVS_SRAM_PSWSMALLMP_FORCE : uint32_t {
-    // Switch on SNVS SRAM power for peripheral
-    eNo = 0,
-    // Switch off SNVS SRAM power for peripheral (SRAM array power is not impacted, and data can be retained)
-    eDISABLE = 1,
-  };
-  
-  // SNVS SRAM small switch control bit
-  enum class eSNVS_SRAM_PSWSMALL : uint32_t {
-    // Switch on SNVS SRAM power for peripheral and array
-    eNo = 0,
-    // Switch off SNVS SRAM power for peripheral and array
-    eDISABLE = 1,
-  };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 23;
-    // read-write - SNVS RAM isolation enable bit
-    eSNVSDIG_SNVS1P8_ISO_EN SNVSDIG_SNVS1P8_ISO_EN : 1;
-    uint32_t _reserved_1 : 2;
-    // read-write - SNVS SRAM power-down enable bit
-    eSNVS_SRAM_SLEEP SNVS_SRAM_SLEEP : 1;
-    // read-write - SNVS SRAM standby enable bit
-    eSNVS_SRAM_STDBY SNVS_SRAM_STDBY : 1;
-    // read-write - SNVS SRAM large switch control bit for peripheral
-    eSNVS_SRAM_PSWLARGEMP_FORCE SNVS_SRAM_PSWLARGEMP_FORCE : 1;
-    // read-write - SNVS SRAM large switch control bit
-    eSNVS_SRAM_PSWLARGE SNVS_SRAM_PSWLARGE : 1;
-    // read-write - SNVS SRAM small switch control bit for peripheral
-    eSNVS_SRAM_PSWSMALLMP_FORCE SNVS_SRAM_PSWSMALLMP_FORCE : 1;
-    // read-write - SNVS SRAM small switch control bit
-    eSNVS_SRAM_PSWSMALL SNVS_SRAM_PSWSMALL : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
 
-  GPR36() = delete;
-  inline void Reset() volatile { this->value = 0x04800000; }
-  static inline volatile GPR36 &ref() { return *reinterpret_cast<volatile GPR36*>(0x40C98090); }
+  enum class eSNVS_SRAM_PSWLARGEMP_FORCE : std::uint32_t {
+    // Switch on SNVS SRAM power for peripheral
+    eNo = 0,
+    // Switch off SNVS SRAM power for peripheral (SRAM array power is not impacted, and data can be retained)
+    eDISABLE = 1,
+  };
+
+  enum class eSNVS_SRAM_PSWLARGE : std::uint32_t {
+    // Switch on SNVS SRAM power for peripheral and array
+    eNo = 0,
+    // Switch off SNVS SRAM power for peripheral and array
+    eDISABLE = 1,
+  };
+
+  enum class eSNVS_SRAM_PSWSMALLMP_FORCE : std::uint32_t {
+    // Switch on SNVS SRAM power for peripheral
+    eNo = 0,
+    // Switch off SNVS SRAM power for peripheral (SRAM array power is not impacted, and data can be retained)
+    eDISABLE = 1,
+  };
+
+  enum class eSNVS_SRAM_PSWSMALL : std::uint32_t {
+    // Switch on SNVS SRAM power for peripheral and array
+    eNo = 0,
+    // Switch off SNVS SRAM power for peripheral and array
+    eDISABLE = 1,
+  };
+  // SNVS RAM isolation enable bit
+  using SNVSDIG_SNVS1P8_ISO_EN = ftl::mmio::Field<1, 23, eSNVSDIG_SNVS1P8_ISO_EN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS SRAM power-down enable bit
+  using SNVS_SRAM_SLEEP = ftl::mmio::Field<1, 26, eSNVS_SRAM_SLEEP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS SRAM standby enable bit
+  using SNVS_SRAM_STDBY = ftl::mmio::Field<1, 27, eSNVS_SRAM_STDBY, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS SRAM large switch control bit for peripheral
+  using SNVS_SRAM_PSWLARGEMP_FORCE = ftl::mmio::Field<1, 28, eSNVS_SRAM_PSWLARGEMP_FORCE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS SRAM large switch control bit
+  using SNVS_SRAM_PSWLARGE = ftl::mmio::Field<1, 29, eSNVS_SRAM_PSWLARGE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS SRAM small switch control bit for peripheral
+  using SNVS_SRAM_PSWSMALLMP_FORCE = ftl::mmio::Field<1, 30, eSNVS_SRAM_PSWSMALLMP_FORCE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS SRAM small switch control bit
+  using SNVS_SRAM_PSWSMALL = ftl::mmio::Field<1, 31, eSNVS_SRAM_PSWSMALL, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR36_fields_
+
+struct GPR36 : ftl::mmio::Register<
+    0x40C98090u,
+    std::uint32_t,
+    0x04800000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<23, 0>,
+    GPR36_fields_::SNVSDIG_SNVS1P8_ISO_EN,
+    ftl::mmio::Reserved<2, 24>,
+    GPR36_fields_::SNVS_SRAM_SLEEP,
+    GPR36_fields_::SNVS_SRAM_STDBY,
+    GPR36_fields_::SNVS_SRAM_PSWLARGEMP_FORCE,
+    GPR36_fields_::SNVS_SRAM_PSWLARGE,
+    GPR36_fields_::SNVS_SRAM_PSWSMALLMP_FORCE,
+    GPR36_fields_::SNVS_SRAM_PSWSMALL> {
+  using eSNVSDIG_SNVS1P8_ISO_EN = GPR36_fields_::eSNVSDIG_SNVS1P8_ISO_EN;
+  using eSNVS_SRAM_SLEEP = GPR36_fields_::eSNVS_SRAM_SLEEP;
+  using eSNVS_SRAM_STDBY = GPR36_fields_::eSNVS_SRAM_STDBY;
+  using eSNVS_SRAM_PSWLARGEMP_FORCE = GPR36_fields_::eSNVS_SRAM_PSWLARGEMP_FORCE;
+  using eSNVS_SRAM_PSWLARGE = GPR36_fields_::eSNVS_SRAM_PSWLARGE;
+  using eSNVS_SRAM_PSWSMALLMP_FORCE = GPR36_fields_::eSNVS_SRAM_PSWSMALLMP_FORCE;
+  using eSNVS_SRAM_PSWSMALL = GPR36_fields_::eSNVS_SRAM_PSWSMALL;
+  using SNVSDIG_SNVS1P8_ISO_EN = GPR36_fields_::SNVSDIG_SNVS1P8_ISO_EN;
+  using SNVS_SRAM_SLEEP = GPR36_fields_::SNVS_SRAM_SLEEP;
+  using SNVS_SRAM_STDBY = GPR36_fields_::SNVS_SRAM_STDBY;
+  using SNVS_SRAM_PSWLARGEMP_FORCE = GPR36_fields_::SNVS_SRAM_PSWLARGEMP_FORCE;
+  using SNVS_SRAM_PSWLARGE = GPR36_fields_::SNVS_SRAM_PSWLARGE;
+  using SNVS_SRAM_PSWSMALLMP_FORCE = GPR36_fields_::SNVS_SRAM_PSWSMALLMP_FORCE;
+  using SNVS_SRAM_PSWSMALL = GPR36_fields_::SNVS_SRAM_PSWSMALL;
 };
 
+
 // GPR37 General Purpose Register
-union GPR37 {
-  
-  // Lock the write to bit 31:1
-  enum class eLOCK : uint32_t {
+struct GPR37_fields_ {
+
+  enum class eLOCK : std::uint32_t {
     // Write access is not blocked
     eOVER1 = 0,
     // Write access is blocked
     eNO1 = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-writeOnce - Lock the write to bit 31:1
-    eLOCK LOCK : 1;
-    // read-write - SNVS tamper detect pin pull enable bit
-    uint32_t SNVS_TAMPER_PUE : 10;
-    // read-write - SNVS tamper detect pin pull selection bit
-    uint32_t SNVS_TAMPER_PUS : 10;
-    uint32_t _reserved_0 : 11;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Lock the write to bit 31:1
+  using LOCK = ftl::mmio::Field<1, 0, eLOCK, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS tamper detect pin pull enable bit
+  using SNVS_TAMPER_PUE = ftl::mmio::Field<10, 1, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // SNVS tamper detect pin pull selection bit
+  using SNVS_TAMPER_PUS = ftl::mmio::Field<10, 11, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+};  // struct GPR37_fields_
 
-  GPR37() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GPR37 &ref() { return *reinterpret_cast<volatile GPR37*>(0x40C98094); }
+struct GPR37 : ftl::mmio::Register<
+    0x40C98094u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    GPR37_fields_::LOCK,
+    GPR37_fields_::SNVS_TAMPER_PUE,
+    GPR37_fields_::SNVS_TAMPER_PUS,
+    ftl::mmio::Reserved<11, 21>> {
+  using eLOCK = GPR37_fields_::eLOCK;
+  using LOCK = GPR37_fields_::LOCK;
+  using SNVS_TAMPER_PUE = GPR37_fields_::SNVS_TAMPER_PUE;
+  using SNVS_TAMPER_PUS = GPR37_fields_::SNVS_TAMPER_PUS;
 };
 
-
-} // namespace nIOMUXC_SNVS_GPR
+}  // namespace regs::iomuxc_snvs_gpr

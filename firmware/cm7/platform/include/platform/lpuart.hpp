@@ -1,19 +1,26 @@
-# pragma once
+#pragma once
 
 #include <cassert>
+#include <cstdio>
+#include <cstring>
+
 #include "registers/codegen/iomuxc.hpp"
 #include "registers/codegen/ccm.hpp"
-#include <cstdio>
-#include "registers/codegen/lpuart1.hpp"
+#include "registers/codegen/lpuart.hpp"
 #include "registers/codegen/dma0.hpp"
-#include "registers/handwritten/dma0.hpp"
 #include "registers/codegen/dmamux0.hpp"
+
 #include "etl/singleton.h"
 #include "utils/ocram2_allocator.hpp"
 #include "ftl/singleton.hpp"
 
 #include "board.h"
 #include "cachel1_armv7.h"
+
+namespace ccm     = regs::ccm;
+namespace dma0    = regs::dma0;
+namespace dmamux0 = regs::dmamux0;
+using lpuart1     = regs::Lpuart<1>;
 
 class Lpuart1 : public ftl::Singleton<Lpuart1>
 {
@@ -28,181 +35,154 @@ private:
         this->tx_buffer_ = reinterpret_cast<uint8_t *>(ocram2.allocate(kTxBufferSize, 4));
         assert(tx_buffer_ != nullptr);
 
-        // 1. Enable Clocks
-        auto &dma0_clk_direct = nCCM::LPCG22_DIRECT::ref();
-        auto &dma0_clk_status = nCCM::LPCG22_STATUS0::ref();
-        if (dma0_clk_status.bits.ON != nCCM::LPCG22_STATUS0::eON::eON_1) {
-            dma0_clk_direct.bits.ON = nCCM::LPCG22_DIRECT::eON::eON_1;
-            while (dma0_clk_status.bits.ON != nCCM::LPCG22_STATUS0::eON::eON_1) {}
+        // 1. Enable Clocks.
+        {
+            using direct = ccm::LPCG22_DIRECT;
+            using status = ccm::LPCG22_STATUS0;
+            if (status::read().get<status::ON>() != status::eON::eON_1) {
+                direct::modify(direct::ON{direct::eON::eON_1});
+                while (status::read().get<status::ON>() != status::eON::eON_1) {}
+            }
+        }
+        {
+            using direct = ccm::LPCG86_DIRECT;
+            using status = ccm::LPCG86_STATUS0;
+            if (status::read().get<status::ON>() != status::eON::eON_1) {
+                direct::modify(direct::ON{direct::eON::eON_1});
+                while (status::read().get<status::ON>() != status::eON::eON_1) {}
+            }
         }
 
-        auto &lpuart_clk_direct = nCCM::LPCG86_DIRECT::ref();
-        auto &lpuart_clk_status = nCCM::LPCG86_STATUS0::ref();
-        if (lpuart_clk_status.bits.ON != nCCM::LPCG86_STATUS0::eON::eON_1) {
-            lpuart_clk_direct.bits.ON = nCCM::LPCG86_DIRECT::eON::eON_1;
-            while (lpuart_clk_status.bits.ON != nCCM::LPCG86_STATUS0::eON::eON_1) {}
-        }
+        // 2. Configure LPUART (transmitter disabled initially).
+        // Soft-reset pulse on lpuart1.
+        lpuart1::GLOBAL::modify(lpuart1::GLOBAL::RST{lpuart1::GLOBAL::eRST::eRESET});
+        lpuart1::GLOBAL::modify(lpuart1::GLOBAL::RST{lpuart1::GLOBAL::eRST::eNO_EFFECT});
 
-        // 2. Configure LPUART (Transmitter Disabled Initially)
-        //
-        // Software reset lpuart1.
-        nLPUART1::GLOBAL::ref().bits.RST = nLPUART1::GLOBAL::eRST::eRESET;
-        nLPUART1::GLOBAL::ref().bits.RST = nLPUART1::GLOBAL::eRST::eNO_EFFECT;
-
-        auto &baud = nLPUART1::BAUD::ref();
         // BaudRate = LPUART Clock Frequency / ((OSR+1) * SBR)
         // TODO assert uartClkSrcFreq = 24'000'000;
-        baud.bits.SBR = 8;
-        baud.bits.OSR = nLPUART1::BAUD::eOSR::eOSR_25;
-        baud.bits.SBNS = nLPUART1::BAUD::eSBNS::eONE;
-        baud.bits.RXEDGIE = nLPUART1::BAUD::eRXEDGIE::eDISABLE;
-        baud.bits.LBKDIE = nLPUART1::BAUD::eLBKDIE::eDISABLE;
-        baud.bits.RESYNCDIS = nLPUART1::BAUD::eRESYNCDIS::eRESYNC;
-        baud.bits.BOTHEDGE = nLPUART1::BAUD::eBOTHEDGE::eDISABLED;
-        baud.bits.MATCFG = nLPUART1::BAUD::eMATCFG::eADDR_MATCH;
-        baud.bits.RDMAE = nLPUART1::BAUD::eRDMAE::eDISABLED;
-        baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eDISABLED;  // Keep disabled
-        baud.bits.M10 = nLPUART1::BAUD::eM10::eDISABLED;
-        baud.bits.MAEN2 = nLPUART1::BAUD::eMAEN2::eDISABLED;
-        baud.bits.MAEN1 = nLPUART1::BAUD::eMAEN1::eDISABLED;
+        lpuart1::BAUD::write(
+            lpuart1::BAUD::SBR{std::uint16_t{8}},
+            lpuart1::BAUD::SBNS     {lpuart1::BAUD::eSBNS::eONE},
+            lpuart1::BAUD::RXEDGIE  {lpuart1::BAUD::eRXEDGIE::eDISABLE},
+            lpuart1::BAUD::LBKDIE   {lpuart1::BAUD::eLBKDIE::eDISABLE},
+            lpuart1::BAUD::RESYNCDIS{lpuart1::BAUD::eRESYNCDIS::eRESYNC},
+            lpuart1::BAUD::BOTHEDGE {lpuart1::BAUD::eBOTHEDGE::eDISABLED},
+            lpuart1::BAUD::MATCFG   {lpuart1::BAUD::eMATCFG::eADDR_MATCH},
+            lpuart1::BAUD::RDMAE    {lpuart1::BAUD::eRDMAE::eDISABLED},
+            lpuart1::BAUD::TDMAE    {lpuart1::BAUD::eTDMAE::eDISABLED},  // keep disabled
+            lpuart1::BAUD::OSR      {lpuart1::BAUD::eOSR::eOSR_25},
+            lpuart1::BAUD::M10      {lpuart1::BAUD::eM10::eDISABLED},
+            lpuart1::BAUD::MAEN2    {lpuart1::BAUD::eMAEN2::eDISABLED},
+            lpuart1::BAUD::MAEN1    {lpuart1::BAUD::eMAEN1::eDISABLED});
 
-        auto &fifo = nLPUART1::FIFO::ref();
-        fifo.bits.RXFIFOSIZE = nLPUART1::FIFO::eRXFIFOSIZE::eFIFO_4;
-        fifo.bits.RXFE = nLPUART1::FIFO::eRXFE::eENABLED;
-        fifo.bits.TXFIFOSIZE = nLPUART1::FIFO::eTXFIFOSIZE::eFIFO_4;
-        fifo.bits.TXFE = nLPUART1::FIFO::eTXFE::eENABLED;
-        fifo.bits.RXUFE = nLPUART1::FIFO::eRXUFE::eDISABLED;
-        fifo.bits.TXOFE = nLPUART1::FIFO::eTXOFE::eDISABLED;
-        fifo.bits.RXIDEN = nLPUART1::FIFO::eRXIDEN::eDISABLED;
-        fifo.bits.RXFLUSH = nLPUART1::FIFO::eRXFLUSH::eNO_EFFECT;
-        fifo.bits.TXFLUSH = nLPUART1::FIFO::eTXFLUSH::eTXFIFO_RST;  // Flush TX FIFO
-        fifo.bits.RXUF = nLPUART1::FIFO::eRXUF::eNO_UNDERFLOW;
-        fifo.bits.TXOF = nLPUART1::FIFO::eTXOF::eNO_OVERFLOW;
-        fifo.bits.RXEMPT = nLPUART1::FIFO::eRXEMPT::eEMPTY;
-        fifo.bits.TXEMPT = nLPUART1::FIFO::eTXEMPT::eEMPTY;
+        // FIFO: only the writable (non-RO, non-W1C) fields are listed; the
+        // FIFO size fields are RO and the RXUF/TXOF flags are W1C and were
+        // no-ops in the old union-style writes.
+        lpuart1::FIFO::modify(
+            lpuart1::FIFO::RXFE   {lpuart1::FIFO::eRXFE::eENABLED},
+            lpuart1::FIFO::TXFE   {lpuart1::FIFO::eTXFE::eENABLED},
+            lpuart1::FIFO::RXUFE  {lpuart1::FIFO::eRXUFE::eDISABLED},
+            lpuart1::FIFO::TXOFE  {lpuart1::FIFO::eTXOFE::eDISABLED},
+            lpuart1::FIFO::RXIDEN {lpuart1::FIFO::eRXIDEN::eDISABLED},
+            lpuart1::FIFO::RXFLUSH{lpuart1::FIFO::eRXFLUSH::eNO_EFFECT},
+            lpuart1::FIFO::TXFLUSH{lpuart1::FIFO::eTXFLUSH::eTXFIFO_RST});
 
-        // Set Watermark
-        auto &water = nLPUART1::WATER::ref();
-        water.Reset();
+        lpuart1::WATER::reset();
+        lpuart1::MODIR::reset();
 
-        // Set MODIR
-        auto &modir = nLPUART1::MODIR::ref();
-        modir.Reset();
+        // STAT: only the normal-RW fields. The original code also assigned
+        // "no-effect" values to W1C status flags (MA2F/MA1F/PF/FE/NF/OR/IDLE/
+        // RXEDGIF/LBKDIF) — those are no-ops on hardware (write-0 to W1C) so
+        // we drop them.
+        lpuart1::STAT::modify(
+            lpuart1::STAT::LBKDE{lpuart1::STAT::eLBKDE::eDISABLED},
+            lpuart1::STAT::BRK13{lpuart1::STAT::eBRK13::eSHORT},
+            lpuart1::STAT::RWUID{lpuart1::STAT::eRWUID::eIDLE_NOTSET},
+            lpuart1::STAT::RXINV{lpuart1::STAT::eRXINV::eNOT_INVERTED},
+            lpuart1::STAT::MSBF {lpuart1::STAT::eMSBF::eLSB_FIRST});
 
-        // Set stat, not msb
-        auto &stat = nLPUART1::STAT::ref();
-        stat.bits.MA2F = nLPUART1::STAT::eMA2F::eNOMATCH;
-        stat.bits.MA1F = nLPUART1::STAT::eMA1F::eNOMATCH;
-        stat.bits.PF = nLPUART1::STAT::ePF::eNOPARITY;
-        stat.bits.FE = nLPUART1::STAT::eFE::eNOERROR;
-        stat.bits.NF = nLPUART1::STAT::eNF::eNONOISE;
-        stat.bits.OR = nLPUART1::STAT::eOR::eNO_OVERRUN;
-        stat.bits.IDLE = nLPUART1::STAT::eIDLE::eNOIDLE;
+        lpuart1::CTRL::write(
+            lpuart1::CTRL::PT     {lpuart1::CTRL::ePT::eEVEN},
+            lpuart1::CTRL::PE     {lpuart1::CTRL::ePE::eDISABLED},
+            lpuart1::CTRL::ILT    {lpuart1::CTRL::eILT::eFROM_STOP},
+            lpuart1::CTRL::WAKE   {lpuart1::CTRL::eWAKE::eIDLE},
+            lpuart1::CTRL::M      {lpuart1::CTRL::eM::eDATA8},
+            lpuart1::CTRL::RSRC   {lpuart1::CTRL::eRSRC::eNO_EFFECT},
+            lpuart1::CTRL::DOZEEN {lpuart1::CTRL::eDOZEEN::eENABLED},
+            lpuart1::CTRL::LOOPS  {lpuart1::CTRL::eLOOPS::eNOFFECT},
+            lpuart1::CTRL::IDLECFG{lpuart1::CTRL::eIDLECFG::eIDLE_2},
+            lpuart1::CTRL::M7     {lpuart1::CTRL::eM7::eNO_EFFECT},
+            lpuart1::CTRL::MA2IE  {lpuart1::CTRL::eMA2IE::eDISABLED},
+            lpuart1::CTRL::MA1IE  {lpuart1::CTRL::eMA1IE::eDISABLED},
+            lpuart1::CTRL::SBK    {lpuart1::CTRL::eSBK::eNO_EFFECT},
+            lpuart1::CTRL::RWU    {lpuart1::CTRL::eRWU::eNO_EFFECT},
+            lpuart1::CTRL::RE     {lpuart1::CTRL::eRE::eENABLED},
+            lpuart1::CTRL::TE     {lpuart1::CTRL::eTE::eDISABLED});  // disable TX until DMA ready
 
-        stat.bits.LBKDE = nLPUART1::STAT::eLBKDE::eDISABLED;
-        stat.bits.BRK13 = nLPUART1::STAT::eBRK13::eSHORT;
-        stat.bits.RWUID = nLPUART1::STAT::eRWUID::eIDLE_NOTSET;
-        stat.bits.RXINV = nLPUART1::STAT::eRXINV::eNOT_INVERTED;
-        stat.bits.MSBF = nLPUART1::STAT::eMSBF::eLSB_FIRST;
-        stat.bits.RXEDGIF = nLPUART1::STAT::eRXEDGIF::eNO_EDGE;
-        stat.bits.LBKDIF = nLPUART1::STAT::eLBKDIF::eNOT_DETECTED;
-
-        // Set CTRL.
-        auto &ctrl = nLPUART1::CTRL::ref();
-        ctrl.bits.PT = nLPUART1::CTRL::ePT::eEVEN;
-        ctrl.bits.PE = nLPUART1::CTRL::ePE::eDISABLED;
-        ctrl.bits.ILT = nLPUART1::CTRL::eILT::eFROM_STOP;
-        ctrl.bits.WAKE = nLPUART1::CTRL::eWAKE::eIDLE;
-        ctrl.bits.M = nLPUART1::CTRL::eM::eDATA8;
-        ctrl.bits.RSRC = nLPUART1::CTRL::eRSRC::eNO_EFFECT;
-        ctrl.bits.DOZEEN = nLPUART1::CTRL::eDOZEEN::eENABLED;
-        ctrl.bits.LOOPS = nLPUART1::CTRL::eLOOPS::eNOFFECT;
-        ctrl.bits.IDLECFG = nLPUART1::CTRL::eIDLECFG::eIDLE_2;
-        ctrl.bits.M7 = nLPUART1::CTRL::eM7::eNO_EFFECT;
-        ctrl.bits.MA2IE = nLPUART1::CTRL::eMA2IE::eDISABLED;
-        ctrl.bits.MA1IE = nLPUART1::CTRL::eMA1IE::eDISABLED;
-        ctrl.bits.SBK = nLPUART1::CTRL::eSBK::eNO_EFFECT;
-        ctrl.bits.RWU = nLPUART1::CTRL::eRWU::eNO_EFFECT;
-        ctrl.bits.RE = nLPUART1::CTRL::eRE::eENABLED;
-        ctrl.bits.TE = nLPUART1::CTRL::eTE::eDISABLED;  // Disable TX until DMA ready
-
-        // Set done flag in case we inherit a different state.
-        auto &csr      = nDMA0::TCD_CSR<0>::ref();
-        csr.bits.DONE = 1;
+        // Set DONE flag in case we inherit a different state.
+        dma0::TCD_CSR<0>::modify(dma0::TCD_CSR<0>::DONE{true});
     }
 
 public:
     void write(const uint8_t *buffer, uint16_t size)
     {
-        //─── Handy refs ────────────────────────────────────────────────────────
-        auto &csr      = nDMA0::TCD_CSR<0>::ref();
-        auto &citer    = nDMA0::TCD_CITER_ELINKNO<0>::ref();
-        auto &biter    = nDMA0::TCD_BITER_ELINKNO<0>::ref();
-        auto &soff     = nDMA0::TCD_SOFF<0>::ref();
-        auto &doff     = nDMA0::TCD_DOFF<0>::ref();
-        auto &saddr    = nDMA0::TCD_SADDR<0>::ref();
-        auto &daddr    = nDMA0::TCD_DADDR<0>::ref();
-        auto &attr     = nDMA0::TCD_ATTR<0>::ref();
-        auto &nbytes   = nDMA0::TCD_NBYTES_MLNO<0>::ref();
-        auto &es       = nDMA0::ES::ref();
-        auto &erq      = nDMA0::ERQ::ref();
-        auto &serq     = nDMA0::SERQ::ref();
-        auto &chcfg0   = nDMAMUX0::CHCFG_0::ref();
-        auto &ctrl     = nLPUART1::CTRL::ref();
-        auto &baud     = nLPUART1::BAUD::ref();
-        auto &ldata    = nLPUART1::DATA::ref();
+        // Per-channel TCD aliases — channel 0 is wired to LPUART1 TX.
+        using csr    = dma0::TCD_CSR<0>;
+        using citer  = dma0::TCD_CITER_ELINKNO<0>;
+        using biter  = dma0::TCD_BITER_ELINKNO<0>;
+        using soff   = dma0::TCD_SOFF<0>;
+        using doff   = dma0::TCD_DOFF<0>;
+        using saddr  = dma0::TCD_SADDR<0>;
+        using daddr  = dma0::TCD_DADDR<0>;
+        using attr   = dma0::TCD_ATTR<0>;
+        using nbytes = dma0::TCD_NBYTES_MLNO<0>;
 
-        //─── Wait for completion of the previous write ─────────────────────────
-        while (!csr.bits.DONE) {}
+        using chcfg0 = dmamux0::CHCFG<0>;
 
-        //─── Wait for UART shift register to empty ─────────────────────────────
-        auto &stat = nLPUART1::STAT::ref();
-        while (stat.bits.TC != nLPUART1::STAT::eTC::eCOMPLETE) {}
+        // Wait for completion of the previous write.
+        while (!csr::read().get<csr::DONE>()) {}
 
-        //─── Tear down any ongoing transfer ────────────────────────────────────
-        // Disable UART + its DMA trigger
-        ctrl.bits.TE      = nLPUART1::CTRL::eTE::eDISABLED;
-        baud.bits.TDMAE   = nLPUART1::BAUD::eTDMAE::eDISABLED;
-        // Disable DMAMUX channel
-        chcfg0.bits.ENBL  = nDMAMUX0::CHCFG_0::eENBL::eENBL_0;
-        // Disable DMA requests
-        erq.bits.ERQ0     = nDMA0::ERQ::eERQ0::eDISABLE;
+        // Wait for UART shift register to empty.
+        while (lpuart1::STAT::read().get<lpuart1::STAT::TC>() != lpuart1::STAT::eTC::eCOMPLETE) {}
 
-        //─── Clear sticky flags ───────────────────────────────────────────────
-        es.Reset();         // clear any eDMA error
-        csr.bits.DONE = 1;  // clear DONE
-        csr.bits.DREQ = 1;  // prevent auto-disable on completion
+        // Tear down any ongoing transfer: disable UART + its DMA trigger,
+        // disable DMAMUX channel, disable DMA requests.
+        lpuart1::CTRL::modify(lpuart1::CTRL::TE{lpuart1::CTRL::eTE::eDISABLED});
+        lpuart1::BAUD::modify(lpuart1::BAUD::TDMAE{lpuart1::BAUD::eTDMAE::eDISABLED});
+        chcfg0::modify(chcfg0::ENBL{chcfg0::eENBL::eENBL_0});
+        dma0::ERQ::modify(dma0::ERQ::ERQ0{dma0::ERQ::eERQ0::eDISABLE});
 
-        //─── Copy the data (No cache clean necesarry for OCRAM2 ───────────────
+        // Clear sticky flags. (ES is RO in SVD; the old es.Reset() write was
+        // ignored on silicon. Real error-clear goes through CR[CX] / CERR.)
+        csr::modify(csr::DONE{true},                      // clear DONE
+                    csr::DREQ{csr::eDREQ::eCLEAR});        // prevent auto-disable
+
+        // Copy the data (no cache clean necessary for OCRAM2).
         assert(size <= kTxBufferSize);
-        memcpy(tx_buffer_, buffer, size);
+        std::memcpy(tx_buffer_, buffer, size);
 
-        //─── Reconfigure the TCD ──────────────────────────────────────────────
-        saddr.value        = (uint32_t)tx_buffer_;
-        soff.bits.SOFF     = 1;          // step source by 1 byte
-        daddr.value        = (uint32_t)&ldata.value;
-        doff.bits.DOFF     = 0;          // keep dest fixed
-        nbytes.bits.NBYTES = 1;          // 1 byte per minor-loop
-        attr.bits.SSIZE    = 0;          // 8-bit transfers
-        attr.bits.DSIZE    = 0;
-        biter.bits.BITER   = size;       // set major-loop count
-        biter.bits.ELINK   = 0;
-        citer.bits.CITER   = size;       // must load *after* BITER
-        citer.bits.ELINK   = 0;
+        // Reconfigure the TCD.
+        saddr::write (saddr::SADDR{reinterpret_cast<std::uint32_t>(tx_buffer_)});
+        soff::write  (soff::SOFF{static_cast<std::uint16_t>(1)});       // step source by 1 byte
+        daddr::write (daddr::DADDR{static_cast<std::uint32_t>(lpuart1::DATA::kAddr)});
+        doff::write  (doff::DOFF{static_cast<std::uint16_t>(0)});       // keep dest fixed
+        nbytes::write(nbytes::NBYTES{1u});                              // 1 byte per minor-loop
+        attr::write  (attr::SSIZE{attr::eSSIZE::eEIGHT},                // 8-bit transfers
+                      attr::DSIZE{static_cast<std::uint8_t>(0)});
+        biter::write (biter::BITER{size}, biter::ELINK{biter::eELINK::eDISABLED});
+        // CITER must be loaded *after* BITER per the reference manual.
+        citer::write (citer::CITER{size}, citer::ELINK{citer::eELINK::eDISABLED});
 
-        //─── Arm DMAMUX & clear pending requests ─────────────────────────────
-        chcfg0.bits.SOURCE = 8;         // LPUART1 TX
-        chcfg0.bits.ENBL   = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
-        serq.Reset();                   // clear any stale request
+        // Arm DMAMUX (SOURCE=8 → LPUART1 TX) & clear pending requests.
+        chcfg0::modify(chcfg0::SOURCE{std::uint8_t{8}},
+                       chcfg0::ENBL  {chcfg0::eENBL::eENBL_1});
+        dma0::SERQ::reset();
 
-        //─── Enable DMA + UART, then kick it off ─────────────────────────────
-        erq.bits.ERQ0     = nDMA0::ERQ::eERQ0::eENABLE;
-        ctrl.bits.TE      = nLPUART1::CTRL::eTE::eENABLED;
-        baud.bits.TDMAE   = nLPUART1::BAUD::eTDMAE::eENABLED;
-        // nDMA0::SSRT::ref().bits.SSRT = 1;  // first trigger
+        // Enable DMA + UART, then kick off.
+        dma0::ERQ::modify(dma0::ERQ::ERQ0{dma0::ERQ::eERQ0::eENABLE});
+        lpuart1::CTRL::modify(lpuart1::CTRL::TE   {lpuart1::CTRL::eTE::eENABLED});
+        lpuart1::BAUD::modify(lpuart1::BAUD::TDMAE{lpuart1::BAUD::eTDMAE::eENABLED});
     }
-
-
 
     int read(uint8_t *buffer, size_t max_length)
     {
@@ -210,7 +190,7 @@ public:
 
         size_t i = 0;
         uint8_t* data_address = buffer;
-        
+
         while (i < max_length - 1)
         {
             uint8_t c = this->read_byte();
@@ -223,10 +203,8 @@ public:
 
     uint8_t read_byte()
     {
-        auto &stat = nLPUART1::STAT::ref();
-        auto &data = nLPUART1::DATA::ref();
-        while (stat.bits.RDRF == nLPUART1::STAT::eRDRF::eNO_RXDATA) {}
-        return (uint8_t)(data.value & 0xFF);
+        while (lpuart1::STAT::read().get<lpuart1::STAT::RDRF>() == lpuart1::STAT::eRDRF::eNO_RXDATA) {}
+        return static_cast<std::uint8_t>(lpuart1::DATA::raw() & 0xFFu);
     }
 private:
     uint8_t *tx_buffer_ = nullptr;
