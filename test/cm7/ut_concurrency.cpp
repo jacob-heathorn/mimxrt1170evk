@@ -32,8 +32,9 @@ TEST(MutexTest, BasicLockUnlock)
 // - It is assumed that ThreadX is already initialized in your test setup.
 TEST(MutexTest, ConcurrencyTest)
 {
-    // Shared variables
-    volatile int counter = 0;
+    // counter is mutex-protected so it doesn't need volatile; the done flags
+    // are read in a spin loop without the mutex, so they stay volatile.
+    int counter = 0;
     const int iterations = 1000;
     volatile bool thread1_done = false;
     volatile bool thread2_done = false;
