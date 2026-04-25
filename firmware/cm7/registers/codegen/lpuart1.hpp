@@ -1,96 +1,93 @@
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
-#include <cstring>
+#include <cstdint>
+#include "ftl/mmio.hpp"
 
 // LPUART
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-namespace nLPUART1 {
-
+namespace regs::lpuart1 {
 
 // Version ID Register
-union VERID {
-  
-  // Feature Identification Number
-  enum class eFEATURE : uint32_t {
+namespace VERID_fields_ {
+
+  enum class eFEATURE : std::uint32_t {
     // Standard feature set.
     eSTANDARD = 1,
     // Standard feature set with MODEM/IrDA support.
     eMODEM = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - Feature Identification Number
-    eFEATURE FEATURE : 16;
-    // read-only - Minor Version Number
-    uint32_t MINOR : 8;
-    // read-only - Major Version Number
-    uint32_t MAJOR : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Feature Identification Number
+  using FEATURE = ftl::mmio::Field<16, 0, eFEATURE, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Minor Version Number
+  using MINOR = ftl::mmio::Field<8, 16, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Major Version Number
+  using MAJOR = ftl::mmio::Field<8, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+}  // namespace VERID_fields_
 
-  VERID() = delete;
-  inline void Reset() volatile { this->value = 0x04010003; }
-  static inline volatile VERID &ref() { return *reinterpret_cast<volatile VERID*>(0x4007C000); }
+struct VERID : ftl::mmio::Register<
+    0x4007C000u,
+    std::uint32_t,
+    0x04010003u,
+    ftl::mmio::RO,
+    VERID_fields_::FEATURE,
+    VERID_fields_::MINOR,
+    VERID_fields_::MAJOR> {
+  using eFEATURE = VERID_fields_::eFEATURE;
+  using FEATURE = VERID_fields_::FEATURE;
+  using MINOR = VERID_fields_::MINOR;
+  using MAJOR = VERID_fields_::MAJOR;
 };
 
 // Parameter Register
-union PARAM {
-  
-  // Bit field definition.
-  struct {
-    // read-only - Transmit FIFO Size
-    uint32_t TXFIFO : 8;
-    // read-only - Receive FIFO Size
-    uint32_t RXFIFO : 8;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+namespace PARAM_fields_ {
+  // Transmit FIFO Size
+  using TXFIFO = ftl::mmio::Field<8, 0, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Receive FIFO Size
+  using RXFIFO = ftl::mmio::Field<8, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+}  // namespace PARAM_fields_
 
-  PARAM() = delete;
-  inline void Reset() volatile { this->value = 0x00000202; }
-  static inline volatile PARAM &ref() { return *reinterpret_cast<volatile PARAM*>(0x4007C004); }
+struct PARAM : ftl::mmio::Register<
+    0x4007C004u,
+    std::uint32_t,
+    0x00000202u,
+    ftl::mmio::RO,
+    PARAM_fields_::TXFIFO,
+    PARAM_fields_::RXFIFO,
+    ftl::mmio::Reserved<16, 16>> {
+  using TXFIFO = PARAM_fields_::TXFIFO;
+  using RXFIFO = PARAM_fields_::RXFIFO;
 };
 
 // LPUART Global Register
-union GLOBAL {
-  
-  // Software Reset
-  enum class eRST : uint32_t {
+namespace GLOBAL_fields_ {
+
+  enum class eRST : std::uint32_t {
     // Module is not reset.
     eNO_EFFECT = 0,
     // Module is reset.
     eRESET = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 1;
-    // read-write - Software Reset
-    eRST RST : 1;
-    uint32_t _reserved_1 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Software Reset
+  using RST = ftl::mmio::Field<1, 1, eRST, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace GLOBAL_fields_
 
-  GLOBAL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile GLOBAL &ref() { return *reinterpret_cast<volatile GLOBAL*>(0x4007C008); }
+struct GLOBAL : ftl::mmio::Register<
+    0x4007C008u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<1, 0>,
+    GLOBAL_fields_::RST,
+    ftl::mmio::Reserved<30, 2>> {
+  using eRST = GLOBAL_fields_::eRST;
+  using RST = GLOBAL_fields_::RST;
 };
 
 // LPUART Pin Configuration Register
-union PINCFG {
-  
-  // Trigger Select
-  enum class eTRGSEL : uint32_t {
+namespace PINCFG_fields_ {
+
+  enum class eTRGSEL : std::uint32_t {
     // Input trigger is disabled.
     eDISABLED = 0,
     // Input trigger is used instead of RXD pin input.
@@ -100,67 +97,60 @@ union PINCFG {
     // Input trigger is used to modulate the TXD pin output. The TXD pin output (after TXINV configuration) is internally ANDed with the input trigger.
     eTRG_TXD = 3,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Trigger Select
-    eTRGSEL TRGSEL : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Trigger Select
+  using TRGSEL = ftl::mmio::Field<2, 0, eTRGSEL, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace PINCFG_fields_
 
-  PINCFG() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile PINCFG &ref() { return *reinterpret_cast<volatile PINCFG*>(0x4007C00C); }
+struct PINCFG : ftl::mmio::Register<
+    0x4007C00Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    PINCFG_fields_::TRGSEL,
+    ftl::mmio::Reserved<30, 2>> {
+  using eTRGSEL = PINCFG_fields_::eTRGSEL;
+  using TRGSEL = PINCFG_fields_::TRGSEL;
 };
 
 // LPUART Baud Rate Register
-union BAUD {
-  
-  // Stop Bit Number Select
-  enum class eSBNS : uint32_t {
+namespace BAUD_fields_ {
+
+  enum class eSBNS : std::uint32_t {
     // One stop bit.
     eONE = 0,
     // Two stop bits.
     eTWO = 1,
   };
-  
-  // RX Input Active Edge Interrupt Enable
-  enum class eRXEDGIE : uint32_t {
+
+  enum class eRXEDGIE : std::uint32_t {
     // Hardware interrupts from STAT[RXEDGIF] are disabled.
     eDISABLE = 0,
     // Hardware interrupt is requested when STAT[RXEDGIF] flag is 1.
     eENABLE = 1,
   };
-  
-  // LIN Break Detect Interrupt Enable
-  enum class eLBKDIE : uint32_t {
+
+  enum class eLBKDIE : std::uint32_t {
     // Hardware interrupts from STAT[LBKDIF] flag are disabled (use polling).
     eDISABLE = 0,
     // Hardware interrupt is requested when STAT[LBKDIF] flag is 1.
     eENABLE = 1,
   };
-  
-  // Resynchronization Disable
-  enum class eRESYNCDIS : uint32_t {
+
+  enum class eRESYNCDIS : std::uint32_t {
     // Resynchronization during received data word is supported.
     eRESYNC = 0,
     // Resynchronization during received data word is disabled.
     eNO_RESYNC = 1,
   };
-  
-  // Both Edge Sampling
-  enum class eBOTHEDGE : uint32_t {
+
+  enum class eBOTHEDGE : std::uint32_t {
     // Receiver samples input data using the rising edge of the baud rate clock.
     eDISABLED = 0,
     // Receiver samples input data using the rising and falling edge of the baud rate clock.
     eENABLED = 1,
   };
-  
-  // Match Configuration
-  enum class eMATCFG : uint32_t {
+
+  enum class eMATCFG : std::uint32_t {
     // Address Match Wakeup
     eADDR_MATCH = 0,
     // Idle Match Wakeup
@@ -170,25 +160,22 @@ union BAUD {
     // Enables RWU on Data Match and Match On/Off for transmitter CTS input
     eRWU_MATCH = 3,
   };
-  
-  // Receiver Full DMA Enable
-  enum class eRDMAE : uint32_t {
+
+  enum class eRDMAE : std::uint32_t {
     // DMA request disabled.
     eDISABLED = 0,
     // DMA request enabled.
     eENABLED = 1,
   };
-  
-  // Transmitter DMA Enable
-  enum class eTDMAE : uint32_t {
+
+  enum class eTDMAE : std::uint32_t {
     // DMA request disabled.
     eDISABLED = 0,
     // DMA request enabled.
     eENABLED = 1,
   };
-  
-  // Oversampling Ratio
-  enum class eOSR : uint32_t {
+
+  enum class eOSR : std::uint32_t {
     // Writing 0 to this field results in an oversampling ratio of 16
     eDEFAULT = 0,
     // Oversampling ratio of 4, requires BOTHEDGE to be set.
@@ -250,336 +237,390 @@ union BAUD {
     // Oversampling ratio of 32.
     eOSR_32 = 31,
   };
-  
-  // 10-bit Mode select
-  enum class eM10 : uint32_t {
+
+  enum class eM10 : std::uint32_t {
     // Receiver and transmitter use 7-bit to 9-bit data characters.
     eDISABLED = 0,
     // Receiver and transmitter use 10-bit data characters.
     eENABLED = 1,
   };
-  
-  // Match Address Mode Enable 2
-  enum class eMAEN2 : uint32_t {
+
+  enum class eMAEN2 : std::uint32_t {
     // Normal operation.
     eDISABLED = 0,
     // Enables automatic address matching or data matching mode for MATCH[MA2].
     eENABLED = 1,
   };
-  
-  // Match Address Mode Enable 1
-  enum class eMAEN1 : uint32_t {
+
+  enum class eMAEN1 : std::uint32_t {
     // Normal operation.
     eDISABLED = 0,
     // Enables automatic address matching or data matching mode for MATCH[MA1].
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Baud Rate Modulo Divisor.
-    uint32_t SBR : 13;
-    // read-write - Stop Bit Number Select
-    eSBNS SBNS : 1;
-    // read-write - RX Input Active Edge Interrupt Enable
-    eRXEDGIE RXEDGIE : 1;
-    // read-write - LIN Break Detect Interrupt Enable
-    eLBKDIE LBKDIE : 1;
-    // read-write - Resynchronization Disable
-    eRESYNCDIS RESYNCDIS : 1;
-    // read-write - Both Edge Sampling
-    eBOTHEDGE BOTHEDGE : 1;
-    // read-write - Match Configuration
-    eMATCFG MATCFG : 2;
-    uint32_t _reserved_0 : 1;
-    // read-write - Receiver Full DMA Enable
-    eRDMAE RDMAE : 1;
-    uint32_t _reserved_1 : 1;
-    // read-write - Transmitter DMA Enable
-    eTDMAE TDMAE : 1;
-    // read-write - Oversampling Ratio
-    eOSR OSR : 5;
-    // read-write - 10-bit Mode select
-    eM10 M10 : 1;
-    // read-write - Match Address Mode Enable 2
-    eMAEN2 MAEN2 : 1;
-    // read-write - Match Address Mode Enable 1
-    eMAEN1 MAEN1 : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Baud Rate Modulo Divisor.
+  using SBR = ftl::mmio::Field<13, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Stop Bit Number Select
+  using SBNS = ftl::mmio::Field<1, 13, eSBNS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RX Input Active Edge Interrupt Enable
+  using RXEDGIE = ftl::mmio::Field<1, 14, eRXEDGIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // LIN Break Detect Interrupt Enable
+  using LBKDIE = ftl::mmio::Field<1, 15, eLBKDIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Resynchronization Disable
+  using RESYNCDIS = ftl::mmio::Field<1, 16, eRESYNCDIS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Both Edge Sampling
+  using BOTHEDGE = ftl::mmio::Field<1, 17, eBOTHEDGE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Match Configuration
+  using MATCFG = ftl::mmio::Field<2, 18, eMATCFG, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receiver Full DMA Enable
+  using RDMAE = ftl::mmio::Field<1, 21, eRDMAE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmitter DMA Enable
+  using TDMAE = ftl::mmio::Field<1, 23, eTDMAE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Oversampling Ratio
+  using OSR = ftl::mmio::Field<5, 24, eOSR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // 10-bit Mode select
+  using M10 = ftl::mmio::Field<1, 29, eM10, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Match Address Mode Enable 2
+  using MAEN2 = ftl::mmio::Field<1, 30, eMAEN2, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Match Address Mode Enable 1
+  using MAEN1 = ftl::mmio::Field<1, 31, eMAEN1, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace BAUD_fields_
 
-  BAUD() = delete;
-  inline void Reset() volatile { this->value = 0x0F000004; }
-  static inline volatile BAUD &ref() { return *reinterpret_cast<volatile BAUD*>(0x4007C010); }
+struct BAUD : ftl::mmio::Register<
+    0x4007C010u,
+    std::uint32_t,
+    0x0F000004u,
+    ftl::mmio::RW,
+    BAUD_fields_::SBR,
+    BAUD_fields_::SBNS,
+    BAUD_fields_::RXEDGIE,
+    BAUD_fields_::LBKDIE,
+    BAUD_fields_::RESYNCDIS,
+    BAUD_fields_::BOTHEDGE,
+    BAUD_fields_::MATCFG,
+    ftl::mmio::Reserved<1, 20>,
+    BAUD_fields_::RDMAE,
+    ftl::mmio::Reserved<1, 22>,
+    BAUD_fields_::TDMAE,
+    BAUD_fields_::OSR,
+    BAUD_fields_::M10,
+    BAUD_fields_::MAEN2,
+    BAUD_fields_::MAEN1> {
+  using eSBNS = BAUD_fields_::eSBNS;
+  using eRXEDGIE = BAUD_fields_::eRXEDGIE;
+  using eLBKDIE = BAUD_fields_::eLBKDIE;
+  using eRESYNCDIS = BAUD_fields_::eRESYNCDIS;
+  using eBOTHEDGE = BAUD_fields_::eBOTHEDGE;
+  using eMATCFG = BAUD_fields_::eMATCFG;
+  using eRDMAE = BAUD_fields_::eRDMAE;
+  using eTDMAE = BAUD_fields_::eTDMAE;
+  using eOSR = BAUD_fields_::eOSR;
+  using eM10 = BAUD_fields_::eM10;
+  using eMAEN2 = BAUD_fields_::eMAEN2;
+  using eMAEN1 = BAUD_fields_::eMAEN1;
+  using SBR = BAUD_fields_::SBR;
+  using SBNS = BAUD_fields_::SBNS;
+  using RXEDGIE = BAUD_fields_::RXEDGIE;
+  using LBKDIE = BAUD_fields_::LBKDIE;
+  using RESYNCDIS = BAUD_fields_::RESYNCDIS;
+  using BOTHEDGE = BAUD_fields_::BOTHEDGE;
+  using MATCFG = BAUD_fields_::MATCFG;
+  using RDMAE = BAUD_fields_::RDMAE;
+  using TDMAE = BAUD_fields_::TDMAE;
+  using OSR = BAUD_fields_::OSR;
+  using M10 = BAUD_fields_::M10;
+  using MAEN2 = BAUD_fields_::MAEN2;
+  using MAEN1 = BAUD_fields_::MAEN1;
 };
 
 // LPUART Status Register
-union STAT {
-  
-  // Match 2 Flag
-  enum class eMA2F : uint32_t {
+namespace STAT_fields_ {
+
+  enum class eMA2F : std::uint32_t {
     // Received data is not equal to MA2
     eNOMATCH = 0,
     // Received data is equal to MA2
     eMATCH = 1,
   };
-  
-  // Match 1 Flag
-  enum class eMA1F : uint32_t {
+
+  enum class eMA1F : std::uint32_t {
     // Received data is not equal to MA1
     eNOMATCH = 0,
     // Received data is equal to MA1
     eMATCH = 1,
   };
-  
-  // Parity Error Flag
-  enum class ePF : uint32_t {
+
+  enum class ePF : std::uint32_t {
     // No parity error.
     eNOPARITY = 0,
     // Parity error.
     ePARITY = 1,
   };
-  
-  // Framing Error Flag
-  enum class eFE : uint32_t {
+
+  enum class eFE : std::uint32_t {
     // No framing error detected. This does not guarantee the framing is correct.
     eNOERROR = 0,
     // Framing error.
     eERROR = 1,
   };
-  
-  // Noise Flag
-  enum class eNF : uint32_t {
+
+  enum class eNF : std::uint32_t {
     // No noise detected.
     eNONOISE = 0,
     // Noise detected in the received character in the DATA register.
     eNOISE = 1,
   };
-  
-  // Receiver Overrun Flag
-  enum class eOR : uint32_t {
+
+  enum class eOR : std::uint32_t {
     // No overrun.
     eNO_OVERRUN = 0,
     // Receive overrun (new LPUART data lost).
     eOVERRUN = 1,
   };
-  
-  // Idle Line Flag
-  enum class eIDLE : uint32_t {
+
+  enum class eIDLE : std::uint32_t {
     // No idle line detected.
     eNOIDLE = 0,
     // Idle line is detected.
     eIDLE = 1,
   };
-  
-  // Receive Data Register Full Flag
-  enum class eRDRF : uint32_t {
+
+  enum class eRDRF : std::uint32_t {
     // Receive FIFO level is less than watermark.
     eNO_RXDATA = 0,
     // Receive FIFO level is equal or greater than watermark.
     eRXDATA = 1,
   };
-  
-  // Transmission Complete Flag
-  enum class eTC : uint32_t {
+
+  enum class eTC : std::uint32_t {
     // Transmitter active (sending data, a preamble, or a break).
     eACTIVE = 0,
     // Transmitter idle (transmission activity complete).
     eCOMPLETE = 1,
   };
-  
-  // Transmit Data Register Empty Flag
-  enum class eTDRE : uint32_t {
+
+  enum class eTDRE : std::uint32_t {
     // Transmit FIFO level is greater than watermark.
     eTXDATA = 0,
     // Transmit FIFO level is equal or less than watermark.
     eNO_TXDATA = 1,
   };
-  
-  // Receiver Active Flag
-  enum class eRAF : uint32_t {
+
+  enum class eRAF : std::uint32_t {
     // LPUART receiver idle waiting for a start bit.
     eIDLE = 0,
     // LPUART receiver active (RXD input not idle).
     eACTIVE = 1,
   };
-  
-  // LIN Break Detection Enable
-  enum class eLBKDE : uint32_t {
+
+  enum class eLBKDE : std::uint32_t {
     // LIN break detect is disabled, normal break character can be detected.
     eDISABLED = 0,
     // LIN break detect is enabled. LIN break character is detected at length of 11 bit times (if M = 0) or 12 (if M = 1) or 13 (M10 = 1).
     eENABLED = 1,
   };
-  
-  // Break Character Generation Length
-  enum class eBRK13 : uint32_t {
+
+  enum class eBRK13 : std::uint32_t {
     // Break character is transmitted with length of 9 to 13 bit times.
     eSHORT = 0,
     // Break character is transmitted with length of 12 to 15 bit times.
     eLONG = 1,
   };
-  
-  // Receive Wake Up Idle Detect
-  enum class eRWUID : uint32_t {
+
+  enum class eRWUID : std::uint32_t {
     // During receive standby state (RWU = 1), the IDLE bit does not get set upon detection of an idle character. During address match wakeup, the IDLE bit does not set when an address does not match.
     eIDLE_NOTSET = 0,
     // During receive standby state (RWU = 1), the IDLE bit gets set upon detection of an idle character. During address match wakeup, the IDLE bit does set when an address does not match.
     eIDLE_SET = 1,
   };
-  
-  // Receive Data Inversion
-  enum class eRXINV : uint32_t {
+
+  enum class eRXINV : std::uint32_t {
     // Receive data not inverted.
     eNOT_INVERTED = 0,
     // Receive data inverted.
     eINVERTED = 1,
   };
-  
-  // MSB First
-  enum class eMSBF : uint32_t {
+
+  enum class eMSBF : std::uint32_t {
     // LSB (bit0) is the first bit that is transmitted following the start bit. Further, the first bit received after the start bit is identified as bit0.
     eLSB_FIRST = 0,
     // MSB (identified as bit9, bit8, bit7 or bit6) is the first bit that is transmitted following the start bit depending on the setting of CTRL[M], CTRL[PE] and BAUD[M10]. .
     eMSB_FIRST = 1,
   };
-  
-  // RXD Pin Active Edge Interrupt Flag
-  enum class eRXEDGIF : uint32_t {
+
+  enum class eRXEDGIF : std::uint32_t {
     // No active edge on the receive pin has occurred.
     eNO_EDGE = 0,
     // An active edge on the receive pin has occurred.
     eEDGE = 1,
   };
-  
-  // LIN Break Detect Interrupt Flag
-  enum class eLBKDIF : uint32_t {
+
+  enum class eLBKDIF : std::uint32_t {
     // No LIN break character has been detected.
     eNOT_DETECTED = 0,
     // LIN break character has been detected.
     eDETECTED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 14;
-    // read-write - Match 2 Flag
-    eMA2F MA2F : 1;
-    // read-write - Match 1 Flag
-    eMA1F MA1F : 1;
-    // read-write - Parity Error Flag
-    ePF PF : 1;
-    // read-write - Framing Error Flag
-    eFE FE : 1;
-    // read-write - Noise Flag
-    eNF NF : 1;
-    // read-write - Receiver Overrun Flag
-    eOR OR : 1;
-    // read-write - Idle Line Flag
-    eIDLE IDLE : 1;
-    // read-only - Receive Data Register Full Flag
-    eRDRF RDRF : 1;
-    // read-only - Transmission Complete Flag
-    eTC TC : 1;
-    // read-only - Transmit Data Register Empty Flag
-    eTDRE TDRE : 1;
-    // read-only - Receiver Active Flag
-    eRAF RAF : 1;
-    // read-write - LIN Break Detection Enable
-    eLBKDE LBKDE : 1;
-    // read-write - Break Character Generation Length
-    eBRK13 BRK13 : 1;
-    // read-write - Receive Wake Up Idle Detect
-    eRWUID RWUID : 1;
-    // read-write - Receive Data Inversion
-    eRXINV RXINV : 1;
-    // read-write - MSB First
-    eMSBF MSBF : 1;
-    // read-write - RXD Pin Active Edge Interrupt Flag
-    eRXEDGIF RXEDGIF : 1;
-    // read-write - LIN Break Detect Interrupt Flag
-    eLBKDIF LBKDIF : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Match 2 Flag
+  using MA2F = ftl::mmio::Field<1, 14, eMA2F, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Match 1 Flag
+  using MA1F = ftl::mmio::Field<1, 15, eMA1F, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Parity Error Flag
+  using PF = ftl::mmio::Field<1, 16, ePF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Framing Error Flag
+  using FE = ftl::mmio::Field<1, 17, eFE, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Noise Flag
+  using NF = ftl::mmio::Field<1, 18, eNF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Receiver Overrun Flag
+  using OR = ftl::mmio::Field<1, 19, eOR, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Idle Line Flag
+  using IDLE = ftl::mmio::Field<1, 20, eIDLE, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Receive Data Register Full Flag
+  using RDRF = ftl::mmio::Field<1, 21, eRDRF, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Transmission Complete Flag
+  using TC = ftl::mmio::Field<1, 22, eTC, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Transmit Data Register Empty Flag
+  using TDRE = ftl::mmio::Field<1, 23, eTDRE, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Receiver Active Flag
+  using RAF = ftl::mmio::Field<1, 24, eRAF, ftl::mmio::RO, ftl::mmio::Normal>;
+  // LIN Break Detection Enable
+  using LBKDE = ftl::mmio::Field<1, 25, eLBKDE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Break Character Generation Length
+  using BRK13 = ftl::mmio::Field<1, 26, eBRK13, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receive Wake Up Idle Detect
+  using RWUID = ftl::mmio::Field<1, 27, eRWUID, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receive Data Inversion
+  using RXINV = ftl::mmio::Field<1, 28, eRXINV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // MSB First
+  using MSBF = ftl::mmio::Field<1, 29, eMSBF, ftl::mmio::RW, ftl::mmio::Normal>;
+  // RXD Pin Active Edge Interrupt Flag
+  using RXEDGIF = ftl::mmio::Field<1, 30, eRXEDGIF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // LIN Break Detect Interrupt Flag
+  using LBKDIF = ftl::mmio::Field<1, 31, eLBKDIF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+}  // namespace STAT_fields_
 
-  STAT() = delete;
-  inline void Reset() volatile { this->value = 0x00C00000; }
-  static inline volatile STAT &ref() { return *reinterpret_cast<volatile STAT*>(0x4007C014); }
+struct STAT : ftl::mmio::Register<
+    0x4007C014u,
+    std::uint32_t,
+    0x00C00000u,
+    ftl::mmio::RW,
+    ftl::mmio::Reserved<14, 0>,
+    STAT_fields_::MA2F,
+    STAT_fields_::MA1F,
+    STAT_fields_::PF,
+    STAT_fields_::FE,
+    STAT_fields_::NF,
+    STAT_fields_::OR,
+    STAT_fields_::IDLE,
+    STAT_fields_::RDRF,
+    STAT_fields_::TC,
+    STAT_fields_::TDRE,
+    STAT_fields_::RAF,
+    STAT_fields_::LBKDE,
+    STAT_fields_::BRK13,
+    STAT_fields_::RWUID,
+    STAT_fields_::RXINV,
+    STAT_fields_::MSBF,
+    STAT_fields_::RXEDGIF,
+    STAT_fields_::LBKDIF> {
+  using eMA2F = STAT_fields_::eMA2F;
+  using eMA1F = STAT_fields_::eMA1F;
+  using ePF = STAT_fields_::ePF;
+  using eFE = STAT_fields_::eFE;
+  using eNF = STAT_fields_::eNF;
+  using eOR = STAT_fields_::eOR;
+  using eIDLE = STAT_fields_::eIDLE;
+  using eRDRF = STAT_fields_::eRDRF;
+  using eTC = STAT_fields_::eTC;
+  using eTDRE = STAT_fields_::eTDRE;
+  using eRAF = STAT_fields_::eRAF;
+  using eLBKDE = STAT_fields_::eLBKDE;
+  using eBRK13 = STAT_fields_::eBRK13;
+  using eRWUID = STAT_fields_::eRWUID;
+  using eRXINV = STAT_fields_::eRXINV;
+  using eMSBF = STAT_fields_::eMSBF;
+  using eRXEDGIF = STAT_fields_::eRXEDGIF;
+  using eLBKDIF = STAT_fields_::eLBKDIF;
+  using MA2F = STAT_fields_::MA2F;
+  using MA1F = STAT_fields_::MA1F;
+  using PF = STAT_fields_::PF;
+  using FE = STAT_fields_::FE;
+  using NF = STAT_fields_::NF;
+  using OR = STAT_fields_::OR;
+  using IDLE = STAT_fields_::IDLE;
+  using RDRF = STAT_fields_::RDRF;
+  using TC = STAT_fields_::TC;
+  using TDRE = STAT_fields_::TDRE;
+  using RAF = STAT_fields_::RAF;
+  using LBKDE = STAT_fields_::LBKDE;
+  using BRK13 = STAT_fields_::BRK13;
+  using RWUID = STAT_fields_::RWUID;
+  using RXINV = STAT_fields_::RXINV;
+  using MSBF = STAT_fields_::MSBF;
+  using RXEDGIF = STAT_fields_::RXEDGIF;
+  using LBKDIF = STAT_fields_::LBKDIF;
 };
 
 // LPUART Control Register
-union CTRL {
-  
-  // Parity Type
-  enum class ePT : uint32_t {
+namespace CTRL_fields_ {
+
+  enum class ePT : std::uint32_t {
     // Even parity.
     eEVEN = 0,
     // Odd parity.
     eODD = 1,
   };
-  
-  // Parity Enable
-  enum class ePE : uint32_t {
+
+  enum class ePE : std::uint32_t {
     // No hardware parity generation or checking.
     eDISABLED = 0,
     // Parity enabled.
     eENABLED = 1,
   };
-  
-  // Idle Line Type Select
-  enum class eILT : uint32_t {
+
+  enum class eILT : std::uint32_t {
     // Idle character bit count starts after start bit.
     eFROM_START = 0,
     // Idle character bit count starts after stop bit.
     eFROM_STOP = 1,
   };
-  
-  // Receiver Wakeup Method Select
-  enum class eWAKE : uint32_t {
+
+  enum class eWAKE : std::uint32_t {
     // Configures RWU for idle-line wakeup.
     eIDLE = 0,
     // Configures RWU with address-mark wakeup.
     eMARK = 1,
   };
-  
-  // 9-Bit or 8-Bit Mode Select
-  enum class eM : uint32_t {
+
+  enum class eM : std::uint32_t {
     // Receiver and transmitter use 8-bit data characters.
     eDATA8 = 0,
     // Receiver and transmitter use 9-bit data characters.
     eDATA9 = 1,
   };
-  
-  // Receiver Source Select
-  enum class eRSRC : uint32_t {
+
+  enum class eRSRC : std::uint32_t {
     // Provided LOOPS is set, RSRC is cleared, selects internal loop back mode and the LPUART does not use the RXD pin.
     eNO_EFFECT = 0,
     // Single-wire LPUART mode where the TXD pin is connected to the transmitter output and receiver input.
     eONEWIRE = 1,
   };
-  
-  // Doze Enable
-  enum class eDOZEEN : uint32_t {
+
+  enum class eDOZEEN : std::uint32_t {
     // LPUART is enabled in Doze mode.
     eENABLED = 0,
     // LPUART is disabled in Doze mode .
     eDISABLED = 1,
   };
-  
-  // Loop Mode Select
-  enum class eLOOPS : uint32_t {
+
+  enum class eLOOPS : std::uint32_t {
     // Normal operation - RXD and TXD use separate pins.
     eNOFFECT = 0,
     // Loop mode or single-wire mode where transmitter outputs are internally connected to receiver input (see RSRC bit).
     eLOOPBACK = 1,
   };
-  
-  // Idle Configuration
-  enum class eIDLECFG : uint32_t {
+
+  enum class eIDLECFG : std::uint32_t {
     // 1 idle character
     eIDLE_1 = 0,
     // 2 idle characters
@@ -597,373 +638,453 @@ union CTRL {
     // 128 idle characters
     eIDLE_128 = 7,
   };
-  
-  // 7-Bit Mode Select
-  enum class eM7 : uint32_t {
+
+  enum class eM7 : std::uint32_t {
     // Receiver and transmitter use 8-bit to 10-bit data characters.
     eNO_EFFECT = 0,
     // Receiver and transmitter use 7-bit data characters.
     eDATA7 = 1,
   };
-  
-  // Match 2 Interrupt Enable
-  enum class eMA2IE : uint32_t {
+
+  enum class eMA2IE : std::uint32_t {
     // MA2F interrupt disabled
     eDISABLED = 0,
     // MA2F interrupt enabled
     eENABLED = 1,
   };
-  
-  // Match 1 Interrupt Enable
-  enum class eMA1IE : uint32_t {
+
+  enum class eMA1IE : std::uint32_t {
     // MA1F interrupt disabled
     eDISABLED = 0,
     // MA1F interrupt enabled
     eENABLED = 1,
   };
-  
-  // Send Break
-  enum class eSBK : uint32_t {
+
+  enum class eSBK : std::uint32_t {
     // Normal transmitter operation.
     eNO_EFFECT = 0,
     // Queue break character(s) to be sent.
     eTX_BREAK = 1,
   };
-  
-  // Receiver Wakeup Control
-  enum class eRWU : uint32_t {
+
+  enum class eRWU : std::uint32_t {
     // Normal receiver operation.
     eNO_EFFECT = 0,
     // LPUART receiver in standby waiting for wakeup condition.
     eRX_WAKEUP = 1,
   };
-  
-  // Receiver Enable
-  enum class eRE : uint32_t {
+
+  enum class eRE : std::uint32_t {
     // Receiver disabled.
     eDISABLED = 0,
     // Receiver enabled.
     eENABLED = 1,
   };
-  
-  // Transmitter Enable
-  enum class eTE : uint32_t {
+
+  enum class eTE : std::uint32_t {
     // Transmitter disabled.
     eDISABLED = 0,
     // Transmitter enabled.
     eENABLED = 1,
   };
-  
-  // Idle Line Interrupt Enable
-  enum class eILIE : uint32_t {
+
+  enum class eILIE : std::uint32_t {
     // Hardware interrupts from IDLE disabled; use polling.
     eDISABLED = 0,
     // Hardware interrupt is requested when IDLE flag is 1.
     eENABLED = 1,
   };
-  
-  // Receiver Interrupt Enable
-  enum class eRIE : uint32_t {
+
+  enum class eRIE : std::uint32_t {
     // Hardware interrupts from RDRF disabled.
     eDISABLED = 0,
     // Hardware interrupt is requested when RDRF flag is 1.
     eENABLED = 1,
   };
-  
-  // Transmission Complete Interrupt Enable for
-  enum class eTCIE : uint32_t {
+
+  enum class eTCIE : std::uint32_t {
     // Hardware interrupts from TC disabled.
     eDISABLED = 0,
     // Hardware interrupt is requested when TC flag is 1.
     eENABLED = 1,
   };
-  
-  // Transmit Interrupt Enable
-  enum class eTIE : uint32_t {
+
+  enum class eTIE : std::uint32_t {
     // Hardware interrupts from TDRE disabled.
     eDISABLED = 0,
     // Hardware interrupt is requested when TDRE flag is 1.
     eENABLED = 1,
   };
-  
-  // Parity Error Interrupt Enable
-  enum class ePEIE : uint32_t {
+
+  enum class ePEIE : std::uint32_t {
     // PF interrupts disabled; use polling).
     eDISABLED = 0,
     // Hardware interrupt is requested when PF is set.
     eENABLED = 1,
   };
-  
-  // Framing Error Interrupt Enable
-  enum class eFEIE : uint32_t {
+
+  enum class eFEIE : std::uint32_t {
     // FE interrupts disabled; use polling.
     eDISABLED = 0,
     // Hardware interrupt is requested when FE is set.
     eENABLED = 1,
   };
-  
-  // Noise Error Interrupt Enable
-  enum class eNEIE : uint32_t {
+
+  enum class eNEIE : std::uint32_t {
     // NF interrupts disabled; use polling.
     eDISABLED = 0,
     // Hardware interrupt is requested when NF is set.
     eENABLED = 1,
   };
-  
-  // Overrun Interrupt Enable
-  enum class eORIE : uint32_t {
+
+  enum class eORIE : std::uint32_t {
     // OR interrupts disabled; use polling.
     eDISABLED = 0,
     // Hardware interrupt is requested when OR is set.
     eENABLED = 1,
   };
-  
-  // Transmit Data Inversion
-  enum class eTXINV : uint32_t {
+
+  enum class eTXINV : std::uint32_t {
     // Transmit data not inverted.
     eNOT_INVERTED = 0,
     // Transmit data inverted.
     eINVERTED = 1,
   };
-  
-  // TXD Pin Direction in Single-Wire Mode
-  enum class eTXDIR : uint32_t {
+
+  enum class eTXDIR : std::uint32_t {
     // TXD pin is an input in single-wire mode.
     eTX_INPUT = 0,
     // TXD pin is an output in single-wire mode.
     eTX_OUTPUT = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Parity Type
-    ePT PT : 1;
-    // read-write - Parity Enable
-    ePE PE : 1;
-    // read-write - Idle Line Type Select
-    eILT ILT : 1;
-    // read-write - Receiver Wakeup Method Select
-    eWAKE WAKE : 1;
-    // read-write - 9-Bit or 8-Bit Mode Select
-    eM M : 1;
-    // read-write - Receiver Source Select
-    eRSRC RSRC : 1;
-    // read-write - Doze Enable
-    eDOZEEN DOZEEN : 1;
-    // read-write - Loop Mode Select
-    eLOOPS LOOPS : 1;
-    // read-write - Idle Configuration
-    eIDLECFG IDLECFG : 3;
-    // read-write - 7-Bit Mode Select
-    eM7 M7 : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - Match 2 Interrupt Enable
-    eMA2IE MA2IE : 1;
-    // read-write - Match 1 Interrupt Enable
-    eMA1IE MA1IE : 1;
-    // read-write - Send Break
-    eSBK SBK : 1;
-    // read-write - Receiver Wakeup Control
-    eRWU RWU : 1;
-    // read-write - Receiver Enable
-    eRE RE : 1;
-    // read-write - Transmitter Enable
-    eTE TE : 1;
-    // read-write - Idle Line Interrupt Enable
-    eILIE ILIE : 1;
-    // read-write - Receiver Interrupt Enable
-    eRIE RIE : 1;
-    // read-write - Transmission Complete Interrupt Enable for
-    eTCIE TCIE : 1;
-    // read-write - Transmit Interrupt Enable
-    eTIE TIE : 1;
-    // read-write - Parity Error Interrupt Enable
-    ePEIE PEIE : 1;
-    // read-write - Framing Error Interrupt Enable
-    eFEIE FEIE : 1;
-    // read-write - Noise Error Interrupt Enable
-    eNEIE NEIE : 1;
-    // read-write - Overrun Interrupt Enable
-    eORIE ORIE : 1;
-    // read-write - Transmit Data Inversion
-    eTXINV TXINV : 1;
-    // read-write - TXD Pin Direction in Single-Wire Mode
-    eTXDIR TXDIR : 1;
-    // read-write - Receive Bit 9 / Transmit Bit 8
-    uint32_t R9T8 : 1;
-    // read-write - Receive Bit 8 / Transmit Bit 9
-    uint32_t R8T9 : 1;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Parity Type
+  using PT = ftl::mmio::Field<1, 0, ePT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Parity Enable
+  using PE = ftl::mmio::Field<1, 1, ePE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Idle Line Type Select
+  using ILT = ftl::mmio::Field<1, 2, eILT, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receiver Wakeup Method Select
+  using WAKE = ftl::mmio::Field<1, 3, eWAKE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // 9-Bit or 8-Bit Mode Select
+  using M = ftl::mmio::Field<1, 4, eM, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receiver Source Select
+  using RSRC = ftl::mmio::Field<1, 5, eRSRC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Doze Enable
+  using DOZEEN = ftl::mmio::Field<1, 6, eDOZEEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Loop Mode Select
+  using LOOPS = ftl::mmio::Field<1, 7, eLOOPS, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Idle Configuration
+  using IDLECFG = ftl::mmio::Field<3, 8, eIDLECFG, ftl::mmio::RW, ftl::mmio::Normal>;
+  // 7-Bit Mode Select
+  using M7 = ftl::mmio::Field<1, 11, eM7, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Match 2 Interrupt Enable
+  using MA2IE = ftl::mmio::Field<1, 14, eMA2IE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Match 1 Interrupt Enable
+  using MA1IE = ftl::mmio::Field<1, 15, eMA1IE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Send Break
+  using SBK = ftl::mmio::Field<1, 16, eSBK, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receiver Wakeup Control
+  using RWU = ftl::mmio::Field<1, 17, eRWU, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receiver Enable
+  using RE = ftl::mmio::Field<1, 18, eRE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmitter Enable
+  using TE = ftl::mmio::Field<1, 19, eTE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Idle Line Interrupt Enable
+  using ILIE = ftl::mmio::Field<1, 20, eILIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receiver Interrupt Enable
+  using RIE = ftl::mmio::Field<1, 21, eRIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmission Complete Interrupt Enable for
+  using TCIE = ftl::mmio::Field<1, 22, eTCIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmit Interrupt Enable
+  using TIE = ftl::mmio::Field<1, 23, eTIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Parity Error Interrupt Enable
+  using PEIE = ftl::mmio::Field<1, 24, ePEIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Framing Error Interrupt Enable
+  using FEIE = ftl::mmio::Field<1, 25, eFEIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Noise Error Interrupt Enable
+  using NEIE = ftl::mmio::Field<1, 26, eNEIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Overrun Interrupt Enable
+  using ORIE = ftl::mmio::Field<1, 27, eORIE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmit Data Inversion
+  using TXINV = ftl::mmio::Field<1, 28, eTXINV, ftl::mmio::RW, ftl::mmio::Normal>;
+  // TXD Pin Direction in Single-Wire Mode
+  using TXDIR = ftl::mmio::Field<1, 29, eTXDIR, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receive Bit 9 / Transmit Bit 8
+  using R9T8 = ftl::mmio::Field<1, 30, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receive Bit 8 / Transmit Bit 9
+  using R8T9 = ftl::mmio::Field<1, 31, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace CTRL_fields_
 
-  CTRL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CTRL &ref() { return *reinterpret_cast<volatile CTRL*>(0x4007C018); }
+struct CTRL : ftl::mmio::Register<
+    0x4007C018u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    CTRL_fields_::PT,
+    CTRL_fields_::PE,
+    CTRL_fields_::ILT,
+    CTRL_fields_::WAKE,
+    CTRL_fields_::M,
+    CTRL_fields_::RSRC,
+    CTRL_fields_::DOZEEN,
+    CTRL_fields_::LOOPS,
+    CTRL_fields_::IDLECFG,
+    CTRL_fields_::M7,
+    ftl::mmio::Reserved<2, 12>,
+    CTRL_fields_::MA2IE,
+    CTRL_fields_::MA1IE,
+    CTRL_fields_::SBK,
+    CTRL_fields_::RWU,
+    CTRL_fields_::RE,
+    CTRL_fields_::TE,
+    CTRL_fields_::ILIE,
+    CTRL_fields_::RIE,
+    CTRL_fields_::TCIE,
+    CTRL_fields_::TIE,
+    CTRL_fields_::PEIE,
+    CTRL_fields_::FEIE,
+    CTRL_fields_::NEIE,
+    CTRL_fields_::ORIE,
+    CTRL_fields_::TXINV,
+    CTRL_fields_::TXDIR,
+    CTRL_fields_::R9T8,
+    CTRL_fields_::R8T9> {
+  using ePT = CTRL_fields_::ePT;
+  using ePE = CTRL_fields_::ePE;
+  using eILT = CTRL_fields_::eILT;
+  using eWAKE = CTRL_fields_::eWAKE;
+  using eM = CTRL_fields_::eM;
+  using eRSRC = CTRL_fields_::eRSRC;
+  using eDOZEEN = CTRL_fields_::eDOZEEN;
+  using eLOOPS = CTRL_fields_::eLOOPS;
+  using eIDLECFG = CTRL_fields_::eIDLECFG;
+  using eM7 = CTRL_fields_::eM7;
+  using eMA2IE = CTRL_fields_::eMA2IE;
+  using eMA1IE = CTRL_fields_::eMA1IE;
+  using eSBK = CTRL_fields_::eSBK;
+  using eRWU = CTRL_fields_::eRWU;
+  using eRE = CTRL_fields_::eRE;
+  using eTE = CTRL_fields_::eTE;
+  using eILIE = CTRL_fields_::eILIE;
+  using eRIE = CTRL_fields_::eRIE;
+  using eTCIE = CTRL_fields_::eTCIE;
+  using eTIE = CTRL_fields_::eTIE;
+  using ePEIE = CTRL_fields_::ePEIE;
+  using eFEIE = CTRL_fields_::eFEIE;
+  using eNEIE = CTRL_fields_::eNEIE;
+  using eORIE = CTRL_fields_::eORIE;
+  using eTXINV = CTRL_fields_::eTXINV;
+  using eTXDIR = CTRL_fields_::eTXDIR;
+  using PT = CTRL_fields_::PT;
+  using PE = CTRL_fields_::PE;
+  using ILT = CTRL_fields_::ILT;
+  using WAKE = CTRL_fields_::WAKE;
+  using M = CTRL_fields_::M;
+  using RSRC = CTRL_fields_::RSRC;
+  using DOZEEN = CTRL_fields_::DOZEEN;
+  using LOOPS = CTRL_fields_::LOOPS;
+  using IDLECFG = CTRL_fields_::IDLECFG;
+  using M7 = CTRL_fields_::M7;
+  using MA2IE = CTRL_fields_::MA2IE;
+  using MA1IE = CTRL_fields_::MA1IE;
+  using SBK = CTRL_fields_::SBK;
+  using RWU = CTRL_fields_::RWU;
+  using RE = CTRL_fields_::RE;
+  using TE = CTRL_fields_::TE;
+  using ILIE = CTRL_fields_::ILIE;
+  using RIE = CTRL_fields_::RIE;
+  using TCIE = CTRL_fields_::TCIE;
+  using TIE = CTRL_fields_::TIE;
+  using PEIE = CTRL_fields_::PEIE;
+  using FEIE = CTRL_fields_::FEIE;
+  using NEIE = CTRL_fields_::NEIE;
+  using ORIE = CTRL_fields_::ORIE;
+  using TXINV = CTRL_fields_::TXINV;
+  using TXDIR = CTRL_fields_::TXDIR;
+  using R9T8 = CTRL_fields_::R9T8;
+  using R8T9 = CTRL_fields_::R8T9;
 };
 
 // LPUART Data Register
-union DATA {
-  
-  // Idle Line
-  enum class eIDLINE : uint32_t {
+namespace DATA_fields_ {
+
+  enum class eIDLINE : std::uint32_t {
     // Receiver was not idle before receiving this character.
     eNO_IDLE = 0,
     // Receiver was idle before receiving this character.
     eIDLE = 1,
   };
-  
-  // Receive Buffer Empty
-  enum class eRXEMPT : uint32_t {
+
+  enum class eRXEMPT : std::uint32_t {
     // Receive buffer contains valid data.
     eNOT_EMPTY = 0,
     // Receive buffer is empty, data returned on read is not valid.
     eEMPTY = 1,
   };
-  
-  // Frame Error / Transmit Special Character
-  enum class eFRETSC : uint32_t {
+
+  enum class eFRETSC : std::uint32_t {
     // The dataword is received without a frame error on read, or transmit a normal character on write.
     eNO_ERROR = 0,
     // The dataword is received with a frame error, or transmit an idle or break character on transmit.
     eERROR = 1,
   };
-  
-  // Parity Error
-  enum class ePARITYE : uint32_t {
+
+  enum class ePARITYE : std::uint32_t {
     // The dataword is received without a parity error.
     eNO_PARITY = 0,
     // The dataword is received with a parity error.
     ePARITY = 1,
   };
-  
-  // Noisy Data Received
-  enum class eNOISY : uint32_t {
+
+  enum class eNOISY : std::uint32_t {
     // The dataword is received without noise.
     eNO_NOISE = 0,
     // The data is received with noise.
     eNOISE = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - R0T0
-    uint32_t R0T0 : 1;
-    // read-write - R1T1
-    uint32_t R1T1 : 1;
-    // read-write - R2T2
-    uint32_t R2T2 : 1;
-    // read-write - R3T3
-    uint32_t R3T3 : 1;
-    // read-write - R4T4
-    uint32_t R4T4 : 1;
-    // read-write - R5T5
-    uint32_t R5T5 : 1;
-    // read-write - R6T6
-    uint32_t R6T6 : 1;
-    // read-write - R7T7
-    uint32_t R7T7 : 1;
-    // read-write - R8T8
-    uint32_t R8T8 : 1;
-    // read-write - R9T9
-    uint32_t R9T9 : 1;
-    uint32_t _reserved_0 : 1;
-    // read-only - Idle Line
-    eIDLINE IDLINE : 1;
-    // read-only - Receive Buffer Empty
-    eRXEMPT RXEMPT : 1;
-    // read-write - Frame Error / Transmit Special Character
-    eFRETSC FRETSC : 1;
-    // read-only - Parity Error
-    ePARITYE PARITYE : 1;
-    // read-only - Noisy Data Received
-    eNOISY NOISY : 1;
-    uint32_t _reserved_1 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // R0T0
+  using R0T0 = ftl::mmio::Field<1, 0, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // R1T1
+  using R1T1 = ftl::mmio::Field<1, 1, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // R2T2
+  using R2T2 = ftl::mmio::Field<1, 2, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // R3T3
+  using R3T3 = ftl::mmio::Field<1, 3, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // R4T4
+  using R4T4 = ftl::mmio::Field<1, 4, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // R5T5
+  using R5T5 = ftl::mmio::Field<1, 5, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // R6T6
+  using R6T6 = ftl::mmio::Field<1, 6, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // R7T7
+  using R7T7 = ftl::mmio::Field<1, 7, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // R8T8
+  using R8T8 = ftl::mmio::Field<1, 8, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // R9T9
+  using R9T9 = ftl::mmio::Field<1, 9, bool, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Idle Line
+  using IDLINE = ftl::mmio::Field<1, 11, eIDLINE, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Receive Buffer Empty
+  using RXEMPT = ftl::mmio::Field<1, 12, eRXEMPT, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Frame Error / Transmit Special Character
+  using FRETSC = ftl::mmio::Field<1, 13, eFRETSC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Parity Error
+  using PARITYE = ftl::mmio::Field<1, 14, ePARITYE, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Noisy Data Received
+  using NOISY = ftl::mmio::Field<1, 15, eNOISY, ftl::mmio::RO, ftl::mmio::Normal>;
+}  // namespace DATA_fields_
 
-  DATA() = delete;
-  inline void Reset() volatile { this->value = 0x00001000; }
-  static inline volatile DATA &ref() { return *reinterpret_cast<volatile DATA*>(0x4007C01C); }
+struct DATA : ftl::mmio::Register<
+    0x4007C01Cu,
+    std::uint32_t,
+    0x00001000u,
+    ftl::mmio::RW,
+    DATA_fields_::R0T0,
+    DATA_fields_::R1T1,
+    DATA_fields_::R2T2,
+    DATA_fields_::R3T3,
+    DATA_fields_::R4T4,
+    DATA_fields_::R5T5,
+    DATA_fields_::R6T6,
+    DATA_fields_::R7T7,
+    DATA_fields_::R8T8,
+    DATA_fields_::R9T9,
+    ftl::mmio::Reserved<1, 10>,
+    DATA_fields_::IDLINE,
+    DATA_fields_::RXEMPT,
+    DATA_fields_::FRETSC,
+    DATA_fields_::PARITYE,
+    DATA_fields_::NOISY,
+    ftl::mmio::Reserved<16, 16>> {
+  using eIDLINE = DATA_fields_::eIDLINE;
+  using eRXEMPT = DATA_fields_::eRXEMPT;
+  using eFRETSC = DATA_fields_::eFRETSC;
+  using ePARITYE = DATA_fields_::ePARITYE;
+  using eNOISY = DATA_fields_::eNOISY;
+  using R0T0 = DATA_fields_::R0T0;
+  using R1T1 = DATA_fields_::R1T1;
+  using R2T2 = DATA_fields_::R2T2;
+  using R3T3 = DATA_fields_::R3T3;
+  using R4T4 = DATA_fields_::R4T4;
+  using R5T5 = DATA_fields_::R5T5;
+  using R6T6 = DATA_fields_::R6T6;
+  using R7T7 = DATA_fields_::R7T7;
+  using R8T8 = DATA_fields_::R8T8;
+  using R9T9 = DATA_fields_::R9T9;
+  using IDLINE = DATA_fields_::IDLINE;
+  using RXEMPT = DATA_fields_::RXEMPT;
+  using FRETSC = DATA_fields_::FRETSC;
+  using PARITYE = DATA_fields_::PARITYE;
+  using NOISY = DATA_fields_::NOISY;
 };
 
 // LPUART Match Address Register
-union MATCH {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Match Address 1
-    uint32_t MA1 : 10;
-    uint32_t _reserved_0 : 6;
-    // read-write - Match Address 2
-    uint32_t MA2 : 10;
-    uint32_t _reserved_1 : 6;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+namespace MATCH_fields_ {
+  // Match Address 1
+  using MA1 = ftl::mmio::Field<10, 0, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Match Address 2
+  using MA2 = ftl::mmio::Field<10, 16, std::uint16_t, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace MATCH_fields_
 
-  MATCH() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MATCH &ref() { return *reinterpret_cast<volatile MATCH*>(0x4007C020); }
+struct MATCH : ftl::mmio::Register<
+    0x4007C020u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    MATCH_fields_::MA1,
+    ftl::mmio::Reserved<6, 10>,
+    MATCH_fields_::MA2,
+    ftl::mmio::Reserved<6, 26>> {
+  using MA1 = MATCH_fields_::MA1;
+  using MA2 = MATCH_fields_::MA2;
 };
 
 // LPUART Modem IrDA Register
-union MODIR {
-  
-  // Transmitter clear-to-send enable
-  enum class eTXCTSE : uint32_t {
+namespace MODIR_fields_ {
+
+  enum class eTXCTSE : std::uint32_t {
     // CTS has no effect on the transmitter.
     eDISABLED = 0,
     // Enables clear-to-send operation. The transmitter checks the state of CTS each time it is ready to send a character. If CTS is asserted, the character is sent. If CTS is deasserted, the signal TXD remains in the mark state and transmission is delayed until CTS is asserted. Changes in CTS as a character is being sent do not affect its transmission.
     eENABLED = 1,
   };
-  
-  // Transmitter request-to-send enable
-  enum class eTXRTSE : uint32_t {
+
+  enum class eTXRTSE : std::uint32_t {
     // The transmitter has no effect on RTS.
     eDISABLED = 0,
     // When a character is placed into an empty transmit shift register, RTS asserts one bit time before the start bit is transmitted. RTS deasserts one bit time after all characters in the transmitter FIFO and shift register are completely sent, including the last stop bit.
     eENABLED = 1,
   };
-  
-  // Transmitter request-to-send polarity
-  enum class eTXRTSPOL : uint32_t {
+
+  enum class eTXRTSPOL : std::uint32_t {
     // Transmitter RTS is active low.
     eLOW = 0,
     // Transmitter RTS is active high.
     eHIGH = 1,
   };
-  
-  // Receiver request-to-send enable
-  enum class eRXRTSE : uint32_t {
+
+  enum class eRXRTSE : std::uint32_t {
     // The receiver has no effect on RTS.
     eDISABLED = 0,
     // RTS is deasserted if the receiver data register is full or a start bit has been detected that would cause the receiver data register to become full. RTS is asserted if the receiver data register is not full and has not detected a start bit that would cause the receiver data register to become full.
     eENABLED = 1,
   };
-  
-  // Transmit CTS Configuration
-  enum class eTXCTSC : uint32_t {
+
+  enum class eTXCTSC : std::uint32_t {
     // CTS input is sampled at the start of each character.
     eSTART = 0,
     // CTS input is sampled when the transmitter is idle.
     eIDLE = 1,
   };
-  
-  // Transmit CTS Source
-  enum class eTXCTSSRC : uint32_t {
+
+  enum class eTXCTSSRC : std::uint32_t {
     // CTS input is the CTS_B pin.
     eCTS = 0,
     // CTS input is an internal connection to the receiver address match result.
     eMATCH = 1,
   };
-  
-  // Transmitter narrow pulse
-  enum class eTNP : uint32_t {
+
+  enum class eTNP : std::uint32_t {
     // 1/OSR.
     eONE_SAMPLE = 0,
     // 2/OSR.
@@ -973,53 +1094,73 @@ union MODIR {
     // 4/OSR.
     eFOUR_SAMPLE = 3,
   };
-  
-  // Infrared enable
-  enum class eIREN : uint32_t {
+
+  enum class eIREN : std::uint32_t {
     // IR disabled.
     eDISABLED = 0,
     // IR enabled.
     eENABLED = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-write - Transmitter clear-to-send enable
-    eTXCTSE TXCTSE : 1;
-    // read-write - Transmitter request-to-send enable
-    eTXRTSE TXRTSE : 1;
-    // read-write - Transmitter request-to-send polarity
-    eTXRTSPOL TXRTSPOL : 1;
-    // read-write - Receiver request-to-send enable
-    eRXRTSE RXRTSE : 1;
-    // read-write - Transmit CTS Configuration
-    eTXCTSC TXCTSC : 1;
-    // read-write - Transmit CTS Source
-    eTXCTSSRC TXCTSSRC : 1;
-    uint32_t _reserved_0 : 2;
-    // read-write - Receive RTS Configuration
-    uint32_t RTSWATER : 2;
-    uint32_t _reserved_1 : 6;
-    // read-write - Transmitter narrow pulse
-    eTNP TNP : 2;
-    // read-write - Infrared enable
-    eIREN IREN : 1;
-    uint32_t _reserved_2 : 13;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Transmitter clear-to-send enable
+  using TXCTSE = ftl::mmio::Field<1, 0, eTXCTSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmitter request-to-send enable
+  using TXRTSE = ftl::mmio::Field<1, 1, eTXRTSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmitter request-to-send polarity
+  using TXRTSPOL = ftl::mmio::Field<1, 2, eTXRTSPOL, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receiver request-to-send enable
+  using RXRTSE = ftl::mmio::Field<1, 3, eRXRTSE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmit CTS Configuration
+  using TXCTSC = ftl::mmio::Field<1, 4, eTXCTSC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmit CTS Source
+  using TXCTSSRC = ftl::mmio::Field<1, 5, eTXCTSSRC, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receive RTS Configuration
+  using RTSWATER = ftl::mmio::Field<2, 8, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmitter narrow pulse
+  using TNP = ftl::mmio::Field<2, 16, eTNP, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Infrared enable
+  using IREN = ftl::mmio::Field<1, 18, eIREN, ftl::mmio::RW, ftl::mmio::Normal>;
+}  // namespace MODIR_fields_
 
-  MODIR() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile MODIR &ref() { return *reinterpret_cast<volatile MODIR*>(0x4007C024); }
+struct MODIR : ftl::mmio::Register<
+    0x4007C024u,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    MODIR_fields_::TXCTSE,
+    MODIR_fields_::TXRTSE,
+    MODIR_fields_::TXRTSPOL,
+    MODIR_fields_::RXRTSE,
+    MODIR_fields_::TXCTSC,
+    MODIR_fields_::TXCTSSRC,
+    ftl::mmio::Reserved<2, 6>,
+    MODIR_fields_::RTSWATER,
+    ftl::mmio::Reserved<6, 10>,
+    MODIR_fields_::TNP,
+    MODIR_fields_::IREN,
+    ftl::mmio::Reserved<13, 19>> {
+  using eTXCTSE = MODIR_fields_::eTXCTSE;
+  using eTXRTSE = MODIR_fields_::eTXRTSE;
+  using eTXRTSPOL = MODIR_fields_::eTXRTSPOL;
+  using eRXRTSE = MODIR_fields_::eRXRTSE;
+  using eTXCTSC = MODIR_fields_::eTXCTSC;
+  using eTXCTSSRC = MODIR_fields_::eTXCTSSRC;
+  using eTNP = MODIR_fields_::eTNP;
+  using eIREN = MODIR_fields_::eIREN;
+  using TXCTSE = MODIR_fields_::TXCTSE;
+  using TXRTSE = MODIR_fields_::TXRTSE;
+  using TXRTSPOL = MODIR_fields_::TXRTSPOL;
+  using RXRTSE = MODIR_fields_::RXRTSE;
+  using TXCTSC = MODIR_fields_::TXCTSC;
+  using TXCTSSRC = MODIR_fields_::TXCTSSRC;
+  using RTSWATER = MODIR_fields_::RTSWATER;
+  using TNP = MODIR_fields_::TNP;
+  using IREN = MODIR_fields_::IREN;
 };
 
 // LPUART FIFO Register
-union FIFO {
-  
-  // Receive FIFO Buffer Depth
-  enum class eRXFIFOSIZE : uint32_t {
+namespace FIFO_fields_ {
+
+  enum class eRXFIFOSIZE : std::uint32_t {
     // Receive FIFO/Buffer depth = 1 dataword.
     eFIFO_1 = 0,
     // Receive FIFO/Buffer depth = 4 datawords.
@@ -1037,17 +1178,15 @@ union FIFO {
     // Receive FIFO/Buffer depth = 256 datawords.
     eFIFO_256 = 7,
   };
-  
-  // Receive FIFO Enable
-  enum class eRXFE : uint32_t {
+
+  enum class eRXFE : std::uint32_t {
     // Receive FIFO is not enabled. Buffer depth is 1.
     eDISABLED = 0,
     // Receive FIFO is enabled. Buffer depth is indicted by RXFIFOSIZE.
     eENABLED = 1,
   };
-  
-  // Transmit FIFO Buffer Depth
-  enum class eTXFIFOSIZE : uint32_t {
+
+  enum class eTXFIFOSIZE : std::uint32_t {
     // Transmit FIFO/Buffer depth = 1 dataword.
     eFIFO_1 = 0,
     // Transmit FIFO/Buffer depth = 4 datawords.
@@ -1065,33 +1204,29 @@ union FIFO {
     // Transmit FIFO/Buffer depth = 256 datawords
     eFIFO_256 = 7,
   };
-  
-  // Transmit FIFO Enable
-  enum class eTXFE : uint32_t {
+
+  enum class eTXFE : std::uint32_t {
     // Transmit FIFO is not enabled. Buffer depth is 1.
     eDISABLED = 0,
     // Transmit FIFO is enabled. Buffer depth is indicated by TXFIFOSIZE.
     eENABLED = 1,
   };
-  
-  // Receive FIFO Underflow Interrupt Enable
-  enum class eRXUFE : uint32_t {
+
+  enum class eRXUFE : std::uint32_t {
     // RXUF flag does not generate an interrupt to the host.
     eDISABLED = 0,
     // RXUF flag generates an interrupt to the host.
     eENABLED = 1,
   };
-  
-  // Transmit FIFO Overflow Interrupt Enable
-  enum class eTXOFE : uint32_t {
+
+  enum class eTXOFE : std::uint32_t {
     // TXOF flag does not generate an interrupt to the host.
     eDISABLED = 0,
     // TXOF flag generates an interrupt to the host.
     eENABLED = 1,
   };
-  
-  // Receiver Idle Empty Enable
-  enum class eRXIDEN : uint32_t {
+
+  enum class eRXIDEN : std::uint32_t {
     // Disable RDRF assertion due to partially filled FIFO when receiver is idle.
     eDISABLED = 0,
     // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 1 character.
@@ -1109,122 +1244,154 @@ union FIFO {
     // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 64 characters.
     eIDLE_64 = 7,
   };
-  
-  // Receive FIFO Flush
-  enum class eRXFLUSH : uint32_t {
+
+  enum class eRXFLUSH : std::uint32_t {
     // No flush operation occurs.
     eNO_EFFECT = 0,
     // All data in the receive FIFO/buffer is cleared out.
     eRXFIFO_RST = 1,
   };
-  
-  // Transmit FIFO Flush
-  enum class eTXFLUSH : uint32_t {
+
+  enum class eTXFLUSH : std::uint32_t {
     // No flush operation occurs.
     eNO_EFFECT = 0,
     // All data in the transmit FIFO is cleared out.
     eTXFIFO_RST = 1,
   };
-  
-  // Receiver FIFO Underflow Flag
-  enum class eRXUF : uint32_t {
+
+  enum class eRXUF : std::uint32_t {
     // No receive FIFO underflow has occurred since the last time the flag was cleared.
     eNO_UNDERFLOW = 0,
     // At least one receive FIFO underflow has occurred since the last time the flag was cleared.
     eUNDERFLOW = 1,
   };
-  
-  // Transmitter FIFO Overflow Flag
-  enum class eTXOF : uint32_t {
+
+  enum class eTXOF : std::uint32_t {
     // No transmit FIFO overflow has occurred since the last time the flag was cleared.
     eNO_OVERFLOW = 0,
     // At least one transmit FIFO overflow has occurred since the last time the flag was cleared.
     eOVERFLOW = 1,
   };
-  
-  // Receive FIFO/Buffer Empty
-  enum class eRXEMPT : uint32_t {
+
+  enum class eRXEMPT : std::uint32_t {
     // Receive buffer is not empty.
     eNOT_EMPTY = 0,
     // Receive buffer is empty.
     eEMPTY = 1,
   };
-  
-  // Transmit FIFO/Buffer Empty
-  enum class eTXEMPT : uint32_t {
+
+  enum class eTXEMPT : std::uint32_t {
     // Transmit buffer is not empty.
     eNOT_EMPTY = 0,
     // Transmit buffer is empty.
     eEMPTY = 1,
   };
-  
-  // Bit field definition.
-  struct {
-    // read-only - Receive FIFO Buffer Depth
-    eRXFIFOSIZE RXFIFOSIZE : 3;
-    // read-write - Receive FIFO Enable
-    eRXFE RXFE : 1;
-    // read-only - Transmit FIFO Buffer Depth
-    eTXFIFOSIZE TXFIFOSIZE : 3;
-    // read-write - Transmit FIFO Enable
-    eTXFE TXFE : 1;
-    // read-write - Receive FIFO Underflow Interrupt Enable
-    eRXUFE RXUFE : 1;
-    // read-write - Transmit FIFO Overflow Interrupt Enable
-    eTXOFE TXOFE : 1;
-    // read-write - Receiver Idle Empty Enable
-    eRXIDEN RXIDEN : 3;
-    uint32_t _reserved_0 : 1;
-    // read-write - Receive FIFO Flush
-    eRXFLUSH RXFLUSH : 1;
-    // read-write - Transmit FIFO Flush
-    eTXFLUSH TXFLUSH : 1;
-    // read-write - Receiver FIFO Underflow Flag
-    eRXUF RXUF : 1;
-    // read-write - Transmitter FIFO Overflow Flag
-    eTXOF TXOF : 1;
-    uint32_t _reserved_1 : 4;
-    // read-only - Receive FIFO/Buffer Empty
-    eRXEMPT RXEMPT : 1;
-    // read-only - Transmit FIFO/Buffer Empty
-    eTXEMPT TXEMPT : 1;
-    uint32_t _reserved_2 : 8;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+  // Receive FIFO Buffer Depth
+  using RXFIFOSIZE = ftl::mmio::Field<3, 0, eRXFIFOSIZE, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Receive FIFO Enable
+  using RXFE = ftl::mmio::Field<1, 3, eRXFE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmit FIFO Buffer Depth
+  using TXFIFOSIZE = ftl::mmio::Field<3, 4, eTXFIFOSIZE, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Transmit FIFO Enable
+  using TXFE = ftl::mmio::Field<1, 7, eTXFE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receive FIFO Underflow Interrupt Enable
+  using RXUFE = ftl::mmio::Field<1, 8, eRXUFE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmit FIFO Overflow Interrupt Enable
+  using TXOFE = ftl::mmio::Field<1, 9, eTXOFE, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receiver Idle Empty Enable
+  using RXIDEN = ftl::mmio::Field<3, 10, eRXIDEN, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receive FIFO Flush
+  using RXFLUSH = ftl::mmio::Field<1, 14, eRXFLUSH, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmit FIFO Flush
+  using TXFLUSH = ftl::mmio::Field<1, 15, eTXFLUSH, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receiver FIFO Underflow Flag
+  using RXUF = ftl::mmio::Field<1, 16, eRXUF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Transmitter FIFO Overflow Flag
+  using TXOF = ftl::mmio::Field<1, 17, eTXOF, ftl::mmio::RW, ftl::mmio::OneToClear>;
+  // Receive FIFO/Buffer Empty
+  using RXEMPT = ftl::mmio::Field<1, 22, eRXEMPT, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Transmit FIFO/Buffer Empty
+  using TXEMPT = ftl::mmio::Field<1, 23, eTXEMPT, ftl::mmio::RO, ftl::mmio::Normal>;
+}  // namespace FIFO_fields_
 
-  FIFO() = delete;
-  inline void Reset() volatile { this->value = 0x00C00011; }
-  static inline volatile FIFO &ref() { return *reinterpret_cast<volatile FIFO*>(0x4007C028); }
+struct FIFO : ftl::mmio::Register<
+    0x4007C028u,
+    std::uint32_t,
+    0x00C00011u,
+    ftl::mmio::RW,
+    FIFO_fields_::RXFIFOSIZE,
+    FIFO_fields_::RXFE,
+    FIFO_fields_::TXFIFOSIZE,
+    FIFO_fields_::TXFE,
+    FIFO_fields_::RXUFE,
+    FIFO_fields_::TXOFE,
+    FIFO_fields_::RXIDEN,
+    ftl::mmio::Reserved<1, 13>,
+    FIFO_fields_::RXFLUSH,
+    FIFO_fields_::TXFLUSH,
+    FIFO_fields_::RXUF,
+    FIFO_fields_::TXOF,
+    ftl::mmio::Reserved<4, 18>,
+    FIFO_fields_::RXEMPT,
+    FIFO_fields_::TXEMPT,
+    ftl::mmio::Reserved<8, 24>> {
+  using eRXFIFOSIZE = FIFO_fields_::eRXFIFOSIZE;
+  using eRXFE = FIFO_fields_::eRXFE;
+  using eTXFIFOSIZE = FIFO_fields_::eTXFIFOSIZE;
+  using eTXFE = FIFO_fields_::eTXFE;
+  using eRXUFE = FIFO_fields_::eRXUFE;
+  using eTXOFE = FIFO_fields_::eTXOFE;
+  using eRXIDEN = FIFO_fields_::eRXIDEN;
+  using eRXFLUSH = FIFO_fields_::eRXFLUSH;
+  using eTXFLUSH = FIFO_fields_::eTXFLUSH;
+  using eRXUF = FIFO_fields_::eRXUF;
+  using eTXOF = FIFO_fields_::eTXOF;
+  using eRXEMPT = FIFO_fields_::eRXEMPT;
+  using eTXEMPT = FIFO_fields_::eTXEMPT;
+  using RXFIFOSIZE = FIFO_fields_::RXFIFOSIZE;
+  using RXFE = FIFO_fields_::RXFE;
+  using TXFIFOSIZE = FIFO_fields_::TXFIFOSIZE;
+  using TXFE = FIFO_fields_::TXFE;
+  using RXUFE = FIFO_fields_::RXUFE;
+  using TXOFE = FIFO_fields_::TXOFE;
+  using RXIDEN = FIFO_fields_::RXIDEN;
+  using RXFLUSH = FIFO_fields_::RXFLUSH;
+  using TXFLUSH = FIFO_fields_::TXFLUSH;
+  using RXUF = FIFO_fields_::RXUF;
+  using TXOF = FIFO_fields_::TXOF;
+  using RXEMPT = FIFO_fields_::RXEMPT;
+  using TXEMPT = FIFO_fields_::TXEMPT;
 };
 
 // LPUART Watermark Register
-union WATER {
-  
-  // Bit field definition.
-  struct {
-    // read-write - Transmit Watermark
-    uint32_t TXWATER : 2;
-    uint32_t _reserved_0 : 6;
-    // read-only - Transmit Counter
-    uint32_t TXCOUNT : 3;
-    uint32_t _reserved_1 : 5;
-    // read-write - Receive Watermark
-    uint32_t RXWATER : 2;
-    uint32_t _reserved_2 : 6;
-    // read-only - Receive Counter
-    uint32_t RXCOUNT : 3;
-    uint32_t _reserved_3 : 5;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
+namespace WATER_fields_ {
+  // Transmit Watermark
+  using TXWATER = ftl::mmio::Field<2, 0, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Transmit Counter
+  using TXCOUNT = ftl::mmio::Field<3, 8, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+  // Receive Watermark
+  using RXWATER = ftl::mmio::Field<2, 16, std::uint8_t, ftl::mmio::RW, ftl::mmio::Normal>;
+  // Receive Counter
+  using RXCOUNT = ftl::mmio::Field<3, 24, std::uint8_t, ftl::mmio::RO, ftl::mmio::Normal>;
+}  // namespace WATER_fields_
 
-  WATER() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile WATER &ref() { return *reinterpret_cast<volatile WATER*>(0x4007C02C); }
+struct WATER : ftl::mmio::Register<
+    0x4007C02Cu,
+    std::uint32_t,
+    0x00000000u,
+    ftl::mmio::RW,
+    WATER_fields_::TXWATER,
+    ftl::mmio::Reserved<6, 2>,
+    WATER_fields_::TXCOUNT,
+    ftl::mmio::Reserved<5, 11>,
+    WATER_fields_::RXWATER,
+    ftl::mmio::Reserved<6, 18>,
+    WATER_fields_::RXCOUNT,
+    ftl::mmio::Reserved<5, 27>> {
+  using TXWATER = WATER_fields_::TXWATER;
+  using TXCOUNT = WATER_fields_::TXCOUNT;
+  using RXWATER = WATER_fields_::RXWATER;
+  using RXCOUNT = WATER_fields_::RXCOUNT;
 };
 
-
-} // namespace nLPUART1
+}  // namespace regs::lpuart1
