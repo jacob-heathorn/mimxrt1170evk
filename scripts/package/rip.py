@@ -64,7 +64,7 @@ def main():
     svd_name = {'cm4': 'MIMXRT1176_cm4.xml', 'cm7': 'MIMXRT1176_cm7.xml'}[args.core]
     svd_file = os.path.join(MCUX_SOC_SVD_ROOT, 'MIMXRT1176', svd_name)
     output_dir = os.path.join(PROJECT_ROOT, 'firmware', args.core, 'registers', 'codegen')
-    wrapper = forge.SVDParserWrapper(svd_file, output_dir)
+    wrapper = forge.RegisterGenerator(svd_file, output_dir)
     if args.peripheral:
       wrapper.generate_peripheral(args.peripheral)
     else:
